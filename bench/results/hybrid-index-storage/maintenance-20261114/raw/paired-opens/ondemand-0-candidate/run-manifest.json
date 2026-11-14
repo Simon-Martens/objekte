@@ -1,0 +1,144 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+  "code_revision": "c977710f2d2eeaeb21725c9bd914388789a49171",
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+    "--root",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-opens-single-pass/ondemand-0-candidate",
+    "--extended",
+    "--incremental",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--cases",
+    "Q008",
+    "--verified-cache-bytes",
+    "0",
+    "--prepared-cache-bytes",
+    "16777216",
+    "--query-workers",
+    "32",
+    "--storage",
+    "custom",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/store"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+  "executable_sha256": "d19e44e180b49267a72820602ad9be33c926a67cf7c5a68164efe2498f414fb5",
+  "execution_checkout_revision": "c977710f2d2eeaeb21725c9bd914388789a49171",
+  "extended": true,
+  "failures": 0,
+  "internal_decoded_posting_cache": {
+    "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+    "observations": [
+      {
+        "after_queries": {
+          "entries": 0,
+          "limit_bytes": 5117720,
+          "retained_bytes": 0,
+          "sealed_segments": 8
+        },
+        "alphabet": "ascii"
+      }
+    ]
+  },
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "run_id": "1794616289-c977710f2d",
+  "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/store\"), residency: OnDemand }",
+  "validator_version": 1,
+  "workload_fingerprint": "b0a7ddfadd81939c89333097a4fdb7ff240953afff1a0559c183c29f40ea99f0"
+}

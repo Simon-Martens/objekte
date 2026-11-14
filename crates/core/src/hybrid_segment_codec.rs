@@ -27,8 +27,8 @@ use crate::posting::{
     StructuralKey,
 };
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, PostingSink, SealedPostingDictionary,
-    StreamingPostingPack, append_visited, append_visited_constructed,
+    DictionarySpan, PostingPack, PostingSink, SealedPostingDictionary, StreamingPostingPack,
+    append_visited, append_visited_constructed,
 };
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
@@ -85,11 +85,13 @@ fn decode_meta<T: DeserializeOwned>(magic: &[u8; 8], bytes: &[u8]) -> Result<T, 
         .map_err(|error| format!("invalid hybrid metadata: {error}"))
 }
 
+
 #[derive(Clone, Copy, Debug, Deserialize, Serialize)]
 struct Span {
     start: u64,
     length: u64,
 }
+
 
 impl From<DictionarySpan> for Span {
     fn from(span: DictionarySpan) -> Self {
@@ -100,6 +102,7 @@ impl From<DictionarySpan> for Span {
     }
 }
 
+
 impl Span {
     fn checked(self) -> Result<DictionarySpan, String> {
         Ok(DictionarySpan {
@@ -109,6 +112,7 @@ impl Span {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Deserialize, Serialize)]
 struct Descriptor {
     offset: u64,
@@ -116,6 +120,7 @@ struct Descriptor {
     cardinality: u32,
     checksum: u64,
 }
+
 
 impl From<PostingDescriptor> for Descriptor {
     fn from(value: PostingDescriptor) -> Self {
@@ -128,6 +133,7 @@ impl From<PostingDescriptor> for Descriptor {
     }
 }
 
+
 impl From<Descriptor> for PostingDescriptor {
     fn from(value: Descriptor) -> Self {
         Self {
@@ -135,9 +141,11 @@ impl From<Descriptor> for PostingDescriptor {
             length: value.length,
             cardinality: value.cardinality,
             checksum: value.checksum,
+            ordinal: u32::MAX,
         }
     }
 }
+
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 enum PostingKey {
@@ -145,6 +153,7 @@ enum PostingKey {
     Named(Vec<String>, String),
     Inferred(Vec<String>),
 }
+
 
 #[derive(Deserialize, Serialize)]
 struct FieldBinding {
@@ -161,6 +170,7 @@ struct FieldBinding {
     lengths: Span,
 }
 
+
 #[derive(Deserialize, Serialize)]
 struct FieldSection {
     bindings: Vec<FieldBinding>,
@@ -168,6 +178,7 @@ struct FieldSection {
     record_parses: u64,
     failed_parses: u64,
 }
+
 
 #[derive(Deserialize, Serialize)]
 struct StructuralBinding {
@@ -178,6 +189,7 @@ struct StructuralBinding {
     facts: Option<Vec<(StructuralKey, Descriptor)>>,
 }
 
+
 #[derive(Deserialize, Serialize)]
 struct StructuralSection {
     bindings: Vec<StructuralBinding>,
@@ -186,12 +198,14 @@ struct StructuralSection {
     short_string_coverage: Vec<(Vec<String>, Descriptor)>,
 }
 
+
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 enum TextKey {
     Raw,
     Fallback,
     Named(Vec<String>, String),
 }
+
 
 #[derive(Deserialize, Serialize)]
 struct TextBinding {
@@ -206,10 +220,12 @@ struct TextBinding {
     skip_presence: Option<GramPresence>,
 }
 
+
 #[derive(Deserialize, Serialize)]
 struct TextSection {
     bindings: Vec<TextBinding>,
 }
+
 
 #[derive(Deserialize, Serialize)]
 struct IntegritySection {
@@ -222,6 +238,7 @@ struct IntegritySection {
     field_bindings: u32,
     text_bindings: u32,
 }
+
 
 fn posting_inputs(
     segment: &IndexedCollectionSegment,
@@ -306,7 +323,16 @@ pub(crate) fn write_segment<W: Write + Seek>(
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<W, String> {
-    write_segment_inner(segment, ordinal, definition, options, output, intern, true, |_, _| Ok(()))
+    write_segment_inner(
+        segment,
+        ordinal,
+        definition,
+        options,
+        output,
+        intern,
+        true,
+        |_, _| Ok(()),
+    )
 }
 
 /// Persist a previously sealed immutable segment. Dictionary and posting
@@ -320,7 +346,10 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<W, String> {
-    let reader = segment.raw.sealed_reader().ok_or("segment has no sealed byte source")?;
+    let reader = segment
+        .raw
+        .sealed_reader()
+        .ok_or("segment has no sealed byte source")?;
     reader.require_complete_sections()?;
     let identity: IntegritySection =
         decode_meta(INTEGRITY_MAGIC, required(&reader, SectionKind::Integrity)?)?;
@@ -361,6 +390,7 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     writer.finish()
 }
 
+
 struct EncodedSections {
     field_bindings: Vec<FieldBinding>,
     text_bindings: Vec<TextBinding>,
@@ -375,12 +405,14 @@ struct EncodedSections {
     integrity_bytes: Vec<u8>,
 }
 
+
 struct ConstructedSections {
     sections: [(SectionKind, Vec<u8>); REQUIRED_SECTIONS.len()],
     field_bindings: Vec<FieldBinding>,
     text_bindings: Vec<TextBinding>,
     fallback: RoaringBitmap,
 }
+
 
 fn write_segment_inner<W: Write + Seek>(
     segment: &IndexedCollectionSegment,
@@ -392,8 +424,8 @@ fn write_segment_inner<W: Write + Seek>(
     validate_before_write: bool,
     reserve_remaining: impl FnOnce(&mut SegmentWriter<W>, usize) -> Result<(), String>,
 ) -> Result<W, String> {
-    let phase_profile = cfg!(feature = "detailed-profiling")
-        && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
+    let phase_profile =
+        cfg!(feature = "detailed-profiling") && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
     let total_started = crate::detailed_timer::start_if_enabled(phase_profile);
     if ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
@@ -401,7 +433,9 @@ fn write_segment_inner<W: Write + Seek>(
     if validate_before_write {
         validate_components(segment, definition, options)?;
     }
-    let validation_ns = total_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let validation_ns = total_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
     let encoding_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sections = if validate_before_write {
@@ -422,7 +456,9 @@ fn write_segment_inner<W: Write + Seek>(
         })?;
         sections.ok_or("constructed section writer did not complete")?
     };
-    let encoding_ns = encoding_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let encoding_ns = encoding_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let section_copy_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let remaining_bytes = [
         sections.field_bytes.len(),
@@ -434,12 +470,17 @@ fn write_segment_inner<W: Write + Seek>(
         sections.sort_bytes.len(),
         sections.relation_bytes.len(),
         sections.integrity_bytes.len(),
-    ].into_iter().try_fold(0usize, |total, length| {
-        total.checked_add(length).ok_or("owned segment size overflow")
+    ]
+    .into_iter()
+    .try_fold(0usize, |total, length| {
+        total
+            .checked_add(length)
+            .ok_or("owned segment size overflow")
     })?;
     reserve_remaining(&mut writer, remaining_bytes)?;
     let EncodedSections {
-        field_bindings: _, text_bindings: _,
+        field_bindings: _,
+        text_bindings: _,
         field_bytes,
         text_bytes,
         scalar,
@@ -456,7 +497,11 @@ fn write_segment_inner<W: Write + Seek>(
     drop(text_bytes);
     write_bytes(&mut writer, SectionKind::ScalarDictionaries, &scalar)?;
     drop(scalar);
-    write_bytes(&mut writer, SectionKind::StructuralReferences, &structural_bytes)?;
+    write_bytes(
+        &mut writer,
+        SectionKind::StructuralReferences,
+        &structural_bytes,
+    )?;
     drop(structural_bytes);
     write_bytes(&mut writer, SectionKind::BigramDictionaries, &bigrams)?;
     drop(bigrams);
@@ -464,16 +509,24 @@ fn write_segment_inner<W: Write + Seek>(
     drop(record_bytes);
     write_bytes(&mut writer, SectionKind::SortData, &sort_bytes)?;
     drop(sort_bytes);
-    write_bytes(&mut writer, SectionKind::RelationAndIdentity, &relation_bytes)?;
+    write_bytes(
+        &mut writer,
+        SectionKind::RelationAndIdentity,
+        &relation_bytes,
+    )?;
     drop(relation_bytes);
     write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
-    let section_copy_ns = section_copy_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let section_copy_ns = section_copy_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let result = writer.finish();
     if phase_profile {
         eprintln!(
             "hybrid-seal ordinal={ordinal} slots={} validation_ns={validation_ns} encoding_ns={encoding_ns} section_copy_and_checksum_ns={section_copy_ns} total_ns={}",
             segment.records.len(),
-            total_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0),
+            total_started
+                .map(|started| started.elapsed().as_nanos())
+                .unwrap_or(0),
         );
     }
     result
@@ -489,8 +542,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     constructed_fallback: Option<&RoaringBitmap>,
     pack: &mut P,
 ) -> Result<EncodedSections, String> {
-    let phase_profile = cfg!(feature = "detailed-profiling")
-        && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
+    let phase_profile =
+        cfg!(feature = "detailed-profiling") && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
     let phase = crate::detailed_timer::start_if_enabled(phase_profile);
     let slot_count = u32::try_from(segment.records.len()).map_err(|_| "too many record slots")?;
     let mut scalar = Vec::new();
@@ -549,7 +602,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         });
     }
     let fallback_owned = constructed_fallback.is_none().then(|| {
-        segment.records.iter()
+        segment
+            .records
+            .iter()
             .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
             .map(|record| record.slot.0)
             .collect::<RoaringBitmap>()
@@ -563,10 +618,18 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             &segment.logical_records
         };
         let (spans, normal_presence, skip_presence) = if validate_before_write {
-            (append_bigram_index(&mut bigrams, pack, index, allowed)?, None, None)
+            (
+                append_bigram_index(&mut bigrams, pack, index, allowed)?,
+                None,
+                None,
+            )
         } else {
             let constructed = append_bigram_index_constructed(&mut bigrams, pack, index, allowed)?;
-            (constructed.spans, constructed.normal_presence, constructed.skip_presence)
+            (
+                constructed.spans,
+                constructed.normal_presence,
+                constructed.skip_presence,
+            )
         };
         texts.push(TextBinding {
             key,
@@ -578,7 +641,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             skip_presence,
         });
     }
-    let dictionary_ns = phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let dictionary_ns = phase
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let metadata_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let mut field_section = FieldSection {
         bindings: fields,
@@ -586,8 +651,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         record_parses: segment.record_parses,
         failed_parses: segment.failed_parses,
     };
-    let field_count = u32::try_from(field_section.bindings.len())
-        .map_err(|_| "too many field bindings")?;
+    let field_count =
+        u32::try_from(field_section.bindings.len()).map_err(|_| "too many field bindings")?;
     let field_bytes = encode_meta(FIELD_MAGIC, &field_section)?;
     let structural_bytes = encode_meta(
         STRUCT_MAGIC,
@@ -621,7 +686,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     } else {
         Vec::new()
     };
-    let metadata_ns = metadata_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let metadata_ns = metadata_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let record_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let record_bytes = if defer_constructed_metadata {
         Vec::new()
@@ -630,7 +697,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     } else {
         encode_record_slots_constructed(segment, intern)?
     };
-    let record_ns = record_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let record_ns = record_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let sort_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sort_bytes = if defer_constructed_metadata {
         Vec::new()
@@ -639,7 +708,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     } else {
         encode_sort_data_constructed(&segment.sorting, &segment.records)?
     };
-    let sort_ns = sort_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let sort_ns = sort_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let relation_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let relation_bytes = if defer_constructed_metadata {
         Vec::new()
@@ -650,7 +721,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             &segment.identity_order,
         )?
     };
-    let relation_ns = relation_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let relation_ns = relation_started
+        .map(|started| started.elapsed().as_nanos())
+        .unwrap_or(0);
     let integrity_bytes = encode_meta(
         INTEGRITY_MAGIC,
         &IntegritySection {
@@ -667,7 +740,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     if phase_profile {
         eprintln!(
             "hybrid-encode ordinal={ordinal} slots={slot_count} dictionaries_and_postings_ns={dictionary_ns} metadata_ns={metadata_ns} records_ns={record_ns} sort_ns={sort_ns} relation_ns={relation_ns} total_ns={}",
-            phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0),
+            phase
+                .map(|started| started.elapsed().as_nanos())
+                .unwrap_or(0),
         );
     }
     Ok(EncodedSections {
@@ -701,7 +776,7 @@ pub(crate) fn seal_segment_owned(
         .map(|file| &file.entry)
         .collect::<Vec<_>>();
     let reader = Arc::new(SegmentReader::from_owned_vec(bytes)?);
-    decode_segment_sealed(
+    decode_segment_sealed_with_trust(
         reader,
         ordinal,
         definition,
@@ -710,6 +785,7 @@ pub(crate) fn seal_segment_owned(
         (&segment.source_id, segment.source_version),
         u32::try_from(segment.records.len()).map_err(|_| "too many owned segment slots")?,
         &|reference| files.get(reference as usize).copied(),
+        crate::segment_format::SegmentTrust::Constructed,
     )
 }
 
@@ -779,9 +855,17 @@ fn encode_constructed_sections(
     )?;
     let payloads = pack.into_bytes();
     let EncodedSections {
-        field_bindings, text_bindings,
-        field_bytes, text_bytes, scalar, structural_bytes, bigrams,
-        record_bytes, sort_bytes, relation_bytes, integrity_bytes,
+        field_bindings,
+        text_bindings,
+        field_bytes,
+        text_bytes,
+        scalar,
+        structural_bytes,
+        bigrams,
+        record_bytes,
+        sort_bytes,
+        relation_bytes,
+        integrity_bytes,
     } = sections;
     let sections = [
         (SectionKind::FieldMetadata, field_bytes),
@@ -795,7 +879,12 @@ fn encode_constructed_sections(
         (SectionKind::RelationAndIdentity, relation_bytes),
         (SectionKind::Integrity, integrity_bytes),
     ];
-    Ok(ConstructedSections { sections, field_bindings, text_bindings, fallback })
+    Ok(ConstructedSections {
+        sections,
+        field_bindings,
+        text_bindings,
+        fallback,
+    })
 }
 
 /// Finalize an owned builder segment in place. The private writer's binding
@@ -806,27 +895,40 @@ pub(crate) fn seal_segment_consuming(
     _definition: &CollectionDefinition,
     options: RepositoryOptions,
 ) -> Result<IndexedCollectionSegment, String> {
-    let ConstructedSections { sections, field_bindings, text_bindings, fallback } =
-        encode_constructed_sections(&segment, ordinal, options)?;
+    let ConstructedSections {
+        sections,
+        field_bindings,
+        text_bindings,
+        fallback,
+    } = encode_constructed_sections(&segment, ordinal, options)?;
     let reader = Arc::new(SegmentReader::from_constructed_sections(sections)?);
     let logical = Arc::new(segment.logical_records.clone());
     let fallback = Arc::new(fallback);
     for field in field_bindings {
         let index = match &field.key {
             PostingKey::Declared(path) => segment.postings.fields.get_mut(path),
-            PostingKey::Named(path, binding) => segment.custom_postings
-                .get_mut(&(path.clone(), binding.clone())).map(|custom| &mut custom.index),
-            PostingKey::Inferred(path) => segment.inference.as_mut()
+            PostingKey::Named(path, binding) => segment
+                .custom_postings
+                .get_mut(&(path.clone(), binding.clone()))
+                .map(|custom| &mut custom.index),
+            PostingKey::Inferred(path) => segment
+                .inference
+                .as_mut()
                 .and_then(|inference| inference.indexes.get_mut(path)),
-        }.ok_or("constructed posting binding missing")?;
+        }
+        .ok_or("constructed posting binding missing")?;
         index.install_sealed(
             SealedPostingDictionary::from_constructed(
-                Arc::clone(&reader), SectionKind::ScalarDictionaries,
-                field.values.checked()?, Arc::clone(&logical),
+                Arc::clone(&reader),
+                SectionKind::ScalarDictionaries,
+                field.values.checked()?,
+                Arc::clone(&logical),
             )?,
             SealedPostingDictionary::from_constructed(
-                Arc::clone(&reader), SectionKind::ScalarDictionaries,
-                field.lengths.checked()?, Arc::clone(&logical),
+                Arc::clone(&reader),
+                SectionKind::ScalarDictionaries,
+                field.lengths.checked()?,
+                Arc::clone(&logical),
             )?,
         )?;
     }
@@ -834,15 +936,25 @@ pub(crate) fn seal_segment_consuming(
         let index = match &binding.key {
             TextKey::Raw => Some(&mut segment.raw),
             TextKey::Fallback => Some(&mut segment.fallback_text),
-            TextKey::Named(path, name) => segment.custom_text.get_mut(&(path.clone(), name.clone())),
-        }.ok_or("constructed text binding missing")?;
+            TextKey::Named(path, name) => {
+                segment.custom_text.get_mut(&(path.clone(), name.clone()))
+            }
+        }
+        .ok_or("constructed text binding missing")?;
         if index.alphabet != binding.alphabet || index.record_count != binding.record_count {
             return Err("constructed text binding metadata mismatch".into());
         }
         index.install_constructed(
             Arc::clone(&reader),
-            BigramSpans { normal: binding.normal.checked()?, skip: binding.skip.checked()? },
-            Arc::clone(if binding.key == TextKey::Fallback { &fallback } else { &logical }),
+            BigramSpans {
+                normal: binding.normal.checked()?,
+                skip: binding.skip.checked()?,
+            },
+            Arc::clone(if binding.key == TextKey::Fallback {
+                &fallback
+            } else {
+                &logical
+            }),
             binding.normal_presence,
             binding.skip_presence,
         )?;
@@ -941,6 +1053,7 @@ pub(crate) fn decode_segment_owned<'a>(
         expected_slot_count,
         resolve,
         false,
+        crate::segment_format::SegmentTrust::Untrusted,
     )
 }
 
@@ -956,6 +1069,30 @@ pub(crate) fn decode_segment_sealed<'a>(
     expected_slot_count: u32,
     resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
 ) -> Result<IndexedCollectionSegment, String> {
+    decode_segment_sealed_with_trust(
+        reader,
+        expected_ordinal,
+        definition,
+        options,
+        collection,
+        source,
+        expected_slot_count,
+        resolve,
+        crate::segment_format::SegmentTrust::Untrusted,
+    )
+}
+
+pub(crate) fn decode_segment_sealed_with_trust<'a>(
+    reader: Arc<SegmentReader>,
+    expected_ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    collection: CollectionId,
+    source: (&str, u32),
+    expected_slot_count: u32,
+    resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
+    trust: crate::segment_format::SegmentTrust,
+) -> Result<IndexedCollectionSegment, String> {
     decode_segment_impl(
         reader,
         expected_ordinal,
@@ -966,6 +1103,7 @@ pub(crate) fn decode_segment_sealed<'a>(
         expected_slot_count,
         resolve,
         true,
+        trust,
     )
 }
 
@@ -979,6 +1117,7 @@ fn decode_segment_impl<'a>(
     expected_slot_count: u32,
     resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
     sealed: bool,
+    trust: crate::segment_format::SegmentTrust,
 ) -> Result<IndexedCollectionSegment, String> {
     if expected_ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
@@ -1118,20 +1257,51 @@ fn decode_segment_impl<'a>(
         };
         if sealed {
             let allowed = Arc::clone(logical_shared.as_ref().unwrap());
-            index.install_sealed(
+            let values = if trust == crate::segment_format::SegmentTrust::Constructed {
+                SealedPostingDictionary::from_constructed(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.values.checked()?,
+                    Arc::clone(&allowed),
+                )?
+            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+                SealedPostingDictionary::open_with_proven_dictionary(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.values.checked()?,
+                    Arc::clone(&allowed),
+                )?
+            } else {
                 SealedPostingDictionary::open(
                     Arc::clone(&reader),
                     SectionKind::ScalarDictionaries,
                     field.values.checked()?,
                     Arc::clone(&allowed),
-                )?,
+                )?
+            };
+            let lengths = if trust == crate::segment_format::SegmentTrust::Constructed {
+                SealedPostingDictionary::from_constructed(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.lengths.checked()?,
+                    allowed,
+                )?
+            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+                SealedPostingDictionary::open_with_proven_dictionary(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.lengths.checked()?,
+                    allowed,
+                )?
+            } else {
                 SealedPostingDictionary::open(
                     Arc::clone(&reader),
                     SectionKind::ScalarDictionaries,
                     field.lengths.checked()?,
                     allowed,
-                )?,
-            )?;
+                )?
+            };
+            index.install_sealed(values, lengths)?;
         }
         match field.key {
             PostingKey::Declared(path) => {
@@ -1175,18 +1345,22 @@ fn decode_segment_impl<'a>(
         let mut index = BigramIndex::new(binding.alphabet);
         index.record_count = binding.record_count;
         if sealed {
-            index.install_sealed(
-                Arc::clone(&reader),
-                BigramSpans {
-                    normal: binding.normal.checked()?,
-                    skip: binding.skip.checked()?,
-                },
-                Arc::clone(if binding.key == TextKey::Fallback {
-                    fallback_shared.as_ref().unwrap()
-                } else {
-                    logical_shared.as_ref().unwrap()
-                }),
-            )?;
+            let spans = BigramSpans {
+                normal: binding.normal.checked()?,
+                skip: binding.skip.checked()?,
+            };
+            let allowed = Arc::clone(if binding.key == TextKey::Fallback {
+                fallback_shared.as_ref().unwrap()
+            } else {
+                logical_shared.as_ref().unwrap()
+            });
+            if trust == crate::segment_format::SegmentTrust::Constructed {
+                index.install_constructed(Arc::clone(&reader), spans, allowed, None, None)?;
+            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+                index.install_stamped(Arc::clone(&reader), spans, allowed)?;
+            } else {
+                index.install_sealed(Arc::clone(&reader), spans, allowed)?;
+            }
         } else {
             index.normal = materialize_dictionary::<u64>(
                 &reader,

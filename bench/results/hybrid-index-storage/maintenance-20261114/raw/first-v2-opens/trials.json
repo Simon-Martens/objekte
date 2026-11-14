@@ -1,0 +1,3131 @@
+[
+  {
+    "mode": "ondemand",
+    "trial": 0,
+    "returncode": 0,
+    "seconds": 0.4758866170013789,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-0",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 0 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 413722873,
+      "build_parses": 0,
+      "discovery_ns": 580163,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 580163,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 413722873,
+      "peak_resident_bytes": 332509184,
+      "resident_bytes": 278482944,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 1,
+    "returncode": 0,
+    "seconds": 0.45586794600239955,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-1",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 397730218,
+      "build_parses": 0,
+      "discovery_ns": 626273,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 626273,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 397730218,
+      "peak_resident_bytes": 332910592,
+      "resident_bytes": 278487040,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 2,
+    "returncode": 0,
+    "seconds": 0.45463422100874595,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-2",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 392353612,
+      "build_parses": 0,
+      "discovery_ns": 563018,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 563018,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 392353612,
+      "peak_resident_bytes": 332685312,
+      "resident_bytes": 278310912,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 3,
+    "returncode": 0,
+    "seconds": 0.4513645010010805,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-3",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 391943558,
+      "build_parses": 0,
+      "discovery_ns": 594495,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 594495,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 391943558,
+      "peak_resident_bytes": 332865536,
+      "resident_bytes": 278175744,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 4,
+    "returncode": 0,
+    "seconds": 0.4630864750070032,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-4",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 401179669,
+      "build_parses": 0,
+      "discovery_ns": 583632,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 583632,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 401179669,
+      "peak_resident_bytes": 332460032,
+      "resident_bytes": 278220800,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 5,
+    "returncode": 0,
+    "seconds": 0.46828158700373024,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-5",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 409218319,
+      "build_parses": 0,
+      "discovery_ns": 582121,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 582121,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 409218319,
+      "peak_resident_bytes": 332947456,
+      "resident_bytes": 278261760,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "ondemand",
+    "trial": 6,
+    "returncode": 0,
+    "seconds": 0.4772294319991488,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/ondemand-6",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 415256376,
+      "build_parses": 0,
+      "discovery_ns": 570942,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 570942,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 415256376,
+      "peak_resident_bytes": 332111872,
+      "resident_bytes": 278159360,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: OnDemand }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 0,
+    "returncode": 0,
+    "seconds": 0.5263820099935401,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-0",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 461556806,
+      "build_parses": 0,
+      "discovery_ns": 570670,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 570670,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 461556806,
+      "peak_resident_bytes": 387031040,
+      "resident_bytes": 332951552,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 1,
+    "returncode": 0,
+    "seconds": 0.5385409470181912,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-1",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 474578734,
+      "build_parses": 0,
+      "discovery_ns": 589280,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 589280,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 474578734,
+      "peak_resident_bytes": 387817472,
+      "resident_bytes": 332955648,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 2,
+    "returncode": 0,
+    "seconds": 0.5268125259899534,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-2",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 462207500,
+      "build_parses": 0,
+      "discovery_ns": 564897,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 564897,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 462207500,
+      "peak_resident_bytes": 387805184,
+      "resident_bytes": 332992512,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 3,
+    "returncode": 0,
+    "seconds": 0.5191389629908372,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-3",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 456587783,
+      "build_parses": 0,
+      "discovery_ns": 581812,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 581812,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 456587783,
+      "peak_resident_bytes": 387284992,
+      "resident_bytes": 333111296,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 4,
+    "returncode": 0,
+    "seconds": 0.539385101001244,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-4",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 475998700,
+      "build_parses": 0,
+      "discovery_ns": 571406,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 571406,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 475998700,
+      "peak_resident_bytes": 387690496,
+      "resident_bytes": 333205504,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 5,
+    "returncode": 0,
+    "seconds": 0.5224558119953144,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-5",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 455783228,
+      "build_parses": 0,
+      "discovery_ns": 595077,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 595077,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 455783228,
+      "peak_resident_bytes": 387465216,
+      "resident_bytes": 333340672,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  },
+  {
+    "mode": "resident",
+    "trial": 6,
+    "returncode": 0,
+    "seconds": 0.5453534340194892,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/first-v2-opens/resident-6",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q008",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store",
+      "--fully-resident"
+    ],
+    "stamp_reset": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab/manifest.bin: 8 stamps cleared\n/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/850ccf6dbc75ceee61d157b24f9e1b5b5e6c10d7f3d4eb76f457eab438d88825/manifest.bin: 0 stamps cleared\n",
+    "result": {
+      "alphabet": "ascii",
+      "build_mode": "hybrid",
+      "build_ns": 478215079,
+      "build_parses": 0,
+      "discovery_ns": 573387,
+      "durable_generation": 10,
+      "estimated_index_bytes": 11918518,
+      "first_batch_ns": 573387,
+      "inventory_heap_bytes": 77,
+      "managed_bytes": 128312322,
+      "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+      "open_ns": 478215079,
+      "peak_resident_bytes": 387534848,
+      "resident_bytes": 333008896,
+      "restore_samples": [],
+      "restore_status": "not_measured",
+      "searchable_batches": 8,
+      "segment_families": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "segments_full_validated": 8,
+      "segments_stamp_trusted": 0,
+      "source_bytes_read": 0,
+      "source_reads": 0,
+      "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/unstamped-store\"), residency: FullyResident }",
+      "validation_stamp_error": null,
+      "validation_stamps_written": 8
+    }
+  }
+]

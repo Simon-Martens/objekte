@@ -7,8 +7,10 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 use objekte_search_core::lifecycle::{Index, IndexView};
-use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
@@ -69,6 +71,26 @@ fn main() {
     }
 }
 
+fn managed_tree_bytes(root: &Path) -> Result<u64, String> {
+    let mut pending = vec![root.to_path_buf()];
+    let mut total = 0u64;
+    while let Some(path) = pending.pop() {
+        for entry in fs::read_dir(&path).map_err(|error| error.to_string())? {
+            let entry = entry.map_err(|error| error.to_string())?;
+            let path = entry.path();
+            let metadata = fs::symlink_metadata(&path).map_err(|error| error.to_string())?;
+            if metadata.is_dir() {
+                pending.push(path);
+            } else if metadata.is_file() {
+                total = total
+                    .checked_add(metadata.len())
+                    .ok_or("managed byte count overflow")?;
+            }
+        }
+    }
+    Ok(total)
+}
+
 fn run() -> Result<(), String> {
     let arguments: Vec<String> = std::env::args().collect();
     if arguments.get(1).is_some_and(|arg| arg == "--restore-child") {
@@ -102,9 +124,14 @@ fn run() -> Result<(), String> {
                     Some("temporary") => IndexStorageLocation::SystemTemporary,
                     Some("repository") => IndexStorageLocation::RepositoryDirectory,
                     Some("custom") => IndexStorageLocation::CustomDirectory(PathBuf::from(
-                        args.next().ok_or("--storage custom needs a base directory")?,
+                        args.next()
+                            .ok_or("--storage custom needs a base directory")?,
                     )),
-                    _ => return Err("--storage needs memory, temporary, repository or custom".into()),
+                    _ => {
+                        return Err(
+                            "--storage needs memory, temporary, repository or custom".into()
+                        );
+                    }
                 }
             }
             "--fully-resident" => fully_resident = true,
@@ -324,15 +351,11 @@ fn run() -> Result<(), String> {
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let managed_bytes = storage_status.managed_directory.as_ref().map(|path| {
-                fs::read_dir(path)
-                    .map_err(|error| error.to_string())?
-                    .try_fold(0u64, |total, entry| {
-                        let entry = entry.map_err(|error| error.to_string())?;
-                        let bytes = entry.metadata().map_err(|error| error.to_string())?.len();
-                        total.checked_add(bytes).ok_or_else(|| "managed byte count overflow".to_string())
-                    })
-            }).transpose()?;
+            let managed_bytes = storage_status
+                .managed_directory
+                .as_ref()
+                .map(|path| managed_tree_bytes(path))
+                .transpose()?;
             build_results.push(serde_json::json!({
                 "alphabet":alphabet,"build_mode":"hybrid","storage":storage_label,"build_ns":open_ns,"open_ns":open_ns,
                 "discovery_ns":build_status.catalogue_elapsed_ns,
@@ -346,6 +369,10 @@ fn run() -> Result<(), String> {
                 "segment_families":view.index_family_breakdown(),
                 "managed_bytes":managed_bytes,"managed_directory":storage_status.managed_directory,
                 "durable_generation":storage_status.durable_generation,
+                "segments_full_validated":storage_status.segments_full_validated,
+                "segments_stamp_trusted":storage_status.segments_stamp_trusted,
+                "validation_stamps_written":storage_status.validation_stamps_written,
+                "validation_stamp_error":storage_status.validation_stamp_error,
                 "restore_samples":[],"restore_status":"not_measured",
             }));
             if registrations.is_empty() {
@@ -603,6 +630,7 @@ fn run() -> Result<(), String> {
         "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
         "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
         "source_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers,
+        "validator_version":objekte_search_core::index_storage::HYBRID_VALIDATOR_VERSION,
         "internal_decoded_posting_cache":{
             "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
             "observations":decoded_cache_observations,
@@ -995,6 +1023,7 @@ fn nearest_rank_sorted(values: &[u64], numerator: usize, denominator: usize) -> 
     let rank = values.len().saturating_mul(numerator).div_ceil(denominator);
     values.get(rank - 1).copied()
 }
+
 
 #[cfg(test)]
 mod statistics_tests {

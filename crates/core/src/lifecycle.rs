@@ -51,6 +51,7 @@ const MAX_RECONCILIATION_ISSUES: usize = 128;
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
 
+
 /// Exclusive phases of one progressive segment publication. The work before
 /// installation is complete before a new query view becomes visible.
 pub(crate) struct InitialPublicationPhases {
@@ -176,13 +177,16 @@ impl fmt::Display for IndexError {
 
 impl std::error::Error for IndexError {}
 
+
 impl From<crate::managed_store::StoreReadError> for IndexError {
     fn from(error: crate::managed_store::StoreReadError) -> Self {
         use crate::managed_store::StoreReadError;
         match error {
             StoreReadError::Incompatible(message) => Self::IncompatibleConfiguration(message),
             StoreReadError::Corrupt(message) => Self::InvalidCache(message),
-            StoreReadError::Io { path, source } => Self::Io(format!("{}: {source}", path.display())),
+            StoreReadError::Io { path, source } => {
+                Self::Io(format!("{}: {source}", path.display()))
+            }
             StoreReadError::Conflict(message) => Self::StoreConflict(message),
             StoreReadError::Resource(message) => Self::ResourceLimit(message),
         }
@@ -605,10 +609,7 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(
-        self,
-        index: IndexedCollectionSegment,
-    ) -> Result<Self, IndexError> {
+    pub(crate) fn with_segment(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
         self.with_segment_sealing(index, false, false)
             .map(|(next, _)| next)
     }
@@ -700,7 +701,8 @@ impl PublishedIndex {
                 ordinal,
                 &collection.definition,
                 self.repository.options(),
-            ).map_err(IndexError::Build)?;
+            )
+            .map_err(IndexError::Build)?;
         }
         let sealing_ns = seal_started
             .map(|started| started.elapsed().as_nanos() as u64)
@@ -751,28 +753,38 @@ impl PublishedIndex {
         let group = Arc::make_mut(&mut self.segments[number]);
         if count_triggered {
             // A current zero-record file still owns its catalogue contribution.
-            group.retain(|segment| segment.active.len() > 0 || segment.index.files.iter().any(|file| {
-                self.catalog.entry(file.entry.id).is_some_and(|current| {
-                    current.revision == file.entry.revision
-                        && current.created_ns == file.entry.created_ns
-                        && current.collections.contains(&segment.index.collection)
-                })
-            }));
+            group.retain(|segment| {
+                segment.active.len() > 0
+                    || segment.index.files.iter().any(|file| {
+                        self.catalog.entry(file.entry.id).is_some_and(|current| {
+                            current.revision == file.entry.revision
+                                && current.created_ns == file.entry.created_ns
+                                && current.collections.contains(&segment.index.collection)
+                        })
+                    })
+            });
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
-            let retired = group.iter().enumerate().filter_map(|(index, segment)| {
-                let total = segment.index.records.len();
-                let removed = total.saturating_sub(segment.active.len() as usize);
-                (total >= MIN_RETIREMENT_SLOTS
-                    && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
-                    && removed.saturating_mul(4) >= total)
-                    .then_some((removed, index))
-            }).max();
+            let retired = group
+                .iter()
+                .enumerate()
+                .filter_map(|(index, segment)| {
+                    let total = segment.index.records.len();
+                    let removed = total.saturating_sub(segment.active.len() as usize);
+                    (total >= MIN_RETIREMENT_SLOTS
+                        && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                        && removed.saturating_mul(4) >= total)
+                        .then_some((removed, index))
+                })
+                .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
                 let replacements = crate::lifecycle_partition::compact_source_parts(
-                    &old.index, &old.active, &self.catalog, || false,
+                    &old.index,
+                    &old.active,
+                    &self.catalog,
+                    || false,
                 )?;
                 group.remove(index);
                 for (offset, part) in replacements.into_iter().enumerate() {
@@ -793,23 +805,32 @@ impl PublishedIndex {
                     };
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
-                    group.insert(index + offset, Arc::new(PublishedSegment {
-                        ordinal,
-                        index: Arc::new(part),
-                        active,
-                    }));
+                    group.insert(
+                        index + offset,
+                        Arc::new(PublishedSegment {
+                            ordinal,
+                            index: Arc::new(part),
+                            active,
+                        }),
+                    );
                 }
                 return Ok(());
             }
         }
-        let sparse_bytes = group.iter()
-            .filter(|segment| segment.index.records.len() < crate::lifecycle_partition::BASE_PARTITION_RECORDS)
+        let sparse_bytes = group
+            .iter()
+            .filter(|segment| {
+                segment.index.records.len() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
+            })
             .filter_map(|segment| segment.index.raw.sealed_reader())
             .map(|reader| reader.encoded_len())
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
             && (self.last_size_maintenance_revision == 0
-                || self.revision.0.saturating_sub(self.last_size_maintenance_revision)
+                || self
+                    .revision
+                    .0
+                    .saturating_sub(self.last_size_maintenance_revision)
                     >= size_cooldown);
         if !count_triggered && !size_triggered {
             return Ok(());
@@ -1063,7 +1084,9 @@ struct IndexInner {
     sync_cache_error: Mutex<Option<String>>,
 }
 
+
 struct StorageSyncActivity<'a>(&'a AtomicUsize);
+
 
 impl Drop for StorageSyncActivity<'_> {
     fn drop(&mut self) {
@@ -1322,15 +1345,18 @@ impl Index {
         next = prepared;
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
-            .map(|started| (started.elapsed().as_nanos() as u64).saturating_sub(consumed_sealing_ns))
+            .map(|started| {
+                (started.elapsed().as_nanos() as u64).saturating_sub(consumed_sealing_ns)
+            })
             .unwrap_or(0);
         let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
         if seal_owned {
             Self::seal_new_owned_segments(&mut next)?;
         }
-        let sealing_ns = consumed_sealing_ns + seal_started
-            .map(|started| started.elapsed().as_nanos() as u64)
-            .unwrap_or(0);
+        let sealing_ns = consumed_sealing_ns
+            + seal_started
+                .map(|started| started.elapsed().as_nanos() as u64)
+                .unwrap_or(0);
         let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
         let revision = self.publish_prepared_inner(expected, next, false)?;
         let install_ns = install_started
@@ -1624,9 +1650,11 @@ impl Index {
         identities: &[(CollectionId, u64)],
         indexes: &[Arc<IndexedCollectionSegment>],
         historical: &[FileEntry],
+        validation: crate::lifecycle_storage::ValidationOpenStats,
     ) -> Result<(), IndexError> {
         let view = self.view()?;
-        let mut managed = self.0
+        let mut managed = self
+            .0
             .managed
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
@@ -1634,7 +1662,9 @@ impl Index {
             .as_mut()
             .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
         state
-            .mark_opened(&view.0, generation, names, identities, indexes, historical)
+            .mark_opened(
+                &view.0, generation, names, identities, indexes, historical, validation,
+            )
             .map_err(IndexError::InvalidCache)?;
         *self
             .0
@@ -1705,7 +1735,12 @@ impl Index {
             .enumerate()
             .map(|(position, identity)| (identity, position))
             .collect::<HashMap<_, _>>();
-        let segment_count = current.0.segments.iter().map(|group| group.len()).sum::<usize>();
+        let segment_count = current
+            .0
+            .segments
+            .iter()
+            .map(|group| group.len())
+            .sum::<usize>();
         if positions.len() != opened.identities.len() || positions.len() != segment_count {
             return Err(IndexError::InvalidCache(
                 "committed segment identities differ from current publication".into(),
@@ -1718,9 +1753,11 @@ impl Index {
             let configured = &current.repository().collections()[number];
             let mut sealed_group = Vec::with_capacity(group.len());
             for segment in group.iter() {
-                let position = *positions.get(&(collection, segment.ordinal)).ok_or_else(|| {
-                    IndexError::InvalidCache("committed segment identity missing".into())
-                })?;
+                let position = *positions
+                    .get(&(collection, segment.ordinal))
+                    .ok_or_else(|| {
+                        IndexError::InvalidCache("committed segment identity missing".into())
+                    })?;
                 if opened.active[position].slot_count() != segment.active.slot_count()
                     || opened.active[position].bitmap() != segment.active.bitmap()
                 {
@@ -1782,6 +1819,7 @@ impl Index {
                 &opened.identities,
                 &indexes,
                 restored.historical_entries(),
+                crate::lifecycle_storage::ValidationOpenStats::default(),
             )
             .map_err(IndexError::InvalidCache)?;
         let snapshot = state.status_snapshot();
@@ -3228,6 +3266,7 @@ impl Index {
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
+
 
 /// Decoded posting cache occupancy for the sealed segments in one pinned view.
 #[derive(Clone, Copy, Debug, Default, Serialize)]

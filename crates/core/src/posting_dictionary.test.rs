@@ -205,6 +205,32 @@ fn cached_postings_intersect_and_union_into_existing_results() {
 }
 
 #[test]
+fn dense_leaf_ordinal_reuses_small_posting_proof_without_a_cache_entry() {
+    let posting = RoaringBitmap::from_iter([3u32]);
+    let sealed = seal(
+        &BTreeMap::from([(7u64, posting.clone())]),
+        RoaringBitmap::from_iter(0..10),
+    );
+    let descriptor = sealed.dictionary.get(&7).unwrap().unwrap();
+    assert!(descriptor.length < MIN_CACHED_POSTING_BYTES);
+    assert_eq!(descriptor.ordinal, 0);
+    assert_eq!(
+        sealed.validated_ordinals.as_ref().unwrap().len(),
+        sealed.len()
+    );
+    assert_eq!(sealed.get(&7).unwrap(), Some(posting.clone()));
+    assert_eq!(sealed.reader.checked_posting_calls(), 1);
+    assert_eq!(sealed.get(&7).unwrap(), Some(posting.clone()));
+    let mut target = RoaringBitmap::from_iter(0..10);
+    sealed
+        .intersect_descriptor_into(descriptor, &mut target)
+        .unwrap();
+    assert_eq!(target, posting);
+    assert_eq!(sealed.reader.checked_posting_calls(), 1);
+    assert_eq!(sealed.reader.decoded_cache_usage().0, 0);
+}
+
+#[test]
 fn cached_posting_proof_does_not_cross_eligible_domains() {
     let posting = RoaringBitmap::from_iter((0..6000).step_by(3));
     let mut pack = PostingPack::new();

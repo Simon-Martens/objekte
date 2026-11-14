@@ -27,7 +27,10 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-failed-flush-{}-{}",
         std::process::id(),
-        std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
@@ -37,18 +40,31 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
         residency: IndexResidency::OnDemand,
     };
     let index = Index::open_with_storage(
-        &root, vec![definition.clone()], RepositoryOptions::default(), storage.clone(),
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        storage.clone(),
         SourceRegistry::builtin(),
-    ).unwrap();
+    )
+    .unwrap();
     index.stop_sync_storage().unwrap();
     let initial = index.storage_status().unwrap().durable_generation;
     let added = root.join("data/b.json");
     std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
     index.add_file(&added).unwrap();
-    let prepared = storage.prepare(
-        &root, &[definition], RepositoryOptions::default(), &SourceRegistry::builtin(),
-    ).unwrap();
-    let lock = prepared.resolved.managed_directory.unwrap().join("store.lock");
+    let prepared = storage
+        .prepare(
+            &root,
+            &[definition],
+            RepositoryOptions::default(),
+            &SourceRegistry::builtin(),
+        )
+        .unwrap();
+    let lock = prepared
+        .resolved
+        .managed_directory
+        .unwrap()
+        .join("store.lock");
     std::fs::remove_file(&lock).unwrap();
     std::fs::create_dir(&lock).unwrap();
     assert!(matches!(index.flush_storage(), Err(IndexError::Io(_))));
@@ -56,10 +72,16 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     assert_eq!(failed.durable_generation, initial);
     assert_eq!(failed.synchronization, IndexSynchronization::Failed);
     assert!(failed.last_error.is_some_and(|message| !message.is_empty()));
-    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(2));
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
     std::fs::remove_dir(&lock).unwrap();
     index.flush_storage().unwrap();
-    assert_eq!(index.storage_status().unwrap().synchronization, IndexSynchronization::Synchronized);
+    assert_eq!(
+        index.storage_status().unwrap().synchronization,
+        IndexSynchronization::Synchronized
+    );
     drop(index);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -165,9 +187,11 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(first.view().unwrap().0.segments[0]
-        .iter()
-        .all(|segment| segment.index.raw.is_sealed()));
+    assert!(
+        first.view().unwrap().0.segments[0]
+            .iter()
+            .all(|segment| segment.index.raw.is_sealed())
+    );
     assert_eq!(
         first.view().unwrap().search(&all_records()).unwrap().count,
         Some(1)
@@ -175,6 +199,7 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     let first_status = first.storage_status().unwrap();
     assert_eq!(first_status.current_generation, 1);
     assert_eq!(first_status.durable_generation, Some(1));
+    assert_eq!(first_status.segments_full_validated, 0);
     assert_eq!(
         first_status.synchronization,
         IndexSynchronization::Synchronized
@@ -239,6 +264,11 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     assert_eq!(
         reopened.storage_status().unwrap().durable_generation,
         Some(1)
+    );
+    assert!(reopened.storage_status().unwrap().segments_stamp_trusted > 0);
+    assert_eq!(
+        reopened.storage_status().unwrap().segments_full_validated,
+        0
     );
     reopened.stop_sync_storage().unwrap();
     reopened.wait_for_reconciliation().unwrap();
@@ -305,9 +335,16 @@ fn repeated_replacements_rebase_unreferenced_historical_metadata() {
         1,
     )
     .unwrap();
-    assert!(history_sizes.windows(2).any(|pair| pair[0] > 64 && pair[1] < pair[0]));
+    assert!(
+        history_sizes
+            .windows(2)
+            .any(|pair| pair[0] > 64 && pair[1] < pair[0])
+    );
     assert!(catalog.historical_entries().len() <= 64);
-    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(1)
+    );
     drop(opened);
     drop(index);
     let reopened = Index::open_with_storage(
@@ -318,7 +355,15 @@ fn repeated_replacements_rebase_unreferenced_historical_metadata() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert_eq!(reopened.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(1)
+    );
     reopened.stop_sync_storage().unwrap();
     reopened.wait_for_reconciliation().unwrap();
     drop(reopened);
@@ -359,9 +404,11 @@ fn progressive_managed_build_flushes_only_complete_generation() {
     let catalogue = task.wait_catalogue().unwrap();
     assert!(catalogue.status().unwrap().indexed_files >= 8);
     let complete = task.wait_complete().unwrap();
-    assert!(complete.view().unwrap().0.segments[0]
-        .iter()
-        .all(|segment| segment.index.raw.is_sealed()));
+    assert!(
+        complete.view().unwrap().0.segments[0]
+            .iter()
+            .all(|segment| segment.index.raw.is_sealed())
+    );
     assert_eq!(
         complete.storage_status().unwrap().synchronization,
         IndexSynchronization::Synchronized
@@ -442,9 +489,11 @@ fn managed_generation_reopens_add_move_and_retirement() {
     let added = root.join("data/b.json");
     std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
     index.add_file(&added).unwrap();
-    assert!(index.view().unwrap().0.segments[0]
-        .iter()
-        .all(|segment| segment.index.raw.is_sealed()));
+    assert!(
+        index.view().unwrap().0.segments[0]
+            .iter()
+            .all(|segment| segment.index.raw.is_sealed())
+    );
     index.flush_storage().unwrap();
     let after_add = store.read_generation().unwrap().unwrap().segment_names;
     assert!(initial_names.iter().all(|name| after_add.contains(name)));

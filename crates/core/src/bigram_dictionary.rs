@@ -5,13 +5,14 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramIndex, BigramRequest};
+#[cfg(test)]
+use crate::posting_dictionary::PostingPack;
 use crate::posting_dictionary::{
     DictionarySpan, PostingSink, SealedPostingDictionary, append_visited_constructed,
 };
-#[cfg(test)]
-use crate::posting_dictionary::PostingPack;
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 use crate::workload::BigramAlphabet;
+
 
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct BigramSpans {
@@ -19,11 +20,13 @@ pub(crate) struct BigramSpans {
     pub skip: DictionarySpan,
 }
 
+
 pub(crate) struct ConstructedBigramSpans {
     pub spans: BigramSpans,
     pub normal_presence: Option<GramPresence>,
     pub skip_presence: Option<GramPresence>,
 }
+
 
 /// Encode one text binding's two gram families without cloning their bitmaps.
 pub(crate) fn append_bigram_index<P: PostingSink + ?Sized>(
@@ -87,6 +90,7 @@ pub(crate) fn append_bigram_index_constructed<P: PostingSink + ?Sized>(
     })
 }
 
+
 pub(crate) struct SealedBigramIndex {
     alphabet: BigramAlphabet,
     record_count: u32,
@@ -96,6 +100,7 @@ pub(crate) struct SealedBigramIndex {
     skip_presence: Option<GramPresence>,
 }
 
+
 /// A compact absence proof for immutable gram keys. False positives still
 /// reach the checked dictionary; false negatives are impossible for inserted
 /// keys. Small dictionaries use the ordinary lookup directly.
@@ -104,18 +109,26 @@ pub(crate) struct GramPresence {
     mask: u64,
 }
 
+
 impl GramPresence {
     fn new(entries: usize) -> Result<Option<Self>, String> {
         if entries < 32 {
             return Ok(None);
         }
-        let bits = entries.saturating_mul(12)
-            .max(64).min(1 << 26).next_power_of_two();
+        let bits = entries
+            .saturating_mul(12)
+            .max(64)
+            .min(1 << 26)
+            .next_power_of_two();
         let mut words = Vec::new();
-        words.try_reserve_exact(bits / 64)
+        words
+            .try_reserve_exact(bits / 64)
             .map_err(|error| format!("gram presence allocation: {error}"))?;
         words.resize(bits / 64, 0);
-        Ok(Some(Self { words, mask: (bits - 1) as u64 }))
+        Ok(Some(Self {
+            words,
+            mask: (bits - 1) as u64,
+        }))
     }
 
     fn from_dictionary(dictionary: &SealedPostingDictionary<u64>) -> Result<Option<Self>, String> {
@@ -123,8 +136,11 @@ impl GramPresence {
             return Ok(None);
         };
         dictionary.visit_encoded_entries(|encoded, _| {
-            let key = u64::from_le_bytes(encoded.try_into()
-                .map_err(|_| "validated gram key length changed")?);
+            let key = u64::from_le_bytes(
+                encoded
+                    .try_into()
+                    .map_err(|_| "validated gram key length changed")?,
+            );
             presence.insert(key);
             Ok(())
         })?;
@@ -149,9 +165,12 @@ impl GramPresence {
     }
 
     fn might_contain(&self, key: u64) -> bool {
-        self.hashes(key).into_iter().all(|bit| self.words[bit / 64] & (1u64 << (bit % 64)) != 0)
+        self.hashes(key)
+            .into_iter()
+            .all(|bit| self.words[bit / 64] & (1u64 << (bit % 64)) != 0)
     }
 }
+
 
 impl std::fmt::Debug for SealedBigramIndex {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -164,6 +183,7 @@ impl std::fmt::Debug for SealedBigramIndex {
             .finish()
     }
 }
+
 
 impl SealedBigramIndex {
     pub(crate) fn segment_reader(&self) -> Arc<SegmentReader> {
@@ -191,6 +211,7 @@ impl SealedBigramIndex {
             Ok(true)
         })
     }
+
     pub(crate) fn open(
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
@@ -247,6 +268,75 @@ impl SealedBigramIndex {
         })
     }
 
+    /// A matching store stamp proves the gram dictionary order. The compact
+    /// absence filter is rebuilt from encoded keys; payloads stay unchecked
+    /// until a posting is actually used.
+    pub(crate) fn open_stamped(
+        reader: Arc<SegmentReader>,
+        spans: BigramSpans,
+        alphabet: BigramAlphabet,
+        record_count: u32,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<Self, String> {
+        if allowed.max().is_some_and(|slot| slot >= record_count) {
+            return Err("bigram eligible domain exceeds record slots".into());
+        }
+        let mut normal_presence = None;
+        let mut normal_initialized = false;
+        let normal = SealedPostingDictionary::open_stamped_visiting_encoded(
+            Arc::clone(&reader),
+            SectionKind::BigramDictionaries,
+            spans.normal,
+            Arc::clone(&allowed),
+            |entries, encoded| {
+                if !normal_initialized {
+                    normal_presence = GramPresence::new(entries)?;
+                    normal_initialized = true;
+                }
+                if let Some(presence) = &mut normal_presence {
+                    let key = u64::from_le_bytes(
+                        encoded
+                            .try_into()
+                            .map_err(|_| "stamped gram key length changed")?,
+                    );
+                    presence.insert(key);
+                }
+                Ok(())
+            },
+        )?;
+        let mut skip_presence = None;
+        let mut skip_initialized = false;
+        let skip = SealedPostingDictionary::open_stamped_visiting_encoded(
+            reader,
+            SectionKind::BigramDictionaries,
+            spans.skip,
+            allowed,
+            |entries, encoded| {
+                if !skip_initialized {
+                    skip_presence = GramPresence::new(entries)?;
+                    skip_initialized = true;
+                }
+                if let Some(presence) = &mut skip_presence {
+                    let key = u64::from_le_bytes(
+                        encoded
+                            .try_into()
+                            .map_err(|_| "stamped gram key length changed")?,
+                    );
+                    presence.insert(key);
+                }
+                Ok(())
+            },
+        )?;
+        Ok(Self {
+            alphabet,
+            record_count,
+            normal,
+            skip,
+            normal_presence,
+            skip_presence,
+        })
+    }
+
     pub(crate) fn from_constructed(
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
@@ -276,7 +366,14 @@ impl SealedBigramIndex {
             Some(presence) => Some(presence),
             None => GramPresence::from_dictionary(&skip)?,
         };
-        Ok(Self { alphabet, record_count, normal, skip, normal_presence, skip_presence })
+        Ok(Self {
+            alphabet,
+            record_count,
+            normal,
+            skip,
+            normal_presence,
+            skip_presence,
+        })
     }
 
     pub(crate) fn record_count(&self) -> u32 {
@@ -310,8 +407,15 @@ impl SealedBigramIndex {
         let mut columns = Vec::<(bool, PostingDescriptor)>::with_capacity(grams.len());
         for &(skip, key) in grams {
             let dictionary = if skip { &self.skip } else { &self.normal };
-            let presence = if skip { &self.skip_presence } else { &self.normal_presence };
-            if presence.as_ref().is_some_and(|present| !present.might_contain(key)) {
+            let presence = if skip {
+                &self.skip_presence
+            } else {
+                &self.normal_presence
+            };
+            if presence
+                .as_ref()
+                .is_some_and(|present| !present.might_contain(key))
+            {
                 return Ok(Some(RoaringBitmap::new()));
             }
             let Some(descriptor) = dictionary.descriptor_u64(key)? else {
@@ -335,6 +439,7 @@ impl SealedBigramIndex {
         Ok(result)
     }
 }
+
 
 #[cfg(test)]
 #[path = "bigram_dictionary.test.rs"]

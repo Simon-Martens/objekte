@@ -142,6 +142,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
+
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -152,6 +153,7 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
+
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -166,12 +168,14 @@ pub struct ExistingRun<'a> {
     pub snapshot_save: Option<SnapshotSaveStats>,
 }
 
+
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
+
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -566,6 +570,7 @@ fn run_start_event(
     })
 }
 
+
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -575,6 +580,7 @@ struct RunTail<'a> {
     snapshot_save: Option<&'a SnapshotSaveStats>,
     initial_incremental: bool,
 }
+
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,
@@ -745,6 +751,10 @@ fn complete_run<W: Write>(
             },
             "last_error": storage.last_error,
             "managed_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
+            "segments_full_validated": storage.segments_full_validated,
+            "segments_stamp_trusted": storage.segments_stamp_trusted,
+            "validation_stamps_written": storage.validation_stamps_written,
+            "validation_stamp_error": storage.validation_stamp_error,
         },
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({

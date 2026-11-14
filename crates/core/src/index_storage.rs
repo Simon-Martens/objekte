@@ -10,6 +10,10 @@ use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
 use crate::storage::configuration_hash;
 
+/// Version of the eager semantic checks used for managed segment stamps.
+pub const HYBRID_VALIDATOR_VERSION: u32 = crate::segment_format::VALIDATOR_VERSION;
+
+
 /// Where immutable Objekte index generations are kept.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub enum IndexStorageLocation {
@@ -21,6 +25,7 @@ pub enum IndexStorageLocation {
     CustomDirectory(PathBuf),
 }
 
+
 /// Whether file-backed index bytes are accessed on demand or owned in memory.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum IndexResidency {
@@ -29,12 +34,14 @@ pub enum IndexResidency {
     FullyResident,
 }
 
+
 /// One policy shared by direct library callers and all user interfaces.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStoragePolicy {
     pub location: IndexStorageLocation,
     pub residency: IndexResidency,
 }
+
 
 impl Default for IndexStoragePolicy {
     fn default() -> Self {
@@ -44,6 +51,7 @@ impl Default for IndexStoragePolicy {
         }
     }
 }
+
 
 impl IndexStoragePolicy {
     pub fn validate(&self) -> Result<(), String> {
@@ -249,6 +257,7 @@ impl IndexStoragePolicy {
     }
 }
 
+
 fn canonical_root(root: &Path) -> Result<PathBuf, String> {
     let root = root
         .canonicalize()
@@ -261,6 +270,7 @@ fn canonical_root(root: &Path) -> Result<PathBuf, String> {
     }
     Ok(root)
 }
+
 
 /// Identity checked against manifests before a generation can be opened.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -277,6 +287,7 @@ pub struct ResolvedIndexStorage {
     pub residency: IndexResidency,
 }
 
+
 /// One immutable identity/discovery pair for building, opening and updating.
 /// Callers must pass `definitions` to the repository constructor and use the
 /// associated `resolved` store path; the two must not be recomputed separately.
@@ -286,6 +297,7 @@ pub struct PreparedIndexStorage {
     pub resolved: ResolvedIndexStorage,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexReadiness {
     Building,
@@ -293,6 +305,7 @@ pub enum IndexReadiness {
     PreparingFullResidency,
     FullyResidentReady,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexSynchronization {
@@ -302,6 +315,7 @@ pub enum IndexSynchronization {
     Synchronized,
     Failed,
 }
+
 
 /// Separate searchable coverage, source freshness and durable state.
 #[derive(Clone, Debug)]
@@ -313,7 +327,12 @@ pub struct IndexStorageStatus {
     pub synchronization: IndexSynchronization,
     pub last_error: Option<String>,
     pub managed_directory: Option<PathBuf>,
+    pub segments_full_validated: usize,
+    pub segments_stamp_trusted: usize,
+    pub validation_stamps_written: usize,
+    pub validation_stamp_error: Option<String>,
 }
+
 
 fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
     if path.is_absolute() {
@@ -380,6 +399,7 @@ fn hex(bytes: &[u8]) -> String {
     }
     text
 }
+
 
 #[cfg(test)]
 mod tests {
@@ -463,10 +483,12 @@ mod tests {
             location: IndexStorageLocation::RepositoryDirectory,
             residency: IndexResidency::OnDemand,
         };
-        assert!(policy
-            .prepare_source_definitions(&root, &definitions)
-            .unwrap_err()
-            .contains("source selection"));
+        assert!(
+            policy
+                .prepare_source_definitions(&root, &definitions)
+                .unwrap_err()
+                .contains("source selection")
+        );
         std::fs::remove_dir_all(root).unwrap();
     }
 

@@ -119,6 +119,8 @@ pub(crate) struct SegmentReader {
     bytes: SegmentBytes,
     sections: HashMap<SectionKind, SectionEntry>,
     decoded: Arc<Mutex<DecodedPostingCache>>,
+    #[cfg(test)]
+    checked_postings: Arc<std::sync::atomic::AtomicU64>,
 }
 
 
@@ -156,6 +158,21 @@ pub(crate) enum PostingProof {
     Constructed,
     Checked,
 }
+
+
+/// The source of the proof for eager dictionary validation. A stamp never
+/// proves posting payloads; those still require checked access.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum SegmentTrust {
+    Constructed,
+    Stamped,
+    Untrusted,
+}
+
+
+/// Bump when dictionary ordering, metadata semantics, collation or the
+/// validator's interpretation changes. Old stamps then require a full open.
+pub(crate) const VALIDATOR_VERSION: u32 = 1;
 
 
 /// The retained domain owner makes the pointer identity stable for the
@@ -276,6 +293,8 @@ impl SegmentReader {
                 limit_bytes,
                 ..Default::default()
             })),
+            #[cfg(test)]
+            checked_postings: Arc::new(std::sync::atomic::AtomicU64::new(0)),
         })
     }
 
@@ -416,7 +435,15 @@ impl SegmentReader {
                 limit_bytes,
                 ..Default::default()
             })),
+            #[cfg(test)]
+            checked_postings: Arc::new(std::sync::atomic::AtomicU64::new(0)),
         })
+    }
+
+    #[cfg(test)]
+    pub(crate) fn checked_posting_calls(&self) -> u64 {
+        self.checked_postings
+            .load(std::sync::atomic::Ordering::Relaxed)
     }
 
     /// A bounded hot-posting cache is shared by every dictionary in this
@@ -577,6 +604,9 @@ impl SegmentReader {
         descriptor: PostingDescriptor,
         allowed: &RoaringBitmap,
     ) -> Result<RoaringBitmap, String> {
+        #[cfg(test)]
+        self.checked_postings
+            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         self.validate_posting_descriptor(descriptor)?;
         if descriptor.length == 0 {
             return Ok(RoaringBitmap::new());
@@ -653,6 +683,9 @@ pub(crate) struct PostingDescriptor {
     pub length: u32,
     pub cardinality: u32,
     pub checksum: u64,
+    /// Writer-assigned ordinal implicit in the checked leaf offset table.
+    /// Not serialized inside the 24-byte descriptor; dictionary lookup adds it.
+    pub ordinal: u32,
 }
 
 
@@ -662,6 +695,7 @@ impl PostingDescriptor {
         length: 0,
         cardinality: 0,
         checksum: 0,
+        ordinal: u32::MAX,
     };
 
     pub(crate) fn for_bitmap(
@@ -677,6 +711,7 @@ impl PostingDescriptor {
             length: u32::try_from(payload.len()).map_err(|_| "posting payload too large")?,
             cardinality: u32::try_from(bitmap.len()).map_err(|_| "posting too many slots")?,
             checksum: short_checksum(payload),
+            ordinal: u32::MAX,
         })
     }
 
@@ -698,7 +733,15 @@ impl PostingDescriptor {
             length: u32_at(bytes, 8)?,
             cardinality: u32_at(bytes, 12)?,
             checksum: u64_at(bytes, 16)?,
+            ordinal: u32::MAX,
         })
+    }
+
+    pub(crate) fn with_ordinal(mut self, ordinal: u32) -> Self {
+        if self.length != 0 {
+            self.ordinal = ordinal;
+        }
+        self
     }
 }
 

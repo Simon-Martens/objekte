@@ -28,11 +28,13 @@ fn decode_key<K: DeserializeOwned>(bytes: &[u8]) -> Result<K, String> {
         .map_err(|error| format!("invalid dictionary key: {error}"))
 }
 
+
 /// Compare a validated portable key against a query key without materializing
 /// owned strings at every binary-search probe.
 pub(crate) trait EncodedKey: Ord + Clone + DeserializeOwned {
     fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String>;
 }
+
 
 fn encoded_tag(bytes: &[u8], variants: u32) -> Result<u32, String> {
     let tag = read_u32(bytes, 0)?;
@@ -42,26 +44,35 @@ fn encoded_tag(bytes: &[u8], variants: u32) -> Result<u32, String> {
     Ok(tag)
 }
 
+
 impl EncodedKey for u64 {
     fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
-        let encoded: [u8; 8] = bytes.try_into()
+        let encoded: [u8; 8] = bytes
+            .try_into()
             .map_err(|_| "invalid u64 dictionary key length")?;
         Ok(u64::from_le_bytes(encoded).cmp(key))
     }
 }
+
 
 impl EncodedKey for Number {
     fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
         let tag = encoded_tag(bytes, 3)?;
         let value = match tag {
             0 => {
-                let encoded: [u8; 16] = bytes.get(4..).ok_or("integer key truncated")?
-                    .try_into().map_err(|_| "invalid integer key length")?;
+                let encoded: [u8; 16] = bytes
+                    .get(4..)
+                    .ok_or("integer key truncated")?
+                    .try_into()
+                    .map_err(|_| "invalid integer key length")?;
                 Number::Integer(i128::from_le_bytes(encoded))
             }
             1 => {
-                let encoded: [u8; 8] = bytes.get(4..).ok_or("float key truncated")?
-                    .try_into().map_err(|_| "invalid float key length")?;
+                let encoded: [u8; 8] = bytes
+                    .get(4..)
+                    .ok_or("float key truncated")?
+                    .try_into()
+                    .map_err(|_| "invalid float key length")?;
                 let value = f64::from_le_bytes(encoded);
                 if !value.is_finite() {
                     return Err("invalid float key".into());
@@ -73,6 +84,7 @@ impl EncodedKey for Number {
         Ok(value.cmp(key))
     }
 }
+
 
 impl EncodedKey for ScalarKey {
     fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
@@ -91,8 +103,8 @@ impl EncodedKey for ScalarKey {
         }
         match key {
             ScalarKey::String(target) | ScalarKey::Id(target) => {
-                let length = usize::try_from(read_u64(bytes, 4)?)
-                    .map_err(|_| "string key too large")?;
+                let length =
+                    usize::try_from(read_u64(bytes, 4)?).map_err(|_| "string key too large")?;
                 let value = bytes.get(12..).ok_or("string key truncated")?;
                 if length != value.len() {
                     return Err("invalid string key length".into());
@@ -100,16 +112,19 @@ impl EncodedKey for ScalarKey {
                 let value = std::str::from_utf8(value).map_err(|_| "invalid string key utf8")?;
                 Ok(value.cmp(target))
             }
-            ScalarKey::Number(target) => Number::compare_encoded(
-                bytes.get(4..).ok_or("number key truncated")?, target,
-            ),
+            ScalarKey::Number(target) => {
+                Number::compare_encoded(bytes.get(4..).ok_or("number key truncated")?, target)
+            }
             ScalarKey::Bool(target) => match bytes.get(4..) {
                 Some([value]) if *value <= 1 => Ok((*value != 0).cmp(target)),
                 _ => Err("invalid bool key".into()),
             },
             ScalarKey::Unixtime(target) => {
-                let encoded: [u8; 8] = bytes.get(4..).ok_or("unixtime key truncated")?
-                    .try_into().map_err(|_| "invalid unixtime key length")?;
+                let encoded: [u8; 8] = bytes
+                    .get(4..)
+                    .ok_or("unixtime key truncated")?
+                    .try_into()
+                    .map_err(|_| "invalid unixtime key length")?;
                 Ok(i64::from_le_bytes(encoded).cmp(target))
             }
             _ => Ok(decode_key::<ScalarKey>(bytes)?.cmp(key)),
@@ -117,11 +132,13 @@ impl EncodedKey for ScalarKey {
     }
 }
 
+
 struct PendingEntry {
     key_start: usize,
     key_length: usize,
     posting: PostingDescriptor,
 }
+
 
 struct EncodedBlockMeta {
     offset: u64,
@@ -131,13 +148,16 @@ struct EncodedBlockMeta {
     last: Vec<u8>,
 }
 
+
 struct BlockMeta<K> {
     offset: u64,
     length: u32,
     count: u32,
+    first_ordinal: u32,
     first: K,
     last: K,
 }
+
 
 fn write_counted(writer: &mut dyn Write, position: &mut u64, bytes: &[u8]) -> Result<(), String> {
     *position = position
@@ -163,7 +183,12 @@ fn flush_leaf(
     let count = u32::try_from(pending.len()).map_err(|_| "leaf entry count overflow")?;
     write_counted(writer, position, &count.to_le_bytes())?;
     let mut entry_offset = 4usize
-        .checked_add(pending.len().checked_mul(4).ok_or("leaf offset table overflow")?)
+        .checked_add(
+            pending
+                .len()
+                .checked_mul(4)
+                .ok_or("leaf offset table overflow")?,
+        )
         .ok_or("leaf offset table overflow")?;
     for entry in pending.iter() {
         let offset = u32::try_from(entry_offset).map_err(|_| "leaf offset overflow")?;
@@ -195,6 +220,7 @@ fn flush_leaf(
     Ok(())
 }
 
+
 /// Incremental leaf writer. The visitor retains only one leaf's encoded keys
 /// and the sparse directory, avoiding a second vector of every dictionary key.
 pub(crate) struct OrderedBlockWriter<K, W: Write> {
@@ -207,6 +233,15 @@ pub(crate) struct OrderedBlockWriter<K, W: Write> {
     previous: Option<K>,
     validate_order: bool,
 }
+
+
+#[derive(Clone, Copy, Eq, PartialEq)]
+enum LeafValidation {
+    Constructed,
+    Framing,
+    Full,
+}
+
 
 impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
     pub(crate) fn new(writer: W, validate_order: bool) -> Self {
@@ -262,7 +297,8 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
             }
             self.pending_size = 4;
         }
-        self.pending_size = self.pending_size
+        self.pending_size = self
+            .pending_size
             .checked_add(entry_size)
             .ok_or("dictionary leaf size overflow")?;
         self.pending.push(PendingEntry {
@@ -290,9 +326,21 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
                 .to_le_bytes(),
         )?;
         for block in self.blocks {
-            write_counted(&mut self.writer, &mut self.position, &block.offset.to_le_bytes())?;
-            write_counted(&mut self.writer, &mut self.position, &block.length.to_le_bytes())?;
-            write_counted(&mut self.writer, &mut self.position, &block.count.to_le_bytes())?;
+            write_counted(
+                &mut self.writer,
+                &mut self.position,
+                &block.offset.to_le_bytes(),
+            )?;
+            write_counted(
+                &mut self.writer,
+                &mut self.position,
+                &block.length.to_le_bytes(),
+            )?;
+            write_counted(
+                &mut self.writer,
+                &mut self.position,
+                &block.count.to_le_bytes(),
+            )?;
             for bytes in [&block.first, &block.last] {
                 write_counted(
                     &mut self.writer,
@@ -313,6 +361,7 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
     }
 }
 
+
 /// Bulk-load sorted keys while retaining at most one leaf and its directory.
 pub(crate) fn write_ordered_dictionary<K: Ord + Clone + Serialize>(
     writer: &mut dyn Write,
@@ -325,11 +374,13 @@ pub(crate) fn write_ordered_dictionary<K: Ord + Clone + Serialize>(
     output.finish()
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct DictionaryCursor {
     block: usize,
     entry: usize,
 }
+
 
 /// The reader owns its byte source and keeps only sparse boundary keys. Open
 /// validates all typed ordering, offsets and descriptors before an absence or
@@ -344,6 +395,7 @@ pub(crate) struct OrderedBlockDictionary<K> {
     _key: PhantomData<K>,
 }
 
+
 impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     pub(crate) fn open(
         reader: Arc<SegmentReader>,
@@ -351,7 +403,15 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
     ) -> Result<Self, String> {
-        Self::open_impl(reader, section, start, length, true, None)
+        Self::open_impl(
+            reader,
+            section,
+            start,
+            length,
+            LeafValidation::Full,
+            None,
+            None,
+        )
     }
 
     /// Collect keys during the mandatory external leaf validation pass.
@@ -362,7 +422,52 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         length: usize,
         mut visit: impl FnMut(usize, &K) -> Result<(), String>,
     ) -> Result<Self, String> {
-        Self::open_impl(reader, section, start, length, true, Some(&mut visit))
+        Self::open_impl(
+            reader,
+            section,
+            start,
+            length,
+            LeafValidation::Full,
+            Some(&mut visit),
+            None,
+        )
+    }
+
+    /// The store's matching validator stamp proves typed order and fences.
+    /// Framing, offsets and descriptor bounds are still checked on this open.
+    pub(crate) fn open_with_proven_order(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        start: usize,
+        length: usize,
+    ) -> Result<Self, String> {
+        Self::open_impl(
+            reader,
+            section,
+            start,
+            length,
+            LeafValidation::Framing,
+            None,
+            None,
+        )
+    }
+
+    pub(crate) fn open_with_proven_order_visiting_encoded(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        start: usize,
+        length: usize,
+        mut visit: impl FnMut(usize, &[u8]) -> Result<(), String>,
+    ) -> Result<Self, String> {
+        Self::open_impl(
+            reader,
+            section,
+            start,
+            length,
+            LeafValidation::Framing,
+            None,
+            Some(&mut visit),
+        )
     }
 
     /// Only for a dictionary just emitted by `write_ordered_dictionary` into
@@ -374,7 +479,15 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
     ) -> Result<Self, String> {
-        Self::open_impl(reader, section, start, length, false, None)
+        Self::open_impl(
+            reader,
+            section,
+            start,
+            length,
+            LeafValidation::Constructed,
+            None,
+            None,
+        )
     }
 
     fn open_impl(
@@ -382,8 +495,9 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         section: SectionKind,
         start: usize,
         length: usize,
-        validate_leaves: bool,
+        validation: LeafValidation,
         mut visit: Option<&mut dyn FnMut(usize, &K) -> Result<(), String>>,
+        mut visit_encoded: Option<&mut dyn FnMut(usize, &[u8]) -> Result<(), String>>,
     ) -> Result<Self, String> {
         let whole = reader
             .section(section)?
@@ -419,10 +533,21 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
             if first > last || entries == 0 {
                 return Err("invalid dictionary block boundaries".into());
             }
+            let first_ordinal = blocks
+                .last()
+                .map(|prior: &BlockMeta<K>| {
+                    prior
+                        .first_ordinal
+                        .checked_add(prior.count)
+                        .ok_or("dictionary descriptor ordinal overflow")
+                })
+                .transpose()?
+                .unwrap_or(0);
             blocks.push(BlockMeta {
                 offset,
                 length,
                 count: entries,
+                first_ordinal,
                 first,
                 last,
             });
@@ -431,9 +556,13 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
             return Err("dictionary directory trailing bytes".into());
         }
         let entry_count = blocks.iter().try_fold(0usize, |total, block| {
-            total.checked_add(block.count as usize)
+            total
+                .checked_add(block.count as usize)
                 .ok_or("dictionary entry count overflow")
         })?;
+        if entry_count > u32::MAX as usize {
+            return Err("dictionary descriptor ordinal overflow".into());
+        }
         let mut total = 0usize;
         let mut previous_end = 0usize;
         let mut previous_key: Option<K> = None;
@@ -451,7 +580,7 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
             {
                 return Err("dictionary block boundaries are unordered".into());
             }
-            if !validate_leaves {
+            if validation == LeafValidation::Constructed {
                 previous_key = Some(block.last.clone());
                 previous_end = end;
                 total = total
@@ -481,8 +610,16 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 if offset != expected {
                     return Err("dictionary leaf entry offset mismatch".into());
                 }
-                let (key, descriptor, next) = read_leaf_entry::<K>(leaf, offset)?;
+                let (encoded, descriptor, next) = read_leaf_framing(leaf, offset)?;
                 reader.validate_posting_descriptor(descriptor)?;
+                if validation == LeafValidation::Framing {
+                    if let Some(visit) = visit_encoded.as_mut() {
+                        visit(entry_count, encoded)?;
+                    }
+                    expected = next;
+                    continue;
+                }
+                let key = decode_key::<K>(encoded)?;
                 if last.as_ref().is_some_and(|prior| prior >= &key) {
                     return Err("dictionary leaf keys are unordered".into());
                 }
@@ -496,15 +633,16 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 expected = next;
             }
             if expected != leaf.len()
-                || first.as_ref() != Some(&block.first)
-                || last.as_ref() != Some(&block.last)
-                || previous_key
-                    .as_ref()
-                    .is_some_and(|prior| prior >= &block.first)
+                || (validation == LeafValidation::Full
+                    && (first.as_ref() != Some(&block.first)
+                        || last.as_ref() != Some(&block.last)
+                        || previous_key
+                            .as_ref()
+                            .is_some_and(|prior| prior >= &block.first)))
             {
                 return Err("dictionary leaf boundary mismatch".into());
             }
-            previous_key = last;
+            previous_key = Some(block.last.clone());
             previous_end = end;
             total = total
                 .checked_add(block.count as usize)
@@ -540,7 +678,9 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     }
 
     pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String>
-    where K: EncodedKey {
+    where
+        K: EncodedKey,
+    {
         self.get_with(key, K::compare_encoded)
     }
 
@@ -579,12 +719,16 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 std::cmp::Ordering::Less => left = mid + 1,
                 std::cmp::Ordering::Greater => right = mid,
                 std::cmp::Ordering::Equal => {
-                    let end = offset.checked_add(4 + sample.len() + 24)
+                    let end = offset
+                        .checked_add(4 + sample.len() + 24)
                         .ok_or("dictionary entry overflow")?;
-                    return Ok(Some(PostingDescriptor::decode(
-                        leaf.get(end - 24..end)
-                            .ok_or("dictionary posting descriptor truncated")?,
-                    )?));
+                    return Ok(Some(
+                        PostingDescriptor::decode(
+                            leaf.get(end - 24..end)
+                                .ok_or("dictionary posting descriptor truncated")?,
+                        )?
+                        .with_ordinal(block.first_ordinal + mid as u32),
+                    ));
                 }
             }
         }
@@ -592,7 +736,9 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     }
 
     pub(crate) fn lower_bound(&self, key: &K) -> Result<Option<DictionaryCursor>, String>
-    where K: EncodedKey {
+    where
+        K: EncodedKey,
+    {
         self.lower_bound_with(key, K::compare_encoded)
     }
 
@@ -655,7 +801,10 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         let leaf = self.leaf(block)?;
         let offset = read_u32(leaf, 4 + cursor.entry * 4)? as usize;
         let (key, descriptor, _) = read_leaf_entry::<K>(leaf, offset)?;
-        Ok((key, descriptor))
+        Ok((
+            key,
+            descriptor.with_ordinal(block.first_ordinal + cursor.entry as u32),
+        ))
     }
 
     pub(crate) fn compare_at(
@@ -663,8 +812,13 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         cursor: DictionaryCursor,
         key: &K,
     ) -> Result<std::cmp::Ordering, String>
-    where K: EncodedKey {
-        let block = self.blocks.get(cursor.block).ok_or("dictionary cursor block missing")?;
+    where
+        K: EncodedKey,
+    {
+        let block = self
+            .blocks
+            .get(cursor.block)
+            .ok_or("dictionary cursor block missing")?;
         if cursor.entry >= block.count as usize {
             return Err("dictionary cursor entry missing".into());
         }
@@ -692,7 +846,10 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                     leaf.get(end - 24..end)
                         .ok_or("dictionary posting descriptor truncated")?,
                 )?;
-                visit(bytes, descriptor)?;
+                visit(
+                    bytes,
+                    descriptor.with_ordinal(block.first_ordinal + index as u32),
+                )?;
             }
         }
         Ok(())
@@ -744,6 +901,7 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     }
 }
 
+
 impl OrderedBlockDictionary<u64> {
     /// Bincode fixint stores a u64 key as eight little-endian bytes. External
     /// opening checked every typed leaf; constructed leaves came from the
@@ -770,26 +928,31 @@ impl OrderedBlockDictionary<u64> {
             let offset = read_u32(leaf, 4 + mid * 4)? as usize;
             let encoded = entry_key_bytes(leaf, offset)?;
             let value = u64::from_le_bytes(
-                encoded.try_into()
+                encoded
+                    .try_into()
                     .map_err(|_| "validated u64 dictionary key length changed")?,
             );
             match value.cmp(&key) {
                 std::cmp::Ordering::Less => left = mid + 1,
                 std::cmp::Ordering::Greater => right = mid,
                 std::cmp::Ordering::Equal => {
-                    let end = offset.checked_add(4 + encoded.len() + 24)
+                    let end = offset
+                        .checked_add(4 + encoded.len() + 24)
                         .ok_or("dictionary entry overflow")?;
                     let descriptor = PostingDescriptor::decode(
                         leaf.get(end - 24..end)
                             .ok_or("dictionary posting descriptor truncated")?,
                     )?;
-                    return Ok(Some(descriptor));
+                    return Ok(Some(
+                        descriptor.with_ordinal(block.first_ordinal + mid as u32),
+                    ));
                 }
             }
         }
         Ok(None)
     }
 }
+
 
 fn read_u32(bytes: &[u8], position: usize) -> Result<u32, String> {
     let end = position
@@ -863,6 +1026,21 @@ fn read_leaf_entry<K: DeserializeOwned>(
             .ok_or("dictionary posting descriptor truncated")?,
     )?;
     Ok((decode_key(bytes)?, descriptor, end))
+}
+
+fn read_leaf_framing(
+    leaf: &[u8],
+    offset: usize,
+) -> Result<(&[u8], PostingDescriptor, usize), String> {
+    let bytes = entry_key_bytes(leaf, offset)?;
+    let end = offset
+        .checked_add(4 + bytes.len() + 24)
+        .ok_or("dictionary entry overflow")?;
+    let descriptor = PostingDescriptor::decode(
+        leaf.get(end - 24..end)
+            .ok_or("dictionary posting descriptor truncated")?,
+    )?;
+    Ok((bytes, descriptor, end))
 }
 
 #[cfg(test)]

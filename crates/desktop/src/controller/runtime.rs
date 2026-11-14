@@ -12,11 +12,11 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
+use objekte_search_core::index_storage::{IndexReadiness, IndexSynchronization};
 use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
     MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
 };
-use objekte_search_core::index_storage::{IndexReadiness, IndexSynchronization};
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
@@ -27,8 +27,7 @@ use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FileCatalogue, FilterValidationState, IndexTaskKind, IndexTaskState,
-    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
-    StorageChoice,
+    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, StorageChoice,
     TabFreshness, TabViewState, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
@@ -826,35 +825,66 @@ impl DesktopController {
         };
         // These values describe the successful Open draft, not a later edit
         // in the dialog while the current repository remains active.
-        self.index_ui.storage_location = match self.open_draft.as_ref().map(|draft| draft.index_storage) {
-            Some(StorageChoice::Memory) => "Memory only",
-            Some(StorageChoice::Temporary) => "System temporary folder",
-            Some(StorageChoice::Repository) => "Repository folder",
-            Some(StorageChoice::Custom) => "Custom folder",
-            None => "Index storage",
-        }.into();
+        self.index_ui.storage_location =
+            match self.open_draft.as_ref().map(|draft| draft.index_storage) {
+                Some(StorageChoice::Memory) => "Memory only",
+                Some(StorageChoice::Temporary) => "System temporary folder",
+                Some(StorageChoice::Repository) => "Repository folder",
+                Some(StorageChoice::Custom) => "Custom folder",
+                None => "Index storage",
+            }
+            .into();
         match session.repository.index().storage_status() {
             Ok(storage) => {
-                self.index_ui.managed_directory = storage.managed_directory.as_ref().map(|path| path.display().to_string());
+                self.index_ui.managed_directory = storage
+                    .managed_directory
+                    .as_ref()
+                    .map(|path| path.display().to_string());
+                self.index_ui.segments_full_validated = storage.segments_full_validated;
+                self.index_ui.segments_stamp_trusted = storage.segments_stamp_trusted;
+                self.index_ui.validation_stamps_written = storage.validation_stamps_written;
+                self.index_ui.validation_stamp_error = storage.validation_stamp_error.clone();
                 self.index_ui.residency = match storage.readiness {
                     IndexReadiness::Building => "Building index",
                     IndexReadiness::Searchable => "Searchable on demand",
                     IndexReadiness::PreparingFullResidency => "Preparing full residency",
                     IndexReadiness::FullyResidentReady => "Entire index in memory",
-                }.into();
+                }
+                .into();
                 if !storage.source_reconciliation_complete {
                     self.index_ui.residency.push_str("; checking source files");
                 }
                 self.index_ui.synchronization = match storage.synchronization {
                     IndexSynchronization::MemoryOnly => "No index files are read or written".into(),
-                    IndexSynchronization::Pending => format!("Pending (current generation {}, durable generation {})", storage.current_generation, storage.durable_generation.map_or_else(|| "none".into(), |generation| generation.to_string())),
+                    IndexSynchronization::Pending => format!(
+                        "Pending (current generation {}, durable generation {})",
+                        storage.current_generation,
+                        storage
+                            .durable_generation
+                            .map_or_else(|| "none".into(), |generation| generation.to_string())
+                    ),
                     IndexSynchronization::Synchronizing => "Synchronizing index files".into(),
-                    IndexSynchronization::Synchronized => format!("Synchronized generation {}", storage.durable_generation.unwrap_or(storage.current_generation)),
-                    IndexSynchronization::Failed => format!("Failed: {}", storage.last_error.as_deref().unwrap_or("unknown storage error")),
+                    IndexSynchronization::Synchronized => format!(
+                        "Synchronized generation {}",
+                        storage
+                            .durable_generation
+                            .unwrap_or(storage.current_generation)
+                    ),
+                    IndexSynchronization::Failed => format!(
+                        "Failed: {}",
+                        storage
+                            .last_error
+                            .as_deref()
+                            .unwrap_or("unknown storage error")
+                    ),
                 };
             }
             Err(error) => {
                 self.index_ui.managed_directory = None;
+                self.index_ui.segments_full_validated = 0;
+                self.index_ui.segments_stamp_trusted = 0;
+                self.index_ui.validation_stamps_written = 0;
+                self.index_ui.validation_stamp_error = Some(error.to_string());
                 self.index_ui.residency = "Status unavailable".into();
                 self.index_ui.synchronization = format!("Status unavailable: {error}");
             }
@@ -1610,12 +1640,9 @@ impl DesktopController {
         updates.push(UiUpdate::Opening("Opening repository…".into()));
         thread::spawn(move || {
             let result = match open_gate.lock() {
-                Ok(_open_gate) => open_after_flushing_previous(
-                    &spec,
-                    &token,
-                    previous.as_ref(),
-                    requested_check,
-                ),
+                Ok(_open_gate) => {
+                    open_after_flushing_previous(&spec, &token, previous.as_ref(), requested_check)
+                }
                 Err(_) => Err("repository opening coordinator is unavailable".into()),
             };
             let _ = sender.send(WorkerEvent::Opened {
@@ -3780,7 +3807,9 @@ impl DesktopController {
                 return;
             }
             Err(error) => {
-                updates.push(UiUpdate::ClosingIndex { error: Some(error.to_string()) });
+                updates.push(UiUpdate::ClosingIndex {
+                    error: Some(error.to_string()),
+                });
                 return;
             }
             _ => {}
@@ -3835,8 +3864,9 @@ impl DesktopController {
         updates.push(UiUpdate::ClosingIndex { error: None });
         thread::spawn(move || {
             let result = match check_gate.lock() {
-                Ok(_check_gate) => backend::index_lifecycle::shutdown(&session)
-                    .map_err(|error| error.to_string()),
+                Ok(_check_gate) => {
+                    backend::index_lifecycle::shutdown(&session).map_err(|error| error.to_string())
+                }
                 Err(_) => Err("automatic checking coordinator is unavailable".into()),
             };
             let _ = sender.send(WorkerEvent::IndexShutdown {
@@ -4158,7 +4188,9 @@ fn resume_previous_automation(
     {
         return Ok(());
     }
-    index.set_sync_storage(true).map_err(|error| error.to_string())?;
+    index
+        .set_sync_storage(true)
+        .map_err(|error| error.to_string())?;
     backend::index_lifecycle::set_periodic_check(
         session,
         requested_check
@@ -4198,12 +4230,16 @@ fn open_after_flushing_previous(
                     .map_err(|error| error.to_string())
             })
         {
-            return Err(match resume_previous_automation(previous, requested_check) {
-                Ok(()) => format!("Could not finish the current index before reopening: {error}"),
-                Err(resume_error) => format!(
-                    "Could not finish the current index before reopening: {error}; could not resume synchronization: {resume_error}"
-                ),
-            });
+            return Err(
+                match resume_previous_automation(previous, requested_check) {
+                    Ok(()) => {
+                        format!("Could not finish the current index before reopening: {error}")
+                    }
+                    Err(resume_error) => format!(
+                        "Could not finish the current index before reopening: {error}; could not resume synchronization: {resume_error}"
+                    ),
+                },
+            );
         }
     }
     let result = open_with_preferences(spec, token);

@@ -1,0 +1,254 @@
+[
+  {
+    "pair": 0,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 2.1313000509981066,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/0-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 0,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.4990776189952157,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/0-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 1,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.5408500320045277,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/1-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 1,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.488975454994943,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/1-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 2,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.540615459001856,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/2-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 2,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.4984402880072594,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 3,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.4914088269870263,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/3-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 3,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.4767280280066188,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/3-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 4,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.4973536460020114,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/4-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 4,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.4950201349856798,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/4-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 5,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.452810934977606,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/5-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 5,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.485817512992071,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/5-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 6,
+    "label": "base",
+    "returncode": 0,
+    "seconds": 1.5070212090213317,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-baseline-ca183a/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/6-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  },
+  {
+    "pair": 6,
+    "label": "candidate",
+    "returncode": 0,
+    "seconds": 1.4855827309947927,
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/paired-construction/6-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ]
+  }
+]

@@ -4,6 +4,7 @@ use std::collections::BTreeMap;
 use std::io::Write;
 use std::ops::Bound;
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU8, Ordering};
 
 use roaring::RoaringBitmap;
 use serde::Serialize;
@@ -214,6 +215,19 @@ pub(crate) struct SealedPostingDictionary<K> {
     dictionary: OrderedBlockDictionary<K>,
     allowed: Arc<RoaringBitmap>,
     constructed: bool,
+    /// One byte per writer-ordered leaf entry. The checked offset table gives
+    /// each decoded descriptor a stable ordinal without a query-time hash.
+    validated_ordinals: Option<Box<[AtomicU8]>>,
+}
+
+
+fn validation_slots(entries: usize) -> Result<Box<[AtomicU8]>, String> {
+    let mut slots = Vec::new();
+    slots
+        .try_reserve_exact(entries)
+        .map_err(|error| format!("posting proof allocation: {error}"))?;
+    slots.resize_with(entries, || AtomicU8::new(0));
+    Ok(slots.into_boxed_slice())
 }
 
 
@@ -325,11 +339,61 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
     ) -> Result<Self, String> {
         let dictionary =
             OrderedBlockDictionary::open(Arc::clone(&reader), section, span.start, span.length)?;
+        let validated_ordinals = Some(validation_slots(dictionary.len())?);
         Ok(Self {
             reader,
             dictionary,
             allowed,
             constructed: false,
+            validated_ordinals,
+        })
+    }
+
+    /// Only a matching managed-store validator stamp may select this path.
+    /// Posting payloads remain checked on access for every external segment.
+    pub(crate) fn open_with_proven_dictionary(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        span: DictionarySpan,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<Self, String> {
+        let dictionary = OrderedBlockDictionary::open_with_proven_order(
+            Arc::clone(&reader),
+            section,
+            span.start,
+            span.length,
+        )?;
+        let validated_ordinals = Some(validation_slots(dictionary.len())?);
+        Ok(Self {
+            reader,
+            dictionary,
+            allowed,
+            constructed: false,
+            validated_ordinals,
+        })
+    }
+
+    pub(crate) fn open_stamped_visiting_encoded(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        span: DictionarySpan,
+        allowed: Arc<RoaringBitmap>,
+        visit: impl FnMut(usize, &[u8]) -> Result<(), String>,
+    ) -> Result<Self, String> {
+        let dictionary = OrderedBlockDictionary::open_with_proven_order_visiting_encoded(
+            Arc::clone(&reader),
+            section,
+            span.start,
+            span.length,
+            visit,
+        )?;
+        let validated_ordinals = Some(validation_slots(dictionary.len())?);
+        Ok(Self {
+            reader,
+            dictionary,
+            allowed,
+            constructed: false,
+            validated_ordinals,
         })
     }
 
@@ -347,11 +411,13 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             span.length,
             visit,
         )?;
+        let validated_ordinals = Some(validation_slots(dictionary.len())?);
         Ok(Self {
             reader,
             dictionary,
             allowed,
             constructed: false,
+            validated_ordinals,
         })
     }
 
@@ -374,6 +440,7 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             dictionary,
             allowed,
             constructed: true,
+            validated_ordinals: None,
         })
     }
 
@@ -491,14 +558,35 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         }
     }
 
+    fn posting_proven(&self, descriptor: PostingDescriptor) -> bool {
+        self.validated_ordinals
+            .as_ref()
+            .and_then(|slots| slots.get(descriptor.ordinal as usize))
+            .is_some_and(|slot| slot.load(Ordering::Acquire) == 1)
+    }
+
+    fn record_posting_proof(&self, descriptor: PostingDescriptor) {
+        if let Some(slot) = self
+            .validated_ordinals
+            .as_ref()
+            .and_then(|slots| slots.get(descriptor.ordinal as usize))
+        {
+            slot.store(1, Ordering::Release);
+        }
+    }
+
     /// The writer's private construction proof permits unchecked decoding.
     /// Every external cache miss is checked against this dictionary's exact
     /// eligible domain before it can affect a result or enter the cache.
     fn decode_operand(&self, descriptor: PostingDescriptor) -> Result<RoaringBitmap, String> {
         if self.constructed {
             self.reader.materialize_validated_posting(descriptor)
+        } else if self.posting_proven(descriptor) {
+            self.reader.materialize_validated_posting(descriptor)
         } else {
-            self.reader.materialize_posting(descriptor, &self.allowed)
+            let bitmap = self.reader.materialize_posting(descriptor, &self.allowed)?;
+            self.record_posting_proof(descriptor);
+            Ok(bitmap)
         }
     }
 
@@ -557,6 +645,17 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             }
             return self.reader.intersect_validated_posting(descriptor, input);
         }
+        if descriptor.length >= MIN_CACHED_POSTING_BYTES {
+            if let Some(bitmap) =
+                self.reader
+                    .cached_posting(descriptor, &self.allowed, PostingProof::Checked)
+            {
+                return Ok(input & bitmap.as_ref());
+            }
+        }
+        if self.posting_proven(descriptor) {
+            return self.reader.intersect_validated_posting(descriptor, input);
+        }
         self.with_operand(descriptor, |bitmap| input & bitmap)
     }
 
@@ -576,6 +675,20 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
                 let next = self.reader.intersect_validated_posting(descriptor, input)?;
                 *input = next;
             }
+            return Ok(());
+        }
+        if descriptor.length >= MIN_CACHED_POSTING_BYTES {
+            if let Some(bitmap) =
+                self.reader
+                    .cached_posting(descriptor, &self.allowed, PostingProof::Checked)
+            {
+                *input &= bitmap.as_ref();
+                return Ok(());
+            }
+        }
+        if self.posting_proven(descriptor) {
+            let next = self.reader.intersect_validated_posting(descriptor, input)?;
+            *input = next;
             return Ok(());
         }
         self.with_operand(descriptor, |bitmap| *input &= bitmap)
