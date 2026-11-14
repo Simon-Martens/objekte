@@ -77,24 +77,20 @@ def main() -> None:
     for alphabet in ("ascii", "unicode"):
         for dataset in ("general", "large"):
             root = fixtures / dataset
-            snapshot = output / f"snapshot-{alphabet}-{dataset}"
             common = ["--path", str(root), "--index-alphabet", alphabet]
-            scenarios = [
-                ("fresh-write", [*common, f"--write-index={snapshot}"]),
-                ("restore", [*common, f"--load-index={snapshot}"]),
-            ]
+            scenarios = [("fresh", list(common))]
             if dataset == "general":
                 scenarios += [
-                    ("selective-fts", [*common, f"--load-index={snapshot}", "--fts", "Goethe"]),
-                    ("dynamic-filter", [*common, f"--load-index={snapshot}", 'title ~ "Goethe"']),
-                    ("numeric-scan", [*common, f"--load-index={snapshot}", "year >= 1800"]),
-                    ("finite-sort", [*common, f"--load-index={snapshot}", "--limit", "5", "--count", "year >= 1800 SORT BY year DESC"]),
+                    ("selective-fts", [*common, "--fts", "Goethe"]),
+                    ("dynamic-filter", [*common, 'title ~ "Goethe"']),
+                    ("numeric-scan", [*common, "year >= 1800"]),
+                    ("finite-sort", [*common, "--limit", "5", "--count", "year >= 1800 SORT BY year DESC"]),
                 ]
             else:
                 scenarios += [
-                    ("all-results", [*common, f"--load-index={snapshot}", "--fts", "export-match"]),
-                    ("computed-sort-all", [*common, f"--load-index={snapshot}", 'kind = "export-match" SORT BY ordinal DESC']),
-                    ("computed-sort-page", [*common, f"--load-index={snapshot}", "--limit", "50", "--count", 'kind = "export-match" SORT BY ordinal DESC']),
+                    ("all-results", [*common, "--fts", "export-match"]),
+                    ("computed-sort-all", [*common, 'kind = "export-match" SORT BY ordinal DESC']),
+                    ("computed-sort-page", [*common, "--limit", "50", "--count", 'kind = "export-match" SORT BY ordinal DESC']),
                 ]
             for name, command in scenarios:
                 samples = []

@@ -1,8 +1,8 @@
 # Index lifecycle implementation contracts
 
 This is a historical phase 0 design record for task `index-lifecycle`.
-The current persistence contract uses memory construction plus explicit
-`Index::try_load` and `Index::flush_to`; see [search core](../search-core.md).
+The current contract uses memory construction plus explicit
+`Index::build` and `Index::start_incremental_build`; see [search core](../search-core.md).
 The policy and automatic synchronization descriptions below record the former design. The implementation
 base is `9a94bc90d0d80ff7d14f44e457acf8787212d5ab` on 8 November 2026.
 It records interfaces and ownership before production modules are changed.
@@ -11,7 +11,7 @@ It records interfaces and ownership before production modules are changed.
 
 At the phase 0 baseline, `Repository` was the primary immutable index.
 Today it remains an in-memory builder and library API. CLI, TUI, and desktop
-queries use the versioned `Index` lifecycle; managed generations are loaded or saved only on request.
+queries use the versioned `Index` lifecycle; every index is built in memory from its sources.
 
 `cargo test --workspace --all-targets` on the base passed 333 core unit tests
 (two ignored) and the core integration tests, then failed in the existing
@@ -47,8 +47,8 @@ serialization to be a reliable workspace gate.
   An invalid old-byte hint is a successful normal replacement when the target
   version still matches; it never changes a newer incarnation.
 - Long operations return observable status/task handles with cancellation and
-  wait. Status distinguishes index revision, reconciliation state, managed storage
-  durability, operation progress and query completeness. UI code formats
+  wait. Status distinguishes index revision, reconciliation state, operation
+  progress and query completeness. UI code formats
   messages; it does not parse them to infer state.
 
 ## Publication representation
@@ -74,15 +74,16 @@ copy/allocation cost and search parity on a representative collection. If it
 cannot meet touched-file cost or relation semantics, revise this record and
 the design before exposing mutation as complete.
 
-## Persistence and callers
+## Memory-only callers
 
-At the time of this phase 0 design, callers selected `IndexStoragePolicy` and called
-`Index::open_with_storage`. A valid managed generation is validated before it
-becomes searchable; reconciliation then runs in the background. The caller
-can wait for reconciliation when exact current state is needed.
-`flush_storage()` persists a complete pinned revision to the attached store.
-`set_sync_storage` controls coalesced managed writes. Schema discovery stays
-in the shared repository configuration loader.
+The index is built in memory from the current source definitions and released
+when its owner drops it. `Index::build` and `Index::start_incremental_build`
+are the source-build entry points; there is no index storage policy, managed
+generation, mapped reader, save or flush API. A progressively built catalogue
+becomes searchable before every batch finishes, and reconciliation then checks
+source metadata in the background. `wait_for_reconciliation` lets callers wait
+for that check when exact current state is needed. Schema discovery stays in
+the shared repository configuration loader.
 
 The core task owns implementation and minimal caller migration. The separately
 authorized desktop task starts from the pushed core integration commit. It

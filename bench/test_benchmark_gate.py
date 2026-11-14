@@ -31,7 +31,7 @@ class CompatibilityTests(unittest.TestCase):
             "code_revision": "before", "root": "/first/checkout",
             "corpus_fingerprint": "corpus", "schema_fingerprint": "path-hash",
             "workload_fingerprint": "workload", "compiler": "rustc",
-            "source_cache_bytes": 0, "decoded_cache_bytes": 0, "query_workers": 32,
+            "source_cache_bytes": 0, "query_workers": 32,
             "profiles": [["ascii-off", {"alphabet": "ascii", "warm": False,
                                        "verified_cache_bytes": 0}]],
             "registrations": [

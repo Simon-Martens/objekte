@@ -3,15 +3,13 @@
 Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
 index-building time. On a fresh build, the file catalogue opens after discovery
-and search can begin while records are still indexed. An explicitly requested saved generation opens without rebuilding. The first run may take
-longer while the index is built; the release build is recommended for the
-Musenalm corpus. After each search,
+and search can begin while records are still indexed. Every open builds the index in RAM from the current sources; the first run may take longer while it is built, and the release build is recommended for the Musenalm corpus. After each search,
 the result status line shows its execution time.
 The terminal UI is an optional feature of `crates/cli`, enabled by default for the `obj` binary. It uses the schema files under
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
 `CollectionDefinition` values. Schema loading belongs to the CLI adapter;
 applications can also construct definitions directly and call
-`Index::build`, `Index::try_load`, and `Index::flush_to`.
+`Index::build` and `Index::start_incremental_build`.
 
 Type literal text in **Search**, or press Tab for a structured **Filter**.
 The Filter offers fields from the current index publication, built-in metadata,
@@ -29,9 +27,7 @@ columns. Alt+E exports the selected record; Alt+A exports all matches to a
 new JSON file. The UI fetches result pages of 100 records as you approach
 the end. Settings live in `.objekte/.cache/tui.json`.
 
-Ctrl+K opens index actions. Choose **Open saved index…** or **Save index…**, then choose Temporary, Repository, or Custom. Custom uses an existing base directory; relative paths resolve from the invocation's working directory. Editing the custom path does not start an operation. Opening a saved index checks only the selected location. On clean absence, the TUI builds in memory; a damaged saved index reports an error. The current session stays available until a replacement is ready.
-
-Saving runs in a worker and keeps the current search, filter, collection selection, and result view. The status reports the saved revision and destination generation; later changes remain in memory until another explicit save. `--flush-index` requests one save after startup construction and reconciliation. Ctrl+Q closes without starting a save. An explicit save already in progress resolves through the operation lifecycle. Ordinary source reconciliation does not save automatically.
+Ctrl+K opens the action list for source and search controls. The TUI has no saved-index open, save, retry or storage selector. Ctrl+Q closes the screen and releases the in-memory index. Source reconciliation and maintenance keep the current search, filter, collection selection and result view available while they run, and ordinary closing never writes index files.
 
 Ctrl+I switches between search results and the physical file catalogue. The
 catalogue shows repository-relative paths, sizes, and file timestamps; a
