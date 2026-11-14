@@ -8,7 +8,7 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::build::IndexedCollectionSegment;
-use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
+use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation, self_comparison_shape};
 use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, Value};
@@ -557,9 +557,10 @@ fn segment_expr_bounds(
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if term.related.is_some()
-                || term.rhs.is_some()
+                || (term.rhs.is_some() && !self_comparison_shape(term))
                 || (term.query_path.has_explicit_array_step
-                    && term.derived.state_predicate().is_none())
+                    && term.derived.state_predicate().is_none()
+                    && !self_comparison_shape(term))
             {
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
@@ -1426,7 +1427,7 @@ fn enumerate_paths(
         );
         return Ok(paths);
     }
-    if term.rhs.is_some() {
+    if term.rhs.is_some() && !self_comparison_shape(term) {
         // Ordinary postings have record membership, not array occurrence
         // positions. A positional predicate always keeps a residual scan.
         add(AccessPathKind::Scanner, false, 0.0, input_len, None);
@@ -1722,7 +1723,12 @@ fn estimate_plan_node(
             let structural_candidates = (selected.kind == AccessPathKind::RawBigram
                 && empty_selection_preservation(term))
             .then_some(collection.empty_array_records.len());
-            let reason = if selected.kind == AccessPathKind::Scanner
+            let reason = if matches!(
+                selected.posting,
+                Some((_, PostingOperation::SelfComparePresence, _))
+            ) {
+                "self-comparison reduced to path presence; estimate only".into()
+            } else if selected.kind == AccessPathKind::Scanner
                 && term.path.root == PathRoot::Data
                 && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
                 && matches!(term.binding_name.as_str(), "default" | "lower")
@@ -2149,7 +2155,12 @@ fn plan_logical_expr(
                     && empty_selection_preservation(term))
                 .then_some(collection.empty_array_records.len());
                 let reason = if selected.kind == AccessPathKind::Posting {
-                    if selected.exact {
+                    if matches!(
+                        selected.posting,
+                        Some((_, PostingOperation::SelfComparePresence, _))
+                    ) {
+                        "self-comparison reduced to path presence".into()
+                    } else if selected.exact {
                         "compatible posting capability proves this bound predicate".into()
                     } else {
                         "posting capability restricts candidates; residual verification retains selector and quantifier semantics".into()

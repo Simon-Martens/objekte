@@ -3151,7 +3151,9 @@ fn has_unavailable_active_source(
 fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     match expr {
         BoundExpr::Term(term) => {
-            if term.related.is_some() || term.rhs.is_some() {
+            if term.related.is_some()
+                || (term.rhs.is_some() && !crate::index_catalog::self_comparison_shape(term))
+            {
                 return None;
             }
             Some(

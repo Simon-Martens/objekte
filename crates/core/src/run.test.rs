@@ -666,7 +666,10 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         assert_eq!(many.hits, one.hits, "{filter}");
         assert_eq!(many.count, reference.count, "{filter}");
         assert_eq!(many.hits, reference.hits, "{filter}");
-        if filter == "contributors:length > 0" {
+        if matches!(
+            filter,
+            "contributors:length > 0" | "contributors[*].type = contributors[*].type"
+        ) {
             assert_eq!(many.counters.scanned_records, 0, "{filter}");
         } else {
             assert!(many.counters.scanned_records > 0, "{filter}");
@@ -809,6 +812,56 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
                 }
             }
         }
+    }
+    let self_comparison = |filter| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let equality = self_comparison("contributors[*].type = contributors[*].type");
+    let inequality = self_comparison("contributors[*].type != contributors[*].type");
+    let existence = self_comparison("contributors[*].type:exists = true");
+    for (result, reference, plan) in [
+        (
+            direct.search(&equality).unwrap(),
+            direct.search_reference(&equality).unwrap(),
+            direct.explain(&equality).unwrap(),
+        ),
+        (
+            segmented.search(&equality).unwrap(),
+            segmented.search_reference(&equality).unwrap(),
+            segmented.explain(&equality).unwrap(),
+        ),
+    ] {
+        assert_eq!(result.count, reference.count);
+        assert_eq!(result.hits, reference.hits);
+        assert_eq!(result.counters.scanned_records, 0, "{plan:?}");
+        assert_eq!(result.counters.bytes_read, 0);
+        assert!(result.count.unwrap() > direct.search(&existence).unwrap().count.unwrap());
+        assert_eq!(
+            plan[0].terms[0]
+                .reason
+                .contains("self-comparison reduced to path presence"),
+            plan[0].terms[0].selected.kind == crate::executor::AccessPathKind::Posting
+        );
+    }
+    for search in [
+        direct.search(&inequality).unwrap(),
+        segmented.search(&inequality).unwrap(),
+    ] {
+        assert_eq!(
+            search.hits,
+            direct.search_reference(&inequality).unwrap().hits
+        );
+        assert!(search.counters.scanned_records > 0);
     }
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

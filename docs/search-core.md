@@ -183,6 +183,12 @@ operators apply per selected
 element under the same quantifier, rather than negating the entire record
 predicate.
 
+An identical scalar field compared with itself using `=` and the default
+quantifier is resolved from its exact presence posting when the declared path
+and every explicit array step are compatible. Empty present selections satisfy
+that comparison, while `:exists` is false for them. Other self-comparisons
+retain source evaluation.
+
 Declared field types, required status, field nullability, and per-array-level
 element nullability are checked during extraction before typed indexes receive
 a record. Readable malformed or invalid records become diagnosed raw fallback

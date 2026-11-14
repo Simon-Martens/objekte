@@ -9,8 +9,8 @@ use crate::bigram::BigramIndex;
 use crate::build::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
-use crate::posting::ScalarKey;
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::posting::{ScalarKey, StructuralKey};
 use crate::query::{Operator, Quantifier};
 use crate::query_path::PathStep;
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
@@ -45,6 +45,7 @@ pub(crate) struct PostingAccess<'a> {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum PostingOperation {
     Exact,
+    SelfComparePresence,
     EmptyStringExact,
     ObservedScalarExact,
     StringDictionaryExact,
@@ -73,6 +74,33 @@ impl PostingAccess<'_> {
     ) -> Result<Option<PostingProposal>, String> {
         let index = self.index;
         let structural = term.derived.state_predicate().is_some();
+        // The paired evaluator treats a present empty selection as vacuously
+        // true. `:exists` excludes that selection, so this uses raw presence.
+        // A non-scalar occurrence can compare false (or raise an ambiguity),
+        // and must keep the source evaluator.
+        if self.admitted
+            && self.id == PostingId::Declared
+            && term.path.root == PathRoot::Data
+            && self_comparison_shape(term)
+            && term.source_kind == index.kind
+            && (!term.query_path.has_explicit_array_step || declared_array_steps(self.schema, term))
+            && index.covered_records as u64 == domain.len()
+            && index.structural.as_ref().is_some_and(|facts| {
+                [StructuralKey::Array, StructuralKey::Object]
+                    .into_iter()
+                    .all(|key| facts.postings.get(&key).is_none_or(RoaringBitmap::is_empty))
+            })
+        {
+            *visits += 1;
+            return Ok(Some(PostingProposal {
+                id: self.id,
+                operation: PostingOperation::SelfComparePresence,
+                exact: true,
+                lookup_work: 1.0,
+                output: index.presence.len(),
+                coverage: index.covered_records,
+            }));
+        }
         if !self.admitted
             || term.path.root != PathRoot::Data
             || term.related.is_some()
@@ -264,6 +292,7 @@ impl PostingAccess<'_> {
         let index = self.index;
         match operation {
             PostingOperation::Exact => index.exact_set_restricted_checked(term, domain, input),
+            PostingOperation::SelfComparePresence => Ok(Some(input & &index.presence)),
             PostingOperation::EmptyStringExact => Ok(Some(
                 index
                     .value_posting_restricted(&ScalarKey::String(String::new()), input)?
@@ -344,6 +373,37 @@ fn declared_array_steps(schema: &Schema, term: &BoundTerm) -> bool {
         }
     }
     true
+}
+
+pub(crate) fn self_comparison_shape(term: &BoundTerm) -> bool {
+    let Some(rhs) = &term.rhs else { return false };
+    term.operator == Operator::Eq
+        && term.quantifier == Quantifier::Default
+        && term.derived == Derived::None
+        && rhs.derived == Derived::None
+        && term.path == rhs.path
+        && term.query_path == rhs.query_path
+        && term.kind == rhs.kind
+        && term.multi == rhs.multi
+        && !term.implicit_array
+        && !term.query_path.has_position
+        && matches!(
+            term.source_kind,
+            LogicalType::String
+                | LogicalType::Id
+                | LogicalType::Number
+                | LogicalType::Bool
+                | LogicalType::Date
+                | LogicalType::Datetime
+                | LogicalType::Unixtime
+        )
+        && term.transform == Transform::Identity
+        && rhs.transform == Transform::Identity
+        && term.operation.is_none()
+        && rhs.operation.is_none()
+        && term.matcher.is_none()
+        && term.related.is_none()
+        && term.period.is_none()
 }
 
 
