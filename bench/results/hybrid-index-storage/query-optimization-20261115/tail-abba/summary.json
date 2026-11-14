@@ -1,0 +1,932 @@
+{
+  "order": "ABBA",
+  "cases": [
+    "Q006",
+    "Q007",
+    "Q025",
+    "Q026",
+    "Q167",
+    "Q174",
+    "Q175",
+    "Q177",
+    "Q187",
+    "Q202",
+    "Q203",
+    "Q204"
+  ],
+  "profiles": [
+    "ascii-off",
+    "unicode-off"
+  ],
+  "repetitions_per_run": 30,
+  "binary_sha256": {
+    "A": "9baebc3cbc615fd4528cbea7b9716ddbfcdf94ce2dc069ad8c85eb990695a358",
+    "B": "027c12fabecbc113697abb29f9707e1424d13a62722736120f9ab90cd6946e7a"
+  },
+  "fixture_root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "runs": [
+    {
+      "label": "A",
+      "position": 0,
+      "command": [
+        "target/hybrid-index-storage/query-baseline-8ca/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--cases",
+        "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+        "--repetitions",
+        "30",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--result-dir",
+        "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/0-A"
+      ],
+      "manifest": {
+        "binary_build_revision": null,
+        "build_mode": "hybrid",
+        "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+        "code_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "command": [
+          "target/hybrid-index-storage/query-baseline-8ca/bench_musenalm",
+          "--root",
+          "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+          "--extended",
+          "--incremental",
+          "--profiles",
+          "ascii-off,unicode-off",
+          "--cases",
+          "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+          "--repetitions",
+          "30",
+          "--verified-cache-bytes",
+          "0",
+          "--prepared-cache-bytes",
+          "16777216",
+          "--query-workers",
+          "32",
+          "--result-dir",
+          "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/0-A"
+        ],
+        "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+        "executable_sha256": "9baebc3cbc615fd4528cbea7b9716ddbfcdf94ce2dc069ad8c85eb990695a358",
+        "execution_checkout_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "extended": true,
+        "failures": 0,
+        "internal_decoded_posting_cache": {
+          "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+          "observations": [
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3576345,
+                "retained_bytes": 1123492,
+                "sealed_segments": 8
+              },
+              "alphabet": "ascii"
+            },
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3718737,
+                "retained_bytes": 1123508,
+                "sealed_segments": 8
+              },
+              "alphabet": "unicode"
+            }
+          ]
+        },
+        "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+        "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+        "prepared_cache_bytes": 16777216,
+        "profiles": [
+          [
+            "ascii-off",
+            {
+              "alphabet": "ascii",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ],
+          [
+            "unicode-off",
+            {
+              "alphabet": "unicode",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ]
+        ],
+        "query_workers": 32,
+        "registrations": [
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "agents",
+            "sort_fields": [
+              "name"
+            ],
+            "source_path": "data/agents",
+            "type_hints": 261
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "contents",
+            "sort_fields": [
+              "numbering",
+              "preferred_title"
+            ],
+            "source_path": "data/contents",
+            "type_hints": 37
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "entries",
+            "sort_fields": [
+              "year",
+              "preferred_title"
+            ],
+            "source_path": "data/entries",
+            "type_hints": 65
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "items",
+            "sort_fields": [],
+            "source_path": "data/items",
+            "type_hints": 15
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "pages",
+            "sort_fields": [],
+            "source_path": "data/pages",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "places",
+            "sort_fields": [
+              "name",
+              "@file.size"
+            ],
+            "source_path": "data/places",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "series",
+            "sort_fields": [
+              "title"
+            ],
+            "source_path": "data/series",
+            "type_hints": 18
+          }
+        ],
+        "repetitions": 30,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "run_id": "1794621122-aaf732dd93",
+        "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+        "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+        "source_cache_bytes": 0,
+        "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }",
+        "validator_version": 1,
+        "workload_fingerprint": "4ce8645bc154a809c73b365aa3fd003443c3b9584b4f0521a1a21ff6d55bf829"
+      }
+    },
+    {
+      "label": "B",
+      "position": 1,
+      "command": [
+        "target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--cases",
+        "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+        "--repetitions",
+        "30",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--result-dir",
+        "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/1-B"
+      ],
+      "manifest": {
+        "binary_build_revision": null,
+        "build_mode": "hybrid",
+        "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+        "code_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "command": [
+          "target/release/examples/bench_musenalm",
+          "--root",
+          "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+          "--extended",
+          "--incremental",
+          "--profiles",
+          "ascii-off,unicode-off",
+          "--cases",
+          "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+          "--repetitions",
+          "30",
+          "--verified-cache-bytes",
+          "0",
+          "--prepared-cache-bytes",
+          "16777216",
+          "--query-workers",
+          "32",
+          "--result-dir",
+          "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/1-B"
+        ],
+        "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+        "executable_sha256": "027c12fabecbc113697abb29f9707e1424d13a62722736120f9ab90cd6946e7a",
+        "execution_checkout_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "extended": true,
+        "failures": 0,
+        "internal_decoded_posting_cache": {
+          "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+          "observations": [
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3714861,
+                "retained_bytes": 1123492,
+                "sealed_segments": 8
+              },
+              "alphabet": "ascii"
+            },
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3857253,
+                "retained_bytes": 1123508,
+                "sealed_segments": 8
+              },
+              "alphabet": "unicode"
+            }
+          ]
+        },
+        "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+        "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+        "prepared_cache_bytes": 16777216,
+        "profiles": [
+          [
+            "ascii-off",
+            {
+              "alphabet": "ascii",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ],
+          [
+            "unicode-off",
+            {
+              "alphabet": "unicode",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ]
+        ],
+        "query_workers": 32,
+        "registrations": [
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "agents",
+            "sort_fields": [
+              "name"
+            ],
+            "source_path": "data/agents",
+            "type_hints": 261
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "contents",
+            "sort_fields": [
+              "numbering",
+              "preferred_title"
+            ],
+            "source_path": "data/contents",
+            "type_hints": 37
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "entries",
+            "sort_fields": [
+              "year",
+              "preferred_title"
+            ],
+            "source_path": "data/entries",
+            "type_hints": 65
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "items",
+            "sort_fields": [],
+            "source_path": "data/items",
+            "type_hints": 15
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "pages",
+            "sort_fields": [],
+            "source_path": "data/pages",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "places",
+            "sort_fields": [
+              "name",
+              "@file.size"
+            ],
+            "source_path": "data/places",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "series",
+            "sort_fields": [
+              "title"
+            ],
+            "source_path": "data/series",
+            "type_hints": 18
+          }
+        ],
+        "repetitions": 30,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "run_id": "1794621180-aaf732dd93",
+        "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+        "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+        "source_cache_bytes": 0,
+        "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }",
+        "validator_version": 1,
+        "workload_fingerprint": "4ce8645bc154a809c73b365aa3fd003443c3b9584b4f0521a1a21ff6d55bf829"
+      }
+    },
+    {
+      "label": "B",
+      "position": 2,
+      "command": [
+        "target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--cases",
+        "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+        "--repetitions",
+        "30",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--result-dir",
+        "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/2-B"
+      ],
+      "manifest": {
+        "binary_build_revision": null,
+        "build_mode": "hybrid",
+        "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+        "code_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "command": [
+          "target/release/examples/bench_musenalm",
+          "--root",
+          "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+          "--extended",
+          "--incremental",
+          "--profiles",
+          "ascii-off,unicode-off",
+          "--cases",
+          "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+          "--repetitions",
+          "30",
+          "--verified-cache-bytes",
+          "0",
+          "--prepared-cache-bytes",
+          "16777216",
+          "--query-workers",
+          "32",
+          "--result-dir",
+          "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/2-B"
+        ],
+        "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+        "executable_sha256": "027c12fabecbc113697abb29f9707e1424d13a62722736120f9ab90cd6946e7a",
+        "execution_checkout_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "extended": true,
+        "failures": 0,
+        "internal_decoded_posting_cache": {
+          "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+          "observations": [
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3714861,
+                "retained_bytes": 1123492,
+                "sealed_segments": 8
+              },
+              "alphabet": "ascii"
+            },
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3857253,
+                "retained_bytes": 1123508,
+                "sealed_segments": 8
+              },
+              "alphabet": "unicode"
+            }
+          ]
+        },
+        "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+        "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+        "prepared_cache_bytes": 16777216,
+        "profiles": [
+          [
+            "ascii-off",
+            {
+              "alphabet": "ascii",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ],
+          [
+            "unicode-off",
+            {
+              "alphabet": "unicode",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ]
+        ],
+        "query_workers": 32,
+        "registrations": [
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "agents",
+            "sort_fields": [
+              "name"
+            ],
+            "source_path": "data/agents",
+            "type_hints": 261
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "contents",
+            "sort_fields": [
+              "numbering",
+              "preferred_title"
+            ],
+            "source_path": "data/contents",
+            "type_hints": 37
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "entries",
+            "sort_fields": [
+              "year",
+              "preferred_title"
+            ],
+            "source_path": "data/entries",
+            "type_hints": 65
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "items",
+            "sort_fields": [],
+            "source_path": "data/items",
+            "type_hints": 15
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "pages",
+            "sort_fields": [],
+            "source_path": "data/pages",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "places",
+            "sort_fields": [
+              "name",
+              "@file.size"
+            ],
+            "source_path": "data/places",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "series",
+            "sort_fields": [
+              "title"
+            ],
+            "source_path": "data/series",
+            "type_hints": 18
+          }
+        ],
+        "repetitions": 30,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "run_id": "1794621210-aaf732dd93",
+        "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+        "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+        "source_cache_bytes": 0,
+        "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }",
+        "validator_version": 1,
+        "workload_fingerprint": "4ce8645bc154a809c73b365aa3fd003443c3b9584b4f0521a1a21ff6d55bf829"
+      }
+    },
+    {
+      "label": "A",
+      "position": 3,
+      "command": [
+        "target/hybrid-index-storage/query-baseline-8ca/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--cases",
+        "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+        "--repetitions",
+        "30",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--result-dir",
+        "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/3-A"
+      ],
+      "manifest": {
+        "binary_build_revision": null,
+        "build_mode": "hybrid",
+        "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+        "code_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "command": [
+          "target/hybrid-index-storage/query-baseline-8ca/bench_musenalm",
+          "--root",
+          "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+          "--extended",
+          "--incremental",
+          "--profiles",
+          "ascii-off,unicode-off",
+          "--cases",
+          "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+          "--repetitions",
+          "30",
+          "--verified-cache-bytes",
+          "0",
+          "--prepared-cache-bytes",
+          "16777216",
+          "--query-workers",
+          "32",
+          "--result-dir",
+          "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/3-A"
+        ],
+        "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+        "executable_sha256": "9baebc3cbc615fd4528cbea7b9716ddbfcdf94ce2dc069ad8c85eb990695a358",
+        "execution_checkout_revision": "aaf732dd93294855267649e0a8b5e62dfee73d42",
+        "extended": true,
+        "failures": 0,
+        "internal_decoded_posting_cache": {
+          "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+          "observations": [
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3576345,
+                "retained_bytes": 1123492,
+                "sealed_segments": 8
+              },
+              "alphabet": "ascii"
+            },
+            {
+              "after_queries": {
+                "entries": 1507,
+                "limit_bytes": 3718737,
+                "retained_bytes": 1123508,
+                "sealed_segments": 8
+              },
+              "alphabet": "unicode"
+            }
+          ]
+        },
+        "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+        "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+        "prepared_cache_bytes": 16777216,
+        "profiles": [
+          [
+            "ascii-off",
+            {
+              "alphabet": "ascii",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ],
+          [
+            "unicode-off",
+            {
+              "alphabet": "unicode",
+              "verified_cache_bytes": 0,
+              "warm": false
+            }
+          ]
+        ],
+        "query_workers": 32,
+        "registrations": [
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "agents",
+            "sort_fields": [
+              "name"
+            ],
+            "source_path": "data/agents",
+            "type_hints": 261
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "contents",
+            "sort_fields": [
+              "numbering",
+              "preferred_title"
+            ],
+            "source_path": "data/contents",
+            "type_hints": 37
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "entries",
+            "sort_fields": [
+              "year",
+              "preferred_title"
+            ],
+            "source_path": "data/entries",
+            "type_hints": 65
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "items",
+            "sort_fields": [],
+            "source_path": "data/items",
+            "type_hints": 15
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "pages",
+            "sort_fields": [],
+            "source_path": "data/pages",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "places",
+            "sort_fields": [
+              "name",
+              "@file.size"
+            ],
+            "source_path": "data/places",
+            "type_hints": 11
+          },
+          {
+            "format": "json",
+            "identity": "Filename",
+            "name": "series",
+            "sort_fields": [
+              "title"
+            ],
+            "source_path": "data/series",
+            "type_hints": 18
+          }
+        ],
+        "repetitions": 30,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "run_id": "1794621240-aaf732dd93",
+        "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+        "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+        "source_cache_bytes": 0,
+        "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }",
+        "validator_version": 1,
+        "workload_fingerprint": "4ce8645bc154a809c73b365aa3fd003443c3b9584b4f0521a1a21ff6d55bf829"
+      }
+    }
+  ],
+  "digest_parity": true,
+  "summary": [
+    {
+      "case": "Q006",
+      "profile": "ascii-off",
+      "baseline_median_ns": 137526242.5,
+      "candidate_median_ns": 127995268.0,
+      "ratio": 0.9306970486014696
+    },
+    {
+      "case": "Q006",
+      "profile": "unicode-off",
+      "baseline_median_ns": 138041104.5,
+      "candidate_median_ns": 128824379.5,
+      "ratio": 0.9332320251030736
+    },
+    {
+      "case": "Q007",
+      "profile": "ascii-off",
+      "baseline_median_ns": 171197528.0,
+      "candidate_median_ns": 153996090.5,
+      "ratio": 0.899522862853487
+    },
+    {
+      "case": "Q007",
+      "profile": "unicode-off",
+      "baseline_median_ns": 170272338.5,
+      "candidate_median_ns": 154775090.0,
+      "ratio": 0.9089855191012133
+    },
+    {
+      "case": "Q025",
+      "profile": "ascii-off",
+      "baseline_median_ns": 68105649.5,
+      "candidate_median_ns": 62658908.5,
+      "ratio": 0.9200251221449698
+    },
+    {
+      "case": "Q025",
+      "profile": "unicode-off",
+      "baseline_median_ns": 67485080.5,
+      "candidate_median_ns": 63746024.0,
+      "ratio": 0.9445943240743412
+    },
+    {
+      "case": "Q026",
+      "profile": "ascii-off",
+      "baseline_median_ns": 70237616.5,
+      "candidate_median_ns": 66798576.5,
+      "ratio": 0.9510370628821097
+    },
+    {
+      "case": "Q026",
+      "profile": "unicode-off",
+      "baseline_median_ns": 72630346.5,
+      "candidate_median_ns": 66813239.5,
+      "ratio": 0.9199080373380844
+    },
+    {
+      "case": "Q167",
+      "profile": "ascii-off",
+      "baseline_median_ns": 3603055.0,
+      "candidate_median_ns": 3084900.0,
+      "ratio": 0.8561900942394718
+    },
+    {
+      "case": "Q167",
+      "profile": "unicode-off",
+      "baseline_median_ns": 3556830.0,
+      "candidate_median_ns": 3491300.0,
+      "ratio": 0.9815762912481057
+    },
+    {
+      "case": "Q174",
+      "profile": "ascii-off",
+      "baseline_median_ns": 19595942.5,
+      "candidate_median_ns": 18917382.5,
+      "ratio": 0.9653724233983643
+    },
+    {
+      "case": "Q174",
+      "profile": "unicode-off",
+      "baseline_median_ns": 20352663.5,
+      "candidate_median_ns": 19536769.5,
+      "ratio": 0.9599121756226157
+    },
+    {
+      "case": "Q175",
+      "profile": "ascii-off",
+      "baseline_median_ns": 3166018.5,
+      "candidate_median_ns": 3038352.0,
+      "ratio": 0.9596760094737286
+    },
+    {
+      "case": "Q175",
+      "profile": "unicode-off",
+      "baseline_median_ns": 3048982.0,
+      "candidate_median_ns": 2776281.5,
+      "ratio": 0.9105601476164832
+    },
+    {
+      "case": "Q177",
+      "profile": "ascii-off",
+      "baseline_median_ns": 2803621.0,
+      "candidate_median_ns": 2597677.5,
+      "ratio": 0.9265437446787566
+    },
+    {
+      "case": "Q177",
+      "profile": "unicode-off",
+      "baseline_median_ns": 2738983.5,
+      "candidate_median_ns": 2650763.0,
+      "ratio": 0.9677907880788621
+    },
+    {
+      "case": "Q187",
+      "profile": "ascii-off",
+      "baseline_median_ns": 114505816.5,
+      "candidate_median_ns": 120860.0,
+      "ratio": 0.0010554922334447526
+    },
+    {
+      "case": "Q187",
+      "profile": "unicode-off",
+      "baseline_median_ns": 115251847.5,
+      "candidate_median_ns": 125462.5,
+      "ratio": 0.0010885942630984723
+    },
+    {
+      "case": "Q202",
+      "profile": "ascii-off",
+      "baseline_median_ns": 105934382.0,
+      "candidate_median_ns": 123759.5,
+      "ratio": 0.001168265653355112
+    },
+    {
+      "case": "Q202",
+      "profile": "unicode-off",
+      "baseline_median_ns": 105335375.5,
+      "candidate_median_ns": 123282.5,
+      "ratio": 0.001170380790069904
+    },
+    {
+      "case": "Q203",
+      "profile": "ascii-off",
+      "baseline_median_ns": 86336647.0,
+      "candidate_median_ns": 14306.0,
+      "ratio": 0.00016570020376167725
+    },
+    {
+      "case": "Q203",
+      "profile": "unicode-off",
+      "baseline_median_ns": 85767895.5,
+      "candidate_median_ns": 13622.0,
+      "ratio": 0.00015882399726130624
+    },
+    {
+      "case": "Q204",
+      "profile": "ascii-off",
+      "baseline_median_ns": 98472983.0,
+      "candidate_median_ns": 88568.5,
+      "ratio": 0.0008994192853891711
+    },
+    {
+      "case": "Q204",
+      "profile": "unicode-off",
+      "baseline_median_ns": 98665241.0,
+      "candidate_median_ns": 88724.5,
+      "ratio": 0.0008992477908202748
+    }
+  ]
+}

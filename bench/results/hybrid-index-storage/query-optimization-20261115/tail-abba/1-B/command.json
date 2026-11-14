@@ -1,0 +1,21 @@
+[
+  "target/release/examples/bench_musenalm",
+  "--root",
+  "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "--extended",
+  "--incremental",
+  "--profiles",
+  "ascii-off,unicode-off",
+  "--cases",
+  "Q006,Q007,Q025,Q026,Q167,Q174,Q175,Q177,Q187,Q202,Q203,Q204",
+  "--repetitions",
+  "30",
+  "--verified-cache-bytes",
+  "0",
+  "--prepared-cache-bytes",
+  "16777216",
+  "--query-workers",
+  "32",
+  "--result-dir",
+  "bench/results/hybrid-index-storage/query-optimization-20261115/tail-abba/1-B"
+]
