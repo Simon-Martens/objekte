@@ -46,15 +46,9 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             .save_index
             .as_ref()
             .or(args.load_index.as_ref())
-            .map(|value| {
-                IndexLocation::parse(value).resolve(
-                    &paths.root,
-                    &cwd,
-                    args.index_alphabet,
-                    args.auto_index,
-                )
-            })
-            .transpose()?;
+            .map(|value| IndexLocation::parse(value))
+            .unwrap_or(IndexLocation::SystemCache)
+            .resolve(&paths.root, &cwd, args.index_alphabet, args.auto_index)?;
         let (initial_search, initial_filter) = match source.next_input()? {
             Some(input) => {
                 let (_, decoded) = input.parse(args)?;
@@ -81,16 +75,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
-    let load_directory = args
-        .load_index
-        .as_ref()
-        .map(|_| storage_directory.clone())
-        .flatten();
-    let save_directory = args
-        .save_index
-        .as_ref()
-        .map(|_| storage_directory.clone())
-        .flatten();
+    let load_directory = args.load_index.as_ref().map(|_| storage_directory.clone());
+    let save_directory = args.save_index.as_ref().map(|_| storage_directory.clone());
     let check = args.check_index;
     let token_for_open = token.clone();
     let result = crate::tui::run_with_opening_loader(
@@ -132,7 +118,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             limit: args.limit,
             loading_label: Some("Building search index".to_owned()),
             interruption: Some(token.clone()),
-            storage_directory,
+            storage_directory: Some(storage_directory),
         },
     );
     match result {
