@@ -606,7 +606,7 @@ fn default_folder_admits_root_shapes_and_hidden_json() {
     assert_eq!(events[0]["inference"], "disabled");
     for (index, event) in events.iter().enumerate() {
         assert_eq!(event["sequence"], (index + 1) as u64);
-        assert_eq!(event["protocol_version"], 4);
+        assert_eq!(event["protocol_version"], 5);
     }
     let (result, events) = invoke(root.path(), &["--no-recurse", "--fts", "needle"]);
     assert!(result.status.success());
@@ -746,7 +746,6 @@ fn search_without_index_flags_leaves_disk_cache_absent() {
 fn removed_storage_flags_are_unsupported_arguments() {
     let root = tempfile::tempdir().unwrap();
     for flag in [
-        "--load-index",
         "--flush-index",
         "--write-index",
         "--index-storage",
@@ -904,7 +903,7 @@ fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
         assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
     };
     for event in &events {
-        assert_eq!(event["protocol_version"], 4);
+        assert_eq!(event["protocol_version"], 5);
         assert!(
             !event
                 .as_object()

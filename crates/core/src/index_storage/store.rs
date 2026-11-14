@@ -17,7 +17,7 @@ use super::error::{StorageError, StorageResult};
 use super::format::{ObjectHeader, ObjectKind, ObjectView, FORMAT_VERSION};
 use super::manifest::{
     hex, manifest_checksum_matches, replace_current, sha256, sync_directory, write_synced,
-    CollectionSummary, CurrentPointer, GenerationManifest, ObjectRef, PathEncoding, RunRef,
+    CollectionSummary, CurrentPointer, GenerationManifest, ObjectRef, RunRef,
     SourceRegistrationIdentity, StoreMarker, MAX_FRONTEND_METADATA_BYTES, MAX_MANIFEST_BYTES,
 };
 
@@ -392,6 +392,8 @@ fn open_object(
             object.header().kind
         )));
     }
+    let backing = Backing::mapped(Arc::new(MappedObject::open(&path, None)?));
+    let _ = ObjectView::new(&backing)?;
     Ok(Arc::new(object))
 }
 
@@ -743,6 +745,14 @@ fn reused_object(path: &Path, object: &PreparedObject) -> StorageResult<Option<u
                 return Err(StorageError::corrupt_at(
                     path,
                     "existing object length conflicts with its content address",
+                ));
+            }
+            let prefix = super::backing::read_header_prefix(path)?;
+            let header = ObjectHeader::parse(&prefix)?;
+            if header.kind != object.kind || header.total_len != metadata.len() {
+                return Err(StorageError::corrupt_at(
+                    path,
+                    "existing object header conflicts with its content address",
                 ));
             }
             Ok(Some(metadata.len()))

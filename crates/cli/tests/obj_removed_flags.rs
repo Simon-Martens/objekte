@@ -6,7 +6,6 @@ use std::process::Command;
 fn old_snapshot_spellings_are_unsupported() {
     let root = tempfile::tempdir().unwrap();
     for flag in [
-        "--load-index=old-cache",
         "--flush-index=repository",
         "--write-index=old-cache",
         "--index-storage=repository",

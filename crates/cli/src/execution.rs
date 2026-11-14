@@ -19,6 +19,7 @@ use objekte_search_core::streaming::{
 use serde_json::{Value, json};
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
+use crate::index_location::IndexLocation;
 use crate::loader::{ConfiguredDefinitions, configure_definitions, repository_options};
 use crate::output::{
     EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
@@ -264,10 +265,30 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         .map(|definition| definition.name.clone())
         .collect::<Vec<_>>();
     let options = repository_options(args);
-    // A fresh construction starts before opening query input. The input is
-    // replayed after completion to preserve the ordered machine protocol.
+    let storage_requested = args.load_index.is_some() || args.save_index.is_some();
     let mut source = None;
-    let opened = open_incremental_repository(args, &paths, &configured, options, &mut source, token);
+    let mut storage_outcome = StorageOutcome::default();
+    let opened = if storage_requested {
+        open_explicit_storage(
+            args,
+            &paths,
+            &configured,
+            options,
+            &cwd,
+            token,
+            &mut storage_outcome,
+        )
+        .and_then(|index| {
+            let startup_ns = started.elapsed().as_nanos();
+            IndexedRepository::new(index)
+                .map(|repo| (repo, startup_ns))
+                .map_err(|error| error.to_string())
+        })
+    } else {
+        // A fresh construction starts before opening query input. The input is
+        // replayed after completion to preserve the ordered machine protocol.
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
+    };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
@@ -296,6 +317,30 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         configured.ignored_repository_metadata,
     )) {
         return output_failure(error);
+    }
+    if let Err(error) = storage_outcome.emit(&mut output, &started) {
+        return output_failure(error);
+    }
+    let storage_only = args.query.is_none()
+        && args.fts.is_none()
+        && args.query_file.is_none()
+        && !args.tui;
+    if storage_only {
+        if let Err(error) = output
+            .emit(detailed_run_event(
+                json!({
+                    "type": "index_status",
+                    "origin": "explicit",
+                    "directory": storage_outcome.directory.as_ref().map(|path| path_repr::query_path(path)),
+                    "publication_id": storage_outcome.publication_id,
+                }),
+                &started,
+            ))
+            .and_then(|_| output.flush())
+        {
+            return output_failure(error);
+        }
+        return Exit::Success;
     }
     let source = match source.unwrap_or_else(|| QuerySource::open(args)) {
         Ok(source) => source,
@@ -414,6 +459,101 @@ fn open_incremental_repository(
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let startup_ns = started.elapsed().as_nanos();
     Ok((repo, startup_ns))
+}
+
+#[derive(Default)]
+struct StorageOutcome {
+    loaded: Option<objekte_search_core::StoredIndexInfo>,
+    saved: Option<objekte_search_core::SaveReport>,
+    checked: Option<objekte_search_core::lifecycle::ReconciliationReport>,
+    directory: Option<PathBuf>,
+    publication_id: Option<String>,
+}
+
+impl StorageOutcome {
+    fn emit<W: Write>(&self, output: &mut EventWriter<W>, started: &Instant) -> io::Result<()> {
+        if let Some(info) = &self.loaded {
+            output.emit(detailed_run_event(
+                json!({
+                    "type": "index_loaded",
+                    "directory": path_repr::query_path(&info.directory),
+                    "publication_id": info.manifest.publication_id,
+                    "generation_id": info.current.generation.to_string(),
+                }),
+                started,
+            ))?;
+        }
+        if let Some(report) = &self.checked {
+            output.emit(detailed_run_event(
+                json!({
+                    "type": "index_checked",
+                    "examined": report.examined,
+                    "added": report.added,
+                    "updated": report.updated,
+                    "removed": report.removed,
+                    "issues": report.issues.len(),
+                }),
+                started,
+            ))?;
+        }
+        if let Some(report) = &self.saved {
+            output.emit(detailed_run_event(
+                json!({
+                    "type": "index_saved",
+                    "directory": path_repr::query_path(&report.directory),
+                    "publication_id": report.publication_id.to_string(),
+                    "generation_id": report.generation_id.to_string(),
+                    "objects_written": report.objects_written,
+                    "objects_reused": report.objects_reused,
+                    "bytes_written": report.bytes_written,
+                    "bytes_reused": report.bytes_reused,
+                    "unchanged": report.unchanged,
+                }),
+                started,
+            ))?;
+        }
+        Ok(())
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+fn open_explicit_storage(
+    args: &Arguments,
+    paths: &ResolvedPaths,
+    configured: &ConfiguredDefinitions,
+    options: objekte_search_core::repository::RepositoryOptions,
+    cwd: &std::path::Path,
+    token: &CancellationToken,
+    outcome: &mut StorageOutcome,
+) -> Result<Index, String> {
+    let index = if let Some(load) = &args.load_index {
+        let location = IndexLocation::parse(load);
+        let directory = location.resolve(&paths.root, cwd, args.index_alphabet, args.auto_index)?;
+        let index = crate::index_open::load(
+            &directory,
+            configured.definitions.clone(),
+            options,
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )?;
+        outcome.loaded = objekte_search_core::inspect_store(&directory).ok();
+        outcome.directory = Some(directory);
+        index
+    } else {
+        Index::build(&paths.root, configured.definitions.clone(), options)
+            .map_err(|error| error.to_string())?
+    };
+    if args.check_index {
+        outcome.checked = Some(crate::index_open::check(&index)?);
+    }
+    if let Some(save) = &args.save_index {
+        let location = IndexLocation::parse(save);
+        let directory = location.resolve(&paths.root, cwd, args.index_alphabet, args.auto_index)?;
+        let report = crate::index_open::save(&index, &directory, token)?;
+        outcome.publication_id = Some(report.publication_id.to_string());
+        outcome.saved = Some(report);
+        outcome.directory = Some(directory);
+    }
+    Ok(index)
 }
 
 fn run_start_event(

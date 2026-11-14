@@ -7,8 +7,8 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{FileEntry, FileVersions, RecordEntry};
-use crate::lifecycle::{IndexView, PublishedSegment};
-use crate::model::{FieldPath, LogicalType, RecordSlot};
+use crate::lifecycle::IndexView;
+use crate::model::{FieldPath, RecordSlot};
 use crate::posting::{PostingCollection, PostingIndex, StructuralKey};
 use crate::relation::{RelationIndex, RelationTarget};
 use crate::repository::CollectionState;
@@ -17,7 +17,7 @@ use crate::source::DiagnosticCategory;
 
 use super::bigram_builder::{BigramBinding, BigramInput};
 use super::catalogue::{build_catalogue, DiagnosticInput, FileRowInput};
-use super::error::{StorageError, StorageResult};
+use super::error::StorageResult;
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 use super::posting_builder::FieldInput;
 use super::records::{FilePartInput, RecordInput};

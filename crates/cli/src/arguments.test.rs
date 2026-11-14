@@ -4,7 +4,6 @@ use super::Arguments;
 #[test]
 fn removed_storage_flags_are_unsupported_arguments() {
     for option in [
-        "--load-index",
         "--flush-index",
         "--write-index",
         "--index-storage",
@@ -25,6 +24,22 @@ fn input_modes_and_repeated_positionals_are_rejected() {
     assert!(Arguments::try_parse_from(["obj", "--fts", "A", "--query-file", "q.txt"]).is_err());
     assert!(Arguments::try_parse_from(["obj", "a", "b"]).is_err());
     assert_eq!(Arguments::try_parse_from(["obj", "--", "-a"]).unwrap().query.as_deref(), Some("-a"));
+}
+
+#[test]
+fn storage_flags_allow_no_query_and_require_a_load_for_checking() {
+    let args = Arguments::try_parse_from(["obj", "--load-index", "cache"]).unwrap();
+    assert_eq!(args.load_index, Some(std::path::PathBuf::from("cache")));
+    assert!(args.validate_input().is_ok());
+    let args = Arguments::try_parse_from(["obj", "--save-index", "./index"]).unwrap();
+    assert!(args.validate_input().is_ok());
+    assert!(
+        Arguments::try_parse_from(["obj", "--check-index", "--load-index", "repo"])
+            .unwrap()
+            .validate_input()
+            .is_ok()
+    );
+    assert!(Arguments::try_parse_from(["obj", "--check-index"]).is_err());
 }
 
 #[test]

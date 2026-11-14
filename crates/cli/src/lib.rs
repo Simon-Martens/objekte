@@ -2,6 +2,8 @@
 
 pub mod arguments;
 pub mod execution;
+pub mod index_location;
+pub mod index_open;
 pub mod loader;
 pub mod output;
 pub mod query_input;

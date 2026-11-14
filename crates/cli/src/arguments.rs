@@ -82,6 +82,18 @@ pub struct Arguments {
     /// Report inferred index paths in NDJSON and command status on stderr.
     #[arg(long = "diagnostic", visible_alias = "diagnostics")]
     pub diagnostic: bool,
+
+    /// Load a saved index from `cache`, `repo`, or one explicit directory.
+    #[arg(long = "load-index", value_name = "CACHE|REPO|PATH")]
+    pub load_index: Option<PathBuf>,
+
+    /// Save the opened index to `cache`, `repo`, or one explicit directory.
+    #[arg(long = "save-index", value_name = "CACHE|REPO|PATH")]
+    pub save_index: Option<PathBuf>,
+
+    /// Check source metadata after loading and before queries.
+    #[arg(long = "check-index", requires = "load_index")]
+    pub check_index: bool,
 }
 
 /// Canonical collection root and optional explicit schema.
@@ -102,7 +114,15 @@ impl Arguments {
         if self.tui && self.query_file.is_some() {
             return Err("--tui cannot be combined with --query-file".into());
         }
-        if self.query.is_none() && self.fts.is_none() && self.query_file.is_none() && !self.tui {
+        let storage_operation = self.load_index.is_some()
+            || self.save_index.is_some()
+            || self.check_index;
+        if self.query.is_none()
+            && self.fts.is_none()
+            && self.query_file.is_none()
+            && !self.tui
+            && !storage_operation
+        {
             return Err("missing query".into());
         }
         Ok(())
