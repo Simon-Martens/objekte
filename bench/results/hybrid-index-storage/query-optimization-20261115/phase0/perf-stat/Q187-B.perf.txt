@@ -1,0 +1,17 @@
+# started on Sat Nov 14 01:49:47 2026
+
+
+ Performance counter stats for '/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_musenalm --root /home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm --result-dir /home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase0-perf/Q187-B --extended --incremental --profiles ascii-off --cases Q187 --repetitions 5 --verified-cache-bytes 0 --prepared-cache-bytes 16777216 --query-workers 32 --storage custom /home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/maintenance-candidate-ab/store':
+
+       26852437657      cpu_atom/cycles/u                                                       (48.37%)
+       38698422151      cpu_core/cycles/u                                                       (53.68%)
+       42723931788      cpu_atom/instructions/u                                                 (48.37%)
+       67402873856      cpu_core/instructions/u                                                 (53.68%)
+          10120441      cpu_atom/cache-misses/u                                                 (48.37%)
+          76629400      cpu_core/cache-misses/u                                                 (53.68%)
+             75798      page-faults:u
+
+       1.264820217 seconds time elapsed
+
+       7.566572000 seconds user
+       3.588074000 seconds sys

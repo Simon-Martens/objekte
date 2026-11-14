@@ -1,0 +1,16 @@
+{
+  "same_binary_digest_parity": true,
+  "pairs": [
+    {
+      "A_run": 0,
+      "B_run": 1,
+      "geomean_median_ratio": 0.9854823904968063
+    },
+    {
+      "A_run": 3,
+      "B_run": 2,
+      "geomean_median_ratio": 0.9244806796709591
+    }
+  ],
+  "case_profiles": 18
+}
