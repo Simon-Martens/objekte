@@ -156,3 +156,33 @@ fn lifecycle_preferences_are_off_by_default_and_scoped_to_source() {
     });
     assert_eq!(reloaded.lifecycle_policy("repo-b"), LifecyclePreference::default());
 }
+
+#[test]
+fn legacy_storage_fields_do_not_discard_ordinary_settings() {
+    let temp = tempfile::tempdir().unwrap();
+    let path = DesktopPreferences::path(temp.path());
+    fs::create_dir_all(path.parent().unwrap()).unwrap();
+    let legacy = serde_json::json!({
+        "theme": "light",
+        "history": [{"search": "kept"}],
+        "saved": [{"name": "Kept query", "search": "kept"}],
+        "columns": {"letters": {"hidden": ["summary"]}},
+        "index_storage": "repository",
+        "index_directory": "/tmp/old-index",
+        "auto_save": true,
+        "sync_cache": true,
+        "snapshot_mode": "managed",
+        "save_on_close": true
+    });
+    fs::write(&path, serde_json::to_vec(&legacy).unwrap()).unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(preferences.dark(), Some(false));
+    assert_eq!(preferences.hidden(Some("letters")), ["summary"]);
+    assert_eq!(preferences.saved()[0].name.as_deref(), Some("Kept query"));
+    assert_eq!(preferences.restore_history(0).unwrap().full_text, "kept");
+    preferences.set_dark_local(true);
+    preferences.persist().unwrap();
+    let reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(reloaded.dark(), Some(true));
+    assert_eq!(reloaded.saved()[0].name.as_deref(), Some("Kept query"));
+}

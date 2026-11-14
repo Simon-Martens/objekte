@@ -185,3 +185,50 @@ fn source_preparation_preserves_live_identity_and_generated_exclusions() {
     );
     fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn source_selection_rejects_generated_namespaces_and_aliases() {
+    let root = test_root("generated-source");
+    fs::create_dir_all(root.join("data/nested/objekte-indexes")).unwrap();
+    fs::create_dir_all(root.join(".objekte/indexes")).unwrap();
+    fs::create_dir_all(root.join("cache/objekte-indexes")).unwrap();
+    for source in [
+        ".objekte",
+        ".objekte/indexes",
+        ".objekte/.indexes",
+        "data/nested/objekte-indexes",
+        "cache/objekte-indexes",
+    ] {
+        let definition =
+            CollectionDefinition::folder("files", source, SourceFormat::JsonDecodedScalars);
+        assert!(
+            prepare_source_definitions(&root, &[definition])
+                .unwrap_err()
+                .contains("generated index namespace"),
+            "{source}"
+        );
+    }
+    #[cfg(unix)]
+    {
+        std::os::unix::fs::symlink(
+            root.join(".objekte/indexes"),
+            root.join("generated-alias"),
+        )
+        .unwrap();
+        let definition = CollectionDefinition::folder(
+            "files",
+            "generated-alias",
+            SourceFormat::JsonDecodedScalars,
+        );
+        assert!(
+            prepare_source_definitions(&root, &[definition])
+                .unwrap_err()
+                .contains("generated index namespace")
+        );
+    }
+    let legitimate =
+        CollectionDefinition::folder("files", "data", SourceFormat::JsonDecodedScalars);
+    let prepared = prepare_source_definitions(&root, &[legitimate]).unwrap();
+    assert_eq!(prepared[0].source_path, PathBuf::from("data"));
+    fs::remove_dir_all(root).unwrap();
+}

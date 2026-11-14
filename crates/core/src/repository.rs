@@ -161,6 +161,8 @@ pub struct CollectionState {
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
     pub sorting: SortCollection,
+    /// Cached narrow gram/posting/sort estimate for status polling.
+    pub(crate) index_family_bytes: usize,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
@@ -1761,6 +1763,13 @@ impl Repository {
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_identity_ns += started.elapsed().as_nanos() as u64;
             }
+            let index_family_bytes = crate::lifecycle::index_family_total(
+                &raw,
+                &fallback_text,
+                &custom_text,
+                &postings,
+                &sorting,
+            );
             collections.push(CollectionState {
                 definition,
                 source,
@@ -1776,6 +1785,7 @@ impl Repository {
                 custom_text,
                 text_bindings,
                 sorting,
+                index_family_bytes,
                 id_lookup,
                 identity_order,
                 stats,

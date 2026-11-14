@@ -230,6 +230,33 @@ impl IndexFamilyEstimate {
     }
 }
 
+#[cfg(test)]
+thread_local! {
+    static INDEX_FAMILY_ESTIMATE_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn index_family_estimate_calls() -> usize {
+    INDEX_FAMILY_ESTIMATE_CALLS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn reset_index_family_estimate_calls() {
+    INDEX_FAMILY_ESTIMATE_CALLS.with(|calls| calls.set(0));
+}
+
+/// Cached narrow index-family total for one native contribution. It counts
+/// gram/posting bitmap payloads and sort keys only, not segment metadata.
+pub(crate) fn index_family_total(
+    raw: &crate::bigram::BigramIndex,
+    fallback: &crate::bigram::BigramIndex,
+    custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
+    postings: &crate::posting::PostingCollection,
+    sorting: &crate::sorting::SortCollection,
+) -> usize {
+    index_family_estimate(raw, fallback, custom, postings, sorting).total()
+}
+
 /// Result of an explicit query against one pinned, possibly incomplete view.
 /// `result.count` is absent while construction is incomplete, even if the
 /// request asked for a count over the eventual repository.
@@ -412,13 +439,15 @@ pub(crate) struct PublishedIndex {
 /// Native retained-memory estimate for one published contribution. It counts
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
 /// allocator measurement or a strict peak bound; it orders maintenance.
-fn index_family_estimate(
+pub(crate) fn index_family_estimate(
     raw: &crate::bigram::BigramIndex,
     fallback: &crate::bigram::BigramIndex,
     custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
     postings: &crate::posting::PostingCollection,
     sorting: &crate::sorting::SortCollection,
 ) -> IndexFamilyEstimate {
+    #[cfg(test)]
+    INDEX_FAMILY_ESTIMATE_CALLS.with(|calls| calls.set(calls.get() + 1));
     IndexFamilyEstimate {
         raw_bytes: raw.estimated_heap_bytes(),
         fallback_bytes: fallback.estimated_heap_bytes(),
@@ -2430,11 +2459,19 @@ impl IndexView {
     /// base and live lifecycle shards. See `SegmentAccounting` for the cached
     /// maintenance estimate.
     pub fn estimated_index_bytes(&self) -> usize {
-        self.index_family_breakdown()
-            .values()
-            .flatten()
-            .map(|(_, estimate)| estimate.total())
-            .sum()
+        self.repository()
+            .collections()
+            .iter()
+            .map(|collection| collection.index_family_bytes)
+            .sum::<usize>()
+            .saturating_add(
+                self.0
+                    .segments
+                    .iter()
+                    .flat_map(|group| group.iter())
+                    .map(|segment| segment.index.accounting.index_family_bytes)
+                    .sum::<usize>(),
+            )
     }
 
     /// Per-collection base (ordinal 0) and published segment estimates. The

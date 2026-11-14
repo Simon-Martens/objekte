@@ -39,6 +39,13 @@ pub(crate) fn prepare_source_definitions(
     ];
     let mut prepared = definitions.to_vec();
     for definition in &mut prepared {
+        if crate::discovery::contains_generated_directory(&definition.source_path) {
+            return Err(format!(
+                "collection {} source selection {} selects or lies beneath a generated index namespace",
+                definition.name,
+                definition.source_path.display()
+            ));
+        }
         let selected = root.join(normalized_selection(&definition.source_path)?);
         let selected = match selected.canonicalize() {
             Ok(path) => path,
@@ -51,6 +58,16 @@ pub(crate) fn prepare_source_definitions(
                 ));
             }
         };
+        if selected
+            .strip_prefix(&root)
+            .is_ok_and(crate::discovery::contains_generated_directory)
+        {
+            return Err(format!(
+                "collection {} source selection {} resolves inside a generated index namespace",
+                definition.name,
+                definition.source_path.display()
+            ));
+        }
         for owned in &owned_namespaces {
             if selected.starts_with(owned) {
                 return Err(format!(

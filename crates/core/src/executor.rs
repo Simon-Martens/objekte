@@ -574,7 +574,7 @@ fn segment_metadata_matches(
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: &record,
+            record,
             file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
@@ -592,7 +592,7 @@ fn segment_metadata_matches(
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: &record,
+            record,
             file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),

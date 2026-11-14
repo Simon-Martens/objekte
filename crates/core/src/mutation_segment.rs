@@ -62,6 +62,8 @@ pub(crate) struct SegmentAccounting {
     pub retained_bytes_estimated: usize,
     pub source_bytes_estimated: u64,
     pub max_record_range_len: u64,
+    /// Narrow gram/posting/sort estimate used by the GUI index panel.
+    pub index_family_bytes: usize,
 }
 
 pub(crate) struct SegmentBatch {
@@ -741,7 +743,7 @@ impl CollectionSegment {
 const ACCOUNTING_OVERHEAD: usize = 48;
 
 fn bitmap_bytes(bitmap: &RoaringBitmap) -> usize {
-    bitmap.serialized_size() as usize
+    bitmap.serialized_size()
 }
 
 fn path_bytes(path: &[String]) -> usize {
@@ -950,6 +952,13 @@ impl IndexedCollectionSegment {
             retained_bytes_estimated: retained,
             source_bytes_estimated,
             max_record_range_len,
+            index_family_bytes: crate::lifecycle::index_family_total(
+                &self.raw,
+                &self.fallback_text,
+                &self.custom_text,
+                &self.postings,
+                &self.sorting,
+            ),
         };
     }
 
@@ -2468,7 +2477,7 @@ impl IndexedCollectionSegment {
         let next = u32::try_from(selected.len()).map_err(|_| "partition slot overflow")?;
         let mut file_indices = selected_files
             .iter()
-            .map(|id| self.file_index.get(&*id).copied().ok_or_else(|| "partition file missing".to_owned()))
+            .map(|id| self.file_index.get(id).copied().ok_or_else(|| "partition file missing".to_owned()))
             .collect::<Result<Vec<_>, _>>()?;
         file_indices.sort_unstable();
         self.compact_with_mapping(
@@ -2600,8 +2609,8 @@ impl IndexedCollectionSegment {
             (domains.logical, domains.empty_array)
         } else {
             (
-                project_bitmap(&self.logical_records, &slot_map)?,
-                project_bitmap(&self.empty_array_records, &slot_map)?,
+                project_bitmap(&self.logical_records, slot_map)?,
+                project_bitmap(&self.empty_array_records, slot_map)?,
             )
         };
         let logical_count =
@@ -2615,7 +2624,7 @@ impl IndexedCollectionSegment {
                     .fields
                     .iter()
                     .map(|(path, index)| {
-                        project_posting(index, &slot_map, logical_count, bounds)
+                        project_posting(index, slot_map, logical_count, bounds)
                             .map(|projected| (path.clone(), projected))
                     })
                     .collect::<Result<HashMap<_, _>, _>>()?,
@@ -2624,7 +2633,7 @@ impl IndexedCollectionSegment {
                 .custom_postings
                 .iter()
                 .map(|(key, custom)| {
-                    project_posting(&custom.index, &slot_map, logical_count, bounds).map(
+                    project_posting(&custom.index, slot_map, logical_count, bounds).map(
                         |index| {
                             (
                                 key.clone(),
@@ -2642,11 +2651,11 @@ impl IndexedCollectionSegment {
         let (raw, fallback_text, custom_text) = if let Some(projected) = bigram_projection {
             (projected.raw, projected.fallback, projected.custom)
         } else {
-            let raw = project_bigram(&self.raw, &slot_map, next, bounds)?;
-            let fallback = project_bigram(&self.fallback_text, &slot_map, next, bounds)?;
+            let raw = project_bigram(&self.raw, slot_map, next, bounds)?;
+            let fallback = project_bigram(&self.fallback_text, slot_map, next, bounds)?;
             let custom = self.custom_text.iter()
                 .map(|(key, index)| {
-                    project_bigram(index, &slot_map, next, bounds)
+                    project_bigram(index, slot_map, next, bounds)
                         .map(|index| (key.clone(), index))
                 })
                 .collect::<Result<HashMap<_, _>, _>>()?;
@@ -2655,14 +2664,14 @@ impl IndexedCollectionSegment {
         let sorting = if let Some(sorting) = sorting_projection {
             sorting
         } else {
-            project_sorting(&self.sorting, &slot_map, &records)?
+            project_sorting(&self.sorting, slot_map, &records)?
         };
         let inference = if let Some(inference) = inference_projection {
             inference
         } else {
             project_inference(
                 &self.inference,
-                &slot_map,
+                slot_map,
                 &logical_records,
                 records.len(),
                 bounds,

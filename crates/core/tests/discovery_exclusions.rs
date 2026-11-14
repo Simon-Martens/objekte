@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use objekte_search_core::discovery::{Discovery, SymlinkPolicy, discover};
+use objekte_search_core::discovery::{Discovery, SymlinkPolicy, discover, selects_file};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 
 
@@ -142,5 +142,126 @@ fn generated_index_namespaces_are_pruned_without_reading_their_contents() {
             .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
             .collect::<Vec<_>>(),
         vec![PathBuf::from("visible.json")]
+    );
+}
+
+#[test]
+fn generated_namespaces_are_rejected_by_direct_selection_and_aliases() {
+    let fixture = Fixture::new();
+    fixture.file("data/a.json");
+    fixture.file("data/nested/objekte-indexes/poison.json");
+    fixture.file(".objekte/.indexes/poison.json");
+    fixture.file(".objekte/indexes/poison.json");
+    fixture.file("cache/objekte-indexes/poison.json");
+    fixture.file("cache/source.json");
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        hidden: true,
+        symlinks: SymlinkPolicy::Skip,
+        ..Discovery::default()
+    };
+    let selected = discover(&fixture.0, Path::new(""), &rules, &source).unwrap();
+    let relative: Vec<_> = selected
+        .iter()
+        .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
+        .collect();
+    assert_eq!(
+        relative,
+        vec![
+            PathBuf::from("cache/source.json"),
+            PathBuf::from("data/a.json")
+        ]
+    );
+    for poison in [
+        "data/nested/objekte-indexes/poison.json",
+        ".objekte/.indexes/poison.json",
+        ".objekte/indexes/poison.json",
+        "cache/objekte-indexes/poison.json",
+    ] {
+        assert!(
+            !selects_file(
+                &fixture.0,
+                Path::new(""),
+                &rules,
+                &source,
+                Path::new(poison)
+            )
+            .unwrap(),
+            "{poison}"
+        );
+    }
+    assert!(
+        !selects_file(
+            &fixture.0,
+            Path::new("data"),
+            &rules,
+            &source,
+            Path::new("data/nested/objekte-indexes/poison.json")
+        )
+        .unwrap()
+    );
+    for reserved in [
+        ".objekte",
+        ".objekte/indexes",
+        ".objekte/.indexes",
+        "data/nested/objekte-indexes",
+        "cache/objekte-indexes",
+    ] {
+        assert!(
+            discover(&fixture.0, Path::new(reserved), &rules, &source).is_err(),
+            "{reserved}"
+        );
+        assert!(
+            selects_file(
+                &fixture.0,
+                Path::new(reserved),
+                &rules,
+                &source,
+                Path::new("unused.json")
+            )
+            .is_err(),
+            "{reserved}"
+        );
+    }
+}
+
+#[cfg(unix)]
+#[test]
+fn followed_aliases_into_generated_namespaces_are_not_sources() {
+    let fixture = Fixture::new();
+    fixture.file("data/a.json");
+    fixture.file(".objekte/indexes/poison.json");
+    std::os::unix::fs::symlink(
+        fixture.0.join(".objekte/indexes"),
+        fixture.0.join("alias"),
+    )
+    .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        hidden: true,
+        symlinks: SymlinkPolicy::FollowWithinRoot,
+        ..Discovery::default()
+    };
+    let selected = discover(&fixture.0, Path::new(""), &rules, &source).unwrap();
+    let relative: Vec<_> = selected
+        .iter()
+        .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
+        .collect();
+    assert_eq!(relative, vec![PathBuf::from("data/a.json")]);
+    assert!(
+        !selects_file(
+            &fixture.0,
+            Path::new(""),
+            &rules,
+            &source,
+            Path::new("alias/poison.json")
+        )
+        .unwrap()
     );
 }

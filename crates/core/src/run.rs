@@ -55,6 +55,13 @@ use crate::streaming::{
 use crate::verified::{CachedMember, CachedResult, VerifiedCache};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
+
+/// The native scheduling boundary for parallel file scans. A segment whose
+/// longest record is exactly 64 KiB may still enter the parallel path; one
+/// byte more keeps it on the bounded serial path.
+pub(crate) fn record_ranges_allow_parallel_scan(max_record_range_len: u64) -> bool {
+    max_record_range_len <= 64 * 1024
+}
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
 
@@ -2094,7 +2101,7 @@ fn segment_metadata_fts_evidence(
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: &resolved.record,
+            record: resolved.record,
             file: resolved.file,
             collection_name: &collection.definition.name,
             repository_root: &repo.files.root,
@@ -3569,7 +3576,7 @@ fn scan_segment_file_parallel(
             let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
-                &record,
+                record,
                 resolved.file,
                 &bytes,
                 filter,
@@ -3588,13 +3595,13 @@ fn scan_segment_file_parallel(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record: &record,
+                record,
                 file: resolved.file,
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
             result.matches += 1;
-            let key = segment_rank_key(repo, sort, collection_index, segment, &record, Some(&ctx))?;
+            let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
             if cap == 0
                 || (local_winners.len() >= cap
                     && local_winners
@@ -3649,7 +3656,7 @@ fn push_exact_order_cursor(
             .index
             .record(slot)
             .ok_or("exact ordered slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, &record, None)?;
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
         let Some(bytes) = usize::try_from(rank_key_bytes(&key))
             .ok()
             .and_then(|bytes| bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>()))
@@ -4206,7 +4213,7 @@ fn search_segmented_impl(
                             &sort,
                             collection_index,
                             segment,
-                            &resolved.record,
+                            resolved.record,
                             None,
                         )?;
                         let hit = segment_locator_hit(
@@ -4265,7 +4272,7 @@ fn search_segmented_impl(
                         &sort,
                         collection_index,
                         segment,
-                        &resolved.record,
+                        resolved.record,
                         None,
                     )?;
                     let matched_fields = exact_fields(slot);
@@ -4444,7 +4451,7 @@ fn search_segmented_impl(
                                 let (_, matched, evidence, _) = verify_local_segment_record(
                                     repo,
                                     collection,
-                                    &resolved.record,
+                                    resolved.record,
                                     resolved.file,
                                     source_bytes,
                                     filter.as_ref(),
@@ -4537,7 +4544,7 @@ fn search_segmented_impl(
                             verify_local_segment_record(
                                 repo,
                                 collection,
-                                &record,
+                                record,
                                 resolved.file,
                                 &bytes,
                                 filter.as_ref(),
@@ -4557,7 +4564,7 @@ fn search_segmented_impl(
                         let ctx = RecordContext {
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
-                            record: &record,
+                            record,
                             file: resolved.file,
                             collection_name: &collection.definition.name,
                             repository_root: &repo.files.root,
@@ -4568,7 +4575,7 @@ fn search_segmented_impl(
                             &sort,
                             collection_index,
                             segment,
-                            &record,
+                            record,
                             Some(&ctx),
                         )?;
                         if cache_builder.is_none()
@@ -4585,7 +4592,7 @@ fn search_segmented_impl(
                                 let (_, still_matched, evidence, _) = verify_local_segment_record(
                                     repo,
                                     collection,
-                                    &record,
+                                    record,
                                     resolved.file,
                                     &bytes,
                                     filter.as_ref(),
@@ -4768,7 +4775,7 @@ fn materialize_lifecycle_cached(
                 RecordSlot(member.slot),
             )?
             .ok_or("cached lifecycle segment slot retired")?;
-            charge_lifecycle_cached_payload(context, query, &resolved.record)?;
+            charge_lifecycle_cached_payload(context, query, resolved.record)?;
             let payload = if query.options.return_mode == ReturnMode::Locator {
                 Ok(None)
             } else {
@@ -5203,7 +5210,7 @@ fn scan_direct_target_parallel(
     let ctx = RecordContext {
         value: &extracted.value,
         source_bytes: Some(&bytes),
-        record: &resolved.record,
+        record: resolved.record,
         file: resolved.file,
         collection_name: &target_collection.definition.name,
         repository_root: &repo.files.root,
@@ -5537,7 +5544,7 @@ fn try_direct_relation_page(
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
-                    record: &resolved.record,
+                    record: resolved.record,
                     file: resolved.file,
                     collection_name: &target_collection.definition.name,
                     repository_root: &repo.files.root,
@@ -5714,7 +5721,7 @@ fn try_direct_relation_page(
                     sort,
                     *source_index,
                     &published.index,
-                    &resolved.record,
+                    resolved.record,
                     None,
                 )?
             };
@@ -5934,7 +5941,7 @@ fn scan_relation_file_parallel(
     let ctx = RecordContext {
         value: &extracted.value,
         source_bytes: Some(&bytes),
-        record: &record,
+        record,
         file: resolved.file,
         collection_name: &resolved.collection.definition.name,
         repository_root: &repo.files.root,
@@ -6021,7 +6028,7 @@ fn scan_relation_file_parallel(
             sort,
             collection_index,
             &segments[collection_index][job.segment_index].index,
-            &record,
+            record,
             Some(&ctx),
         )?;
         let hit = segment_locator_hit(
@@ -6129,7 +6136,9 @@ fn try_parallel_relation_page(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|published| published.index.max_record_range_len() > 64 * 1024)
+        .any(|published| {
+            !record_ranges_allow_parallel_scan(published.index.max_record_range_len())
+        })
     {
         return Ok(None);
     }
@@ -6510,7 +6519,7 @@ fn search_segmented_relations(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record: &record,
+                record,
                 file: resolved.file,
                 collection_name: &resolved.collection.definition.name,
                 repository_root: &repo.files.root,
@@ -7400,7 +7409,7 @@ fn push_lifecycle_order_cursor(
             .index
             .record(slot)
             .ok_or("lifecycle ordered slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, &record, None)?;
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
         let bytes = usize::try_from(rank_key_bytes(&key)).map_err(|_| {
             context.fail(
                 ExecutionErrorKind::Resource,
@@ -7701,7 +7710,7 @@ fn try_lifecycle_ordered_stream(
                 repo,
                 catalog,
                 file,
-                &record,
+                record,
                 cursor.slot,
                 &mut reader,
                 delivery
@@ -7735,7 +7744,7 @@ fn try_lifecycle_ordered_stream(
             let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
-                &record,
+                record,
                 file,
                 &read,
                 filter.as_ref(),
@@ -7813,7 +7822,7 @@ fn try_lifecycle_ordered_stream(
                         repo,
                         catalog,
                         file,
-                        &record,
+                        record,
                         cursor.slot,
                         &mut reader,
                         delivery

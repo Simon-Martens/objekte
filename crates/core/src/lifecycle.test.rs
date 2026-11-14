@@ -2,7 +2,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
-use crate::model::{FieldPath, FileId, LogicalType, RecordSlot};
+use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
@@ -1320,4 +1320,337 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         None
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn status_estimate_reuses_cached_native_accounting() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-cached-status-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    super::reset_index_family_estimate_calls();
+    let first = view.estimated_index_bytes();
+    assert!(first > 0);
+    assert_eq!(super::index_family_estimate_calls(), 0);
+    let second = view.estimated_index_bytes();
+    assert_eq!(second, first);
+    assert_eq!(super::index_family_estimate_calls(), 0);
+
+    std::fs::write(
+        root.join("data/b.json"),
+        br#"{"title":"Beta","number":7,"flag":true}"#,
+    )
+    .unwrap();
+    index.add_file(&root.join("data/b.json")).unwrap();
+    let grown = index.view().unwrap().estimated_index_bytes();
+    assert!(grown > first);
+    super::reset_index_family_estimate_calls();
+    let polling_view = index.view().unwrap();
+    let _ = polling_view.estimated_index_bytes();
+    let _ = polling_view.estimated_index_bytes();
+    assert_eq!(super::index_family_estimate_calls(), 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn native_accounting_grows_with_postings_and_survives_retirement() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-native-accounting-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    let total = |view: &crate::lifecycle::IndexView| {
+        view.segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .map(|segment| segment.index.accounting.retained_bytes_estimated)
+            .sum::<usize>()
+    };
+    let before = total(&view);
+    assert!(before > 0);
+    let first = view.segments(CollectionId(0)).unwrap()[0].clone();
+    assert!(first.index.accounting.index_family_bytes > 0);
+    assert_eq!(
+        first.index.accounting.max_record_range_len,
+        first
+            .index
+            .records
+            .iter()
+            .map(|record| record.range.len())
+            .max()
+            .unwrap_or(0)
+    );
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"title":"Gamma","alpha":"one","beta":2,"gamma":true}"#,
+    )
+    .unwrap();
+    index.add_file(&root.join("data/c.json")).unwrap();
+    let after = total(&index.view().unwrap());
+    assert!(after > before);
+
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.join("data/a.json"))
+        .unwrap();
+    index.delete_file(handle).unwrap();
+    let current = index.view().unwrap();
+    let retained = current
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| segment.ordinal == first.ordinal)
+        .expect("retired shard missing");
+    assert_eq!(
+        retained.index.accounting.retained_bytes_estimated,
+        first.index.accounting.retained_bytes_estimated
+    );
+    assert_eq!(
+        retained.index.accounting.index_family_bytes,
+        first.index.accounting.index_family_bytes
+    );
+    assert!(retained.active.len() < first.active.len());
+    index.compact().unwrap();
+    let compacted = index.view().unwrap();
+    let compacted_total = total(&compacted);
+    assert!(compacted_total > 0);
+    assert!(compacted_total <= after);
+    assert!(compacted.segments(CollectionId(0)).unwrap().iter().all(|segment| {
+        segment.index.accounting.retained_bytes_estimated > 0
+            && segment.index.accounting.index_family_bytes > 0
+    }));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-generated-mutation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data/nested/objekte-indexes")).unwrap();
+    std::fs::create_dir_all(root.join(".objekte/indexes")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
+    std::fs::write(
+        root.join("data/nested/objekte-indexes/poison.json"),
+        br#"{"title":"Poison"}"#,
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.discovery.recursive = true;
+    definition.discovery.hidden = true;
+    let index = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(1));
+
+    let poison = root.join("data/nested/objekte-indexes/added.json");
+    std::fs::write(&poison, br#"{"title":"Added poison"}"#).unwrap();
+    assert!(index.add_file(&poison).is_err());
+    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(1));
+
+    let b = root.join("data/b.json");
+    std::fs::write(&b, br#"{"title":"Beta"}"#).unwrap();
+    let added = index.add_file(&b).unwrap();
+    let moved = root.join("data/nested/objekte-indexes/moved.json");
+    std::fs::rename(&b, &moved).unwrap();
+    assert!(index.move_file(added.file, &moved).is_err());
+    std::fs::write(&b, br#"{"title":"Beta changed"}"#).unwrap();
+    let handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
+    let generated_update = root.join("data/nested/objekte-indexes/updated.json");
+    std::fs::write(&generated_update, br#"{"title":"Updated poison"}"#).unwrap();
+    assert!(index.update_file(handle, &generated_update).is_err());
+    let report = index.start_reconcile().unwrap().wait().unwrap();
+    assert_eq!(report.added, 0);
+    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(2));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-metadata-parity-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    for (filter, supported) in [
+        ("@file.modified >= 2000-01-01", true),
+        ("@file.size >= 1", true),
+        ("@file.created:null = true", false),
+        ("@file.path:lower = 'data/a.json'", false),
+        ("@file.path ~ 'json$'", false),
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 50,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let actual = view.search(&query).unwrap();
+        let reference = view.search_reference(&query).unwrap();
+        assert_eq!(actual.count, reference.count, "{filter}");
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        if supported {
+            assert_eq!(actual.counters.files_opened, 0, "{filter}");
+            assert_eq!(actual.counters.record_parses, 0, "{filter}");
+        }
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
+
+    fn fixture(label: &str, target: usize) -> std::path::PathBuf {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-range-boundary-{label}-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let padding = target.checked_sub(11).unwrap();
+        let document = format!(r#"{{"text":"{}"}}"#, "a".repeat(padding));
+        assert_eq!(document.len(), target);
+        std::fs::write(root.join("data/one.json"), document).unwrap();
+        root
+    }
+
+    for target in [65_536usize, 65_537] {
+        let root = fixture(&target.to_string(), target);
+        let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+        let mut indexes = Vec::new();
+        for workers in [1usize, 4] {
+            let index = Index::build(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions {
+                    query_workers: workers,
+                    ..RepositoryOptions::default()
+                },
+            )
+            .unwrap();
+            let view = index.view().unwrap();
+            assert_eq!(
+                view.segments(CollectionId(0)).unwrap()[0]
+                    .index
+                    .max_record_range_len(),
+                target as u64
+            );
+            let result = view.search(&all_query()).unwrap();
+            assert_eq!(result.count, Some(1));
+            assert_eq!(result.hits.len(), 1);
+            indexes.push((index, result));
+        }
+        assert_eq!(indexes[0].1.hits, indexes[1].1.hits);
+        let cancelled = CancellationToken::new();
+        cancelled.cancel();
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            Some(cancelled),
+        );
+        let outcome = indexes[0]
+            .0
+            .view()
+            .unwrap()
+            .search_stream_scoped_with_context(
+                &all_query(),
+                ResultScope::All { offset: 0 },
+                StreamOptions::default(),
+                &context,
+                &mut |_| Ok(StreamControl::Continue),
+            )
+            .unwrap();
+        assert!(matches!(outcome, StreamOutcome::Cancelled(_)));
+        for (index, _) in indexes {
+            index.shutdown().unwrap();
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+    assert!(crate::run::record_ranges_allow_parallel_scan(65_536));
+    assert!(!crate::run::record_ranges_allow_parallel_scan(65_537));
+}
+
+fn all_query() -> Query {
+    Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    }
 }

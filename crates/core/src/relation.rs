@@ -292,10 +292,10 @@ impl RelationContribution {
                 .saturating_add(reference.positions.capacity() * std::mem::size_of::<u32>());
         }
         total
-            .saturating_add(self.present.serialized_size() as usize)
-            .saturating_add(self.nulls.serialized_size() as usize)
-            .saturating_add(self.empty_arrays.serialized_size() as usize)
-            .saturating_add(self.unavailable.serialized_size() as usize)
+            .saturating_add(self.present.serialized_size())
+            .saturating_add(self.nulls.serialized_size())
+            .saturating_add(self.empty_arrays.serialized_size())
+            .saturating_add(self.unavailable.serialized_size())
     }
 
     pub(crate) fn from_resolved_index(
