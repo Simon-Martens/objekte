@@ -63,7 +63,7 @@ pub(crate) struct MergedRecordSlot {
 }
 
 pub(crate) struct MergedRecord<'a> {
-    pub record: &'a crate::inventory::RecordEntry,
+    pub record: std::borrow::Cow<'a, crate::inventory::RecordEntry>,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
@@ -152,12 +152,12 @@ impl<'a> MergedRelationView<'a> {
         for (collection_index, shards) in segments.iter().enumerate() {
             for published in shards.iter() {
                 if published.index.collection.0 as usize != collection_index
-                    || published.active.slot_count() as usize != published.index.records.len()
+                    || published.active.slot_count() as usize != published.index.record_count()
                 {
                     return Err("merged relation segment scope mismatch".into());
                 }
                 for (relation_index, relation) in published.index.relations.iter().enumerate() {
-                    if relation.record_count() as usize != published.index.records.len()
+                    if relation.record_count() as usize != published.index.record_count()
                         || repo.collections[collection_index]
                             .relations
                             .get(relation_index)
@@ -188,7 +188,7 @@ impl<'a> MergedRelationView<'a> {
             .collections
             .get(index)
             .ok_or("merged collection missing")?;
-        let (record, original_file) = if let Some(segment_index) = address.segment {
+        let (record, original_revision) = if let Some(segment_index) = address.segment {
             let published = self.segments[index]
                 .get(segment_index)
                 .ok_or("merged segment missing")?;
@@ -197,12 +197,12 @@ impl<'a> MergedRelationView<'a> {
             }
             let segment = &published.index;
             let record = segment
-                .record(address.slot)
+                .try_record(address.slot)?
                 .ok_or("merged segment slot missing")?;
-            let file = &segment
-                .file(record.file)
+            let file = segment
+                .try_file(record.file)?
                 .ok_or("merged segment file missing")?
-                .entry;
+                .entry.revision;
             (record, file)
         } else {
             if !self.base_active[index].contains(address.slot) {
@@ -219,13 +219,13 @@ impl<'a> MergedRelationView<'a> {
                 .files
                 .get(record.file.0 as usize)
                 .ok_or("merged base file missing")?;
-            (record, file)
+            (std::borrow::Cow::Borrowed(record), file.revision)
         };
         let file = self
             .catalog
             .entry(record.file)
             .ok_or("active merged record file is retired")?;
-        if file.revision != original_file.revision
+        if file.revision != original_revision
             || !file.collections.contains(&address.collection)
         {
             return Err("active merged record file changed without retirement".into());
@@ -259,7 +259,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.try_id_lookup(id)?
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -371,20 +371,25 @@ impl<'a> MergedRelationView<'a> {
                 }
             }
         }
-        sources.sort_unstable_by(|a, b| {
-            let id = |address: &MergedRecordSlot| {
-                if let Some(segment_index) = address.segment {
-                    &self.segments[index][segment_index].index.records[address.slot.0 as usize]
-                        .id
-                        .0
-                } else {
-                    &collection.generation.records[address.slot.0 as usize].id.0
-                }
+        let mut keyed = Vec::with_capacity(sources.len());
+        for address in sources {
+            let id = if let Some(segment_index) = address.segment {
+                self.segments[index][segment_index]
+                    .index
+                    .try_record(address.slot)?
+                    .ok_or("backlink segment slot missing")?
+                    .id
+                    .0
+                    .to_string()
+            } else {
+                collection.generation.records[address.slot.0 as usize]
+                    .id.0.to_string()
             };
-            id(a).cmp(id(b))
-        });
-        sources.dedup();
-        Ok(sources)
+            keyed.push((id, address));
+        }
+        keyed.sort_unstable_by(|a, b| a.0.cmp(&b.0));
+        keyed.dedup_by(|a, b| a.1 == b.1);
+        Ok(keyed.into_iter().map(|(_, address)| address).collect())
     }
 }
 
@@ -1467,7 +1472,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &value,
                 source_bytes: None,
-                record: current.record,
+                record: &current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
@@ -1520,7 +1525,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &value,
                 source_bytes: None,
-                record: current.record,
+                record: &current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
@@ -1534,7 +1539,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record: current.record,
+                record: &current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
