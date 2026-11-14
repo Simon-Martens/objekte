@@ -11,6 +11,8 @@ The common partitioned-root path compacts a bounded group of shards and reports 
 
 The repair specification requires maintenance to be resumable or bounded across the supported index shapes, including original-base records. A single compaction call should report the work it actually charged and leave `remaining_retired_slots` when more batches are needed.
 
+The partitioned-root path's temporary-byte charge is an estimate from input size and record count, rather than an allocator peak. It checks elapsed time between shards and permits one over-budget shard for progress. Those rules are documented, but they do not establish the repair specification's strict allocation and elapsed-work limits. Separate allocator and lock-wait accounting is also absent from the final measured path. A future resource contract should state and test the precise per-call bound, including its progress exception.
+
 ## Reproduction and impact
 
 Build or restore an index whose `collection.generation.records` is nonempty, retire a base record, then call `Index::compact()`. The branch condition and returned `CompactionWork::default()` are visible in the code above. The existing partitioned-root stress and locality measurements in [the allocation follow-up report](../../generated/hybrid-index-allocation-query-performance-20261114.md) do not establish a bound for this path. A large legacy base can produce a long maintenance pause and a larger temporary allocation than the normal batch budget suggests. This is a scope gap, not an observed incorrect query result.
@@ -19,4 +21,4 @@ Build or restore an index whose `collection.generation.records` is nonempty, ret
 
 The bounded shard path was implemented and tested during the hybrid work. Converting the base-containing branch requires a publication strategy for partial base retirement while preserving pinned views and exact index facts. That design was not completed before the user's instruction to close the task and track remaining work as issues.
 
-A possible approach is to partition the base into independently replaceable contributions and reuse the existing shard-budget loop. Verify update and compaction semantics, actual work accounting, cancellation, and pinned readers before deleting the older branch. This issue is for review; it does not authorize implementation.
+A possible approach is to partition the base into independently replaceable contributions and reuse the existing shard-budget loop. Instrument actual allocation peaks and lock waits to check whether the estimated charges protect the intended bound; if they do not, make the batch resumable at a finer boundary. Verify update and compaction semantics, work accounting, cancellation, and pinned readers before deleting the older branch. This issue is for review; it does not authorize implementation.
