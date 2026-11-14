@@ -293,7 +293,8 @@ Reviewed head `6184a89e1954f80bd7a489288a9b9bb6bd08e241`; implementation commit
 `4078a3c5d65446b413ac343a2701316e3c66097a`; evidence/report commit
 `44ff8b5f62bcf197d62af46d9e01c2e3896f05c2`; external-review correction
 `7ec29746c81cae8bab958c9688c8008fdd5d791f` (canonical source-root rejection
-and prune-before-canonicalize for reserved links). Final evidence and reruns
+and prune-before-canonicalize for reserved links); final evidence refresh
+`850f69822284b44418e9059278b8a229c4fafcba`. Final evidence and reruns
 are recorded against `7ec29746c8`. The detailed finding/fix/verification
 record is the Review-completion addendum in
 `docs/ai/done/restore-native-btrees-memory-only.md`; durable evidence is under

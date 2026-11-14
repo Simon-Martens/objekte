@@ -631,7 +631,8 @@ Completion implementation commits: `2a2c12189d5a4a48ff644d6cf744c6a837b7d3d5`
 (review fixes), `4078a3c5d65446b413ac343a2701316e3c66097a` (H..START ledger
 appendix), `7ec29746c81cae8bab958c9688c8008fdd5d791f` (canonical source-root
 and reserved-link corrections), followed by the acceptance-evidence and report
-commits on the same integration branch. The branch remains unmerged.
+commits on the same integration branch; `850f69822284b44418e9059278b8a229c4fafcba`
+is the final evidence refresh. The branch remains unmerged.
 
 This addendum supersedes earlier completion claims where they were broader than
 the evidence supported:
