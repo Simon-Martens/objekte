@@ -287,14 +287,18 @@ impl PostingIndex {
     pub(crate) fn union_id_postings(
         &self,
         ids: &HashSet<String>,
-    ) -> Result<(RoaringBitmap, u64), String> {
+    ) -> Result<(RoaringBitmap, u64, u64), String> {
         let mut union = RoaringBitmap::new();
-        let mut visited = 0u64;
+        let mut lists = 0u64;
+        let mut members = 0u64;
         if let Some(sealed) = self.sealed_values() {
             if ids.len().saturating_mul(8) < sealed.len() {
                 for id in ids {
-                    if let Some(count) = sealed.union_key_into(&ScalarKey::Id(id.clone()), &mut union)? {
-                        visited += count;
+                    if let Some(count) =
+                        sealed.union_key_into(&ScalarKey::Id(id.clone()), &mut union)?
+                    {
+                        lists += 1;
+                        members += count;
                     }
                 }
             } else {
@@ -311,7 +315,8 @@ impl PostingIndex {
                         );
                         let length = usize::try_from(length)
                             .map_err(|_| "sealed ID key length too large")?;
-                        let end = 12usize.checked_add(length)
+                        let end = 12usize
+                            .checked_add(length)
                             .ok_or("sealed ID key length overflow")?;
                         if end != key.len() {
                             return Err("sealed ID key length mismatch".into());
@@ -322,7 +327,8 @@ impl PostingIndex {
                             return Ok(());
                         }
                         sealed.union_descriptor_into(descriptor, &mut union)?;
-                        visited += descriptor.cardinality as u64;
+                        lists += 1;
+                        members += descriptor.cardinality as u64;
                     }
                     Ok(())
                 })?;
@@ -330,19 +336,27 @@ impl PostingIndex {
         } else if ids.len().saturating_mul(8) < self.values.len() {
             for id in ids {
                 if let Some(slots) = self.values.get(&ScalarKey::Id(id.clone())) {
-                    visited += slots.len();
+                    lists += 1;
+                    members += slots.len();
+
+
                     union |= slots;
                 }
             }
         } else {
             for (key, slots) in &self.values {
-                if let ScalarKey::Id(id) = key && ids.contains(id) {
-                    visited += slots.len();
+                if let ScalarKey::Id(id) = key
+                    && ids.contains(id)
+                {
+                    lists += 1;
+                    members += slots.len();
+
+
                     union |= slots;
                 }
             }
         }
-        Ok((union, visited))
+        Ok((union, lists, members))
     }
 
     pub(crate) fn value_posting_restricted(

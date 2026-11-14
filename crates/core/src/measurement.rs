@@ -102,6 +102,9 @@ pub struct WorkCounters {
     /// Typed reverse posting lists visited during relation semijoins.
     #[serde(default)]
     pub relation_reverse_postings_visited: u64,
+    /// Slot memberships read from those reverse posting lists.
+    #[serde(default)]
+    pub relation_reverse_members_visited: u64,
     /// Target values reused by reverse mapping or source-dependent comparisons.
     #[serde(default)]
     pub relation_verified_targets_reused: u64,
@@ -183,6 +186,7 @@ impl WorkCounters {
         self.relation_target_file_opens += work.target_file_opens;
         self.relation_edge_visits += work.edge_visits;
         self.relation_reverse_postings_visited += work.reverse_postings_visited;
+        self.relation_reverse_members_visited += work.reverse_members_visited;
         self.relation_verified_targets_reused += work.verified_targets_reused;
         self.relation_bytes_read += work.target_bytes_read;
         self.files_opened += work.target_file_opens;

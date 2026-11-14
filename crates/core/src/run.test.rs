@@ -699,6 +699,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 #[test]
 fn segmented_array_step_state_predicates_use_exact_structural_postings() {
     use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
     use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
     use crate::workload::ReturnMode;
 
@@ -801,15 +802,13 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
                 "{filter} segmented={segmented_path} plan={plan:?}"
             );
             assert_eq!(result.counters.bytes_read, 0, "{filter}");
-            if !segmented_path {
-                for trace in &plan {
-                    assert_eq!(
-                        trace.terms[0].selected.kind,
-                        crate::executor::AccessPathKind::Posting,
-                        "{filter}: {plan:?}"
-                    );
-                    assert!(trace.terms[0].selected.exact, "{filter}");
-                }
+            for trace in &plan {
+                assert_eq!(
+                    trace.terms[0].selected.kind,
+                    crate::executor::AccessPathKind::Posting,
+                    "{filter} segmented={segmented_path}: {plan:?}"
+                );
+                assert!(trace.terms[0].selected.exact, "{filter}");
             }
         }
     }
@@ -863,6 +862,31 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
         );
         assert!(search.counters.scanned_records > 0);
     }
+    let text_query = Query {
+        collections: vec!["data".into()],
+        fts: Some(FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "Autor".into(),
+            fields: Vec::new(),
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let text_plan = segmented.explain(&text_query).unwrap();
+    assert!(text_plan[0].fts_estimated_candidates.unwrap() < text_plan[0].input_records);
+    assert_eq!(
+        segmented.search(&text_query).unwrap().hits,
+        segmented.search_reference(&text_query).unwrap().hits
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

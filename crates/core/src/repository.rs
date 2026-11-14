@@ -2162,6 +2162,7 @@ impl Repository {
             relation_target_candidates: 0,
             relation_target_matches: 0,
             relation_reverse_postings_visited: 0,
+            relation_reverse_members_visited: 0,
             relation_verified_targets_reused: 0,
             #[cfg(feature = "detailed-profiling")]
             preparation_ns: 0,

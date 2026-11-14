@@ -679,6 +679,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         assert!(actual.counters.relation_target_reads <= 1);
         assert_eq!(actual.counters.relation_target_candidates, 1);
         assert_eq!(actual.counters.relation_reverse_postings_visited, 1);
+        assert_eq!(actual.counters.relation_reverse_members_visited, 40);
         assert_eq!(actual.counters.scanned_records, 0);
         let trace = repo.explain_analyze(&request).unwrap().1;
         assert!(
@@ -754,6 +755,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             assert!(result.counters.relation_target_reads <= 1);
             assert_eq!(result.counters.relation_target_candidates, 1);
             assert_eq!(result.counters.relation_reverse_postings_visited, 1);
+            assert_eq!(result.counters.relation_reverse_members_visited, 40);
             assert_eq!(result.counters.scanned_records, 0);
             assert!(
                 repo.explain_analyze(&request).unwrap().1[0]
@@ -850,7 +852,11 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .generation
                     .records
                     .iter()
-                    .filter(|record| expected.iter().any(|id| id.as_str() == record.id.0.as_ref()))
+                    .filter(|record| {
+                        expected
+                            .iter()
+                            .any(|id| id.as_str() == record.id.0.as_ref())
+                    })
                     .map(|record| record.slot.0)
                     .collect::<roaring::RoaringBitmap>();
                 for strategy in [Strategy::TargetFirst, Strategy::SourceRestricted] {

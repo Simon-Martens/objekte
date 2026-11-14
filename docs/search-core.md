@@ -299,7 +299,9 @@ For eligible borrowed source scans, membership is checked without building
 matched-field evidence for every candidate. The scanner retains source bytes
 for bounded local winners and computes their evidence only when the merged
 page offers them. Segment candidates are grouped by consecutive file IDs; an
-out-of-order slot layout is sorted and merged before source reads.
+out-of-order slot layout is sorted and merged before source reads. Segmented
+EXPLAIN totals segment posting and text candidates with the active base; its
+FTS candidate estimate reflects the checked bigram restriction when available.
 
 Raw fallback text has a separate bigram index over the original range decoded
 with UTF-8 replacement. An unscoped FTS literal searches that source text with
@@ -326,6 +328,12 @@ and `EXPLAIN ANALYZE` expose selected/alternative paths, typed bindings,
 estimates, actual input/output, adaptive decisions, candidates, reads, bytes,
 parses, and proof counts. The saved final benchmark plans are from separate
 uncached diagnostic executions, outside latency samples.
+
+Relation work reports reverse posting lists and their members separately:
+`relation_reverse_postings_visited` counts existing dictionary lists used for
+reverse mapping, while `relation_reverse_members_visited` sums the source-slot
+members examined in those lists. Both direct and segmented relation routes
+use these units.
 
 Prepared typed bindings have a repository-local 16 MiB default estimated
 retention budget. The compiled-regex charge uses conservative configured

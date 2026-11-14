@@ -1914,6 +1914,7 @@ pub struct PlanActual {
     pub relation_backlink_probe_visits: u64,
     pub relation_bytes_read: u64,
     pub relation_reverse_postings_visited: u64,
+    pub relation_reverse_members_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
 
@@ -1935,6 +1936,7 @@ impl Default for PlanActual {
             relation_backlink_probe_visits: 0,
             relation_bytes_read: 0,
             relation_reverse_postings_visited: 0,
+            relation_reverse_members_visited: 0,
             relation_verified_targets_reused: 0,
         }
     }
@@ -1962,6 +1964,8 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             relation_bytes_read: after.relation_bytes_read - before.relation_bytes_read,
             relation_reverse_postings_visited: after.relation_reverse_postings_visited
                 - before.relation_reverse_postings_visited,
+            relation_reverse_members_visited: after.relation_reverse_members_visited
+                - before.relation_reverse_members_visited,
             relation_verified_targets_reused: after.relation_verified_targets_reused
                 - before.relation_verified_targets_reused,
         });
@@ -5586,8 +5590,9 @@ fn try_direct_relation_page(
         let Some(posting) = published.index.postings.fields.get(source_path) else {
             return Ok(None);
         };
-        let (mut may, visited) = posting.union_id_postings(&target_ids)?;
-        counters.relation_reverse_postings_visited += visited;
+        let (mut may, lists, members) = posting.union_id_postings(&target_ids)?;
+        counters.relation_reverse_postings_visited += lists;
+        counters.relation_reverse_members_visited += members;
         may &= published.active.bitmap();
         may &= &published.index.logical_records;
         if local_filter.is_some() {
@@ -7056,30 +7061,135 @@ pub(crate) fn explain_segmented(
         return Err("segment explanation collection count mismatch".into());
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
+    let (prepared, _) = crate::prepared::prepare(repo, query)?;
     for trace in &mut traces {
         let collection_index = repo
             .collections
             .iter()
             .position(|collection| collection.definition.name == trace.collection)
             .ok_or("explained collection missing")?;
-        let delta = segments[collection_index]
+        let collection = &repo.collections[collection_index];
+        let (_, filter, fts) = prepared
+            .collections
             .iter()
-            .map(|segment| segment.active.len())
-            .fold(0u64, u64::saturating_add);
+            .find(|(index, _, _)| *index == collection_index)
+            .ok_or("explained collection has no prepared query")?;
+        let mut delta = 0u64;
+        let mut delta_candidates = 0u64;
+        let mut delta_fts_candidates = 0u64;
+        let mut delta_filter_exact = true;
+        for published in segments[collection_index].iter() {
+            delta = delta.saturating_add(published.active.len());
+            let mut candidates = published.active.bitmap();
+            if let Some(filter) = filter {
+                let bounds =
+                    segment_filter_bounds(&published.index, &published.active, filter, collection)?;
+                delta_filter_exact &= bounds.may == bounds.must;
+                candidates &= &bounds.may;
+            }
+            if let Some(fts) = fts {
+                if let Some(text) = segment_fts_candidates(&published.index, collection, fts)? {
+                    let text = &text & &published.active.bitmap();
+                    delta_fts_candidates = delta_fts_candidates.saturating_add(text.len());
+                    candidates &= text;
+                } else {
+                    delta_fts_candidates =
+                        delta_fts_candidates.saturating_add(published.active.len());
+                }
+            }
+            delta_candidates = delta_candidates.saturating_add(candidates.len());
+        }
         trace.generation = revision.0;
         trace.input_records = trace.input_records.saturating_add(delta);
-        trace.candidates = trace.candidates.saturating_add(delta);
-        trace.fts_estimated_candidates = trace
-            .fts_estimated_candidates
-            .map(|estimate| estimate.saturating_add(delta));
+        trace.candidates = trace.candidates.saturating_add(delta_candidates);
+        trace.fts_estimated_candidates = fts.as_ref().map(|_| {
+            trace
+                .fts_estimated_candidates
+                .unwrap_or(base_active[collection_index].len())
+                .saturating_add(delta_fts_candidates)
+        });
         trace.candidates_estimated = true;
         if delta > 0 {
             trace.sort_strategy = "merged base and indexed segment top-k".into();
             trace.sort_strategy_estimated = true;
         }
-        if delta > 0 && (query.filter.is_some() || query.fts.is_some()) {
-            trace.filter_exact = false;
-            trace.remaining_verification = true;
+        if delta > 0 {
+            trace.filter_exact = (base_active[collection_index].len() == 0 || trace.filter_exact)
+                && delta_filter_exact;
+            trace.remaining_verification = fts.is_some() || !trace.filter_exact;
+        }
+        if base_active[collection_index].len() == 0
+            && let Some(BoundExpr::Term(term)) = filter
+            && let Some(choice) = trace.terms.first_mut()
+        {
+            let mut output = 0u64;
+            let mut work = 0.0;
+            let mut operation = None;
+            for published in segments[collection_index].iter() {
+                let catalog =
+                    crate::index_catalog::IndexCatalog::segment(&published.index, collection);
+                let selected = catalog
+                    .field_postings(
+                        &term.path.segments,
+                        &term.binding_name,
+                        term.operation.is_some(),
+                    )
+                    .into_iter()
+                    .flatten()
+                    .filter_map(|access| access.assess(term, catalog.logical, &mut 0).transpose())
+                    .collect::<Result<Vec<_>, String>>()?
+                    .into_iter()
+                    .find(|proposal| proposal.exact);
+                let Some(proposal) = selected else {
+                    operation = None;
+                    break;
+                };
+                if operation.is_some_and(|previous| previous != (proposal.id, proposal.operation)) {
+                    operation = None;
+                    break;
+                }
+                let bounds = segment_filter_bounds(
+                    &published.index,
+                    &published.active,
+                    filter.as_ref().unwrap(),
+                    collection,
+                )?;
+                if bounds.may != bounds.must {
+                    operation = None;
+                    break;
+                }
+                output = output.saturating_add(bounds.must.len());
+                work += proposal.lookup_work;
+                operation = Some((proposal.id, proposal.operation));
+            }
+            if let Some((id, operation)) = operation {
+                let old = std::mem::replace(
+                    &mut choice.selected,
+                    crate::executor::AccessPathEstimate {
+                        kind: crate::executor::AccessPathKind::Posting,
+                        exact: true,
+                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
+                        estimated_output: output,
+                        estimated_work: work + output as f64 * 0.02,
+                        estimated_files: 0.0,
+                        estimated_bytes: 0.0,
+                        posting: Some((
+                            id,
+                            operation,
+                            trace.input_records.min(u32::MAX as u64) as u32,
+                        )),
+                    },
+                );
+                choice.alternatives.push(old);
+                choice.reason =
+                    if operation == crate::index_catalog::PostingOperation::SelfComparePresence {
+                        "self-comparison reduced to path presence in indexed segments"
+                    } else {
+                        "indexed segments prove this bound predicate"
+                    }
+                    .into();
+                choice.residual_verification = false;
+            }
         }
     }
     Ok(traces)
@@ -7113,6 +7223,7 @@ pub(crate) fn search_analyze_segmented(
             relation_backlink_probe_visits: counters.relation_backlink_probe_visits,
             relation_bytes_read: counters.relation_bytes_read,
             relation_reverse_postings_visited: counters.relation_reverse_postings_visited,
+            relation_reverse_members_visited: counters.relation_reverse_members_visited,
             relation_verified_targets_reused: counters.relation_verified_targets_reused,
         });
     }
@@ -9512,6 +9623,7 @@ fn try_stored_order_page(
         actual.relation_target_file_opens += work.target_file_opens;
         actual.relation_edge_visits += work.edge_visits;
         actual.relation_reverse_postings_visited += work.reverse_postings_visited;
+        actual.relation_reverse_members_visited += work.reverse_members_visited;
         actual.relation_verified_targets_reused += work.verified_targets_reused;
     }
     let mut heap = BinaryHeap::new();

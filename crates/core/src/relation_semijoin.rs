@@ -29,6 +29,7 @@ const MAX_VISITED_EDGES: u64 = 32_000_000;
 const MAX_TARGET_RECORD_BYTES: u64 = 64 * 1024 * 1024;
 const TARGET_BATCH_BYTES: u64 = 1024 * 1024;
 
+
 /// Physical strategy chosen for one positive relation term.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum Strategy {
@@ -36,12 +37,14 @@ pub(crate) enum Strategy {
     SourceRestricted,
 }
 
+
 /// Exact source membership and selected-field evidence for relation FTS.
 pub(crate) struct FtsWitnesses {
     pub evidence: HashMap<u32, HashSet<String>>,
     pub work: SemijoinWork,
     pub strategies: Vec<Strategy>,
 }
+
 
 /// Query-local work performed while constructing exact relation witnesses.
 #[derive(Clone, Copy, Debug, Default)]
@@ -53,8 +56,10 @@ pub(crate) struct SemijoinWork {
     pub target_bytes_read: u64,
     pub edge_visits: u64,
     pub reverse_postings_visited: u64,
+    pub reverse_members_visited: u64,
     pub verified_targets_reused: u64,
 }
+
 
 impl SemijoinWork {
     pub fn add(&mut self, other: Self) {
@@ -65,9 +70,11 @@ impl SemijoinWork {
         self.target_bytes_read += other.target_bytes_read;
         self.edge_visits += other.edge_visits;
         self.reverse_postings_visited += other.reverse_postings_visited;
+        self.reverse_members_visited += other.reverse_members_visited;
         self.verified_targets_reused += other.verified_targets_reused;
     }
 }
+
 
 fn ensure_slots(count: u64, execution: Option<&ExecutionContext>) -> Result<(), String> {
     if let Some(execution) = execution {
@@ -474,8 +481,9 @@ fn reverse_sources(
                 .records
                 .get(slot as usize)
                 .ok_or("relation reverse target slot missing")?;
-            work.reverse_postings_visited += 1;
             if let Some(sources) = repo.relation_reverse_sources(index, &record.id.0) {
+                work.reverse_postings_visited += 1;
+                work.reverse_members_visited += sources.len();
                 next |= sources;
             }
             ensure_slots(next.len(), execution)?;

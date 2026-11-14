@@ -22,7 +22,7 @@ fn broad_id_union_matches_individual_lookups() {
         HashSet::from(["id-017".to_owned()]),
         (0..80).map(|id| format!("id-{id:03}")).collect(),
     ] {
-        let (actual, visited) = index.union_id_postings(&ids).unwrap();
+        let (actual, lists, members) = index.union_id_postings(&ids).unwrap();
         let expected = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
             if let Some(slots) = index.values.get(&ScalarKey::Id(id.clone())) {
                 all |= slots;
@@ -30,7 +30,8 @@ fn broad_id_union_matches_individual_lookups() {
             all
         });
         assert_eq!(actual, expected);
-        assert_eq!(visited, ids.len() as u64 * 2);
+        assert_eq!(lists, ids.len() as u64);
+        assert_eq!(members, ids.len() as u64 * 2);
     }
 }
 
@@ -107,7 +108,7 @@ fn sealed_broad_id_union_uses_checked_borrowed_keys() {
         HashSet::from(["id-017".to_owned()]),
         (0..80).map(|id| format!("id-{id:03}")).collect(),
     ] {
-        let (actual, visited) = index.union_id_postings(&ids).unwrap();
+        let (actual, lists, members) = index.union_id_postings(&ids).unwrap();
         let wanted = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
             if let Some(slots) = expected.get(&ScalarKey::Id(id.clone())) {
                 all |= slots;
@@ -115,7 +116,8 @@ fn sealed_broad_id_union_uses_checked_borrowed_keys() {
             all
         });
         assert_eq!(actual, wanted);
-        assert_eq!(visited, ids.len() as u64 * 2);
+        assert_eq!(lists, ids.len() as u64);
+        assert_eq!(members, ids.len() as u64 * 2);
     }
 }
 
