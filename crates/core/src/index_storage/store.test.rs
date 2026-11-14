@@ -132,6 +132,16 @@ impl SaveHooks for FailBeforeCurrent {
 }
 
 
+struct FailManifest;
+
+
+impl SaveHooks for FailManifest {
+    fn before_manifest_write(&mut self) -> Result<(), StorageError> {
+        Err(StorageError::Conflict("injected manifest write".into()))
+    }
+}
+
+
 struct FailAfterObject;
 
 
@@ -340,6 +350,38 @@ fn failure_before_commit_keeps_the_previous_generation() {
             .path(b"a.txt")
             .unwrap(),
         Some(0)
+    );
+}
+
+#[test]
+fn manifest_write_failure_keeps_the_previous_generation() {
+    let directory = tempfile::tempdir().unwrap();
+    let lineage = Uuid::new_v4();
+    let first = Uuid::new_v4();
+    save(
+        directory.path(),
+        plan(lineage, first, "a.txt", "record-a"),
+        SaveOptions::default(),
+    )
+    .unwrap();
+    let second = Uuid::new_v4();
+    assert!(
+        save_with_control(
+            directory.path(),
+            plan(lineage, second, "b.txt", "record-b"),
+            SaveOptions::default(),
+            || false,
+            |_| {},
+            &mut FailManifest,
+        )
+        .is_err()
+    );
+    assert_eq!(
+        open_store(directory.path())
+            .unwrap()
+            .manifest
+            .publication_id,
+        first.to_string()
     );
 }
 
