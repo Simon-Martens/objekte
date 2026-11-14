@@ -89,6 +89,29 @@ fn cli_builds_saves_loads_checks_and_resaves() {
 }
 
 #[test]
+fn an_explicit_load_failure_never_falls_back_to_building() {
+    let root = tempfile::tempdir().unwrap();
+    let source = root.path().join("source");
+    std::fs::create_dir(&source).unwrap();
+    std::fs::write(source.join("a.json"), br#"{"text":"Alpha"}"#).unwrap();
+    let missing = root.path().join("missing-index");
+    let (status, events, error) = invoke(
+        root.path(),
+        &[
+            "--path",
+            "source",
+            "--load-index",
+            missing.to_str().unwrap(),
+            "--fts",
+            "Alpha",
+        ],
+    );
+    assert_eq!(status.code(), Some(1), "{error}");
+    assert!(!events.iter().any(|event| event["type"] == "hit"));
+    assert!(!source.join(".objekte").exists());
+}
+
+#[test]
 fn a_failed_save_does_not_run_queries() {
     let root = tempfile::tempdir().unwrap();
     std::fs::create_dir(root.path().join("source")).unwrap();
