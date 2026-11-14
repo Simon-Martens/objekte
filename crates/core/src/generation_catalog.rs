@@ -8,6 +8,7 @@ use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use std::io::Cursor as IoCursor;
 use std::path::{Component, Path, PathBuf};
+use std::ops::Bound;
 use std::sync::Arc;
 
 use bincode::Options;
@@ -371,6 +372,24 @@ impl RestoredGenerationCatalog {
         expected_identity: [u8; 32],
         collection_count: usize,
     ) -> Result<Self, String> {
+        Self::decode_owned(bytes, expected_identity, collection_count, false)
+    }
+
+    /// ManagedStore has already matched these bytes to the manifest digest.
+    pub(crate) fn decode_verified_arc(
+        bytes: Arc<[u8]>,
+        expected_identity: [u8; 32],
+        collection_count: usize,
+    ) -> Result<Self, String> {
+        Self::decode_owned(bytes, expected_identity, collection_count, true)
+    }
+
+    fn decode_owned(
+        bytes: Arc<[u8]>,
+        expected_identity: [u8; 32],
+        collection_count: usize,
+        manifest_verified: bool,
+    ) -> Result<Self, String> {
         if bytes.len() < HEADER_BYTES + BODY_HEADER_BYTES || bytes.len() > MAX_BYTES || &bytes[..8] != MAGIC {
             return Err("invalid managed catalog envelope".into());
         }
@@ -381,7 +400,7 @@ impl RestoredGenerationCatalog {
         let body_len = usize::try_from(header.u64()?).map_err(|_| "catalog body length overflow")?;
         let digest = header.fixed::<32>()?;
         let body = &bytes[HEADER_BYTES..];
-        if body_len != body.len() || digest != Sha256::digest(body).as_slice() {
+        if body_len != body.len() || (!manifest_verified && digest != Sha256::digest(body).as_slice()) {
             return Err("managed catalog length or checksum mismatch".into());
         }
         let mut input = Reader::new(&body[..BODY_HEADER_BYTES]);
@@ -460,18 +479,22 @@ impl RestoredGenerationCatalog {
             historical: Vec::new(),
         };
         catalog.validate_tables(collection_count)?;
-        catalog.file_versions = (0..slot_count)
-            .map(|number| catalog.version(FileId(number as u32)).unwrap())
-            .collect();
-        catalog.slots = (0..slot_count)
-            .map(|number| {
-                let file = FileId(number as u32);
-                let Some(entry) = catalog.entry_for_ref(file.0)? else { return Ok(None); };
-                let (fingerprint, configuration) = catalog.current_hashes(file).ok_or("catalog hashes missing")?;
-                Ok(Some((entry, fingerprint, configuration)))
-            })
-            .collect::<Result<Vec<_>, String>>()?;
-        catalog.historical = catalog.decode_historical_entries()?;
+        if !manifest_verified {
+            // The borrowed compatibility API is retained for standalone tests.
+            // Managed open uses encoded tables and decodes only requested rows.
+            catalog.file_versions = (0..slot_count)
+                .map(|number| catalog.version(FileId(number as u32)).unwrap())
+                .collect();
+            catalog.slots = (0..slot_count)
+                .map(|number| {
+                    let file = FileId(number as u32);
+                    let Some(entry) = catalog.entry_for_ref(file.0)? else { return Ok(None); };
+                    let (fingerprint, configuration) = catalog.current_hashes(file).ok_or("catalog hashes missing")?;
+                    Ok(Some((entry, fingerprint, configuration)))
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            catalog.historical = catalog.decode_historical_entries()?;
+        }
         Ok(catalog)
     }
 
@@ -516,6 +539,71 @@ impl RestoredGenerationCatalog {
     pub(crate) fn historical_count(&self) -> usize { self.historical_count }
     pub(crate) fn active(&self) -> &RoaringBitmap { &self.active }
     pub(crate) fn version(&self, file: FileId) -> Option<FileVersion> { self.slot(file).map(|slot| slot.version) }
+
+    pub(crate) fn is_current(&self, file: FileId) -> bool { self.active.contains(file.0) }
+
+    pub(crate) fn path_matches(&self, file: FileId, path: &Path) -> bool {
+        self.path_bytes_for_file(file)
+            .and_then(|bytes| path_from_borrowed_bytes(bytes).ok())
+            .is_some_and(|current| current.as_ref() == path)
+    }
+
+    pub(crate) fn native_id_for(&self, path: &Path) -> Option<FileId> {
+        let mut lower = 0usize;
+        let mut upper = self.active_count;
+        while lower < upper {
+            let middle = lower + (upper - lower) / 2;
+            let id = self.native_id(middle)?;
+            let native = path_from_borrowed_bytes(self.path_bytes_for_file(id)?).ok()?;
+            match native.as_ref().cmp(path) {
+                std::cmp::Ordering::Less => lower = middle + 1,
+                std::cmp::Ordering::Equal => return Some(id),
+                std::cmp::Ordering::Greater => upper = middle,
+            }
+        }
+        None
+    }
+
+    pub(crate) fn query_path_ids_in_bounds_up_to(
+        &self,
+        bounds: &(Bound<Arc<str>>, Bound<Arc<str>>),
+        limit: usize,
+        mut include: impl FnMut(FileId) -> bool,
+    ) -> Option<(Vec<FileId>, usize)> {
+        let lower = match &bounds.0 {
+            Bound::Unbounded => 0,
+            Bound::Included(value) => self.query_bound(value, false),
+            Bound::Excluded(value) => self.query_bound(value, true),
+        };
+        let upper = match &bounds.1 {
+            Bound::Unbounded => self.active_count,
+            Bound::Included(value) => self.query_bound(value, true),
+            Bound::Excluded(value) => self.query_bound(value, false),
+        };
+        let mut ids = Vec::new();
+        for position in lower..upper {
+            if position - lower == limit { return None; }
+            let id = self.query_row(position).expect("validated catalog row").0;
+            if include(id) { ids.push(id); }
+        }
+        Some((ids, upper.saturating_sub(lower)))
+    }
+
+    fn query_bound(&self, value: &str, strictly_greater: bool) -> usize {
+        let mut lower = 0usize;
+        let mut upper = self.active_count;
+        while lower < upper {
+            let middle = lower + (upper - lower) / 2;
+            let (_, offset, len) = self.query_row(middle).expect("validated catalog row");
+            let key = self.query_key(offset, len).expect("validated catalog key");
+            if key < value || (strictly_greater && key == value) {
+                lower = middle + 1;
+            } else {
+                upper = middle;
+            }
+        }
+        lower
+    }
 
     pub(crate) fn entry_for_ref(&self, reference: u32) -> Result<Option<FileEntry>, String> {
         let Some(bytes) = self.metadata_for_ref(reference) else { return Ok(None); };
