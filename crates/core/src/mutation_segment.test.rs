@@ -1217,6 +1217,7 @@ fn sealed_shard_backing_follows_policy() {
     for index in shard.postings.fields.values() {
         let facts = index.structural.as_ref().unwrap();
         assert_eq!(facts.is_shared(), expected);
+        assert_eq!(index.postings_are_shared(), expected);
     }
 }
 

@@ -349,6 +349,13 @@ impl PostingIndex {
         if let Some(facts) = &mut self.structural {
             facts.freeze();
         }
+        self.values.freeze();
+        self.lengths.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn postings_are_shared(&self) -> bool {
+        self.values.is_shared() && self.lengths.is_shared()
     }
 
     /// Borrow the ordered value keys of this posting index. The native

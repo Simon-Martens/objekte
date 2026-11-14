@@ -1492,3 +1492,203 @@ fn frozen_structural_facts_merge_like_native_facts() {
         a.structural.as_ref().unwrap().entries()
     );
 }
+
+fn chunk_spread_string_index() -> PostingIndex {
+    let field = FieldDefinition {
+        path: vec!["tags".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: true,
+        element_nullable: vec![],
+    };
+    let mut index = PostingIndex::new(&field);
+    for i in 0..300u32 {
+        let values = Value::Array(crate::model::ArrayValue {
+            element_type: Some(LogicalType::String),
+            mixed_elements: false,
+            nullable_elements: false,
+            values: vec![
+                Value::String(format!("tag-{:02}", i % 40)),
+                Value::String(format!("tag-{:02}", (i + 7) % 40)),
+            ],
+        });
+        index
+            .add_values(RecordSlot(i * 700), Some(&[&values]))
+            .unwrap();
+    }
+    index.finish_stats();
+    index
+}
+
+fn chunk_spread_number_index() -> PostingIndex {
+    let field = FieldDefinition {
+        path: vec!["numbers".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::Number)),
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: true,
+        element_nullable: vec![],
+    };
+    let mut index = PostingIndex::new(&field);
+    for i in 0..300u32 {
+        let items = (0..=(i % 3))
+            .map(|offset| Value::Number(Number::integer(((i + offset * 7) % 40) as i128)))
+            .collect::<Vec<_>>();
+        let values = Value::Array(crate::model::ArrayValue {
+            element_type: Some(LogicalType::Number),
+            mixed_elements: false,
+            nullable_elements: false,
+            values: items,
+        });
+        index
+            .add_values(RecordSlot(i * 700), Some(&[&values]))
+            .unwrap();
+    }
+    index.finish_stats();
+    index
+}
+
+fn assert_frozen_reads_like_native(native: &PostingIndex, frozen: &mut PostingIndex) {
+    use std::ops::Bound::{Excluded, Included, Unbounded};
+
+    let mut frozen_stats = frozen.clone();
+    frozen_stats.finish_stats();
+    assert_eq!(native.value_entries(), frozen.value_entries());
+    assert_eq!(native.length_entries(), frozen.length_entries());
+    assert_eq!(native.distinct_values(), frozen.distinct_values());
+    assert_eq!(native.distinct_lengths(), frozen.distinct_lengths());
+    assert_eq!(native.stats.min_key, frozen_stats.stats.min_key);
+    assert_eq!(native.stats.max_key, frozen_stats.stats.max_key);
+    assert_eq!(
+        native.stats.distinct_count,
+        frozen_stats.stats.distinct_count
+    );
+
+    let keys = native.value_entries().keys().cloned().collect::<Vec<_>>();
+    for key in &keys {
+        assert_eq!(native.value_cardinality(key), frozen.value_cardinality(key));
+        assert_eq!(
+            native.value_posting(key).map(|posting| posting.into_owned()),
+            frozen.value_posting(key).map(|posting| posting.into_owned())
+        );
+    }
+    assert_eq!(native.value_cardinality(&ScalarKey::String("absent".into())), 0);
+    assert_eq!(
+        frozen.value_cardinality(&ScalarKey::String("absent".into())),
+        0
+    );
+    assert_eq!(
+        native.value_cardinality(&ScalarKey::Number(Number::integer(-99))),
+        0
+    );
+    assert_eq!(
+        frozen.value_cardinality(&ScalarKey::Number(Number::integer(-99))),
+        0
+    );
+
+    let first = keys[0].clone();
+    let middle = keys[keys.len() / 2].clone();
+    let last = keys[keys.len() - 1].clone();
+    let ranges = [
+        (Unbounded, Unbounded),
+        (Included(first.clone()), Excluded(last.clone())),
+        (Excluded(first.clone()), Unbounded),
+        (Unbounded, Excluded(last.clone())),
+        (Included(middle.clone()), Included(middle.clone())),
+        (Excluded(middle.clone()), Included(last.clone())),
+    ];
+    for (lower, upper) in ranges {
+        for descending in [false, true] {
+            let mut native_cursor =
+                native.value_range(lower.clone(), upper.clone(), descending);
+            let mut frozen_cursor =
+                frozen.value_range(lower.clone(), upper.clone(), descending);
+            let mut native_values = Vec::new();
+            while let Some((key, posting)) = native_cursor.next() {
+                native_values.push((key, posting.into_owned()));
+            }
+            let mut frozen_values = Vec::new();
+            while let Some((key, posting)) = frozen_cursor.next() {
+                frozen_values.push((key, posting.into_owned()));
+            }
+            assert_eq!(native_values, frozen_values);
+        }
+    }
+
+    let mut restriction = RoaringBitmap::new();
+    for key in keys.iter().take(2) {
+        if let Some(posting) = native.value_posting(key) {
+            restriction |= posting.as_ref();
+        }
+    }
+    for probe in [first.clone(), middle, last] {
+        for operator in [
+            Operator::Gt,
+            Operator::Ge,
+            Operator::Lt,
+            Operator::Le,
+        ] {
+            assert_eq!(
+                native.union_scalar_range(&probe, operator, None),
+                frozen.union_scalar_range(&probe, operator, None)
+            );
+            assert_eq!(
+                native.union_scalar_range(&probe, operator, Some(&restriction)),
+                frozen.union_scalar_range(&probe, operator, Some(&restriction))
+            );
+        }
+    }
+
+    let snapshot = frozen.clone();
+    let before = frozen.value_entries();
+    frozen.insert_value_slot(first, 999_999);
+    assert_eq!(snapshot.value_entries(), before);
+}
+
+fn id_posting_index() -> PostingIndex {
+    let field = FieldDefinition {
+        path: vec!["ref".into()],
+        kind: LogicalType::Id,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: vec![],
+    };
+    let mut index = PostingIndex::new(&field);
+    for id in 0..100 {
+        index.set_value(
+            ScalarKey::Id(format!("id-{id:03}")),
+            RoaringBitmap::from_iter([id, id + 100]),
+        );
+    }
+    index.finish_stats();
+    index
+}
+
+#[test]
+fn frozen_posting_index_reads_like_native() {
+    for native in [chunk_spread_string_index(), chunk_spread_number_index()] {
+        let mut frozen = native.clone();
+        frozen.freeze_shared();
+        assert!(frozen.postings_are_shared());
+        assert_frozen_reads_like_native(&native, &mut frozen);
+    }
+
+    let native = id_posting_index();
+    let mut frozen = native.clone();
+    frozen.freeze_shared();
+    let sparse = HashSet::from(["id-003".to_owned(), "id-050".to_owned(), "id-099".to_owned()]);
+    let scan = (0..20)
+        .map(|id| format!("id-{id:03}"))
+        .collect::<HashSet<_>>();
+    for ids in [sparse, scan] {
+        assert_eq!(
+            native.union_id_postings(&ids),
+            frozen.union_id_postings(&ids)
+        );
+    }
+}
