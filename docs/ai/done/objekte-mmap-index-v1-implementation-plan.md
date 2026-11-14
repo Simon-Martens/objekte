@@ -2434,10 +2434,14 @@ the packed typed reader still answers the exact typed query. Differential
 tests compare built-native and loaded-packed query hit identities and FTS
 candidates.
 
-Native state is still loaded to preserve fallbacks, exact source verification,
-inference, custom operations, sorting, and compatibility behavior. The next
-step is to remove the native posting/bigram reconstruction while retaining
-those fallbacks.
+`Index::load_from` now reconstructs the queryable repository directly from the
+packed catalogue and run objects. It rebuilds file inventory/catalogue slots,
+records and file parts, declared and observed postings, inference metadata,
+named custom postings, raw/fallback/custom bigrams, sort columns/orders,
+relation contributions, coverage, diagnostics, and statistics. The native
+snapshot object is no longer written or read; a test asserts that the store has
+no state object. Native owners are still materialised from the packed objects
+for source-verification fallbacks and compatibility paths.
 
 ### Validation
 
