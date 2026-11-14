@@ -318,16 +318,7 @@ fn run() -> Result<(), String> {
                         + c.postings
                             .fields
                             .values()
-                            .map(|p| {
-                                p.values
-                                    .values()
-                                    .map(|s| s.serialized_size() as usize)
-                                    .sum::<usize>()
-                                    + p.lengths
-                                        .values()
-                                        .map(|s| s.serialized_size() as usize)
-                                        .sum::<usize>()
-                            })
+                            .map(|p| p.value_bytes() + p.length_bytes())
                             .sum::<usize>()
                         + c.sorting
                             .columns

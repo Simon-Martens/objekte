@@ -192,8 +192,8 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     assert_eq!(left.multi, right.multi);
     assert_eq!(left.presence, right.presence);
     assert_eq!(left.nulls, right.nulls);
-    assert_eq!(left.values, right.values);
-    assert_eq!(left.lengths, right.lengths);
+    assert_eq!(left.value_entries(), right.value_entries());
+    assert_eq!(left.length_entries(), right.length_entries());
     assert_eq!(left.value_complete, right.value_complete);
     assert_eq!(left.length_complete, right.length_complete);
     assert_eq!(left.empty_string_complete, right.empty_string_complete);
@@ -334,17 +334,17 @@ fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
     assert_eq!(code.kind, LogicalType::String);
     for short in [uuid, "A", "B"] {
         assert!(
-            code.values
+            code.value_entries()
                 .contains_key(&crate::posting::ScalarKey::String(short.into()))
         );
     }
     assert!(
-        code.values
+        code.value_entries()
             .contains_key(&crate::posting::ScalarKey::String("ü".repeat(32)))
     );
     assert!(
         !code
-            .values
+            .value_entries()
             .contains_key(&crate::posting::ScalarKey::String("ü".repeat(33)))
     );
     assert_eq!(
@@ -356,7 +356,7 @@ fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
         [8, 9].into_iter().collect()
     );
     assert_eq!(
-        state.indexes[&Vec::<String>::new()].values[&crate::posting::ScalarKey::String("x".into())]
+        state.indexes[&Vec::<String>::new()].value_entries()[&crate::posting::ScalarKey::String("x".into())]
             .len(),
         1
     );
@@ -390,7 +390,7 @@ fn high_cardinality_short_identifiers_do_not_use_enum_threshold() {
         .finish(&(0..128).collect(), 128, &Schema::default())
         .unwrap();
     let code = &state.indexes[&vec!["code".into()]];
-    assert_eq!(code.values.len(), 128);
+    assert_eq!(code.value_entries().len(), 128);
     assert_eq!(state.short_string_coverage[&vec!["code".into()]].len(), 128);
     assert_eq!(
         state
@@ -430,7 +430,7 @@ fn default_batch_budget_keeps_multi_field_short_string_index_complete() {
         .finish(&(0..512).collect(), 512, &Schema::default())
         .unwrap();
     assert!(state.report.complete);
-    assert_eq!(state.indexes[&vec!["code".into()]].values.len(), 512);
+    assert_eq!(state.indexes[&vec!["code".into()]].value_entries().len(), 512);
     assert_eq!(state.short_string_coverage[&vec!["code".into()]].len(), 512);
 }
 
@@ -468,7 +468,7 @@ fn default_batch_budget_keeps_dense_numeric_records_inferred() {
     );
     assert_eq!(
         state.indexes[&vec!["year".into()]]
-            .values
+            .value_entries()
             .values()
             .next()
             .unwrap()
@@ -982,8 +982,8 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         outcomes.push((
             serde_json::to_value(report).unwrap(),
             index.presence.clone(),
-            index.values.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
-            index.lengths.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
+            index.value_entries().iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
+            index.length_entries().iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
         ));
     }
     assert_eq!(outcomes[0], outcomes[1]);
@@ -1321,7 +1321,7 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
     let long = &state.indexes[&vec!["long".into()]];
     assert!(long.empty_string_complete);
     assert!(!long.value_complete);
-    assert!(long.values.is_empty());
+    assert!(long.value_entries().is_empty());
 }
 
 struct PipeReader;

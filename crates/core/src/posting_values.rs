@@ -403,8 +403,7 @@ fn scan_inferred_segment(
     }
     if let Some(limit) = max_short_string {
         index
-            .values
-            .retain(|key, _| !matches!(key, ScalarKey::String(text) if text.len() > limit));
+            .retain_values(|key| !matches!(key, ScalarKey::String(text) if text.len() > limit));
     }
     index.finish_stats();
     Ok(ScannedSegmentPosting {

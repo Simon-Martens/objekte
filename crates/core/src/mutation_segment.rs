@@ -8,7 +8,7 @@ use crate::build::AdmissionBreakdown;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
 use crate::model::Number;
-use crate::posting::{ScalarKey, StructuralKey, StructuralFacts};
+use crate::posting::{ScalarKey, StructuralKey};
 use crate::repository::IncrementalSegmentProfile;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
@@ -762,31 +762,24 @@ fn posting_bytes(index: &PostingIndex) -> usize {
     if let Some(facts) = &index.structural {
         total = total.saturating_add(
             facts
-                .postings
-                .len()
+                .key_count()
                 .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<StructuralKey>()),
         );
-        total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
+        total = total.saturating_add(facts.estimated_bytes());
     }
     total = total.saturating_add(
         index
-            .values
-            .len()
+            .distinct_values()
             .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<ScalarKey>()),
     );
-    for (key, bitmap) in &index.values {
-        total = total.saturating_add(bitmap_bytes(bitmap));
-        if let ScalarKey::String(value) | ScalarKey::Id(value) = key {
-            total = total.saturating_add(value.len());
-        }
-    }
+    total = total.saturating_add(index.value_bytes());
+    total = total.saturating_add(index.value_key_text_bytes());
     total = total.saturating_add(
         index
-            .lengths
-            .len()
+            .distinct_lengths()
             .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<Number>()),
     );
-    total.saturating_add(index.lengths.values().map(bitmap_bytes).sum::<usize>())
+    total.saturating_add(index.length_bytes())
 }
 
 fn gram_bytes(index: &crate::bigram::BigramIndex) -> usize {
@@ -1251,11 +1244,7 @@ fn consolidate_inference(
             index.presence.clear();
             index.empty_selections.clear();
             index.nulls.clear();
-            if let Some(facts) = &mut index.structural {
-                facts.postings.clear();
-            }
-            index.values.clear();
-            index.lengths.clear();
+            index.clear_postings();
             index.covered_records = 0;
             let mut empty = RoaringBitmap::new();
             let mut short = None;
@@ -1614,40 +1603,7 @@ pub(crate) struct PostingProjection {
 }
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
-    PostingIndex {
-        values_indexed: source.values_indexed,
-        path: source.path.clone(),
-        kind: source.kind.clone(),
-        multi: source.multi,
-        presence: RoaringBitmap::new(),
-        empty_selections: RoaringBitmap::new(),
-        nulls: RoaringBitmap::new(),
-        structural: source
-            .structural
-            .as_ref()
-            .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
-        value_complete: source.value_complete,
-        length_complete: source.length_complete,
-        empty_string_complete: source.empty_string_complete,
-        covered_records: logical_count,
-        stats: Default::default(),
-    }
-}
-
-fn scatter_posting_key<K: Ord + Clone>(
-    target: &mut std::collections::BTreeMap<K, RoaringBitmap>,
-    key: &K,
-    slot: u32,
-) {
-    if let Some(bitmap) = target.get_mut(key) {
-        bitmap.insert(slot);
-    } else {
-        let mut bitmap = RoaringBitmap::new();
-        bitmap.insert(slot);
-        target.insert(key.clone(), bitmap);
-    }
+    PostingIndex::empty_like(source, logical_count)
 }
 
 fn posting_destination(
@@ -1681,19 +1637,23 @@ fn scatter_posting_partitions(
         }
     }
     if let Some(facts) = &index.structural {
-        for (key, bitmap) in &facts.postings {
+        facts.for_each(|key, bitmap| {
             for old in bitmap.iter() {
                 if let Some((part, slot)) = posting_destination(routing, old)? {
-                    parts[part].structural.as_mut().unwrap()
-                        .postings.entry(*key).or_default().insert(slot.0);
+                    parts[part]
+                        .structural
+                        .as_mut()
+                        .unwrap()
+                        .insert_slot(key, slot.0);
                 }
             }
-        }
+            Ok(())
+        })?;
     }
     index.for_each_value(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].values, key, slot.0);
+                parts[part].insert_value_slot(key.clone(), slot.0);
             }
         }
         Ok(())
@@ -1701,7 +1661,7 @@ fn scatter_posting_partitions(
     index.for_each_length(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].lengths, key, slot.0);
+                parts[part].insert_length_slot(key.clone(), slot.0);
             }
         }
         Ok(())
@@ -1889,47 +1849,32 @@ fn project_posting(
     logical_count: u32,
     bounds: Option<(u32, u32)>,
 ) -> Result<PostingIndex, String> {
-    let mut projected = PostingIndex {
-        values_indexed: index.values_indexed,
-        path: index.path.clone(),
-        kind: index.kind.clone(),
-        multi: index.multi,
-        presence: project_bitmap_in_range(&index.presence, slots, bounds)?,
-        empty_selections: project_bitmap_in_range(&index.empty_selections, slots, bounds)?,
-        nulls: project_bitmap_in_range(&index.nulls, slots, bounds)?,
-        structural: index
-            .structural
-            .as_ref()
-            .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
-        value_complete: index.value_complete,
-        length_complete: index.length_complete,
-        empty_string_complete: index.empty_string_complete,
-        covered_records: logical_count,
-        stats: Default::default(),
-    };
+    let mut projected = PostingIndex::empty_like(index, logical_count);
+    projected.presence = project_bitmap_in_range(&index.presence, slots, bounds)?;
+    projected.empty_selections = project_bitmap_in_range(&index.empty_selections, slots, bounds)?;
+    projected.nulls = project_bitmap_in_range(&index.nulls, slots, bounds)?;
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.values.insert(key.clone(), kept);
+            projected.set_value(key.clone(), kept);
         }
         Ok(())
     })?;
     index.for_each_length(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.lengths.insert(key.clone(), kept);
+            projected.set_length(key.clone(), kept);
         }
         Ok(())
     })?;
     if let (Some(source), Some(target)) = (&index.structural, &mut projected.structural) {
-        for (key, bitmap) in &source.postings {
+        source.for_each(|key, bitmap| {
             let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
             if !kept.is_empty() {
-                target.postings.insert(*key, kept);
+                target.set(key, kept);
             }
-        }
+            Ok(())
+        })?;
     }
     projected.covered_records = logical_count;
     projected.finish_stats();

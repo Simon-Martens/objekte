@@ -248,7 +248,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     );
     assert_eq!(indexed.id_lookup.len(), 3);
     assert_eq!(
-        indexed.postings.fields[&vec!["n".to_owned()]].values
+        indexed.postings.fields[&vec!["n".to_owned()]].value_entries()
             [&ScalarKey::Number(Number::integer(2))]
             .iter()
             .collect::<Vec<_>>(),
@@ -575,8 +575,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
     assert_eq!(merged.logical_records, direct.logical_records);
     assert_eq!(merged.empty_array_records, direct.empty_array_records);
     assert_eq!(
-        merged.postings.fields[&vec!["n".to_owned()]].values,
-        direct.postings.fields[&vec!["n".to_owned()]].values
+        merged.postings.fields[&vec!["n".to_owned()]].value_entries(),
+        direct.postings.fields[&vec!["n".to_owned()]].value_entries()
     );
     assert_eq!(merged.raw.normal, direct.raw.normal);
     assert_eq!(merged.fallback_text.normal, direct.fallback_text.normal);
@@ -612,8 +612,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
         )
         .unwrap();
     assert_eq!(
-        inferred.indexes[&vec!["extra".to_owned()]].values,
-        direct.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].values
+        inferred.indexes[&vec!["extra".to_owned()]].value_entries(),
+        direct.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].value_entries()
     );
     assert!(IndexedCollectionSegment::consolidate(&refs, 3).is_err());
     assert!(
@@ -863,10 +863,10 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             assert_eq!(actual.presence, expected.presence);
             assert_eq!(actual.empty_selections, expected.empty_selections);
             assert_eq!(actual.nulls, expected.nulls);
-            assert_eq!(actual.values, expected.values);
-            assert_eq!(actual.lengths, expected.lengths);
-            assert_eq!(actual.structural.as_ref().map(|facts| &facts.postings),
-                expected.structural.as_ref().map(|facts| &facts.postings));
+            assert_eq!(actual.value_entries(), expected.value_entries());
+            assert_eq!(actual.length_entries(), expected.length_entries());
+            assert_eq!(actual.structural.as_ref().map(|facts| facts.entries()),
+                expected.structural.as_ref().map(|facts| facts.entries()));
         }
         let reference = project_sorting(
             &all.sorting,
@@ -899,20 +899,20 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     assert_eq!(compacted.id_lookup, oracle.id_lookup);
     assert_eq!(compacted.logical_records, oracle.logical_records);
     assert_eq!(
-        compacted.postings.fields[&vec!["n".to_owned()]].values,
-        oracle.postings.fields[&vec!["n".to_owned()]].values
+        compacted.postings.fields[&vec!["n".to_owned()]].value_entries(),
+        oracle.postings.fields[&vec!["n".to_owned()]].value_entries()
     );
     assert_eq!(
         compacted.postings.fields[&vec!["n".to_owned()]]
             .structural
             .as_ref()
             .unwrap()
-            .postings,
+            .entries(),
         oracle.postings.fields[&vec!["n".to_owned()]]
             .structural
             .as_ref()
             .unwrap()
-            .postings,
+            .entries(),
     );
     assert_eq!(compacted.raw.normal, oracle.raw.normal);
     assert_eq!(compacted.fallback_text.normal, oracle.fallback_text.normal);
@@ -938,20 +938,20 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         )
         .unwrap();
     assert_eq!(
-        inferred.indexes[&vec!["extra".to_owned()]].values,
-        oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].values
+        inferred.indexes[&vec!["extra".to_owned()]].value_entries(),
+        oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].value_entries()
     );
     assert_eq!(
         inferred.indexes[&vec!["extra".to_owned()]]
             .structural
             .as_ref()
             .unwrap()
-            .postings,
+            .entries(),
         oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]]
             .structural
             .as_ref()
             .unwrap()
-            .postings,
+            .entries(),
     );
     assert!(
         all.compact_active(&active, 2, |file| file.id == FileId(200))

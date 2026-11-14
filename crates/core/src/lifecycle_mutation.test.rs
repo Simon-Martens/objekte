@@ -760,7 +760,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         let rewritten_posting_keys = new_shards
             .iter()
             .flat_map(|shard| shard.index.postings.fields.values())
-            .map(|posting| posting.values.len())
+            .map(|posting| posting.value_entries().len())
             .sum::<usize>();
         let extraction_calls =
             usize::from(moved.strategy == FileMutationStrategy::AppendReplacement);

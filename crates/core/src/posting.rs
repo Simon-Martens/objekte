@@ -1,7 +1,8 @@
 //! Typed B-tree dictionaries with record-slot postings and special states.
 
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap, HashSet};
-use std::ops::Bound::{Excluded, Included, Unbounded};
+use std::ops::Bound;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -10,6 +11,7 @@ use time::{Date, OffsetDateTime};
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::posting_map::{PostingIter, PostingMap};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
@@ -54,8 +56,8 @@ pub struct PostingIndex {
     /// Exact selected-occurrence facts for an admitted logical field. `None`
     /// preserves the narrower legacy structural-only or named value index.
     pub structural: Option<StructuralFacts>,
-    pub values: BTreeMap<ScalarKey, RoaringBitmap>,
-    pub lengths: BTreeMap<Number, RoaringBitmap>,
+    values: PostingMap<ScalarKey>,
+    lengths: PostingMap<Number>,
     /// Whether the declared field admits a complete typed value dictionary.
     /// Partial length and empty-string shortcuts are tracked separately.
     pub values_indexed: bool,
@@ -81,12 +83,67 @@ pub enum StructuralKey {
 
 #[derive(Clone, Debug, Default)]
 pub struct StructuralFacts {
-    pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
+    postings: PostingMap<StructuralKey>,
 }
 
 impl StructuralFacts {
+    pub fn get(&self, key: StructuralKey) -> Option<Cow<'_, RoaringBitmap>> {
+        self.postings.get(&key)
+    }
+
+    pub(crate) fn is_empty_for(&self, key: StructuralKey) -> bool {
+        self.postings.get(&key).is_none_or(|posting| posting.is_empty())
+    }
+
+    pub fn for_each(
+        &self,
+        mut visit: impl FnMut(StructuralKey, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        for (key, posting) in self.postings.iter() {
+            visit(*key, posting.as_ref())?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn key_count(&self) -> usize {
+        self.postings.len()
+    }
+
+    pub(crate) fn set(&mut self, key: StructuralKey, posting: RoaringBitmap) {
+        self.postings.replace(key, posting);
+    }
+
+    pub(crate) fn insert_slot(&mut self, key: StructuralKey, slot: u32) {
+        self.postings.insert_slot(key, slot);
+    }
+
+    pub(crate) fn clear(&mut self) {
+        self.postings.clear();
+    }
+
+    pub fn entries(&self) -> BTreeMap<StructuralKey, RoaringBitmap> {
+        self.postings.to_btree_map()
+    }
+
+    pub fn estimated_bytes(&self) -> usize {
+        self.postings.serialized_bytes()
+    }
+
+    pub(crate) fn freeze(&mut self) {
+        self.postings.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn is_shared(&self) -> bool {
+        self.postings.is_shared()
+    }
+
+    fn all_bitmaps(&self, valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
+        self.postings.all_bitmaps(valid)
+    }
+
     fn insert(&mut self, key: StructuralKey, slot: RecordSlot) {
-        self.postings.entry(key).or_default().insert(slot.0);
+        self.postings.insert_slot(key, slot.0);
     }
 
     fn observe(&mut self, slot: RecordSlot, value: &Value, multi: bool) {
@@ -109,17 +166,10 @@ impl StructuralFacts {
     }
 
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
-        for (key, posting) in batch.postings {
-            append_shifted_bitmap(self.postings.entry(key).or_default(), &posting, base)?;
+        for (key, posting) in batch.postings.into_entries() {
+            self.postings.append_shifted(key, &posting, base)?;
         }
         Ok(())
-    }
-
-    pub(crate) fn estimated_bytes(&self) -> usize {
-        self.postings
-            .values()
-            .map(RoaringBitmap::serialized_size)
-            .sum()
     }
 }
 
@@ -140,23 +190,167 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
-/// Borrowed ordered traversal over one posting dictionary's values.
-pub(crate) enum PostingValueCursor<'a> {
-    Forward(std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>),
-    Reverse(std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>),
-}
+/// Ordered traversal over one posting dictionary's values.
+pub(crate) struct PostingValueCursor<'a>(PostingIter<'a, ScalarKey>);
 
 impl<'a> PostingValueCursor<'a> {
-    pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
-        match self {
-            Self::Forward(range) => range.next(),
-            Self::Reverse(range) => range.next(),
-        }
-        .map(|(key, posting)| (key.clone(), posting))
+    pub(crate) fn next(&mut self) -> Option<(ScalarKey, Cow<'a, RoaringBitmap>)> {
+        self.0.next().map(|(key, posting)| (key.clone(), posting))
     }
 }
 
+/// Parts needed to assemble a [`PostingIndex`] from inference building.
+pub(crate) struct PostingParts {
+    pub path: Vec<String>,
+    pub kind: LogicalType,
+    pub multi: bool,
+    pub presence: RoaringBitmap,
+    pub empty_selections: RoaringBitmap,
+    pub nulls: RoaringBitmap,
+    pub values: BTreeMap<ScalarKey, RoaringBitmap>,
+    pub lengths: BTreeMap<Number, RoaringBitmap>,
+    pub value_complete: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
+    pub covered_records: u32,
+}
+
 impl PostingIndex {
+    pub(crate) fn from_parts(parts: PostingParts) -> Self {
+        Self {
+            path: parts.path,
+            kind: parts.kind,
+            multi: parts.multi,
+            presence: parts.presence,
+            empty_selections: parts.empty_selections,
+            nulls: parts.nulls,
+            structural: Some(StructuralFacts::default()),
+            values: PostingMap::from_btree_map(parts.values),
+            lengths: PostingMap::from_btree_map(parts.lengths),
+            values_indexed: true,
+            value_complete: parts.value_complete,
+            length_complete: parts.length_complete,
+            empty_string_complete: parts.empty_string_complete,
+            covered_records: parts.covered_records,
+            stats: PostingStats::default(),
+        }
+    }
+
+    pub(crate) fn empty_like(source: &Self, covered_records: u32) -> Self {
+        Self {
+            path: source.path.clone(),
+            kind: source.kind.clone(),
+            multi: source.multi,
+            presence: RoaringBitmap::new(),
+            empty_selections: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            structural: source
+                .structural
+                .as_ref()
+                .map(|_| StructuralFacts::default()),
+            values: PostingMap::new(),
+            lengths: PostingMap::new(),
+            values_indexed: source.values_indexed,
+            value_complete: source.value_complete,
+            length_complete: source.length_complete,
+            empty_string_complete: source.empty_string_complete,
+            covered_records,
+            stats: PostingStats::default(),
+        }
+    }
+
+    pub(crate) fn insert_value_slot(&mut self, key: ScalarKey, slot: u32) {
+        self.values.insert_slot(key, slot);
+    }
+
+    pub(crate) fn insert_length_slot(&mut self, key: Number, slot: u32) {
+        self.lengths.insert_slot(key, slot);
+    }
+
+    pub(crate) fn set_value(&mut self, key: ScalarKey, posting: RoaringBitmap) {
+        self.values.replace(key, posting);
+    }
+
+    pub(crate) fn set_length(&mut self, key: Number, posting: RoaringBitmap) {
+        self.lengths.replace(key, posting);
+    }
+
+    pub(crate) fn retain_values(&mut self, keep: impl FnMut(&ScalarKey) -> bool) {
+        self.values.retain_keys(keep);
+    }
+
+    pub fn clear_postings(&mut self) {
+        self.values.clear();
+        self.lengths.clear();
+        if let Some(facts) = &mut self.structural {
+            facts.clear();
+        }
+    }
+
+    pub fn value_bytes(&self) -> usize {
+        self.values.serialized_bytes()
+    }
+
+    pub fn length_bytes(&self) -> usize {
+        self.lengths.serialized_bytes()
+    }
+
+    pub fn value_memberships(&self) -> u64 {
+        self.values.iter().map(|(_, slots)| slots.len()).sum()
+    }
+
+    pub(crate) fn value_key_text_bytes(&self) -> usize {
+        self.values
+            .iter()
+            .map(|(key, _)| match key {
+                ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
+                _ => 0,
+            })
+            .sum()
+    }
+
+    pub(crate) fn inferred_index_bytes(&self) -> usize {
+        self.values
+            .iter()
+            .map(|(key, slots)| {
+                128 + match key {
+                    ScalarKey::String(text) => text.len(),
+                    _ => 0,
+                } + slots.serialized_size()
+            })
+            .sum::<usize>()
+            + self
+                .lengths
+                .iter()
+                .map(|(_, slots)| 64 + slots.serialized_size())
+                .sum::<usize>()
+    }
+
+    pub fn value_entries(&self) -> BTreeMap<ScalarKey, RoaringBitmap> {
+        self.values.to_btree_map()
+    }
+
+    pub fn length_entries(&self) -> BTreeMap<Number, RoaringBitmap> {
+        self.lengths.to_btree_map()
+    }
+
+    pub(crate) fn value_entries_equal(
+        &self,
+        other: &BTreeMap<ScalarKey, RoaringBitmap>,
+    ) -> bool {
+        self.values.len() == other.len()
+            && other
+                .iter()
+                .all(|(key, posting)| self.values.get(key).as_deref() == Some(posting))
+    }
+
+    /// Move every family that supports it to the persistent backing.
+    pub fn freeze_shared(&mut self) {
+        if let Some(facts) = &mut self.structural {
+            facts.freeze();
+        }
+    }
+
     /// Borrow the ordered value keys of this posting index. The native
     /// B-tree is the completed query representation; callers never decode it.
     pub(crate) fn value_range(
@@ -165,18 +359,18 @@ impl PostingIndex {
         upper: std::ops::Bound<ScalarKey>,
         descending: bool,
     ) -> PostingValueCursor<'_> {
-        if descending {
-            PostingValueCursor::Reverse(self.values.range((lower, upper)).rev())
-        } else {
-            PostingValueCursor::Forward(self.values.range((lower, upper)))
-        }
+        PostingValueCursor(self.values.range(lower.as_ref(), upper.as_ref(), descending))
+    }
+
+    pub(crate) fn value_iter(&self) -> PostingIter<'_, ScalarKey> {
+        self.values.iter()
     }
 
     pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> u64 {
-        self.values.get(key).map_or(0, RoaringBitmap::len)
+        self.values.cardinality(key)
     }
 
-    pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<&RoaringBitmap> {
+    pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<Cow<'_, RoaringBitmap>> {
         self.values.get(key)
     }
 
@@ -192,17 +386,17 @@ impl PostingIndex {
                 if let Some(slots) = self.values.get(&ScalarKey::Id(id.clone())) {
                     lists += 1;
                     members += slots.len();
-                    union |= slots;
+                    union |= slots.as_ref();
                 }
             }
         } else {
-            for (key, slots) in &self.values {
+            for (key, slots) in self.values.iter() {
                 if let ScalarKey::Id(id) = key
                     && ids.contains(id)
                 {
                     lists += 1;
                     members += slots.len();
-                    union |= slots;
+                    union |= slots.as_ref();
                 }
             }
         }
@@ -214,25 +408,25 @@ impl PostingIndex {
         key: &ScalarKey,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        self.values.get(key).map(|bitmap| input & bitmap)
+        self.values.get(key).map(|bitmap| input & bitmap.as_ref())
     }
 
-    pub(crate) fn for_each_value(
+    pub fn for_each_value(
         &self,
         mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        for (key, posting) in &self.values {
-            visit(key, posting)?;
+        for (key, posting) in self.values.iter() {
+            visit(key, posting.as_ref())?;
         }
         Ok(())
     }
 
-    pub(crate) fn for_each_length(
+    pub fn for_each_length(
         &self,
         mut visit: impl FnMut(&Number, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        for (key, posting) in &self.lengths {
-            visit(key, posting)?;
+        for (key, posting) in self.lengths.iter() {
+            visit(key, posting.as_ref())?;
         }
         Ok(())
     }
@@ -246,10 +440,10 @@ impl PostingIndex {
         scalar_range_postings(&self.values, key, operator, input).0
     }
 
-    fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
+    fn state_source(&self, derived: Derived) -> Option<Option<Cow<'_, RoaringBitmap>>> {
         let key = match derived {
             Derived::Exists => return None,
-            Derived::Null if !self.multi => return Some(Some(&self.nulls)),
+            Derived::Null if !self.multi => return Some(Some(Cow::Borrowed(&self.nulls))),
             Derived::Null => StructuralKey::AnyNull,
             Derived::IsNonEmpty => StructuralKey::NonEmpty,
             Derived::IsString => StructuralKey::String,
@@ -258,7 +452,7 @@ impl PostingIndex {
             Derived::IsObject => StructuralKey::Object,
             Derived::None | Derived::Length => return None,
         };
-        Some(self.structural.as_ref()?.postings.get(&key))
+        Some(self.structural.as_ref()?.get(key))
     }
 
     fn state_truth(term: &BoundTerm) -> Option<bool> {
@@ -283,7 +477,7 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
-        let equal = || self.values.get(key).map(RoaringBitmap::len).unwrap_or(0);
+        let equal = || self.values.cardinality(key);
         match operator {
             Operator::Eq => {
                 *visits += 1;
@@ -331,14 +525,14 @@ impl PostingIndex {
             Operator::Eq => Some(
                 self.values
                     .get(key)
-                    .map(|slots| input & slots)
+                    .map(|slots| input & slots.as_ref())
                     .unwrap_or_default(),
             ),
             Operator::Ne => {
                 let mut result = input & &self.presence;
                 result -= &self.nulls;
                 if let Some(equal) = self.values.get(key) {
-                    result -= equal;
+                    result -= equal.as_ref();
                 }
                 Some(result)
             }
@@ -371,11 +565,11 @@ impl PostingIndex {
         if let (Some(target), Some(source)) = (&mut self.structural, batch.structural) {
             target.merge_shifted(source, base)?;
         }
-        for (key, posting) in batch.values {
-            append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
+        for (key, posting) in batch.values.into_entries() {
+            self.values.append_shifted(key, &posting, base)?;
         }
-        for (key, posting) in batch.lengths {
-            append_shifted_bitmap(self.lengths.entry(key).or_default(), &posting, base)?;
+        for (key, posting) in batch.lengths.into_entries() {
+            self.lengths.append_shifted(key, &posting, base)?;
         }
         self.covered_records = covered;
         Ok(())
@@ -385,17 +579,12 @@ impl PostingIndex {
         if !self.presence.is_subset(allowed)
             || !self.empty_selections.is_subset(allowed)
             || !self.nulls.is_subset(allowed)
-            || self.structural.as_ref().is_some_and(|facts| {
-                facts
-                    .postings
-                    .values()
-                    .any(|slots| !slots.is_subset(allowed))
-            })
             || self
-                .values
-                .values()
-                .chain(self.lengths.values())
-                .any(|slots| !slots.is_subset(allowed))
+                .structural
+                .as_ref()
+                .is_some_and(|facts| !facts.all_bitmaps(|slots| slots.is_subset(allowed)))
+            || !self.values.all_bitmaps(|slots| slots.is_subset(allowed))
+            || !self.lengths.all_bitmaps(|slots| slots.is_subset(allowed))
         {
             return Err("posting outside logical eligible domain".into());
         }
@@ -439,7 +628,7 @@ impl PostingIndex {
             return Some(if truth { present } else { input - &present });
         }
         if let Some(source) = self.state_source(term.derived) {
-            return Some(match (Self::state_truth(term)?, source) {
+            return Some(match (Self::state_truth(term)?, source.as_deref()) {
                 (true, Some(slots)) => input & slots,
                 (false, Some(slots)) => input - slots,
                 (true, None) => RoaringBitmap::new(),
@@ -458,7 +647,7 @@ impl PostingIndex {
                 return Some(
                     self.lengths
                         .get(number)
-                        .map(|set| input & set)
+                        .map(|set| input & set.as_ref())
                         .unwrap_or_default(),
                 );
             }
@@ -517,7 +706,7 @@ impl PostingIndex {
             _ => None,
         };
         if let Some(set) = borrowed {
-            return Some(input & set);
+            return Some(input & set.as_ref());
         }
         self.exact_set(term, domain).map(|set| &set & input)
     }
@@ -531,8 +720,8 @@ impl PostingIndex {
             empty_selections: RoaringBitmap::new(),
             nulls: RoaringBitmap::new(),
             structural: None,
-            values: BTreeMap::new(),
-            lengths: BTreeMap::new(),
+            values: PostingMap::new(),
+            lengths: PostingMap::new(),
             values_indexed: true,
             value_complete: true,
             length_complete: matches!(field.kind, LogicalType::Array(_)),
@@ -564,8 +753,8 @@ impl PostingIndex {
             present_count: self.presence.len(),
             null_count: self.nulls.len(),
             distinct_count: self.values.len(),
-            min_key: self.values.first_key_value().map(|(key, _)| key.clone()),
-            max_key: self.values.last_key_value().map(|(key, _)| key.clone()),
+            min_key: self.values.first_key().cloned(),
+            max_key: self.values.last_key().cloned(),
         };
     }
 
@@ -608,13 +797,11 @@ impl PostingIndex {
                     && !self.value_complete
                 {
                     self.values
-                        .entry(ScalarKey::String(String::new()))
-                        .or_default()
-                        .insert(slot.0);
+                        .insert_slot(ScalarKey::String(String::new()), slot.0);
                 } else if self.value_complete
                     && let Some(key) = ScalarKey::from_value(value)
                 {
-                    self.values.entry(key).or_default().insert(slot.0);
+                    self.values.insert_slot(key, slot.0);
                 }
                 return Ok(());
             }
@@ -624,9 +811,7 @@ impl PostingIndex {
                 for value in selected {
                     if let Value::Array(array) = value {
                         self.lengths
-                            .entry(Number::integer(array.values.len() as i128))
-                            .or_default()
-                            .insert(slot.0);
+                            .insert_slot(Number::integer(array.values.len() as i128), slot.0);
                     }
                 }
             }
@@ -637,9 +822,7 @@ impl PostingIndex {
             if let Value::Array(array) = value {
                 if self.length_complete {
                     self.lengths
-                        .entry(Number::integer(array.values.len() as i128))
-                        .or_default()
-                        .insert(slot.0);
+                        .insert_slot(Number::integer(array.values.len() as i128), slot.0);
                 }
                 for item in &array.values {
                     if let Some(key) = ScalarKey::from_value(item) {
@@ -651,7 +834,7 @@ impl PostingIndex {
             }
         }
         for key in unique {
-            self.values.entry(key).or_default().insert(slot.0);
+            self.values.insert_slot(key, slot.0);
         }
         Ok(())
     }
@@ -673,15 +856,22 @@ impl PostingIndex {
             return Err("incomplete posting coverage".into());
         }
         let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < slot_count);
+        let structural_in_domain = self.structural.as_ref().is_none_or(|facts| {
+            let mut in_domain = true;
+            facts
+                .for_each(|_, slots| {
+                    in_domain &= valid(slots);
+                    Ok(())
+                })
+                .expect("structural visit is infallible");
+            in_domain
+        });
         if !valid(&self.presence)
             || !valid(&self.empty_selections)
             || !valid(&self.nulls)
-            || self
-                .structural
-                .as_ref()
-                .is_some_and(|facts| facts.postings.values().any(|slots| !valid(slots)))
-            || !self.values.values().all(valid)
-            || !self.lengths.values().all(valid)
+            || !structural_in_domain
+            || !self.values.all_bitmaps(valid)
+            || !self.lengths.all_bitmaps(valid)
         {
             return Err("posting contains out-of-domain record slot".into());
         }
@@ -691,23 +881,22 @@ impl PostingIndex {
         if !self.empty_selections.is_subset(&self.presence) {
             return Err("empty selection is not present".into());
         }
-        if self.structural.as_ref().is_some_and(|facts| {
+        let structural_consistent = self.structural.as_ref().is_none_or(|facts| {
+            let object = facts.get(StructuralKey::Object);
+            let mut consistent = true;
             facts
-                .postings
-                .values()
-                .any(|slots| !slots.is_subset(&self.presence))
-                || facts
-                    .postings
-                    .get(&StructuralKey::EmptyObject)
-                    .is_some_and(|empty| {
-                        !empty.is_subset(
-                            facts
-                                .postings
-                                .get(&StructuralKey::Object)
-                                .unwrap_or(&RoaringBitmap::new()),
-                        )
-                    })
-        }) {
+                .for_each(|key, slots| {
+                    consistent &= slots.is_subset(&self.presence);
+                    if key == StructuralKey::EmptyObject {
+                        consistent &=
+                            object.as_deref().is_some_and(|object| slots.is_subset(object));
+                    }
+                    Ok(())
+                })
+                .expect("structural visit is infallible");
+            consistent
+        });
+        if !structural_consistent {
             return Err("structural posting is inconsistent with presence or type".into());
         }
         if self.stats.present_count != self.presence.len()
@@ -784,7 +973,7 @@ impl PostingIndex {
         }
         if let Some(source) = self.state_source(term.derived) {
             *visits += 1;
-            let yes = source.map_or(0, RoaringBitmap::len);
+            let yes = source.as_deref().map_or(0, RoaringBitmap::len);
             return Some((
                 1.0,
                 if Self::state_truth(term)? {
@@ -809,7 +998,7 @@ impl PostingIndex {
                 let count = if term.operator == Operator::Eq {
                     self.lengths
                         .get(number)
-                        .map(RoaringBitmap::len)
+                        .map(|slots| slots.len())
                         .unwrap_or(0)
                 } else if let Some(keys) = range_keys {
                     if keys <= 32 {
@@ -865,10 +1054,7 @@ impl PostingIndex {
         match term.operator {
             Operator::Eq => {
                 *visits += 1;
-                Some((
-                    1.0,
-                    self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
-                ))
+                Some((1.0, self.values.cardinality(&key)))
             }
             Operator::Ne if !term.multi => {
                 *visits += 1;
@@ -876,7 +1062,7 @@ impl PostingIndex {
                     2.0,
                     self.stats.present_count
                         - self.stats.null_count
-                        - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                        - self.values.cardinality(&key),
                 ))
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
@@ -931,7 +1117,7 @@ impl PostingIndex {
             return Some(if truth { present } else { domain - &present });
         }
         if let Some(source) = self.state_source(term.derived) {
-            return Some(match (Self::state_truth(term)?, source) {
+            return Some(match (Self::state_truth(term)?, source.as_deref()) {
                 (true, Some(slots)) => slots.clone(),
                 (false, Some(slots)) => domain - slots,
                 (true, None) => RoaringBitmap::new(),
@@ -948,7 +1134,9 @@ impl PostingIndex {
                     return None;
                 };
                 return match term.operator {
-                    Operator::Eq => Some(self.lengths.get(number).cloned().unwrap_or_default()),
+                    Operator::Eq => {
+                        Some(self.lengths.get(number).map(Cow::into_owned).unwrap_or_default())
+                    }
                     Operator::Ne => Some(
                         union_postings(self.lengths.iter().filter(|(key, _)| *key != number), None)
                             .0,
@@ -991,10 +1179,10 @@ impl PostingIndex {
             return None;
         }
         match term.operator {
-            Operator::Eq => Some(self.values.get(&key).cloned().unwrap_or_default()),
+            Operator::Eq => Some(self.values.get(&key).map(Cow::into_owned).unwrap_or_default()),
             Operator::Ne if !term.multi => Some(
                 &(&self.presence - &self.nulls)
-                    - &self.values.get(&key).cloned().unwrap_or_default(),
+                    - &self.values.get(&key).map(Cow::into_owned).unwrap_or_default(),
             ),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
                 Some(scalar_range_postings(&self.values, &key, term.operator, None).0)
@@ -1022,17 +1210,20 @@ impl PostingIndex {
         let values = &self.values;
         let lower = |bound: &ScalarKey| {
             values
-                .range(..bound.clone())
-                .rev()
+                .range(Bound::Unbounded, Bound::Excluded(bound), true)
                 .take_while(|(key, _)| same_type(key))
         };
         let upper = |bound: &ScalarKey| {
             values
-                .range(bound.clone()..)
+                .range(Bound::Included(bound), Bound::Unbounded, false)
                 .take_while(|(key, _)| same_type(key))
         };
         Some(match term.operator {
-            Operator::Eq => union_postings(values.range(start..end), input).0,
+            Operator::Eq => union_postings(
+                values.range(Bound::Included(&start), Bound::Excluded(&end), false),
+                input,
+            )
+            .0,
             Operator::Ne => {
                 let mut result = union_postings(lower(&start), input).0;
                 result |= union_postings(upper(&end), input).0;
@@ -1057,40 +1248,40 @@ impl PostingIndex {
         let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
         let values = &self.values;
         Some(match term.operator {
-            Operator::Eq => values.range(start..end).take(limit).count(),
+            Operator::Eq => values
+                .range(Bound::Included(&start), Bound::Excluded(&end), false)
+                .take(limit)
+                .count(),
             Operator::Ne => {
                 let below = values
-                    .range(..start)
-                    .rev()
+                    .range(Bound::Unbounded, Bound::Excluded(&start), true)
                     .take_while(|(key, _)| same_type(key))
                     .take(limit)
                     .count();
                 below
                     + values
-                        .range(end..)
+                        .range(Bound::Included(&end), Bound::Unbounded, false)
                         .take_while(|(key, _)| same_type(key))
                         .take(limit.saturating_sub(below))
                         .count()
             }
             Operator::Lt => values
-                .range(..start)
-                .rev()
+                .range(Bound::Unbounded, Bound::Excluded(&start), true)
                 .take_while(|(key, _)| same_type(key))
                 .take(limit)
                 .count(),
             Operator::Le => values
-                .range(..end)
-                .rev()
+                .range(Bound::Unbounded, Bound::Excluded(&end), true)
                 .take_while(|(key, _)| same_type(key))
                 .take(limit)
                 .count(),
             Operator::Gt => values
-                .range(end..)
+                .range(Bound::Included(&end), Bound::Unbounded, false)
                 .take_while(|(key, _)| same_type(key))
                 .take(limit)
                 .count(),
             Operator::Ge => values
-                .range(start..)
+                .range(Bound::Included(&start), Bound::Unbounded, false)
                 .take_while(|(key, _)| same_type(key))
                 .take(limit)
                 .count(),
@@ -1117,7 +1308,7 @@ fn is_range(operator: Operator) -> bool {
 }
 
 fn union_postings<'a, K: 'a>(
-    entries: impl Iterator<Item = (&'a K, &'a RoaringBitmap)>,
+    entries: impl Iterator<Item = (&'a K, Cow<'a, RoaringBitmap>)>,
     restriction: Option<&RoaringBitmap>,
 ) -> (RoaringBitmap, usize) {
     let mut result = RoaringBitmap::new();
@@ -1125,50 +1316,62 @@ fn union_postings<'a, K: 'a>(
     for (_, posting) in entries {
         visited += 1;
         if let Some(input) = restriction {
-            result |= input & posting;
+            result |= input & posting.as_ref();
         } else {
-            result |= posting;
+            result |= posting.as_ref();
         }
     }
     (result, visited)
 }
 
-fn range_postings<K: Ord>(
-    entries: &BTreeMap<K, RoaringBitmap>,
+fn range_postings<K: Ord + Clone>(
+    entries: &PostingMap<K>,
     key: &K,
     operator: Operator,
     restriction: Option<&RoaringBitmap>,
 ) -> (RoaringBitmap, usize) {
     match operator {
-        Operator::Gt => union_postings(entries.range((Excluded(key), Unbounded)), restriction),
-        Operator::Ge => union_postings(entries.range((Included(key), Unbounded)), restriction),
-        Operator::Lt => union_postings(entries.range((Unbounded, Excluded(key))), restriction),
-        Operator::Le => union_postings(entries.range((Unbounded, Included(key))), restriction),
+        Operator::Gt => union_postings(
+            entries.range(Bound::Excluded(key), Bound::Unbounded, false),
+            restriction,
+        ),
+        Operator::Ge => union_postings(
+            entries.range(Bound::Included(key), Bound::Unbounded, false),
+            restriction,
+        ),
+        Operator::Lt => union_postings(
+            entries.range(Bound::Unbounded, Bound::Excluded(key), false),
+            restriction,
+        ),
+        Operator::Le => union_postings(
+            entries.range(Bound::Unbounded, Bound::Included(key), false),
+            restriction,
+        ),
         _ => (RoaringBitmap::new(), 0),
     }
 }
 
-fn range_key_probe<K: Ord>(
-    entries: &BTreeMap<K, RoaringBitmap>,
+fn range_key_probe<K: Ord + Clone>(
+    entries: &PostingMap<K>,
     key: &K,
     operator: Operator,
     limit: usize,
 ) -> usize {
     match operator {
         Operator::Gt => entries
-            .range((Excluded(key), Unbounded))
+            .range(Bound::Excluded(key), Bound::Unbounded, false)
             .take(limit)
             .count(),
         Operator::Ge => entries
-            .range((Included(key), Unbounded))
+            .range(Bound::Included(key), Bound::Unbounded, false)
             .take(limit)
             .count(),
         Operator::Lt => entries
-            .range((Unbounded, Excluded(key)))
+            .range(Bound::Unbounded, Bound::Excluded(key), false)
             .take(limit)
             .count(),
         Operator::Le => entries
-            .range((Unbounded, Included(key)))
+            .range(Bound::Unbounded, Bound::Included(key), false)
             .take(limit)
             .count(),
         _ => 0,
@@ -1176,7 +1379,7 @@ fn range_key_probe<K: Ord>(
 }
 
 fn scalar_range_key_probe(
-    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    entries: &PostingMap<ScalarKey>,
     key: &ScalarKey,
     operator: Operator,
     limit: usize,
@@ -1185,24 +1388,22 @@ fn scalar_range_key_probe(
         |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
     match operator {
         Operator::Gt => entries
-            .range((Excluded(key), Unbounded))
+            .range(Bound::Excluded(key), Bound::Unbounded, false)
             .take_while(|(candidate, _)| same_type(candidate))
             .take(limit)
             .count(),
         Operator::Ge => entries
-            .range((Included(key), Unbounded))
+            .range(Bound::Included(key), Bound::Unbounded, false)
             .take_while(|(candidate, _)| same_type(candidate))
             .take(limit)
             .count(),
         Operator::Lt => entries
-            .range((Unbounded, Excluded(key)))
-            .rev()
+            .range(Bound::Unbounded, Bound::Excluded(key), true)
             .take_while(|(candidate, _)| same_type(candidate))
             .take(limit)
             .count(),
         Operator::Le => entries
-            .range((Unbounded, Included(key)))
-            .rev()
+            .range(Bound::Unbounded, Bound::Included(key), true)
             .take_while(|(candidate, _)| same_type(candidate))
             .take(limit)
             .count(),
@@ -1211,7 +1412,7 @@ fn scalar_range_key_probe(
 }
 
 fn scalar_range_postings(
-    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    entries: &PostingMap<ScalarKey>,
     key: &ScalarKey,
     operator: Operator,
     restriction: Option<&RoaringBitmap>,
@@ -1221,27 +1422,25 @@ fn scalar_range_postings(
     match operator {
         Operator::Gt => union_postings(
             entries
-                .range((Excluded(key), Unbounded))
+                .range(Bound::Excluded(key), Bound::Unbounded, false)
                 .take_while(|(candidate, _)| same_type(candidate)),
             restriction,
         ),
         Operator::Ge => union_postings(
             entries
-                .range((Included(key), Unbounded))
+                .range(Bound::Included(key), Bound::Unbounded, false)
                 .take_while(|(candidate, _)| same_type(candidate)),
             restriction,
         ),
         Operator::Lt => union_postings(
             entries
-                .range((Unbounded, Excluded(key)))
-                .rev()
+                .range(Bound::Unbounded, Bound::Excluded(key), true)
                 .take_while(|(candidate, _)| same_type(candidate)),
             restriction,
         ),
         Operator::Le => union_postings(
             entries
-                .range((Unbounded, Included(key)))
-                .rev()
+                .range(Bound::Unbounded, Bound::Included(key), true)
                 .take_while(|(candidate, _)| same_type(candidate)),
             restriction,
         ),

@@ -484,7 +484,7 @@ fn reverse_sources(
             if let Some(sources) = repo.relation_reverse_sources(index, &record.id.0) {
                 work.reverse_postings_visited += 1;
                 work.reverse_members_visited += sources.len();
-                next |= sources;
+                next |= sources.as_ref();
             }
             ensure_slots(next.len(), execution)?;
         }

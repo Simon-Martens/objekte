@@ -28,28 +28,28 @@ fn hash_posting(
     hash_value(hash, &index.empty_selections)?;
     hash_value(hash, &index.covered_records)?;
     if let Some(facts) = &index.structural {
-        let mut keys = facts
-            .postings
-            .keys()
-            .map(|key| format!("{key:?}"))
-            .collect::<Vec<_>>();
+        let mut keys = Vec::new();
+        facts.for_each(|key, _| {
+            keys.push(format!("{key:?}"));
+            Ok(())
+        })?;
         keys.sort();
         for key in keys {
             hash_value(hash, &key)?;
         }
-        for (key, slots) in &facts.postings {
+        facts.for_each(|key, slots| {
             hash_value(hash, &format!("{key:?}"))?;
-            hash_value(hash, slots)?;
-        }
+            hash_value(hash, slots)
+        })?;
     }
-    for (key, slots) in &index.values {
+    index.for_each_value(|key, slots| {
         hash_value(hash, key)?;
-        hash_value(hash, slots)?;
-    }
-    for (key, slots) in &index.lengths {
+        hash_value(hash, slots)
+    })?;
+    index.for_each_length(|key, slots| {
         hash_value(hash, key)?;
-        hash_value(hash, slots)?;
-    }
+        hash_value(hash, slots)
+    })?;
     Ok(())
 }
 

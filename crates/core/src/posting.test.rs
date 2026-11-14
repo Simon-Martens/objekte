@@ -13,7 +13,7 @@ fn broad_id_union_matches_individual_lookups() {
     };
     let mut index = PostingIndex::new(&field);
     for id in 0..100 {
-        index.values.insert(
+        index.set_value(
             ScalarKey::Id(format!("id-{id:03}")),
             RoaringBitmap::from_iter([id, id + 100]),
         );
@@ -24,8 +24,8 @@ fn broad_id_union_matches_individual_lookups() {
     ] {
         let (actual, lists, members) = index.union_id_postings(&ids);
         let expected = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
-            if let Some(slots) = index.values.get(&ScalarKey::Id(id.clone())) {
-                all |= slots;
+            if let Some(slots) = index.value_posting(&ScalarKey::Id(id.clone())) {
+                all |= slots.as_ref();
             }
             all
         });
@@ -125,7 +125,7 @@ fn presence_null_array_dedup_and_cardinality() {
     assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [1]);
     assert_eq!(
         index
-            .lengths
+            .length_entries()
             .get(&Number::integer(0))
             .unwrap()
             .iter()
@@ -134,7 +134,7 @@ fn presence_null_array_dedup_and_cardinality() {
     );
     assert_eq!(
         index
-            .lengths
+            .length_entries()
             .get(&Number::integer(3))
             .unwrap()
             .iter()
@@ -143,7 +143,7 @@ fn presence_null_array_dedup_and_cardinality() {
     );
     assert_eq!(
         index
-            .values
+            .value_entries()
             .get(&ScalarKey::String("a".into()))
             .unwrap()
             .iter()
@@ -498,6 +498,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
         );
     }
     values.insert(ScalarKey::Bool(false), RoaringBitmap::from_iter([20_001]));
+    let values = PostingMap::from_btree_map(values);
     let key = ScalarKey::Number(Number::integer(9_990));
     let (upper, visits) = scalar_range_postings(&values, &key, Operator::Gt, None);
     assert_eq!(visits, 9);
@@ -540,6 +541,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
     let lengths = (0..10_000)
         .map(|n| (Number::integer(n), RoaringBitmap::from_iter([n as u32])))
         .collect::<BTreeMap<_, _>>();
+    let lengths = PostingMap::from_btree_map(lengths);
     let (long, visits) = range_postings(&lengths, &Number::integer(9_990), Operator::Gt, None);
     assert_eq!(visits, 9);
     assert_eq!(
@@ -759,9 +761,9 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
             .unwrap(),
         )
         .unwrap();
-    assert!(wrong.fields[&vec!["nums".into()]].lengths.is_empty());
-    assert!(wrong.fields[&vec!["objects".into()]].lengths.is_empty());
-    assert!(wrong.fields[&vec!["text".into()]].values.is_empty());
+    assert!(wrong.fields[&vec!["nums".into()]].length_entries().is_empty());
+    assert!(wrong.fields[&vec!["objects".into()]].length_entries().is_empty());
+    assert!(wrong.fields[&vec!["text".into()]].value_entries().is_empty());
     let repo = Repository::open_with_options(
         &root,
         vec![CollectionDefinition {
@@ -1052,13 +1054,13 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
     index.validate(8).unwrap();
     assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [6]);
     assert_eq!(
-        index.structural.as_ref().unwrap().postings[&StructuralKey::AnyNull]
+        index.structural.as_ref().unwrap().entries()[&StructuralKey::AnyNull]
             .iter()
             .collect::<Vec<_>>(),
         [0, 6]
     );
     assert_eq!(
-        index.structural.as_ref().unwrap().postings[&StructuralKey::EmptyObject]
+        index.structural.as_ref().unwrap().entries()[&StructuralKey::EmptyObject]
             .iter()
             .collect::<Vec<_>>(),
         [4]

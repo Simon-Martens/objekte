@@ -404,8 +404,7 @@ impl SortColumn {
             }
             *key = SortKey::Null;
         }
-        let value_map = &index.values;
-        for (value, slots) in value_map.iter() {
+        for (value, slots) in index.value_iter() {
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
@@ -445,7 +444,7 @@ impl SortColumn {
                 }
                 _ => return Err("inferred sort posting type mismatch".into()),
             };
-            for slot in slots {
+            for slot in slots.iter() {
                 let target = keys
                     .get_mut(slot as usize)
                     .ok_or("inferred sort value slot out of range")?;
@@ -500,12 +499,17 @@ impl SortColumn {
                 order.extend(&missing);
             }
             if descending {
-                for (_, slots) in value_map.iter().rev() {
-                    append_inferred_group(&mut order, slots, generation);
+                let mut cursor = index.value_range(
+                    std::ops::Bound::Unbounded,
+                    std::ops::Bound::Unbounded,
+                    true,
+                );
+                while let Some((_, slots)) = cursor.next() {
+                    append_inferred_group(&mut order, slots.as_ref(), generation);
                 }
             } else {
-                for slots in value_map.values() {
-                    append_inferred_group(&mut order, slots, generation);
+                for (_, slots) in index.value_iter() {
+                    append_inferred_group(&mut order, slots.as_ref(), generation);
                 }
             }
             if options.nulls == Placement::Last {

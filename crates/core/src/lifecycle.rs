@@ -459,16 +459,8 @@ pub(crate) fn index_family_estimate(
             .fields
             .values()
             .map(|posting| {
-                posting
-                    .values
-                    .values()
-                    .map(|bitmap| bitmap.serialized_size() as usize)
-                    .sum::<usize>()
-                    + posting
-                        .lengths
-                        .values()
-                        .map(|bitmap| bitmap.serialized_size() as usize)
-                        .sum::<usize>()
+                posting.value_bytes()
+                    + posting.length_bytes()
                     + posting
                         .structural
                         .as_ref()

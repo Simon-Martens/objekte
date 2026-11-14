@@ -353,11 +353,9 @@ impl Repository {
             .get(relation.id.source.0 as usize)
             .ok_or("relation source collection missing")?;
         let posting = self.relation_reverse_sources(relation, target_id);
-        let visible = posting.map(|slots| {
-            active.map_or_else(
-                || slots.clone(),
-                |domains| slots & &domains[relation.id.source.0 as usize].bitmap(),
-            )
+        let visible = posting.map(|slots| match active {
+            None => slots.into_owned(),
+            Some(domains) => slots.as_ref() & &domains[relation.id.source.0 as usize].bitmap(),
         });
         let total = visible.as_ref().map_or(0, |slots| slots.len() as usize);
         let (start, end, next_offset) = page_bounds(total, offset, limit);

@@ -8,7 +8,7 @@ use roaring::RoaringBitmap;
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
-use crate::posting::{PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey};
+use crate::posting::{PostingIndex, PostingParts, ScalarKey, StructuralFacts, StructuralKey};
 use crate::reference::Schema;
 
 use super::{
@@ -1086,7 +1086,7 @@ impl InferenceBuilder {
                         values.insert(ScalarKey::String(String::new()), field.empty_string.clone());
                     }
                 }
-                let mut index = PostingIndex {
+                let mut index = PostingIndex::from_parts(PostingParts {
                     path: field.path.clone(),
                     kind,
                     multi: !field.array_records.is_empty()
@@ -1094,16 +1094,13 @@ impl InferenceBuilder {
                     presence: field.present.clone(),
                     empty_selections: std::mem::take(&mut field.empty_only),
                     nulls: field.exact_null.clone(),
-                    structural: Some(StructuralFacts::default()),
                     values,
                     lengths: field.lengths.take().unwrap_or_default(),
-                    values_indexed: true,
                     value_complete,
                     length_complete,
                     empty_string_complete,
                     covered_records: self.eligible,
-                    stats: PostingStats::default(),
-                };
+                });
                 let facts = index.structural.as_mut().unwrap();
                 for (key, slots) in [
                     (
@@ -1126,11 +1123,11 @@ impl InferenceBuilder {
                     ),
                 ] {
                     if !slots.is_empty() {
-                        facts.postings.insert(key, slots);
+                        facts.set(key, slots);
                     }
                 }
                 if index.multi && !field.selected_null.is_empty() {
-                    facts.postings.insert(
+                    facts.set(
                         StructuralKey::AnyNull,
                         std::mem::take(&mut field.selected_null),
                     );
@@ -1138,21 +1135,7 @@ impl InferenceBuilder {
                 index.finish_stats();
                 index.validate_eligible(record_count, logical.len() as usize)?;
                 index.validate_domain(logical)?;
-                index_bytes = index
-                    .values
-                    .iter()
-                    .map(|(key, slots)| {
-                        128 + match key {
-                            ScalarKey::String(text) => text.len(),
-                            _ => 0,
-                        } + slots.serialized_size()
-                    })
-                    .sum::<usize>()
-                    + index
-                        .lengths
-                        .values()
-                        .map(|slots| 64 + slots.serialized_size())
-                        .sum::<usize>();
+                index_bytes = index.inferred_index_bytes();
                 index_bytes += index
                     .structural
                     .as_ref()

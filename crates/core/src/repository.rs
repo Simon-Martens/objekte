@@ -856,7 +856,7 @@ impl Repository {
         &self,
         relation: &RelationIndex,
         target_id: &str,
-    ) -> Option<&RoaringBitmap> {
+    ) -> Option<std::borrow::Cow<'_, RoaringBitmap>> {
         let source = self.collections.get(relation.id.source.0 as usize)?;
         if !source
             .relations
@@ -869,8 +869,7 @@ impl Repository {
             .postings
             .fields
             .get(&relation.declaration.path)?
-            .values
-            .get(&crate::posting::ScalarKey::Id(target_id.to_owned()))
+            .value_posting(&crate::posting::ScalarKey::Id(target_id.to_owned()))
     }
 
     pub fn build_parses(&self) -> u64 {

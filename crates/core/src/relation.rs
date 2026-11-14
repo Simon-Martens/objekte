@@ -238,7 +238,7 @@ impl RelationIndex {
                     .insert(source_slot as u32);
             }
         }
-        if reverse != posting.values || unresolved != self.unresolved_count {
+        if !posting.value_entries_equal(&reverse) || unresolved != self.unresolved_count {
             return Err("relation forward/reverse membership mismatch".into());
         }
         Ok(())

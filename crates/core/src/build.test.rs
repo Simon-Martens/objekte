@@ -1407,7 +1407,7 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
     let path = &vec!["title".to_owned()];
     let one_posting = &one.collections()[0].postings.fields[path];
     let parallel_posting = &parallel.collections()[0].postings.fields[path];
-    assert_eq!(one_posting.values, parallel_posting.values);
+    assert_eq!(one_posting.value_entries(), parallel_posting.value_entries());
     assert_eq!(one_posting.presence, parallel_posting.presence);
     let sort_path = FieldPath::parse("title").unwrap();
     let one_sort = &one.collections()[0].sorting.columns[&sort_path];
@@ -1626,8 +1626,8 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         whole.collections()[0].fallback_text.skip
     );
     assert_eq!(
-        one.collections()[0].postings.fields[&vec!["title".into()]].values,
-        whole.collections()[0].postings.fields[&vec!["title".into()]].values
+        one.collections()[0].postings.fields[&vec!["title".into()]].value_entries(),
+        whole.collections()[0].postings.fields[&vec!["title".into()]].value_entries()
     );
     for filter in ["title = 'healthy'", "@record.class = 1"] {
         let query = Query {
@@ -2121,8 +2121,8 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             assert_eq!(posting.covered_records, other.covered_records);
             assert_eq!(posting.presence, other.presence);
             assert_eq!(posting.nulls, other.nulls);
-            assert_eq!(posting.values, other.values);
-            assert_eq!(posting.lengths, other.lengths);
+            assert_eq!(posting.value_entries(), other.value_entries());
+            assert_eq!(posting.length_entries(), other.length_entries());
         }
         for (path, column) in &a.sorting.columns {
             let other = &b.sorting.columns[path];
