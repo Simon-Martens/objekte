@@ -7,7 +7,7 @@
 //! relation-contribution leaves, each length-framed and validated after decode.
 //! Their serde field order is part of version 1; changing it requires a bump.
 //!
-//! RecordSlots v2 has a checked fixed-width file table, fixed-width record
+//! RecordSlots v3 has a checked fixed-width file table, fixed-width record
 //! rows, per-file membership spans, an ID byte arena, and serialized logical
 //! and fallback domains. Catalog metadata references preserve current or
 //! historical FileEntry identity. See the byte-level format contract in
@@ -45,8 +45,9 @@ use crate::sorting::{
 };
 use crate::segment_format::{SectionKind, SegmentReader};
 
-const RECORD_MAGIC: &[u8; 8] = b"OBJHREC2";
-const RECORD_VERSION: u32 = 2;
+const RECORD_MAGIC: &[u8; 8] = b"OBJHREC3";
+const RECORD_VERSION: u32 = 3;
+const FILE_ROW_BYTES: usize = 40;
 const SORT_MAGIC: &[u8; 8] = b"OBJHSRT1";
 const RELATION_MAGIC: &[u8; 8] = b"OBJHREL1";
 const VERSION: u32 = 1;
@@ -305,6 +306,8 @@ fn encode_records_inner(
         put_u32(&mut out, intern(&file.entry)?);
         put_u32(&mut out, member_start);
         put_u32(&mut out, file.records.len() as u32);
+        out.extend_from_slice(&file.entry.revision.modified_ns.to_le_bytes());
+        put_u64(&mut out, file.entry.revision.size);
         member_start = member_start.checked_add(file.records.len() as u32).ok_or("record membership overflow")?;
     }
     let mut id_start = 0u32;
@@ -340,6 +343,7 @@ struct FileRow {
     metadata_ref: u32,
     membership_start: u32,
     membership_count: u32,
+    revision: SourceRevision,
 }
 
 struct RecordRow<'a> {
@@ -416,7 +420,7 @@ impl RecordSlotsLayout {
             return Err("record table count invalid".into());
         }
         let file_start = cursor.offset;
-        cursor.take(file_count.checked_mul(16).ok_or("record file rows overflow")?)?;
+        cursor.take(file_count.checked_mul(FILE_ROW_BYTES).ok_or("record file rows overflow")?)?;
         let record_start = cursor.offset;
         cursor.take(record_count.checked_mul(36).ok_or("record rows overflow")?)?;
         let membership_start = cursor.offset;
@@ -450,12 +454,16 @@ impl RecordSlotsLayout {
 
     fn file_row(&self, bytes: &[u8], index: usize) -> Option<FileRow> {
         (index < self.file_count).then(|| {
-            let start = self.file_start + index * 16;
+            let start = self.file_start + index * FILE_ROW_BYTES;
             FileRow {
                 id: FileId(u32_slice(bytes, start)),
                 metadata_ref: u32_slice(bytes, start + 4),
                 membership_start: u32_slice(bytes, start + 8),
                 membership_count: u32_slice(bytes, start + 12),
+                revision: SourceRevision {
+                    modified_ns: i128::from_le_bytes(bytes[start + 16..start + 32].try_into().unwrap()),
+                    size: u64_slice(bytes, start + 32),
+                },
             }
         })
     }
@@ -567,9 +575,7 @@ impl PersistedRecordSlots {
     }
 
     pub(crate) fn file_revision_at(&self, index: usize) -> Result<Option<SourceRevision>, String> {
-        let Some(row) = self.layout.file_row(self.bytes()?, index) else { return Ok(None); };
-        self.metadata.revision_for_ref(row.metadata_ref)
-            .map(Some).ok_or("record catalog revision missing".into())
+        Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.revision))
     }
 
     pub(crate) fn file_record_count_at(&self, index: usize) -> Result<Option<usize>, String> {
@@ -602,7 +608,19 @@ impl PersistedRecordSlots {
     }
 
     pub(crate) fn record_range(&self, slot: RecordSlot) -> Result<Option<ByteRange>, String> {
-        Ok(self.layout.record_row(self.bytes()?, slot.0 as usize)?.map(|row| row.range))
+        if slot.0 as usize >= self.layout.record_count { return Ok(None); }
+        let bytes = self.bytes()?;
+        let start = self.layout.record_start + slot.0 as usize * 36;
+        let file_index = u32_slice(bytes, start) as usize;
+        let range = ByteRange {
+            start: u64_slice(bytes, start + 4),
+            end: u64_slice(bytes, start + 12),
+        };
+        let file = self.layout.file_row(bytes, file_index).ok_or("record file row missing")?;
+        if range.start > range.end || range.end > file.revision.size {
+            return Err("record source range invalid".into());
+        }
+        Ok(Some(range))
     }
 
     pub(crate) fn record(&self, slot: RecordSlot) -> Result<Option<RecordEntry>, String> {
@@ -611,14 +629,12 @@ impl PersistedRecordSlots {
             return Ok(None);
         };
         let file_row = self.layout.file_row(bytes, row.file_row).ok_or("record file row missing")?;
-        let revision = self.metadata.revision_for_ref(file_row.metadata_ref)
-            .ok_or("record catalog revision missing")?;
         Ok(Some(RecordEntry {
             slot,
             id: RecordId(row.id.into()),
             file: file_row.id,
             range: row.range,
-            revision,
+            revision: file_row.revision,
             class: row.class,
             diagnostic_ref: row.diagnostic_ref,
         }))
@@ -699,6 +715,7 @@ impl PersistedRecordSlots {
                 || row.membership_start as usize != next_member
                 || self.metadata.file_id_for_ref(row.metadata_ref) != Some(row.id)
                 || self.metadata.contains_collection_for_ref(row.metadata_ref, collection) != Some(true)
+                || self.metadata.revision_for_ref(row.metadata_ref) != Some(row.revision)
             {
                 return Err("record file lookup or metadata reference invalid".into());
             }
@@ -801,8 +818,8 @@ pub(crate) fn decode_record_slots<'a>(
         let metadata_ref = file_row.metadata_ref;
         let entry = resolve(metadata_ref)
             .ok_or_else(|| format!("record file metadata reference {metadata_ref} missing"))?;
-        if entry.id != file_row.id {
-            return Err("record file metadata identity mismatch".into());
+        if entry.id != file_row.id || entry.revision != file_row.revision {
+            return Err("record file metadata identity or revision mismatch".into());
         }
         files.push(SegmentFile {
             entry: entry.clone(),

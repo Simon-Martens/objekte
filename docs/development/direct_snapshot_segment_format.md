@@ -1,10 +1,10 @@
 # RecordSlots direct-reader contract
 
-This document specifies `RecordSlots` revision 2 before its decoder is changed. It extends [the segment format contract](direct_snapshot_access_format.md). The containing segment format version must advance to 4, and the validator stamp version to 3, because revision 2 cannot be interpreted by the previous record decoder. All integers are little-endian unsigned scalars. The format has no alignment padding except the three fixed zero bytes in each record row. All offsets are section relative or relative to their named arena. No Rust `usize`, collection header, pointer, or randomized hash state is stored.
+This document specifies `RecordSlots` revision 3. It extends [the segment format contract](direct_snapshot_access_format.md). The containing segment format version is 5 and the validator stamp version is 4. Revision 3 adds the source revision to each file row so file metadata predicates can read it without decoding a catalog entry on every query. All integers are little-endian scalars, with the signed modification time encoded as `i128`. The format has no alignment padding except the three fixed zero bytes in each record row. All offsets are section relative or relative to their named arena. No Rust `usize`, collection header, pointer, or randomized hash state is stored.
 
 ## Section structure
 
-The section is at most 512 MiB. Its first 16 bytes are ASCII `OBJHREC2`, section version `u32 = 2`, and model version `u32`. The next fields are:
+The section is at most 512 MiB. Its first 16 bytes are ASCII `OBJHREC3`, section version `u32 = 3`, and model version `u32`. The next fields are:
 
 | Order | Type | Meaning |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ The section is at most 512 MiB. Its first 16 bytes are ASCII `OBJHREC2`, section
 | 8 | `u32` | portable Roaring logical-domain byte count |
 | 9 | `u32` | portable Roaring fallback-domain byte count |
 
-Immediately thereafter, with no gaps, come the file rows (`16 * file_count` bytes), record rows (`36 * record_count` bytes), membership slots (`4 * record_count` bytes), ID arena (`id_bytes`), logical-domain bytes, and fallback-domain bytes. The section ends exactly there. Every count multiplication and addition is checked against the section extent before any slice is formed.
+Immediately thereafter, with no gaps, come the file rows (`40 * file_count` bytes), record rows (`36 * record_count` bytes), membership slots (`4 * record_count` bytes), ID arena (`id_bytes`), logical-domain bytes, and fallback-domain bytes. The section ends exactly there. Every count multiplication and addition is checked against the section extent before any slice is formed.
 
 File rows are sorted by strictly increasing numeric `FileId` and have this layout:
 
@@ -28,6 +28,10 @@ File rows are sorted by strictly increasing numeric `FileId` and have this layou
 | 4 | 4 | catalog metadata reference; current ID or tagged historical reference |
 | 8 | 4 | first membership slot index |
 | 12 | 4 | membership slot count |
+| 16 | 16 | source modification time, signed nanoseconds since the Unix epoch |
+| 32 | 8 | source file size in bytes |
+
+The inline revision must equal the referenced catalog metadata revision. The reader verifies this while validating the file row. Query metadata probes then read the already validated 40-byte row directly.
 
 Membership descriptors partition the membership array contiguously in file-row order, including zero-record files. Each file's slot list is strictly increasing and may be noncontiguous in the global record table. Every slot from zero through `record_count - 1` occurs exactly once. Its referenced record row names that file row. A checked streaming pass and a temporary `record_count`-element boolean validation vector establish completeness; that vector is discarded before publication.
 

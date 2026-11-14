@@ -141,6 +141,9 @@ fn record_decoder_rejects_identity_mismatch_truncation_and_trailing_bytes() {
     let layout = RecordSlotsLayout::parse(&bytes, CollectionId(0), ("json", 1)).unwrap();
     bad_reference[layout.file_start + 4..layout.file_start + 8].copy_from_slice(&u32::MAX.to_le_bytes());
     assert!(decode_fixture(&bad_reference, &catalog).is_err());
+    let mut bad_revision = bytes.clone();
+    bad_revision[layout.file_start + 16] ^= 1;
+    assert!(decode_fixture(&bad_revision, &catalog).is_err());
 }
 
 #[test]
@@ -152,9 +155,14 @@ fn direct_record_reader_uses_fixed_rows_membership_and_persisted_domains() {
         out.write_all(&bytes).map_err(|error| error.to_string())
     }).unwrap();
     let reader = Arc::new(SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap());
-    let opened = PersistedRecordSlots::open(reader, CollectionId(0), ("json", 1), Arc::new(catalog)).unwrap();
+    let opened = PersistedRecordSlots::open(reader, CollectionId(0), ("json", 1), Arc::new(catalog.clone())).unwrap();
     assert_eq!(opened.record_count(), 2);
     assert_eq!(opened.file_count(), 1);
+    assert_eq!(opened.file_revision_at(0).unwrap(), Some(files[0].entry.revision));
+    assert_eq!(opened.file_record_count_at(0).unwrap(), Some(2));
+    assert_eq!(opened.file_record_at(0, 1).unwrap(), Some(RecordSlot(1)));
+    assert_eq!(opened.file_record_at(0, 2).unwrap(), None);
+    assert_eq!(opened.record_range(RecordSlot(0)).unwrap(), Some(records[0].range));
     assert_eq!(opened.record_id(RecordSlot(0)).unwrap(), Some("a"));
     assert_eq!(opened.record(RecordSlot(1)).unwrap().unwrap().id, records[1].id);
     assert_eq!(opened.file_records(FileId(7)).unwrap(), Some(vec![RecordSlot(0), RecordSlot(1)]));
@@ -164,6 +172,16 @@ fn direct_record_reader_uses_fixed_rows_membership_and_persisted_domains() {
     assert_eq!(opened.lookup_id(&[RecordSlot(0), RecordSlot(1)], "missing").unwrap(), None);
     assert!(opened.logical_records().contains(0));
     assert!(opened.fallback_records().contains(1));
+
+    let mut bad_revision = bytes.clone();
+    let layout = RecordSlotsLayout::parse(&bytes, CollectionId(0), ("json", 1)).unwrap();
+    bad_revision[layout.file_start + 16] ^= 1;
+    let mut writer = SegmentWriter::new(IoCursor::new(Vec::new()), 1).unwrap();
+    writer.write_section(SectionKind::RecordSlots, |out| {
+        out.write_all(&bad_revision).map_err(|error| error.to_string())
+    }).unwrap();
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap());
+    assert!(PersistedRecordSlots::open(reader, CollectionId(0), ("json", 1), Arc::new(catalog)).is_err());
 }
 
 #[test]
