@@ -22,6 +22,7 @@ pub const SORT_COLUMN_DESCRIPTOR_LEN: usize = 120;
 pub const SORT_KEYS_HEADER_LEN: usize = 16;
 pub const SORT_ORDERS_HEADER_LEN: usize = 16;
 
+
 /// One sort column supplied to the segment builder.
 #[derive(Clone, Debug)]
 pub struct SortColumnInput {
@@ -35,11 +36,13 @@ pub struct SortColumnInput {
     pub descending: Vec<u32>,
 }
 
+
 /// Packed sort sections.
 pub struct SortSections {
     pub keys: Vec<u8>,
     pub orders: Vec<u8>,
 }
+
 
 /// Encode all sort columns.
 pub fn build_sort_sections(
@@ -100,9 +103,8 @@ pub fn build_sort_sections(
         for key in &column.keys {
             let encoded = encode_sort_key(key)?;
             key_arena.extend_from_slice(&encoded);
-            let offset = u32::try_from(key_arena.len()).map_err(|_| {
-                StorageError::ResourceLimit("sort-key arena exceeds 4 GiB".into())
-            })?;
+            let offset = u32::try_from(key_arena.len())
+                .map_err(|_| StorageError::ResourceLimit("sort-key arena exceeds 4 GiB".into()))?;
             key_offsets.push(offset);
         }
         let mut offsets_bytes = Vec::with_capacity(key_offsets.len() * 4);
@@ -249,8 +251,7 @@ pub fn decode_sort_key(bytes: &[u8]) -> StorageResult<SortKey> {
             if payload.len() != 16 {
                 return Err(StorageError::corrupt("invalid datetime sort key length"));
             }
-            let nanos =
-                i128::from_le_bytes(payload.try_into().expect("sixteen-byte datetime"));
+            let nanos = i128::from_le_bytes(payload.try_into().expect("sixteen-byte datetime"));
             SortKey::Datetime(
                 time::OffsetDateTime::from_unix_timestamp_nanos(nanos)
                     .map_err(|_| StorageError::corrupt("sort datetime is out of range"))?,
@@ -267,7 +268,7 @@ pub fn decode_sort_key(bytes: &[u8]) -> StorageResult<SortKey> {
         other => {
             return Err(StorageError::UnsupportedFormat(format!(
                 "unknown sort-key tag {other}"
-            )))
+            )));
         }
     })
 }
@@ -369,6 +370,7 @@ fn validate_order(order: &[u32], slot_count: u32, label: &str) -> StorageResult<
     Ok(())
 }
 
+
 /// One decoded sort column.
 pub struct SortColumnView {
     backing: Backing,
@@ -391,6 +393,7 @@ pub struct SortColumnView {
     descending_len: u64,
 }
 
+
 impl std::fmt::Debug for SortColumnView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         formatter
@@ -402,6 +405,7 @@ impl std::fmt::Debug for SortColumnView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl SortColumnView {
     pub fn path(&self) -> &[String] {
@@ -505,6 +509,7 @@ impl SortColumnView {
     }
 }
 
+
 /// Cursor over a persisted order array.
 pub struct SortOrderCursor<'a> {
     column: &'a SortColumnView,
@@ -512,6 +517,7 @@ pub struct SortOrderCursor<'a> {
     length: u64,
     index: u32,
 }
+
 
 impl Iterator for SortOrderCursor<'_> {
     type Item = StorageResult<u32>;
@@ -526,11 +532,13 @@ impl Iterator for SortOrderCursor<'_> {
     }
 }
 
+
 /// All sort columns in one frozen segment.
 pub struct SortSectionView {
     slot_count: u32,
     columns: Vec<SortColumnView>,
 }
+
 
 impl std::fmt::Debug for SortSectionView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -540,6 +548,7 @@ impl std::fmt::Debug for SortSectionView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl SortSectionView {
     pub fn open(
@@ -565,12 +574,16 @@ impl SortSectionView {
         }
         let count = u32::from_le_bytes(keys_header[8..12].try_into().expect("sort count")) as usize;
         let directory_len = SORT_KEYS_HEADER_LEN
-            .checked_add(count.checked_mul(SORT_COLUMN_DESCRIPTOR_LEN).ok_or_else(|| {
-                StorageError::corrupt("sort descriptor directory overflow")
-            })?)
+            .checked_add(
+                count
+                    .checked_mul(SORT_COLUMN_DESCRIPTOR_LEN)
+                    .ok_or_else(|| StorageError::corrupt("sort descriptor directory overflow"))?,
+            )
             .ok_or_else(|| StorageError::corrupt("sort descriptor directory overflow"))?;
         if directory_len as u64 > keys.length {
-            return Err(StorageError::corrupt("sort descriptor directory is truncated"));
+            return Err(StorageError::corrupt(
+                "sort descriptor directory is truncated",
+            ));
         }
         let orders_header = backing.read(orders.offset, SORT_ORDERS_HEADER_LEN as u64)?;
         if orders_header[..4] != SORT_ORDERS_MAGIC {
@@ -652,9 +665,7 @@ impl SortSectionView {
                     || length % 4 != 0
                     || length / 4 != key_count as u64
                 {
-                    return Err(StorageError::corrupt(
-                        "sort order array length is invalid",
-                    ));
+                    return Err(StorageError::corrupt("sort order array length is invalid"));
                 }
             }
             if offsets_len != (key_count as u64 + 1) * 4 {
@@ -663,18 +674,14 @@ impl SortSectionView {
                 ));
             }
             let path = decode_path(backing.read(keys.offset + path_offset, path_len)?)?;
-            let locale = std::str::from_utf8(backing.read(
-                keys.offset + locale_offset,
-                locale_len,
-            )?)
-            .map_err(|_| StorageError::corrupt("sort locale is not UTF-8"))?
-            .to_owned();
-            let collation_version = std::str::from_utf8(backing.read(
-                keys.offset + collation_offset,
-                collation_len,
-            )?)
-            .map_err(|_| StorageError::corrupt("sort collation version is not UTF-8"))?
-            .to_owned();
+            let locale =
+                std::str::from_utf8(backing.read(keys.offset + locale_offset, locale_len)?)
+                    .map_err(|_| StorageError::corrupt("sort locale is not UTF-8"))?
+                    .to_owned();
+            let collation_version =
+                std::str::from_utf8(backing.read(keys.offset + collation_offset, collation_len)?)
+                    .map_err(|_| StorageError::corrupt("sort collation version is not UTF-8"))?
+                    .to_owned();
             if key_count != slot_count {
                 return Err(StorageError::corrupt(
                     "sort column does not carry one key per slot",
@@ -728,6 +735,7 @@ impl SortSectionView {
         Ok(())
     }
 }
+
 
 fn push_bytes(bytes: &mut Vec<u8>, value: &[u8]) -> StorageResult<()> {
     let length = u32::try_from(value.len())

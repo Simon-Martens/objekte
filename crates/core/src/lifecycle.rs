@@ -47,9 +47,11 @@ const SIZE_MAINTENANCE_REVISIONS: u64 = 16;
 const MIN_RETIREMENT_SLOTS: usize = 256;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
+
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
+
 
 /// Exclusive phases of one progressive segment publication. The work before
 /// installation is complete before a new query view becomes visible.
@@ -57,6 +59,7 @@ pub(crate) struct InitialPublicationPhases {
     pub(crate) preparation_ns: u64,
     pub(crate) install_ns: u64,
 }
+
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -69,6 +72,7 @@ impl IndexRevision {
     }
 }
 
+
 /// A physical file incarnation in one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileHandle {
@@ -76,6 +80,7 @@ pub struct FileHandle {
     pub file_id: FileId,
     pub version: FileVersion,
 }
+
 
 /// Errors at the lifecycle boundary. Query failures retain the existing
 /// repository result type until the lifecycle query-completeness phase.
@@ -111,6 +116,7 @@ pub enum IndexError {
     RevisionOverflow,
     LockPoisoned,
 }
+
 
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -166,7 +172,9 @@ impl fmt::Display for IndexError {
     }
 }
 
+
 impl std::error::Error for IndexError {}
+
 
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
@@ -179,6 +187,7 @@ pub enum ReconciliationState {
     Partial,
     Cancelled,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
@@ -199,6 +208,7 @@ pub struct IndexStatus {
     pub fallback_records: u64,
 }
 
+
 /// Discovery-only facts for one physical file. Record identity, validity,
 /// byte ranges and record counts require construction and are omitted here.
 #[derive(Clone, Copy, Debug)]
@@ -210,6 +220,7 @@ pub struct FileCatalogueRow<'a> {
     pub modified_ns: i128,
     pub created_ns: Option<i128>,
 }
+
 
 /// Narrow native index-family display for benchmarks and diagnostics. It
 /// covers gram/posting/sort payloads only; segment accounting is separate and
@@ -223,6 +234,7 @@ pub struct IndexFamilyEstimate {
     pub sorting_bytes: usize,
 }
 
+
 impl IndexFamilyEstimate {
     pub fn total(self) -> usize {
         self.raw_bytes
@@ -232,6 +244,7 @@ impl IndexFamilyEstimate {
             + self.sorting_bytes
     }
 }
+
 
 #[cfg(test)]
 thread_local! {
@@ -260,6 +273,7 @@ pub(crate) fn index_family_total(
     index_family_estimate(raw, fallback, custom, postings, sorting).total()
 }
 
+
 /// Result of an explicit query against one pinned, possibly incomplete view.
 /// `result.count` is absent while construction is incomplete, even if the
 /// request asked for a count over the eventual repository.
@@ -271,6 +285,7 @@ pub struct AvailableSearchResult {
     pub processed_files: usize,
 }
 
+
 /// Outcome of explicit full reconstruction from the configured source files.
 #[derive(Clone, Debug)]
 pub struct RebuildReport {
@@ -281,12 +296,14 @@ pub struct RebuildReport {
     pub duration: Duration,
 }
 
+
 /// The kind of a long-running index maintenance task.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenanceOperation {
     Compact,
     Rebuild,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenancePhase {
@@ -298,6 +315,7 @@ pub enum MaintenancePhase {
     Failed,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MaintenanceProgress {
     pub operation: MaintenanceOperation,
@@ -306,11 +324,13 @@ pub struct MaintenanceProgress {
     pub elapsed: Duration,
 }
 
+
 #[derive(Clone, Debug)]
 pub enum MaintenanceReport {
     Compact(crate::lifecycle_compaction::CompactionReport),
     Rebuild(RebuildReport),
 }
+
 
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
@@ -320,6 +340,7 @@ pub enum DeleteStrategy {
     VerifiedPhysicalRemoval,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteResult {
     pub revision: IndexRevision,
@@ -328,6 +349,7 @@ pub struct DeleteResult {
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
 }
+
 
 /// One metadata scan and its applied index changes. Errors affecting only a
 /// source remain visible here while other independent files can proceed.
@@ -347,6 +369,7 @@ pub struct ReconciliationReport {
     pub omitted_issues: usize,
 }
 
+
 impl ReconciliationReport {
     fn record_issue(&mut self, issue: String) {
         if self.issues.len() < MAX_RECONCILIATION_ISSUES {
@@ -356,6 +379,7 @@ impl ReconciliationReport {
         }
     }
 }
+
 
 /// Small, copyable observation while a reconciliation pass is running.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -372,6 +396,7 @@ pub struct ReconciliationProgress {
     pub cancelled: bool,
     pub issue_count: usize,
 }
+
 
 impl From<&ReconciliationReport> for ReconciliationProgress {
     fn from(report: &ReconciliationReport) -> Self {
@@ -391,6 +416,7 @@ impl From<&ReconciliationReport> for ReconciliationProgress {
     }
 }
 
+
 /// Private work captured before the mutation writer validates and publishes
 /// one file across all eligible collections.
 pub(crate) struct PreparedAdd {
@@ -398,6 +424,7 @@ pub(crate) struct PreparedAdd {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) file: PreparedFileBuild,
 }
+
 
 /// A complete replacement captured against one file incarnation. The writer
 /// checks both the view revision and file token before replacing its slots.
@@ -408,6 +435,7 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
+
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
 pub(crate) struct PublishedSegment {
@@ -415,6 +443,7 @@ pub(crate) struct PublishedSegment {
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
 }
+
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
@@ -440,6 +469,7 @@ pub(crate) struct PublishedIndex {
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
+
 
 /// Native retained-memory estimate for one published contribution. It counts
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
@@ -541,6 +571,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
     }
     None
 }
+
 
 impl PublishedIndex {
     pub(crate) fn from_repository(
@@ -646,7 +677,10 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(mut self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
+    pub(crate) fn with_segment(
+        mut self,
+        index: IndexedCollectionSegment,
+    ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
@@ -766,7 +800,9 @@ impl PublishedIndex {
                 for file_number in 0..segment.index.file_count() {
                     let file = segment
                         .index
-                        .files.get(file_number).map(|file| &file.entry)
+                        .files
+                        .get(file_number)
+                        .map(|file| &file.entry)
                         .ok_or_else(|| {
                             IndexError::InvalidPublication("segment file row missing".into())
                         })?;
@@ -922,6 +958,7 @@ impl PublishedIndex {
     }
 }
 
+
 fn index_prepared_file(
     repository: &Repository,
     source: &SourceFileInput,
@@ -1059,6 +1096,7 @@ fn prepare_file_at(
     .map_err(IndexError::Build)
 }
 
+
 struct IndexInner {
     instance_id: u64,
     timings: Mutex<IndexTimingsMs>,
@@ -1076,6 +1114,7 @@ struct IndexInner {
     periodic: Mutex<Option<PeriodicReconciliation>>,
 }
 
+
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
 /// milliseconds from the beginning of the corresponding build/load operation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Serialize)]
@@ -1086,10 +1125,12 @@ pub struct IndexTimingsMs {
     pub inference_full_available: Option<u64>,
 }
 
+
 struct PeriodicReconciliation {
     signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
 }
+
 
 enum PeriodicSignal {
     #[cfg(test)]
@@ -1097,10 +1138,12 @@ enum PeriodicSignal {
     Stop,
 }
 
+
 struct MaintenanceState {
     reconciliation: ReconciliationState,
     current: Option<Arc<ReconciliationJob>>,
 }
+
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
@@ -1109,6 +1152,7 @@ struct ReconciliationJob {
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
 }
+
 
 struct MaintenanceJob {
     operation: MaintenanceOperation,
@@ -1120,10 +1164,12 @@ struct MaintenanceJob {
     worker: Mutex<Option<JoinHandle<()>>>,
 }
 
+
 /// One observable compaction or rebuild. Cancellation prevents publication
 /// and leaves the current view available.
 #[derive(Clone)]
 pub struct MaintenanceTask(Arc<MaintenanceJob>);
+
 
 impl MaintenanceTask {
     pub fn cancel(&self) {
@@ -1180,6 +1226,7 @@ impl MaintenanceTask {
     }
 }
 
+
 impl MaintenanceJob {
     fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
         if let Ok(mut progress) = self.progress.lock() {
@@ -1190,9 +1237,11 @@ impl MaintenanceJob {
     }
 }
 
+
 /// Observable, cancellable handle for one metadata reconciliation pass.
 #[derive(Clone)]
 pub struct ReconciliationTask(Arc<ReconciliationJob>);
+
 
 impl ReconciliationTask {
     pub fn cancel(&self) {
@@ -1242,9 +1291,11 @@ impl ReconciliationTask {
     }
 }
 
+
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
+
 
 impl Index {
     /// Publish one complete initial work unit. A concurrent lifecycle
@@ -1423,7 +1474,11 @@ impl Index {
         &self,
         update: impl FnOnce(&mut crate::index_storage::status::StorageStatus),
     ) -> Result<(), IndexError> {
-        let mut status = self.0.storage.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let mut status = self
+            .0
+            .storage
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
         update(&mut status);
         Ok(())
     }
@@ -1437,8 +1492,7 @@ impl Index {
     ) -> Result<Self, IndexError> {
         let expected = crate::configuration::configuration_hash(&definitions, options, &sources)
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let opened = crate::index_storage::store::open_store(directory)
-            .map_err(storage_error)?;
+        let opened = crate::index_storage::store::open_store(directory).map_err(storage_error)?;
         if opened.manifest.configuration_identity != crate::index_storage::manifest::hex(&expected)
         {
             return Err(IndexError::IncompatibleConfiguration(
@@ -1446,18 +1500,25 @@ impl Index {
             ));
         }
         let state_object = opened.state.as_ref().ok_or_else(|| {
-            IndexError::IncompatibleConfiguration(
-                "saved index has no native query state".into(),
-            )
+            IndexError::IncompatibleConfiguration("saved index has no native query state".into())
         })?;
         let state = crate::index_storage::native_state::decode_state_object(
             &crate::index_storage::backing::Backing::mapped(std::sync::Arc::clone(state_object)),
         )
         .map_err(storage_error)?;
         let index = state.restore(definitions, options, sources)?;
-        let mapped_virtual_bytes = opened.manifest.runs.iter().map(|run| run.object.length).sum::<u64>()
+        let mapped_virtual_bytes = opened
+            .manifest
+            .runs
+            .iter()
+            .map(|run| run.object.length)
+            .sum::<u64>()
             + opened.manifest.catalogue.length
-            + opened.manifest.state.as_ref().map_or(0, |state| state.length);
+            + opened
+                .manifest
+                .state
+                .as_ref()
+                .map_or(0, |state| state.length);
         let publication_id = index.view()?.0.publication_id;
         index.update_storage_status(|status| {
             *status = crate::index_storage::status::StorageStatus::loaded(
@@ -1487,15 +1548,51 @@ impl Index {
         cancelled: impl Fn() -> bool,
         progress: impl FnMut(&crate::index_storage::store::SaveProgress),
     ) -> Result<crate::index_storage::store::SaveReport, IndexError> {
+        self.save_to_inner(directory, options, cancelled, progress, &mut crate::index_storage::store::NoHooks)
+    }
+
+    pub(crate) fn save_to_inner(
+        &self,
+        directory: &Path,
+        options: crate::index_storage::store::SaveOptions,
+        cancelled: impl Fn() -> bool,
+        progress: impl FnMut(&crate::index_storage::store::SaveProgress),
+        hooks: &mut dyn crate::index_storage::store::SaveHooks,
+    ) -> Result<crate::index_storage::store::SaveReport, IndexError> {
         if !self.view()?.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
         let view = self.view()?;
+        if let Ok(info) = crate::index_storage::store::inspect_store(directory)
+            && info.manifest.publication_id == view.0.publication_id.to_string()
+            && info.manifest.frontend_metadata == options.frontend_metadata
+        {
+            let report = crate::index_storage::store::SaveReport {
+                directory: directory.to_owned(),
+                store_id: info.marker.store_id,
+                generation_id: info.current.generation,
+                publication_id: view.0.publication_id,
+                objects_written: 0,
+                objects_reused: 0,
+                bytes_written: 0,
+                bytes_reused: 0,
+                catalogue_bytes: 0,
+                duration: std::time::Duration::ZERO,
+                unchanged: true,
+                newer_publication_exists: false,
+                cleanup: crate::index_storage::store::CleanupReport::default(),
+            };
+            self.update_storage_status(|status| {
+                status.note_saved(report.publication_id, directory.to_owned());
+                status.note_publication(view.0.publication_id);
+            })?;
+            return Ok(report);
+        }
         let native = crate::index_storage::native_state::NativeState::capture(&view)?;
         let state_object = crate::index_storage::native_state::build_state_object(&native)
             .map_err(storage_error)?;
-        let catalogue = crate::index_storage::native_pack::pack_catalogue(&view)
-            .map_err(storage_error)?;
+        let catalogue =
+            crate::index_storage::native_pack::pack_catalogue(&view).map_err(storage_error)?;
         let runs = crate::index_storage::native_pack::pack_runs(&view).map_err(storage_error)?;
         let collections = crate::index_storage::native_pack::collection_summaries(&view);
         let mut registrations = std::collections::BTreeMap::new();
@@ -1505,40 +1602,42 @@ impl Index {
                 collection.source.version(),
             );
         }
-        let plan = crate::index_storage::store::SavePlan {
-            publication_id: view.0.publication_id,
-            lineage_id: view.0.lineage_id,
-            source_root: view.repository().files().root.clone(),
-            model_version: crate::index_storage::native_state::NATIVE_MODEL_VERSION,
-            configuration_identity: view.0.configuration_identity,
-            source_registrations: registrations
-                .into_iter()
-                .map(|(id, version)| {
-                    crate::index_storage::manifest::SourceRegistrationIdentity { id, version }
-                })
-                .collect(),
-            collation_version: crate::sorting::COLLATION_VERSION.into(),
-            bigram_representation_version: crate::bigram::BIGRAM_VERSION.to_string(),
-            file_id_high_water: view.0.catalog.allocated_files() as u32,
-            catalogue,
-            state: Some(crate::index_storage::store::ObjectInput {
-                kind: crate::index_storage::format::ObjectKind::State,
-                bytes: std::sync::Arc::from(state_object.into_bytes()),
-            }),
-            runs,
-            collections,
-            frontend_metadata: options.frontend_metadata.clone(),
-        };
-        let report = crate::index_storage::store::save_with_control(
+        let plan =
+            crate::index_storage::store::SavePlan {
+                publication_id: view.0.publication_id,
+                lineage_id: view.0.lineage_id,
+                source_root: view.repository().files().root.clone(),
+                model_version: crate::index_storage::native_state::NATIVE_MODEL_VERSION,
+                configuration_identity: view.0.configuration_identity,
+                source_registrations: registrations
+                    .into_iter()
+                    .map(|(id, version)| {
+                        crate::index_storage::manifest::SourceRegistrationIdentity { id, version }
+                    })
+                    .collect(),
+                collation_version: crate::sorting::COLLATION_VERSION.into(),
+                bigram_representation_version: crate::bigram::BIGRAM_VERSION.to_string(),
+                file_id_high_water: view.0.catalog.allocated_files() as u32,
+                catalogue,
+                state: Some(crate::index_storage::store::ObjectInput {
+                    kind: crate::index_storage::format::ObjectKind::State,
+                    bytes: std::sync::Arc::from(state_object.into_bytes()),
+                }),
+                runs,
+                collections,
+                frontend_metadata: options.frontend_metadata.clone(),
+            };
+        let mut report = crate::index_storage::store::save_with_control(
             directory,
             plan,
             options,
             cancelled,
             progress,
-            &mut crate::index_storage::store::NoHooks,
+            hooks,
         )
         .map_err(storage_error)?;
         let current = self.view()?.0.publication_id;
+        report.newer_publication_exists = current != report.publication_id;
         self.update_storage_status(|status| {
             status.note_saved(report.publication_id, directory.to_owned());
             status.note_publication(current);
@@ -1553,11 +1652,7 @@ impl Index {
         directory: std::path::PathBuf,
         options: crate::index_storage::store::SaveOptions,
     ) -> Result<crate::index_storage::task::StorageTask, IndexError> {
-        let task = crate::index_storage::task::start_save_task(
-            self.clone(),
-            directory,
-            options,
-        )?;
+        let task = crate::index_storage::task::start_save_task(self.clone(), directory, options)?;
         self.update_storage_status(|status| status.active_save_task = true)?;
         Ok(task)
     }
@@ -1841,6 +1936,9 @@ impl Index {
                 return Ok(ReconciliationTask(Arc::clone(job)));
             }
         }
+        self.update_storage_status(|status| {
+            status.freshness = crate::index_storage::status::FreshnessState::Checking;
+        })?;
         let job = Arc::new(ReconciliationJob {
             cancelled: AtomicBool::new(false),
             progress: Mutex::new(ReconciliationProgress::default()),
@@ -1883,6 +1981,17 @@ impl Index {
                 if let Ok(mut maintenance) = owner.0.maintenance.lock() {
                     maintenance.reconciliation = state;
                 }
+                let _ = owner.update_storage_status(|status| {
+                    status.freshness = match state {
+                        ReconciliationState::Complete | ReconciliationState::Partial => {
+                            crate::index_storage::status::FreshnessState::Checked
+                        }
+                        ReconciliationState::Cancelled => {
+                            crate::index_storage::status::FreshnessState::Unchecked
+                        }
+                        _ => crate::index_storage::status::FreshnessState::Checking,
+                    };
+                });
                 if let Ok(mut result) = worker_job.result.lock() {
                     *result = Some(report);
                     worker_job.complete.notify_all();
@@ -2546,6 +2655,7 @@ impl Index {
                 "prepared root must carry the next revision".into(),
             ));
         }
+
         #[cfg(test)]
         let notify_cache = next.catalog.construction_complete();
         let next = Arc::new(next);
@@ -2573,9 +2683,11 @@ impl Index {
     }
 }
 
+
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
+
 
 impl IndexView {
     /// Startup observations belonging to this immutable publication.
@@ -3687,6 +3799,7 @@ impl IndexView {
         result
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]

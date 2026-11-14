@@ -12,6 +12,7 @@ pub const BIGRAM_POSTING_MAGIC: [u8; 4] = *b"OBBP";
 pub const BIGRAM_POSTING_VERSION: u16 = 1;
 pub const BIGRAM_DESCRIPTOR_LEN: usize = 64;
 
+
 /// Text binding kind.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BigramBindingKind {
@@ -19,6 +20,7 @@ pub enum BigramBindingKind {
     Fallback = 1,
     Custom = 2,
 }
+
 
 impl BigramBindingKind {
     pub fn from_code(code: u8) -> StorageResult<Self> {
@@ -29,11 +31,12 @@ impl BigramBindingKind {
             other => {
                 return Err(StorageError::UnsupportedFormat(format!(
                     "unknown bigram binding kind {other}"
-                )))
+                )));
             }
         })
     }
 }
+
 
 /// One text binding supplied to the segment builder.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -42,6 +45,7 @@ pub enum BigramBinding {
     Fallback,
     Custom { path: Vec<String>, name: String },
 }
+
 
 impl BigramBinding {
     pub fn kind(&self) -> BigramBindingKind {
@@ -67,6 +71,7 @@ impl BigramBinding {
     }
 }
 
+
 /// One binding's normal and skip gram postings.
 #[derive(Clone, Debug)]
 pub struct BigramInput {
@@ -77,11 +82,13 @@ pub struct BigramInput {
     pub skip: Vec<(u64, Vec<u32>)>,
 }
 
+
 /// Packed bigram sections.
 pub struct BigramSections {
     pub dictionaries: Vec<u8>,
     pub postings: Vec<u8>,
 }
+
 
 /// Encode every text binding into a dictionary section and one shared arena.
 pub fn build_bigrams(bindings: &[BigramInput], slot_count: u32) -> StorageResult<BigramSections> {
@@ -126,12 +133,7 @@ pub fn build_bigrams(bindings: &[BigramInput], slot_count: u32) -> StorageResult
         let skip = build_gram_dictionary(&binding.skip, slot_count, &mut arena)?;
         let skip_offset = payload_base + payload.len();
         payload.extend_from_slice(&skip);
-        offsets.push((
-            normal_offset,
-            normal.len(),
-            skip_offset,
-            skip.len(),
-        ));
+        offsets.push((normal_offset, normal.len(), skip_offset, skip.len()));
     }
     let mut dictionaries = vec![0u8; descriptor_len];
     dictionaries[..4].copy_from_slice(&BIGRAM_DICTIONARY_MAGIC);
@@ -183,13 +185,19 @@ fn build_gram_dictionary(
                 .reference
                 .a
                 .checked_add(arena.len() as u64)
-                .ok_or_else(|| StorageError::ResourceLimit("bigram arena offset overflow".into()))?;
+                .ok_or_else(|| {
+                    StorageError::ResourceLimit("bigram arena offset overflow".into())
+                })?;
         }
         arena.extend_from_slice(&encoded.arena);
-        values.push((gram.to_le_bytes().to_vec(), encoded.reference.encode().to_vec()));
+        values.push((
+            gram.to_le_bytes().to_vec(),
+            encoded.reference.encode().to_vec(),
+        ));
     }
     build_dictionary(values, KeyOrder::Unsigned, 8192)
 }
+
 
 /// A borrowed bigram dictionary after it has been bound to its arena.
 pub struct BigramPostingView<'a> {
@@ -198,11 +206,13 @@ pub struct BigramPostingView<'a> {
     slot_count: u32,
 }
 
+
 impl<'a> BigramPostingView<'a> {
     pub fn view(&self) -> StorageResult<RecordSetView<'a>> {
         self.reference.view(self.arena, self.slot_count)
     }
 }
+
 
 /// A resolved bigram dictionary and its binding metadata.
 pub struct BigramDictionaryView<'a> {
@@ -214,6 +224,7 @@ pub struct BigramDictionaryView<'a> {
     arena: &'a [u8],
     slot_count: u32,
 }
+
 
 impl<'a> BigramDictionaryView<'a> {
     pub fn normal(&self, gram: u64) -> StorageResult<Option<BigramPostingView<'a>>> {

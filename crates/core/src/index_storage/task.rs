@@ -8,6 +8,7 @@ use crate::lifecycle::{Index, IndexError};
 
 use super::store::{SaveOptions, SavePhase, SaveProgress, SaveReport};
 
+
 /// Mutable progress shared by a storage worker.
 #[derive(Clone, Debug)]
 pub struct StorageProgress {
@@ -18,6 +19,7 @@ pub struct StorageProgress {
     pub bytes_reused: u64,
     pub elapsed: std::time::Duration,
 }
+
 
 impl Default for StorageProgress {
     fn default() -> Self {
@@ -32,9 +34,11 @@ impl Default for StorageProgress {
     }
 }
 
+
 /// Handle for one background save.
 #[derive(Clone)]
 pub struct StorageTask(Arc<StorageJob>);
+
 
 struct StorageJob {
     cancelled: AtomicBool,
@@ -43,6 +47,7 @@ struct StorageJob {
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
 }
+
 
 impl StorageTask {
     pub fn cancel(&self) {
@@ -72,11 +77,7 @@ impl StorageTask {
     }
 
     pub fn wait(&self) -> Result<SaveReport, IndexError> {
-        let mut guard = self
-            .0
-            .result
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut guard = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
         while guard.is_none() {
             guard = self
                 .0
@@ -84,10 +85,7 @@ impl StorageTask {
                 .wait(guard)
                 .map_err(|_| IndexError::LockPoisoned)?;
         }
-        let result = guard
-            .as_ref()
-            .cloned()
-            .ok_or(IndexError::LockPoisoned)?;
+        let result = guard.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
         drop(guard);
         if let Some(worker) = self
             .0
@@ -103,6 +101,7 @@ impl StorageTask {
         result
     }
 }
+
 
 /// Start one save on a dedicated worker. The current view is pinned by
 /// `Index::save_to` when the worker begins.
@@ -153,9 +152,7 @@ pub(crate) fn start_save_task(
             }
         })
         .map_err(|error| IndexError::Io(error.to_string()))?;
-    *job.worker
-        .lock()
-        .map_err(|_| IndexError::LockPoisoned)? = Some(worker);
+    *job.worker.lock().map_err(|_| IndexError::LockPoisoned)? = Some(worker);
     Ok(StorageTask(job))
 }
 

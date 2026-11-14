@@ -15,13 +15,14 @@ use super::dictionary::{DictionaryReader, KeyOrder};
 use super::error::{StorageError, StorageResult};
 use super::format::SectionDescriptor;
 use super::posting_builder::{
-    FIELD_DIRECTORY_VERSION, FIELD_EMPTY_STRING_COMPLETE, FIELD_HAS_LENGTHS, FIELD_HAS_STRUCTURAL, FIELD_LENGTH_COMPLETE,
-    FIELD_VALUE_COMPLETE, FIELD_VALUES_INDEXED, POSTING_FIELD_DESCRIPTOR_LEN,
-    POSTING_PAYLOAD_MAGIC, POSTING_PAYLOAD_VERSION,
+    FIELD_DIRECTORY_VERSION, FIELD_EMPTY_STRING_COMPLETE, FIELD_HAS_LENGTHS, FIELD_HAS_STRUCTURAL,
+    FIELD_LENGTH_COMPLETE, FIELD_VALUE_COMPLETE, FIELD_VALUES_INDEXED,
+    POSTING_FIELD_DESCRIPTOR_LEN, POSTING_PAYLOAD_MAGIC, POSTING_PAYLOAD_VERSION,
 };
 use super::record_set::RecordSetRef;
 use super::record_set::RecordSetView;
 use super::scalar::encode_scalar_key;
+
 
 /// One decoded field directory entry.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -31,6 +32,7 @@ pub struct FieldDefinitionView {
     pub kind: LogicalType,
     pub multi: bool,
 }
+
 
 /// Map one logical type to `(kind code, array element code)`.
 pub fn logical_type_codes(kind: &LogicalType) -> (u8, u8) {
@@ -64,10 +66,11 @@ pub fn logical_type_from_codes(kind: u8, element: u8) -> StorageResult<LogicalTy
         other => {
             return Err(StorageError::UnsupportedFormat(format!(
                 "unknown logical type code {other}"
-            )))
+            )));
         }
     })
 }
+
 
 /// All typed posting fields in one frozen segment.
 pub struct PostingSectionView {
@@ -78,6 +81,7 @@ pub struct PostingSectionView {
     by_ordinal: BTreeMap<u32, usize>,
 }
 
+
 impl std::fmt::Debug for PostingSectionView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         formatter
@@ -87,6 +91,7 @@ impl std::fmt::Debug for PostingSectionView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl PostingSectionView {
     pub fn open(
@@ -154,19 +159,14 @@ impl PostingSectionView {
                 u64::from_le_bytes(descriptor[152..160].try_into().expect("lengths offset"));
             let lengths_len =
                 u64::from_le_bytes(descriptor[160..168].try_into().expect("lengths length"));
-            let structural_offset = u64::from_le_bytes(
-                descriptor[168..176]
-                    .try_into()
-                    .expect("structural offset"),
-            );
-            let structural_len = u64::from_le_bytes(
-                descriptor[176..184]
-                    .try_into()
-                    .expect("structural length"),
-            );
+            let structural_offset =
+                u64::from_le_bytes(descriptor[168..176].try_into().expect("structural offset"));
+            let structural_len =
+                u64::from_le_bytes(descriptor[176..184].try_into().expect("structural length"));
             let arena_offset =
                 u64::from_le_bytes(descriptor[184..192].try_into().expect("arena offset"));
-            let arena_len = u64::from_le_bytes(descriptor[192..200].try_into().expect("arena length"));
+            let arena_len =
+                u64::from_le_bytes(descriptor[192..200].try_into().expect("arena length"));
             let covered_records =
                 u32::from_le_bytes(descriptor[200..204].try_into().expect("covered records"));
             for (offset, length) in [
@@ -277,6 +277,7 @@ impl PostingSectionView {
     }
 }
 
+
 /// One field's borrowed postings.
 pub struct FieldPostingsView {
     ordinal: u32,
@@ -298,6 +299,7 @@ pub struct FieldPostingsView {
     backing: Backing,
 }
 
+
 impl std::fmt::Debug for FieldPostingsView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         formatter
@@ -309,6 +311,7 @@ impl std::fmt::Debug for FieldPostingsView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl FieldPostingsView {
     pub fn ordinal(&self) -> u32 {
@@ -443,7 +446,8 @@ impl FieldPostingsView {
 
     /// Range posting with the engine's same-logical-type boundary rule.
     pub fn range(&self, value: &ScalarKey, operator: Operator) -> StorageResult<RoaringBitmap> {
-        self.range_restricted(value, operator, None).map(|(result, _)| result)
+        self.range_restricted(value, operator, None)
+            .map(|(result, _)| result)
     }
 
     /// Range posting with an optional input restriction and visited-key count.
@@ -469,10 +473,22 @@ impl FieldPostingsView {
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
                 let encoded = encode_scalar_key(value)?;
                 let (lower, upper) = match operator {
-                    Operator::Gt => (std::ops::Bound::Excluded(encoded), std::ops::Bound::Unbounded),
-                    Operator::Ge => (std::ops::Bound::Included(encoded), std::ops::Bound::Unbounded),
-                    Operator::Lt => (std::ops::Bound::Unbounded, std::ops::Bound::Excluded(encoded)),
-                    Operator::Le => (std::ops::Bound::Unbounded, std::ops::Bound::Included(encoded)),
+                    Operator::Gt => (
+                        std::ops::Bound::Excluded(encoded),
+                        std::ops::Bound::Unbounded,
+                    ),
+                    Operator::Ge => (
+                        std::ops::Bound::Included(encoded),
+                        std::ops::Bound::Unbounded,
+                    ),
+                    Operator::Lt => (
+                        std::ops::Bound::Unbounded,
+                        std::ops::Bound::Excluded(encoded),
+                    ),
+                    Operator::Le => (
+                        std::ops::Bound::Unbounded,
+                        std::ops::Bound::Included(encoded),
+                    ),
                     _ => unreachable!(),
                 };
                 let discriminant = std::mem::discriminant(value);
@@ -515,17 +531,18 @@ impl FieldPostingsView {
         upper: std::ops::Bound<&ScalarKey>,
         descending: bool,
     ) -> StorageResult<Vec<(ScalarKey, u64)>> {
-        let encode = |bound: std::ops::Bound<&ScalarKey>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
-            Ok(match bound {
-                std::ops::Bound::Included(key) => {
-                    std::ops::Bound::Included(encode_scalar_key(key)?)
-                }
-                std::ops::Bound::Excluded(key) => {
-                    std::ops::Bound::Excluded(encode_scalar_key(key)?)
-                }
-                std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
-            })
-        };
+        let encode =
+            |bound: std::ops::Bound<&ScalarKey>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
+                Ok(match bound {
+                    std::ops::Bound::Included(key) => {
+                        std::ops::Bound::Included(encode_scalar_key(key)?)
+                    }
+                    std::ops::Bound::Excluded(key) => {
+                        std::ops::Bound::Excluded(encode_scalar_key(key)?)
+                    }
+                    std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+                })
+            };
         let lower = encode(lower)?;
         let upper = encode(upper)?;
         let entries = if descending {
@@ -556,12 +573,12 @@ impl FieldPostingsView {
         };
         let encode = |bound: std::ops::Bound<&Number>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
             Ok(match bound {
-                std::ops::Bound::Included(value) => std::ops::Bound::Included(encode_scalar_key(
-                    &ScalarKey::Number(value.clone()),
-                )?),
-                std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(encode_scalar_key(
-                    &ScalarKey::Number(value.clone()),
-                )?),
+                std::ops::Bound::Included(value) => {
+                    std::ops::Bound::Included(encode_scalar_key(&ScalarKey::Number(value.clone()))?)
+                }
+                std::ops::Bound::Excluded(value) => {
+                    std::ops::Bound::Excluded(encode_scalar_key(&ScalarKey::Number(value.clone()))?)
+                }
                 std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
             })
         };
@@ -620,6 +637,7 @@ impl FieldPostingsView {
     }
 }
 
+
 fn parse_field_directory(
     backing: &Backing,
     descriptor: SectionDescriptor,
@@ -672,9 +690,7 @@ fn parse_field_directory(
         });
     }
     if offset != descriptor.length {
-        return Err(StorageError::corrupt(
-            "field directory has trailing bytes",
-        ));
+        return Err(StorageError::corrupt("field directory has trailing bytes"));
     }
     Ok(fields)
 }
@@ -685,9 +701,11 @@ fn parse_structural(bytes: &[u8]) -> StorageResult<BTreeMap<u8, RecordSetRef>> {
     }
     let count = u32::from_le_bytes(bytes[..4].try_into().expect("structural count")) as usize;
     let expected = 4usize
-        .checked_add(count.checked_mul(40).ok_or_else(|| {
-            StorageError::corrupt("structural posting count overflow")
-        })?)
+        .checked_add(
+            count
+                .checked_mul(40)
+                .ok_or_else(|| StorageError::corrupt("structural posting count overflow"))?,
+        )
         .ok_or_else(|| StorageError::corrupt("structural posting length overflow"))?;
     if bytes.len() != expected {
         return Err(StorageError::corrupt(
@@ -705,9 +723,7 @@ fn parse_structural(bytes: &[u8]) -> StorageResult<BTreeMap<u8, RecordSetRef>> {
         }
         let reference = RecordSetRef::decode(&bytes[at + 8..at + 40])?;
         if result.insert(key, reference).is_some() {
-            return Err(StorageError::corrupt(
-                "duplicate structural posting key",
-            ));
+            return Err(StorageError::corrupt("duplicate structural posting key"));
         }
     }
     Ok(result)

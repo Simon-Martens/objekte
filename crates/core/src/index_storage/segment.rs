@@ -3,13 +3,12 @@
 use super::bigram::BigramSectionView;
 use super::coverage::CoverageView;
 use super::error::{StorageError, StorageResult};
-use super::format::{
-    ObjectHeader, ObjectKind, ObjectView, SectionKind,
-};
+use super::format::{ObjectHeader, ObjectKind, ObjectView, SectionKind};
 use super::posting::PostingSectionView;
-use super::records::{decode_stats, RecordTableView, SegmentStats};
+use super::records::{RecordTableView, SegmentStats, decode_stats};
 use super::relations::RelationSectionView;
 use super::sort::SortSectionView;
+
 
 /// A fully opened frozen segment with lightweight readers.
 pub struct FrozenSegment {
@@ -24,6 +23,7 @@ pub struct FrozenSegment {
     coverage: CoverageView,
 }
 
+
 impl std::fmt::Debug for FrozenSegment {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         formatter
@@ -32,6 +32,7 @@ impl std::fmt::Debug for FrozenSegment {
             .finish_non_exhaustive()
     }
 }
+
 
 impl FrozenSegment {
     pub fn open(backing: super::backing::Backing) -> StorageResult<Self> {
@@ -52,11 +53,7 @@ impl FrozenSegment {
             .copied()
             .ok_or_else(|| StorageError::corrupt("segment statistics are missing"))?;
         let mut stats = decode_stats(backing.read(statistics.offset, statistics.length)?)?;
-        let records = RecordTableView::open(
-            backing.clone(),
-            sections.clone(),
-            stats.clone(),
-        )?;
+        let records = RecordTableView::open(backing.clone(), sections.clone(), stats.clone())?;
         stats = records.stats().clone();
         let posting_desc = sections
             .get(&SectionKind::PostingPayloads)

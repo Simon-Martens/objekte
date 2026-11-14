@@ -13,9 +13,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
 use crate::build::IndexedCollectionSegment;
-use crate::inventory::{
-    ActiveRecords, FileEntry, FileVersions, FileVersion,
-};
+use crate::inventory::{ActiveRecords, FileEntry, FileVersion, FileVersions};
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, IndexView, PublishedIndex, PublishedSegment,
     ReconciliationState,
@@ -34,6 +32,7 @@ use super::format::{ObjectBuilder, ObjectKind, ObjectView, SectionKind};
 pub const NATIVE_STATE_VERSION: u32 = 1;
 /// Model contract version stored with native compatibility state.
 pub const NATIVE_MODEL_VERSION: u32 = 1;
+
 
 #[derive(Serialize, Deserialize)]
 struct NativeCollection {
@@ -55,6 +54,7 @@ struct NativeCollection {
     relations: Vec<crate::relation::RelationIndex>,
 }
 
+
 #[derive(Serialize, Deserialize)]
 struct NativeSegment {
     ordinal: u64,
@@ -62,6 +62,7 @@ struct NativeSegment {
     index: IndexedCollectionSegment,
     active: RoaringBitmap,
 }
+
 
 #[derive(Serialize, Deserialize)]
 struct NativePublication {
@@ -78,6 +79,7 @@ struct NativePublication {
     segments: Vec<NativeSegment>,
 }
 
+
 /// Opaque native state written into one object.
 #[derive(Serialize, Deserialize)]
 pub struct NativeState {
@@ -92,11 +94,13 @@ pub struct NativeState {
     publication: NativePublication,
 }
 
+
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
         .with_fixint_encoding()
         .reject_trailing_bytes()
 }
+
 
 impl NativeState {
     /// Capture one pinned publication without touching source files.
@@ -185,8 +189,7 @@ impl NativeState {
         if self.model_version != NATIVE_MODEL_VERSION {
             return Err(IndexError::IncompatibleConfiguration(format!(
                 "model version {} differs from {}",
-                self.model_version,
-                NATIVE_MODEL_VERSION
+                self.model_version, NATIVE_MODEL_VERSION
             )));
         }
         if !self.publication.construction_complete {
@@ -201,8 +204,11 @@ impl NativeState {
             crate::configuration::configuration_hash(&definitions, options, &sources)
                 .map_err(IndexError::IncompatibleConfiguration)?;
         let mut restored = Vec::with_capacity(definitions.len());
-        for (number, (state, definition)) in
-            self.collections.into_iter().zip(definitions.iter()).enumerate()
+        for (number, (state, definition)) in self
+            .collections
+            .into_iter()
+            .zip(definitions.iter())
+            .enumerate()
         {
             if state.generation.collection != CollectionId(number as u32)
                 || state.generation.name != definition.name
@@ -327,6 +333,7 @@ impl NativeState {
         Ok(Index::from_published(published))
     }
 }
+
 
 /// Encode one native-state object.
 pub fn build_state_object(state: &NativeState) -> StorageResult<super::format::BuiltObject> {

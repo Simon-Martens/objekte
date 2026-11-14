@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use super::backing::{Backing, MappedObject};
 use super::catalogue::{
-    build_catalogue, CatalogueView, DiagnosticInput, FileRowInput, FILE_ROW_LEN,
+    CatalogueView, DiagnosticInput, FILE_ROW_LEN, FileRowInput, build_catalogue,
 };
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 
@@ -19,7 +19,13 @@ fn rows() -> Vec<FileRowInput> {
             size: 100 + file as u64,
             modified_ns: 1_700_000_000_000_000_000 + file as i128,
             created_ns: (file % 5 == 0).then_some(1_600_000_000_000_000_000 + file as i128),
-            native_path: format!("dir{}\u{0}file{}.txt", file % 7, file).into_bytes(),
+            native_path: {
+                let mut path = format!("dir{}\u{0}file{}.txt", file % 7, file).into_bytes();
+                if file == 0 {
+                    path.extend_from_slice(&[0xff, 0xfe]);
+                }
+                path
+            },
             query_path: format!("dir{}/file{}.txt", file % 7, file).into_bytes(),
             collections: vec![0, (file % 3) as u32],
             diagnostics: if file % 13 == 0 {
@@ -71,7 +77,10 @@ fn paged_rows_paths_and_statistics_round_trip() {
     assert_eq!(stats.high_water, 150);
     assert_eq!(stats.page_count, 3);
     assert_eq!(stats.file_count, 150);
-    assert_eq!(stats.tombstone_count, rows().iter().filter(|row| row.tombstone).count() as u32);
+    assert_eq!(
+        stats.tombstone_count,
+        rows().iter().filter(|row| row.tombstone).count() as u32
+    );
     assert_eq!(stats.collection_count, 3);
     for file in 0..150u32 {
         let row = match view.file(file) {
@@ -81,8 +90,14 @@ fn paged_rows_paths_and_statistics_round_trip() {
         assert_eq!(row.file_id, file);
         assert_eq!(row.tombstone, file % 17 == 0);
         assert_eq!(row.size, 100 + file as u64);
-        assert_eq!(row.query_path, format!("dir{}/file{}.txt", file % 7, file).as_bytes());
+        assert_eq!(
+            row.query_path,
+            format!("dir{}/file{}.txt", file % 7, file).as_bytes()
+        );
         assert!(row.native_path.contains(&0));
+        if file == 0 {
+            assert_eq!(&row.native_path[row.native_path.len() - 2..], &[0xff, 0xfe]);
+        }
         assert_eq!(row.collections, vec![0, file % 3]);
         if file % 4 == 0 {
             assert_eq!(row.fingerprint, Some([file as u8; 32]));

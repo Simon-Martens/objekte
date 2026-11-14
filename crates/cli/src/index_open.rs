@@ -2,11 +2,11 @@
 
 use std::path::Path;
 
+use objekte_search_core::SaveOptions;
 use objekte_search_core::lifecycle::{Index, ReconciliationReport};
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::streaming::CancellationToken;
-use objekte_search_core::SaveOptions;
 
 /// Load one saved index with runtime definitions and source registrations.
 pub fn load(

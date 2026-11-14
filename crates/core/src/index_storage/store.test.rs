@@ -2,16 +2,16 @@ use std::sync::Arc;
 
 use uuid::Uuid;
 
-use super::catalogue::{build_catalogue, CatalogueView, FileRowInput};
+use super::catalogue::{CatalogueView, FileRowInput, build_catalogue};
 use super::error::StorageError;
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 use super::manifest::SourceRegistrationIdentity;
 use super::records::{FilePartInput, RecordInput};
 use super::segment::FrozenSegment;
-use super::segment_builder::{build_segment, SegmentInput};
+use super::segment_builder::{SegmentInput, build_segment};
 use super::store::{
-    inspect_store, open_store, save, save_with_control, ObjectInput, RunInput, SaveHooks,
-    SaveOptions, SavePlan, STORE_FILE,
+    ObjectInput, RunInput, STORE_FILE, SaveHooks, SaveOptions, SavePlan, inspect_store, open_store,
+    save, save_with_control,
 };
 
 fn catalogue_object(row: FileRowInput) -> Arc<[u8]> {
@@ -121,33 +121,48 @@ fn plan(lineage: Uuid, publication: Uuid, path: &str, record: &str) -> SavePlan 
     }
 }
 
+
 struct FailBeforeCurrent;
+
+
 impl SaveHooks for FailBeforeCurrent {
     fn before_current_replace(&mut self) -> Result<(), StorageError> {
         Err(StorageError::Conflict("injected before CURRENT".into()))
     }
 }
 
+
 struct FailAfterObject;
+
+
 impl SaveHooks for FailAfterObject {
     fn after_object_staged(&mut self, _sha256: &str) -> Result<(), StorageError> {
-        Err(StorageError::Conflict("injected after object staging".into()))
+        Err(StorageError::Conflict(
+            "injected after object staging".into(),
+        ))
     }
 }
 
+
 struct FailAfterCurrent;
+
+
 impl SaveHooks for FailAfterCurrent {
     fn after_current_replace(&mut self) -> Result<(), StorageError> {
         Err(StorageError::Conflict("injected after CURRENT".into()))
     }
 }
 
+
 struct FailCleanup;
+
+
 impl SaveHooks for FailCleanup {
     fn during_cleanup(&mut self) -> Result<(), StorageError> {
         Err(StorageError::Conflict("injected cleanup".into()))
     }
 }
+
 
 #[test]
 fn save_load_reuse_and_inspect_round_trip() {
@@ -172,7 +187,10 @@ fn save_load_reuse_and_inspect_round_trip() {
     let catalogue = CatalogueView::open(opened.catalogue_backing()).unwrap();
     assert_eq!(catalogue.path(b"a.txt").unwrap(), Some(0));
     let frozen = FrozenSegment::open(opened.run_backing(&opened.runs[0])).unwrap();
-    assert_eq!(frozen.records().logical_id(0).unwrap().as_deref(), Some("record-a"));
+    assert_eq!(
+        frozen.records().logical_id(0).unwrap().as_deref(),
+        Some("record-a")
+    );
 
     let info = inspect_store(directory.path()).unwrap();
     assert_eq!(info.manifest.publication_id, publication.to_string());
@@ -252,6 +270,44 @@ fn save_to_a_second_directory_copies_the_same_objects() {
     let opened = open_store(second.path()).unwrap();
     assert_eq!(opened.manifest.publication_id, publication.to_string());
     opened.verify_full().unwrap();
+}
+
+#[test]
+fn cleanup_is_skipped_while_a_reader_lease_is_open() {
+    let directory = tempfile::tempdir().unwrap();
+    let lineage = Uuid::new_v4();
+    let first = Uuid::new_v4();
+    save(
+        directory.path(),
+        plan(lineage, first, "a.txt", "record-a"),
+        SaveOptions::default(),
+    )
+    .unwrap();
+    let opened = open_store(directory.path()).unwrap();
+    let second = Uuid::new_v4();
+    let report = save(
+        directory.path(),
+        plan(lineage, second, "b.txt", "record-b"),
+        SaveOptions::default(),
+    )
+    .unwrap();
+    assert!(report.cleanup.readers_present);
+    drop(opened);
+    let third = Uuid::new_v4();
+    let report = save(
+        directory.path(),
+        plan(lineage, third, "c.txt", "record-c"),
+        SaveOptions::default(),
+    )
+    .unwrap();
+    assert!(!report.cleanup.readers_present);
+    assert_eq!(
+        open_store(directory.path())
+            .unwrap()
+            .manifest
+            .publication_id,
+        third.to_string()
+    );
 }
 
 #[test]

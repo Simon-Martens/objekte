@@ -458,3 +458,70 @@ The archived implementation under `deprecated/crates/core/` was inspected for qu
 bigram, and ICU behavior. The new record-slot storage, source ownership, and
 index implementations were written for this workspace; no archived crate is
 linked into the build.
+
+## Explicit index storage
+
+The core stores an index in a dedicated directory with immutable,
+content-addressed objects and an atomically replaced generation pointer:
+
+```text
+chosen-folder/
+├── STORE
+├── CURRENT
+├── writer.lock
+├── readers.lock
+├── objects/<sha256>.obx
+├── generations/<generation-uuid>/manifest.json
+└── staging/<operation-uuid>/
+```
+
+Objects use a 128-byte header, a section directory, and CRC32 checksums for
+independent 64 KiB regions. The same readers operate on resident bytes and
+read-only `memmap2` mappings. `Backing`, `ObjectView`, `DictionaryReader`, and
+`FrozenSegment` are available from `objekte_search_core::index_storage`.
+
+`Index` exposes the explicit protocol:
+
+```rust
+let index = Index::build(&root, definitions.clone(), options)?;
+let report = index.save_to(store_directory, SaveOptions::default())?;
+
+let loaded = Index::load_from(
+    store_directory,
+    definitions,
+    options,
+    SourceRegistry::builtin(),
+)?;
+assert_eq!(loaded.storage_status()?.origin, StorageOrigin::Loaded);
+```
+
+`save_to` pins one publication, reuses objects already present by SHA-256, and
+never writes source files. `load_from` performs no source discovery or record
+parsing. `start_save` returns an observable `StorageTask`; `storage_status`
+reports origin, mapped/resident bytes, run count, publication identity,
+unsaved changes, and freshness. `inspect_store` reads the manifest without
+opening an index or source files.
+
+A saved directory is dedicated to one index. An existing non-empty directory
+without a `STORE` marker is rejected rather than overwritten. Saving to the
+source root is rejected. Repeated saves of the same publication and target are
+no-ops and write zero object bytes.
+
+The store also persists a source-free native query state object so every
+existing index family (typed and structural postings, inference, custom
+bindings, ASCII/Unicode bigrams, sorting, relations, diagnostics, and record
+metadata) reopens with identical query semantics. Packed segment objects are
+written alongside it for direct reader access and future execution migration.
+
+The CLI exposes:
+
+```bash
+obj --path ./documents --save-index cache
+obj --path ./documents --load-index cache --fts Goethe
+obj --repo ./archive --save-index repo
+obj --load-index /mnt/indexes/archive --check-index \
+    --save-index /mnt/indexes/archive --fts Goethe
+```
+
+Exactly `cache` and `repo` select the system cache and repository preset;
+every other value is a native path. `--check-index` requires `--load-index`.

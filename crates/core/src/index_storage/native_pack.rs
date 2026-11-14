@@ -16,15 +16,15 @@ use crate::sorting::{SortCollection, SortKey};
 use crate::source::DiagnosticCategory;
 
 use super::bigram_builder::{BigramBinding, BigramInput};
-use super::catalogue::{build_catalogue, DiagnosticInput, FileRowInput};
+use super::catalogue::{DiagnosticInput, FileRowInput, build_catalogue};
 use super::error::StorageResult;
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
+use super::manifest::CollectionSummary;
 use super::posting_builder::FieldInput;
 use super::records::{FilePartInput, RecordInput};
 use super::relations::{RelationEdgeInput, RelationInput};
-use super::segment_builder::{build_segment, SegmentInput};
+use super::segment_builder::{SegmentInput, build_segment};
 use super::sort::SortColumnInput;
-use super::manifest::CollectionSummary;
 use super::store::{ObjectInput, RunInput};
 
 /// Build the packed catalogue object for one publication.
@@ -43,7 +43,9 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
         rows.push(file_row(
             entry,
             version,
-            published.catalog.fingerprint(crate::model::FileId(id as u32)),
+            published
+                .catalog
+                .fingerprint(crate::model::FileId(id as u32)),
         )?);
     }
     let sections = build_catalogue(&rows)?;
@@ -114,6 +116,7 @@ fn native_path_bytes(path: &std::path::Path) -> Vec<u8> {
         use std::os::unix::ffi::OsStrExt;
         path.as_os_str().as_bytes().to_vec()
     }
+
     #[cfg(not(unix))]
     {
         path.to_string_lossy().into_owned().into_bytes()
@@ -194,8 +197,7 @@ pub fn collection_summaries(view: &IndexView) -> Vec<CollectionSummary> {
                 .filter(|record| record.class.code() == 1)
                 .count() as u64,
             run_count: u32::from(
-                collection.generation.records.len() > 0
-                    || !collection.postings.fields.is_empty(),
+                collection.generation.records.len() > 0 || !collection.postings.fields.is_empty(),
             ) + published.segments[number].len() as u32,
         });
     }
@@ -208,8 +210,7 @@ fn pack_collection(
     slot_count: u32,
     versions: &FileVersions,
 ) -> StorageResult<SegmentInput> {
-    let (file_parts, records) =
-        pack_records(&collection.generation.records, versions)?;
+    let (file_parts, records) = pack_records(&collection.generation.records, versions)?;
     let fields = pack_fields(&collection.postings)?;
     let bigrams = pack_bigrams(collection)?;
     let sorts = pack_sorts(&collection.sorting);
@@ -218,7 +219,11 @@ fn pack_collection(
     let empty = bitmap_slots(&collection.empty_array_records);
     let active = bitmap_slots(active);
     let identity_order = if collection.identity_order.len() == slot_count as usize {
-        collection.identity_order.iter().map(|slot| slot.0).collect()
+        collection
+            .identity_order
+            .iter()
+            .map(|slot| slot.0)
+            .collect()
     } else {
         (0..slot_count).collect()
     };

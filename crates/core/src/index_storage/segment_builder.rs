@@ -1,17 +1,14 @@
 //! Seal one complete frozen search contribution.
 
-use super::bigram_builder::{build_bigrams, BigramInput};
+use super::bigram_builder::{BigramInput, build_bigrams};
 use super::coverage::build_coverage;
 use super::error::{StorageError, StorageResult};
-use super::format::{
-    BuiltObject, ObjectBuilder, ObjectKind, SectionKind,
-};
-use super::posting_builder::{build_postings, FieldInput};
-use super::records::{
-    build_record_table, encode_stats, FilePartInput, RecordInput, SegmentStats,
-};
-use super::relations::{build_relations, RelationInput};
-use super::sort::{build_sort_sections, SortColumnInput};
+use super::format::{BuiltObject, ObjectBuilder, ObjectKind, SectionKind};
+use super::posting_builder::{FieldInput, build_postings};
+use super::records::{FilePartInput, RecordInput, SegmentStats, build_record_table, encode_stats};
+use super::relations::{RelationInput, build_relations};
+use super::sort::{SortColumnInput, build_sort_sections};
+
 
 /// Everything needed to seal one frozen segment.
 pub struct SegmentInput {
@@ -31,11 +28,13 @@ pub struct SegmentInput {
     pub estimated_index_bytes: u64,
 }
 
+
 /// One built object plus its decoded statistics.
 pub struct BuiltSegment {
     pub object: BuiltObject,
     pub stats: SegmentStats,
 }
+
 
 /// Build one complete frozen segment.
 pub fn build_segment(input: SegmentInput) -> StorageResult<BuiltSegment> {
@@ -112,4 +111,3 @@ pub fn build_segment(input: SegmentInput) -> StorageResult<BuiltSegment> {
     let object = builder.finish()?;
     Ok(BuiltSegment { object, stats })
 }
-

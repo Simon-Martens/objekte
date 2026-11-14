@@ -176,8 +176,14 @@ fn build_leaf_level(
             })?,
             8,
         )?;
-        let first_key = group.first().map(|entry| entry.key.clone()).unwrap_or_default();
-        let last_key = group.last().map(|entry| entry.key.clone()).unwrap_or_default();
+        let first_key = group
+            .first()
+            .map(|entry| entry.key.clone())
+            .unwrap_or_default();
+        let last_key = group
+            .last()
+            .map(|entry| entry.key.clone())
+            .unwrap_or_default();
         let _ = number;
         pages.push(PageDraft {
             bytes,
@@ -232,10 +238,7 @@ fn build_internal_level(
     }
     if groups.len() > 1 && groups.last().is_some_and(|group| group.len() == 1) {
         let tail = groups.pop().expect("last group");
-        groups
-            .last_mut()
-            .expect("previous group")
-            .extend(tail);
+        groups.last_mut().expect("previous group").extend(tail);
     }
     let mut pages = Vec::with_capacity(groups.len());
     for group in groups {

@@ -810,7 +810,10 @@ pub fn encode_record_set(slots: &[u32], domain_len: u32) -> StorageResult<Encode
     }
     let first = slots[0];
     let last = *slots.last().expect("nonempty slots");
-    if last.checked_add(1).is_some_and(|_| (last - first) as usize + 1 == slots.len()) {
+    if last
+        .checked_add(1)
+        .is_some_and(|_| (last - first) as usize + 1 == slots.len())
+    {
         return Ok(EncodedRecordSet {
             reference: RecordSetRef::range(first, last.saturating_add(1))?,
             arena: Vec::new(),

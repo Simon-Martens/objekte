@@ -6,6 +6,7 @@ use sha2::{Digest, Sha256};
 
 use crate::arguments::Alphabet;
 
+
 /// One selected index location.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IndexLocation {
@@ -13,6 +14,7 @@ pub enum IndexLocation {
     Repository,
     Custom(PathBuf),
 }
+
 
 impl IndexLocation {
     /// Parse the CLI spelling: exactly `cache` and `repo` are presets.
@@ -58,6 +60,7 @@ impl IndexLocation {
     }
 }
 
+
 /// Stable source-selection key for the system cache namespace.
 pub fn source_key(source_root: &Path, alphabet: Alphabet, auto_index: bool) -> String {
     let mut hasher = Sha256::new();
@@ -83,11 +86,13 @@ fn path_bytes(path: &Path) -> Vec<u8> {
         use std::os::unix::ffi::OsStrExt;
         path.as_os_str().as_bytes().to_vec()
     }
+
     #[cfg(not(unix))]
     {
         path.to_string_lossy().into_owned().into_bytes()
     }
 }
+
 
 #[cfg(test)]
 mod tests {

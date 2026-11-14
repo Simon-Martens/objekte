@@ -19,6 +19,7 @@ pub const MAX_SOURCE_REGISTRATIONS: usize = 1024;
 pub const MAX_RUNS: usize = 16_384;
 pub const MAX_COLLECTION_SUMMARIES: usize = 1_024;
 
+
 /// Native path encoding stored with the marker and manifest.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
@@ -26,6 +27,7 @@ pub enum PathEncoding {
     UnixBytes = 0,
     WindowsUtf16 = 1,
 }
+
 
 impl PathEncoding {
     pub fn current() -> Self {
@@ -47,11 +49,12 @@ impl PathEncoding {
             other => {
                 return Err(StorageError::UnsupportedFormat(format!(
                     "unknown native path encoding {other}"
-                )))
+                )));
             }
         })
     }
 }
+
 
 /// Fixed store marker.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -61,6 +64,7 @@ pub struct StoreMarker {
     pub store_id: Uuid,
     pub lineage_id: Uuid,
 }
+
 
 impl StoreMarker {
     pub fn new(lineage_id: Uuid) -> Self {
@@ -103,8 +107,7 @@ impl StoreMarker {
             )));
         }
         let path_encoding = PathEncoding::from_code(bytes[12])?;
-        if bytes[13..16].iter().any(|byte| *byte != 0)
-            || bytes[48..].iter().any(|byte| *byte != 0)
+        if bytes[13..16].iter().any(|byte| *byte != 0) || bytes[48..].iter().any(|byte| *byte != 0)
         {
             return Err(StorageError::corrupt(
                 "STORE marker reserved bytes are not zero",
@@ -123,6 +126,7 @@ impl StoreMarker {
     }
 }
 
+
 /// Content-addressed object reference.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ObjectRef {
@@ -130,6 +134,7 @@ pub struct ObjectRef {
     pub sha256: String,
     pub length: u64,
 }
+
 
 impl ObjectRef {
     pub fn new(sha256: [u8; 32], length: u64) -> Self {
@@ -154,6 +159,7 @@ impl ObjectRef {
     }
 }
 
+
 /// One persisted run reference.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct RunRef {
@@ -164,6 +170,7 @@ pub struct RunRef {
     pub slot_count: u32,
     pub active_count: u64,
 }
+
 
 /// One collection summary stored in the manifest.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -177,12 +184,14 @@ pub struct CollectionSummary {
     pub run_count: u32,
 }
 
+
 /// Source registration identity and version.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceRegistrationIdentity {
     pub id: String,
     pub version: u32,
 }
+
 
 /// The full generation manifest. It contains no per-record or per-term entry.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -208,6 +217,7 @@ pub struct GenerationManifest {
     pub collections: Vec<CollectionSummary>,
     pub frontend_metadata: Option<serde_json::Value>,
 }
+
 
 impl GenerationManifest {
     pub fn validate(&self, marker: &StoreMarker) -> StorageResult<()> {
@@ -246,7 +256,9 @@ impl GenerationManifest {
             ));
         }
         if self.runs.len() > MAX_RUNS {
-            return Err(StorageError::ResourceLimit("manifest has too many runs".into()));
+            return Err(StorageError::ResourceLimit(
+                "manifest has too many runs".into(),
+            ));
         }
         if self.collections.len() > MAX_COLLECTION_SUMMARIES {
             return Err(StorageError::ResourceLimit(
@@ -306,6 +318,7 @@ impl GenerationManifest {
     }
 }
 
+
 /// The atomic CURRENT pointer.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurrentPointer {
@@ -313,9 +326,11 @@ pub struct CurrentPointer {
     pub manifest_sha256: [u8; 32],
 }
 
+
 impl CurrentPointer {
     pub fn encode(&self) -> Vec<u8> {
-        let mut bytes = format!("{} {}\n", self.generation, hex(&self.manifest_sha256)).into_bytes();
+        let mut bytes =
+            format!("{} {}\n", self.generation, hex(&self.manifest_sha256)).into_bytes();
         if bytes.len() > 128 {
             bytes.truncate(128);
         }
@@ -345,6 +360,7 @@ impl CurrentPointer {
         })
     }
 }
+
 
 /// SHA-256 of one byte slice.
 pub fn sha256(bytes: &[u8]) -> [u8; 32] {
@@ -384,7 +400,7 @@ fn hex_digit(byte: u8) -> StorageResult<u8> {
         _ => {
             return Err(StorageError::InvalidManifest(
                 "SHA-256 hex string contains a non-hex character".into(),
-            ))
+            ));
         }
     })
 }
@@ -393,8 +409,7 @@ fn hex_digit(byte: u8) -> StorageResult<u8> {
 pub fn write_synced(path: &std::path::Path, bytes: &[u8]) -> StorageResult<()> {
     use std::io::Write;
     if let Some(parent) = path.parent() {
-        std::fs::create_dir_all(parent)
-            .map_err(|error| StorageError::io(parent, error))?;
+        std::fs::create_dir_all(parent).map_err(|error| StorageError::io(parent, error))?;
     }
     let mut file = std::fs::File::create(path).map_err(|error| StorageError::io(path, error))?;
     file.write_all(bytes)
@@ -412,6 +427,7 @@ pub fn sync_directory(path: &std::path::Path) -> StorageResult<()> {
         file.sync_all()
             .map_err(|error| StorageError::io(path, error))?;
     }
+
     #[cfg(not(unix))]
     {
         let _ = path;
@@ -420,25 +436,21 @@ pub fn sync_directory(path: &std::path::Path) -> StorageResult<()> {
 }
 
 /// Atomic replacement of `CURRENT`. Never deletes the valid pointer first.
-pub fn replace_current(
-    directory: &std::path::Path,
-    pointer: &CurrentPointer,
-) -> StorageResult<()> {
+pub fn replace_current(directory: &std::path::Path, pointer: &CurrentPointer) -> StorageResult<()> {
     let temporary = directory.join("CURRENT.tmp");
     let current = directory.join("CURRENT");
     write_synced(&temporary, &pointer.encode())?;
     #[cfg(unix)]
     {
-        std::fs::rename(&temporary, &current)
-            .map_err(|error| StorageError::io(&current, error))?;
+        std::fs::rename(&temporary, &current).map_err(|error| StorageError::io(&current, error))?;
     }
+
     #[cfg(not(unix))]
     {
         if current.exists() {
             std::fs::remove_file(&current).map_err(|error| StorageError::io(&current, error))?;
         }
-        std::fs::rename(&temporary, &current)
-            .map_err(|error| StorageError::io(&current, error))?;
+        std::fs::rename(&temporary, &current).map_err(|error| StorageError::io(&current, error))?;
     }
     sync_directory(directory)
 }

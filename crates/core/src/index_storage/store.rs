@@ -10,15 +10,15 @@ use std::time::{Duration, Instant, SystemTime};
 use uuid::Uuid;
 
 use super::backing::{
-    acquire_reader_lease, acquire_writer_lease, try_acquire_exclusive_reader_lease,
-    Backing, MappedObject,
+    Backing, MappedObject, acquire_reader_lease, acquire_writer_lease,
+    try_acquire_exclusive_reader_lease,
 };
 use super::error::{StorageError, StorageResult};
-use super::format::{ObjectHeader, ObjectKind, ObjectView, FORMAT_VERSION};
+use super::format::{FORMAT_VERSION, ObjectHeader, ObjectKind, ObjectView};
 use super::manifest::{
-    hex, manifest_checksum_matches, replace_current, sha256, sync_directory, write_synced,
-    CollectionSummary, CurrentPointer, GenerationManifest, ObjectRef, RunRef,
-    SourceRegistrationIdentity, StoreMarker, MAX_FRONTEND_METADATA_BYTES, MAX_MANIFEST_BYTES,
+    CollectionSummary, CurrentPointer, GenerationManifest, MAX_FRONTEND_METADATA_BYTES,
+    MAX_MANIFEST_BYTES, ObjectRef, RunRef, SourceRegistrationIdentity, StoreMarker, hex,
+    manifest_checksum_matches, replace_current, sha256, sync_directory, write_synced,
 };
 
 pub const STORE_FILE: &str = "STORE";
@@ -30,12 +30,14 @@ pub const WRITER_LOCK: &str = "writer.lock";
 pub const READERS_LOCK: &str = "readers.lock";
 pub const MANIFEST_FILE: &str = "manifest.json";
 
+
 /// One object to persist.
 #[derive(Clone)]
 pub struct ObjectInput {
     pub kind: ObjectKind,
     pub bytes: Arc<[u8]>,
 }
+
 
 /// One run to persist.
 #[derive(Clone)]
@@ -47,6 +49,7 @@ pub struct RunInput {
     pub active_count: u64,
     pub object: ObjectInput,
 }
+
 
 /// One complete save request.
 pub struct SavePlan {
@@ -66,11 +69,13 @@ pub struct SavePlan {
     pub frontend_metadata: Option<serde_json::Value>,
 }
 
+
 /// Save options controlled by the caller.
 #[derive(Clone, Debug, Default)]
 pub struct SaveOptions {
     pub frontend_metadata: Option<serde_json::Value>,
 }
+
 
 /// Save phases reported through progress.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -86,6 +91,7 @@ pub enum SavePhase {
     Failed,
 }
 
+
 /// Observable progress for one save.
 #[derive(Clone, Debug)]
 pub struct SaveProgress {
@@ -98,6 +104,7 @@ pub struct SaveProgress {
     pub elapsed: Duration,
 }
 
+
 /// Cleanup outcome; failures never invalidate a committed save.
 #[derive(Clone, Debug, Default)]
 pub struct CleanupReport {
@@ -107,6 +114,7 @@ pub struct CleanupReport {
     pub staging_removed: u64,
     pub errors: Vec<String>,
 }
+
 
 /// Final save report.
 #[derive(Clone, Debug)]
@@ -126,38 +134,48 @@ pub struct SaveReport {
     pub cleanup: CleanupReport,
 }
 
+
 /// Fault-injection and observation hooks used by durability tests.
 pub trait SaveHooks {
     fn before_object_write(&mut self, _sha256: &str) -> StorageResult<()> {
         Ok(())
     }
+
     fn after_object_staged(&mut self, _sha256: &str) -> StorageResult<()> {
         Ok(())
     }
+
     fn before_manifest_write(&mut self) -> StorageResult<()> {
         Ok(())
     }
+
     fn before_current_replace(&mut self) -> StorageResult<()> {
         Ok(())
     }
+
     fn after_current_replace(&mut self) -> StorageResult<()> {
         Ok(())
     }
+
     fn during_cleanup(&mut self) -> StorageResult<()> {
         Ok(())
     }
 }
 
+
 /// Default hook set.
 pub struct NoHooks;
 
+
 impl SaveHooks for NoHooks {}
+
 
 /// One opened run with its mapped object.
 pub struct OpenedRun {
     pub reference: RunRef,
     pub object: Arc<MappedObject>,
 }
+
 
 impl std::fmt::Debug for OpenedRun {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -171,6 +189,7 @@ impl std::fmt::Debug for OpenedRun {
     }
 }
 
+
 /// One opened committed store generation.
 pub struct OpenedStore {
     pub directory: PathBuf,
@@ -182,6 +201,7 @@ pub struct OpenedStore {
     pub runs: Vec<OpenedRun>,
     lease: Arc<super::backing::ReaderLease>,
 }
+
 
 impl std::fmt::Debug for OpenedStore {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -195,6 +215,7 @@ impl std::fmt::Debug for OpenedStore {
     }
 }
 
+
 /// Lightweight manifest inspection result.
 #[derive(Clone, Debug)]
 pub struct StoredIndexInfo {
@@ -204,6 +225,7 @@ pub struct StoredIndexInfo {
     pub current: CurrentPointer,
     pub manifest_bytes: u64,
 }
+
 
 impl OpenedStore {
     pub fn lease(&self) -> Arc<super::backing::ReaderLease> {
@@ -235,6 +257,7 @@ impl OpenedStore {
         Ok(())
     }
 }
+
 
 /// Open and validate the committed generation. No source files are touched.
 pub fn open_store(directory: &Path) -> StorageResult<OpenedStore> {
@@ -340,8 +363,8 @@ fn read_current_manifest(
     })?;
     let current = CurrentPointer::decode(&bytes)?;
     let manifest_path = generation_manifest_path(directory, current.generation);
-    let manifest = fs::read(&manifest_path)
-        .map_err(|error| StorageError::io(&manifest_path, error))?;
+    let manifest =
+        fs::read(&manifest_path).map_err(|error| StorageError::io(&manifest_path, error))?;
     if !manifest_checksum_matches(&manifest, &current) {
         return Err(StorageError::InvalidManifest(format!(
             "manifest checksum does not match CURRENT for {}",
@@ -366,7 +389,9 @@ fn generation_manifest_path(directory: &Path, generation: Uuid) -> PathBuf {
 }
 
 fn object_path(directory: &Path, digest: &[u8; 32]) -> PathBuf {
-    directory.join(OBJECTS_DIR).join(format!("{}.obx", hex(digest)))
+    directory
+        .join(OBJECTS_DIR)
+        .join(format!("{}.obx", hex(digest)))
 }
 
 fn open_object(
@@ -397,26 +422,17 @@ fn open_object(
     Ok(Arc::new(object))
 }
 
+
 struct PreparedObject {
     kind: ObjectKind,
     digest: [u8; 32],
     bytes: Arc<[u8]>,
 }
 
+
 /// Save one pinned publication to a dedicated store directory.
-pub fn save(
-    directory: &Path,
-    plan: SavePlan,
-    options: SaveOptions,
-) -> StorageResult<SaveReport> {
-    save_with_control(
-        directory,
-        plan,
-        options,
-        || false,
-        |_| {},
-        &mut NoHooks,
-    )
+pub fn save(directory: &Path, plan: SavePlan, options: SaveOptions) -> StorageResult<SaveReport> {
+    save_with_control(directory, plan, options, || false, |_| {}, &mut NoHooks)
 }
 
 /// Save with cancellation, progress, and fault-injection hooks.
@@ -430,21 +446,18 @@ pub fn save_with_control(
 ) -> StorageResult<SaveReport> {
     let started = Instant::now();
     let pinned_publication = plan.publication_id;
-    let mut report_progress = |phase,
-                               objects_total,
-                               objects_completed,
-                               bytes_written,
-                               bytes_reused| {
-        progress(&SaveProgress {
-            phase,
-            pinned_publication,
-            objects_total,
-            objects_completed,
-            bytes_written,
-            bytes_reused,
-            elapsed: started.elapsed(),
-        });
-    };
+    let mut report_progress =
+        |phase, objects_total, objects_completed, bytes_written, bytes_reused| {
+            progress(&SaveProgress {
+                phase,
+                pinned_publication,
+                objects_total,
+                objects_completed,
+                bytes_written,
+                bytes_reused,
+                elapsed: started.elapsed(),
+            });
+        };
     if directory.as_os_str().is_empty() {
         return Err(StorageError::InvalidArgument(
             "index store directory is empty".into(),
@@ -534,10 +547,7 @@ pub fn save_with_control(
             if let Some(reused) = reused_object(&target, object)? {
                 objects_reused += 1;
                 bytes_reused += reused;
-                object_refs.insert(
-                    *digest,
-                    ObjectRef::new(*digest, object.bytes.len() as u64),
-                );
+                object_refs.insert(*digest, ObjectRef::new(*digest, object.bytes.len() as u64));
                 objects_completed += 1;
                 report_progress(
                     SavePhase::WritingObjects,
@@ -561,8 +571,8 @@ pub fn save_with_control(
                     return Err(StorageError::io(&target, error));
                 }
             }
-            let metadata = fs::metadata(&target)
-                .map_err(|error| StorageError::io(&target, error))?;
+            let metadata =
+                fs::metadata(&target).map_err(|error| StorageError::io(&target, error))?;
             if metadata.len() != object.bytes.len() as u64 {
                 return Err(StorageError::corrupt_at(
                     &target,
@@ -571,10 +581,7 @@ pub fn save_with_control(
             }
             objects_written += 1;
             bytes_written += object.bytes.len() as u64;
-            object_refs.insert(
-                *digest,
-                ObjectRef::new(*digest, object.bytes.len() as u64),
-            );
+            object_refs.insert(*digest, ObjectRef::new(*digest, object.bytes.len() as u64));
             objects_completed += 1;
             report_progress(
                 SavePhase::WritingObjects,
@@ -614,13 +621,9 @@ pub fn save_with_control(
         }
         let staged_manifest = staging.join(MANIFEST_FILE);
         write_synced(&staged_manifest, &manifest_bytes)?;
-        fs::create_dir_all(&destination)
+        fs::create_dir_all(&destination).map_err(|error| StorageError::io(&destination, error))?;
+        fs::rename(&staged_manifest, destination.join(MANIFEST_FILE))
             .map_err(|error| StorageError::io(&destination, error))?;
-        fs::rename(
-            &staged_manifest,
-            destination.join(MANIFEST_FILE),
-        )
-        .map_err(|error| StorageError::io(&destination, error))?;
         sync_directory(&destination)?;
         sync_directory(&generations)?;
         sync_directory(&objects_directory)?;
@@ -766,7 +769,8 @@ fn write_object(path: &Path, object: &PreparedObject) -> StorageResult<()> {
         file.write_all(chunk)
             .map_err(|error| StorageError::io(path, error))?;
     }
-    file.sync_all().map_err(|error| StorageError::io(path, error))?;
+    file.sync_all()
+        .map_err(|error| StorageError::io(path, error))?;
     Ok(())
 }
 
@@ -850,7 +854,12 @@ fn initialize_or_validate_marker(directory: &Path, lineage_id: Uuid) -> StorageR
         let name = name.to_string_lossy();
         if !matches!(
             name.as_ref(),
-            OBJECTS_DIR | GENERATIONS_DIR | STAGING_DIR | WRITER_LOCK | READERS_LOCK | "CURRENT.tmp"
+            OBJECTS_DIR
+                | GENERATIONS_DIR
+                | STAGING_DIR
+                | WRITER_LOCK
+                | READERS_LOCK
+                | "CURRENT.tmp"
         ) {
             return Err(StorageError::InvalidArgument(format!(
                 "store directory is not dedicated to an Objekte index: unexpected {}",
@@ -1026,6 +1035,7 @@ fn path_bytes(path: &Path) -> Vec<u8> {
         use std::os::unix::ffi::OsStrExt;
         path.as_os_str().as_bytes().to_vec()
     }
+
     #[cfg(not(unix))]
     {
         path.to_string_lossy().into_owned().into_bytes()

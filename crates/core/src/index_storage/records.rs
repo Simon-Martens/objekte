@@ -19,6 +19,7 @@ pub const SEGMENT_STATS_VERSION: u16 = 1;
 /// Fixed encoded width of the segment statistics header.
 pub const SEGMENT_STATS_LEN: usize = 128;
 
+
 /// One contiguous contribution chunk of a physical file.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FilePart {
@@ -28,6 +29,7 @@ pub struct FilePart {
     pub record_count: u32,
     pub segment_slot_start: u32,
 }
+
 
 /// One packed record row.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -41,6 +43,7 @@ pub struct RecordRow {
     pub diagnostic_ref: u32,
     pub record_class: u8,
 }
+
 
 /// Segment-level counters and identity.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -63,6 +66,7 @@ pub struct SegmentStats {
     pub estimated_index_bytes: u64,
 }
 
+
 /// Input row for one file part.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FilePartInput {
@@ -72,6 +76,7 @@ pub struct FilePartInput {
     pub record_count: u32,
     pub segment_slot_start: u32,
 }
+
 
 /// Input row for one record.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -85,6 +90,7 @@ pub struct RecordInput {
     pub record_class: u8,
 }
 
+
 /// Packed sections owned by the record table.
 pub struct RecordTableSections {
     pub records: Vec<u8>,
@@ -97,6 +103,7 @@ pub struct RecordTableSections {
     pub source_bytes: u64,
     pub fallback_count: u64,
 }
+
 
 /// Build the record table sections from validated inputs.
 pub fn build_record_table(
@@ -138,9 +145,11 @@ pub fn build_record_table(
     let mut fallback_count = 0u64;
     let mut source_bytes = 0u64;
     for (slot, record) in records.iter().enumerate() {
-        let part = file_parts.get(record.part_ordinal as usize).ok_or_else(|| {
-            StorageError::InvalidArgument("record references an unknown file part".into())
-        })?;
+        let part = file_parts
+            .get(record.part_ordinal as usize)
+            .ok_or_else(|| {
+                StorageError::InvalidArgument("record references an unknown file part".into())
+            })?;
         let slot = u32::try_from(slot)
             .map_err(|_| StorageError::ResourceLimit("record slot overflow".into()))?;
         if slot < part.segment_slot_start
@@ -308,6 +317,7 @@ pub fn decode_stats(bytes: &[u8]) -> StorageResult<SegmentStats> {
     })
 }
 
+
 /// Reader over the packed record table.
 pub struct RecordTableView {
     backing: Backing,
@@ -315,6 +325,7 @@ pub struct RecordTableView {
     stats: SegmentStats,
     logical: DictionaryReader,
 }
+
 
 impl std::fmt::Debug for RecordTableView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -324,6 +335,7 @@ impl std::fmt::Debug for RecordTableView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl RecordTableView {
     pub fn open(
@@ -335,8 +347,7 @@ impl RecordTableView {
             .get(&SectionKind::LogicalIds)
             .copied()
             .ok_or_else(|| StorageError::corrupt("logical-ID dictionary is missing"))?;
-        let dictionary =
-            DictionaryReader::open(backing.clone(), logical.offset, logical.length)?;
+        let dictionary = DictionaryReader::open(backing.clone(), logical.offset, logical.length)?;
         if dictionary.entry_count() != stats.record_count as u64 {
             return Err(StorageError::corrupt(
                 "logical-ID dictionary does not cover every record",
@@ -351,9 +362,14 @@ impl RecordTableView {
             .checked_add(stats.source_id_len as u64)
             .ok_or_else(|| StorageError::corrupt("source ID reference overflow"))?;
         if source_end > arena.length {
-            return Err(StorageError::corrupt("source ID reference is out of bounds"));
+            return Err(StorageError::corrupt(
+                "source ID reference is out of bounds",
+            ));
         }
-        let source_bytes = backing.read(arena.offset + stats.source_id_offset, stats.source_id_len as u64)?;
+        let source_bytes = backing.read(
+            arena.offset + stats.source_id_offset,
+            stats.source_id_len as u64,
+        )?;
         let mut stats = stats;
         stats.source_id = std::str::from_utf8(source_bytes)
             .map_err(|_| StorageError::corrupt("source ID is not UTF-8"))?
@@ -521,6 +537,7 @@ impl RecordTableView {
             .ok_or_else(|| StorageError::corrupt(format!("required section {kind:?} is missing")))
     }
 }
+
 
 fn read_u32(bytes: &[u8], at: usize) -> StorageResult<u32> {
     let end = at

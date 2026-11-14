@@ -4,12 +4,14 @@ use std::path::PathBuf;
 
 use uuid::Uuid;
 
+
 /// How the current live index was obtained.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StorageOrigin {
     Built,
     Loaded,
 }
+
 
 /// Explicit source-freshness state. Loading never checks source files.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -19,6 +21,7 @@ pub enum FreshnessState {
     Checking,
     Checked,
 }
+
 
 /// One live storage status snapshot.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -35,6 +38,7 @@ pub struct StorageStatus {
     pub freshness: FreshnessState,
     pub active_save_task: bool,
 }
+
 
 impl StorageStatus {
     pub fn built(publication_id: Uuid) -> Self {

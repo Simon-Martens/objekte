@@ -7,12 +7,13 @@
 use super::backing::Backing;
 use super::error::{StorageError, StorageResult};
 use super::format::SectionDescriptor;
-use super::record_set::{encode_record_set, RecordSetRef, RecordSetTag, RecordSetView};
+use super::record_set::{RecordSetRef, RecordSetTag, RecordSetView, encode_record_set};
 
 pub const RELATION_MAGIC: [u8; 4] = *b"OBRL";
 pub const RELATION_VERSION: u16 = 1;
 pub const RELATION_DESCRIPTOR_LEN: usize = 256;
 pub const RELATION_EDGE_LEN: usize = 24;
+
 
 /// One relation edge supplied to the builder.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -22,6 +23,7 @@ pub struct RelationEdgeInput {
     pub target_id: String,
     pub positions: Vec<u32>,
 }
+
 
 /// One relation declaration and its adjacency.
 #[derive(Clone, Debug)]
@@ -39,6 +41,7 @@ pub struct RelationInput {
     pub unavailable: Vec<u32>,
     pub unresolved_count: u64,
 }
+
 
 /// Build the packed relation section. Target IDs, paths, and aliases append to
 /// the segment's shared string arena.
@@ -67,8 +70,7 @@ pub fn build_relations(
         let mut arena = Vec::new();
         let present = embed_relation_set(&relation.present, slot_count, &mut arena)?;
         let nulls = embed_relation_set(&relation.nulls, slot_count, &mut arena)?;
-        let empty_arrays =
-            embed_relation_set(&relation.empty_arrays, slot_count, &mut arena)?;
+        let empty_arrays = embed_relation_set(&relation.empty_arrays, slot_count, &mut arena)?;
         let unavailable = embed_relation_set(&relation.unavailable, slot_count, &mut arena)?;
         let path = encode_path(&relation.path)?;
         let path_offset = string_arena.len() as u64;
@@ -215,10 +217,12 @@ fn encode_path(path: &[String]) -> StorageResult<Vec<u8>> {
     Ok(bytes)
 }
 
+
 /// Reader over the packed relation section.
 pub struct RelationSectionView {
     relations: Vec<RelationView>,
 }
+
 
 impl std::fmt::Debug for RelationSectionView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -228,6 +232,7 @@ impl std::fmt::Debug for RelationSectionView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl RelationSectionView {
     pub fn open(
@@ -258,11 +263,12 @@ impl RelationSectionView {
                 "relation section count differs from segment statistics",
             ));
         }
-        let directory_len = 16usize
-            .checked_add(count.checked_mul(RELATION_DESCRIPTOR_LEN).ok_or_else(|| {
-                StorageError::corrupt("relation descriptor directory overflow")
-            })?)
-            .ok_or_else(|| StorageError::corrupt("relation descriptor directory overflow"))?;
+        let directory_len =
+            16usize
+                .checked_add(count.checked_mul(RELATION_DESCRIPTOR_LEN).ok_or_else(|| {
+                    StorageError::corrupt("relation descriptor directory overflow")
+                })?)
+                .ok_or_else(|| StorageError::corrupt("relation descriptor directory overflow"))?;
         if directory_len as u64 > relations.length {
             return Err(StorageError::corrupt(
                 "relation descriptor directory is truncated",
@@ -317,7 +323,8 @@ impl RelationSectionView {
                     ));
                 }
             }
-            if offsets_len != (slot_count as u64 + 1) * 4 || edges_len % RELATION_EDGE_LEN as u64 != 0
+            if offsets_len != (slot_count as u64 + 1) * 4
+                || edges_len % RELATION_EDGE_LEN as u64 != 0
             {
                 return Err(StorageError::corrupt(
                     "relation offsets or edges have an invalid length",
@@ -339,21 +346,15 @@ impl RelationSectionView {
                     "relation reverse alias is out of bounds",
                 ));
             }
-            let path = decode_path(backing.read(
-                string_arena.offset + path_offset,
-                path_len,
-            )?)?;
+            let path = decode_path(backing.read(string_arena.offset + path_offset, path_len)?)?;
             let reverse_alias = if reverse_len == 0 {
                 None
             } else {
                 Some(
-                    std::str::from_utf8(backing.read(
-                        string_arena.offset + reverse_offset,
-                        reverse_len,
-                    )?)
-                    .map_err(|_| {
-                        StorageError::corrupt("relation reverse alias is not UTF-8")
-                    })?
+                    std::str::from_utf8(
+                        backing.read(string_arena.offset + reverse_offset, reverse_len)?,
+                    )
+                    .map_err(|_| StorageError::corrupt("relation reverse alias is not UTF-8"))?
                     .to_owned(),
                 )
             };
@@ -402,6 +403,7 @@ impl RelationSectionView {
     }
 }
 
+
 /// One relation adjacency reader.
 pub struct RelationView {
     backing: Backing,
@@ -427,6 +429,7 @@ pub struct RelationView {
     unresolved_count: u64,
 }
 
+
 /// One decoded relation edge.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RelationEdgeView {
@@ -435,6 +438,7 @@ pub struct RelationEdgeView {
     pub target_id: String,
     pub positions: Vec<u32>,
 }
+
 
 impl RelationView {
     pub fn slot_count(&self) -> u32 {
@@ -469,9 +473,7 @@ impl RelationView {
         if at + 8 > self.offsets_len {
             return Err(StorageError::corrupt("relation offset table is truncated"));
         }
-        let bounds = self
-            .backing
-            .read(self.base + self.offsets_offset + at, 8)?;
+        let bounds = self.backing.read(self.base + self.offsets_offset + at, 8)?;
         let start = u32::from_le_bytes(bounds[..4].try_into().expect("edge start")) as u64;
         let end = u32::from_le_bytes(bounds[4..8].try_into().expect("edge end")) as u64;
         if end < start || end * RELATION_EDGE_LEN as u64 > self.edges_len {
@@ -499,10 +501,10 @@ impl RelationView {
             {
                 return Err(StorageError::corrupt("relation target ID is out of bounds"));
             }
-            let target_id = std::str::from_utf8(self.backing.read(
-                self.string_arena.offset + target_id_offset,
-                target_id_len,
-            )?)
+            let target_id = std::str::from_utf8(
+                self.backing
+                    .read(self.string_arena.offset + target_id_offset, target_id_len)?,
+            )
             .map_err(|_| StorageError::corrupt("relation target ID is not UTF-8"))?
             .to_owned();
             if positions_offset
@@ -516,10 +518,7 @@ impl RelationView {
             let mut positions = Vec::with_capacity(positions_count as usize);
             for position in 0..positions_count {
                 let bytes = self.backing.read(
-                    self.base
-                        + self.positions_offset
-                        + positions_offset
-                        + position * 4,
+                    self.base + self.positions_offset + positions_offset + position * 4,
                     4,
                 )?;
                 positions.push(u32::from_le_bytes(
@@ -537,7 +536,12 @@ impl RelationView {
     }
 
     pub fn verify_full(&self) -> StorageResult<()> {
-        for reference in [self.present, self.nulls, self.empty_arrays, self.unavailable] {
+        for reference in [
+            self.present,
+            self.nulls,
+            self.empty_arrays,
+            self.unavailable,
+        ] {
             self.set(reference)?.verify_full()?;
         }
         for slot in 0..self.slot_count {
@@ -547,10 +551,13 @@ impl RelationView {
     }
 
     fn set(&self, reference: RecordSetRef) -> StorageResult<RecordSetView<'_>> {
-        let arena = self.backing.read(self.base + self.arena_offset, self.arena_len)?;
+        let arena = self
+            .backing
+            .read(self.base + self.arena_offset, self.arena_len)?;
         reference.view(arena, self.slot_count)
     }
 }
+
 
 fn read_u32(bytes: &[u8], at: usize) -> StorageResult<u32> {
     let end = at

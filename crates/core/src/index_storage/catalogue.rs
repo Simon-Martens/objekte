@@ -29,6 +29,7 @@ const FLAG_TOMBSTONE: u8 = 1;
 const FLAG_CREATED: u8 = 2;
 const FLAG_FINGERPRINT: u8 = 4;
 
+
 /// One bounded source diagnostic supplied to the catalogue builder.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DiagnosticInput {
@@ -40,6 +41,7 @@ pub struct DiagnosticInput {
     pub column: Option<u64>,
     pub message: String,
 }
+
 
 /// One file row supplied to the catalogue builder.
 #[derive(Clone, Debug)]
@@ -60,6 +62,7 @@ pub struct FileRowInput {
     pub fingerprint: Option<[u8; 32]>,
 }
 
+
 /// Catalogue-level counters.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CatalogueStats {
@@ -70,6 +73,7 @@ pub struct CatalogueStats {
     pub page_count: u32,
     pub collection_count: u32,
 }
+
 
 /// A fully decoded file row.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -91,6 +95,7 @@ pub struct FileRowView {
     pub fingerprint: Option<[u8; 32]>,
 }
 
+
 /// One decoded diagnostic.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DiagnosticView {
@@ -103,6 +108,7 @@ pub struct DiagnosticView {
     pub message: String,
 }
 
+
 /// Built catalogue sections.
 pub struct CatalogueSections {
     pub file_rows: Vec<u8>,
@@ -111,6 +117,7 @@ pub struct CatalogueSections {
     pub statistics: Vec<u8>,
     pub stats: CatalogueStats,
 }
+
 
 /// Build a complete catalogue object body.
 pub fn build_catalogue(rows: &[FileRowInput]) -> StorageResult<CatalogueSections> {
@@ -140,9 +147,7 @@ pub fn build_catalogue(rows: &[FileRowInput]) -> StorageResult<CatalogueSections
         .ok_or_else(|| StorageError::ResourceLimit("catalogue page directory overflow".into()))?;
     let pages_len = rows
         .chunks(FILES_PER_PAGE as usize)
-        .map(|page| {
-            FILE_PAGE_HEADER_LEN + page.len() * FILE_ROW_LEN
-        })
+        .map(|page| FILE_PAGE_HEADER_LEN + page.len() * FILE_ROW_LEN)
         .sum::<usize>();
     let arena_offset = FILE_ROWS_HEADER_LEN + directory_len + pages_len;
     let mut arena = Vec::new();
@@ -250,7 +255,12 @@ pub fn build_catalogue(rows: &[FileRowInput]) -> StorageResult<CatalogueSections
     let path_dictionary = build_dictionary(path_entries, KeyOrder::Bytes, 8192)?;
     let active_count = rows.iter().filter(|row| !row.tombstone).count() as u32;
     let tombstone_count = rows.len() as u32 - active_count;
-    let collection_count = rows.iter().flat_map(|row| row.collections.iter()).copied().max().map_or(0, |max| max.saturating_add(1));
+    let collection_count = rows
+        .iter()
+        .flat_map(|row| row.collections.iter())
+        .copied()
+        .max()
+        .map_or(0, |max| max.saturating_add(1));
     let stats = CatalogueStats {
         high_water,
         file_count: rows.len() as u32,
@@ -322,6 +332,7 @@ pub fn build_catalogue_object(backing: Backing) -> StorageResult<CatalogueView> 
     CatalogueView::open(backing)
 }
 
+
 /// Reader over a catalogue object.
 pub struct CatalogueView {
     backing: Backing,
@@ -329,6 +340,7 @@ pub struct CatalogueView {
     stats: CatalogueStats,
     path_dictionary: DictionaryReader,
 }
+
 
 impl std::fmt::Debug for CatalogueView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -338,6 +350,7 @@ impl std::fmt::Debug for CatalogueView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl CatalogueView {
     pub fn open(backing: Backing) -> StorageResult<Self> {
@@ -361,11 +374,8 @@ impl CatalogueView {
             .get(&SectionKind::PathDictionary)
             .copied()
             .ok_or_else(|| StorageError::corrupt("path dictionary is missing"))?;
-        let path_dictionary = DictionaryReader::open(
-            backing.clone(),
-            path_section.offset,
-            path_section.length,
-        )?;
+        let path_dictionary =
+            DictionaryReader::open(backing.clone(), path_section.offset, path_section.length)?;
         Ok(Self {
             backing,
             sections,
@@ -401,7 +411,9 @@ impl CatalogueView {
             .get(&SectionKind::FileRows)
             .copied()
             .ok_or_else(|| StorageError::corrupt("file rows are missing"))?;
-        let header = self.backing.read(descriptor.offset, FILE_ROWS_HEADER_LEN as u64)?;
+        let header = self
+            .backing
+            .read(descriptor.offset, FILE_ROWS_HEADER_LEN as u64)?;
         validate_file_rows_header(header, self.stats)?;
         if page >= self.stats.page_count {
             return Ok(None);
@@ -412,10 +424,9 @@ impl CatalogueView {
                 .read(descriptor.offset + directory_at as u64, 8)?,
             0,
         )?;
-        let page_header = self.backing.read(
-            descriptor.offset + page_offset,
-            FILE_PAGE_HEADER_LEN as u64,
-        )?;
+        let page_header = self
+            .backing
+            .read(descriptor.offset + page_offset, FILE_PAGE_HEADER_LEN as u64)?;
         if page_header[..4] != FILE_PAGE_MAGIC {
             return Err(StorageError::corrupt("file page magic mismatch"));
         }
@@ -426,9 +437,8 @@ impl CatalogueView {
         if row >= count {
             return Ok(None);
         }
-        let row_offset = page_offset
-            + FILE_PAGE_HEADER_LEN as u64
-            + row as u64 * FILE_ROW_LEN as u64;
+        let row_offset =
+            page_offset + FILE_PAGE_HEADER_LEN as u64 + row as u64 * FILE_ROW_LEN as u64;
         let encoded = self
             .backing
             .read(descriptor.offset + row_offset, FILE_ROW_LEN as u64)?;
@@ -464,12 +474,10 @@ impl CatalogueView {
             if !path.starts_with(prefix) {
                 break;
             }
-            let file = u32::from_le_bytes(
-                value
-                    .as_slice()
-                    .try_into()
-                    .map_err(|_| StorageError::corrupt("path dictionary value is not four bytes"))?,
-            );
+            let file =
+                u32::from_le_bytes(value.as_slice().try_into().map_err(|_| {
+                    StorageError::corrupt("path dictionary value is not four bytes")
+                })?);
             if file != u32::MAX {
                 result.push(file);
             }
@@ -550,6 +558,7 @@ impl CatalogueView {
     }
 }
 
+
 fn validate_file_rows_header(header: &[u8], stats: CatalogueStats) -> StorageResult<()> {
     if header[..4] != FILE_ROWS_MAGIC {
         return Err(StorageError::corrupt("file rows magic mismatch"));
@@ -597,9 +606,8 @@ fn decode_file_row(
         return Err(StorageError::corrupt("file row has unknown flag bits"));
     }
     let tombstone = flags & FLAG_TOMBSTONE != 0;
-    let created_ns = (flags & FLAG_CREATED != 0).then(|| {
-        i128::from_le_bytes(encoded[48..64].try_into().expect("created time"))
-    });
+    let created_ns = (flags & FLAG_CREATED != 0)
+        .then(|| i128::from_le_bytes(encoded[48..64].try_into().expect("created time")));
     let fingerprint = (flags & FLAG_FINGERPRINT != 0).then(|| {
         encoded[104..136]
             .try_into()
@@ -637,9 +645,7 @@ fn decode_file_row(
         file_version: read_u64(encoded, 8)?,
         content_generation: read_u64(encoded, 16)?,
         size: read_u64(encoded, 24)?,
-        modified_ns: i128::from_le_bytes(
-            encoded[32..48].try_into().expect("modified time"),
-        ),
+        modified_ns: i128::from_le_bytes(encoded[32..48].try_into().expect("modified time")),
         created_ns,
         native_path: native.to_vec(),
         query_path: query.to_vec(),
@@ -668,11 +674,7 @@ fn read_blob(
     backing.read(descriptor.offset + offset, length as u64)
 }
 
-fn read_string(
-    backing: &Backing,
-    base: u64,
-    at: u64,
-) -> StorageResult<(String, u64)> {
+fn read_string(backing: &Backing, base: u64, at: u64) -> StorageResult<(String, u64)> {
     let length_bytes = backing.read(base + at, 4)?;
     let length = u32::from_le_bytes(length_bytes.try_into().expect("string length")) as u64;
     let value = backing.read(base + at + 4, length)?;

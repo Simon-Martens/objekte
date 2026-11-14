@@ -3,7 +3,7 @@
 use super::backing::Backing;
 use super::error::{StorageError, StorageResult};
 use super::format::SectionDescriptor;
-use super::record_set::{encode_record_set, RecordSetRef, RecordSetTag, RecordSetView};
+use super::record_set::{RecordSetRef, RecordSetTag, RecordSetView, encode_record_set};
 
 pub const COVERAGE_MAGIC: [u8; 4] = *b"OBCO";
 pub const COVERAGE_VERSION: u16 = 1;
@@ -35,11 +35,7 @@ pub fn build_coverage(
     Ok(bytes)
 }
 
-fn embed(
-    slots: &[u32],
-    slot_count: u32,
-    arena: &mut Vec<u8>,
-) -> StorageResult<RecordSetRef> {
+fn embed(slots: &[u32], slot_count: u32, arena: &mut Vec<u8>) -> StorageResult<RecordSetRef> {
     let mut encoded = encode_record_set(slots, slot_count)?;
     if encoded.reference.tag == RecordSetTag::Blocks {
         encoded.reference.a = encoded
@@ -52,6 +48,7 @@ fn embed(
     Ok(encoded.reference)
 }
 
+
 /// Borrowed coverage reader.
 pub struct CoverageView {
     backing: Backing,
@@ -63,6 +60,7 @@ pub struct CoverageView {
     arena_offset: u64,
     arena_len: u64,
 }
+
 
 impl CoverageView {
     pub fn open(

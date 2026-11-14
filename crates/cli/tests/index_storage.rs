@@ -32,12 +32,7 @@ fn cli_builds_saves_loads_checks_and_resaves() {
 
     let (status, events, error) = invoke(
         root.path(),
-        &[
-            "--path",
-            "source",
-            "--save-index",
-            store.to_str().unwrap(),
-        ],
+        &["--path", "source", "--save-index", store.to_str().unwrap()],
     );
     assert!(status.success(), "{error}");
     assert!(events.iter().any(|event| event["type"] == "index_saved"));

@@ -4,13 +4,14 @@ use roaring::RoaringBitmap;
 
 use super::backing::Backing;
 use super::bigram_builder::{
-    BigramBinding, BigramBindingKind, BIGRAM_DESCRIPTOR_LEN, BIGRAM_DICTIONARY_MAGIC,
-    BIGRAM_DICTIONARY_VERSION, BIGRAM_POSTING_MAGIC, BIGRAM_POSTING_VERSION,
+    BIGRAM_DESCRIPTOR_LEN, BIGRAM_DICTIONARY_MAGIC, BIGRAM_DICTIONARY_VERSION,
+    BIGRAM_POSTING_MAGIC, BIGRAM_POSTING_VERSION, BigramBinding, BigramBindingKind,
 };
 use super::dictionary::DictionaryReader;
 use super::error::{StorageError, StorageResult};
 use super::format::SectionDescriptor;
 use super::record_set::{RecordSetRef, RecordSetView};
+
 
 struct BindingData {
     binding: BigramBinding,
@@ -19,6 +20,7 @@ struct BindingData {
     normal: DictionaryReader,
     skip: DictionaryReader,
 }
+
 
 /// All bigram bindings in one frozen segment.
 pub struct BigramSectionView {
@@ -29,6 +31,7 @@ pub struct BigramSectionView {
     bindings: Vec<BindingData>,
 }
 
+
 impl std::fmt::Debug for BigramSectionView {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         formatter
@@ -38,6 +41,7 @@ impl std::fmt::Debug for BigramSectionView {
             .finish_non_exhaustive()
     }
 }
+
 
 impl BigramSectionView {
     pub fn open(
@@ -78,9 +82,11 @@ impl BigramSectionView {
         }
         let count = u32::from_le_bytes(header[8..12].try_into().expect("bigram count")) as usize;
         let directory_len = 16usize
-            .checked_add(count.checked_mul(BIGRAM_DESCRIPTOR_LEN).ok_or_else(|| {
-                StorageError::corrupt("bigram dictionary directory overflow")
-            })?)
+            .checked_add(
+                count
+                    .checked_mul(BIGRAM_DESCRIPTOR_LEN)
+                    .ok_or_else(|| StorageError::corrupt("bigram dictionary directory overflow"))?,
+            )
             .ok_or_else(|| StorageError::corrupt("bigram dictionary directory overflow"))?;
         if directory_len as u64 > dictionaries.length {
             return Err(StorageError::corrupt(
@@ -125,10 +131,7 @@ impl BigramSectionView {
                     ));
                 }
             }
-            let metadata = backing.read(
-                dictionaries.offset + metadata_offset,
-                metadata_len,
-            )?;
+            let metadata = backing.read(dictionaries.offset + metadata_offset, metadata_len)?;
             let binding = decode_binding(kind, metadata)?;
             let normal = DictionaryReader::open(
                 backing.clone(),
@@ -188,7 +191,9 @@ impl BigramSectionView {
     pub fn verify_full(&self) -> StorageResult<()> {
         for binding in &self.bindings {
             for dictionary in [&binding.normal, &binding.skip] {
-                for entry in dictionary.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded) {
+                for entry in
+                    dictionary.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+                {
                     let (_, bytes) = entry?;
                     let reference = RecordSetRef::decode(&bytes)?;
                     let arena = self.arena()?;
@@ -211,11 +216,13 @@ impl BigramSectionView {
     }
 }
 
+
 /// One text binding bound to its segment's arena.
 pub struct BigramBindingView<'a> {
     section: &'a BigramSectionView,
     binding: &'a BindingData,
 }
+
 
 impl BigramBindingView<'_> {
     pub fn binding(&self) -> &BigramBinding {
@@ -275,28 +282,24 @@ impl BigramBindingView<'_> {
         Ok(result)
     }
 
-    /// Candidate intersection count without constructing a result set.
+    /// Candidate intersection count without retaining a query result page.
     pub fn intersection_count_normal(&self, grams: &[u64]) -> StorageResult<u64> {
-        let Some(first) = grams.first() else {
-            return Ok(0);
-        };
-        let Some(first) = self.normal(*first)? else {
-            return Ok(0);
-        };
-        let mut count = first.cardinality();
-        if count == 0 {
-            return Ok(0);
-        }
-        for gram in &grams[1..] {
+        let mut intersection: Option<RoaringBitmap> = None;
+        for gram in grams {
             let Some(posting) = self.normal(*gram)? else {
                 return Ok(0);
             };
-            count = posting.intersection_count(&first)?;
-            if count == 0 {
-                break;
+            let mut current = RoaringBitmap::new();
+            posting.union_into(&mut current)?;
+            intersection = Some(match intersection {
+                Some(previous) => &previous & &current,
+                None => current,
+            });
+            if intersection.as_ref().is_some_and(RoaringBitmap::is_empty) {
+                return Ok(0);
             }
         }
-        Ok(count)
+        Ok(intersection.map_or(0, |result| result.len()))
     }
 
     /// Union the postings for a set of skip grams.
@@ -323,6 +326,7 @@ impl BigramBindingView<'_> {
         Ok(Some(reference.view(arena, self.section.slot_count)?))
     }
 }
+
 
 fn decode_binding(kind: BigramBindingKind, metadata: &[u8]) -> StorageResult<BigramBinding> {
     if kind != BigramBindingKind::Custom {

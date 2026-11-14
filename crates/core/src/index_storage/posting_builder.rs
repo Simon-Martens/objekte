@@ -9,11 +9,11 @@ use std::collections::BTreeMap;
 use crate::model::{LogicalType, Number};
 use crate::posting::ScalarKey;
 
-use super::error::{StorageError, StorageResult};
-use super::record_set::{encode_record_set, RecordSetRef};
-use super::scalar::encode_scalar_key;
 use super::dictionary::KeyOrder;
 use super::dictionary_builder::build_dictionary;
+use super::error::{StorageError, StorageResult};
+use super::record_set::{RecordSetRef, encode_record_set};
+use super::scalar::encode_scalar_key;
 
 /// Fixed width of one packed posting field descriptor.
 pub const POSTING_FIELD_DESCRIPTOR_LEN: usize = 208;
@@ -31,6 +31,7 @@ pub const FIELD_HAS_STRUCTURAL: u32 = 1 << 5;
 pub const FIELD_HAS_EMPTY_STRING: u32 = 1 << 6;
 /// Field directory version.
 pub const FIELD_DIRECTORY_VERSION: u16 = 1;
+
 
 /// One field contribution supplied to the packed posting builder.
 #[derive(Clone, Debug)]
@@ -53,11 +54,13 @@ pub struct FieldInput {
     pub covered_records: u32,
 }
 
+
 /// Packed field-index sections.
 pub struct PostingSections {
     pub payloads: Vec<u8>,
     pub field_directory: Vec<u8>,
 }
+
 
 /// Encode every typed field contribution into one payload section and one
 /// field directory.
@@ -111,10 +114,7 @@ pub fn build_postings(fields: &[FieldInput], slot_count: u32) -> StorageResult<P
         let mut value_entries = Vec::with_capacity(field.values.len());
         for (value, slots) in &field.values {
             let reference = embed(slots)?;
-            value_entries.push((
-                encode_scalar_key(value)?,
-                reference.encode().to_vec(),
-            ));
+            value_entries.push((encode_scalar_key(value)?, reference.encode().to_vec()));
         }
         let values = build_dictionary(value_entries, KeyOrder::Scalar, 8192)?;
         let mut length_entries = Vec::with_capacity(field.lengths.len());

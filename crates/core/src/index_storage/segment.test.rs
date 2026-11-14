@@ -9,7 +9,7 @@ use super::posting_builder::FieldInput;
 use super::records::{FilePartInput, RecordInput};
 use super::relations::{RelationEdgeInput, RelationInput};
 use super::segment::FrozenSegment;
-use super::segment_builder::{build_segment, SegmentInput};
+use super::segment_builder::{SegmentInput, build_segment};
 use super::sort::SortColumnInput;
 
 fn fixture() -> SegmentInput {
@@ -203,7 +203,10 @@ fn record_table_reads_slots_parts_and_logical_ids() {
     assert_eq!(segment.records().file_part(1).unwrap().unwrap().file_id, 2);
     assert_eq!(segment.records().logical_id(0).unwrap().unwrap(), "a");
     assert_eq!(segment.records().slot_for_logical_id("b").unwrap(), Some(1));
-    assert_eq!(segment.records().slot_for_logical_id("missing").unwrap(), None);
+    assert_eq!(
+        segment.records().slot_for_logical_id("missing").unwrap(),
+        None
+    );
     assert_eq!(segment.records().identity_order().unwrap(), vec![0, 1, 2]);
     let record = segment.records().record(2).unwrap().unwrap();
     assert_eq!(record.byte_end, 30);
@@ -219,7 +222,15 @@ fn typed_postings_query_entirely_through_readers() {
         .field(&["title".to_owned()])
         .expect("title field");
     assert_eq!(title.presence().unwrap().cardinality(), 3);
-    assert_eq!(title.nulls().unwrap().ids().collect::<Result<Vec<_>, _>>().unwrap(), vec![2]);
+    assert_eq!(
+        title
+            .nulls()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
+        vec![2]
+    );
     assert_eq!(
         title
             .value(&ScalarKey::String("Alpha".into()))
@@ -230,23 +241,53 @@ fn typed_postings_query_entirely_through_readers() {
             .unwrap(),
         vec![0, 2]
     );
-    assert!(title.contains_value(1, &ScalarKey::String("Beta".into())).unwrap());
-    assert!(!title.contains_value(2, &ScalarKey::String("Beta".into())).unwrap());
-    assert_eq!(title.value_cardinality(&ScalarKey::String("Alpha".into())).unwrap(), 2);
+    assert!(
+        title
+            .contains_value(1, &ScalarKey::String("Beta".into()))
+            .unwrap()
+    );
+    assert!(
+        !title
+            .contains_value(2, &ScalarKey::String("Beta".into()))
+            .unwrap()
+    );
     assert_eq!(
-        title.structural(3).unwrap().unwrap().ids().collect::<Result<Vec<_>, _>>().unwrap(),
+        title
+            .value_cardinality(&ScalarKey::String("Alpha".into()))
+            .unwrap(),
+        2
+    );
+    assert_eq!(
+        title
+            .structural(3)
+            .unwrap()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
         vec![0, 1, 2]
     );
     assert_eq!(
-        title.length(&Number::Integer(5)).unwrap().unwrap().cardinality(),
+        title
+            .length(&Number::Integer(5))
+            .unwrap()
+            .unwrap()
+            .cardinality(),
         2
     );
     assert_eq!(title.values().entry_count(), 2);
     let count = segment.postings().field_by_ordinal(1).unwrap();
-    assert!(count.contains_value(1, &ScalarKey::Number(Number::Integer(2))).unwrap());
+    assert!(
+        count
+            .contains_value(1, &ScalarKey::Number(Number::Integer(2)))
+            .unwrap()
+    );
     let flag = segment.postings().field_by_ordinal(2).unwrap();
     assert_eq!(
-        flag.value(&ScalarKey::Bool(true)).unwrap().unwrap().cardinality(),
+        flag.value(&ScalarKey::Bool(true))
+            .unwrap()
+            .unwrap()
+            .cardinality(),
         2
     );
 }
@@ -254,14 +295,27 @@ fn typed_postings_query_entirely_through_readers() {
 #[test]
 fn bigram_sort_relation_and_coverage_readers_work() {
     let segment = segment();
-    let raw = segment.bigrams().binding(super::bigram_builder::BigramBindingKind::Raw).unwrap();
+    let raw = segment
+        .bigrams()
+        .binding(super::bigram_builder::BigramBindingKind::Raw)
+        .unwrap();
     assert_eq!(raw.alphabet(), 0);
     assert_eq!(
-        raw.normal(0x4142).unwrap().unwrap().ids().collect::<Result<Vec<_>, _>>().unwrap(),
+        raw.normal(0x4142)
+            .unwrap()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
         vec![0, 2]
     );
     assert_eq!(
-        raw.skip(0x4142).unwrap().unwrap().ids().collect::<Result<Vec<_>, _>>().unwrap(),
+        raw.skip(0x4142)
+            .unwrap()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
         vec![1]
     );
     assert_eq!(raw.normal_gram_count(), 2);
@@ -271,7 +325,10 @@ fn bigram_sort_relation_and_coverage_readers_work() {
     assert_eq!(column.locale(), "und");
     assert_eq!(column.ascending_slots().unwrap(), vec![0, 2, 1]);
     assert_eq!(column.descending_slots().unwrap(), vec![1, 2, 0]);
-    assert_eq!(column.key_at(0).unwrap().unwrap(), SortKey::String(b"Alpha".to_vec()));
+    assert_eq!(
+        column.key_at(0).unwrap().unwrap(),
+        SortKey::String(b"Alpha".to_vec())
+    );
     assert_eq!(column.key_at(2).unwrap().unwrap(), SortKey::Missing);
 
     let relation = segment.relations().relation(0).unwrap();
@@ -289,7 +346,12 @@ fn bigram_sort_relation_and_coverage_readers_work() {
     let coverage = segment.coverage();
     assert_eq!(coverage.logical_records().unwrap().cardinality(), 3);
     assert_eq!(
-        coverage.empty_arrays().unwrap().ids().collect::<Result<Vec<_>, _>>().unwrap(),
+        coverage
+            .empty_arrays()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
         vec![2]
     );
 }

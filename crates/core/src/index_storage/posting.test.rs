@@ -11,7 +11,7 @@ use super::bigram_builder::{BigramBinding, BigramInput};
 use super::posting_builder::FieldInput;
 use super::records::FilePartInput;
 use super::segment::FrozenSegment;
-use super::segment_builder::{build_segment, SegmentInput};
+use super::segment_builder::{SegmentInput, build_segment};
 
 fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
     let slot_count = 80u32;
@@ -30,7 +30,32 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
         lengths.insert(Number::Integer(length), slots);
     }
     let presence = (0..slot_count).collect::<Vec<_>>();
-    let nulls = (0..slot_count).filter(|slot| slot % 7 == 0).collect::<Vec<_>>();
+    let nulls = (0..slot_count)
+        .filter(|slot| slot % 7 == 0)
+        .collect::<Vec<_>>();
+    let mut sparse_values = BTreeMap::new();
+    sparse_values.insert(
+        ScalarKey::String("sparse".into()),
+        vec![0, 5, 10, 15, 20, 25],
+    );
+    let sparse = FieldInput {
+        ordinal: 1,
+        path: vec!["sparse".into()],
+        kind: LogicalType::String,
+        multi: false,
+        presence: vec![0, 5, 10, 15, 20, 25],
+        nulls: Vec::new(),
+        empty_selections: Vec::new(),
+        empty_strings: Vec::new(),
+        structural: BTreeMap::new(),
+        values: sparse_values,
+        lengths: BTreeMap::new(),
+        values_indexed: true,
+        value_complete: true,
+        length_complete: true,
+        empty_string_complete: false,
+        covered_records: slot_count,
+    };
     let field = FieldInput {
         ordinal: 0,
         path: vec!["value".into()],
@@ -53,6 +78,7 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
         (1u64, vec![0, 1, 2, 3, 4]),
         (2u64, vec![2, 3, 4, 5, 6]),
         (3u64, vec![4, 5]),
+        (4u64, vec![0, 5, 10, 15, 20, 25]),
     ];
     let skip = vec![(1u64, vec![3, 4, 5])];
     let input = SegmentInput {
@@ -78,7 +104,7 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
             })
             .collect(),
         identity_order: (0..slot_count).collect(),
-        fields: vec![field],
+        fields: vec![field, sparse],
         bigrams: vec![BigramInput {
             binding: BigramBinding::Raw,
             alphabet: 0,
@@ -105,9 +131,8 @@ fn reference_posting(
     key: &ScalarKey,
     operator: Operator,
 ) -> RoaringBitmap {
-    let same_type = |candidate: &ScalarKey| {
-        std::mem::discriminant(candidate) == std::mem::discriminant(key)
-    };
+    let same_type =
+        |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
     let union = |iterator: &mut dyn Iterator<Item = (&ScalarKey, &Vec<u32>)>| {
         let mut result = RoaringBitmap::new();
         for (_, slots) in iterator.take_while(|(candidate, _)| same_type(candidate)) {
@@ -124,7 +149,9 @@ fn reference_posting(
             for slots in values.values() {
                 result.extend(slots.iter().copied());
             }
-            let nulls = (0u32..80).filter(|slot| slot % 7 == 0).collect::<RoaringBitmap>();
+            let nulls = (0u32..80)
+                .filter(|slot| slot % 7 == 0)
+                .collect::<RoaringBitmap>();
             result -= nulls;
             if let Some(equal) = values.get(key) {
                 result -= equal.iter().copied().collect::<RoaringBitmap>();
@@ -169,10 +196,7 @@ fn packed_scalar_queries_match_btree_reference() {
 #[test]
 fn packed_ranges_report_visited_keys_and_respect_restriction() {
     let (segment, _values) = scalar_segment();
-    let field = segment
-        .postings()
-        .field(&["value".to_owned()])
-        .unwrap();
+    let field = segment.postings().field(&["value".to_owned()]).unwrap();
     let key = ScalarKey::Number(Number::Integer(0));
     let mut restriction = RoaringBitmap::new();
     restriction.insert_range(0..20);
@@ -187,29 +211,26 @@ fn packed_ranges_report_visited_keys_and_respect_restriction() {
 #[test]
 fn packed_value_and_length_keys_enumerate_order_and_counts() {
     let (segment, values) = scalar_segment();
-    let field = segment
-        .postings()
-        .field(&["value".to_owned()])
-        .unwrap();
-    let keys = field
-        .value_keys(Unbounded, Unbounded, false)
-        .unwrap();
+    let field = segment.postings().field(&["value".to_owned()]).unwrap();
+    let keys = field.value_keys(Unbounded, Unbounded, false).unwrap();
     assert_eq!(keys.len(), 21);
-    assert_eq!(keys.first().unwrap().0, ScalarKey::Number(Number::Integer(-10)));
-    assert_eq!(keys.last().unwrap().0, ScalarKey::Number(Number::Integer(10)));
-    assert!(keys.iter().all(|(_, count)| *count > 0));
-    let reverse = field
-        .value_keys(Unbounded, Unbounded, true)
-        .unwrap();
-    assert_eq!(reverse.first().unwrap().0, ScalarKey::Number(Number::Integer(10)));
-    let lengths = field
-        .length_keys(Unbounded, Unbounded)
-        .unwrap();
-    assert_eq!(lengths.len(), 6);
     assert_eq!(
-        lengths.first().unwrap().0,
-        Number::Integer(0)
+        keys.first().unwrap().0,
+        ScalarKey::Number(Number::Integer(-10))
     );
+    assert_eq!(
+        keys.last().unwrap().0,
+        ScalarKey::Number(Number::Integer(10))
+    );
+    assert!(keys.iter().all(|(_, count)| *count > 0));
+    let reverse = field.value_keys(Unbounded, Unbounded, true).unwrap();
+    assert_eq!(
+        reverse.first().unwrap().0,
+        ScalarKey::Number(Number::Integer(10))
+    );
+    let lengths = field.length_keys(Unbounded, Unbounded).unwrap();
+    assert_eq!(lengths.len(), 6);
+    assert_eq!(lengths.first().unwrap().0, Number::Integer(0));
 }
 
 #[test]
@@ -219,7 +240,11 @@ fn packed_bigram_candidates_match_reference_sets() {
         .bigrams()
         .binding(super::bigram_builder::BigramBindingKind::Raw)
         .unwrap();
-    let normal = [(1u64, vec![0u32, 1, 2, 3, 4]), (2, vec![2, 3, 4, 5, 6]), (3, vec![4, 5])];
+    let normal = [
+        (1u64, vec![0u32, 1, 2, 3, 4]),
+        (2, vec![2, 3, 4, 5, 6]),
+        (3, vec![4, 5]),
+    ];
     let mut expected_union = RoaringBitmap::new();
     for (_, slots) in &normal {
         expected_union.extend(slots.iter().copied());
@@ -239,10 +264,32 @@ fn packed_bigram_candidates_match_reference_sets() {
         raw.intersection_count_normal(&[1, 2]).unwrap(),
         expected_intersection.len()
     );
+    assert_eq!(raw.intersection_count_normal(&[1, 2, 4]).unwrap(), 0);
     assert_eq!(
         raw.union_skip(&[1]).unwrap(),
         [3u32, 4, 5].into_iter().collect::<RoaringBitmap>()
     );
+    assert_eq!(
+        raw.normal(4)
+            .unwrap()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
+        vec![0, 5, 10, 15, 20, 25]
+    );
+    let sparse = segment.postings().field(&["sparse".to_owned()]).unwrap();
+    assert_eq!(
+        sparse
+            .value(&ScalarKey::String("sparse".into()))
+            .unwrap()
+            .unwrap()
+            .ids()
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
+        vec![0, 5, 10, 15, 20, 25]
+    );
+    sparse.verify_full().unwrap();
 }
 
 #[test]
