@@ -862,6 +862,11 @@ impl IndexedCollectionSegment {
                 index.freeze_shared();
             }
         }
+        self.raw.freeze_shared();
+        self.fallback_text.freeze_shared();
+        for index in self.custom_text.values_mut() {
+            index.freeze_shared();
+        }
     }
 
     /// Recompute the cached planning estimate after native finalization or a

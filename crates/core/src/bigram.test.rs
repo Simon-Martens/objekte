@@ -205,10 +205,10 @@ fn independent_index(records: &[Vec<String>], alphabet: BigramAlphabet, base: u3
             }
         }
         for key in normal {
-            index.normal.entry(key).or_default().insert(slot);
+            index.insert_gram_slot(false, key, slot);
         }
         for key in skip {
-            index.skip.entry(key).or_default().insert(slot);
+            index.insert_gram_slot(true, key, slot);
         }
     }
     index
@@ -272,11 +272,11 @@ fn chunked_builder_matches_independent_complete_posting_maps() {
                 let expected = independent_index(&records, alphabet, base);
                 assert_eq!(built.record_count, expected.record_count);
                 assert_eq!(
-                    built.normal, expected.normal,
+                    built.normal_entries(), expected.normal_entries(),
                     "normal {alphabet:?} base={base} len={len}"
                 );
                 assert_eq!(
-                    built.skip, expected.skip,
+                    built.skip_entries(), expected.skip_entries(),
                     "skip {alphabet:?} base={base} len={len}"
                 );
             }
@@ -285,8 +285,8 @@ fn chunked_builder_matches_independent_complete_posting_maps() {
     let mut boundary = BigramBuilder::new(BigramAlphabet::Unicode);
     boundary.add_record(RecordSlot(0), ["ab", "cd"]).unwrap();
     let boundary = boundary.finish().unwrap();
-    assert!(!boundary.normal.contains_key(&unicode_pair('b', 'c')));
-    assert!(!boundary.skip.contains_key(&unicode_pair('a', 'c')));
+    assert!(!boundary.normal_entries().contains_key(&unicode_pair('b', 'c')));
+    assert!(!boundary.skip_entries().contains_key(&unicode_pair('a', 'c')));
 }
 
 #[test]
@@ -297,7 +297,7 @@ fn chunked_builder_checks_slot_arithmetic_before_publication() {
         .unwrap();
     assert!(builder.add_empty(RecordSlot(u32::MAX)).is_err());
     let index = builder.finish().unwrap();
-    assert!(index.normal[&ascii_pair(b'a', b'b').unwrap()].contains(u32::MAX - 1));
+    assert!(index.normal_entries()[&ascii_pair(b'a', b'b').unwrap()].contains(u32::MAX - 1));
     assert_eq!(index.record_count, u32::MAX);
 }
 
@@ -345,11 +345,11 @@ fn shifted_blocks_match_incremental_bitmaps_at_chunk_and_container_boundaries() 
                 let built = blocks.into_index_in_pool(&pool).unwrap();
                 assert_eq!(built.record_count, old.record_count);
                 assert_eq!(
-                    built.normal, old.normal,
+                    built.normal_entries(), old.normal_entries(),
                     "normal {alphabet:?} base={base} len={length}"
                 );
                 assert_eq!(
-                    built.skip, old.skip,
+                    built.skip_entries(), old.skip_entries(),
                     "skip {alphabet:?} base={base} len={length}"
                 );
                 for literal in ["ab", "bc", "aßb", "STRASSE", "MÜLLER", "missing"] {
@@ -482,9 +482,9 @@ fn packed_chunk_bases_remain_local_through_non_aligned_admission() {
             BigramAlphabet::Ascii => ascii_pair(b'a', b'b').unwrap(),
             BigramAlphabet::Unicode => unicode_pair('a', 'b'),
         };
-        assert_eq!(index.normal[&key].min(), Some(63));
-        assert_eq!(index.normal[&key].max(), Some(448));
-        assert_eq!(index.normal[&key].len(), 386);
+        assert_eq!(index.normal_entries()[&key].min(), Some(63));
+        assert_eq!(index.normal_entries()[&key].max(), Some(448));
+        assert_eq!(index.normal_entries()[&key].len(), 386);
     }
 }
 
@@ -612,14 +612,14 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
         assert_eq!(collection.generation.records.len(), 4);
         let expected_raw = independent_index(&raw_records, alphabet, 0);
         let expected_fallback = independent_index(&fallback_records, alphabet, 0);
-        assert_eq!(collection.raw.normal, expected_raw.normal);
-        assert_eq!(collection.raw.skip, expected_raw.skip);
-        assert_eq!(collection.fallback_text.normal, expected_fallback.normal);
-        assert_eq!(collection.fallback_text.skip, expected_fallback.skip);
+        assert_eq!(collection.raw.normal_entries(), expected_raw.normal_entries());
+        assert_eq!(collection.raw.skip_entries(), expected_raw.skip_entries());
+        assert_eq!(collection.fallback_text.normal_entries(), expected_fallback.normal_entries());
+        assert_eq!(collection.fallback_text.skip_entries(), expected_fallback.skip_entries());
         assert_eq!(collection.custom_text.len(), 1);
         let custom = collection.custom_text.values().next().unwrap();
-        assert_eq!(custom.normal, expected_raw.normal);
-        assert_eq!(custom.skip, expected_raw.skip);
+        assert_eq!(custom.normal_entries(), expected_raw.normal_entries());
+        assert_eq!(custom.skip_entries(), expected_raw.skip_entries());
     }
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -682,7 +682,7 @@ fn profile_single_worker_constructors() {
     println!(
         "mode={mode} alphabet={alphabet:?} elapsed_ns={} keys={} heap_bytes={}",
         elapsed_ns,
-        index.normal.len() + index.skip.len(),
+        index.gram_key_count(),
         index.estimated_heap_bytes()
     );
     if let Some(stats) = construction {
@@ -718,11 +718,11 @@ fn full_non_turkic_fold_precedes_all_gram_windows() {
                 "{alphabet:?} {literal:?}"
             );
         }
-        assert!(index.normal.contains_key(&match alphabet {
+        assert!(index.normal_entries().contains_key(&match alphabet {
             BigramAlphabet::Ascii => ascii_pair(b's', b's').unwrap(),
             BigramAlphabet::Unicode => unicode_pair('s', 's'),
         }));
-        assert!(index.skip.contains_key(&match alphabet {
+        assert!(index.skip_entries().contains_key(&match alphabet {
             BigramAlphabet::Ascii => ascii_pair(b'a', b's').unwrap(),
             BigramAlphabet::Unicode => unicode_pair('a', 's'),
         }));
@@ -742,8 +742,8 @@ fn unsupported_ascii_bytes_keep_their_window_positions() {
         )
         .unwrap();
     assert!(ascii.candidates("aüb").is_none());
-    assert!(!ascii.normal.contains_key(&ascii_pair(b'a', b'b').unwrap()));
-    assert!(!ascii.skip.contains_key(&ascii_pair(b'a', b'b').unwrap()));
+    assert!(!ascii.normal_entries().contains_key(&ascii_pair(b'a', b'b').unwrap()));
+    assert!(!ascii.skip_entries().contains_key(&ascii_pair(b'a', b'b').unwrap()));
     let mut unicode = BigramIndex::new(BigramAlphabet::Unicode);
     unicode
         .add_record(
@@ -940,5 +940,59 @@ fn seeded_substrings_never_escape_declared_bigram_candidates() {
                 }
             }
         }
+    }
+}
+
+#[test]
+fn frozen_bigram_index_matches_native() {
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut index = BigramIndex::new(alphabet);
+        for slot in 0..600u32 {
+            let text = match slot % 3 {
+                0 => format!("Goethe Liebe {slot}"),
+                1 => format!("Straße {}", slot % 7),
+                _ => format!("中文🙂aßb {slot}"),
+            };
+            let segments = [TextSegment {
+                path: vec!["body".into()],
+                text,
+            }];
+            index.add_record(RecordSlot(slot), &segments).unwrap();
+        }
+        for slot in [70_000u32, 131_073] {
+            index.insert_gram_slot(false, 0x61_62, slot);
+        }
+        let mut frozen = index.clone();
+        frozen.freeze_shared();
+        assert!(frozen.grams_are_shared());
+        assert_eq!(index.normal_entries(), frozen.normal_entries());
+        assert_eq!(index.skip_entries(), frozen.skip_entries());
+        assert_eq!(index.gram_key_count(), frozen.gram_key_count());
+        for literal in [
+            "Goethe",
+            "Liebe",
+            "Straße",
+            "assb",
+            "中文",
+            "🙂",
+            "zzzz",
+            "a",
+            "Goethe Liebe",
+            "Müller",
+        ] {
+            assert_eq!(index.candidates(literal), frozen.candidates(literal));
+            assert_eq!(
+                index.estimate_min_cardinality(literal),
+                frozen.estimate_min_cardinality(literal)
+            );
+        }
+        assert_eq!(
+            index.validate(index.record_count as usize),
+            frozen.validate(frozen.record_count as usize)
+        );
+        let snapshot = frozen.clone();
+        let before = frozen.normal_entries();
+        frozen.insert_gram_slot(false, 0x61_62, 140_000);
+        assert_eq!(snapshot.normal_entries(), before);
     }
 }

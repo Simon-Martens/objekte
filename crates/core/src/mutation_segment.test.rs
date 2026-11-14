@@ -1219,6 +1219,8 @@ fn sealed_shard_backing_follows_policy() {
         assert_eq!(facts.is_shared(), expected);
         assert_eq!(index.postings_are_shared(), expected);
     }
+    assert_eq!(shard.raw.grams_are_shared(), expected);
+    assert_eq!(shard.fallback_text.grams_are_shared(), expected);
 }
 
 #[test]

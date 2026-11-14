@@ -11,7 +11,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
-#[cfg(test)]
+use crate::gram_map::GramMap;
 use crate::inventory::append_shifted_bitmap;
 use crate::model::RecordSlot;
 use crate::source::TextSegment;
@@ -265,17 +265,14 @@ impl BigramRequest {
 pub struct BigramIndex {
     pub alphabet: BigramAlphabet,
     pub record_count: u32,
-    normal: HashMap<u64, RoaringBitmap>,
-    skip: HashMap<u64, RoaringBitmap>,
+    normal: GramMap,
+    skip: GramMap,
 }
 
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
-        if self
-            .normal
-            .values()
-            .chain(self.skip.values())
-            .any(|slots| !slots.is_subset(allowed))
+        if !self.normal.all_bitmaps(|slots| slots.is_subset(allowed))
+            || !self.skip.all_bitmaps(|slots| slots.is_subset(allowed))
         {
             return Err("bigram posting outside eligible domain".into());
         }
@@ -290,18 +287,17 @@ impl BigramIndex {
         Self {
             alphabet,
             record_count: 0,
-            normal: HashMap::new(),
-            skip: HashMap::new(),
+            normal: GramMap::default(),
+            skip: GramMap::default(),
         }
     }
 
     pub fn gram_posting(&self, skip: bool, key: u64) -> Option<Cow<'_, RoaringBitmap>> {
         if skip {
-            self.skip.get(&key)
+            self.skip.get(key)
         } else {
-            self.normal.get(&key)
+            self.normal.get(key)
         }
-        .map(Cow::Borrowed)
     }
 
     pub fn gram_key_count(&self) -> usize {
@@ -309,35 +305,25 @@ impl BigramIndex {
     }
 
     pub(crate) fn gram_posting_bytes(&self) -> usize {
-        self.normal
-            .values()
-            .chain(self.skip.values())
-            .map(RoaringBitmap::serialized_size)
-            .sum()
+        self.normal.serialized_bytes() + self.skip.serialized_bytes()
     }
 
     pub fn normal_entries(&self) -> BTreeMap<u64, RoaringBitmap> {
-        self.normal
-            .iter()
-            .map(|(key, posting)| (*key, posting.clone()))
-            .collect()
+        self.normal.to_btree_map()
     }
 
     pub fn skip_entries(&self) -> BTreeMap<u64, RoaringBitmap> {
-        self.skip
-            .iter()
-            .map(|(key, posting)| (*key, posting.clone()))
-            .collect()
+        self.skip.to_btree_map()
     }
 
     pub(crate) fn insert_gram_slot(&mut self, skip: bool, key: u64, slot: u32) {
         let map = if skip { &mut self.skip } else { &mut self.normal };
-        map.entry(key).or_default().insert(slot);
+        map.insert_slot(key, slot);
     }
 
     pub(crate) fn set_gram(&mut self, skip: bool, key: u64, posting: RoaringBitmap) {
         let map = if skip { &mut self.skip } else { &mut self.normal };
-        map.insert(key, posting);
+        map.replace(key, posting);
     }
 
     pub(crate) fn append_shifted_gram(
@@ -348,31 +334,32 @@ impl BigramIndex {
         base: u32,
     ) -> Result<(), String> {
         let map = if skip { &mut self.skip } else { &mut self.normal };
-        crate::inventory::append_shifted_bitmap(map.entry(key).or_default(), source, base)
+        map.append_shifted(key, source, base)
     }
 
     pub fn for_each_normal(
         &self,
-        mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
+        visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        let mut keys = self.normal.keys().collect::<Vec<_>>();
-        keys.sort_unstable();
-        for key in keys {
-            visit(key, &self.normal[key])?;
-        }
-        Ok(())
+        self.normal.for_each_sorted(visit)
     }
 
     pub fn for_each_skip(
         &self,
-        mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
+        visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        let mut keys = self.skip.keys().collect::<Vec<_>>();
-        keys.sort_unstable();
-        for key in keys {
-            visit(key, &self.skip[key])?;
-        }
-        Ok(())
+        self.skip.for_each_sorted(visit)
+    }
+
+    /// Move both gram maps to the persistent backing.
+    pub fn freeze_shared(&mut self) {
+        self.normal.freeze();
+        self.skip.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn grams_are_shared(&self) -> bool {
+        self.normal.is_shared() && self.skip.is_shared()
     }
 
     pub fn add_record(&mut self, slot: RecordSlot, segments: &[TextSegment]) -> Result<(), String> {
@@ -398,10 +385,10 @@ impl BigramIndex {
             });
         }
         for gram in normal {
-            self.normal.entry(gram).or_default().insert(slot.0);
+            self.normal.insert_slot(gram, slot.0);
         }
         for gram in skip {
-            self.skip.entry(gram).or_default().insert(slot.0);
+            self.skip.insert_slot(gram, slot.0);
         }
         Ok(())
     }
@@ -425,11 +412,11 @@ impl BigramIndex {
         let count = base
             .checked_add(batch.record_count)
             .ok_or("bigram record overflow")?;
-        for (key, posting) in batch.normal {
-            append_shifted_bitmap(self.normal.entry(key).or_default(), &posting, base)?;
+        for (key, posting) in batch.normal.to_btree_map() {
+            self.normal.append_shifted(key, &posting, base)?;
         }
-        for (key, posting) in batch.skip {
-            append_shifted_bitmap(self.skip.entry(key).or_default(), &posting, base)?;
+        for (key, posting) in batch.skip.to_btree_map() {
+            self.skip.append_shifted(key, &posting, base)?;
         }
         self.record_count = count;
         Ok(())
@@ -449,9 +436,9 @@ impl BigramIndex {
         let mut columns = Vec::new();
         for &(skip, key) in grams {
             let column = if skip {
-                self.skip.get(&key)
+                self.skip.get(key)
             } else {
-                self.normal.get(&key)
+                self.normal.get(key)
             };
             let Some(column) = column else {
                 return Some(RoaringBitmap::new());
@@ -459,9 +446,10 @@ impl BigramIndex {
             columns.push(column);
         }
         columns.sort_by_key(|column| column.len());
-        let mut result = (*columns.first()?).clone();
-        for column in columns.into_iter().skip(1) {
-            result &= column;
+        let mut columns = columns.into_iter();
+        let mut result = columns.next()?.into_owned();
+        for column in columns {
+            result &= column.as_ref();
             if result.is_empty() {
                 break;
             }
@@ -479,12 +467,10 @@ impl BigramIndex {
             .iter()
             .map(|&(skip, key)| {
                 if skip {
-                    self.skip.get(&key)
+                    self.skip.cardinality(key)
                 } else {
-                    self.normal.get(&key)
+                    self.normal.cardinality(key)
                 }
-                .map(RoaringBitmap::len)
-                .unwrap_or(0)
             })
             .min()
     }
@@ -493,23 +479,21 @@ impl BigramIndex {
         if self.record_count as usize != record_count {
             return Err("bigram coverage mismatch".into());
         }
-        if self
-            .normal
-            .values()
-            .chain(self.skip.values())
-            .any(|column| column.max().is_some_and(|slot| slot >= self.record_count))
-        {
+        let in_bounds = |column: &RoaringBitmap| {
+            column
+                .max()
+                .is_none_or(|slot| slot < self.record_count)
+        };
+        if !self.normal.all_bitmaps(in_bounds) || !self.skip.all_bitmaps(in_bounds) {
             return Err("bigram slot out of bounds".into());
         }
         Ok(())
     }
 
     pub fn estimated_heap_bytes(&self) -> usize {
-        self.normal
-            .values()
-            .chain(self.skip.values())
-            .map(|set| set.serialized_size() as usize + 48)
-            .sum()
+        self.normal.serialized_bytes()
+            + self.skip.serialized_bytes()
+            + 48 * (self.normal.len() + self.skip.len())
     }
 }
 
@@ -876,8 +860,8 @@ impl BigramContribution {
         Ok(BigramIndex {
             alphabet,
             record_count,
-            normal: normal?,
-            skip: skip?,
+            normal: GramMap::from_hash_map(normal?),
+            skip: GramMap::from_hash_map(skip?),
         })
     }
 
@@ -894,8 +878,8 @@ impl BigramContribution {
         Ok(BigramIndex {
             alphabet,
             record_count,
-            normal: convert_blocks(normal)?,
-            skip: convert_blocks(skip)?,
+            normal: GramMap::from_hash_map(convert_blocks(normal)?),
+            skip: GramMap::from_hash_map(convert_blocks(skip)?),
         })
     }
 }
