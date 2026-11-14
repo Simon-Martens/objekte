@@ -60,13 +60,16 @@ struct CompactionWork {
     temporary_bytes: u64,
 }
 
-fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
+fn source_budget_bytes(source: &IndexedCollectionSegment) -> Result<u64, IndexError> {
     let encoded = source.raw.sealed_reader()
         .map_or(0, |reader| reader.encoded_len() as u64);
-    let file_bytes = source.files.iter()
-        .map(|file| file.entry.revision.size)
-        .fold(0u64, u64::saturating_add);
-    encoded.max(file_bytes)
+    let mut file_bytes = 0u64;
+    for number in 0..source.file_count() {
+        let file = source.try_file_entry_at(number).map_err(IndexError::InvalidPublication)?
+            .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
+        file_bytes = file_bytes.saturating_add(file.revision.size);
+    }
+    Ok(encoded.max(file_bytes))
 }
 
 pub(crate) fn base_as_segment(
@@ -201,7 +204,7 @@ fn compact_published_with_budget(
                     continue;
                 }
                 let records = segment.index.record_count() as u64;
-                let input_bytes = source_budget_bytes(&segment.index);
+                let input_bytes = source_budget_bytes(&segment.index)?;
                 let temporary_bytes = input_bytes.saturating_mul(3)
                     .saturating_add(records.saturating_mul(512));
                 if work.records > 0 && (work.records.saturating_add(records) > budget.records
