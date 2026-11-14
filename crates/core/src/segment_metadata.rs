@@ -555,6 +555,8 @@ impl PersistedRecordSlots {
 
     pub(crate) fn record_count(&self) -> usize { self.layout.record_count }
 
+    pub(crate) fn reader(&self) -> Arc<SegmentReader> { Arc::clone(&self.reader) }
+
     pub(crate) fn file_count(&self) -> usize { self.layout.file_count }
 
     pub(crate) fn file_id_at(&self, index: usize) -> Result<Option<FileId>, String> {
