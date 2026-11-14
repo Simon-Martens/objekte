@@ -2553,12 +2553,12 @@ objekte-search-core --example bench_mmap_load --release` with `TMPDIR` on a
 disk-backed filesystem so `fadvise(DONTNEED)` can evict pages:
 
 ```text
-records=20000  warm mean=1.72 ms  cold mean=3.85 ms  cold/warm=2.24
-records=100000 warm mean=7.01 ms  cold mean=18.57 ms cold/warm=2.65
+records=20000  warm mean=2.21 ms  cold mean=4.81 ms  cold/warm=2.18
+records=100000 warm mean=6.18 ms  cold mean=18.75 ms cold/warm=3.03
 ```
 
-Each entry is the mean of three loads. Cold runs evict every store file before
-Load. The automated GUI matrix could not be run in this environment because no
+Each entry is the mean of five loads after one discarded warmup. Cold runs
+evict every store file before Load. The automated GUI matrix could not be run in this environment because no
 display server or `xvfb-run` is available; desktop controller/UI tests pass
 headlessly.
 

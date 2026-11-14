@@ -73,7 +73,7 @@ fn main() {
     let repetitions = std::env::var("OBJEKTE_STORAGE_REPS")
         .ok()
         .and_then(|value| value.parse::<usize>().ok())
-        .unwrap_or(3)
+        .unwrap_or(5)
         .max(1);
     let root = temporary("mmap-bench-source");
     let data = root.join("data");
@@ -97,6 +97,9 @@ fn main() {
     index.save_to(&store, SaveOptions::default()).unwrap();
     drop(index);
 
+    // One discarded load brings the mapped object headers and allocator state
+    // into the same steady condition as the measured runs.
+    let warmup_ms = load(&store, &definitions, options);
     let warm = (0..repetitions)
         .map(|_| load(&store, &definitions, options))
         .collect::<Vec<_>>();
@@ -112,6 +115,7 @@ fn main() {
         serde_json::json!({
             "records": records,
             "repetitions": repetitions,
+            "warmup_ms": warmup_ms,
             "warm_ms": warm,
             "cold_ms": cold,
             "warm_mean_ms": mean(&warm),
