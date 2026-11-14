@@ -31,11 +31,26 @@ new JSON file. The UI fetches result pages of 100 records as you approach
 the end. Settings live in `.objekte/.cache/tui.json`.
 
 Ctrl+K opens **Index storage**. Choose Memory, Temporary, Repository, or
-Custom; Custom also asks for an existing base directory. Disk choices offer
-**Keep entire index in memory**. Applying a changed setting reopens the
-repository and shows the opening state until the replacement is ready.
-Disk indexes synchronize
-changes during use and flush on orderly close.
+Custom. The overlay shows the current location, residency, readiness, source
+reconciliation, synchronization, current and durable generations, validation
+counts, managed folder, and any classified storage issue with recovery guidance.
+Memory mode shows no disk generations, validation warning, or managed folder.
+Its status says that no index files are read or written.
+
+Custom takes an existing directory as a base. Relative paths resolve from the
+invocation's working directory; the overlay applies the canonical path. Enter
+on **Custom folder** starts editing the base. Disk choices offer **Keep entire
+index in memory**: on-demand reads index bytes from disk when needed, while
+full residency copies them into memory before readiness. **Apply and reopen**
+does nothing when the setting is unchanged. A changed setting preserves the
+current search and filter, flushes pending disk changes, then reopens. A failed
+flush leaves the current view open with the classified error and guidance.
+
+Disk indexes synchronize in the background. **Synchronize now** or **Retry
+synchronization** is available when changes are pending or a write failed; it
+runs without blocking the terminal. Ctrl+Q flushes pending disk changes before
+closing. A failed close flush leaves the current view open so it can be retried.
+The storage choice applies to this opening and is not saved across launches.
 
 Ctrl+I switches between search results and the physical file catalogue. The
 catalogue shows repository-relative paths, sizes, and file timestamps; a

@@ -146,10 +146,9 @@ fn storage_action_requests_memory_and_repository_reopen() {
     assert_eq!(app.overlay, Some(Overlay::Storage));
     app.storage_picker = 6;
     key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    let request = app.reopen_request.take().unwrap();
-    assert_eq!(request.storage_policy, IndexStoragePolicy::default());
-    assert_eq!(request.search, "needle");
-    assert!(app.done);
+    assert!(app.reopen_request.is_none());
+    assert!(!app.done);
+    assert!(app.status.as_deref().unwrap().contains("unchanged"));
 
     app.done = false;
     app.open_storage();
@@ -166,6 +165,45 @@ fn storage_action_requests_memory_and_repository_reopen() {
     );
     assert_eq!(request.storage_policy.residency, IndexResidency::OnDemand);
     assert_eq!(app.storage_policy, IndexStoragePolicy::default());
+    assert_eq!(request.search, "needle");
+}
+
+#[test]
+fn storage_overlay_edits_custom_base_and_disables_memory_sync() {
+    let mut fixture = fixture(1);
+    let app = &mut fixture.app;
+    app.open_storage();
+    app.storage_picker = 7;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(!app.storage_sync_requested);
+    app.storage_picker = 3;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert_eq!(app.storage_choice, 3);
+    assert_eq!(app.storage_picker, 5);
+    assert!(app.storage_editing);
+    key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
+    assert!(!app.storage_editing);
+    app.storage_directory = input::Input::with_text(".");
+    app.storage_editing = true;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(!app.storage_editing);
+    assert_eq!(app.storage_directory.text,
+        std::env::current_dir().unwrap().canonicalize().unwrap().display().to_string());
+    app.storage_directory = input::Input::default();
+    app.storage_picker = 6;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(app.reopen_request.is_none());
+    assert!(app.status.as_deref().unwrap().contains("existing custom"));
+    app.storage_directory = input::Input::with_text("/this/path/does/not/exist");
+    app.apply_storage();
+    assert!(app.reopen_request.is_none());
+    app.storage_directory = input::Input::with_text("/dev/null");
+    app.apply_storage();
+    assert!(app.status.as_deref().unwrap().contains("not a directory"));
+    app.storage_directory = input::Input::with_text(fixture._temp.path().to_str().unwrap());
+    app.apply_storage();
+    assert!(matches!(app.reopen_request.as_ref().unwrap().storage_policy.location,
+        IndexStorageLocation::CustomDirectory(_)));
 }
 
 #[test]

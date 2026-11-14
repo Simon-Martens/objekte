@@ -102,6 +102,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         let opening_policy = policy.clone();
         let result = crate::tui::run_with_opening_loader(
             move || {
+                let managed = opening_policy.location
+                    != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly;
                 let task = if opening_policy.location
                     == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
                 {
@@ -115,7 +117,9 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                         SourceRegistry::builtin(),
                     )
                 }
-                .map_err(|error| error.to_string())?;
+                .map_err(|error| if managed {
+                    crate::storage_view::format_index_error(&error)
+                } else { error.to_string() })?;
                 Ok(crate::tui::TuiOpening::Initial(task, protected_files))
             },
             ui,
@@ -407,7 +411,7 @@ fn open_managed_repository(
         storage_policy,
         SourceRegistry::builtin(),
     )
-    .map_err(|error| error.to_string())?;
+    .map_err(|error| crate::storage_view::format_index_error(&error))?;
     index
         .protect_configuration_files(&configured.protected_files)
         .map_err(|error| error.to_string())?;
@@ -750,11 +754,13 @@ fn complete_run<W: Write>(
                 IndexSynchronization::Failed => "failed",
             },
             "last_error": storage.last_error,
+            "last_error_kind": storage.last_error_kind.map(|kind| kind.as_str()),
             "managed_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
             "segments_full_validated": storage.segments_full_validated,
             "segments_stamp_trusted": storage.segments_stamp_trusted,
             "validation_stamps_written": storage.validation_stamps_written,
             "validation_stamp_error": storage.validation_stamp_error,
+            "validation_stamp_error_kind": storage.validation_stamp_error_kind.map(|kind| kind.as_str()),
         },
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({

@@ -286,3 +286,34 @@ fn long_search_line_keeps_the_cursor_and_tail_visible() {
     let screen = format!("{:?}", terminal.backend().buffer());
     assert!(screen.contains("TAIL"));
 }
+
+#[test]
+fn storage_overlay_keeps_sync_action_reachable_with_a_long_managed_path() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let mut fixture = fixture(1);
+    let app = &mut fixture.app;
+    app.storage_policy = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    app.storage_view = Some(crate::storage_view::StorageStatusView {
+        location: "Repository folder".into(),
+        residency: "On-demand".into(),
+        readiness: "Searchable".into(),
+        reconciliation: "Source files current".into(),
+        synchronization: "Changes pending".into(),
+        generations: "Generation 4 (durable 3)".into(),
+        validation: "0 fully validated, 2 trusted stamps, 0 stamps written".into(),
+        managed_directory: Some(format!("/tmp/{}", "long/".repeat(24))),
+        issue: None,
+        validation_warning: None,
+    });
+    app.storage_sync_available = true;
+    app.overlay = Some(Overlay::Storage);
+    app.storage_picker = 7;
+    let backend = ratatui::backend::TestBackend::new(80, 24);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("Synchronize now / Retry synchronization"), "{screen}");
+}
