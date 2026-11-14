@@ -41,7 +41,7 @@ impl ScalarKey {
 }
 
 /// Ordered typed values and their record-slot postings.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingIndex {
     pub path: Vec<String>,
     pub kind: LogicalType,
@@ -68,7 +68,7 @@ pub struct PostingIndex {
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
 pub enum StructuralKey {
     AnyNull,
     NonEmpty,
@@ -79,7 +79,7 @@ pub enum StructuralKey {
     EmptyObject,
 }
 
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct StructuralFacts {
     pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
 }
@@ -124,14 +124,14 @@ impl StructuralFacts {
 }
 
 /// Optional named-binding posting and its exact coverage guarantee.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
 
 /// Coverage and cardinality summary for one posting index.
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct PostingStats {
     pub present_count: u64,
     pub null_count: u64,
@@ -1250,7 +1250,7 @@ fn scalar_range_postings(
 }
 
 /// Posting indexes registered for one collection.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }

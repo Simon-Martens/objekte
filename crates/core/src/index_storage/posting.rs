@@ -1,6 +1,10 @@
 //! Borrowed typed-posting readers over packed segments.
 
 use std::collections::{BTreeMap, HashMap};
+
+use roaring::RoaringBitmap;
+
+use crate::query::Operator;
 use std::sync::Arc;
 
 use crate::model::{LogicalType, Number};
@@ -417,6 +421,167 @@ impl FieldPostingsView {
         Ok(view.cardinality())
     }
 
+    /// Exact equality posting as a query-owned bitmap.
+    pub fn exact(&self, value: &ScalarKey) -> StorageResult<RoaringBitmap> {
+        let mut result = RoaringBitmap::new();
+        if let Some(view) = self.value(value)? {
+            view.union_into(&mut result)?;
+        }
+        Ok(result)
+    }
+
+    /// Inequality over explicit presence, excluding nulls and the equal set.
+    pub fn not_equal(&self, value: &ScalarKey) -> StorageResult<RoaringBitmap> {
+        let mut result = RoaringBitmap::new();
+        self.presence()?.union_into(&mut result)?;
+        let mut nulls = RoaringBitmap::new();
+        self.nulls()?.union_into(&mut nulls)?;
+        result -= nulls;
+        result -= self.exact(value)?;
+        Ok(result)
+    }
+
+    /// Range posting with the engine's same-logical-type boundary rule.
+    pub fn range(&self, value: &ScalarKey, operator: Operator) -> StorageResult<RoaringBitmap> {
+        self.range_restricted(value, operator, None).map(|(result, _)| result)
+    }
+
+    /// Range posting with an optional input restriction and visited-key count.
+    pub fn range_restricted(
+        &self,
+        value: &ScalarKey,
+        operator: Operator,
+        restriction: Option<&RoaringBitmap>,
+    ) -> StorageResult<(RoaringBitmap, usize)> {
+        let mut result = RoaringBitmap::new();
+        let mut visited = 0usize;
+        match operator {
+            Operator::Eq => {
+                let exact = self.exact(value)?;
+                result = restriction.map_or(exact.clone(), |input| &exact & input);
+                visited = 1;
+            }
+            Operator::Ne => {
+                let not_equal = self.not_equal(value)?;
+                result = restriction.map_or(not_equal.clone(), |input| &not_equal & input);
+                visited = 2;
+            }
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                let encoded = encode_scalar_key(value)?;
+                let (lower, upper) = match operator {
+                    Operator::Gt => (std::ops::Bound::Excluded(encoded), std::ops::Bound::Unbounded),
+                    Operator::Ge => (std::ops::Bound::Included(encoded), std::ops::Bound::Unbounded),
+                    Operator::Lt => (std::ops::Bound::Unbounded, std::ops::Bound::Excluded(encoded)),
+                    Operator::Le => (std::ops::Bound::Unbounded, std::ops::Bound::Included(encoded)),
+                    _ => unreachable!(),
+                };
+                let discriminant = std::mem::discriminant(value);
+                let descending = matches!(operator, Operator::Lt | Operator::Le);
+                let entries = if descending {
+                    self.values
+                        .range_reverse(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                } else {
+                    self.values
+                        .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                };
+                for (key, ref_bytes) in entries {
+                    let key = super::scalar::decode_scalar_key(&key)?;
+                    if std::mem::discriminant(&key) != discriminant {
+                        break;
+                    }
+                    visited += 1;
+                    let reference = RecordSetRef::decode(&ref_bytes)?;
+                    let posting = self.view(reference)?;
+                    if let Some(input) = restriction {
+                        let mut all = RoaringBitmap::new();
+                        posting.union_into(&mut all)?;
+                        result |= &all & input;
+                    } else {
+                        posting.union_into(&mut result)?;
+                    }
+                }
+            }
+            _ => {}
+        }
+        Ok((result, visited))
+    }
+
+    /// Ordered value keys with cardinalities, without materializing postings.
+    pub fn value_keys(
+        &self,
+        lower: std::ops::Bound<&ScalarKey>,
+        upper: std::ops::Bound<&ScalarKey>,
+        descending: bool,
+    ) -> StorageResult<Vec<(ScalarKey, u64)>> {
+        let encode = |bound: std::ops::Bound<&ScalarKey>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
+            Ok(match bound {
+                std::ops::Bound::Included(key) => {
+                    std::ops::Bound::Included(encode_scalar_key(key)?)
+                }
+                std::ops::Bound::Excluded(key) => {
+                    std::ops::Bound::Excluded(encode_scalar_key(key)?)
+                }
+                std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+            })
+        };
+        let lower = encode(lower)?;
+        let upper = encode(upper)?;
+        let entries = if descending {
+            self.values
+                .range_reverse(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                .collect::<StorageResult<Vec<_>>>()?
+        } else {
+            self.values
+                .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                .collect::<StorageResult<Vec<_>>>()?
+        };
+        let mut result = Vec::with_capacity(entries.len());
+        for (key, ref_bytes) in entries {
+            let key = super::scalar::decode_scalar_key(&key)?;
+            let reference = RecordSetRef::decode(&ref_bytes)?;
+            result.push((key, reference.cardinality()));
+        }
+        Ok(result)
+    }
+
+    pub fn length_keys(
+        &self,
+        lower: std::ops::Bound<&Number>,
+        upper: std::ops::Bound<&Number>,
+    ) -> StorageResult<Vec<(Number, u64)>> {
+        let Some(dictionary) = &self.lengths else {
+            return Ok(Vec::new());
+        };
+        let encode = |bound: std::ops::Bound<&Number>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
+            Ok(match bound {
+                std::ops::Bound::Included(value) => std::ops::Bound::Included(encode_scalar_key(
+                    &ScalarKey::Number(value.clone()),
+                )?),
+                std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(encode_scalar_key(
+                    &ScalarKey::Number(value.clone()),
+                )?),
+                std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+            })
+        };
+        let lower = encode(lower)?;
+        let upper = encode(upper)?;
+        let entries = dictionary
+            .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+            .collect::<StorageResult<Vec<_>>>()?;
+        let mut result = Vec::with_capacity(entries.len());
+        for (key, ref_bytes) in entries {
+            let ScalarKey::Number(value) = super::scalar::decode_scalar_key(&key)? else {
+                return Err(StorageError::corrupt(
+                    "length dictionary contains a non-number key",
+                ));
+            };
+            result.push((value, RecordSetRef::decode(&ref_bytes)?.cardinality()));
+        }
+        Ok(result)
+    }
+
     pub fn verify_full(&self) -> StorageResult<()> {
         for reference in [
             self.presence,
@@ -583,4 +748,12 @@ pub fn resident_backing(bytes: Arc<[u8]>) -> Backing {
 /// Exercise the planned key order of a posting dictionary.
 pub fn value_key_order(view: &FieldPostingsView) -> KeyOrder {
     view.values.order()
+}
+
+fn owned_bound_ref(bound: &std::ops::Bound<Vec<u8>>) -> std::ops::Bound<&[u8]> {
+    match bound {
+        std::ops::Bound::Included(value) => std::ops::Bound::Included(value.as_slice()),
+        std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(value.as_slice()),
+        std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+    }
 }

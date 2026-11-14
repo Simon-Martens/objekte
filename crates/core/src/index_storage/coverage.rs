@@ -13,18 +13,21 @@ pub const COVERAGE_HEADER_LEN: usize = 24;
 pub fn build_coverage(
     logical_records: &[u32],
     empty_arrays: &[u32],
+    active_records: &[u32],
     slot_count: u32,
 ) -> StorageResult<Vec<u8>> {
     let mut arena = Vec::new();
     let logical = embed(logical_records, slot_count, &mut arena)?;
     let empty = embed(empty_arrays, slot_count, &mut arena)?;
+    let active = embed(active_records, slot_count, &mut arena)?;
     let mut bytes = vec![0u8; COVERAGE_HEADER_LEN];
     bytes[..4].copy_from_slice(&COVERAGE_MAGIC);
     bytes[4..6].copy_from_slice(&COVERAGE_VERSION.to_le_bytes());
     bytes[6..8].fill(0);
     bytes.extend_from_slice(&logical.encode());
     bytes.extend_from_slice(&empty.encode());
-    let arena_offset = (COVERAGE_HEADER_LEN + 64) as u64;
+    bytes.extend_from_slice(&active.encode());
+    let arena_offset = (COVERAGE_HEADER_LEN + 96) as u64;
     bytes.extend_from_slice(&arena);
     // Rewrite the header with the arena offset and length.
     bytes[8..16].copy_from_slice(&arena_offset.to_le_bytes());
@@ -56,6 +59,7 @@ pub struct CoverageView {
     slot_count: u32,
     logical: RecordSetRef,
     empty_arrays: RecordSetRef,
+    active: RecordSetRef,
     arena_offset: u64,
     arena_len: u64,
 }
@@ -66,7 +70,7 @@ impl CoverageView {
         section: SectionDescriptor,
         slot_count: u32,
     ) -> StorageResult<Self> {
-        let header = backing.read(section.offset, COVERAGE_HEADER_LEN as u64 + 64)?;
+        let header = backing.read(section.offset, COVERAGE_HEADER_LEN as u64 + 96)?;
         if header[..4] != COVERAGE_MAGIC {
             return Err(StorageError::corrupt("coverage magic mismatch"));
         }
@@ -83,7 +87,7 @@ impl CoverageView {
         }
         let arena_offset = u64::from_le_bytes(header[8..16].try_into().expect("coverage offset"));
         let arena_len = u64::from_le_bytes(header[16..24].try_into().expect("coverage length"));
-        if arena_offset < COVERAGE_HEADER_LEN as u64 + 64
+        if arena_offset < COVERAGE_HEADER_LEN as u64 + 96
             || arena_offset
                 .checked_add(arena_len)
                 .is_none_or(|end| end > section.length)
@@ -92,12 +96,14 @@ impl CoverageView {
         }
         let logical = RecordSetRef::decode(&header[24..56])?;
         let empty_arrays = RecordSetRef::decode(&header[56..88])?;
+        let active = RecordSetRef::decode(&header[88..120])?;
         Ok(Self {
             backing,
             section,
             slot_count,
             logical,
             empty_arrays,
+            active,
             arena_offset,
             arena_len,
         })
@@ -117,9 +123,17 @@ impl CoverageView {
         self.empty_arrays.view(arena, self.slot_count)
     }
 
+    pub fn active_records(&self) -> StorageResult<RecordSetView<'_>> {
+        let arena = self
+            .backing
+            .read(self.section.offset + self.arena_offset, self.arena_len)?;
+        self.active.view(arena, self.slot_count)
+    }
+
     pub fn verify_full(&self) -> StorageResult<()> {
         self.logical_records()?.verify_full()?;
         self.empty_arrays()?.verify_full()?;
+        self.active_records()?.verify_full()?;
         Ok(())
     }
 }

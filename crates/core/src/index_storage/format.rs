@@ -42,6 +42,8 @@ pub enum ObjectKind {
     Segment,
     /// One rewritten file catalogue and path dictionary.
     Catalogue,
+    /// Native query-engine compatibility state for one pinned publication.
+    State,
 }
 
 
@@ -50,6 +52,7 @@ impl ObjectKind {
         match self {
             Self::Segment => 1,
             Self::Catalogue => 2,
+            Self::State => 3,
         }
     }
 
@@ -57,6 +60,7 @@ impl ObjectKind {
         match code {
             1 => Some(Self::Segment),
             2 => Some(Self::Catalogue),
+            3 => Some(Self::State),
             _ => None,
         }
     }
@@ -86,6 +90,7 @@ impl ObjectKind {
                 SectionKind::Diagnostics,
                 SectionKind::Statistics,
             ],
+            Self::State => &[SectionKind::NativeState],
         }
     }
 }
@@ -122,6 +127,8 @@ pub enum SectionKind {
     IdentityOrder = 21,
     /// Packed relation adjacency and target identities.
     Relations = 22,
+    /// Native query-engine compatibility state.
+    NativeState = 23,
 }
 
 
@@ -154,6 +161,7 @@ impl SectionKind {
             20 => Self::Compatibility,
             21 => Self::IdentityOrder,
             22 => Self::Relations,
+            23 => Self::NativeState,
             _ => return None,
         })
     }

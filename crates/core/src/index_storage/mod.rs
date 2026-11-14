@@ -7,6 +7,7 @@
 pub mod backing;
 pub mod bigram;
 pub mod bigram_builder;
+pub mod catalogue;
 pub mod coverage;
 pub mod dictionary;
 pub mod dictionary_builder;
@@ -14,6 +15,9 @@ pub mod error;
 pub mod format;
 pub mod posting;
 pub mod posting_builder;
+pub mod manifest;
+pub mod native_pack;
+pub mod native_state;
 pub mod record_set;
 pub mod records;
 pub mod relations;
@@ -21,6 +25,9 @@ pub mod scalar;
 pub mod segment;
 pub mod segment_builder;
 pub mod sort;
+pub mod status;
+pub mod store;
+pub mod task;
 
 pub use backing::{Backing, MappedObject};
 pub use dictionary::{DictionaryCursor, DictionaryReader, KeyOrder};
@@ -44,6 +51,14 @@ mod backing_tests;
 mod dictionary_tests;
 
 #[cfg(test)]
+#[path = "index.test.rs"]
+mod index_tests;
+
+#[cfg(test)]
+#[path = "posting.test.rs"]
+mod posting_tests;
+
+#[cfg(test)]
 #[path = "record_set.test.rs"]
 mod record_set_tests;
 
@@ -52,9 +67,17 @@ mod record_set_tests;
 mod scalar_tests;
 
 #[cfg(test)]
+#[path = "catalogue.test.rs"]
+mod catalogue_tests;
+
+#[cfg(test)]
 #[path = "format.test.rs"]
 mod format_tests;
 
 #[cfg(test)]
 #[path = "segment.test.rs"]
 mod segment_tests;
+
+#[cfg(test)]
+#[path = "store.test.rs"]
+mod store_tests;

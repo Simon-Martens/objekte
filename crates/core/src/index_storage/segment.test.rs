@@ -183,6 +183,7 @@ fn fixture() -> SegmentInput {
         }],
         logical_records: vec![0, 1, 2],
         empty_arrays: vec![2],
+        active_records: vec![0, 1, 2],
         estimated_index_bytes: 1024,
     }
 }

@@ -20,8 +20,8 @@ use crate::inference::{
     InferenceReport, InferenceState,
 };
 use crate::inventory::{
-    ActiveRecords, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory,
-    FileStatus, RecordClass, SourceRevision,
+    ActiveRecords, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileEntry,
+    FileInventory, FileStatus, RecordClass, SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -930,6 +930,48 @@ impl Repository {
 
     pub fn startup(&self) -> &StartupStats {
         &self.startup
+    }
+
+    /// Rebuild the resident owner from validated, source-free state.
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn from_restored_parts(
+        root: PathBuf,
+        files: Vec<FileEntry>,
+        base_fingerprints: Vec<Option<[u8; 32]>>,
+        collections: Vec<CollectionState>,
+        sources: SourceRegistry,
+        options: RepositoryOptions,
+        build_parses: u64,
+        build_failed_parses: u64,
+    ) -> Result<Self, String> {
+        let files = FileInventory::from_restored_entries(root, files)?;
+        if base_fingerprints.len() != files.files.len() {
+            return Err("restored fingerprint inventory length mismatch".into());
+        }
+        files.validate_diagnostics()?;
+        for state in &collections {
+            state.generation.validate(&files)?;
+        }
+        crate::relation::validate_indexes(&collections)?;
+        let workers = Self::create_workers(options.query_workers)?;
+        Ok(Self {
+            files: Arc::new(files),
+            base_fingerprints,
+            collections,
+            sources,
+            build_parses,
+            build_failed_parses,
+            instance_id: next_repository_instance(),
+            options,
+            startup: StartupStats::default(),
+            workers,
+            verified: Mutex::new(crate::verified::VerifiedCache::new(
+                options.verified_cache_bytes,
+            )),
+            inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+                crate::sorting::INFERRED_ORDER_CACHE_BYTES,
+            )),
+        })
     }
 
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {

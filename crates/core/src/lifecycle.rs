@@ -16,6 +16,7 @@ use std::time::{Duration, Instant, SystemTime};
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 use crate::build::{
     FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
@@ -104,6 +105,7 @@ pub enum IndexError {
     IncompleteBuild,
     Cancelled,
     Io(String),
+    Storage(String),
     Build(String),
     Extension(String),
     RevisionOverflow,
@@ -155,6 +157,7 @@ impl fmt::Display for IndexError {
             }
             Self::Cancelled => formatter.write_str("index operation cancelled"),
             Self::Io(message) => write!(formatter, "index I/O: {message}"),
+            Self::Storage(message) => write!(formatter, "index storage: {message}"),
             Self::Build(message) => write!(formatter, "index build: {message}"),
             Self::Extension(message) => write!(formatter, "index extension: {message}"),
             Self::RevisionOverflow => formatter.write_str("index revision overflow"),
@@ -418,6 +421,8 @@ pub(crate) struct PublishedSegment {
 #[derive(Clone)]
 pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
+    pub(crate) publication_id: Uuid,
+    pub(crate) lineage_id: Uuid,
     pub(crate) revision: IndexRevision,
     pub(crate) repository: Arc<Repository>,
     pub(crate) configuration_identity: [u8; 32],
@@ -568,6 +573,8 @@ impl PublishedIndex {
         let segments = vec![Arc::new(Vec::new()); active.len()];
         Ok(Self {
             instance_id,
+            publication_id: Uuid::new_v4(),
+            lineage_id: Uuid::new_v4(),
             revision,
             repository,
             configuration_identity,
@@ -1060,6 +1067,7 @@ struct IndexInner {
     quiescing: AtomicBool,
     /// One aggregate budget for all pinned publications of this index.
     verified_cache: Mutex<crate::verified::VerifiedCache>,
+    storage: Mutex<crate::index_storage::status::StorageStatus>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -1372,11 +1380,14 @@ impl Index {
     pub(crate) fn from_published(published: PublishedIndex) -> Self {
         let instance_id = published.instance_id;
         let verified_cache_bytes = published.repository.options().verified_cache_bytes;
+        let storage_status =
+            crate::index_storage::status::StorageStatus::built(published.publication_id);
         Self(Arc::new(IndexInner {
             instance_id,
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
+            storage: Mutex::new(storage_status),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -1391,6 +1402,164 @@ impl Index {
 
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
+    }
+
+    /// Current storage origin and persistence state.
+    pub fn storage_status(
+        &self,
+    ) -> Result<crate::index_storage::status::StorageStatus, IndexError> {
+        let current = self.view()?.0.publication_id;
+        let mut status = self
+            .0
+            .storage
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone();
+        status.note_publication(current);
+        Ok(status)
+    }
+
+    pub(crate) fn update_storage_status(
+        &self,
+        update: impl FnOnce(&mut crate::index_storage::status::StorageStatus),
+    ) -> Result<(), IndexError> {
+        let mut status = self.0.storage.lock().map_err(|_| IndexError::LockPoisoned)?;
+        update(&mut status);
+        Ok(())
+    }
+
+    /// Load one explicitly selected saved index without reading source files.
+    pub fn load_from(
+        directory: &Path,
+        definitions: Vec<crate::repository::CollectionDefinition>,
+        options: crate::repository::RepositoryOptions,
+        sources: crate::source::SourceRegistry,
+    ) -> Result<Self, IndexError> {
+        let expected = crate::configuration::configuration_hash(&definitions, options, &sources)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let opened = crate::index_storage::store::open_store(directory)
+            .map_err(storage_error)?;
+        if opened.manifest.configuration_identity != crate::index_storage::manifest::hex(&expected)
+        {
+            return Err(IndexError::IncompatibleConfiguration(
+                "saved index configuration differs from the requested configuration".into(),
+            ));
+        }
+        let state_object = opened.state.as_ref().ok_or_else(|| {
+            IndexError::IncompatibleConfiguration(
+                "saved index has no native query state".into(),
+            )
+        })?;
+        let state = crate::index_storage::native_state::decode_state_object(
+            &crate::index_storage::backing::Backing::mapped(std::sync::Arc::clone(state_object)),
+        )
+        .map_err(storage_error)?;
+        let index = state.restore(definitions, options, sources)?;
+        let mapped_virtual_bytes = opened.manifest.runs.iter().map(|run| run.object.length).sum::<u64>()
+            + opened.manifest.catalogue.length
+            + opened.manifest.state.as_ref().map_or(0, |state| state.length);
+        let publication_id = index.view()?.0.publication_id;
+        index.update_storage_status(|status| {
+            *status = crate::index_storage::status::StorageStatus::loaded(
+                directory.to_owned(),
+                mapped_virtual_bytes,
+                opened.runs.len() as u64,
+                publication_id,
+            );
+        })?;
+        Ok(index)
+    }
+
+    /// Save the currently published view to an explicit store directory.
+    pub fn save_to(
+        &self,
+        directory: &Path,
+        options: crate::index_storage::store::SaveOptions,
+    ) -> Result<crate::index_storage::store::SaveReport, IndexError> {
+        self.save_to_with_control(directory, options, || false, |_| {})
+    }
+
+    /// Save with cancellation and progress callbacks.
+    pub fn save_to_with_control(
+        &self,
+        directory: &Path,
+        options: crate::index_storage::store::SaveOptions,
+        cancelled: impl Fn() -> bool,
+        progress: impl FnMut(&crate::index_storage::store::SaveProgress),
+    ) -> Result<crate::index_storage::store::SaveReport, IndexError> {
+        if !self.view()?.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        let view = self.view()?;
+        let native = crate::index_storage::native_state::NativeState::capture(&view)?;
+        let state_object = crate::index_storage::native_state::build_state_object(&native)
+            .map_err(storage_error)?;
+        let catalogue = crate::index_storage::native_pack::pack_catalogue(&view)
+            .map_err(storage_error)?;
+        let runs = crate::index_storage::native_pack::pack_runs(&view).map_err(storage_error)?;
+        let collections = crate::index_storage::native_pack::collection_summaries(&view);
+        let mut registrations = std::collections::BTreeMap::new();
+        for collection in view.repository().collections() {
+            registrations.insert(
+                collection.source.id().to_owned(),
+                collection.source.version(),
+            );
+        }
+        let plan = crate::index_storage::store::SavePlan {
+            publication_id: view.0.publication_id,
+            lineage_id: view.0.lineage_id,
+            source_root: view.repository().files().root.clone(),
+            model_version: crate::index_storage::native_state::NATIVE_MODEL_VERSION,
+            configuration_identity: view.0.configuration_identity,
+            source_registrations: registrations
+                .into_iter()
+                .map(|(id, version)| {
+                    crate::index_storage::manifest::SourceRegistrationIdentity { id, version }
+                })
+                .collect(),
+            collation_version: crate::sorting::COLLATION_VERSION.into(),
+            bigram_representation_version: crate::bigram::BIGRAM_VERSION.to_string(),
+            file_id_high_water: view.0.catalog.allocated_files() as u32,
+            catalogue,
+            state: Some(crate::index_storage::store::ObjectInput {
+                kind: crate::index_storage::format::ObjectKind::State,
+                bytes: std::sync::Arc::from(state_object.into_bytes()),
+            }),
+            runs,
+            collections,
+            frontend_metadata: options.frontend_metadata.clone(),
+        };
+        let report = crate::index_storage::store::save_with_control(
+            directory,
+            plan,
+            options,
+            cancelled,
+            progress,
+            &mut crate::index_storage::store::NoHooks,
+        )
+        .map_err(storage_error)?;
+        let current = self.view()?.0.publication_id;
+        self.update_storage_status(|status| {
+            status.note_saved(report.publication_id, directory.to_owned());
+            status.note_publication(current);
+            status.resident_packed_bytes = report.catalogue_bytes;
+        })?;
+        Ok(report)
+    }
+
+    /// Start one background save and return its observable handle.
+    pub fn start_save(
+        &self,
+        directory: std::path::PathBuf,
+        options: crate::index_storage::store::SaveOptions,
+    ) -> Result<crate::index_storage::task::StorageTask, IndexError> {
+        let task = crate::index_storage::task::start_save_task(
+            self.clone(),
+            directory,
+            options,
+        )?;
+        self.update_storage_status(|status| status.active_save_task = true)?;
+        Ok(task)
     }
 
     pub fn timings_ms(&self) -> Result<IndexTimingsMs, IndexError> {
@@ -2365,8 +2534,9 @@ impl Index {
     fn publish_prepared_inner(
         &self,
         expected: IndexRevision,
-        next: PublishedIndex,
+        mut next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
+        next.publication_id = Uuid::new_v4();
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
         }
@@ -3521,3 +3691,17 @@ impl IndexView {
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]
 mod tests;
+
+fn storage_error(error: crate::index_storage::error::StorageError) -> IndexError {
+    match error {
+        crate::index_storage::error::StorageError::Cancelled => IndexError::Cancelled,
+        crate::index_storage::error::StorageError::Incompatible(message)
+        | crate::index_storage::error::StorageError::UnsupportedFormat(message) => {
+            IndexError::IncompatibleConfiguration(message)
+        }
+        crate::index_storage::error::StorageError::ResourceLimit(message) => {
+            IndexError::ResourceLimit(message)
+        }
+        other => IndexError::Storage(other.to_string()),
+    }
+}

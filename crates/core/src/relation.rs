@@ -247,22 +247,22 @@ impl RelationIndex {
 
 /// One local ID occurrence before target inventories are available.
 #[derive(Clone, Serialize, Deserialize)]
-struct PendingReference {
-    source: RecordSlot,
-    target_id: String,
-    positions: Vec<u32>,
+pub(crate) struct PendingReference {
+    pub(crate) source: RecordSlot,
+    pub(crate) target_id: String,
+    pub(crate) positions: Vec<u32>,
 }
 
 /// Construction-only relation state, merged in deterministic batch order.
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct RelationContribution {
-    declaration: RelationDefinition,
-    record_count: u32,
-    references: Vec<PendingReference>,
-    present: RoaringBitmap,
-    nulls: RoaringBitmap,
-    empty_arrays: RoaringBitmap,
-    unavailable: RoaringBitmap,
+    pub(crate) declaration: RelationDefinition,
+    pub(crate) record_count: u32,
+    pub(crate) references: Vec<PendingReference>,
+    pub(crate) present: RoaringBitmap,
+    pub(crate) nulls: RoaringBitmap,
+    pub(crate) empty_arrays: RoaringBitmap,
+    pub(crate) unavailable: RoaringBitmap,
 }
 
 impl RelationContribution {

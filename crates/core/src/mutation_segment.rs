@@ -11,10 +11,11 @@ use crate::model::Number;
 use crate::posting::{ScalarKey, StructuralKey, StructuralFacts};
 use crate::repository::IncrementalSegmentProfile;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
+use serde::{Deserialize, Serialize};
 
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
@@ -57,7 +58,7 @@ pub(crate) struct CollectionSegment {
 
 /// Native segment accounting used by maintenance limits and relation
 /// scheduling. Values are saturating planning estimates, not strict limits.
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug, Default, Serialize, Deserialize)]
 pub(crate) struct SegmentAccounting {
     pub retained_bytes_estimated: usize,
     pub source_bytes_estimated: u64,
@@ -271,6 +272,7 @@ impl Default for SegmentLimits {
 
 /// Complete local search structures. The publication owner assigns a segment
 /// ID and combines it with the base and other live segments in one IndexView.
+#[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,

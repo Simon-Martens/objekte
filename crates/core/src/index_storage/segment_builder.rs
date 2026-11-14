@@ -27,6 +27,7 @@ pub struct SegmentInput {
     pub relations: Vec<RelationInput>,
     pub logical_records: Vec<u32>,
     pub empty_arrays: Vec<u32>,
+    pub active_records: Vec<u32>,
     pub estimated_index_bytes: u64,
 }
 
@@ -52,7 +53,12 @@ pub fn build_segment(input: SegmentInput) -> StorageResult<BuiltSegment> {
     let bigrams = build_bigrams(&input.bigrams, slot_count)?;
     let sorts = build_sort_sections(&input.sorts, slot_count)?;
     let relations = build_relations(&input.relations, slot_count, &mut string_arena)?;
-    let coverage = build_coverage(&input.logical_records, &input.empty_arrays, slot_count)?;
+    let coverage = build_coverage(
+        &input.logical_records,
+        &input.empty_arrays,
+        &input.active_records,
+        slot_count,
+    )?;
     let stats = SegmentStats {
         collection: input.collection,
         source_version: input.source_version,

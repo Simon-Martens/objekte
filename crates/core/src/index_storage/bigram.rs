@@ -1,5 +1,7 @@
 //! Borrowed bigram-dictionary readers over packed segments.
 
+use roaring::RoaringBitmap;
+
 use super::backing::Backing;
 use super::bigram_builder::{
     BigramBinding, BigramBindingKind, BIGRAM_DESCRIPTOR_LEN, BIGRAM_DICTIONARY_MAGIC,
@@ -242,6 +244,70 @@ impl BigramBindingView<'_> {
 
     pub fn skip(&self, gram: u64) -> StorageResult<Option<RecordSetView<'_>>> {
         self.lookup(&self.binding.skip, gram)
+    }
+
+    /// Union the postings for a set of normal grams.
+    pub fn union_normal(&self, grams: &[u64]) -> StorageResult<RoaringBitmap> {
+        let mut result = RoaringBitmap::new();
+        for gram in grams {
+            if let Some(posting) = self.normal(*gram)? {
+                posting.union_into(&mut result)?;
+            }
+        }
+        Ok(result)
+    }
+
+    /// Intersect the postings for a set of normal grams. This is the candidate
+    /// domain used by FTS and is deliberately query-owned scratch.
+    pub fn intersect_normal(&self, grams: &[u64]) -> StorageResult<Option<RoaringBitmap>> {
+        let mut result: Option<RoaringBitmap> = None;
+        for gram in grams {
+            let Some(posting) = self.normal(*gram)? else {
+                return Ok(Some(RoaringBitmap::new()));
+            };
+            let mut current = RoaringBitmap::new();
+            posting.union_into(&mut current)?;
+            result = Some(match result {
+                Some(previous) => &previous & &current,
+                None => current,
+            });
+        }
+        Ok(result)
+    }
+
+    /// Candidate intersection count without constructing a result set.
+    pub fn intersection_count_normal(&self, grams: &[u64]) -> StorageResult<u64> {
+        let Some(first) = grams.first() else {
+            return Ok(0);
+        };
+        let Some(first) = self.normal(*first)? else {
+            return Ok(0);
+        };
+        let mut count = first.cardinality();
+        if count == 0 {
+            return Ok(0);
+        }
+        for gram in &grams[1..] {
+            let Some(posting) = self.normal(*gram)? else {
+                return Ok(0);
+            };
+            count = posting.intersection_count(&first)?;
+            if count == 0 {
+                break;
+            }
+        }
+        Ok(count)
+    }
+
+    /// Union the postings for a set of skip grams.
+    pub fn union_skip(&self, grams: &[u64]) -> StorageResult<RoaringBitmap> {
+        let mut result = RoaringBitmap::new();
+        for gram in grams {
+            if let Some(posting) = self.skip(*gram)? {
+                posting.union_into(&mut result)?;
+            }
+        }
+        Ok(result)
     }
 
     fn lookup(
