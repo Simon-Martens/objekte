@@ -2442,6 +2442,8 @@ source-check actions.
   posting-value/relation-probe access and loaded re-save object reuse.
 - `a5ddfc99` — packed-backed sort columns/orders and relation adjacency at
   Load, plus the warm/cold mmap load benchmark.
+- `83e68e9e` — lazy packed record rows and logical-ID lookup, with zero eager
+  reconstruction at Load.
 
 ### Packed access abstraction
 
