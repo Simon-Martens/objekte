@@ -584,6 +584,7 @@ impl PersistedRecordSlots {
         Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.membership_count as usize))
     }
 
+    #[cfg(test)]
     pub(crate) fn file_record_at(&self, index: usize, position: usize) -> Result<Option<RecordSlot>, String> {
         let bytes = self.bytes()?;
         let Some(row) = self.layout.file_row(bytes, index) else { return Ok(None); };
@@ -591,6 +592,18 @@ impl PersistedRecordSlots {
         let member = row.membership_start as usize + position;
         self.layout.membership(bytes, member).map(Some)
             .ok_or("record membership slot missing".into())
+    }
+
+    pub(crate) fn extend_file_slots(&self, index: usize, matches: &mut RoaringBitmap) -> Result<(), String> {
+        let bytes = self.bytes()?;
+        let row = self.layout.file_row(bytes, index).ok_or("record file row missing")?;
+        let start = row.membership_start as usize;
+        let end = start + row.membership_count as usize;
+        for number in start..end {
+            let slot = self.layout.membership(bytes, number).ok_or("record membership slot missing")?;
+            matches.insert(slot.0);
+        }
+        Ok(())
     }
 
     pub(crate) fn metadata_ref_at(&self, index: usize) -> Result<Option<u32>, String> {

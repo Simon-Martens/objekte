@@ -773,11 +773,13 @@ impl IndexedCollectionSegment {
         }
     }
 
-    pub(crate) fn try_file_record_at(&self, index: usize, position: usize) -> Result<Option<RecordSlot>, String> {
+    pub(crate) fn extend_file_slots(&self, index: usize, matches: &mut RoaringBitmap) -> Result<(), String> {
         if let Some(table) = &self.persisted {
-            table.file_record_at(index, position)
+            table.extend_file_slots(index, matches)
         } else {
-            Ok(self.files.get(index).and_then(|file| file.records.get(position).copied()))
+            let file = self.files.get(index).ok_or("segment file row missing")?;
+            matches.extend(file.records.iter().map(|slot| slot.0));
+            Ok(())
         }
     }
 

@@ -239,13 +239,7 @@ fn extend_segment_file_slots(
     index: usize,
     matches: &mut RoaringBitmap,
 ) -> Result<(), String> {
-    let count = segment.try_file_record_count_at(index)?.ok_or("segment file row missing")?;
-    for position in 0..count {
-        let slot = segment.try_file_record_at(index, position)?
-            .ok_or("segment file membership missing")?;
-        matches.insert(slot.0);
-    }
-    Ok(())
+    segment.extend_file_slots(index, matches)
 }
 
 /// Only the selected scalar metadata field is read by these two fast paths.
