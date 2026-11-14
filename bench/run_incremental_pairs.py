@@ -26,7 +26,7 @@ for pair in range(args.pairs):
         cwd = (args.before_cwd if mode == "before" else args.after_cwd).resolve(strict=True)
         result_root = args.output / f"{pair+1:02d}-{position+1}-{mode}"
         command = [str(binary), "--root", str(root), "--result-dir", str(result_root),
-                   "--alphabet", "ascii", "--workers", "32", "--profile", "--snapshot",
+                   "--alphabet", "ascii", "--workers", "32", "--profile",
                    "--check-queries", "--incremental"]
         result = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
         if result.returncode:
@@ -42,7 +42,6 @@ for pair in range(args.pairs):
                      "command": command, "cwd": str(cwd), "sample": sample,
                      "manifest": manifest})
         (args.output / "runs.json").write_text(json.dumps(runs, indent=2))
-        (artifact / "index.snapshot").unlink(missing_ok=True)
         print(f"{pair+1} {mode}: {sample['build_ns']/1e6:.3f} ms, "
               f"HWM {sample['after_build_hwm']/1e6:.3f} MB", flush=True)
 

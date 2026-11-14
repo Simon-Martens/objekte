@@ -9,7 +9,7 @@ use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{ReturnMode, SortExpression, SortField, WorkloadCase};
@@ -73,7 +73,6 @@ fn fixture() -> (PathBuf, Repository) {
             sort_overrides: HashMap::new(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -279,7 +278,6 @@ fn explicit_composite_order_streams_and_matches_reference() {
         &root,
         definitions.clone(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -350,7 +348,7 @@ fn explicit_composite_order_streams_and_matches_reference() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(restored.restored_from_cache());
+    assert!(restored.restored_from_storage());
     assert_eq!(
         restored.view().unwrap().search(&query).unwrap().hits,
         result.hits
@@ -396,7 +394,6 @@ fn schema_free_sort_reductions_positions_and_late_error() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -471,7 +468,6 @@ fn schema_free_sort_reductions_positions_and_late_error() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -514,7 +510,6 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

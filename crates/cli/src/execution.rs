@@ -15,9 +15,7 @@ use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::source::SourceRegistry;
-use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
@@ -98,7 +96,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         };
         let opening_root = root.clone();
         let definitions = configured.definitions.clone();
-        let protected_files = configured.protected_files.clone();
         let opening_policy = policy.clone();
         let result = crate::tui::run_with_opening_loader(
             move || {
@@ -120,7 +117,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 .map_err(|error| if managed {
                     crate::storage_view::format_index_error(&error)
                 } else { error.to_string() })?;
-                Ok(crate::tui::TuiOpening::Initial(task, protected_files))
+                Ok(crate::tui::TuiOpening::Initial(task))
             },
             ui,
         );
@@ -169,7 +166,6 @@ pub struct ExistingRun<'a> {
     pub schema_files: &'a [PathBuf],
     pub ignored_repository_metadata: bool,
     pub startup_ns: u128,
-    pub snapshot_save: Option<SnapshotSaveStats>,
 }
 
 
@@ -222,7 +218,6 @@ pub fn run_on_repository<W: Write>(
             args: run.args,
             started: &started,
             startup_ns: run.startup_ns,
-            snapshot_save: run.snapshot_save.as_ref(),
             initial_incremental: false,
         },
         source,
@@ -257,7 +252,6 @@ pub fn run_prepared_on_repository<W: Write>(
         args: run.args,
         started: &started,
         startup_ns: run.startup_ns,
-        snapshot_save: run.snapshot_save.as_ref(),
         initial_incremental: false,
     };
     if token.is_cancelled() {
@@ -349,7 +343,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
-    let (repo, startup_ns, snapshot_save) = match opened {
+    let (repo, startup_ns) = match opened {
         Ok(result) => result,
         Err(message) => {
             eprintln!("obj: {message}");
@@ -387,7 +381,6 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             args,
             started: &started,
             startup_ns,
-            snapshot_save: snapshot_save.as_ref(),
             initial_incremental: args.index_storage == IndexStorageChoice::Memory,
         },
         source,
@@ -402,7 +395,7 @@ fn open_managed_repository(
     options: objekte_search_core::repository::RepositoryOptions,
     storage_policy: IndexStoragePolicy,
     token: &CancellationToken,
-) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+) -> Result<(IndexedRepository, u128), String> {
     let started = Instant::now();
     let index = Index::open_with_storage(
         paths.root.clone(),
@@ -412,9 +405,6 @@ fn open_managed_repository(
         SourceRegistry::builtin(),
     )
     .map_err(|error| crate::storage_view::format_index_error(&error))?;
-    index
-        .protect_configuration_files(&configured.protected_files)
-        .map_err(|error| error.to_string())?;
     if token.is_cancelled() {
         return Err("index opening cancelled".into());
     }
@@ -430,7 +420,7 @@ fn open_managed_repository(
     }
     index.flush_storage().map_err(|error| error.to_string())?;
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
-    Ok((repo, started.elapsed().as_nanos(), None))
+    Ok((repo, started.elapsed().as_nanos()))
 }
 
 /// Work on a fresh index as batches become searchable, while retaining the
@@ -442,7 +432,7 @@ fn open_incremental_repository(
     options: objekte_search_core::repository::RepositoryOptions,
     source: &mut Option<Result<QuerySource, String>>,
     token: &CancellationToken,
-) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+) -> Result<(IndexedRepository, u128), String> {
     let started = Instant::now();
     let task = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
         .map_err(|error| error.to_string())?;
@@ -517,12 +507,9 @@ fn open_incremental_repository(
         std::thread::sleep(Duration::from_millis(30));
     }
     let index = task.wait_complete().map_err(|error| error.to_string())?;
-    index
-        .protect_configuration_files(&configured.protected_files)
-        .map_err(|error| error.to_string())?;
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let startup_ns = started.elapsed().as_nanos();
-    Ok((repo, startup_ns, None))
+    Ok((repo, startup_ns))
 }
 
 fn run_start_event(
@@ -581,7 +568,6 @@ struct RunTail<'a> {
     args: &'a Arguments,
     started: &'a Instant,
     startup_ns: u128,
-    snapshot_save: Option<&'a SnapshotSaveStats>,
     initial_incremental: bool,
 }
 
@@ -664,12 +650,12 @@ fn complete_run<W: Write>(
     let args = run.args;
     let started = run.started;
     let startup_ns = run.startup_ns;
-    let snapshot_save = run.snapshot_save;
     let terminal = if failures == 0 {
         "run_complete"
     } else {
         "run_error"
     };
+    #[cfg(feature = "detailed-profiling")]
     let stats = repo.startup();
     let index_timings_ms = repo.index().timings_ms().unwrap_or_default();
     let live = match repo.index().status() {
@@ -728,14 +714,13 @@ fn complete_run<W: Write>(
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
-        "snapshot_action": if args.index_storage == IndexStorageChoice::Memory {
-            snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some())
-        } else if repo.index().restored_from_cache() {
+        "index_storage_action": if args.index_storage == IndexStorageChoice::Memory {
+            "built_in_memory"
+        } else if repo.index().restored_from_storage() {
             "managed_restored"
         } else {
             "managed_built"
         },
-        "snapshot_restore_error": stats.snapshot_restore_error,
         "index_storage_status": {
             "readiness": match storage.readiness {
                 IndexReadiness::Building => "building",
@@ -787,10 +772,6 @@ fn complete_run<W: Write>(
         event["discovery_ms"] = ms(stats.build_discovery_ns as u128);
         event["extraction_index_ms"] = ms(stats.build_extraction_index_ns as u128);
         event["finalization_ms"] = ms(stats.build_finalization_ns as u128);
-        event["snapshot_decode_ms"] = ms(stats.snapshot_decode_ns as u128);
-        event["reconciliation_ms"] = ms(stats.reconciliation_ns as u128);
-        event["snapshot_write_ms"] =
-            ms(snapshot_save.as_ref().map_or(0, |save| save.total_ns) as u128);
         event["run_elapsed_ms"] = ms(started.elapsed().as_nanos());
     }
 
@@ -820,28 +801,6 @@ fn complete_run<W: Write>(
         event["automatic_index_collections"] = json!(collections);
     }
 
-    #[cfg(feature = "detailed-profiling")]
-    if args.diagnostic
-        && let Some(save) = &snapshot_save
-    {
-        event["snapshot_save_phases"] = json!({
-            "total_ms": ms(save.total_ns as u128),
-            "directory_ms": ms(save.directory_ns as u128),
-            "header_ms": ms(save.header_ns as u128),
-            "inventory_ms": ms(save.inventory_ns as u128),
-            "write_ms": ms(save.write_ns as u128),
-            "sync_ms": ms(save.sync_ns as u128),
-            "rename_ms": ms(save.rename_ns as u128),
-            "bytes_written": save.bytes_written,
-            "sections": save.sections.iter().map(|section| json!({
-                "id": section.id,
-                "serialize_ms": ms(section.serialize_ns as u128),
-                "checksum_ms": ms(section.checksum_ns as u128),
-                "write_ms": ms(section.write_ns as u128),
-                "payload_bytes": section.payload_bytes,
-            })).collect::<Vec<_>>(),
-        });
-    }
     if let Err(error) = output.emit(event).and_then(|_| output.flush()) {
         return output_failure(error);
     }
@@ -1118,16 +1077,6 @@ fn index_operation(args: &Arguments) -> &'static str {
         IndexStorageChoice::Temporary => "temporary",
         IndexStorageChoice::Repository => "repository",
         IndexStorageChoice::Custom => "custom",
-    }
-}
-
-fn snapshot_action(action: SnapshotAction, saved: bool, rebuilt: bool) -> &'static str {
-    match (action, saved, rebuilt) {
-        (SnapshotAction::Restored, true, _) => "reconciled_and_written",
-        (SnapshotAction::Restored, _, _) => "restored",
-        (SnapshotAction::BuiltInMemory, true, true) => "rebuilt_and_written",
-        (SnapshotAction::BuiltInMemory, true, false) => "built_and_written",
-        (SnapshotAction::BuiltInMemory, false, _) => "built_in_memory",
     }
 }
 

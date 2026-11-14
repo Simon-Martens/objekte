@@ -130,7 +130,6 @@ pub(super) fn existing_run<'a>(
         schema_files: &session.diagnostics.schema_files,
         ignored_repository_metadata: session.diagnostics.ignored_repository_metadata,
         startup_ns: session.diagnostics.open_ns,
-        snapshot_save: None,
     }
 }
 

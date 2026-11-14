@@ -312,7 +312,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             SourceRegistry::builtin(),
         )
         .unwrap();
-        assert!(restored.restored_from_cache());
+        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

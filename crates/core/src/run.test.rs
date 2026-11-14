@@ -10,7 +10,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
     use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use crate::source::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
@@ -49,7 +49,6 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         })
         .unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         verified_cache_bytes: 1 << 20,
         query_workers: 2,
         ..Default::default()
@@ -77,7 +76,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(managed.restored_from_cache());
+    assert!(managed.restored_from_storage());
     for index in [&memory, &managed] {
         for (pattern, case, flags, expected) in [
             (
@@ -155,7 +154,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
 fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let records = [
         r#"{"text":"before\u2139after","name":"Ada"}"#,
@@ -191,7 +190,6 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
             &root,
             vec![definition],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 query_workers: 1,
                 ..Default::default()
             },
@@ -286,7 +284,7 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
 fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let records = [
         r#"{"title":"needle"}"#,
@@ -322,7 +320,6 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
             &root,
             vec![CollectionDefinition::folder("data", "data", format.clone())],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 query_workers: 1,
                 ..Default::default()
             },
@@ -414,7 +411,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
 fn decoded_scalar_fts_combines_source_text_with_required_values() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-combined-source-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -437,7 +434,6 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
             SourceFormat::JsonDecodedScalars,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: 1,
             ..Default::default()
         },
@@ -481,7 +477,7 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
 fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-parallel-fts-{}-{}",
@@ -526,7 +522,6 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
             vec![definition.clone()],
             RepositoryOptions {
                 query_workers,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
         )
@@ -561,7 +556,7 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
 fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, parse_structured_filter};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-parallel-residual-{}-{}",
@@ -618,7 +613,6 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
             vec![definition.clone()],
             RepositoryOptions {
                 query_workers,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
         )
@@ -700,7 +694,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 fn segmented_array_step_state_predicates_use_exact_structural_postings() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{Repository, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!(
@@ -753,7 +747,6 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
             .unwrap();
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         verified_cache_bytes: 0,
         ..Default::default()
     };
@@ -932,7 +925,7 @@ fn segment_file_grouping_merges_out_of_order_file_runs() {
 #[test]
 fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
     use crate::lifecycle::Index;
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-exact-sorted-{}-{}",
@@ -971,7 +964,6 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )
@@ -1022,7 +1014,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId};
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-merge-{}-{:?}",
@@ -1059,7 +1051,6 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             &root,
             vec![definition],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -2081,7 +2072,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     };
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId, RecordSlot};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-lookup-{}-{:?}",
@@ -2097,7 +2088,6 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
             &root,
             vec![definition],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -2349,7 +2339,6 @@ fn active_inspection_traces_use_live_domain_and_match_search() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -2499,7 +2488,7 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 #[test]
 fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
@@ -2515,7 +2504,6 @@ fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
@@ -2589,7 +2577,6 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
             },
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -2627,13 +2614,12 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
 #[test]
 fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use crate::workload::SortField;
 
     let root = write_inferred_order_fixture("inferred-order-cache", 150);
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         verified_cache_bytes: 0,
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,
@@ -2680,9 +2666,7 @@ fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
             assert!(after.resident_bytes <= crate::sorting::INFERRED_ORDER_CACHE_BYTES);
         }
     }
-    repo.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(restored.inferred_orders.lock().unwrap().stats().builds, 0);
     let query = request("uuid", false, 17, true);
     let result = restored.search(&query).unwrap();
@@ -2733,7 +2717,6 @@ fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -2798,7 +2781,6 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -2931,7 +2913,7 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
 fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     use crate::inventory::{FileStatus, RecordClass};
     use crate::query::FtsQuery;
-    use crate::repository::{Payload, RepositoryOptions, SnapshotMode};
+    use crate::repository::{Payload, RepositoryOptions};
     let root = std::env::temp_dir().join(format!("objekte-malformed-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
@@ -2983,7 +2965,6 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
@@ -3107,10 +3088,8 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
                 .all(|hit| hit.file_status == FileStatus::Broken)
         );
         assert_eq!(ordered.hits, built.search_reference(&sorted).unwrap().hits);
-        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(restored.startup().restored);
         assert_eq!(restored.search(&all).unwrap().hits, result.hits);
         assert_eq!(restored.search(&raw_fts).unwrap().hits, raw_result.hits);
         let restored_bad = restored
@@ -3135,7 +3114,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
 #[test]
 fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
     use crate::inventory::RecordClass;
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     let root = std::env::temp_dir().join(format!(
         "objekte-fallback-negation-evidence-{}",
         std::process::id()
@@ -3198,15 +3177,12 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(restored.startup().restored);
         for repo in [&built, &restored] {
             for cache_bytes in [0, 1 << 20] {
                 repo.configure_verified_cache(cache_bytes).unwrap();
@@ -3275,7 +3251,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
 
 #[test]
 fn one_fallback_does_not_disable_selective_logical_postings() {
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     let root = std::env::temp_dir().join(format!("objekte-mixed-posting-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut source = String::new();
@@ -3329,13 +3305,10 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             ..RepositoryOptions::default()
         };
         let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-        built.save_default_snapshot_for_test();
         let restored = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-        assert!(restored.startup().restored);
         for repo in [&built, &restored] {
             for (filter, expected, fallback_hit) in [
                 ("title = 'needle'", 1, false),
@@ -3404,7 +3377,7 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
 
 #[test]
 fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
-    use crate::repository::{Payload, RepositoryOptions, SnapshotMode};
+    use crate::repository::{Payload, RepositoryOptions};
     let root = std::env::temp_dir().join(format!("objekte-malformed-json-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/empty.json"), b"").unwrap();
@@ -3426,7 +3399,6 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -3594,7 +3566,6 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -3728,7 +3699,6 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -3833,7 +3803,6 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
         &root,
         definitions.to_vec(),
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4031,7 +4000,6 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
         &root,
         definitions.to_vec(),
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         },
@@ -4157,7 +4125,6 @@ fn exact_collection_handles_relation_membership_without_ranking() {
         &root,
         definitions,
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4316,7 +4283,6 @@ fn segmented_explicit_array_index_does_not_claim_whole_field_proof() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4398,7 +4364,6 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4517,7 +4482,6 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4637,7 +4601,6 @@ fn interleaved_stored_order_records_keep_bounded_file_handles() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4716,7 +4679,6 @@ fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
         }],
         crate::repository::RepositoryOptions {
             query_workers: 4,
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -4890,7 +4852,6 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
             vec![definition.clone()],
             crate::repository::RepositoryOptions {
                 query_workers: workers,
-                snapshot_mode: crate::repository::SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -5005,10 +4966,6 @@ fn exact_membership_materializes_only_page_payload() {
             },
         };
         let result = repo.search(&query).unwrap();
-        assert_eq!(
-            result.counters.prepared_plan_hit,
-            mode != ReturnMode::Locator
-        );
         assert!(!result.counters.verified_result_hit);
         if mode == ReturnMode::Locator {
             let plan = repo.explain(&query).unwrap();
@@ -5221,7 +5178,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
 }
 
 #[test]
-fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
+fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let root = std::env::temp_dir().join(format!("objekte-temporal-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
@@ -5294,17 +5251,14 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
     let cached = repo.search(&query).unwrap();
     assert!(cached.counters.verified_result_hit);
     assert_eq!(cached.hits[0].payload, optimized.hits[0].payload);
-    repo.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(
         &root,
         definitions,
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         },
     )
     .unwrap();
-    assert!(restored.startup.restored);
     assert_eq!(
         restored.search(&query).unwrap().hits[0].payload,
         optimized.hits[0].payload
@@ -5378,15 +5332,12 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
     };
     for indexed in [false, true] {
         let options = crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         };
         for open in 0..2 {
             let repo =
                 Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
-            assert_eq!(repo.startup().restored, open == 1);
             if open == 0 {
-                repo.save_default_snapshot_for_test();
             }
             for (filter, expected) in [
                 ("note ~ 'keep'", vec!["absent", "null", "present"]),
@@ -5759,7 +5710,6 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
         )],
         crate::repository::RepositoryOptions {
             query_workers: 4,
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -5893,7 +5843,6 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
         )],
         crate::repository::RepositoryOptions {
             query_workers: 1,
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
         sources,
@@ -5987,7 +5936,6 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
             SourceFormat::registered("failing_query_reader"),
         )],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
         sources,
@@ -6082,7 +6030,6 @@ fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
                 )],
                 crate::repository::RepositoryOptions {
                     query_workers: workers,
-                    snapshot_mode: crate::repository::SnapshotMode::Disabled,
                     ..Default::default()
                 },
             )
@@ -6148,7 +6095,6 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
         )],
         crate::repository::RepositoryOptions {
             query_workers: 8,
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -6183,7 +6129,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
 
 #[test]
 fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use crate::workload::SortField;
 
     let root = std::env::temp_dir().join(format!(
@@ -6218,7 +6164,6 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
@@ -6238,7 +6183,7 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
         },
     };
     assert!(inferred_order_index(&repo, &request).is_some());
-    assert!(!posting_order_eligible(&repo, &request));
+    assert!(!posting_order_eligible(&repo, &request, None));
     let cold = repo.search(&request).unwrap();
     assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);
     assert!(!cold.counters.verified_result_hit);

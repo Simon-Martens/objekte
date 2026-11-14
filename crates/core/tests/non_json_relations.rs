@@ -175,7 +175,7 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
         let restored =
             Index::open_with_storage(&root, definitions(), options, policy, sources.clone())
                 .unwrap();
-        assert!(restored.restored_from_cache());
+        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

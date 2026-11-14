@@ -3,7 +3,7 @@ use crate::model::{FieldPath, LogicalType};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 use crate::workload::{BigramAlphabet, ReturnMode, SortExpression, SortField};
@@ -315,7 +315,6 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 1 << 20,
             query_workers: 4,
             bigram_alphabet: alphabet,
@@ -1205,7 +1204,6 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
         &root,
         definitions.to_vec(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },

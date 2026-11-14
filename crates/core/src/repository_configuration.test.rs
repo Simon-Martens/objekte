@@ -43,13 +43,6 @@ fn repository_layout_loads_sorted_definitions_and_protected_schema_targets() {
         config.schema_files,
         vec![author_path.clone(), book_path.clone()]
     );
-    assert_eq!(
-        config.protected_files,
-        vec![
-            author_path.canonicalize().unwrap(),
-            book_path.canonicalize().unwrap()
-        ]
-    );
     assert_eq!(config.definitions.len(), 2);
     assert_eq!(config.definitions[0].name, "authors");
     assert_eq!(config.definitions[0].source_path, Path::new("authors"));

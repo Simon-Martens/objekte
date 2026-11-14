@@ -7,7 +7,7 @@ use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use serde_json::json;
@@ -60,7 +60,6 @@ fn run() -> Result<(), String> {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode,
                 ..Default::default()

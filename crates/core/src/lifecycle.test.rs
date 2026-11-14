@@ -7,7 +7,7 @@ use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, pars
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 use crate::streaming::{
@@ -99,7 +99,6 @@ fn fixture_repository(root: &std::path::Path) -> Repository {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -344,7 +343,6 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -398,28 +396,6 @@ fn quiescence_keeps_unavailable_lookup_without_reconciliation() {
     ));
     assert!(index.current_reconciliation_task().unwrap().is_none());
     assert_eq!(index.status().unwrap().revision, view.revision());
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn quiescence_discards_queued_automatic_cache_write() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-sync-quiesce-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    let _ = std::fs::remove_dir_all(&root);
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let index = Index::from_repository(fixture_repository(&root)).unwrap();
-    let cache = root.join("index.snapshot");
-    index
-        .select_cache_destination(&cache, None, Vec::new())
-        .unwrap();
-    index.set_sync_cache(true).unwrap();
-    index.quiesce().unwrap();
-    assert!(!cache.exists());
-    assert_eq!(index.status().unwrap().saved_revision, None);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -560,49 +536,6 @@ fn quiescence_rejects_prepared_publications_until_close_is_cancelled() {
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(2)
     );
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn concurrent_publication_is_either_saved_or_rejected_by_quiescence() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-close-race-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    let _ = std::fs::remove_dir_all(&root);
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let index = Index::from_repository(fixture_repository(&root)).unwrap();
-    let next_path = root.join("data/b.json");
-    std::fs::write(&next_path, br#"{"name":"B"}"#).unwrap();
-    let prepared = index.prepare_add_file(&next_path).unwrap();
-    let expected = prepared.expected_revision;
-    let staged = index.stage_prepared_add(prepared).unwrap();
-    let barrier = std::sync::Barrier::new(3);
-    let (publication, close) = std::thread::scope(|scope| {
-        let publisher = scope.spawn(|| {
-            barrier.wait();
-            index.publish_prepared(expected, staged)
-        });
-        let closer = scope.spawn(|| {
-            barrier.wait();
-            index.quiesce()
-        });
-        barrier.wait();
-        (publisher.join().unwrap(), closer.join().unwrap())
-    });
-    close.unwrap();
-    let final_view = index.view().unwrap();
-    match publication {
-        Ok(revision) => assert_eq!(final_view.revision(), revision),
-        Err(IndexError::Cancelled) => assert_eq!(final_view.revision(), expected),
-        other => panic!("unexpected concurrent publication result: {other:?}"),
-    }
-    let final_revision = final_view.revision();
-    let cache = root.join("index.snapshot");
-    assert_eq!(index.flush_cache(&cache).unwrap(), final_revision);
-    assert_eq!(index.view().unwrap().revision(), final_revision);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1086,7 +1019,6 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
@@ -1289,7 +1221,6 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

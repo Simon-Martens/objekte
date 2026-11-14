@@ -3,7 +3,7 @@ use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::reference::{FieldDefinition, RegisteredBinding};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -107,7 +107,6 @@ fn cross_collection_sort_rejects_different_binding_versions() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -376,7 +375,6 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                     vec![source_definition.clone(), target_definition.clone()],
                     RepositoryOptions {
                         query_workers: workers,
-                        snapshot_mode: SnapshotMode::Disabled,
                         ..Default::default()
                     },
                 )
@@ -483,7 +481,6 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
                 vec![source_definition.clone(), target_definition.clone()],
                 RepositoryOptions {
                     query_workers: workers,
-                    snapshot_mode: SnapshotMode::Disabled,
                     ..Default::default()
                 },
             )

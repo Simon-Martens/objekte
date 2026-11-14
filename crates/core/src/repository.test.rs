@@ -167,12 +167,6 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
 }
 
 #[test]
-fn exported_default_prepared_cache_budget_is_sixteen_mib() {
-    let options = RepositoryOptions::default();
-    assert_eq!(options.prepared_cache_bytes, 16 * 1024 * 1024);
-}
-
-#[test]
 fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let root = std::env::temp_dir().join(format!("objekte-id-lookup-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -180,10 +174,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let path = root.join("data/records.jsonl");
     std::fs::write(&path, b"{\"title\":\"healthy\"}\n{\"title\":\n").unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let options = RepositoryOptions {
-        snapshot_mode: super::SnapshotMode::IfValid,
-        ..Default::default()
-    };
+    let options = RepositoryOptions::default();
     let query = |return_mode| Query {
         collections: vec!["data".into()],
         fts: None,
@@ -252,9 +243,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     );
     assert!(repo.get_record("data", &id, ReturnMode::Bytes).is_err());
     std::fs::rename(&moved, &path).unwrap();
-    repo.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
-    assert!(restored.startup().restored);
     verify(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }

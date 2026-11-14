@@ -3,7 +3,7 @@ use std::sync::Arc;
 use super::FileCatalog;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]
@@ -26,7 +26,6 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
                 SourceFormat::Json,
             )],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )

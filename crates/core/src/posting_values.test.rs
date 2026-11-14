@@ -4,7 +4,7 @@ use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::model::RecordSlot;
 use crate::reference::{FieldDefinition, Schema};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::BigramAlphabet;
 
@@ -43,7 +43,6 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -158,7 +157,6 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         })
         .unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,
             policy: InferencePolicy {
@@ -230,9 +228,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     };
     let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
     check(&repo);
-    repo.save_default_snapshot_for_test();
     let restored = Arc::new(Repository::open_with_options(&root, vec![definition], options).unwrap());
-    assert!(restored.startup().restored);
     check(&restored);
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
@@ -407,7 +403,6 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
@@ -603,10 +598,8 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 .is_empty()
         );
         std::fs::rename(&held, &path).unwrap();
-        repo.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(restored.startup().restored);
         assert_eq!(
             restored.posting_values(&request).unwrap().values,
             reverse.values
@@ -667,7 +660,6 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -823,7 +815,6 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
             sort_overrides: Default::default(),
         };
         let options = RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         };
         let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
@@ -861,16 +852,33 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                     .unwrap_err()
                     .contains("continuation scope")
             );
-            let snapshot = root.join("fold.snapshot");
-            repo.save_snapshot(&snapshot).unwrap();
-            let restored = crate::storage::load_snapshot(
-                root.clone(),
+            use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+            use crate::lifecycle::Index;
+            let base = root.join("managed-store");
+            std::fs::create_dir_all(&base).unwrap();
+            let policy = IndexStoragePolicy {
+                location: IndexStorageLocation::CustomDirectory(base),
+                residency: IndexResidency::OnDemand,
+            };
+            let first = Index::open_with_storage(
+                &root,
                 vec![definition.clone()],
                 options,
-                &crate::source::SourceRegistry::builtin(),
-                &snapshot,
+                policy.clone(),
+                crate::source::SourceRegistry::builtin(),
             )
             .unwrap();
+            first.shutdown().unwrap();
+            let restored = Index::open_with_storage(
+                &root,
+                vec![definition.clone()],
+                options,
+                policy,
+                crate::source::SourceRegistry::builtin(),
+            )
+            .unwrap();
+            assert!(restored.restored_from_storage());
+            let restored = restored.view().unwrap();
             assert_eq!(
                 restored.posting_values(&request).unwrap().values,
                 repo.posting_values(&request).unwrap().values
@@ -936,7 +944,6 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

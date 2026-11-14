@@ -552,7 +552,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
@@ -604,7 +604,6 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )

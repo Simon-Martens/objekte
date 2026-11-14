@@ -4,7 +4,7 @@ use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -92,7 +92,6 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
             sort_overrides: HashMap::new(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },

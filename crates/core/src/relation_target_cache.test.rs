@@ -4,7 +4,7 @@ use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 use crate::streaming::{CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions};
@@ -142,7 +142,6 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
         definitions(),
         RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             query_workers: 4,
             ..Default::default()
@@ -301,7 +300,6 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
         &root,
         definitions(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -352,7 +350,6 @@ fn stream_prefetch_checks_remaining_allowance_before_later_file_read() {
         &root,
         definitions(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },

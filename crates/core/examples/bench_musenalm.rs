@@ -13,7 +13,7 @@ use objekte_search_core::index_storage::{
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
-use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
 use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
@@ -93,9 +93,6 @@ fn managed_tree_bytes(root: &Path) -> Result<u64, String> {
 
 fn run() -> Result<(), String> {
     let arguments: Vec<String> = std::env::args().collect();
-    if arguments.get(1).is_some_and(|arg| arg == "--restore-child") {
-        return restore_child(&arguments);
-    }
     let mut args = arguments.iter().skip(1);
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut result_dir = None;
@@ -109,7 +106,6 @@ fn run() -> Result<(), String> {
     ];
     let mut repetitions = 5usize;
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
-    let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
     let mut storage = IndexStorageLocation::MemoryOnly;
@@ -171,13 +167,6 @@ fn run() -> Result<(), String> {
                     .ok_or("--verified-cache-bytes needs a number")?
                     .parse()
                     .map_err(|e| format!("invalid verified cache size: {e}"))?
-            }
-            "--prepared-cache-bytes" => {
-                prepared_cache_bytes = args
-                    .next()
-                    .ok_or("--prepared-cache-bytes needs a number")?
-                    .parse()
-                    .map_err(|e| format!("invalid prepared cache size: {e}"))?
             }
             "--query-workers" => {
                 query_workers = args
@@ -325,9 +314,7 @@ fn run() -> Result<(), String> {
                 definitions.clone(),
                 RepositoryOptions {
                     bigram_alphabet: alphabet,
-                    snapshot_mode: SnapshotMode::Disabled,
                     query_workers,
-                    prepared_cache_bytes,
                     ..RepositoryOptions::default()
                 },
                 storage_policy.clone(),
@@ -373,7 +360,6 @@ fn run() -> Result<(), String> {
                 "segments_stamp_trusted":storage_status.segments_stamp_trusted,
                 "validation_stamps_written":storage_status.validation_stamps_written,
                 "validation_stamp_error":storage_status.validation_stamp_error,
-                "restore_samples":[],"restore_status":"not_measured",
             }));
             if registrations.is_empty() {
                 registrations = definitions.iter().map(|definition| serde_json::json!({
@@ -391,29 +377,17 @@ fn run() -> Result<(), String> {
                 definitions.clone(),
                 RepositoryOptions {
                     bigram_alphabet: alphabet,
-                    snapshot_mode: SnapshotMode::Disabled,
                     query_workers,
-                    prepared_cache_bytes,
                     ..RepositoryOptions::default()
                 },
             )?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
-            let save_started = Instant::now();
-            repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root, alphabet,
-            ))?;
-            let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
-            let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup().build_ns;
             if corpus_hash.is_empty() {
                 corpus_hash = fingerprint_inventory(&repo);
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let snapshot_bytes =
-                fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
-                    .map_err(|e| e.to_string())?
-                    .len();
             let estimated_index_bytes: usize = repo
                 .collections()
                 .iter()
@@ -463,14 +437,26 @@ fn run() -> Result<(), String> {
                                 (stores + 1, keys + index.normal.len() + index.skip.len())
                             })
                     });
-            let restore_samples = measure_restore_children(&root, alphabet, 5, extended)?;
             let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
             let relations = repo
                 .collections()
                 .iter()
                 .flat_map(|collection| &collection.relations)
                 .collect::<Vec<_>>();
-            build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"open_ns":open_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+            build_results.push(serde_json::json!({
+                "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
+                "discovery_ns": repo.startup().build_discovery_ns,
+                "extraction_index_ns": repo.startup().build_extraction_index_ns,
+                "finalization_ns": repo.startup().build_finalization_ns,
+                "build_parses": repo.build_parses(), "failed_parses": repo.build_failed_parses(),
+                "inventory_heap_bytes": inventory_heap_bytes, "diagnostic_heap_bytes": diagnostic_heap_bytes,
+                "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
+                "estimated_index_bytes": estimated_index_bytes,
+                "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
+                "relation_count": relations.len(),
+                "relation_edges": relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),
+                "relation_heap_bytes": relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),
+            }));
             if registrations.is_empty() {
                 registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
             }
@@ -629,7 +615,7 @@ fn run() -> Result<(), String> {
         "schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],
         "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
         "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
-        "source_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers,
+        "source_cache_bytes":0,"query_workers":query_workers,
         "validator_version":objekte_search_core::index_storage::HYBRID_VALIDATOR_VERSION,
         "internal_decoded_posting_cache":{
             "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
@@ -651,12 +637,12 @@ fn run() -> Result<(), String> {
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|e| e.to_string())?,
     );
-    writeln!(csv,"case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
+    writeln!(csv,"case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
     let mut report = String::from("# Musenalm query checkpoint\n\n");
     report.push_str(&format!(
         "Code revision: `{rev}`. Repetitions: {repetitions}. Failures: {failures}.\n\n"
     ));
-    report.push_str("| Case | Profile | Min µs | Median µs | p95 µs | Max µs | Matches | Candidates | Parses | Prepared hits | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
+    report.push_str("| Case | Profile | Min µs | Median µs | p95 µs | Max µs | Matches | Candidates | Parses | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
     let mut by_case: BTreeMap<String, Vec<String>> = BTreeMap::new();
     for (id, profile, times, counters, error) in &rows {
         let mut sorted = times.clone();
@@ -676,10 +662,9 @@ fn run() -> Result<(), String> {
                 .unwrap_or_else(|| "failed".into())
         };
         let status = error.as_deref().unwrap_or("ok");
-        let prepared_hits = counters.iter().filter(|c| c.prepared_plan_hit).count();
         let verified_hits = counters.iter().filter(|c| c.verified_result_hit).count();
         report.push_str(&format!(
-            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {} | {prepared_hits}/{} | {verified_hits}/{} | {status} |\n",
+            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {} | {verified_hits}/{} | {status} |\n",
             value(min),
             value(med),
             value(p95),
@@ -688,11 +673,10 @@ fn run() -> Result<(), String> {
             median_counter(counters, |c| c.candidates),
             median_counter(counters, |c| c.record_parses),
             counters.len(),
-            counters.len(),
         ));
         writeln!(
             csv,
-            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
+            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
             if error.is_some() { "failed" } else { "ok" },
             min.map(|v| v.to_string()).unwrap_or_default(),
             med.map(|v| v.to_string()).unwrap_or_default(),
@@ -708,7 +692,6 @@ fn run() -> Result<(), String> {
             median_counter(counters, |c| c.exact_posting_matches),
             median_counter(counters, |c| c.scanned_records),
             median_counter(counters, |c| c.residual_evaluations),
-            prepared_hits,
             verified_hits,
             median_counter(counters, |c| {
                 #[cfg(feature = "detailed-profiling")]
@@ -760,28 +743,14 @@ fn run() -> Result<(), String> {
             ));
             continue;
         }
-        let restore: Vec<u64> = result["restore_samples"]
-            .as_array()
-            .into_iter()
-            .flatten()
-            .filter_map(|s| s["wall_ns"].as_u64())
-            .collect();
-        let mut restore_sorted = restore.clone();
-        restore_sorted.sort_unstable();
         report.push_str(&format!(
-            "- {}: build {:.3} s; snapshot write {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; snapshot {} MiB; fresh-process restore min/median/max {:.3}/{:.3}/{:.3} s over {} runs.\n",
+            "- {}: build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB.\n",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
-            result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
-            result["snapshot_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
-            restore_sorted.first().copied().unwrap_or(0) as f64 / 1e9,
-            restore_sorted.get(restore_sorted.len()/2).copied().unwrap_or(0) as f64 / 1e9,
-            restore_sorted.last().copied().unwrap_or(0) as f64 / 1e9,
-            restore_sorted.len()
         ));
     }
     report.push_str("\nTiming includes COUNT and requested page/payload. Diagnostic plans are captured outside primary samples.\n");
@@ -819,27 +788,14 @@ fn run() -> Result<(), String> {
             );
             continue;
         }
-        let mut restore: Vec<u64> = result["restore_samples"]
-            .as_array()
-            .into_iter()
-            .flatten()
-            .filter_map(|s| s["wall_ns"].as_u64())
-            .collect();
-        restore.sort_unstable();
         println!(
-            "build {}: {:.3} s; snapshot_write={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; snapshot_bytes={}; restore_min/median/max={:.3}/{:.3}/{:.3} s ({} runs)",
+            "build {}: {:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
-            result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"],
             result["peak_resident_bytes"],
             result["estimated_index_bytes"],
-            result["snapshot_bytes"],
-            restore.first().copied().unwrap_or(0) as f64 / 1e9,
-            restore.get(restore.len() / 2).copied().unwrap_or(0) as f64 / 1e9,
-            restore.last().copied().unwrap_or(0) as f64 / 1e9,
-            restore.len()
         );
     }
     println!("reports: {}", result_dir.display());
@@ -856,83 +812,6 @@ fn run() -> Result<(), String> {
         return Err(format!("{failures} benchmark case/profile failures"));
     }
     Ok(())
-}
-
-fn restore_child(args: &[String]) -> Result<(), String> {
-    let root = PathBuf::from(args.get(2).ok_or("restore child needs root")?);
-    let alphabet = match args.get(3).map(String::as_str) {
-        Some("ascii") => BigramAlphabet::Ascii,
-        Some("unicode") => BigramAlphabet::Unicode,
-        _ => return Err("restore child needs alphabet".into()),
-    };
-    let started = Instant::now();
-    let definitions = if args.get(4).is_some_and(|mode| mode == "extended") {
-        musenalm::load_extended_definitions(&root)?
-    } else {
-        musenalm::load_definitions(&root)?
-    };
-    let repo = Repository::open_with_options(
-        &root,
-        definitions,
-        RepositoryOptions {
-            bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
-            ..RepositoryOptions::default()
-        },
-    )?;
-    if !repo.startup().restored {
-        return Err("snapshot was not restored in fresh process".into());
-    }
-    println!(
-        "{}",
-        serde_json::json!({
-            "startup_ns":started.elapsed().as_nanos() as u64,
-            "decode_ns":repo.startup().snapshot_decode_ns,
-            "reconciliation_ns":repo.startup().reconciliation_ns,
-            "resident_bytes":resident_bytes(),
-            "peak_resident_bytes":peak_resident_bytes(),
-            "records":repo.collections().iter().map(|c|c.generation.records.len()).sum::<usize>(),
-            "build_parses":repo.build_parses(),
-        })
-    );
-    Ok(())
-}
-
-fn measure_restore_children(
-    root: &Path,
-    alphabet: BigramAlphabet,
-    repetitions: usize,
-    extended: bool,
-) -> Result<Vec<serde_json::Value>, String> {
-    let executable = std::env::current_exe().map_err(|e| e.to_string())?;
-    let mut samples = Vec::new();
-    for _ in 0..repetitions {
-        let started = Instant::now();
-        let mut command = std::process::Command::new(&executable);
-        command
-            .arg("--restore-child")
-            .arg(root)
-            .arg(match alphabet {
-                BigramAlphabet::Ascii => "ascii",
-                BigramAlphabet::Unicode => "unicode",
-            });
-        if extended {
-            command.arg("extended");
-        }
-        let output = command.output().map_err(|e| e.to_string())?;
-        let wall_ns = started.elapsed().as_nanos() as u64;
-        if !output.status.success() {
-            return Err(format!(
-                "restore child failed: {}",
-                String::from_utf8_lossy(&output.stderr)
-            ));
-        }
-        let mut sample: serde_json::Value =
-            serde_json::from_slice(&output.stdout).map_err(|e| e.to_string())?;
-        sample["wall_ns"] = serde_json::json!(wall_ns);
-        samples.push(sample);
-    }
-    Ok(samples)
 }
 
 fn write_sample(writer: &mut BufWriter<File>, sample: TimingSample) -> Result<(), String> {

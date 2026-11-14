@@ -87,10 +87,11 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let index = Index::build_unsealed_for_legacy_snapshot_tests(
+    let index = Index::build_with_sources_unsealed(
         &root,
         vec![definition.clone()],
         options,
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
     let check = |index: &Index, expected: [usize; 3], compare_reference: bool| {
@@ -144,9 +145,12 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
     check(&index, [0, 1, 0], true);
     index.compact().unwrap();
     check(&index, [0, 1, 0], true);
-    let cache = root.join("structural.snapshot");
-    index.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(&root, vec![definition], options, &cache).unwrap();
+    let restored = crate::test_support::restore_through_managed_store(
+        &index,
+        &root,
+        vec![definition],
+        options,
+    );
     check(&restored, [0, 1, 0], true);
     restored.shutdown().unwrap();
     index.shutdown().unwrap();
@@ -559,10 +563,11 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     .unwrap();
     std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
     let definition = intrinsic_definition("items");
-    let index = Index::build_unsealed_for_legacy_snapshot_tests(
+    let index = Index::build_with_sources_unsealed(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
     let pinned = index.view().unwrap();
@@ -691,15 +696,12 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     );
     std::fs::remove_file(&original).unwrap();
 
-    let cache = root.join("cache.bin");
-    index.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(
+    let restored = crate::test_support::restore_through_managed_store(
+        &index,
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        &cache,
-    )
-    .unwrap();
+    );
     check_current(&restored);
     restored.compact().unwrap();
     check_current(&restored);
@@ -807,7 +809,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
 }
 
 #[test]
-fn restored_shared_partition_verified_update_preserves_its_record_slot() {
+fn shared_partition_verified_update_preserves_its_record_slot() {
     let root = test_root("partition-slot-replace");
     let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
@@ -843,23 +845,14 @@ fn restored_shared_partition_verified_update_preserves_its_record_slot() {
     std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
     std::fs::write(&middle, old).unwrap();
     std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
-    let built = Index::build_unsealed_for_legacy_snapshot_tests(
+    let built = Index::build_with_sources_unsealed(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
-    let cache = root.join("cache.bin");
-    built.flush_cache(&cache).unwrap();
-    built.shutdown().unwrap();
-    let restored = Index::load_cache(
-        &root,
-        vec![definition],
-        RepositoryOptions::default(),
-        &cache,
-    )
-    .unwrap();
-    restored.wait_for_reconciliation().unwrap();
+    let restored = built;
     let pinned = restored.view().unwrap();
     let handle = pinned.file_handle_for_path(&middle).unwrap();
     let old_shard = pinned
@@ -1164,9 +1157,8 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
         1
     );
     assert_eq!(index.status().unwrap().live_records, 1);
-    let cache = root.join("cache.bin");
-    index.flush_cache(&cache).unwrap();
-    let loaded = Index::load_cache(
+    let loaded = crate::test_support::restore_through_managed_store(
+        &index,
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -1174,9 +1166,7 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        &cache,
-    )
-    .unwrap();
+    );
     assert_eq!(
         loaded.view().unwrap().file_fingerprint(handle.file_id),
         Some(Sha256::digest(b"{\"name\":\"new\"}\n").into())
@@ -1427,10 +1417,11 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
     let definitions = vec![targets, sources];
-    let index = Index::build_unsealed_for_legacy_snapshot_tests(
+    let index = Index::build_with_sources_unsealed(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
     let path = root.join("sources/s.jsonl");
@@ -1578,10 +1569,12 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
             .any(|source| source.id == "S2")
     );
 
-    let cache = root.join("cache.bin");
-    assert_eq!(index.flush_cache(&cache).unwrap(), current.revision());
-    let restored =
-        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    let restored = crate::test_support::restore_through_managed_store(
+        &index,
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+    );
     let loaded = restored.view().unwrap();
     assert_eq!(loaded.revision(), current.revision());
     assert_eq!(ids(&loaded), ["S2", "R"]);

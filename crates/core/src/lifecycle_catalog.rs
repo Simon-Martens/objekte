@@ -128,7 +128,7 @@ impl FileCatalog {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        crate::storage::configuration_hash(&definitions, base.options(), &base.sources)
+        crate::configuration::configuration_hash(&definitions, base.options(), &base.sources)
     }
 
     /// Materialize stable file-ID slots for an explicit maintenance rebase.

@@ -1,0 +1,156 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+  "code_revision": "da608b2799a6757dd0641ba0071fc3a0f33fce65",
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_musenalm",
+    "--root",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+    "--extended",
+    "--incremental",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--verified-cache-bytes",
+    "0",
+    "--query-workers",
+    "32",
+    "--repetitions",
+    "5",
+    "--storage",
+    "custom",
+    "/home/simon/source/objekte-integration-remove-legacy-snapshot-stack/target/remove-legacy-snapshot-stack/campaign-store-2",
+    "--result-dir",
+    "bench/results/remove-legacy-snapshot-stack/final-20261114/ondemand"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+  "executable_sha256": "01bd8fb80adbd81b989971cd00db81ec164ab79de72881b768918a847afa7aa9",
+  "execution_checkout_revision": "da608b2799a6757dd0641ba0071fc3a0f33fce65",
+  "extended": true,
+  "failures": 0,
+  "internal_decoded_posting_cache": {
+    "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+    "observations": [
+      {
+        "after_queries": {
+          "entries": 1922,
+          "limit_bytes": 5610957,
+          "retained_bytes": 5560656,
+          "sealed_segments": 8
+        },
+        "alphabet": "ascii"
+      },
+      {
+        "after_queries": {
+          "entries": 1939,
+          "limit_bytes": 5754806,
+          "retained_bytes": 5718532,
+          "sealed_segments": 8
+        },
+        "alphabet": "unicode"
+      }
+    ]
+  },
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 5,
+  "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "run_id": "1794660289-da608b2799",
+  "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-remove-legacy-snapshot-stack/target/remove-legacy-snapshot-stack/campaign-store-2\"), residency: OnDemand }",
+  "validator_version": 4,
+  "workload_fingerprint": "84ec0788f618a02da44fe96a8bd1ace8e472a213076a12a595d7a0b0bbd93c39"
+}

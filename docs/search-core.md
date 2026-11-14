@@ -58,7 +58,7 @@ cargo run --release --example bench_musenalm -- \
 
 The [final benchmark](../bench/results/musenalm/final-8dd0c2aa6d/REPORT.md)
 contains the exact measured revision, 3,000 raw request samples, resolved
-queries, plans, cache outcomes, and build/restore measurements. The
+queries, plans, cache outcomes, and historical build measurements. The
 [C26 comparison](../bench/results/musenalm/ascii-mixed-comparison/REPORT.md)
 records the measured ASCII mixed-literal correction. Correctness was checked
 separately against the reference evaluator; see the
@@ -81,14 +81,13 @@ currently parsed once for each collection.
 Built-in and caller-supplied readers are resolved through `SourceRegistry`
 when a collection opens. A registration has a stable ID, semantic version, file
 extension, and reader. The prepared reader handles framing, query verification,
-and payload decoding. Snapshot configuration includes the resolved registration
+and payload decoding. Managed configuration identity includes the resolved registration
 identity and version, so a changed registration rebuilds its state.
 
 `Repository` publishes its inventory, collection generations, definitions, and
 indexes through shared-reference inspection methods. Callers cannot replace or
-mutate those structures after opening. The repository owns prepared and
-verified caches for that immutable set of generations. The verified cache
-budget is the only runtime cache control; `verified_cache_budget()` reports
+mutate those structures after opening. The repository owns a verified-result cache for that immutable set of generations.
+The verified cache budget is the only runtime cache control; `verified_cache_budget()` reports
 its effective value, while `options()` reports the opening configuration.
 Future complete-file replacement must construct a new generation with both
 file-to-record and record-to-file mappings before publishing it.
@@ -118,7 +117,7 @@ posting or bigram indexes cover their values. An unmodified field may select a
 configured default operation. Unscoped FTS may select a configured raw-text
 operation; each extracted text segment remains separate. A missing or partial
 index falls back to scanner evaluation. The binding version and default/raw
-selection participate in snapshot compatibility; prepared and verified caches
+selection participate in managed generation compatibility; verified results
 belong to the opened repository generation.
 
 Custom source readers own their extracted text segments, including omissions
@@ -217,7 +216,7 @@ Reserved metadata paths are `@record.id`, `@record.byte_start`,
 `@repository.root`. File paths use a reversible percent-escaped query
 representation for native non-UTF-8 names. `@file.path`, `SearchHit.file_path`
 and other returned source paths are relative to the opened repository root,
-including in indexed comparisons, scans, sorting and snapshot-restored results.
+including in indexed comparisons, scans, sorting and managed-restored results.
 For a root `/data/archive`, a file under `contents/123.json` is returned as
 `contents/123.json`; an absolute-looking query literal is compared literally.
 Resolve a returned path against that repository's root when accessing the
@@ -335,16 +334,14 @@ reverse mapping, while `relation_reverse_members_visited` sums the source-slot
 members examined in those lists. Both direct and segmented relation routes
 use these units.
 
-Prepared typed bindings have a repository-local 16 MiB default estimated
-retention budget. The compiled-regex charge uses conservative configured
-ceilings; this budget does not reserve memory up front or cap process RSS.
+Typed query binding runs fresh for each request. The repository does not cache bound queries.
 Verified result reuse is disabled by default, or configurable through
 `RepositoryOptions.verified_cache_bytes` and
 `Repository::configure_verified_cache`. It stores complete ordered membership
 and evidence under its byte budget, including empty results, but no record
 bodies. Requested page bytes/logical values still pass through revision-checked
 reads. The standard benchmark disables source-byte and decoded-record caches;
-its raw samples report prepared-plan and verified-result hits independently.
+its raw samples report verified-result hits.
 
 ## Posting values
 
@@ -385,23 +382,11 @@ its result is rejected. Use a new context for each request.
 
 ## Persistence and freshness
 
-### Static `Repository` compatibility
+### In-memory `Repository`
 
-The following describes the original static `Repository` snapshot API. New
-applications can use the versioned `Index` lifecycle described below.
-
-The ASCII and Unicode snapshot files are under the repository's `.objekte/`
-directory. Saving a snapshot is explicit; opening and searching do not write
-one. Each snapshot has a versioned header, a checksummed file-inventory
-section, and one checksummed section per collection containing its generation
-and indexes. A configuration hash binds model, schema and registrations,
-alphabet, ICU version, and platform. Loading validates section bounds and
-checksums, paths, mappings, coverage, and sorted state before publication.
-When restore is requested, startup reconciles the selected file set and each
-path's recorded size and modified time. A stale optional snapshot causes a
-fresh private build; a required snapshot reports an error. The rebuilt state
-is saved only by a later explicit save request. Rebuild currently covers the
-whole repository even when one collection changed.
+`Repository::open`, `open_with_options`, and `open_with_sources` build from
+sources and keep the resulting index in memory. They do not restore or write
+persistent state. For durable generations, use `Index::open_with_storage`.
 
 Fresh construction assumes sources remain stable while it reads them. It uses
 metadata gathered during discovery and does not repeatedly probe revisions
@@ -424,21 +409,21 @@ by the revision check.
 
 ### Versioned `Index` lifecycle
 
-`Index::build(root, definitions, options)` builds from exactly the supplied
-configuration. `Index::load_cache(root, definitions, options, path)` restores a
-compatible lifecycle cache and returns a searchable handle before its automatic
-metadata reconciliation finishes. `Index::open_repository(root, options)` is
-the separate convenience entry point that discovers the established
-`.objekte/collections` schemas and an alphabet-specific cache. Ordinary
-explicit mode performs no cache discovery or automatic cache write.
+`Index::build(root, definitions, options)` builds an in-memory index from the
+supplied configuration. `Index::open_with_storage` pairs the definitions and
+sources with an `IndexStoragePolicy`. A memory-only policy builds from source;
+a disk policy restores a valid managed generation or builds and publishes one.
+A restored generation becomes searchable before background source
+reconciliation finishes. The CLI, TUI, and desktop share this storage policy
+and their repository configuration loader.
 
 The `Index` handle exposes versioned file add, update, move, and delete
 operations. They modify index state only; the application controls source
 files. Query calls pin one published revision. `start_reconcile`,
 `wait_for_reconciliation`, and `start_periodic_reconciliation` expose metadata
-checking without blocking search. `flush_cache(path)` saves one pinned
-revision to an explicit path. Repository convenience mode can enable a
-coalesced automatic cache writer through `sync_cache`.
+checking without blocking search. `flush_storage()` persists a complete
+pinned revision to the attached managed store. `set_sync_storage` controls
+coalesced background synchronization for managed storage.
 
 `compact()` removes retired base and segment contributions without rereading
 source files. `rebuild()` rereads the current source configuration and retries
@@ -463,7 +448,7 @@ source. Source failures request a coalesced reconciliation pass. Streams report
 the same incompleteness in their terminal summary. A pinned view still
 describes its captured index revision, not a live filesystem snapshot.
 
-Fresh builds capture file digests during indexing reads. Lifecycle caches
+Fresh builds capture file digests during indexing reads. Managed generations
 persist those digests so an old-content hint can be verified after restoration
 without rereading unchanged source files. Verified base maintenance may do
 collection-sized source-free compaction before one atomic publication; ordinary

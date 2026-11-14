@@ -762,7 +762,7 @@ fn restore_generation(
     published.saved_revision = Some(revision);
     published.processed_files = published.catalog.active_files() as usize;
     let index = Index::from_published(published);
-    index.mark_restored_from_cache();
+    index.mark_restored_from_storage();
     index.attach_storage(resolved.clone())?;
     let mut validation = ValidationOpenStats {
         full: opened

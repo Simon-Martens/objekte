@@ -252,18 +252,15 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             < default_order.iter().position(|id| id == "d").unwrap()
     );
     assert_eq!(&default_order[6..], ["e", "f"]);
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         },
     )
     .unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(ids(&restored, &query), default_order);
     drop(restored);
 
@@ -283,7 +280,6 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let rebuilt =
         Repository::open_with_options(&root, vec![changed.clone()], RepositoryOptions::default())
             .unwrap();
-    assert!(!rebuilt.startup().restored);
     let configured = ids(&rebuilt, &query);
     assert_eq!(&configured[..2], ["e", "f"]);
     assert!(
@@ -336,18 +332,15 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     query.options.limit = 3;
     let descending = ids(&rebuilt, &query);
     assert_eq!(descending, ["f", "a", "b"]);
-    rebuilt.save_default_snapshot_for_test();
     drop(rebuilt);
     let reopened = Repository::open_with_options(
         &root,
         vec![changed],
         RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         },
     )
     .unwrap();
-    assert!(reopened.startup().restored);
     assert_eq!(ids(&reopened, &query), descending);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -358,7 +351,7 @@ fn cross_collection_sort_rejects_different_collation() {
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::{ReturnMode, SortField};
@@ -396,7 +389,6 @@ fn cross_collection_sort_rejects_different_collation() {
         &root,
         definitions.to_vec(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -434,9 +426,9 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
     use crate::inventory::FileStatus;
     use crate::query::{Query, QueryOptions};
     use crate::reference::FieldDefinition;
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::{BigramAlphabet, ReturnMode, SortField};
+    use crate::workload::{ReturnMode, SortField};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-shared-status-sort-{}-{}",
@@ -520,7 +512,6 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             vec![lenient.clone(), strict.clone()]
         };
         let options = RepositoryOptions {
-            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
@@ -571,11 +562,8 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             }
         }
 
-        let snapshot = crate::storage::snapshot_path(&root, BigramAlphabet::Ascii);
-        repo.save_snapshot(&snapshot).unwrap();
         drop(repo);
         let restored = Repository::open_with_options(&root, definitions, options).unwrap();
-        assert!(restored.startup().restored);
         for descending in [false, true] {
             for offset in 0..4 {
                 let query = query(descending, offset);
@@ -586,7 +574,6 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             }
         }
         drop(restored);
-        std::fs::remove_file(snapshot).unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }

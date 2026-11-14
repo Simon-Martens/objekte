@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::Value;
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::{BigramAlphabet, ReturnMode};
 
@@ -93,17 +93,12 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             build_workers: std::num::NonZeroUsize::new(2),
             ..Default::default()
         };
-        for opening in 0..2 {
+        for _ in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-            assert_eq!(repo.startup().restored, opening == 1);
-            if opening == 0 {
-                repo.save_default_snapshot_for_test();
-            }
             let collection = &repo.collections[0];
             let empty_ids: Vec<_> = collection
                 .empty_array_records
@@ -111,8 +106,8 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 .map(|slot| collection.generation.records[slot as usize].id.0.as_ref())
                 .collect();
             assert_eq!(empty_ids, ["c", "d", "e"]);
-            assert_eq!(repo.build_parses, if opening == 0 { 116 } else { 0 });
-            assert_eq!(repo.build_failed_parses, if opening == 0 { 1 } else { 0 });
+            assert_eq!(repo.build_parses, 116);
+            assert_eq!(repo.build_failed_parses, 1);
             for &(expression, expected) in cases {
                 let request = query(expression);
                 let optimized = repo.search(&request).unwrap();
@@ -249,7 +244,6 @@ fn broad_structural_superset_makes_scanning_cheaper() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -351,7 +345,6 @@ fn undeclared_candidate_respects_reader_text_coverage() {
             &root,
             vec![definition],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
             sources,

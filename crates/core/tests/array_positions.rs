@@ -8,7 +8,7 @@ use objekte_search_core::reference::{
     BindingOperation, FieldDefinition, RegisteredBinding, Schema,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -143,7 +143,6 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
             sort_overrides: HashMap::new(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -325,7 +324,6 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
             sort_overrides: HashMap::new(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

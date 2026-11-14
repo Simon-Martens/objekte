@@ -19,7 +19,7 @@ use objekte_search_core::reference::{
     RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, Payload, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, Payload, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::{
     JsonDecodedScalarsReader, ScanProjection, SourceFormat, SourceReader,
@@ -620,7 +620,6 @@ fn run() -> Result<(), String> {
             source_format,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: workers,
             verified_cache_bytes: 0,
             ..RepositoryOptions::default()

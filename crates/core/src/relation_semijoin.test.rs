@@ -7,7 +7,7 @@ use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, 
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::{
     ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
@@ -118,7 +118,6 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -188,7 +187,6 @@ fn second_target_in_batch_is_checked_before_source_read() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -451,7 +449,6 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
         definitions(),
         RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -622,7 +619,6 @@ fn seeded_array_fixture(
         ],
         RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -795,15 +791,12 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         );
         let snapshot_options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 0,
             ..Default::default()
         };
         let fresh = Repository::open_with_options(&root, definitions(), snapshot_options).unwrap();
-        fresh.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, definitions(), snapshot_options).unwrap();
-        assert!(restored.startup().restored);
         for request in [
             query("entry.title ?~ 'Hymn'"),
             selected_fts(None, "^Hymn.*$", true),

@@ -330,7 +330,6 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
-    pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
@@ -378,20 +377,12 @@ fn finish_fresh_fingerprints(
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
-    pub restored: bool,
-    /// What the open operation actually did with the snapshot.
-    pub snapshot_action: SnapshotAction,
-    /// A recoverable restore failure that caused a read/write rebuild.
-    pub snapshot_restore_error: Option<String>,
-    pub snapshot_decode_ns: u64,
-    pub reconciliation_ns: u64,
     pub build_ns: u64,
     pub build_discovery_ns: u64,
     pub build_extraction_index_ns: u64,
     /// Time spent sealing, indexing, and publishing initial segments.
     pub build_publication_ns: u64,
     pub build_finalization_ns: u64,
-    pub snapshot_write_ns: u64,
     pub build_workers: usize,
     /// Actual construction source opens that reached a read attempt.
     pub build_source_reads: u64,
@@ -665,51 +656,11 @@ fn build_profile_rss_bytes() -> u64 {
 }
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum SnapshotMode {
-    /// Build from source without inspecting a snapshot.
-    Disabled,
-    /// Restore a compatible current snapshot, or build from source.
-    IfValid,
-    /// Require a compatible current snapshot.
-    Required,
-}
-
-
-/// Actual result of the requested snapshot policy.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum SnapshotAction {
-    #[default]
-    BuiltInMemory,
-    Restored,
-}
-
-
-/// Snapshot load policy and directory for one repository opening.
-#[derive(Clone, Debug)]
-pub struct SnapshotOpenPolicy {
-    pub mode: SnapshotMode,
-    /// `None` selects `<root>/.objekte`; a relative path uses the process cwd.
-    pub directory: Option<PathBuf>,
-}
-
-
-impl SnapshotOpenPolicy {
-    pub fn new(mode: SnapshotMode, directory: Option<PathBuf>) -> Self {
-        Self { mode, directory }
-    }
-}
-
-
-/// Index alphabet, snapshot, cache, and worker settings.
+/// Index alphabet, verified cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
-    /// Estimated retained prepared-plan state; no memory is allocated up front.
-    /// This is not a process RSS limit.
-    pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
-    pub snapshot_mode: SnapshotMode,
     pub query_workers: usize,
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
@@ -724,9 +675,7 @@ impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
-            prepared_cache_bytes: 16 * 1024 * 1024,
             verified_cache_bytes: 0,
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
@@ -1250,158 +1199,19 @@ impl Repository {
         Self::open_with_sources(root, definitions, options, SourceRegistry::builtin())
     }
 
-    /// Open with an independent load policy and an optional snapshot directory.
-    pub fn open_with_snapshot_policy(
-        root: impl Into<PathBuf>,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-        policy: SnapshotOpenPolicy,
-    ) -> Result<Self, String> {
-        Self::open_with_sources_and_snapshot_policy(
-            root,
-            definitions,
-            options,
-            SourceRegistry::builtin(),
-            policy,
-        )
-    }
-
     pub fn open_with_sources(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
-        Self::open_with_sources_and_snapshot_policy(
-            root,
-            definitions,
-            options,
-            sources,
-            SnapshotOpenPolicy::new(options.snapshot_mode, None),
-        )
-    }
-
-    /// Registered-reader equivalent of `open_with_snapshot_policy`.
-    pub fn open_with_sources_and_snapshot_policy(
-        root: impl Into<PathBuf>,
-        definitions: Vec<CollectionDefinition>,
-        mut options: RepositoryOptions,
-        sources: SourceRegistry,
-        policy: SnapshotOpenPolicy,
-    ) -> Result<Self, String> {
-        if !cfg!(test) && policy.mode != SnapshotMode::Disabled {
-            return Err(
-                "deprecated snapshot loading is unavailable; use IndexStoragePolicy".into(),
-            );
-        }
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
-        options.snapshot_mode = policy.mode;
-        let root = root.into().canonicalize().map_err(|e| e.to_string())?;
-        let snapshot_directory = policy
-            .directory
-            .as_ref()
-            .map(|directory| {
-                if directory.is_absolute() {
-                    Ok(directory.clone())
-                } else {
-                    std::env::current_dir()
-                        .map(|cwd| cwd.join(directory))
-                        .map_err(|error| error.to_string())
-                }
-            })
-            .transpose()?
-            .unwrap_or_else(|| root.join(".objekte"));
-        let snapshot =
-            crate::storage::snapshot_path_in(&snapshot_directory, options.bigram_alphabet);
-        let mut decode_ns = 0;
-        let mut reconciliation_ns = 0;
-        let mut previous_generations = HashMap::new();
-        let mut restore_error = None;
-        let mut snapshot_exists = false;
-        if matches!(
-            options.snapshot_mode,
-            SnapshotMode::Required | SnapshotMode::IfValid
-        ) {
-            match std::fs::metadata(&snapshot) {
-                Ok(metadata) if metadata.is_file() => snapshot_exists = true,
-                Ok(_) => return Err(format!("snapshot is not a file: {}", snapshot.display())),
-                Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
-                    if options.snapshot_mode == SnapshotMode::Required {
-                        return Err(format!(
-                            "snapshot missing: {}; use --load-index with --write-index to rebuild",
-                            snapshot.display()
-                        ));
-                    }
-                }
-                Err(error) => {
-                    return Err(format!("snapshot access: {}: {error}", snapshot.display()));
-                }
-            }
-        }
-        if matches!(
-            options.snapshot_mode,
-            SnapshotMode::Required | SnapshotMode::IfValid
-        ) && snapshot_exists
-        {
-            let decode_started = crate::detailed_timer::DetailedInstant::now();
-            let loaded = crate::storage::load_snapshot_checked(
-                root.clone(),
-                definitions.clone(),
-                options,
-                &sources,
-                &snapshot,
-            );
-            decode_ns = decode_started.elapsed().as_nanos() as u64;
-            match loaded {
-                Ok(mut repo) => {
-                    let reconciliation_started = crate::detailed_timer::DetailedInstant::now();
-                    let current = crate::storage::sources_match(&repo)?;
-                    reconciliation_ns = reconciliation_started.elapsed().as_nanos() as u64;
-                    if current {
-                        repo.startup = StartupStats {
-                            restored: true,
-                            snapshot_action: SnapshotAction::Restored,
-                            snapshot_decode_ns: decode_ns,
-                            reconciliation_ns,
-                            ..StartupStats::default()
-                        };
-                        return Ok(repo);
-                    }
-                    restore_error = Some("snapshot source inventory is stale".into());
-                    for collection in repo.collections {
-                        previous_generations
-                            .insert(collection.definition.name, collection.generation.generation);
-                    }
-                }
-                Err(crate::storage::SnapshotLoadError::Access(message)) => return Err(message),
-                Err(crate::storage::SnapshotLoadError::Invalid(message)) => {
-                    restore_error = Some(message);
-                }
-            }
-            if options.snapshot_mode == SnapshotMode::Required {
-                return Err(format!(
-                    "snapshot cannot be loaded: {}; use --load-index with --write-index to rebuild",
-                    restore_error
-                        .as_deref()
-                        .unwrap_or("unknown incompatibility")
-                ));
-            }
-        }
-        // Keep source construction separate from the optional restore attempt.
-        let build_started = Instant::now();
-        let mut repo = Self::build_fresh(root, definitions, options, &sources, true)?;
-        for collection in &mut repo.collections {
-            if let Some(previous) = previous_generations.get(&collection.definition.name) {
-                collection.generation.generation =
-                    previous.checked_add(1).ok_or("generation overflow")?;
-            }
-        }
-        repo.startup.snapshot_decode_ns = decode_ns;
-        repo.startup.reconciliation_ns = reconciliation_ns;
-        repo.startup.snapshot_restore_error = restore_error;
-        repo.startup.build_ns = build_started.elapsed().as_nanos() as u64;
-        Ok(repo)
+        let root = root.into().canonicalize().map_err(|error| error.to_string())?;
+        let started = Instant::now();
+        let mut repository = Self::build_fresh(root, definitions, options, &sources, true)?;
+        repository.startup.build_ns = started.elapsed().as_nanos() as u64;
+        Ok(repository)
     }
 
     /// Construct zero-record indexes with the same configuration, without
@@ -1442,12 +1252,11 @@ impl Repository {
     pub(crate) fn empty_for_managed_generation(
         root: PathBuf,
         definitions: Vec<CollectionDefinition>,
-        mut options: RepositoryOptions,
+        options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
-        options.snapshot_mode = SnapshotMode::Disabled;
         let root = root.canonicalize().map_err(|error| error.to_string())?;
         Self::build_fresh(root, definitions, options, &sources, false)
     }
@@ -2070,9 +1879,6 @@ impl Repository {
                 ..StartupStats::default()
             },
             workers,
-            prepared: Mutex::new(crate::prepared::PreparedCache::new(
-                options.prepared_cache_bytes,
-            )),
             verified: Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
             )),
@@ -2168,7 +1974,6 @@ impl Repository {
             preparation_ns: 0,
             #[cfg(feature = "detailed-profiling")]
             planning_ns: 0,
-            prepared_plan_hit: false,
             verified_result_hit: false,
         };
         let mut files_read = HashSet::new();

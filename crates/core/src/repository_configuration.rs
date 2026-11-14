@@ -42,14 +42,11 @@ pub fn load_explicit_schema(path: &Path, collection: &str) -> Result<ExplicitSch
 }
 
 
-/// Definitions from a concrete repository root, with source schema/config
-/// files to protect from cache writes. `schema_files` retains the selected
-/// layout paths; `protected_files` contains their canonical targets.
+/// Definitions from a concrete repository root and its schema files.
 pub struct RepositoryConfiguration {
     pub root: PathBuf,
     pub definitions: Vec<CollectionDefinition>,
     pub schema_files: Vec<PathBuf>,
-    pub protected_files: Vec<PathBuf>,
     pub schema_fields: usize,
 }
 
@@ -88,9 +85,7 @@ pub fn load_repository_configuration(root: &Path) -> Result<RepositoryConfigurat
 
     let mut documents = Vec::with_capacity(schema_files.len());
     let mut names = HashSet::new();
-    let mut protected_files = Vec::with_capacity(schema_files.len());
     for path in &schema_files {
-        let protected = canonical_file(path)?;
         let (bytes, document) = read_schema(path)?;
         let metadata = document
             .get("x-objekte")
@@ -102,7 +97,6 @@ pub fn load_repository_configuration(root: &Path) -> Result<RepositoryConfigurat
                 path.display()
             ));
         }
-        protected_files.push(protected);
         documents.push((path.clone(), bytes, document, name));
     }
 
@@ -158,13 +152,10 @@ pub fn load_repository_configuration(root: &Path) -> Result<RepositoryConfigurat
         definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
         definitions.push(definition);
     }
-    protected_files.sort();
-    protected_files.dedup();
     Ok(RepositoryConfiguration {
         root,
         definitions,
         schema_files,
-        protected_files,
         schema_fields,
     })
 }

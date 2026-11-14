@@ -287,7 +287,7 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -334,7 +334,6 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 sort_overrides: Default::default(),
             }],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -420,7 +419,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
 fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -471,7 +470,6 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
                 sort_overrides: Default::default(),
             }],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -765,7 +763,7 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::{BoundExpr, Schema, bind_filter};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -871,7 +869,6 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -944,10 +941,11 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::{SourceFormat, SourceRegistry};
-    use crate::storage::load_snapshot_checked;
+    use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    use crate::lifecycle::Index;
     use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
@@ -1000,7 +998,6 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         sort_overrides: Default::default(),
     };
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         verified_cache_bytes: 0,
         ..Default::default()
     };
@@ -1076,16 +1073,21 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             assert_eq!(actual.counters.files_opened, 0, "{filter}");
         }
     }
-    let snapshot = root.join("state.snapshot");
-    repo.save_snapshot(&snapshot).unwrap();
-    let restored = load_snapshot_checked(
-        root.clone(),
-        vec![definition],
-        options,
-        &SourceRegistry::builtin(),
-        &snapshot,
-    )
-    .unwrap();
+    let base = root.join("managed-store");
+    std::fs::create_dir(&base).unwrap();
+    let policy = IndexStoragePolicy {
+        location: IndexStorageLocation::CustomDirectory(base),
+        residency: IndexResidency::OnDemand,
+    };
+    let first = Index::open_with_storage(
+        &root, vec![definition.clone()], options, policy.clone(), SourceRegistry::builtin(),
+    ).unwrap();
+    first.shutdown().unwrap();
+    let restored = Index::open_with_storage(
+        &root, vec![definition], options, policy, SourceRegistry::builtin(),
+    ).unwrap();
+    assert!(restored.restored_from_storage());
+    let restored = restored.view().unwrap();
     for filter in [
         "x:null = true",
         "x:? = false",
@@ -1202,7 +1204,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -1244,7 +1246,6 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -1287,7 +1288,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -1339,7 +1340,6 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -1408,7 +1408,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -1473,7 +1473,6 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },

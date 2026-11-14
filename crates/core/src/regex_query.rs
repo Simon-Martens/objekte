@@ -226,18 +226,6 @@ impl CompiledRegex {
             .map_or(0, RegexCondition::retained_heap_bytes)
     }
 
-    pub(crate) fn retained_heap_bytes(&self) -> usize {
-        // `regex::Regex` does not expose its compiled allocation size. Charge
-        // the configured compile/cache ceilings, including the Arc allocation,
-        // so a regex cannot silently occupy a small prepared-cache budget.
-        std::mem::size_of::<Regex>()
-            .saturating_add(2 * std::mem::size_of::<usize>())
-            .saturating_add(COMPILED_SIZE_LIMIT)
-            .saturating_add(DFA_SIZE_LIMIT)
-            .saturating_add(self.matcher.as_str().len())
-            .saturating_add(self.retained_local_heap_bytes())
-    }
-
     pub fn compile(
         pattern: &str,
         options: RegexOptions,

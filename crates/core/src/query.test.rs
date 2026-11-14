@@ -179,7 +179,7 @@ fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
 fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     use crate::model::{FieldPath, LogicalType};
     use crate::reference::FieldDefinition;
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(
@@ -211,7 +211,6 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         &root,
         vec![definition.clone()],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -260,18 +259,15 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         ids(&repo, &Query::from_workload(&case).unwrap()),
         ["path:two.json", "path:one.json"]
     );
-    repo.save_default_snapshot_for_test();
     drop(repo);
     let restored = Repository::open_with_options(
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Required,
             ..Default::default()
         },
     )
     .unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(
         ids(&restored, &Query::from_workload(&case).unwrap()),
         ["path:two.json", "path:one.json"]

@@ -7,7 +7,7 @@ use std::sync::{Arc, Condvar, Mutex};
 use std::time::Instant;
 
 use crate::lifecycle::{Index, IndexError, IndexView};
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceRegistry;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -313,12 +313,11 @@ impl Index {
     pub(crate) fn start_incremental_build_with_sources_and_completion(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
-        mut options: RepositoryOptions,
+        options: RepositoryOptions,
         sources: SourceRegistry,
         seal_owned_memory: bool,
         on_complete: impl FnOnce(&Index) -> Result<(), IndexError> + Send + 'static,
     ) -> Result<InitialBuildTask, IndexError> {
-        options.snapshot_mode = SnapshotMode::Disabled;
         options.inference.validate().map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();

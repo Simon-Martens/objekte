@@ -106,7 +106,7 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
             SourceRegistry::builtin(),
         )
         .unwrap();
-        assert!(restored.restored_from_cache());
+        assert!(restored.restored_from_storage());
         assert_eq!(restored.status().unwrap().build_source_reads, 0);
         let restored_view = restored.view().unwrap();
         for (iteration, id) in ["A", "a", "A"].into_iter().enumerate() {

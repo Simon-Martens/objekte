@@ -1,6 +1,6 @@
 use super::*;
 use crate::reference::FieldDefinition;
-use crate::repository::{IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool, nullable: bool) {
@@ -461,29 +461,24 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
 fn declared_links_resolve_once_and_survive_snapshot_restore() {
     let root = fixture("restore");
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let built = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
     assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
-    assert!(!built.startup().restored);
     assert_eq!(built.build_parses(), 8);
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
-    built.save_default_snapshot_for_test();
     REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let restored = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
     assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
-    assert!(restored.startup().restored);
-    assert_eq!(restored.build_parses(), 0);
+    assert_eq!(restored.build_parses(), 8);
     check(&restored);
     assert_eq!(
         format!("{:?}", built.collections()[2].relations),
         format!("{:?}", restored.collections()[2].relations)
     );
     let changed = Repository::open_with_options(&root, definitions("people"), options).unwrap();
-    assert!(!changed.startup().restored);
     assert_eq!(
         changed
             .relation_index("mentions", &["entry".into()])
@@ -501,7 +496,6 @@ fn publication_validation_still_rejects_broken_relation_state() {
         &root,
         definitions("entries"),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -615,7 +609,6 @@ fn profile_large_fanout_relation_publication() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -663,7 +656,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             &root,
             definitions("missing"),
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             }
         )
@@ -683,7 +675,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             &root,
             defs,
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             }
         )
@@ -697,7 +688,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             &root,
             definitions("entries"),
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             }
         )
@@ -842,7 +832,6 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
         &root,
         defs,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -902,7 +891,6 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     }
     std::fs::write(root.join("entries/broken.json"), "{broken").unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         ..Default::default()
     };
     let initial = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
@@ -914,14 +902,11 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     )
     .unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     for restored in [false, true] {
         let repo = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-        assert_eq!(repo.startup().restored, restored);
         if !restored {
-            repo.save_default_snapshot_for_test();
         }
         let source = &repo.collections()[2];
         let target = &repo.collections()[0];

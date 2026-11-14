@@ -14,7 +14,7 @@ use objekte_search_core::reference::{
     BindingOperation, FieldDefinition, PreparedFilterMatcher, RegisteredBinding, Schema,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{ReturnMode, SortField};
@@ -215,7 +215,6 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
     schema.set_raw_binding(binding)?;
     let custom_definition = definition("data", SourceFormat::JsonLines, schema, false);
     let custom_options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         query_workers: 4,
         ..Default::default()
     };
@@ -225,13 +224,6 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             vec![custom_definition.clone()],
             custom_options,
         )?;
-        assert_eq!(repo.startup().restored, opening == 1);
-        if opening == 0 {
-            repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &custom_root,
-                custom_options.bigram_alphabet,
-            ))?;
-        }
         let base = Query {
             collections: vec!["data".into()],
             filter: None,
@@ -304,7 +296,6 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         fs::write(source_root.join("data/all.jsonl"), data).map_err(|e| e.to_string())?;
         let definition = definition("data", SourceFormat::JsonLines, Schema::default(), false);
         let build_options = RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: 4,
             ..Default::default()
         };
@@ -350,27 +341,21 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             };
             assert_eq!(repo.search(&query)?.count, Some(400));
             measure(&repo, "mixed-raw-fts-build", &query, 11)?;
-            repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &source_root,
-                build_options.bigram_alphabet,
-            ))?;
             let started = Instant::now();
             let restored = Repository::open_with_options(
                 &source_root,
                 vec![definition],
                 RepositoryOptions {
-                    snapshot_mode: SnapshotMode::IfValid,
                     ..build_options
                 },
             )?;
-            let restore_ns = started.elapsed().as_nanos() as u64;
-            assert!(restored.startup().restored);
+            let rebuild_ns = started.elapsed().as_nanos() as u64;
             assert_eq!(restored.search(&query)?.hits, repo.search(&query)?.hits);
             println!(
                 "{}",
-                serde_json::json!({"case":"mixed-restore","restore_ns":restore_ns,"peak_resident_bytes":memory_bytes("VmHWM:")})
+                serde_json::json!({"case":"mixed-rebuild","rebuild_ns":rebuild_ns,"peak_resident_bytes":memory_bytes("VmHWM:")})
             );
-            measure(&restored, "mixed-raw-fts-restore", &query, 11)?;
+            measure(&restored, "mixed-raw-fts-rebuild", &query, 11)?;
         }
     }
     Ok(())
@@ -516,7 +501,6 @@ fn run() -> Result<(), String> {
             definition("right", SourceFormat::JsonLines, Schema::default(), false),
         ],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: 4,
             ..Default::default()
         },

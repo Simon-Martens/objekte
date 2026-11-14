@@ -60,32 +60,6 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
             .count,
         Some(1)
     );
-    let cache = root.join("index.snapshot");
-    adapter.index().flush_cache(&cache).unwrap();
-    assert!(
-        !IndexedRepository::new(adapter.index().clone())
-            .unwrap()
-            .startup()
-            .restored
-    );
-    let loaded = Index::load_cache(
-        &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
-        RepositoryOptions::default(),
-        &cache,
-    )
-    .unwrap();
-    assert!(
-        IndexedRepository::new(loaded.clone())
-            .unwrap()
-            .startup()
-            .restored
-    );
-    loaded.shutdown().unwrap();
     let handle = adapter
         .index()
         .view()

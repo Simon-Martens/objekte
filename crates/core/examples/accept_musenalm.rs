@@ -153,8 +153,7 @@ fn run() -> Result<(), String> {
         );
     }
     println!(
-        "accepted {checked} cases; alphabet={alphabet:?}; snapshot_restored={}",
-        repo.startup().restored
+        "accepted {checked} cases; alphabet={alphabet:?}"
     );
     Ok(())
 }

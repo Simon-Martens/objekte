@@ -4,9 +4,8 @@
 Build first: cargo build --release -p objekte-search-core --example bench_optional_features
 Run: python3 bench/run_optional_features.py --result-dir bench/results/musenalm/optional-features-YYYYMMDD
 
-The primary three runs construct the same unchanged `data/entries` collection
-with snapshots disabled. Optional snapshot runs copy the source tree once to an
-isolated temporary root, so they cannot change the user's Musenalm cache.
+The three inference modes construct the same unchanged `data/entries`
+collection. Optional warm runs use a 64 MiB verified-result cache.
 """
 
 from __future__ import annotations
@@ -16,9 +15,7 @@ import csv
 import json
 import os
 import platform
-import shutil
 import subprocess
-import tempfile
 from pathlib import Path
 
 
@@ -31,10 +28,10 @@ def command_output(*command: str) -> str:
 
 
 def run_case(binary: Path, root: Path, result_dir: Path, label: str,
-             mode: str, snapshot: str, alphabet: str, workers: str,
+             mode: str, alphabet: str, workers: str,
              query_workers: int | None, cache_bytes: int, skip_queries: bool) -> dict:
     command = [str(binary), "--root", str(root), "--alphabet", alphabet,
-               "--inference", mode, "--snapshot-mode", snapshot,
+               "--inference", mode,
                "--build-workers", workers, "--verified-cache-bytes", str(cache_bytes)]
     if query_workers is not None:
         command.extend(("--query-workers", str(query_workers)))
@@ -61,7 +58,6 @@ def main() -> None:
     parser.add_argument("--build-workers", default="auto")
     parser.add_argument("--query-workers", type=int)
     parser.add_argument("--warm-cache", action="store_true", help="also run the 64 MiB warm profile")
-    parser.add_argument("--snapshots", action="store_true", help="run isolated rebuild/restore pairs")
     args = parser.parse_args()
     root = args.root.resolve()
     result_dir = args.result_dir.resolve()
@@ -91,40 +87,17 @@ def main() -> None:
     results: list[tuple[str, dict]] = []
     for mode in MODES:
         label = f"{mode}-cold"
-        result = run_case(binary, root, result_dir, label, mode, "disabled",
+        result = run_case(binary, root, result_dir, label, mode,
                           args.alphabet, args.build_workers, args.query_workers, 0, False)
         results.append((label, result))
         print(f"{label}: ready {result['readiness_ns'] / 1e6:.3f} ms; "
               f"{result['record_count']} records; {len(result['cases'])} cases", flush=True)
         if args.warm_cache:
             label = f"{mode}-warm"
-            result = run_case(binary, root, result_dir, label, mode, "disabled",
+            result = run_case(binary, root, result_dir, label, mode,
                               args.alphabet, args.build_workers, args.query_workers, 64 * 1024 * 1024, False)
             results.append((label, result))
             print(f"{label}: ready {result['readiness_ns'] / 1e6:.3f} ms", flush=True)
-    if args.snapshots:
-        with tempfile.TemporaryDirectory(prefix="objekte-optional-bench-") as temporary:
-            isolated = Path(temporary)
-            shutil.copytree(root / "data/entries", isolated / "data/entries", copy_function=shutil.copy2)
-            for mode in MODES:
-                for snapshot in ("rebuild", "read-write"):
-                    label = f"{mode}-{snapshot}"
-                    result = run_case(binary, isolated, result_dir, label, mode, snapshot,
-                                      args.alphabet, args.build_workers, args.query_workers, 0, True)
-                    results.append((label, result))
-                    print(f"{label}: ready {result['readiness_ns'] / 1e6:.3f} ms; "
-                          f"restored={result['snapshot_restored']}", flush=True)
-                    if snapshot == "read-write" and not result["snapshot_restored"]:
-                        raise RuntimeError(f"{label} unexpectedly rebuilt")
-                if mode == "disabled":
-                    label = "disabled-to-auto"
-                    result = run_case(binary, isolated, result_dir, label, "auto", "read-write",
-                                      args.alphabet, args.build_workers, args.query_workers, 0, True)
-                    results.append((label, result))
-                    print(f"{label}: ready {result['readiness_ns'] / 1e6:.3f} ms; "
-                          f"restored={result['snapshot_restored']}", flush=True)
-                    if result["snapshot_restored"]:
-                        raise RuntimeError("enabling inference restored a Disabled snapshot")
     cold = [value for label, value in results if label.endswith("-cold")]
     fingerprints = {value["corpus_sha256"] for value in cold}
     if len(fingerprints) != 1:
@@ -133,13 +106,13 @@ def main() -> None:
         writer = csv.writer(handle)
         writer.writerow(("profile", "mode", "readiness_ms", "build_parses", "records",
                          "observed_paths", "admitted_paths", "inferred_index_bytes",
-                         "snapshot_bytes", "rss_mib", "peak_rss_mib"))
+                         "rss_mib", "peak_rss_mib"))
         for label, value in results:
             report = value["inference_report"] or {}
             writer.writerow((label, value["inference"], value["readiness_ns"] / 1e6,
                              value["build_parses"], value["record_count"],
                              report.get("observed_paths"), report.get("admitted_paths"),
-                             report.get("index_bytes_estimate"), value["snapshot_bytes"],
+                             report.get("index_bytes_estimate"),
                              (value["rss_after_open_bytes"] or 0) / 1048576,
                              (value["peak_rss_after_open_bytes"] or 0) / 1048576))
     with (result_dir / "queries.csv").open("w", newline="") as handle:

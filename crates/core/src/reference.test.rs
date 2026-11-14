@@ -1096,7 +1096,7 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     use crate::query::{Query, QueryOptions};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -1135,7 +1135,6 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         }
     };
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         ..Default::default()
     };
     std::fs::write(root.join("data/bad.json"), r#"{"count":"7","other":"ok"}"#).unwrap();
@@ -1188,15 +1187,11 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         );
     }
     let persisted = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
-    assert!(!built.startup().restored);
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(restored.search(&query).unwrap().hits[0].record_id, "eight");
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1205,7 +1200,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
 fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
@@ -1267,7 +1262,6 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         },
     ];
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let check = |repo: &Repository| {
@@ -1378,12 +1372,9 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         );
     };
     let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-    assert!(!built.startup().restored);
     check(&built);
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
-    assert!(restored.startup().restored);
     check(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }

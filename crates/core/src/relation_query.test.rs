@@ -6,7 +6,7 @@ use crate::query::{CaseSensitivity, FtsMode, Query};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 
@@ -83,7 +83,6 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             &root,
             definitions,
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -578,7 +577,6 @@ fn merged_relation_walker_matches_static_reference_semantics() {
             &root,
             definitions,
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -817,7 +815,6 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )
@@ -876,7 +873,6 @@ fn lifecycle_related_sort_uses_target_stored_column() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )
@@ -930,7 +926,6 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )
@@ -974,7 +969,6 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
             definitions.clone(),
             RepositoryOptions {
                 query_workers: workers,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
         )
@@ -1073,7 +1067,6 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
             definitions.clone(),
             RepositoryOptions {
                 query_workers: workers,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
         )
@@ -1292,7 +1285,6 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -1378,7 +1370,6 @@ fn related_reducers_preserve_source_reference_occurrences() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -1435,7 +1426,6 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -1497,7 +1487,6 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -1533,7 +1522,6 @@ fn finite_relation_paths_have_independent_reference_answers() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -1654,7 +1642,6 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -1722,7 +1709,6 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
 fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
     let (root, definitions) = fixture();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
@@ -1755,9 +1741,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         assert_eq!(actual.count, Some(expected));
         assert_eq!(actual.hits, reference.hits);
     }
-    repo.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
-    assert!(restored.startup().restored);
     for filter in ["entry.title = 'Hymn'", "contributors.title ?= 'Hymn'"] {
         let request = query("mentions", Some(filter), None, None, false);
         assert_eq!(
@@ -1778,7 +1762,6 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -1844,7 +1827,6 @@ fn mixed_local_and_relation_fts_borrows_source_value_text() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: 1,
             ..Default::default()
         },
@@ -1878,7 +1860,6 @@ fn selected_fts_rejects_disagreeing_public_field_and_query_path() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
