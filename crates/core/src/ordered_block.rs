@@ -453,24 +453,6 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         )
     }
 
-    pub(crate) fn open_with_proven_order_visiting_encoded(
-        reader: Arc<SegmentReader>,
-        section: SectionKind,
-        start: usize,
-        length: usize,
-        mut visit: impl FnMut(usize, &[u8]) -> Result<(), String>,
-    ) -> Result<Self, String> {
-        Self::open_impl(
-            reader,
-            section,
-            start,
-            length,
-            LeafValidation::Framing,
-            None,
-            Some(&mut visit),
-        )
-    }
-
     /// Only for a dictionary just emitted by `write_ordered_dictionary` into
     /// this process's owned bytes. The writer already proved leaf ordering and
     /// descriptor construction; external bytes must use `open` instead.

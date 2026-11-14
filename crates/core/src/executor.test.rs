@@ -137,23 +137,33 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     let bound = crate::reference::bind_fts(&request, &definition.schema).unwrap();
     let mut pack = crate::posting_dictionary::PostingPack::new();
     let mut dictionaries = Vec::new();
+    let mut filters = Vec::new();
     let raw_spans = crate::bigram_dictionary::append_bigram_index(
         &mut dictionaries,
+        &mut filters,
         &mut pack,
         &segment.raw,
         &segment.logical_records,
+        0,
     )
     .unwrap();
     let fallback = &RoaringBitmap::from_iter(0..segment.records.len() as u32)
         - &segment.logical_records;
     let fallback_spans = crate::bigram_dictionary::append_bigram_index(
         &mut dictionaries,
+        &mut filters,
         &mut pack,
         &segment.fallback_text,
         &fallback,
+        1,
     )
     .unwrap();
-    let mut writer = crate::segment_format::SegmentWriter::new(std::io::Cursor::new(Vec::new()), 2)
+    let mut writer = crate::segment_format::SegmentWriter::new(std::io::Cursor::new(Vec::new()), 3)
+        .unwrap();
+    writer
+        .write_section(crate::segment_format::SectionKind::GramFilters, |out| {
+            out.write_all(&filters).map_err(|error| error.to_string())
+        })
         .unwrap();
     writer
         .write_section(crate::segment_format::SectionKind::BigramDictionaries, |out| {
@@ -173,11 +183,11 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     );
     segment
         .raw
-        .install_sealed(Arc::clone(&reader), raw_spans, Arc::new(segment.logical_records.clone()))
+        .install_sealed(Arc::clone(&reader), raw_spans, 0, Arc::new(segment.logical_records.clone()))
         .unwrap();
     segment
         .fallback_text
-        .install_sealed(reader, fallback_spans, Arc::new(fallback))
+        .install_sealed(reader, fallback_spans, 1, Arc::new(fallback))
         .unwrap();
     assert!(segment_fts_candidates(&segment, collection, &bound).is_err());
     std::fs::remove_dir_all(root).unwrap();

@@ -15,7 +15,7 @@ use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
 const MAGIC: &[u8; 8] = b"OBJHSEG1";
-pub(crate) const FORMAT_VERSION: u32 = 2;
+pub(crate) const FORMAT_VERSION: u32 = 3;
 const HEADER_BYTES: usize = 24;
 const DIRECTORY_ENTRY_BYTES: usize = 56;
 const MAX_SECTIONS: usize = 32;
@@ -37,10 +37,11 @@ pub(crate) enum SectionKind {
     SortData = 8,
     RelationAndIdentity = 9,
     Integrity = 10,
+    GramFilters = 11,
 }
 
 
-pub(crate) const REQUIRED_SECTIONS: [SectionKind; 10] = [
+pub(crate) const REQUIRED_SECTIONS: [SectionKind; 11] = [
     SectionKind::FieldMetadata,
     SectionKind::TextBindings,
     SectionKind::ScalarDictionaries,
@@ -51,6 +52,7 @@ pub(crate) const REQUIRED_SECTIONS: [SectionKind; 10] = [
     SectionKind::SortData,
     SectionKind::RelationAndIdentity,
     SectionKind::Integrity,
+    SectionKind::GramFilters,
 ];
 
 
@@ -69,6 +71,7 @@ impl TryFrom<u32> for SectionKind {
             8 => Self::SortData,
             9 => Self::RelationAndIdentity,
             10 => Self::Integrity,
+            11 => Self::GramFilters,
             _ => return Err(format!("unknown immutable segment section {value}")),
         })
     }
@@ -174,7 +177,7 @@ pub(crate) enum SegmentTrust {
 
 /// Bump when dictionary ordering, metadata semantics, collation or the
 /// validator's interpretation changes. Old stamps then require a full open.
-pub(crate) const VALIDATOR_VERSION: u32 = 1;
+pub(crate) const VALIDATOR_VERSION: u32 = 2;
 
 
 /// The retained domain owner makes the pointer identity stable for the

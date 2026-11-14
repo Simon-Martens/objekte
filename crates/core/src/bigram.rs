@@ -275,6 +275,14 @@ pub struct BigramIndex {
 
 
 impl BigramIndex {
+    pub(crate) fn normal_key_count(&self) -> usize {
+        self.sealed.as_ref().map_or(self.normal.len(), |sealed| sealed.normal_key_count())
+    }
+
+    pub(crate) fn skip_key_count(&self) -> usize {
+        self.sealed.as_ref().map_or(self.skip.len(), |sealed| sealed.skip_key_count())
+    }
+
     pub(crate) fn is_sealed(&self) -> bool {
         self.sealed.is_some()
     }
@@ -316,10 +324,11 @@ impl BigramIndex {
         &mut self,
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
+        binding: u32,
         allowed: Arc<RoaringBitmap>,
     ) -> Result<(), String> {
         let sealed =
-            SealedBigramIndex::open(reader, spans, self.alphabet, self.record_count, allowed)?;
+            SealedBigramIndex::open(reader, spans, binding, self.alphabet, self.record_count, allowed)?;
         self.normal = HashMap::new();
         self.skip = HashMap::new();
         self.sealed = Some(Arc::new(sealed));
@@ -330,11 +339,13 @@ impl BigramIndex {
         &mut self,
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
+        binding: u32,
         allowed: Arc<RoaringBitmap>,
     ) -> Result<(), String> {
         let sealed = SealedBigramIndex::open_stamped(
             reader,
             spans,
+            binding,
             self.alphabet,
             self.record_count,
             allowed,
@@ -349,18 +360,16 @@ impl BigramIndex {
         &mut self,
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
+        binding: u32,
         allowed: Arc<RoaringBitmap>,
-        normal_presence: Option<crate::bigram_dictionary::GramPresence>,
-        skip_presence: Option<crate::bigram_dictionary::GramPresence>,
     ) -> Result<(), String> {
         let sealed = SealedBigramIndex::from_constructed(
             reader,
             spans,
+            binding,
             self.alphabet,
             self.record_count,
             allowed,
-            normal_presence,
-            skip_presence,
         )?;
         self.normal = HashMap::new();
         self.skip = HashMap::new();

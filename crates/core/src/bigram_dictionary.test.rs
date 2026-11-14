@@ -8,14 +8,18 @@ fn seal(index: &BigramIndex) -> SealedBigramIndex {
     let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
     let mut pack = PostingPack::new();
     let mut dictionaries = Vec::new();
-    let spans = append_bigram_index(&mut dictionaries, &mut pack, index, &allowed).unwrap();
-    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
+    let mut filters = Vec::new();
+    let spans = append_bigram_index(&mut dictionaries, &mut filters, &mut pack, index, &allowed, 0).unwrap();
+    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 3).unwrap();
     writer
         .write_section(SectionKind::BigramDictionaries, |out| {
             out.write_all(&dictionaries)
                 .map_err(|error| error.to_string())
         })
         .unwrap();
+    writer.write_section(SectionKind::GramFilters, |out| {
+        out.write_all(&filters).map_err(|error| error.to_string())
+    }).unwrap();
     writer
         .write_section(SectionKind::PostingPayloads, |out| {
             out.write_all(pack.bytes())
@@ -25,7 +29,7 @@ fn seal(index: &BigramIndex) -> SealedBigramIndex {
     let reader = Arc::new(
         SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap(),
     );
-    SealedBigramIndex::open(reader, spans, index.alphabet, index.record_count, allowed).unwrap()
+    SealedBigramIndex::open(reader, spans, 0, index.alphabet, index.record_count, allowed).unwrap()
 }
 
 #[test]
@@ -98,9 +102,11 @@ fn encoding_rejects_postings_outside_binding_domain() {
     assert!(
         append_bigram_index(
             &mut Vec::new(),
+            &mut Vec::new(),
             &mut pack,
             &index,
             &RoaringBitmap::from_iter([0]),
+            0,
         )
         .is_err()
     );
@@ -125,14 +131,18 @@ fn installed_reader_releases_mutable_gram_maps_and_keeps_candidates() {
     let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
     let mut pack = PostingPack::new();
     let mut dictionaries = Vec::new();
-    let spans = append_bigram_index(&mut dictionaries, &mut pack, &index, &allowed).unwrap();
-    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
+    let mut filters = Vec::new();
+    let spans = append_bigram_index(&mut dictionaries, &mut filters, &mut pack, &index, &allowed, 0).unwrap();
+    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 3).unwrap();
     writer
         .write_section(SectionKind::BigramDictionaries, |out| {
             out.write_all(&dictionaries)
                 .map_err(|error| error.to_string())
         })
         .unwrap();
+    writer.write_section(SectionKind::GramFilters, |out| {
+        out.write_all(&filters).map_err(|error| error.to_string())
+    }).unwrap();
     writer
         .write_section(SectionKind::PostingPayloads, |out| {
             out.write_all(pack.bytes())
@@ -142,7 +152,7 @@ fn installed_reader_releases_mutable_gram_maps_and_keeps_candidates() {
     let reader = Arc::new(
         SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap(),
     );
-    index.install_sealed(reader, spans, allowed).unwrap();
+    index.install_sealed(reader, spans, 0, allowed).unwrap();
     assert!(index.normal.is_empty() && index.skip.is_empty());
     assert_eq!(index.try_candidates_prepared(&request).unwrap(), expected);
     assert_eq!(index.try_estimate_prepared(&request).unwrap(), Some(1));
@@ -164,12 +174,14 @@ fn presence_filter_preserves_every_sealed_gram() {
     let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
     let mut pack = PostingPack::new();
     let mut dictionaries = Vec::new();
+    let mut filters = Vec::new();
     let constructed = append_bigram_index_constructed(
-        &mut dictionaries, &mut pack, &index, &allowed,
+        &mut dictionaries, &mut filters, &mut pack, &index, &allowed, 0,
     ).unwrap();
     let sections = crate::segment_format::REQUIRED_SECTIONS.map(|kind| {
         let bytes = match kind {
             SectionKind::BigramDictionaries => std::mem::take(&mut dictionaries),
+            SectionKind::GramFilters => std::mem::take(&mut filters),
             SectionKind::PostingPayloads => pack.bytes().to_vec(),
             _ => Vec::new(),
         };
@@ -177,8 +189,7 @@ fn presence_filter_preserves_every_sealed_gram() {
     });
     let reader = Arc::new(SegmentReader::from_constructed_sections(sections).unwrap());
     let constructed = SealedBigramIndex::from_constructed(
-        reader, constructed.spans, index.alphabet, index.record_count,
-        allowed, constructed.normal_presence, constructed.skip_presence,
+        reader, constructed, 0, index.alphabet, index.record_count, allowed,
     ).unwrap();
     for reader in [&sealed, &constructed] {
         for (dictionary, presence) in [
@@ -188,7 +199,7 @@ fn presence_filter_preserves_every_sealed_gram() {
             let presence = presence.as_ref().expect("enough grams to build a filter");
             dictionary
                 .visit_entries(|key, _| {
-                    assert!(presence.might_contain(*key));
+                    assert!(presence.might_contain(*key).unwrap());
                     Ok(true)
                 })
                 .unwrap();
@@ -197,5 +208,42 @@ fn presence_filter_preserves_every_sealed_gram() {
             reader.candidates_prepared(&BigramRequest::new("definitely missing")).unwrap(),
             index.candidates_prepared(&BigramRequest::new("definitely missing"))
         );
+    }
+}
+
+#[test]
+fn checked_open_rejects_false_negative_and_swapped_filter_binding() {
+    let mut index = BigramIndex::new_ascii();
+    for slot in 0..100 {
+        index.add_record(
+            RecordSlot(slot),
+            &[TextSegment { path: vec!["text".into()], text: format!("unique-prefix-{slot:03}") }],
+        ).unwrap();
+    }
+    let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
+    let mut pack = PostingPack::new();
+    let mut dictionaries = Vec::new();
+    let mut filters = Vec::new();
+    let spans = append_bigram_index(&mut dictionaries, &mut filters, &mut pack, &index, &allowed, 0).unwrap();
+    assert!(spans.normal_filter.length > FILTER_HEADER);
+    for swap_binding in [false, true] {
+        let mut damaged = filters.clone();
+        if swap_binding {
+            damaged[16..20].copy_from_slice(&1u32.to_le_bytes());
+        } else {
+            damaged[FILTER_HEADER..spans.normal_filter.length].fill(0);
+        }
+        let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 3).unwrap();
+        writer.write_section(SectionKind::BigramDictionaries, |out| {
+            out.write_all(&dictionaries).map_err(|error| error.to_string())
+        }).unwrap();
+        writer.write_section(SectionKind::GramFilters, |out| {
+            out.write_all(&damaged).map_err(|error| error.to_string())
+        }).unwrap();
+        writer.write_section(SectionKind::PostingPayloads, |out| {
+            out.write_all(pack.bytes()).map_err(|error| error.to_string())
+        }).unwrap();
+        let reader = Arc::new(SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap());
+        assert!(SealedBigramIndex::open(reader, spans, 0, index.alphabet, index.record_count, Arc::clone(&allowed)).is_err());
     }
 }

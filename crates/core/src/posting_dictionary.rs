@@ -376,30 +376,6 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         })
     }
 
-    pub(crate) fn open_stamped_visiting_encoded(
-        reader: Arc<SegmentReader>,
-        section: SectionKind,
-        span: DictionarySpan,
-        allowed: Arc<RoaringBitmap>,
-        visit: impl FnMut(usize, &[u8]) -> Result<(), String>,
-    ) -> Result<Self, String> {
-        let dictionary = OrderedBlockDictionary::open_with_proven_order_visiting_encoded(
-            Arc::clone(&reader),
-            section,
-            span.start,
-            span.length,
-            visit,
-        )?;
-        let validated_ordinals = Some(validation_slots(dictionary.len())?);
-        Ok(Self {
-            reader,
-            dictionary,
-            allowed,
-            constructed: false,
-            validated_ordinals,
-        })
-    }
-
     pub(crate) fn open_visiting_entries(
         reader: Arc<SegmentReader>,
         section: SectionKind,

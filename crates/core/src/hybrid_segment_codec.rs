@@ -1,6 +1,6 @@
 //! Source-I/O-free packing of one immutable search segment.
 //!
-//! Version 1 keeps typed dictionary bytes and portable Roaring postings in
+//! Version 3 keeps typed dictionary bytes and portable Roaring postings in
 //! independently addressable sections. The materialized and sealed decoders
 //! share all metadata validation. The sealed path keeps typed dictionary
 //! readers and checks posting payloads only when queries access them.
@@ -14,9 +14,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
 use crate::bigram::BigramIndex;
-use crate::bigram_dictionary::{
-    BigramSpans, GramPresence, append_bigram_index, append_bigram_index_constructed,
-};
+use crate::bigram_dictionary::{BigramSpans, append_bigram_index, append_bigram_index_constructed};
 use crate::build::IndexedCollectionSegment;
 use crate::inference::{InferenceMode, InferenceReport, InferenceState};
 use crate::inventory::FileEntry;
@@ -41,7 +39,7 @@ use crate::segment_metadata::{
 };
 use crate::workload::BigramAlphabet;
 
-const META_VERSION: u32 = 1;
+const META_VERSION: u32 = 2;
 const FIELD_MAGIC: &[u8; 8] = b"OBJHFLD1";
 const STRUCT_MAGIC: &[u8; 8] = b"OBJHSTR1";
 const TEXT_MAGIC: &[u8; 8] = b"OBJHTXT1";
@@ -215,10 +213,8 @@ struct TextBinding {
     record_count: u32,
     normal: Span,
     skip: Span,
-    #[serde(skip)]
-    normal_presence: Option<GramPresence>,
-    #[serde(skip)]
-    skip_presence: Option<GramPresence>,
+    normal_filter: Span,
+    skip_filter: Span,
 }
 
 
@@ -313,7 +309,7 @@ fn write_bytes<W: Write + Seek>(
     })
 }
 
-/// Encode a complete collection segment into the ten-section immutable format.
+/// Encode a complete collection segment into the immutable section format.
 /// The callback interns file metadata in the generation catalog, including
 /// distinct historical revisions, and returns its checked table ID.
 pub(crate) fn write_segment<W: Write + Seek>(
@@ -400,6 +396,7 @@ struct EncodedSections {
     scalar: Vec<u8>,
     structural_bytes: Vec<u8>,
     bigrams: Vec<u8>,
+    gram_filters: Vec<u8>,
     record_bytes: Vec<u8>,
     sort_bytes: Vec<u8>,
     relation_bytes: Vec<u8>,
@@ -467,6 +464,7 @@ fn write_segment_inner<W: Write + Seek>(
         sections.scalar.len(),
         sections.structural_bytes.len(),
         sections.bigrams.len(),
+        sections.gram_filters.len(),
         sections.record_bytes.len(),
         sections.sort_bytes.len(),
         sections.relation_bytes.len(),
@@ -487,6 +485,7 @@ fn write_segment_inner<W: Write + Seek>(
         scalar,
         structural_bytes,
         bigrams,
+        gram_filters,
         record_bytes,
         sort_bytes,
         relation_bytes,
@@ -517,6 +516,7 @@ fn write_segment_inner<W: Write + Seek>(
     )?;
     drop(relation_bytes);
     write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
+    write_bytes(&mut writer, SectionKind::GramFilters, &gram_filters)?;
     let section_copy_ns = section_copy_started
         .map(|started| started.elapsed().as_nanos())
         .unwrap_or(0);
@@ -549,6 +549,7 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     let slot_count = u32::try_from(segment.records.len()).map_err(|_| "too many record slots")?;
     let mut scalar = Vec::new();
     let mut bigrams = Vec::new();
+    let mut gram_filters = Vec::new();
     let mut fields = Vec::new();
     let mut structural = Vec::new();
     for (key, index, custom_complete) in posting_inputs(segment) {
@@ -613,25 +614,17 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     });
     let fallback = constructed_fallback.or(fallback_owned.as_ref()).unwrap();
     let mut texts = Vec::new();
-    for (key, index) in text_inputs(segment) {
+    for (binding_number, (key, index)) in text_inputs(segment).into_iter().enumerate() {
         let allowed = if key == TextKey::Fallback {
             fallback
         } else {
             &segment.logical_records
         };
-        let (spans, normal_presence, skip_presence) = if validate_before_write {
-            (
-                append_bigram_index(&mut bigrams, pack, index, allowed)?,
-                None,
-                None,
-            )
+        let binding_number = u32::try_from(binding_number).map_err(|_| "too many text bindings")?;
+        let spans = if validate_before_write {
+            append_bigram_index(&mut bigrams, &mut gram_filters, pack, index, allowed, binding_number)?
         } else {
-            let constructed = append_bigram_index_constructed(&mut bigrams, pack, index, allowed)?;
-            (
-                constructed.spans,
-                constructed.normal_presence,
-                constructed.skip_presence,
-            )
+            append_bigram_index_constructed(&mut bigrams, &mut gram_filters, pack, index, allowed, binding_number)?
         };
         texts.push(TextBinding {
             key,
@@ -639,8 +632,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             record_count: index.record_count,
             normal: spans.normal.into(),
             skip: spans.skip.into(),
-            normal_presence,
-            skip_presence,
+            normal_filter: spans.normal_filter.into(),
+            skip_filter: spans.skip_filter.into(),
         });
     }
     let dictionary_ns = phase
@@ -755,6 +748,7 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         scalar,
         structural_bytes,
         bigrams,
+        gram_filters,
         record_bytes,
         sort_bytes,
         relation_bytes,
@@ -864,6 +858,7 @@ fn encode_constructed_sections(
         scalar,
         structural_bytes,
         bigrams,
+        gram_filters,
         record_bytes,
         sort_bytes,
         relation_bytes,
@@ -880,6 +875,7 @@ fn encode_constructed_sections(
         (SectionKind::SortData, sort_bytes),
         (SectionKind::RelationAndIdentity, relation_bytes),
         (SectionKind::Integrity, integrity_bytes),
+        (SectionKind::GramFilters, gram_filters),
     ];
     Ok(ConstructedSections {
         sections,
@@ -934,7 +930,7 @@ pub(crate) fn seal_segment_consuming(
             )?,
         )?;
     }
-    for binding in text_bindings {
+    for (binding_number, binding) in text_bindings.into_iter().enumerate() {
         let index = match &binding.key {
             TextKey::Raw => Some(&mut segment.raw),
             TextKey::Fallback => Some(&mut segment.fallback_text),
@@ -951,14 +947,15 @@ pub(crate) fn seal_segment_consuming(
             BigramSpans {
                 normal: binding.normal.checked()?,
                 skip: binding.skip.checked()?,
+                normal_filter: binding.normal_filter.checked()?,
+                skip_filter: binding.skip_filter.checked()?,
             },
+            binding_number as u32,
             Arc::clone(if binding.key == TextKey::Fallback {
                 &fallback
             } else {
                 &logical
             }),
-            binding.normal_presence,
-            binding.skip_presence,
         )?;
     }
     Ok(segment)
@@ -1029,6 +1026,23 @@ fn check_spans(spans: impl IntoIterator<Item = Span>, section_len: usize) -> Res
     }
     if position != section_len as u64 {
         return Err("hybrid dictionary section has unreferenced bytes".into());
+    }
+    Ok(())
+}
+
+fn check_filter_spans(spans: impl IntoIterator<Item = Span>, section_len: usize) -> Result<(), String> {
+    let mut position = 0u64;
+    for span in spans {
+        if span.start != position {
+            return Err("hybrid gram filter span gap or overlap".into());
+        }
+        position = position.checked_add(span.length).ok_or("hybrid gram filter span overflow")?;
+        if position > section_len as u64 {
+            return Err("hybrid gram filter span out of bounds".into());
+        }
+    }
+    if position != section_len as u64 {
+        return Err("hybrid gram filter section has unreferenced bytes".into());
     }
     Ok(())
 }
@@ -1154,6 +1168,8 @@ fn decode_segment_impl<'a>(
             .flat_map(|text| [text.normal, text.skip]),
         bigram_len,
     )?;
+    let gram_filter_len = required(&reader, SectionKind::GramFilters)?.len();
+    check_filter_spans(texts.bindings.iter().flat_map(|text| [text.normal_filter, text.skip_filter]), gram_filter_len)?;
     let records = decode_record_slots(
         required(&reader, SectionKind::RecordSlots)?,
         collection,
@@ -1337,7 +1353,7 @@ fn decode_segment_impl<'a>(
     let mut raw = None;
     let mut fallback_text = None;
     let mut custom_text = HashMap::new();
-    for binding in texts.bindings {
+    for (binding_number, binding) in texts.bindings.into_iter().enumerate() {
         if binding.alphabet != options.bigram_alphabet || binding.record_count != count {
             return Err("hybrid text binding alphabet or slot domain mismatch".into());
         }
@@ -1352,6 +1368,8 @@ fn decode_segment_impl<'a>(
             let spans = BigramSpans {
                 normal: binding.normal.checked()?,
                 skip: binding.skip.checked()?,
+                normal_filter: binding.normal_filter.checked()?,
+                skip_filter: binding.skip_filter.checked()?,
             };
             let allowed = Arc::clone(if binding.key == TextKey::Fallback {
                 fallback_shared.as_ref().unwrap()
@@ -1359,11 +1377,11 @@ fn decode_segment_impl<'a>(
                 logical_shared.as_ref().unwrap()
             });
             if trust == crate::segment_format::SegmentTrust::Constructed {
-                index.install_constructed(Arc::clone(&reader), spans, allowed, None, None)?;
+                index.install_constructed(Arc::clone(&reader), spans, binding_number as u32, allowed)?;
             } else if trust == crate::segment_format::SegmentTrust::Stamped {
-                index.install_stamped(Arc::clone(&reader), spans, allowed)?;
+                index.install_stamped(Arc::clone(&reader), spans, binding_number as u32, allowed)?;
             } else {
-                index.install_sealed(Arc::clone(&reader), spans, allowed)?;
+                index.install_sealed(Arc::clone(&reader), spans, binding_number as u32, allowed)?;
             }
         } else {
             index.normal = materialize_dictionary::<u64>(
