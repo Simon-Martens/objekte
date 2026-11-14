@@ -64,3 +64,7 @@ first flush took 0.673 times baseline. Query median geometric means were
 matched. Broad relation/sort and source-heavy queries still show measurable
 latency overhead. The older measurements above remain valid for their named
 revision and are not overwritten.
+
+## 14 November 2026 closure update
+
+Later allocation, generation, and query changes are measured in the [allocation follow-up](../../generated/hybrid-index-allocation-query-performance-20261114.md) and [final query campaign](../../../../bench/results/hybrid-index-storage/query-optimization-20261115/REPORT.md). The latest campaign preserves all 440 case/profile digests and greatly improves the former Q187/Q202–Q204 scans; its construction, reopen and scanner tradeoffs are also stated there. The user explicitly waived further performance evidence and numerical gates for closing the hybrid-storage task documents. This issue retains the historical measurements at their named revisions; it is no longer a task-completion gate. Remaining implementation and validation gaps have separate issues.
