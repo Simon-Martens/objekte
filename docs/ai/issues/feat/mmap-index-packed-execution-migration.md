@@ -27,9 +27,10 @@ typed and bigram candidate access uses the packed `PostingAccess`/`BigramAccess`
 views. A test removes the loaded native postings and source files and confirms
 the packed typed query still answers.
 
-Load memory and first-query work still include the restored native state because
-fallbacks, exact source verification, inference/custom operations, sorting, and
-some base-collection access remain native.
+Load now reconstructs the queryable repository from packed catalogue/run objects
+without a native snapshot. Native posting/bigram/sort/relation owners are still
+built from the packed objects because fallbacks, exact source verification,
+custom operations, and several query paths remain native.
 
 ## Why not resolved here
 

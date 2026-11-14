@@ -2379,13 +2379,13 @@ and conservative cleanup that retains the current and previous generations and
 skips object deletion while readers are present. Repeated saves of the same
 publication and target write zero object bytes.
 
-Saved indexes reopen without source discovery or source-record parsing. A
-source-free native query-state object preserves every existing index family
-exactly (typed/structural postings, inference, custom bindings, bigrams,
-sorting, relations, diagnostics, and record metadata). Packed segment and
-catalogue objects are written alongside it and are readable through
-`FrozenSegment`, `CatalogueView`, `FieldPostingsView`, `BigramSectionView`,
-sort cursors, and relation readers.
+Saved indexes reopen without source discovery or source-record parsing. Load
+reconstructs the queryable repository directly from packed catalogue and run
+objects, including file metadata, records/file parts, declared and observed
+postings, inference metadata, custom bindings, bigrams, sort keys/orders,
+relations, coverage, diagnostics, and statistics. No native snapshot object is
+written or read. Packed readers are attached to loaded segments and used by
+`IndexCatalog`/`BigramAccess` for typed and bigram candidate execution.
 
 The CLI adds `--load-index`, `--save-index`, and `--check-index`, shared
 `IndexLocation`/`index_open` helpers, protocol version 5 storage events, and
@@ -2453,10 +2453,10 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 590
+- Workspace tests pass with no failures. The core library suite reports 592
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 74 passed, including dictionary,
+- The storage subsystem suite reports 76 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
@@ -2479,10 +2479,10 @@ the native query state. Unchanged saves write zero bytes.
 
 ### Deviations and remaining limitations
 
-1. **Loaded typed/bigram execution now uses packed readers, but the native
-   representation is still restored.** Remaining native consumers include exact
-   source verification fallbacks, inference/custom operations, and some
-   `CollectionState` base accesses. This is recorded in
+1. **Loaded typed/bigram candidate execution uses packed readers, but native
+   owners are reconstructed from the packed objects for fallbacks.** Remaining
+   native work includes exact source verification, some custom/inference
+   operations, and sort/relation views. This is recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
 2. **Desktop/TUI load-save UX is incomplete.** The CLI and desktop backend
    understand storage flags; the TUI can save and check a running index. The

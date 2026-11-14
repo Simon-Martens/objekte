@@ -507,11 +507,14 @@ without a `STORE` marker is rejected rather than overwritten. Saving to the
 source root is rejected. Repeated saves of the same publication and target are
 no-ops and write zero object bytes.
 
-The store also persists a source-free native query state object so every
-existing index family (typed and structural postings, inference, custom
-bindings, ASCII/Unicode bigrams, sorting, relations, diagnostics, and record
-metadata) reopens with identical query semantics. Packed segment objects are
-written alongside it for direct reader access and future execution migration.
+Loading reconstructs the queryable repository directly from the packed
+catalogue and run objects: file metadata, records and file parts, declared and
+observed postings, inference metadata, custom bindings, ASCII/Unicode bigrams,
+sort keys/orders, relations, coverage, diagnostics, and statistics. No
+source-free native snapshot object is written or read. Loaded typed and bigram
+candidate access uses the mapped packed readers through
+`IndexCatalog`/`BigramAccess`, while source-verification fallbacks retain the
+reconstructed native owners.
 
 The CLI exposes:
 
