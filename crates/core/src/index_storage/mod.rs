@@ -5,12 +5,22 @@
 //! persistence is an explicit store operation.
 
 pub mod backing;
+pub mod bigram;
+pub mod bigram_builder;
+pub mod coverage;
 pub mod dictionary;
 pub mod dictionary_builder;
 pub mod error;
 pub mod format;
+pub mod posting;
+pub mod posting_builder;
 pub mod record_set;
+pub mod records;
+pub mod relations;
 pub mod scalar;
+pub mod segment;
+pub mod segment_builder;
+pub mod sort;
 
 pub use backing::{Backing, MappedObject};
 pub use dictionary::{DictionaryCursor, DictionaryReader, KeyOrder};
@@ -44,3 +54,7 @@ mod scalar_tests;
 #[cfg(test)]
 #[path = "format.test.rs"]
 mod format_tests;
+
+#[cfg(test)]
+#[path = "segment.test.rs"]
+mod segment_tests;

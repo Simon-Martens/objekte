@@ -67,13 +67,15 @@ impl ObjectKind {
                 SectionKind::Records,
                 SectionKind::FileParts,
                 SectionKind::LogicalIds,
+                SectionKind::IdentityOrder,
                 SectionKind::FieldDirectory,
                 SectionKind::DictionaryPages,
                 SectionKind::PostingPayloads,
                 SectionKind::SortKeys,
                 SectionKind::SortOrders,
-                SectionKind::RelationOffsets,
-                SectionKind::RelationEdges,
+                SectionKind::BigramDictionaries,
+                SectionKind::BigramPostings,
+                SectionKind::Relations,
                 SectionKind::StringArena,
                 SectionKind::Coverage,
                 SectionKind::Statistics,
@@ -116,6 +118,10 @@ pub enum SectionKind {
     FrontendMetadata = 19,
     /// Reserved for a packed representation of native compatibility state.
     Compatibility = 20,
+    /// Identity-order physical slots for default ordering.
+    IdentityOrder = 21,
+    /// Packed relation adjacency and target identities.
+    Relations = 22,
 }
 
 
@@ -146,6 +152,8 @@ impl SectionKind {
             18 => Self::Diagnostics,
             19 => Self::FrontendMetadata,
             20 => Self::Compatibility,
+            21 => Self::IdentityOrder,
+            22 => Self::Relations,
             _ => return None,
         })
     }

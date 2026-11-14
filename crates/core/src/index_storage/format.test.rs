@@ -99,7 +99,7 @@ fn optional_section_is_preserved() {
     let object = sample_object();
     let backing = Backing::resident(object.as_bytes().to_vec());
     let view = ObjectView::new(&backing).unwrap();
-    assert_eq!(view.sections().len(), 14);
+    assert_eq!(view.sections().len(), 16);
     assert_eq!(
         view.section_bytes(SectionKind::Compatibility).unwrap(),
         b"future"

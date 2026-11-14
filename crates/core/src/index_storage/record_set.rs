@@ -742,6 +742,9 @@ impl Iterator for RecordSetIter<'_, '_> {
                 }
             }
             RecordSetTag::Inline => {
+                if self.current_index >= self.view.reference.inline_count as usize {
+                    return None;
+                }
                 let slot = self.inline.get(self.current_index).copied();
                 self.current_index += 1;
                 slot.map(Ok)
@@ -807,7 +810,7 @@ pub fn encode_record_set(slots: &[u32], domain_len: u32) -> StorageResult<Encode
     }
     let first = slots[0];
     let last = *slots.last().expect("nonempty slots");
-    if last.checked_add(1).is_some_and(|end| (last - first) as usize + 1 == slots.len()) {
+    if last.checked_add(1).is_some_and(|_| (last - first) as usize + 1 == slots.len()) {
         return Ok(EncodedRecordSet {
             reference: RecordSetRef::range(first, last.saturating_add(1))?,
             arena: Vec::new(),
