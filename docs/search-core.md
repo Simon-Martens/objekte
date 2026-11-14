@@ -295,6 +295,12 @@ the requested case semantics. A candidate filter is never treated as proof of a
 literal match: the scanner verifies it. Short or unsupported literals fall
 back to scanning.
 
+For eligible borrowed source scans, membership is checked without building
+matched-field evidence for every candidate. The scanner retains source bytes
+for bounded local winners and computes their evidence only when the merged
+page offers them. Segment candidates are grouped by consecutive file IDs; an
+out-of-order slot layout is sorted and merged before source reads.
+
 Raw fallback text has a separate bigram index over the original range decoded
 with UTF-8 replacement. An unscoped FTS literal searches that source text with
 its requested exact case mode, even when a custom raw binding transforms valid

@@ -868,6 +868,44 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
 }
 
 #[test]
+fn segment_file_grouping_merges_out_of_order_file_runs() {
+    let group = |file, slot| {
+        (
+            file,
+            SmallVec::from_buf([(
+                slot,
+                ByteRange {
+                    start: slot as u64,
+                    end: slot as u64 + 1,
+                },
+            )]),
+        )
+    };
+    let ordered = vec![group(1, 0), group(2, 1)];
+    assert_eq!(order_segment_file_groups(ordered.clone(), true), ordered);
+    let grouped = order_segment_file_groups(vec![group(2, 0), group(1, 1), group(2, 2)], false);
+    assert_eq!(grouped.len(), 2);
+    assert_eq!(grouped[0].0, 1);
+    assert_eq!(
+        grouped[0]
+            .1
+            .iter()
+            .map(|(slot, _)| *slot)
+            .collect::<Vec<_>>(),
+        [1]
+    );
+    assert_eq!(grouped[1].0, 2);
+    assert_eq!(
+        grouped[1]
+            .1
+            .iter()
+            .map(|(slot, _)| *slot)
+            .collect::<Vec<_>>(),
+        [0, 2]
+    );
+}
+
+#[test]
 fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
     use crate::lifecycle::Index;
     use crate::repository::{RepositoryOptions, SnapshotMode};

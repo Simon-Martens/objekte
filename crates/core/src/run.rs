@@ -57,6 +57,7 @@ use crate::verified::{CachedMember, CachedResult, VerifiedCache};
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
+
 /// One lifecycle query's cache namespace. The store is shared by all pinned
 /// publications of an index, so retention is bounded across revisions.
 #[derive(Clone, Copy)]
@@ -64,6 +65,7 @@ pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
     pub(crate) instance_id: u64,
 }
+
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
     check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
@@ -111,6 +113,7 @@ fn check_execution_sort_budget(
         .map_err(|message| computed_sort_resource(execution, &message))
 }
 
+
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -118,6 +121,7 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
+
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -170,6 +174,7 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
+
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -178,12 +183,14 @@ struct RankKey {
     id: String,
 }
 
+
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
+
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -253,13 +260,16 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
+
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for RankKey {}
+
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -267,12 +277,14 @@ impl PartialOrd for RankKey {
     }
 }
 
+
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
+
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -284,6 +296,7 @@ struct Winner {
     retained_bytes: u64,
 }
 
+
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -293,6 +306,7 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
+
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -313,6 +327,7 @@ struct ScannedFile {
     exact_members: RoaringBitmap,
 }
 
+
 impl From<&ScannedFile> for ScanWork {
     fn from(scanned: &ScannedFile) -> Self {
         Self {
@@ -327,11 +342,13 @@ impl From<&ScannedFile> for ScanWork {
     }
 }
 
+
 /// Count-only and exact-selection requests share the normal planner and scanner,
 /// but never retain ranked hits or verified-cache members.
 struct ExactCollector<'a> {
     members: Option<&'a mut RoaringBitmap>,
 }
+
 
 impl ExactCollector<'_> {
     fn add_set(&mut self, slots: &RoaringBitmap, counters: &mut WorkCounters) {
@@ -342,10 +359,12 @@ impl ExactCollector<'_> {
     }
 }
 
+
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
+
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -353,7 +372,9 @@ impl PartialEq for FileWinner {
     }
 }
 
+
 impl Eq for FileWinner {}
+
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -361,11 +382,13 @@ impl PartialOrd for FileWinner {
     }
 }
 
+
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -373,6 +396,7 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
+
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -417,6 +441,7 @@ impl CacheBudget {
         }
     }
 }
+
 
 fn scan_projection(
     query: &Query,
@@ -644,12 +669,14 @@ fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: b
     }
 }
 
+
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
+
 
 /// Collection-plan eligibility for matching trusted built-in source scalars.
 #[derive(Clone, Copy)]
@@ -658,6 +685,7 @@ struct DirectSourcePlan<'a> {
     filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     decoded_scalars: bool,
 }
+
 
 fn source_fts_eligible(
     collection: &CollectionState,
@@ -679,6 +707,7 @@ fn source_fts_eligible(
                     .is_some_and(|path| path.has_explicit_array_step)
         })
 }
+
 
 impl<'a> DirectSourcePlan<'a> {
     fn prepare(
@@ -755,6 +784,7 @@ impl<'a> DirectSourcePlan<'a> {
         })
     }
 }
+
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -858,6 +888,7 @@ fn shared_fold_bound(filter: Option<&BoundExpr>) -> bool {
     let mut seen = SmallVec::new();
     filter.is_some_and(|node| visit(node, &mut seen))
 }
+
 
 impl Residual<'_> {
     fn unavailable(
@@ -1123,6 +1154,7 @@ impl Residual<'_> {
         })
     }
 }
+
 
 fn scan_file(
     repo: &Repository,
@@ -1708,6 +1740,7 @@ fn scan_file(
     Ok(outcome)
 }
 
+
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1717,6 +1750,7 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
+
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1729,6 +1763,7 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
+
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1792,6 +1827,7 @@ fn bound_term_diagnostics(
     terms
 }
 
+
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1820,6 +1856,7 @@ pub struct QueryPlanTrace {
     pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
 }
+
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1859,6 +1896,7 @@ fn regex_prefilter_reason(
     }
 }
 
+
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1878,6 +1916,7 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
+
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1900,6 +1939,7 @@ impl Default for PlanActual {
         }
     }
 }
+
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -2070,13 +2110,16 @@ fn segment_metadata_fts_evidence(
     Ok(matches)
 }
 
+
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for Winner {}
+
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2084,11 +2127,13 @@ impl PartialOrd for Winner {
     }
 }
 
+
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -2195,6 +2240,7 @@ pub(crate) fn make_hit(
     }
 }
 
+
 /// A segment record has a local slot but retains a repository-global file ID.
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
@@ -2202,6 +2248,7 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub record: &'a RecordEntry,
     pub file: &'a FileEntry,
 }
+
 
 fn segment_active_file<'a>(
     segment: &IndexedCollectionSegment,
@@ -2311,6 +2358,7 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
+
 /// One current-view direct lookup. A missing source is distinct from an ID
 /// that is absent from the pinned active domain.
 #[derive(Clone, Debug)]
@@ -2319,6 +2367,7 @@ pub enum DirectLookupResult {
     NotFound,
     SourceUnavailable(SourceDiagnostic),
 }
+
 
 pub(crate) fn direct_lookup_segmented(
     repo: &Repository,
@@ -2445,12 +2494,14 @@ pub(crate) fn direct_lookup_segmented(
     }
 }
 
+
 struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,
     segment: Option<(usize, usize)>,
     retained_bytes: usize,
 }
+
 
 /// Optional complete ordering captured during an already exhaustive lifecycle
 /// query. Once its budget is exhausted, query execution continues without a
@@ -2460,6 +2511,7 @@ struct LifecycleCacheBuilder {
     bytes: usize,
     budget: usize,
 }
+
 
 /// One position in a stored ordering. Only the leading entry of each
 /// partition is retained in the heap, so traversal memory scales with the
@@ -2473,13 +2525,16 @@ struct LifecycleOrderCursor {
     slot: RecordSlot,
 }
 
+
 impl PartialEq for LifecycleOrderCursor {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for LifecycleOrderCursor {}
+
 
 impl PartialOrd for LifecycleOrderCursor {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2487,11 +2542,13 @@ impl PartialOrd for LifecycleOrderCursor {
     }
 }
 
+
 impl Ord for LifecycleOrderCursor {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 impl LifecycleCacheBuilder {
     fn new(budget: usize) -> Self {
@@ -2547,13 +2604,16 @@ impl LifecycleCacheBuilder {
     }
 }
 
+
 impl PartialEq for MergedPageHit {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for MergedPageHit {}
+
 
 impl PartialOrd for MergedPageHit {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2561,11 +2621,13 @@ impl PartialOrd for MergedPageHit {
     }
 }
 
+
 impl Ord for MergedPageHit {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 fn offer_merged(
     winners: &mut BinaryHeap<MergedPageHit>,
@@ -3192,6 +3254,7 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
+
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3204,13 +3267,16 @@ struct SegmentFileScan {
     winners: Vec<SegmentLocalWinner>,
 }
 
-/// A file worker retains only slots and rank keys. The merge thread builds
-/// full hits for entries that can still reach the requested page.
+
+/// A file worker retains source bytes only for its bounded local winners when
+/// evidence is requested. The merge thread evaluates evidence for page offers.
 struct SegmentLocalWinner {
     key: RankKey,
     slot: RecordSlot,
     matched_fields: Vec<String>,
+    source_bytes: Option<Vec<u8>>,
 }
+
 
 impl PartialEq for SegmentLocalWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -3218,7 +3284,9 @@ impl PartialEq for SegmentLocalWinner {
     }
 }
 
+
 impl Eq for SegmentLocalWinner {}
+
 
 impl PartialOrd for SegmentLocalWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -3226,10 +3294,33 @@ impl PartialOrd for SegmentLocalWinner {
     }
 }
 
+
 impl Ord for SegmentLocalWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
+}
+
+
+fn order_segment_file_groups(
+    mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)>,
+    ordered: bool,
+) -> Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> {
+    if ordered {
+        return files;
+    }
+    files.sort_unstable_by_key(|(file, ranges)| (*file, ranges[0].0));
+    let mut grouped: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
+    for (file, ranges) in files {
+        if let Some((previous_file, previous_ranges)) = grouped.last_mut()
+            && *previous_file == file
+        {
+            previous_ranges.extend(ranges);
+        } else {
+            grouped.push((file, ranges));
+        }
+    }
+    grouped
 }
 
 /// Verify one local segment candidate with the narrow source or value consumer.
@@ -3390,7 +3481,11 @@ fn verify_local_segment_record(
                 retain_evidence.then_some(&mut evidence),
             )?
         } else {
-            eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
+            if retain_evidence {
+                eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
+            } else {
+                crate::reference::eval_bound_fts_membership(fts, &extracted.text, &ctx)?
+            }
         }
     } else {
         true
@@ -3434,6 +3529,7 @@ fn scan_segment_file_parallel(
         winners: Vec::new(),
     };
     let mut local_winners = BinaryHeap::new();
+    let lazy_evidence = query.options.evidence && direct_plan.is_some();
     let mut cursor = 0;
     while cursor < ranges.len() {
         let start = cursor;
@@ -3473,7 +3569,7 @@ fn scan_segment_file_parallel(
                 direct_plan,
                 projection,
                 filter_proof,
-                query.options.evidence,
+                query.options.evidence && !lazy_evidence,
                 None,
             )?;
             result.raw_text_verifications += u64::from(raw_checked);
@@ -3502,11 +3598,8 @@ fn scan_segment_file_parallel(
             let winner = SegmentLocalWinner {
                 key,
                 slot: RecordSlot(slot),
-                matched_fields: if query.options.evidence {
-                    evidence.into_iter().collect()
-                } else {
-                    Vec::new()
-                },
+                matched_fields: evidence.into_iter().collect(),
+                source_bytes: lazy_evidence.then_some(bytes),
             };
             if local_winners.len() >= cap {
                 local_winners.pop();
@@ -4210,9 +4303,11 @@ fn search_segmented_impl(
             } else {
                 None
             };
-            // A physical file usually contributes one candidate. Keep that
-            // range in the map node and allocate only for multi-record files.
-            let mut files: BTreeMap<u32, SmallVec<[(u32, ByteRange); 1]>> = BTreeMap::new();
+            // Segment slots normally follow file order. Group consecutive
+            // file IDs without a tree node per candidate; sort and merge if
+            // a mutation has produced an out-of-order slot layout.
+            let mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
+            let mut ordered_files = true;
             for slot in candidates.iter() {
                 let record = segment
                     .record(RecordSlot(slot))
@@ -4225,17 +4320,24 @@ fn search_segmented_impl(
                         "segment record exceeds source read allowance",
                     ));
                 }
-                files
-                    .entry(record.file.0)
-                    .or_default()
-                    .push((slot, record.range));
+                if let Some((previous_file, ranges)) = files.last_mut() {
+                    ordered_files &= *previous_file <= record.file.0;
+                    if *previous_file == record.file.0 {
+                        ranges.push((slot, record.range));
+                        continue;
+                    }
+                }
+                files.push((record.file.0, SmallVec::from_buf([(slot, record.range)])));
             }
+            let files = order_segment_file_groups(files, ordered_files);
             // Local residual verification is independent by source file. Limit the
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
-            let single_record_files = files.values().all(|ranges| ranges.len() == 1);
-            let small_single_record_files =
-                single_record_files && files.values().all(|ranges| ranges[0].1.len() <= 8 * 1024);
+            let single_record_files = files.iter().all(|(_, ranges)| ranges.len() == 1);
+            let small_single_record_files = single_record_files
+                && files
+                    .iter()
+                    .all(|(_, ranges)| ranges[0].1.len() <= 8 * 1024);
             let parallel_scan = context.is_none()
                 && retained_budget.is_none()
                 && cache_builder.is_none()
@@ -4269,7 +4371,7 @@ fn search_segmented_impl(
                         })
                 });
             if parallel_scan {
-                let jobs = files.into_iter().collect::<Vec<_>>();
+                let jobs = files;
                 // One-record files retain at most one compact winner per job.
                 // Group their work to amortize pool setup while active workers
                 // still bound source buffers by the query worker count.
@@ -4328,12 +4430,34 @@ fn search_segmented_impl(
                                 winner.slot,
                             )?
                             .ok_or("segment winner disappeared before merge")?;
-                            let hit = segment_locator_hit(
-                                collection,
-                                resolved,
-                                revision,
-                                winner.matched_fields,
-                            );
+                            let matched_fields = if let Some(source_bytes) =
+                                winner.source_bytes.as_deref()
+                            {
+                                let (_, matched, evidence, _) = verify_local_segment_record(
+                                    repo,
+                                    collection,
+                                    resolved.record,
+                                    resolved.file,
+                                    source_bytes,
+                                    filter.as_ref(),
+                                    fts.as_ref(),
+                                    direct_plan.as_ref(),
+                                    &projection,
+                                    filter_proof.as_deref(),
+                                    true,
+                                    None,
+                                )?;
+                                if !matched {
+                                    return Err(
+                                        "segment winner changed during evidence evaluation".into(),
+                                    );
+                                }
+                                evidence.into_iter().collect()
+                            } else {
+                                winner.matched_fields
+                            };
+                            let hit =
+                                segment_locator_hit(collection, resolved, revision, matched_fields);
                             offer_merged(
                                 &mut winners,
                                 cap,
@@ -4401,7 +4525,7 @@ fn search_segmented_impl(
                         counters.record_parses += u64::from(record.class == RecordClass::Logical);
                         counters.residual_evaluations +=
                             u64::from(filter.is_some() && filter_proof.is_none());
-                        let (extracted, matched, evidence, raw_checked) =
+                        let (extracted, matched, first_evidence, raw_checked) =
                             verify_local_segment_record(
                                 repo,
                                 collection,
@@ -4413,7 +4537,8 @@ fn search_segmented_impl(
                                 direct_plan.as_ref(),
                                 &projection,
                                 filter_proof.as_deref(),
-                                query.options.evidence,
+                                query.options.evidence
+                                    && (context.is_some() || direct_plan.is_none()),
                                 context,
                             )?;
                         counters.raw_text_verifications += u64::from(raw_checked);
@@ -4438,16 +4563,43 @@ fn search_segmented_impl(
                             record,
                             Some(&ctx),
                         )?;
-                        let hit = segment_locator_hit(
-                            collection,
-                            resolved,
-                            revision,
-                            if query.options.evidence {
-                                evidence.into_iter().collect()
+                        if cache_builder.is_none()
+                            && (cap == 0
+                                || (winners.len() >= cap
+                                    && winners.peek().is_some_and(|worst| key >= worst.key)))
+                        {
+                            continue;
+                        }
+                        let matched_fields = if query.options.evidence {
+                            if context.is_some() || direct_plan.is_none() {
+                                first_evidence.into_iter().collect()
                             } else {
-                                Vec::new()
-                            },
-                        );
+                                let (_, still_matched, evidence, _) = verify_local_segment_record(
+                                    repo,
+                                    collection,
+                                    record,
+                                    resolved.file,
+                                    &bytes,
+                                    filter.as_ref(),
+                                    fts.as_ref(),
+                                    direct_plan.as_ref(),
+                                    &projection,
+                                    filter_proof.as_deref(),
+                                    true,
+                                    context,
+                                )?;
+                                if !still_matched {
+                                    return Err(
+                                        "segment match changed during evidence evaluation".into()
+                                    );
+                                }
+                                evidence.into_iter().collect()
+                            }
+                        } else {
+                            Vec::new()
+                        };
+                        let hit =
+                            segment_locator_hit(collection, resolved, revision, matched_fields);
                         if let Some(builder) = cache_builder.as_mut() {
                             builder.push(
                                 &key,
@@ -4717,6 +4869,7 @@ fn charge_lifecycle_cached_payload(
     Ok(())
 }
 
+
 #[derive(Clone)]
 struct RelationTargetPrune {
     source_path: Vec<String>,
@@ -4724,6 +4877,7 @@ struct RelationTargetPrune {
     exact: bool,
     evidence: Vec<String>,
 }
+
 
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
@@ -4960,10 +5114,12 @@ fn relation_source_candidates(
     Ok(Some(may))
 }
 
+
 enum DirectRelationPredicate<'a> {
     Term(&'a BoundTerm),
     Fts(BoundFts),
 }
+
 
 struct DirectTargetScan {
     matched_id: Option<String>,
@@ -4971,6 +5127,7 @@ struct DirectTargetScan {
     read: bool,
     unavailable: bool,
 }
+
 
 fn scan_direct_target_parallel(
     repo: &Repository,
@@ -5604,12 +5761,14 @@ fn try_direct_relation_page(
     }))
 }
 
+
 struct RelationFileJob {
     segment_index: usize,
     file_id: u32,
     slot: RecordSlot,
     range: ByteRange,
 }
+
 
 struct RelationFileScan {
     counters: WorkCounters,
@@ -5618,6 +5777,7 @@ struct RelationFileScan {
     relation_unavailable: SourceAvailabilityLog,
     winner: Option<MergedPageHit>,
 }
+
 
 fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
     match expr {
@@ -8727,6 +8887,7 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
+
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -8737,19 +8898,23 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
+
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for StoredCursor<'_> {}
+
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -8769,6 +8934,7 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
+
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -8791,6 +8957,7 @@ fn stored_cursor<'a>(
     })
 }
 
+
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -8799,12 +8966,14 @@ struct OrderedPlan<'a> {
     candidates: RoaringBitmap,
 }
 
+
 /// Membership already prepared for a stored-order attempt whose selective
 /// result is cheaper to rank with the general top-k collector.
 struct RejectedOrderPlans {
     entries: Vec<(Plan, RoaringBitmap)>,
     planning_ns: u64,
 }
+
 
 fn direct_payload(
     repo: &Repository,
