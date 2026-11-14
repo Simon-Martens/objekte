@@ -7,7 +7,7 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
 use objekte_search_core::index_storage::{
-    IndexReadiness, IndexResidency, IndexStoragePolicy, IndexSynchronization,
+    IndexFlushReport, IndexReadiness, IndexStorageTarget,
 };
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
@@ -22,7 +22,7 @@ use objekte_search_core::streaming::{
 };
 use serde_json::{Value, json};
 
-use crate::arguments::{Alphabet, Arguments, IndexStorageChoice, ResolvedPaths};
+use crate::arguments::{Alphabet, Arguments, IndexTargetChoice, ResolvedPaths};
 use crate::loader::{ConfiguredDefinitions, configure_definitions, repository_options};
 use crate::output::{
     EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
@@ -219,6 +219,7 @@ pub fn run_on_repository<W: Write>(
             started: &started,
             startup_ns: run.startup_ns,
             initial_incremental: false,
+            flush_report: None,
         },
         source,
         &mut output,
@@ -253,6 +254,7 @@ pub fn run_prepared_on_repository<W: Write>(
         started: &started,
         startup_ns: run.startup_ns,
         initial_incremental: false,
+        flush_report: None,
     };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
@@ -300,8 +302,15 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let storage_policy = match args.resolved_index_storage_policy(&paths) {
-        Ok(policy) => policy,
+    let load_target = match args.resolved_load_target(&paths) {
+        Ok(target) => target,
+        Err(message) => {
+            eprintln!("obj: {message}");
+            return Exit::Arguments;
+        }
+    };
+    let flush_target = match args.resolved_flush_target(&paths) {
+        Ok(target) => target,
         Err(message) => {
             eprintln!("obj: {message}");
             return Exit::Arguments;
@@ -319,26 +328,21 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         .iter()
         .map(|definition| definition.name.clone())
         .collect::<Vec<_>>();
-    if let Err(error) = output.emit(run_start_event(
-        args,
-        &paths,
-        &collection_names,
-        configured.schema_fields,
-        &configured.schema_files,
-        configured.ignored_repository_metadata,
-    )) {
-        return output_failure(error);
-    }
     let options = repository_options(args);
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let opened = if storage_policy.location
-        == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
-    {
-        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
+    let opened = if let Some(target) = load_target.as_ref() {
+        match open_saved_repository(&paths, &configured, options, target, token) {
+            Ok(Some(opened)) => Ok(opened),
+            Ok(None) => {
+                eprintln!("obj: no saved index at the selected location; building in memory");
+                open_incremental_repository(args, &paths, &configured, options, &mut source, token)
+            }
+            Err(error) => Err(error),
+        }
     } else {
-        open_managed_repository(&paths, &configured, options, storage_policy, token)
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
     };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
@@ -356,9 +360,35 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             {
                 return output_failure(error);
             }
-            return Exit::Arguments;
+            return Exit::Operation;
         }
     };
+    let flush_report = if let Some(target) = flush_target.as_ref() {
+        match repo.index().flush_to(target) {
+            Ok(report) => Some(report),
+            Err(error) => {
+            let message = crate::storage_view::format_index_error(&error);
+            eprintln!("obj: save index: {message}");
+            if let Err(output_error) = output.emit(detailed_run_event(
+                json!({"type":"run_error", "stage":"index_flush", "error":message}),
+                &started,
+            )).and_then(|_| output.flush()) {
+                return output_failure(output_error);
+            }
+            return Exit::Operation;
+            }
+        }
+    } else { None };
+    if let Err(error) = output.emit(run_start_event(
+        args,
+        &paths,
+        &collection_names,
+        configured.schema_fields,
+        &configured.schema_files,
+        configured.ignored_repository_metadata,
+    )) {
+        return output_failure(error);
+    }
     let source = match source.unwrap_or_else(|| QuerySource::open(args)) {
         Ok(source) => source,
         Err(message) => {
@@ -381,7 +411,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             args,
             started: &started,
             startup_ns,
-            initial_incremental: args.index_storage == IndexStorageChoice::Memory,
+            initial_incremental: !repo.index().restored_from_storage(),
+            flush_report: flush_report.as_ref(),
         },
         source,
         &mut output,
@@ -389,22 +420,23 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     )
 }
 
-fn open_managed_repository(
+fn open_saved_repository(
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
     options: objekte_search_core::repository::RepositoryOptions,
-    storage_policy: IndexStoragePolicy,
+    target: &IndexStorageTarget,
     token: &CancellationToken,
-) -> Result<(IndexedRepository, u128), String> {
+) -> Result<Option<(IndexedRepository, u128)>, String> {
     let started = Instant::now();
-    let index = Index::open_with_storage(
+    let Some(index) = Index::try_load(
         paths.root.clone(),
         configured.definitions.clone(),
         options,
-        storage_policy,
-        SourceRegistry::builtin(),
+        target,
     )
-    .map_err(|error| crate::storage_view::format_index_error(&error))?;
+    .map_err(|error| crate::storage_view::format_index_error(&error))? else {
+        return Ok(None);
+    };
     if token.is_cancelled() {
         return Err("index opening cancelled".into());
     }
@@ -418,9 +450,8 @@ fn open_managed_repository(
     if token.is_cancelled() {
         return Err("index opening cancelled".into());
     }
-    index.flush_storage().map_err(|error| error.to_string())?;
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
-    Ok((repo, started.elapsed().as_nanos()))
+    Ok(Some((repo, started.elapsed().as_nanos())))
 }
 
 /// Work on a fresh index as batches become searchable, while retaining the
@@ -531,6 +562,7 @@ fn run_start_event(
     };
     json!({
         "type": "run_start",
+        "protocol_version": 2,
         "executable_version": env!("CARGO_PKG_VERSION"),
         "core_model_version": objekte_search_core::MODEL_VERSION,
         "root": path_repr::query_path(&paths.root),
@@ -548,16 +580,10 @@ fn run_start_event(
         "schema_repository_metadata_ignored": ignored_repository_metadata,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
-        "index_operation": index_operation(args),
-        "index_residency": match args
-            .index_storage_policy()
-            .map(|policy| policy.residency)
-            .unwrap_or(IndexResidency::FullyResident)
-        {
-            IndexResidency::OnDemand => "on-demand",
-            IndexResidency::FullyResident => "full",
-        },
-        "index_directory": paths.index_directory.as_deref().map(path_repr::query_path),
+        "load_index": args.load_index.map(index_target_label),
+        "load_index_directory": paths.load_index_directory.as_deref().map(path_repr::query_path),
+        "flush_index": args.flush_index.map(index_target_label),
+        "flush_index_directory": paths.flush_index_directory.as_deref().map(path_repr::query_path),
     })
 }
 
@@ -569,6 +595,7 @@ struct RunTail<'a> {
     started: &'a Instant,
     startup_ns: u128,
     initial_incremental: bool,
+    flush_report: Option<&'a IndexFlushReport>,
 }
 
 
@@ -622,7 +649,8 @@ fn run_queries<W: Write>(
     if token.is_cancelled() {
         return cancel_run(output, successes, failures, started);
     }
-    if source.is_file() && source.yielded() == 0 && args.index_storage == IndexStorageChoice::Memory
+    if source.is_file() && source.yielded() == 0
+        && args.load_index.is_none() && args.flush_index.is_none()
     {
         let message = "query file contains no queries";
         eprintln!("obj: {message}");
@@ -714,36 +742,32 @@ fn complete_run<W: Write>(
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
-        "index_storage_action": if args.index_storage == IndexStorageChoice::Memory {
-            "built_in_memory"
-        } else if repo.index().restored_from_storage() {
-            "managed_restored"
-        } else {
-            "managed_built"
-        },
-        "index_storage_status": {
+        "protocol_version": 2,
+        "index_action": if repo.index().restored_from_storage() { "loaded_saved_index" } else { "built_in_memory" },
+        "index_flush_report": run.flush_report.map(|report| json!({
+            "saved_revision": report.saved_revision.0,
+            "store_generation": report.store_generation,
+            "destination": path_repr::query_path(&report.managed_directory),
+            "unchanged": report.unchanged,
+            "newer_changes_unsaved": report.newer_changes_unsaved,
+            "segment_bytes_written": report.segment_bytes_written,
+            "segments_reused": report.segments_reused,
+        })),
+        "index_persistence": {
             "readiness": match storage.readiness {
                 IndexReadiness::Building => "building",
-                IndexReadiness::Searchable => "searchable",
-                IndexReadiness::PreparingFullResidency => "preparing_full_residency",
-                IndexReadiness::FullyResidentReady => "fully_resident_ready",
+                _ => "searchable",
             },
             "source_reconciliation_complete": storage.source_reconciliation_complete,
-            "current_generation": storage.current_generation,
-            "durable_generation": storage.durable_generation,
-            "synchronization": match storage.synchronization {
-                IndexSynchronization::MemoryOnly => "memory_only",
-                IndexSynchronization::Pending => "pending",
-                IndexSynchronization::Synchronizing => "synchronizing",
-                IndexSynchronization::Synchronized => "synchronized",
-                IndexSynchronization::Failed => "failed",
-            },
+            "current_revision": live.revision.0,
+            "last_saved_revision": live.saved_revision.map(|revision| revision.0),
+            "last_store_generation": storage.durable_generation,
+            "loaded_origin": repo.index().loaded_origin().ok().flatten().as_deref().map(path_repr::query_path),
+            "last_save_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
             "last_error": storage.last_error,
             "last_error_kind": storage.last_error_kind.map(|kind| kind.as_str()),
-            "managed_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
             "segments_full_validated": storage.segments_full_validated,
             "segments_stamp_trusted": storage.segments_stamp_trusted,
-            "validation_stamps_written": storage.validation_stamps_written,
             "validation_stamp_error": storage.validation_stamp_error,
             "validation_stamp_error_kind": storage.validation_stamp_error_kind.map(|kind| kind.as_str()),
         },
@@ -1071,12 +1095,11 @@ fn detailed_run_event(#[allow(unused_mut)] mut event: Value, started: &Instant) 
     event
 }
 
-fn index_operation(args: &Arguments) -> &'static str {
-    match args.index_storage {
-        IndexStorageChoice::Memory => "memory_only",
-        IndexStorageChoice::Temporary => "temporary",
-        IndexStorageChoice::Repository => "repository",
-        IndexStorageChoice::Custom => "custom",
+fn index_target_label(choice: IndexTargetChoice) -> &'static str {
+    match choice {
+        IndexTargetChoice::Temporary => "temporary",
+        IndexTargetChoice::Repository => "repository",
+        IndexTargetChoice::Custom => "custom",
     }
 }
 

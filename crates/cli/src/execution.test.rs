@@ -34,7 +34,7 @@ fn configured_memory_open_ignores_existing_deprecated_snapshot() {
         .map(|line| serde_json::from_slice(line).unwrap())
         .collect();
     assert!(events.iter().any(|event| event["type"] == "query_complete"));
-    assert_eq!(events.last().unwrap()["index_storage_action"], "built_in_memory");
+    assert_eq!(events.last().unwrap()["index_action"], "built_in_memory");
 }
 
 #[test]

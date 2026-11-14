@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
 };
 
 /// The alphabet used by the shared bigram index.
@@ -25,6 +25,13 @@ impl Default for Alphabet {
 pub enum IndexStorageChoice {
     #[default]
     Memory,
+    Temporary,
+    Repository,
+    Custom,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
+pub enum IndexTargetChoice {
     Temporary,
     Repository,
     Custom,
@@ -83,24 +90,48 @@ pub struct Arguments {
     #[arg(long, group = "input", value_name = "FILE")]
     pub query_file: Option<String>,
 
-    /// Deprecated. Use --index-storage and --index-directory.
+    /// Deprecated. Use --flush-index.
     #[arg(long, hide = true, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
     pub write_index: Option<String>,
 
-    /// Deprecated. Use --index-storage and --index-directory.
-    #[arg(long, hide = true, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
-    pub load_index: Option<String>,
+    /// Load one selected saved index, falling back to a memory build only on absence.
+    #[arg(long, value_enum, value_name = "LOCATION")]
+    pub load_index: Option<IndexTargetChoice>,
+
+    /// Existing custom base directory for --load-index custom.
+    #[arg(long, value_name = "DIR")]
+    pub load_index_directory: Option<PathBuf>,
+
+    /// Save one complete publication to this selected location.
+    #[arg(long, value_enum, value_name = "LOCATION")]
+    pub flush_index: Option<IndexTargetChoice>,
+
+    /// Existing custom base directory for --flush-index custom.
+    #[arg(long, value_name = "DIR")]
+    pub flush_index_directory: Option<PathBuf>,
+
+    /// Deprecated combined storage option. Use --load-index or --flush-index.
+    #[arg(long = "index-storage", hide = true, value_name = "MODE")]
+    pub legacy_index_storage: Option<String>,
+
+    /// Deprecated combined custom base. Use an operation-specific directory.
+    #[arg(long = "index-directory", hide = true, value_name = "DIR")]
+    pub legacy_index_directory: Option<PathBuf>,
+
+    /// Deprecated full-residency selector; saved indexes are always on demand.
+    #[arg(long = "index-residency", hide = true, value_name = "MODE")]
+    pub legacy_index_residency: Option<String>,
 
     /// Index storage: memory (default), temporary, repository, or custom.
-    #[arg(long, value_enum, default_value_t = IndexStorageChoice::Memory)]
+    #[arg(skip)]
     pub index_storage: IndexStorageChoice,
 
     /// Existing base folder for --index-storage custom.
-    #[arg(long, value_name = "PATH")]
+    #[arg(skip)]
     pub index_directory: Option<PathBuf>,
 
     /// On-demand file access or an owned full index copy for disk storage.
-    #[arg(long, value_enum, value_name = "MODE")]
+    #[arg(skip)]
     pub index_residency: Option<IndexResidencyChoice>,
 
     /// Maximum returned matches. Omission returns all matches.
@@ -130,6 +161,8 @@ pub struct ResolvedPaths {
     pub root: PathBuf,
     pub collection_paths: Vec<PathBuf>,
     pub index_directory: Option<PathBuf>,
+    pub load_index_directory: Option<PathBuf>,
+    pub flush_index_directory: Option<PathBuf>,
     pub schema_file: Option<PathBuf>,
 }
 
@@ -146,11 +179,12 @@ impl Arguments {
         if self.query.is_none()
             && self.fts.is_none()
             && self.query_file.is_none()
-            && self.index_storage == IndexStorageChoice::Memory
+            && self.load_index.is_none()
+            && self.flush_index.is_none()
             && !self.tui
         {
             return Err(
-                "missing query (or select a disk --index-storage mode for index-only use)".into(),
+                "missing query (or select --load-index or --flush-index for index-only use)".into(),
             );
         }
         Ok(())
@@ -158,9 +192,17 @@ impl Arguments {
 
     /// Validate opening choices when a graphical caller constructs arguments directly.
     pub fn validate_open_options(&self) -> Result<(), String> {
-        if self.load_index.is_some() || self.write_index.is_some() {
-            return Err("--load-index and --write-index were removed; use --index-storage memory|temporary|repository|custom, with --index-directory PATH for custom storage".into());
+        if self.write_index.is_some() {
+            return Err("--write-index was removed; use --flush-index temporary|repository|custom".into());
         }
+        if self.legacy_index_storage.is_some()
+            || self.legacy_index_directory.is_some()
+            || self.legacy_index_residency.is_some()
+        {
+            return Err("--index-storage, --index-directory and --index-residency were removed; use --load-index/--load-index-directory and --flush-index/--flush-index-directory".into());
+        }
+        Self::validate_target_choice(self.load_index, self.load_index_directory.as_deref(), "--load-index", "--load-index-directory")?;
+        Self::validate_target_choice(self.flush_index, self.flush_index_directory.as_deref(), "--flush-index", "--flush-index-directory")?;
         self.index_storage_policy()?;
         if self.repo.is_some() && !self.path.is_empty() {
             return Err("--repo cannot be combined with --path".into());
@@ -177,6 +219,36 @@ impl Arguments {
             );
         }
         Ok(())
+    }
+
+    fn validate_target_choice(
+        choice: Option<IndexTargetChoice>,
+        directory: Option<&Path>,
+        option: &str,
+        directory_option: &str,
+    ) -> Result<(), String> {
+        match (choice, directory) {
+            (Some(IndexTargetChoice::Custom), None) => Err(format!("{option} custom requires {directory_option} DIR")),
+            (Some(IndexTargetChoice::Custom), Some(_)) => Ok(()),
+            (_, Some(_)) => Err(format!("{directory_option} requires {option} custom")),
+            _ => Ok(()),
+        }
+    }
+
+    pub fn resolved_load_target(&self, paths: &ResolvedPaths) -> Result<Option<IndexStorageTarget>, String> {
+        self.load_index.map(|choice| Self::target(choice, paths.load_index_directory.as_ref())).transpose()
+    }
+
+    pub fn resolved_flush_target(&self, paths: &ResolvedPaths) -> Result<Option<IndexStorageTarget>, String> {
+        self.flush_index.map(|choice| Self::target(choice, paths.flush_index_directory.as_ref())).transpose()
+    }
+
+    fn target(choice: IndexTargetChoice, directory: Option<&PathBuf>) -> Result<IndexStorageTarget, String> {
+        Ok(match choice {
+            IndexTargetChoice::Temporary => IndexStorageTarget::SystemTemporary,
+            IndexTargetChoice::Repository => IndexStorageTarget::RepositoryDirectory,
+            IndexTargetChoice::Custom => IndexStorageTarget::CustomDirectory(directory.cloned().ok_or("custom index directory not resolved")?),
+        })
     }
 
     /// Translate user spelling to the single core policy model before any
@@ -298,7 +370,7 @@ impl Arguments {
                 Ok(path)
             })
             .transpose()?;
-        let index_directory = if let Some(custom) = self.index_directory.as_deref() {
+        let resolve_custom = |custom: &Path| -> Result<PathBuf, String> {
             let base = if custom.is_absolute() {
                 custom.to_owned()
             } else {
@@ -313,10 +385,11 @@ impl Arguments {
                     base.display()
                 ));
             }
-            Some(base)
-        } else {
-            None
+            Ok(base)
         };
+        let index_directory = self.index_directory.as_deref().map(resolve_custom).transpose()?;
+        let load_index_directory = self.load_index_directory.as_deref().map(resolve_custom).transpose()?;
+        let flush_index_directory = self.flush_index_directory.as_deref().map(resolve_custom).transpose()?;
         Ok(ResolvedPaths {
             root,
             collection_paths: if self.repo.is_some() {
@@ -325,6 +398,8 @@ impl Arguments {
                 resolved
             },
             index_directory,
+            load_index_directory,
+            flush_index_directory,
             schema_file,
         })
     }

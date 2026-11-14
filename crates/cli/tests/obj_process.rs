@@ -240,7 +240,7 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
 
     let (status, events) = invoke(
         root.path(),
-        &["--repo", ".", "--index-storage", "repository"],
+        &["--repo", ".", "--flush-index", "repository"],
     );
     assert!(
         status.status.success(),
@@ -254,7 +254,7 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
         &[
             "--repo",
             ".",
-            "--index-storage",
+            "--load-index",
             "repository",
             "--fts",
             "Ada",
@@ -342,7 +342,7 @@ fn repeated_paths_open_only_selected_collections_without_repository_configuratio
 
     let (result, _) = invoke(
         root.path(),
-        &[selected.as_slice(), &["--index-storage", "repository"]].concat(),
+        &[selected.as_slice(), &["--flush-index", "repository"]].concat(),
     );
     assert!(
         result.status.success(),
@@ -354,7 +354,7 @@ fn repeated_paths_open_only_selected_collections_without_repository_configuratio
         root.path(),
         &[
             selected.as_slice(),
-            &["--index-storage", "repository", "--fts", "needle"],
+            &["--load-index", "repository", "--fts", "needle"],
         ]
         .concat(),
     );
@@ -533,7 +533,7 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--flush-index",
             "repository",
         ],
     );
@@ -550,7 +550,7 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--load-index",
             "repository",
             "code = \"A\"",
         ],
@@ -567,7 +567,7 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
         &[
             "--schema",
             "schema.json",
-            "--index-storage",
+            "--load-index",
             "repository",
             "code = \"A\"",
         ],
@@ -591,7 +591,9 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--load-index",
+            "repository",
+            "--flush-index",
             "repository",
             "code = \"A\"",
         ],
@@ -614,14 +616,14 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--load-index",
             "repository",
             "code = \"A\"",
         ],
     );
     assert!(restored.status.success());
     assert_eq!(restored_events.last().unwrap()["build_parses"], 0);
-    assert!(managed_configuration_count(root.path()) >= 3);
+    assert_eq!(managed_configuration_count(root.path()), 2);
 }
 
 #[test]
@@ -651,7 +653,7 @@ fn manual_and_automatic_postings_reopen_together() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--flush-index",
             "repository",
             "group = 'g2'",
         ],
@@ -671,7 +673,7 @@ fn manual_and_automatic_postings_reopen_together() {
             "--schema",
             "schema.json",
             "--auto-index",
-            "--index-storage",
+            "--load-index",
             "repository",
             "group = 'g2'",
         ],
@@ -874,84 +876,45 @@ fn search_without_index_flags_leaves_disk_cache_absent() {
 }
 
 #[test]
-fn temporary_and_repository_storage_open_with_the_shared_policy() {
+fn temporary_and_repository_explicit_flush_then_load() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     for mode in ["temporary", "repository"] {
-        let (result, events) = invoke(root.path(), &["--index-storage", mode, "--fts", "needle"]);
-        assert!(
-            result.status.success(),
-            "{}",
-            String::from_utf8_lossy(&result.stderr)
-        );
+        let (saved, events) = invoke(root.path(), &["--flush-index", mode]);
+        assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
+        assert_eq!(events[0]["protocol_version"], 2);
+        assert_eq!(events[0]["flush_index"], mode);
+        assert_eq!(events.last().unwrap()["index_action"], "built_in_memory");
+        assert_eq!(events.last().unwrap()["index_flush_report"]["store_generation"], 1);
+        let (loaded, events) = invoke(root.path(), &["--load-index", mode, "--fts", "needle"]);
+        assert!(loaded.status.success(), "{}", String::from_utf8_lossy(&loaded.stderr));
         assert_eq!(hits(&events).len(), 1);
-        assert_eq!(events.last().unwrap()["type"], "run_complete");
-        assert_eq!(events[0]["index_operation"], mode);
-        let finished = events.last().unwrap();
-        assert_eq!(
-            finished["index_storage_status"]["synchronization"],
-            "synchronized"
-        );
-        assert_eq!(
-            finished["index_storage_status"]["source_reconciliation_complete"],
-            true
-        );
-        assert_eq!(
-            finished["index_storage_status"]["durable_generation"],
-            finished["index_storage_status"]["current_generation"]
-        );
+        assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
+        assert_eq!(events.last().unwrap()["build_parses"], 0);
+        assert_eq!(events.last().unwrap()["index_flush_report"], Value::Null);
     }
     assert!(root.path().join(".objekte/indexes").is_dir());
 }
 
 #[test]
-fn full_residency_repository_storage_reports_ready_on_reopen() {
+fn removed_residency_flag_is_rejected_with_migration_guidance() {
     let root = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
-    let args = [
-        "--index-storage",
-        "repository",
-        "--index-residency",
-        "full",
-        "--fts",
-        "needle",
-    ];
-    for expected_action in ["managed_built", "managed_restored"] {
-        let (result, events) = invoke(root.path(), &args);
-        assert!(
-            result.status.success(),
-            "{}",
-            String::from_utf8_lossy(&result.stderr)
-        );
-        assert_eq!(hits(&events).len(), 1);
-        assert_eq!(events[0]["index_residency"], "full");
-        let finished = events.last().unwrap();
-        assert_eq!(finished["index_storage_action"], expected_action);
-        assert_eq!(
-            finished["index_storage_status"]["readiness"],
-            "fully_resident_ready"
-        );
-        assert_eq!(
-            finished["index_storage_status"]["synchronization"],
-            "synchronized"
-        );
-    }
+    let (result, events) = invoke(root.path(), &["--index-residency", "full", "--fts", "needle"]);
+    assert_eq!(result.status.code(), Some(2));
+    assert!(events.is_empty());
+    assert!(String::from_utf8_lossy(&result.stderr).contains("--load-index"));
 }
 
 #[test]
-fn bare_obj_errors_before_build_but_disk_mode_allows_index_only() {
+fn bare_obj_errors_but_explicit_flush_allows_index_only() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     let (missing, events) = invoke(root.path(), &[]);
     assert_eq!(missing.status.code(), Some(2));
     assert!(events.is_empty());
     assert!(!root.path().join(".objekte").exists());
-    let (written, events) = invoke(root.path(), &["--index-storage", "repository"]);
-    assert!(
-        written.status.success(),
-        "{}",
-        String::from_utf8_lossy(&written.stderr)
-    );
+    let (saved, events) = invoke(root.path(), &["--flush-index", "repository"]);
+    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
     assert_eq!(events.len(), 2);
     assert_eq!(events[0]["type"], "run_start");
     assert_eq!(events[1]["type"], "run_complete");
@@ -965,7 +928,7 @@ fn diagnostic_disk_runs_report_timing_across_a_reopen() {
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     let (written, events) = invoke(
         root.path(),
-        &["--index-storage", "repository", "--diagnostic"],
+        &["--flush-index", "repository", "--diagnostic"],
     );
     assert!(written.status.success());
     assert!(events.last().unwrap()["startup_ms"].is_number());
@@ -973,7 +936,7 @@ fn diagnostic_disk_runs_report_timing_across_a_reopen() {
     assert!(root.path().join(".objekte/indexes").is_dir());
     let (restored, events) = invoke(
         root.path(),
-        &["--index-storage", "repository", "--diagnostic"],
+        &["--load-index", "repository", "--diagnostic"],
     );
     assert!(restored.status.success());
     assert_eq!(events.last().unwrap()["build_parses"], 0);
@@ -1163,7 +1126,7 @@ fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
     let (built, events) = invoke(
         root.path(),
         &[
-            "--index-storage",
+            "--flush-index",
             "repository",
             "--auto-index",
             "--diagnostic",
@@ -1200,7 +1163,7 @@ fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
     let (restored, events) = invoke(
         root.path(),
         &[
-            "--index-storage",
+            "--load-index",
             "repository",
             "--auto-index",
             "--diagnostic",
@@ -1369,7 +1332,7 @@ fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
         &[
             "--query-file",
             "queries.txt",
-            "--index-storage",
+            "--flush-index",
             "repository",
         ],
     );
@@ -1382,98 +1345,47 @@ fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
 }
 
 #[test]
-fn repository_storage_reuses_and_reconciles_a_durable_generation() {
+fn explicit_load_reconciles_sources_without_automatic_save() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
-    let args = ["--index-storage", "repository"];
-    let (written, written_events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "needle"]].concat(),
-    );
-    assert!(
-        written.status.success(),
-        "{}",
-        String::from_utf8_lossy(&written.stderr)
-    );
-    assert_eq!(hits(&written_events).len(), 1);
-    assert!(root.path().join(".objekte/indexes").is_dir());
-    assert!(
-        !root
-            .path()
-            .join(".objekte/search-core-ascii.snapshot")
-            .exists()
-    );
-    let (unchanged, unchanged_events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "needle"]].concat(),
-    );
-    assert!(unchanged.status.success());
-    assert_eq!(unchanged_events.last().unwrap()["build_parses"], 0);
-    assert_eq!(hits(&unchanged_events).len(), 1);
-    std::fs::write(
-        root.path().join("data.json"),
-        br#"{"title":"other, longer"}"#,
-    )
-    .unwrap();
-    let (rebuilt, events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "other"]].concat(),
-    );
-    assert!(
-        rebuilt.status.success(),
-        "{}",
-        String::from_utf8_lossy(&rebuilt.stderr)
-    );
+    let (saved, events) = invoke(root.path(), &["--flush-index", "repository", "--fts", "needle"]);
+    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
     assert_eq!(hits(&events).len(), 1);
-    let (reopened, events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "other"]].concat(),
-    );
-    assert!(
-        reopened.status.success(),
-        "{}",
-        String::from_utf8_lossy(&reopened.stderr)
-    );
-    assert_eq!(hits(&events).len(), 1);
+    let namespace = root.path().join(".objekte/indexes");
+    let directory = std::fs::read_dir(&namespace).unwrap().next().unwrap().unwrap().path();
+    let manifest = directory.join("manifest.bin");
+    let before = std::fs::read(&manifest).unwrap();
+    let (loaded, events) = invoke(root.path(), &["--load-index", "repository", "--fts", "needle"]);
+    assert!(loaded.status.success());
+    assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
     assert_eq!(events.last().unwrap()["build_parses"], 0);
+    std::fs::write(root.path().join("data.json"), br#"{"title":"other, longer"}"#).unwrap();
+    let (reconciled, events) = invoke(root.path(), &["--load-index", "repository", "--fts", "other"]);
+    assert!(reconciled.status.success(), "{}", String::from_utf8_lossy(&reconciled.stderr));
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(std::fs::read(&manifest).unwrap(), before);
+    let (saved_again, events) = invoke(root.path(), &["--load-index", "repository", "--flush-index", "repository"]);
+    assert!(saved_again.status.success(), "{}", String::from_utf8_lossy(&saved_again.stderr));
+    assert_eq!(events.last().unwrap()["index_flush_report"]["store_generation"], 2);
+    assert_ne!(std::fs::read(&manifest).unwrap(), before);
 }
 
 #[test]
-fn custom_index_namespace_is_excluded_but_unrelated_base_files_are_sources() {
+fn custom_index_namespace_does_not_hide_unrelated_source_files() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
     std::fs::create_dir(root.path().join("cache")).unwrap();
-    let args = ["--index-storage", "custom", "--index-directory", "cache"];
-    let (written, events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "needle"]].concat(),
-    );
-    assert!(
-        written.status.success(),
-        "{}",
-        String::from_utf8_lossy(&written.stderr)
-    );
+    let (saved, events) = invoke(root.path(), &["--flush-index", "custom", "--flush-index-directory", "cache", "--fts", "needle"]);
+    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
     assert_eq!(hits(&events).len(), 1);
     assert!(root.path().join("cache/objekte-indexes").is_dir());
-    std::fs::write(
-        root.path().join("cache/ignored.json"),
-        br#"{"title":"needle"}"#,
-    )
-    .unwrap();
-    std::fs::write(
-        root.path().join("cache/objekte-indexes/not-source.json"),
-        br#"{"title":"needle"}"#,
-    )
-    .unwrap();
-    let (loaded, events) = invoke(
-        root.path(),
-        &[args.as_slice(), &["--fts", "needle"]].concat(),
-    );
-    assert!(
-        loaded.status.success(),
-        "{}",
-        String::from_utf8_lossy(&loaded.stderr)
-    );
+    std::fs::write(root.path().join("cache/source.json"), br#"{"title":"needle"}"#).unwrap();
+    std::fs::write(root.path().join("cache/objekte-indexes/not-source.json"), br#"{"title":"needle"}"#).unwrap();
+    let (loaded, events) = invoke(root.path(), &["--load-index", "custom", "--load-index-directory", "cache", "--fts", "needle"]);
+    assert!(loaded.status.success(), "{}", String::from_utf8_lossy(&loaded.stderr));
+    assert_eq!(hits(&events).len(), 2);
+    let (built, events) = invoke(root.path(), &["--fts", "needle"]);
+    assert!(built.status.success(), "{}", String::from_utf8_lossy(&built.stderr));
     assert_eq!(hits(&events).len(), 2);
 }
 

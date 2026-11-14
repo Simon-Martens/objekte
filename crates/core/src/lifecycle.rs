@@ -7,7 +7,7 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::num::NonZeroUsize;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
@@ -1053,6 +1053,7 @@ struct IndexInner {
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
     managed: Mutex<Option<crate::lifecycle_storage::ManagedPersistence>>,
+    loaded_origin: RwLock<Option<PathBuf>>,
     storage_status_snapshot: RwLock<Option<crate::lifecycle_storage::StorageStatusSnapshot>>,
     storage_syncing: AtomicUsize,
     sync_storage: Mutex<Option<SyncCacheWorker>>,
@@ -1417,6 +1418,7 @@ impl Index {
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
             managed: Mutex::new(None),
+            loaded_origin: RwLock::new(None),
             storage_status_snapshot: RwLock::new(None),
             storage_syncing: AtomicUsize::new(0),
             sync_storage: Mutex::new(None),
@@ -1520,6 +1522,15 @@ impl Index {
 
     pub fn restored_from_storage(&self) -> bool {
         self.0.restored_from_storage.load(Ordering::Acquire)
+    }
+
+    pub fn loaded_origin(&self) -> Result<Option<PathBuf>, IndexError> {
+        Ok(self.0.loaded_origin.read().map_err(|_| IndexError::LockPoisoned)?.clone())
+    }
+
+    pub(crate) fn mark_loaded_origin(&self, path: PathBuf) -> Result<(), IndexError> {
+        *self.0.loaded_origin.write().map_err(|_| IndexError::LockPoisoned)? = Some(path);
+        Ok(())
     }
 
     pub(crate) fn mark_restored_from_storage(&self) {

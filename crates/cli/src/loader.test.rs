@@ -1,4 +1,5 @@
 use super::*;
+use crate::arguments::IndexStorageChoice;
 use objekte_search_core::index_storage::IndexStorageLocation;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
@@ -196,7 +197,7 @@ fn configured_custom_base_keeps_unrelated_source_siblings() {
 }
 
 #[test]
-fn custom_index_base_inside_source_excludes_only_objekte_namespace() {
+fn custom_index_base_inside_source_excludes_owned_namespace_without_hiding_base() {
     let root = tempfile::tempdir().unwrap();
     let custom = root.path().join("chosen-base");
     std::fs::create_dir(&custom).unwrap();
@@ -210,11 +211,9 @@ fn custom_index_base_inside_source_excludes_only_objekte_namespace() {
     let configured = configure_definitions(&args, &paths).unwrap();
     assert_eq!(
         configured.definitions[0].discovery.exclude_directories,
-        vec![
-            PathBuf::from(".objekte"),
-            PathBuf::from("chosen-base/objekte-indexes")
-        ]
+        vec![PathBuf::from(".objekte")]
     );
+    assert!(configured.definitions[0].discovery.exclude.contains(&"**/objekte-indexes".to_owned()));
     assert!(
         !configured.definitions[0]
             .discovery

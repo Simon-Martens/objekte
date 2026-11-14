@@ -13,7 +13,7 @@ use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
 
-use crate::arguments::{Alphabet, Arguments, IndexStorageChoice, ResolvedPaths};
+use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 
 fn load_schema_configuration(
     paths: &ResolvedPaths,
@@ -92,27 +92,6 @@ pub fn configure_definitions(
     })
 }
 
-/// Exclude an application-owned index directory from source discovery, even
-/// when a custom base is located inside a collection source folder.
-fn exclude_managed_directory(
-    definition: &mut CollectionDefinition,
-    source_root: &Path,
-    directory: &Path,
-) {
-    let source_root = source_root
-        .canonicalize()
-        .unwrap_or_else(|_| source_root.to_owned());
-    let Ok(relative) = directory.strip_prefix(&source_root) else {
-        return;
-    };
-    if !relative.as_os_str().is_empty() {
-        definition
-            .discovery
-            .exclude_directories
-            .push(relative.to_owned());
-    }
-}
-
 fn make_definition(
     args: &Arguments,
     paths: &ResolvedPaths,
@@ -133,20 +112,17 @@ fn make_definition(
     definition.discovery.recursive = !args.no_recurse;
     definition.discovery.hidden = true;
     definition.discovery.symlinks = SymlinkPolicy::Skip;
-    definition.discovery.exclude = vec![".git".into(), "**/.git".into()];
+    definition.discovery.exclude = vec![
+        ".git".into(),
+        "**/.git".into(),
+        "objekte-indexes".into(),
+        "**/objekte-indexes".into(),
+    ];
     definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
     if let Some(schema_file) = paths.schema_file.as_deref()
         && let Ok(relative) = schema_file.strip_prefix(source_root)
     {
         definition.discovery.exclude_files.push(relative.to_owned());
-    }
-    if let Some(directory) = paths.index_directory.as_deref() {
-        let managed = if args.index_storage == IndexStorageChoice::Custom {
-            directory.join("objekte-indexes")
-        } else {
-            directory.to_owned()
-        };
-        exclude_managed_directory(&mut definition, source_root, &managed);
     }
     definition
 }

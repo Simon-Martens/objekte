@@ -871,6 +871,9 @@ fn restore_generation(
     published.processed_files = published.catalog.active_files() as usize;
     let index = Index::from_published(published);
     index.mark_restored_from_storage();
+    if let Some(path) = &resolved.managed_directory {
+        index.mark_loaded_origin(path.clone())?;
+    }
     if readonly {
         index.attach_storage_existing(resolved.clone())?;
     } else {
