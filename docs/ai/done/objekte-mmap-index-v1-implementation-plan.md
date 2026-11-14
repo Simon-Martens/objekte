@@ -2409,6 +2409,21 @@ source-check actions.
 - `6b86aa67` — TUI storage overlay and scope issues.
 - `5fb81e64` — catalogue high-water preservation and desktop storage opening.
 
+### Packed access abstraction
+
+`crates/core/src/index_storage/access.rs` adds borrowed `PostingAccess` and
+`BigramAccess` enums over native `PostingIndex`/`BigramIndex` and packed
+`FieldPostingsView`/`BigramSectionView`. The abstraction exposes presence,
+nulls, empty selections, structural facts, exact/not-equal/range queries,
+lengths, value enumeration, distinct counts, and normal/skip bigram
+union/intersection/count operations. It returns query-owned `RoaringBitmap`
+results without caching decoded postings.
+
+Differential tests in `access.test.rs` compare native, resident packed, and
+mmap packed access for string and numeric postings and for bigram candidates.
+The next wiring step is to make `IndexCatalog` construct this abstraction from
+either published representation.
+
 ### Validation
 
 Commands run in the integration worktree:
@@ -2423,10 +2438,10 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 586
+- Workspace tests pass with no failures. The core library suite reports 587
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 71 passed, including dictionary,
+- The storage subsystem suite reports 72 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.

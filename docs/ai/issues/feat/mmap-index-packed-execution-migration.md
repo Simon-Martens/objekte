@@ -23,7 +23,9 @@ or relation targets during load.
 
 Persistence is complete and query semantics are preserved, but load memory and
 first-query work still scale with the native representation. The packed readers
-are available and tested but are not yet the execution path.
+and a borrowed `PostingAccess`/`BigramAccess` abstraction are available and
+differentially tested, but `IndexCatalog` and the executor still construct
+native accesses.
 
 ## Why not resolved here
 
