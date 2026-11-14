@@ -30,6 +30,7 @@ use roaring::RoaringBitmap;
 use serde::{Serialize, de::DeserializeOwned};
 
 use crate::build::{IndexedCollectionSegment, SegmentFile};
+use crate::generation_catalog::RestoredGenerationCatalog;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, MAX_DIAGNOSTIC_CODE_BYTES, MAX_DIAGNOSTIC_MESSAGE_BYTES,
     MAX_DIAGNOSTIC_PATH_SEGMENTS, MAX_DIAGNOSTIC_SEGMENT_BYTES, MAX_DIAGNOSTICS_PER_FILE,
@@ -77,6 +78,31 @@ pub(crate) struct CheckedRecordSlots {
 impl CheckedRecordSlots {
     pub(crate) fn slot_count(&self) -> u32 {
         self.records.len() as u32
+    }
+}
+
+pub(crate) trait RecordIds {
+    fn slot_count(&self) -> u32;
+    fn id_at(&self, slot: RecordSlot) -> Result<&str, String>;
+}
+
+impl RecordIds for CheckedRecordSlots {
+    fn slot_count(&self) -> u32 { self.records.len() as u32 }
+
+    fn id_at(&self, slot: RecordSlot) -> Result<&str, String> {
+        self.records.get(slot.0 as usize).map(|record| record.id.0.as_ref())
+            .ok_or("record identity slot missing".into())
+    }
+}
+
+struct NativeRecordIds<'a>(&'a [RecordEntry]);
+
+impl RecordIds for NativeRecordIds<'_> {
+    fn slot_count(&self) -> u32 { self.0.len() as u32 }
+
+    fn id_at(&self, slot: RecordSlot) -> Result<&str, String> {
+        self.0.get(slot.0 as usize).map(|record| record.id.0.as_ref())
+            .ok_or("record identity slot missing".into())
     }
 }
 
@@ -186,7 +212,7 @@ pub(crate) fn check_deferred_metadata_limits(
     }
     validate_relation_structure(
         &segment.relations,
-        &segment.records,
+        &NativeRecordIds(&segment.records),
         &segment.identity_order,
         &logical,
         &fallback,
@@ -482,6 +508,24 @@ pub(crate) trait SegmentMetadataRefs: Send + Sync {
     fn contains_collection_for_ref(&self, reference: u32, collection: CollectionId) -> Option<bool>;
 }
 
+impl SegmentMetadataRefs for RestoredGenerationCatalog {
+    fn entry_for_ref(&self, reference: u32) -> Result<Option<FileEntry>, String> {
+        RestoredGenerationCatalog::entry_for_ref(self, reference)
+    }
+
+    fn file_id_for_ref(&self, reference: u32) -> Option<FileId> {
+        RestoredGenerationCatalog::file_id_for_ref(self, reference)
+    }
+
+    fn revision_for_ref(&self, reference: u32) -> Option<SourceRevision> {
+        RestoredGenerationCatalog::revision_for_ref(self, reference)
+    }
+
+    fn contains_collection_for_ref(&self, reference: u32, collection: CollectionId) -> Option<bool> {
+        RestoredGenerationCatalog::contains_collection_for_ref(self, reference, collection)
+    }
+}
+
 /// Checked offsets and domains over immutable mapped or resident record
 /// section bytes. No record table, file table, membership list, or lookup map
 /// is reconstructed on opening.
@@ -512,6 +556,14 @@ impl PersistedRecordSlots {
     pub(crate) fn record_count(&self) -> usize { self.layout.record_count }
 
     pub(crate) fn file_count(&self) -> usize { self.layout.file_count }
+
+    pub(crate) fn file_id_at(&self, index: usize) -> Result<Option<FileId>, String> {
+        Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.id))
+    }
+
+    pub(crate) fn metadata_ref_at(&self, index: usize) -> Result<Option<u32>, String> {
+        Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.metadata_ref))
+    }
 
     pub(crate) fn logical_records(&self) -> &RoaringBitmap { &self.layout.logical_records }
 
@@ -563,6 +615,19 @@ impl PersistedRecordSlots {
         let entry = self.metadata.entry_for_ref(row.metadata_ref)?.ok_or("record metadata reference missing")?;
         if entry.id != id { return Err("record metadata file identity mismatch".into()); }
         Ok(Some(entry))
+    }
+
+    pub(crate) fn file_at(&self, index: usize) -> Result<Option<SegmentFile>, String> {
+        let Some(row) = self.layout.file_row(self.bytes()?, index) else { return Ok(None); };
+        let entry = self.metadata.entry_for_ref(row.metadata_ref)?.ok_or("record metadata reference missing")?;
+        if entry.id != row.id { return Err("record metadata file identity mismatch".into()); }
+        let bytes = self.bytes()?;
+        let start = row.membership_start as usize;
+        let end = start + row.membership_count as usize;
+        let records = (start..end)
+            .map(|number| self.layout.membership(bytes, number).expect("validated membership span"))
+            .collect();
+        Ok(Some(SegmentFile { entry, records }))
     }
 
     pub(crate) fn file_records(&self, id: FileId) -> Result<Option<Vec<RecordSlot>>, String> {
@@ -669,6 +734,14 @@ impl PersistedRecordSlots {
         }
         if seen.iter().any(|seen| !seen) { return Err("record file membership incomplete".into()); }
         Ok(())
+    }
+}
+
+impl RecordIds for PersistedRecordSlots {
+    fn slot_count(&self) -> u32 { self.layout.record_count as u32 }
+
+    fn id_at(&self, slot: RecordSlot) -> Result<&str, String> {
+        self.record_id(slot)?.ok_or("record identity slot missing".into())
     }
 }
 
@@ -918,7 +991,7 @@ fn encode_sort_data_inner(
     validate: bool,
 ) -> Result<Vec<u8>, String> {
     if validate {
-        validate_sort_structure(sorting, records)?;
+        validate_sort_structure(sorting, &NativeRecordIds(records))?;
     } else if sorting.columns.len() > MAX_COLUMNS
         || sorting.composites.len() > MAX_COLUMNS
         || records.len() > MAX_RECORDS
@@ -952,7 +1025,7 @@ fn encode_sort_data_inner(
 
 pub(crate) fn decode_sort_data(
     bytes: &[u8],
-    records: &CheckedRecordSlots,
+    records: &dyn RecordIds,
     definition: &CollectionDefinition,
 ) -> Result<SortCollection, String> {
     let mut cursor = Cursor::new(bytes)?;
@@ -978,7 +1051,7 @@ pub(crate) fn decode_sort_data(
         columns,
         composites,
     };
-    validate_sort_structure(&sorting, &records.records)?;
+    validate_sort_structure(&sorting, records)?;
     if sorting.columns.len() != definition.sort_fields.len() {
         return Err("sort field coverage mismatch".into());
     }
@@ -1015,38 +1088,40 @@ pub(crate) fn decode_sort_data(
 
 fn validate_sort_structure(
     sorting: &SortCollection,
-    records: &[RecordEntry],
+    records: &dyn RecordIds,
 ) -> Result<(), String> {
+    let count = records.slot_count() as usize;
     if sorting.columns.len() > MAX_COLUMNS
         || sorting.composites.len() > MAX_COLUMNS
-        || records.len() > MAX_RECORDS
+        || count > MAX_RECORDS
     {
         return Err("sort metadata count exceeds limit".into());
     }
     for (path, column) in &sorting.columns {
         if &column.path != path
             || column.collation_version != COLLATION_VERSION
-            || column.keys.len() != records.len()
-            || !valid_permutation(&column.ascending, records.len())
-            || !valid_permutation(&column.descending, records.len())
+            || column.keys.len() != count
+            || !valid_permutation(&column.ascending, count)
+            || !valid_permutation(&column.descending, count)
         {
             return Err("sort column identity, collation, or permutation invalid".into());
         }
         for (ordered, descending) in [(&column.ascending, false), (&column.descending, true)] {
-            if ordered.windows(2).any(|pair| {
+            for pair in ordered.windows(2) {
                 let a = pair[0].0 as usize;
                 let b = pair[1].0 as usize;
-                column.keys[a]
-                    .compare_with(&column.keys[b], descending, column.options)
-                    .then_with(|| records[a].id.cmp(&records[b].id))
-                    .is_gt()
-            }) {
-                return Err("sort key order invalid".into());
+                let order = column.keys[a].compare_with(&column.keys[b], descending, column.options);
+                let order = if order.is_eq() {
+                    records.id_at(pair[0])?.cmp(records.id_at(pair[1])?)
+                } else { order };
+                if order.is_gt() {
+                    return Err("sort key order invalid".into());
+                }
             }
         }
     }
     for composite in &sorting.composites {
-        if composite.fields.is_empty() || !valid_permutation(&composite.order, records.len()) {
+        if composite.fields.is_empty() || !valid_permutation(&composite.order, count) {
             return Err("composite sort permutation invalid".into());
         }
         let columns = composite
@@ -1060,16 +1135,14 @@ fn validate_sort_structure(
                     .ok_or("composite sort column missing")
             })
             .collect::<Result<Vec<_>, _>>()?;
-        if composite.order.windows(2).any(|pair| {
-            compare_composite(&columns, pair[0], pair[1])
-                .then_with(|| {
-                    records[pair[0].0 as usize]
-                        .id
-                        .cmp(&records[pair[1].0 as usize].id)
-                })
-                .is_gt()
-        }) {
-            return Err("composite sort order invalid".into());
+        for pair in composite.order.windows(2) {
+            let order = compare_composite(&columns, pair[0], pair[1]);
+            let order = if order.is_eq() {
+                records.id_at(pair[0])?.cmp(records.id_at(pair[1])?)
+            } else { order };
+            if order.is_gt() {
+                return Err("composite sort order invalid".into());
+            }
         }
     }
     Ok(())
@@ -1101,7 +1174,7 @@ pub(crate) fn encode_relation_identity(
     identity_order: &[RecordSlot],
 ) -> Result<Vec<u8>, String> {
     let (logical, fallback) = record_domains(records)?;
-    validate_relation_structure(relations, records, identity_order, &logical, &fallback)?;
+    validate_relation_structure(relations, &NativeRecordIds(records), identity_order, &logical, &fallback)?;
     let mut out = Vec::new();
     start(&mut out, RELATION_MAGIC);
     put_u32(&mut out, records.len() as u32);
@@ -1117,13 +1190,15 @@ pub(crate) fn encode_relation_identity(
 
 pub(crate) fn decode_relation_identity(
     bytes: &[u8],
-    records: &CheckedRecordSlots,
+    records: &dyn RecordIds,
+    logical_records: &RoaringBitmap,
+    fallback_records: &RoaringBitmap,
     definition: &CollectionDefinition,
 ) -> Result<CheckedRelationIdentity, String> {
     let mut cursor = Cursor::new(bytes)?;
     check_header(&mut cursor, RELATION_MAGIC)?;
     let slot_count = cursor.u32()? as usize;
-    if slot_count != records.records.len() || slot_count > MAX_RECORDS {
+    if slot_count != records.slot_count() as usize || slot_count > MAX_RECORDS {
         return Err("relation identity slot domain mismatch".into());
     }
     let relation_count = cursor.count(MAX_RELATIONS, 4)?;
@@ -1141,10 +1216,10 @@ pub(crate) fn decode_relation_identity(
     cursor.end()?;
     validate_relation_structure(
         &relations,
-        &records.records,
+        records,
         &identity_order,
-        &records.logical_records,
-        &records.fallback_records,
+        logical_records,
+        fallback_records,
     )?;
     let declarations = definition.schema.relations().values().collect::<Vec<_>>();
     if relations.len() != declarations.len()
@@ -1185,24 +1260,24 @@ fn record_domains(records: &[RecordEntry]) -> Result<(RoaringBitmap, RoaringBitm
 
 fn validate_relation_structure(
     relations: &[RelationContribution],
-    records: &[RecordEntry],
+    records: &dyn RecordIds,
     identity_order: &[RecordSlot],
     logical: &RoaringBitmap,
     fallback: &RoaringBitmap,
 ) -> Result<(), String> {
-    if relations.len() > MAX_RELATIONS || !valid_permutation(identity_order, records.len()) {
+    let count = records.slot_count() as usize;
+    if relations.len() > MAX_RELATIONS || !valid_permutation(identity_order, count) {
         return Err("relation count or identity permutation invalid".into());
     }
-    if identity_order
-        .windows(2)
-        .any(|pair| records[pair[0].0 as usize].id > records[pair[1].0 as usize].id)
-    {
-        return Err("record identity order invalid".into());
+    for pair in identity_order.windows(2) {
+        if records.id_at(pair[0])? >= records.id_at(pair[1])? {
+            return Err("record identity order invalid".into());
+        }
     }
     let mut declarations = HashSet::with_capacity(relations.len());
     for relation in relations {
         if !declarations.insert(relation.declaration().path.as_slice())
-            || relation.record_count() as usize != records.len()
+            || relation.record_count() as usize != count
             || relation.unavailable() != fallback
             || !relation.present().is_subset(logical)
             || !relation.nulls().is_subset(relation.present())
@@ -1212,7 +1287,7 @@ fn validate_relation_structure(
         }
         let mut previous = None;
         for (source, _target_id, _positions) in relation.references() {
-            if source.0 as usize >= records.len()
+            if source.0 as usize >= count
                 || !relation.present().contains(source.0)
                 || !logical.contains(source.0)
                 || previous.is_some_and(|last| source.0 < last)

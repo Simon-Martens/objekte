@@ -33,6 +33,7 @@ use crate::segment_format::{
     PostingDescriptor, REQUIRED_SECTIONS, SectionKind, SegmentReader, SegmentWriter,
 };
 use crate::segment_metadata::{
+    CheckedRecordSlots, PersistedRecordSlots, RecordIds, SegmentMetadataRefs,
     check_deferred_metadata_limits, decode_record_slots, decode_relation_identity,
     decode_sort_data, encode_record_slots, encode_record_slots_constructed,
     encode_relation_identity, encode_sort_data, encode_sort_data_constructed,
@@ -1071,6 +1072,7 @@ pub(crate) fn decode_segment_owned<'a>(
         resolve,
         false,
         crate::segment_format::SegmentTrust::Untrusted,
+        None,
     )
 }
 
@@ -1121,7 +1123,59 @@ pub(crate) fn decode_segment_sealed_with_trust<'a>(
         resolve,
         true,
         trust,
+        None,
     )
+}
+
+/// Managed mapped and resident opens retain the generation catalog as a
+/// metadata-reference owner and install byte-backed record lookups.
+pub(crate) fn decode_segment_sealed_persisted_with_trust(
+    reader: Arc<SegmentReader>,
+    expected_ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    collection: CollectionId,
+    source: (&str, u32),
+    expected_slot_count: u32,
+    metadata: Arc<dyn SegmentMetadataRefs>,
+    trust: crate::segment_format::SegmentTrust,
+) -> Result<IndexedCollectionSegment, String> {
+    decode_segment_impl(
+        reader,
+        expected_ordinal,
+        definition,
+        options,
+        collection,
+        source,
+        expected_slot_count,
+        &|_| None,
+        true,
+        trust,
+        Some(metadata),
+    )
+}
+
+enum OpenRecordTables {
+    Owned(CheckedRecordSlots),
+    Persisted(Arc<PersistedRecordSlots>),
+}
+
+impl OpenRecordTables {
+    fn slot_count(&self) -> u32 {
+        match self { Self::Owned(records) => records.slot_count(), Self::Persisted(records) => records.record_count() as u32 }
+    }
+
+    fn logical(&self) -> &RoaringBitmap {
+        match self { Self::Owned(records) => &records.logical_records, Self::Persisted(records) => records.logical_records() }
+    }
+
+    fn fallback(&self) -> &RoaringBitmap {
+        match self { Self::Owned(records) => &records.fallback_records, Self::Persisted(records) => records.fallback_records() }
+    }
+
+    fn ids(&self) -> &dyn RecordIds {
+        match self { Self::Owned(records) => records, Self::Persisted(records) => records.as_ref() }
+    }
 }
 
 fn decode_segment_impl<'a>(
@@ -1135,6 +1189,7 @@ fn decode_segment_impl<'a>(
     resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
     sealed: bool,
     trust: crate::segment_format::SegmentTrust,
+    metadata: Option<Arc<dyn SegmentMetadataRefs>>,
 ) -> Result<IndexedCollectionSegment, String> {
     if expected_ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
@@ -1170,12 +1225,14 @@ fn decode_segment_impl<'a>(
     )?;
     let gram_filter_len = required(&reader, SectionKind::GramFilters)?.len();
     check_filter_spans(texts.bindings.iter().flat_map(|text| [text.normal_filter, text.skip_filter]), gram_filter_len)?;
-    let records = decode_record_slots(
-        required(&reader, SectionKind::RecordSlots)?,
-        collection,
-        source,
-        resolve,
-    )?;
+    let records = match metadata {
+        Some(metadata) => OpenRecordTables::Persisted(Arc::new(PersistedRecordSlots::open(
+            Arc::clone(&reader), collection, source, metadata,
+        )?)),
+        None => OpenRecordTables::Owned(decode_record_slots(
+            required(&reader, SectionKind::RecordSlots)?, collection, source, resolve,
+        )?),
+    };
     let count = records.slot_count();
     if count != expected_slot_count
         || integrity.collection != collection
@@ -1208,8 +1265,8 @@ fn decode_segment_impl<'a>(
         .into_iter()
         .map(|binding| (binding.key.clone(), binding))
         .collect::<HashMap<_, _>>();
-    let logical = &records.logical_records;
-    let fallback = &records.fallback_records;
+    let logical = records.logical();
+    let fallback = records.fallback();
     let logical_shared = sealed.then(|| Arc::new(logical.clone()));
     let fallback_shared = sealed.then(|| Arc::new(fallback.clone()));
     let mut declared = HashMap::new();
@@ -1448,24 +1505,37 @@ fn decode_segment_impl<'a>(
     };
     let sorting = decode_sort_data(
         required(&reader, SectionKind::SortData)?,
-        &records,
+        records.ids(),
         definition,
     )?;
     let relation_identity = decode_relation_identity(
         required(&reader, SectionKind::RelationAndIdentity)?,
-        &records,
+        records.ids(),
+        logical,
+        fallback,
         definition,
     )?;
     let empty_array_records = materialize(&reader, structure.empty_array_records, logical)?;
+    let (source_id, source_version, files, file_index, records_vec, id_lookup, persisted, logical_records) =
+        match records {
+            OpenRecordTables::Owned(records) => (
+                records.source_id, records.source_version, records.files, records.file_index,
+                records.records, records.id_lookup, None, records.logical_records,
+            ),
+            OpenRecordTables::Persisted(records) => (
+                records.source_id().to_owned(), records.source_version(), Vec::new(), HashMap::new(),
+                Vec::new(), HashMap::new(), Some(Arc::clone(&records)), records.logical_records().clone(),
+            ),
+        };
     let segment = IndexedCollectionSegment {
         collection,
-        source_id: records.source_id,
-        source_version: records.source_version,
-        files: records.files,
-        file_index: records.file_index,
-        records: records.records,
-        id_lookup: records.id_lookup,
-        persisted: None,
+        source_id,
+        source_version,
+        files,
+        file_index,
+        records: records_vec,
+        id_lookup,
+        persisted,
         identity_order: relation_identity.identity_order,
         postings: PostingCollection { fields: declared },
         inference,
@@ -1473,7 +1543,7 @@ fn decode_segment_impl<'a>(
         raw: raw.ok_or("raw text binding missing")?,
         fallback_text: fallback_text.ok_or("fallback text binding missing")?,
         custom_text,
-        logical_records: records.logical_records,
+        logical_records,
         empty_array_records,
         sorting,
         relations: relation_identity.relations,
@@ -1489,7 +1559,7 @@ fn validate_components(
     definition: &CollectionDefinition,
     options: RepositoryOptions,
 ) -> Result<(), String> {
-    let count = segment.records.len();
+    let count = segment.record_count();
     if count > u32::MAX as usize
         || segment
             .logical_records
@@ -1569,12 +1639,17 @@ fn validate_components(
             return Err("hybrid named posting binding mismatch".into());
         }
     }
-    let mut fallback = RoaringBitmap::new();
-    for record in &segment.records {
-        if record.class == crate::inventory::RecordClass::RawFallback {
-            fallback.insert(record.slot.0);
+    let fallback = if let Some(records) = &segment.persisted {
+        records.fallback_records().clone()
+    } else {
+        let mut fallback = RoaringBitmap::new();
+        for record in &segment.records {
+            if record.class == crate::inventory::RecordClass::RawFallback {
+                fallback.insert(record.slot.0);
+            }
         }
-    }
+        fallback
+    };
     for (index, allowed) in [
         (&segment.raw, &segment.logical_records),
         (&segment.fallback_text, &fallback),

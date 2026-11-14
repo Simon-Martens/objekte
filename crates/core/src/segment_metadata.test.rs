@@ -247,10 +247,10 @@ fn relation_section_checks_fallback_domain_and_declaration() {
     relations[0].add_unavailable(RecordSlot(1)).unwrap();
     let order = vec![RecordSlot(0), RecordSlot(1)];
     let bytes = encode_relation_identity(&relations, &records, &order).unwrap();
-    let decoded = decode_relation_identity(&bytes, &checked, &definition).unwrap();
+    let decoded = decode_relation_identity(&bytes, &checked, &checked.logical_records, &checked.fallback_records, &definition).unwrap();
     assert_eq!(decoded.relations.len(), 1);
     assert!(decoded.relations[0].unavailable().contains(1));
-    assert!(decode_relation_identity(&bytes, &checked, &super::tests::definition()).is_err());
+    assert!(decode_relation_identity(&bytes, &checked, &checked.logical_records, &checked.fallback_records, &super::tests::definition()).is_err());
     let mut invalid = RelationContribution::for_schema(&definition.schema);
     invalid[0].add_logical(RecordSlot(0), &Value::Null).unwrap();
     invalid[0].add_logical(RecordSlot(1), &Value::Null).unwrap();
@@ -293,7 +293,7 @@ fn sort_and_relation_sections_roundtrip_without_source_access() {
     let order = vec![RecordSlot(0), RecordSlot(1)];
     let relation_bytes = encode_relation_identity(&[], &records, &order).unwrap();
     let decoded_relation =
-        decode_relation_identity(&relation_bytes, &checked, &definition()).unwrap();
+        decode_relation_identity(&relation_bytes, &checked, &checked.logical_records, &checked.fallback_records, &definition()).unwrap();
     assert_eq!(decoded_relation.identity_order, order);
     assert!(decoded_relation.relations.is_empty());
     assert!(encode_relation_identity(&[], &records, &[RecordSlot(0), RecordSlot(0)]).is_err());
@@ -301,6 +301,8 @@ fn sort_and_relation_sections_roundtrip_without_source_access() {
         decode_relation_identity(
             &relation_bytes[..relation_bytes.len() - 1],
             &checked,
+            &checked.logical_records,
+            &checked.fallback_records,
             &definition()
         )
         .is_err()
