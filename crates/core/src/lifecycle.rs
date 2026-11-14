@@ -46,11 +46,9 @@ const SIZE_MAINTENANCE_REVISIONS: u64 = 16;
 const MIN_RETIREMENT_SLOTS: usize = 256;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
-
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
-
 
 /// Exclusive phases of one progressive segment publication. The work before
 /// installation is complete before a new query view becomes visible.
@@ -59,7 +57,6 @@ pub(crate) struct InitialPublicationPhases {
     pub(crate) sealing_ns: u64,
     pub(crate) install_ns: u64,
 }
-
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -72,7 +69,6 @@ impl IndexRevision {
     }
 }
 
-
 /// A physical file incarnation in one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileHandle {
@@ -80,7 +76,6 @@ pub struct FileHandle {
     pub file_id: FileId,
     pub version: FileVersion,
 }
-
 
 /// Errors at the lifecycle boundary. Query failures retain the existing
 /// repository result type until the lifecycle query-completeness phase.
@@ -117,7 +112,6 @@ pub enum IndexError {
     RevisionOverflow,
     LockPoisoned,
 }
-
 
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -174,9 +168,7 @@ impl fmt::Display for IndexError {
     }
 }
 
-
 impl std::error::Error for IndexError {}
-
 
 impl From<crate::managed_store::StoreReadError> for IndexError {
     fn from(error: crate::managed_store::StoreReadError) -> Self {
@@ -193,7 +185,6 @@ impl From<crate::managed_store::StoreReadError> for IndexError {
     }
 }
 
-
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -205,7 +196,6 @@ pub enum ReconciliationState {
     Partial,
     Cancelled,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
@@ -227,7 +217,6 @@ pub struct IndexStatus {
     pub fallback_records: u64,
 }
 
-
 /// Discovery-only facts for one physical file. Record identity, validity,
 /// byte ranges and record counts require construction and are omitted here.
 #[derive(Clone, Copy, Debug)]
@@ -240,7 +229,6 @@ pub struct FileCatalogueRow<'a> {
     pub created_ns: Option<i128>,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, serde::Serialize)]
 pub struct IndexFamilyEstimate {
     pub raw_bytes: usize,
@@ -249,7 +237,6 @@ pub struct IndexFamilyEstimate {
     pub postings_bytes: usize,
     pub sorting_bytes: usize,
 }
-
 
 impl IndexFamilyEstimate {
     pub fn total(self) -> usize {
@@ -260,7 +247,6 @@ impl IndexFamilyEstimate {
             + self.sorting_bytes
     }
 }
-
 
 /// Result of an explicit query against one pinned, possibly incomplete view.
 /// `result.count` is absent while construction is incomplete, even if the
@@ -273,7 +259,6 @@ pub struct AvailableSearchResult {
     pub processed_files: usize,
 }
 
-
 /// Outcome of explicit full reconstruction from the configured source files.
 #[derive(Clone, Debug)]
 pub struct RebuildReport {
@@ -284,14 +269,12 @@ pub struct RebuildReport {
     pub duration: Duration,
 }
 
-
 /// The kind of a long-running index maintenance task.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenanceOperation {
     Compact,
     Rebuild,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenancePhase {
@@ -303,7 +286,6 @@ pub enum MaintenancePhase {
     Failed,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MaintenanceProgress {
     pub operation: MaintenanceOperation,
@@ -312,13 +294,11 @@ pub struct MaintenanceProgress {
     pub elapsed: Duration,
 }
 
-
 #[derive(Clone, Debug)]
 pub enum MaintenanceReport {
     Compact(crate::lifecycle_compaction::CompactionReport),
     Rebuild(RebuildReport),
 }
-
 
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
@@ -328,7 +308,6 @@ pub enum DeleteStrategy {
     VerifiedPhysicalRemoval,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteResult {
     pub revision: IndexRevision,
@@ -337,7 +316,6 @@ pub struct DeleteResult {
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
 }
-
 
 /// One metadata scan and its applied index changes. Errors affecting only a
 /// source remain visible here while other independent files can proceed.
@@ -357,7 +335,6 @@ pub struct ReconciliationReport {
     pub omitted_issues: usize,
 }
 
-
 impl ReconciliationReport {
     fn record_issue(&mut self, issue: String) {
         if self.issues.len() < MAX_RECONCILIATION_ISSUES {
@@ -367,7 +344,6 @@ impl ReconciliationReport {
         }
     }
 }
-
 
 /// Small, copyable observation while a reconciliation pass is running.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -384,7 +360,6 @@ pub struct ReconciliationProgress {
     pub cancelled: bool,
     pub issue_count: usize,
 }
-
 
 impl From<&ReconciliationReport> for ReconciliationProgress {
     fn from(report: &ReconciliationReport) -> Self {
@@ -404,7 +379,6 @@ impl From<&ReconciliationReport> for ReconciliationProgress {
     }
 }
 
-
 /// Private work captured before the mutation writer validates and publishes
 /// one file across all eligible collections.
 pub(crate) struct PreparedAdd {
@@ -412,7 +386,6 @@ pub(crate) struct PreparedAdd {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) file: PreparedFileBuild,
 }
-
 
 /// A complete replacement captured against one file incarnation. The writer
 /// checks both the view revision and file token before replacing its slots.
@@ -423,13 +396,11 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
-
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
         self.saved_revision != Some(self.revision)
     }
 }
-
 
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
@@ -438,7 +409,6 @@ pub(crate) struct PublishedSegment {
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
 }
-
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
@@ -464,12 +434,11 @@ pub(crate) struct PublishedIndex {
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
 
-
-fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
+fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Result<Option<(usize, usize)>, String> {
     let mut sized = group
         .iter()
         .enumerate()
-        .map(|(index, segment)| (segment.index.records.len(), index))
+        .map(|(index, segment)| (segment.index.record_count(), index))
         .collect::<Vec<_>>();
     sized.sort_unstable();
     for (position, &(left_size, left)) in sized.iter().enumerate() {
@@ -479,23 +448,31 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
             }
             let left_index = &group[left].index;
             let right_index = &group[right].index;
-            if left_index
-                .files
-                .iter()
-                .any(|file| right_index.file(file.entry.id).is_some())
-                || left_index
-                    .id_lookup
-                    .keys()
-                    .any(|id| right_index.id_lookup.contains_key(id))
-            {
+            let mut overlaps = false;
+            for file_number in 0..left_index.file_count() {
+                let file_id = left_index.try_file_id_at(file_number)?.ok_or("segment file row missing")?;
+                if right_index.try_file_index(file_id)?.is_some() {
+                    overlaps = true;
+                    break;
+                }
+            }
+            if !overlaps {
+                for &slot in &left_index.identity_order {
+                    let id = left_index.try_record_id(slot)?.ok_or("segment identity slot missing")?;
+                    if right_index.try_id_lookup(id)?.is_some() {
+                        overlaps = true;
+                        break;
+                    }
+                }
+            }
+            if overlaps {
                 continue;
             }
-            return Some((left.min(right), left.max(right)));
+            return Ok(Some((left.min(right), left.max(right))));
         }
     }
-    None
+    Ok(None)
 }
-
 
 impl PublishedIndex {
     pub(crate) fn from_repository(
@@ -582,17 +559,7 @@ impl PublishedIndex {
                         .count() as u64;
                     let segments = self.segments[number]
                         .iter()
-                        .map(|segment| {
-                            segment
-                                .index
-                                .records
-                                .iter()
-                                .filter(|record| {
-                                    record.class == crate::inventory::RecordClass::RawFallback
-                                        && segment.active.contains(record.slot)
-                                })
-                                .count() as u64
-                        })
+                        .map(|segment| (&segment.active.bitmap() - &segment.index.logical_records).len())
                         .sum::<u64>();
                     base + segments
                 })
@@ -651,17 +618,16 @@ impl PublishedIndex {
             }
         }
         for (id, _) in &index.id_lookup {
+            let existing_duplicate = self.segments[number].iter().try_fold(false, |found, segment| {
+                let slot = segment.index.try_id_lookup(id.0.as_ref())
+                    .map_err(IndexError::InvalidPublication)?;
+                Ok::<_, IndexError>(found || slot.is_some_and(|slot| segment.active.contains(slot)))
+            })?;
             if collection
                 .id_lookup
                 .get(id)
                 .is_some_and(|slot| self.active[number].contains(*slot))
-                || self.segments[number].iter().any(|segment| {
-                    segment
-                        .index
-                        .id_lookup
-                        .get(id)
-                        .is_some_and(|slot| segment.active.contains(*slot))
-                })
+                || existing_duplicate
             {
                 return Err(IndexError::DuplicateRecordId {
                     collection: collection.definition.name.clone(),
@@ -745,7 +711,7 @@ impl PublishedIndex {
         let full_partitions = self.segments[number]
             .iter()
             .filter(|segment| {
-                segment.index.records.len() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                segment.index.record_count() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
             })
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
@@ -753,16 +719,27 @@ impl PublishedIndex {
         let group = Arc::make_mut(&mut self.segments[number]);
         if count_triggered {
             // A current zero-record file still owns its catalogue contribution.
-            group.retain(|segment| {
-                segment.active.len() > 0
-                    || segment.index.files.iter().any(|file| {
-                        self.catalog.entry(file.entry.id).is_some_and(|current| {
-                            current.revision == file.entry.revision
-                                && current.created_ns == file.entry.created_ns
-                                && current.collections.contains(&segment.index.collection)
-                        })
-                    })
-            });
+            let mut kept = Vec::with_capacity(group.len());
+            for segment in group.drain(..) {
+                let mut current_file = false;
+                for file_number in 0..segment.index.file_count() {
+                    let file = segment.index.try_file_entry_at(file_number)
+                        .map_err(IndexError::InvalidPublication)?
+                        .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
+                    if self.catalog.entry(file.id).is_some_and(|current| {
+                        current.revision == file.revision
+                            && current.created_ns == file.created_ns
+                            && current.collections.contains(&segment.index.collection)
+                    }) {
+                        current_file = true;
+                        break;
+                    }
+                }
+                if segment.active.len() > 0 || current_file {
+                    kept.push(segment);
+                }
+            }
+            *group = kept;
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
@@ -770,7 +747,7 @@ impl PublishedIndex {
                 .iter()
                 .enumerate()
                 .filter_map(|(index, segment)| {
-                    let total = segment.index.records.len();
+                    let total = segment.index.record_count();
                     let removed = total.saturating_sub(segment.active.len() as usize);
                     (total >= MIN_RETIREMENT_SLOTS
                         && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
@@ -820,7 +797,7 @@ impl PublishedIndex {
         let sparse_bytes = group
             .iter()
             .filter(|segment| {
-                segment.index.records.len() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                segment.index.record_count() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
             })
             .filter_map(|segment| segment.index.raw.sealed_reader())
             .map(|reader| reader.encoded_len())
@@ -835,7 +812,7 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group) else {
+        let Some((left, right)) = cheapest_consolidation_pair(group).map_err(IndexError::InvalidPublication)? else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(
@@ -903,7 +880,9 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("segment collection missing".into())
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
-                if let Some(slots) = segment.index.file_records(file.id).map(<[_]>::to_vec) {
+                if let Some(slots) = segment.index.try_file_records(file.id)
+                    .map_err(IndexError::InvalidPublication)? {
+                    let slots = slots.into_owned();
                     let segment = Arc::make_mut(segment);
                     retired_records += slots
                         .iter()
@@ -919,7 +898,6 @@ impl PublishedIndex {
         Ok(retired_records)
     }
 }
-
 
 fn index_prepared_file(
     repository: &Repository,
@@ -1058,7 +1036,6 @@ fn prepare_file_at(
     .map_err(IndexError::Build)
 }
 
-
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
@@ -1084,16 +1061,13 @@ struct IndexInner {
     sync_cache_error: Mutex<Option<String>>,
 }
 
-
 struct StorageSyncActivity<'a>(&'a AtomicUsize);
-
 
 impl Drop for StorageSyncActivity<'_> {
     fn drop(&mut self) {
         self.0.fetch_sub(1, Ordering::Release);
     }
 }
-
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
 /// milliseconds from the beginning of the corresponding build/load operation.
@@ -1105,12 +1079,10 @@ pub struct IndexTimingsMs {
     pub inference_full_available: Option<u64>,
 }
 
-
 struct PeriodicReconciliation {
     signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
 }
-
 
 enum PeriodicSignal {
     #[cfg(test)]
@@ -1118,12 +1090,10 @@ enum PeriodicSignal {
     Stop,
 }
 
-
 struct SyncCacheWorker {
     signal: SyncSender<()>,
     worker: JoinHandle<()>,
 }
-
 
 struct PersistenceState {
     selected_cache: Option<PathBuf>,
@@ -1131,12 +1101,10 @@ struct PersistenceState {
     protected_files: Vec<PathBuf>,
 }
 
-
 struct MaintenanceState {
     reconciliation: ReconciliationState,
     current: Option<Arc<ReconciliationJob>>,
 }
-
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
@@ -1145,7 +1113,6 @@ struct ReconciliationJob {
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
 }
-
 
 struct MaintenanceJob {
     operation: MaintenanceOperation,
@@ -1157,12 +1124,10 @@ struct MaintenanceJob {
     worker: Mutex<Option<JoinHandle<()>>>,
 }
 
-
 /// One observable compaction or rebuild. Cancellation prevents publication
 /// and leaves the current view available.
 #[derive(Clone)]
 pub struct MaintenanceTask(Arc<MaintenanceJob>);
-
 
 impl MaintenanceTask {
     pub fn cancel(&self) {
@@ -1219,7 +1184,6 @@ impl MaintenanceTask {
     }
 }
 
-
 impl MaintenanceJob {
     fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
         if let Ok(mut progress) = self.progress.lock() {
@@ -1230,11 +1194,9 @@ impl MaintenanceJob {
     }
 }
 
-
 /// Observable, cancellable handle for one metadata reconciliation pass.
 #[derive(Clone)]
 pub struct ReconciliationTask(Arc<ReconciliationJob>);
-
 
 impl ReconciliationTask {
     pub fn cancel(&self) {
@@ -1284,11 +1246,9 @@ impl ReconciliationTask {
     }
 }
 
-
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
-
 
 impl Index {
     /// Publish one complete initial work unit. A concurrent lifecycle
@@ -1649,7 +1609,7 @@ impl Index {
         names: &[String],
         identities: &[(CollectionId, u64)],
         indexes: &[Arc<IndexedCollectionSegment>],
-        historical: &[FileEntry],
+        historical: Arc<crate::generation_catalog::RestoredGenerationCatalog>,
         validation: crate::lifecycle_storage::ValidationOpenStats,
     ) -> Result<(), IndexError> {
         let view = self.view()?;
@@ -1701,27 +1661,33 @@ impl Index {
         }
         let catalog_bytes = opened
             .catalog
-            .as_deref()
+            .as_ref()
             .ok_or_else(|| IndexError::InvalidCache("committed catalog missing".into()))?;
-        let restored = crate::generation_catalog::RestoredGenerationCatalog::decode(
-            catalog_bytes,
-            current.0.configuration_identity,
-            current.0.segments.len(),
-        )
-        .map_err(IndexError::InvalidCache)?;
+        let restored = Arc::new(
+            crate::generation_catalog::RestoredGenerationCatalog::decode_verified_arc(
+                Arc::clone(catalog_bytes),
+                current.0.configuration_identity,
+                current.0.segments.len(),
+            )
+            .map_err(IndexError::InvalidCache)?,
+        );
         if restored.revision != opened.generation
             || restored.next_segment_ordinal != current.0.next_segment_ordinal
-            || restored.slots.len() != current.0.catalog.allocated_files()
-            || restored.file_versions.len() != current.0.file_versions.len()
+            || restored.slot_count() != current.0.catalog.allocated_files()
+            || restored.slot_count() != current.0.file_versions.len()
         {
             return Err(IndexError::InvalidCache(
                 "committed catalog differs from current publication".into(),
             ));
         }
-        for (number, slot) in restored.slots.iter().enumerate() {
+        for number in 0..restored.slot_count() {
             let file = FileId(number as u32);
-            if slot.as_ref().map(|(entry, _, _)| entry) != current.0.catalog.entry(file)
-                || restored.file_versions[number] != current.0.file_versions.get(file).unwrap()
+            if restored
+                .entry_for_ref(file.0)
+                .map_err(IndexError::InvalidCache)?
+                .as_ref()
+                != current.0.catalog.entry(file)
+                || restored.version(file) != current.0.file_versions.get(file)
             {
                 return Err(IndexError::InvalidCache(
                     "committed file catalog differs from current publication".into(),
@@ -1765,17 +1731,21 @@ impl Index {
                         "committed segment liveness differs from publication".into(),
                     ));
                 }
-                let decoded = crate::hybrid_segment_codec::decode_segment_sealed(
-                    Arc::clone(&opened.segments[position]),
-                    segment.ordinal,
-                    &configured.definition,
-                    current.repository().options(),
-                    collection,
-                    (configured.source.id(), configured.source.version()),
-                    segment.active.slot_count(),
-                    &|reference| restored.resolve_metadata(reference),
-                )
-                .map_err(IndexError::InvalidCache)?;
+                let metadata: Arc<dyn crate::segment_metadata::SegmentMetadataRefs> =
+                    restored.clone();
+                let decoded =
+                    crate::hybrid_segment_codec::decode_segment_sealed_persisted_with_trust(
+                        Arc::clone(&opened.segments[position]),
+                        segment.ordinal,
+                        &configured.definition,
+                        current.repository().options(),
+                        collection,
+                        (configured.source.id(), configured.source.version()),
+                        segment.active.slot_count(),
+                        metadata,
+                        crate::segment_format::SegmentTrust::Untrusted,
+                    )
+                    .map_err(IndexError::InvalidCache)?;
                 let sealed = Arc::new(decoded);
                 indexes[position] = Some(Arc::clone(&sealed));
                 sealed_group.push(Arc::new(PublishedSegment {
@@ -1792,6 +1762,12 @@ impl Index {
             .ok_or_else(|| IndexError::InvalidCache("committed segment unused".into()))?;
         let mut next = (*current.0).clone();
         next.segments = groups;
+        next.catalog = crate::lifecycle_catalog::FileCatalog::restored_persisted(
+            Arc::clone(&next.repository),
+            Arc::clone(&restored),
+        )
+        .map_err(IndexError::InvalidCache)?;
+        next.file_versions = crate::inventory::FileVersions::from_persisted(Arc::clone(&restored));
         let mut managed = self
             .0
             .managed
@@ -1818,7 +1794,7 @@ impl Index {
                 &opened.segment_names,
                 &opened.identities,
                 &indexes,
-                restored.historical_entries(),
+                restored,
                 crate::lifecycle_storage::ValidationOpenStats::default(),
             )
             .map_err(IndexError::InvalidCache)?;
@@ -1855,7 +1831,8 @@ impl Index {
             let result = state.flush(&view.0);
             if let Err(error) = &result {
                 state.last_error = Some(error.to_string());
-                state.last_error_kind = Some(crate::index_storage::IndexStorageFailureKind::from(error));
+                state.last_error_kind =
+                    Some(crate::index_storage::IndexStorageFailureKind::from(error));
             }
             *self
                 .0
@@ -3263,11 +3240,9 @@ impl Index {
     }
 }
 
-
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
-
 
 /// Decoded posting cache occupancy for the sealed segments in one pinned view.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
@@ -3277,7 +3252,6 @@ pub struct DecodedPostingCacheUsage {
     pub retained_bytes: usize,
     pub limit_bytes: usize,
 }
-
 
 impl IndexView {
     pub fn decoded_posting_cache_usage(&self) -> DecodedPostingCacheUsage {
@@ -3508,25 +3482,25 @@ impl IndexView {
         else {
             return;
         };
-        let id = crate::model::RecordId(std::sync::Arc::from(hit.record_id.as_str()));
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(&id) else {
+            let Some(slot) = segment.index.try_id_lookup(&hit.record_id).ok().flatten() else {
                 continue;
             };
-            if !segment.active.contains(*slot)
+            if !segment.active.contains(slot)
                 || segment
                     .index
-                    .record(*slot)
+                    .try_record(slot)
+                    .ok()
+                    .flatten()
                     .is_none_or(|record| record.file != file)
             {
                 continue;
             }
-            let Some(diagnostic) = segment
-                .index
-                .file(file)
-                .and_then(|source| source.entry.diagnostics.get(local))
-            else {
+            let Some(source) = segment.index.try_file(file).ok().flatten() else {
+                return;
+            };
+            let Some(diagnostic) = source.entry.diagnostics.get(local) else {
                 return;
             };
             let Some(position) = self.0.catalog.entry(file).and_then(|entry| {
@@ -3671,7 +3645,7 @@ impl IndexView {
                     .count() as u64;
             }
             for segment in self.0.segments.get(number)?.iter() {
-                if let Some(slots) = segment.index.file_records(file) {
+                if let Some(slots) = segment.index.try_file_records(file).ok().flatten() {
                     count += slots
                         .iter()
                         .filter(|slot| segment.active.contains(**slot))
@@ -4451,7 +4425,6 @@ impl IndexView {
         result
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]

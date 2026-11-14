@@ -7,6 +7,7 @@
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use std::io::Cursor as IoCursor;
+use std::ops::Bound;
 use std::path::{Component, Path, PathBuf};
 use std::sync::Arc;
 
@@ -56,6 +57,7 @@ pub(crate) struct GenerationCatalogBuilder<'a> {
     revision: u64,
     next_segment_ordinal: u64,
     collection_count: usize,
+    historical_base: Option<Arc<RestoredGenerationCatalog>>,
     historical: Vec<FileEntry>,
     historical_by_file: HashMap<FileId, Vec<u32>>,
 }
@@ -104,6 +106,7 @@ impl<'a> GenerationCatalogBuilder<'a> {
             revision: publication.revision.0,
             next_segment_ordinal: publication.next_segment_ordinal,
             collection_count: publication.repository.collections().len(),
+            historical_base: None,
             historical: prior.to_vec(),
             historical_by_file,
         };
@@ -111,8 +114,30 @@ impl<'a> GenerationCatalogBuilder<'a> {
         Ok(builder)
     }
 
-    pub(crate) fn historical_entries(&self) -> &[FileEntry] {
-        &self.historical
+    pub(crate) fn from_publication_with_persisted_history(
+        publication: &'a PublishedIndex,
+        base: Arc<RestoredGenerationCatalog>,
+    ) -> Result<Self, String> {
+        let mut builder = Self::from_publication_with_history(publication, &[])?;
+        if base.historical_count() > MAX_FILES {
+            return Err("managed historical file count exceeds limit".into());
+        }
+        for index in 0..base.historical_count() {
+            let reference = HISTORICAL_TAG | index as u32;
+            let file = base
+                .file_id_for_ref(reference)
+                .ok_or("historical metadata missing")?;
+            if file.0 as usize >= publication.catalog.allocated_files() {
+                return Err("historical file ID is outside the catalog".into());
+            }
+            builder
+                .historical_by_file
+                .entry(file)
+                .or_default()
+                .push(reference);
+        }
+        builder.historical_base = Some(base);
+        Ok(builder)
     }
 
     /// Return a stable ref accepted by `segment_metadata::encode_record_slots`.
@@ -129,15 +154,33 @@ impl<'a> GenerationCatalogBuilder<'a> {
         }
         if let Some(existing) = self.historical_by_file.get(&entry.id) {
             for &reference in existing {
-                if self.historical[(reference & !HISTORICAL_TAG) as usize] == *entry {
+                let index = (reference & !HISTORICAL_TAG) as usize;
+                let base_len = self
+                    .historical_base
+                    .as_ref()
+                    .map_or(0, |base| base.historical_count());
+                let matches = if index < base_len {
+                    self.historical_base
+                        .as_ref()
+                        .unwrap()
+                        .entry_for_ref(reference)?
+                        .is_some_and(|known| known == *entry)
+                } else {
+                    self.historical[index - base_len] == *entry
+                };
+                if matches {
                     return Ok(reference);
                 }
             }
         }
-        if self.historical.len() >= MAX_FILES {
+        let base_len = self
+            .historical_base
+            .as_ref()
+            .map_or(0, |base| base.historical_count());
+        if self.historical.len() + base_len >= MAX_FILES {
             return Err("managed historical file count exceeds limit".into());
         }
-        let reference = HISTORICAL_TAG | self.historical.len() as u32;
+        let reference = HISTORICAL_TAG | (base_len + self.historical.len()) as u32;
         self.historical.push(entry.clone());
         self.historical_by_file
             .entry(entry.id)
@@ -159,18 +202,34 @@ impl<'a> GenerationCatalogBuilder<'a> {
                 .file_versions
                 .get(id)
                 .ok_or("file version missing")?;
+            if let Some((encoded, path)) = self.publication.catalog.unchanged_encoded_record(id) {
+                if !current_paths.insert(path.as_path().to_path_buf()) {
+                    return Err("duplicate current catalog path".into());
+                }
+                let offset = offset32(metadata.len())?;
+                metadata.extend_from_slice(encoded);
+                if metadata.len() > MAX_BYTES {
+                    return Err("managed catalog exceeds byte limit".into());
+                }
+                slots.push((version, offset, offset32(metadata.len())? - offset));
+                paths.push((id, path, offset));
+                continue;
+            }
             match self.publication.catalog.entry(id) {
                 None => slots.push((version, RETIRED_OFFSET, 0)),
                 Some(entry) => {
                     if entry.id.0 as usize != number
-                        || !current_paths.insert(entry.relative_path.as_path())
+                        || !current_paths.insert(entry.relative_path.as_path().to_path_buf())
                     {
                         return Err("invalid or duplicate current catalog entry".into());
                     }
                     let offset = offset32(metadata.len())?;
                     encode_file(&mut metadata, entry, self.collection_count)?;
                     encode_optional_hash(&mut metadata, &self.publication.catalog.fingerprint(id));
-                    encode_optional_hash(&mut metadata, &self.publication.catalog.configuration(id));
+                    encode_optional_hash(
+                        &mut metadata,
+                        &self.publication.catalog.configuration(id),
+                    );
                     let len = offset32(metadata.len())? - offset;
                     slots.push((version, offset, len));
                     paths.push((id, entry.relative_path.clone(), offset));
@@ -180,7 +239,21 @@ impl<'a> GenerationCatalogBuilder<'a> {
                 return Err("managed catalog exceeds byte limit".into());
             }
         }
-        let mut historical_rows = Vec::with_capacity(self.historical.len());
+        let base_len = self
+            .historical_base
+            .as_ref()
+            .map_or(0, |base| base.historical_count());
+        let mut historical_rows = Vec::with_capacity(base_len + self.historical.len());
+        if let Some(base) = &self.historical_base {
+            for index in 0..base_len {
+                let offset = offset32(metadata.len())?;
+                metadata.extend_from_slice(
+                    base.metadata_for_ref(HISTORICAL_TAG | index as u32)
+                        .ok_or("historical metadata missing")?,
+                );
+                historical_rows.push((offset, offset32(metadata.len())? - offset));
+            }
+        }
         let mut distinct = HashMap::<FileId, Vec<&FileEntry>>::new();
         for entry in &self.historical {
             if entry.id.0 as usize >= self.publication.catalog.allocated_files()
@@ -200,7 +273,10 @@ impl<'a> GenerationCatalogBuilder<'a> {
         }
         let mut native = paths.clone();
         native.sort_unstable_by(|a, b| a.1.as_path().cmp(b.1.as_path()));
-        if native.windows(2).any(|pair| pair[0].1.as_path() == pair[1].1.as_path()) {
+        if native
+            .windows(2)
+            .any(|pair| pair[0].1.as_path() == pair[1].1.as_path())
+        {
             return Err("duplicate current catalog path".into());
         }
         let mut query = paths
@@ -212,7 +288,12 @@ impl<'a> GenerationCatalogBuilder<'a> {
         let mut query_rows = Vec::with_capacity(query.len());
         for (key, id, path, offset) in query {
             let (key_offset, key_length) = match path {
-                SharedPath::Plain(_) => (offset.checked_add(8).ok_or("catalog path offset overflow")?, offset32(key.len())?),
+                SharedPath::Plain(_) => (
+                    offset
+                        .checked_add(8)
+                        .ok_or("catalog path offset overflow")?,
+                    offset32(key.len())?,
+                ),
                 SharedPath::Native(_) => {
                     let offset = offset32(query_arena.len())?;
                     query_arena.extend_from_slice(key.as_bytes());
@@ -223,7 +304,9 @@ impl<'a> GenerationCatalogBuilder<'a> {
         }
         let active = RoaringBitmap::from_iter(native.iter().map(|(id, _, _)| id.0));
         let mut active_bytes = Vec::with_capacity(active.serialized_size());
-        active.serialize_into(&mut active_bytes).map_err(|error| error.to_string())?;
+        active
+            .serialize_into(&mut active_bytes)
+            .map_err(|error| error.to_string())?;
         let mut inference_bytes = Vec::new();
         for collection in self.publication.repository.collections() {
             let summary = bincode::DefaultOptions::new()
@@ -277,9 +360,15 @@ impl<'a> GenerationCatalogBuilder<'a> {
             (52, offset32(slots.len())?),
             (56, offset32(historical_rows.len())?),
             (60, offset32(native.len())?),
-            (64, slot_start), (68, history_start), (72, native_start),
-            (76, query_start), (80, metadata_start), (84, query_arena_start),
-            (88, active_start), (92, inference_start), (96, body_end),
+            (64, slot_start),
+            (68, history_start),
+            (72, native_start),
+            (76, query_start),
+            (80, metadata_start),
+            (84, query_arena_start),
+            (88, active_start),
+            (92, inference_start),
+            (96, body_end),
         ] {
             body[at..at + 4].copy_from_slice(&value.to_le_bytes());
         }
@@ -371,17 +460,41 @@ impl RestoredGenerationCatalog {
         expected_identity: [u8; 32],
         collection_count: usize,
     ) -> Result<Self, String> {
-        if bytes.len() < HEADER_BYTES + BODY_HEADER_BYTES || bytes.len() > MAX_BYTES || &bytes[..8] != MAGIC {
+        Self::decode_owned(bytes, expected_identity, collection_count, false)
+    }
+
+    /// ManagedStore has already matched these bytes to the manifest digest.
+    pub(crate) fn decode_verified_arc(
+        bytes: Arc<[u8]>,
+        expected_identity: [u8; 32],
+        collection_count: usize,
+    ) -> Result<Self, String> {
+        Self::decode_owned(bytes, expected_identity, collection_count, true)
+    }
+
+    fn decode_owned(
+        bytes: Arc<[u8]>,
+        expected_identity: [u8; 32],
+        collection_count: usize,
+        manifest_verified: bool,
+    ) -> Result<Self, String> {
+        if bytes.len() < HEADER_BYTES + BODY_HEADER_BYTES
+            || bytes.len() > MAX_BYTES
+            || &bytes[..8] != MAGIC
+        {
             return Err("invalid managed catalog envelope".into());
         }
         let mut header = Reader::new(&bytes[8..HEADER_BYTES]);
         if header.u32()? != VERSION {
             return Err("unsupported managed catalog version".into());
         }
-        let body_len = usize::try_from(header.u64()?).map_err(|_| "catalog body length overflow")?;
+        let body_len =
+            usize::try_from(header.u64()?).map_err(|_| "catalog body length overflow")?;
         let digest = header.fixed::<32>()?;
         let body = &bytes[HEADER_BYTES..];
-        if body_len != body.len() || digest != Sha256::digest(body).as_slice() {
+        if body_len != body.len()
+            || (!manifest_verified && digest != Sha256::digest(body).as_slice())
+        {
             return Err("managed catalog length or checksum mismatch".into());
         }
         let mut input = Reader::new(&body[..BODY_HEADER_BYTES]);
@@ -405,23 +518,63 @@ impl RestoredGenerationCatalog {
         let body_end = input.u32()? as usize;
         let reserved = input.u32()?;
         if configuration_identity != expected_identity
-            || revision == 0 || next_segment_ordinal == 0
-            || stored_collection_count != collection_count || collection_count == 0
-            || slot_count > MAX_FILES || historical_count > MAX_FILES
-            || active_count > slot_count || reserved != 0 || body_end != body.len()
+            || revision == 0
+            || next_segment_ordinal == 0
+            || stored_collection_count != collection_count
+            || collection_count == 0
+            || slot_count > MAX_FILES
+            || historical_count > MAX_FILES
+            || active_count > slot_count
+            || reserved != 0
+            || body_end != body.len()
             || regions.slots != BODY_HEADER_BYTES
-            || regions.history != regions.slots.checked_add(slot_count.checked_mul(16).ok_or("catalog slot table overflow")?).ok_or("catalog slot table overflow")?
-            || regions.native != regions.history.checked_add(historical_count.checked_mul(8).ok_or("catalog history table overflow")?).ok_or("catalog history table overflow")?
-            || regions.query != regions.native.checked_add(active_count.checked_mul(4).ok_or("catalog native table overflow")?).ok_or("catalog native table overflow")?
-            || regions.metadata != regions.query.checked_add(active_count.checked_mul(12).ok_or("catalog query table overflow")?).ok_or("catalog query table overflow")?
-            || regions.query_arena < regions.metadata || regions.active < regions.query_arena
-            || regions.inference <= regions.active || regions.inference > body.len()
+            || regions.history
+                != regions
+                    .slots
+                    .checked_add(
+                        slot_count
+                            .checked_mul(16)
+                            .ok_or("catalog slot table overflow")?,
+                    )
+                    .ok_or("catalog slot table overflow")?
+            || regions.native
+                != regions
+                    .history
+                    .checked_add(
+                        historical_count
+                            .checked_mul(8)
+                            .ok_or("catalog history table overflow")?,
+                    )
+                    .ok_or("catalog history table overflow")?
+            || regions.query
+                != regions
+                    .native
+                    .checked_add(
+                        active_count
+                            .checked_mul(4)
+                            .ok_or("catalog native table overflow")?,
+                    )
+                    .ok_or("catalog native table overflow")?
+            || regions.metadata
+                != regions
+                    .query
+                    .checked_add(
+                        active_count
+                            .checked_mul(12)
+                            .ok_or("catalog query table overflow")?,
+                    )
+                    .ok_or("catalog query table overflow")?
+            || regions.query_arena < regions.metadata
+            || regions.active < regions.query_arena
+            || regions.inference <= regions.active
+            || regions.inference > body.len()
         {
             return Err("managed catalog identity or directory invalid".into());
         }
         let active_bytes = &body[regions.active..regions.inference];
         let mut cursor = IoCursor::new(active_bytes);
-        let active = RoaringBitmap::deserialize_from(&mut cursor).map_err(|error| error.to_string())?;
+        let active =
+            RoaringBitmap::deserialize_from(&mut cursor).map_err(|error| error.to_string())?;
         if cursor.position() as usize != active_bytes.len()
             || active.len() != active_count as u64
             || active.max().is_some_and(|id| id as usize >= slot_count)
@@ -460,25 +613,37 @@ impl RestoredGenerationCatalog {
             historical: Vec::new(),
         };
         catalog.validate_tables(collection_count)?;
-        catalog.file_versions = (0..slot_count)
-            .map(|number| catalog.version(FileId(number as u32)).unwrap())
-            .collect();
-        catalog.slots = (0..slot_count)
-            .map(|number| {
-                let file = FileId(number as u32);
-                let Some(entry) = catalog.entry_for_ref(file.0)? else { return Ok(None); };
-                let (fingerprint, configuration) = catalog.current_hashes(file).ok_or("catalog hashes missing")?;
-                Ok(Some((entry, fingerprint, configuration)))
-            })
-            .collect::<Result<Vec<_>, String>>()?;
-        catalog.historical = catalog.decode_historical_entries()?;
+        if !manifest_verified {
+            // The borrowed compatibility API is retained for standalone tests.
+            // Managed open uses encoded tables and decodes only requested rows.
+            catalog.file_versions = (0..slot_count)
+                .map(|number| catalog.version(FileId(number as u32)).unwrap())
+                .collect();
+            catalog.slots = (0..slot_count)
+                .map(|number| {
+                    let file = FileId(number as u32);
+                    let Some(entry) = catalog.entry_for_ref(file.0)? else {
+                        return Ok(None);
+                    };
+                    let (fingerprint, configuration) = catalog
+                        .current_hashes(file)
+                        .ok_or("catalog hashes missing")?;
+                    Ok(Some((entry, fingerprint, configuration)))
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            catalog.historical = catalog.decode_historical_entries()?;
+        }
         Ok(catalog)
     }
 
-    fn body(&self) -> &[u8] { &self.bytes[HEADER_BYTES..] }
+    fn body(&self) -> &[u8] {
+        &self.bytes[HEADER_BYTES..]
+    }
 
     fn slot(&self, id: FileId) -> Option<SlotRow> {
-        if id.0 as usize >= self.slot_count { return None; }
+        if id.0 as usize >= self.slot_count {
+            return None;
+        }
         let at = self.regions.slots + id.0 as usize * 16;
         let bytes = &self.body()[at..at + 16];
         Some(SlotRow {
@@ -489,10 +654,15 @@ impl RestoredGenerationCatalog {
     }
 
     fn historical_row(&self, index: usize) -> Option<(u32, u32)> {
-        if index >= self.historical_count { return None; }
+        if index >= self.historical_count {
+            return None;
+        }
         let at = self.regions.history + index * 8;
         let bytes = &self.body()[at..at + 8];
-        Some((u32::from_le_bytes(bytes[..4].try_into().unwrap()), u32::from_le_bytes(bytes[4..].try_into().unwrap())))
+        Some((
+            u32::from_le_bytes(bytes[..4].try_into().unwrap()),
+            u32::from_le_bytes(bytes[4..].try_into().unwrap()),
+        ))
     }
 
     fn metadata_span(&self, offset: u32, len: u32) -> Option<&[u8]> {
@@ -506,26 +676,121 @@ impl RestoredGenerationCatalog {
             self.historical_row((reference & !HISTORICAL_TAG) as usize)?
         } else {
             let slot = self.slot(FileId(reference))?;
-            if slot.offset == RETIRED_OFFSET { return None; }
+            if slot.offset == RETIRED_OFFSET {
+                return None;
+            }
             (slot.offset, slot.length)
         };
         self.metadata_span(offset, len)
     }
 
-    pub(crate) fn slot_count(&self) -> usize { self.slot_count }
-    pub(crate) fn historical_count(&self) -> usize { self.historical_count }
-    pub(crate) fn active(&self) -> &RoaringBitmap { &self.active }
-    pub(crate) fn version(&self, file: FileId) -> Option<FileVersion> { self.slot(file).map(|slot| slot.version) }
+    pub(crate) fn slot_count(&self) -> usize {
+        self.slot_count
+    }
+    pub(crate) fn historical_count(&self) -> usize {
+        self.historical_count
+    }
+    pub(crate) fn active(&self) -> &RoaringBitmap {
+        &self.active
+    }
+    pub(crate) fn version(&self, file: FileId) -> Option<FileVersion> {
+        self.slot(file).map(|slot| slot.version)
+    }
+
+    pub(crate) fn is_current(&self, file: FileId) -> bool {
+        self.active.contains(file.0)
+    }
+
+    pub(crate) fn current_encoded_record(&self, file: FileId) -> Option<&[u8]> {
+        self.metadata_for_ref(file.0)
+    }
+
+    pub(crate) fn current_path(&self, file: FileId) -> Option<SharedPath> {
+        self.path_bytes_for_file(file)
+            .and_then(|bytes| path_from_borrowed_bytes(bytes).ok())
+            .map(|path| path.as_ref().to_path_buf().into())
+    }
+
+    pub(crate) fn path_matches(&self, file: FileId, path: &Path) -> bool {
+        self.path_bytes_for_file(file)
+            .and_then(|bytes| path_from_borrowed_bytes(bytes).ok())
+            .is_some_and(|current| current.as_ref() == path)
+    }
+
+    pub(crate) fn native_id_for(&self, path: &Path) -> Option<FileId> {
+        let mut lower = 0usize;
+        let mut upper = self.active_count;
+        while lower < upper {
+            let middle = lower + (upper - lower) / 2;
+            let id = self.native_id(middle)?;
+            let native = path_from_borrowed_bytes(self.path_bytes_for_file(id)?).ok()?;
+            match native.as_ref().cmp(path) {
+                std::cmp::Ordering::Less => lower = middle + 1,
+                std::cmp::Ordering::Equal => return Some(id),
+                std::cmp::Ordering::Greater => upper = middle,
+            }
+        }
+        None
+    }
+
+    pub(crate) fn query_path_ids_in_bounds_up_to(
+        &self,
+        bounds: &(Bound<Arc<str>>, Bound<Arc<str>>),
+        limit: usize,
+        mut include: impl FnMut(FileId) -> bool,
+    ) -> Option<(Vec<FileId>, usize)> {
+        let lower = match &bounds.0 {
+            Bound::Unbounded => 0,
+            Bound::Included(value) => self.query_bound(value, false),
+            Bound::Excluded(value) => self.query_bound(value, true),
+        };
+        let upper = match &bounds.1 {
+            Bound::Unbounded => self.active_count,
+            Bound::Included(value) => self.query_bound(value, true),
+            Bound::Excluded(value) => self.query_bound(value, false),
+        };
+        let mut ids = Vec::new();
+        for position in lower..upper {
+            if position - lower == limit {
+                return None;
+            }
+            let id = self.query_row(position).expect("validated catalog row").0;
+            if include(id) {
+                ids.push(id);
+            }
+        }
+        Some((ids, upper.saturating_sub(lower)))
+    }
+
+    fn query_bound(&self, value: &str, strictly_greater: bool) -> usize {
+        let mut lower = 0usize;
+        let mut upper = self.active_count;
+        while lower < upper {
+            let middle = lower + (upper - lower) / 2;
+            let (_, offset, len) = self.query_row(middle).expect("validated catalog row");
+            let key = self.query_key(offset, len).expect("validated catalog key");
+            if key < value || (strictly_greater && key == value) {
+                lower = middle + 1;
+            } else {
+                upper = middle;
+            }
+        }
+        lower
+    }
 
     pub(crate) fn entry_for_ref(&self, reference: u32) -> Result<Option<FileEntry>, String> {
-        let Some(bytes) = self.metadata_for_ref(reference) else { return Ok(None); };
+        let Some(bytes) = self.metadata_for_ref(reference) else {
+            return Ok(None);
+        };
         let mut input = Reader::new(bytes);
         let entry = decode_file(&mut input, self.inference.len())?;
         if reference & HISTORICAL_TAG == 0 {
             decode_optional_hash(&mut input)?;
             decode_optional_hash(&mut input)?;
         }
-        if input.remaining() != 0 { return Err("catalog metadata record trailing bytes".into()); }
+        if input.remaining() != 0 {
+            return Err("catalog metadata record trailing bytes".into());
+        }
         Ok(Some(entry))
     }
 
@@ -544,7 +809,11 @@ impl RestoredGenerationCatalog {
         })
     }
 
-    pub(crate) fn contains_collection_for_ref(&self, reference: u32, collection: CollectionId) -> Option<bool> {
+    pub(crate) fn contains_collection_for_ref(
+        &self,
+        reference: u32,
+        collection: CollectionId,
+    ) -> Option<bool> {
         let bytes = self.metadata_for_ref(reference)?;
         let mut input = Reader::new(bytes);
         input.u32().ok()?;
@@ -554,29 +823,47 @@ impl RestoredGenerationCatalog {
         decode_optional_i128(&mut input).ok()?;
         let count = input.u32().ok()? as usize;
         let memberships = input.take(count.checked_mul(4)?).ok()?;
-        Some(memberships.chunks_exact(4).any(|bytes| u32::from_le_bytes(bytes.try_into().unwrap()) == collection.0))
+        Some(
+            memberships
+                .chunks_exact(4)
+                .any(|bytes| u32::from_le_bytes(bytes.try_into().unwrap()) == collection.0),
+        )
     }
 
-    pub(crate) fn current_hashes(&self, file: FileId) -> Option<(Option<[u8; 32]>, Option<[u8; 32]>)> {
+    pub(crate) fn current_hashes(
+        &self,
+        file: FileId,
+    ) -> Option<(Option<[u8; 32]>, Option<[u8; 32]>)> {
         let bytes = self.metadata_for_ref(file.0)?;
         let mut input = Reader::new(bytes);
         parse_file_view(&mut input, self.inference.len()).ok()?;
-        Some((decode_optional_hash(&mut input).ok()?, decode_optional_hash(&mut input).ok()?))
+        Some((
+            decode_optional_hash(&mut input).ok()?,
+            decode_optional_hash(&mut input).ok()?,
+        ))
     }
 
     pub(crate) fn decode_historical_entries(&self) -> Result<Vec<FileEntry>, String> {
         (0..self.historical_count)
-            .map(|index| self.entry_for_ref(HISTORICAL_TAG | index as u32)?.ok_or("historical metadata missing".into()))
+            .map(|index| {
+                self.entry_for_ref(HISTORICAL_TAG | index as u32)?
+                    .ok_or("historical metadata missing".into())
+            })
             .collect()
     }
 
-    pub(crate) fn historical_entries(&self) -> &[FileEntry] { &self.historical }
+    pub(crate) fn historical_entries(&self) -> &[FileEntry] {
+        &self.historical
+    }
 
     pub(crate) fn resolve_metadata(&self, reference: u32) -> Option<&FileEntry> {
         if reference & HISTORICAL_TAG != 0 {
             self.historical.get((reference & !HISTORICAL_TAG) as usize)
         } else {
-            self.slots.get(reference as usize)?.as_ref().map(|(entry, _, _)| entry)
+            self.slots
+                .get(reference as usize)?
+                .as_ref()
+                .map(|(entry, _, _)| entry)
         }
     }
 
@@ -587,13 +874,19 @@ impl RestoredGenerationCatalog {
     }
 
     fn native_id(&self, ordinal: usize) -> Option<FileId> {
-        if ordinal >= self.active_count { return None; }
+        if ordinal >= self.active_count {
+            return None;
+        }
         let at = self.regions.native + ordinal * 4;
-        Some(FileId(u32::from_le_bytes(self.body()[at..at + 4].try_into().unwrap())))
+        Some(FileId(u32::from_le_bytes(
+            self.body()[at..at + 4].try_into().unwrap(),
+        )))
     }
 
     fn query_row(&self, ordinal: usize) -> Option<(FileId, u32, u32)> {
-        if ordinal >= self.active_count { return None; }
+        if ordinal >= self.active_count {
+            return None;
+        }
         let at = self.regions.query + ordinal * 12;
         let bytes = &self.body()[at..at + 12];
         Some((
@@ -613,7 +906,9 @@ impl RestoredGenerationCatalog {
         };
         let start = base.checked_add(start)?;
         let end = start.checked_add(len as usize)?;
-        if end > limit { return None; }
+        if end > limit {
+            return None;
+        }
         std::str::from_utf8(&self.body()[start..end]).ok()
     }
 
@@ -631,32 +926,47 @@ impl RestoredGenerationCatalog {
                 }
                 continue;
             }
-            if row.offset as usize != expected_metadata_offset || row.length == 0 || !self.active.contains(id.0) {
+            if row.offset as usize != expected_metadata_offset
+                || row.length == 0
+                || !self.active.contains(id.0)
+            {
                 return Err("catalog slot offset or active state invalid".into());
             }
-            let bytes = self.metadata_span(row.offset, row.length).ok_or("catalog slot metadata outside arena")?;
+            let bytes = self
+                .metadata_span(row.offset, row.length)
+                .ok_or("catalog slot metadata outside arena")?;
             let mut input = Reader::new(bytes);
             let view = parse_file_view(&mut input, collection_count)?;
-            if view.id != id { return Err("catalog slot file ID mismatch".into()); }
+            if view.id != id {
+                return Err("catalog slot file ID mismatch".into());
+            }
             decode_optional_hash(&mut input)?;
             decode_optional_hash(&mut input)?;
-            if input.remaining() != 0 { return Err("catalog current metadata trailing bytes".into()); }
+            if input.remaining() != 0 {
+                return Err("catalog current metadata trailing bytes".into());
+            }
             expected_metadata_offset += row.length as usize;
         }
         let mut historical_by_file = HashMap::<FileId, Vec<&[u8]>>::new();
         for index in 0..self.historical_count {
-            let (offset, len) = self.historical_row(index).ok_or("catalog historical row missing")?;
+            let (offset, len) = self
+                .historical_row(index)
+                .ok_or("catalog historical row missing")?;
             if len == 0 || offset as usize != expected_metadata_offset {
                 return Err("catalog historical offset invalid".into());
             }
-            let bytes = self.metadata_span(offset, len).ok_or("catalog historical metadata outside arena")?;
+            let bytes = self
+                .metadata_span(offset, len)
+                .ok_or("catalog historical metadata outside arena")?;
             let mut input = Reader::new(bytes);
             let view = parse_file_view(&mut input, collection_count)?;
             if view.id.0 as usize >= self.slot_count || input.remaining() != 0 {
                 return Err("catalog historical metadata invalid".into());
             }
             let known = historical_by_file.entry(view.id).or_default();
-            if known.contains(&bytes) { return Err("duplicate historical metadata".into()); }
+            if known.contains(&bytes) {
+                return Err("duplicate historical metadata".into());
+            }
             known.push(bytes);
             expected_metadata_offset += len as usize;
         }
@@ -666,32 +976,52 @@ impl RestoredGenerationCatalog {
         let mut native_seen = RoaringBitmap::new();
         let mut previous_native = None;
         for ordinal in 0..self.active_count {
-            let id = self.native_id(ordinal).ok_or("catalog native path row missing")?;
+            let id = self
+                .native_id(ordinal)
+                .ok_or("catalog native path row missing")?;
             if !self.active.contains(id.0) || !native_seen.insert(id.0) {
                 return Err("catalog native path file coverage invalid".into());
             }
-            let path = path_from_borrowed_bytes(self.path_bytes_for_file(id).ok_or("catalog native path missing")?)?;
+            let path = path_from_borrowed_bytes(
+                self.path_bytes_for_file(id)
+                    .ok_or("catalog native path missing")?,
+            )?;
             if let Some(previous) = previous_native {
-                let prior = path_from_borrowed_bytes(self.path_bytes_for_file(previous).ok_or("catalog native path missing")?)?;
-                if prior.as_ref() >= path.as_ref() { return Err("catalog native path order or uniqueness invalid".into()); }
+                let prior = path_from_borrowed_bytes(
+                    self.path_bytes_for_file(previous)
+                        .ok_or("catalog native path missing")?,
+                )?;
+                if prior.as_ref() >= path.as_ref() {
+                    return Err("catalog native path order or uniqueness invalid".into());
+                }
             }
             previous_native = Some(id);
         }
-        if native_seen != self.active { return Err("catalog native path index coverage invalid".into()); }
+        if native_seen != self.active {
+            return Err("catalog native path index coverage invalid".into());
+        }
 
         let mut query_seen = RoaringBitmap::new();
         let mut previous_query = None;
         let mut expected_query_offset = 0usize;
         for ordinal in 0..self.active_count {
-            let (id, offset, len) = self.query_row(ordinal).ok_or("catalog query path row missing")?;
+            let (id, offset, len) = self
+                .query_row(ordinal)
+                .ok_or("catalog query path row missing")?;
             if !self.active.contains(id.0) || !query_seen.insert(id.0) {
                 return Err("catalog query path file coverage invalid".into());
             }
-            let key = self.query_key(offset, len).ok_or("catalog query path key invalid")?;
-            let path_bytes = self.path_bytes_for_file(id).ok_or("catalog query path missing")?;
+            let key = self
+                .query_key(offset, len)
+                .ok_or("catalog query path key invalid")?;
+            let path_bytes = self
+                .path_bytes_for_file(id)
+                .ok_or("catalog query path missing")?;
             let path = path_from_borrowed_bytes(path_bytes)?;
             let expected = query_spelling(path.as_ref(), path_bytes);
-            if key != expected.as_ref() { return Err("catalog query path key disagrees with native path".into()); }
+            if key != expected.as_ref() {
+                return Err("catalog query path key disagrees with native path".into());
+            }
             if offset & QUERY_ARENA_TAG != 0 {
                 if (offset & !QUERY_ARENA_TAG) as usize != expected_query_offset {
                     return Err("catalog query key arena gap or overlap".into());
@@ -699,16 +1029,26 @@ impl RestoredGenerationCatalog {
                 expected_query_offset += len as usize;
             } else {
                 let row = self.slot(id).ok_or("catalog query slot missing")?;
-                if offset != row.offset.checked_add(8).ok_or("catalog query path offset overflow")? || len as usize != path_bytes.len() {
+                if offset
+                    != row
+                        .offset
+                        .checked_add(8)
+                        .ok_or("catalog query path offset overflow")?
+                    || len as usize != path_bytes.len()
+                {
                     return Err("catalog shared query path reference invalid".into());
                 }
             }
             if let Some((previous_key, previous_id)) = previous_query {
-                if (previous_key, previous_id) >= (key, id) { return Err("catalog query path order invalid".into()); }
+                if (previous_key, previous_id) >= (key, id) {
+                    return Err("catalog query path order invalid".into());
+                }
             }
             previous_query = Some((key, id));
         }
-        if query_seen != self.active || expected_query_offset != self.regions.active - self.regions.query_arena {
+        if query_seen != self.active
+            || expected_query_offset != self.regions.active - self.regions.query_arena
+        {
             return Err("catalog query path index coverage or arena invalid".into());
         }
         Ok(())
@@ -734,7 +1074,8 @@ fn path_from_borrowed_bytes(bytes: &[u8]) -> Result<Cow<'_, Path>, String> {
 fn query_spelling<'a>(path: &Path, bytes: &'a [u8]) -> Cow<'a, str> {
     #[cfg(unix)]
     if let Ok(text) = std::str::from_utf8(bytes)
-        && !bytes.contains(&b'%') && !bytes.contains(&b'\\')
+        && !bytes.contains(&b'%')
+        && !bytes.contains(&b'\\')
     {
         return Cow::Borrowed(text);
     }
@@ -747,12 +1088,18 @@ fn parse_file_view(input: &mut Reader<'_>, collection_count: usize) -> Result<Fi
     let id = FileId(input.u32()?);
     let path_bytes = input.bytes(MAX_PATH_BYTES)?;
     let path = path_from_borrowed_bytes(path_bytes)?;
-    if path.as_os_str().is_empty() || path.is_absolute()
-        || !path.components().all(|part| matches!(part, Component::Normal(_)))
+    if path.as_os_str().is_empty()
+        || path.is_absolute()
+        || !path
+            .components()
+            .all(|part| matches!(part, Component::Normal(_)))
     {
         return Err("invalid managed file path".into());
     }
-    let revision = SourceRevision { modified_ns: input.i128()?, size: input.u64()? };
+    let revision = SourceRevision {
+        modified_ns: input.i128()?,
+        size: input.u64()?,
+    };
     decode_optional_i128(input)?;
     let count = input.u32()? as usize;
     if count == 0 || count > collection_count || count > input.remaining() / 4 {
@@ -761,12 +1108,18 @@ fn parse_file_view(input: &mut Reader<'_>, collection_count: usize) -> Result<Fi
     let collections = input.take(count * 4)?;
     for (number, bytes) in collections.chunks_exact(4).enumerate() {
         let member = u32::from_le_bytes(bytes.try_into().unwrap());
-        if member as usize >= collection_count || collections[..number * 4].chunks_exact(4).any(|prior| u32::from_le_bytes(prior.try_into().unwrap()) == member) {
+        if member as usize >= collection_count
+            || collections[..number * 4]
+                .chunks_exact(4)
+                .any(|prior| u32::from_le_bytes(prior.try_into().unwrap()) == member)
+        {
             return Err("duplicate or invalid managed collection membership".into());
         }
     }
     let status = match input.u8()? {
-        0 => FileStatus::Valid, 1 => FileStatus::Broken, 2 => FileStatus::Unreadable,
+        0 => FileStatus::Valid,
+        1 => FileStatus::Broken,
+        2 => FileStatus::Unreadable,
         _ => return Err("invalid managed file status".into()),
     };
     let omitted = input.u32()?;
@@ -783,25 +1136,41 @@ fn parse_file_view(input: &mut Reader<'_>, collection_count: usize) -> Result<Fi
             return Err("noncanonical managed diagnostic JSON".into());
         }
         derived_status = derived_status.max(match diagnostic.category {
-            DiagnosticCategory::Io => FileStatus::Unreadable, _ => FileStatus::Broken,
+            DiagnosticCategory::Io => FileStatus::Unreadable,
+            _ => FileStatus::Broken,
         });
-        let belongs = collections.chunks_exact(4).any(|part| u32::from_le_bytes(part.try_into().unwrap()) == diagnostic.collection.0);
-        if diagnostic.file != id || !belongs || diagnostic.source_id.is_empty()
-            || diagnostic.source_id.len() > MAX_SOURCE_ID_BYTES || diagnostic.source_version == 0
-            || diagnostic.code.is_empty() || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
+        let belongs = collections
+            .chunks_exact(4)
+            .any(|part| u32::from_le_bytes(part.try_into().unwrap()) == diagnostic.collection.0);
+        if diagnostic.file != id
+            || !belongs
+            || diagnostic.source_id.is_empty()
+            || diagnostic.source_id.len() > MAX_SOURCE_ID_BYTES
+            || diagnostic.source_version == 0
+            || diagnostic.code.is_empty()
+            || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
             || diagnostic.message.len() > MAX_DIAGNOSTIC_MESSAGE_BYTES
             || diagnostic.field_path.as_ref().is_some_and(|parts| {
                 parts.len() > MAX_DIAGNOSTIC_PATH_SEGMENTS
-                    || parts.iter().any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
+                    || parts
+                        .iter()
+                        .any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
             })
-            || diagnostic.range.is_some_and(|range| ByteRange::checked(range.start, range.end, revision.size).is_err())
-            || diagnostic.byte_offset.is_some_and(|offset| offset > revision.size)
+            || diagnostic.range.is_some_and(|range| {
+                ByteRange::checked(range.start, range.end, revision.size).is_err()
+            })
+            || diagnostic
+                .byte_offset
+                .is_some_and(|offset| offset > revision.size)
         {
             return Err("invalid managed source diagnostic".into());
         }
     }
     if (omitted == 0 && status != derived_status)
-        || (omitted != 0 && (status == FileStatus::Valid || derived_status == FileStatus::Valid || status < derived_status))
+        || (omitted != 0
+            && (status == FileStatus::Valid
+                || derived_status == FileStatus::Valid
+                || status < derived_status))
     {
         return Err("managed file status and diagnostics disagree".into());
     }

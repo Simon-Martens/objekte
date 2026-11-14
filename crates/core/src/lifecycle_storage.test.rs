@@ -5,6 +5,7 @@ use crate::inference::{InferenceConfig, InferenceMode};
 use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
+use sha2::{Digest, Sha256};
 
 fn all_records() -> Query {
     Query {
@@ -20,6 +21,108 @@ fn all_records() -> Query {
             evidence: false,
         },
     }
+}
+
+#[test]
+fn managed_open_rebuilds_only_identified_obsolete_format() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-obsolete-rebuild-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let storage = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let index = Index::open_with_storage(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        storage.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    index.stop_sync_storage().unwrap();
+    drop(index);
+    let prepared = storage
+        .prepare(
+            &root,
+            &[definition.clone()],
+            RepositoryOptions::default(),
+            &SourceRegistry::builtin(),
+        )
+        .unwrap();
+    let manifest = prepared
+        .resolved
+        .managed_directory
+        .unwrap()
+        .join("manifest.bin");
+    let mut bytes = std::fs::read(&manifest).unwrap();
+    bytes[12..16].copy_from_slice(&(crate::segment_format::FORMAT_VERSION - 1).to_le_bytes());
+    let end = bytes.len();
+    let digest = Sha256::digest(&bytes[..end - 32]);
+    bytes[end - 32..].copy_from_slice(&digest);
+    std::fs::write(&manifest, bytes).unwrap();
+    let reopened = Index::open_with_storage(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        storage.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    assert_eq!(
+        u32::from_le_bytes(
+            std::fs::read(&manifest).unwrap()[12..16]
+                .try_into()
+                .unwrap()
+        ),
+        crate::segment_format::FORMAT_VERSION
+    );
+    reopened.stop_sync_storage().unwrap();
+    drop(reopened);
+    let mut bytes = std::fs::read(&manifest).unwrap();
+    bytes[12..16].copy_from_slice(&(crate::segment_format::FORMAT_VERSION - 1).to_le_bytes());
+    let end = bytes.len();
+    let digest = Sha256::digest(&bytes[..end - 32]);
+    bytes[end - 32..].copy_from_slice(&digest);
+    std::fs::write(&manifest, bytes).unwrap();
+    let task = Index::start_incremental_build_with_storage(
+        root.clone(),
+        vec![definition],
+        RepositoryOptions::default(),
+        storage,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let rebuilt = task.wait_complete().unwrap();
+    assert_eq!(
+        rebuilt
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    rebuilt.stop_sync_storage().unwrap();
+    drop(rebuilt);
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
@@ -72,7 +175,10 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     assert_eq!(failed.durable_generation, initial);
     assert_eq!(failed.synchronization, IndexSynchronization::Failed);
     assert!(failed.last_error.is_some_and(|message| !message.is_empty()));
-    assert_eq!(failed.last_error_kind, Some(IndexStorageFailureKind::Access));
+    assert_eq!(
+        failed.last_error_kind,
+        Some(IndexStorageFailureKind::Access)
+    );
     assert_eq!(
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(2)
@@ -80,7 +186,10 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     std::fs::remove_dir(&lock).unwrap();
     index.flush_storage().unwrap();
     let recovered = index.storage_status().unwrap();
-    assert_eq!(recovered.synchronization, IndexSynchronization::Synchronized);
+    assert_eq!(
+        recovered.synchronization,
+        IndexSynchronization::Synchronized
+    );
     assert_eq!(recovered.last_error, None);
     assert_eq!(recovered.last_error_kind, None);
     drop(index);
