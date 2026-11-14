@@ -1,9 +1,11 @@
 use super::*;
 use crate::backend::test_support::write_records;
-use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation};
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStorageTarget,
+};
 
 #[test]
-fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
+fn explicit_desktop_loads_all_locations_after_explicit_save() {
     let root = tempfile::tempdir().unwrap();
     let custom = tempfile::tempdir().unwrap();
     write_records(root.path());
@@ -31,8 +33,8 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
         };
         let first = open(&spec, &CancellationToken::new()).unwrap();
         let status = first.repository.index().storage_status().unwrap();
-        assert_eq!(status.managed_directory.is_some(), disk);
-        assert_eq!(status.durable_generation.is_some(), disk);
+        assert!(status.managed_directory.is_none());
+        assert!(status.durable_generation.is_none());
         assert!(
             !root
                 .path()
@@ -40,6 +42,19 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
                 .join("search-index.json")
                 .exists()
         );
+        if disk {
+            let target = match &spec.storage_policy.as_ref().unwrap().location {
+                IndexStorageLocation::SystemTemporary => IndexStorageTarget::SystemTemporary,
+                IndexStorageLocation::RepositoryDirectory => {
+                    IndexStorageTarget::RepositoryDirectory
+                }
+                IndexStorageLocation::CustomDirectory(path) => {
+                    IndexStorageTarget::CustomDirectory(path.clone())
+                }
+                IndexStorageLocation::MemoryOnly => unreachable!(),
+            };
+            first.repository.index().flush_to(&target).unwrap();
+        }
         first.repository.index().shutdown().unwrap();
         if disk {
             let reopened = open(&spec, &CancellationToken::new()).unwrap();
@@ -80,7 +95,16 @@ fn managed_incremental_open_exposes_catalogue_before_durable_completion() {
     if let Some(task) = task {
         task.wait_complete().unwrap();
     }
-    assert!(session.repository.index().storage_status().unwrap().durable_generation.is_some());
+    assert!(
+        session
+            .repository
+            .index()
+            .storage_status()
+            .unwrap()
+            .durable_generation
+            .is_none()
+    );
+    assert!(!root.path().join(".objekte/indexes").exists());
     session.repository.index().shutdown().unwrap();
 }
 
@@ -199,17 +223,29 @@ fn corrupt_managed_open_reports_classified_recovery_guidance() {
             location: IndexStorageLocation::RepositoryDirectory,
             residency: IndexResidency::OnDemand,
         }),
-        args: Arguments { path: vec![root.path().to_path_buf()], ..Default::default() },
+        args: Arguments {
+            path: vec![root.path().to_path_buf()],
+            ..Default::default()
+        },
         cwd: root.path().to_path_buf(),
     };
     let first = open(&spec, &CancellationToken::new()).unwrap();
-    let directory = first.repository.index().storage_status().unwrap().managed_directory.unwrap();
+    let directory = first
+        .repository
+        .index()
+        .flush_to(&IndexStorageTarget::RepositoryDirectory)
+        .unwrap()
+        .managed_directory;
     first.repository.index().shutdown().unwrap();
     std::fs::write(directory.join("manifest.bin"), b"invalid manifest").unwrap();
     let error = match open(&spec, &CancellationToken::new()) {
         Ok(_) => panic!("corrupt store unexpectedly opened"),
         Err(error) => error,
     };
-    assert!(error.message.contains("Index data is damaged"), "{}", error.message);
+    assert!(
+        error.message.contains("Index data is damaged"),
+        "{}",
+        error.message
+    );
     assert!(error.message.contains("Rebuild the index"));
 }

@@ -2,7 +2,6 @@
 //! module belong on controller workers, never in a GPUI render callback.
 
 use std::time::Duration;
-use objekte_cli::storage_view::format_index_error;
 
 use objekte_search_core::lifecycle::{
     IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
@@ -64,11 +63,11 @@ pub fn set_periodic_check(
 }
 
 pub fn stop_automation(session: &OpenedSession) -> Result<(), BackendError> {
-    let index = session.repository.index();
-    index
+    session
+        .repository
+        .index()
         .stop_periodic_reconciliation()
-        .map_err(lifecycle_error)?;
-    index.stop_sync_storage().map_err(lifecycle_error)
+        .map_err(lifecycle_error)
 }
 
 pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
@@ -78,17 +77,6 @@ pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
         .shutdown()
         .map_err(lifecycle_error)?;
     Ok(())
-}
-
-/// Quiesce every mutation producer before persisting the final accepted
-/// managed generation. A failed flush leaves the index quiesced for Retry or
-/// Cancel close, which resumes the prior checking policy.
-pub fn shutdown_with_storage_flush(session: &OpenedSession) -> Result<(), BackendError> {
-    let index = session.repository.index();
-    index.quiesce().map_err(lifecycle_error)?;
-    index.flush_storage().map_err(|error| BackendError::new(
-        BackendErrorKind::Open, format_index_error(&error)))?;
-    shutdown(session)
 }
 
 pub fn resume_after_cancelled_close(
@@ -101,20 +89,6 @@ pub fn resume_after_cancelled_close(
         .resume_after_quiesce()
         .map_err(lifecycle_error)?;
     set_periodic_check(session, check_interval)?;
-    if session
-        .repository
-        .index()
-        .storage_status()
-        .map_err(lifecycle_error)?
-        .managed_directory
-        .is_some()
-    {
-        session
-            .repository
-            .index()
-            .set_sync_storage(true)
-            .map_err(lifecycle_error)?;
-    }
     Ok(())
 }
 

@@ -2,7 +2,9 @@ use super::*;
 use crate::backend::test_support::fixture;
 use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
-use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
+};
 use objekte_search_core::streaming::CancellationToken;
 
 #[test]
@@ -25,7 +27,7 @@ fn manual_shutdown_does_not_write_an_index() {
 }
 
 #[test]
-fn managed_close_flushes_latest_revision_and_cancel_resumes_sync() {
+fn shutdown_preserves_only_the_explicitly_saved_generation() {
     let root = tempfile::tempdir().unwrap();
     crate::backend::test_support::write_records(root.path());
     let session = open(
@@ -44,16 +46,28 @@ fn managed_close_flushes_latest_revision_and_cancel_resumes_sync() {
     )
     .unwrap();
     let index = session.repository.index();
-    index.stop_sync_storage().unwrap();
+    assert!(!root.path().join(".objekte/indexes").exists());
+    let before = index.status().unwrap().live_records;
+    index
+        .flush_to(&IndexStorageTarget::RepositoryDirectory)
+        .unwrap();
     std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
     index.add_file(&root.path().join("late.json")).unwrap();
-    assert_ne!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
-    shutdown_with_storage_flush(&session).unwrap();
-    assert_eq!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
-    resume_after_cancelled_close(&session, None).unwrap();
-    std::fs::write(root.path().join("later.json"), r#"{"title":"Later"}"#).unwrap();
-    index.add_file(&root.path().join("later.json")).unwrap();
-    shutdown_with_storage_flush(&session).unwrap();
+    shutdown(&session).unwrap();
+    let loaded = objekte_search_core::lifecycle::Index::try_load(
+        root.path(),
+        session
+            .repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect(),
+        objekte_cli::loader::repository_options(&session.args),
+        &IndexStorageTarget::RepositoryDirectory,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(loaded.status().unwrap().live_records, before);
 }
 
 #[test]

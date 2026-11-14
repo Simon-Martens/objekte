@@ -6,14 +6,15 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
-use objekte_cli::storage_view::format_index_error;
 use objekte_cli::loader::{configure_definitions, repository_options};
-use objekte_search_core::index_storage::{IndexStorageLocation, IndexStoragePolicy};
+use objekte_cli::storage_view::format_index_error;
+use objekte_search_core::index_storage::{
+    IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
+};
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
 use objekte_search_core::repository::StartupStats;
-use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind};
@@ -31,6 +32,7 @@ pub struct OpenSpec {
 #[derive(Clone, Debug)]
 pub struct OpenDiagnostics {
     pub open_ns: u128,
+    pub load_not_found: bool,
     pub startup: StartupStats,
     pub schema_files: Vec<PathBuf>,
     pub schema_fields: usize,
@@ -70,7 +72,6 @@ impl OpenedSession {
         );
         Ok(refreshed)
     }
-
 }
 
 pub fn open(
@@ -122,42 +123,70 @@ fn open_shared_storage(
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let mut presented_storage = storage.clone();
     if let IndexStorageLocation::CustomDirectory(path) = &mut presented_storage.location {
-        *path = path.canonicalize().map_err(|error| BackendError::new(
-            BackendErrorKind::Options, format!("custom index base {}: {error}", path.display())))?;
+        *path = path.canonicalize().map_err(|error| {
+            BackendError::new(
+                BackendErrorKind::Options,
+                format!("custom index base {}: {error}", path.display()),
+            )
+        })?;
     }
     let started = Instant::now();
-    let build = Index::start_incremental_build_with_storage(
-        &paths.root,
-        configured.definitions.clone(),
-        options,
-        storage,
-        SourceRegistry::builtin(),
-    )
-    .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
-    let index = if incremental {
-        loop {
-            if cancellation.is_cancelled() {
-                build.cancel();
-                return Err(BackendError::cancelled());
-            }
-            let status = build
-                .status()
-                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
-            if status.catalogue_complete
-                || matches!(status.phase,
-                    objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
-                    | objekte_search_core::lifecycle::InitialBuildPhase::Failed)
-            {
-                break;
-            }
-            std::thread::sleep(std::time::Duration::from_millis(20));
+    let target = match &presented_storage.location {
+        IndexStorageLocation::MemoryOnly => None,
+        IndexStorageLocation::SystemTemporary => Some(IndexStorageTarget::SystemTemporary),
+        IndexStorageLocation::RepositoryDirectory => Some(IndexStorageTarget::RepositoryDirectory),
+        IndexStorageLocation::CustomDirectory(path) => {
+            Some(IndexStorageTarget::CustomDirectory(path.clone()))
         }
-        build.wait_catalogue()
+    };
+    let loaded = target
+        .as_ref()
+        .map(|target| Index::try_load(&paths.root, configured.definitions.clone(), options, target))
+        .transpose()
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?
+        .flatten();
+    let load_not_found = target.is_some() && loaded.is_none();
+    let (index, task) = if let Some(index) = loaded {
+        (index, None)
     } else {
-        build.wait_complete()
-    }
-    .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
-    let task = (incremental && !build.status().map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?.construction_complete).then_some(build);
+        let build =
+            Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
+                .map_err(|error| {
+                    BackendError::new(BackendErrorKind::Open, format_index_error(&error))
+                })?;
+        let index = if incremental {
+            loop {
+                if cancellation.is_cancelled() {
+                    build.cancel();
+                    return Err(BackendError::cancelled());
+                }
+                let status = build.status().map_err(|error| {
+                    BackendError::new(BackendErrorKind::Open, error.to_string())
+                })?;
+                if status.catalogue_complete
+                    || matches!(
+                        status.phase,
+                        objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+                            | objekte_search_core::lifecycle::InitialBuildPhase::Failed
+                    )
+                {
+                    break;
+                }
+                std::thread::sleep(std::time::Duration::from_millis(20));
+            }
+            build.wait_catalogue()
+        } else {
+            build.wait_complete()
+        }
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
+        let task = (incremental
+            && !build
+                .status()
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+                .construction_complete)
+            .then_some(build);
+        (index, task)
+    };
     if cancellation.is_cancelled() {
         if let Some(task) = &task {
             task.cancel();
@@ -181,26 +210,30 @@ fn open_shared_storage(
         .view()
         .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
         .configuration_identity();
-    Ok((OpenedSession {
-        repository: Arc::new(repository),
-        storage_policy: presented_storage,
-        configuration: Arc::new(SessionConfiguration {
-            configured_repository: spec.args.repo.is_some(),
-            configuration_identity,
-        }),
-        args: spec.args.clone(),
-        paths,
-        collections,
-        single_collection: !spec.args.multiple_collections(),
-        declared_values,
-        diagnostics: OpenDiagnostics {
-            open_ns: started.elapsed().as_nanos(),
-            startup,
-            schema_files: configured.schema_files,
-            schema_fields: configured.schema_fields,
-            ignored_repository_metadata: configured.ignored_repository_metadata,
+    Ok((
+        OpenedSession {
+            repository: Arc::new(repository),
+            storage_policy: presented_storage,
+            configuration: Arc::new(SessionConfiguration {
+                configured_repository: spec.args.repo.is_some(),
+                configuration_identity,
+            }),
+            args: spec.args.clone(),
+            paths,
+            collections,
+            single_collection: !spec.args.multiple_collections(),
+            declared_values,
+            diagnostics: OpenDiagnostics {
+                open_ns: started.elapsed().as_nanos(),
+                load_not_found,
+                startup,
+                schema_files: configured.schema_files,
+                schema_fields: configured.schema_fields,
+                ignored_repository_metadata: configured.ignored_repository_metadata,
+            },
         },
-    }, task))
+        task,
+    ))
 }
 
 fn read_declared_values(

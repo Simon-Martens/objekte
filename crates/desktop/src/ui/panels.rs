@@ -1312,17 +1312,14 @@ impl DesktopView {
                             .child(self.state.index_interval_error.clone().unwrap_or_default())
                     ))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
-                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Index storage"))
-                    .child(div().text_xs().child(format!("Location: {}", index.storage_location)))
-                    .child(div().text_xs().child(format!("Residency: {}", index.residency)))
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Index persistence"))
+                    .child(div().text_xs().child(format!("Current index: {}", index.storage_location)))
                     .child(div().text_xs().child(format!("Readiness: {}", index.readiness)))
                     .child(div().text_xs().child(format!("Source files: {}", index.source_reconciliation)))
-                    .child(div().text_xs().child(format!("Synchronization: {}", index.synchronization)))
-                    .when(!index.storage_memory, |this| this
-                        .child(div().text_xs().child(format!("Current generation: {}", index.current_generation)))
-                        .child(div().text_xs().child(format!("Durable generation: {}",
-                            index.durable_generation.map_or_else(|| "Not yet durable".to_owned(), |n| n.to_string()))))
-                        .child(div().text_xs().child(format!("Validation: {}", index.validation_summary))))
+                    .child(div().text_xs().child(format!("Save: {}", index.synchronization)))
+                    .child(div().text_xs().child(format!("Current revision: {}", index.current_generation)))
+                    .when(index.durable_generation.is_some(), |this| this.child(div().text_xs().child(format!(
+                        "Saved store generation: {}", index.durable_generation.unwrap_or_default()))))
                     .when(index.validation_warning.is_some(), |this| this.child(
                         div().text_xs().text_color(rgb(colors.error)).child(format!("Validation warning: {}",
                             index.validation_warning.as_ref().map(|issue| issue.summary.as_str()).unwrap_or_default()))))
@@ -1334,15 +1331,18 @@ impl DesktopView {
                         div().text_xs().child(format!("Managed folder: {}",
                             index.managed_directory.as_deref().unwrap_or_default()))
                     ))
-                    .when(!index.storage_memory, |this| this.child(
-                        Button::new("index-synchronize")
-                            .label(if index.storage_issue.is_some() { "Retry synchronization" } else { "Synchronize now" })
-                            .disabled(!index.storage_can_synchronize || matches!(index.synchronize, IndexTaskState::Running { .. }))
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::SynchronizeStorage)))))
-                    .child(Button::new("index-change-storage").label("Change storage…")
+                    .child(Button::new("index-open-saved").label("Open saved index…")
                         .disabled(self.state.root.is_none())
                         .on_click(cx.listener(|this, _, window, cx| {
                             this.show_storage_dialog(window, cx);
+                        })))
+                    .child(Button::new("index-save").label(if matches!(index.synchronize, IndexTaskState::Failed(_)) {
+                        "Retry save…"
+                    } else { "Save index…" })
+                        .disabled(self.state.root.is_none() || !index.construction_complete
+                            || matches!(index.synchronize, IndexTaskState::Running { .. }))
+                        .on_click(cx.listener(|this, _, window, cx| {
+                            this.show_save_index_dialog(window, cx);
                         })))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
                     .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Maintenance"))
@@ -1378,7 +1378,7 @@ impl DesktopView {
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
                         &index.maintenance,
                     ),
-                    ("Synchronization", IndexTaskKind::Synchronize, &index.synchronize),
+                    ("Index save", IndexTaskKind::Synchronize, &index.synchronize),
                 ] {
                     if let Some(summary) = index_task_summary(label, task) {
                         content = content.child(
@@ -1387,16 +1387,20 @@ impl DesktopView {
                                 .items_center()
                                 .gap_2()
                                 .child(div().text_xs().flex_1().child(summary))
-                                .when(kind != IndexTaskKind::Synchronize && matches!(task, IndexTaskState::Running { .. }), |this| {
-                                    this.child(
-                                        Button::new(format!("index-cancel-{kind:?}"))
-                                            .ghost()
-                                            .label("Cancel")
-                                            .on_click(cx.listener(move |this, _, _, _| {
-                                                this.send(UiAction::CancelIndexTask(kind))
-                                            })),
-                                    )
-                                }),
+                                .when(
+                                    kind != IndexTaskKind::Synchronize
+                                        && matches!(task, IndexTaskState::Running { .. }),
+                                    |this| {
+                                        this.child(
+                                            Button::new(format!("index-cancel-{kind:?}"))
+                                                .ghost()
+                                                .label("Cancel")
+                                                .on_click(cx.listener(move |this, _, _, _| {
+                                                    this.send(UiAction::CancelIndexTask(kind))
+                                                })),
+                                        )
+                                    },
+                                ),
                         );
                     }
                 }
@@ -1410,22 +1414,45 @@ impl DesktopView {
                 );
                 let index = &self.state.index_status;
                 content = content
-                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Storage"))
-                    .child(div().text_xs().child(format!("Location: {}", index.storage_location)))
-                    .child(div().text_xs().child(format!("Residency: {}", index.residency)))
-                    .child(div().text_xs().child(format!("Readiness: {}", index.readiness)))
-                    .child(div().text_xs().child(format!("Source reconciliation: {}", index.source_reconciliation)))
-                    .child(div().text_xs().child(format!("Synchronization: {}", index.synchronization)));
-                if !index.storage_memory {
-                    content = content
-                        .child(div().text_xs().child(format!("Current generation: {}", index.current_generation)))
-                        .child(div().text_xs().child(format!("Durable generation: {:?}", index.durable_generation)))
-                        .child(div().text_xs().child(format!("Validation: {}", index.validation_summary)))
-                        .child(div().text_xs().child(format!("Managed folder: {}", index.managed_directory.as_deref().unwrap_or("—"))))
-                        .child(div().text_xs().child(format!("Last storage error: {}", index.storage_issue.as_ref()
-                            .map(|issue| issue.detail.as_str()).unwrap_or("—"))))
-                        .child(div().text_xs().child(format!("Validation stamp warning: {}", index.validation_stamp_error.as_deref().unwrap_or("—"))));
-                }
+                    .child(
+                        div()
+                            .text_sm()
+                            .font_weight(FontWeight::SEMIBOLD)
+                            .child("Storage"),
+                    )
+                    .child(
+                        div()
+                            .text_xs()
+                            .child(format!("Current index: {}", index.storage_location)),
+                    )
+                    .child(
+                        div()
+                            .text_xs()
+                            .child(format!("Readiness: {}", index.readiness)),
+                    )
+                    .child(div().text_xs().child(format!(
+                        "Source reconciliation: {}",
+                        index.source_reconciliation
+                    )))
+                    .child(
+                        div()
+                            .text_xs()
+                            .child(format!("Save: {}", index.synchronization)),
+                    );
+                content = content
+                    .child(
+                        div()
+                            .text_xs()
+                            .child(format!("Current revision: {}", index.current_generation)),
+                    )
+                    .child(div().text_xs().child(format!(
+                        "Saved store generation: {:?}",
+                        index.durable_generation
+                    )))
+                    .child(div().text_xs().child(format!(
+                        "Managed folder: {}",
+                        index.managed_directory.as_deref().unwrap_or("—")
+                    )));
             }
         }
         panel.child(content)
@@ -1454,7 +1481,7 @@ impl DesktopView {
             .max_h(px((panel_height - 64.).clamp(40., 530.)))
             .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
-            .child(div().text_sm().child("Index storage defaults to memory only, with no index file reads or writes. Temporary, repository, and custom folders offer on-demand reads or full residency. Index synchronization runs in the background; the Index panel has Synchronize now and Retry, and close flushes pending disk changes. Source records, schemas, and saved queries are never deleted. The Index panel shows the managed folder, and Diagnostics shows raw storage errors."))
+            .child(div().text_sm().child("Opening a folder builds the index in memory by default. Use Open saved index to load an existing generation from a selected location. Save index writes one current revision to a selected location. Closing or switching repositories does not save automatically. Source records, schemas, and saved queries are unaffected."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. The footer shows the exact match count."))

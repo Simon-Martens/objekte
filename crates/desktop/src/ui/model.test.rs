@@ -8,30 +8,48 @@ fn open_draft_maps_storage_and_residency_to_core_policy() {
     assert_eq!(memory.residency, IndexResidency::FullyResident);
 
     draft.index_storage = StorageChoice::Temporary;
-    assert_eq!(draft.storage_policy().unwrap().residency, IndexResidency::OnDemand);
+    assert_eq!(
+        draft.storage_policy().unwrap().residency,
+        IndexResidency::OnDemand
+    );
     draft.index_storage = StorageChoice::Repository;
-    assert_eq!(draft.storage_policy().unwrap().location, IndexStorageLocation::RepositoryDirectory);
+    assert_eq!(
+        draft.storage_policy().unwrap().location,
+        IndexStorageLocation::RepositoryDirectory
+    );
 
     draft.index_storage = StorageChoice::Custom;
     assert!(draft.storage_policy().unwrap_err().contains("base folder"));
     draft.index_directory = "/tmp/index base".into();
-    draft.keep_entire_index_in_memory = true;
     let custom = draft.storage_policy().unwrap();
-    assert_eq!(custom.location, IndexStorageLocation::CustomDirectory("/tmp/index base".into()));
-    assert_eq!(custom.residency, IndexResidency::FullyResident);
+    assert_eq!(
+        custom.location,
+        IndexStorageLocation::CustomDirectory("/tmp/index base".into())
+    );
+    assert_eq!(custom.residency, IndexResidency::OnDemand);
 }
 
 #[test]
 fn focused_storage_base_requires_existing_absolute_directory() {
     let base = tempfile::tempdir().unwrap();
-    assert_eq!(canonical_storage_base(base.path().to_str().unwrap()).unwrap(),
-        base.path().canonicalize().unwrap());
+    assert_eq!(
+        canonical_storage_base(base.path().to_str().unwrap()).unwrap(),
+        base.path().canonicalize().unwrap()
+    );
     assert!(canonical_storage_base("").is_err());
-    assert!(canonical_storage_base("relative/base").unwrap_err().contains("absolute"));
+    assert!(
+        canonical_storage_base("relative/base")
+            .unwrap_err()
+            .contains("absolute")
+    );
     assert!(canonical_storage_base("/this/path/does/not/exist").is_err());
     let file = base.path().join("file");
     std::fs::write(&file, "x").unwrap();
-    assert!(canonical_storage_base(file.to_str().unwrap()).unwrap_err().contains("not a directory"));
+    assert!(
+        canonical_storage_base(file.to_str().unwrap())
+            .unwrap_err()
+            .contains("not a directory")
+    );
     let mut current = OpenDraft::default();
     current.index_storage = StorageChoice::Custom;
     current.index_directory = base.path().join(".").display().to_string();
