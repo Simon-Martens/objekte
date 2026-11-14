@@ -611,9 +611,13 @@ impl PersistedRecordSlots {
 
     pub(crate) fn file_entry(&self, id: FileId) -> Result<Option<FileEntry>, String> {
         let Some(index) = self.file_index(id)? else { return Ok(None); };
-        let row = self.layout.file_row(self.bytes()?, index).ok_or("record file row missing")?;
+        self.file_entry_at(index)
+    }
+
+    pub(crate) fn file_entry_at(&self, index: usize) -> Result<Option<FileEntry>, String> {
+        let Some(row) = self.layout.file_row(self.bytes()?, index) else { return Ok(None); };
         let entry = self.metadata.entry_for_ref(row.metadata_ref)?.ok_or("record metadata reference missing")?;
-        if entry.id != id { return Err("record metadata file identity mismatch".into()); }
+        if entry.id != row.id { return Err("record metadata file identity mismatch".into()); }
         Ok(Some(entry))
     }
 

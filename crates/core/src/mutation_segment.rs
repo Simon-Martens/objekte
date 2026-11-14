@@ -759,6 +759,14 @@ impl IndexedCollectionSegment {
         }
     }
 
+    pub(crate) fn try_file_entry_at(&self, index: usize) -> Result<Option<std::borrow::Cow<'_, FileEntry>>, String> {
+        if let Some(table) = &self.persisted {
+            Ok(table.file_entry_at(index)?.map(std::borrow::Cow::Owned))
+        } else {
+            Ok(self.files.get(index).map(|file| std::borrow::Cow::Borrowed(&file.entry)))
+        }
+    }
+
     pub(crate) fn try_file_records(&self, id: FileId) -> Result<Option<std::borrow::Cow<'_, [RecordSlot]>>, String> {
         if let Some(table) = &self.persisted {
             Ok(table.file_records(id)?.map(std::borrow::Cow::Owned))
