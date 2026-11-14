@@ -633,6 +633,8 @@ fn restore_generation(
     opened: OpenedGeneration,
     started: Instant,
 ) -> Result<Index, IndexError> {
+    #[cfg(feature = "detailed-profiling")]
+    let phase_started = Instant::now();
     let bytes = opened
         .catalog
         .as_ref()
@@ -645,6 +647,8 @@ fn restore_generation(
         )
         .map_err(IndexError::InvalidCache)?,
     );
+    #[cfg(feature = "detailed-profiling")]
+    let catalog_validation_ns = phase_started.elapsed().as_nanos();
     if restored.revision != opened.generation {
         return Err(IndexError::InvalidCache(
             "catalog and manifest revisions differ".into(),
@@ -670,6 +674,8 @@ fn restore_generation(
         collection.global_inference = summary.clone();
     }
     let owner = Arc::new(owner);
+    #[cfg(feature = "detailed-profiling")]
+    let owner_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns;
     let metadata_ms = started.elapsed().as_millis() as u64;
     let count = owner.collections().len();
     if opened.segments.len() != opened.identities.len()
@@ -729,12 +735,18 @@ fn restore_generation(
         }));
         indexes.push(index);
     }
+    #[cfg(feature = "detailed-profiling")]
+    let segment_install_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns;
     let catalog = FileCatalog::restored_persisted(Arc::clone(&owner), Arc::clone(&restored))
         .map_err(IndexError::InvalidCache)?;
     let file_versions = FileVersions::from_persisted(Arc::clone(&restored));
+    #[cfg(feature = "detailed-profiling")]
+    let catalog_install_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns - segment_install_ns;
     for group in &groups {
         validate_live_records(group, &restored)?;
     }
+    #[cfg(feature = "detailed-profiling")]
+    let live_validation_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns - segment_install_ns - catalog_install_ns;
     let instance_id = crate::repository::next_repository_instance();
     let revision = IndexRevision(opened.generation);
     let mut published = PublishedIndex::from_repository(instance_id, revision, owner)?;
@@ -809,6 +821,16 @@ fn restore_generation(
         timings.full_available = Some(available_ms);
     })?;
     index.start_reconcile()?;
+    #[cfg(feature = "detailed-profiling")]
+    if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
+        eprintln!(
+            "direct-restore catalog_validation_ns={} owner_ns={} segment_install_ns={} catalog_install_ns={} live_validation_ns={} publication_ns={} total_ns={}",
+            catalog_validation_ns, owner_ns, segment_install_ns, catalog_install_ns,
+            live_validation_ns,
+            phase_started.elapsed().as_nanos().saturating_sub(catalog_validation_ns + owner_ns + segment_install_ns + catalog_install_ns + live_validation_ns),
+            phase_started.elapsed().as_nanos(),
+        );
+    }
     Ok(index)
 }
 

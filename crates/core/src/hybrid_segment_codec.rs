@@ -1192,6 +1192,8 @@ fn decode_segment_impl<'a>(
     trust: crate::segment_format::SegmentTrust,
     metadata: Option<Arc<dyn SegmentMetadataRefs>>,
 ) -> Result<IndexedCollectionSegment, String> {
+    #[cfg(feature = "detailed-profiling")]
+    let phase_started = std::time::Instant::now();
     if expected_ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
     }
@@ -1226,6 +1228,8 @@ fn decode_segment_impl<'a>(
     )?;
     let gram_filter_len = required(&reader, SectionKind::GramFilters)?.len();
     check_filter_spans(texts.bindings.iter().flat_map(|text| [text.normal_filter, text.skip_filter]), gram_filter_len)?;
+    #[cfg(feature = "detailed-profiling")]
+    let pre_record_ns = phase_started.elapsed().as_nanos();
     let records = match metadata {
         Some(metadata) => OpenRecordTables::Persisted(Arc::new(PersistedRecordSlots::open(
             Arc::clone(&reader), collection, source, metadata,
@@ -1234,6 +1238,8 @@ fn decode_segment_impl<'a>(
             required(&reader, SectionKind::RecordSlots)?, collection, source, resolve,
         )?),
     };
+    #[cfg(feature = "detailed-profiling")]
+    let record_validation_ns = phase_started.elapsed().as_nanos() - pre_record_ns;
     let count = records.slot_count();
     if count != expected_slot_count
         || integrity.collection != collection
@@ -1504,11 +1510,15 @@ fn decode_segment_impl<'a>(
         }
         None => return Err("inference data without report".into()),
     };
+    #[cfg(feature = "detailed-profiling")]
+    let dictionary_install_ns = phase_started.elapsed().as_nanos() - pre_record_ns - record_validation_ns;
     let sorting = decode_sort_data(
         required(&reader, SectionKind::SortData)?,
         records.ids(),
         definition,
     )?;
+    #[cfg(feature = "detailed-profiling")]
+    let sort_relation_ns = phase_started.elapsed().as_nanos() - pre_record_ns - record_validation_ns - dictionary_install_ns;
     let relation_identity = decode_relation_identity(
         required(&reader, SectionKind::RelationAndIdentity)?,
         records.ids(),
@@ -1552,6 +1562,16 @@ fn decode_segment_impl<'a>(
         failed_parses: field_section.failed_parses,
     };
     validate_components(&segment, definition, options)?;
+    #[cfg(feature = "detailed-profiling")]
+    if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
+        eprintln!(
+            "direct-segment ordinal={} slots={} pre_record_ns={} record_validation_ns={} dictionary_install_ns={} sort_relation_ns={} final_checks_ns={} total_ns={}",
+            expected_ordinal, count, pre_record_ns, record_validation_ns,
+            dictionary_install_ns, sort_relation_ns,
+            phase_started.elapsed().as_nanos().saturating_sub(pre_record_ns + record_validation_ns + dictionary_install_ns + sort_relation_ns),
+            phase_started.elapsed().as_nanos(),
+        );
+    }
     Ok(segment)
 }
 

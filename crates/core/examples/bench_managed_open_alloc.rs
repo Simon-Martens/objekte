@@ -103,6 +103,7 @@ fn run() -> Result<(), String> {
     COUNTING.store(false, Ordering::SeqCst);
     let index = index?;
     let status = index.status().map_err(|error| error.to_string())?;
+    let timings = index.timings_ms().map_err(|error| error.to_string())?;
     if status.build_source_reads != 0 || status.build_parses != 0 {
         return Err("managed open rebuilt from sources".into());
     }
@@ -112,6 +113,8 @@ fn run() -> Result<(), String> {
         "open_ns": elapsed_ns,
         "allocation_calls": ALLOCATIONS.load(Ordering::Relaxed),
         "gross_allocated_bytes": ALLOCATED_BYTES.load(Ordering::Relaxed),
+        "metadata_ms": timings.metadata,
+        "full_available_ms": timings.full_available,
         "source_reads": status.build_source_reads,
         "build_parses": status.build_parses,
     }));

@@ -7,6 +7,8 @@ use std::io::{self, Read, Write};
 use std::path::{Component, Path, PathBuf};
 use std::sync::Arc;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
+#[cfg(feature = "detailed-profiling")]
+use std::time::Instant;
 
 use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
@@ -336,9 +338,15 @@ impl ManagedStore {
     /// retry if GC removed a generation while its files were being opened.
     pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
         for attempt in 0..MAX_OPEN_RETRIES {
+            #[cfg(feature = "detailed-profiling")]
+            let manifest_started = Instant::now();
             let Some(manifest) = self.read_manifest_typed()? else {
                 return Ok(None);
             };
+            #[cfg(feature = "detailed-profiling")]
+            if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
+                eprintln!("direct-open manifest_ns={}", manifest_started.elapsed().as_nanos());
+            }
             if manifest.version == 1 {
                 self.migrate_flat_v1()?;
                 continue;
@@ -429,6 +437,8 @@ impl ManagedStore {
         &self,
         manifest: &Manifest,
     ) -> Result<OpenedGeneration, OpenGenerationError> {
+        #[cfg(feature = "detailed-profiling")]
+        let opened_at = Instant::now();
         check_generation_directory(&self.directory.join(GENERATIONS_DIR))?;
         let directory = self.generation_directory(manifest.generation);
         check_generation_directory(&directory)?;
@@ -439,6 +449,12 @@ impl ManagedStore {
             .as_ref()
             .map(|record| self.read_catalog_typed(&directory, record))
             .transpose()?;
+        #[cfg(feature = "detailed-profiling")]
+        let catalog_ns = opened_at.elapsed().as_nanos();
+        #[cfg(feature = "detailed-profiling")]
+        let mut segment_map_ns = 0u128;
+        #[cfg(feature = "detailed-profiling")]
+        let mut section_check_ns = 0u128;
         let mut segments = Vec::with_capacity(manifest.segments.len());
         let mut names = Vec::with_capacity(manifest.segments.len());
         let mut lengths = Vec::with_capacity(manifest.segments.len());
@@ -446,6 +462,8 @@ impl ManagedStore {
         let mut active = Vec::with_capacity(manifest.segments.len());
         let mut validation = Vec::with_capacity(manifest.segments.len());
         for record in &manifest.segments {
+            #[cfg(feature = "detailed-profiling")]
+            let map_started = Instant::now();
             let path = segment_directory.join(&record.name);
             let file = open_generation_file(&path)?;
             if file
@@ -480,11 +498,17 @@ impl ManagedStore {
             reader
                 .require_complete_sections()
                 .map_err(StoreReadError::Corrupt)?;
+            #[cfg(feature = "detailed-profiling")]
+            { segment_map_ns += map_started.elapsed().as_nanos(); }
             for kind in REQUIRED_SECTIONS {
                 if kind != SectionKind::PostingPayloads
                     || self.residency == IndexResidency::FullyResident
                 {
+                    #[cfg(feature = "detailed-profiling")]
+                    let section_started = Instant::now();
                     reader.section(kind).map_err(StoreReadError::Corrupt)?;
+                    #[cfg(feature = "detailed-profiling")]
+                    { section_check_ns += section_started.elapsed().as_nanos(); }
                 }
             }
             names.push(record.name.clone());
@@ -497,6 +521,15 @@ impl ManagedStore {
             } else {
                 SegmentTrust::Untrusted
             });
+        }
+        #[cfg(feature = "detailed-profiling")]
+        if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
+            eprintln!(
+                "direct-open generation={} catalog_read_ns={} segment_map_parse_ns={} section_check_ns={} other_ns={} total_ns={}",
+                manifest.generation, catalog_ns, segment_map_ns, section_check_ns,
+                opened_at.elapsed().as_nanos().saturating_sub(catalog_ns + segment_map_ns + section_check_ns),
+                opened_at.elapsed().as_nanos(),
+            );
         }
         Ok(OpenedGeneration {
             generation: manifest.generation,
