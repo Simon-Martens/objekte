@@ -1465,6 +1465,7 @@ fn decode_segment_impl<'a>(
         file_index: records.file_index,
         records: records.records,
         id_lookup: records.id_lookup,
+        persisted: None,
         identity_order: relation_identity.identity_order,
         postings: PostingCollection { fields: declared },
         inference,

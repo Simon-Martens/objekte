@@ -109,6 +109,7 @@ pub(crate) fn base_as_segment(
         file_index,
         records: collection.generation.records.clone(),
         id_lookup: collection.id_lookup.clone(),
+        persisted: None,
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),
         inference: collection.inference.clone(),

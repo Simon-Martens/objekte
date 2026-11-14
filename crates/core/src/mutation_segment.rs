@@ -266,6 +266,9 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<RecordEntry>,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
+    /// Immutable byte-backed metadata for a restored disk segment. Constructed
+    /// segments use their native vectors and maps above.
+    pub persisted: Option<Arc<crate::segment_metadata::PersistedRecordSlots>>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
@@ -703,6 +706,7 @@ impl CollectionSegment {
             file_index: self.file_index,
             records: self.records,
             id_lookup: self.id_lookup,
+            persisted: None,
             identity_order,
             postings,
             inference,
@@ -1322,6 +1326,7 @@ impl IndexedCollectionSegment {
                 file_index,
                 records,
                 id_lookup,
+                persisted: None,
                 identity_order,
                 postings,
                 inference,
@@ -2457,6 +2462,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
+            persisted: None,
             identity_order,
             postings,
             inference,
