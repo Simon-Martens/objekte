@@ -735,6 +735,7 @@ impl CollectionSegment {
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
         };
+        index.freeze_if_large();
         index.recompute_accounting();
         Ok(index)
     }
@@ -844,6 +845,25 @@ fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
 }
 
 impl IndexedCollectionSegment {
+    /// Use the persistent backing when the shard-size policy asks for it.
+    /// Contents and query results are identical in both backings.
+    pub(crate) fn freeze_if_large(&mut self) {
+        if !crate::posting_map::shared_backing_wanted(self.records.len()) {
+            return;
+        }
+        for index in self.postings.fields.values_mut() {
+            index.freeze_shared();
+        }
+        for custom in self.custom_postings.values_mut() {
+            custom.index.freeze_shared();
+        }
+        if let Some(inference) = &mut self.inference {
+            for index in inference.indexes.values_mut() {
+                index.freeze_shared();
+            }
+        }
+    }
+
     /// Recompute the cached planning estimate after native finalization or a
     /// metadata rewrite. Callers never need this for Arc-reused segments.
     pub(crate) fn recompute_accounting(&mut self) {
@@ -1575,6 +1595,7 @@ impl IndexedCollectionSegment {
                 failed_parses,
                 accounting: SegmentAccounting::default(),
         };
+        index.freeze_if_large();
         index.recompute_accounting();
         Ok(ConsolidatedSegment { index, offsets })
     }
@@ -2660,6 +2681,7 @@ impl IndexedCollectionSegment {
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
         };
+        index.freeze_if_large();
         index.recompute_accounting();
         Ok(index)
     }

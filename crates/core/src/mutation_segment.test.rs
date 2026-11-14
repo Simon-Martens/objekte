@@ -1123,3 +1123,122 @@ fn compaction_remaps_retained_fallback_diagnostics() {
         [0]
     );
 }
+
+fn small_number_shard(tag: &str, file_id: u32) -> IndexedCollectionSegment {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-{tag}-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["n".into()],
+            kind: LogicalType::Number,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let name = format!("{tag}.jsonl");
+    std::fs::write(root.join(&name), "{\"n\":1}\n{\"n\":2}\n").unwrap();
+    let input = SourceFileInput {
+        id: FileId(file_id),
+        relative_path: name.clone().into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(root.join(&name)).unwrap())
+            .unwrap(),
+        created_ns: None,
+    };
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let prepared = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding],
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    admission
+        .admit(&input, prepared.collections.into_iter().next().unwrap())
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let indexed = admission
+        .finish()
+        .into_indexed(
+            &definition,
+            BigramAlphabet::Ascii,
+            InferenceConfig::default(),
+            1,
+            &pool,
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+    indexed
+}
+
+fn freeze_all_postings(shard: &mut IndexedCollectionSegment) {
+    for index in shard.postings.fields.values_mut() {
+        index.freeze_shared();
+    }
+    for custom in shard.custom_postings.values_mut() {
+        custom.index.freeze_shared();
+    }
+    if let Some(inference) = &mut shard.inference {
+        for index in inference.indexes.values_mut() {
+            index.freeze_shared();
+        }
+    }
+}
+
+#[test]
+fn sealed_shard_backing_follows_policy() {
+    let shard = small_number_shard("policy", 0);
+    let expected = cfg!(feature = "force-shared-backing");
+    assert!(!shard.postings.fields.is_empty());
+    for index in shard.postings.fields.values() {
+        let facts = index.structural.as_ref().unwrap();
+        assert_eq!(facts.is_shared(), expected);
+    }
+}
+
+#[test]
+fn consolidation_of_frozen_and_native_shards_matches_native() {
+    let a = small_number_shard("frozen-a", 0);
+    let b = small_number_shard("frozen-b", 10);
+    let expected = IndexedCollectionSegment::consolidate(&[&a, &b], usize::MAX).unwrap();
+    let mut frozen_a = small_number_shard("frozen-a", 0);
+    freeze_all_postings(&mut frozen_a);
+    let actual = IndexedCollectionSegment::consolidate(&[&frozen_a, &b], usize::MAX).unwrap();
+    assert_eq!(
+        actual.index.accounting.retained_bytes_estimated,
+        expected.index.accounting.retained_bytes_estimated
+    );
+    for (path, field) in &expected.index.postings.fields {
+        let other = &actual.index.postings.fields[path];
+        assert_eq!(field.value_entries(), other.value_entries());
+        assert_eq!(field.length_entries(), other.length_entries());
+        assert_eq!(
+            field.structural.as_ref().unwrap().entries(),
+            other.structural.as_ref().unwrap().entries()
+        );
+    }
+}

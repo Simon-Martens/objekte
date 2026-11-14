@@ -1409,3 +1409,86 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+fn structural_sample() -> PostingIndex {
+    let field = FieldDefinition {
+        path: vec!["mixed".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::String)),
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: vec![true],
+    };
+    let mut index = PostingIndex::structural(&field);
+    let object = Value::Object(std::collections::BTreeMap::from([(
+        "k".to_string(),
+        Value::String("v".into()),
+    )]));
+    let empty_object = Value::Object(std::collections::BTreeMap::new());
+    let array = Value::Array(crate::model::ArrayValue {
+        element_type: Some(LogicalType::String),
+        mixed_elements: false,
+        nullable_elements: true,
+        values: vec![Value::Null],
+    });
+    let values = [
+        Value::String("x".into()),
+        Value::Number(Number::integer(3)),
+        array,
+        empty_object,
+        Value::Null,
+        Value::String(String::new()),
+        object,
+    ];
+    for (slot, value) in values.iter().enumerate() {
+        index
+            .add_values(RecordSlot(slot as u32), Some(&[value]))
+            .unwrap();
+    }
+    index.finish_stats();
+    index
+}
+
+#[test]
+fn frozen_structural_facts_match_native_facts() {
+    let native = structural_sample();
+    let mut frozen = native.clone();
+    frozen.freeze_shared();
+    let native_facts = native.structural.as_ref().unwrap();
+    let frozen_facts = frozen.structural.as_ref().unwrap();
+    assert_eq!(native_facts.entries(), frozen_facts.entries());
+    for key in [
+        StructuralKey::AnyNull,
+        StructuralKey::NonEmpty,
+        StructuralKey::String,
+        StructuralKey::Number,
+        StructuralKey::Array,
+        StructuralKey::Object,
+        StructuralKey::EmptyObject,
+    ] {
+        assert_eq!(native_facts.is_empty_for(key), frozen_facts.is_empty_for(key));
+    }
+    assert_eq!(native_facts.estimated_bytes(), frozen_facts.estimated_bytes());
+}
+
+#[test]
+fn frozen_structural_facts_merge_like_native_facts() {
+    let a = structural_sample();
+    let b = structural_sample();
+    let base = a.covered_records;
+    let mut native = a.clone();
+    native.merge_shifted(b.clone(), base).unwrap();
+    let mut mixed = a.clone();
+    mixed.freeze_shared();
+    let before = mixed.clone();
+    mixed.merge_shifted(b, base).unwrap();
+    assert_eq!(
+        native.structural.as_ref().unwrap().entries(),
+        mixed.structural.as_ref().unwrap().entries()
+    );
+    assert_eq!(
+        before.structural.as_ref().unwrap().entries(),
+        a.structural.as_ref().unwrap().entries()
+    );
+}
