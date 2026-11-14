@@ -2444,6 +2444,8 @@ source-check actions.
   Load, plus the warm/cold mmap load benchmark.
 - `83e68e9e` — lazy packed record rows and logical-ID lookup, with zero eager
   reconstruction at Load.
+- `eb3ebff0`/`d9ea138d` — source-free compaction of loaded packed runs,
+  sealing packed output and covering add/replace/move/delete plus pinned views.
 
 ### Packed access abstraction
 
