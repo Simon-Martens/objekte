@@ -2422,9 +2422,22 @@ results without caching decoded postings.
 `PackedIndexCatalog` provides borrowed field/bigram/logical access over one
 `FrozenSegment` without owning dictionaries. Differential tests in
 `access.test.rs` compare native, resident packed, and mmap packed access for
-string and numeric postings and for bigram candidates. The next wiring step is
-to make `IndexCatalog` construct this abstraction from either published
-representation and route executor calls through it.
+string and numeric postings and for bigram candidates.
+
+Loaded publications attach their mapped `FrozenSegment` readers to the
+corresponding `CollectionState` and `PublishedSegment`. `IndexCatalog` now
+selects `PostingAccess::Packed` for declared fields on those publications and
+`BigramAccess::Packed` for their raw/custom text bindings. Executor typed,
+FTS candidate, count-only, and value access calls route through the borrowed
+access enums. A test removes the loaded native posting maps and source files;
+the packed typed reader still answers the exact typed query. Differential
+tests compare built-native and loaded-packed query hit identities and FTS
+candidates.
+
+Native state is still loaded to preserve fallbacks, exact source verification,
+inference, custom operations, sorting, and compatibility behavior. The next
+step is to remove the native posting/bigram reconstruction while retaining
+those fallbacks.
 
 ### Validation
 
@@ -2440,10 +2453,10 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 588
+- Workspace tests pass with no failures. The core library suite reports 590
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 72 passed, including dictionary,
+- The storage subsystem suite reports 74 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
@@ -2466,10 +2479,11 @@ the native query state. Unchanged saves write zero bytes.
 
 ### Deviations and remaining limitations
 
-1. **Query execution still uses the native representation.** Packed readers are
-   implemented and tested but `run.rs`, `executor.rs`, `reference.rs`, and
-   `index_catalog.rs` still consume the restored native maps. This is recorded
-   in `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
+1. **Loaded typed/bigram execution now uses packed readers, but the native
+   representation is still restored.** Remaining native consumers include exact
+   source verification fallbacks, inference/custom operations, and some
+   `CollectionState` base accesses. This is recorded in
+   `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
 2. **Desktop/TUI load-save UX is incomplete.** The CLI and desktop backend
    understand storage flags; the TUI can save and check a running index. The
    desktop Open dialog cannot yet choose Build vs Load, a location, or a custom

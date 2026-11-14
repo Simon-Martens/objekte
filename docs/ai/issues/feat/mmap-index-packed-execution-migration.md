@@ -21,11 +21,15 @@ or relation targets during load.
 
 ## Impact
 
-Persistence is complete and query semantics are preserved, but load memory and
-first-query work still scale with the native representation. The packed readers
-and a borrowed `PostingAccess`/`BigramAccess` abstraction are available and
-differentially tested, but `IndexCatalog` and the executor still construct
-native accesses.
+Persistence is complete and query semantics are preserved. Loaded publications
+now attach their mapped `FrozenSegment` readers and `IndexCatalog`/executor
+typed and bigram candidate access uses the packed `PostingAccess`/`BigramAccess`
+views. A test removes the loaded native postings and source files and confirms
+the packed typed query still answers.
+
+Load memory and first-query work still include the restored native state because
+fallbacks, exact source verification, inference/custom operations, sorting, and
+some base-collection access remain native.
 
 ## Why not resolved here
 
