@@ -8,6 +8,27 @@ use crate::repository::CollectionDefinition;
 use crate::sorting::{SortCollection, SortColumn, SortKey, SortOptions};
 use crate::source::SourceFormat;
 use std::path::PathBuf;
+use std::sync::Arc;
+use std::io::Cursor as IoCursor;
+use crate::segment_format::{SectionKind, SegmentReader, SegmentWriter};
+
+impl SegmentMetadataRefs for Vec<FileEntry> {
+    fn entry_for_ref(&self, reference: u32) -> Result<Option<FileEntry>, String> {
+        Ok(self.get(reference as usize).cloned())
+    }
+
+    fn file_id_for_ref(&self, reference: u32) -> Option<FileId> {
+        self.get(reference as usize).map(|entry| entry.id)
+    }
+
+    fn revision_for_ref(&self, reference: u32) -> Option<SourceRevision> {
+        self.get(reference as usize).map(|entry| entry.revision)
+    }
+
+    fn contains_collection_for_ref(&self, reference: u32, collection: CollectionId) -> Option<bool> {
+        self.get(reference as usize).map(|entry| entry.collections.contains(&collection))
+    }
+}
 
 fn encode_fixture(files: &[SegmentFile], records: &[RecordEntry]) -> (Vec<u8>, Vec<FileEntry>) {
     let mut catalog = Vec::new();
@@ -117,8 +138,32 @@ fn record_decoder_rejects_identity_mismatch_truncation_and_trailing_bytes() {
     assert!(decode_fixture(&trailing, &catalog).is_err());
     assert!(decode_fixture(&bytes, &[]).is_err());
     let mut bad_reference = bytes.clone();
-    bad_reference[40..44].copy_from_slice(&u32::MAX.to_le_bytes());
+    let layout = RecordSlotsLayout::parse(&bytes, CollectionId(0), ("json", 1)).unwrap();
+    bad_reference[layout.file_start + 4..layout.file_start + 8].copy_from_slice(&u32::MAX.to_le_bytes());
     assert!(decode_fixture(&bad_reference, &catalog).is_err());
+}
+
+#[test]
+fn direct_record_reader_uses_fixed_rows_membership_and_persisted_domains() {
+    let (files, records) = fixture();
+    let (bytes, catalog) = encode_fixture(&files, &records);
+    let mut writer = SegmentWriter::new(IoCursor::new(Vec::new()), 1).unwrap();
+    writer.write_section(SectionKind::RecordSlots, |out| {
+        out.write_all(&bytes).map_err(|error| error.to_string())
+    }).unwrap();
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap());
+    let opened = PersistedRecordSlots::open(reader, CollectionId(0), ("json", 1), Arc::new(catalog)).unwrap();
+    assert_eq!(opened.record_count(), 2);
+    assert_eq!(opened.file_count(), 1);
+    assert_eq!(opened.record_id(RecordSlot(0)).unwrap(), Some("a"));
+    assert_eq!(opened.record(RecordSlot(1)).unwrap().unwrap().id, records[1].id);
+    assert_eq!(opened.file_records(FileId(7)).unwrap(), Some(vec![RecordSlot(0), RecordSlot(1)]));
+    assert_eq!(opened.file_records(FileId(8)).unwrap(), None);
+    assert_eq!(opened.file_entry(FileId(7)).unwrap().unwrap().relative_path, files[0].entry.relative_path);
+    assert_eq!(opened.lookup_id(&[RecordSlot(0), RecordSlot(1)], "a").unwrap(), Some(RecordSlot(0)));
+    assert_eq!(opened.lookup_id(&[RecordSlot(0), RecordSlot(1)], "missing").unwrap(), None);
+    assert!(opened.logical_records().contains(0));
+    assert!(opened.fallback_records().contains(1));
 }
 
 #[test]
@@ -202,10 +247,10 @@ fn relation_section_checks_fallback_domain_and_declaration() {
     relations[0].add_unavailable(RecordSlot(1)).unwrap();
     let order = vec![RecordSlot(0), RecordSlot(1)];
     let bytes = encode_relation_identity(&relations, &records, &order).unwrap();
-    let decoded = decode_relation_identity(&bytes, &checked, &definition).unwrap();
+    let decoded = decode_relation_identity(&bytes, &checked, &checked.logical_records, &checked.fallback_records, &definition).unwrap();
     assert_eq!(decoded.relations.len(), 1);
     assert!(decoded.relations[0].unavailable().contains(1));
-    assert!(decode_relation_identity(&bytes, &checked, &super::tests::definition()).is_err());
+    assert!(decode_relation_identity(&bytes, &checked, &checked.logical_records, &checked.fallback_records, &super::tests::definition()).is_err());
     let mut invalid = RelationContribution::for_schema(&definition.schema);
     invalid[0].add_logical(RecordSlot(0), &Value::Null).unwrap();
     invalid[0].add_logical(RecordSlot(1), &Value::Null).unwrap();
@@ -248,7 +293,7 @@ fn sort_and_relation_sections_roundtrip_without_source_access() {
     let order = vec![RecordSlot(0), RecordSlot(1)];
     let relation_bytes = encode_relation_identity(&[], &records, &order).unwrap();
     let decoded_relation =
-        decode_relation_identity(&relation_bytes, &checked, &definition()).unwrap();
+        decode_relation_identity(&relation_bytes, &checked, &checked.logical_records, &checked.fallback_records, &definition()).unwrap();
     assert_eq!(decoded_relation.identity_order, order);
     assert!(decoded_relation.relations.is_empty());
     assert!(encode_relation_identity(&[], &records, &[RecordSlot(0), RecordSlot(0)]).is_err());
@@ -256,6 +301,8 @@ fn sort_and_relation_sections_roundtrip_without_source_access() {
         decode_relation_identity(
             &relation_bytes[..relation_bytes.len() - 1],
             &checked,
+            &checked.logical_records,
+            &checked.fallback_records,
             &definition()
         )
         .is_err()

@@ -290,6 +290,7 @@ fn decode_segment_profiled(
         file_index,
         records: encoded.records,
         id_lookup,
+        persisted: None,
         identity_order: encoded.identity_order,
         postings: encoded.postings,
         inference: encoded.inference,
