@@ -262,3 +262,18 @@ The merge audit covered the whole range, without a path filter. `git log --merge
 The implementing agent must append final commit/file/test evidence for every K/A row in its task report or task memory. D rows are closed by the deleted-module/API audits plus migrated semantic tests, H rows by a history-preservation diff, and M/MR rows by the parent/resolution dispositions above.
 
 This ledger covers only B..H. If the execution base differs, enumerate H..START (including side branches and merge resolutions) before editing. Do not presume an uninspected TOML implementation is absent from a newer base.
+
+## H..START completion (review follow-up, 2026-11-14)
+
+The original ledger audited `B..H`. The actual execution base is `START = 66b932f31f922a13062a61658e843e3033b3aff4`. This appendix records the six commits in `H..START` (`git log --reverse --topo-order H..START`) and their final-state disposition. No commit was replayed; the restoration started from the merged START tree and removed only persistence behavior. `git show --remerge-diff 66b932f31f` produced no additional resolution.
+
+| Commit | Code | Final-state disposition |
+| --- | --- | --- |
+| `b31db7b2eb97` Replace binary index manifest with readable TOML generations | D/A | Removed the TOML manifest, generation directories, segment descriptors, catalog envelopes, write-validation/stamp rules and hard-link reuse. Retained the source-exclusion rule for `.objekte/.indexes` and `.objekte/indexes` in `repository_configuration::prepare_source_definitions`. The live configuration hash keeps the START domain value (`CONFIGURATION_HASH_DOMAIN = 1`); `MODEL_VERSION` was no longer part of START's live hash, so its removed test is not restored. Native segment metadata replaces descriptor readers. |
+| `f4337dc5c2d0` Report TOML manifest performance and fragmented-save bug | H | Retained unchanged: `docs/ai/generated/toml_index_manifest_performance.md` and `docs/ai/issues/bug/fragmented-loaded-save-identity-mismatch.md`. The save-identity issue is now obsolete with persistence removal and is listed in the completion report. |
+| `e6f5fe8f25b6` Complete the TOML index manifest task | H | Retained unchanged as `docs/ai/done/toml-index-manifest.md`. Its implementation is superseded by the memory-only restoration; its measurements remain historical evidence. |
+| `7e32a5a7674e` List exact load benchmark commands | H | Retained unchanged in the generated TOML performance report. Those commands are historical and are not current runnable storage gates. |
+| `31d0f3c6a23e` Correct final core test count in completion report | H | Retained unchanged in the completed TOML task report. |
+| `66b932f31f92` Merge TOML index manifest into master | M | Clean integration merge with parents `a0a0691897` and `31d0f3c6a2`; no nonempty remerge diff. The merged tree is `START`; all six dispositions above apply to it. |
+
+The `b31…` source-exclusion ordering and spelling are preserved so that prepared definitions and configuration hashes for unchanged inputs remain byte-identical to START. Generated namespaces are additionally enforced consistently across discovery, mutation, scan and alias entry points in the review follow-up; those checks do not change legitimate prepared definitions or hashes.
