@@ -2407,6 +2407,7 @@ source-check actions.
 - `b1ddae5c` — storage documentation, formatting, and the storage benchmark.
 - `447b659e` — repository formatting.
 - `6b86aa67` — TUI storage overlay and scope issues.
+- `5fb81e64` — catalogue high-water preservation and desktop storage opening.
 
 ### Validation
 
@@ -2422,15 +2423,15 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 585
+- Workspace tests pass with no failures. The core library suite reports 586
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 69 passed, including dictionary,
+- The storage subsystem suite reports 70 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
 - CLI tests include the new end-to-end storage protocol test and the TUI
-  storage-overlay test.
+  storage-overlay test. The desktop backend has a save-then-reopen storage test.
 
 Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
