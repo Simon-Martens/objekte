@@ -1,24 +1,37 @@
 use super::*;
-use crate::arguments::IndexStorageChoice;
-use objekte_search_core::index_storage::IndexStorageLocation;
+use crate::arguments::IndexTargetChoice;
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::source::SourceRegistry;
 
-fn open_with_policy(
+fn open_with_target(
     args: &Arguments,
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
 ) -> Result<IndexedRepository, String> {
-    let storage = args.resolved_index_storage_policy(paths)?;
-    let index = Index::open_with_storage(
-        &paths.root,
-        configured.definitions.clone(),
-        repository_options(args),
-        storage,
-        SourceRegistry::builtin(),
-    )
-    .map_err(|error| error.to_string())?;
+    let target = args.resolved_load_target(paths)?;
+    let loaded = target
+        .as_ref()
+        .map(|target| {
+            Index::try_load(
+                &paths.root,
+                configured.definitions.clone(),
+                repository_options(args),
+                target,
+            )
+        })
+        .transpose()
+        .map_err(|error| error.to_string())?
+        .flatten();
+    let index = match loaded {
+        Some(index) => index,
+        None => Index::build(
+            &paths.root,
+            configured.definitions.clone(),
+            repository_options(args),
+        )
+        .map_err(|error| error.to_string())?,
+    };
     IndexedRepository::new(index).map_err(|error| error.to_string())
 }
 
@@ -48,37 +61,45 @@ fn configured_repository_reopens_its_managed_generation() {
     .unwrap();
     let args = Arguments {
         repo: Some(root.path().to_owned()),
-        index_storage: IndexStorageChoice::Repository,
+        load_index: Some(IndexTargetChoice::Repository),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
-    let built = open_with_policy(&args, &paths, &configured).unwrap();
+    let built = open_with_target(&args, &paths, &configured).unwrap();
     assert!(!built.index().restored_from_storage());
-    assert!(root.path().join(".objekte/indexes").is_dir());
-    let restored = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(!root.path().join(".objekte/indexes").is_dir());
+    built
+        .index()
+        .flush_to(&IndexStorageTarget::RepositoryDirectory)
+        .unwrap();
+    let restored = open_with_target(&args, &paths, &configured).unwrap();
     assert!(restored.index().restored_from_storage());
     restored.index().wait_for_reconciliation().unwrap();
 }
 
 #[test]
-fn selected_storage_removes_recognized_old_snapshot_without_loading_it() {
+fn explicit_load_preserves_obsolete_snapshot_until_flush() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
     std::fs::create_dir(root.path().join(".objekte")).unwrap();
     let args = Arguments {
         path: vec![root.path().to_owned()],
-        index_storage: IndexStorageChoice::Repository,
+        load_index: Some(IndexTargetChoice::Repository),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     let cache = root.path().join(".objekte/search-core-ascii.snapshot");
     std::fs::write(&cache, b"OBJSNAP1\x1b\0\0\0").unwrap();
-    let rebuilt = open_with_policy(&args, &paths, &configured).unwrap();
+    let rebuilt = open_with_target(&args, &paths, &configured).unwrap();
     assert!(!rebuilt.index().restored_from_storage());
-    assert!(!cache.exists());
-    let restored = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(cache.exists());
+    rebuilt
+        .index()
+        .flush_to(&IndexStorageTarget::RepositoryDirectory)
+        .unwrap();
+    let restored = open_with_target(&args, &paths, &configured).unwrap();
     assert!(restored.index().restored_from_storage());
     restored.index().wait_for_reconciliation().unwrap();
 }
@@ -107,7 +128,7 @@ fn configured_open_uses_the_already_loaded_schema() {
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     std::fs::write(&schema, b"invalid JSON after configuration was captured").unwrap();
-    let opened = open_with_policy(&args, &paths, &configured).unwrap();
+    let opened = open_with_target(&args, &paths, &configured).unwrap();
     assert_eq!(opened.collections()[0].definition.name, "data");
 }
 
@@ -168,8 +189,8 @@ fn configured_custom_base_keeps_unrelated_source_siblings() {
     .unwrap();
     let args = Arguments {
         repo: Some(root.path().to_owned()),
-        index_storage: IndexStorageChoice::Custom,
-        index_directory: Some(cache.clone()),
+        load_index: Some(IndexTargetChoice::Custom),
+        load_index_directory: Some(cache.clone()),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
@@ -182,7 +203,11 @@ fn configured_custom_base_keeps_unrelated_source_siblings() {
     );
 
     configured.definitions[0].discovery.recursive = true;
-    let repo = open_with_policy(&args, &paths, &configured).unwrap();
+    let repo = open_with_target(&args, &paths, &configured).unwrap();
+    assert!(!cache.join("objekte-indexes").is_dir());
+    repo.index()
+        .flush_to(&IndexStorageTarget::CustomDirectory(cache.clone()))
+        .unwrap();
     assert!(cache.join("objekte-indexes").is_dir());
     let view = repo.index().view().unwrap();
     assert!(
@@ -203,8 +228,8 @@ fn custom_index_base_inside_source_excludes_owned_namespace_without_hiding_base(
     std::fs::create_dir(&custom).unwrap();
     let args = Arguments {
         path: vec![root.path().to_owned()],
-        index_storage: IndexStorageChoice::Custom,
-        index_directory: Some(custom.clone()),
+        load_index: Some(IndexTargetChoice::Custom),
+        load_index_directory: Some(custom.clone()),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
@@ -213,7 +238,12 @@ fn custom_index_base_inside_source_excludes_owned_namespace_without_hiding_base(
         configured.definitions[0].discovery.exclude_directories,
         vec![PathBuf::from(".objekte")]
     );
-    assert!(configured.definitions[0].discovery.exclude.contains(&"**/objekte-indexes".to_owned()));
+    assert!(
+        configured.definitions[0]
+            .discovery
+            .exclude
+            .contains(&"**/objekte-indexes".to_owned())
+    );
     assert!(
         !configured.definitions[0]
             .discovery
@@ -233,10 +263,7 @@ fn default_memory_policy_excludes_configuration_directory_once() {
         vec![PathBuf::from(".objekte")]
     );
     assert!(configured.definitions[0].discovery.exclude_files.is_empty());
-    assert_eq!(
-        args.index_storage_policy().unwrap().location,
-        IndexStorageLocation::MemoryOnly
-    );
+    assert_eq!(args.resolved_load_target(&paths).unwrap(), None);
 }
 
 #[test]

@@ -854,9 +854,9 @@ impl DesktopController {
                     .map(|report| report.store_generation);
                 self.index_ui.synchronization = match &self.last_flush {
                     Some(report) => format!(
-                        "Saved revision {} to {:?}, generation {}{}",
+                        "Saved revision {} to {}, generation {}{}",
                         report.saved_revision.0,
-                        report.target,
+                        objekte_cli::storage_view::target_label(&report.target),
                         report.store_generation,
                         if status.revision != report.saved_revision {
                             " · changes since save"
@@ -3408,9 +3408,9 @@ impl DesktopController {
                         self.index_ui.managed_directory =
                             Some(report.managed_directory.display().to_string());
                         self.index_ui.synchronization = format!(
-                            "Saved revision {} to {:?}, store generation {}{}",
+                            "Saved revision {} to {}, store generation {}{}",
                             report.saved_revision.0,
-                            report.target,
+                            objekte_cli::storage_view::target_label(&report.target),
                             report.store_generation,
                             if report.newer_changes_unsaved {
                                 " · newer changes remain unsaved"

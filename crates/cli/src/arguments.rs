@@ -3,9 +3,7 @@
 use std::path::{Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
@@ -20,28 +18,11 @@ impl Default for Alphabet {
     }
 }
 
-/// Where a completed searchable index is stored.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, ValueEnum)]
-pub enum IndexStorageChoice {
-    #[default]
-    Memory,
-    Temporary,
-    Repository,
-    Custom,
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
 pub enum IndexTargetChoice {
     Temporary,
     Repository,
     Custom,
-}
-
-/// Optional residency for a synchronized disk index.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
-pub enum IndexResidencyChoice {
-    OnDemand,
-    Full,
 }
 
 /// One invocation of the general JSON search command.
@@ -122,18 +103,6 @@ pub struct Arguments {
     #[arg(long = "index-residency", hide = true, value_name = "MODE")]
     pub legacy_index_residency: Option<String>,
 
-    /// Index storage: memory (default), temporary, repository, or custom.
-    #[arg(skip)]
-    pub index_storage: IndexStorageChoice,
-
-    /// Existing base folder for --index-storage custom.
-    #[arg(skip)]
-    pub index_directory: Option<PathBuf>,
-
-    /// On-demand file access or an owned full index copy for disk storage.
-    #[arg(skip)]
-    pub index_residency: Option<IndexResidencyChoice>,
-
     /// Maximum returned matches. Omission returns all matches.
     #[arg(long, value_name = "N")]
     pub limit: Option<usize>,
@@ -160,7 +129,6 @@ pub struct Arguments {
 pub struct ResolvedPaths {
     pub root: PathBuf,
     pub collection_paths: Vec<PathBuf>,
-    pub index_directory: Option<PathBuf>,
     pub load_index_directory: Option<PathBuf>,
     pub flush_index_directory: Option<PathBuf>,
     pub schema_file: Option<PathBuf>,
@@ -193,7 +161,9 @@ impl Arguments {
     /// Validate opening choices when a graphical caller constructs arguments directly.
     pub fn validate_open_options(&self) -> Result<(), String> {
         if self.write_index.is_some() {
-            return Err("--write-index was removed; use --flush-index temporary|repository|custom".into());
+            return Err(
+                "--write-index was removed; use --flush-index temporary|repository|custom".into(),
+            );
         }
         if self.legacy_index_storage.is_some()
             || self.legacy_index_directory.is_some()
@@ -201,9 +171,18 @@ impl Arguments {
         {
             return Err("--index-storage, --index-directory and --index-residency were removed; use --load-index/--load-index-directory and --flush-index/--flush-index-directory".into());
         }
-        Self::validate_target_choice(self.load_index, self.load_index_directory.as_deref(), "--load-index", "--load-index-directory")?;
-        Self::validate_target_choice(self.flush_index, self.flush_index_directory.as_deref(), "--flush-index", "--flush-index-directory")?;
-        self.index_storage_policy()?;
+        Self::validate_target_choice(
+            self.load_index,
+            self.load_index_directory.as_deref(),
+            "--load-index",
+            "--load-index-directory",
+        )?;
+        Self::validate_target_choice(
+            self.flush_index,
+            self.flush_index_directory.as_deref(),
+            "--flush-index",
+            "--flush-index-directory",
+        )?;
         if self.repo.is_some() && !self.path.is_empty() {
             return Err("--repo cannot be combined with --path".into());
         }
@@ -228,77 +207,46 @@ impl Arguments {
         directory_option: &str,
     ) -> Result<(), String> {
         match (choice, directory) {
-            (Some(IndexTargetChoice::Custom), None) => Err(format!("{option} custom requires {directory_option} DIR")),
+            (Some(IndexTargetChoice::Custom), None) => {
+                Err(format!("{option} custom requires {directory_option} DIR"))
+            }
             (Some(IndexTargetChoice::Custom), Some(_)) => Ok(()),
             (_, Some(_)) => Err(format!("{directory_option} requires {option} custom")),
             _ => Ok(()),
         }
     }
 
-    pub fn resolved_load_target(&self, paths: &ResolvedPaths) -> Result<Option<IndexStorageTarget>, String> {
-        self.load_index.map(|choice| Self::target(choice, paths.load_index_directory.as_ref())).transpose()
+    pub fn resolved_load_target(
+        &self,
+        paths: &ResolvedPaths,
+    ) -> Result<Option<IndexStorageTarget>, String> {
+        self.load_index
+            .map(|choice| Self::target(choice, paths.load_index_directory.as_ref()))
+            .transpose()
     }
 
-    pub fn resolved_flush_target(&self, paths: &ResolvedPaths) -> Result<Option<IndexStorageTarget>, String> {
-        self.flush_index.map(|choice| Self::target(choice, paths.flush_index_directory.as_ref())).transpose()
+    pub fn resolved_flush_target(
+        &self,
+        paths: &ResolvedPaths,
+    ) -> Result<Option<IndexStorageTarget>, String> {
+        self.flush_index
+            .map(|choice| Self::target(choice, paths.flush_index_directory.as_ref()))
+            .transpose()
     }
 
-    fn target(choice: IndexTargetChoice, directory: Option<&PathBuf>) -> Result<IndexStorageTarget, String> {
+    fn target(
+        choice: IndexTargetChoice,
+        directory: Option<&PathBuf>,
+    ) -> Result<IndexStorageTarget, String> {
         Ok(match choice {
             IndexTargetChoice::Temporary => IndexStorageTarget::SystemTemporary,
             IndexTargetChoice::Repository => IndexStorageTarget::RepositoryDirectory,
-            IndexTargetChoice::Custom => IndexStorageTarget::CustomDirectory(directory.cloned().ok_or("custom index directory not resolved")?),
-        })
-    }
-
-    /// Translate user spelling to the single core policy model before any
-    /// cache probing, deletion or directory creation.
-    pub fn index_storage_policy(&self) -> Result<IndexStoragePolicy, String> {
-        let location = match self.index_storage {
-            IndexStorageChoice::Memory => IndexStorageLocation::MemoryOnly,
-            IndexStorageChoice::Temporary => IndexStorageLocation::SystemTemporary,
-            IndexStorageChoice::Repository => IndexStorageLocation::RepositoryDirectory,
-            IndexStorageChoice::Custom => IndexStorageLocation::CustomDirectory(
-                self.index_directory
-                    .clone()
-                    .ok_or("--index-storage custom requires --index-directory PATH")?,
+            IndexTargetChoice::Custom => IndexStorageTarget::CustomDirectory(
+                directory
+                    .cloned()
+                    .ok_or("custom index directory not resolved")?,
             ),
-        };
-        if self.index_storage != IndexStorageChoice::Custom && self.index_directory.is_some() {
-            return Err("--index-directory requires --index-storage custom".into());
-        }
-        let residency = match self.index_residency {
-            Some(IndexResidencyChoice::OnDemand) => IndexResidency::OnDemand,
-            Some(IndexResidencyChoice::Full) => IndexResidency::FullyResident,
-            None if self.index_storage == IndexStorageChoice::Memory => {
-                IndexResidency::FullyResident
-            }
-            None => IndexResidency::OnDemand,
-        };
-        let policy = IndexStoragePolicy {
-            location,
-            residency,
-        };
-        policy.validate()?;
-        Ok(policy)
-    }
-
-    /// Return the policy after resolving a custom base against the caller's
-    /// working directory, which may differ from the process working directory.
-    pub fn resolved_index_storage_policy(
-        &self,
-        paths: &ResolvedPaths,
-    ) -> Result<IndexStoragePolicy, String> {
-        let mut policy = self.index_storage_policy()?;
-        if self.index_storage == IndexStorageChoice::Custom {
-            policy.location = IndexStorageLocation::CustomDirectory(
-                paths
-                    .index_directory
-                    .clone()
-                    .ok_or("--index-storage custom requires a resolved --index-directory")?,
-            );
-        }
-        Ok(policy)
+        })
     }
 
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
@@ -387,9 +335,16 @@ impl Arguments {
             }
             Ok(base)
         };
-        let index_directory = self.index_directory.as_deref().map(resolve_custom).transpose()?;
-        let load_index_directory = self.load_index_directory.as_deref().map(resolve_custom).transpose()?;
-        let flush_index_directory = self.flush_index_directory.as_deref().map(resolve_custom).transpose()?;
+        let load_index_directory = self
+            .load_index_directory
+            .as_deref()
+            .map(resolve_custom)
+            .transpose()?;
+        let flush_index_directory = self
+            .flush_index_directory
+            .as_deref()
+            .map(resolve_custom)
+            .transpose()?;
         Ok(ResolvedPaths {
             root,
             collection_paths: if self.repo.is_some() {
@@ -397,7 +352,6 @@ impl Arguments {
             } else {
                 resolved
             },
-            index_directory,
             load_index_directory,
             flush_index_directory,
             schema_file,

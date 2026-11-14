@@ -73,6 +73,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             }
         };
     let mut pending_repository = None;
+    let mut pending_status = None;
     let mut first_open = true;
     loop {
         let ui = crate::tui::TuiOptions {
@@ -88,6 +89,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 options,
             }),
             startup_flush: startup_flush.take(),
+            opening_status: pending_status.take(),
             loading_label: Some(
                 if first_open && load_target.is_some() {
                     "Opening saved index"
@@ -132,6 +134,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         match result {
             Ok(Some(request)) => {
                 pending_repository = Some(request.repository);
+                pending_status = Some(request.status);
                 search = request.search;
                 filter = request.filter;
             }

@@ -39,6 +39,7 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
+    pub opening_status: Option<String>,
     pub load_context: Option<TuiLoadContext>,
     pub startup_flush: Option<IndexStorageTarget>,
     pub interruption: Option<CancellationToken>,
@@ -294,6 +295,9 @@ fn run_active(
             None => ready,
         });
     }
+    if let Some(status) = &options.opening_status {
+        app.status = Some(status.clone());
+    }
     let light = match app.settings.theme.as_deref() {
         Some("light") => Some(true),
         Some("dark") => Some(false),
@@ -330,7 +334,10 @@ fn run_active(
                 app.storage_busy = true;
                 if load {
                     if let Some(context) = options.load_context.clone() {
-                        app.status = Some(format!("Opening saved index from {target:?}…"));
+                        app.status = Some(format!(
+                            "Opening saved index from {}…",
+                            crate::storage_view::target_label(&target)
+                        ));
                         std::thread::spawn(move || {
                             let result = (|| -> Result<StorageOutcome, String> {
                                 let loaded = Index::try_load(
@@ -341,9 +348,13 @@ fn run_active(
                                 )
                                 .map_err(|error| error.to_string())?;
                                 let (index, label) = match loaded {
-                                    Some(index) => {
-                                        (index, format!("Loaded saved index from {target:?}"))
-                                    }
+                                    Some(index) => (
+                                        index,
+                                        format!(
+                                            "Loaded saved index from {}",
+                                            crate::storage_view::target_label(&target)
+                                        ),
+                                    ),
                                     None => (
                                         Index::build(
                                             &context.root,
@@ -351,7 +362,10 @@ fn run_active(
                                             context.options,
                                         )
                                         .map_err(|error| error.to_string())?,
-                                        format!("No saved index at {target:?}; built in memory"),
+                                        format!(
+                                            "No saved index at {}; built in memory",
+                                            crate::storage_view::target_label(&target)
+                                        ),
                                     ),
                                 };
                                 Ok(StorageOutcome::Loaded(
@@ -369,7 +383,10 @@ fn run_active(
                     }
                 } else {
                     let index = app.repo.index().clone();
-                    app.status = Some(format!("Saving index to {target:?}…"));
+                    app.status = Some(format!(
+                        "Saving index to {}…",
+                        crate::storage_view::target_label(&target)
+                    ));
                     std::thread::spawn(move || {
                         let result = (|| {
                             if index
@@ -396,9 +413,9 @@ fn run_active(
                     app.storage_busy = false;
                     operation_receiver = None;
                     let message = format!(
-                        "Saved revision {} to {:?}, generation {}{}",
+                        "Saved revision {} to {}, generation {}{}",
                         report.saved_revision.0,
-                        report.target,
+                        crate::storage_view::target_label(&report.target),
                         report.store_generation,
                         if report.newer_changes_unsaved {
                             " · newer changes remain"

@@ -224,5 +224,5 @@ fn corrupt_managed_open_reports_classified_recovery_guidance() {
         "{}",
         error.message
     );
-    assert!(error.message.contains("Rebuild the index"));
+    assert!(error.message.contains("Omit the load option to rebuild"));
 }
