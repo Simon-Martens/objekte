@@ -6,11 +6,13 @@
 
 use std::collections::BTreeMap;
 use std::fmt;
+use std::path::PathBuf;
 use std::sync::Arc;
 
 use objekte_search_core::index_storage::{
     IndexResidency, IndexStorageLocation, IndexStoragePolicy,
 };
+use objekte_cli::storage_view::StorageIssueView;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::FileId;
 
@@ -116,6 +118,38 @@ impl OpenDraft {
         };
         policy.validate()?;
         Ok(policy)
+    }
+}
+
+/// A focused storage change requires an existing absolute base folder.
+pub fn canonical_storage_base(input: &str) -> Result<PathBuf, String> {
+    let value = input.trim();
+    if value.is_empty() {
+        return Err("Choose an existing custom index base folder".into());
+    }
+    let path = PathBuf::from(value);
+    if !path.is_absolute() {
+        return Err("Custom index base must be an absolute folder path".into());
+    }
+    let canonical = path.canonicalize().map_err(|error| format!("Custom index base: {error}"))?;
+    if !canonical.is_dir() {
+        return Err("Custom index base is not a directory".into());
+    }
+    Ok(canonical)
+}
+
+pub fn same_storage_setting(current: &OpenDraft, selected: &OpenDraft) -> bool {
+    let (Ok(current), Ok(selected)) = (current.storage_policy(), selected.storage_policy()) else {
+        return false;
+    };
+    if current.residency != selected.residency {
+        return false;
+    }
+    match (&current.location, &selected.location) {
+        (IndexStorageLocation::CustomDirectory(a), IndexStorageLocation::CustomDirectory(b)) =>
+            a.canonicalize().ok().zip(b.canonicalize().ok())
+                .is_some_and(|(a, b)| a == b),
+        _ => current.location == selected.location,
     }
 }
 
@@ -422,6 +456,7 @@ pub enum IndexTaskKind {
     Load,
     Rebuild,
     Compact,
+    Synchronize,
 }
 
 
@@ -449,6 +484,16 @@ pub struct IndexUiStatus {
     pub storage_location: String,
     pub residency: String,
     pub synchronization: String,
+    pub readiness: String,
+    pub source_reconciliation: String,
+    pub current_generation: u64,
+    pub durable_generation: Option<u64>,
+    pub validation_summary: String,
+    pub storage_issue: Option<StorageIssueView>,
+    pub validation_warning: Option<StorageIssueView>,
+    pub storage_memory: bool,
+    pub storage_can_synchronize: bool,
+    pub synchronize: IndexTaskState,
     pub managed_directory: Option<String>,
     pub segments_full_validated: usize,
     pub segments_stamp_trusted: usize,
@@ -485,6 +530,16 @@ impl Default for IndexUiStatus {
             storage_location: String::new(),
             residency: String::new(),
             synchronization: String::new(),
+            readiness: String::new(),
+            source_reconciliation: String::new(),
+            current_generation: 0,
+            durable_generation: None,
+            validation_summary: String::new(),
+            storage_issue: None,
+            validation_warning: None,
+            storage_memory: true,
+            storage_can_synchronize: false,
+            synchronize: IndexTaskState::Idle,
             managed_directory: None,
             segments_full_validated: 0,
             segments_stamp_trusted: 0,
@@ -598,6 +653,7 @@ pub enum UiAction {
     },
     CancelOpen,
     Open(OpenDraft),
+    ChangeStorage(OpenDraft),
     SearchEdited(SearchDraft),
     SearchNow(SearchDraft),
     CompleteValues {
@@ -667,6 +723,7 @@ pub enum UiAction {
     CheckForChanges,
     RebuildIndex,
     CompactIndex,
+    SynchronizeStorage,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,
@@ -787,6 +844,7 @@ pub enum UiUpdate {
         single_collection: bool,
         directories: DirectoryCatalog,
     },
+    ActiveOpenDraft(OpenDraft),
     Directories(DirectoryCatalog),
     FileCatalogue(FileCatalogue),
     IndexStatus(IndexUiStatus),

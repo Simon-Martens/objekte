@@ -2960,8 +2960,11 @@ impl Render for DesktopView {
                 this.child(self.render_help(width, height, cx))
             })
             .child(self.render_status(cx))
-            .when(self.state.open_dialog.visible, |this| {
+            .when(self.state.open_dialog.visible && !self.state.open_dialog.storage_only, |this| {
                 this.child(self.render_open_dialog(width, height, cx))
+            })
+            .when(self.state.open_dialog.visible && self.state.open_dialog.storage_only, |this| {
+                this.child(self.render_storage_dialog(width, height, cx))
             })
             .when(self.state.closing_index.is_some(), |this| {
                 this.child(self.render_close_dialog(cx))

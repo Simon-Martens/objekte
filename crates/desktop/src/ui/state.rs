@@ -115,6 +115,7 @@ pub struct DetailCache {
 #[derive(Clone, Debug, Default)]
 pub struct UiState {
     pub open: OpenDraft,
+    pub active_open: Option<OpenDraft>,
     pub open_dialog: OpenDialogState,
     pub search: SearchDraft,
     pub root: Option<String>,
@@ -322,6 +323,10 @@ impl UiState {
                 self.workspace.update_current_search(self.search.clone());
             }
             UiUpdate::Directories(directories) => self.install_directories(directories),
+            UiUpdate::ActiveOpenDraft(draft) => {
+                self.active_open = Some(draft.clone());
+                self.open = draft;
+            }
             UiUpdate::FileCatalogue(catalogue) => {
                 self.file_catalogue = Some(catalogue);
                 self.visible_file_scope = None;

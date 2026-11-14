@@ -2,6 +2,7 @@
 //! module belong on controller workers, never in a GPUI render callback.
 
 use std::time::Duration;
+use objekte_cli::storage_view::format_index_error;
 
 use objekte_search_core::lifecycle::{
     IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
@@ -86,7 +87,8 @@ pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
 pub fn shutdown_with_storage_flush(session: &OpenedSession) -> Result<(), BackendError> {
     let index = session.repository.index();
     index.quiesce().map_err(lifecycle_error)?;
-    index.flush_storage().map_err(lifecycle_error)?;
+    index.flush_storage().map_err(|error| BackendError::new(
+        BackendErrorKind::Open, format_index_error(&error)))?;
     shutdown(session)
 }
 

@@ -189,3 +189,27 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
     task.unwrap().wait_complete().unwrap();
 }
+
+#[test]
+fn corrupt_managed_open_reports_classified_recovery_guidance() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let spec = OpenSpec {
+        storage_policy: Some(IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        }),
+        args: Arguments { path: vec![root.path().to_path_buf()], ..Default::default() },
+        cwd: root.path().to_path_buf(),
+    };
+    let first = open(&spec, &CancellationToken::new()).unwrap();
+    let directory = first.repository.index().storage_status().unwrap().managed_directory.unwrap();
+    first.repository.index().shutdown().unwrap();
+    std::fs::write(directory.join("manifest.bin"), b"invalid manifest").unwrap();
+    let error = match open(&spec, &CancellationToken::new()) {
+        Ok(_) => panic!("corrupt store unexpectedly opened"),
+        Err(error) => error,
+    };
+    assert!(error.message.contains("Index data is damaged"), "{}", error.message);
+    assert!(error.message.contains("Rebuild the index"));
+}

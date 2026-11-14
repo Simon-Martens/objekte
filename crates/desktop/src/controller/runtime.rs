@@ -12,7 +12,8 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
-use objekte_search_core::index_storage::{IndexReadiness, IndexSynchronization};
+use objekte_cli::storage_view::{describe, StorageIssueView};
+use objekte_search_core::index_storage::{IndexReadiness, IndexStorageFailureKind, IndexStorageLocation, IndexSynchronization};
 use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
     MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
@@ -28,7 +29,7 @@ use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FileCatalogue, FilterValidationState, IndexTaskKind, IndexTaskState,
     IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, StorageChoice,
-    TabFreshness, TabViewState, UiAction, UiUpdate,
+    TabFreshness, TabViewState, UiAction, UiUpdate, canonical_storage_base, same_storage_setting,
 };
 use crate::ui::preferences::DesktopPreferences;
 
@@ -458,6 +459,11 @@ enum WorkerEvent {
         operation_id: u64,
         result: Result<(), String>,
     },
+    StorageSynchronized {
+        open_generation: u64,
+        operation_id: u64,
+        result: Result<IndexRevision, String>,
+    },
     IndexCloseCancelled {
         open_generation: u64,
         operation_id: u64,
@@ -510,6 +516,8 @@ pub struct DesktopController {
     index_ui: IndexUiStatus,
     last_index_status_sent: Option<IndexUiStatus>,
     index_operation_id: u64,
+    storage_sync_operation_id: u64,
+    close_after_storage_sync: bool,
     close_operation_id: u64,
     closing: bool,
     automatic_check_operation_id: u64,
@@ -605,6 +613,8 @@ impl DesktopController {
                 index_ui: IndexUiStatus::default(),
                 last_index_status_sent: None,
                 index_operation_id: 0,
+                storage_sync_operation_id: 0,
+                close_after_storage_sync: false,
                 close_operation_id: 0,
                 closing: false,
                 automatic_check_operation_id: 0,
@@ -823,64 +833,50 @@ impl DesktopController {
         } else {
             "Plain folder".into()
         };
-        // These values describe the successful Open draft, not a later edit
-        // in the dialog while the current repository remains active.
-        self.index_ui.storage_location =
-            match self.open_draft.as_ref().map(|draft| draft.index_storage) {
-                Some(StorageChoice::Memory) => "Memory only",
-                Some(StorageChoice::Temporary) => "System temporary folder",
-                Some(StorageChoice::Repository) => "Repository folder",
-                Some(StorageChoice::Custom) => "Custom folder",
-                None => "Index storage",
-            }
-            .into();
+        let policy = &session.storage_policy;
+        self.index_ui.storage_memory = policy.location == IndexStorageLocation::MemoryOnly;
         match session.repository.index().storage_status() {
             Ok(storage) => {
-                self.index_ui.managed_directory = storage
-                    .managed_directory
-                    .as_ref()
-                    .map(|path| path.display().to_string());
+                let view = describe(policy, &storage);
+                self.index_ui.storage_location = view.location;
+                self.index_ui.managed_directory = view.managed_directory;
+                self.index_ui.readiness = view.readiness;
+                self.index_ui.source_reconciliation = view.reconciliation;
+                self.index_ui.residency = view.residency;
+                self.index_ui.synchronization = if storage.synchronization == IndexSynchronization::Synchronized
+                    && !self.index_ui.storage_memory {
+                    format!("{} generation {}", view.synchronization,
+                        storage.durable_generation.unwrap_or(storage.current_generation))
+                } else { view.synchronization };
+                self.index_ui.current_generation = storage.current_generation;
+                self.index_ui.durable_generation = storage.durable_generation;
+                self.index_ui.validation_summary = view.validation;
+                self.index_ui.storage_issue = view.issue;
+                self.index_ui.validation_warning = view.validation_warning;
+                self.index_ui.storage_can_synchronize = !self.index_ui.storage_memory
+                    && storage.readiness != IndexReadiness::Building
+                    && (matches!(storage.synchronization, IndexSynchronization::Pending | IndexSynchronization::Failed)
+                        || storage.durable_generation != Some(storage.current_generation));
                 self.index_ui.segments_full_validated = storage.segments_full_validated;
                 self.index_ui.segments_stamp_trusted = storage.segments_stamp_trusted;
                 self.index_ui.validation_stamps_written = storage.validation_stamps_written;
                 self.index_ui.validation_stamp_error = storage.validation_stamp_error.clone();
-                self.index_ui.residency = match storage.readiness {
-                    IndexReadiness::Building => "Building index",
-                    IndexReadiness::Searchable => "Searchable on demand",
-                    IndexReadiness::PreparingFullResidency => "Preparing full residency",
-                    IndexReadiness::FullyResidentReady => "Entire index in memory",
-                }
-                .into();
-                if !storage.source_reconciliation_complete {
-                    self.index_ui.residency.push_str("; checking source files");
-                }
-                self.index_ui.synchronization = match storage.synchronization {
-                    IndexSynchronization::MemoryOnly => "No index files are read or written".into(),
-                    IndexSynchronization::Pending => format!(
-                        "Pending (current generation {}, durable generation {})",
-                        storage.current_generation,
-                        storage
-                            .durable_generation
-                            .map_or_else(|| "none".into(), |generation| generation.to_string())
-                    ),
-                    IndexSynchronization::Synchronizing => "Synchronizing index files".into(),
-                    IndexSynchronization::Synchronized => format!(
-                        "Synchronized generation {}",
-                        storage
-                            .durable_generation
-                            .unwrap_or(storage.current_generation)
-                    ),
-                    IndexSynchronization::Failed => format!(
-                        "Failed: {}",
-                        storage
-                            .last_error
-                            .as_deref()
-                            .unwrap_or("unknown storage error")
-                    ),
-                };
             }
             Err(error) => {
                 self.index_ui.managed_directory = None;
+                self.index_ui.readiness = "Status unavailable".into();
+                self.index_ui.source_reconciliation.clear();
+                self.index_ui.current_generation = 0;
+                self.index_ui.durable_generation = None;
+                self.index_ui.validation_summary.clear();
+                self.index_ui.storage_issue = (!self.index_ui.storage_memory).then(|| StorageIssueView {
+                    kind: IndexStorageFailureKind::from(&error),
+                    summary: "Index storage error".into(),
+                    guidance: "Retry; if it persists, use Details to report the error.".into(),
+                    detail: error.to_string(),
+                });
+                self.index_ui.validation_warning = None;
+                self.index_ui.storage_can_synchronize = false;
                 self.index_ui.segments_full_validated = 0;
                 self.index_ui.segments_stamp_trusted = 0;
                 self.index_ui.validation_stamps_written = 0;
@@ -1176,6 +1172,8 @@ impl DesktopController {
             }
             UiAction::CancelOpen => self.cancel_open(updates),
             UiAction::Open(draft) => self.start_open(draft, updates),
+            UiAction::ChangeStorage(draft) => self.start_change_storage(draft, updates),
+            UiAction::SynchronizeStorage => self.start_storage_sync(updates),
             UiAction::SearchEdited(draft) => {
                 self.current_draft = draft.clone();
                 self.pending_edit = Some((Instant::now(), draft));
@@ -1608,6 +1606,28 @@ impl DesktopController {
             let _ = sender.send(WorkerEvent::PickedIndexDirectory { generation, result });
         })
         .detach();
+    }
+
+    fn start_change_storage(&mut self, proposed: OpenDraft, updates: &mut Vec<UiUpdate>) {
+        let Some(current) = self.open_draft.as_ref() else { return; };
+        let mut draft = current.clone();
+        draft.index_storage = proposed.index_storage;
+        draft.keep_entire_index_in_memory = proposed.keep_entire_index_in_memory;
+        draft.index_directory = proposed.index_directory;
+        if draft.index_storage == StorageChoice::Custom {
+            match canonical_storage_base(&draft.index_directory) {
+                Ok(path) => draft.index_directory = path.display().to_string(),
+                Err(message) => {
+                    updates.push(UiUpdate::Error { field: ErrorField::Open, message });
+                    return;
+                }
+            }
+        }
+        if same_storage_setting(current, &draft) {
+            updates.push(UiUpdate::Status("Index storage setting is unchanged".into()));
+            return;
+        }
+        self.start_open(draft, updates);
     }
 
     fn start_open(&mut self, draft: OpenDraft, updates: &mut Vec<UiUpdate>) {
@@ -2727,6 +2747,13 @@ impl DesktopController {
                         self.active_tab = None;
                         self.emit_tabs(updates);
                         self.open_draft = self.opening_draft.take();
+                        if let (Some(draft), IndexStorageLocation::CustomDirectory(base)) =
+                            (self.open_draft.as_mut(), &session.storage_policy.location) {
+                            draft.index_directory = base.display().to_string();
+                        }
+                        if let Some(draft) = &self.open_draft {
+                            updates.push(UiUpdate::ActiveOpenDraft(draft.clone()));
+                        }
                         self.executed_spec = None;
                         self.executed_draft = None;
                         self.next_page_start = None;
@@ -3351,6 +3378,24 @@ impl DesktopController {
                     Err(error) => updates.push(UiUpdate::ClosingIndex { error: Some(error) }),
                 }
             }
+            WorkerEvent::StorageSynchronized { open_generation, operation_id, result }
+                if open_generation == self.open_generation
+                    && operation_id == self.storage_sync_operation_id =>
+            {
+                if let Some(session) = &self.session
+                    && let Ok(status) = backend::index_lifecycle::status(session) {
+                    self.update_index_ui(&status, updates);
+                }
+                self.index_ui.synchronize = match result {
+                    Ok(revision) => IndexTaskState::Succeeded(format!("Synchronized generation {}", revision.0)),
+                    Err(error) => IndexTaskState::Failed(error),
+                };
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                if self.close_after_storage_sync {
+                    self.close_after_storage_sync = false;
+                    self.request_close(updates);
+                }
+            }
             WorkerEvent::IndexCloseCancelled {
                 open_generation,
                 operation_id,
@@ -3794,6 +3839,11 @@ impl DesktopController {
     }
 
     fn request_close(&mut self, updates: &mut Vec<UiUpdate>) {
+        if matches!(self.index_ui.synchronize, IndexTaskState::Running { .. }) {
+            self.close_after_storage_sync = true;
+            updates.push(UiUpdate::Status("Waiting for index synchronization before closing…".into()));
+            return;
+        }
         if self.closing {
             return;
         }
@@ -3909,6 +3959,37 @@ impl DesktopController {
         });
     }
 
+    fn start_storage_sync(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.opening_draft.is_some() || self.closing || !self.index_ui.storage_can_synchronize
+            || matches!(self.index_ui.synchronize, IndexTaskState::Running { .. }) {
+            return;
+        }
+        let Some(session) = self.session.clone() else { return; };
+        self.storage_sync_operation_id = self.storage_sync_operation_id.wrapping_add(1);
+        let operation_id = self.storage_sync_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        let gate = Arc::clone(&self.automatic_check_gate);
+        self.index_ui.synchronize = IndexTaskState::Running {
+            operation_id,
+            processed: None,
+            total: None,
+        };
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+        thread::spawn(move || {
+            let result = match gate.lock() {
+                Ok(_guard) => session.repository.index().flush_storage()
+                    .map_err(|error| objekte_cli::storage_view::format_index_error(&error)),
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
+            let _ = sender.send(WorkerEvent::StorageSynchronized {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
+    }
+
     fn start_check(&mut self, updates: &mut Vec<UiUpdate>) {
         if self.opening_draft.is_some() {
             updates.push(UiUpdate::Status("Wait for the repository to open".into()));
@@ -4002,6 +4083,7 @@ impl DesktopController {
                 }
                 self.index_ui.load = IndexTaskState::Cancelled;
             }
+            IndexTaskKind::Synchronize => {}
         }
         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
     }
@@ -4227,7 +4309,7 @@ fn open_after_flushing_previous(
                     .index()
                     .flush_storage()
                     .map(|_| ())
-                    .map_err(|error| error.to_string())
+                    .map_err(|error| objekte_cli::storage_view::format_index_error(&error))
             })
         {
             return Err(

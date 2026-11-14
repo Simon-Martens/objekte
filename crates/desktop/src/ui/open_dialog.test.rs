@@ -110,6 +110,18 @@ fn custom_folder_picker_rejects_late_results() {
 }
 
 #[test]
+fn focused_storage_dialog_keeps_source_fixed_and_cancel_resets_mode() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show_storage();
+    assert!(dialog.visible && dialog.storage_only);
+    assert!(dialog.begin_index_picker().is_some());
+    dialog.close();
+    assert!(!dialog.visible && !dialog.storage_only);
+    dialog.show();
+    assert!(!dialog.storage_only);
+}
+
+#[test]
 fn schema_picker_is_rejected_after_dialog_closes() {
     let mut dialog = OpenDialogState::default();
     dialog.show();

@@ -788,7 +788,7 @@ fn managed_index_panel_reports_storage_and_close_flushes() {
     let status = controller.session.as_ref().unwrap().repository.index().status().unwrap();
     controller.update_index_ui(&status, &mut updates);
     assert_eq!(controller.index_ui.storage_location, "Repository folder");
-    assert_eq!(controller.index_ui.residency, "Searchable on demand");
+    assert_eq!(controller.index_ui.residency, "On-demand");
     assert!(controller.index_ui.synchronization.starts_with("Synchronized generation "));
     assert!(controller.index_ui.managed_directory.is_some());
     updates.clear();
@@ -841,6 +841,148 @@ fn reopening_managed_index_flushes_pending_revision_before_restore() {
         Some(original.storage_status().unwrap().current_generation));
     original.shutdown().unwrap();
     reopened.repository.index().shutdown().unwrap();
+}
+
+#[test]
+fn synchronize_storage_retries_failed_flush_and_preserves_the_open_session() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(&OpenSpec {
+        storage_policy: Some(IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        }),
+        args: objekte_cli::arguments::Arguments {
+            path: vec![root.path().to_path_buf()], ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+    }, &CancellationToken::new()).unwrap();
+    let index = session.repository.index().clone();
+    index.stop_sync_storage().unwrap();
+    let durable = index.storage_status().unwrap().durable_generation;
+    let added = root.path().join("b.json");
+    std::fs::write(&added, r#"{"title":"Beta"}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(session);
+    controller.open_draft = Some(OpenDraft {
+        paths: root.path().display().to_string(),
+        index_storage: StorageChoice::Repository,
+        ..OpenDraft::default()
+    });
+    controller.update_index_ui(&index.status().unwrap(), &mut Vec::new());
+    assert!(controller.index_ui.storage_can_synchronize);
+    let lock = index.storage_status().unwrap().managed_directory.unwrap().join("store.lock");
+    std::fs::remove_file(&lock).unwrap();
+    std::fs::create_dir(&lock).unwrap();
+    let mut updates = Vec::new();
+    controller.start_storage_sync(&mut updates);
+    let operation = controller.storage_sync_operation_id;
+    controller.start_storage_sync(&mut updates);
+    assert_eq!(controller.storage_sync_operation_id, operation);
+    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+    controller.complete(event, &mut updates);
+    assert!(matches!(controller.index_ui.synchronize, IndexTaskState::Failed(_)));
+    assert!(controller.session.is_some());
+    assert_eq!(index.storage_status().unwrap().durable_generation, durable);
+    assert_eq!(controller.index_ui.storage_issue.as_ref().unwrap().kind,
+        IndexStorageFailureKind::Access);
+    std::fs::remove_dir(&lock).unwrap();
+    controller.start_storage_sync(&mut updates);
+    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+    controller.complete(event, &mut updates);
+    assert!(matches!(controller.index_ui.synchronize, IndexTaskState::Succeeded(_)));
+    assert_eq!(index.storage_status().unwrap().durable_generation,
+        Some(index.storage_status().unwrap().current_generation));
+    assert!(controller.index_ui.storage_issue.is_none());
+    index.shutdown().unwrap();
+}
+
+#[test]
+fn memory_storage_disables_synchronize_and_change_keeps_sources() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    let root = fixture.session.paths.root.display().to_string();
+    controller.session = Some(fixture.session);
+    controller.open_draft = Some(OpenDraft { paths: root.clone(), ..OpenDraft::default() });
+    let status = controller.session.as_ref().unwrap().repository.index().status().unwrap();
+    controller.update_index_ui(&status, &mut Vec::new());
+    assert!(!controller.index_ui.storage_can_synchronize);
+    controller.start_storage_sync(&mut Vec::new());
+    assert!(matches!(controller.index_ui.synchronize, IndexTaskState::Idle));
+    let mut proposed = controller.open_draft.clone().unwrap();
+    proposed.paths = "/different/source".into();
+    proposed.index_storage = StorageChoice::Temporary;
+    controller.start_change_storage(proposed, &mut Vec::new());
+    assert_eq!(controller.opening_draft.as_ref().unwrap().paths, root);
+    controller.cancel_open(&mut Vec::new());
+}
+
+#[test]
+fn focused_storage_change_opens_temporary_repository_and_custom_without_changing_source() {
+    use objekte_search_core::index_storage::IndexStorageLocation;
+    let root = tempfile::tempdir().unwrap();
+    let custom = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let path = root.path().display().to_string();
+    let session = backend::open(&OpenSpec {
+        storage_policy: None,
+        args: objekte_cli::arguments::Arguments {
+            path: vec![root.path().to_path_buf()], ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+    }, &CancellationToken::new()).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(session);
+    controller.open_draft = Some(OpenDraft { paths: path.clone(), ..OpenDraft::default() });
+    controller.current_draft.full_text = "Alpha".into();
+    for (choice, base) in [
+        (StorageChoice::Temporary, String::new()),
+        (StorageChoice::Repository, String::new()),
+        (StorageChoice::Custom, custom.path().display().to_string()),
+    ] {
+        let mut proposed = controller.open_draft.clone().unwrap();
+        proposed.index_storage = choice;
+        proposed.index_directory = base;
+        let mut updates = Vec::new();
+        controller.start_change_storage(proposed, &mut updates);
+        loop {
+            let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+            let opened = matches!(event, WorkerEvent::Opened { .. });
+            controller.complete(event, &mut updates);
+            if opened { break; }
+        }
+        assert_eq!(controller.open_draft.as_ref().unwrap().paths, path);
+        assert_eq!(controller.session.as_ref().unwrap().paths.root.as_path(), root.path());
+        assert_eq!(controller.current_draft.full_text, "Alpha");
+        assert_eq!(controller.open_draft.as_ref().unwrap().index_storage, choice);
+    }
+    assert!(matches!(controller.session.as_ref().unwrap().storage_policy.location,
+        IndexStorageLocation::CustomDirectory(ref base) if base == &custom.path().canonicalize().unwrap()));
+    controller.session.as_ref().unwrap().repository.index().shutdown().unwrap();
+}
+
+#[test]
+fn close_waits_for_inflight_synchronization() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.storage_sync_operation_id = 12;
+    controller.index_ui.synchronize = IndexTaskState::Running {
+        operation_id: 12, processed: None, total: None,
+    };
+    let mut updates = Vec::new();
+    controller.request_close(&mut updates);
+    assert!(controller.close_after_storage_sync);
+    assert!(!controller.closing);
+    controller.complete(WorkerEvent::StorageSynchronized {
+        open_generation: controller.open_generation,
+        operation_id: 12,
+        result: Ok(IndexRevision(1)),
+    }, &mut updates);
+    assert!(!controller.close_after_storage_sync);
+    assert!(controller.closing);
 }
 
 #[test]

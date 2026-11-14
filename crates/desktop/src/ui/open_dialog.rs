@@ -16,7 +16,7 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::UiAction;
-use super::model::{OpenDraft, OpenMode, StorageChoice};
+use super::model::{OpenDraft, OpenMode, StorageChoice, canonical_storage_base, same_storage_setting};
 
 
 /// Explicit source interpretation selected under Advanced options.
@@ -52,6 +52,7 @@ pub enum DetectionState {
 #[derive(Clone, Debug)]
 pub struct OpenDialogState {
     pub visible: bool,
+    pub storage_only: bool,
     pub folders: Vec<String>,
     pub source_choice: SourceChoice,
     pub advanced_expanded: bool,
@@ -69,6 +70,7 @@ impl Default for OpenDialogState {
     fn default() -> Self {
         Self {
             visible: false,
+            storage_only: false,
             folders: vec![String::new()],
             source_choice: SourceChoice::Automatic,
             advanced_expanded: false,
@@ -87,13 +89,20 @@ impl Default for OpenDialogState {
 impl OpenDialogState {
     pub fn show(&mut self) {
         self.visible = true;
+        self.storage_only = false;
         self.source_choice = SourceChoice::Automatic;
         self.advanced_expanded = false;
         self.error = None;
     }
 
+    pub fn show_storage(&mut self) {
+        self.show();
+        self.storage_only = true;
+    }
+
     pub fn close(&mut self) {
         self.visible = false;
+        self.storage_only = false;
         self.generation = self.generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = None;
@@ -298,6 +307,97 @@ impl OpenDialogState {
 
 
 impl DesktopView {
+    pub(super) fn render_storage_dialog(
+        &self,
+        _window_width: f32,
+        _window_height: f32,
+        cx: &mut Context<Self>,
+    ) -> gpui_kit::AnyElement {
+        let dark = self.state.dark;
+        let (panel, border, text, secondary, error) = if dark {
+            (0x1c1f24, 0x30353c, 0xe5e7eb, 0xa0a7b1, 0xf2a59b)
+        } else {
+            (0xffffff, 0xd4d9e1, 0x1c2430, 0x637083, 0xb42318)
+        };
+        let stored = self.state.open.index_storage;
+        let source = self.state.active_open.as_ref().map(|draft| draft.paths.as_str()).unwrap_or("No repository open");
+        let mut content = div()
+            .id("storage-dialog-content")
+            .flex().flex_col().gap_3().px_4().py_3()
+            .child(div().text_xs().child(format!("Source (read only): {source}")))
+            .child(div().text_sm().child("Index storage"))
+            .child(div().flex().flex_wrap().gap_2().children(
+                [
+                    (StorageChoice::Memory, "Memory only"),
+                    (StorageChoice::Temporary, "System temporary folder"),
+                    (StorageChoice::Repository, "Repository folder"),
+                    (StorageChoice::Custom, "Custom folder…"),
+                ].into_iter().map(|(mode, label)|
+                    Button::new(format!("storage-change-{mode:?}"))
+                        .label(label).selected(stored == mode)
+                        .on_click(cx.listener(move |this, _, _, cx| {
+                            this.state.open.index_storage = mode;
+                            this.state.open_dialog.error = None;
+                            cx.notify();
+                        }))
+                )
+            ))
+            .when(stored == StorageChoice::Custom, |this| this
+                .child(div().flex().items_center().gap_2()
+                    .child(Input::new(&self.inputs.index_directory).id("storage-change-base").w_full())
+                    .child(Button::new("storage-change-browse").label("Browse…")
+                        .on_click(cx.listener(|this, _, _, _| this.pick_open_index_directory()))))
+                .child(div().text_xs().text_color(rgb(secondary))
+                    .child("Select an existing absolute base folder. The resolved path is used.")))
+            .when(stored != StorageChoice::Memory, |this| this.child(
+                Checkbox::new("storage-change-full-residency")
+                    .checked(self.state.open.keep_entire_index_in_memory)
+                    .accessibility_label("Keep entire index in memory")
+                    .child("Keep entire index in memory")
+                    .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                        this.state.open.keep_entire_index_in_memory = *checked;
+                        cx.notify();
+                    }))))
+            .child(div().text_xs().text_color(rgb(secondary)).child(
+                "On-demand reads index bytes from disk when needed. Full residency copies them into memory before readiness. Memory writes no index files."
+            ))
+            .child(div().text_xs().child(
+                "This reopens the repository with the new storage setting. Unsaved disk changes are flushed first. The current query is restored; open tabs and other queries will close."
+            ));
+        if let Some(message) = &self.state.open_dialog.error {
+            content = content.child(div().id("storage-dialog-error").text_sm()
+                .text_color(rgb(error)).child(message.clone()));
+        }
+        let surface = div().id("storage-change-dialog")
+            .w(px(620.)).max_h(px(620.))
+            .flex().flex_col().bg(rgb(panel)).border_1().border_color(rgb(border))
+            .rounded_md().text_color(rgb(text))
+            .child(div().px_4().py_3().text_lg().child("Index storage"))
+            .child(content)
+            .child(div().flex().justify_end().gap_2().px_4().py_3().border_t_1().border_color(rgb(border))
+                .child(Button::new("storage-change-cancel").label("Cancel")
+                    .on_click(cx.listener(|this, _, _, cx| this.close_open_dialog(cx))))
+                .child(Button::new("storage-change-confirm").primary()
+                    .label("Reopen and close tabs")
+                    .disabled(self.state.busy == super::state::Busy::Opening)
+                    .on_click(cx.listener(|this, _, _, cx| this.submit_storage_dialog(cx)))));
+        let cancel_view = cx.entity();
+        let confirm_view = cx.entity();
+        gpui_kit::base::Dialog::new(cx)
+            .open(self.state.open_dialog.visible)
+            .close_on_backdrop_press(false)
+            .backdrop(div().bg(rgba(0x00000099)))
+            .popup(surface)
+            .on_cancel(move |_, _, cx| {
+                cancel_view.update(cx, |view, cx| view.close_open_dialog(cx));
+                true
+            })
+            .on_ok(move |_, _, cx| {
+                confirm_view.update(cx, |view, cx| view.submit_storage_dialog(cx));
+                false
+            }).into_any_element()
+    }
+
     pub(super) fn render_open_dialog(
         &self,
         window_width: f32,
@@ -818,7 +918,21 @@ impl DesktopView {
         cx.notify();
     }
 
+    pub(super) fn show_storage_dialog(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(active) = self.state.active_open.clone() else { return; };
+        self.state.open = active;
+        self.state.open_dialog.show_storage();
+        self.inputs.index_directory.update(cx, |input, cx| {
+            input.set_value(self.state.open.index_directory.clone(), window, cx)
+        });
+        cx.notify();
+    }
+
     pub(super) fn close_open_dialog(&mut self, cx: &mut Context<Self>) {
+        if self.state.open_dialog.storage_only
+            && let Some(active) = self.state.active_open.clone() {
+            self.state.open = active;
+        }
         self.send(UiAction::CancelOpen);
         self.state.open_dialog.close();
         cx.notify();
@@ -935,6 +1049,33 @@ impl DesktopView {
             }
             Err(message) => self.state.open_dialog.error = Some(message),
         }
+        cx.notify();
+    }
+
+    pub(super) fn submit_storage_dialog(&mut self, cx: &mut Context<Self>) {
+        let Some(active) = self.state.active_open.as_ref() else { return; };
+        let mut draft = active.clone();
+        draft.index_storage = self.state.open.index_storage;
+        draft.keep_entire_index_in_memory = self.state.open.keep_entire_index_in_memory;
+        draft.index_directory = self.inputs.index_directory.read(cx).value().to_string();
+        if draft.index_storage == StorageChoice::Custom {
+            match canonical_storage_base(&draft.index_directory) {
+                Ok(path) => draft.index_directory = path.display().to_string(),
+                Err(message) => {
+                    self.state.open_dialog.error = Some(message);
+                    cx.notify();
+                    return;
+                }
+            }
+        }
+        if same_storage_setting(active, &draft) {
+            self.state.status = "Index storage setting is unchanged".into();
+            self.state.open_dialog.close();
+            cx.notify();
+            return;
+        }
+        self.state.open_dialog.error = None;
+        self.send(UiAction::ChangeStorage(draft));
         cx.notify();
     }
 }

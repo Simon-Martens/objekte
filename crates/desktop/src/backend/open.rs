@@ -6,8 +6,9 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
+use objekte_cli::storage_view::format_index_error;
 use objekte_cli::loader::{configure_definitions, repository_options};
-use objekte_search_core::index_storage::IndexStoragePolicy;
+use objekte_search_core::index_storage::{IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
@@ -47,6 +48,7 @@ pub struct SessionConfiguration {
 #[derive(Clone)]
 pub struct OpenedSession {
     pub repository: Arc<IndexedRepository>,
+    pub storage_policy: IndexStoragePolicy,
     pub configuration: Arc<SessionConfiguration>,
     pub args: Arguments,
     pub paths: ResolvedPaths,
@@ -118,6 +120,11 @@ fn open_shared_storage(
     }
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
+    let mut presented_storage = storage.clone();
+    if let IndexStorageLocation::CustomDirectory(path) = &mut presented_storage.location {
+        *path = path.canonicalize().map_err(|error| BackendError::new(
+            BackendErrorKind::Options, format!("custom index base {}: {error}", path.display())))?;
+    }
     let started = Instant::now();
     let build = Index::start_incremental_build_with_storage(
         &paths.root,
@@ -126,7 +133,7 @@ fn open_shared_storage(
         storage,
         SourceRegistry::builtin(),
     )
-    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
     let index = if incremental {
         loop {
             if cancellation.is_cancelled() {
@@ -149,7 +156,7 @@ fn open_shared_storage(
     } else {
         build.wait_complete()
     }
-    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
     let task = (incremental && !build.status().map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?.construction_complete).then_some(build);
     index
         .protect_configuration_files(&configured.protected_files)
@@ -179,6 +186,7 @@ fn open_shared_storage(
         .configuration_identity();
     Ok((OpenedSession {
         repository: Arc::new(repository),
+        storage_policy: presented_storage,
         configuration: Arc::new(SessionConfiguration {
             configured_repository: spec.args.repo.is_some(),
             configuration_identity,
