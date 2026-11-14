@@ -495,17 +495,19 @@ fn schema_bytes_and_inference_modes_rebuild_from_source() {
     );
     assert_eq!(hits(&auto_events).len(), 1);
     assert!(!root.path().join(".objekte").exists());
-    let (manual, manual_events) = invoke(
-        root.path(),
-        &["--schema", "schema.json", "code = \"A\""],
-    );
+    let (manual, manual_events) = invoke(root.path(), &["--schema", "schema.json", "code = \"A\""]);
     assert!(
         manual.status.success(),
         "{}",
         String::from_utf8_lossy(&manual.stderr)
     );
     assert_eq!(hits(&manual_events).len(), 1);
-    assert!(manual_events.last().unwrap()["build_parses"].as_u64().unwrap() > 0);
+    assert!(
+        manual_events.last().unwrap()["build_parses"]
+            .as_u64()
+            .unwrap()
+            > 0
+    );
     std::fs::write(&schema_path, format!("{}\n", base)).unwrap();
     let (changed, changed_events) = invoke(
         root.path(),

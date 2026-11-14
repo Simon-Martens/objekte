@@ -78,7 +78,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
             schema_files: &[],
             ignored_repository_metadata: false,
             startup_ns: 0,
-                    },
+        },
         QuerySource::open(&args),
         &mut output,
         &CancellationToken::new(),

@@ -62,7 +62,11 @@ impl VerifiedCache {
     pub fn set_budget(&mut self, budget: usize) -> Vec<Arc<CachedResult>> {
         self.budget = budget;
         self.bytes = 0;
-        let displaced = self.entries.drain().map(|(_, entry)| entry.result).collect();
+        let displaced = self
+            .entries
+            .drain()
+            .map(|(_, entry)| entry.result)
+            .collect();
         self.order.clear();
         displaced
     }
@@ -78,19 +82,20 @@ impl VerifiedCache {
 
     /// The caller must drop displaced results after releasing its cache lock.
     pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) -> Vec<Arc<CachedResult>> {
-        let bytes = key.len()
-            .saturating_add(128)
-            .saturating_add(members
+        let bytes = key.len().saturating_add(128).saturating_add(
+            members
                 .iter()
                 .map(|member| {
-                    std::mem::size_of::<CachedMember>()
-                        .saturating_add(member
+                    std::mem::size_of::<CachedMember>().saturating_add(
+                        member
                             .matched_fields
                             .iter()
                             .map(|field| field.len().saturating_add(std::mem::size_of::<String>()))
-                            .fold(0usize, usize::saturating_add))
+                            .fold(0usize, usize::saturating_add),
+                    )
                 })
-                .fold(0usize, usize::saturating_add));
+                .fold(0usize, usize::saturating_add),
+        );
         let mut displaced = Vec::new();
         if bytes > self.budget {
             displaced.push(Arc::new(CachedResult { members }));
@@ -160,14 +165,16 @@ pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
         erase_spans(filter);
     }
     let mut key = vec![0];
-    key.extend(bincode::serialize(&(
-        &query.collections,
-        &filter,
-        &query.fts,
-        &query.options.sort,
-        query.options.evidence,
-    ))
-    .map_err(|error| format!("verified query key: {error}"))?);
+    key.extend(
+        bincode::serialize(&(
+            &query.collections,
+            &filter,
+            &query.fts,
+            &query.options.sort,
+            query.options.evidence,
+        ))
+        .map_err(|error| format!("verified query key: {error}"))?,
+    );
     Ok(key)
 }
 
@@ -180,7 +187,13 @@ pub(crate) fn lifecycle_key(
 ) -> Result<Vec<u8>, String> {
     let mut key = key(query)?;
     key[0] = 1;
-    key.splice(1..1, instance_id.to_le_bytes().into_iter().chain(revision.to_le_bytes()));
+    key.splice(
+        1..1,
+        instance_id
+            .to_le_bytes()
+            .into_iter()
+            .chain(revision.to_le_bytes()),
+    );
     Ok(key)
 }
 

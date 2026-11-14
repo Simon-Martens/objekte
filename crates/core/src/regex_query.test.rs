@@ -6,9 +6,7 @@ use crate::reference::{
     BindingOperation, CustomBinding, FieldDefinition, RegisteredBinding, Schema, Transform,
     bind_fts,
 };
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::{BigramAlphabet, ReturnMode};
 

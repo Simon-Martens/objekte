@@ -6,7 +6,6 @@ use objekte_search_core::model::FileId;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
-use objekte_search_core::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat, FileCatalogue,
@@ -15,6 +14,8 @@ use super::model::{
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 use super::workspace::{TabId, Workspace};
+use objekte_search_core::completion::{CompletionContext, CompletionTarget};
+
 
 /// A small, read-only preview for a query visible beside the live query.
 /// Query execution and result locators remain controller-owned.
@@ -25,6 +26,7 @@ pub struct QuerySnapshot {
     pub exact_total: Option<usize>,
 }
 
+
 /// Lightweight content retained for open record tabs shown beside the live inspector.
 #[derive(Clone, Debug, Default)]
 pub struct RecordPreview {
@@ -32,6 +34,7 @@ pub struct RecordPreview {
     pub fields: Vec<(String, String)>,
     pub clipped: bool,
 }
+
 
 impl RecordPreview {
     fn from_detail(detail: &DetailView) -> Self {
@@ -74,6 +77,7 @@ impl RecordPreview {
     }
 }
 
+
 /// One contextual secondary surface at a time.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ActionPanel {
@@ -84,6 +88,7 @@ pub enum ActionPanel {
     Diagnostics,
 }
 
+
 /// The navigation source shown in the left sidebar.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SidebarMode {
@@ -91,6 +96,7 @@ pub enum SidebarMode {
     Collections,
     Files,
 }
+
 
 /// Which operation currently owns the visible progress indicator.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -102,6 +108,7 @@ pub enum Busy {
     Batch,
 }
 
+
 /// Shared inspector text built once from a bounded detail projection.
 #[derive(Clone, Debug, Default)]
 pub struct DetailCache {
@@ -110,6 +117,7 @@ pub struct DetailCache {
     pub relation_labels: Vec<SharedString>,
     pub relation_values: Vec<SharedString>,
 }
+
 
 /// Bounded state rendered in one desktop window.
 #[derive(Clone, Debug, Default)]
@@ -200,6 +208,7 @@ pub struct UiState {
     pub showing_last_valid_results: bool,
     pub show_filter_builder: bool,
 }
+
 
 impl UiState {
     pub fn refresh_visible_files_if_needed(&mut self) {
@@ -768,6 +777,7 @@ impl UiState {
         }
     }
 }
+
 
 #[cfg(test)]
 #[path = "state.test.rs"]

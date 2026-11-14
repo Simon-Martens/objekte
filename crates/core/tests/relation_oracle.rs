@@ -124,6 +124,7 @@ fn fixture() -> (
     (root, sources, targets)
 }
 
+
 #[derive(Clone, Copy)]
 enum TargetTest {
     TitleIsHymn,
@@ -131,11 +132,13 @@ enum TargetTest {
     IssuedInFebruary,
 }
 
+
 #[derive(Clone, Copy)]
 enum Quantifier {
     All,
     Any,
 }
+
 
 // This oracle reads the original JSON fixture and never calls the engine's
 // binding, relation index, scanner, or exact comparison helpers.
@@ -288,13 +291,9 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        let restored = Index::build_with_sources(
-            &root,
-            definitions(),
-            options,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
+        let restored =
+            Index::build_with_sources(&root, definitions(), options, SourceRegistry::builtin())
+                .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

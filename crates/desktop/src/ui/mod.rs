@@ -50,7 +50,11 @@ pub fn init_keybindings(cx: &mut gpui_kit::App) {
         KeyBinding::new("ctrl-w", CloseWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-tab", NextWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-pagedown", NextWorkspaceTab, Some("ObjekteWorkspace")),
-        KeyBinding::new("ctrl-pageup", PreviousWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new(
+            "ctrl-pageup",
+            PreviousWorkspaceTab,
+            Some("ObjekteWorkspace"),
+        ),
         KeyBinding::new("ctrl-1", FocusPrimaryPane, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-2", FocusSecondaryPane, Some("ObjekteWorkspace")),
         KeyBinding::new(
@@ -60,6 +64,7 @@ pub fn init_keybindings(cx: &mut gpui_kit::App) {
         ),
     ]);
 }
+
 
 /// GPUI input entities owned by one desktop window.
 struct Inputs {
@@ -76,11 +81,13 @@ struct Inputs {
     batch_output_path: Entity<InputState>,
 }
 
+
 #[derive(Clone, Copy, Default)]
 struct GridViewState {
     top: ListOffset,
     horizontal: f32,
 }
+
 
 /// Native read-only workspace; the controller owns repository and worker state.
 pub struct DesktopView {
@@ -126,6 +133,7 @@ pub struct DesktopView {
     _subscriptions: Vec<Subscription>,
     open_extra_subscriptions: Vec<Subscription>,
 }
+
 
 impl DesktopView {
     pub fn new(window: &mut Window, cx: &mut Context<Self>, actions: Sender<UiAction>) -> Self {
@@ -412,7 +420,8 @@ impl DesktopView {
             self.state.snapshot_current_query();
             self.remember_grid_view();
         }
-        let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted { .. } | UiUpdate::Page(_));
+        let reset_grid_scroll =
+            matches!(&update, UiUpdate::QueryStarted { .. } | UiUpdate::Page(_));
         let page_or_append = matches!(&update, UiUpdate::Page(_) | UiUpdate::AppendPage(_));
         let projection_changed = matches!(&update, UiUpdate::Projection(_));
         let switching_tab =
@@ -620,9 +629,12 @@ impl DesktopView {
     ) {
         let previous_scope = self.state.search.clone();
         if let Some(query) = self.state.workspace.current_search {
-            if self.state.workspace.pane_of(query).is_some_and(|pane| {
-                self.state.workspace.group(pane).active != Some(query)
-            }) {
+            if self
+                .state
+                .workspace
+                .pane_of(query)
+                .is_some_and(|pane| self.state.workspace.group(pane).active != Some(query))
+            {
                 self.activate_workspace_tab(query, window, cx);
             }
         } else {
@@ -654,7 +666,10 @@ impl DesktopView {
     fn reveal_selected_sidebar_collection(&self, align_top: bool) {
         let has_all = !self.state.single_collection && !self.state.collections.is_empty();
         let item = self.state.search.collection.as_ref().and_then(|selected| {
-            self.state.collections.iter().position(|name| name == selected)
+            self.state
+                .collections
+                .iter()
+                .position(|name| name == selected)
         });
         if let Some(item) = item {
             let item = usize::from(has_all) + item;
@@ -1418,7 +1433,8 @@ impl DesktopView {
             return;
         }
         let height = f32::from(self.grid_list.viewport_bounds().size.height).max(30.);
-        self.grid_list.scroll_by(px(if forward { height } else { -height }));
+        self.grid_list
+            .scroll_by(px(if forward { height } else { -height }));
         let index = self.grid_list.logical_scroll_top().item_ix.min(len - 1);
         self.state.page.selected = Some(index);
         if self.state.show_preview {
@@ -1475,6 +1491,7 @@ impl DesktopView {
     }
 }
 
+
 /// GPUI's delayed clipboard writes stay internal on the tested headless Wayland
 /// seat. Mirror complete worker results to the system clipboard off the UI thread.
 fn copy_text_to_clipboard(text: String, cx: &mut gpui_kit::App) {
@@ -1513,7 +1530,9 @@ fn read_clipboard_text(cx: &mut gpui_kit::App) -> Option<String> {
     if read.is_err() || !status.success() || bytes.len() as u64 > MAX_PASTE_BYTES {
         return None;
     }
-    String::from_utf8(bytes).ok().filter(|text| !text.is_empty())
+    String::from_utf8(bytes)
+        .ok()
+        .filter(|text| !text.is_empty())
 }
 
 fn write_wayland_clipboard(text: String) {

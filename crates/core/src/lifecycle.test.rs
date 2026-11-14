@@ -48,14 +48,10 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
         assert!(segment.index.accounting.retained_bytes_estimated > 0);
         assert!(segment.index.accounting.source_bytes_estimated > 0);
     }
-    staged
-        .make_room_for_segment_with_limits(0, 1, 16)
-        .unwrap();
+    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
-    staged
-        .make_room_for_segment_with_limits(0, 1, 16)
-        .unwrap();
+    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -1451,10 +1447,16 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     let compacted_total = total(&compacted);
     assert!(compacted_total > 0);
     assert!(compacted_total <= after);
-    assert!(compacted.segments(CollectionId(0)).unwrap().iter().all(|segment| {
-        segment.index.accounting.retained_bytes_estimated > 0
-            && segment.index.accounting.index_family_bytes > 0
-    }));
+    assert!(
+        compacted
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .all(|segment| {
+                segment.index.accounting.retained_bytes_estimated > 0
+                    && segment.index.accounting.index_family_bytes > 0
+            })
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1481,12 +1483,18 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
     definition.discovery.recursive = true;
     definition.discovery.hidden = true;
     let index = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
-    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(1));
+    assert_eq!(
+        index.view().unwrap().search(&all_query()).unwrap().count,
+        Some(1)
+    );
 
     let poison = root.join("data/nested/objekte-indexes/added.json");
     std::fs::write(&poison, br#"{"title":"Added poison"}"#).unwrap();
     assert!(index.add_file(&poison).is_err());
-    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(1));
+    assert_eq!(
+        index.view().unwrap().search(&all_query()).unwrap().count,
+        Some(1)
+    );
 
     let b = root.join("data/b.json");
     std::fs::write(&b, br#"{"title":"Beta"}"#).unwrap();
@@ -1501,7 +1509,10 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
     assert!(index.update_file(handle, &generated_update).is_err());
     let report = index.start_reconcile().unwrap().wait().unwrap();
     assert_eq!(report.added, 0);
-    assert_eq!(index.view().unwrap().search(&all_query()).unwrap().count, Some(2));
+    assert_eq!(
+        index.view().unwrap().search(&all_query()).unwrap().count,
+        Some(2)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1565,7 +1576,6 @@ fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
 
 #[test]
 fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
-
     fn fixture(label: &str, target: usize) -> std::path::PathBuf {
         let root = std::env::temp_dir().join(format!(
             "objekte-range-boundary-{label}-{}-{}",

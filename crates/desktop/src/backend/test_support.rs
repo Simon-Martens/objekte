@@ -8,11 +8,13 @@ use super::{OpenSpec, OpenedSession, open};
 use objekte_cli::arguments::Arguments;
 use objekte_search_core::streaming::CancellationToken;
 
+
 /// Owned documents and their opened repository stay alive for a whole test.
 pub(crate) struct Fixture {
     pub _root: TempDir,
     pub session: OpenedSession,
 }
+
 
 pub(super) fn write_records(root: &Path) {
     std::fs::write(root.join("a.json"), r#"{"title":"Alpha","year":2024}"#).unwrap();

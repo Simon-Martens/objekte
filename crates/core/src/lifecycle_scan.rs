@@ -15,6 +15,7 @@ use crate::repository::CollectionDefinition;
 use crate::source::{PreparedSource, SourceRegistry};
 use roaring::RoaringBitmap;
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct FileStamp {
     pub path: PathBuf,
@@ -24,11 +25,13 @@ pub(crate) struct FileStamp {
     pub retry_unreadable: bool,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ScanIssue {
     pub collection: CollectionId,
     pub message: String,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) enum ScanChange {
@@ -39,6 +42,7 @@ pub(crate) enum ScanChange {
     },
     Remove(FileStamp),
 }
+
 
 /// Bounded scan outcome. Existing file identities use one compact bitmap;
 /// additions and replacements are handed to the caller in bounded batches.
@@ -54,6 +58,7 @@ pub(crate) struct SourceScanSummary {
     pub cancelled: bool,
     pub seen_existing: RoaringBitmap,
 }
+
 
 impl Default for SourceScanSummary {
     fn default() -> Self {
@@ -71,6 +76,7 @@ impl Default for SourceScanSummary {
     }
 }
 
+
 struct ScanScope<'a> {
     id: CollectionId,
     definition: &'a CollectionDefinition,
@@ -81,6 +87,7 @@ struct ScanScope<'a> {
     aliases: Option<BTreeSet<PathBuf>>,
     complete: bool,
 }
+
 
 /// Scan large selections without collecting a second complete file inventory
 /// or an unbounded pending preparation queue. A first traversal proves which

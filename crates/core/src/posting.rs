@@ -14,6 +14,7 @@ use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
@@ -24,6 +25,7 @@ pub enum ScalarKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
+
 
 impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
@@ -39,6 +41,7 @@ impl ScalarKey {
         })
     }
 }
+
 
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -67,6 +70,7 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
+
 /// Sparse facts inside the owning field posting, never synthetic field paths.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
 pub enum StructuralKey {
@@ -79,10 +83,12 @@ pub enum StructuralKey {
     EmptyObject,
 }
 
+
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct StructuralFacts {
     pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
 }
+
 
 impl StructuralFacts {
     fn insert(&mut self, key: StructuralKey, slot: RecordSlot) {
@@ -123,12 +129,14 @@ impl StructuralFacts {
     }
 }
 
+
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
+
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -140,11 +148,13 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
+
 /// Borrowed ordered traversal over one posting dictionary's values.
 pub(crate) enum PostingValueCursor<'a> {
     Forward(std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>),
     Reverse(std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>),
 }
+
 
 impl<'a> PostingValueCursor<'a> {
     pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
@@ -155,6 +165,7 @@ impl<'a> PostingValueCursor<'a> {
         .map(|(key, posting)| (key.clone(), posting))
     }
 }
+
 
 impl PostingIndex {
     /// Borrow the ordered value keys of this posting index. The native
@@ -192,6 +203,8 @@ impl PostingIndex {
                 if let Some(slots) = self.values.get(&ScalarKey::Id(id.clone())) {
                     lists += 1;
                     members += slots.len();
+
+
                     union |= slots;
                 }
             }
@@ -202,6 +215,8 @@ impl PostingIndex {
                 {
                     lists += 1;
                     members += slots.len();
+
+
                     union |= slots;
                 }
             }
@@ -1094,6 +1109,8 @@ impl PostingIndex {
                 .take_while(|(key, _)| same_type(key))
                 .take(limit)
                 .count(),
+
+
             _ => return None,
         })
     }
@@ -1249,11 +1266,13 @@ fn scalar_range_postings(
     }
 }
 
+
 /// Posting indexes registered for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
+
 
 impl PostingCollection {
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
@@ -1320,6 +1339,7 @@ impl PostingCollection {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "posting.test.rs"]

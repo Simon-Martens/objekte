@@ -16,12 +16,14 @@ thread_local! {
     static REVERSE_RECONSTRUCTIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
+
 /// Declared cardinality of a source relation field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum RelationCardinality {
     One,
     Many,
 }
+
 
 /// Format-independent declaration of one source field's target namespace.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -32,6 +34,7 @@ pub struct RelationDefinition {
     pub reverse_alias: Option<String>,
 }
 
+
 /// Stable relation identity within a repository configuration.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct RelationId {
@@ -39,12 +42,14 @@ pub struct RelationId {
     pub ordinal: u32,
 }
 
+
 /// Resolved target slot or an ID that has no target in its declared namespace.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum RelationTarget {
     Resolved(RecordSlot),
     Unresolved(String),
 }
+
 
 /// One source occurrence of a declared ID, with array indexes from outer to inner.
 /// The logical target ID remains available when the resolved slot is retired.
@@ -55,11 +60,13 @@ pub struct RelationEdge {
     pub positions: Vec<u32>,
 }
 
+
 impl RelationEdge {
     pub fn target_id(&self) -> &str {
         &self.target_id
     }
 }
+
 
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.
@@ -76,6 +83,7 @@ pub struct RelationIndex {
     unavailable: RoaringBitmap,
     unresolved_count: u64,
 }
+
 
 impl RelationIndex {
     pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
@@ -245,6 +253,7 @@ impl RelationIndex {
     }
 }
 
+
 /// One local ID occurrence before target inventories are available.
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct PendingReference {
@@ -252,6 +261,7 @@ pub(crate) struct PendingReference {
     pub(crate) target_id: String,
     pub(crate) positions: Vec<u32>,
 }
+
 
 /// Construction-only relation state, merged in deterministic batch order.
 #[derive(Clone, Serialize, Deserialize)]
@@ -264,6 +274,7 @@ pub(crate) struct RelationContribution {
     pub(crate) empty_arrays: RoaringBitmap,
     pub(crate) unavailable: RoaringBitmap,
 }
+
 
 impl RelationContribution {
     /// Deterministic planning estimate for the native relation contribution.
@@ -283,8 +294,7 @@ impl RelationContribution {
                     .map_or(0, String::len),
             );
         total = total.saturating_add(
-            self.references.capacity()
-                * (std::mem::size_of::<PendingReference>() + OVERHEAD),
+            self.references.capacity() * (std::mem::size_of::<PendingReference>() + OVERHEAD),
         );
         for reference in &self.references {
             total = total
@@ -337,7 +347,6 @@ impl RelationContribution {
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }
-
 
     /// References are appended in source-slot order during admission and
     /// projection, so a selective query can borrow one source's edges without
@@ -412,8 +421,7 @@ impl RelationContribution {
         let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
             let mut projected = RoaringBitmap::new();
             for old in bitmap.iter() {
-                let mapped = resolve(old)
-                    .ok_or("relation projection bitmap out of bounds")?;
+                let mapped = resolve(old).ok_or("relation projection bitmap out of bounds")?;
                 if let Some(slot) = mapped {
                     projected.insert(slot.0);
                 }
@@ -422,8 +430,8 @@ impl RelationContribution {
         };
         let mut references = Vec::new();
         for reference in &self.references {
-            if let Some(source) = resolve(reference.source.0)
-                .ok_or("relation projection source out of bounds")?
+            if let Some(source) =
+                resolve(reference.source.0).ok_or("relation projection source out of bounds")?
             {
                 references.push(PendingReference {
                     source,
@@ -671,6 +679,7 @@ impl RelationContribution {
     }
 }
 
+
 fn visit_reference(
     value: &Value,
     path: &[String],
@@ -718,6 +727,7 @@ fn visit_reference(
         _ => Ok(false),
     }
 }
+
 
 impl Schema {
     pub fn relations(&self) -> &BTreeMap<Vec<String>, RelationDefinition> {
@@ -772,6 +782,7 @@ impl Schema {
         Ok(())
     }
 }
+
 
 pub(crate) fn validate_field_against_relations(
     field: &FieldDefinition,

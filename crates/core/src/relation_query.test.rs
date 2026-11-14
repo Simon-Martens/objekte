@@ -5,9 +5,7 @@ use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]

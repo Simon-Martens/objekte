@@ -15,6 +15,7 @@ use super::model::{QueryEntry, SearchDraft};
 const VERSION: u32 = 2;
 const HISTORY: usize = 200;
 
+
 /// The unversioned preferences shape used before desktop settings were versioned.
 #[derive(Deserialize)]
 struct LegacyQuery {
@@ -30,6 +31,7 @@ struct LegacyQuery {
     regex: bool,
 }
 
+
 #[derive(Deserialize)]
 struct LegacySavedQuery {
     name: String,
@@ -37,11 +39,13 @@ struct LegacySavedQuery {
     query: LegacyQuery,
 }
 
+
 #[derive(Deserialize)]
 struct LegacyColumns {
     #[serde(default)]
     hidden: Vec<String>,
 }
+
 
 #[derive(Deserialize)]
 struct LegacySettings {
@@ -54,6 +58,7 @@ struct LegacySettings {
     #[serde(default)]
     columns: BTreeMap<String, LegacyColumns>,
 }
+
 
 /// Only the restorable definition belongs in bookmarks and history. Delivery
 /// offsets, count requests, and view selection are deliberately excluded.
@@ -132,7 +137,11 @@ struct StoredLifecyclePreference {
     check_interval_seconds: u64,
 }
 
-fn default_check_interval() -> u64 { 30 }
+
+fn default_check_interval() -> u64 {
+    30
+}
+
 
 impl Default for StoredLifecyclePreference {
     fn default() -> Self {
@@ -143,11 +152,13 @@ impl Default for StoredLifecyclePreference {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LifecyclePreference {
     pub automatic_check: bool,
     pub check_interval_seconds: u64,
 }
+
 
 impl Default for LifecyclePreference {
     fn default() -> Self {
@@ -157,6 +168,7 @@ impl Default for LifecyclePreference {
         }
     }
 }
+
 
 pub(crate) fn nested_column(column: &str) -> bool {
     QueryPath::parse(column).is_ok_and(|path| path.steps.len() > 1)
@@ -227,7 +239,11 @@ impl DesktopPreferences {
         if source_key.is_empty() || !(1..=86_400).contains(&interval_seconds) {
             return Err("Choose a source and an interval from 1 to 86,400 seconds".into());
         }
-        let stored = self.settings.lifecycle.entry(source_key.to_owned()).or_default();
+        let stored = self
+            .settings
+            .lifecycle
+            .entry(source_key.to_owned())
+            .or_default();
         stored.automatic_check = enabled;
         stored.check_interval_seconds = interval_seconds;
         Ok(())

@@ -345,9 +345,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             let restored = Repository::open_with_options(
                 &source_root,
                 vec![definition],
-                RepositoryOptions {
-                    ..build_options
-                },
+                RepositoryOptions { ..build_options },
             )?;
             let rebuild_ns = started.elapsed().as_nanos() as u64;
             assert_eq!(restored.search(&query)?.hits, repo.search(&query)?.hits);

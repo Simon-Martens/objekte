@@ -2270,14 +2270,20 @@ fn segment_active_file<'a>(
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
-    let file_index = segment.file_index.get(&file_id).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment
+        .file_index
+        .get(&file_id)
+        .copied()
+        .ok_or("segment record file missing")?;
+    let segment_revision = segment
+        .files
+        .get(file_index)
+        .map(|file| file.entry.revision)
+        .ok_or("segment record file missing")?;
     let file = catalog
         .entry(file_id)
         .ok_or("active segment record file is retired")?;
-    if file.revision != segment_revision
-        || !file.collections.contains(&segment.collection)
-    {
+    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(file)
@@ -2296,8 +2302,16 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
-    let file_index = segment.file_index.get(&record.file).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment
+        .file_index
+        .get(&record.file)
+        .copied()
+        .ok_or("segment record file missing")?;
+    let segment_revision = segment
+        .files
+        .get(file_index)
+        .map(|file| file.entry.revision)
+        .ok_or("segment record file missing")?;
     let file = catalog
         .entry(record.file)
         .ok_or("active segment record file is retired")?;
@@ -2759,7 +2773,10 @@ fn segment_compare_to_rank(
     }
     Ok((
         repo.collections[collection_index].definition.name.as_str(),
-        segment.record(slot).map(|record| record.id.0.as_ref()).ok_or("segment sort slot missing")?,
+        segment
+            .record(slot)
+            .map(|record| record.id.0.as_ref())
+            .ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
 }
@@ -6136,9 +6153,7 @@ fn try_parallel_relation_page(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|published| {
-            !record_ranges_allow_parallel_scan(published.index.max_record_range_len())
-        })
+        .any(|published| !record_ranges_allow_parallel_scan(published.index.max_record_range_len()))
     {
         return Ok(None);
     }
@@ -6242,7 +6257,10 @@ fn try_parallel_relation_page(
             continue;
         }
         for file_index in 0..published.index.file_count() {
-            let file = published.index.files.get(file_index)
+            let file = published
+                .index
+                .files
+                .get(file_index)
                 .ok_or("parallel relation file missing")?;
             let mut selected = file.records.iter().filter(|slot| {
                 published.active.contains(**slot)
@@ -6848,7 +6866,8 @@ fn search_segmented_relations(
             }
             // A posting may leave only a handful of slots in a large segment.
             // Locate their files directly instead of decoding every file row.
-            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) = candidates.as_ref()
+            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) =
+                candidates.as_ref()
                 && may.len().saturating_mul(8) < published.index.file_count() as u64
             {
                 let mut selected = std::collections::BTreeSet::new();
@@ -6857,9 +6876,15 @@ fn search_segmented_relations(
                     if !published.active.contains(slot) {
                         continue;
                     }
-                    let record = published.index.record(slot)
+                    let record = published
+                        .index
+                        .record(slot)
                         .ok_or("merged segment candidate missing")?;
-                    let index = published.index.file_index.get(&record.file).copied()
+                    let index = published
+                        .index
+                        .file_index
+                        .get(&record.file)
+                        .copied()
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }
@@ -6868,7 +6893,10 @@ fn search_segmented_relations(
                 Box::new(0..published.index.file_count())
             };
             for file_index in file_indices {
-                let file = published.index.files.get(file_index)
+                let file = published
+                    .index
+                    .files
+                    .get(file_index)
                     .ok_or("merged segment file missing")?;
                 if let Some(context) = context {
                     context.check_string()?;
@@ -6878,7 +6906,9 @@ fn search_segmented_relations(
                     if published.active.contains(*slot)
                         && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
                     {
-                        let record = published.index.record(*slot)
+                        let record = published
+                            .index
+                            .record(*slot)
                             .ok_or("merged segment record missing")?;
                         ranges.push((slot.0, record.range));
                     }
@@ -7775,10 +7805,7 @@ fn try_lifecycle_ordered_stream(
         }
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef {
-                record,
-                file,
-            },
+            SegmentRecordRef { record, file },
             revision,
             if request.options.evidence {
                 evidence.into_iter().collect()
@@ -10971,6 +10998,7 @@ fn search_impl_with_collector<'a>(
     {
         counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     }
+
     #[cfg(feature = "detailed-profiling")]
     {
         counters.planning_ns += rejected_order.planning_ns;

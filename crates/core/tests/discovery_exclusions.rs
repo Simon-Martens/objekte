@@ -234,11 +234,8 @@ fn followed_aliases_into_generated_namespaces_are_not_sources() {
     let fixture = Fixture::new();
     fixture.file("data/a.json");
     fixture.file(".objekte/indexes/poison.json");
-    std::os::unix::fs::symlink(
-        fixture.0.join(".objekte/indexes"),
-        fixture.0.join("alias"),
-    )
-    .unwrap();
+    std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
+        .unwrap();
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();
@@ -307,11 +304,8 @@ fn canonical_alias_source_roots_are_rejected_for_direct_selection() {
     let fixture = Fixture::new();
     fixture.file("data/a.json");
     fixture.file(".objekte/indexes/poison.json");
-    std::os::unix::fs::symlink(
-        fixture.0.join(".objekte/indexes"),
-        fixture.0.join("alias"),
-    )
-    .unwrap();
+    std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
+        .unwrap();
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();

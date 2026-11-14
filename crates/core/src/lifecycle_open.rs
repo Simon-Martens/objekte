@@ -10,6 +10,7 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::repository::{CollectionDefinition, DirectBuild, Repository, RepositoryOptions};
 use crate::source::SourceRegistry;
 
+
 impl Index {
     /// Build from exactly the supplied definitions and source root. A relative
     /// root resolves against the process working directory once. This call
@@ -31,11 +32,9 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
         let root = root.into();
-        let definitions = crate::repository_configuration::prepare_source_definitions(
-            &root,
-            &definitions,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions =
+            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+                .map_err(IndexError::IncompatibleConfiguration)?;
         let started = Instant::now();
         let index = Self::build_with_sources_inner(root, definitions, options, sources)?;
         let full_ms = started.elapsed().as_millis() as u64;
@@ -109,6 +108,7 @@ impl Index {
         Ok(index)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_open.test.rs"]

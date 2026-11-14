@@ -21,9 +21,7 @@ mod index_catalog;
 pub mod index_storage;
 pub mod inference;
 
-pub use crate::index_storage::store::{
-    inspect_store, SaveOptions, SaveReport, StoredIndexInfo,
-};
+pub use crate::index_storage::store::{SaveOptions, SaveReport, StoredIndexInfo, inspect_store};
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;

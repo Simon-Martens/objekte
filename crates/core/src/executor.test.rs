@@ -82,10 +82,13 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .into_indexed(&definition, alphabet, inference, 1, &pool)
         .unwrap();
     let repo = Repository::open_with_options(
-        &root, vec![definition.clone()], RepositoryOptions {
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions {
             ..Default::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     let collection = &repo.collections()[0];
     assert_eq!(segment.records.len(), 4);
     let active = ActiveRecords::all(4)
@@ -422,8 +425,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
         for opening in 0..2 {
             let repo =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-            if opening == 0 {
-            }
+            if opening == 0 {}
             assert_eq!(repo.collections[0].custom_text.len(), 1);
             let result = repo.search(&query).unwrap();
             assert_eq!(result.count, Some(2));
@@ -782,7 +784,7 @@ impl crate::source::SourceReader for SeparatorReader {
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::query::{FtsField, FtsQuery};
     use crate::reference::{FieldDefinition, RegisteredBinding, Schema};
-    use crate::repository::{RepositoryOptions};
+    use crate::repository::RepositoryOptions;
     use crate::source::{SourceFormat, SourceRegistry};
 
     let root =
@@ -1084,7 +1086,7 @@ impl crate::reference::BindingOperation for RemoveSpaces {
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     use crate::reference::{RegisteredBinding, Schema};
-    use crate::repository::{RepositoryOptions};
+    use crate::repository::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-raw-compat-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), r#"{"title":"hello world"}"#).unwrap();
@@ -1132,8 +1134,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
         };
         for open in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-            if open == 0 {
-            }
+            if open == 0 {}
             for filter in [
                 Some("title ~ 'hello world'"),
                 Some("title = 'hello world'"),
@@ -1189,7 +1190,7 @@ struct KeyedOperation {
 fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     use crate::query::FtsQuery;
     use crate::reference::RegisteredBinding;
-    use crate::repository::{RepositoryOptions};
+    use crate::repository::RepositoryOptions;
     let root = std::env::temp_dir().join(format!(
         "objekte-fallback-raw-binding-{}",
         std::process::id()
@@ -1347,7 +1348,7 @@ impl crate::reference::BindingOperation for KeyedOperation {
 fn registered_binding_has_identical_filter_and_fts_semantics() {
     use crate::query::{FtsField, Literal};
     use crate::reference::RegisteredBinding;
-    use crate::repository::{RepositoryOptions};
+    use crate::repository::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!("objekte-keyed-binding-{}", std::process::id()));
     let path = root.join("data");

@@ -421,9 +421,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root =
@@ -681,9 +679,7 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 #[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
@@ -880,9 +876,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root =
@@ -969,8 +963,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                     sources(),
                 )
                 .unwrap();
-                if open == 0 {
-                }
+                if open == 0 {}
                 for (text, field, count, evidence) in [
                     ("needle", None, 1, vec!["body"]),
                     ("here", Some("body"), 1, vec!["body"]),
@@ -1547,9 +1540,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));

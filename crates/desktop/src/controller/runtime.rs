@@ -37,12 +37,14 @@ use super::projection::detail_view_with_query;
 use super::relations::{self, LinkAction};
 use super::{initial_columns, open_spec, page_view_with_prior, query_spec};
 
+
 /// One lightweight locator retained for every delivered result.
 #[derive(Clone, Eq, PartialEq)]
 struct RecordKey {
     collection: String,
     id: String,
 }
+
 
 #[derive(Clone)]
 struct TabContext {
@@ -51,6 +53,7 @@ struct TabContext {
     draft: SearchDraft,
 }
 
+
 #[derive(Clone)]
 struct TabFrame {
     key: RecordKey,
@@ -58,6 +61,7 @@ struct TabFrame {
     view: TabViewState,
     in_results: bool,
 }
+
 
 struct RecordTab {
     id: u64,
@@ -81,12 +85,14 @@ struct RecordTab {
     cached_detail: Option<DetailView>,
 }
 
+
 /// Source publications are comparable only within one live index instance.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 struct Publication {
     instance_id: u64,
     revision: IndexRevision,
 }
+
 
 impl From<&IndexStatus> for Publication {
     fn from(status: &IndexStatus) -> Self {
@@ -97,12 +103,14 @@ impl From<&IndexStatus> for Publication {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum CheckOrigin {
     Initial,
     Explicit,
     Periodic,
 }
+
 
 #[derive(Clone)]
 enum TabLoadKind {
@@ -123,6 +131,7 @@ enum TabLoadKind {
         frame: TabFrame,
     },
 }
+
 
 type QueryCompletion = Result<
     (
@@ -149,6 +158,7 @@ type OpenCompletion = Result<
 >;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
 
+
 #[derive(Clone)]
 struct CompletionRequest {
     origin: CompletionOrigin,
@@ -158,8 +168,10 @@ struct CompletionRequest {
     prefix: String,
 }
 
+
 type CompletionCacheKey = (u64, Option<String>, String, String);
 type CompletionCacheValue = (Vec<(String, String)>, bool, u64);
+
 
 #[derive(Clone, Copy)]
 enum GridRequestKind {
@@ -168,6 +180,7 @@ enum GridRequestKind {
     Continuation(usize),
     Projection(usize),
 }
+
 
 fn spawn_grid_page(
     session: OpenedSession,
@@ -354,6 +367,7 @@ fn spawn_incremental_delta(
     });
 }
 
+
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
     Validated {
@@ -467,6 +481,7 @@ enum WorkerEvent {
     },
 }
 
+
 /// UI-thread coordinator; expensive work is owned by short-lived workers.
 pub struct DesktopController {
     actions: Receiver<UiAction>,
@@ -541,6 +556,7 @@ pub struct DesktopController {
     completion_cache: HashMap<CompletionCacheKey, CompletionCacheValue>,
     completion_cache_order: VecDeque<CompletionCacheKey>,
 }
+
 
 impl DesktopController {
     /// Make the action sender consumed by `DesktopView` and its controller.
@@ -4022,6 +4038,7 @@ impl DesktopController {
         });
     }
 }
+
 
 fn resume_previous_automation(
     session: &OpenedSession,

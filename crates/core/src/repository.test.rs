@@ -128,15 +128,16 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
         [Some(digest)]
     );
     assert_eq!(
-        finish_fresh_fingerprints(&inventory, vec![vec![(CollectionId(0), digest)]])
-            .unwrap(),
+        finish_fresh_fingerprints(&inventory, vec![vec![(CollectionId(0), digest)]]).unwrap(),
         [None]
     );
-    assert!(finish_fresh_fingerprints(
-        &inventory,
-        vec![vec![(CollectionId(0), digest), (CollectionId(1), [8; 32])]],
-    )
-    .is_err());
+    assert!(
+        finish_fresh_fingerprints(
+            &inventory,
+            vec![vec![(CollectionId(0), digest), (CollectionId(1), [8; 32])]],
+        )
+        .is_err()
+    );
 }
 
 #[test]
@@ -164,7 +165,10 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let verify = |repo: &Repository| {
         let collection = &repo.collections()[0];
         for record in &collection.generation.records {
-            let (lookup_id, slot) = collection.id_lookup.get_key_value(record.id.0.as_ref()).unwrap();
+            let (lookup_id, slot) = collection
+                .id_lookup
+                .get_key_value(record.id.0.as_ref())
+                .unwrap();
             assert_eq!(*slot, record.slot);
             assert!(std::sync::Arc::ptr_eq(&lookup_id.0, &record.id.0));
         }

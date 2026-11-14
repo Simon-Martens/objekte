@@ -7,6 +7,7 @@ use objekte_search_core::lifecycle::{IndexRevision, IndexView};
 
 use crate::backend::QueryPage;
 
+
 /// One publication installed in one desktop repository session.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PublicationKey {
@@ -14,6 +15,7 @@ pub struct PublicationKey {
     pub instance_id: u64,
     pub revision: IndexRevision,
 }
+
 
 impl PublicationKey {
     pub fn from_view(session_generation: u64, view: &IndexView) -> Self {
@@ -35,6 +37,7 @@ impl PublicationKey {
     }
 }
 
+
 /// The executed query generation must also match before a page or count may
 /// update the visible result context.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -42,6 +45,7 @@ pub struct ResultContextKey {
     pub publication: PublicationKey,
     pub query_generation: u64,
 }
+
 
 impl ResultContextKey {
     pub fn owns_response(self, response: Self) -> bool {
@@ -53,6 +57,7 @@ impl ResultContextKey {
     }
 }
 
+
 /// Every tab job also needs its tab-local operation generation. A result from
 /// a closed or refreshed tab must not update another tab with the same record.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -62,11 +67,13 @@ pub struct TabJobKey {
     pub operation_generation: u64,
 }
 
+
 impl TabJobKey {
     pub fn owns_response(self, response: Self) -> bool {
         self == response
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_navigation.test.rs"]

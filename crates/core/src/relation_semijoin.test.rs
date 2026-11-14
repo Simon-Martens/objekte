@@ -6,9 +6,7 @@ use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::{
     ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, SourceRegistry, TextDerivation,

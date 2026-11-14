@@ -145,10 +145,12 @@ fn a_loaded_index_accepts_new_files_and_saves_them() {
     assert_eq!(count(&reloaded, "Alpha"), 1);
 }
 
+
 struct MutateDuringSave {
     index: Index,
     path: std::path::PathBuf,
 }
+
 
 impl SaveHooks for MutateDuringSave {
     fn before_current_replace(&mut self) -> Result<(), super::error::StorageError> {
@@ -158,6 +160,7 @@ impl SaveHooks for MutateDuringSave {
             .map_err(|error| super::error::StorageError::Conflict(error.to_string()))
     }
 }
+
 
 #[test]
 fn a_publication_during_save_is_reported_as_newer() {

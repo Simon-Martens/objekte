@@ -6,6 +6,7 @@ use objekte_search_core::query::{
 };
 use objekte_search_core::query_path::QueryPath;
 
+
 /// Scalar literal type selected explicitly for a builder value.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ValueType {
@@ -14,6 +15,7 @@ pub enum ValueType {
     Boolean,
     Null,
 }
+
 
 /// Boolean field tests selected independently of scalar literal comparison.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -26,6 +28,7 @@ pub enum BooleanTest {
     Object,
     Exists,
 }
+
 
 impl BooleanTest {
     pub fn label(self) -> &'static str {
@@ -79,6 +82,7 @@ impl BooleanTest {
     }
 }
 
+
 /// Comparisons represented by the initial scalar builder.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Comparison {
@@ -89,6 +93,7 @@ pub enum Comparison {
     Less,
     AtMost,
 }
+
 
 impl Comparison {
     pub fn symbol(self) -> &'static str {
@@ -119,6 +124,7 @@ impl Comparison {
     }
 }
 
+
 /// One editable Field / Operator / Value row; empty fields remain local drafts.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConditionDraft {
@@ -129,6 +135,7 @@ pub struct ConditionDraft {
     pub value: Option<String>,
     pub value_type: Option<ValueType>,
 }
+
 
 impl Default for ConditionDraft {
     fn default() -> Self {
@@ -142,12 +149,14 @@ impl Default for ConditionDraft {
     }
 }
 
+
 /// Metadata for a bounded field suggestion; unknown types require a choice.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FieldChoice {
     pub path: String,
     pub value_type: Option<ValueType>,
 }
+
 
 /// What the helper may truthfully show for the current free-text expression.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -159,12 +168,14 @@ pub enum BuilderStatus {
     Invalid(String),
 }
 
+
 /// The builder's local rows; the text input remains the source of truth.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BuilderState {
     pub status: BuilderStatus,
     pub rows: Vec<ConditionDraft>,
 }
+
 
 impl BuilderState {
     /// Rebuild from a text edit, including undo/redo and query restoration.
@@ -255,6 +266,7 @@ impl BuilderState {
         self.status = BuilderStatus::Incomplete;
     }
 }
+
 
 fn collect_conditions(expr: &FilterExpr, rows: &mut Vec<ConditionDraft>) -> bool {
     match expr {

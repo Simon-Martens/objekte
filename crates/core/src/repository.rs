@@ -1249,7 +1249,10 @@ impl Repository {
     ) -> Result<Self, String> {
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
-        let root = root.into().canonicalize().map_err(|error| error.to_string())?;
+        let root = root
+            .into()
+            .canonicalize()
+            .map_err(|error| error.to_string())?;
         let started = Instant::now();
         let mut repository = Self::build_fresh(root, definitions, options, &sources, true)?;
         repository.startup.build_ns = started.elapsed().as_nanos() as u64;

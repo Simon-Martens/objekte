@@ -238,7 +238,8 @@ fn publish_segment(
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().index_ns = ns;
     }
-    let (revision, phases) = index.publish_initial_segment(*expected, indexed, profile.is_some())?;
+    let (revision, phases) =
+        index.publish_initial_segment(*expected, indexed, profile.is_some())?;
     *expected = revision;
     if let Some(profile) = profile.as_mut() {
         profile.publication_prepare_ns = profile

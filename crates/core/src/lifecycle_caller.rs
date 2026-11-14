@@ -16,6 +16,7 @@ use crate::streaming::{
 };
 use crate::workload::ReturnMode;
 
+
 /// A live index retaining lightweight repository metadata for frontends.
 /// Search and inspection acquire a fresh view unless explicitly pinned for a
 /// multi-request desktop operation such as a finite batch export.
@@ -26,6 +27,7 @@ pub struct IndexedRepository {
     pinned: Option<IndexView>,
     startup: StartupStats,
 }
+
 
 impl IndexedRepository {
     pub fn new(index: Index) -> Result<Self, IndexError> {
@@ -179,6 +181,7 @@ impl IndexedRepository {
     }
 }
 
+
 impl Deref for IndexedRepository {
     type Target = Repository;
 
@@ -186,6 +189,7 @@ impl Deref for IndexedRepository {
         &self.metadata
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_caller.test.rs"]

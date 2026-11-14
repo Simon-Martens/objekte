@@ -28,6 +28,7 @@ pub const MAX_SOURCE_BYTES: usize = 256 * 1024;
 /// Maximum number of batch statuses retained in the visible list.
 pub const MAX_BATCH_ROWS: usize = 200;
 
+
 /// Repository opening modes supported by the existing CLI.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum OpenMode {
@@ -36,6 +37,7 @@ pub enum OpenMode {
     MultipleFolders,
     ConfiguredRepository,
 }
+
 
 /// Editable opening options; strings stay intact until backend validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -50,6 +52,7 @@ pub struct OpenDraft {
     pub diagnostic: bool,
 }
 
+
 impl Default for OpenDraft {
     fn default() -> Self {
         Self {
@@ -63,6 +66,7 @@ impl Default for OpenDraft {
         }
     }
 }
+
 
 /// The two independently editable query inputs and execution options.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -79,6 +83,7 @@ pub struct SearchDraft {
     pub regex: bool,
 }
 
+
 impl Default for SearchDraft {
     fn default() -> Self {
         Self {
@@ -93,6 +98,7 @@ impl Default for SearchDraft {
     }
 }
 
+
 /// Validation of the current search and filter text, separate from the last result page.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum FilterValidationState {
@@ -103,6 +109,7 @@ pub enum FilterValidationState {
         byte_offset: Option<usize>,
     },
 }
+
 
 /// A stable controller token plus labels for one visible result.
 #[derive(Clone, Debug, Eq, PartialEq, Hash)]
@@ -115,6 +122,7 @@ pub struct RowKey {
     pub byte_start: u64,
 }
 
+
 /// One bounded, already projected result row.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResultRow {
@@ -126,6 +134,7 @@ pub struct ResultRow {
     pub match_highlights: Vec<(std::ops::Range<usize>, bool)>,
     pub preview: Option<String>,
 }
+
 
 /// A bounded page and exact-count state, separate from total-result range.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -146,6 +155,7 @@ pub struct PageView {
     /// True when the backend omitted a preview or cells due to size bounds.
     pub clipped: bool,
 }
+
 
 impl PageView {
     /// Enforce renderer memory bounds without changing backend query semantics.
@@ -195,6 +205,7 @@ impl PageView {
     }
 }
 
+
 /// Where one detail row came from.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DetailOrigin {
@@ -203,6 +214,7 @@ pub enum DetailOrigin {
     Diagnostic,
 }
 
+
 /// Distinguish a present JSON null from unavailable logical data.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DetailValueKind {
@@ -210,6 +222,7 @@ pub enum DetailValueKind {
     JsonNull,
     LogicalUnavailable,
 }
+
 
 /// One structured record field, metadata entry, or section heading.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -227,6 +240,7 @@ pub struct DetailRow {
     pub value_kind: DetailValueKind,
 }
 
+
 /// One outgoing relation, backlink, or continuation choice.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RelationRow {
@@ -236,6 +250,7 @@ pub struct RelationRow {
     pub continuation: bool,
     pub target: bool,
 }
+
 
 /// The selected record's bounded inspection content.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -250,6 +265,7 @@ pub struct DetailView {
     pub selected_row: usize,
     pub clipped: bool,
 }
+
 
 impl DetailView {
     /// Prefer a present top-level name for the heading shown in the inspector
@@ -304,6 +320,7 @@ impl DetailView {
     }
 }
 
+
 /// A query stored in history or under a user-provided name.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QueryEntry {
@@ -312,6 +329,7 @@ pub struct QueryEntry {
     pub name: Option<String>,
     pub draft: SearchDraft,
 }
+
 
 /// Lightweight identity and navigation controls for a record view.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -331,6 +349,7 @@ pub struct RecordTabSummary {
     pub freshness: TabFreshness,
 }
 
+
 /// Freshness of a tab's displayed record and originating navigation context.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum TabFreshness {
@@ -343,6 +362,7 @@ pub enum TabFreshness {
     Failed,
 }
 
+
 /// Independent index task categories; query Stop never targets these tasks.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexTaskKind {
@@ -351,6 +371,7 @@ pub enum IndexTaskKind {
     Rebuild,
     Compact,
 }
+
 
 /// Terminal outcomes and bounded progress for one index operation.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -366,6 +387,7 @@ pub enum IndexTaskState {
     Failed(String),
     Cancelled,
 }
+
 
 /// Cheap status snapshot supplied by the active lifecycle handle.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -395,6 +417,7 @@ pub struct IndexUiStatus {
     pub maintenance: IndexTaskState,
     pub maintenance_kind: Option<IndexTaskKind>,
 }
+
 
 impl Default for IndexUiStatus {
     fn default() -> Self {
@@ -427,6 +450,7 @@ impl Default for IndexUiStatus {
     }
 }
 
+
 /// One physical batch line and its current execution result.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BatchRow {
@@ -436,6 +460,7 @@ pub struct BatchRow {
     pub error: Option<String>,
 }
 
+
 /// Explicit source choice when both a pasted batch and file path are present.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum BatchSource {
@@ -443,6 +468,7 @@ pub enum BatchSource {
     PastedText,
     QueryFile,
 }
+
 
 /// Which export representation is requested.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -452,6 +478,7 @@ pub enum ExportFormat {
     ResultsJson,
     Ndjson,
 }
+
 
 /// Which input field should show a nearby validation message.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -466,6 +493,7 @@ pub enum ErrorField {
     General,
 }
 
+
 /// Local inspector choices and scroll offsets saved with each navigation frame.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TabViewState {
@@ -477,12 +505,14 @@ pub struct TabViewState {
     pub source_y: i32,
 }
 
+
 /// Which editor owns a bounded posting-value completion request.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum CompletionOrigin {
     Filter,
     Builder,
 }
+
 
 /// User intent emitted from GPUI controls to the integrator.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -586,12 +616,14 @@ pub enum UiAction {
     ShowHelp,
 }
 
+
 /// Directory paths in the current index publication, including collection scopes.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DirectoryCatalog {
     pub all: Vec<String>,
     pub by_collection: std::collections::BTreeMap<String, Vec<String>>,
 }
+
 
 /// A pinned catalogue and compact physical-file IDs. Paths remain owned by
 /// the index, even while progress publications arrive.
@@ -601,6 +633,7 @@ pub struct FileCatalogue {
     pub ids: Arc<Vec<FileId>>,
     pub by_collection: BTreeMap<String, Arc<Vec<FileId>>>,
 }
+
 
 impl FileCatalogue {
     pub fn filtered_ids(
@@ -633,6 +666,7 @@ impl FileCatalogue {
     }
 }
 
+
 impl fmt::Debug for FileCatalogue {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
@@ -644,6 +678,7 @@ impl fmt::Debug for FileCatalogue {
     }
 }
 
+
 impl PartialEq for FileCatalogue {
     fn eq(&self, other: &Self) -> bool {
         self.view.instance_id() == other.view.instance_id()
@@ -653,7 +688,9 @@ impl PartialEq for FileCatalogue {
     }
 }
 
+
 impl Eq for FileCatalogue {}
+
 
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -756,6 +793,7 @@ pub enum UiUpdate {
         dark: bool,
     },
 }
+
 
 /// Truncate at a UTF-8 boundary and mark that content is incomplete.
 fn truncate_utf8(text: &mut String, limit: usize) -> bool {

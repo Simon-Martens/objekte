@@ -11,7 +11,6 @@ use crate::source::RecordRangeReader;
 const MAX_OPEN_HANDLES: usize = 8;
 const WINDOW_BYTES: u64 = 64 * 1024;
 
-
 /// Diagnose an unavailable search source without comparing it with the
 /// index's saved file metadata or content.
 pub(crate) fn probe_source_unavailable_for_search(

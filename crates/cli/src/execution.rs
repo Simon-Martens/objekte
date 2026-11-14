@@ -42,6 +42,19 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
         let mut source = QuerySource::open(args)?;
+        let storage_directory = args
+            .save_index
+            .as_ref()
+            .or(args.load_index.as_ref())
+            .map(|value| {
+                IndexLocation::parse(value).resolve(
+                    &paths.root,
+                    &cwd,
+                    args.index_alphabet,
+                    args.auto_index,
+                )
+            })
+            .transpose()?;
         let (initial_search, initial_filter) = match source.next_input()? {
             Some(input) => {
                 let (_, decoded) = input.parse(args)?;
@@ -58,17 +71,55 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             options,
             initial_search,
             initial_filter,
+            storage_directory,
         ))
     })();
-    let (root, definitions, options, search, filter) = match configured {
+    let (root, definitions, options, search, filter, storage_directory) = match configured {
         Ok(configured) => configured,
         Err(error) => {
             eprintln!("obj: {error}");
             return Exit::Arguments;
         }
     };
+    let load_directory = args
+        .load_index
+        .as_ref()
+        .map(|_| storage_directory.clone())
+        .flatten();
+    let save_directory = args
+        .save_index
+        .as_ref()
+        .map(|_| storage_directory.clone())
+        .flatten();
+    let check = args.check_index;
+    let token_for_open = token.clone();
     let result = crate::tui::run_with_opening_loader(
         move || {
+            if let Some(directory) = load_directory {
+                let index = crate::index_open::load(
+                    &directory,
+                    definitions,
+                    options,
+                    objekte_search_core::source::SourceRegistry::builtin(),
+                )?;
+                if check {
+                    crate::index_open::check(&index)?;
+                }
+                if let Some(save) = save_directory {
+                    crate::index_open::save(&index, &save, &token_for_open)?;
+                }
+                return Ok(crate::tui::TuiOpening::Ready(
+                    IndexedRepository::new(index).map_err(|error| error.to_string())?,
+                ));
+            }
+            if let Some(save) = save_directory {
+                let index =
+                    Index::build(&root, definitions, options).map_err(|error| error.to_string())?;
+                crate::index_open::save(&index, &save, &token_for_open)?;
+                return Ok(crate::tui::TuiOpening::Ready(
+                    IndexedRepository::new(index).map_err(|error| error.to_string())?,
+                ));
+            }
             Index::start_incremental_build(&root, definitions, options)
                 .map(crate::tui::TuiOpening::Initial)
                 .map_err(|error| error.to_string())
@@ -81,6 +132,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             limit: args.limit,
             loading_label: Some("Building search index".to_owned()),
             interruption: Some(token.clone()),
+            storage_directory,
         },
     );
     match result {
@@ -99,6 +151,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
+
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -109,6 +162,7 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
+
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -122,12 +176,14 @@ pub struct ExistingRun<'a> {
     pub startup_ns: u128,
 }
 
+
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
+
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -321,10 +377,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     if let Err(error) = storage_outcome.emit(&mut output, &started) {
         return output_failure(error);
     }
-    let storage_only = args.query.is_none()
-        && args.fts.is_none()
-        && args.query_file.is_none()
-        && !args.tui;
+    let storage_only =
+        args.query.is_none() && args.fts.is_none() && args.query_file.is_none() && !args.tui;
     if storage_only {
         if let Err(error) = output
             .emit(detailed_run_event(
@@ -461,6 +515,7 @@ fn open_incremental_repository(
     Ok((repo, startup_ns))
 }
 
+
 #[derive(Default)]
 struct StorageOutcome {
     loaded: Option<objekte_search_core::StoredIndexInfo>,
@@ -469,6 +524,7 @@ struct StorageOutcome {
     directory: Option<PathBuf>,
     publication_id: Option<String>,
 }
+
 
 impl StorageOutcome {
     fn emit<W: Write>(&self, output: &mut EventWriter<W>, started: &Instant) -> io::Result<()> {
@@ -515,6 +571,7 @@ impl StorageOutcome {
         Ok(())
     }
 }
+
 
 #[allow(clippy::too_many_arguments)]
 fn open_explicit_storage(
@@ -595,6 +652,7 @@ fn run_start_event(
     })
 }
 
+
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -603,6 +661,7 @@ struct RunTail<'a> {
     startup_ns: u128,
     initial_incremental: bool,
 }
+
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,

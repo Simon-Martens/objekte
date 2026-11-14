@@ -391,3 +391,43 @@ fn mouse_click_on_wrapped_value_selects_its_record_field() {
     );
     assert_eq!(app.record.cursor, row);
 }
+
+#[test]
+fn storage_overlay_opens_reports_status_and_checks_sources() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    key(app, KeyEvent::new(KeyCode::F(6), KeyModifiers::NONE));
+    assert_eq!(app.overlay, Some(Overlay::Storage));
+    let lines = app.storage_lines();
+    assert!(lines.iter().any(|line| line.contains("Origin:")));
+    assert!(lines.iter().any(|line| line.contains("Source state:")));
+    key(app, KeyEvent::new(KeyCode::Char('s'), KeyModifiers::NONE));
+    assert!(
+        app.storage_message
+            .as_deref()
+            .unwrap_or_default()
+            .contains("No storage directory")
+    );
+    key(app, KeyEvent::new(KeyCode::Char('c'), KeyModifiers::NONE));
+    for _ in 0..200 {
+        app.tick(Instant::now());
+        if app
+            .storage_message
+            .as_deref()
+            .is_some_and(|message| message.starts_with("Checked"))
+        {
+            break;
+        }
+        std::thread::sleep(Duration::from_millis(5));
+    }
+    assert!(
+        app.storage_message
+            .as_deref()
+            .unwrap_or_default()
+            .starts_with("Checked"),
+        "{:?}",
+        app.storage_message
+    );
+    key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
+    assert_eq!(app.overlay, None);
+}

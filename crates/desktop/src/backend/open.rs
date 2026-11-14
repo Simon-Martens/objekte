@@ -15,12 +15,14 @@ use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind};
 
+
 /// CLI-compatible filesystem and index choices for one desktop Open action.
 #[derive(Clone, Debug)]
 pub struct OpenSpec {
     pub args: Arguments,
     pub cwd: PathBuf,
 }
+
 
 /// Observed opening work and configuration.
 #[derive(Clone, Debug)]
@@ -32,12 +34,14 @@ pub struct OpenDiagnostics {
     pub ignored_repository_metadata: bool,
 }
 
+
 /// Resolved identity and opening mode of the active session.
 #[derive(Clone, Debug)]
 pub struct SessionConfiguration {
     pub configured_repository: bool,
     pub configuration_identity: [u8; 32],
 }
+
 
 /// Immutable repository handle and CLI opening context reused across searches.
 #[derive(Clone)]
@@ -53,6 +57,7 @@ pub struct OpenedSession {
     pub declared_values: Arc<HashMap<(String, String), Vec<String>>>,
 }
 
+
 impl OpenedSession {
     /// Rebind the compatibility metadata view after a rebuild or compaction
     /// publishes a new base. The live Index and session identity stay intact.
@@ -65,6 +70,7 @@ impl OpenedSession {
         Ok(refreshed)
     }
 }
+
 
 pub fn open(
     spec: &OpenSpec,
@@ -101,8 +107,9 @@ fn open_sources(
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let started = Instant::now();
-    let build = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let build =
+        Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
     let index = if incremental {
         loop {
             if cancellation.is_cancelled() {

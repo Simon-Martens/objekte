@@ -12,6 +12,7 @@ use crate::reference::Schema;
 
 pub const INFERENCE_POLICY_VERSION: u32 = 5;
 
+
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -23,11 +24,13 @@ pub(crate) enum ObservedStep {
     ArrayIndex(u32),
 }
 
+
 fn typed_path(path: &[String]) -> Vec<ObservedStep> {
     path.iter()
         .map(|name| ObservedStep::Field(Arc::from(name.as_str())))
         .collect()
 }
+
 
 /// Explicit construction choice. Disabled is the schema-free default.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
@@ -37,6 +40,7 @@ pub enum InferenceMode {
     ReportOnly,
     AutoIndex,
 }
+
 
 /// Bounded, versioned admission thresholds for one repository opening.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -61,6 +65,7 @@ pub struct InferencePolicy {
     pub max_distinct_nonblank_strings: usize,
     pub minimum_repeated_percent: u8,
 }
+
 
 impl Default for InferencePolicy {
     fn default() -> Self {
@@ -88,12 +93,14 @@ impl Default for InferencePolicy {
     }
 }
 
+
 /// Mode and admission policy frozen for one immutable repository generation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct InferenceConfig {
     pub mode: InferenceMode,
     pub policy: InferencePolicy,
 }
+
 
 impl InferenceConfig {
     pub fn validate(self) -> Result<(), String> {
@@ -130,6 +137,7 @@ impl InferenceConfig {
     }
 }
 
+
 /// Why an observed field did or did not receive a typed accelerator.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum InferenceIndexStatus {
@@ -142,6 +150,7 @@ pub enum InferenceIndexStatus {
     BudgetExceeded,
     BelowThreshold,
 }
+
 
 /// Complete or explicitly incomplete statistics for one logical field path.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -177,6 +186,7 @@ pub struct InferredFieldReport {
     pub retained_bytes_estimate: usize,
 }
 
+
 /// Per-collection inference report for one source generation.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceReport {
@@ -195,6 +205,7 @@ pub struct InferenceReport {
     pub fields: Vec<InferredFieldReport>,
 }
 
+
 /// Construction-only inference work and retained-state estimates.
 /// Budget charges are policy estimates, not allocator measurements or RSS.
 #[derive(Clone, Copy, Debug, Default)]
@@ -208,6 +219,7 @@ pub struct InferenceBuildStats {
     pub repeated_batch_path_bytes: usize,
     pub retained_manual_summary_bytes: usize,
 }
+
 
 impl InferenceBuildStats {
     pub(crate) fn absorb(&mut self, other: Self) {
@@ -230,6 +242,7 @@ impl InferenceBuildStats {
     }
 }
 
+
 /// One observed path and its ordered posting admission outcome.
 ///
 /// A built index owns B-tree value and length dictionaries, even when either
@@ -251,6 +264,7 @@ pub struct InferencePathDiagnostic {
     pub short_string_unresolved_records: u64,
 }
 
+
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceState {
@@ -261,6 +275,7 @@ pub struct InferenceState {
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
 }
+
 
 impl InferenceState {
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
@@ -433,6 +448,7 @@ impl InferenceState {
         Ok(())
     }
 }
+
 
 #[path = "inference_build.rs"]
 mod build;

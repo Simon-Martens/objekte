@@ -494,12 +494,14 @@ fn fts_membership_stops_after_first_match_but_evidence_checks_every_segment() {
     #[derive(Debug)]
     struct CountingMatcher(std::sync::Arc<std::sync::atomic::AtomicUsize>);
 
+
     impl PreparedTextMatcher for CountingMatcher {
         fn matches(&self, text: &str) -> Result<bool, String> {
             self.0.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
             Ok(text.contains("hit"))
         }
     }
+
 
     let mut bound = bind_fts(
         &FtsQuery {
@@ -1095,9 +1097,7 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
 #[test]
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -1199,9 +1199,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
 #[test]
 fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 

@@ -2,17 +2,20 @@
 
 use super::model::{RecordTabSummary, SearchDraft};
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Pane {
     Primary,
     Secondary,
 }
 
+
 impl Default for Pane {
     fn default() -> Self {
         Self::Primary
     }
 }
+
 
 impl Pane {
     pub fn other(self) -> Self {
@@ -23,17 +26,20 @@ impl Pane {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TabId {
     Search(u64),
     Record(u64),
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SearchKind {
     Table,
     Query,
 }
+
 
 #[derive(Clone, Debug)]
 pub struct WorkspaceTab {
@@ -44,11 +50,13 @@ pub struct WorkspaceTab {
     pub query_number: Option<u64>,
 }
 
+
 #[derive(Clone, Debug, Default)]
 pub struct TabGroup {
     pub tabs: Vec<WorkspaceTab>,
     pub active: Option<TabId>,
 }
+
 
 #[derive(Clone, Debug, Default)]
 pub struct Workspace {
@@ -60,6 +68,7 @@ pub struct Workspace {
     pub focused_pane: Pane,
     last_active_record: Option<u64>,
 }
+
 
 impl Workspace {
     pub fn group(&self, pane: Pane) -> &TabGroup {
@@ -351,6 +360,7 @@ impl Workspace {
     }
 }
 
+
 fn search_title(draft: &SearchDraft, kind: SearchKind, query_number: Option<u64>) -> String {
     if kind == SearchKind::Table {
         draft
@@ -372,6 +382,7 @@ fn search_title(draft: &SearchDraft, kind: SearchKind, query_number: Option<u64>
         }
     }
 }
+
 
 #[cfg(test)]
 mod tests {
@@ -581,7 +592,10 @@ mod tests {
         assert_eq!(workspace.primary.tabs.len(), 1);
         assert!(workspace.secondary.tabs.is_empty());
 
-        let pinned = RecordTabSummary { pinned: true, ..preview };
+        let pinned = RecordTabSummary {
+            pinned: true,
+            ..preview
+        };
         workspace.sync_records(&[pinned], Some(7));
         assert_eq!(workspace.primary.active, Some(TabId::Record(7)));
         assert_eq!(workspace.current_search, Some(query));

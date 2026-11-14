@@ -963,18 +963,25 @@ fn cleanup_after_commit(
         retained.insert(previous.clone());
     }
     let mut retained_objects = HashSet::new();
+    let mut safe_to_delete_objects = true;
     for generation in &retained {
-        if let Ok(generation) = Uuid::parse_str(generation)
-            && let Ok(bytes) = fs::read(generation_manifest_path(directory, generation))
-            && let Ok(manifest) = GenerationManifest::decode(&bytes)
-        {
-            retained_objects.insert(manifest.catalogue.sha256);
-            if let Some(state) = &manifest.state {
-                retained_objects.insert(state.sha256.clone());
+        let parsed = Uuid::parse_str(generation)
+            .map_err(|_| ())
+            .and_then(|generation| {
+                fs::read(generation_manifest_path(directory, generation)).map_err(|_| ())
+            })
+            .and_then(|bytes| GenerationManifest::decode(&bytes).map_err(|_| ()));
+        match parsed {
+            Ok(manifest) => {
+                retained_objects.insert(manifest.catalogue.sha256);
+                if let Some(state) = &manifest.state {
+                    retained_objects.insert(state.sha256.clone());
+                }
+                for run in manifest.runs {
+                    retained_objects.insert(run.object.sha256);
+                }
             }
-            for run in manifest.runs {
-                retained_objects.insert(run.object.sha256);
-            }
+            Err(()) => safe_to_delete_objects = false,
         }
     }
     for (_, path) in generations {
@@ -992,7 +999,7 @@ fn cleanup_after_commit(
         }
     }
     let objects_directory = directory.join(OBJECTS_DIR);
-    if let Ok(entries) = fs::read_dir(&objects_directory) {
+    if safe_to_delete_objects && let Ok(entries) = fs::read_dir(&objects_directory) {
         for entry in entries.flatten() {
             let path = entry.path();
             let Some(name) = path.file_stem().and_then(|name| name.to_str()) else {

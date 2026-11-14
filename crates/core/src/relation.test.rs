@@ -427,7 +427,10 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
     let parts = contribution
         .project_partitions(&[1, 1], |old| {
             visits += 1;
-            routes.get(old as usize).copied().ok_or("route missing".into())
+            routes
+                .get(old as usize)
+                .copied()
+                .ok_or("route missing".into())
         })
         .unwrap();
     assert_eq!(visits, expected_visits);
@@ -451,7 +454,10 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
     assert!(
         contribution
             .project_partitions(&[1], |old| {
-                routes.get(old as usize).copied().ok_or("route missing".into())
+                routes
+                    .get(old as usize)
+                    .copied()
+                    .ok_or("route missing".into())
             })
             .is_err()
     );
@@ -906,8 +912,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     };
     for restored in [false, true] {
         let repo = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-        if !restored {
-        }
+        if !restored {}
         let source = &repo.collections()[2];
         let target = &repo.collections()[0];
         let relation = repo.relation_index("mentions", &["entry".into()]).unwrap();

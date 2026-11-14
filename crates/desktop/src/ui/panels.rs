@@ -23,6 +23,7 @@ use super::model::{
 use super::state::ActionPanel;
 use super::workspace::{Pane, TabId};
 
+
 #[cfg(test)]
 mod display_title_tests {
     use super::*;
@@ -54,6 +55,7 @@ mod display_title_tests {
     }
 }
 
+
 fn copyable_field_path(row: &DetailRow, clipped: bool) -> Option<String> {
     let path = if row.origin == DetailOrigin::Structured {
         row.label.strip_prefix("$.").unwrap_or(&row.label)
@@ -77,7 +79,6 @@ fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
     })
 }
 
-
 fn memory_label(bytes: usize) -> String {
     if bytes >= 1024 * 1024 {
         format!("{:.1} MiB", bytes as f64 / (1024.0 * 1024.0))
@@ -87,6 +88,7 @@ fn memory_label(bytes: usize) -> String {
         format!("{bytes} B")
     }
 }
+
 
 impl DesktopView {
     pub(super) fn render_batch(
@@ -1373,19 +1375,16 @@ impl DesktopView {
                                 .items_center()
                                 .gap_2()
                                 .child(div().text_xs().flex_1().child(summary))
-                                .when(
-                                    matches!(task, IndexTaskState::Running { .. }),
-                                    |this| {
-                                        this.child(
-                                            Button::new(format!("index-cancel-{kind:?}"))
-                                                .ghost()
-                                                .label("Cancel")
-                                                .on_click(cx.listener(move |this, _, _, _| {
-                                                    this.send(UiAction::CancelIndexTask(kind))
-                                                })),
-                                        )
-                                    },
-                                ),
+                                .when(matches!(task, IndexTaskState::Running { .. }), |this| {
+                                    this.child(
+                                        Button::new(format!("index-cancel-{kind:?}"))
+                                            .ghost()
+                                            .label("Cancel")
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.send(UiAction::CancelIndexTask(kind))
+                                            })),
+                                    )
+                                }),
                         );
                     }
                 }
@@ -1507,6 +1506,7 @@ impl DesktopView {
     }
 }
 
+
 fn parse_index_interval_seconds(raw: &str) -> Result<u64, String> {
     let seconds = raw
         .trim()
@@ -1534,6 +1534,7 @@ fn index_task_summary(label: &str, task: &IndexTaskState) -> Option<String> {
     }
 }
 
+
 #[cfg(test)]
 mod index_controls_tests {
     use super::*;
@@ -1559,6 +1560,7 @@ mod index_controls_tests {
         );
     }
 }
+
 
 #[cfg(test)]
 mod field_copy_tests {

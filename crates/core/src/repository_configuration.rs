@@ -10,9 +10,8 @@ use std::path::{Component, Path, PathBuf};
 use serde_json::Value;
 
 use crate::repository::{CollectionDefinition, IdentityPolicy};
-use crate::schema_adapter::{compile_schema, CompiledSchema};
+use crate::schema_adapter::{CompiledSchema, compile_schema};
 use crate::source::SourceFormat;
-
 
 /// Prepare collection definitions for the live configuration identity and
 /// source traversal. Selected source paths are validated, the generated index
@@ -124,6 +123,7 @@ fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
     }
     Ok(result)
 }
+
 
 /// One explicitly named schema, including its canonical path for write guards.
 pub struct ExplicitSchemaFile {

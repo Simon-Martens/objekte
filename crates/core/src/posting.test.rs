@@ -978,13 +978,9 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             assert_eq!(actual.counters.files_opened, 0, "{filter}");
         }
     }
-    let restored = Index::build_with_sources(
-        &root,
-        vec![definition],
-        options,
-        SourceRegistry::builtin(),
-    )
-    .unwrap();
+    let restored =
+        Index::build_with_sources(&root, vec![definition], options, SourceRegistry::builtin())
+            .unwrap();
     let restored = restored.view().unwrap();
     for filter in [
         "x:null = true",

@@ -350,9 +350,7 @@ fn cross_collection_sort_rejects_different_collation() {
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::{ReturnMode, SortField};
 

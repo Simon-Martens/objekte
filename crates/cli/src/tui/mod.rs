@@ -28,6 +28,7 @@ use ratatui::crossterm::{
     execute,
 };
 
+
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -37,7 +38,9 @@ pub struct TuiOptions {
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
     pub interruption: Option<CancellationToken>,
+    pub storage_directory: Option<std::path::PathBuf>,
 }
+
 
 /// A repository can be ready immediately or still building its initial catalogue.
 pub enum TuiOpening {
@@ -45,10 +48,8 @@ pub enum TuiOpening {
     Initial(InitialBuildTask),
 }
 
-pub fn run_with_opening_loader<F>(
-    loader: F,
-    options: TuiOptions,
-) -> Result<(), Box<dyn Error>>
+
+pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {
@@ -145,11 +146,13 @@ fn run_initial_active(
 ) -> Result<(), Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
 
+
     impl Drop for CancelOnExit {
         fn drop(&mut self) {
             self.0.cancel();
         }
     }
+
 
     let guard = CancelOnExit(task);
     (|| -> Result<(), Box<dyn Error>> {
@@ -507,10 +510,23 @@ fn key(app: &mut App, key: KeyEvent) {
             }
             return;
         }
+        Some(Overlay::Storage) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Char('s' | 'S') => app.save_storage(),
+                KeyCode::Char('c' | 'C') => app.check_storage_sources(),
+                _ => {}
+            }
+            return;
+        }
         None => {}
     }
     if key.code == KeyCode::F(1) {
         app.overlay = Some(Overlay::Help);
+        return;
+    }
+    if key.code == KeyCode::F(6) {
+        app.overlay = Some(Overlay::Storage);
         return;
     }
     if control && key.code == KeyCode::Char('i') {
@@ -795,6 +811,7 @@ fn run_action(app: &mut App, action: Action) {
             view::theme::set_light(light);
             app.set_theme(light);
         }
+        Action::Storage => app.overlay = Some(Overlay::Storage),
         Action::Help => app.overlay = Some(Overlay::Help),
     }
 }

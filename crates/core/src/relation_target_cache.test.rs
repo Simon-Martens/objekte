@@ -3,9 +3,7 @@ use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::streaming::{CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions};
 use crate::workload::{BigramAlphabet, ReturnMode};

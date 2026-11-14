@@ -41,6 +41,7 @@ fn json_whitespace(byte: u8) -> bool {
     matches!(byte, b' ' | b'\t' | b'\n' | b'\r')
 }
 
+
 /// Walks JSON bytes and records scalar occurrences in source order.
 struct ScalarWalker<'a> {
     bytes: &'a [u8],
@@ -53,6 +54,7 @@ struct ScalarWalker<'a> {
     validate: bool,
 }
 
+
 /// Match source scalars while the required logical projection is constructed.
 /// The path owns only active member names; scalar text is consumed before the
 /// required Value takes ownership or before reusable decoding storage is reset.
@@ -63,6 +65,7 @@ struct CombinedFts<'a> {
     events: &'a mut Vec<BorrowedEvent>,
     retain_evidence: bool,
 }
+
 
 impl CombinedFts<'_> {
     fn push_text(&mut self, text: &str) -> Result<(), String> {
@@ -81,6 +84,7 @@ impl CombinedFts<'_> {
         Ok(())
     }
 }
+
 
 impl ScalarWalker<'_> {
     fn whitespace(&mut self) {
@@ -515,7 +519,9 @@ impl ScalarWalker<'_> {
     }
 }
 
+
 const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
+
 
 /// Reusable decoded text and provisional decisions owned by one scan worker.
 #[derive(Default)]
@@ -524,6 +530,7 @@ pub(crate) struct BorrowedScanScratch {
     events: Vec<BorrowedEvent>,
     combined_path: Vec<String>,
 }
+
 
 impl BorrowedScanScratch {
     fn trim(&mut self) {
@@ -544,6 +551,7 @@ impl BorrowedScanScratch {
     }
 }
 
+
 /// One scalar's provisional match state before object duplicates are resolved.
 #[derive(Default)]
 struct BorrowedEvent {
@@ -554,12 +562,14 @@ struct BorrowedEvent {
     evidence: Vec<String>,
 }
 
+
 /// Result of matching borrowed source segments in one trusted record.
 pub(crate) struct BorrowedScanResult {
     pub(crate) fts_match: bool,
     pub(crate) filter_match: bool,
     pub(crate) evidence: HashSet<String>,
 }
+
 
 /// Query bindings supported by the direct source consumer.
 pub(crate) struct BorrowedScanQuery<'a> {
@@ -568,6 +578,7 @@ pub(crate) struct BorrowedScanQuery<'a> {
     pub(crate) decoded_scalars: bool,
     pub(crate) retain_evidence: bool,
 }
+
 
 fn decode_hex_digit(byte: u8) -> Result<u32, String> {
     (byte as char)
@@ -735,6 +746,7 @@ fn may_contain_selected_text(
                 })
         })
 }
+
 
 impl<'a> ScalarWalker<'a> {
     #[allow(clippy::too_many_arguments)]
@@ -1035,6 +1047,7 @@ impl<'a> ScalarWalker<'a> {
         Ok(())
     }
 }
+
 
 /// Scan source-owned scalar slices, decoding only escaped strings into worker scratch.
 pub(crate) fn scan_borrowed_segments(

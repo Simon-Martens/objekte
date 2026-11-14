@@ -3,6 +3,7 @@
 
 use std::ops::Range;
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum CompletionTarget {
     Field { sort: bool },
@@ -11,12 +12,14 @@ pub enum CompletionTarget {
     Value { field: String },
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompletionContext {
     pub replace: Range<usize>,
     pub prefix: String,
     pub target: CompletionTarget,
 }
+
 
 pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
     if caret > text.len() || !text.is_char_boundary(caret) {
@@ -317,6 +320,7 @@ pub fn insert(text: &str, replace: Range<usize>, completion: &str) -> Option<(St
     result.push_str(&text[replace.end..]);
     Some((result, caret))
 }
+
 
 #[cfg(test)]
 mod tests {

@@ -6,6 +6,7 @@ use std::path::Path;
 use objekte_cli::arguments::Arguments;
 use objekte_cli::loader::configure_definitions;
 
+
 /// Folder classification before any source discovery or index construction.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum DetectedSource {
@@ -18,6 +19,7 @@ pub enum DetectedSource {
         message: String,
     },
 }
+
 
 /// Inspect only `.objekte/collections` and compile its configuration if present.
 ///

@@ -11,6 +11,7 @@ use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
 
+
 /// Batch text already in memory, or a physical query file.
 #[derive(Clone, Debug)]
 pub enum BatchSource {
@@ -19,6 +20,7 @@ pub enum BatchSource {
     Text(String),
     File(PathBuf),
 }
+
 
 /// CLI page/count controls applied to every batch query.
 #[derive(Clone, Debug)]
@@ -29,6 +31,7 @@ pub struct BatchSpec {
     pub count: bool,
 }
 
+
 /// Protocol exit status and the file containing the ordered NDJSON events.
 #[derive(Clone, Debug)]
 pub struct BatchReport {
@@ -36,6 +39,7 @@ pub struct BatchReport {
     pub path: PathBuf,
     pub bytes_written: u64,
 }
+
 
 /// Run every line through the CLI parser and event protocol without reopening data.
 pub fn run_batch(

@@ -106,14 +106,3 @@ fn optional_section_is_preserved() {
     );
     view.verify_full().unwrap();
 }
-
-fn refresh_checksums(bytes: &mut [u8]) {
-    let header = ObjectHeader::parse(bytes).unwrap();
-    for block in 0..header.checksum_count {
-        let start = block as usize * CHECKSUM_BLOCK_SIZE as usize;
-        let end = (start + CHECKSUM_BLOCK_SIZE as usize).min(header.checksum_table_offset as usize);
-        let crc = crc32fast::hash(&bytes[start..end]);
-        let at = header.checksum_table_offset as usize + block as usize * 4;
-        bytes[at..at + 4].copy_from_slice(&crc.to_le_bytes());
-    }
-}

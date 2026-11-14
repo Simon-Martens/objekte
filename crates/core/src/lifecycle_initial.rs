@@ -10,6 +10,7 @@ use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceRegistry;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum InitialBuildPhase {
     Discovering,
@@ -18,6 +19,7 @@ pub enum InitialBuildPhase {
     Cancelled,
     Failed,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialBuildStatus {
@@ -33,6 +35,7 @@ pub struct InitialBuildStatus {
     pub first_batch_elapsed_ns: Option<u64>,
     pub completion_elapsed_ns: Option<u64>,
 }
+
 
 impl Default for InitialBuildStatus {
     fn default() -> Self {
@@ -52,6 +55,7 @@ impl Default for InitialBuildStatus {
     }
 }
 
+
 #[derive(Clone)]
 pub struct InitialBuildSnapshot {
     /// Monotonic event cursor. A waiter checks it before sleeping, so no
@@ -61,6 +65,7 @@ pub struct InitialBuildSnapshot {
     pub view: Option<IndexView>,
 }
 
+
 struct InitialState {
     cursor: u64,
     status: InitialBuildStatus,
@@ -69,6 +74,7 @@ struct InitialState {
     terminal_error: Option<IndexError>,
 }
 
+
 struct InitialOpening {
     started: Instant,
     cancelled: AtomicBool,
@@ -76,8 +82,10 @@ struct InitialOpening {
     changed: Condvar,
 }
 
+
 #[derive(Clone)]
 pub struct InitialBuildTask(Arc<InitialOpening>);
+
 
 impl InitialBuildTask {
     fn new() -> Self {
@@ -277,6 +285,7 @@ impl InitialBuildTask {
     }
 }
 
+
 impl Index {
     pub fn start_incremental_build(
         root: impl Into<PathBuf>,
@@ -298,8 +307,9 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
-        let definitions = crate::repository_configuration::prepare_source_definitions(&root, &definitions)
-            .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions =
+            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+                .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();
@@ -329,6 +339,7 @@ impl Index {
         Ok(task)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_initial.test.rs"]

@@ -18,10 +18,12 @@ use objekte_search_core::repository_configuration::load_repository_configuration
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
+
 struct QueryProbe {
     times_ns: Vec<u64>,
     errors: usize,
 }
+
 
 impl QueryProbe {
     fn detail(mut self) -> String {
@@ -41,6 +43,7 @@ impl QueryProbe {
         )
     }
 }
+
 
 fn maintenance_query() -> Query {
     Query {

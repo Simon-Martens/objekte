@@ -268,6 +268,7 @@ pub struct BigramIndex {
     pub skip: HashMap<u64, RoaringBitmap>,
 }
 
+
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if self

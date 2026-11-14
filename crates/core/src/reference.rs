@@ -712,6 +712,7 @@ pub enum Derived {
     IsObject,
 }
 
+
 impl Derived {
     pub(crate) fn state_predicate(self) -> Option<StatePredicate> {
         Some(match self {
@@ -726,6 +727,7 @@ impl Derived {
         })
     }
 }
+
 
 /// Substring pattern parsed once for a bound literal.
 #[derive(Clone, Debug)]
@@ -942,6 +944,7 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
 const MAX_FOLD_SCRATCH_CAPACITY: usize = 256 * 1024;
 const MAX_SHARED_FOLDS: usize = 64;
 
+
 #[derive(Default)]
 struct FoldValueCache {
     entries: Vec<FoldValueEntry>,
@@ -949,11 +952,13 @@ struct FoldValueCache {
     record_token: Option<(usize, usize)>,
 }
 
+
 struct FoldValueEntry {
     source_ptr: usize,
     source_len: usize,
     folded: String,
 }
+
 
 thread_local! {
     static FOLD_SCRATCH: RefCell<String> = const { RefCell::new(String::new()) };

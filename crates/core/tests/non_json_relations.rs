@@ -15,7 +15,9 @@ use objekte_search_core::source::{
 };
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
+
 struct PipeReader;
+
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -55,6 +57,7 @@ impl SourceReader for PipeReader {
         })
     }
 }
+
 
 fn add_field(schema: &mut Schema, name: &str, kind: LogicalType) {
     schema
@@ -157,8 +160,7 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
         let built =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
         let restored =
-            Index::build_with_sources(&root, definitions(), options, sources.clone())
-                .unwrap();
+            Index::build_with_sources(&root, definitions(), options, sources.clone()).unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

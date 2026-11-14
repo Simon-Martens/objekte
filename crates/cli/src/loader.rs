@@ -25,6 +25,7 @@ fn load_schema_configuration(
     Ok(Some((loaded.compiled, loaded.ignored_repository_metadata)))
 }
 
+
 /// Resolved collection definitions and schema metadata shared by CLI frontends.
 pub struct ConfiguredDefinitions {
     pub definitions: Vec<CollectionDefinition>,
@@ -32,6 +33,7 @@ pub struct ConfiguredDefinitions {
     pub schema_fields: usize,
     pub ignored_repository_metadata: bool,
 }
+
 
 /// Apply single-folder, repeated-path, or configured-repository rules.
 pub fn configure_definitions(

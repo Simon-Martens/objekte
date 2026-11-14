@@ -982,8 +982,16 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         outcomes.push((
             serde_json::to_value(report).unwrap(),
             index.presence.clone(),
-            index.values.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
-            index.lengths.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
+            index
+                .values
+                .iter()
+                .map(|(key, slots)| (key.clone(), slots.clone()))
+                .collect::<Vec<_>>(),
+            index
+                .lengths
+                .iter()
+                .map(|(key, slots)| (key.clone(), slots.clone()))
+                .collect::<Vec<_>>(),
         ));
     }
     assert_eq!(outcomes[0], outcomes[1]);
@@ -1324,7 +1332,9 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
     assert!(long.values.is_empty());
 }
 
+
 struct PipeReader;
+
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -1353,6 +1363,7 @@ impl SourceReader for PipeReader {
         })
     }
 }
+
 
 #[test]
 fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {

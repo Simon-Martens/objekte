@@ -18,6 +18,7 @@ use super::DesktopView;
 use super::model::UiAction;
 use super::model::{OpenDraft, OpenMode};
 
+
 /// Explicit source interpretation selected under Advanced options.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SourceChoice {
@@ -26,6 +27,7 @@ pub enum SourceChoice {
     Folder,
     ConfiguredRepository,
 }
+
 
 /// Advisory mode detection for the current first folder.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -45,6 +47,7 @@ pub enum DetectionState {
     },
 }
 
+
 /// Editable modal state; none of its changes open data before confirmation.
 #[derive(Clone, Debug)]
 pub struct OpenDialogState {
@@ -59,6 +62,7 @@ pub struct OpenDialogState {
     pub pending_schema_picker: bool,
     pub error: Option<String>,
 }
+
 
 impl Default for OpenDialogState {
     fn default() -> Self {
@@ -76,6 +80,7 @@ impl Default for OpenDialogState {
         }
     }
 }
+
 
 impl OpenDialogState {
     pub fn show(&mut self) {
@@ -264,6 +269,7 @@ impl OpenDialogState {
         self.error = None;
     }
 }
+
 
 impl DesktopView {
     pub(super) fn render_open_dialog(
@@ -553,49 +559,48 @@ impl DesktopView {
                         }),
                 );
             }
-            content = content
-                .child(
-                    div()
-                        .flex()
-                        .flex_col()
-                        .gap_2()
-                        .child(
-                            div()
-                                .text_xs()
-                                .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                                .child("Index construction"),
-                        )
-                        .child(
-                            Checkbox::new("open-auto-index")
-                                .accessibility_label("Infer field indexes")
-                                .checked(self.state.open.auto_index)
-                                .child("Infer field indexes")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.auto_index = *checked;
-                                    cx.notify();
-                                })),
-                        )
-                        .child(
-                            Checkbox::new("open-unicode-index")
-                                .accessibility_label("Unicode index alphabet")
-                                .checked(self.state.open.unicode_index)
-                                .child("Unicode index alphabet")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.unicode_index = *checked;
-                                    cx.notify();
-                                })),
-                        )
-                        .child(
-                            Checkbox::new("open-diagnostics")
-                                .accessibility_label("Collect detailed diagnostics")
-                                .checked(self.state.open.diagnostic)
-                                .child("Collect detailed diagnostics")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.diagnostic = *checked;
-                                    cx.notify();
-                                })),
-                        ),
-                );
+            content = content.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .gap_2()
+                    .child(
+                        div()
+                            .text_xs()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Index construction"),
+                    )
+                    .child(
+                        Checkbox::new("open-auto-index")
+                            .accessibility_label("Infer field indexes")
+                            .checked(self.state.open.auto_index)
+                            .child("Infer field indexes")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.auto_index = *checked;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Checkbox::new("open-unicode-index")
+                            .accessibility_label("Unicode index alphabet")
+                            .checked(self.state.open.unicode_index)
+                            .child("Unicode index alphabet")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.unicode_index = *checked;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Checkbox::new("open-diagnostics")
+                            .accessibility_label("Collect detailed diagnostics")
+                            .checked(self.state.open.diagnostic)
+                            .child("Collect detailed diagnostics")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.diagnostic = *checked;
+                                cx.notify();
+                            })),
+                    ),
+            );
         }
         if let Some(message) = &self.state.open_dialog.error {
             content = content.child(
@@ -822,8 +827,8 @@ impl DesktopView {
         }
         cx.notify();
     }
-
 }
+
 
 #[cfg(test)]
 #[path = "open_dialog.test.rs"]

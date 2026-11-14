@@ -217,7 +217,9 @@ impl ExecutionContext {
     /// failure in the same execution keeps its own typed error.
     pub(crate) fn clear_recovered_source_changed(&self) {
         if let Ok(mut failure) = self.accounting.first_failure.lock()
-            && failure.as_ref().is_some_and(|error| error.kind == ExecutionErrorKind::SourceChanged)
+            && failure
+                .as_ref()
+                .is_some_and(|error| error.kind == ExecutionErrorKind::SourceChanged)
         {
             *failure = None;
         }

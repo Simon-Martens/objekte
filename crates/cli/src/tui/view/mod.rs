@@ -1172,11 +1172,7 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
 
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     let area = frame.area();
-    let width = area
-        .width
-        .min(70)
-        .saturating_sub(4)
-        .max(20);
+    let width = area.width.min(70).saturating_sub(4).max(20);
     let height = match overlay {
         Overlay::Actions => {
             (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
@@ -1198,6 +1194,9 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => (app.column_keys().len() as u16 + 2)
             .min(20)
             .min(area.height.saturating_sub(2)),
+        Overlay::Storage => {
+            (app.storage_lines().len() as u16 + 3).min(area.height.saturating_sub(2))
+        }
         Overlay::Help => 24.min(area.height.saturating_sub(2)),
     };
     let panel = Rect {
@@ -1217,6 +1216,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => " Columns ",
         Overlay::Export { all: true } => " Export all matches ",
         Overlay::Export { all: false } => " Export record ",
+        Overlay::Storage => " Index storage · F6 ",
         Overlay::Help => " Keyboard ",
     };
     frame.render_widget(
@@ -1401,6 +1401,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 ))
             })
             .collect(),
+        Overlay::Storage => app.storage_lines().into_iter().map(Line::from).collect(),
         Overlay::Help => (if app.single_collection {
             vec![
                 "Keyboard shortcuts",
@@ -1467,7 +1468,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Sort => app.sort_picker,
         Overlay::History | Overlay::Saved => app.list_picker,
         Overlay::Columns => app.column_picker,
-        Overlay::SaveQuery | Overlay::Export { .. } | Overlay::Help => 0,
+        Overlay::SaveQuery | Overlay::Export { .. } | Overlay::Help | Overlay::Storage => 0,
     };
     let list_area = if overlay == Overlay::Sort && app.single_collection {
         Rect {

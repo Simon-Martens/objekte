@@ -2,9 +2,7 @@ use super::*;
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::{BigramAlphabet, ReturnMode, SortExpression, SortField};
 use std::path::PathBuf;

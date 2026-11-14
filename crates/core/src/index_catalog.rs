@@ -129,8 +129,7 @@ impl PostingAccess<'_> {
             output,
             coverage: index.covered_records,
         };
-        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits)
-        {
+        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
         if index.empty_string_complete

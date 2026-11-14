@@ -53,6 +53,7 @@ pub(crate) fn borrowed_relation_targets() -> usize {
     BORROWED_RELATION_TARGETS.load(std::sync::atomic::Ordering::Relaxed)
 }
 
+
 /// One record address in a pinned base-plus-delta publication. A local slot
 /// alone cannot identify a record after multiple segments have been added.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -62,11 +63,13 @@ pub(crate) struct MergedRecordSlot {
     pub slot: RecordSlot,
 }
 
+
 pub(crate) struct MergedRecord<'a> {
     pub record: &'a crate::inventory::RecordEntry,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
+
 
 /// Query-local relation lookup over a single immutable publication. Forward
 /// edges and reverse postings are borrowed from the relevant segment on demand.
@@ -80,6 +83,7 @@ pub(crate) struct MergedRelationView<'a> {
     // records. Keep only small decoded targets for this query publication.
     target_values: Arc<Vec<Mutex<(HashMap<MergedRecordSlot, Arc<Value>>, usize)>>>,
 }
+
 
 impl<'a> MergedRelationView<'a> {
     /// A worker keeps its own source-availability log while borrowing the
@@ -200,10 +204,14 @@ impl<'a> MergedRelationView<'a> {
                 .record(address.slot)
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
-                .file_index.get(&record.file).copied()
+                .file_index
+                .get(&record.file)
+                .copied()
                 .ok_or("merged segment file missing")?;
             let file = segment
-                .files.get(file_index).map(|file| file.entry.revision)
+                .files
+                .get(file_index)
+                .map(|file| file.entry.revision)
                 .ok_or("merged segment file missing")?;
             (record, file)
         } else {
@@ -227,9 +235,7 @@ impl<'a> MergedRelationView<'a> {
             .catalog
             .entry(record.file)
             .ok_or("active merged record file is retired")?;
-        if file.revision != original_revision
-            || !file.collections.contains(&address.collection)
-        {
+        if file.revision != original_revision || !file.collections.contains(&address.collection) {
             return Err("active merged record file changed without retirement".into());
         }
         Ok(Some(MergedRecord {
@@ -378,12 +384,15 @@ impl<'a> MergedRelationView<'a> {
             let id = if let Some(segment_index) = address.segment {
                 self.segments[index][segment_index]
                     .index
-                    .record(address.slot).map(|record| record.id.0.as_ref())
+                    .record(address.slot)
+                    .map(|record| record.id.0.as_ref())
                     .ok_or("backlink segment slot missing")?
                     .to_string()
             } else {
                 collection.generation.records[address.slot.0 as usize]
-                    .id.0.to_string()
+                    .id
+                    .0
+                    .to_string()
             };
             keyed.push((id, address));
         }
@@ -393,12 +402,14 @@ impl<'a> MergedRelationView<'a> {
     }
 }
 
+
 /// Direction of a declared, collection-scoped relation hop.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HopDirection {
     Forward,
     Backlink,
 }
+
 
 /// One resolved hop and its explicit array selectors in source order.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -410,6 +421,7 @@ pub struct BoundRelationHop {
     pub to: CollectionId,
 }
 
+
 /// A finite path that begins at the matching source and ends at a local term.
 #[derive(Clone, Debug)]
 pub struct BoundRelationPath {
@@ -420,11 +432,13 @@ pub struct BoundRelationPath {
     pub evidence_path: String,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum EvaluationMode {
     Indexed,
     Reference,
 }
+
 
 /// Physical work caused by relation traversal, separate from the source scan.
 #[derive(Clone, Default)]
@@ -439,6 +453,7 @@ pub(crate) struct RelationWork {
     active: Option<Arc<Vec<ActiveRecords>>>,
 }
 
+
 fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
     *counter = counter
         .checked_add(amount)
@@ -448,6 +463,7 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
     }
     Ok(())
 }
+
 
 impl RelationWork {
     pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
@@ -546,6 +562,7 @@ impl RelationWork {
     }
 }
 
+
 /// Combine bounded scanner chunks into one query-wide relation work budget.
 pub(crate) fn check_query_work_budget(
     counters: &crate::workload::WorkCounters,
@@ -584,6 +601,7 @@ pub(crate) fn check_query_work_budget(
     Ok(())
 }
 
+
 /// Immutable traversal choices shared by every hop of one predicate.
 #[derive(Clone, Copy)]
 struct TraverseConfig<'a> {
@@ -594,6 +612,7 @@ struct TraverseConfig<'a> {
     mode: EvaluationMode,
     target_values: Option<&'a TargetValueCache>,
 }
+
 
 /// Bind a Boolean expression with collection-specific relation declarations.
 pub(crate) fn bind_filter_with_relations(
@@ -2231,12 +2250,14 @@ fn read_reference_value(
     Ok(Some(extracted.value))
 }
 
+
 /// Independent logical ID occurrences and presence/null state.
 struct LogicalReferences {
     present: bool,
     null: bool,
     values: Vec<(String, Vec<u32>)>,
 }
+
 
 /// An intentionally separate, iterative oracle for declared ID occurrences.
 /// It walks logical values directly and never consults build-time edge state.

@@ -4,6 +4,7 @@ use std::path::{Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 
+
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
 pub enum Alphabet {
@@ -11,11 +12,13 @@ pub enum Alphabet {
     Unicode,
 }
 
+
 impl Default for Alphabet {
     fn default() -> Self {
         Self::Ascii
     }
 }
+
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Default, Parser)]
@@ -96,6 +99,7 @@ pub struct Arguments {
     pub check_index: bool,
 }
 
+
 /// Canonical collection root and optional explicit schema.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
@@ -103,6 +107,7 @@ pub struct ResolvedPaths {
     pub collection_paths: Vec<PathBuf>,
     pub schema_file: Option<PathBuf>,
 }
+
 
 impl Arguments {
     pub fn multiple_collections(&self) -> bool {
@@ -114,9 +119,8 @@ impl Arguments {
         if self.tui && self.query_file.is_some() {
             return Err("--tui cannot be combined with --query-file".into());
         }
-        let storage_operation = self.load_index.is_some()
-            || self.save_index.is_some()
-            || self.check_index;
+        let storage_operation =
+            self.load_index.is_some() || self.save_index.is_some() || self.check_index;
         if self.query.is_none()
             && self.fts.is_none()
             && self.query_file.is_none()
@@ -227,6 +231,7 @@ impl Arguments {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "arguments.test.rs"]

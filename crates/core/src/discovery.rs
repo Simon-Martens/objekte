@@ -7,12 +7,14 @@ use globset::{Glob, GlobSet, GlobSetBuilder};
 
 use crate::source::PreparedSource;
 
+
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SymlinkPolicy {
     #[default]
     Skip,
     FollowWithinRoot,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Discovery {
@@ -27,6 +29,7 @@ pub struct Discovery {
     pub symlinks: SymlinkPolicy,
 }
 
+
 impl Default for Discovery {
     fn default() -> Self {
         Self {
@@ -40,6 +43,7 @@ impl Default for Discovery {
         }
     }
 }
+
 
 fn compile(patterns: &[String]) -> Result<GlobSet, String> {
     let mut builder = GlobSetBuilder::new();
@@ -64,8 +68,7 @@ fn hidden(path: &Path) -> bool {
 /// selecting one as the collection root is rejected during preparation.
 fn generated_directory(selected: &Path) -> bool {
     selected.file_name().is_some_and(|name| {
-        name == std::ffi::OsStr::new(".objekte")
-            || name == std::ffi::OsStr::new("objekte-indexes")
+        name == std::ffi::OsStr::new(".objekte") || name == std::ffi::OsStr::new("objekte-indexes")
     })
 }
 
@@ -83,9 +86,7 @@ pub(crate) fn contains_generated_directory(path: &Path) -> bool {
 }
 
 fn selected_file_is_generated(selected: &Path) -> bool {
-    selected
-        .parent()
-        .is_some_and(contains_generated_directory)
+    selected.parent().is_some_and(contains_generated_directory)
 }
 
 fn reject_generated_source(source_path: &Path) -> Result<(), String> {
@@ -153,6 +154,7 @@ pub(crate) fn discover_stream(
     let mut aliases = BTreeMap::<PathBuf, PathBuf>::new();
     let mut ancestors = vec![physical_root.clone()];
 
+
     struct Walk<'a> {
         root: &'a Path,
         source_directory: &'a Path,
@@ -165,6 +167,7 @@ pub(crate) fn discover_stream(
         visit: &'a mut dyn FnMut(PathBuf) -> Result<(), String>,
         aliases: &'a mut BTreeMap<PathBuf, PathBuf>,
     }
+
 
     impl Walk<'_> {
         fn directory(
@@ -255,6 +258,7 @@ pub(crate) fn discover_stream(
                     .any(|excluded| selected == excluded)
         }
     }
+
 
     Walk {
         root,
@@ -369,8 +373,7 @@ pub(crate) fn discover_bounded(
             let physical = path
                 .canonicalize()
                 .map_err(|e| format!("{}: {e}", path.display()))?;
-            if !physical.starts_with(&physical_root)
-                || physical_path_is_generated(root, &physical)
+            if !physical.starts_with(&physical_root) || physical_path_is_generated(root, &physical)
             {
                 continue;
             }
@@ -509,7 +512,8 @@ pub(crate) fn selects_file_lexical(
     let Ok(selected) = relative_path.strip_prefix(source_path) else {
         return Ok(false);
     };
-    if selected_file_is_generated(selected) || selected.as_os_str().is_empty()
+    if selected_file_is_generated(selected)
+        || selected.as_os_str().is_empty()
         || (!rules.recursive && selected.components().count() != 1)
         || (!rules.hidden && hidden(selected))
         || relative_path
@@ -549,6 +553,7 @@ pub(crate) fn selects_file_lexical(
     Ok(true)
 }
 
+
 /// Reuse compiled path predicates while a lifecycle scan evaluates many files
 /// against the same collection. The public one-file helper intentionally keeps
 /// its simple validation and construction behavior for direct mutations.
@@ -561,6 +566,7 @@ pub(crate) struct PreparedScanSelection {
     includes: GlobSet,
     excludes: GlobSet,
 }
+
 
 impl PreparedScanSelection {
     pub(crate) fn new(
@@ -610,7 +616,8 @@ impl PreparedScanSelection {
         let Ok(selected) = relative_path.strip_prefix(&self.source_path) else {
             return false;
         };
-        if selected_file_is_generated(selected) || selected.as_os_str().is_empty()
+        if selected_file_is_generated(selected)
+            || selected.as_os_str().is_empty()
             || (!self.rules.recursive && selected.components().count() != 1)
             || (!self.rules.hidden && hidden(selected))
             || relative_path
@@ -679,6 +686,7 @@ impl PreparedScanSelection {
         }
     }
 }
+
 
 #[cfg(test)]
 #[path = "discovery.test.rs"]

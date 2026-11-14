@@ -13,7 +13,7 @@ use std::time::{Duration, Instant};
 use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{RepositoryOptions};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 use serde_json::json;
 
@@ -217,9 +217,11 @@ fn query_loop(task: InitialBuildTask, queries: Vec<Query>) -> Result<serde_json:
 fn resident_bytes() -> Option<u64> {
     proc_kib("VmRSS:")
 }
+
 fn peak_resident_bytes() -> Option<u64> {
     proc_kib("VmHWM:")
 }
+
 fn proc_kib(key: &str) -> Option<u64> {
     fs::read_to_string("/proc/self/status")
         .ok()?
@@ -233,6 +235,7 @@ fn proc_kib(key: &str) -> Option<u64> {
         })
         .map(|kib| kib * 1024)
 }
+
 fn command_output(command: &str, args: &[&str]) -> Option<String> {
     let output = std::process::Command::new(command)
         .args(args)

@@ -1548,7 +1548,13 @@ impl Index {
         cancelled: impl Fn() -> bool,
         progress: impl FnMut(&crate::index_storage::store::SaveProgress),
     ) -> Result<crate::index_storage::store::SaveReport, IndexError> {
-        self.save_to_inner(directory, options, cancelled, progress, &mut crate::index_storage::store::NoHooks)
+        self.save_to_inner(
+            directory,
+            options,
+            cancelled,
+            progress,
+            &mut crate::index_storage::store::NoHooks,
+        )
     }
 
     pub(crate) fn save_to_inner(
@@ -1628,12 +1634,7 @@ impl Index {
                 frontend_metadata: options.frontend_metadata.clone(),
             };
         let mut report = crate::index_storage::store::save_with_control(
-            directory,
-            plan,
-            options,
-            cancelled,
-            progress,
-            hooks,
+            directory, plan, options, cancelled, progress, hooks,
         )
         .map_err(storage_error)?;
         let current = self.view()?.0.publication_id;

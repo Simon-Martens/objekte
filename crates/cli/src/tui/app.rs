@@ -27,13 +27,13 @@ use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
+use super::TuiOptions;
 use super::completion;
 use super::export;
 use super::input::Input;
 use super::record::{self, DisplayRow, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
-use super::TuiOptions;
 
 pub(super) const PAGE_SIZE: usize = 100;
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
@@ -97,6 +97,7 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
@@ -104,12 +105,14 @@ pub(super) enum Focus {
     Results,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Files,
     Detail,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -120,9 +123,11 @@ pub(super) enum Overlay {
     Saved,
     SaveQuery,
     Columns,
+    Storage,
     Export { all: bool },
     Help,
 }
+
 
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
@@ -134,6 +139,7 @@ pub(super) enum Action {
     History,
     Saved,
     Save,
+    Storage,
     ExportRecord,
     ExportAll,
     Case,
@@ -143,14 +149,16 @@ pub(super) enum Action {
     Help,
 }
 
+
 impl Action {
-    pub(super) const ALL: [Self; 14] = [
+    pub(super) const ALL: [Self; 15] = [
         Self::Collections,
         Self::Sort,
         Self::Columns,
         Self::History,
         Self::Saved,
         Self::Save,
+        Self::Storage,
         Self::ExportRecord,
         Self::ExportAll,
         Self::Case,
@@ -170,6 +178,7 @@ impl Action {
             Self::History => "Recent queries                   Ctrl+R",
             Self::Saved => "Saved queries                    Ctrl+B",
             Self::Save => "Save current query               Ctrl+S",
+            Self::Storage => "Index storage                    F6",
             Self::ExportRecord => "Export selected record           Alt+E",
             Self::ExportAll => "Export all matches               Alt+A",
             Self::Case => "Toggle case sensitivity          Alt+C",
@@ -180,6 +189,7 @@ impl Action {
         }
     }
 }
+
 
 /// Search response tagged with the input generation and requested page.
 struct Update {
@@ -193,11 +203,13 @@ struct Update {
     view: Option<IndexView>,
 }
 
+
 struct FilterCompletion {
     context: CompletionContext,
     choices: Vec<String>,
     selected: usize,
 }
+
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
@@ -235,6 +247,10 @@ pub(super) struct App {
     pub(super) export_input: Input,
     pub(super) settings: Settings,
     settings_path: PathBuf,
+    pub(super) storage_directory: Option<PathBuf>,
+    pub(super) storage_task: Option<objekte_search_core::index_storage::task::StorageTask>,
+    storage_check: Option<objekte_search_core::lifecycle::ReconciliationTask>,
+    pub(super) storage_message: Option<String>,
     pub(super) sort: Option<SortField>,
     pub(super) case_sensitive: bool,
     pub(super) regex: bool,
@@ -275,6 +291,7 @@ pub(super) struct App {
     receiver: mpsc::Receiver<Update>,
 }
 
+
 impl App {
     #[cfg(test)]
     pub(super) fn new(repository: Repository) -> Self {
@@ -304,6 +321,7 @@ impl App {
         initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
     ) -> Self {
         let (sender, receiver) = mpsc::channel();
+        let storage_directory = options.storage_directory.clone();
         let (build_task, build_cursor, build_status, snapshot_view) = match initial {
             Some((task, snapshot)) => (
                 Some(task),
@@ -403,6 +421,10 @@ impl App {
             export_input: Input::default(),
             settings,
             settings_path,
+            storage_directory,
+            storage_task: None,
+            storage_check: None,
+            storage_message: None,
             sort: None,
             case_sensitive: true,
             regex: false,
@@ -855,7 +877,10 @@ impl App {
     }
 
     pub(super) fn busy(&self) -> bool {
-        self.searching || self.pending.is_some()
+        self.searching
+            || self.pending.is_some()
+            || self.storage_task.is_some()
+            || self.storage_check.is_some()
     }
 
     pub(super) fn interrupted(&self) -> bool {
@@ -871,6 +896,127 @@ impl App {
             collection: (self.scope != 0).then(|| self.scope_label().to_owned()),
             case_insensitive: !self.case_sensitive,
             regex: self.regex,
+        }
+    }
+
+    pub(super) fn storage_lines(&self) -> Vec<String> {
+        let Ok(status) = self.repo.index().storage_status() else {
+            return vec!["Storage status unavailable".into()];
+        };
+        let origin = match status.origin {
+            objekte_search_core::index_storage::status::StorageOrigin::Built => "Built in memory",
+            objekte_search_core::index_storage::status::StorageOrigin::Loaded => "Loaded from disk",
+        };
+        let freshness = match status.freshness {
+            objekte_search_core::index_storage::status::FreshnessState::NotApplicable => {
+                "Not applicable"
+            }
+            objekte_search_core::index_storage::status::FreshnessState::Unchecked => "Unchecked",
+            objekte_search_core::index_storage::status::FreshnessState::Checking => "Checking",
+            objekte_search_core::index_storage::status::FreshnessState::Checked => "Checked",
+        };
+        let mut lines = vec![
+            format!("Origin: {origin}"),
+            format!(
+                "Location: {}",
+                status.directory.as_ref().map_or_else(
+                    || "not saved".to_owned(),
+                    |path| objekte_search_core::path_repr::query_path(path)
+                )
+            ),
+            format!("Resident packed bytes: {}", status.resident_packed_bytes),
+            format!("Mapped bytes: {}", status.mapped_virtual_bytes),
+            format!("Runs: {}", status.searchable_run_count),
+            format!("Publication: {}", status.publication_id),
+            format!(
+                "Changes: {}",
+                if status.unsaved_changes {
+                    "Unsaved"
+                } else {
+                    "Saved"
+                }
+            ),
+            format!("Source state: {freshness}"),
+        ];
+        if let Some(task) = &self.storage_task {
+            if let Ok(progress) = task.progress() {
+                lines.push(format!(
+                    "Save: {} · {}/{} objects · {} bytes written",
+                    objekte_search_core::index_storage::task::phase_label(progress.phase),
+                    progress.objects_completed,
+                    progress.objects_total,
+                    progress.bytes_written
+                ));
+            }
+        }
+        if let Some(message) = &self.storage_message {
+            lines.push(message.clone());
+        }
+        lines.push(String::new());
+        lines.push("[S] Save index   [C] Check sources   [Esc] Close".into());
+        lines
+    }
+
+    pub(super) fn save_storage(&mut self) {
+        let Some(directory) = self.storage_directory.clone() else {
+            self.storage_message = Some("No storage directory is configured".into());
+            return;
+        };
+        match self
+            .repo
+            .index()
+            .start_save(directory, objekte_search_core::SaveOptions::default())
+        {
+            Ok(task) => {
+                self.storage_task = Some(task);
+                self.storage_message = Some("Saving index…".into());
+            }
+            Err(error) => self.storage_message = Some(format!("Save failed: {error}")),
+        }
+    }
+
+    pub(super) fn check_storage_sources(&mut self) {
+        match self.repo.index().start_reconcile() {
+            Ok(task) => {
+                self.storage_check = Some(task);
+                self.storage_message = Some("Checking sources…".into());
+            }
+            Err(error) => self.storage_message = Some(format!("Check failed: {error}")),
+        }
+    }
+
+    fn poll_storage(&mut self) {
+        if let Some(task) = self.storage_task.as_ref() {
+            if task.is_complete().unwrap_or(false) {
+                let task = self.storage_task.take().expect("storage task");
+                match task.wait() {
+                    Ok(report) => {
+                        self.storage_message = Some(if report.unchanged {
+                            "Index already saved (no-op)".into()
+                        } else {
+                            format!(
+                                "Saved generation {} · {} objects written · {} reused",
+                                report.generation_id, report.objects_written, report.objects_reused
+                            )
+                        });
+                    }
+                    Err(error) => self.storage_message = Some(format!("Save failed: {error}")),
+                }
+            }
+        }
+        if let Some(task) = self.storage_check.as_ref() {
+            if task.is_complete().unwrap_or(false) {
+                let task = self.storage_check.take().expect("check task");
+                match task.wait() {
+                    Ok(report) => {
+                        self.storage_message = Some(format!(
+                            "Checked {} files · {} added · {} updated · {} removed",
+                            report.examined, report.added, report.updated, report.removed
+                        ));
+                    }
+                    Err(error) => self.storage_message = Some(format!("Check failed: {error}")),
+                }
+            }
         }
     }
 
@@ -1235,6 +1381,7 @@ impl App {
 
     pub(super) fn tick(&mut self, now: Instant) {
         self.poll_build();
+        self.poll_storage();
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -1703,6 +1850,7 @@ impl App {
         }
     }
 }
+
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {

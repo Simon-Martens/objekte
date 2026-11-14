@@ -8,10 +8,11 @@ use crate::build::AdmissionBreakdown;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
 use crate::model::Number;
-use crate::posting::{ScalarKey, StructuralKey, StructuralFacts};
+use crate::posting::{ScalarKey, StructuralFacts, StructuralKey};
 use crate::repository::IncrementalSegmentProfile;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 use serde::{Deserialize, Serialize};
+
 
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
@@ -20,6 +21,7 @@ pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
 }
+
 
 /// The preparation path can admit several files before sealing one segment.
 /// This avoids a permanent one-segment-per-file layout.
@@ -40,6 +42,7 @@ pub(crate) struct SegmentAdmission {
     failed_parses: u64,
 }
 
+
 /// Owned, locally slotted contribution set. `into_indexed` will merge and
 /// finalize every index family before this is published by the coordinator.
 pub(crate) struct CollectionSegment {
@@ -56,6 +59,7 @@ pub(crate) struct CollectionSegment {
     pub failed_parses: u64,
 }
 
+
 /// Native segment accounting used by maintenance limits and relation
 /// scheduling. Values are saturating planning estimates, not strict limits.
 #[derive(Clone, Copy, Debug, Default, Serialize, Deserialize)]
@@ -67,11 +71,13 @@ pub(crate) struct SegmentAccounting {
     pub index_family_bytes: usize,
 }
 
+
 pub(crate) struct SegmentBatch {
     base: u32,
     count: u32,
     contribution: BatchContribution,
 }
+
 
 struct EagerSpec {
     definition: Arc<CollectionDefinition>,
@@ -79,6 +85,7 @@ struct EagerSpec {
     inference_config: InferenceConfig,
     collection_count: usize,
 }
+
 
 struct SegmentAggregate {
     postings: PostingCollection,
@@ -92,6 +99,7 @@ struct SegmentAggregate {
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
 }
+
 
 impl SegmentAggregate {
     fn new(
@@ -251,6 +259,7 @@ impl SegmentAggregate {
     }
 }
 
+
 /// Ordinary coalescing target. One oversized physical file remains eligible
 /// as a singleton, matching fresh build's largest-file allowance.
 #[derive(Clone, Copy)]
@@ -259,6 +268,7 @@ pub(crate) struct SegmentLimits {
     pub records: usize,
     pub source_bytes: u64,
 }
+
 
 impl Default for SegmentLimits {
     fn default() -> Self {
@@ -269,6 +279,7 @@ impl Default for SegmentLimits {
         }
     }
 }
+
 
 /// Complete local search structures. The publication owner assigns a segment
 /// ID and combines it with the base and other live segments in one IndexView.
@@ -301,6 +312,7 @@ pub(crate) struct IndexedCollectionSegment {
     /// measurement. Active-mask-only retirement retains the full physical size.
     pub accounting: SegmentAccounting,
 }
+
 
 impl SegmentAdmission {
     pub fn new(collection: CollectionId, source: &PreparedSource) -> Self {
@@ -575,6 +587,7 @@ impl SegmentAdmission {
     }
 }
 
+
 impl CollectionSegment {
     pub fn into_indexed(
         self,
@@ -742,6 +755,7 @@ impl CollectionSegment {
     }
 }
 
+
 const ACCOUNTING_OVERHEAD: usize = 48;
 
 fn bitmap_bytes(bitmap: &RoaringBitmap) -> usize {
@@ -847,7 +861,11 @@ fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
             .saturating_add(path_bytes(path))
             .saturating_add(posting_bytes(index));
     }
-    for (path, bitmap) in state.empty_selections.iter().chain(state.short_string_coverage.iter()) {
+    for (path, bitmap) in state
+        .empty_selections
+        .iter()
+        .chain(state.short_string_coverage.iter())
+    {
         total = total
             .saturating_add(path_bytes(path))
             .saturating_add(bitmap_bytes(bitmap))
@@ -861,19 +879,21 @@ fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
     total
 }
 
+
 impl IndexedCollectionSegment {
     /// Recompute the cached planning estimate after native finalization or a
     /// metadata rewrite. Callers never need this for Arc-reused segments.
     pub(crate) fn recompute_accounting(&mut self) {
         let mut retained = self.source_id.len();
-        retained = retained.saturating_add(
-            self.files.capacity() * std::mem::size_of::<SegmentFile>(),
-        );
+        retained =
+            retained.saturating_add(self.files.capacity() * std::mem::size_of::<SegmentFile>());
         for file in &self.files {
             retained = retained
                 .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
                 .saturating_add(file.entry.relative_path.as_path().as_os_str().len())
-                .saturating_add(file.entry.collections.capacity() * std::mem::size_of::<CollectionId>())
+                .saturating_add(
+                    file.entry.collections.capacity() * std::mem::size_of::<CollectionId>(),
+                )
                 .saturating_add(
                     file.entry.diagnostics.capacity()
                         * std::mem::size_of::<crate::inventory::SourceDiagnostic>(),
@@ -889,7 +909,9 @@ impl IndexedCollectionSegment {
             }
         }
         retained = retained
-            .saturating_add(self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>())
+            .saturating_add(
+                self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>(),
+            )
             .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(
                 self.file_index
@@ -976,7 +998,11 @@ impl IndexedCollectionSegment {
         self.files.len()
     }
 
-    pub(crate) fn extend_file_slots(&self, index: usize, matches: &mut RoaringBitmap) -> Result<(), String> {
+    pub(crate) fn extend_file_slots(
+        &self,
+        index: usize,
+        matches: &mut RoaringBitmap,
+    ) -> Result<(), String> {
         let file = self.files.get(index).ok_or("segment file row missing")?;
         matches.extend(file.records.iter().map(|slot| slot.0));
         Ok(())
@@ -1002,20 +1028,26 @@ impl IndexedCollectionSegment {
             })
             .collect::<Vec<_>>();
         for (path, index) in &source.indexes {
-            for (part, scattered) in parts.iter_mut()
-                .zip(scatter_posting_partitions(index, routing)?) {
+            for (part, scattered) in parts
+                .iter_mut()
+                .zip(scatter_posting_partitions(index, routing)?)
+            {
                 part.indexes.insert(path.clone(), scattered);
             }
         }
         for (path, bitmap) in &source.empty_selections {
-            for (part, scattered) in parts.iter_mut()
-                .zip(scatter_bitmap_partitions(bitmap, routing)?) {
+            for (part, scattered) in parts
+                .iter_mut()
+                .zip(scatter_bitmap_partitions(bitmap, routing)?)
+            {
                 part.empty_selections.insert(path.clone(), scattered);
             }
         }
         for (path, bitmap) in &source.short_string_coverage {
-            for (part, scattered) in parts.iter_mut()
-                .zip(scatter_bitmap_partitions(bitmap, routing)?) {
+            for (part, scattered) in parts
+                .iter_mut()
+                .zip(scatter_bitmap_partitions(bitmap, routing)?)
+            {
                 part.short_string_coverage.insert(path.clone(), scattered);
             }
         }
@@ -1070,12 +1102,14 @@ impl IndexedCollectionSegment {
     }
 }
 
+
 /// The offsets translate old shard-local slots to the consolidated local
 /// namespace. Publication must translate each old active mask with them.
 pub(crate) struct ConsolidatedSegment {
     pub index: IndexedCollectionSegment,
     pub offsets: Vec<u32>,
 }
+
 
 impl ConsolidatedSegment {
     /// Preserve retired local slots exactly when publishing the consolidated
@@ -1108,6 +1142,7 @@ impl ConsolidatedSegment {
         ActiveRecords::all(self.index.records.len())?.retired(&retired)
     }
 }
+
 
 fn merge_bigram_index(
     target: &mut BigramIndex,
@@ -1367,6 +1402,7 @@ fn consolidate_inference(
     }))
 }
 
+
 impl IndexedCollectionSegment {
     /// Combine already indexed shards without opening or parsing source files.
     /// Shards with overlapping FileIds or logical IDs must first be resolved
@@ -1411,7 +1447,10 @@ impl IndexedCollectionSegment {
             let base = u32::try_from(records.len()).map_err(|_| "segment slot overflow")?;
             offsets.push(base);
             for file_number in 0..shard.file_count() {
-                let file = shard.files.get(file_number).ok_or("segment file row missing")?;
+                let file = shard
+                    .files
+                    .get(file_number)
+                    .ok_or("segment file row missing")?;
                 let mut entry = file.entry.clone();
                 if file_index.insert(entry.id, files.len()).is_some() {
                     return Err("overlapping physical file in consolidation".into());
@@ -1435,7 +1474,10 @@ impl IndexedCollectionSegment {
                 });
             }
             for slot in 0..shard.record_count() {
-                let mut record = shard.record(RecordSlot(slot as u32)).ok_or("segment record row missing")?.clone();
+                let mut record = shard
+                    .record(RecordSlot(slot as u32))
+                    .ok_or("segment record row missing")?
+                    .clone();
                 record.slot = RecordSlot(
                     base.checked_add(record.slot.0)
                         .ok_or("record slot overflow")?,
@@ -1575,32 +1617,33 @@ impl IndexedCollectionSegment {
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
         let mut index = IndexedCollectionSegment {
-                collection: first.collection,
-                source_id: first.source_id.clone(),
-                source_version: first.source_version,
-                files,
-                file_index,
-                records,
-                id_lookup,
-                    identity_order,
-                postings,
-                inference,
-                custom_postings,
-                raw,
-                fallback_text,
-                custom_text,
-                logical_records,
-                empty_array_records,
-                sorting,
-                relations,
-                record_parses,
-                failed_parses,
-                accounting: SegmentAccounting::default(),
+            collection: first.collection,
+            source_id: first.source_id.clone(),
+            source_version: first.source_version,
+            files,
+            file_index,
+            records,
+            id_lookup,
+            identity_order,
+            postings,
+            inference,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sorting,
+            relations,
+            record_parses,
+            failed_parses,
+            accounting: SegmentAccounting::default(),
         };
         index.recompute_accounting();
         Ok(ConsolidatedSegment { index, offsets })
     }
 }
+
 
 /// A dense active-only shard plus a locator translation for callers that
 /// retained an old local slot. Retired slots map to `None`.
@@ -1610,10 +1653,12 @@ pub(crate) struct CompactedSegment {
     pub old_to_new: Vec<Option<RecordSlot>>,
 }
 
+
 pub(crate) struct PostingProjection {
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
 }
+
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
     PostingIndex {
@@ -1656,7 +1701,10 @@ fn posting_destination(
     routing: &PartitionRouting,
     old: u32,
 ) -> Result<Option<(usize, RecordSlot)>, String> {
-    routing.locations.get(old as usize).copied()
+    routing
+        .locations
+        .get(old as usize)
+        .copied()
         .ok_or_else(|| "posting slot outside source".into())
 }
 
@@ -1664,7 +1712,10 @@ fn scatter_posting_partitions(
     index: &PostingIndex,
     routing: &PartitionRouting,
 ) -> Result<Vec<PostingIndex>, String> {
-    let mut parts = routing.logical_counts.iter().copied()
+    let mut parts = routing
+        .logical_counts
+        .iter()
+        .copied()
         .map(|count| empty_projected_posting(index, count))
         .collect::<Vec<_>>();
     for old in index.presence.iter() {
@@ -1686,8 +1737,14 @@ fn scatter_posting_partitions(
         for (key, bitmap) in &facts.postings {
             for old in bitmap.iter() {
                 if let Some((part, slot)) = posting_destination(routing, old)? {
-                    parts[part].structural.as_mut().unwrap()
-                        .postings.entry(*key).or_default().insert(slot.0);
+                    parts[part]
+                        .structural
+                        .as_mut()
+                        .unwrap()
+                        .postings
+                        .entry(*key)
+                        .or_default()
+                        .insert(slot.0);
                 }
             }
         }
@@ -1714,6 +1771,7 @@ fn scatter_posting_partitions(
     Ok(parts)
 }
 
+
 /// A partition reads one shared source-to-part routing table. It never
 /// allocates or scans a source-sized slot table for each output shard.
 pub(crate) struct PartitionRouting {
@@ -1722,31 +1780,39 @@ pub(crate) struct PartitionRouting {
     logical_counts: Vec<u32>,
 }
 
+
 pub(crate) struct BigramProjection {
     raw: BigramIndex,
     fallback: BigramIndex,
     custom: HashMap<(Vec<String>, String), BigramIndex>,
 }
 
+
 pub(crate) struct DomainProjection {
     logical: RoaringBitmap,
     empty_array: RoaringBitmap,
 }
+
 
 fn scatter_bitmap_partitions(
     source: &RoaringBitmap,
     routing: &PartitionRouting,
 ) -> Result<Vec<RoaringBitmap>, String> {
     let mut parts = (0..routing.selected.len())
-        .map(|_| RoaringBitmap::new()).collect::<Vec<_>>();
+        .map(|_| RoaringBitmap::new())
+        .collect::<Vec<_>>();
     for old in source.iter() {
-        if let Some((part, slot)) = routing.locations
-            .get(old as usize).ok_or("domain slot outside source")? {
+        if let Some((part, slot)) = routing
+            .locations
+            .get(old as usize)
+            .ok_or("domain slot outside source")?
+        {
             parts[*part].insert(slot.0);
         }
     }
     Ok(parts)
 }
+
 
 impl PartitionRouting {
     pub(crate) fn new(
@@ -1788,10 +1854,15 @@ impl PartitionRouting {
     }
 }
 
+
 enum SlotMap<'a> {
     Dense(&'a [Option<RecordSlot>]),
-    Partition { routing: &'a PartitionRouting, part: usize },
+    Partition {
+        routing: &'a PartitionRouting,
+        part: usize,
+    },
 }
+
 
 impl SlotMap<'_> {
     fn len(&self) -> usize {
@@ -1804,10 +1875,9 @@ impl SlotMap<'_> {
     fn get(&self, old: usize) -> Option<Option<RecordSlot>> {
         match self {
             Self::Dense(slots) => slots.get(old).copied(),
-            Self::Partition { routing, part } => routing
-                .locations
-                .get(old)
-                .map(|location| location.and_then(|(owner, slot)| (owner == *part).then_some(slot))),
+            Self::Partition { routing, part } => routing.locations.get(old).map(|location| {
+                location.and_then(|(owner, slot)| (owner == *part).then_some(slot))
+            }),
         }
     }
 
@@ -1850,10 +1920,8 @@ impl SlotMap<'_> {
     }
 }
 
-fn project_bitmap(
-    source: &RoaringBitmap,
-    slots: &SlotMap<'_>,
-) -> Result<RoaringBitmap, String> {
+
+fn project_bitmap(source: &RoaringBitmap, slots: &SlotMap<'_>) -> Result<RoaringBitmap, String> {
     project_bitmap_in_range(source, slots, None)
 }
 
@@ -1967,11 +2035,13 @@ fn scatter_bigram_partitions(
     index: &BigramIndex,
     routing: &PartitionRouting,
 ) -> Result<Vec<BigramIndex>, String> {
-    let mut parts = routing.selected.iter()
+    let mut parts = routing
+        .selected
+        .iter()
         .map(|selected| {
             let mut part = BigramIndex::new(index.alphabet);
-            part.record_count = u32::try_from(selected.len())
-                .map_err(|_| "partition bigram slot overflow")?;
+            part.record_count =
+                u32::try_from(selected.len()).map_err(|_| "partition bigram slot overflow")?;
             Ok(part)
         })
         .collect::<Result<Vec<_>, String>>()?;
@@ -2037,7 +2107,9 @@ fn project_sorting(
             .take(records.len())
             .collect::<Vec<_>>();
         slots.for_each_selected(|old, slot| {
-            let key = old_keys.get(old).ok_or("sort projection slot out of bounds")?;
+            let key = old_keys
+                .get(old)
+                .ok_or("sort projection slot out of bounds")?;
             let target = keys
                 .get_mut(slot.0 as usize)
                 .ok_or("sort projection slot out of bounds")?;
@@ -2132,7 +2204,8 @@ fn finish_projected_inference(
     eligible: u64,
     new_count: usize,
 ) -> Result<(), String> {
-    let unavailable = (new_count as u64).checked_sub(eligible)
+    let unavailable = (new_count as u64)
+        .checked_sub(eligible)
         .ok_or("inference eligible domain exceeds record count")?;
     state.report.eligible_records = eligible;
     state.report.unavailable_records = unavailable;
@@ -2219,6 +2292,7 @@ fn finish_projected_inference(
     Ok(())
 }
 
+
 impl IndexedCollectionSegment {
     pub(crate) fn project_domains_for_partitions(
         &self,
@@ -2226,12 +2300,20 @@ impl IndexedCollectionSegment {
     ) -> Result<Vec<DomainProjection>, String> {
         let logical = scatter_bitmap_partitions(&self.logical_records, routing)?;
         let empty_array = scatter_bitmap_partitions(&self.empty_array_records, routing)?;
-        if logical.iter().zip(&routing.logical_counts)
-            .any(|(domain, &count)| domain.len() != count as u64) {
+        if logical
+            .iter()
+            .zip(&routing.logical_counts)
+            .any(|(domain, &count)| domain.len() != count as u64)
+        {
             return Err("partition logical domain count mismatch".into());
         }
-        Ok(logical.into_iter().zip(empty_array)
-            .map(|(logical, empty_array)| DomainProjection { logical, empty_array })
+        Ok(logical
+            .into_iter()
+            .zip(empty_array)
+            .map(|(logical, empty_array)| DomainProjection {
+                logical,
+                empty_array,
+            })
             .collect())
     }
 
@@ -2243,10 +2325,15 @@ impl IndexedCollectionSegment {
         routing: &PartitionRouting,
     ) -> Result<Vec<SortCollection>, String> {
         let source_len = self.record_count();
-        let mut parts = routing.selected.iter()
+        let mut parts = routing
+            .selected
+            .iter()
             .map(|_| SortCollection {
                 columns: HashMap::with_capacity(self.sorting.columns.len()),
-                composites: self.sorting.composites.iter()
+                composites: self
+                    .sorting
+                    .composites
+                    .iter()
                     .map(|order| CompositeSortOrder {
                         fields: order.fields.clone(),
                         order: Vec::new(),
@@ -2262,26 +2349,42 @@ impl IndexedCollectionSegment {
                 return Err("sort projection coverage mismatch".into());
             }
             for (part, selected) in routing.selected.iter().enumerate() {
-                let keys = selected.iter()
-                    .map(|&old| original.keys.get(old as usize).cloned()
-                        .ok_or("sort projection slot out of bounds"))
+                let keys = selected
+                    .iter()
+                    .map(|&old| {
+                        original
+                            .keys
+                            .get(old as usize)
+                            .cloned()
+                            .ok_or("sort projection slot out of bounds")
+                    })
                     .collect::<Result<Vec<_>, _>>()?;
-                parts[part].columns.insert(path.clone(), SortColumn {
-                    path: original.path.clone(),
-                    kind: original.kind.clone(),
-                    keys,
-                    ascending: Vec::with_capacity(selected.len()),
-                    descending: Vec::with_capacity(selected.len()),
-                    locale: original.locale.clone(),
-                    options: original.options,
-                    collation_version: original.collation_version.clone(),
-                });
+                parts[part].columns.insert(
+                    path.clone(),
+                    SortColumn {
+                        path: original.path.clone(),
+                        kind: original.kind.clone(),
+                        keys,
+                        ascending: Vec::with_capacity(selected.len()),
+                        descending: Vec::with_capacity(selected.len()),
+                        locale: original.locale.clone(),
+                        options: original.options,
+                        collation_version: original.collation_version.clone(),
+                    },
+                );
             }
-            for (source_order, descending) in [(&original.ascending, false), (&original.descending, true)] {
+            for (source_order, descending) in
+                [(&original.ascending, false), (&original.descending, true)]
+            {
                 for old in source_order {
-                    if let Some((part, slot)) = routing.locations
-                        .get(old.0 as usize).ok_or("sort order slot outside source")? {
-                        let column = parts[*part].columns.get_mut(path)
+                    if let Some((part, slot)) = routing
+                        .locations
+                        .get(old.0 as usize)
+                        .ok_or("sort order slot outside source")?
+                    {
+                        let column = parts[*part]
+                            .columns
+                            .get_mut(path)
                             .ok_or("partition sort column missing")?;
                         if descending {
                             column.descending.push(*slot);
@@ -2294,13 +2397,19 @@ impl IndexedCollectionSegment {
         }
         for (number, original) in self.sorting.composites.iter().enumerate() {
             if original.order.len() != source_len
-                || original.fields.iter().any(|field| !self.sorting.columns.contains_key(&field.path))
+                || original
+                    .fields
+                    .iter()
+                    .any(|field| !self.sorting.columns.contains_key(&field.path))
             {
                 return Err("composite sort projection coverage mismatch".into());
             }
             for old in &original.order {
-                if let Some((part, slot)) = routing.locations
-                    .get(old.0 as usize).ok_or("composite sort slot outside source")? {
+                if let Some((part, slot)) = routing
+                    .locations
+                    .get(old.0 as usize)
+                    .ok_or("composite sort slot outside source")?
+                {
                     parts[*part].composites[number].order.push(*slot);
                 }
             }
@@ -2308,9 +2417,14 @@ impl IndexedCollectionSegment {
         for (part, sorting) in parts.iter().enumerate() {
             let expected = routing.selected[part].len();
             if sorting.columns.values().any(|column| {
-                column.keys.len() != expected || column.ascending.len() != expected
+                column.keys.len() != expected
+                    || column.ascending.len() != expected
                     || column.descending.len() != expected
-            }) || sorting.composites.iter().any(|order| order.order.len() != expected) {
+            }) || sorting
+                .composites
+                .iter()
+                .any(|order| order.order.len() != expected)
+            {
                 return Err("partition sort order coverage mismatch".into());
             }
         }
@@ -2330,13 +2444,21 @@ impl IndexedCollectionSegment {
             .collect::<Vec<_>>();
         for (key, index) in &self.custom_text {
             for (destination, projected) in scatter_bigram_partitions(index, routing)?
-                .into_iter().enumerate()
+                .into_iter()
+                .enumerate()
             {
                 custom[destination].insert(key.clone(), projected);
             }
         }
-        Ok(raw.into_iter().zip(fallback).zip(custom)
-            .map(|((raw, fallback), custom)| BigramProjection { raw, fallback, custom })
+        Ok(raw
+            .into_iter()
+            .zip(fallback)
+            .zip(custom)
+            .map(|((raw, fallback), custom)| BigramProjection {
+                raw,
+                fallback,
+                custom,
+            })
             .collect())
     }
 
@@ -2356,18 +2478,25 @@ impl IndexedCollectionSegment {
             })
             .collect::<Vec<_>>();
         for (path, index) in &self.postings.fields {
-            for (part, scattered) in projected.iter_mut()
-                .zip(scatter_posting_partitions(index, routing)?) {
+            for (part, scattered) in projected
+                .iter_mut()
+                .zip(scatter_posting_partitions(index, routing)?)
+            {
                 part.postings.fields.insert(path.clone(), scattered);
             }
         }
         for (key, custom) in &self.custom_postings {
-            for (part, scattered) in projected.iter_mut()
-                .zip(scatter_posting_partitions(&custom.index, routing)?) {
-                part.custom_postings.insert(key.clone(), CustomPostingIndex {
-                    index: scattered,
-                    complete: custom.complete,
-                });
+            for (part, scattered) in projected
+                .iter_mut()
+                .zip(scatter_posting_partitions(&custom.index, routing)?)
+            {
+                part.custom_postings.insert(
+                    key.clone(),
+                    CustomPostingIndex {
+                        index: scattered,
+                        complete: custom.complete,
+                    },
+                );
             }
         }
         Ok(projected)
@@ -2393,7 +2522,13 @@ impl IndexedCollectionSegment {
         }
         let active = ActiveRecords::all(self.record_count())?;
         Ok(self
-            .compact_active_mapped(&active, self.record_count(), |_| true, Some(new_slots), None)?
+            .compact_active_mapped(
+                &active,
+                self.record_count(),
+                |_| true,
+                Some(new_slots),
+                None,
+            )?
             .index)
     }
 
@@ -2417,7 +2552,9 @@ impl IndexedCollectionSegment {
         let mut old_to_new = Vec::with_capacity(self.record_count());
         let mut next = 0u32;
         for slot in 0..self.record_count() {
-            let record = self.record(RecordSlot(slot as u32)).ok_or("compaction record row missing")?;
+            let record = self
+                .record(RecordSlot(slot as u32))
+                .ok_or("compaction record row missing")?;
             if record.slot.0 as usize != old_to_new.len() {
                 return Err("compaction record slots out of order".into());
             }
@@ -2479,7 +2616,12 @@ impl IndexedCollectionSegment {
         let next = u32::try_from(selected.len()).map_err(|_| "partition slot overflow")?;
         let mut file_indices = selected_files
             .iter()
-            .map(|id| self.file_index.get(id).copied().ok_or_else(|| "partition file missing".to_owned()))
+            .map(|id| {
+                self.file_index
+                    .get(id)
+                    .copied()
+                    .ok_or_else(|| "partition file missing".to_owned())
+            })
             .collect::<Result<Vec<_>, _>>()?;
         file_indices.sort_unstable();
         self.compact_with_mapping(
@@ -2514,7 +2656,8 @@ impl IndexedCollectionSegment {
         let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
         let mut selected_by_file: HashMap<FileId, Vec<RecordSlot>> = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self.record(RecordSlot(old as u32))
+            let record = self
+                .record(RecordSlot(old as u32))
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2528,7 +2671,9 @@ impl IndexedCollectionSegment {
             None => Box::new(all_files),
         };
         for index in file_indices {
-            let file = self.files.get(index)
+            let file = self
+                .files
+                .get(index)
                 .ok_or("compaction file index out of bounds")?;
             let retained = retain_file(&file.entry);
             let mut owned = selected_by_file.remove(&file.entry.id).unwrap_or_default();
@@ -2571,7 +2716,8 @@ impl IndexedCollectionSegment {
         let mut records = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self.record(RecordSlot(old as u32))
+            let record = self
+                .record(RecordSlot(old as u32))
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2635,17 +2781,15 @@ impl IndexedCollectionSegment {
                 .custom_postings
                 .iter()
                 .map(|(key, custom)| {
-                    project_posting(&custom.index, slot_map, logical_count, bounds).map(
-                        |index| {
-                            (
-                                key.clone(),
-                                CustomPostingIndex {
-                                    index,
-                                    complete: custom.complete,
-                                },
-                            )
-                        },
-                    )
+                    project_posting(&custom.index, slot_map, logical_count, bounds).map(|index| {
+                        (
+                            key.clone(),
+                            CustomPostingIndex {
+                                index,
+                                complete: custom.complete,
+                            },
+                        )
+                    })
                 })
                 .collect::<Result<HashMap<_, _>, _>>()?;
             (postings, custom_postings)
@@ -2655,10 +2799,11 @@ impl IndexedCollectionSegment {
         } else {
             let raw = project_bigram(&self.raw, slot_map, next, bounds)?;
             let fallback = project_bigram(&self.fallback_text, slot_map, next, bounds)?;
-            let custom = self.custom_text.iter()
+            let custom = self
+                .custom_text
+                .iter()
                 .map(|(key, index)| {
-                    project_bigram(index, slot_map, next, bounds)
-                        .map(|index| (key.clone(), index))
+                    project_bigram(index, slot_map, next, bounds).map(|index| (key.clone(), index))
                 })
                 .collect::<Result<HashMap<_, _>, _>>()?;
             (raw, fallback, custom)
@@ -2681,7 +2826,9 @@ impl IndexedCollectionSegment {
         };
         let relations = if let Some(projected) = relation_projection {
             if projected.len() != self.relations.len()
-                || projected.iter().any(|relation| relation.record_count() != next)
+                || projected
+                    .iter()
+                    .any(|relation| relation.record_count() != next)
             {
                 return Err("partition relation projection mismatch".into());
             }
@@ -2730,6 +2877,7 @@ impl IndexedCollectionSegment {
         Ok(index)
     }
 }
+
 
 #[cfg(test)]
 #[path = "mutation_segment.test.rs"]

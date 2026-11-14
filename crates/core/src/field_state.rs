@@ -5,6 +5,7 @@
 
 use crate::model::Value;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum StatePredicate {
     NonEmpty,
@@ -15,6 +16,7 @@ pub(crate) enum StatePredicate {
     Object,
     Exists,
 }
+
 
 pub(crate) fn selected_matches(selected: Option<&[&Value]>, predicate: StatePredicate) -> bool {
     selected

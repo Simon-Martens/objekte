@@ -210,7 +210,7 @@ fn packed_ranges_report_visited_keys_and_respect_restriction() {
 
 #[test]
 fn packed_value_and_length_keys_enumerate_order_and_counts() {
-    let (segment, values) = scalar_segment();
+    let (segment, _values) = scalar_segment();
     let field = segment.postings().field(&["value".to_owned()]).unwrap();
     let keys = field.value_keys(Unbounded, Unbounded, false).unwrap();
     assert_eq!(keys.len(), 21);
@@ -235,7 +235,7 @@ fn packed_value_and_length_keys_enumerate_order_and_counts() {
 
 #[test]
 fn packed_bigram_candidates_match_reference_sets() {
-    let (segment, values) = scalar_segment();
+    let (segment, _values) = scalar_segment();
     let raw = segment
         .bigrams()
         .binding(super::bigram_builder::BigramBindingKind::Raw)
@@ -294,7 +294,7 @@ fn packed_bigram_candidates_match_reference_sets() {
 
 #[test]
 fn missing_gram_is_an_empty_candidate_domain() {
-    let (segment, values) = scalar_segment();
+    let (segment, _values) = scalar_segment();
     let raw = segment
         .bigrams()
         .binding(super::bigram_builder::BigramBindingKind::Raw)

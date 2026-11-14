@@ -1,7 +1,9 @@
 use super::*;
 
+
 #[derive(Default)]
 struct StreamCollector(String);
+
 
 impl FoldedSink for StreamCollector {
     fn ascii(&mut self, byte: u8) {
@@ -12,6 +14,7 @@ impl FoldedSink for StreamCollector {
         self.0.push(scalar);
     }
 }
+
 
 #[test]
 fn direct_folded_stream_and_gram_windows_match_full_fold_oracle() {
@@ -365,21 +368,27 @@ fn block_admission_rejects_coverage_alphabet_and_slot_overflow() {
     let mut global = BigramContribution::new(BigramAlphabet::Ascii);
     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
     local.add_record(RecordSlot(0), ["ab"]).unwrap();
-    assert!(global
-        .merge_shifted(local.finish_blocks().unwrap(), 1)
-        .is_err());
+    assert!(
+        global
+            .merge_shifted(local.finish_blocks().unwrap(), 1)
+            .is_err()
+    );
     let mut unicode = BigramBuilder::new(BigramAlphabet::Unicode);
     unicode.add_record(RecordSlot(0), ["ab"]).unwrap();
-    assert!(global
-        .merge_shifted(unicode.finish_blocks().unwrap(), 0)
-        .is_err());
+    assert!(
+        global
+            .merge_shifted(unicode.finish_blocks().unwrap(), 0)
+            .is_err()
+    );
     global.record_count = u32::MAX - 1;
     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
     local.add_record(RecordSlot(0), ["ab"]).unwrap();
     local.add_record(RecordSlot(1), ["cd"]).unwrap();
-    assert!(global
-        .merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1)
-        .is_err());
+    assert!(
+        global
+            .merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1)
+            .is_err()
+    );
 }
 
 #[test]
@@ -412,48 +421,62 @@ fn packed_columns_are_contiguous_and_reject_malformed_descriptors() {
         };
         let mut bad = make();
         bad.chunks[0].normal.spans[0].start = 1;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].normal.spans[0].len = u32::MAX;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].normal.spans[1].key = bad.chunks[0].normal.spans[0].key;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].normal.blocks.push(GramBlock {
             first_slot: 0,
             bits: 1,
         });
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].normal.blocks[0].bits = 0;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].normal.blocks[0].first_slot = 1;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
 
         let mut bad = make();
         bad.chunks[0].count = 0;
-        assert!(BigramContribution::new(alphabet)
-            .merge_shifted(bad, 0)
-            .is_err());
+        assert!(
+            BigramContribution::new(alphabet)
+                .merge_shifted(bad, 0)
+                .is_err()
+        );
     }
 }
 
@@ -551,9 +574,7 @@ fn diagnostic_gram_set_counts_existing_record_bits() {
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -872,12 +893,16 @@ fn ascii_and_unicode_candidates_are_conservative() {
     for literal in ["Müller", "Straße", "Leipzig", "ü", "not there"] {
         for (slot, record) in segments.iter().enumerate() {
             if record[0].text.contains(literal) {
-                assert!(ascii
-                    .candidates(literal)
-                    .is_none_or(|set| set.contains(slot as u32)));
-                assert!(unicode
-                    .candidates(literal)
-                    .is_none_or(|set| set.contains(slot as u32)));
+                assert!(
+                    ascii
+                        .candidates(literal)
+                        .is_none_or(|set| set.contains(slot as u32))
+                );
+                assert!(
+                    unicode
+                        .candidates(literal)
+                        .is_none_or(|set| set.contains(slot as u32))
+                );
             }
         }
     }

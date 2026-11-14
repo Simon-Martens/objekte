@@ -30,15 +30,18 @@ use super::{
     NextWorkspaceTab, PreviousWorkspaceTab,
 };
 
+
 #[derive(Clone)]
 struct WorkspaceDrag {
     id: TabId,
 }
 
+
 struct WorkspaceDragPreview {
     title: String,
     dark: bool,
 }
+
 
 impl Render for WorkspaceDragPreview {
     fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
@@ -54,6 +57,7 @@ impl Render for WorkspaceDragPreview {
             .child(self.title.clone())
     }
 }
+
 
 /// A compact, left-aligned navigation control with keyboard and screen-reader support.
 fn sidebar_item(
@@ -229,6 +233,7 @@ fn workspace_tab_menu(
             }),
     )
 }
+
 
 impl DesktopView {
     fn render_close_dialog(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -1773,6 +1778,7 @@ impl DesktopView {
     }
 }
 
+
 impl DesktopView {
     pub(super) fn preview_docked_in(&self, pane: Pane) -> bool {
         self.workspace_layout
@@ -2727,6 +2733,7 @@ impl DesktopView {
     }
 }
 
+
 impl Render for DesktopView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         self.state.refresh_visible_files_if_needed();
@@ -2960,15 +2967,15 @@ impl Render for DesktopView {
                 this.child(self.render_help(width, height, cx))
             })
             .child(self.render_status(cx))
-            .when(
-                self.state.open_dialog.visible,
-                |this| this.child(self.render_open_dialog(width, height, cx)),
-            )
+            .when(self.state.open_dialog.visible, |this| {
+                this.child(self.render_open_dialog(width, height, cx))
+            })
             .when(self.state.closing_index.is_some(), |this| {
                 this.child(self.render_close_dialog(cx))
             })
     }
 }
+
 
 #[cfg(test)]
 mod directory_tree_tests {

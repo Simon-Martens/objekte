@@ -23,6 +23,7 @@ use crate::source::{RecordRangeReader, ScanProjection};
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
 
+
 /// Inclusive or exclusive typed dictionary boundary.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueBound {
@@ -30,9 +31,11 @@ pub struct PostingValueBound {
     pub inclusive: bool,
 }
 
+
 /// Complete verified membership for one collection in one repository instance.
 #[derive(Clone, Debug)]
 pub struct ExactSelection(Arc<SelectionData>);
+
 
 #[derive(Debug)]
 struct SelectionData {
@@ -44,6 +47,7 @@ struct SelectionData {
     members: RoaringBitmap,
     segment_members: Vec<RoaringBitmap>,
 }
+
 
 impl ExactSelection {
     pub fn len(&self) -> u64 {
@@ -60,6 +64,7 @@ impl ExactSelection {
     }
 }
 
+
 /// One bounded page over an indexed field's stored value representation.
 #[derive(Clone, Debug)]
 pub struct PostingValuesRequest {
@@ -74,6 +79,7 @@ pub struct PostingValuesRequest {
     pub prefix: Option<String>,
     pub selection: Option<ExactSelection>,
 }
+
 
 impl PostingValuesRequest {
     pub fn new(collection: impl Into<String>, field: impl Into<String>, limit: usize) -> Self {
@@ -92,12 +98,14 @@ impl PostingValuesRequest {
     }
 }
 
+
 /// One typed key and the number of distinct eligible records containing it.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueCount {
     pub value: ScalarKey,
     pub count: u64,
 }
+
 
 /// Domain and special-state totals for the selected posting representation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -117,6 +125,7 @@ pub struct PostingValuesCoverage {
     pub value_counts_complete: bool,
 }
 
+
 /// In-process exclusive key that belongs to one repository generation and binding.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesCursor {
@@ -135,6 +144,7 @@ pub struct PostingValuesCursor {
     last_key: ScalarKey,
 }
 
+
 /// Values in posting-key order, with a cursor only when another key exists.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesPage {
@@ -146,6 +156,7 @@ pub struct PostingValuesPage {
     pub visited_keys: u64,
 }
 
+
 struct ResolvedPosting<'a> {
     index: &'a PostingIndex,
     binding: String,
@@ -153,6 +164,7 @@ struct ResolvedPosting<'a> {
     indexed_records: Option<&'a RoaringBitmap>,
     native_prefix: bool,
 }
+
 
 fn resolve<'a>(
     collection: &'a CollectionState,
@@ -303,10 +315,12 @@ fn resolve_segment<'a>(
     })
 }
 
+
 struct ScannedSegmentPosting {
     index: PostingIndex,
     complete_values: RoaringBitmap,
 }
+
 
 fn fully_represented(value: &Value, max_short_string: Option<usize>) -> bool {
     match value {
@@ -345,13 +359,20 @@ fn scan_inferred_segment(
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
     for file_index in 0..segment.index.file_count() {
-        let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+        let file = segment
+            .index
+            .files
+            .get(file_index)
+            .ok_or("segment file row missing")?;
         let ranges = file
             .records
             .iter()
             .filter(|slot| segment.active.contains(**slot))
             .map(|slot| {
-                let record = segment.index.record(*slot).ok_or("segment record row missing")?;
+                let record = segment
+                    .index
+                    .record(*slot)
+                    .ok_or("segment record row missing")?;
                 Ok((record.class == RecordClass::Logical).then_some((slot.0, record.range)))
             })
             .collect::<Result<Vec<_>, String>>()?
@@ -652,7 +673,11 @@ pub(crate) fn posting_values_segmented(
             continue;
         }
         for file_index in 0..segment.index.file_count() {
-            let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+            let file = segment
+                .index
+                .files
+                .get(file_index)
+                .ok_or("segment file row missing")?;
             if file
                 .records
                 .iter()
@@ -885,6 +910,7 @@ pub(crate) fn posting_values_segmented(
         visited_keys,
     })
 }
+
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
@@ -1151,6 +1177,7 @@ impl Repository {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "posting_values.test.rs"]

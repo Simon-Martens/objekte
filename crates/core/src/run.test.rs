@@ -5762,10 +5762,12 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
     };
     use std::sync::atomic::{AtomicUsize, Ordering};
 
+
     struct CancellingReader {
         token: CancellationToken,
         query_reads: Arc<AtomicUsize>,
     }
+
 
     impl SourceReader for CancellingReader {
         fn name(&self) -> &'static str {
@@ -5792,6 +5794,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
             Ok(record)
         }
     }
+
 
     let root = std::env::temp_dir().join(format!(
         "objekte-computed-context-cancel-{}",
@@ -5876,7 +5879,9 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
         StreamOptions,
     };
 
+
     struct FailingReader;
+
 
     impl SourceReader for FailingReader {
         fn name(&self) -> &'static str {
@@ -5899,6 +5904,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
             Err("query extension failed".into())
         }
     }
+
 
     let root = std::env::temp_dir().join(format!(
         "objekte-extension-query-error-{}",

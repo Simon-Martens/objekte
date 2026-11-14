@@ -17,10 +17,12 @@ use objekte_search_core::workload::{
 };
 use sha2::{Digest, Sha256};
 
+
 enum SearchBackend {
     Direct(Repository),
     Incremental(Index, IndexView),
 }
+
 
 impl SearchBackend {
     fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
@@ -49,6 +51,7 @@ impl SearchBackend {
         }
     }
 }
+
 
 fn main() {
     if let Err(error) = run() {
@@ -809,6 +812,7 @@ fn nearest_rank_sorted(values: &[u64], numerator: usize, denominator: usize) -> 
     let rank = values.len().saturating_mul(numerator).div_ceil(denominator);
     values.get(rank - 1).copied()
 }
+
 
 #[cfg(test)]
 mod statistics_tests {

@@ -13,6 +13,7 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::lifecycle_partition::compact_source_parts;
 use crate::repository::CollectionState;
 
+
 /// Dense maintenance result. Old pinned views may keep retired memory until
 /// their readers finish; the new root contains only active contributions.
 #[derive(Clone, Debug)]
@@ -34,6 +35,7 @@ pub struct CompactionReport {
     pub duration: Duration,
 }
 
+
 #[derive(Clone, Copy)]
 struct CompactionBudget {
     records: u64,
@@ -41,6 +43,7 @@ struct CompactionBudget {
     temporary_bytes: u64,
     elapsed: Duration,
 }
+
 
 impl CompactionBudget {
     // One publication batch may include several shards. A single shard can
@@ -53,12 +56,14 @@ impl CompactionBudget {
     };
 }
 
+
 #[derive(Default)]
 struct CompactionWork {
     records: u64,
     input_bytes: u64,
     temporary_bytes: u64,
 }
+
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
     u64::try_from(source.accounting.retained_bytes_estimated)
@@ -146,12 +151,15 @@ pub(crate) fn compact_published(
     old: &PublishedIndex,
     next_revision: IndexRevision,
 ) -> Result<PublishedIndex, IndexError> {
-    let (next, _) = compact_published_with_budget(
-        old, next_revision, || false, CompactionBudget::DEFAULT,
-    )?;
+    let (next, _) =
+        compact_published_with_budget(old, next_revision, || false, CompactionBudget::DEFAULT)?;
     let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
-        + old.segments.iter().flat_map(|group| group.iter())
-            .map(|segment| segment.active.len()).sum::<u64>();
+        + old
+            .segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .map(|segment| segment.active.len())
+            .sum::<u64>();
     if slot_count(&next) > live {
         return Err(IndexError::ResourceLimit(
             "verified compaction exceeded its work budget".into(),
@@ -186,7 +194,9 @@ fn compact_published_with_budget(
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
-            if group.iter().all(|segment| segment.active.len() == segment.index.record_count() as u64)
+            if group
+                .iter()
+                .all(|segment| segment.active.len() == segment.index.record_count() as u64)
             {
                 continue;
             }
@@ -201,12 +211,15 @@ fn compact_published_with_budget(
                 }
                 let records = segment.index.record_count() as u64;
                 let input_bytes = source_budget_bytes(&segment.index);
-                let temporary_bytes = input_bytes.saturating_mul(3)
+                let temporary_bytes = input_bytes
+                    .saturating_mul(3)
                     .saturating_add(records.saturating_mul(512));
-                if work.records > 0 && (work.records.saturating_add(records) > budget.records
-                    || work.input_bytes.saturating_add(input_bytes) > budget.input_bytes
-                    || work.temporary_bytes.saturating_add(temporary_bytes) > budget.temporary_bytes
-                    || started.elapsed() >= budget.elapsed)
+                if work.records > 0
+                    && (work.records.saturating_add(records) > budget.records
+                        || work.input_bytes.saturating_add(input_bytes) > budget.input_bytes
+                        || work.temporary_bytes.saturating_add(temporary_bytes)
+                            > budget.temporary_bytes
+                        || started.elapsed() >= budget.elapsed)
                 {
                     compacted.extend(group[position..].iter().cloned());
                     next.segments[number] = Arc::new(compacted);
@@ -215,7 +228,12 @@ fn compact_published_with_budget(
                 work.records = work.records.saturating_add(records);
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
-                for part in compact_source_parts(&segment.index, &segment.active, &next.catalog, &cancelled)? {
+                for part in compact_source_parts(
+                    &segment.index,
+                    &segment.active,
+                    &next.catalog,
+                    &cancelled,
+                )? {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
                     }
@@ -255,30 +273,31 @@ fn compact_published_with_budget(
             return Err(IndexError::Cancelled);
         }
         let mut compacted = Vec::new();
-        let mut compact_source =
-            |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<Vec<Arc<PublishedSegment>>, IndexError> {
+        let mut compact_source = |source: &IndexedCollectionSegment,
+                                  active: &ActiveRecords|
+         -> Result<Vec<Arc<PublishedSegment>>, IndexError> {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            let mut replacements = Vec::new();
+            for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
-                let mut replacements = Vec::new();
-                for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
-                    if cancelled() {
-                        return Err(IndexError::Cancelled);
-                    }
-                    let ordinal = next.next_segment_ordinal;
-                    next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
-                        IndexError::ResourceLimit("segment ordinal overflow".into())
-                    })?;
-                    let active = ActiveRecords::all(part.records.len())
-                        .map_err(IndexError::ResourceLimit)?;
-                    replacements.push(Arc::new(PublishedSegment {
-                        ordinal,
-                        index: Arc::new(part),
-                        active,
-                    }));
-                }
-                Ok(replacements)
-            };
+                let ordinal = next.next_segment_ordinal;
+                next.next_segment_ordinal = ordinal
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+                let active =
+                    ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
+                replacements.push(Arc::new(PublishedSegment {
+                    ordinal,
+                    index: Arc::new(part),
+                    active,
+                }));
+            }
+            Ok(replacements)
+        };
         if !collection.generation.records.is_empty() {
             let base = base_as_segment(collection, old.repository.files())?;
             compacted.extend(compact_source(&base, &old.active[number])?);
@@ -295,6 +314,7 @@ fn compact_published_with_budget(
     }
     Ok((next, CompactionWork::default()))
 }
+
 
 impl Index {
     /// Reclaim retired records without reading source files. One call handles
@@ -343,7 +363,10 @@ impl Index {
                 });
             }
             let (next, work) = compact_published_with_budget(
-                old, view.revision().next()?, &cancelled, CompactionBudget::DEFAULT,
+                old,
+                view.revision().next()?,
+                &cancelled,
+                CompactionBudget::DEFAULT,
             )?;
             if cancelled() {
                 return Err(IndexError::Cancelled);
@@ -374,6 +397,7 @@ impl Index {
         Err(conflict.expect("compaction retry always captures a revision conflict"))
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_compaction.test.rs"]

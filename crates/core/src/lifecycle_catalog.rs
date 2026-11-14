@@ -25,12 +25,14 @@ use crate::repository::Repository;
 
 const SHARDS: usize = 1024;
 
+
 #[derive(Clone)]
 struct ChangedFile {
     entry: Arc<FileEntry>,
     fingerprint: Option<[u8; 32]>,
     configuration: Option<[u8; 32]>,
 }
+
 
 /// One published view's active file table. Previous views retain their own
 /// path map, metadata and liveness after a new root is published.
@@ -49,6 +51,7 @@ pub(crate) struct FileCatalog {
     active: Arc<RoaringBitmap>,
     len: u32,
 }
+
 
 fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
@@ -79,6 +82,7 @@ fn path_bounds_with_ids(
     };
     (lower, upper)
 }
+
 
 impl FileCatalog {
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
@@ -526,6 +530,7 @@ impl FileCatalog {
         Ok(next)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_catalog.test.rs"]
