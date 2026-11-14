@@ -2419,10 +2419,12 @@ lengths, value enumeration, distinct counts, and normal/skip bigram
 union/intersection/count operations. It returns query-owned `RoaringBitmap`
 results without caching decoded postings.
 
-Differential tests in `access.test.rs` compare native, resident packed, and
-mmap packed access for string and numeric postings and for bigram candidates.
-The next wiring step is to make `IndexCatalog` construct this abstraction from
-either published representation.
+`PackedIndexCatalog` provides borrowed field/bigram/logical access over one
+`FrozenSegment` without owning dictionaries. Differential tests in
+`access.test.rs` compare native, resident packed, and mmap packed access for
+string and numeric postings and for bigram candidates. The next wiring step is
+to make `IndexCatalog` construct this abstraction from either published
+representation and route executor calls through it.
 
 ### Validation
 
