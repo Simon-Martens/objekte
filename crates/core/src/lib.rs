@@ -37,6 +37,7 @@ pub mod model;
 pub mod parameters;
 pub mod path_repr;
 pub mod posting;
+mod posting_map;
 pub mod posting_values;
 mod prepared;
 pub mod query;

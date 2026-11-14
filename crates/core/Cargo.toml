@@ -12,6 +12,7 @@ path = "src/lib.rs"
 [features]
 default = []
 detailed-profiling = []
+force-shared-backing = []
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
@@ -26,6 +27,7 @@ icu_collator = "=2.4.0"
 icu_locale_core = "=2.4.0"
 sha2 = "0.10"
 bincode = "1.3"
+imbl = "7.0"
 globset = "0.4"
 regex = "=1.13.1"
 regex-syntax = "=0.8.11"
