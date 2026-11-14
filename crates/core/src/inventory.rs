@@ -6,7 +6,6 @@ use std::ops::Bound;
 use std::ops::Deref;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
-use crate::generation_catalog::RestoredGenerationCatalog;
 use std::time::SystemTime;
 
 use roaring::RoaringBitmap;
@@ -229,8 +228,6 @@ const FILE_VERSION_CHUNK: usize = 1024;
 #[derive(Clone, Debug)]
 pub(crate) struct FileVersions {
     chunks: Arc<Vec<Arc<Vec<FileVersion>>>>,
-    persisted: Option<Arc<RestoredGenerationCatalog>>,
-    overrides: Arc<Vec<Arc<HashMap<FileId, FileVersion>>>>,
     len: usize,
 }
 
@@ -249,19 +246,8 @@ impl FileVersions {
             .collect();
         Ok(Self {
             chunks: Arc::new(chunks),
-            persisted: None,
-            overrides: Arc::new(Vec::new()),
             len,
         })
-    }
-
-    pub(crate) fn from_persisted(catalog: Arc<RestoredGenerationCatalog>) -> Self {
-        Self {
-            chunks: Arc::new(Vec::new()),
-            len: catalog.slot_count(),
-            persisted: Some(catalog),
-            overrides: Arc::new(vec![Arc::new(HashMap::new()); 1024]),
-        }
     }
 
     pub(crate) fn initial(len: usize) -> Self {
@@ -275,8 +261,6 @@ impl FileVersions {
             .collect();
         Self {
             chunks: Arc::new(chunks),
-            persisted: None,
-            overrides: Arc::new(Vec::new()),
             len,
         }
     }
@@ -290,10 +274,6 @@ impl FileVersions {
         if index >= self.len {
             return None;
         }
-        if let Some(base) = &self.persisted {
-            return self.overrides[index % self.overrides.len()]
-                .get(&file).copied().or_else(|| base.version(file));
-        }
         self.chunks
             .get(index / FILE_VERSION_CHUNK)?
             .get(index % FILE_VERSION_CHUNK)
@@ -306,14 +286,6 @@ impl FileVersions {
         if index >= self.len {
             return Err("file ID out of bounds".into());
         }
-        if self.persisted.is_some() {
-            let next_version = self.get(file).ok_or("file version missing")?.next()?;
-            let mut next = self.clone();
-            let shards = Arc::make_mut(&mut next.overrides);
-            let bucket = index % shards.len();
-            Arc::make_mut(&mut shards[bucket]).insert(file, next_version);
-            return Ok((next, next_version));
-        }
         let mut chunks = (*self.chunks).clone();
         let token = Arc::make_mut(&mut chunks[index / FILE_VERSION_CHUNK])
             .get_mut(index % FILE_VERSION_CHUNK)
@@ -323,8 +295,6 @@ impl FileVersions {
         Ok((
             Self {
                 chunks: Arc::new(chunks),
-                persisted: None,
-                overrides: Arc::new(Vec::new()),
                 len: self.len,
             },
             next_version,
@@ -334,15 +304,6 @@ impl FileVersions {
     /// Assign a never-before-used file ID its first incarnation token.
     pub(crate) fn appended(&self) -> Result<Self, String> {
         u32::try_from(self.len).map_err(|_| "too many files")?;
-        if self.persisted.is_some() {
-            let mut next = self.clone();
-            let shards = Arc::make_mut(&mut next.overrides);
-            let bucket = self.len % shards.len();
-            Arc::make_mut(&mut shards[bucket])
-                .insert(FileId(self.len as u32), FileVersion::INITIAL);
-            next.len += 1;
-            return Ok(next);
-        }
         let mut chunks = (*self.chunks).clone();
         if self.len % FILE_VERSION_CHUNK == 0 {
             chunks.push(Arc::new(vec![FileVersion::INITIAL]));
@@ -352,8 +313,6 @@ impl FileVersions {
         }
         Ok(Self {
             chunks: Arc::new(chunks),
-            persisted: None,
-            overrides: Arc::new(Vec::new()),
             len: self.len + 1,
         })
     }

@@ -8,7 +8,6 @@ use std::sync::{Arc, mpsc};
 use std::thread;
 use std::time::{Duration, Instant};
 
-use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::model::LogicalType;
@@ -248,22 +247,7 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
         RepositoryOptions::default(),
     )?;
     emit("build", started.elapsed(), &built, "synthetic=true");
-    let index = if std::env::var("OBJEKTE_BENCH_RESTORE_LOCALITY").as_deref() == Ok("1") {
-        let target = IndexStorageTarget::RepositoryDirectory;
-        let options = RepositoryOptions::default();
-        let started = Instant::now();
-        built.flush_to(&target)?;
-        emit("flush", started.elapsed(), &built, "synthetic=true");
-        built.shutdown()?;
-        let started = Instant::now();
-        let restored = Index::try_load(&root, vec![definition], options, &target)?
-            .ok_or("saved synthetic index missing")?;
-        emit("restore", started.elapsed(), &restored, "synthetic=true");
-        restored.wait_for_reconciliation()?;
-        restored
-    } else {
-        built
-    };
+    let index = built;
     let target = root.join("data/000000.jsonl");
     let mut old = fs::read(&target)?;
     let mut handle = index
@@ -351,13 +335,9 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     }
     println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
     let definitions = load_repository_configuration(root)?.definitions;
-    let target = IndexStorageTarget::RepositoryDirectory;
     let options = RepositoryOptions::default();
     let started = Instant::now();
-    let index = match Index::try_load(root, definitions.clone(), options, &target)? {
-        Some(index) => index,
-        None => Index::build(root, definitions.clone(), options)?,
-    };
+    let index = Index::build(root, definitions, options)?;
     emit(
         "build",
         started.elapsed(),
@@ -617,30 +597,6 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         );
     }
 
-    let (revision, flush_elapsed, flush_probe) = if let Some(query) = &probe_query {
-        let (result, elapsed, probe) = while_querying(&index, query, || {
-            Ok(index.flush_to(&target)?.saved_revision)
-        })?;
-        (result, elapsed, probe.detail())
-    } else {
-        let started = Instant::now();
-        (
-            index.flush_to(&target)?.saved_revision,
-            started.elapsed(),
-            String::new(),
-        )
-    };
-    emit(
-        "flush",
-        flush_elapsed,
-        &index,
-        format!(
-            "revision={};durable_generation={:?};{}",
-            revision.0,
-            index.storage_status()?.durable_generation,
-            flush_probe,
-        ),
-    );
     if let Some(pinned) = &pinned {
         let query = Query {
             collections: vec![collection.into()],
@@ -671,29 +627,13 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         );
     }
     drop(pinned);
-    drop(index);
 
     let started = Instant::now();
-    let loaded = Index::try_load(root, definitions, options, &target)?
-        .ok_or("saved lifecycle index missing")?;
-    let loaded_count = count(&loaded, collection)?;
-    emit(
-        "decode_to_searchable",
-        started.elapsed(),
-        &loaded,
-        format!("count={loaded_count}"),
-    );
-    if loaded_count != base_count {
-        return Err("restored count mismatch".into());
-    }
-    let started = Instant::now();
-    let reconciliation = loaded
-        .wait_for_reconciliation()?
-        .ok_or("no reconciliation task")?;
+    let reconciliation = index.start_reconcile()?.wait()?;
     emit(
         "reconcile_no_change",
         started.elapsed(),
-        &loaded,
+        &index,
         format!(
             "examined={};unchanged={};issues={}",
             reconciliation.examined,

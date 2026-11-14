@@ -1,54 +1,6 @@
 use super::*;
 
 #[test]
-fn open_draft_maps_explicit_saved_index_target() {
-    let mut draft = OpenDraft::default();
-    assert_eq!(draft.load_target().unwrap(), None);
-    draft.index_storage = StorageChoice::Temporary;
-    assert_eq!(
-        draft.load_target().unwrap(),
-        Some(IndexStorageTarget::SystemTemporary)
-    );
-    draft.index_storage = StorageChoice::Repository;
-    assert_eq!(
-        draft.load_target().unwrap(),
-        Some(IndexStorageTarget::RepositoryDirectory)
-    );
-    draft.index_storage = StorageChoice::Custom;
-    assert!(draft.load_target().unwrap_err().contains("base folder"));
-    draft.index_directory = "/tmp/index base".into();
-    assert_eq!(
-        draft.load_target().unwrap(),
-        Some(IndexStorageTarget::CustomDirectory(
-            "/tmp/index base".into()
-        ))
-    );
-}
-
-#[test]
-fn focused_storage_base_requires_existing_absolute_directory() {
-    let base = tempfile::tempdir().unwrap();
-    assert_eq!(
-        canonical_storage_base(base.path().to_str().unwrap()).unwrap(),
-        base.path().canonicalize().unwrap()
-    );
-    assert!(canonical_storage_base("").is_err());
-    assert!(
-        canonical_storage_base("relative/base")
-            .unwrap_err()
-            .contains("absolute")
-    );
-    assert!(canonical_storage_base("/this/path/does/not/exist").is_err());
-    let file = base.path().join("file");
-    std::fs::write(&file, "x").unwrap();
-    assert!(
-        canonical_storage_base(file.to_str().unwrap())
-            .unwrap_err()
-            .contains("not a directory")
-    );
-}
-
-#[test]
 fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
     let rows = (0..MAX_PAGE_ROWS + 3)
         .map(|n| ResultRow {

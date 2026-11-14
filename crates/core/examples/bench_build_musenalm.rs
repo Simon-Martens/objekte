@@ -17,9 +17,71 @@ fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> 
     Ok(())
 }
 
+fn hash_posting(
+    hash: &mut Sha256,
+    path: &[String],
+    index: &objekte_search_core::posting::PostingIndex,
+) -> Result<(), String> {
+    hash_value(hash, &path.to_vec())?;
+    hash_value(hash, &index.presence)?;
+    hash_value(hash, &index.nulls)?;
+    hash_value(hash, &index.empty_selections)?;
+    hash_value(hash, &index.covered_records)?;
+    if let Some(facts) = &index.structural {
+        let mut keys = facts
+            .postings
+            .keys()
+            .map(|key| format!("{key:?}"))
+            .collect::<Vec<_>>();
+        keys.sort();
+        for key in keys {
+            hash_value(hash, &key)?;
+        }
+        for (key, slots) in &facts.postings {
+            hash_value(hash, &format!("{key:?}"))?;
+            hash_value(hash, slots)?;
+        }
+    }
+    for (key, slots) in &index.values {
+        hash_value(hash, key)?;
+        hash_value(hash, slots)?;
+    }
+    for (key, slots) in &index.lengths {
+        hash_value(hash, key)?;
+        hash_value(hash, slots)?;
+    }
+    Ok(())
+}
+
+fn hash_bigram(
+    hash: &mut Sha256,
+    label: &str,
+    index: &objekte_search_core::bigram::BigramIndex,
+) -> Result<(), String> {
+    hash_value(hash, &label)?;
+    hash_value(hash, &index.alphabet)?;
+    hash_value(hash, &index.record_count)?;
+    for (kind, column) in [("normal", &index.normal), ("skip", &index.skip)] {
+        hash_value(hash, &kind)?;
+        let mut keys = column.keys().collect::<Vec<_>>();
+        keys.sort();
+        for key in keys {
+            hash_value(hash, key)?;
+            hash_value(hash, &column[key])?;
+        }
+    }
+    Ok(())
+}
+
 fn index_signature(repo: &Repository) -> Result<String, String> {
     let mut hash = Sha256::new();
-    hash_value(&mut hash, &repo.files().files)?;
+    for file in &repo.files().files {
+        hash_value(&mut hash, &file.id)?;
+        hash_value(&mut hash, &file.relative_path.to_path_buf())?;
+        hash_value(&mut hash, &file.revision)?;
+        hash_value(&mut hash, &file.collections)?;
+        hash_value(&mut hash, &file.status)?;
+    }
     for collection in repo.collections() {
         hash_value(&mut hash, &collection.definition.name)?;
         hash_value(&mut hash, &collection.generation)?;
@@ -27,44 +89,36 @@ fn index_signature(repo: &Repository) -> Result<String, String> {
         let mut posting_paths = collection.postings.fields.keys().collect::<Vec<_>>();
         posting_paths.sort();
         for path in posting_paths {
-            hash_value(&mut hash, path)?;
-            hash_value(&mut hash, &collection.postings.fields[path])?;
+            hash_posting(&mut hash, path, &collection.postings.fields[path])?;
         }
         let mut custom_posting_keys = collection.custom_postings.keys().collect::<Vec<_>>();
         custom_posting_keys.sort();
         for key in custom_posting_keys {
             hash_value(&mut hash, key)?;
-            hash_value(&mut hash, &collection.custom_postings[key])?;
+            let posting = &collection.custom_postings[key];
+            hash_value(&mut hash, &posting.complete)?;
+            hash_posting(&mut hash, &[], &posting.index)?;
         }
-        let mut bigrams = vec![
-            ("raw", &collection.raw),
-            ("fallback", &collection.fallback_text),
-        ];
+        hash_bigram(&mut hash, "raw", &collection.raw)?;
+        hash_bigram(&mut hash, "fallback", &collection.fallback_text)?;
         let mut custom_keys = collection.custom_text.keys().collect::<Vec<_>>();
         custom_keys.sort();
         for key in custom_keys {
             hash_value(&mut hash, key)?;
-            bigrams.push(("custom", &collection.custom_text[key]));
-        }
-        for (label, index) in bigrams {
-            hash_value(&mut hash, &label)?;
-            hash_value(&mut hash, &index.alphabet)?;
-            hash_value(&mut hash, &index.record_count)?;
-            for (kind, column) in [("normal", &index.normal), ("skip", &index.skip)] {
-                hash_value(&mut hash, &kind)?;
-                let mut keys = column.keys().collect::<Vec<_>>();
-                keys.sort();
-                for key in keys {
-                    hash_value(&mut hash, key)?;
-                    hash_value(&mut hash, &column[key])?;
-                }
-            }
+            hash_bigram(&mut hash, "custom", &collection.custom_text[key])?;
         }
         let mut sort_paths = collection.sorting.columns.keys().collect::<Vec<_>>();
         sort_paths.sort_by_key(|path| path.display());
         for path in sort_paths {
             hash_value(&mut hash, &path.display())?;
-            hash_value(&mut hash, &collection.sorting.columns[path])?;
+            let column = &collection.sorting.columns[path];
+            hash_value(&mut hash, &column.locale)?;
+            hash_value(&mut hash, &column.collation_version)?;
+            for key in &column.keys {
+                hash_value(&mut hash, key)?;
+            }
+            hash_value(&mut hash, &column.ascending)?;
+            hash_value(&mut hash, &column.descending)?;
         }
     }
     Ok(format!("{:x}", hash.finalize()))

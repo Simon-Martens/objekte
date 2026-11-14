@@ -14,8 +14,8 @@ use objekte_search_core::workload::WorkCounters;
 use serde::de::IgnoredAny;
 use serde_json::{Number, Value, json};
 
-/// Version 3 distinguishes explicit index loading and saving in run events.
-pub const PROTOCOL_VERSION: u32 = 3;
+/// Version 4 removes persisted-index events and fields from the run protocol.
+pub const PROTOCOL_VERSION: u32 = 4;
 
 /// JSON number with exactly three decimal places, including trailing zeros.
 pub fn milliseconds_value(nanoseconds: u128) -> Value {

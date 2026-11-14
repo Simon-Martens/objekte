@@ -102,3 +102,45 @@ fn exact_directory_exclusion_preserves_non_utf8_path_identity() {
             .is_empty()
     );
 }
+
+#[test]
+fn generated_index_namespaces_are_pruned_without_reading_their_contents() {
+    let fixture = Fixture::new();
+    fixture.file("visible.json");
+    fixture.file("nested/visible.json");
+    fixture.file(".objekte/indexes/poison.json");
+    fixture.file("nested/objekte-indexes/poison.json");
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        hidden: true,
+        symlinks: SymlinkPolicy::Skip,
+        ..Discovery::default()
+    };
+    let selected = discover(&fixture.0, Path::new(""), &rules, &source).unwrap();
+    let relative: Vec<_> = selected
+        .iter()
+        .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
+        .collect();
+    assert_eq!(
+        relative,
+        vec![
+            PathBuf::from("nested/visible.json"),
+            PathBuf::from("visible.json")
+        ]
+    );
+    let non_recursive = Discovery {
+        recursive: false,
+        ..rules
+    };
+    let shallow = discover(&fixture.0, Path::new(""), &non_recursive, &source).unwrap();
+    assert_eq!(
+        shallow
+            .iter()
+            .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
+            .collect::<Vec<_>>(),
+        vec![PathBuf::from("visible.json")]
+    );
+}

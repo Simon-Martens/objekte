@@ -77,8 +77,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .num_threads(1)
         .build()
         .unwrap();
-    let mut segment = admission
-        .seal()
+    let segment = admission
+        .finish()
         .into_indexed(&definition, alphabet, inference, 1, &pool)
         .unwrap();
     let repo = Repository::open_with_options(
@@ -121,74 +121,6 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1, 2]);
 
-    // An on-demand payload error must reach segment FTS as an error. The
-    // checked dictionary remains valid while its independently addressed
-    // posting bytes are deliberately changed before first access.
-    let gram = *segment.fallback_text.normal.keys().next().unwrap();
-    let literal = String::from_utf8(vec![(gram >> 8) as u8, gram as u8]).unwrap();
-    let request = FtsQuery {
-        pattern_parameter: None,
-        mode: crate::query::FtsMode::Literal,
-        case_sensitivity: crate::query::CaseSensitivity::Insensitive,
-        literal,
-        fields: vec![],
-    };
-    let bound = crate::reference::bind_fts(&request, &definition.schema).unwrap();
-    let mut pack = crate::posting_dictionary::PostingPack::new();
-    let mut dictionaries = Vec::new();
-    let mut filters = Vec::new();
-    let raw_spans = crate::bigram_dictionary::append_bigram_index(
-        &mut dictionaries,
-        &mut filters,
-        &mut pack,
-        &segment.raw,
-        &segment.logical_records,
-        0,
-    )
-    .unwrap();
-    let fallback = &RoaringBitmap::from_iter(0..segment.records.len() as u32)
-        - &segment.logical_records;
-    let fallback_spans = crate::bigram_dictionary::append_bigram_index(
-        &mut dictionaries,
-        &mut filters,
-        &mut pack,
-        &segment.fallback_text,
-        &fallback,
-        1,
-    )
-    .unwrap();
-    let mut writer = crate::segment_format::SegmentWriter::new(std::io::Cursor::new(Vec::new()), 3)
-        .unwrap();
-    writer
-        .write_section(crate::segment_format::SectionKind::GramFilters, |out| {
-            out.write_all(&filters).map_err(|error| error.to_string())
-        })
-        .unwrap();
-    writer
-        .write_section(crate::segment_format::SectionKind::BigramDictionaries, |out| {
-            out.write_all(&dictionaries).map_err(|error| error.to_string())
-        })
-        .unwrap();
-    writer
-        .write_section(crate::segment_format::SectionKind::PostingPayloads, |out| {
-            out.write_all(pack.bytes()).map_err(|error| error.to_string())
-        })
-        .unwrap();
-    let mut bytes = writer.finish().unwrap().into_inner();
-    let payload_start = bytes.len() - pack.bytes().len();
-    bytes[payload_start..].fill(0xff);
-    let reader = Arc::new(
-        crate::segment_format::SegmentReader::from_owned(Arc::from(bytes)).unwrap(),
-    );
-    segment
-        .raw
-        .install_sealed(Arc::clone(&reader), raw_spans, 0, Arc::new(segment.logical_records.clone()))
-        .unwrap();
-    segment
-        .fallback_text
-        .install_sealed(reader, fallback_spans, 1, Arc::new(fallback))
-        .unwrap();
-    assert!(segment_fts_candidates(&segment, collection, &bound).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
 

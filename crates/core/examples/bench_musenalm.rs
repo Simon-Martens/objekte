@@ -7,7 +7,6 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
@@ -24,13 +23,6 @@ enum SearchBackend {
 }
 
 impl SearchBackend {
-    fn decoded_posting_cache_usage(&self) -> serde_json::Value {
-        match self {
-            Self::Direct(_) => serde_json::Value::Null,
-            Self::Incremental(_, view) => serde_json::json!(view.decoded_posting_cache_usage()),
-        }
-    }
-
     fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
         match self {
             Self::Direct(repo) => repo.configure_verified_cache(bytes),
@@ -65,26 +57,6 @@ fn main() {
     }
 }
 
-fn managed_tree_bytes(root: &Path) -> Result<u64, String> {
-    let mut pending = vec![root.to_path_buf()];
-    let mut total = 0u64;
-    while let Some(path) = pending.pop() {
-        for entry in fs::read_dir(&path).map_err(|error| error.to_string())? {
-            let entry = entry.map_err(|error| error.to_string())?;
-            let path = entry.path();
-            let metadata = fs::symlink_metadata(&path).map_err(|error| error.to_string())?;
-            if metadata.is_dir() {
-                pending.push(path);
-            } else if metadata.is_file() {
-                total = total
-                    .checked_add(metadata.len())
-                    .ok_or("managed byte count overflow")?;
-            }
-        }
-    }
-    Ok(total)
-}
-
 fn run() -> Result<(), String> {
     let arguments: Vec<String> = std::env::args().collect();
     let mut args = arguments.iter().skip(1);
@@ -102,29 +74,10 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
-    let mut load = false;
-    let mut storage: Option<IndexStorageTarget> = None;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
             "--incremental" => incremental = true,
-            "--load" => load = true,
-            "--storage" => {
-                storage = match args.next().map(String::as_str) {
-                    Some("memory") => None,
-                    Some("temporary") => Some(IndexStorageTarget::SystemTemporary),
-                    Some("repository") => Some(IndexStorageTarget::RepositoryDirectory),
-                    Some("custom") => Some(IndexStorageTarget::CustomDirectory(PathBuf::from(
-                        args.next()
-                            .ok_or("--storage custom needs a base directory")?,
-                    ))),
-                    _ => {
-                        return Err(
-                            "--storage needs memory, temporary, repository or custom".into()
-                        );
-                    }
-                }
-            }
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -175,15 +128,6 @@ fn run() -> Result<(), String> {
     if repetitions == 0 {
         return Err("repetitions must be positive".into());
     }
-    if !incremental && storage.is_some() {
-        return Err("--storage requires --incremental".into());
-    }
-    if load && (storage.is_none() || !incremental) {
-        return Err("--load requires --incremental and --storage".into());
-    }
-    let storage_label = storage
-        .as_ref()
-        .map_or_else(|| "memory".to_owned(), |target| format!("{target:?}"));
     let mut profiles = Vec::new();
     for name in &profile_names {
         let profile = match name.as_str() {
@@ -285,7 +229,6 @@ fn run() -> Result<(), String> {
     );
     let mut rows = Vec::new();
     let mut build_results = Vec::new();
-    let mut decoded_cache_observations = Vec::new();
     let mut corpus_hash = String::new();
     let mut registrations = Vec::new();
     let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
@@ -305,26 +248,13 @@ fn run() -> Result<(), String> {
                 ..RepositoryOptions::default()
             };
             let build_start = Instant::now();
-            let (index, build_status) = if load {
-                let target = storage.as_ref().ok_or("--load requires --storage")?;
-                let index = Index::try_load(&root, definitions.clone(), options, target)
-                    .map_err(|error| error.to_string())?
-                    .ok_or("no saved index at the selected location")?;
-                (index, None)
-            } else {
-                let task = Index::start_incremental_build(&root, definitions.clone(), options)
-                    .map_err(|error| error.to_string())?;
-                let index = task.wait_complete().map_err(|error| error.to_string())?;
-                if let Some(target) = &storage {
-                    index.flush_to(target).map_err(|error| error.to_string())?;
-                }
-                let status = task.status().map_err(|error| error.to_string())?;
-                (index, Some(status))
-            };
+            let task = Index::start_incremental_build(&root, definitions.clone(), options)
+                .map_err(|error| error.to_string())?;
+            let index = task.wait_complete().map_err(|error| error.to_string())?;
+            let build_status = Some(task.status().map_err(|error| error.to_string())?);
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
-            let storage_status = index.storage_status().map_err(|error| error.to_string())?;
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
                 for row in view.catalogue_rows() {
@@ -336,14 +266,9 @@ fn run() -> Result<(), String> {
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let managed_bytes = storage_status
-                .managed_directory
-                .as_ref()
-                .map(|path| managed_tree_bytes(path))
-                .transpose()?;
             build_results.push(serde_json::json!({
-                "alphabet":alphabet,"build_mode":if load {"explicit-load"} else {"hybrid"},
-                "load":load,"storage":storage_label,"build_ns":if load {0} else {open_ns},"open_ns":open_ns,
+                "alphabet":alphabet,"build_mode":"hybrid",
+                "build_ns":open_ns,"open_ns":open_ns,
                 "discovery_ns":build_status.as_ref().and_then(|status| status.catalogue_elapsed_ns).unwrap_or(0),
                 "first_batch_ns":build_status.as_ref().and_then(|status| status.first_batch_elapsed_ns).unwrap_or(0),
                 "searchable_batches":build_status.as_ref().map_or(0, |status| status.searchable_batches),
@@ -353,10 +278,6 @@ fn run() -> Result<(), String> {
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
                 "segment_families":view.index_family_breakdown(),
-                "managed_bytes":managed_bytes,"managed_directory":storage_status.managed_directory,
-                "durable_generation":storage_status.durable_generation,
-                "segments_full_validated":storage_status.segments_full_validated,
-                "segments_write_validated":storage_status.segments_write_validated,
             }));
             if registrations.is_empty() {
                 registrations = definitions.iter().map(|definition| serde_json::json!({
@@ -574,10 +495,6 @@ fn run() -> Result<(), String> {
                 plan_output.write_all(b"\n").map_err(|e| e.to_string())?;
             }
         }
-        decoded_cache_observations.push(serde_json::json!({
-            "alphabet":alphabet,
-            "after_queries":backend.decoded_posting_cache_usage(),
-        }));
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
@@ -608,16 +525,11 @@ fn run() -> Result<(), String> {
         "binary_build_revision":option_env!("OBJEKTE_BUILD_REVISION"),
         "executable_sha256":executable_sha256,"cargo_lock_sha256":lockfile_sha256,
         "compiler":compiler,"command":arguments,"root":root,"extended":extended,
-        "build_mode":if incremental {"hybrid"} else {"repository"},"storage":storage_label,
+        "build_mode":if incremental {"hybrid"} else {"repository"},
         "schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],
         "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
         "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
         "source_cache_bytes":0,"query_workers":query_workers,
-        "program_version":objekte_search_core::PROGRAM_VERSION,
-        "internal_decoded_posting_cache":{
-            "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
-            "observations":decoded_cache_observations,
-        },
         "median_method":"middle pair arithmetic mean, rounded to nearest nanosecond with half up",
         "p95_method":"nearest rank: sorted[ceil(0.95 * n) - 1]",
     });
@@ -729,14 +641,13 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             report.push_str(&format!(
-                "- {}: {} open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; managed files {} MiB.\n",
+                "- {}: open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB.\n",
                 result["alphabet"],
-                storage_label,
                 result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
                 result["build_parses"],
                 result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
-                result["managed_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             ));
             continue;
         }
@@ -774,14 +685,13 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             println!(
-                "build {}: {} open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; managed_bytes={}",
+                "build {}: open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}",
                 result["alphabet"],
-                storage_label,
                 result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
                 result["build_parses"],
                 result["resident_bytes"],
                 result["peak_resident_bytes"],
-                result["managed_bytes"],
+                result["estimated_index_bytes"],
             );
             continue;
         }

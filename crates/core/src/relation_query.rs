@@ -63,7 +63,7 @@ pub(crate) struct MergedRecordSlot {
 }
 
 pub(crate) struct MergedRecord<'a> {
-    pub record: std::borrow::Cow<'a, crate::inventory::RecordEntry>,
+    pub record: &'a crate::inventory::RecordEntry,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
@@ -197,13 +197,13 @@ impl<'a> MergedRelationView<'a> {
             }
             let segment = &published.index;
             let record = segment
-                .try_record(address.slot)?
+                .record(address.slot)
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
-                .try_file_index(record.file)?
+                .file_index.get(&record.file).copied()
                 .ok_or("merged segment file missing")?;
             let file = segment
-                .try_file_revision_at(file_index)?
+                .files.get(file_index).map(|file| file.entry.revision)
                 .ok_or("merged segment file missing")?;
             (record, file)
         } else {
@@ -221,7 +221,7 @@ impl<'a> MergedRelationView<'a> {
                 .files
                 .get(record.file.0 as usize)
                 .ok_or("merged base file missing")?;
-            (std::borrow::Cow::Borrowed(record), file.revision)
+            (record, file.revision)
         };
         let file = self
             .catalog
@@ -261,7 +261,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.try_id_lookup(id)?
+            if let Some(slot) = published.index.id_lookup.get(id).copied()
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -357,7 +357,7 @@ impl<'a> MergedRelationView<'a> {
                 .fields
                 .get(&relation_contribution.declaration().path)
             {
-                let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))?
+                let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))
                 else {
                     continue;
                 };
@@ -378,7 +378,7 @@ impl<'a> MergedRelationView<'a> {
             let id = if let Some(segment_index) = address.segment {
                 self.segments[index][segment_index]
                     .index
-                    .try_record_id(address.slot)?
+                    .record(address.slot).map(|record| record.id.0.as_ref())
                     .ok_or("backlink segment slot missing")?
                     .to_string()
             } else {

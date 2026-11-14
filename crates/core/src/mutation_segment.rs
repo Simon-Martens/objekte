@@ -7,7 +7,8 @@ use crate::bigram::BigramIndex;
 use crate::build::AdmissionBreakdown;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
-use crate::posting::StructuralFacts;
+use crate::model::Number;
+use crate::posting::{ScalarKey, StructuralKey, StructuralFacts};
 use crate::repository::IncrementalSegmentProfile;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
@@ -52,6 +53,15 @@ pub(crate) struct CollectionSegment {
     aggregate: Option<SegmentAggregate>,
     pub record_parses: u64,
     pub failed_parses: u64,
+}
+
+/// Native segment accounting used by maintenance limits and relation
+/// scheduling. Values are saturating planning estimates, not strict limits.
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct SegmentAccounting {
+    pub retained_bytes_estimated: usize,
+    pub source_bytes_estimated: u64,
+    pub max_record_range_len: u64,
 }
 
 pub(crate) struct SegmentBatch {
@@ -267,9 +277,6 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<RecordEntry>,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
-    /// Immutable byte-backed metadata for a restored disk segment. Constructed
-    /// segments use their native vectors and maps above.
-    pub persisted: Option<Arc<crate::segment_metadata::PersistedRecordSlots>>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
@@ -285,6 +292,10 @@ pub(crate) struct IndexedCollectionSegment {
     pub relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+    /// Cached deterministic planning estimate and native scheduling bounds.
+    /// Computed once after finalization; never an encoded copy or allocator
+    /// measurement. Active-mask-only retirement retains the full physical size.
+    pub accounting: SegmentAccounting,
 }
 
 impl SegmentAdmission {
@@ -543,7 +554,7 @@ impl SegmentAdmission {
         Ok(())
     }
 
-    pub fn seal(self) -> CollectionSegment {
+    pub fn finish(self) -> CollectionSegment {
         CollectionSegment {
             collection: self.collection,
             source_id: self.source_id,
@@ -699,7 +710,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
-        Ok(IndexedCollectionSegment {
+        let mut index = IndexedCollectionSegment {
             collection: self.collection,
             source_id: self.source_id,
             source_version: self.source_version,
@@ -707,7 +718,6 @@ impl CollectionSegment {
             file_index: self.file_index,
             records: self.records,
             id_lookup: self.id_lookup,
-            persisted: None,
             identity_order,
             postings,
             inference,
@@ -721,131 +731,244 @@ impl CollectionSegment {
             relations,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
-        })
+            accounting: SegmentAccounting::default(),
+        };
+        index.recompute_accounting();
+        Ok(index)
     }
 }
 
+const ACCOUNTING_OVERHEAD: usize = 48;
+
+fn bitmap_bytes(bitmap: &RoaringBitmap) -> usize {
+    bitmap.serialized_size() as usize
+}
+
+fn path_bytes(path: &[String]) -> usize {
+    path.iter().map(String::len).sum()
+}
+
+fn field_path_bytes(path: &crate::model::FieldPath) -> usize {
+    path_bytes(&path.segments)
+}
+
+fn posting_bytes(index: &PostingIndex) -> usize {
+    let mut total = path_bytes(&index.path).saturating_add(ACCOUNTING_OVERHEAD);
+    total = total.saturating_add(bitmap_bytes(&index.presence));
+    total = total.saturating_add(bitmap_bytes(&index.empty_selections));
+    total = total.saturating_add(bitmap_bytes(&index.nulls));
+    if let Some(facts) = &index.structural {
+        total = total.saturating_add(
+            facts
+                .postings
+                .len()
+                .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<StructuralKey>()),
+        );
+        total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
+    }
+    total = total.saturating_add(
+        index
+            .values
+            .len()
+            .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<ScalarKey>()),
+    );
+    for (key, bitmap) in &index.values {
+        total = total.saturating_add(bitmap_bytes(bitmap));
+        if let ScalarKey::String(value) | ScalarKey::Id(value) = key {
+            total = total.saturating_add(value.len());
+        }
+    }
+    total = total.saturating_add(
+        index
+            .lengths
+            .len()
+            .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<Number>()),
+    );
+    total.saturating_add(index.lengths.values().map(bitmap_bytes).sum::<usize>())
+}
+
+fn gram_bytes(index: &crate::bigram::BigramIndex) -> usize {
+    index
+        .normal
+        .len()
+        .saturating_add(index.skip.len())
+        .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<u64>())
+        .saturating_add(
+            index
+                .normal
+                .values()
+                .chain(index.skip.values())
+                .map(bitmap_bytes)
+                .sum::<usize>(),
+        )
+}
+
+fn sort_bytes(sorting: &crate::sorting::SortCollection) -> usize {
+    let mut total = 0usize;
+    for (path, column) in &sorting.columns {
+        total = total
+            .saturating_add(field_path_bytes(path))
+            .saturating_add(ACCOUNTING_OVERHEAD)
+            .saturating_add(column.keys.capacity() * std::mem::size_of::<crate::sorting::SortKey>())
+            .saturating_add(column.ascending.capacity() * std::mem::size_of::<RecordSlot>())
+            .saturating_add(column.descending.capacity() * std::mem::size_of::<RecordSlot>())
+            .saturating_add(column.locale.len())
+            .saturating_add(column.collation_version.len());
+        for key in &column.keys {
+            total = total.saturating_add(match key {
+                crate::sorting::SortKey::String(value) => value.len(),
+                crate::sorting::SortKey::Id(value) => value.len(),
+                _ => 0,
+            });
+        }
+    }
+    for composite in &sorting.composites {
+        total = total
+            .saturating_add(
+                composite.fields.capacity()
+                    * std::mem::size_of::<crate::sorting::CompositeSortPart>(),
+            )
+            .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
+        for part in &composite.fields {
+            total = total.saturating_add(field_path_bytes(&part.path));
+        }
+    }
+    total
+}
+
+fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
+    let mut total = 0usize;
+    for (path, index) in &state.indexes {
+        total = total
+            .saturating_add(path_bytes(path))
+            .saturating_add(posting_bytes(index));
+    }
+    for (path, bitmap) in state.empty_selections.iter().chain(state.short_string_coverage.iter()) {
+        total = total
+            .saturating_add(path_bytes(path))
+            .saturating_add(bitmap_bytes(bitmap))
+            .saturating_add(ACCOUNTING_OVERHEAD);
+    }
+    for field in &state.report.fields {
+        total = total
+            .saturating_add(path_bytes(&field.path))
+            .saturating_add(field.reason.len());
+    }
+    total
+}
+
 impl IndexedCollectionSegment {
+    /// Recompute the cached planning estimate after native finalization or a
+    /// metadata rewrite. Callers never need this for Arc-reused segments.
+    pub(crate) fn recompute_accounting(&mut self) {
+        let mut retained = self.source_id.len();
+        retained = retained.saturating_add(
+            self.files.capacity() * std::mem::size_of::<SegmentFile>(),
+        );
+        for file in &self.files {
+            retained = retained
+                .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
+                .saturating_add(file.entry.relative_path.as_path().as_os_str().len())
+                .saturating_add(file.entry.collections.capacity() * std::mem::size_of::<CollectionId>())
+                .saturating_add(
+                    file.entry.diagnostics.capacity()
+                        * std::mem::size_of::<crate::inventory::SourceDiagnostic>(),
+                );
+            for diagnostic in &file.entry.diagnostics {
+                retained = retained
+                    .saturating_add(diagnostic.code.len())
+                    .saturating_add(diagnostic.message.len())
+                    .saturating_add(diagnostic.source_id.len());
+                if let Some(path) = &diagnostic.field_path {
+                    retained = retained.saturating_add(path_bytes(path));
+                }
+            }
+        }
+        retained = retained
+            .saturating_add(self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>())
+            .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
+            .saturating_add(
+                self.file_index
+                    .capacity()
+                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<usize>()),
+            )
+            .saturating_add(
+                self.id_lookup
+                    .capacity()
+                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<RecordSlot>()),
+            );
+        for record in &self.records {
+            retained = retained.saturating_add(record.id.0.len());
+        }
+        for (path, index) in &self.postings.fields {
+            retained = retained
+                .saturating_add(path_bytes(path))
+                .saturating_add(posting_bytes(index));
+        }
+        for ((path, binding), posting) in &self.custom_postings {
+            retained = retained
+                .saturating_add(path_bytes(path))
+                .saturating_add(binding.len())
+                .saturating_add(posting_bytes(&posting.index))
+                .saturating_add(ACCOUNTING_OVERHEAD);
+        }
+        retained = retained
+            .saturating_add(gram_bytes(&self.raw))
+            .saturating_add(gram_bytes(&self.fallback_text));
+        for ((path, binding), index) in &self.custom_text {
+            retained = retained
+                .saturating_add(path_bytes(path))
+                .saturating_add(binding.len())
+                .saturating_add(gram_bytes(index))
+                .saturating_add(ACCOUNTING_OVERHEAD);
+        }
+        retained = retained
+            .saturating_add(bitmap_bytes(&self.logical_records))
+            .saturating_add(bitmap_bytes(&self.empty_array_records))
+            .saturating_add(sort_bytes(&self.sorting))
+            .saturating_add(
+                self.relations
+                    .iter()
+                    .map(RelationContribution::estimated_bytes)
+                    .sum::<usize>(),
+            );
+        if let Some(inference) = &self.inference {
+            retained = retained.saturating_add(inference_bytes(inference));
+        }
+        let source_bytes_estimated = self
+            .files
+            .iter()
+            .map(|file| file.entry.revision.size)
+            .fold(0u64, u64::saturating_add);
+        let max_record_range_len = self
+            .records
+            .iter()
+            .map(|record| record.range.end.saturating_sub(record.range.start))
+            .max()
+            .unwrap_or(0);
+        self.accounting = SegmentAccounting {
+            retained_bytes_estimated: retained,
+            source_bytes_estimated,
+            max_record_range_len,
+        };
+    }
+
     pub(crate) fn record_count(&self) -> usize {
-        self.persisted.as_ref().map_or(self.records.len(), |table| table.record_count())
+        self.records.len()
     }
 
     pub(crate) fn max_record_range_len(&self) -> u64 {
-        self.persisted.as_ref().map_or_else(
-            || self.records.iter().map(|record| record.range.end.saturating_sub(record.range.start)).max().unwrap_or(0),
-            |table| table.max_record_range_len(),
-        )
+        self.accounting.max_record_range_len
     }
 
     pub(crate) fn file_count(&self) -> usize {
-        self.persisted.as_ref().map_or(self.files.len(), |table| table.file_count())
-    }
-
-    pub(crate) fn try_file_index(&self, id: FileId) -> Result<Option<usize>, String> {
-        if let Some(table) = &self.persisted {
-            table.file_index(id)
-        } else {
-            Ok(self.file_index.get(&id).copied())
-        }
-    }
-
-    pub(crate) fn try_file_id_at(&self, index: usize) -> Result<Option<FileId>, String> {
-        if let Some(table) = &self.persisted {
-            table.file_id_at(index)
-        } else {
-            Ok(self.files.get(index).map(|file| file.entry.id))
-        }
-    }
-
-    pub(crate) fn try_file_revision_at(&self, index: usize) -> Result<Option<SourceRevision>, String> {
-        if let Some(table) = &self.persisted {
-            table.file_revision_at(index)
-        } else {
-            Ok(self.files.get(index).map(|file| file.entry.revision))
-        }
-    }
-
-    pub(crate) fn try_file_record_count_at(&self, index: usize) -> Result<Option<usize>, String> {
-        if let Some(table) = &self.persisted {
-            table.file_record_count_at(index)
-        } else {
-            Ok(self.files.get(index).map(|file| file.records.len()))
-        }
+        self.files.len()
     }
 
     pub(crate) fn extend_file_slots(&self, index: usize, matches: &mut RoaringBitmap) -> Result<(), String> {
-        if let Some(table) = &self.persisted {
-            table.extend_file_slots(index, matches)
-        } else {
-            let file = self.files.get(index).ok_or("segment file row missing")?;
-            matches.extend(file.records.iter().map(|slot| slot.0));
-            Ok(())
-        }
-    }
-
-    pub(crate) fn try_record(&self, slot: RecordSlot) -> Result<Option<std::borrow::Cow<'_, RecordEntry>>, String> {
-        if let Some(table) = &self.persisted {
-            Ok(table.record(slot)?.map(std::borrow::Cow::Owned))
-        } else {
-            Ok(self.records.get(slot.0 as usize).map(std::borrow::Cow::Borrowed))
-        }
-    }
-
-    pub(crate) fn try_record_id(&self, slot: RecordSlot) -> Result<Option<&str>, String> {
-        if let Some(table) = &self.persisted {
-            table.record_id(slot)
-        } else {
-            Ok(self.records.get(slot.0 as usize).map(|record| record.id.0.as_ref()))
-        }
-    }
-
-    pub(crate) fn try_record_range(&self, slot: RecordSlot) -> Result<Option<ByteRange>, String> {
-        if let Some(table) = &self.persisted {
-            table.record_range(slot)
-        } else {
-            Ok(self.records.get(slot.0 as usize).map(|record| record.range))
-        }
-    }
-
-    pub(crate) fn try_file(&self, id: FileId) -> Result<Option<std::borrow::Cow<'_, SegmentFile>>, String> {
-        if let Some(table) = &self.persisted {
-            let Some(index) = table.file_index(id)? else { return Ok(None); };
-            Ok(table.file_at(index)?.map(std::borrow::Cow::Owned))
-        } else {
-            Ok(self.file(id).map(std::borrow::Cow::Borrowed))
-        }
-    }
-
-    pub(crate) fn try_file_at(&self, index: usize) -> Result<Option<std::borrow::Cow<'_, SegmentFile>>, String> {
-        if let Some(table) = &self.persisted {
-            Ok(table.file_at(index)?.map(std::borrow::Cow::Owned))
-        } else {
-            Ok(self.files.get(index).map(std::borrow::Cow::Borrowed))
-        }
-    }
-
-    pub(crate) fn try_file_entry_at(&self, index: usize) -> Result<Option<std::borrow::Cow<'_, FileEntry>>, String> {
-        if let Some(table) = &self.persisted {
-            Ok(table.file_entry_at(index)?.map(std::borrow::Cow::Owned))
-        } else {
-            Ok(self.files.get(index).map(|file| std::borrow::Cow::Borrowed(&file.entry)))
-        }
-    }
-
-    pub(crate) fn try_file_records(&self, id: FileId) -> Result<Option<std::borrow::Cow<'_, [RecordSlot]>>, String> {
-        if let Some(table) = &self.persisted {
-            Ok(table.file_records(id)?.map(std::borrow::Cow::Owned))
-        } else {
-            Ok(self.file_records(id).map(std::borrow::Cow::Borrowed))
-        }
-    }
-
-    pub(crate) fn try_id_lookup(&self, id: &str) -> Result<Option<RecordSlot>, String> {
-        if let Some(table) = &self.persisted {
-            table.lookup_id(&self.identity_order, id)
-        } else {
-            Ok(self.id_lookup.get(id).copied())
-        }
+        let file = self.files.get(index).ok_or("segment file row missing")?;
+        matches.extend(file.records.iter().map(|slot| slot.0));
+        Ok(())
     }
 
     pub(crate) fn project_inference_for_partitions(
@@ -927,7 +1050,6 @@ impl IndexedCollectionSegment {
         self.files.get(*self.file_index.get(&id)?)
     }
 
-    #[cfg(test)]
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
         self.records.get(slot.0 as usize)
     }
@@ -1117,7 +1239,6 @@ fn consolidate_inference(
                 continue;
             }
             let mut index = initial.clone();
-            index.materialize_mutable()?;
             index.presence.clear();
             index.empty_selections.clear();
             index.nulls.clear();
@@ -1279,7 +1400,7 @@ impl IndexedCollectionSegment {
             let base = u32::try_from(records.len()).map_err(|_| "segment slot overflow")?;
             offsets.push(base);
             for file_number in 0..shard.file_count() {
-                let file = shard.try_file_at(file_number)?.ok_or("segment file row missing")?;
+                let file = shard.files.get(file_number).ok_or("segment file row missing")?;
                 let mut entry = file.entry.clone();
                 if file_index.insert(entry.id, files.len()).is_some() {
                     return Err("overlapping physical file in consolidation".into());
@@ -1303,7 +1424,7 @@ impl IndexedCollectionSegment {
                 });
             }
             for slot in 0..shard.record_count() {
-                let mut record = shard.try_record(RecordSlot(slot as u32))?.ok_or("segment record row missing")?.into_owned();
+                let mut record = shard.record(RecordSlot(slot as u32)).ok_or("segment record row missing")?.clone();
                 record.slot = RecordSlot(
                     base.checked_add(record.slot.0)
                         .ok_or("record slot overflow")?,
@@ -1442,8 +1563,7 @@ impl IndexedCollectionSegment {
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
-        Ok(ConsolidatedSegment {
-            index: IndexedCollectionSegment {
+        let mut index = IndexedCollectionSegment {
                 collection: first.collection,
                 source_id: first.source_id.clone(),
                 source_version: first.source_version,
@@ -1451,8 +1571,7 @@ impl IndexedCollectionSegment {
                 file_index,
                 records,
                 id_lookup,
-                persisted: None,
-                identity_order,
+                    identity_order,
                 postings,
                 inference,
                 custom_postings,
@@ -1465,9 +1584,10 @@ impl IndexedCollectionSegment {
                 relations,
                 record_parses,
                 failed_parses,
-            },
-            offsets,
-        })
+                accounting: SegmentAccounting::default(),
+        };
+        index.recompute_accounting();
+        Ok(ConsolidatedSegment { index, offsets })
     }
 }
 
@@ -1499,7 +1619,6 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
             .map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
-        sealed: None,
         value_complete: source.value_complete,
         length_complete: source.length_complete,
         empty_string_complete: source.empty_string_complete,
@@ -1775,7 +1894,6 @@ fn project_posting(
             .map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
-        sealed: None,
         value_complete: index.value_complete,
         length_complete: index.length_complete,
         empty_string_complete: index.empty_string_complete,
@@ -2288,7 +2406,7 @@ impl IndexedCollectionSegment {
         let mut old_to_new = Vec::with_capacity(self.record_count());
         let mut next = 0u32;
         for slot in 0..self.record_count() {
-            let record = self.try_record(RecordSlot(slot as u32))?.ok_or("compaction record row missing")?;
+            let record = self.record(RecordSlot(slot as u32)).ok_or("compaction record row missing")?;
             if record.slot.0 as usize != old_to_new.len() {
                 return Err("compaction record slots out of order".into());
             }
@@ -2350,7 +2468,7 @@ impl IndexedCollectionSegment {
         let next = u32::try_from(selected.len()).map_err(|_| "partition slot overflow")?;
         let mut file_indices = selected_files
             .iter()
-            .map(|id| self.try_file_index(*id)?.ok_or_else(|| "partition file missing".to_owned()))
+            .map(|id| self.file_index.get(&*id).copied().ok_or_else(|| "partition file missing".to_owned()))
             .collect::<Result<Vec<_>, _>>()?;
         file_indices.sort_unstable();
         self.compact_with_mapping(
@@ -2385,7 +2503,7 @@ impl IndexedCollectionSegment {
         let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
         let mut selected_by_file: HashMap<FileId, Vec<RecordSlot>> = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self.try_record(RecordSlot(old as u32))?
+            let record = self.record(RecordSlot(old as u32))
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2399,7 +2517,7 @@ impl IndexedCollectionSegment {
             None => Box::new(all_files),
         };
         for index in file_indices {
-            let file = self.try_file_at(index)?
+            let file = self.files.get(index)
                 .ok_or("compaction file index out of bounds")?;
             let retained = retain_file(&file.entry);
             let mut owned = selected_by_file.remove(&file.entry.id).unwrap_or_default();
@@ -2442,7 +2560,7 @@ impl IndexedCollectionSegment {
         let mut records = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self.try_record(RecordSlot(old as u32))?
+            let record = self.record(RecordSlot(old as u32))
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2450,7 +2568,7 @@ impl IndexedCollectionSegment {
             if !file_index.contains_key(&record.file) {
                 return Err("active record file missing".into());
             }
-            let mut compacted = record.into_owned();
+            let mut compacted = record.clone();
             compacted.slot = slot;
             if compacted.class == RecordClass::RawFallback {
                 compacted.diagnostic_ref = match compacted.diagnostic_ref.stored_index() {
@@ -2574,7 +2692,7 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
-        let index = IndexedCollectionSegment {
+        let mut index = IndexedCollectionSegment {
             collection: self.collection,
             source_id: self.source_id.clone(),
             source_version: self.source_version,
@@ -2582,7 +2700,6 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
-            persisted: None,
             identity_order,
             postings,
             inference,
@@ -2596,7 +2713,9 @@ impl IndexedCollectionSegment {
             relations,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
+            accounting: SegmentAccounting::default(),
         };
+        index.recompute_accounting();
         Ok(index)
     }
 }

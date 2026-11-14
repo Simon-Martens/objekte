@@ -167,7 +167,7 @@ impl IncrementalCollection {
             self.options.inference,
             self.collection_count,
         );
-        Some(std::mem::replace(&mut self.admission, replacement).seal())
+        Some(std::mem::replace(&mut self.admission, replacement).finish())
     }
 
     fn finish_summary(
@@ -244,15 +244,11 @@ fn publish_segment(
         profile.publication_prepare_ns = profile
             .publication_prepare_ns
             .saturating_add(phases.preparation_ns);
-        profile.publication_seal_ns = profile
-            .publication_seal_ns
-            .saturating_add(phases.sealing_ns);
         profile.publication_install_ns = profile
             .publication_install_ns
             .saturating_add(phases.install_ns);
         let segment = segment_profile.as_mut().unwrap();
         segment.prepare_ns = phases.preparation_ns;
-        segment.seal_ns = phases.sealing_ns;
         segment.install_ns = phases.install_ns;
     }
     let phase = crate::detailed_timer::start_if_enabled(profile.is_some());

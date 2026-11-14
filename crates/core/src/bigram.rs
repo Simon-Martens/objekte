@@ -1,21 +1,18 @@
 //! Conservative record-level bigram candidates over separate text segments.
 
 use std::collections::{HashMap, HashSet};
-use std::sync::Arc;
 #[cfg(feature = "detailed-profiling")]
 use std::sync::OnceLock;
 use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
-use crate::bigram_dictionary::{BigramSpans, SealedBigramIndex};
 #[cfg(test)]
 use crate::inventory::append_shifted_bitmap;
 use crate::model::RecordSlot;
-use crate::segment_format::SegmentReader;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
 
@@ -263,34 +260,15 @@ impl BigramRequest {
 
 
 /// Record-level bigram postings for one text binding.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct BigramIndex {
     pub alphabet: BigramAlphabet,
     pub record_count: u32,
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
-    #[serde(skip)]
-    sealed: Option<Arc<SealedBigramIndex>>,
 }
 
-
 impl BigramIndex {
-    pub(crate) fn normal_key_count(&self) -> usize {
-        self.sealed.as_ref().map_or(self.normal.len(), |sealed| sealed.normal_key_count())
-    }
-
-    pub(crate) fn skip_key_count(&self) -> usize {
-        self.sealed.as_ref().map_or(self.skip.len(), |sealed| sealed.skip_key_count())
-    }
-
-    pub(crate) fn is_sealed(&self) -> bool {
-        self.sealed.is_some()
-    }
-
-    pub(crate) fn sealed_reader(&self) -> Option<Arc<SegmentReader>> {
-        self.sealed.as_ref().map(|sealed| sealed.segment_reader())
-    }
-
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if self
             .normal
@@ -313,121 +291,31 @@ impl BigramIndex {
             record_count: 0,
             normal: HashMap::new(),
             skip: HashMap::new(),
-            sealed: None,
         }
-    }
-
-    /// Replace mutable gram maps with a checked shared reader only after the
-    /// corresponding segment bytes have been published. The current snapshot
-    /// writer must be retired before production callers use this transition.
-    pub(crate) fn install_sealed(
-        &mut self,
-        reader: Arc<SegmentReader>,
-        spans: BigramSpans,
-        binding: u32,
-        allowed: Arc<RoaringBitmap>,
-    ) -> Result<(), String> {
-        let sealed =
-            SealedBigramIndex::open(reader, spans, binding, self.alphabet, self.record_count, allowed)?;
-        self.normal = HashMap::new();
-        self.skip = HashMap::new();
-        self.sealed = Some(Arc::new(sealed));
-        Ok(())
-    }
-
-    pub(crate) fn install_stamped(
-        &mut self,
-        reader: Arc<SegmentReader>,
-        spans: BigramSpans,
-        binding: u32,
-        allowed: Arc<RoaringBitmap>,
-    ) -> Result<(), String> {
-        let sealed = SealedBigramIndex::open_stamped(
-            reader,
-            spans,
-            binding,
-            self.alphabet,
-            self.record_count,
-            allowed,
-        )?;
-        self.normal = HashMap::new();
-        self.skip = HashMap::new();
-        self.sealed = Some(Arc::new(sealed));
-        Ok(())
-    }
-
-    pub(crate) fn install_constructed(
-        &mut self,
-        reader: Arc<SegmentReader>,
-        spans: BigramSpans,
-        binding: u32,
-        allowed: Arc<RoaringBitmap>,
-    ) -> Result<(), String> {
-        let sealed = SealedBigramIndex::from_constructed(
-            reader,
-            spans,
-            binding,
-            self.alphabet,
-            self.record_count,
-            allowed,
-        )?;
-        self.normal = HashMap::new();
-        self.skip = HashMap::new();
-        self.sealed = Some(Arc::new(sealed));
-        Ok(())
     }
 
     pub(crate) fn for_each_normal(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        if let Some(sealed) = &self.sealed {
-            sealed.for_each_normal(visit)
-        } else {
-            let mut keys = self.normal.keys().collect::<Vec<_>>();
-            keys.sort_unstable();
-            for key in keys {
-                visit(key, &self.normal[key])?;
-            }
-            Ok(())
+        let mut keys = self.normal.keys().collect::<Vec<_>>();
+        keys.sort_unstable();
+        for key in keys {
+            visit(key, &self.normal[key])?;
         }
+        Ok(())
     }
 
     pub(crate) fn for_each_skip(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        if let Some(sealed) = &self.sealed {
-            sealed.for_each_skip(visit)
-        } else {
-            let mut keys = self.skip.keys().collect::<Vec<_>>();
-            keys.sort_unstable();
-            for key in keys {
-                visit(key, &self.skip[key])?;
-            }
-            Ok(())
+        let mut keys = self.skip.keys().collect::<Vec<_>>();
+        keys.sort_unstable();
+        for key in keys {
+            visit(key, &self.skip[key])?;
         }
-    }
-
-    pub(crate) fn try_candidates_prepared(
-        &self,
-        request: &BigramRequest,
-    ) -> Result<Option<RoaringBitmap>, String> {
-        match &self.sealed {
-            Some(sealed) => sealed.candidates_prepared(request),
-            None => Ok(self.candidates_prepared(request)),
-        }
-    }
-
-    #[cfg(test)]
-    pub(crate) fn try_estimate_prepared(
-        &self,
-        request: &BigramRequest,
-    ) -> Result<Option<u64>, String> {
-        match &self.sealed {
-            Some(sealed) => sealed.estimate_prepared(request),
-            None => Ok(self.estimate_prepared(request)),
-        }
+        Ok(())
     }
 
     pub fn add_record(&mut self, slot: RecordSlot, segments: &[TextSegment]) -> Result<(), String> {
@@ -933,7 +821,6 @@ impl BigramContribution {
             record_count,
             normal: normal?,
             skip: skip?,
-            sealed: None,
         })
     }
 
@@ -952,7 +839,6 @@ impl BigramContribution {
             record_count,
             normal: convert_blocks(normal)?,
             skip: convert_blocks(skip)?,
-            sealed: None,
         })
     }
 }

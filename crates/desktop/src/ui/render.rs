@@ -290,7 +290,7 @@ impl DesktopView {
                                 .ghost()
                                 .label("Close now")
                                 .on_click(cx.listener(|this, _, _, cx| {
-                                    this.send(UiAction::CloseWithoutSaving);
+                                    this.send(UiAction::RequestClose);
                                     cx.notify();
                                 })),
                         ),
@@ -1705,14 +1705,6 @@ impl DesktopView {
             "Checking files…".to_owned()
         } else if matches!(index.check, IndexTaskState::Failed(_)) {
             "Some files could not be checked".to_owned()
-        } else if index.dirty && index.save_summary == "Not saved" {
-            "Index in memory · not saved".to_owned()
-        } else if index.dirty {
-            "Index has changes since last save".to_owned()
-        } else if index.save_summary.starts_with("Saved revision") {
-            "Index saved".to_owned()
-        } else if index.storage_location == "Built in memory" {
-            "Index in memory".to_owned()
         } else if index.check_complete == Some(true) {
             "Files checked".to_owned()
         } else {
@@ -2969,12 +2961,8 @@ impl Render for DesktopView {
             })
             .child(self.render_status(cx))
             .when(
-                self.state.open_dialog.visible && !self.state.open_dialog.storage_only,
+                self.state.open_dialog.visible,
                 |this| this.child(self.render_open_dialog(width, height, cx)),
-            )
-            .when(
-                self.state.open_dialog.visible && self.state.open_dialog.storage_only,
-                |this| this.child(self.render_storage_dialog(width, height, cx)),
             )
             .when(self.state.closing_index.is_some(), |this| {
                 this.child(self.render_close_dialog(cx))

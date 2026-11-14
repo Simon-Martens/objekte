@@ -1170,114 +1170,17 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     }
 }
 
-fn storage_current_lines(app: &App) -> Vec<Line<'static>> {
-    let mut lines = vec![
-        Line::from("Index persistence is explicit. Building and closing do not save."),
-        Line::from(
-            if app.repo.index().loaded_origin().ok().flatten().is_some() {
-                "Current index: loaded saved index"
-            } else {
-                "Current index: built in memory"
-            },
-        ),
-    ];
-    if let Some(saved) = &app.storage_last_saved {
-        lines.push(Line::from(saved.clone()));
-    } else {
-        lines.push(Line::from("No save requested in this view"));
-    }
-    lines
-}
-
-fn storage_lines(app: &App) -> Vec<Line<'static>> {
-    let mut lines = storage_current_lines(app);
-    for (index, label) in ["Open saved index…", "Save index…"].into_iter().enumerate() {
-        lines.push(Line::from(Span::styled(
-            format!(
-                "{} [{}] {label}",
-                if app.storage_picker == index {
-                    "❯"
-                } else {
-                    " "
-                },
-                if app.storage_operation == index {
-                    "x"
-                } else {
-                    " "
-                }
-            ),
-            Style::new().fg(if app.storage_picker == index {
-                ACCENT
-            } else {
-                TEXT
-            }),
-        )));
-    }
-    for (index, label) in [
-        "System temporary folder",
-        "Repository folder",
-        "Custom folder",
-    ]
-    .into_iter()
-    .enumerate()
-    {
-        lines.push(Line::from(Span::styled(
-            format!(
-                "{} [{}] {label}",
-                if app.storage_picker == index + 2 {
-                    "❯"
-                } else {
-                    " "
-                },
-                if app.storage_choice == index {
-                    "x"
-                } else {
-                    " "
-                }
-            ),
-            Style::new().fg(if app.storage_picker == index + 2 {
-                ACCENT
-            } else {
-                TEXT
-            }),
-        )));
-    }
-    lines.push(Line::from(format!(
-        "{} Custom base: {}{}",
-        if app.storage_picker == 5 { "❯" } else { " " },
-        app.storage_directory.text,
-        if app.storage_editing {
-            " ▏ editing"
-        } else {
-            ""
-        }
-    )));
-    lines.push(Line::from(format!(
-        "{} {}",
-        if app.storage_picker == 6 { "❯" } else { " " },
-        if app.storage_busy {
-            "Working…"
-        } else if app.storage_operation == 0 {
-            "Open selected saved index"
-        } else {
-            "Save index to selected location"
-        }
-    )));
-    lines
-}
-
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     let area = frame.area();
     let width = area
         .width
-        .min(if overlay == Overlay::Storage { 100 } else { 70 })
+        .min(70)
         .saturating_sub(4)
         .max(20);
     let height = match overlay {
         Overlay::Actions => {
             (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
         }
-        Overlay::Storage => 18.min(area.height.saturating_sub(2)),
         Overlay::Collections => {
             (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
         }
@@ -1306,7 +1209,6 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     frame.render_widget(Clear, panel);
     let title = match overlay {
         Overlay::Actions => " Actions · Ctrl+K ",
-        Overlay::Storage => " Index operations ",
         Overlay::Collections => " Collections ",
         Overlay::Sort => " Sort by ",
         Overlay::History => " Recent queries ",
@@ -1359,7 +1261,6 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 ])
             })
             .collect(),
-        Overlay::Storage => storage_lines(app),
         Overlay::Collections => std::iter::once("All collections".to_owned())
             .chain(app.collection_names().map(str::to_owned))
             .enumerate()
@@ -1505,8 +1406,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
-                "  Open saved index or save index to Temp / Repository / Custom",
-                "  Closing does not save the index",
+                "  Source build, search, maintenance and export actions",
+                "  Closing releases the in-memory index",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Filter: Alt+↑↓  Choose suggestion; Enter insert",
@@ -1531,8 +1432,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
-                "  Open saved index or save index to Temp / Repository / Custom",
-                "  Closing does not save the index",
+                "  Source build, search, maintenance and export actions",
+                "  Closing releases the in-memory index",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Filter: Alt+↑↓  Choose suggestion; Enter insert",
@@ -1562,7 +1463,6 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     };
     let selected = match overlay {
         Overlay::Actions => app.action_picker,
-        Overlay::Storage => storage_current_lines(app).len() + app.storage_picker,
         Overlay::Collections => app.picker,
         Overlay::Sort => app.sort_picker,
         Overlay::History | Overlay::Saved => app.list_picker,

@@ -4,7 +4,7 @@ use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 
 #[test]
-fn configured_memory_open_ignores_existing_deprecated_snapshot() {
+fn source_open_ignores_existing_index_artifacts() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
     std::fs::create_dir_all(&schemas).unwrap();
@@ -34,7 +34,11 @@ fn configured_memory_open_ignores_existing_deprecated_snapshot() {
         .map(|line| serde_json::from_slice(line).unwrap())
         .collect();
     assert!(events.iter().any(|event| event["type"] == "query_complete"));
-    assert_eq!(events.last().unwrap()["index_action"], "built_in_memory");
+    let complete = events.last().unwrap();
+    assert_eq!(complete["type"], "run_complete");
+    assert_eq!(complete["query_successes"], 1);
+    assert!(complete.get("index_action").is_none());
+    assert!(complete.get("index_persistence").is_none());
 }
 
 #[test]

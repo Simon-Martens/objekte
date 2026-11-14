@@ -59,6 +59,16 @@ fn hidden(path: &Path) -> bool {
 
 /// Returns repository-native lexical paths. Symlink aliases to one physical
 /// source are reduced to the first path in lexical order.
+/// Generated index namespaces are pruned before descent, regardless of the
+/// hidden-source setting. Only source traversal prunes these names; a user
+/// selecting one as the collection root is rejected during preparation.
+fn generated_directory(selected: &Path) -> bool {
+    selected.file_name().is_some_and(|name| {
+        name == std::ffi::OsStr::new(".objekte")
+            || name == std::ffi::OsStr::new("objekte-indexes")
+    })
+}
+
 pub fn discover(
     root: &Path,
     source_path: &Path,
@@ -143,6 +153,7 @@ pub(crate) fn discover_stream(
                     if kind.is_dir() {
                         if self.rules.recursive
                             && !excluded_directory
+                            && !generated_directory(selected)
                             && !self.excludes.is_match(selected)
                         {
                             self.directory(&path, ancestors)?;
@@ -161,6 +172,7 @@ pub(crate) fn discover_stream(
                 if physical.is_dir() {
                     if self.rules.recursive
                         && !excluded_directory
+                        && !generated_directory(selected)
                         && !self.excludes.is_match(selected)
                         && !ancestors.contains(&physical)
                     {
@@ -268,7 +280,10 @@ pub(crate) fn discover_bounded(
                 .any(|excluded| selected_path == excluded);
             if rules.symlinks == SymlinkPolicy::Skip {
                 if kind.is_dir() && rules.recursive {
-                    if !directory_excluded && !excludes.is_match(selected_path) {
+                    if !directory_excluded
+                        && !generated_directory(selected_path)
+                        && !excludes.is_match(selected_path)
+                    {
                         if pending.len() >= max_paths {
                             return Err("source discovery directory budget exceeded".into());
                         }
@@ -301,6 +316,7 @@ pub(crate) fn discover_bounded(
             if physical.is_dir() {
                 if rules.recursive
                     && !directory_excluded
+                    && !generated_directory(selected_path)
                     && !excludes.is_match(selected_path)
                     && !ancestors.contains(&physical)
                 {

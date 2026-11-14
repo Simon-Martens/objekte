@@ -284,7 +284,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap();
     let mut index = admission
         .unwrap()
-        .seal()
+        .finish()
         .into_indexed(
             &state.definition,
             restored.options().bigram_alphabet,
@@ -850,31 +850,14 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                     .unwrap_err()
                     .contains("continuation scope")
             );
-            use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
             use crate::lifecycle::Index;
-            let base = root.join("managed-store");
-            std::fs::create_dir_all(&base).unwrap();
-            let policy = IndexLocationResolver {
-                location: IndexStorageLocation::CustomDirectory(base),
-            };
-            let first = Index::open_with_storage(
+                let restored = Index::build_with_sources(
                 &root,
                 vec![definition.clone()],
                 options,
-                policy.clone(),
                 crate::source::SourceRegistry::builtin(),
             )
             .unwrap();
-            first.shutdown().unwrap();
-            let restored = Index::open_with_storage(
-                &root,
-                vec![definition.clone()],
-                options,
-                policy,
-                crate::source::SourceRegistry::builtin(),
-            )
-            .unwrap();
-            assert!(restored.restored_from_storage());
             let restored = restored.view().unwrap();
             assert_eq!(
                 restored.posting_values(&request).unwrap().values,

@@ -286,22 +286,3 @@ fn long_search_line_keeps_the_cursor_and_tail_visible() {
     let screen = format!("{:?}", terminal.backend().buffer());
     assert!(screen.contains("TAIL"));
 }
-
-#[test]
-fn storage_overlay_keeps_save_action_reachable_with_a_long_custom_path() {
-    let mut fixture = fixture(1);
-    let app = &mut fixture.app;
-    app.storage_directory =
-        crate::tui::input::Input::with_text(&format!("/tmp/{}", "long/".repeat(24)));
-    app.storage_operation = 1;
-    app.overlay = Some(Overlay::Storage);
-    app.storage_picker = 6;
-    let backend = ratatui::backend::TestBackend::new(80, 24);
-    let mut terminal = ratatui::Terminal::new(backend).unwrap();
-    terminal.draw(|frame| draw(frame, app)).unwrap();
-    let screen = format!("{:?}", terminal.backend().buffer());
-    assert!(
-        screen.contains("Save index to selected location"),
-        "{screen}"
-    );
-}

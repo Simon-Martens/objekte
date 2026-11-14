@@ -6,7 +6,6 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
-use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
@@ -34,7 +33,7 @@ use super::input::Input;
 use super::record::{self, DisplayRow, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
-use super::{TuiOptions, TuiReopenRequest};
+use super::TuiOptions;
 
 pub(super) const PAGE_SIZE: usize = 100;
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
@@ -115,7 +114,6 @@ pub(super) enum View {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
     Actions,
-    Storage,
     Collections,
     Sort,
     History,
@@ -130,7 +128,6 @@ pub(super) enum Overlay {
 #[derive(Clone, Copy, Debug)]
 pub(super) enum Action {
     Files,
-    Storage,
     Collections,
     Sort,
     Columns,
@@ -147,9 +144,8 @@ pub(super) enum Action {
 }
 
 impl Action {
-    pub(super) const ALL: [Self; 15] = [
+    pub(super) const ALL: [Self; 14] = [
         Self::Collections,
-        Self::Storage,
         Self::Sort,
         Self::Columns,
         Self::History,
@@ -168,7 +164,6 @@ impl Action {
     pub(super) fn label(self) -> &'static str {
         match self {
             Self::Files => "Toggle file catalogue             Ctrl+I",
-            Self::Storage => "Open or save index               Ctrl+K",
             Self::Collections => "Choose collection                Ctrl+O",
             Self::Sort => "Sort results                     Alt+S",
             Self::Columns => "Show or hide columns             Alt+L",
@@ -233,15 +228,6 @@ pub(super) struct App {
     pub(super) sort_picker: usize,
     pub(super) sort_input: Input,
     pub(super) action_picker: usize,
-    pub(super) storage_picker: usize,
-    pub(super) storage_choice: usize,
-    pub(super) storage_operation: usize,
-    pub(super) storage_directory: Input,
-    pub(super) storage_editing: bool,
-    pub(super) storage_request: Option<(bool, IndexStorageTarget)>,
-    pub(super) storage_busy: bool,
-    pub(super) storage_last_saved: Option<String>,
-    pub(super) reopen_request: Option<TuiReopenRequest>,
     pub(super) list_picker: usize,
     pub(super) column_picker: usize,
     pub(super) column_offset: usize,
@@ -410,15 +396,6 @@ impl App {
             sort_picker: 0,
             sort_input: Input::default(),
             action_picker: 0,
-            storage_picker: 0,
-            storage_choice: 0,
-            storage_operation: 0,
-            storage_directory: Input::default(),
-            storage_editing: false,
-            storage_request: None,
-            storage_busy: false,
-            storage_last_saved: None,
-            reopen_request: None,
             list_picker: 0,
             column_picker: 0,
             column_offset: 0,
@@ -972,70 +949,6 @@ impl App {
     pub(super) fn choose_action(&mut self) -> Option<Action> {
         self.overlay = None;
         Action::ALL.get(self.action_picker).copied()
-    }
-
-    pub(super) fn open_storage(&mut self) {
-        self.storage_picker = self.storage_operation;
-        self.storage_editing = false;
-        self.overlay = Some(Overlay::Storage);
-    }
-
-    pub(super) fn apply_storage(&mut self) {
-        if self.storage_busy {
-            self.status = Some("Wait for the current index operation to finish".into());
-            return;
-        }
-        let target = match self.storage_choice {
-            0 => IndexStorageTarget::SystemTemporary,
-            1 => IndexStorageTarget::RepositoryDirectory,
-            _ => match self.canonical_custom_base() {
-                Ok(path) => IndexStorageTarget::CustomDirectory(path),
-                Err(error) => {
-                    self.status = Some(error);
-                    return;
-                }
-            },
-        };
-        if let Err(error) = target.validate() {
-            self.status = Some(error);
-            return;
-        }
-        if self.storage_operation == 1
-            && self
-                .build_status
-                .as_ref()
-                .is_some_and(|status| !status.construction_complete)
-        {
-            self.status = Some("Wait for initial index construction before saving".into());
-            return;
-        }
-        self.overlay = None;
-        self.storage_request = Some((self.storage_operation == 0, target));
-    }
-
-    fn canonical_custom_base(&self) -> Result<PathBuf, String> {
-        let input = self.storage_directory.text.trim();
-        if input.is_empty() {
-            return Err("Choose an existing custom index base directory".into());
-        }
-        let path = PathBuf::from(input)
-            .canonicalize()
-            .map_err(|error| format!("Custom index base: {error}"))?;
-        if !path.is_dir() {
-            return Err("Custom index base is not a directory".into());
-        }
-        Ok(path)
-    }
-
-    pub(super) fn finish_storage_directory(&mut self) {
-        match self.canonical_custom_base() {
-            Ok(path) => {
-                self.storage_directory = Input::with_text(&path.to_string_lossy());
-                self.storage_editing = false;
-                self.status = Some(format!("Custom base: {}", path.display()));
-            }
-            Err(error) => self.status = Some(error),
-        }
     }
 
     pub(super) fn sort_choices(&self) -> Vec<Option<SortField>> {

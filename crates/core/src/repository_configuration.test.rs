@@ -1,4 +1,6 @@
 use super::*;
+use crate::repository::RepositoryOptions;
+use crate::source::SourceRegistry;
 use sha2::{Digest, Sha256};
 
 fn test_root(label: &str) -> PathBuf {
@@ -136,5 +138,50 @@ fn repository_configuration_never_searches_parent_directories() {
     assert!(load_repository_configuration(&root).is_ok());
     let error = load_repository_configuration(&child).err().unwrap();
     assert!(error.contains(".objekte/collections"), "{error}");
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn source_preparation_preserves_live_identity_and_generated_exclusions() {
+    let root = test_root("source-prepare");
+    fs::create_dir_all(root.join("data")).unwrap();
+    let definition =
+        CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars);
+    let first = prepare_source_definitions(&root, std::slice::from_ref(&definition)).unwrap();
+    assert_eq!(
+        first[0].discovery.exclude_directories,
+        vec![
+            PathBuf::from(".objekte/.indexes"),
+            PathBuf::from(".objekte/indexes")
+        ]
+    );
+    let second = prepare_source_definitions(&root, &first).unwrap();
+    assert_eq!(second[0].discovery, first[0].discovery);
+    assert_eq!(second[0].source_path, first[0].source_path);
+    let hash = crate::configuration::configuration_hash(
+        &first,
+        RepositoryOptions::default(),
+        &SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let actual = hash
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect::<String>();
+    assert_eq!(
+        actual,
+        "d025ae2e90ad25b5c5fb46e60f4247bbce8bf9338613cfd17f43185db7016a93"
+    );
+    fs::create_dir_all(root.join(".objekte/.indexes")).unwrap();
+    let reserved = CollectionDefinition::folder(
+        "bad",
+        ".objekte/.indexes",
+        SourceFormat::JsonDecodedScalars,
+    );
+    assert!(
+        prepare_source_definitions(&root, &[reserved])
+            .unwrap_err()
+            .contains("generated index namespace")
+    );
     fs::remove_dir_all(root).unwrap();
 }

@@ -288,7 +288,7 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
 }
 
 #[test]
-fn cache_exclusion_precedes_seen_tracking_and_scan_cancels_between_batches() {
+fn generated_directory_exclusion_precedes_seen_tracking_and_scan_cancels_between_batches() {
     use std::sync::atomic::{AtomicBool, Ordering};
 
     let root = std::env::temp_dir().join(format!(

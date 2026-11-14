@@ -69,7 +69,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
         .build()
         .unwrap();
     let indexed = admission
-        .seal()
+        .finish()
         .into_indexed(
             &definition,
             BigramAlphabet::Ascii,
@@ -191,7 +191,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     }
     assert_eq!(admission.file_count(), 3);
     assert_eq!(admission.record_count(), 3);
-    let segment = admission.seal();
+    let segment = admission.finish();
     assert_eq!(
         segment
             .files
@@ -316,7 +316,7 @@ fn same_physical_file_can_enter_two_collection_segments() {
     for collection in prepared.collections {
         let mut admission = SegmentAdmission::new(collection.collection, &source);
         admission.admit(&prepared.source, collection).unwrap();
-        segments.push(admission.seal());
+        segments.push(admission.finish());
     }
     assert_eq!(segments.len(), 2);
     assert!(
@@ -396,7 +396,7 @@ fn measure_single_file_segment_cost() {
             )
             .unwrap();
         let indexed = admission
-            .seal()
+            .finish()
             .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
             .unwrap();
         assert_eq!(indexed.records.len(), 1);
@@ -521,7 +521,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
             .unwrap();
         shards.push(
             admission
-                .seal()
+                .finish()
                 .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
                 .unwrap(),
         );
@@ -539,7 +539,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
             .unwrap();
     }
     let direct = direct
-        .seal()
+        .finish()
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
     std::fs::remove_dir_all(&root).unwrap();
@@ -671,7 +671,7 @@ fn seventy_small_shards_consolidate_after_sources_are_removed() {
             .unwrap();
         shards.push(
             admission
-                .seal()
+                .finish()
                 .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
                 .unwrap(),
         );
@@ -821,11 +821,11 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         }
     }
     let all = all
-        .seal()
+        .finish()
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
     let oracle = only_live
-        .seal()
+        .finish()
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
     let masks = [
@@ -1010,7 +1010,7 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
             .unwrap();
         versions.push(
             admission
-                .seal()
+                .finish()
                 .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
                 .unwrap(),
         );
@@ -1093,7 +1093,7 @@ fn compaction_remaps_retained_fallback_diagnostics() {
         .build()
         .unwrap();
     let indexed = admission
-        .seal()
+        .finish()
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
     std::fs::remove_dir_all(root).unwrap();

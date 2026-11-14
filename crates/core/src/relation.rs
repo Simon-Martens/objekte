@@ -254,7 +254,7 @@ struct PendingReference {
 }
 
 /// Construction-only relation state, merged in deterministic batch order.
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Clone)]
 pub(crate) struct RelationContribution {
     declaration: RelationDefinition,
     record_count: u32,
@@ -266,6 +266,38 @@ pub(crate) struct RelationContribution {
 }
 
 impl RelationContribution {
+    /// Deterministic planning estimate for the native relation contribution.
+    pub(crate) fn estimated_bytes(&self) -> usize {
+        const OVERHEAD: usize = 48;
+        let mut total = self
+            .declaration
+            .path
+            .iter()
+            .map(String::len)
+            .sum::<usize>()
+            .saturating_add(self.declaration.target_collection.len())
+            .saturating_add(
+                self.declaration
+                    .reverse_alias
+                    .as_ref()
+                    .map_or(0, String::len),
+            );
+        total = total.saturating_add(
+            self.references.capacity()
+                * (std::mem::size_of::<PendingReference>() + OVERHEAD),
+        );
+        for reference in &self.references {
+            total = total
+                .saturating_add(reference.target_id.len())
+                .saturating_add(reference.positions.capacity() * std::mem::size_of::<u32>());
+        }
+        total
+            .saturating_add(self.present.serialized_size() as usize)
+            .saturating_add(self.nulls.serialized_size() as usize)
+            .saturating_add(self.empty_arrays.serialized_size() as usize)
+            .saturating_add(self.unavailable.serialized_size() as usize)
+    }
+
     pub(crate) fn from_resolved_index(
         index: &RelationIndex,
         record_count: usize,
@@ -306,6 +338,11 @@ impl RelationContribution {
         self.record_count
     }
 
+
+    /// References are appended in source-slot order during admission and
+    /// projection, so a selective query can borrow one source's edges without
+    /// constructing a query-wide forward map.
+    #[cfg(test)]
     pub(crate) fn references(&self) -> impl Iterator<Item = (RecordSlot, &str, &[u32])> {
         self.references.iter().map(|reference| {
             (
@@ -316,9 +353,6 @@ impl RelationContribution {
         })
     }
 
-    /// References are appended in source-slot order during admission and
-    /// projection, so a selective query can borrow one source's edges without
-    /// constructing a query-wide forward map.
     pub(crate) fn references_for_source(
         &self,
         source: RecordSlot,

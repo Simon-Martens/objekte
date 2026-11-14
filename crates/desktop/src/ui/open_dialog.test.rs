@@ -77,7 +77,7 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
 }
 
 #[test]
-fn configured_repository_defaults_to_memory_and_custom_requires_a_base_folder() {
+fn configured_repository_detection_selects_repository_mode() {
     let mut dialog = OpenDialogState::default();
     dialog.show();
     dialog.edit_folder(0, "/tmp/one".into());
@@ -88,37 +88,7 @@ fn configured_repository_defaults_to_memory_and_custom_requires_a_base_folder() 
     }));
     let default = dialog.to_open_draft(&OpenDraft::default()).unwrap();
     assert_eq!(default.mode, OpenMode::ConfiguredRepository);
-    assert_eq!(default.index_storage, StorageChoice::Memory);
-    let custom = OpenDraft {
-        index_storage: StorageChoice::Custom,
-        ..OpenDraft::default()
-    };
-    assert!(dialog.to_open_draft(&custom).unwrap_err().contains("base folder"));
-    let custom = OpenDraft { index_directory: "/tmp/indexes".into(), ..custom };
-    assert_eq!(dialog.to_open_draft(&custom).unwrap().index_directory, "/tmp/indexes");
-}
-
-#[test]
-fn custom_folder_picker_rejects_late_results() {
-    let mut dialog = OpenDialogState::default();
-    dialog.show();
-    let generation = dialog.begin_index_picker().unwrap();
-    assert!(dialog.accept_index_picker(generation));
-    let stale = dialog.begin_index_picker().unwrap();
-    dialog.close();
-    assert!(!dialog.accept_index_picker(stale));
-}
-
-#[test]
-fn focused_storage_dialog_keeps_source_fixed_and_cancel_resets_mode() {
-    let mut dialog = OpenDialogState::default();
-    dialog.show_storage();
-    assert!(dialog.visible && dialog.storage_only);
-    assert!(dialog.begin_index_picker().is_some());
-    dialog.close();
-    assert!(!dialog.visible && !dialog.storage_only);
-    dialog.show();
-    assert!(!dialog.storage_only);
+    assert_eq!(default.paths, "/tmp/one");
 }
 
 #[test]

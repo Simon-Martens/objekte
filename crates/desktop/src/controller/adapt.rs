@@ -3,19 +3,12 @@
 use std::path::{Path, PathBuf};
 
 use objekte_cli::arguments::{Alphabet, Arguments};
-use objekte_search_core::index_storage::IndexStorageTarget;
 
 use crate::backend::{OpenSpec, QuerySpec};
 use crate::ui::model::{OpenDraft, OpenMode, SearchDraft};
 
 /// Build the existing CLI opening arguments from visible controls.
 pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
-    let mut target = draft.load_target()?;
-    if let Some(IndexStorageTarget::CustomDirectory(directory)) = &mut target
-        && directory.is_relative()
-    {
-        *directory = cwd.join(directory.as_path());
-    }
     let mut args = Arguments {
         auto_index: draft.auto_index,
         index_alphabet: if draft.unicode_index {
@@ -65,7 +58,6 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
     Ok(OpenSpec {
         args,
         cwd: cwd.to_path_buf(),
-        load_target: target,
     })
 }
 

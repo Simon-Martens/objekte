@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::HashMap;
 use std::path::PathBuf;
 
@@ -323,14 +320,10 @@ fn explicit_composite_order_streams_and_matches_reference() {
     );
     assert_eq!(repo.search(&typed).unwrap().hits, result.hits);
     drop(repo);
-    let storage = IndexStoragePolicy {
-        location: IndexStorageLocation::RepositoryDirectory,
-    };
-    let first = Index::open_with_storage(
+    let first = Index::build_with_sources(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        storage.clone(),
         SourceRegistry::builtin(),
     )
     .unwrap();
@@ -338,21 +331,17 @@ fn explicit_composite_order_streams_and_matches_reference() {
         first.view().unwrap().search(&query).unwrap().hits,
         result.hits
     );
-    first.stop_sync_storage().unwrap();
-    let restored = Index::open_with_storage(
+    let restored = Index::build_with_sources(
         &root,
         definitions,
         RepositoryOptions::default(),
-        storage,
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(restored.restored_from_storage());
     assert_eq!(
         restored.view().unwrap().search(&query).unwrap().hits,
         result.hits
     );
-    restored.stop_sync_storage().unwrap();
     restored.wait_for_reconciliation().unwrap();
     drop(restored);
     std::fs::remove_dir_all(root).unwrap();

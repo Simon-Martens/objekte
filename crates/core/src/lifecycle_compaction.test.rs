@@ -34,9 +34,9 @@ fn literal(text: &str) -> Query {
 }
 
 #[test]
-fn compacting_sealed_segments_preserves_text_postings() {
+fn compacting_native_segments_preserves_text_postings() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-sealed-compact-{}-{:?}",
+        "objekte-native-compact-{}-{:?}",
         std::process::id(),
         std::thread::current().id()
     ));
@@ -63,7 +63,7 @@ fn compacting_sealed_segments_preserves_text_postings() {
 }
 
 #[test]
-fn compaction_reuses_unaffected_sealed_segment() {
+fn compaction_reuses_unaffected_native_segment() {
     let root = std::env::temp_dir().join(format!(
         "objekte-selective-compact-{}-{:?}",
         std::process::id(),
@@ -86,12 +86,16 @@ fn compaction_reuses_unaffected_sealed_segment() {
     index.add_file(&kept).unwrap();
     let pinned = index.view().unwrap();
     let unchanged = pinned.0.segments[0].last().unwrap().clone();
+    let unchanged_accounting = unchanged.index.accounting;
+    assert!(unchanged_accounting.retained_bytes_estimated > 0);
+    assert!(unchanged_accounting.source_bytes_estimated > 0);
     assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
     index.delete_file(pinned.file_handle_for_path(&removed).unwrap()).unwrap();
     std::fs::remove_file(&removed).unwrap();
     index.compact().unwrap();
     let current = index.view().unwrap();
     assert!(current.0.segments[0].iter().any(|segment| Arc::ptr_eq(segment, &unchanged)));
+    assert_eq!(unchanged.index.accounting.retained_bytes_estimated, unchanged_accounting.retained_bytes_estimated);
     assert_eq!(current.search(&literal("kept needle")).unwrap().count, Some(1));
     assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
     index.shutdown().unwrap();
@@ -208,7 +212,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
 }
 
 #[test]
-fn compacted_base_contributions_round_trip_through_managed_store() {
+fn compacted_base_contributions_preserve_native_queries() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-cache-{}-{:?}",
         std::process::id(),
@@ -230,19 +234,10 @@ fn compacted_base_contributions_round_trip_through_managed_store() {
     index.delete_file(handle).unwrap();
     std::fs::remove_file(&a).unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        definitions,
-        RepositoryOptions::default(),
-    );
-    assert_eq!(
-        restored.view().unwrap().search(&all()).unwrap().count,
-        Some(1)
-    );
-    let scan = restored.wait_for_reconciliation().unwrap().unwrap();
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(1));
+    let scan = index.start_reconcile().unwrap().wait().unwrap();
     assert_eq!(scan.added + scan.updated + scan.removed, 0);
-    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

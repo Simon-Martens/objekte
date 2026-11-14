@@ -149,7 +149,7 @@ impl RegexCondition {
         index: &BigramIndex,
     ) -> Result<Option<RoaringBitmap>, String> {
         match self {
-            Self::Literal(request) => index.try_candidates_prepared(request),
+            Self::Literal(request) => Ok(index.candidates_prepared(request)),
             Self::All(parts) => {
                 let mut result: Option<RoaringBitmap> = None;
                 for part in parts {

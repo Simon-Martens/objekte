@@ -1,9 +1,5 @@
 use super::*;
 use crate::backend::test_support::fixture;
-use crate::backend::{OpenSpec, open};
-use objekte_cli::arguments::Arguments;
-use objekte_search_core::index_storage::IndexStorageTarget;
-use objekte_search_core::streaming::CancellationToken;
 
 #[test]
 fn manual_shutdown_does_not_write_an_index() {
@@ -21,48 +17,6 @@ fn manual_shutdown_does_not_write_an_index() {
         .collect::<Vec<_>>();
     after.sort();
     assert_eq!(before, after);
-    assert_eq!(status(&fixture.session).unwrap().saved_revision, None);
-}
-
-#[test]
-fn shutdown_preserves_only_the_explicitly_saved_generation() {
-    let root = tempfile::tempdir().unwrap();
-    crate::backend::test_support::write_records(root.path());
-    let session = open(
-        &OpenSpec {
-            load_target: Some(IndexStorageTarget::RepositoryDirectory),
-            args: Arguments {
-                path: vec![root.path().to_path_buf()],
-                ..Default::default()
-            },
-            cwd: root.path().to_path_buf(),
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    let index = session.repository.index();
-    assert!(!root.path().join(".objekte/.indexes").exists());
-    let before = index.status().unwrap().live_records;
-    index
-        .flush_to(&IndexStorageTarget::RepositoryDirectory)
-        .unwrap();
-    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
-    index.add_file(&root.path().join("late.json")).unwrap();
-    shutdown(&session).unwrap();
-    let loaded = objekte_search_core::lifecycle::Index::try_load(
-        root.path(),
-        session
-            .repository
-            .collections()
-            .iter()
-            .map(|collection| collection.definition.clone())
-            .collect(),
-        objekte_cli::loader::repository_options(&session.args),
-        &IndexStorageTarget::RepositoryDirectory,
-    )
-    .unwrap()
-    .unwrap();
-    assert_eq!(loaded.status().unwrap().live_records, before);
 }
 
 #[test]

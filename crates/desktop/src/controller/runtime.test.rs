@@ -624,7 +624,6 @@ fn declared_enum_completes_without_a_posting_dictionary() {
     .unwrap();
     let session = backend::open(
         &OpenSpec {
-            load_target: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 schema: Some(schema),
@@ -737,7 +736,7 @@ fn publication_changes_invalidate_results_once_but_noop_checks_do_not() {
 }
 
 #[test]
-fn manual_close_has_no_implicit_index_save() {
+fn manual_close_does_not_write_index_artifacts() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
@@ -758,141 +757,7 @@ fn manual_close_has_no_implicit_index_save() {
 }
 
 #[test]
-fn saved_index_open_and_close_leave_previous_generation_unchanged() {
-    use objekte_search_core::index_storage::IndexStorageTarget;
-    let root = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
-    let args = objekte_cli::arguments::Arguments {
-        path: vec![root.path().to_path_buf()],
-        ..Default::default()
-    };
-    let memory = backend::open(
-        &OpenSpec {
-            load_target: None,
-            args: args.clone(),
-            cwd: root.path().to_path_buf(),
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    let saved = memory
-        .repository
-        .index()
-        .flush_to(&IndexStorageTarget::RepositoryDirectory)
-        .unwrap();
-    assert_eq!(saved.store_generation, 1);
-    let session = backend::open(
-        &OpenSpec {
-            load_target: Some(IndexStorageTarget::RepositoryDirectory),
-            args,
-            cwd: root.path().to_path_buf(),
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(session.repository.index().restored_from_storage());
-    let original = session.repository.index().clone();
-    let (mut controller, _) = DesktopController::new();
-    controller.session = Some(session);
-    controller.update_index_ui(&original.status().unwrap(), &mut Vec::new());
-    assert!(controller.index_ui.construction_complete);
-    assert!(
-        controller
-            .index_ui
-            .storage_location
-            .starts_with("Loaded from ")
-    );
-    original.wait_for_reconciliation().unwrap();
-    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
-    original.add_file(&root.path().join("late.json")).unwrap();
-    let mut updates = Vec::new();
-    controller.request_close(&mut updates);
-    assert!(matches!(
-        controller
-            .workers
-            .recv_timeout(Duration::from_secs(5))
-            .unwrap(),
-        WorkerEvent::IndexShutdown { result: Ok(()), .. }
-    ));
-    let reopened = backend::open(
-        &OpenSpec {
-            load_target: Some(IndexStorageTarget::RepositoryDirectory),
-            args: objekte_cli::arguments::Arguments {
-                path: vec![root.path().to_path_buf()],
-                ..Default::default()
-            },
-            cwd: root.path().to_path_buf(),
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert_eq!(
-        reopened.repository.index().status().unwrap().live_records,
-        1
-    );
-}
-
-#[test]
-fn explicit_save_worker_reports_generation_and_retry_keeps_session() {
-    use objekte_search_core::index_storage::IndexStorageTarget;
-    let fixture = crate::backend::test_support::fixture();
-    let root = fixture.session.paths.root.clone();
-    let index = fixture.session.repository.index().clone();
-    let (mut controller, _) = DesktopController::new();
-    controller.session = Some(fixture.session);
-    controller.update_index_ui(&index.status().unwrap(), &mut Vec::new());
-    let draft = OpenDraft {
-        paths: root.display().to_string(),
-        index_storage: StorageChoice::Repository,
-        ..OpenDraft::default()
-    };
-    let mut updates = Vec::new();
-    controller.start_save_index(draft.clone(), &mut updates);
-    let event = controller
-        .workers
-        .recv_timeout(Duration::from_secs(5))
-        .unwrap();
-    controller.complete(event, &mut updates);
-    assert!(matches!(
-        controller.index_ui.save_task,
-        IndexTaskState::Succeeded(_)
-    ));
-    let saved = controller.last_flush.as_ref().unwrap();
-    assert_eq!(saved.target, IndexStorageTarget::RepositoryDirectory);
-    let destination = tempfile::tempdir().unwrap();
-    let blocker = destination.path().join("objekte-indexes");
-    std::fs::write(&blocker, b"block index namespace").unwrap();
-    let failing = OpenDraft {
-        index_storage: StorageChoice::Custom,
-        index_directory: destination.path().display().to_string(),
-        ..draft.clone()
-    };
-    controller.start_save_index(failing.clone(), &mut updates);
-    let event = controller
-        .workers
-        .recv_timeout(Duration::from_secs(5))
-        .unwrap();
-    controller.complete(event, &mut updates);
-    assert!(matches!(
-        controller.index_ui.save_task,
-        IndexTaskState::Failed(_)
-    ));
-    assert!(controller.session.is_some());
-    std::fs::remove_file(&blocker).unwrap();
-    controller.start_save_index(failing, &mut updates);
-    let event = controller
-        .workers
-        .recv_timeout(Duration::from_secs(5))
-        .unwrap();
-    controller.complete(event, &mut updates);
-    assert!(matches!(
-        controller.index_ui.save_task,
-        IndexTaskState::Succeeded(_)
-    ));
-}
-
-#[test]
-fn failed_saved_index_open_keeps_previous_memory_session() {
+fn failed_source_open_keeps_previous_session() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
     let root = fixture.session.paths.root.display().to_string();
@@ -902,12 +767,23 @@ fn failed_saved_index_open_keeps_previous_memory_session() {
         paths: root.clone(),
         ..OpenDraft::default()
     });
-    let mut proposed = controller.open_draft.clone().unwrap();
-    proposed.paths = "/different/source".into();
-    proposed.index_storage = StorageChoice::Custom;
-    proposed.index_directory = "/this/path/does/not/exist".into();
-    controller.start_change_storage(proposed, &mut Vec::new());
-    assert!(controller.opening_draft.is_none());
+    let attempted = OpenDraft {
+        paths: "/different/source".into(),
+        ..OpenDraft::default()
+    };
+    let mut updates = Vec::new();
+    controller.start_open(attempted, &mut updates);
+    loop {
+        let event = controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap();
+        let opened = matches!(event, WorkerEvent::Opened { .. });
+        controller.complete(event, &mut updates);
+        if opened {
+            break;
+        }
+    }
     assert_eq!(
         controller
             .session
@@ -919,112 +795,11 @@ fn failed_saved_index_open_keeps_previous_memory_session() {
         previous.instance_id()
     );
     assert_eq!(controller.open_draft.as_ref().unwrap().paths, root);
-}
-
-#[test]
-fn focused_storage_change_opens_temporary_repository_and_custom_without_changing_source() {
-    use objekte_search_core::index_storage::IndexStorageTarget;
-    let root = tempfile::tempdir().unwrap();
-    let custom = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
-    let path = root.path().display().to_string();
-    let session = backend::open(
-        &OpenSpec {
-            load_target: None,
-            args: objekte_cli::arguments::Arguments {
-                path: vec![root.path().to_path_buf()],
-                ..Default::default()
-            },
-            cwd: root.path().to_path_buf(),
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    let (mut controller, _) = DesktopController::new();
-    controller.session = Some(session);
-    controller.open_draft = Some(OpenDraft {
-        paths: path.clone(),
-        ..OpenDraft::default()
-    });
-    controller.current_draft.full_text = "Alpha".into();
-    for (choice, base) in [
-        (StorageChoice::Temporary, String::new()),
-        (StorageChoice::Repository, String::new()),
-        (StorageChoice::Custom, custom.path().display().to_string()),
-    ] {
-        let mut proposed = controller.open_draft.clone().unwrap();
-        proposed.index_storage = choice;
-        proposed.index_directory = base;
-        let mut updates = Vec::new();
-        controller.start_change_storage(proposed, &mut updates);
-        loop {
-            let event = controller
-                .workers
-                .recv_timeout(Duration::from_secs(5))
-                .unwrap();
-            let opened = matches!(event, WorkerEvent::Opened { .. });
-            controller.complete(event, &mut updates);
-            if opened {
-                break;
-            }
-        }
-        assert_eq!(controller.open_draft.as_ref().unwrap().paths, path);
-        assert_eq!(
-            controller.session.as_ref().unwrap().paths.root.as_path(),
-            root.path()
-        );
-        assert_eq!(controller.current_draft.full_text, "Alpha");
-        assert_eq!(
-            controller.open_draft.as_ref().unwrap().index_storage,
-            choice
-        );
-    }
-    assert!(matches!(controller.session.as_ref().unwrap().load_target,
-        Some(IndexStorageTarget::CustomDirectory(ref base)) if base == &custom.path().canonicalize().unwrap()));
-    controller
-        .session
-        .as_ref()
-        .unwrap()
-        .repository
-        .index()
-        .shutdown()
-        .unwrap();
-}
-
-#[test]
-fn close_waits_for_explicit_save_worker() {
-    use objekte_search_core::index_storage::{IndexFlushReport, IndexStorageTarget};
-    let fixture = crate::backend::test_support::fixture();
-    let (mut controller, _) = DesktopController::new();
-    controller.session = Some(fixture.session);
-    controller.storage_sync_operation_id = 12;
-    controller.index_ui.save_task = IndexTaskState::Running {
-        operation_id: 12,
-        processed: None,
-        total: None,
-    };
-    let mut updates = Vec::new();
-    controller.request_close(&mut updates);
-    assert!(controller.close_after_storage_sync);
-    assert!(!controller.closing);
-    controller.complete(
-        WorkerEvent::IndexSaved {
-            open_generation: controller.open_generation,
-            operation_id: 12,
-            result: Ok(IndexFlushReport {
-                saved_revision: IndexRevision(1),
-                target: IndexStorageTarget::RepositoryDirectory,
-                managed_directory: tempfile::tempdir().unwrap().path().to_path_buf(),
-                store_generation: 1,
-                unchanged: false,
-                newer_changes_unsaved: false,
-                segment_bytes_written: 0,
-            }),
-        },
-        &mut updates,
-    );
-    assert!(!controller.close_after_storage_sync);
-    assert!(controller.closing);
+    assert!(controller.opening_draft.is_none());
+    assert!(updates.iter().any(|update| matches!(
+        update,
+        UiUpdate::Error { field: ErrorField::Open, .. }
+    )));
 }
 
 #[test]
@@ -1033,11 +808,7 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
     controller.open_draft = Some(OpenDraft::default());
-    controller.opening_draft = Some(OpenDraft {
-        index_storage: crate::ui::model::StorageChoice::Custom,
-        index_directory: "/tmp/pending-indexes".into(),
-        ..OpenDraft::default()
-    });
+    controller.opening_draft = Some(OpenDraft::default());
     let status = controller
         .session
         .as_ref()
@@ -1049,8 +820,7 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let mut updates = Vec::new();
     controller.update_index_ui(&status, &mut updates);
     assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
-    assert_eq!(controller.index_ui.storage_location, "Built in memory");
-    assert_eq!(controller.index_ui.save_summary, "Not saved");
+    assert_eq!(controller.index_ui.readiness, "Searchable");
 
     updates.clear();
     controller.update_index_ui(&status, &mut updates);

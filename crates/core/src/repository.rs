@@ -431,7 +431,6 @@ pub struct BuildProfileStats {
     pub final_segment_flush_ns: u64,
     pub publication_index_ns: u64,
     pub publication_prepare_ns: u64,
-    pub publication_seal_ns: u64,
     pub publication_install_ns: u64,
     pub publication_callback_ns: u64,
     pub fingerprint_finish_ns: u64,
@@ -462,7 +461,6 @@ pub struct IncrementalSegmentProfile {
     pub source_bytes: u64,
     pub index_ns: u64,
     pub prepare_ns: u64,
-    pub seal_ns: u64,
     pub install_ns: u64,
     pub callback_ns: u64,
     pub aggregate_merge_ns: u64,
@@ -1243,22 +1241,6 @@ impl Repository {
         empty.build_failed_parses = self.build_failed_parses;
         empty.startup = self.startup.clone();
         Ok(empty)
-    }
-
-    /// Prepare the configured, zero-record query owner for a managed
-    /// generation without enumerating source directories or reading payloads.
-    /// The restored catalog and immutable segments are attached separately
-    /// after their identity and slot domains have been checked.
-    pub(crate) fn empty_for_managed_generation(
-        root: PathBuf,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-        sources: SourceRegistry,
-    ) -> Result<Self, String> {
-        options.inference.validate()?;
-        crate::relation::validate_definitions(&definitions)?;
-        let root = root.canonicalize().map_err(|error| error.to_string())?;
-        Self::build_fresh(root, definitions, options, &sources, false)
     }
 
     fn build_fresh(

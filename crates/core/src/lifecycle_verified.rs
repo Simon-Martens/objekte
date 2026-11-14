@@ -118,7 +118,7 @@ pub(crate) fn verify_old_content(
             .segments(*collection_id)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
         for shard in shards {
-            let Some(slots) = shard.index.try_file_records(handle.file_id).map_err(|_| VerifiedFallbackReason::IndexedLayoutChanged)? else {
+            let Some(slots) = shard.index.file_records(handle.file_id) else {
                 continue;
             };
             old_shards.push((*collection_id, shard.ordinal));
@@ -126,8 +126,7 @@ pub(crate) fn verify_old_content(
                 if shard.active.contains(*slot) {
                     let record = shard
                         .index
-                        .try_record(*slot)
-                        .map_err(|_| VerifiedFallbackReason::IndexedLayoutChanged)?
+                        .record(*slot)
                         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
                     current.push((
                         *collection_id,
@@ -220,7 +219,7 @@ pub(crate) fn preserve_single_record_slots(
             || old.index.record_count() != 1
             || old.active.len() != 1
             || !old.active.contains(RecordSlot(0))
-            || old.index.try_file_records(file).ok()??.as_ref() != [RecordSlot(0)]
+            || old.index.file_records(file)? != [RecordSlot(0)]
         {
             return None;
         }
@@ -234,7 +233,7 @@ pub(crate) fn preserve_single_record_slots(
         let new_position = group
             .iter()
             .enumerate()
-            .filter(|(_, shard)| shard.index.try_file(file).ok().flatten().is_some())
+            .filter(|(_, shard)| shard.index.file(file).is_some())
             .max_by_key(|(_, shard)| shard.ordinal)?
             .0;
         if new_position == old_position {
@@ -245,11 +244,11 @@ pub(crate) fn preserve_single_record_slots(
             || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
-            || new.index.try_file_records(file).ok()??.as_ref() != [RecordSlot(0)]
+            || new.index.file_records(file)? != [RecordSlot(0)]
             || old.index.source_id != new.index.source_id
             || old.index.source_version != new.index.source_version
-            || old.index.try_record(RecordSlot(0)).ok()??.id != new.index.try_record(RecordSlot(0)).ok()??.id
-            || old.index.try_record(RecordSlot(0)).ok()??.class != new.index.try_record(RecordSlot(0)).ok()??.class
+            || old.index.record(RecordSlot(0))?.id != new.index.record(RecordSlot(0))?.id
+            || old.index.record(RecordSlot(0))?.class != new.index.record(RecordSlot(0))?.class
         {
             return None;
         }
@@ -302,7 +301,7 @@ pub(crate) fn preserve_partition_record_slots(
             .segments(*collection)?
             .iter()
             .find(|shard| shard.ordinal == old_ordinal)?;
-        let old_slots = old.index.try_file_records(file).ok()??;
+        let old_slots = old.index.file_records(file)?;
         if old_slots.len() != 1
             || old.index.record_count() <= 1
             || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
@@ -322,7 +321,7 @@ pub(crate) fn preserve_partition_record_slots(
         let new_position = group
             .iter()
             .enumerate()
-            .filter(|(_, shard)| shard.index.try_file(file).ok().flatten().is_some())
+            .filter(|(_, shard)| shard.index.file(file).is_some())
             .max_by_key(|(_, shard)| shard.ordinal)?
             .0;
         if new_position == old_position {
@@ -333,11 +332,11 @@ pub(crate) fn preserve_partition_record_slots(
             || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
-            || new.index.try_file_records(file).ok()??.as_ref() != [RecordSlot(0)]
+            || new.index.file_records(file)? != [RecordSlot(0)]
             || old.index.source_id != new.index.source_id
             || old.index.source_version != new.index.source_version
-            || old.index.try_record(old_slot).ok()??.id != new.index.try_record(RecordSlot(0)).ok()??.id
-            || old.index.try_record(old_slot).ok()??.class != new.index.try_record(RecordSlot(0)).ok()??.class
+            || old.index.record(old_slot)?.id != new.index.record(RecordSlot(0))?.id
+            || old.index.record(old_slot)?.class != new.index.record(RecordSlot(0))?.class
         {
             return None;
         }
@@ -418,7 +417,7 @@ pub(crate) fn remove_verified_old_shards(
             .and_then(|_| {
                 group
                     .iter()
-                    .filter(|shard| shard.index.try_file(replaced_file).ok().flatten().is_some())
+                    .filter(|shard| shard.index.file(replaced_file).is_some())
                     .map(|shard| shard.ordinal)
                     .max()
             });
@@ -426,7 +425,7 @@ pub(crate) fn remove_verified_old_shards(
         while position < group.len() {
             let shard = &group[position];
             if Some(shard.ordinal) == replacement_ordinal
-                || shard.index.try_file(replaced_file).ok().flatten().is_none()
+                || shard.index.file(replaced_file).is_none()
             {
                 position += 1;
                 continue;

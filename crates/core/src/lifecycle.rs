@@ -7,10 +7,8 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::num::NonZeroUsize;
-use std::path::{Path, PathBuf};
-use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-#[cfg(test)]
-use std::sync::mpsc::SyncSender;
+use std::path::Path;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
@@ -56,7 +54,6 @@ pub struct IndexRevision(pub u64);
 /// installation is complete before a new query view becomes visible.
 pub(crate) struct InitialPublicationPhases {
     pub(crate) preparation_ns: u64,
-    pub(crate) sealing_ns: u64,
     pub(crate) install_ns: u64,
 }
 
@@ -101,8 +98,6 @@ pub enum IndexError {
     },
     IncompatibleConfiguration(String),
     InvalidPublication(String),
-    InvalidCache(String),
-    StoreConflict(String),
     StaleLocator,
     SourceUnavailable(String),
     ResourceLimit(String),
@@ -150,8 +145,6 @@ impl fmt::Display for IndexError {
             Self::InvalidPublication(message) => {
                 write!(formatter, "invalid index publication: {message}")
             }
-            Self::InvalidCache(message) => write!(formatter, "invalid index cache: {message}"),
-            Self::StoreConflict(message) => write!(formatter, "index store conflict: {message}"),
             Self::StaleLocator => {
                 formatter.write_str("record locator belongs to an old index view")
             }
@@ -172,21 +165,6 @@ impl fmt::Display for IndexError {
 
 impl std::error::Error for IndexError {}
 
-impl From<crate::managed_store::StoreReadError> for IndexError {
-    fn from(error: crate::managed_store::StoreReadError) -> Self {
-        use crate::managed_store::StoreReadError;
-        match error {
-            StoreReadError::Incompatible(message) => Self::IncompatibleConfiguration(message),
-            StoreReadError::Corrupt(message) => Self::InvalidCache(message),
-            StoreReadError::Io { path, source } => {
-                Self::Io(format!("{}: {source}", path.display()))
-            }
-            StoreReadError::Conflict(message) => Self::StoreConflict(message),
-            StoreReadError::Resource(message) => Self::ResourceLimit(message),
-        }
-    }
-}
-
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -203,7 +181,6 @@ pub enum ReconciliationState {
 pub struct IndexStatus {
     pub instance_id: u64,
     pub revision: IndexRevision,
-    pub saved_revision: Option<IndexRevision>,
     pub reconciliation: ReconciliationState,
     pub indexed_files: usize,
     pub live_records: u64,
@@ -231,6 +208,9 @@ pub struct FileCatalogueRow<'a> {
     pub created_ns: Option<i128>,
 }
 
+/// Narrow native index-family display for benchmarks and diagnostics. It
+/// covers gram/posting/sort payloads only; segment accounting is separate and
+/// includes metadata, maps and relation families.
 #[derive(Clone, Copy, Debug, Default, serde::Serialize)]
 pub struct IndexFamilyEstimate {
     pub raw_bytes: usize,
@@ -398,12 +378,6 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
-impl IndexStatus {
-    pub fn dirty(&self) -> bool {
-        self.saved_revision != Some(self.revision)
-    }
-}
-
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
 pub(crate) struct PublishedSegment {
@@ -428,7 +402,6 @@ pub(crate) struct PublishedIndex {
     pub(crate) last_size_maintenance_revision: u64,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
-    pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
     pub(crate) processed_files: usize,
     /// Only populated during an initial build. One bitmap per collection
@@ -436,9 +409,66 @@ pub(crate) struct PublishedIndex {
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
 
-fn cheapest_consolidation_pair(
-    group: &[Arc<PublishedSegment>],
-) -> Result<Option<(usize, usize)>, String> {
+/// Native retained-memory estimate for one published contribution. It counts
+/// posting and gram bitmap payloads plus estimated sort keys. It is not an
+/// allocator measurement or a strict peak bound; it orders maintenance.
+fn index_family_estimate(
+    raw: &crate::bigram::BigramIndex,
+    fallback: &crate::bigram::BigramIndex,
+    custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
+    postings: &crate::posting::PostingCollection,
+    sorting: &crate::sorting::SortCollection,
+) -> IndexFamilyEstimate {
+    IndexFamilyEstimate {
+        raw_bytes: raw.estimated_heap_bytes(),
+        fallback_bytes: fallback.estimated_heap_bytes(),
+        custom_text_bytes: custom
+            .values()
+            .map(|index| index.estimated_heap_bytes())
+            .sum(),
+        postings_bytes: postings
+            .fields
+            .values()
+            .map(|posting| {
+                posting
+                    .values
+                    .values()
+                    .map(|bitmap| bitmap.serialized_size() as usize)
+                    .sum::<usize>()
+                    + posting
+                        .lengths
+                        .values()
+                        .map(|bitmap| bitmap.serialized_size() as usize)
+                        .sum::<usize>()
+                    + posting
+                        .structural
+                        .as_ref()
+                        .map_or(0, crate::posting::StructuralFacts::estimated_bytes)
+                    + if posting.empty_selections.is_empty() {
+                        0
+                    } else {
+                        posting.empty_selections.serialized_size()
+                    }
+            })
+            .sum(),
+        sorting_bytes: sorting
+            .columns
+            .values()
+            .map(|column| {
+                column
+                    .keys
+                    .iter()
+                    .map(|key| match key {
+                        crate::sorting::SortKey::String(value) => value.len(),
+                        _ => 24,
+                    })
+                    .sum::<usize>()
+            })
+            .sum(),
+    }
+}
+
+fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
     let mut sized = group
         .iter()
         .enumerate()
@@ -454,20 +484,16 @@ fn cheapest_consolidation_pair(
             let right_index = &group[right].index;
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
-                let file_id = left_index
-                    .try_file_id_at(file_number)?
-                    .ok_or("segment file row missing")?;
-                if right_index.try_file_index(file_id)?.is_some() {
+                let file_id = left_index.files.get(file_number)?.entry.id;
+                if right_index.file_index.get(&file_id).copied().is_some() {
                     overlaps = true;
                     break;
                 }
             }
             if !overlaps {
                 for &slot in &left_index.identity_order {
-                    let id = left_index
-                        .try_record_id(slot)?
-                        .ok_or("segment identity slot missing")?;
-                    if right_index.try_id_lookup(id)?.is_some() {
+                    let id = left_index.record(slot)?.id.0.as_ref();
+                    if right_index.id_lookup.get(id).copied().is_some() {
                         overlaps = true;
                         break;
                     }
@@ -476,10 +502,10 @@ fn cheapest_consolidation_pair(
             if overlaps {
                 continue;
             }
-            return Ok(Some((left.min(right), left.max(right))));
+            return Some((left.min(right), left.max(right)));
         }
     }
-    Ok(None)
+    None
 }
 
 impl PublishedIndex {
@@ -522,7 +548,6 @@ impl PublishedIndex {
             last_size_maintenance_revision: 0,
             catalog,
             file_versions,
-            saved_revision: None,
             reconciliation: ReconciliationState::NotStarted,
             processed_files,
             processed_memberships: Vec::new(),
@@ -542,7 +567,6 @@ impl PublishedIndex {
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
-            saved_revision: self.saved_revision,
             reconciliation: self.reconciliation,
             indexed_files: self.catalog.active_files() as usize,
             processed_files: self.processed_files,
@@ -586,24 +610,14 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
-        self.with_segment_sealing(index, false, false)
-            .map(|(next, _)| next)
-    }
-
-    pub(crate) fn with_segment_sealing(
-        mut self,
-        mut index: IndexedCollectionSegment,
-        seal_owned: bool,
-        profile_phases: bool,
-    ) -> Result<(Self, u64), IndexError> {
+    pub(crate) fn with_segment(mut self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
                 "segment collection missing".into(),
             ));
         }
-        self.make_room_for_segment_sealing(number, seal_owned)?;
+        self.make_room_for_segment(number)?;
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
@@ -632,10 +646,7 @@ impl PublishedIndex {
                 self.segments[number]
                     .iter()
                     .try_fold(false, |found, segment| {
-                        let slot = segment
-                            .index
-                            .try_id_lookup(id.0.as_ref())
-                            .map_err(IndexError::InvalidPublication)?;
+                        let slot = segment.index.id_lookup.get(id.0.as_ref()).copied();
                         Ok::<_, IndexError>(
                             found || slot.is_some_and(|slot| segment.active.contains(slot)),
                         )
@@ -677,44 +688,22 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
-        if seal_owned {
-            index = crate::hybrid_segment_codec::seal_segment_consuming(
-                index,
-                ordinal,
-                &collection.definition,
-                self.repository.options(),
-            )
-            .map_err(IndexError::Build)?;
-        }
-        let sealing_ns = seal_started
-            .map(|started| started.elapsed().as_nanos() as u64)
-            .unwrap_or(0);
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
             ordinal,
             index: Arc::new(index),
             active,
         }));
-        Ok((self, sealing_ns))
+        Ok(self)
     }
 
     /// Coalesce small delta shards without enlarging a partition beyond the
     /// local verified-maintenance budget. Full base partitions do not consume
     /// the sparse-delta allowance, even when a collection has more than 64.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
-        self.make_room_for_segment_sealing(number, false)
-    }
-
-    fn make_room_for_segment_sealing(
-        &mut self,
-        number: usize,
-        seal_owned: bool,
-    ) -> Result<(), IndexError> {
         self.make_room_for_segment_with_limits(
             number,
             MAX_SPARSE_SEGMENT_BYTES,
             SIZE_MAINTENANCE_REVISIONS,
-            seal_owned,
         )
     }
 
@@ -723,7 +712,6 @@ impl PublishedIndex {
         number: usize,
         sparse_byte_limit: usize,
         size_cooldown: u64,
-        seal_owned: bool,
     ) -> Result<(), IndexError> {
         let full_partitions = self.segments[number]
             .iter()
@@ -742,8 +730,7 @@ impl PublishedIndex {
                 for file_number in 0..segment.index.file_count() {
                     let file = segment
                         .index
-                        .try_file_entry_at(file_number)
-                        .map_err(IndexError::InvalidPublication)?
+                        .files.get(file_number).map(|file| &file.entry)
                         .ok_or_else(|| {
                             IndexError::InvalidPublication("segment file row missing".into())
                         })?;
@@ -790,17 +777,6 @@ impl PublishedIndex {
                     self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let part = if seal_owned {
-                        crate::hybrid_segment_codec::seal_segment_consuming(
-                            part,
-                            ordinal,
-                            &self.repository.collections()[number].definition,
-                            self.repository.options(),
-                        )
-                        .map_err(IndexError::Build)?
-                    } else {
-                        part
-                    };
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
                     group.insert(
@@ -815,13 +791,14 @@ impl PublishedIndex {
                 return Ok(());
             }
         }
+        // Native retained-memory estimate, not an encoded length or a strict
+        // allocator count; it only orders when size-triggered maintenance runs.
         let sparse_bytes = group
             .iter()
             .filter(|segment| {
                 segment.index.record_count() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
             })
-            .filter_map(|segment| segment.index.raw.sealed_reader())
-            .map(|reader| reader.encoded_len())
+            .map(|segment| segment.index.accounting.retained_bytes_estimated)
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
             && (self.last_size_maintenance_revision == 0
@@ -833,9 +810,7 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) =
-            cheapest_consolidation_pair(group).map_err(IndexError::InvalidPublication)?
-        else {
+        let Some((left, right)) = cheapest_consolidation_pair(group) else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(
@@ -851,17 +826,7 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let merged_index = if seal_owned {
-            crate::hybrid_segment_codec::seal_segment_consuming(
-                merged.index,
-                ordinal,
-                &self.repository.collections()[number].definition,
-                self.repository.options(),
-            )
-            .map_err(IndexError::Build)?
-        } else {
-            merged.index
-        };
+        let merged_index = merged.index;
         group.remove(right);
         group.remove(left);
         group.push(Arc::new(PublishedSegment {
@@ -903,12 +868,8 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("segment collection missing".into())
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
-                if let Some(slots) = segment
-                    .index
-                    .try_file_records(file.id)
-                    .map_err(IndexError::InvalidPublication)?
-                {
-                    let slots = slots.into_owned();
+                if let Some(slots) = segment.index.file_records(file.id) {
+                    let slots = slots.to_vec();
                     let segment = Arc::make_mut(segment);
                     retired_records += slots
                         .iter()
@@ -943,7 +904,7 @@ fn index_prepared_file(
             .map_err(IndexError::Build)?;
         indexed.push(
             admission
-                .seal()
+                .finish()
                 .into_indexed(
                     &state.definition,
                     options.bigram_alphabet,
@@ -1064,8 +1025,6 @@ fn prepare_file_at(
 
 struct IndexInner {
     instance_id: u64,
-    restored_from_storage: AtomicBool,
-    seal_owned_memory: AtomicBool,
     timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
@@ -1078,20 +1037,6 @@ struct IndexInner {
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
-    managed: Mutex<Option<crate::lifecycle_storage::ManagedPersistence>>,
-    loaded_origin: RwLock<Option<PathBuf>>,
-    storage_status_snapshot: RwLock<Option<crate::lifecycle_storage::StorageStatusSnapshot>>,
-    storage_syncing: AtomicUsize,
-    #[cfg(test)]
-    sync_storage: Mutex<Option<SyncCacheWorker>>,
-}
-
-struct StorageSyncActivity<'a>(&'a AtomicUsize);
-
-impl Drop for StorageSyncActivity<'_> {
-    fn drop(&mut self) {
-        self.0.fetch_sub(1, Ordering::Release);
-    }
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
@@ -1113,12 +1058,6 @@ enum PeriodicSignal {
     #[cfg(test)]
     Tick,
     Stop,
-}
-
-#[cfg(test)]
-struct SyncCacheWorker {
-    signal: SyncSender<()>,
-    worker: JoinHandle<()>,
 }
 
 struct MaintenanceState {
@@ -1319,26 +1258,13 @@ impl Index {
                 .replaced(merged, None, None)
                 .map_err(IndexError::InvalidPublication)?;
         }
-        let seal_owned = self.0.seal_owned_memory.load(Ordering::Acquire);
-        let (prepared, consumed_sealing_ns) =
-            next.with_segment_sealing(segment, seal_owned, profile_phases)?;
-        next = prepared;
+        next = next.with_segment(segment)?;
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
-            .map(|started| {
-                (started.elapsed().as_nanos() as u64).saturating_sub(consumed_sealing_ns)
-            })
+            .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
-        let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
-        if seal_owned {
-            Self::seal_new_owned_segments(&mut next)?;
-        }
-        let sealing_ns = consumed_sealing_ns
-            + seal_started
-                .map(|started| started.elapsed().as_nanos() as u64)
-                .unwrap_or(0);
         let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
-        let revision = self.publish_prepared_inner(expected, next, false)?;
+        let revision = self.publish_prepared_inner(expected, next)?;
         let install_ns = install_started
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
@@ -1346,7 +1272,6 @@ impl Index {
             revision,
             InitialPublicationPhases {
                 preparation_ns,
-                sealing_ns,
                 install_ns,
             },
         ))
@@ -1389,13 +1314,6 @@ impl Index {
     /// Adopt a completed static repository as the first published view.
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
-        Self::from_repository_with_sealing(repository, false)
-    }
-
-    pub(crate) fn from_repository_with_sealing(
-        repository: Repository,
-        seal_owned: bool,
-    ) -> Result<Self, IndexError> {
         let build_ns = repository.startup().build_ns;
         let metadata_ns = repository.startup().build_discovery_ns;
         let inference_enabled =
@@ -1406,11 +1324,7 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
-        let published = if seal_owned {
-            crate::lifecycle_partition::partition_base_sealed(published)?
-        } else {
-            crate::lifecycle_partition::partition_base(published)?
-        };
+        let published = crate::lifecycle_partition::partition_base(published)?;
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;
@@ -1431,8 +1345,6 @@ impl Index {
         let verified_cache_bytes = published.repository.options().verified_cache_bytes;
         Self(Arc::new(IndexInner {
             instance_id,
-            restored_from_storage: AtomicBool::new(false),
-            seal_owned_memory: AtomicBool::new(false),
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
@@ -1445,61 +1357,7 @@ impl Index {
             maintenance_operation: Mutex::new(None),
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
-            managed: Mutex::new(None),
-            loaded_origin: RwLock::new(None),
-            storage_status_snapshot: RwLock::new(None),
-            storage_syncing: AtomicUsize::new(0),
-            #[cfg(test)]
-            sync_storage: Mutex::new(None),
         }))
-    }
-
-    pub(crate) fn enable_owned_memory_sealing(&self) {
-        self.0.seal_owned_memory.store(true, Ordering::Release);
-    }
-
-    /// Finish a static memory-only build before the handle is exposed. In the
-    /// usual unique-root case, replacing each shard releases its mutable maps
-    /// before the next shard is encoded.
-    pub(crate) fn seal_current_segments_owned(&self) -> Result<(), IndexError> {
-        let mut published = self
-            .0
-            .published
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        let root = Arc::make_mut(&mut *published);
-        if !root.catalog.construction_complete() {
-            return Err(IndexError::IncompleteBuild);
-        }
-        Self::seal_new_owned_segments(root)
-    }
-
-    fn seal_new_owned_segments(root: &mut PublishedIndex) -> Result<(), IndexError> {
-        let options = root.repository.options();
-        for (number, group) in root.segments.iter_mut().enumerate() {
-            if !group.iter().any(|segment| !segment.index.raw.is_sealed()) {
-                continue;
-            }
-            let definition = &root.repository.collections()[number].definition;
-            for published in Arc::make_mut(group) {
-                if published.index.raw.is_sealed() {
-                    continue;
-                }
-                let sealed = crate::hybrid_segment_codec::seal_segment_owned(
-                    &published.index,
-                    published.ordinal,
-                    definition,
-                    options,
-                )
-                .map_err(IndexError::Build)?;
-                *published = Arc::new(PublishedSegment {
-                    ordinal: published.ordinal,
-                    index: Arc::new(sealed),
-                    active: published.active.clone(),
-                });
-            }
-        }
-        Ok(())
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -1549,32 +1407,6 @@ impl Index {
             .budget())
     }
 
-    pub fn restored_from_storage(&self) -> bool {
-        self.0.restored_from_storage.load(Ordering::Acquire)
-    }
-
-    pub fn loaded_origin(&self) -> Result<Option<PathBuf>, IndexError> {
-        Ok(self
-            .0
-            .loaded_origin
-            .read()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .clone())
-    }
-
-    pub(crate) fn mark_loaded_origin(&self, path: PathBuf) -> Result<(), IndexError> {
-        *self
-            .0
-            .loaded_origin
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)? = Some(path);
-        Ok(())
-    }
-
-    pub(crate) fn mark_restored_from_storage(&self) {
-        self.0.restored_from_storage.store(true, Ordering::Release);
-    }
-
     /// Acquire one immutable view; no publication lock is held by its queries.
     pub fn view(&self) -> Result<IndexView, IndexError> {
         let published = self
@@ -1594,498 +1426,6 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
-    }
-
-    /// Attach a resolved managed destination to a completed, paired index.
-    /// A progressive initial builder calls this only after its final work
-    /// unit; partial construction is never published as a complete store.
-    pub(crate) fn attach_storage(
-        &self,
-        resolved: crate::index_storage::ResolvedIndexStorage,
-    ) -> Result<(), IndexError> {
-        self.attach_storage_inner(resolved, false)
-    }
-
-    pub(crate) fn attach_storage_existing(
-        &self,
-        resolved: crate::index_storage::ResolvedIndexStorage,
-    ) -> Result<(), IndexError> {
-        self.attach_storage_inner(resolved, true)
-    }
-
-    fn attach_storage_inner(
-        &self,
-        resolved: crate::index_storage::ResolvedIndexStorage,
-        existing_only: bool,
-    ) -> Result<(), IndexError> {
-        let view = self.view()?;
-        if !view.initial_construction_complete() {
-            return Err(IndexError::IncompleteBuild);
-        }
-        if resolved.managed_directory.is_none()
-            || resolved.repository_root != view.repository().files().root
-            || resolved.configuration_identity != view.0.configuration_identity
-        {
-            return Err(IndexError::IncompatibleConfiguration(
-                "managed storage identity does not match the published index".into(),
-            ));
-        }
-        let mut managed = self
-            .0
-            .managed
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if managed.is_some() {
-            return Err(IndexError::InvalidPublication(
-                "managed storage is already attached".into(),
-            ));
-        }
-        let state = if existing_only {
-            crate::lifecycle_storage::ManagedPersistence::open_existing(&resolved)?.ok_or_else(
-                || IndexError::InvalidCache("managed store vanished during load".into()),
-            )?
-        } else {
-            crate::lifecycle_storage::ManagedPersistence::open(&resolved).map_err(IndexError::Io)?
-        };
-        *self
-            .0
-            .storage_status_snapshot
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
-        *managed = Some(state);
-        Ok(())
-    }
-
-    pub(crate) fn mark_storage_opened(
-        &self,
-        generation: u64,
-        historical: Arc<crate::generation_catalog::RestoredGenerationCatalog>,
-        validation: crate::lifecycle_storage::ValidationOpenStats,
-    ) -> Result<(), IndexError> {
-        let view = self.view()?;
-        let mut managed = self
-            .0
-            .managed
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        let state = managed
-            .as_mut()
-            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
-        state
-            .mark_opened(&view.0, generation, historical, validation)
-            .map_err(IndexError::InvalidCache)?;
-        *self
-            .0
-            .storage_status_snapshot
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
-        Ok(())
-    }
-
-    /// Replace the mutable shards of a newly committed generation with the
-    /// same sealed readers used by a later managed reopen. Existing views
-    /// remain pinned to their previous publication until they are dropped.
-    #[cfg(test)]
-    pub(crate) fn install_committed_sealed_segments(&self) -> Result<(), IndexError> {
-        let current = self.view()?;
-        let opened = self
-            .0
-            .managed
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .as_ref()
-            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
-            .store
-            .read_generation()
-            .map_err(IndexError::from)?
-            .ok_or_else(|| IndexError::InvalidCache("committed generation missing".into()))?;
-        if opened.generation != current.revision().0 {
-            return Err(IndexError::InvalidCache(
-                "committed generation differs from current publication".into(),
-            ));
-        }
-        let catalog_bytes = opened
-            .catalog
-            .as_ref()
-            .ok_or_else(|| IndexError::InvalidCache("committed catalog missing".into()))?;
-        let restored = Arc::new(
-            crate::generation_catalog::RestoredGenerationCatalog::decode_arc(
-                Arc::clone(catalog_bytes),
-                current.0.configuration_identity,
-                current.0.segments.len(),
-            )
-            .map_err(IndexError::InvalidCache)?,
-        );
-        if restored.revision != opened.generation
-            || restored.next_segment_ordinal != current.0.next_segment_ordinal
-            || restored.slot_count() != current.0.catalog.allocated_files()
-            || restored.slot_count() != current.0.file_versions.len()
-            || restored.expected_segment_count as usize != opened.segments.len()
-        {
-            return Err(IndexError::InvalidCache(
-                "committed catalog differs from current publication".into(),
-            ));
-        }
-        for number in 0..restored.slot_count() {
-            let file = FileId(number as u32);
-            if restored
-                .entry_for_ref(file.0)
-                .map_err(IndexError::InvalidCache)?
-                .as_ref()
-                != current.0.catalog.entry(file)
-                || restored.version(file) != current.0.file_versions.get(file)
-            {
-                return Err(IndexError::InvalidCache(
-                    "committed file catalog differs from current publication".into(),
-                ));
-            }
-        }
-        let positions = opened
-            .segments
-            .iter()
-            .enumerate()
-            .map(|(position, segment)| {
-                (
-                    (segment.descriptor.collection, segment.descriptor.ordinal),
-                    position,
-                )
-            })
-            .collect::<HashMap<_, _>>();
-        let segment_count = current
-            .0
-            .segments
-            .iter()
-            .map(|group| group.len())
-            .sum::<usize>();
-        if positions.len() != opened.segments.len() || positions.len() != segment_count {
-            return Err(IndexError::InvalidCache(
-                "committed segment identities differ from current publication".into(),
-            ));
-        }
-        let mut groups = Vec::with_capacity(current.0.segments.len());
-        for (number, group) in current.0.segments.iter().enumerate() {
-            let collection = CollectionId(number as u32);
-            let configured = &current.repository().collections()[number];
-            let mut sealed_group = Vec::with_capacity(group.len());
-            for segment in group.iter() {
-                let position = *positions
-                    .get(&(collection, segment.ordinal))
-                    .ok_or_else(|| {
-                        IndexError::InvalidCache("committed segment identity missing".into())
-                    })?;
-                let descriptor = &opened.segments[position].descriptor;
-                if descriptor.active.slot_count() != segment.active.slot_count()
-                    || descriptor.active.bitmap() != segment.active.bitmap()
-                {
-                    return Err(IndexError::InvalidCache(
-                        "committed segment liveness differs from publication".into(),
-                    ));
-                }
-                let metadata: Arc<dyn crate::segment_metadata::SegmentMetadataRefs> =
-                    restored.clone();
-                let decoded =
-                    crate::hybrid_segment_codec::decode_segment_sealed_persisted_with_trust(
-                        Arc::clone(&opened.segments[position].reader),
-                        segment.ordinal,
-                        &configured.definition,
-                        current.repository().options(),
-                        collection,
-                        (configured.source.id(), configured.source.version()),
-                        segment.active.slot_count(),
-                        metadata,
-                        crate::segment_format::SegmentTrust::Untrusted,
-                    )
-                    .map_err(IndexError::InvalidCache)?;
-                sealed_group.push(Arc::new(PublishedSegment {
-                    ordinal: segment.ordinal,
-                    index: Arc::new(decoded),
-                    active: segment.active.clone(),
-                }));
-            }
-            groups.push(Arc::new(sealed_group));
-        }
-        let mut next = (*current.0).clone();
-        next.segments = groups;
-        next.catalog = crate::lifecycle_catalog::FileCatalog::restored_persisted(
-            Arc::clone(&next.repository),
-            Arc::clone(&restored),
-        )
-        .map_err(IndexError::InvalidCache)?;
-        next.file_versions = crate::inventory::FileVersions::from_persisted(Arc::clone(&restored));
-        let mut managed = self
-            .0
-            .managed
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        let mut published = self
-            .0
-            .published
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if published.revision != current.revision() {
-            return Err(IndexError::RevisionConflict {
-                expected: current.revision(),
-                actual: published.revision,
-            });
-        }
-        let state = managed
-            .as_mut()
-            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
-        state
-            .mark_opened(
-                &next,
-                opened.generation,
-                restored,
-                crate::lifecycle_storage::ValidationOpenStats::default(),
-            )
-            .map_err(IndexError::InvalidCache)?;
-        let snapshot = state.status_snapshot();
-        *self
-            .0
-            .storage_status_snapshot
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)? = Some(snapshot);
-        *published = Arc::new(next);
-        self.enable_owned_memory_sealing();
-        Ok(())
-    }
-
-    /// Persist one complete pinned revision to the attached managed store.
-    /// Concurrent query and mutation publications remain visible while the
-    /// immutable files are written; a failed save leaves the old manifest.
-    #[cfg(test)]
-    pub(crate) fn flush_storage(&self) -> Result<IndexRevision, IndexError> {
-        let view = self.view()?;
-        if !view.initial_construction_complete() {
-            return Err(IndexError::IncompleteBuild);
-        }
-        self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
-        let _activity = StorageSyncActivity(&self.0.storage_syncing);
-        let saved = {
-            let mut managed = self
-                .0
-                .managed
-                .lock()
-                .map_err(|_| IndexError::LockPoisoned)?;
-            let state = managed.as_mut().ok_or_else(|| {
-                IndexError::InvalidPublication("no managed index storage attached".into())
-            })?;
-            let result = state.flush(&view.0);
-            if let Err(error) = &result {
-                state.last_error = Some(error.to_string());
-                state.last_error_kind =
-                    Some(crate::index_storage::IndexStorageFailureKind::from(error));
-            }
-            *self
-                .0
-                .storage_status_snapshot
-                .write()
-                .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
-            result?
-        };
-        let mut published = self
-            .0
-            .published
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if published.revision == saved {
-            let mut next = (**published).clone();
-            next.saved_revision = Some(saved);
-            *published = Arc::new(next);
-        }
-        Ok(saved)
-    }
-
-    /// Persist one pinned publication to the target selected for this call.
-    /// The active query backing is left unchanged, including when it is an
-    /// on-demand mapping from another store.
-    pub fn flush_to(
-        &self,
-        target: &crate::index_storage::IndexStorageTarget,
-    ) -> Result<crate::index_storage::IndexFlushReport, IndexError> {
-        let view = self.view()?;
-        if !view.initial_construction_complete() {
-            return Err(IndexError::IncompleteBuild);
-        }
-        target
-            .validate()
-            .map_err(IndexError::IncompatibleConfiguration)?;
-        let repository = view.repository();
-        let definitions = repository
-            .collections()
-            .iter()
-            .map(|collection| collection.definition.clone())
-            .collect::<Vec<_>>();
-        let resolved = target
-            .resolve_logical(
-                &repository.files().root,
-                &definitions,
-                repository.options(),
-                &repository.sources,
-            )
-            .map_err(IndexError::IncompatibleConfiguration)?;
-        if resolved.configuration_identity != view.configuration_identity() {
-            return Err(IndexError::IncompatibleConfiguration(
-                "selected destination changes the published index configuration".into(),
-            ));
-        }
-        let directory = resolved.managed_directory.clone().ok_or_else(|| {
-            IndexError::IncompatibleConfiguration("explicit flush needs a disk target".into())
-        })?;
-        self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
-        let _activity = StorageSyncActivity(&self.0.storage_syncing);
-        let (generation, unchanged, bytes_written) = {
-            let mut managed = self
-                .0
-                .managed
-                .lock()
-                .map_err(|_| IndexError::LockPoisoned)?;
-            if managed
-                .as_ref()
-                .is_some_and(|state| state.store.path() == directory)
-            {
-                let state = managed.as_mut().expect("matching managed state");
-                let result = state.flush_explicit(&view.0);
-                if let Err(error) = &result {
-                    state.last_error = Some(error.to_string());
-                    state.last_error_kind =
-                        Some(crate::index_storage::IndexStorageFailureKind::from(error));
-                }
-                *self
-                    .0
-                    .storage_status_snapshot
-                    .write()
-                    .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
-                result?
-            } else {
-                let mut candidate = crate::lifecycle_storage::ManagedPersistence::open(&resolved)
-                    .map_err(IndexError::Io)?;
-                let result = candidate.flush_explicit(&view.0)?;
-                *self
-                    .0
-                    .storage_status_snapshot
-                    .write()
-                    .map_err(|_| IndexError::LockPoisoned)? = Some(candidate.status_snapshot());
-                *managed = Some(candidate);
-                result
-            }
-        };
-        let mut published = self
-            .0
-            .published
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        let newer_changes_unsaved = published.revision != view.revision();
-        if !newer_changes_unsaved {
-            let next = Arc::make_mut(&mut *published);
-            next.saved_revision = Some(view.revision());
-        }
-        Ok(crate::index_storage::IndexFlushReport {
-            saved_revision: view.revision(),
-            target: target.clone(),
-            managed_directory: directory,
-            store_generation: generation,
-            unchanged,
-            newer_changes_unsaved,
-            segment_bytes_written: bytes_written,
-        })
-    }
-
-    /// Report searchable coverage, source freshness and durable state
-    /// separately so an old valid generation is not mistaken for a fresh one.
-    pub fn storage_status(&self) -> Result<crate::index_storage::IndexStorageStatus, IndexError> {
-        let status = self.status()?;
-        let snapshot = self
-            .0
-            .storage_status_snapshot
-            .read()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        Ok(crate::lifecycle_storage::storage_status(
-            &status,
-            snapshot.as_ref(),
-            self.0.storage_syncing.load(Ordering::Acquire) > 0,
-        ))
-    }
-
-    /// Coalesce completed publications into durable managed generations.
-    /// Explicit flush remains available for finite commands and shutdown.
-    #[cfg(test)]
-    pub(crate) fn set_sync_storage(&self, enabled: bool) -> Result<(), IndexError> {
-        if !enabled {
-            return self.stop_sync_storage();
-        }
-        if self.0.quiescing.load(Ordering::Acquire) {
-            return Err(IndexError::Cancelled);
-        }
-        if self
-            .0
-            .managed
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .is_none()
-        {
-            return Err(IndexError::InvalidPublication(
-                "no managed storage attached".into(),
-            ));
-        }
-        let mut sync = self
-            .0
-            .sync_storage
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if sync.is_some() {
-            return Ok(());
-        }
-        let (signal, receiver) = mpsc::sync_channel(1);
-        let owner = Arc::downgrade(&self.0);
-        let worker = std::thread::Builder::new()
-            .name("objekte-sync-storage".into())
-            .spawn(move || {
-                while receiver.recv().is_ok() {
-                    let first_signal = Instant::now();
-                    while first_signal.elapsed() < Duration::from_secs(1)
-                        && receiver.recv_timeout(Duration::from_millis(100)).is_ok()
-                    {
-                    }
-                    let Some(inner) = owner.upgrade() else { break };
-                    if inner.quiescing.load(Ordering::Acquire) {
-                        break;
-                    }
-                    let index = Index(inner);
-                    let _ = index.flush_storage();
-                }
-            })
-            .map_err(|error| IndexError::Io(error.to_string()))?;
-        *sync = Some(SyncCacheWorker { signal, worker });
-        drop(sync);
-        self.notify_sync_storage();
-        Ok(())
-    }
-
-    #[cfg(test)]
-    fn notify_sync_storage(&self) {
-        if let Ok(sync) = self.0.sync_storage.lock()
-            && let Some(sync) = sync.as_ref()
-        {
-            let _ = sync.signal.try_send(());
-        }
-    }
-
-    #[cfg(test)]
-    pub(crate) fn stop_sync_storage(&self) -> Result<(), IndexError> {
-        let sync = self
-            .0
-            .sync_storage
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .take();
-        if let Some(sync) = sync {
-            drop(sync.signal);
-            sync.worker.join().map_err(|_| {
-                IndexError::InvalidPublication("managed storage writer panicked".into())
-            })?;
-        }
-        Ok(())
     }
 
     /// Run one source-free compaction on a worker while pinned queries use
@@ -2255,7 +1595,6 @@ impl Index {
             next.revision = next_revision;
             next.file_versions =
                 FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
-            next.saved_revision = view.0.saved_revision;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -2481,7 +1820,7 @@ impl Index {
 
     /// Prevent new data publications, stop recurring work, and wait for every
     /// currently owned mutation worker. The resulting view is stable for a
-    /// final managed storage flush. This call may be retried after a flush failure.
+    /// caller that is closing the index.
     pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
         {
             let _published = self
@@ -2492,8 +1831,6 @@ impl Index {
             self.0.quiescing.store(true, Ordering::Release);
         }
         self.stop_periodic_reconciliation()?;
-        #[cfg(test)]
-        self.stop_sync_storage()?;
         let operation = self
             .0
             .maintenance_operation
@@ -2993,14 +2330,13 @@ impl Index {
         expected: IndexRevision,
         next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
-        self.publish_prepared_inner(expected, next, true)
+        self.publish_prepared_inner(expected, next)
     }
 
     fn publish_prepared_inner(
         &self,
         expected: IndexRevision,
-        mut next: PublishedIndex,
-        seal_owned_memory: bool,
+        next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
@@ -3010,9 +2346,6 @@ impl Index {
             return Err(IndexError::InvalidPublication(
                 "prepared root must carry the next revision".into(),
             ));
-        }
-        if seal_owned_memory && self.0.seal_owned_memory.load(Ordering::Acquire) {
-            Self::seal_new_owned_segments(&mut next)?;
         }
         #[cfg(test)]
         let notify_cache = next.catalog.construction_complete();
@@ -3036,9 +2369,7 @@ impl Index {
         };
         drop(retired);
         #[cfg(test)]
-        if notify_cache {
-            self.notify_sync_storage();
-        }
+        let _ = notify_cache;
         Ok(next_revision)
     }
 }
@@ -3047,30 +2378,7 @@ impl Index {
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
-/// Decoded posting cache occupancy for the sealed segments in one pinned view.
-#[derive(Clone, Copy, Debug, Default, Serialize)]
-pub struct DecodedPostingCacheUsage {
-    pub sealed_segments: usize,
-    pub entries: usize,
-    pub retained_bytes: usize,
-    pub limit_bytes: usize,
-}
-
 impl IndexView {
-    pub fn decoded_posting_cache_usage(&self) -> DecodedPostingCacheUsage {
-        let mut total = DecodedPostingCacheUsage::default();
-        for segment in self.0.segments.iter().flat_map(|group| group.iter()) {
-            if let Some(reader) = segment.index.raw.sealed_reader() {
-                let (entries, retained, limit) = reader.decoded_cache_usage();
-                total.sealed_segments += 1;
-                total.entries += entries;
-                total.retained_bytes += retained;
-                total.limit_bytes += limit;
-            }
-        }
-        total
-    }
-
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::StartupStats {
         self.repository().startup()
@@ -3118,8 +2426,9 @@ impl IndexView {
             .filter_map(|number| self.catalogue_row(FileId(number as u32)))
     }
 
-    /// Same index-family estimate used by the construction benchmark for a
-    /// direct repository, summed across the base and live lifecycle shards.
+    /// Narrow index-family estimate for a direct repository, summed across the
+    /// base and live lifecycle shards. See `SegmentAccounting` for the cached
+    /// maintenance estimate.
     pub fn estimated_index_bytes(&self) -> usize {
         self.index_family_breakdown()
             .values()
@@ -3134,61 +2443,6 @@ impl IndexView {
     pub fn index_family_breakdown(
         &self,
     ) -> std::collections::BTreeMap<String, Vec<(u64, IndexFamilyEstimate)>> {
-        fn estimate(
-            raw: &crate::bigram::BigramIndex,
-            fallback: &crate::bigram::BigramIndex,
-            custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
-            postings: &crate::posting::PostingCollection,
-            sorting: &crate::sorting::SortCollection,
-        ) -> IndexFamilyEstimate {
-            IndexFamilyEstimate {
-                raw_bytes: raw.estimated_heap_bytes(),
-                fallback_bytes: fallback.estimated_heap_bytes(),
-                custom_text_bytes: custom
-                    .values()
-                    .map(|index| index.estimated_heap_bytes())
-                    .sum(),
-                postings_bytes: postings
-                    .fields
-                    .values()
-                    .map(|posting| {
-                        posting
-                            .values
-                            .values()
-                            .map(|bitmap| bitmap.serialized_size() as usize)
-                            .sum::<usize>()
-                            + posting
-                                .lengths
-                                .values()
-                                .map(|bitmap| bitmap.serialized_size() as usize)
-                                .sum::<usize>()
-                            + posting
-                                .structural
-                                .as_ref()
-                                .map_or(0, crate::posting::StructuralFacts::estimated_bytes)
-                            + if posting.empty_selections.is_empty() {
-                                0
-                            } else {
-                                posting.empty_selections.serialized_size()
-                            }
-                    })
-                    .sum(),
-                sorting_bytes: sorting
-                    .columns
-                    .values()
-                    .map(|column| {
-                        column
-                            .keys
-                            .iter()
-                            .map(|key| match key {
-                                crate::sorting::SortKey::String(value) => value.len(),
-                                _ => 24,
-                            })
-                            .sum::<usize>()
-                    })
-                    .sum(),
-            }
-        }
         self.repository()
             .collections()
             .iter()
@@ -3196,7 +2450,7 @@ impl IndexView {
             .map(|(number, collection)| {
                 let mut parts = vec![(
                     0,
-                    estimate(
+                    index_family_estimate(
                         &collection.raw,
                         &collection.fallback_text,
                         &collection.custom_text,
@@ -3207,7 +2461,7 @@ impl IndexView {
                 parts.extend(self.0.segments[number].iter().map(|segment| {
                     (
                         segment.ordinal,
-                        estimate(
+                        index_family_estimate(
                             &segment.index.raw,
                             &segment.index.fallback_text,
                             &segment.index.custom_text,
@@ -3287,20 +2541,18 @@ impl IndexView {
         };
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.try_id_lookup(&hit.record_id).ok().flatten() else {
+            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
                 continue;
             };
             if !segment.active.contains(slot)
                 || segment
                     .index
-                    .try_record(slot)
-                    .ok()
-                    .flatten()
+                    .record(slot)
                     .is_none_or(|record| record.file != file)
             {
                 continue;
             }
-            let Some(source) = segment.index.try_file(file).ok().flatten() else {
+            let Some(source) = segment.index.file(file) else {
                 return;
             };
             let Some(diagnostic) = source.entry.diagnostics.get(local) else {
@@ -3448,7 +2700,7 @@ impl IndexView {
                     .count() as u64;
             }
             for segment in self.0.segments.get(number)?.iter() {
-                if let Some(slots) = segment.index.try_file_records(file).ok().flatten() {
+                if let Some(slots) = segment.index.file_records(file) {
                     count += slots
                         .iter()
                         .filter(|slot| segment.active.contains(**slot))

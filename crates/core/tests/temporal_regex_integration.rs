@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::HashMap;
 
 use objekte_search_core::lifecycle::Index;
@@ -109,27 +106,13 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        let policy = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-        };
-        let first = Index::open_with_storage(
+        let restored = Index::build_with_sources(
             &root,
             vec![definition()],
             options,
-            policy.clone(),
             SourceRegistry::builtin(),
         )
         .unwrap();
-        first.stop_sync_storage().unwrap();
-        let restored = Index::open_with_storage(
-            &root,
-            vec![definition()],
-            options,
-            policy,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
-        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query, params: &HashMap<String, Value>| {
@@ -173,7 +156,6 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
                 }
             }
         }
-        restored.stop_sync_storage().unwrap();
         restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();

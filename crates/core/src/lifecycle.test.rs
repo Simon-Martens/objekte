@@ -44,13 +44,17 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     }
     let mut staged = (*index.view().unwrap().0).clone();
     assert_eq!(staged.segments[0].len(), 3);
+    for segment in staged.segments[0].iter() {
+        assert!(segment.index.accounting.retained_bytes_estimated > 0);
+        assert!(segment.index.accounting.source_bytes_estimated > 0);
+    }
     staged
-        .make_room_for_segment_with_limits(0, 1, 16, false)
+        .make_room_for_segment_with_limits(0, 1, 16)
         .unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
     staged
-        .make_room_for_segment_with_limits(0, 1, 16, false)
+        .make_room_for_segment_with_limits(0, 1, 16)
         .unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     index.shutdown().unwrap();
@@ -156,57 +160,6 @@ fn all_records() -> Query {
             evidence: false,
         },
     }
-}
-
-#[test]
-fn storage_status_reports_active_sync_without_waiting_for_the_store_writer() {
-    use std::sync::atomic::Ordering;
-
-    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver, IndexSynchronization};
-    use crate::source::SourceRegistry;
-
-    let root = std::env::temp_dir().join(format!(
-        "objekte-sync-status-{}-{}",
-        std::process::id(),
-        std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH)
-            .unwrap()
-            .as_nanos()
-    ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
-    let index = Index::open_with_storage(
-        &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
-        RepositoryOptions::default(),
-        IndexLocationResolver {
-            location: IndexStorageLocation::RepositoryDirectory,
-        },
-        SourceRegistry::builtin(),
-    )
-    .unwrap();
-    index.stop_sync_storage().unwrap();
-    let held_writer = index.0.managed.lock().unwrap();
-    index.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
-    let probe = index.clone();
-    let (send, receive) = std::sync::mpsc::channel();
-    let worker = std::thread::spawn(move || {
-        send.send(probe.storage_status()).unwrap();
-    });
-    let observed = receive.recv_timeout(Duration::from_secs(2));
-    index.0.storage_syncing.fetch_sub(1, Ordering::Release);
-    drop(held_writer);
-    worker.join().unwrap();
-    assert_eq!(
-        observed.unwrap().unwrap().synchronization,
-        IndexSynchronization::Synchronizing
-    );
-    drop(index);
-    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

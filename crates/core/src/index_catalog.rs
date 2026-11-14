@@ -129,8 +129,7 @@ impl PostingAccess<'_> {
             output,
             coverage: index.covered_records,
         };
-        if let Some((work, output)) =
-            index.estimate_exact_with_visits_checked(term, domain.len(), visits)?
+        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits)
         {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
@@ -143,7 +142,7 @@ impl PostingAccess<'_> {
             && matches!(&term.literal, Value::String(value) if value.is_empty())
         {
             *visits += 1;
-            let output = index.value_cardinality(&ScalarKey::String(String::new()))?;
+            let output = index.value_cardinality(&ScalarKey::String(String::new()));
             return Ok(Some(proposal(
                 PostingOperation::EmptyStringExact,
                 true,
@@ -183,12 +182,9 @@ impl PostingAccess<'_> {
                     let Some(key) = ScalarKey::from_value(&term.literal) else {
                         return Ok(None);
                     };
-                    if let Some((work, output)) = index.estimate_observed_scalar_checked(
-                        &key,
-                        term.operator,
-                        domain.len(),
-                        visits,
-                    )? {
+                    if let Some((work, output)) =
+                        index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+                    {
                         return Ok(Some(proposal(
                             PostingOperation::ObservedScalarExact,
                             true,
@@ -241,12 +237,8 @@ impl PostingAccess<'_> {
             if !matches!(term.literal, Value::String(_)) {
                 return Ok(None);
             }
-            let Some((work, count)) = index.estimate_observed_scalar_checked(
-                &key,
-                term.operator,
-                domain.len(),
-                visits,
-            )?
+            let Some((work, count)) =
+                index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
             else {
                 return Ok(None);
             };
@@ -265,7 +257,7 @@ impl PostingAccess<'_> {
             return Ok(None);
         }
         let Some((work, count)) =
-            index.estimate_observed_scalar_checked(&key, term.operator, domain.len(), visits)?
+            index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
         else {
             return Ok(None);
         };
@@ -291,18 +283,18 @@ impl PostingAccess<'_> {
     ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.index;
         match operation {
-            PostingOperation::Exact => index.exact_set_restricted_checked(term, domain, input),
+            PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),
             PostingOperation::SelfComparePresence => Ok(Some(input & &index.presence)),
             PostingOperation::EmptyStringExact => Ok(Some(
                 index
-                    .value_posting_restricted(&ScalarKey::String(String::new()), input)?
+                    .value_posting_restricted(&ScalarKey::String(String::new()), input)
                     .unwrap_or_default(),
             )),
             PostingOperation::ObservedScalarExact => {
                 let Some(key) = ScalarKey::from_value(&term.literal) else {
                     return Ok(None);
                 };
-                index.exact_observed_scalar_restricted_checked(&key, term.operator, domain, input)
+                Ok(index.exact_observed_scalar_restricted(&key, term.operator, domain, input))
             }
             PostingOperation::StringDictionaryExact => {
                 let Value::String(pattern) = &term.literal else {
@@ -330,10 +322,10 @@ impl PostingAccess<'_> {
                 };
                 let mut result = match term.operator {
                     Operator::Eq => index
-                        .value_posting_restricted(&key, input)?
+                        .value_posting_restricted(&key, input)
                         .unwrap_or_default(),
                     Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                        index.union_scalar_range(&key, term.operator, Some(input))?
+                        index.union_scalar_range(&key, term.operator, Some(input))
                     }
                     _ => return Ok(None),
                 };

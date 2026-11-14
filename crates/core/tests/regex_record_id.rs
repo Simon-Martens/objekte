@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::{
@@ -111,27 +108,13 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        let policy = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-        };
-        let first = Index::open_with_storage(
+        let restored = Index::build_with_sources(
             &root,
             vec![definition()],
             options,
-            policy.clone(),
             SourceRegistry::builtin(),
         )
         .unwrap();
-        first.stop_sync_storage().unwrap();
-        let restored = Index::open_with_storage(
-            &root,
-            vec![definition()],
-            options,
-            policy,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
-        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {
@@ -203,7 +186,6 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             typed_id.filter = Some(parse_filter("id = 'abc-10'").unwrap());
             assert_eq!(search(&typed_id).unwrap().count, Some(0));
         }
-        restored.stop_sync_storage().unwrap();
         restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();

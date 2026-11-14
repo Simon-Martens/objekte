@@ -66,7 +66,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             .build()
             .unwrap();
         admission
-            .seal()
+            .finish()
             .into_indexed(
                 &collection.definition,
                 repo.options().bigram_alphabet,

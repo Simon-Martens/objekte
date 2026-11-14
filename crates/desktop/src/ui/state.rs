@@ -629,8 +629,7 @@ impl UiState {
                 }
             }
             UiUpdate::ChosenFolder { .. }
-            | UiUpdate::ChosenSchema { .. }
-            | UiUpdate::ChosenIndexDirectory { .. } => {}
+            | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.workspace.open_query(draft.clone());
                 self.search = draft;

@@ -6,7 +6,6 @@ use std::io::{self, BufWriter, Write};
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
-use objekte_search_core::index_storage::{IndexFlushReport, IndexReadiness, IndexStorageTarget};
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
@@ -19,7 +18,7 @@ use objekte_search_core::streaming::{
 };
 use serde_json::{Value, json};
 
-use crate::arguments::{Alphabet, Arguments, IndexTargetChoice, ResolvedPaths};
+use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 use crate::loader::{ConfiguredDefinitions, configure_definitions, repository_options};
 use crate::output::{
     EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
@@ -39,8 +38,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     let configured = (|| {
         let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
         let paths = args.resolve_paths(&cwd)?;
-        let load_target = args.resolved_load_target(&paths)?;
-        let flush_target = args.resolved_flush_target(&paths)?;
         let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
         let mut source = QuerySource::open(args)?;
@@ -56,100 +53,47 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         };
         Ok::<_, String>((
             paths.root,
-            configured,
+            configured.definitions,
             options,
-            load_target,
-            flush_target,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, configured, options, load_target, mut startup_flush, mut search, mut filter) =
-        match configured {
-            Ok(configured) => configured,
-            Err(error) => {
-                eprintln!("obj: {error}");
-                return Exit::Arguments;
-            }
-        };
-    let mut pending_repository = None;
-    let mut pending_status = None;
-    let mut first_open = true;
-    loop {
-        let ui = crate::tui::TuiOptions {
+    let (root, definitions, options, search, filter) = match configured {
+        Ok(configured) => configured,
+        Err(error) => {
+            eprintln!("obj: {error}");
+            return Exit::Arguments;
+        }
+    };
+    let result = crate::tui::run_with_opening_loader(
+        move || {
+            Index::start_incremental_build(&root, definitions, options)
+                .map(crate::tui::TuiOpening::Initial)
+                .map_err(|error| error.to_string())
+        },
+        crate::tui::TuiOptions {
             single_collection: !args.multiple_collections(),
             initial_search: search,
             initial_filter: filter,
             offset: args.offset,
             limit: args.limit,
+            loading_label: Some("Building search index".to_owned()),
             interruption: Some(token.clone()),
-            load_context: Some(crate::tui::TuiLoadContext {
-                root: root.clone(),
-                definitions: configured.definitions.clone(),
-                options,
-            }),
-            startup_flush: startup_flush.take(),
-            opening_status: pending_status.take(),
-            loading_label: Some(
-                if first_open && load_target.is_some() {
-                    "Opening saved index"
-                } else {
-                    "Building search index"
-                }
-                .to_owned(),
-            ),
-        };
-        let opening_root = root.clone();
-        let definitions = configured.definitions.clone();
-        let opening_target = if first_open {
-            load_target.clone()
-        } else {
-            None
-        };
-        let ready = pending_repository.take();
-        first_open = false;
-        let result = crate::tui::run_with_opening_loader(
-            move || {
-                if let Some(repository) = ready {
-                    return Ok(crate::tui::TuiOpening::Ready(repository));
-                }
-                if let Some(target) = opening_target {
-                    match Index::try_load(&opening_root, definitions.clone(), options, &target)
-                        .map_err(|error| crate::storage_view::format_index_error(&error))?
-                    {
-                        Some(index) => {
-                            return IndexedRepository::new(index)
-                                .map(crate::tui::TuiOpening::Ready)
-                                .map_err(|error| error.to_string());
-                        }
-                        None => {}
-                    }
-                }
-                Index::start_incremental_build(&opening_root, definitions, options)
-                    .map(crate::tui::TuiOpening::Initial)
-                    .map_err(|error| error.to_string())
-            },
-            ui,
-        );
-        match result {
-            Ok(Some(request)) => {
-                pending_repository = Some(request.repository);
-                pending_status = Some(request.status);
-                search = request.search;
-                filter = request.filter;
-            }
-            Ok(None) => return Exit::Success,
-            Err(error)
-                if error
-                    .downcast_ref::<io::Error>()
-                    .is_some_and(|error| error.kind() == io::ErrorKind::Interrupted) =>
-            {
-                return Exit::Cancelled;
-            }
-            Err(error) => {
-                eprintln!("obj: {error}");
-                return Exit::Operation;
-            }
+        },
+    );
+    match result {
+        Ok(()) => Exit::Success,
+        Err(error)
+            if error
+                .downcast_ref::<io::Error>()
+                .is_some_and(|error| error.kind() == io::ErrorKind::Interrupted) =>
+        {
+            Exit::Cancelled
+        }
+        Err(error) => {
+            eprintln!("obj: {error}");
+            Exit::Operation
         }
     }
 }
@@ -226,7 +170,6 @@ pub fn run_on_repository<W: Write>(
             started: &started,
             startup_ns: run.startup_ns,
             initial_incremental: false,
-            flush_report: None,
         },
         source,
         &mut output,
@@ -261,7 +204,6 @@ pub fn run_prepared_on_repository<W: Write>(
         started: &started,
         startup_ns: run.startup_ns,
         initial_incremental: false,
-        flush_report: None,
     };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
@@ -309,20 +251,6 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let load_target = match args.resolved_load_target(&paths) {
-        Ok(target) => target,
-        Err(message) => {
-            eprintln!("obj: {message}");
-            return Exit::Arguments;
-        }
-    };
-    let flush_target = match args.resolved_flush_target(&paths) {
-        Ok(target) => target,
-        Err(message) => {
-            eprintln!("obj: {message}");
-            return Exit::Arguments;
-        }
-    };
     let configured = match configure_definitions(args, &paths) {
         Ok(configuration) => configuration,
         Err(message) => {
@@ -339,18 +267,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let opened = if let Some(target) = load_target.as_ref() {
-        match open_saved_repository(&paths, &configured, options, target, token) {
-            Ok(Some(opened)) => Ok(opened),
-            Ok(None) => {
-                eprintln!("obj: no saved index at the selected location; building in memory");
-                open_incremental_repository(args, &paths, &configured, options, &mut source, token)
-            }
-            Err(error) => Err(error),
-        }
-    } else {
-        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
-    };
+    let opened = open_incremental_repository(args, &paths, &configured, options, &mut source, token);
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
@@ -369,27 +286,6 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             }
             return Exit::Operation;
         }
-    };
-    let flush_report = if let Some(target) = flush_target.as_ref() {
-        match repo.index().flush_to(target) {
-            Ok(report) => Some(report),
-            Err(error) => {
-                let message = crate::storage_view::format_index_error(&error);
-                eprintln!("obj: save index: {message}");
-                if let Err(output_error) = output
-                    .emit(detailed_run_event(
-                        json!({"type":"run_error", "stage":"index_flush", "error":message}),
-                        &started,
-                    ))
-                    .and_then(|_| output.flush())
-                {
-                    return output_failure(output_error);
-                }
-                return Exit::Operation;
-            }
-        }
-    } else {
-        None
     };
     if let Err(error) = output.emit(run_start_event(
         args,
@@ -423,48 +319,12 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             args,
             started: &started,
             startup_ns,
-            initial_incremental: !repo.index().restored_from_storage(),
-            flush_report: flush_report.as_ref(),
+            initial_incremental: true,
         },
         source,
         &mut output,
         token,
     )
-}
-
-fn open_saved_repository(
-    paths: &ResolvedPaths,
-    configured: &ConfiguredDefinitions,
-    options: objekte_search_core::repository::RepositoryOptions,
-    target: &IndexStorageTarget,
-    token: &CancellationToken,
-) -> Result<Option<(IndexedRepository, u128)>, String> {
-    let started = Instant::now();
-    let Some(index) = Index::try_load(
-        paths.root.clone(),
-        configured.definitions.clone(),
-        options,
-        target,
-    )
-    .map_err(|error| crate::storage_view::format_index_error(&error))?
-    else {
-        return Ok(None);
-    };
-    if token.is_cancelled() {
-        return Err("index opening cancelled".into());
-    }
-    if index
-        .wait_for_reconciliation()
-        .map_err(|error| error.to_string())?
-        .is_some_and(|report| report.cancelled)
-    {
-        return Err("index reconciliation cancelled".into());
-    }
-    if token.is_cancelled() {
-        return Err("index opening cancelled".into());
-    }
-    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
-    Ok(Some((repo, started.elapsed().as_nanos())))
 }
 
 /// Work on a fresh index as batches become searchable, while retaining the
@@ -577,7 +437,6 @@ fn run_start_event(
         "type": "run_start",
         "protocol_version": crate::output::PROTOCOL_VERSION,
         "executable_version": env!("CARGO_PKG_VERSION"),
-        "core_program_version": objekte_search_core::PROGRAM_VERSION,
         "root": path_repr::query_path(&paths.root),
         "collection": (!args.multiple_collections()).then_some("files"),
         "collections": collection_names,
@@ -593,10 +452,6 @@ fn run_start_event(
         "schema_repository_metadata_ignored": ignored_repository_metadata,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
-        "load_index": args.load_index.map(index_target_label),
-        "load_index_directory": paths.load_index_directory.as_deref().map(path_repr::query_path),
-        "flush_index": args.flush_index.map(index_target_label),
-        "flush_index_directory": paths.flush_index_directory.as_deref().map(path_repr::query_path),
     })
 }
 
@@ -607,7 +462,6 @@ struct RunTail<'a> {
     started: &'a Instant,
     startup_ns: u128,
     initial_incremental: bool,
-    flush_report: Option<&'a IndexFlushReport>,
 }
 
 fn run_queries<W: Write>(
@@ -660,11 +514,7 @@ fn run_queries<W: Write>(
     if token.is_cancelled() {
         return cancel_run(output, successes, failures, started);
     }
-    if source.is_file()
-        && source.yielded() == 0
-        && args.load_index.is_none()
-        && args.flush_index.is_none()
-    {
+    if source.is_file() && source.yielded() == 0 {
         let message = "query file contains no queries";
         eprintln!("obj: {message}");
         if let Err(error) = output
@@ -715,22 +565,6 @@ fn complete_run<W: Write>(
             return Exit::Operation;
         }
     };
-    let storage = match repo.index().storage_status() {
-        Ok(status) => status,
-        Err(error) => {
-            let message = error.to_string();
-            if let Err(error) = output
-                .emit(detailed_run_event(
-                    json!({"type":"run_error", "stage":"index_storage_status", "error":message}),
-                    &started,
-                ))
-                .and_then(|_| output.flush())
-            {
-                return output_failure(error);
-            }
-            return Exit::Operation;
-        }
-    };
     let base_fallback: usize = repo
         .collections()
         .iter()
@@ -756,31 +590,7 @@ fn complete_run<W: Write>(
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
         "protocol_version": crate::output::PROTOCOL_VERSION,
-        "index_action": if repo.index().restored_from_storage() { "loaded_saved_index" } else { "built_in_memory" },
-        "index_flush_report": run.flush_report.map(|report| json!({
-            "saved_revision": report.saved_revision.0,
-            "store_generation": report.store_generation,
-            "destination": path_repr::query_path(&report.managed_directory),
-            "unchanged": report.unchanged,
-            "newer_changes_unsaved": report.newer_changes_unsaved,
-            "segment_bytes_written": report.segment_bytes_written,
-        })),
-        "index_persistence": {
-            "readiness": match storage.readiness {
-                IndexReadiness::Building => "building",
-                _ => "searchable",
-            },
-            "source_reconciliation_complete": storage.source_reconciliation_complete,
-            "current_revision": live.revision.0,
-            "last_saved_revision": live.saved_revision.map(|revision| revision.0),
-            "last_store_generation": storage.durable_generation,
-            "loaded_origin": repo.index().loaded_origin().ok().flatten().as_deref().map(path_repr::query_path),
-            "last_save_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
-            "last_error": storage.last_error,
-            "last_error_kind": storage.last_error_kind.map(|kind| kind.as_str()),
-            "segments_full_validated": storage.segments_full_validated,
-            "segments_write_validated": storage.segments_write_validated,
-        },
+        "source_reconciliation_complete": live.reconciliation == objekte_search_core::lifecycle::ReconciliationState::Complete,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({
             "complete": report.complete,
@@ -1103,14 +913,6 @@ fn detailed_run_event(#[allow(unused_mut)] mut event: Value, started: &Instant) 
         let _ = started;
     }
     event
-}
-
-fn index_target_label(choice: IndexTargetChoice) -> &'static str {
-    match choice {
-        IndexTargetChoice::Temporary => "temporary",
-        IndexTargetChoice::Repository => "repository",
-        IndexTargetChoice::Custom => "custom",
-    }
 }
 
 fn output_failure(error: io::Error) -> Exit {

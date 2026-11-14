@@ -555,8 +555,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 }
 
 #[test]
-fn mixed_short_strings_match_reference_after_managed_restore() {
-    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
+fn mixed_short_strings_match_reference_across_static_and_native_publication() {
     use crate::lifecycle::Index;
     use crate::source::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
@@ -616,29 +615,13 @@ fn mixed_short_strings_match_reference_after_managed_restore() {
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert_eq!(built.build_parses(), 13);
-        let base = root.join(format!("managed-{alphabet:?}"));
-        std::fs::create_dir(&base).unwrap();
-        let policy = IndexLocationResolver {
-            location: IndexStorageLocation::CustomDirectory(base),
-        };
-        let first = Index::open_with_storage(
+        let restored = Index::build_with_sources(
             &root,
             vec![definition.clone()],
             options,
-            policy.clone(),
             SourceRegistry::builtin(),
         )
         .unwrap();
-        first.shutdown().unwrap();
-        let restored = Index::open_with_storage(
-            &root,
-            vec![definition.clone()],
-            options,
-            policy,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
-        assert!(restored.restored_from_storage());
         let restored_view = restored.view().unwrap();
         for filter in filters {
             let mut request = query(filter);
@@ -995,9 +978,12 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         assert_eq!(stats.retained_manual_summary_bytes, 0);
         let indexes = &repo.collections()[0].inference.as_ref().unwrap().indexes;
         assert_eq!(indexes.len(), 1);
+        let index = &indexes[&vec!["kind".into()]];
         outcomes.push((
             serde_json::to_value(report).unwrap(),
-            bincode::serialize(&indexes[&vec!["kind".into()]]).unwrap(),
+            index.presence.clone(),
+            index.values.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
+            index.lengths.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
         ));
     }
     assert_eq!(outcomes[0], outcomes[1]);

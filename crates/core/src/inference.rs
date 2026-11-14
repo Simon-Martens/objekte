@@ -252,7 +252,7 @@ pub struct InferencePathDiagnostic {
 }
 
 /// Published optional indexes and their descriptive report.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct InferenceState {
     pub report: InferenceReport,
     pub indexes: HashMap<Vec<String>, PostingIndex>,

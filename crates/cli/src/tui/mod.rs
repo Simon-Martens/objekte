@@ -17,11 +17,8 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
-use objekte_search_core::index_storage::{IndexFlushReport, IndexStorageTarget};
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
@@ -39,35 +36,7 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
-    pub opening_status: Option<String>,
-    pub load_context: Option<TuiLoadContext>,
-    pub startup_flush: Option<IndexStorageTarget>,
     pub interruption: Option<CancellationToken>,
-}
-
-#[derive(Clone)]
-pub struct TuiLoadContext {
-    pub root: std::path::PathBuf,
-    pub definitions: Vec<CollectionDefinition>,
-    pub options: RepositoryOptions,
-}
-
-/// A replacement that has finished opening while the old view remained active.
-pub struct TuiReopenRequest {
-    pub repository: IndexedRepository,
-    pub search: String,
-    pub filter: String,
-    pub status: String,
-}
-
-pub fn run_with_loader<F>(
-    loader: F,
-    options: TuiOptions,
-) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
-where
-    F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
-{
-    run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
 }
 
 /// A repository can be ready immediately or still building its initial catalogue.
@@ -79,12 +48,12 @@ pub enum TuiOpening {
 pub fn run_with_opening_loader<F>(
     loader: F,
     options: TuiOptions,
-) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
+) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
-    let result = (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+    let result = (|| -> Result<(), Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
         let interrupted = || {
             std::io::Error::new(
@@ -142,7 +111,7 @@ where
                         {
                             return Err(interrupted().into());
                         }
-                        return Ok(None);
+                        return Ok(());
                     }
                     _ => {}
                 }
@@ -155,17 +124,17 @@ where
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
-    let outcome = result?;
+    result?;
     mouse?;
     restore?;
-    Ok(outcome)
+    Ok(())
 }
 
 /// Opens the screen as soon as discovery publishes the physical file catalogue.
 pub fn run_with_initial_build(
     task: InitialBuildTask,
     options: TuiOptions,
-) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+) -> Result<(), Box<dyn Error>> {
     run_with_opening_loader(move || Ok(TuiOpening::Initial(task)), options)
 }
 
@@ -173,7 +142,7 @@ fn run_initial_active(
     terminal: &mut ratatui::DefaultTerminal,
     task: InitialBuildTask,
     options: TuiOptions,
-) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+) -> Result<(), Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
 
     impl Drop for CancelOnExit {
@@ -183,7 +152,7 @@ fn run_initial_active(
     }
 
     let guard = CancelOnExit(task);
-    (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+    (|| -> Result<(), Box<dyn Error>> {
         let started = Instant::now();
         let (repository, snapshot) = loop {
             if options
@@ -225,7 +194,7 @@ fn run_initial_active(
                                 || (pressed.code == KeyCode::Char('q')
                                     && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
                     {
-                        return Ok(None);
+                        return Ok(());
                     }
                     Event::Key(pressed)
                         if pressed.kind != KeyEventKind::Release
@@ -259,13 +228,9 @@ fn run_active(
     repository: IndexedRepository,
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
-) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+) -> Result<(), Box<dyn Error>> {
     let timings = repository.index().timings_ms()?;
-    let storage_label = if repository.index().loaded_origin()?.is_some() {
-        "Loaded saved index"
-    } else {
-        "Built in memory"
-    };
+    let state_label = "Built in memory";
     let incremental = initial.is_some();
     let mut app = match initial {
         Some((task, snapshot)) => {
@@ -275,14 +240,14 @@ fn run_active(
     };
     if incremental {
         app.status = Some(match app.status.take() {
-            Some(status) => format!("{status}  ·  {storage_label}"),
-            None => storage_label.to_owned(),
+            Some(status) => format!("{status}  ·  {state_label}"),
+            None => state_label.to_owned(),
         });
     } else {
         let display =
             |value: Option<u64>| value.map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms"));
         let ready = format!(
-            "{storage_label}: metadata {} · search {} · full {}{}",
+            "{state_label}: metadata {} · search {} · full {}{}",
             display(timings.metadata),
             display(timings.search_available),
             display(timings.full_available),
@@ -295,9 +260,6 @@ fn run_active(
             None => ready,
         });
     }
-    if let Some(status) = &options.opening_status {
-        app.status = Some(status.clone());
-    }
     let light = match app.settings.theme.as_deref() {
         Some("light") => Some(true),
         Some("dark") => Some(false),
@@ -306,151 +268,11 @@ fn run_active(
     if let Some(light) = light {
         view::theme::set_light(light);
     }
-    enum StorageOutcome {
-        Saved(IndexFlushReport),
-        Loaded(IndexedRepository, String),
-    }
-    let mut operation_receiver: Option<mpsc::Receiver<Result<StorageOutcome, String>>> = None;
-    let mut startup_flush = options.startup_flush.clone();
     while !app.done {
         if app.interrupted() {
             return Err(interrupted().into());
         }
         app.tick(Instant::now());
-        if startup_flush.is_some()
-            && app
-                .build_status
-                .as_ref()
-                .is_none_or(|status| status.construction_complete)
-            && operation_receiver.is_none()
-        {
-            app.storage_request = Some((false, startup_flush.take().expect("queued startup save")));
-        }
-        if let Some((load, target)) = app.storage_request.take() {
-            if operation_receiver.is_some() {
-                app.error = Some("An index operation is already running".into());
-            } else {
-                let (sender, receiver) = mpsc::channel();
-                app.storage_busy = true;
-                if load {
-                    if let Some(context) = options.load_context.clone() {
-                        app.status = Some(format!(
-                            "Opening saved index from {}…",
-                            crate::storage_view::target_label(&target)
-                        ));
-                        std::thread::spawn(move || {
-                            let result = (|| -> Result<StorageOutcome, String> {
-                                let loaded = Index::try_load(
-                                    &context.root,
-                                    context.definitions.clone(),
-                                    context.options,
-                                    &target,
-                                )
-                                .map_err(|error| error.to_string())?;
-                                let (index, label) = match loaded {
-                                    Some(index) => (
-                                        index,
-                                        format!(
-                                            "Loaded saved index from {}",
-                                            crate::storage_view::target_label(&target)
-                                        ),
-                                    ),
-                                    None => (
-                                        Index::build(
-                                            &context.root,
-                                            context.definitions,
-                                            context.options,
-                                        )
-                                        .map_err(|error| error.to_string())?,
-                                        format!(
-                                            "No saved index at {}; built in memory",
-                                            crate::storage_view::target_label(&target)
-                                        ),
-                                    ),
-                                };
-                                Ok(StorageOutcome::Loaded(
-                                    IndexedRepository::new(index)
-                                        .map_err(|error| error.to_string())?,
-                                    label,
-                                ))
-                            })();
-                            let _ = sender.send(result);
-                        });
-                        operation_receiver = Some(receiver);
-                    } else {
-                        app.storage_busy = false;
-                        app.error = Some("Index opening is unavailable for this view".into());
-                    }
-                } else {
-                    let index = app.repo.index().clone();
-                    app.status = Some(format!(
-                        "Saving index to {}…",
-                        crate::storage_view::target_label(&target)
-                    ));
-                    std::thread::spawn(move || {
-                        let result = (|| {
-                            if index
-                                .wait_for_reconciliation()
-                                .map_err(|error| error.to_string())?
-                                .is_some_and(|report| report.cancelled)
-                            {
-                                return Err("index reconciliation cancelled".to_owned());
-                            }
-                            index
-                                .flush_to(&target)
-                                .map(StorageOutcome::Saved)
-                                .map_err(|error| error.to_string())
-                        })();
-                        let _ = sender.send(result);
-                    });
-                    operation_receiver = Some(receiver);
-                }
-            }
-        }
-        if let Some(receiver) = operation_receiver.as_ref() {
-            match receiver.try_recv() {
-                Ok(Ok(StorageOutcome::Saved(report))) => {
-                    app.storage_busy = false;
-                    operation_receiver = None;
-                    let message = format!(
-                        "Saved revision {} to {}, generation {}{}",
-                        report.saved_revision.0,
-                        crate::storage_view::target_label(&report.target),
-                        report.store_generation,
-                        if report.newer_changes_unsaved {
-                            " · newer changes remain"
-                        } else {
-                            ""
-                        }
-                    );
-                    app.storage_last_saved = Some(message.clone());
-                    app.status = Some(message);
-                }
-                Ok(Ok(StorageOutcome::Loaded(repository, status))) => {
-                    app.storage_busy = false;
-                    operation_receiver = None;
-                    app.reopen_request = Some(TuiReopenRequest {
-                        repository,
-                        search: app.search.text.clone(),
-                        filter: app.filter.text.clone(),
-                        status,
-                    });
-                    app.done = true;
-                }
-                Ok(Err(error)) => {
-                    app.storage_busy = false;
-                    operation_receiver = None;
-                    app.error = Some(format!("Index operation: {error}"));
-                    app.status = Some("Index operation failed; current view remains open".into());
-                }
-                Err(mpsc::TryRecvError::Disconnected) => {
-                    app.storage_busy = false;
-                    operation_receiver = None;
-                    app.error = Some("Index operation worker stopped".into());
-                }
-                Err(mpsc::TryRecvError::Empty) => {}
-            }
-        }
         terminal.draw(|frame| view::draw(frame, &mut app))?;
         let poll_ms = if app.busy() { 30 } else { 250 };
         if !event::poll(Duration::from_millis(poll_ms))? {
@@ -480,7 +302,7 @@ fn run_active(
             stdout.flush()?;
         }
     }
-    Ok(app.reopen_request)
+    Ok(())
 }
 
 fn mouse_event(app: &mut App, mouse: MouseEvent) {
@@ -546,11 +368,7 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
 fn key(app: &mut App, key: KeyEvent) {
     let control = key.modifiers.contains(KeyModifiers::CONTROL);
     if control && key.code == KeyCode::Char('q') {
-        if app.storage_busy {
-            app.status = Some("Waiting for the explicit index operation to finish…".into());
-        } else {
-            app.done = true;
-        }
+        app.done = true;
         return;
     }
     if app.record.find_input.is_some() {
@@ -578,40 +396,6 @@ fn key(app: &mut App, key: KeyEvent) {
                         run_action(app, action);
                     }
                 }
-                _ => {}
-            }
-            return;
-        }
-        Some(Overlay::Storage) => {
-            if app.storage_editing {
-                match key.code {
-                    KeyCode::Esc => app.storage_editing = false,
-                    KeyCode::Enter => app.finish_storage_directory(),
-                    _ => {
-                        app.storage_directory.key(key);
-                    }
-                }
-                return;
-            }
-            match key.code {
-                KeyCode::Esc => app.overlay = None,
-                KeyCode::Up => app.storage_picker = app.storage_picker.saturating_sub(1),
-                KeyCode::Down | KeyCode::Tab => {
-                    app.storage_picker = (app.storage_picker + 1).min(6)
-                }
-                KeyCode::BackTab => app.storage_picker = app.storage_picker.saturating_sub(1),
-                KeyCode::Enter if app.storage_picker < 2 => {
-                    app.storage_operation = app.storage_picker;
-                }
-                KeyCode::Enter if (2..5).contains(&app.storage_picker) => {
-                    app.storage_choice = app.storage_picker - 2;
-                    if app.storage_picker == 4 {
-                        app.storage_picker = 5;
-                        app.storage_editing = true;
-                    }
-                }
-                KeyCode::Enter if app.storage_picker == 5 => app.storage_editing = true,
-                KeyCode::Enter if app.storage_picker == 6 => app.apply_storage(),
                 _ => {}
             }
             return;
@@ -946,7 +730,6 @@ fn key(app: &mut App, key: KeyEvent) {
 fn run_action(app: &mut App, action: Action) {
     match action {
         Action::Files => app.toggle_files(),
-        Action::Storage => app.open_storage(),
         Action::Collections => {
             if app.single_collection {
                 app.status = Some(format!("Collection: {}", app.scope_label()));

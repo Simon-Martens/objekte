@@ -298,37 +298,12 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
-        let definitions = crate::index_storage::IndexStorageTarget::prepare_logical_definitions(
-            &root,
-            &definitions,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
-        Self::start_incremental_build_with_sources_and_completion(
-            root,
-            definitions,
-            options,
-            sources,
-            true,
-            |index| {
-                index.enable_owned_memory_sealing();
-                index.seal_current_segments_owned()
-            },
-        )
-    }
-
-    pub(crate) fn start_incremental_build_with_sources_and_completion(
-        root: impl Into<PathBuf>,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-        sources: SourceRegistry,
-        seal_owned_memory: bool,
-        on_complete: impl FnOnce(&Index) -> Result<(), IndexError> + Send + 'static,
-    ) -> Result<InitialBuildTask, IndexError> {
+        let definitions = crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+            .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();
         let worker_task = task.clone();
-        let root = root.into();
         std::thread::Builder::new()
             .name("objekte-initial-build".into())
             .spawn(move || {
@@ -337,20 +312,13 @@ impl Index {
                     definitions,
                     options,
                     sources,
-                    |index| {
-                        if seal_owned_memory {
-                            index.enable_owned_memory_sealing();
-                        }
-                        worker_task.publish(index.clone(), false)
-                    },
+                    |index| worker_task.publish(index.clone(), false),
                     |index| worker_task.publish(index.clone(), false),
                     || worker_task.0.cancelled.load(Ordering::Acquire),
                 );
                 match result {
                     Ok(index) => {
-                        if let Err(error) =
-                            on_complete(&index).and_then(|()| worker_task.publish(index, true))
-                        {
+                        if let Err(error) = worker_task.publish(index, true) {
                             worker_task.finish_error(error);
                         }
                     }

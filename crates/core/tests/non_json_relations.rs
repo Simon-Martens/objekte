@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
@@ -159,22 +156,9 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
         };
         let built =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
-        let policy = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-        };
-        let first = Index::open_with_storage(
-            &root,
-            definitions(),
-            options,
-            policy.clone(),
-            sources.clone(),
-        )
-        .unwrap();
-        first.stop_sync_storage().unwrap();
         let restored =
-            Index::open_with_storage(&root, definitions(), options, policy, sources.clone())
+            Index::build_with_sources(&root, definitions(), options, sources.clone())
                 .unwrap();
-        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {
@@ -203,7 +187,6 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
                     .contains("logical-string text derivation")
             );
         }
-        restored.stop_sync_storage().unwrap();
         restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
