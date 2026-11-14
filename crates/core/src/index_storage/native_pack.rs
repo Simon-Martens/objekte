@@ -51,20 +51,21 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     let repository = view.repository();
     let mut rows = Vec::new();
     for id in 0..published.catalog.allocated_files() {
-        let Some(entry) = published.catalog.entry(crate::model::FileId(id as u32)) else {
-            continue;
-        };
+        let file = crate::model::FileId(id as u32);
         let version = published
             .file_versions
-            .get(crate::model::FileId(id as u32))
+            .get(file)
             .map_or(1, |version| version.0);
-        rows.push(file_row(
-            entry,
-            version,
-            published
-                .catalog
-                .fingerprint(crate::model::FileId(id as u32)),
-        )?);
+        if let Some(entry) = published.catalog.entry(file) {
+            rows.push(file_row(
+                entry,
+                version,
+                published.catalog.fingerprint(file),
+                false,
+            )?);
+        } else if let Some(entry) = published.catalog.inactive_entry(file) {
+            rows.push(file_row(entry, version, None, true)?);
+        }
     }
     let sections =
         build_catalogue_with_high_water(&rows, published.catalog.allocated_files() as u32)?;
@@ -85,15 +86,16 @@ fn file_row(
     entry: &FileEntry,
     version: u64,
     fingerprint: Option<[u8; 32]>,
+    tombstone: bool,
 ) -> StorageResult<FileRowInput> {
     let native_path = native_path_bytes(entry.relative_path.as_path());
     let query_path = crate::path_repr::query_path(entry.relative_path.as_path()).into_bytes();
     Ok(FileRowInput {
         file_id: entry.id.0,
         status: entry.status.code(),
-        tombstone: false,
+        tombstone,
         file_version: version,
-        content_generation: version,
+        content_generation: entry.content_generation,
         size: entry.revision.size,
         modified_ns: entry.revision.modified_ns,
         created_ns: entry.created_ns,

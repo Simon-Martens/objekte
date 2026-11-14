@@ -250,6 +250,7 @@ fn metadata_probe_file() -> FileEntry {
     FileEntry {
         id: FileId(0),
         relative_path: SharedPath::from(""),
+        content_generation: 1,
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,

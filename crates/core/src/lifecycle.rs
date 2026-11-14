@@ -996,6 +996,7 @@ fn index_prepared_file(
     let mut entry = FileEntry {
         id: source.id,
         relative_path: source.relative_path.clone().into(),
+        content_generation: FileVersion::INITIAL.0,
         revision: source.revision,
         created_ns: source.created_ns,
         collections: memberships,
@@ -2342,8 +2343,12 @@ impl Index {
         }
         let source = prepared.file.source;
         let fingerprint = prepared.file.fingerprint;
-        let (entry, indexed) =
+        let (mut entry, indexed) =
             index_prepared_file(view.repository(), &source, prepared.file.collections)?;
+        entry.content_generation = previous
+            .content_generation
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("content generation overflow".into()))?;
         let mut next = (*view.0).clone();
         next.retire_file_records(previous)?;
         next.catalog = next

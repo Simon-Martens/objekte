@@ -2457,10 +2457,10 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 592
+- Workspace tests pass with no failures. The core library suite reports 593
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 76 passed, including dictionary,
+- The storage subsystem suite reports 77 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
@@ -2494,9 +2494,11 @@ the native query state. Unchanged saves write zero bytes.
    directory, and neither interface has a full Load action that replaces the
    session. Recorded in
    `docs/ai/issues/feat/mmap-index-frontend-storage-controls.md`.
-3. **Independent content generations are not modelled.** Catalogue rows store
-   `FileVersion` in both persisted version fields. Recorded in
-   `docs/ai/issues/feat/mmap-index-content-generations.md`.
+3. **Independent content generations are implemented.** Catalogue rows persist
+   `file_version` and `content_generation` separately; replacement advances the
+   latter, content-preserving moves preserve it, and delete tombstones retain
+   it. The resolved report is in
+   `docs/ai/done/resolved-issues/mmap-index-content-generations.md`.
 4. **Compaction is not a source-free packed streaming merge.** Existing
    compaction runs before save; saved output is re-packed from the published
    view. Atomic publication, cancellation, pinned readers, and save-after-

@@ -78,6 +78,7 @@ impl SourceFileInput {
         FileEntry {
             id: self.id,
             relative_path: self.relative_path.clone().into(),
+            content_generation: 1,
             revision: self.revision,
             created_ns: self.created_ns,
             collections: vec![collection],

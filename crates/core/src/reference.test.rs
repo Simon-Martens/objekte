@@ -626,6 +626,7 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
     let file = FileEntry {
         id: FileId(0),
         relative_path: "x.json".into(),
+        content_generation: 1,
         revision: record.revision,
         created_ns: None,
         collections: vec![],

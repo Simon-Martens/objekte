@@ -605,11 +605,20 @@ impl<'de> Deserialize<'de> for SharedPath {
 }
 
 
+fn initial_content_generation() -> u64 {
+    1
+}
+
+
 /// Repository-wide identity and metadata for one source file.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct FileEntry {
     pub id: FileId,
     pub relative_path: SharedPath,
+    /// Independent identity of the indexed contribution. Advances only when
+    /// the extracted contribution changes; a content-preserving move keeps it.
+    #[serde(default = "initial_content_generation")]
+    pub content_generation: u64,
     pub revision: SourceRevision,
     pub created_ns: Option<i128>,
     pub collections: Vec<CollectionId>,
@@ -865,6 +874,7 @@ impl FileInventory {
         self.files.push(FileEntry {
             id,
             relative_path,
+            content_generation: FileVersion::INITIAL.0,
             revision,
             created_ns,
             collections: vec![collection],

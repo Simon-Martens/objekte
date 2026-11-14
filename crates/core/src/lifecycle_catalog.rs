@@ -272,6 +272,18 @@ impl FileCatalog {
             .or_else(|| self.base.files().files.get(file.0 as usize))
     }
 
+    /// Entry metadata for one retired file slot, retained as a tombstone.
+    pub(crate) fn inactive_entry(&self, file: FileId) -> Option<&FileEntry> {
+        if self.active.contains(file.0) {
+            return None;
+        }
+        self.changed
+            .get(shard(&file))
+            .and_then(|changed| changed.get(&file))
+            .map(|changed| changed.entry.as_ref())
+            .or_else(|| self.base.files().files.get(file.0 as usize))
+    }
+
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
         if !self.is_active(file) {
             return None;

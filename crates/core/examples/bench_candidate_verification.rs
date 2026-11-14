@@ -243,6 +243,7 @@ fn in_memory(
     let file = FileEntry {
         id: FileId(0),
         relative_path: PathBuf::from("data/record.json").into(),
+        content_generation: 1,
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,

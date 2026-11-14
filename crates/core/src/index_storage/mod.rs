@@ -80,6 +80,10 @@ mod scalar_tests;
 mod catalogue_tests;
 
 #[cfg(test)]
+#[path = "content_generation.test.rs"]
+mod content_generation_tests;
+
+#[cfg(test)]
 #[path = "format.test.rs"]
 mod format_tests;
 

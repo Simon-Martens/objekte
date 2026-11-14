@@ -266,12 +266,12 @@ fn catalogue_entries(
     let mut slots = Vec::new();
     for id in 0..catalogue.high_water() {
         let Some(row) = catalogue.file(id).map_err(storage_error)? else {
-            entries.push(tombstone_entry(FileId(id)));
+            entries.push(tombstone_entry(FileId(id), None));
             slots.push(None);
             continue;
         };
         if row.tombstone {
-            entries.push(tombstone_entry(FileId(id)));
+            entries.push(tombstone_entry(FileId(id), Some(&row)));
             slots.push(None);
             continue;
         }
@@ -292,16 +292,22 @@ fn catalogue_entries(
     Ok((entries, rows, slots))
 }
 
-fn tombstone_entry(id: FileId) -> FileEntry {
+fn tombstone_entry(id: FileId, row: Option<&FileRowView>) -> FileEntry {
     FileEntry {
         id,
-        relative_path: SharedPath::from(format!(".__objekte_tombstone/{}", id.0)),
+        relative_path: row
+            .and_then(|row| native_path(&row.native_path).ok())
+            .map(SharedPath::from)
+            .unwrap_or_else(|| SharedPath::from(format!(".__objekte_tombstone/{}", id.0))),
+        content_generation: row.map_or(1, |row| row.content_generation),
         revision: SourceRevision {
-            modified_ns: 0,
-            size: 0,
+            modified_ns: row.map_or(0, |row| row.modified_ns),
+            size: row.map_or(0, |row| row.size),
         },
-        created_ns: None,
-        collections: Vec::new(),
+        created_ns: row.and_then(|row| row.created_ns),
+        collections: row
+            .map(|row| row.collections.iter().copied().map(CollectionId).collect())
+            .unwrap_or_default(),
         status: FileStatus::Valid,
         diagnostics: Vec::new(),
         omitted_diagnostics: 0,
@@ -317,6 +323,7 @@ fn file_entry(row: &FileRowView, diagnostics: &[DiagnosticView]) -> Result<FileE
     Ok(FileEntry {
         id: FileId(row.file_id),
         relative_path: SharedPath::from(path),
+        content_generation: row.content_generation,
         revision: SourceRevision {
             modified_ns: row.modified_ns,
             size: row.size,
