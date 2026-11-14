@@ -202,6 +202,39 @@ fn a_publication_during_save_is_reported_as_newer() {
 }
 
 #[test]
+fn a_rebuilt_loaded_index_keeps_its_store_lineage() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    loaded.start_rebuild().unwrap().wait().unwrap();
+    loaded
+        .save_to(store.path(), SaveOptions::default())
+        .unwrap();
+    let reloaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(count(&reloaded, "Alpha"), 1);
+    assert_eq!(count(&reloaded, "Beta"), 1);
+}
+
+#[test]
 fn a_compacted_index_can_be_saved_and_reopened() {
     let (root, definition) = fixture();
     let index = Index::build(
