@@ -2,15 +2,15 @@
   {
     "alphabet": "ascii",
     "build_mode": "hybrid",
-    "build_ns": 1094019413,
+    "build_ns": 977198250,
     "build_parses": 148486,
-    "discovery_ns": 224750503,
+    "discovery_ns": 212746722,
     "estimated_index_bytes": 73549530,
-    "first_batch_ns": 355029702,
+    "first_batch_ns": 308925825,
     "inventory_heap_bytes": 58460945,
-    "open_ns": 1094019413,
-    "peak_resident_bytes": 578965504,
-    "resident_bytes": 568012800,
+    "open_ns": 977198250,
+    "peak_resident_bytes": 582975488,
+    "resident_bytes": 573480960,
     "searchable_batches": 8,
     "segment_families": {
       "agents": [
@@ -184,15 +184,15 @@
   {
     "alphabet": "unicode",
     "build_mode": "hybrid",
-    "build_ns": 1034137418,
+    "build_ns": 1075553620,
     "build_parses": 148486,
-    "discovery_ns": 221873067,
+    "discovery_ns": 217710309,
     "estimated_index_bytes": 76501014,
-    "first_batch_ns": 334436065,
+    "first_batch_ns": 337943268,
     "inventory_heap_bytes": 58460945,
-    "open_ns": 1034137418,
-    "peak_resident_bytes": 1083334656,
-    "resident_bytes": 1083355136,
+    "open_ns": 1075553620,
+    "peak_resident_bytes": 1055436800,
+    "resident_bytes": 1055436800,
     "searchable_batches": 8,
     "segment_families": {
       "agents": [

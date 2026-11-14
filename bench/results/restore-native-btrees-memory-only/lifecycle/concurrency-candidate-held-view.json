@@ -1,9 +1,9 @@
 {
   "admission_ns": 0,
-  "after_build_hwm": 575881216,
-  "after_build_rss": 565714944,
-  "after_held_release_rss": 565063680,
-  "build_ns": 1024921363,
+  "after_build_hwm": 574717952,
+  "after_build_rss": 565809152,
+  "after_held_release_rss": 565469184,
+  "build_ns": 1021461762,
   "build_parses": 148486,
   "build_workers": 32,
   "code_revision": "e64a5caad59912d37148de614b79987373333a76",
@@ -21,5 +21,5 @@
   "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
   "source_bytes_read": 193297230,
   "source_reads": 148486,
-  "wall_ns": 1026033414
+  "wall_ns": 1022161223
 }

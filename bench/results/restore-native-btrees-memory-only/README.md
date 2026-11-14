@@ -3,7 +3,7 @@
 Task: `restore-native-btrees-memory-only` review completion.
 Branch: `integration/restore-native-btrees-memory-only`.
 Reviewed head: `6184a89e1954f80bd7a489288a9b9bb6bd08e241`.
-Final code commit: `2a2c12189d5a4a48ff644d6cf744c6a837b7d3d5`.
+Final code commit: `7ec29746c81cae8bab958c9688c8008fdd5d791f`.
 Ledger addendum commit: `4078a3c5d65446b413ac343a2701316e3c66097a`.
 
 All runs used the same host, release builds unless noted, 32 available CPUs, and the
@@ -17,9 +17,9 @@ Baseline binary: `bench_musenalm-start`
 `sha256 76416b5238ba28e98ad6be107868677ef3e7898d4da9d42e126f3abb7de82c61`
 (START `66b932f31f922a13062a61658e843e3033b3aff4`).
 
-Candidate binary: `bench_musenalm-accepted`
-`sha256 dd06568cf941545e639049fe0cea479cc7c479cc438df064ea433f10ea9a1e53`
-(code `2a2c12189d5a4a48ff644d6cf744c6a837b7d3d5`).
+Candidate binary: `bench_musenalm-final2`
+`sha256 c7c822271a689267c6a8ceb4efa826eec7bd94fdf4d4bcb9c7366b82302ffe47`
+(code `7ec29746c81cae8bab958c9688c8008fdd5d791f`).
 
 ```sh
 BASELINE --root "$CORPUS" --extended --incremental \
@@ -38,13 +38,19 @@ directories in this evidence package. `measurements.jsonl.gz` retains the raw
 per-repetition samples; `REPORT.md`, `query-results.csv`, `result-digests.json`,
 `index-results.json` and `run-manifest.json` are the benchmark outputs.
 
+Both runs were launched from their respective source checkouts (START master and
+the integration worktree) against the same immutable corpus, so the retained
+manifests record code revisions `66b932f31f` and `7ec29746c8`; the executable
+hashes above identify the binaries independently.
+
 Summary: 440/440 `(case, profile)` rows matched status, total count, returned
 count and full 220/220 result digests. Candidate/START median timing ratio
-**0.922**, geometric mean **0.857**. 256 cases were >5% faster, 138 within ±5%,
-46 >5% slower (mostly microsecond-scale; the previously investigated Q172
+**0.971**, geometric mean **0.934**. 174 cases were >5% faster, 207 within ±5%,
+59 >5% slower (mostly microsecond-scale; the previously investigated Q172
 outlier was 0.72×/1.01× on nine-repetition isolated reruns). ASCII/Unicode
-incremental open was 1.401/1.593 s → 1.094/1.034 s; process RSS was
-568.3/1049.4 MiB → 541.7/1033.2 MiB.
+incremental open was 1.103/1.176 s → 0.977/1.076 s; process RSS was
+574.1/1032.3 MiB → 546.9/1006.5 MiB. Run-to-run campaign drift is visible in
+absolute timings; the paired ratio above is from the retained final pair.
 
 ## Fresh-build gate
 
@@ -55,13 +61,13 @@ python3 bench/run_build_regressions.py --binary "$BUILD_START" \
   --result-dir build/baseline
 ```
 
-Candidate `bench_build_musenalm-accepted`:
-`sha256 99067ea4aa1387203ed7659c917183bb9d565a3390e358ba09593aca92b0db09`.
+Candidate `bench_build_musenalm-final2`:
+`sha256 f1c1e68db23ca41302a47de7f8c409ba776f8cc3dbccaa86cf308996b638d824`.
 START: `sha256 baae76a9889e6c721138fcdf0ff2fc132024f4273c464a9a4e923b0d9082806f`.
 
 Three repetitions: START ASCII 0.962 s / peak RSS 460.7 MiB, Unicode
-0.985 s / 484.1 MiB; candidate ASCII 0.919 s / 465.7 MiB, Unicode
-0.969 s / 480.1 MiB. All parses 148,486, zero failures.
+0.985 s / 484.1 MiB; candidate ASCII 0.947 s / 465.5 MiB, Unicode
+0.944 s / 485.9 MiB. All parses 148,486, zero failures.
 
 ## Independent jq oracle
 
@@ -70,20 +76,20 @@ CARGO_TARGET_DIR="$TARGET" python3 bench/verify_jq_oracle.py --root "$CORPUS" \
   --result-dir jq-oracle
 ```
 
-150 predicates × ASCII/Unicode: 0 membership mismatches. `jq-oracle/REPORT.md`
-and `run-manifest.json` are retained.
+150 predicates × ASCII/Unicode: 0 membership mismatches on the final code.
+`jq-oracle/REPORT.md` and `run-manifest.json` are retained.
 
 ## Lifecycle and concurrency
 
 `lifecycle/mutation-start.txt` and `mutation-candidate.txt` are the disposable
-small-fixture campaigns. Candidate completed add 0.171 ms, append update
-0.072 ms, verified update 0.070 ms, move 0.032 ms, verified delete 0.020 ms,
-compaction 0.000 ms and no-change reconciliation 0.103 ms; START stopped at its
+small-fixture campaigns. Final candidate completed add 0.224 ms, append update
+0.085 ms, verified update 0.078 ms, move 0.035 ms, verified delete 0.021 ms,
+compaction 0.000 ms and no-change reconciliation 0.131 ms; START stopped at its
 removed managed-flush phase after the native phases.
 
-`concurrency-*.json` records START and candidate initial-build concurrency:
-build wall time improved from 1.199→0.969 s (idle), 1.143→0.980 s (foreground
-queries) and 1.118→1.025 s (held view).
+`concurrency-*.json` records START and final-candidate initial-build
+concurrency: build wall time improved from 1.199→1.139 s (idle), 1.143→1.039 s
+(foreground queries) and 1.118→1.022 s (held view).
 
 ## GUI status polling and frontend checks
 

@@ -1,23 +1,23 @@
 {
-  "revision": "4078a3c5d65446b413ac343a2701316e3c66097a",
+  "revision": "7ec29746c81cae8bab958c9688c8008fdd5d791f",
   "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
-  "binary": "/tmp/opencode/restore-btrees/bin/bench_build_musenalm-accepted",
+  "binary": "/tmp/opencode/restore-btrees/bin/bench_build_musenalm-final2",
   "baseline": null,
   "summary": {
     "ascii": {
       "samples": 3,
-      "median_wall_ns": 919319020,
-      "median_peak_resident_bytes": 488280064,
-      "min_wall_ns": 901515506,
-      "max_wall_ns": 924816105,
+      "median_wall_ns": 946672427,
+      "median_peak_resident_bytes": 488153088,
+      "min_wall_ns": 927924314,
+      "max_wall_ns": 1026872299,
       "index_signature_sha256": "678eda4410ddef9c2ab23609b6fe7f3a5a3e259bceb1c39c1da73c5ab8da1eaf"
     },
     "unicode": {
       "samples": 3,
-      "median_wall_ns": 968942625,
-      "median_peak_resident_bytes": 503373824,
-      "min_wall_ns": 935751331,
-      "max_wall_ns": 976842239,
+      "median_wall_ns": 944225363,
+      "median_peak_resident_bytes": 509480960,
+      "min_wall_ns": 935498458,
+      "max_wall_ns": 959909331,
       "index_signature_sha256": "827a206dbda0db29dd5af9c09c254e5a9e1bb4052feac88d360ea91415aaf359"
     }
   },

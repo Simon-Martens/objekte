@@ -1,10 +1,10 @@
 # Musenalm fresh in-memory builds
 
-Revision: `4078a3c5d65446b413ac343a2701316e3c66097a`. Repetitions: 3.
+Revision: `7ec29746c81cae8bab958c9688c8008fdd5d791f`. Repetitions: 3.
 
 | Alphabet | Median s | Range s | Peak RSS MiB |
 | --- | ---: | ---: | ---: |
-| ascii | 0.919 | 0.902–0.925 | 465.7 |
-| unicode | 0.969 | 0.936–0.977 | 480.1 |
+| ascii | 0.947 | 0.928–1.027 | 465.5 |
+| unicode | 0.944 | 0.935–0.960 | 485.9 |
 
 Failures: 0.

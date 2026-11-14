@@ -629,8 +629,9 @@ The integration worktree and branch are retained for the user's merge. No subord
 Reviewed head: `6184a89e1954f80bd7a489288a9b9bb6bd08e241`.
 Completion implementation commits: `2a2c12189d5a4a48ff644d6cf744c6a837b7d3d5`
 (review fixes), `4078a3c5d65446b413ac343a2701316e3c66097a` (H..START ledger
-appendix), followed by the acceptance-evidence and report commits on the same
-integration branch. The branch remains unmerged.
+appendix), `7ec29746c81cae8bab958c9688c8008fdd5d791f` (canonical source-root
+and reserved-link corrections), followed by the acceptance-evidence and report
+commits on the same integration branch. The branch remains unmerged.
 
 This addendum supersedes earlier completion claims where they were broader than
 the evidence supported:
@@ -647,7 +648,7 @@ the evidence supported:
 - The earlier no-index-I/O evidence covered open and query. It now also covers
   mutation, compaction, rebuild, reconciliation, shutdown and symlink aliases.
 - Query/build numbers were rerun on the final code: 440/440 results and 220/220
-  digests still match START; final median ratio 0.922 and geometric mean 0.857.
+  digests still match START; final median ratio 0.971 and geometric mean 0.934.
 
 ### Finding 1: GUI status polling traversed the index
 
@@ -744,16 +745,17 @@ formatter drift was recorded rather than reformatted.
 Final matched query/build results:
 
 - 440/440 status/count/page rows and 220/220 result digests equal to START.
-- Candidate/START median query timing 0.922; geometric mean 0.857; 256 cases
-  >5% faster, 138 within ±5%, 46 >5% slower (the prior Q172 outlier re-ran at
-  0.72× ASCII / 1.01× Unicode).
-- Incremental open 1.401/1.593 s → 1.094/1.034 s; process RSS
-  568.3/1049.4 MiB → 541.7/1033.2 MiB.
-- Fresh-build gate: ASCII 0.962→0.919 s, Unicode 0.985→0.969 s; peak RSS
-  460.7→465.7 and 484.1→480.1 MiB.
+- Candidate/START median query timing 0.971; geometric mean 0.934; 174 cases
+  >5% faster, 207 within ±5%, 59 >5% slower (the prior Q172 outlier re-ran at
+  0.72× ASCII / 1.01× Unicode). Absolute campaign timings drift between runs;
+  this is the retained pair launched from the START and final checkouts.
+- Incremental open 1.103/1.176 s → 0.977/1.076 s; process RSS
+  574.1/1032.3 MiB → 546.9/1006.5 MiB.
+- Fresh-build gate: ASCII 0.962→0.947 s, Unicode 0.985→0.944 s; peak RSS
+  460.7→465.5 and 484.1→485.9 MiB.
 - jq oracle: 150 predicates × two alphabets, zero mismatches.
-- Initial-concurrency build: 1.199→0.969 s idle, 1.143→0.980 s foreground,
-  1.118→1.025 s held view.
+- Initial-concurrency build on the final code: 1.199→1.139 s idle,
+  1.143→1.039 s foreground, 1.118→1.022 s held view.
 
 The durable evidence package is
 `bench/results/restore-native-btrees-memory-only/`: exact commands and working

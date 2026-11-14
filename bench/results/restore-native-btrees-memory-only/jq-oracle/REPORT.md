@@ -1,6 +1,6 @@
 # Independent jq membership oracle
 
-New-core code revision: `4078a3c5d65446b413ac343a2701316e3c66097a`. jq: `jq-1.8.1`.
+New-core code revision: `7ec29746c81cae8bab958c9688c8008fdd5d791f`. jq: `jq-1.8.1`.
 Source files: 148486; fixture metadata fingerprint: `f5bf30754ee34c4a5314abb0c06e81315808a97559cba6ae3b0646d3de99b551`.
 Complete ID-set comparisons: 300/300 passed.
 

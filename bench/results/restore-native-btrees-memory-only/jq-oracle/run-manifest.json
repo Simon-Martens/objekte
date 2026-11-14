@@ -1,5 +1,5 @@
 {
-  "code_revision": "4078a3c5d65446b413ac343a2701316e3c66097a",
+  "code_revision": "7ec29746c81cae8bab958c9688c8008fdd5d791f",
   "jq_version": "jq-1.8.1",
   "fixture": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
   "fixture_metadata_fingerprint": "f5bf30754ee34c4a5314abb0c06e81315808a97559cba6ae3b0646d3de99b551",
@@ -621,6 +621,6 @@
     "--root",
     "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
     "--result-dir",
-    "/tmp/opencode/restore-btrees/results/jq-accepted"
+    "/tmp/opencode/restore-btrees/results/jq-final2"
   ]
 }

@@ -2,7 +2,7 @@
   "binary_build_revision": null,
   "build_mode": "hybrid",
   "cargo_lock_sha256": "f63ec3a5c6416662602ab0c34412d6e0a86c75ceac15d333a9484e78da2886d8",
-  "code_revision": "e64a5caad59912d37148de614b79987373333a76",
+  "code_revision": "66b932f31f922a13062a61658e843e3033b3aff4",
   "command": [
     "/tmp/opencode/restore-btrees/bin/bench_musenalm-start",
     "--root",
@@ -20,12 +20,12 @@
     "--storage",
     "memory",
     "--result-dir",
-    "/tmp/opencode/restore-btrees/results/baseline"
+    "/tmp/opencode/restore-btrees/results/baseline-finalwt"
   ],
   "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
   "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
   "executable_sha256": "76416b5238ba28e98ad6be107868677ef3e7898d4da9d42e126f3abb7de82c61",
-  "execution_checkout_revision": "e64a5caad59912d37148de614b79987373333a76",
+  "execution_checkout_revision": "66b932f31f922a13062a61658e843e3033b3aff4",
   "extended": true,
   "failures": 0,
   "internal_decoded_posting_cache": {
@@ -146,7 +146,7 @@
   ],
   "repetitions": 5,
   "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
-  "run_id": "1794680104-e64a5caad5",
+  "run_id": "1794684557-66b932f31f",
   "schema_fingerprint": "2edaa7c59a2f5d7aad8b8b6cb6065420a23c0a12db3a6b3133eb5bfdbbacf819",
   "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
   "source_cache_bytes": 0,
