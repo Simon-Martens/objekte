@@ -25,8 +25,18 @@ fn gram_map_backings_agree() {
         shared.get(7).map(Cow::into_owned)
     );
     let mut seen = (Vec::new(), Vec::new());
-    building.for_each_sorted(|key, _| Ok(seen.0.push(*key))).unwrap();
-    shared.for_each_sorted(|key, _| Ok(seen.1.push(*key))).unwrap();
+    building
+        .for_each_sorted(|key, _| {
+            seen.0.push(*key);
+            Ok(())
+        })
+        .unwrap();
+    shared
+        .for_each_sorted(|key, _| {
+            seen.1.push(*key);
+            Ok(())
+        })
+        .unwrap();
     assert_eq!(seen.0, seen.1);
     assert_eq!(seen.0, vec![3, 7, 9, 11]);
     assert!(shared.all_bitmaps(|posting| posting.len() <= 4));

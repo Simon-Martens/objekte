@@ -12,7 +12,6 @@ use serde::Serialize;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::gram_map::GramMap;
-use crate::inventory::append_shifted_bitmap;
 use crate::model::RecordSlot;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;

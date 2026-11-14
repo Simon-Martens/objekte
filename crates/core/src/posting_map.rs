@@ -62,14 +62,14 @@ pub fn split_chunks(posting: RoaringBitmap) -> Vec<(ChunkId, RoaringBitmap)> {
             let chunk = chunk_of(slot);
             match &mut current {
                 Some((open, part)) if *open == chunk => {
-                    part.push(slot);
+                    let _ = part.try_push(slot);
                 }
                 _ => {
                     if let Some(done) = current.take() {
                         parts.push(done);
                     }
                     let mut part = RoaringBitmap::new();
-                    part.push(slot);
+                    let _ = part.try_push(slot);
                     current = Some((chunk, part));
                 }
             }
@@ -96,6 +96,7 @@ pub struct SharedPostings<K: Ord + Clone> {
 
 
 type ChunkEntry<'a, K> = (&'a (K, ChunkId), &'a Arc<RoaringBitmap>);
+type KeyBounds<K> = (Bound<(K, ChunkId)>, Bound<(K, ChunkId)>);
 
 
 impl<K: Ord + Clone> Default for SharedPostings<K> {
@@ -109,7 +110,7 @@ impl<K: Ord + Clone> Default for SharedPostings<K> {
 
 
 impl<K: Ord + Clone> SharedPostings<K> {
-    fn key_bounds(key: &K) -> (Bound<(K, ChunkId)>, Bound<(K, ChunkId)>) {
+    fn key_bounds(key: &K) -> KeyBounds<K> {
         (
             Bound::Included((key.clone(), 0)),
             Bound::Included((key.clone(), ChunkId::MAX)),
@@ -236,14 +237,14 @@ impl<K: Ord + Clone> SharedPostings<K> {
             let chunk = chunk_of(shifted);
             match &mut current {
                 Some((open, part)) if *open == chunk => {
-                    part.push(shifted);
+                    let _ = part.try_push(shifted);
                 }
                 _ => {
                     if let Some((done, part)) = current.take() {
                         self.merge_part(key, done, part);
                     }
                     let mut part = RoaringBitmap::new();
-                    part.push(shifted);
+                    let _ = part.try_push(shifted);
                     current = Some((chunk, part));
                 }
             }
@@ -312,6 +313,7 @@ impl<K: Ord + Clone> SharedPostings<K> {
         self.chunks.get_max().map(|(address, _)| &address.0)
     }
 
+    #[cfg(test)]
     pub fn chunk_count(&self) -> usize {
         self.chunks.len()
     }
@@ -470,6 +472,9 @@ impl<K: Ord + Clone> PostingMap<K> {
 
     /// Switch to the persistent backing. Idempotent; contents are unchanged.
     pub fn freeze(&mut self) {
+        if self.is_shared() {
+            return;
+        }
         if let Backing::Building(entries) = &mut self.backing {
             let entries = std::mem::take(entries);
             self.backing = Backing::Shared(SharedPostings::from_building(entries));

@@ -32,6 +32,9 @@ impl GramMap {
 
     /// Switch to the persistent backing. Idempotent; contents are unchanged.
     pub fn freeze(&mut self) {
+        if self.is_shared() {
+            return;
+        }
         if let Self::Building(entries) = self {
             let ordered = std::mem::take(entries)
                 .into_iter()
@@ -136,7 +139,7 @@ impl GramMap {
     /// once shared. Used only by byte estimates.
     pub fn all_bitmaps(&self, mut valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
         match self {
-            Self::Building(entries) => entries.values().all(|posting| valid(posting)),
+            Self::Building(entries) => entries.values().all(valid),
             Self::Shared(shared) => shared.all_bitmaps(valid),
         }
     }
