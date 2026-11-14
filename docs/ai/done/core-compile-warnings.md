@@ -18,3 +18,7 @@ Validation from the task worktree:
 | `git diff --check` | Passed |
 
 No performance benchmark directly measures this compile-time cleanup. There are no known remaining compiler warnings in the core or workspace checks above. Clippy's separate style lint backlog is outside the requested compiler warning cleanup. The task worktree was clean after the implementation and report commits. The original `master` checkout was not modified. This task followed the preceding hybrid storage work; merging into `integration/hybrid-index-storage` and worktree cleanup are recorded after the report commit is pushed.
+
+### Post-merge status
+
+The task branch was fast-forwarded into `integration/hybrid-index-storage` at `2b85651874` and pushed. The clean, merged task worktree was removed with `git worktree remove`; the hybrid integration worktree remains for review. The ignored task memory was deleted after the report was pushed. `master` was not changed.
