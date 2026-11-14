@@ -101,3 +101,48 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
     task.unwrap().wait_complete().unwrap();
 }
+
+#[test]
+fn desktop_backend_saves_and_reopens_an_explicit_index() {
+    let root = tempfile::tempdir().unwrap();
+    let source = root.path().join("source");
+    let store = root.path().join("store");
+    std::fs::create_dir(&source).unwrap();
+    write_records(&source);
+    let save_args = Arguments {
+        path: vec![source.clone()],
+        save_index: Some(store.clone()),
+        ..Default::default()
+    };
+    let saved = open(
+        &OpenSpec {
+            args: save_args,
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(store.join("CURRENT").exists());
+    assert_eq!(
+        saved.repository.index().storage_status().unwrap().origin,
+        objekte_search_core::index_storage::status::StorageOrigin::Built
+    );
+    let load_args = Arguments {
+        path: vec![source],
+        load_index: Some(store),
+        ..Default::default()
+    };
+    let loaded = open(
+        &OpenSpec {
+            args: load_args,
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(
+        loaded.repository.index().storage_status().unwrap().origin,
+        objekte_search_core::index_storage::status::StorageOrigin::Loaded
+    );
+    assert_eq!(loaded.collections, ["files"]);
+}

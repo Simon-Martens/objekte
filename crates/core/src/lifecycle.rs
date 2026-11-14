@@ -1886,6 +1886,7 @@ impl Index {
             let next_revision = view.revision().next()?;
             let mut next = (*fresh.view()?.0).clone();
             next.instance_id = self.instance_id();
+            next.lineage_id = view.0.lineage_id;
             next.revision = next_revision;
             next.file_versions =
                 FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));

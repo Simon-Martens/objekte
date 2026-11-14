@@ -121,15 +121,29 @@ pub struct CatalogueSections {
 
 /// Build a complete catalogue object body.
 pub fn build_catalogue(rows: &[FileRowInput]) -> StorageResult<CatalogueSections> {
+    let derived = rows
+        .iter()
+        .map(|row| row.file_id.saturating_add(1))
+        .max()
+        .unwrap_or(0);
+    build_catalogue_with_high_water(rows, derived)
+}
+
+/// Build a catalogue while preserving an allocated FileId high-water mark
+/// that may exceed every currently active row.
+pub fn build_catalogue_with_high_water(
+    rows: &[FileRowInput],
+    high_water: u32,
+) -> StorageResult<CatalogueSections> {
     let mut seen = HashSet::new();
-    let mut high_water = 0u32;
+    let mut required_high_water = 0u32;
     for row in rows {
         if !seen.insert(row.file_id) {
             return Err(StorageError::InvalidArgument(
                 "duplicate catalogue file ID".into(),
             ));
         }
-        high_water = high_water.max(row.file_id.saturating_add(1));
+        required_high_water = required_high_water.max(row.file_id.saturating_add(1));
         if row.collections.len() > MAX_COLLECTIONS_PER_FILE {
             return Err(StorageError::ResourceLimit(
                 "file has more than eight collection memberships".into(),
@@ -140,6 +154,12 @@ pub fn build_catalogue(rows: &[FileRowInput]) -> StorageResult<CatalogueSections
                 "unsupported file status code".into(),
             ));
         }
+    }
+    let high_water = high_water.max(required_high_water);
+    if high_water < required_high_water {
+        return Err(StorageError::InvalidArgument(
+            "catalogue high-water mark is below an allocated file".into(),
+        ));
     }
     let page_count = rows.len().div_ceil(FILES_PER_PAGE as usize) as u32;
     let directory_len = 8usize

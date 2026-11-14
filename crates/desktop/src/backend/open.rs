@@ -107,6 +107,78 @@ fn open_sources(
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let started = Instant::now();
+    if spec.args.load_index.is_some() || spec.args.save_index.is_some() {
+        let resolve = |value: &PathBuf| {
+            objekte_cli::index_location::IndexLocation::parse(value)
+                .resolve(
+                    &paths.root,
+                    &spec.cwd,
+                    spec.args.index_alphabet,
+                    spec.args.auto_index,
+                )
+                .map_err(|message| BackendError::new(BackendErrorKind::Options, message))
+        };
+        let index = if let Some(load) = &spec.args.load_index {
+            let directory = resolve(load)?;
+            let index = objekte_cli::index_open::load(
+                &directory,
+                configured.definitions.clone(),
+                options,
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
+            if spec.args.check_index {
+                objekte_cli::index_open::check(&index)
+                    .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
+            }
+            index
+        } else {
+            Index::build(&paths.root, configured.definitions.clone(), options)
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+        };
+        if let Some(save) = &spec.args.save_index {
+            let directory = resolve(save)?;
+            objekte_cli::index_open::save(&index, &directory, cancellation)
+                .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
+        }
+        let repository = IndexedRepository::new(index)
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+        let startup = repository.startup().clone();
+        let collections = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.name.clone())
+            .collect::<Vec<_>>();
+        let declared_values =
+            Arc::new(read_declared_values(&configured.schema_files, &collections));
+        let configuration_identity = repository
+            .index()
+            .view()
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+            .configuration_identity();
+        return Ok((
+            OpenedSession {
+                repository: Arc::new(repository),
+                configuration: Arc::new(SessionConfiguration {
+                    configured_repository: spec.args.repo.is_some(),
+                    configuration_identity,
+                }),
+                args: spec.args.clone(),
+                paths,
+                collections,
+                single_collection: !spec.args.multiple_collections(),
+                declared_values,
+                diagnostics: OpenDiagnostics {
+                    open_ns: started.elapsed().as_nanos(),
+                    startup,
+                    schema_files: configured.schema_files,
+                    schema_fields: configured.schema_fields,
+                    ignored_repository_metadata: configured.ignored_repository_metadata,
+                },
+            },
+            None,
+        ));
+    }
     let build =
         Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
             .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;

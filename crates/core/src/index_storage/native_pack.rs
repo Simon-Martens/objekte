@@ -16,7 +16,7 @@ use crate::sorting::{SortCollection, SortKey};
 use crate::source::DiagnosticCategory;
 
 use super::bigram_builder::{BigramBinding, BigramInput};
-use super::catalogue::{DiagnosticInput, FileRowInput, build_catalogue};
+use super::catalogue::{DiagnosticInput, FileRowInput, build_catalogue_with_high_water};
 use super::error::StorageResult;
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 use super::manifest::CollectionSummary;
@@ -48,7 +48,8 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
                 .fingerprint(crate::model::FileId(id as u32)),
         )?);
     }
-    let sections = build_catalogue(&rows)?;
+    let sections =
+        build_catalogue_with_high_water(&rows, published.catalog.allocated_files() as u32)?;
     let mut builder = ObjectBuilder::new(ObjectKind::Catalogue);
     builder.add_section(SectionKind::FileRows, sections.file_rows)?;
     builder.add_section(SectionKind::PathDictionary, sections.path_dictionary)?;

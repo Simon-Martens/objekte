@@ -3,6 +3,7 @@ use std::sync::Arc;
 use super::backing::{Backing, MappedObject};
 use super::catalogue::{
     CatalogueView, DiagnosticInput, FILE_ROW_LEN, FileRowInput, build_catalogue,
+    build_catalogue_with_high_water,
 };
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 
@@ -161,6 +162,29 @@ fn corrupt_rows_and_truncated_objects_are_rejected() {
     // checksum mismatch.
     let view = CatalogueView::open(Backing::resident(corrupt)).unwrap();
     assert!(view.verify_full().is_err());
+}
+
+#[test]
+fn allocated_high_water_survives_deleted_tail_slots() {
+    let sections = build_catalogue_with_high_water(&rows()[..2], 25).unwrap();
+    let mut builder = ObjectBuilder::new(ObjectKind::Catalogue);
+    builder
+        .add_section(SectionKind::FileRows, sections.file_rows)
+        .unwrap();
+    builder
+        .add_section(SectionKind::PathDictionary, sections.path_dictionary)
+        .unwrap();
+    builder
+        .add_section(SectionKind::Diagnostics, sections.diagnostics)
+        .unwrap();
+    builder
+        .add_section(SectionKind::Statistics, sections.statistics)
+        .unwrap();
+    let view = open(builder.finish().unwrap().into_bytes());
+    assert_eq!(view.high_water(), 25);
+    assert!(view.file(2).unwrap().is_none());
+    assert!(view.file(24).unwrap().is_none());
+    assert!(view.file(1).unwrap().is_some());
 }
 
 #[test]
