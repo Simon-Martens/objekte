@@ -260,6 +260,69 @@ impl ManagedStore {
         })
     }
 
+    /// Locate an existing store without creating a namespace, lock, or sidecar.
+    pub(crate) fn open_existing(
+        resolved: &ResolvedIndexStorage,
+    ) -> Result<Option<Self>, StoreReadError> {
+        let directory = resolved.managed_directory.as_ref().ok_or_else(|| {
+            StoreReadError::Incompatible("explicit load needs a disk target".into())
+        })?;
+        let namespace = resolved.owned_namespace_root.as_ref().ok_or_else(|| {
+            StoreReadError::Incompatible("managed store namespace missing".into())
+        })?;
+        if !directory.starts_with(namespace) {
+            return Err(StoreReadError::Incompatible(
+                "managed store escaped its owned namespace".into(),
+            ));
+        }
+        let mut current = PathBuf::new();
+        for component in directory.components() {
+            match component {
+                Component::Prefix(prefix) => current.push(prefix.as_os_str()),
+                Component::RootDir => current.push(component.as_os_str()),
+                Component::Normal(part) => {
+                    current.push(part);
+                    let metadata = match fs::symlink_metadata(&current) {
+                        Ok(metadata) => metadata,
+                        Err(error) if error.kind() == io::ErrorKind::NotFound => return Ok(None),
+                        Err(source) => {
+                            return Err(StoreReadError::Io {
+                                path: current,
+                                source,
+                            });
+                        }
+                    };
+                    if metadata.file_type().is_symlink() || !metadata.is_dir() {
+                        return Err(StoreReadError::Corrupt(format!(
+                            "unsafe managed store directory: {}",
+                            current.display()
+                        )));
+                    }
+                    if current.starts_with(namespace) {
+                        check_owned_directory(&current, &metadata)
+                            .map_err(StoreReadError::Corrupt)?;
+                    }
+                }
+                Component::CurDir | Component::ParentDir => {
+                    return Err(StoreReadError::Incompatible(
+                        "managed store path is not normalized".into(),
+                    ));
+                }
+            }
+        }
+        if resolved.private_namespace {
+            check_private_namespace(namespace).map_err(StoreReadError::Corrupt)?;
+        }
+        Ok(Some(Self {
+            directory: directory.clone(),
+            repository_identity: resolved.repository_identity,
+            configuration_identity: resolved.configuration_identity,
+            root_bytes: path_bytes(&resolved.repository_root),
+            deprecated_directories: resolved.deprecated_directories.clone(),
+            residency: IndexResidency::OnDemand,
+        }))
+    }
+
     pub(crate) fn path(&self) -> &Path {
         &self.directory
     }
@@ -337,6 +400,15 @@ impl ManagedStore {
     /// The manifest is the atomic pointer. Readers take no writer lock and
     /// retry if GC removed a generation while its files were being opened.
     pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
+        self.read_generation_inner(false)
+    }
+
+    /// Read without format migration or validation-stamp writes.
+    pub(crate) fn read_generation_readonly(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
+        self.read_generation_inner(true)
+    }
+
+    fn read_generation_inner(&self, readonly: bool) -> Result<Option<OpenedGeneration>, StoreReadError> {
         for attempt in 0..MAX_OPEN_RETRIES {
             #[cfg(feature = "detailed-profiling")]
             let manifest_started = Instant::now();
@@ -348,6 +420,11 @@ impl ManagedStore {
                 eprintln!("direct-open manifest_ns={}", manifest_started.elapsed().as_nanos());
             }
             if manifest.version == 1 {
+                if readonly {
+                    return Err(StoreReadError::Incompatible(
+                        "legacy flat generation requires explicit replacement".into(),
+                    ));
+                }
                 self.migrate_flat_v1()?;
                 continue;
             }

@@ -27,6 +27,34 @@ pub enum IndexStorageLocation {
     CustomDirectory(PathBuf),
 }
 
+/// A location selected for one explicit load or flush operation.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum IndexStorageTarget {
+    SystemTemporary,
+    RepositoryDirectory,
+    CustomDirectory(PathBuf),
+}
+
+impl IndexStorageTarget {
+    pub fn validate(&self) -> Result<(), String> {
+        if matches!(self, Self::CustomDirectory(path) if path.as_os_str().is_empty()) {
+            return Err("custom index base directory is empty".into());
+        }
+        Ok(())
+    }
+
+    pub(crate) fn policy(&self) -> IndexStoragePolicy {
+        IndexStoragePolicy {
+            location: match self {
+                Self::SystemTemporary => IndexStorageLocation::SystemTemporary,
+                Self::RepositoryDirectory => IndexStorageLocation::RepositoryDirectory,
+                Self::CustomDirectory(path) => IndexStorageLocation::CustomDirectory(path.clone()),
+            },
+            residency: IndexResidency::OnDemand,
+        }
+    }
+}
+
 
 /// Whether file-backed index bytes are accessed on demand or owned in memory.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

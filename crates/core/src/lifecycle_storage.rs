@@ -14,7 +14,7 @@ use crate::build::IndexedCollectionSegment;
 use crate::generation_catalog::{GenerationCatalogBuilder, RestoredGenerationCatalog};
 use crate::index_storage::{
     IndexReadiness, IndexResidency, IndexStorageFailureKind, IndexStoragePolicy,
-    IndexStorageStatus, IndexSynchronization, ResolvedIndexStorage,
+    IndexStorageStatus, IndexStorageTarget, IndexSynchronization, ResolvedIndexStorage,
 };
 use crate::inventory::FileVersions;
 use crate::lifecycle::{
@@ -82,16 +82,26 @@ impl ManagedPersistence {
     }
 
     pub(crate) fn open(resolved: &ResolvedIndexStorage) -> Result<Self, String> {
-        Ok(Self {
-            store: ManagedStore::open(resolved)?,
-            residency: resolved.residency,
+        Ok(Self::from_store(ManagedStore::open(resolved)?, resolved.residency))
+    }
+
+    pub(crate) fn open_existing(resolved: &ResolvedIndexStorage) -> Result<Option<Self>, IndexError> {
+        Ok(ManagedStore::open_existing(resolved)
+            .map_err(IndexError::from)?
+            .map(|store| Self::from_store(store, IndexResidency::OnDemand)))
+    }
+
+    fn from_store(store: ManagedStore, residency: IndexResidency) -> Self {
+        Self {
+            store,
+            residency,
             durable_generation: None,
             durable_segments: HashMap::new(),
             historical_base: None,
             last_error: None,
             last_error_kind: None,
             validation: ValidationOpenStats::default(),
-        })
+        }
     }
 
     pub(crate) fn mark_opened(
@@ -519,6 +529,49 @@ fn read_or_retire_obsolete(store: &ManagedStore) -> Result<Option<OpenedGenerati
 }
 
 impl Index {
+    /// Load only the selected committed generation. Absence is distinct from
+    /// corruption and this operation never creates or updates a store.
+    pub fn try_load(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        target: &IndexStorageTarget,
+    ) -> Result<Option<Self>, IndexError> {
+        Self::try_load_with_sources(root, definitions, options, target, SourceRegistry::builtin())
+    }
+
+    pub fn try_load_with_sources(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        target: &IndexStorageTarget,
+        sources: SourceRegistry,
+    ) -> Result<Option<Self>, IndexError> {
+        let started = Instant::now();
+        target.validate().map_err(IndexError::IncompatibleConfiguration)?;
+        let root = root.into();
+        let prepared = target
+            .policy()
+            .prepare(&root, &definitions, options, &sources)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let Some(store) = ManagedStore::open_existing(&prepared.resolved).map_err(IndexError::from)? else {
+            return Ok(None);
+        };
+        let Some(opened) = store.read_generation_readonly().map_err(IndexError::from)? else {
+            return Ok(None);
+        };
+        restore_generation(
+            &prepared.resolved,
+            prepared.definitions,
+            options,
+            sources,
+            opened,
+            started,
+            true,
+        )
+        .map(Some)
+    }
+
     /// Start a managed initial build with catalogue and batch publications.
     /// A complete stored generation is returned as an already-ready task;
     /// an absent generation is flushed only after construction completes.
@@ -551,6 +604,7 @@ impl Index {
                 sources,
                 opened,
                 started,
+                false,
             )?;
             index.set_sync_storage(true)?;
             store
@@ -605,6 +659,7 @@ impl Index {
                 sources,
                 opened,
                 started,
+                false,
             )?;
             index.set_sync_storage(true)?;
             store
@@ -632,6 +687,7 @@ fn restore_generation(
     sources: SourceRegistry,
     opened: OpenedGeneration,
     started: Instant,
+    readonly: bool,
 ) -> Result<Index, IndexError> {
     #[cfg(feature = "detailed-profiling")]
     let phase_started = Instant::now();
@@ -763,7 +819,11 @@ fn restore_generation(
     published.processed_files = published.catalog.active_files() as usize;
     let index = Index::from_published(published);
     index.mark_restored_from_storage();
-    index.attach_storage(resolved.clone())?;
+    if readonly {
+        index.attach_storage_existing(resolved.clone())?;
+    } else {
+        index.attach_storage(resolved.clone())?;
+    }
     let mut validation = ValidationOpenStats {
         full: opened
             .validation
@@ -777,7 +837,7 @@ fn restore_generation(
             .count(),
         ..Default::default()
     };
-    if validation.full > 0 {
+    if validation.full > 0 && !readonly {
         let stamps = opened
             .segment_names
             .iter()

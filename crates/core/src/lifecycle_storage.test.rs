@@ -24,6 +24,100 @@ fn all_records() -> Query {
 }
 
 #[test]
+fn explicit_load_reports_absence_without_creating_a_store() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-absence-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let loaded = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &IndexStorageTarget::RepositoryDirectory,
+    )
+    .unwrap();
+    assert!(loaded.is_none());
+    assert!(!root.join(".objekte").exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn explicit_load_reuses_generation_without_writing_or_rebuilding() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-readonly-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let policy = IndexStorageTarget::RepositoryDirectory.policy();
+    let built = Index::open_with_storage(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        policy.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    built.stop_sync_storage().unwrap();
+    drop(built);
+    let directory = policy
+        .prepare(&root, &[definition.clone()], RepositoryOptions::default(), &SourceRegistry::builtin())
+        .unwrap()
+        .resolved
+        .managed_directory
+        .unwrap();
+    let manifest = directory.join("manifest.bin");
+    let original = std::fs::read(&manifest).unwrap();
+    #[cfg(unix)]
+    fn make_read_only(path: &std::path::Path, readonly: bool) {
+        use std::os::unix::fs::PermissionsExt;
+        if path.is_dir() {
+            for entry in std::fs::read_dir(path).unwrap() {
+                make_read_only(&entry.unwrap().path(), readonly);
+            }
+        }
+        let mode = if path.is_dir() {
+            if readonly { 0o500 } else { 0o700 }
+        } else if readonly {
+            0o400
+        } else {
+            0o600
+        };
+        std::fs::set_permissions(path, std::fs::Permissions::from_mode(mode)).unwrap();
+    }
+    #[cfg(unix)]
+    make_read_only(&directory, true);
+    let loaded = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &IndexStorageTarget::RepositoryDirectory,
+    )
+    .unwrap()
+    .unwrap();
+    assert!(loaded.restored_from_storage());
+    assert_eq!(loaded.status().unwrap().build_parses, 0);
+    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    assert_eq!(std::fs::read(&manifest).unwrap(), original);
+    loaded.shutdown().unwrap();
+    #[cfg(unix)]
+    make_read_only(&directory, false);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn managed_open_rebuilds_only_identified_obsolete_format() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-obsolete-rebuild-{}-{}",

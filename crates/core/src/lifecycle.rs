@@ -1554,6 +1554,21 @@ impl Index {
         &self,
         resolved: crate::index_storage::ResolvedIndexStorage,
     ) -> Result<(), IndexError> {
+        self.attach_storage_inner(resolved, false)
+    }
+
+    pub(crate) fn attach_storage_existing(
+        &self,
+        resolved: crate::index_storage::ResolvedIndexStorage,
+    ) -> Result<(), IndexError> {
+        self.attach_storage_inner(resolved, true)
+    }
+
+    fn attach_storage_inner(
+        &self,
+        resolved: crate::index_storage::ResolvedIndexStorage,
+        existing_only: bool,
+    ) -> Result<(), IndexError> {
         let view = self.view()?;
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
@@ -1576,8 +1591,13 @@ impl Index {
                 "managed storage is already attached".into(),
             ));
         }
-        let state = crate::lifecycle_storage::ManagedPersistence::open(&resolved)
-            .map_err(IndexError::Io)?;
+        let state = if existing_only {
+            crate::lifecycle_storage::ManagedPersistence::open_existing(&resolved)?
+                .ok_or_else(|| IndexError::InvalidCache("managed store vanished during load".into()))?
+        } else {
+            crate::lifecycle_storage::ManagedPersistence::open(&resolved)
+                .map_err(IndexError::Io)?
+        };
         *self
             .0
             .storage_status_snapshot
