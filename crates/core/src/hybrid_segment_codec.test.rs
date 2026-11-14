@@ -6,7 +6,7 @@ use crate::bigram::BigramRequest;
 use crate::build::{FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build};
 use crate::inference::InferenceConfig;
 use crate::inventory::SourceRevision;
-use crate::model::{FieldPath, FileId};
+use crate::model::{FieldPath, FileId, RecordSlot};
 use crate::query::parse_filter;
 use crate::reference::{BoundExpr, bind_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
@@ -509,6 +509,44 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
             .unwrap(),
     );
     assert_eq!(reopened.files[0].entry, file);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn persisted_segment_reads_and_compacts_without_native_record_tables() {
+    let (root, definition, options, segment) = fixture();
+    let expected_ids = segment.records.iter().map(|record| record.id.clone()).collect::<Vec<_>>();
+    let file = segment.files[0].entry.clone();
+    let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
+    let bytes = write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0))
+        .unwrap().into_inner();
+    let reopened = decode_segment_sealed_persisted_with_trust(
+        Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
+        1,
+        &definition,
+        options,
+        sealed.collection,
+        (&sealed.source_id, sealed.source_version),
+        sealed.record_count() as u32,
+        Arc::new(vec![file.clone()]),
+        crate::segment_format::SegmentTrust::Untrusted,
+    ).unwrap();
+    assert!(reopened.records.is_empty());
+    assert!(reopened.files.is_empty());
+    assert!(reopened.id_lookup.is_empty());
+    assert!(reopened.file_index.is_empty());
+    assert_eq!(reopened.record_count(), expected_ids.len());
+    assert_eq!(reopened.file_count(), 1);
+    for (number, id) in expected_ids.iter().enumerate() {
+        let slot = RecordSlot(number as u32);
+        assert_eq!(reopened.try_record(slot).unwrap().unwrap().id, *id);
+        assert_eq!(reopened.try_id_lookup(id.0.as_ref()).unwrap(), Some(slot));
+    }
+    assert_eq!(reopened.try_file(file.id).unwrap().unwrap().records.len(), expected_ids.len());
+    let active = crate::inventory::ActiveRecords::all(reopened.record_count()).unwrap();
+    let compacted = reopened.compact_active(&active, reopened.record_count(), |_| true).unwrap();
+    assert_eq!(compacted.index.record_count(), reopened.record_count());
+    assert_eq!(compacted.index.file_count(), reopened.file_count());
     std::fs::remove_dir_all(root).unwrap();
 }
 
