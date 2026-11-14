@@ -88,3 +88,10 @@ The fetched base has one intervening commit beyond the task's inspected revision
 Within-leaf equality and lower/upper-bound tests must include first/middle/last blocks, absent keys, exact numbers, long strings and oversized keys. Record comparisons, bytes decoded and allocations as well as latency; measure the offset table's storage cost. If routed metadata validation makes opening too slow, change the format or validation boundary and remeasure without moving required work to the first query.
 
 The current admission instrumentation previously included collection-wide inference copying and merging in `coordinator_ns`. The contract revision separates it as `inference_observation_ns` without changing index semantics. Three profile-on, fresh-process Musenalm runs per mode at this revision measured median total build **1,037.93 ms** with inference disabled and **2,462.69 ms** enabled. Within exclusive admission, inference observation was **0.01 ms** disabled versus **463.78 ms** enabled; segment-local inference merge was **0.017 ms** versus **420.24 ms**. Coordinator bookkeeping was **6.65 ms** versus **8.96 ms**. These are diagnostic samples on this revision, not a matched before/after speed comparison, and the inference-disabled results cannot explain inference-enabled cost. Raw JSON is retained locally under `target/hybrid-index-storage/profile-contract/`.
+
+Decoded posting hits carry the segment descriptor, eligible-domain owner, and
+construction or checked proof in their cache key. Hits use a read lock and set
+an atomic recent-use bit; insertion and eviction use a bounded clock queue.
+The cache cap remains unchanged. Uncached external payloads still pass through
+checked decoding, including after eviction; a cache hit never proves a
+different eligible domain.

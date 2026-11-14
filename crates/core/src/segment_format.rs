@@ -3,11 +3,12 @@
 //! Section framing is independent of byte ownership. Store readers may map
 //! only immutable application-owned files; memory-only builders use owned bytes.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{HashMap, VecDeque};
 use std::fmt;
 use std::fs::File;
 use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
-use std::sync::{Arc, Mutex, OnceLock};
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, OnceLock, RwLock};
 
 use memmap2::{Mmap, MmapOptions};
 use roaring::RoaringBitmap;
@@ -118,7 +119,7 @@ impl SegmentBytes {
 pub(crate) struct SegmentReader {
     bytes: SegmentBytes,
     sections: HashMap<SectionKind, SectionEntry>,
-    decoded: Arc<Mutex<DecodedPostingCache>>,
+    decoded: Arc<RwLock<DecodedPostingCache>>,
     #[cfg(test)]
     checked_postings: Arc<std::sync::atomic::AtomicU64>,
 }
@@ -146,10 +147,9 @@ impl fmt::Display for SegmentOpenError {
 #[derive(Default)]
 struct DecodedPostingCache {
     entries: HashMap<PostingCacheKey, CachedPosting>,
-    recency: BTreeMap<u64, PostingCacheKey>,
+    clock: VecDeque<PostingCacheKey>,
     retained_bytes: usize,
     limit_bytes: usize,
-    tick: u64,
 }
 
 
@@ -206,25 +206,7 @@ struct CachedPosting {
     bitmap: Arc<RoaringBitmap>,
     _allowed: Arc<RoaringBitmap>,
     weight: usize,
-    last_used: u64,
-}
-
-
-impl DecodedPostingCache {
-    fn next_tick(&mut self) -> u64 {
-        if self.tick == u64::MAX {
-            let ordered = self.recency.values().copied().collect::<Vec<_>>();
-            self.recency.clear();
-            for (position, key) in ordered.into_iter().enumerate() {
-                let tick = position as u64 + 1;
-                self.entries.get_mut(&key).unwrap().last_used = tick;
-                self.recency.insert(tick, key);
-            }
-            self.tick = self.entries.len() as u64;
-        }
-        self.tick += 1;
-        self.tick
-    }
+    recently_used: AtomicBool,
 }
 
 
@@ -289,7 +271,7 @@ impl SegmentReader {
                 encoded_len,
             })),
             sections: entries,
-            decoded: Arc::new(Mutex::new(DecodedPostingCache {
+            decoded: Arc::new(RwLock::new(DecodedPostingCache {
                 limit_bytes,
                 ..Default::default()
             })),
@@ -431,7 +413,7 @@ impl SegmentReader {
         Ok(Self {
             bytes,
             sections,
-            decoded: Arc::new(Mutex::new(DecodedPostingCache {
+            decoded: Arc::new(RwLock::new(DecodedPostingCache {
                 limit_bytes,
                 ..Default::default()
             })),
@@ -456,30 +438,22 @@ impl SegmentReader {
         proof: PostingProof,
     ) -> Option<Arc<RoaringBitmap>> {
         let key = PostingCacheKey::new(descriptor, allowed, proof);
-        let mut cache = self.decoded.lock().ok()?;
-        if !cache.entries.contains_key(&key) {
-            return None;
-        }
-        let tick = cache.next_tick();
-        let entry = cache.entries.get_mut(&key)?;
-        let prior = entry.last_used;
-        entry.last_used = tick;
-        let bitmap = Arc::clone(&entry.bitmap);
-        cache.recency.remove(&prior);
-        cache.recency.insert(tick, key);
-        Some(bitmap)
+        let cache = self.decoded.read().ok()?;
+        let entry = cache.entries.get(&key)?;
+        entry.recently_used.store(true, Ordering::Relaxed);
+        Some(Arc::clone(&entry.bitmap))
     }
 
     pub(crate) fn decoded_cache_usage(&self) -> (usize, usize, usize) {
         self.decoded
-            .lock()
+            .read()
             .map(|cache| (cache.entries.len(), cache.retained_bytes, cache.limit_bytes))
             .unwrap_or((0, 0, 0))
     }
 
     #[cfg(test)]
     pub(crate) fn set_decoded_cache_limit_for_test(&self, limit_bytes: usize) {
-        self.decoded.lock().unwrap().limit_bytes = limit_bytes;
+        self.decoded.write().unwrap().limit_bytes = limit_bytes;
     }
 
     pub(crate) fn retain_posting_owned(
@@ -499,33 +473,40 @@ impl SegmentReader {
         }
         // Roaring's in-memory containers and map entry cost are larger than
         // the portable payload, so charge a conservative weight to the cap.
-        let Ok(mut cache) = self.decoded.lock() else {
+        let Ok(mut cache) = self.decoded.write() else {
             return bitmap;
         };
         if weight > cache.limit_bytes {
             return bitmap;
         }
         if let Some(existing) = cache.entries.get(&key) {
+            existing.recently_used.store(true, Ordering::Relaxed);
             return Arc::clone(&existing.bitmap);
         }
         while cache.retained_bytes.saturating_add(weight) > cache.limit_bytes {
-            let Some((&oldest, &victim)) = cache.recency.first_key_value() else {
+            let Some(victim) = cache.clock.pop_front() else {
                 return bitmap;
             };
-            cache.recency.remove(&oldest);
+            if cache
+                .entries
+                .get(&victim)
+                .is_some_and(|entry| entry.recently_used.swap(false, Ordering::Relaxed))
+            {
+                cache.clock.push_back(victim);
+                continue;
+            }
             if let Some(removed) = cache.entries.remove(&victim) {
                 cache.retained_bytes -= removed.weight;
             }
         }
-        let tick = cache.next_tick();
-        cache.recency.insert(tick, key);
+        cache.clock.push_back(key);
         cache.entries.insert(
             key,
             CachedPosting {
                 bitmap: Arc::clone(&bitmap),
                 _allowed: Arc::clone(allowed),
                 weight,
-                last_used: tick,
+                recently_used: AtomicBool::new(false),
             },
         );
         cache.retained_bytes += weight;

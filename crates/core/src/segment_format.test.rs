@@ -92,13 +92,13 @@ fn owned_vec_reader_keeps_the_original_buffer() {
 }
 
 #[test]
-fn decoded_posting_cache_evicts_oldest_without_scanning_entries() {
+fn decoded_posting_cache_clock_preserves_recent_hits_and_domain_proof() {
     let (bytes, _, descriptor) = sample_segment();
     let reader = SegmentReader::from_owned(bytes).unwrap();
     let bitmap = RoaringBitmap::from_iter((0..1000).map(|slot| slot * 17));
     let allowed = Arc::new(RoaringBitmap::from_iter(0..20_000));
     let weight = bitmap.serialized_size() * 2 + 128;
-    reader.decoded.lock().unwrap().limit_bytes = weight * 2;
+    reader.decoded.write().unwrap().limit_bytes = weight * 2;
     let key = |offset| PostingDescriptor {
         offset,
         length: 100,
@@ -140,8 +140,8 @@ fn decoded_posting_cache_evicts_oldest_without_scanning_entries() {
             .is_some()
     );
     assert_eq!(pinned.as_ref(), &bitmap);
-    let cache = reader.decoded.lock().unwrap();
-    assert_eq!(cache.entries.len(), cache.recency.len());
+    let cache = reader.decoded.read().unwrap();
+    assert_eq!(cache.entries.len(), cache.clock.len());
     assert!(cache.retained_bytes <= cache.limit_bytes);
 }
 
