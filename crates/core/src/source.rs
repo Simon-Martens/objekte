@@ -675,8 +675,6 @@ impl<'de> Deserialize<'de> for LogicalBuildValue {
 
 
         deserializer.deserialize_any(LogicalVisitor)
-
-
     }
 }
 
