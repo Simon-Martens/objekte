@@ -171,7 +171,7 @@ pub(crate) fn verify_old_content(
             .segments(*collection)
             .and_then(|shards| shards.iter().find(|shard| shard.ordinal == *ordinal))
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        scanned = scanned.saturating_add(shard.index.records.len());
+        scanned = scanned.saturating_add(shard.index.record_count());
         if scanned > MAX_VERIFIED_SCANNED_RECORDS {
             return Err(VerifiedFallbackReason::CompactionBudget);
         }
@@ -216,7 +216,7 @@ pub(crate) fn preserve_single_record_slots(
             .iter()
             .find(|shard| shard.ordinal == old_ordinal)?;
         if old.index.files.len() != 1
-            || old.index.records.len() != 1
+            || old.index.record_count() != 1
             || old.active.len() != 1
             || !old.active.contains(RecordSlot(0))
             || old.index.file_records(file)? != [RecordSlot(0)]
@@ -241,7 +241,7 @@ pub(crate) fn preserve_single_record_slots(
         }
         let new = &group[new_position];
         if new.index.files.len() != 1
-            || new.index.records.len() != 1
+            || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
             || new.index.file_records(file)? != [RecordSlot(0)]
@@ -303,9 +303,9 @@ pub(crate) fn preserve_partition_record_slots(
             .find(|shard| shard.ordinal == old_ordinal)?;
         let old_slots = old.index.file_records(file)?;
         if old_slots.len() != 1
-            || old.index.records.len() <= 1
-            || old.index.records.len() > MAX_VERIFIED_SCANNED_RECORDS
-            || old.active.len() as usize != old.index.records.len()
+            || old.index.record_count() <= 1
+            || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
+            || old.active.len() as usize != old.index.record_count()
             || !old.active.contains(old_slots[0])
         {
             return None;
@@ -329,7 +329,7 @@ pub(crate) fn preserve_partition_record_slots(
         }
         let new = &group[new_position];
         if new.index.files.len() != 1
-            || new.index.records.len() != 1
+            || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
             || new.index.file_records(file)? != [RecordSlot(0)]
@@ -357,7 +357,7 @@ pub(crate) fn preserve_partition_record_slots(
             MAX_VERIFIED_SCANNED_RECORDS,
         )
         .ok()?;
-        let mut remap = vec![old_slot; consolidated.index.records.len()];
+        let mut remap = vec![old_slot; consolidated.index.record_count()];
         for (original, projected) in compacted.old_to_new.iter().enumerate() {
             if let Some(projected) = projected {
                 remap[projected.0 as usize] = RecordSlot(original as u32);
@@ -430,7 +430,7 @@ pub(crate) fn remove_verified_old_shards(
                 position += 1;
                 continue;
             }
-            if shard.index.records.len() > MAX_VERIFIED_SCANNED_RECORDS {
+            if shard.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS {
                 return Err(VerifiedFallbackReason::CompactionBudget);
             }
             if shard.active.len() == 0 {
@@ -448,7 +448,7 @@ pub(crate) fn remove_verified_old_shards(
                         })
                 })
                 .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?;
-            if compacted.index.records.is_empty() {
+            if compacted.index.record_count() == 0 {
                 group.remove(position);
             } else {
                 let ordinal = candidate

@@ -69,13 +69,15 @@ fn compact_source_parts_with_limits(
         if files.is_empty() {
             return Ok(());
         }
-        let selected = ActiveRecords::from_bitmap(source.records.len(), std::mem::take(slots))
+        let selected = ActiveRecords::from_bitmap(source.record_count(), std::mem::take(slots))
             .map_err(IndexError::InvalidPublication)?;
         selections.push((std::mem::take(files), selected));
         *count = 0;
         Ok(())
     };
-    for file in &source.files {
+    for file_index in 0..source.file_count() {
+        let file = source.try_file_at(file_index).map_err(IndexError::InvalidPublication)?
+            .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
         if cancelled() {
             return Err(IndexError::Cancelled);
         }

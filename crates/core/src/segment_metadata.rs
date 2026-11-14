@@ -533,6 +533,7 @@ pub(crate) struct PersistedRecordSlots {
     reader: Arc<SegmentReader>,
     metadata: Arc<dyn SegmentMetadataRefs>,
     layout: RecordSlotsLayout,
+    max_record_range_len: u64,
 }
 
 impl PersistedRecordSlots {
@@ -544,8 +545,8 @@ impl PersistedRecordSlots {
     ) -> Result<Self, String> {
         let bytes = reader.section(SectionKind::RecordSlots)?.ok_or("record section missing")?;
         let layout = RecordSlotsLayout::parse(bytes, collection, source)?;
-        let result = Self { reader, metadata, layout };
-        result.validate(collection)?;
+        let mut result = Self { reader, metadata, layout, max_record_range_len: 0 };
+        result.max_record_range_len = result.validate(collection)?;
         Ok(result)
     }
 
@@ -554,6 +555,10 @@ impl PersistedRecordSlots {
     }
 
     pub(crate) fn record_count(&self) -> usize { self.layout.record_count }
+
+    pub(crate) fn max_record_range_len(&self) -> u64 { self.max_record_range_len }
+
+    pub(crate) fn reader(&self) -> Arc<SegmentReader> { Arc::clone(&self.reader) }
 
     pub(crate) fn file_count(&self) -> usize { self.layout.file_count }
 
@@ -611,9 +616,13 @@ impl PersistedRecordSlots {
 
     pub(crate) fn file_entry(&self, id: FileId) -> Result<Option<FileEntry>, String> {
         let Some(index) = self.file_index(id)? else { return Ok(None); };
-        let row = self.layout.file_row(self.bytes()?, index).ok_or("record file row missing")?;
+        self.file_entry_at(index)
+    }
+
+    pub(crate) fn file_entry_at(&self, index: usize) -> Result<Option<FileEntry>, String> {
+        let Some(row) = self.layout.file_row(self.bytes()?, index) else { return Ok(None); };
         let entry = self.metadata.entry_for_ref(row.metadata_ref)?.ok_or("record metadata reference missing")?;
-        if entry.id != id { return Err("record metadata file identity mismatch".into()); }
+        if entry.id != row.id { return Err("record metadata file identity mismatch".into()); }
         Ok(Some(entry))
     }
 
@@ -654,7 +663,7 @@ impl PersistedRecordSlots {
         }
     }
 
-    fn validate(&self, collection: CollectionId) -> Result<(), String> {
+    fn validate(&self, collection: CollectionId) -> Result<u64, String> {
         let bytes = self.bytes()?;
         let mut files = Vec::with_capacity(self.layout.file_count);
         let mut paths = HashSet::with_capacity(self.layout.file_count);
@@ -690,6 +699,7 @@ impl PersistedRecordSlots {
             return Err("record membership incomplete".into());
         }
         let mut next_id = 0usize;
+        let mut max_record_range_len = 0u64;
         for slot in 0..self.layout.record_count {
             let row = self.layout.record_row(bytes, slot)?.ok_or("record row missing")?;
             let id_offset = u32_slice(bytes, self.layout.record_start + slot * 36 + 28) as usize;
@@ -702,6 +712,7 @@ impl PersistedRecordSlots {
             {
                 return Err("record source span or domain invalid".into());
             }
+            max_record_range_len = max_record_range_len.max(row.range.end - row.range.start);
             if let Some(index) = row.diagnostic_ref.stored_index() {
                 if entry.diagnostics.get(index).is_none_or(|diagnostic| diagnostic.record != Some(RecordSlot(slot as u32))) {
                     return Err("record diagnostic reference invalid".into());
@@ -733,7 +744,7 @@ impl PersistedRecordSlots {
             }
         }
         if seen.iter().any(|seen| !seen) { return Err("record file membership incomplete".into()); }
-        Ok(())
+        Ok(max_record_range_len)
     }
 }
 
