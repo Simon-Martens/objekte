@@ -50,7 +50,7 @@ fn configuration_hash_for_model(
 ) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(model_version.to_le_bytes());
-    // Keep the identity stable for snapshots written before the build-settings
+    // Keep the identity stable for generations written before the build-settings
     // section was introduced. Their compatibility hash covers the same inputs.
     hash.update(CONFIGURATION_HASH_VERSION.to_le_bytes());
     hash.update(BIGRAM_VERSION.to_le_bytes());

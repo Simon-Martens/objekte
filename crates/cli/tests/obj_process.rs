@@ -926,7 +926,7 @@ fn full_residency_repository_storage_reports_ready_on_reopen() {
         assert_eq!(hits(&events).len(), 1);
         assert_eq!(events[0]["index_residency"], "full");
         let finished = events.last().unwrap();
-        assert_eq!(finished["snapshot_action"], expected_action);
+        assert_eq!(finished["index_storage_action"], expected_action);
         assert_eq!(
             finished["index_storage_status"]["readiness"],
             "fully_resident_ready"

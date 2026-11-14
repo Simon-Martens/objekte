@@ -927,6 +927,7 @@ impl IndexedCollectionSegment {
         self.files.get(*self.file_index.get(&id)?)
     }
 
+    #[cfg(test)]
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
         self.records.get(slot.0 as usize)
     }

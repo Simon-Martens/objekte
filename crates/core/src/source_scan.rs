@@ -440,7 +440,7 @@ mod tests {
     use crate::model::LogicalType;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
     use crate::reference::FieldDefinition;
-    use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{Repository, RepositoryOptions};
 
     #[test]
     fn source_scan_matches_reference_search_before_an_index_exists() {
@@ -478,7 +478,6 @@ mod tests {
             &root,
             vec![definition],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
         )

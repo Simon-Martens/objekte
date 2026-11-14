@@ -5,7 +5,7 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::workload::BigramAlphabet;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
@@ -95,8 +95,6 @@ fn main() {
 fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut alphabet = BigramAlphabet::Ascii;
-    let snapshot_mode = SnapshotMode::Disabled;
-    let mut write_snapshot = false;
     let mut build_workers = None;
     let mut schema_manifest_path = None;
     let mut arguments = std::env::args().skip(1);
@@ -116,17 +114,6 @@ fn run() -> Result<(), String> {
                     "unicode" => BigramAlphabet::Unicode,
                     other => return Err(format!("unknown alphabet {other}")),
                 }
-            }
-            "--snapshot-mode" => {
-                write_snapshot = match arguments
-                    .next()
-                    .ok_or("--snapshot-mode needs a value")?
-                    .as_str()
-                {
-                    "rebuild" => true,
-                    "disabled" => false,
-                    other => return Err(format!("unknown snapshot mode {other}")),
-                };
             }
             "--build-workers" => {
                 let value = arguments.next().ok_or("--build-workers needs a value")?;
@@ -160,36 +147,11 @@ fn run() -> Result<(), String> {
         definitions,
         RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode,
             build_workers,
             ..RepositoryOptions::default()
         },
     )?;
     let wall_ns = started.elapsed().as_nanos();
-    let snapshot_started = Instant::now();
-    let snapshot_save_stats = if write_snapshot {
-        Some(
-            repo.save_snapshot_with_stats(&objekte_search_core::storage::snapshot_path(
-                &root, alphabet,
-            ))?,
-        )
-    } else {
-        None
-    };
-    let snapshot_write_ns = if write_snapshot {
-        snapshot_started.elapsed().as_nanos() as u64
-    } else {
-        0
-    };
-    let snapshot_bytes = if write_snapshot {
-        Some(
-            std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
-                .map_err(|error| error.to_string())?
-                .len(),
-        )
-    } else {
-        None
-    };
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
     let registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect::<Vec<_>>();
     let (index_stores, distinct_gram_keys, bigram_heap_bytes) =
@@ -214,7 +176,6 @@ fn run() -> Result<(), String> {
         "{}",
         serde_json::json!({
             "alphabet": alphabet,
-            "snapshot_mode": if write_snapshot { "rebuild" } else { "disabled" },
             "requested_build_workers": build_workers.map(NonZeroUsize::get),
             "resolved_build_workers": repo.startup().build_workers,
             "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
@@ -231,24 +192,6 @@ fn run() -> Result<(), String> {
             "discovery_ns": repo.startup().build_discovery_ns,
             "extraction_index_ns": repo.startup().build_extraction_index_ns,
             "finalization_ns": repo.startup().build_finalization_ns,
-            "snapshot_write_ns": snapshot_write_ns,
-            "snapshot_save_stats": snapshot_save_stats.as_ref().map(|stats| serde_json::json!({
-                "total_ns": stats.total_ns,
-                "directory_ns": stats.directory_ns,
-                "header_ns": stats.header_ns,
-                "inventory_ns": stats.inventory_ns,
-                "write_ns": stats.write_ns,
-                "sync_ns": stats.sync_ns,
-                "rename_ns": stats.rename_ns,
-                "bytes_written": stats.bytes_written,
-                "sections": stats.sections.iter().map(|section| serde_json::json!({
-                    "id": section.id,
-                    "serialize_ns": section.serialize_ns,
-                    "checksum_ns": section.checksum_ns,
-                    "write_ns": section.write_ns,
-                    "payload_bytes": section.payload_bytes,
-                })).collect::<Vec<_>>(),
-            })),
             "build_parses": repo.build_parses(),
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
@@ -260,7 +203,6 @@ fn run() -> Result<(), String> {
             "resident_bytes": resident_bytes,
             "peak_resident_bytes": peak_resident_bytes,
             "index_signature_sha256": index_signature_sha256,
-            "snapshot_bytes": snapshot_bytes,
             "schema_manifest_digest": schema_manifest["sha256"],
             "schema_collections": loaded_schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
             "registrations": registrations,

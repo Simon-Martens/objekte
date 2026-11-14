@@ -13,7 +13,6 @@ mod test_support;
 mod view;
 
 use std::error::Error;
-use std::path::PathBuf;
 use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
@@ -66,7 +65,7 @@ where
 /// A repository can be ready immediately or still building its initial catalogue.
 pub enum TuiOpening {
     Ready(IndexedRepository),
-    Initial(InitialBuildTask, Vec<PathBuf>),
+    Initial(InitialBuildTask),
 }
 
 pub fn run_with_opening_loader<F>(
@@ -97,7 +96,7 @@ where
         })?;
         std::thread::spawn(move || {
             let result = loader();
-            if let Err(mpsc::SendError(Ok(TuiOpening::Initial(task, _)))) = sender.send(result) {
+            if let Err(mpsc::SendError(Ok(TuiOpening::Initial(task)))) = sender.send(result) {
                 task.cancel();
             }
         });
@@ -143,8 +142,8 @@ where
         };
         match opening {
             TuiOpening::Ready(repository) => run_active(&mut terminal, repository, options, None),
-            TuiOpening::Initial(task, protected_files) => {
-                run_initial_active(&mut terminal, task, options, protected_files)
+            TuiOpening::Initial(task) => {
+                run_initial_active(&mut terminal, task, options)
             }
         }
     })();
@@ -160,10 +159,9 @@ where
 pub fn run_with_initial_build(
     task: InitialBuildTask,
     options: TuiOptions,
-    protected_files: Vec<PathBuf>,
 ) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     run_with_opening_loader(
-        move || Ok(TuiOpening::Initial(task, protected_files)),
+        move || Ok(TuiOpening::Initial(task)),
         options,
     )
 }
@@ -172,7 +170,6 @@ fn run_initial_active(
     terminal: &mut ratatui::DefaultTerminal,
     task: InitialBuildTask,
     options: TuiOptions,
-    protected_files: Vec<PathBuf>,
 ) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
 
@@ -208,7 +205,6 @@ fn run_initial_active(
             }
             if snapshot.view.is_some() {
                 if let Some(index) = guard.0.try_index()? {
-                    index.protect_configuration_files(&protected_files)?;
                     break (IndexedRepository::new(index)?, snapshot);
                 }
             }

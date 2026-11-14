@@ -8,7 +8,7 @@ use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode};
 
 
@@ -205,7 +205,6 @@ fn run() -> Result<(), String> {
             definitions.clone(),
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::IfValid,
                 query_workers: 32,
                 ..Default::default()
             },

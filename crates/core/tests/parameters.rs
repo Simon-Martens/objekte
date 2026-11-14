@@ -5,7 +5,7 @@ use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -104,7 +104,6 @@ fn fixture() -> (PathBuf, Repository) {
         }],
         RepositoryOptions {
             verified_cache_bytes: 1024 * 1024,
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

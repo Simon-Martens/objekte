@@ -7,7 +7,7 @@ use crate::reference::{
     bind_fts,
 };
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::{BigramAlphabet, ReturnMode};
@@ -113,7 +113,6 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::IfValid,
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
@@ -320,19 +319,16 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             RegexOptions::default(),
         );
         assert!(repo.search(&invalid).unwrap_err().contains("invalid regex"));
-        repo.save_default_snapshot_for_test();
         drop(repo);
         let restored = Repository::open_with_options(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::IfValid,
                 ..Default::default()
             },
         )
         .unwrap();
-        assert!(restored.startup().restored);
         let request = query(
             "^foo.bar$",
             Some("title"),
@@ -577,13 +573,11 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(!built.startup().restored);
         assert_eq!(built.build_failed_parses(), 1);
         let built_query = query("foobar");
         assert_eq!(built.search(&built_query).unwrap().count, Some(2));
@@ -591,11 +585,9 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             built.search(&built_query).unwrap().hits,
             built.search_reference(&built_query).unwrap().hits
         );
-        built.save_default_snapshot_for_test();
         drop(built);
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(restored.startup().restored);
         let collection = &restored.collections()[0];
         let fallback_slot = collection
             .generation

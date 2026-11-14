@@ -297,7 +297,7 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 #[test]
 fn root_queries_match_reference_over_mixed_json_documents() {
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
@@ -321,7 +321,6 @@ fn root_queries_match_reference_over_mixed_json_documents() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -379,7 +378,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
     use crate::reference::FieldDefinition;
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -402,7 +401,6 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -424,7 +422,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::workload::ReturnMode;
 
@@ -445,7 +443,6 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -685,7 +682,7 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::workload::{BigramAlphabet, ReturnMode};
 
@@ -724,7 +721,6 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
             vec![definition],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -885,7 +881,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::workload::{BigramAlphabet, ReturnMode};
 
@@ -963,7 +959,6 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
         for temporal in [false, true] {
             let options = RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::IfValid,
                 ..Default::default()
             };
             for open in 0..2 {
@@ -974,9 +969,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                     sources(),
                 )
                 .unwrap();
-                assert_eq!(repo.startup().restored, open == 1);
                 if open == 0 {
-                    repo.save_default_snapshot_for_test();
                 }
                 for (text, field, count, evidence) in [
                     ("needle", None, 1, vec!["body"]),
@@ -1294,7 +1287,7 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::Schema;
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
     };
     use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!(
@@ -1332,7 +1325,6 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         sort_overrides: Default::default(),
     };
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built =
@@ -1366,10 +1358,8 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         Some(Payload::LogicalUnavailable { .. })
     ));
     assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
-    built.save_default_snapshot_for_test();
     let restored =
         Repository::open_with_sources(&root, vec![definition], options, sources).unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(restored.search(&query).unwrap().hits, result.hits);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1558,7 +1548,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
     };
     use crate::workload::{BigramAlphabet, ReturnMode};
 
@@ -1611,7 +1601,6 @@ fn body_only_reader_does_not_prune_unindexed_title() {
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
             sources(),
@@ -1742,7 +1731,6 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         registrations(1),
     )
     .unwrap();
-    assert!(!repo.startup().restored);
     assert_eq!(repo.build_parses(), 2);
     assert_eq!(parses.load(Ordering::Relaxed), 2);
     let found = repo.search(&query).unwrap();
@@ -1760,22 +1748,19 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         matches!(&bytes.hits[0].payload, Some(Payload::Bytes(raw)) if raw == b"second|needle text")
     );
     let after_query = parses.load(Ordering::Relaxed);
-    repo.save_default_snapshot_for_test();
     drop(repo);
 
     let restored = Repository::open_with_sources(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         },
         registrations(1),
     )
     .unwrap();
-    assert!(restored.startup().restored);
-    assert_eq!(restored.build_parses(), 0);
-    assert_eq!(parses.load(Ordering::Relaxed), after_query);
+    assert_eq!(restored.build_parses(), 2);
+    assert_eq!(parses.load(Ordering::Relaxed), after_query + 2);
     assert_eq!(restored.search(&query).unwrap().hits, found.hits);
     drop(restored);
 
@@ -1786,7 +1771,6 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         registrations(2),
     )
     .unwrap();
-    assert!(!rebuilt.startup().restored);
     assert_eq!(rebuilt.build_parses(), 2);
     drop(rebuilt);
     assert!(
@@ -1882,19 +1866,16 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         generation.file_records.records_for(main_id).unwrap().len(),
         2
     );
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_sources(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         },
         sources.clone(),
     )
     .unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(
         restored.collections()[0]
             .generation
@@ -1914,7 +1895,6 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         sources.clone(),
     )
     .unwrap();
-    assert!(!rebuilt.startup().restored);
     assert_eq!(rebuilt.collections()[0].generation.records.len(), 4);
     drop(rebuilt);
 

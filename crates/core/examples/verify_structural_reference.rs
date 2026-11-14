@@ -1,7 +1,7 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
-use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 use sha2::{Digest, Sha256};
 use std::path::PathBuf;
@@ -27,7 +27,6 @@ fn main() -> Result<(), String> {
         definitions,
         RepositoryOptions {
             bigram_alphabet: BigramAlphabet::Unicode,
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             query_workers: 4,
             ..Default::default()

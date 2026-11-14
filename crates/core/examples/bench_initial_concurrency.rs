@@ -13,7 +13,7 @@ use std::time::{Duration, Instant};
 use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 use serde_json::json;
 
@@ -50,7 +50,6 @@ fn run() -> Result<(), String> {
     let options = RepositoryOptions {
         bigram_alphabet: BigramAlphabet::Ascii,
         build_workers: Some(NonZeroUsize::new(32).unwrap()),
-        snapshot_mode: SnapshotMode::Disabled,
         ..RepositoryOptions::default()
     };
     let started = Instant::now();

@@ -34,7 +34,7 @@ fn configured_memory_open_ignores_existing_deprecated_snapshot() {
         .map(|line| serde_json::from_slice(line).unwrap())
         .collect();
     assert!(events.iter().any(|event| event["type"] == "query_complete"));
-    assert_eq!(events.last().unwrap()["snapshot_action"], "built_in_memory");
+    assert_eq!(events.last().unwrap()["index_storage_action"], "built_in_memory");
 }
 
 #[test]
@@ -74,8 +74,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
             schema_files: &[],
             ignored_repository_metadata: false,
             startup_ns: 0,
-            snapshot_save: None,
-        },
+                    },
         QuerySource::open(&args),
         &mut output,
         &CancellationToken::new(),

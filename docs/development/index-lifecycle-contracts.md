@@ -1,17 +1,17 @@
 # Index lifecycle implementation contracts
 
-This is the phase 0 design record for task `index-lifecycle`. The implementation
+This is a historical phase 0 design record for task `index-lifecycle`.
+The current persistence contract is `IndexStoragePolicy` with
+`Index::open_with_storage` and `Index::flush_storage`; see
+[search core](../search-core.md). The implementation
 base is `9a94bc90d0d80ff7d14f44e457acf8787212d5ab` on 8 November 2026.
 It records interfaces and ownership before production modules are changed.
 
 ## Baseline and compatibility
 
-`Repository` is currently an immutable, owned, densely slotted search index.
-Its `open_with_sources_and_snapshot_policy` path synchronously compares all
-source metadata after restoring a cache. Existing CLI, TUI and desktop callers
-use `Repository` directly. The new lifecycle API will coexist with this static
-API while callers are migrated; a default `Repository::open` must not acquire
-implicit cache writes.
+At the phase 0 baseline, `Repository` was the primary immutable index.
+Today it remains an in-memory builder and library API. CLI, TUI, and desktop
+queries use the versioned `Index` lifecycle and managed generations.
 
 `cargo test --workspace --all-targets` on the base passed 333 core unit tests
 (two ignored) and the core integration tests, then failed in the existing
@@ -47,7 +47,7 @@ serialization to be a reliable workspace gate.
   An invalid old-byte hint is a successful normal replacement when the target
   version still matches; it never changes a newer incarnation.
 - Long operations return observable status/task handles with cancellation and
-  wait. Status distinguishes index revision, reconciliation state, cache
+  wait. Status distinguishes index revision, reconciliation state, managed storage
   durability, operation progress and query completeness. UI code formats
   messages; it does not parse them to infer state.
 
@@ -76,15 +76,13 @@ the design before exposing mutation as complete.
 
 ## Persistence and callers
 
-Explicit build, schema load, cache load and flush receive concrete paths.
-Cache load validates internal structure before exposing the restored view and
-then schedules the initial metadata scan; callers can wait when exact current
-state is required. Only `open_repository` discovers repository-local schemas
-and cache destinations. Its `sync_cache` option defaults to off, is runtime
-configurable for desktop preferences, and coalesces dirty-revision writes.
-Flush pins and reports the saved revision, serializes writers per destination,
-and never marks a newer published revision clean. Cache writes cannot target
-source, schema or repository configuration files.
+Current callers select a memory-only or managed `IndexStoragePolicy` and call
+`Index::open_with_storage`. A valid managed generation is validated before it
+becomes searchable; reconciliation then runs in the background. The caller
+can wait for reconciliation when exact current state is needed.
+`flush_storage()` persists a complete pinned revision to the attached store.
+`set_sync_storage` controls coalesced managed writes. Schema discovery stays
+in the shared repository configuration loader.
 
 The core task owns implementation and minimal caller migration. The separately
 authorized desktop task starts from the pushed core integration commit. It

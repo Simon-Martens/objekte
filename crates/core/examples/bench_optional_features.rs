@@ -5,12 +5,8 @@
 //! Build before measuring:
 //! cargo build --release -p objekte-search-core --example bench_optional_features
 //! target/release/examples/bench_optional_features --root examples/musenalm \
-//!   --inference disabled --snapshot-mode disabled > optional-disabled.json
+//!   --inference disabled > optional-disabled.json
 //!
-//! For snapshot measurements, use an isolated copy of the corpus. The
-//! benchmark's legacy `rebuild` spelling explicitly saves after a fresh
-//! build; `read-write` restores if valid and saves only after rebuilding.
-
 use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
@@ -21,10 +17,9 @@ use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::storage::snapshot_path;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
@@ -40,8 +35,6 @@ struct Config {
     source_path: String,
     alphabet: BigramAlphabet,
     inference: InferenceMode,
-    snapshot: SnapshotMode,
-    write_snapshot: bool,
     build_workers: Option<NonZeroUsize>,
     query_workers: usize,
     verified_cache_bytes: usize,
@@ -56,8 +49,6 @@ impl Default for Config {
             source_path: "data/entries".into(),
             alphabet: BigramAlphabet::Ascii,
             inference: InferenceMode::Disabled,
-            snapshot: SnapshotMode::Disabled,
-            write_snapshot: false,
             build_workers: None,
             query_workers: RepositoryOptions::default().query_workers,
             verified_cache_bytes: 0,
@@ -91,15 +82,6 @@ fn parse_args() -> Result<Config, String> {
                     other => return Err(format!("unknown inference mode {other}")),
                 }
             }
-            "--snapshot-mode" => {
-                (config.snapshot, config.write_snapshot) =
-                    match args.next().ok_or("--snapshot-mode needs a value")?.as_str() {
-                        "disabled" => (SnapshotMode::Disabled, false),
-                        "rebuild" => (SnapshotMode::Disabled, true),
-                        "read-write" => (SnapshotMode::IfValid, true),
-                        other => return Err(format!("unknown snapshot mode {other}")),
-                    }
-            }
             "--build-workers" => {
                 let value = args.next().ok_or("--build-workers needs a value")?;
                 config.build_workers = if value == "auto" {
@@ -132,7 +114,7 @@ fn parse_args() -> Result<Config, String> {
             "--skip-queries" => config.skip_queries = true,
             "--help" | "-h" => {
                 println!(
-                    "bench_optional_features --root PATH [--source-path data/entries] [--alphabet ascii|unicode] [--inference disabled|report|auto] [--snapshot-mode disabled|rebuild|read-write] [--build-workers auto|N] [--query-workers N] [--verified-cache-bytes N] [--skip-queries]"
+                    "bench_optional_features --root PATH [--source-path data/entries] [--alphabet ascii|unicode] [--inference disabled|report|auto] [--build-workers auto|N] [--query-workers N] [--verified-cache-bytes N] [--skip-queries]"
                 );
                 std::process::exit(0);
             }
@@ -469,7 +451,6 @@ fn run() -> Result<(), String> {
     ])?;
     let options = RepositoryOptions {
         bigram_alphabet: config.alphabet,
-        snapshot_mode: config.snapshot,
         build_workers: config.build_workers,
         query_workers: config.query_workers,
         verified_cache_bytes: config.verified_cache_bytes,
@@ -482,26 +463,10 @@ fn run() -> Result<(), String> {
     let started = Instant::now();
     let repo = Repository::open_with_options(&config.root, vec![definition], options)?;
     let readiness_ns = started.elapsed().as_nanos();
-    let save_started = Instant::now();
-    if config.write_snapshot && !repo.startup().restored {
-        repo.save_snapshot(&snapshot_path(&config.root, config.alphabet))?;
-    }
-    let snapshot_write_ns = if config.write_snapshot && !repo.startup().restored {
-        save_started.elapsed().as_nanos() as u64
-    } else {
-        0
-    };
     let collection = &repo.collections()[0];
     let mut hash = Sha256::new();
     hash.update(bincode::serialize(&repo.files().files).map_err(|error| error.to_string())?);
     let corpus_sha256 = format!("{:x}", hash.finalize());
-    let snapshot_bytes = if config.snapshot == SnapshotMode::Disabled && !config.write_snapshot {
-        None
-    } else {
-        std::fs::metadata(snapshot_path(&config.root, config.alphabet))
-            .ok()
-            .map(|metadata| metadata.len())
-    };
     let inference_report = repo.inference_report(collection_name);
     let rss_after_open = resident_bytes("VmRSS:");
     let peak_after_open = resident_bytes("VmHWM:");
@@ -523,9 +488,6 @@ fn run() -> Result<(), String> {
             "corpus_sha256": corpus_sha256,
             "alphabet": config.alphabet,
             "inference": format!("{:?}", config.inference),
-            "snapshot_mode": format!("{:?}", config.snapshot),
-            "snapshot_restored": repo.startup().restored,
-            "snapshot_bytes": snapshot_bytes,
             "verified_cache_bytes": config.verified_cache_bytes,
             "requested_build_workers": config.build_workers.map(NonZeroUsize::get),
             "resolved_build_workers": repo.startup().build_workers,
@@ -535,8 +497,6 @@ fn run() -> Result<(), String> {
             "discovery_ns": repo.startup().build_discovery_ns,
             "extraction_index_ns": repo.startup().build_extraction_index_ns,
             "finalization_ns": repo.startup().build_finalization_ns,
-            "snapshot_write_ns": snapshot_write_ns,
-            "snapshot_decode_ns": repo.startup().snapshot_decode_ns,
             "build_parses": repo.build_parses(),
             "failed_build_parses": repo.build_failed_parses(),
             "file_count": collection.generation.files.len(),

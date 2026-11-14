@@ -7,7 +7,7 @@ use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -51,7 +51,6 @@ fn run() -> Result<(), String> {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             query_workers: 4,
             ..RepositoryOptions::default()

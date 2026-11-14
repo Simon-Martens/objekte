@@ -21,7 +21,7 @@ revision when path, metadata, memberships, configuration, and digest agree.
 
 `update_file_with_options` and `delete_file_with_old_content` accept complete
 old bytes for verified maintenance. The stored SHA-256 digest and compatible
-reader layout must agree. Fresh builds and lifecycle caches retain digests for
+reader layout must agree. Fresh builds and managed generations retain digests for
 base files, so eligible base and delta contributions can discard old postings
 physically before publication. Base maintenance compacts a private staged
 root, bounded to 262,144 scanned records per collection; ordinary mutations
@@ -47,24 +47,22 @@ and segments without reading source files. It advances the revision only when
 retired slots exist. `Index::rebuild` rereads the current explicit source
 configuration while searches continue on the previous view. Both operations
 publish only against the revision they captured; a concurrent mutation causes
-a bounded retry. Compaction and rebuilding do not imply a cache write.
+a bounded retry. Compaction and rebuilding do not imply a storage flush.
 `start_compaction` and `start_rebuild` return observable, cancellable worker
 handles. Cancellation before publication leaves the current view installed;
 `shutdown` cancels and joins active maintenance workers.
 
-`Index::build` and `Index::load_cache` use explicit definitions and paths.
-Loading a compatible cache restores a searchable view first, then starts
-metadata reconciliation in the background. `wait_for_reconciliation` is
-available when a caller needs the initial check to finish. Reconciliation
-compares size and modification time; it does not hash unchanged files and
-cannot detect an edit that restores both metadata values. The explicit core
-handle never discovers or writes a cache on its own. `flush_cache(path)` saves
-one pinned revision to the requested destination. `Index::open_repository` is
-the separate convenience entry point for the established `.objekte` layout,
-with optional periodic checking and coalesced automatic cache saving.
+`Index::build` uses explicit definitions and sources in memory.
+`Index::open_with_storage` uses the same definitions with an
+`IndexStoragePolicy` to restore or build a managed generation. A restored
+generation becomes searchable before background metadata reconciliation
+finishes. `wait_for_reconciliation` lets callers wait for that check.
+Reconciliation compares size and modification time; it does not hash
+unchanged files and cannot detect an edit that restores both metadata values.
+`flush_storage()` saves one pinned revision to its attached managed store.
 
-The active record set and index revision are persisted with the index cache.
-Prepared and verified query caches stay in memory and are scoped to the
+The active record set and index revision are persisted with the managed
+generation. Verified query results stay in memory and are scoped to the
 published revision. Source access still checks the recorded revision, so an
 old pinned view does not make changed or missing source bytes available.
 Availability-oriented searches and streams report incomplete results and

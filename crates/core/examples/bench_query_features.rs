@@ -10,7 +10,7 @@ use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
@@ -554,7 +554,6 @@ fn main() -> Result<(), String> {
         RepositoryOptions {
             bigram_alphabet: alphabet,
             verified_cache_bytes: cache_bytes,
-            snapshot_mode: SnapshotMode::Disabled,
             query_workers: 1,
             ..Default::default()
         },

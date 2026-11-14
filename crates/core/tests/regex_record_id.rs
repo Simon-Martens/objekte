@@ -132,7 +132,7 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             SourceRegistry::builtin(),
         )
         .unwrap();
-        assert!(restored.restored_from_cache());
+        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

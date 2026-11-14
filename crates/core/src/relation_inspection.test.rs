@@ -2,7 +2,7 @@ use super::*;
 use crate::model::LogicalType;
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::RelationDefinition;
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
@@ -258,14 +258,10 @@ fn inspect(
 fn resident_inspection_paginates_and_restores_without_source_files() {
     let root = fixture();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-    assert!(!built.startup().restored);
-    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
-    assert!(restored.startup().restored);
     for name in ["entries", "mentions", "empty"] {
         std::fs::remove_dir_all(root.join(name)).unwrap();
     }
@@ -312,7 +308,6 @@ fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlink
         &root,
         definitions(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

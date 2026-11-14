@@ -4,7 +4,7 @@ use crate::posting_values::PostingValuesRequest;
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 use crate::workload::{ReturnMode, SortField};
@@ -74,15 +74,11 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-    assert!(!built.startup().restored);
-    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-    assert!(restored.startup().restored);
     for repo in [&built, &restored] {
         for (filter, ids) in [
             ("entry = 'TargetA'", vec!["A"]),
@@ -293,7 +289,6 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

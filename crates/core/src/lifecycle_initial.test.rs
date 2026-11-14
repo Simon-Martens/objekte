@@ -121,11 +121,7 @@ fn discovery_and_segments_publish_without_losing_records() {
     );
     assert!(catalogue.search_reference(&all_query()).is_err());
     assert!(catalogue.explain(&all_query()).is_err());
-    assert!(
-        index
-            .flush_cache(&root.with_extension("premature.idx"))
-            .is_err()
-    );
+    assert!(index.flush_storage().is_err());
     let available = catalogue.search_available(&all_query()).unwrap();
     assert!(!available.complete);
     assert_eq!(available.result.count, None);
@@ -324,9 +320,8 @@ fn discovery_and_segments_publish_without_losing_records() {
     );
     assert!(!first.initial_construction_complete());
     assert!(first.search(&all_query()).is_err());
-    let cache = root.with_extension("idx");
-    finished.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(
+    let restored = crate::test_support::restore_through_managed_store(
+        &finished,
         &root,
         vec![restore_definition],
         RepositoryOptions {
@@ -337,14 +332,11 @@ fn discovery_and_segments_publish_without_losing_records() {
             },
             ..RepositoryOptions::default()
         },
-        &cache,
-    )
-    .unwrap();
+    );
     assert_eq!(
         restored.view().unwrap().search(&all_query()).unwrap().count,
         Some(2_050)
     );
-    std::fs::remove_file(cache).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -444,15 +436,12 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             );
         }
     }
-    let cache = root.with_extension("idx");
-    index.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(
+    let restored = crate::test_support::restore_through_managed_store(
+        &index,
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        &cache,
-    )
-    .unwrap();
+    );
     let restored_result = restored.view().unwrap().search(&all_query()).unwrap();
     assert_eq!(
         result
@@ -476,6 +465,5 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             ))
             .collect::<Vec<_>>()
     );
-    std::fs::remove_file(cache).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

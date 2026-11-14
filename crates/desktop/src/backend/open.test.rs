@@ -43,7 +43,7 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
         first.repository.index().shutdown().unwrap();
         if disk {
             let reopened = open(&spec, &CancellationToken::new()).unwrap();
-            assert!(reopened.diagnostics.startup.restored);
+            assert!(reopened.repository.index().restored_from_storage());
             assert!(
                 reopened
                     .repository
@@ -103,7 +103,7 @@ fn opens_folder_without_implicit_snapshot_write() {
     .unwrap();
     assert!(session.single_collection);
     assert_eq!(session.collections, ["files"]);
-    assert!(!session.diagnostics.startup.restored);
+    assert!(!session.repository.index().restored_from_storage());
     assert!(!root.path().join(".objekte").exists());
 }
 

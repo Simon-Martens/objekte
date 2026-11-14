@@ -10,7 +10,7 @@ use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::streaming::{
@@ -67,7 +67,7 @@ impl Fixture {
         definition
     }
 
-    fn open(&self, mode: InferenceMode, snapshot_mode: SnapshotMode) -> Repository {
+    fn open(&self, mode: InferenceMode) -> Repository {
         Repository::open_with_options(
             &self.0,
             vec![self.definition()],
@@ -76,7 +76,6 @@ impl Fixture {
                     mode,
                     ..Default::default()
                 },
-                snapshot_mode,
                 query_workers: 4,
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
@@ -134,7 +133,7 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
         InferenceMode::ReportOnly,
         InferenceMode::AutoIndex,
     ] {
-        let repo = fixture.open(mode, SnapshotMode::Disabled);
+        let repo = fixture.open(mode);
         if mode == InferenceMode::Disabled {
             assert!(repo.inference_report("data").is_none());
         } else {
@@ -206,7 +205,7 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
 fn unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or() {
     let fixture = Fixture::new();
     for mode in [InferenceMode::Disabled, InferenceMode::AutoIndex] {
-        let repo = fixture.open(mode, SnapshotMode::Disabled);
+        let repo = fixture.open(mode);
         let universal = repo
             .search(&query("title ~ 'needle'", vec![], ReturnMode::Locator))
             .unwrap();
@@ -260,7 +259,7 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(!auto.restored_from_cache());
+    assert!(!auto.restored_from_storage());
     assert!(auto.view().unwrap().inference_report("data").is_some());
     let baseline = auto
         .view()
@@ -279,7 +278,7 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(!disabled.restored_from_cache());
+    assert!(!disabled.restored_from_storage());
     assert!(disabled.view().unwrap().inference_report("data").is_none());
     let restored_answers = disabled
         .view()
@@ -293,7 +292,7 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
 #[test]
 fn library_diagnostics_list_ordered_postings_without_source_access() {
     let fixture = Fixture::new();
-    let repo = fixture.open(InferenceMode::AutoIndex, SnapshotMode::Disabled);
+    let repo = fixture.open(InferenceMode::AutoIndex);
     let diagnostics = repo.inference_index_diagnostics("data").unwrap();
     assert!(
         diagnostics
@@ -311,6 +310,6 @@ fn library_diagnostics_list_ordered_postings_without_source_access() {
         assert_eq!(field.multi, Some(false));
         assert_eq!(field.covered_records, Some(32));
     }
-    let disabled = fixture.open(InferenceMode::Disabled, SnapshotMode::Disabled);
+    let disabled = fixture.open(InferenceMode::Disabled);
     assert!(disabled.inference_index_diagnostics("data").is_none());
 }

@@ -12,7 +12,7 @@ use objekte_search_core::index_storage::{
     IndexResidency, IndexStorageLocation, IndexStoragePolicy,
 };
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::repository::{RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{RepositoryOptions};
 use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::workload::BigramAlphabet;
 
@@ -84,7 +84,6 @@ fn run() -> Result<(), String> {
     let definitions = musenalm::load_extended_definitions(&root)?;
     let options = RepositoryOptions {
         bigram_alphabet: alphabet,
-        snapshot_mode: SnapshotMode::Disabled,
         query_workers: 32,
         ..RepositoryOptions::default()
     };

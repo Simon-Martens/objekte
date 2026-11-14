@@ -3,7 +3,7 @@ use crate::bigram::BigramIndex;
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
-use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{Repository, RepositoryOptions};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 use std::time::Instant;
@@ -21,7 +21,6 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         crate::repository_configuration::load_repository_configuration(&root).unwrap();
     let definitions = configuration.definitions;
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         ..Default::default()
     };
     let baseline_started = std::time::Instant::now();
@@ -1232,7 +1231,6 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             build_workers: Some(NonZeroUsize::new(2).unwrap()),
             ..Default::default()
         },
@@ -1377,7 +1375,6 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
             &root,
             vec![definition.clone()],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: Some(NonZeroUsize::new(workers).unwrap()),
                 ..Default::default()
             },
@@ -1531,7 +1528,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             &root,
             vec![definition.clone()],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: Some(NonZeroUsize::new(workers).unwrap()),
                 ..Default::default()
             },
@@ -1548,7 +1544,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         &root,
         vec![definition.clone()],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
@@ -1652,18 +1647,15 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         let b = parallel.search(&query).unwrap();
         assert_eq!((a.count, a.hits), (b.count, b.hits), "{filter}");
     }
-    one.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Required,
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
     )
     .unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(
         serde_json::to_value(&one.collections()[0].generation).unwrap(),
         serde_json::to_value(&restored.collections()[0].generation).unwrap()
@@ -1717,7 +1709,6 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
@@ -2011,21 +2002,17 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             build_workers: Some(NonZeroUsize::new(1).unwrap()),
             ..Default::default()
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert!(restored.startup().restored);
         let parallel = Repository::open_with_options(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: NonZeroUsize::new(
                     std::thread::available_parallelism()
                         .map_or(1, NonZeroUsize::get)
@@ -2035,7 +2022,6 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             },
         )
         .unwrap();
-        assert!(!parallel.startup().restored);
         for repo in [&built, &restored, &parallel] {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
@@ -2183,13 +2169,10 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         })
         .collect::<Vec<_>>();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
-    assert!(restored.startup().restored);
     for repo in [&built, &restored] {
         let file = &repo.files().files[0];
         assert_eq!(file.status, FileStatus::Broken);
@@ -2284,7 +2267,6 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
             sort_overrides: Default::default(),
         }],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

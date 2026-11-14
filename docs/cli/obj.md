@@ -132,7 +132,10 @@ for path in repository.inference_index_diagnostics("files").unwrap_or_default() 
 | `repository` | Reuse or build under the repository's `.objekte/indexes` directory. | On demand by default; full optional |
 | `custom` | Reuse or build in an Objekte-owned namespace beneath the selected base directory. | On demand by default; full optional |
 
-Disk modes use an index namespace based on the repository and effective configuration. A valid generation can become searchable before source reconciliation finishes. Subsequent changes are synchronized automatically, and a finite command flushes its completed generation before successful exit. The full residency option prepares owned in-memory index data before reporting readiness. Files belonging to old snapshot formats in the selected storage scope are removed when a new index is created; source files, schemas, saved queries and unrelated files are preserved. Permission, I/O and synchronization failures are reported as errors.
+Disk modes use an index namespace based on the repository and effective configuration. A valid generation can become searchable before source reconciliation finishes. Subsequent changes are synchronized automatically, and a finite command flushes its completed generation before successful exit. The full residency option prepares owned in-memory index data before reporting readiness. Recognized obsolete index files in the selected storage scope are cleaned up; source files, schemas, saved queries and unrelated files are preserved. Permission, I/O and synchronization failures are reported as errors.
+
+The terminal NDJSON event reports `index_storage_action` as
+`built_in_memory`, `managed_built`, or `managed_restored`.
 
 ## Memory and exit behavior
 

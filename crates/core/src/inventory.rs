@@ -236,6 +236,7 @@ pub(crate) struct FileVersions {
 
 impl FileVersions {
     /// Restore version tokens without replaying every historical mutation.
+    #[cfg(test)]
     pub(crate) fn from_versions(versions: Vec<FileVersion>) -> Result<Self, String> {
         let len = versions.len();
         u32::try_from(len).map_err(|_| "too many indexed file versions")?;
@@ -820,6 +821,7 @@ impl FileInventory {
     /// Restore an already decoded file table without first populating lookup
     /// maps through `add`. `rebuild_lookup` validates identities and paths,
     /// constructs both final maps once, and checks diagnostic ownership.
+    #[cfg(test)]
     pub(crate) fn from_restored_entries(
         root: PathBuf,
         entries: Vec<FileEntry>,

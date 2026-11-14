@@ -1,6 +1,6 @@
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
@@ -27,7 +27,6 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -76,7 +75,6 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
         &root,
         vec![definition],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )

@@ -29,8 +29,6 @@ fn load_schema_configuration(
 pub struct ConfiguredDefinitions {
     pub definitions: Vec<CollectionDefinition>,
     pub schema_files: Vec<PathBuf>,
-    /// Canonical schema/configuration targets to protect from snapshot writes.
-    pub protected_files: Vec<PathBuf>,
     pub schema_fields: usize,
     pub ignored_repository_metadata: bool,
 }
@@ -45,7 +43,6 @@ pub fn configure_definitions(
         return Ok(ConfiguredDefinitions {
             definitions: loaded.definitions,
             schema_files: loaded.schema_files,
-            protected_files: loaded.protected_files,
             schema_fields: loaded.schema_fields,
             ignored_repository_metadata: false,
         });
@@ -71,7 +68,6 @@ pub fn configure_definitions(
         return Ok(ConfiguredDefinitions {
             definitions,
             schema_files: Vec::new(),
-            protected_files: Vec::new(),
             schema_fields: 0,
             ignored_repository_metadata: false,
         });
@@ -91,7 +87,6 @@ pub fn configure_definitions(
             schema.map(|(compiled, _)| compiled),
         )],
         schema_files: paths.schema_file.iter().cloned().collect(),
-        protected_files: paths.schema_file.iter().cloned().collect(),
         schema_fields,
         ignored_repository_metadata,
     })

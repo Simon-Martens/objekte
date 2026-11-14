@@ -2,7 +2,7 @@ use super::*;
 use crate::model::LogicalType;
 use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 use std::sync::Arc;
@@ -83,7 +83,6 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .unwrap();
     let repo = Repository::open_with_options(
         &root, vec![definition.clone()], RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     ).unwrap();
@@ -286,7 +285,6 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     inference.policy.min_nonblank_records = 1;
     let options = RepositoryOptions {
         inference,
-        snapshot_mode: SnapshotMode::Disabled,
         ..Default::default()
     };
     let static_repo =
@@ -487,15 +485,12 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     ] {
         let options = crate::repository::RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         };
         for opening in 0..2 {
             let repo =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-            assert_eq!(repo.startup().restored, opening == 1);
             if opening == 0 {
-                repo.save_default_snapshot_for_test();
             }
             assert_eq!(repo.collections[0].custom_text.len(), 1);
             let result = repo.search(&query).unwrap();
@@ -855,7 +850,7 @@ impl crate::source::SourceReader for SeparatorReader {
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::query::{FtsField, FtsQuery};
     use crate::reference::{FieldDefinition, RegisteredBinding, Schema};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use crate::source::{SourceFormat, SourceRegistry};
 
     let root =
@@ -980,7 +975,6 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 vec![definition(posting, bigram, complete)],
                 RepositoryOptions {
                     bigram_alphabet: alphabet,
-                    snapshot_mode: SnapshotMode::Disabled,
                     ..Default::default()
                 },
                 sources(),
@@ -1085,7 +1079,6 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         }
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_sources(
@@ -1095,8 +1088,6 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         sources(),
     )
     .unwrap();
-    assert!(!built.startup().restored);
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_sources(
         &root,
@@ -1105,7 +1096,6 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         sources(),
     )
     .unwrap();
-    assert!(restored.startup().restored);
     assert_eq!(
         restored
             .search(&filter_query("title:sep ~ 'sep:alp'"))
@@ -1162,7 +1152,7 @@ impl crate::reference::BindingOperation for RemoveSpaces {
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     use crate::reference::{RegisteredBinding, Schema};
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     let root = std::env::temp_dir().join(format!("objekte-raw-compat-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), r#"{"title":"hello world"}"#).unwrap();
@@ -1206,14 +1196,11 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         for open in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-            assert_eq!(repo.startup().restored, open == 1);
             if open == 0 {
-                repo.save_default_snapshot_for_test();
             }
             for filter in [
                 Some("title ~ 'hello world'"),
@@ -1270,7 +1257,7 @@ struct KeyedOperation {
 fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     use crate::query::FtsQuery;
     use crate::reference::RegisteredBinding;
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     let root = std::env::temp_dir().join(format!(
         "objekte-fallback-raw-binding-{}",
         std::process::id()
@@ -1319,7 +1306,6 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let built =
@@ -1365,10 +1351,8 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                         .any(|hit| hit.matched_fields == ["@record.raw_text"])
                 );
             }
-            built.save_default_snapshot_for_test();
             let restored =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-            assert!(restored.startup().restored);
             assert_eq!(restored.search(&query).unwrap().hits, actual.hits);
         }
     }
@@ -1428,10 +1412,10 @@ impl crate::reference::BindingOperation for KeyedOperation {
 
 
 #[test]
-fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
+fn registered_binding_has_identical_filter_and_fts_semantics() {
     use crate::query::{FtsField, Literal};
     use crate::reference::RegisteredBinding;
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-keyed-binding-{}", std::process::id()));
     let path = root.join("data");
@@ -1585,7 +1569,6 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
             &root,
             vec![definition(posting, bigram, complete, 1)],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
             },
         )
@@ -1650,19 +1633,15 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
         let _ = Literal::Null;
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built =
         Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)
             .unwrap();
-    assert!(!built.startup().restored);
-    built.save_default_snapshot_for_test();
     drop(built);
     let restored =
         Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)
             .unwrap();
-    assert!(restored.startup().restored);
     for (query, expected, _) in &cases {
         let mut ids = restored
             .search(query)
@@ -1678,10 +1657,6 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
         );
     }
     drop(restored);
-    let changed =
-        Repository::open_with_options(&root, vec![definition(true, true, true, 2)], options)
-            .unwrap();
-    assert!(!changed.startup().restored);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1717,7 +1692,6 @@ fn record_id_lookup_respects_case_fold_binding() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::Disabled,
             ..Default::default()
         },
     )

@@ -208,7 +208,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
 }
 
 #[test]
-fn compacted_base_contributions_round_trip_through_cache() {
+fn compacted_base_contributions_round_trip_through_managed_store() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-cache-{}-{:?}",
         std::process::id(),
@@ -230,10 +230,12 @@ fn compacted_base_contributions_round_trip_through_cache() {
     index.delete_file(handle).unwrap();
     std::fs::remove_file(&a).unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
-    let cache = root.join("index.snapshot");
-    index.flush_cache(&cache).unwrap();
-    let restored =
-        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    let restored = crate::test_support::restore_through_managed_store(
+        &index,
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+    );
     assert_eq!(
         restored.view().unwrap().search(&all()).unwrap().count,
         Some(1)

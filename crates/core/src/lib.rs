@@ -3,7 +3,7 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-/// Version of the in-memory search model and future snapshot envelope.
+/// Version of the in-memory search model and managed generation identity.
 pub const MODEL_VERSION: u32 = 12;
 
 pub mod bigram;
@@ -29,7 +29,6 @@ pub mod inference;
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
-pub(crate) mod lifecycle_cache_guard;
 pub mod lifecycle_caller;
 mod lifecycle_catalog;
 mod lifecycle_compaction;
@@ -37,9 +36,7 @@ mod lifecycle_initial;
 pub mod lifecycle_mutation;
 mod lifecycle_open;
 mod lifecycle_partition;
-pub mod lifecycle_repository;
 mod lifecycle_scan;
-mod lifecycle_segment_codec;
 mod lifecycle_storage;
 mod lifecycle_verified;
 mod managed_store;
@@ -75,9 +72,10 @@ pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod source_scan;
-pub mod storage;
 pub mod streaming;
 mod structural;
+#[cfg(test)]
+mod test_support;
 pub mod temporal_query;
 mod verified;
 pub mod workload;

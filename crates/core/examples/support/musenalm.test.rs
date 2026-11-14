@@ -3,7 +3,7 @@ use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::bind_filter;
 use objekte_search_core::relation::RelationCardinality;
-use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::load_manifest;
 
@@ -235,7 +235,6 @@ fn extended_schema_builds_real_forward_and_backlink() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )

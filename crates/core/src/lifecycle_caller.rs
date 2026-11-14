@@ -9,7 +9,7 @@ use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::model::{FileId, Value};
 use crate::query::Query;
-use crate::repository::{Repository, SearchHit, SearchResult, SnapshotAction, StartupStats};
+use crate::repository::{Repository, SearchHit, SearchResult, StartupStats};
 use crate::streaming::{
     CancellationToken, ExecutionErrorKind, ResultScope, StreamControl, StreamError, StreamEvent,
     StreamOptions, StreamOutcome,
@@ -31,11 +31,7 @@ impl IndexedRepository {
     pub fn new(index: Index) -> Result<Self, IndexError> {
         let view = index.view()?;
         let metadata = Arc::clone(&view.0.repository);
-        let mut startup = metadata.startup().clone();
-        if index.restored_from_cache() {
-            startup.restored = true;
-            startup.snapshot_action = SnapshotAction::Restored;
-        }
+        let startup = metadata.startup().clone();
         Ok(Self {
             index,
             metadata,

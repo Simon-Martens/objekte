@@ -18,9 +18,6 @@ fn open_with_policy(
         SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())?;
-    index
-        .protect_configuration_files(&configured.protected_files)
-        .map_err(|error| error.to_string())?;
     IndexedRepository::new(index).map_err(|error| error.to_string())
 }
 
@@ -56,10 +53,10 @@ fn configured_repository_reopens_its_managed_generation() {
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     let built = open_with_policy(&args, &paths, &configured).unwrap();
-    assert!(!built.index().restored_from_cache());
+    assert!(!built.index().restored_from_storage());
     assert!(root.path().join(".objekte/indexes").is_dir());
     let restored = open_with_policy(&args, &paths, &configured).unwrap();
-    assert!(restored.index().restored_from_cache());
+    assert!(restored.index().restored_from_storage());
     restored.index().wait_for_reconciliation().unwrap();
 }
 
@@ -75,14 +72,13 @@ fn selected_storage_removes_recognized_old_snapshot_without_loading_it() {
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
-    let options = repository_options(&args);
-    let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
+    let cache = root.path().join(".objekte/search-core-ascii.snapshot");
     std::fs::write(&cache, b"OBJSNAP1\x1b\0\0\0").unwrap();
     let rebuilt = open_with_policy(&args, &paths, &configured).unwrap();
-    assert!(!rebuilt.index().restored_from_cache());
+    assert!(!rebuilt.index().restored_from_storage());
     assert!(!cache.exists());
     let restored = open_with_policy(&args, &paths, &configured).unwrap();
-    assert!(restored.index().restored_from_cache());
+    assert!(restored.index().restored_from_storage());
     restored.index().wait_for_reconciliation().unwrap();
 }
 
@@ -115,35 +111,6 @@ fn configured_open_uses_the_already_loaded_schema() {
 }
 
 #[test]
-fn selected_custom_store_cannot_replace_a_schema_hardlink() {
-    let root = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
-    let schema = root.path().join("schema.json");
-    let bytes = br#"{"type":"object","properties":{"title":{"type":"string"}}}"#;
-    std::fs::write(&schema, bytes).unwrap();
-    let cache_dir = root.path().join("cache");
-    std::fs::create_dir(&cache_dir).unwrap();
-    let cache = objekte_search_core::storage::snapshot_path_in(
-        &cache_dir,
-        RepositoryOptions::default().bigram_alphabet,
-    );
-    std::fs::hard_link(&schema, &cache).unwrap();
-    let args = Arguments {
-        path: vec![root.path().to_owned()],
-        schema: Some(schema.clone()),
-        index_storage: IndexStorageChoice::Custom,
-        index_directory: Some(cache_dir),
-        ..Arguments::default()
-    };
-    let paths = args.resolve_paths(root.path()).unwrap();
-    let configured = configure_definitions(&args, &paths).unwrap();
-    let error = open_with_policy(&args, &paths, &configured).err().unwrap();
-    assert!(error.contains("unknown index format"), "{error}");
-    assert_eq!(std::fs::read(schema).unwrap(), bytes);
-    assert_eq!(std::fs::read(cache).unwrap(), bytes);
-}
-
-#[test]
 fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
@@ -168,7 +135,6 @@ fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
     let cli = configure_definitions(&args, &paths).unwrap();
     let core = load_repository_configuration(root.path()).unwrap();
     assert_eq!(cli.schema_files, core.schema_files);
-    assert_eq!(cli.protected_files, core.protected_files);
     assert_eq!(cli.schema_fields, core.schema_fields);
     assert_eq!(cli.definitions.len(), core.definitions.len());
     assert_eq!(cli.definitions[0].name, core.definitions[0].name);
@@ -178,7 +144,6 @@ fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
     );
     assert_eq!(cli.definitions[0].format, core.definitions[0].format);
     assert_eq!(cli.definitions[0].identity, core.definitions[0].identity);
-    assert_eq!(cli.protected_files, vec![schema.canonicalize().unwrap()]);
 }
 
 #[test]
@@ -300,5 +265,4 @@ fn manual_schema_still_ignores_repository_metadata() {
         configured.schema_files,
         vec![schema.canonicalize().unwrap()]
     );
-    assert_eq!(configured.protected_files, configured.schema_files);
 }

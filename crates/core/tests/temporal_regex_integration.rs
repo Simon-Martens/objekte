@@ -130,7 +130,7 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
             SourceRegistry::builtin(),
         )
         .unwrap();
-        assert!(restored.restored_from_cache());
+        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query, params: &HashMap<String, Value>| {

@@ -68,7 +68,6 @@ pub fn stop_automation(session: &OpenedSession) -> Result<(), BackendError> {
     index
         .stop_periodic_reconciliation()
         .map_err(lifecycle_error)?;
-    index.stop_sync_cache().map_err(lifecycle_error)?;
     index.stop_sync_storage().map_err(lifecycle_error)
 }
 

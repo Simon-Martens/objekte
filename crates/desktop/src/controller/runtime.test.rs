@@ -835,7 +835,7 @@ fn reopening_managed_index_flushes_pending_revision_before_restore() {
         .recv_timeout(Duration::from_secs(5))
         .unwrap() else { panic!("expected opened repository") };
     let (reopened, ..) = (*result).unwrap();
-    assert!(reopened.diagnostics.startup.restored);
+    assert!(reopened.repository.index().restored_from_storage());
     assert_eq!(reopened.repository.index().status().unwrap().live_records, 2);
     assert_eq!(original.storage_status().unwrap().durable_generation,
         Some(original.storage_status().unwrap().current_generation));

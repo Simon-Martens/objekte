@@ -430,7 +430,7 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
 #[ignore = "uses the disposable 300,000-file fixture from the scanner scale test"]
 fn reconciles_300000_files_and_updates_a_shared_file() {
     use crate::lifecycle::Index;
-    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::repository::{RepositoryOptions};
     use std::time::Instant;
 
     let root = std::path::PathBuf::from(
@@ -461,7 +461,6 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
     )

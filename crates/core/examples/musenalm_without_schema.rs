@@ -9,7 +9,7 @@ use std::path::PathBuf;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -85,7 +85,6 @@ fn run() -> Result<(), String> {
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: inference,
                 ..Default::default()

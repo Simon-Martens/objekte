@@ -158,9 +158,6 @@ fn open_shared_storage(
     }
     .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
     let task = (incremental && !build.status().map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?.construction_complete).then_some(build);
-    index
-        .protect_configuration_files(&configured.protected_files)
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
     if cancellation.is_cancelled() {
         if let Some(task) = &task {
             task.cancel();

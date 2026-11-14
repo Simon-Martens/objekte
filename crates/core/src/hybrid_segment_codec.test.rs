@@ -11,7 +11,6 @@ use crate::query::parse_filter;
 use crate::reference::{BoundExpr, bind_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::SnapshotMode;
 use crate::source::{SourceFormat, SourceRegistry};
 
 fn fixture() -> (
@@ -89,7 +88,6 @@ fn fixture() -> (
         ..Default::default()
     };
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         inference,
         ..Default::default()
     };

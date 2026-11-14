@@ -10,7 +10,7 @@ use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
 use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
@@ -82,7 +82,6 @@ fn auto_index_retains_structural_facts_after_value_admission_fails() {
                 SourceFormat::Json,
             )],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 verified_cache_bytes: 0,
                 inference: InferenceConfig {
                     mode: InferenceMode::AutoIndex,
@@ -158,7 +157,6 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         element_nullable: Vec::new(),
     }).unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         verified_cache_bytes: 0,
         ..Default::default()
     };
@@ -230,7 +228,6 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
@@ -484,7 +481,6 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -537,8 +533,10 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 }
 
 #[test]
-fn mixed_short_strings_match_reference_after_snapshot_restore() {
-    use crate::repository::{SnapshotAction, SnapshotOpenPolicy};
+fn mixed_short_strings_match_reference_after_managed_restore() {
+    use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    use crate::lifecycle::Index;
+    use crate::source::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
         "objekte-inference-matrix-{}-{}",
@@ -593,29 +591,29 @@ fn mixed_short_strings_match_reference_after_snapshot_restore() {
             },
             ..Default::default()
         };
-        let snapshot = root.join(format!("cache-{alphabet:?}"));
-        let open = |mode| {
-            Repository::open_with_snapshot_policy(
-                &root,
-                vec![definition.clone()],
-                options.clone(),
-                SnapshotOpenPolicy::new(mode, Some(snapshot.clone())),
-            )
-        };
-        let built = open(SnapshotMode::Disabled).unwrap();
+        let built = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert_eq!(built.build_parses(), 13);
-        built
-            .save_snapshot(&crate::storage::snapshot_path_in(&snapshot, alphabet))
-            .unwrap();
-        let restored = open(SnapshotMode::Required).unwrap();
-        assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
-        assert_eq!(restored.build_parses(), 0);
+        let base = root.join(format!("managed-{alphabet:?}"));
+        std::fs::create_dir(&base).unwrap();
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::CustomDirectory(base),
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root, vec![definition.clone()], options, policy.clone(), SourceRegistry::builtin(),
+        ).unwrap();
+        first.shutdown().unwrap();
+        let restored = Index::open_with_storage(
+            &root, vec![definition.clone()], options, policy, SourceRegistry::builtin(),
+        ).unwrap();
+        assert!(restored.restored_from_storage());
+        let restored_view = restored.view().unwrap();
         for filter in filters {
             let mut request = query(filter);
             request.options.return_mode = ReturnMode::Locator;
             let expected = built.search_reference(&request);
             let fresh = built.search(&request);
-            let loaded = restored.search(&request);
+            let loaded = restored_view.search(&request);
             match (expected, fresh, loaded) {
                 (Ok(expected), Ok(fresh), Ok(loaded)) => {
                     assert_eq!(fresh.hits, expected.hits, "fresh {filter}");
@@ -645,6 +643,8 @@ fn mixed_short_strings_match_reference_after_snapshot_restore() {
             ids("code > 'A'").contains(&"path:09.json".to_owned()),
             "long value must survive the residual"
         );
+        drop(restored_view);
+        restored.shutdown().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -864,7 +864,6 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
             &root,
             definitions.clone(),
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: std::num::NonZeroUsize::new(workers),
                 inference: config,
                 ..Default::default()
@@ -937,7 +936,6 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
             &root,
             vec![definition.clone()],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: std::num::NonZeroUsize::new(workers),
                 inference: config,
                 ..Default::default()
@@ -1001,7 +999,6 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
         ] {
             let options = RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::IfValid,
                 verified_cache_bytes: 0,
                 inference: InferenceConfig {
                     mode,
@@ -1057,11 +1054,9 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             if mode == InferenceMode::ReportOnly {
-                repo.save_default_snapshot_for_test();
                 let reopened =
                     Repository::open_with_options(&root, vec![definition.clone()], options)
                         .unwrap();
-                assert!(reopened.startup().restored);
                 assert!(
                     reopened.collections[0]
                         .inference
@@ -1138,17 +1133,14 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                             .hits
                     );
                 }
-                repo.save_default_snapshot_for_test();
                 let reopened =
                     Repository::open_with_options(&root, vec![definition.clone()], options)
                         .unwrap();
-                assert!(reopened.startup().restored);
                 assert_eq!(reopened.search(&request).unwrap().hits, result.hits);
                 let one_worker = Repository::open_with_options(
                     &root,
                     vec![definition.clone()],
                     RepositoryOptions {
-                        snapshot_mode: SnapshotMode::Disabled,
                         build_workers: std::num::NonZeroUsize::new(1),
                         ..options
                     },
@@ -1167,7 +1159,6 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                     },
                 )
                 .unwrap();
-                assert!(!disabled.startup().restored);
                 assert!(disabled.collections[0].inference.is_none());
             }
         }
@@ -1349,7 +1340,6 @@ fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {
     };
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::registered("pipe"));
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,
             ..Default::default()
@@ -1395,7 +1385,6 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
@@ -1463,7 +1452,6 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1544,7 +1532,6 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1610,7 +1597,6 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
@@ -1652,7 +1638,6 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1746,7 +1731,6 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             verified_cache_bytes: 0,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1839,7 +1823,6 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()

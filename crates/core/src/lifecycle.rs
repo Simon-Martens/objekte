@@ -7,7 +7,7 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::num::NonZeroUsize;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
@@ -1038,7 +1038,7 @@ fn prepare_file_at(
 
 struct IndexInner {
     instance_id: u64,
-    restored_from_cache: AtomicBool,
+    restored_from_storage: AtomicBool,
     seal_owned_memory: AtomicBool,
     timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
@@ -1052,13 +1052,10 @@ struct IndexInner {
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
-    persistence: Mutex<PersistenceState>,
     managed: Mutex<Option<crate::lifecycle_storage::ManagedPersistence>>,
     storage_status_snapshot: RwLock<Option<crate::lifecycle_storage::StorageStatusSnapshot>>,
     storage_syncing: AtomicUsize,
     sync_storage: Mutex<Option<SyncCacheWorker>>,
-    sync_cache: Mutex<Option<SyncCacheWorker>>,
-    sync_cache_error: Mutex<Option<String>>,
 }
 
 struct StorageSyncActivity<'a>(&'a AtomicUsize);
@@ -1093,12 +1090,6 @@ enum PeriodicSignal {
 struct SyncCacheWorker {
     signal: SyncSender<()>,
     worker: JoinHandle<()>,
-}
-
-struct PersistenceState {
-    selected_cache: Option<PathBuf>,
-    saved: HashMap<PathBuf, IndexRevision>,
-    protected_files: Vec<PathBuf>,
 }
 
 struct MaintenanceState {
@@ -1411,7 +1402,7 @@ impl Index {
         let verified_cache_bytes = published.repository.options().verified_cache_bytes;
         Self(Arc::new(IndexInner {
             instance_id,
-            restored_from_cache: AtomicBool::new(false),
+            restored_from_storage: AtomicBool::new(false),
             seal_owned_memory: AtomicBool::new(false),
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
@@ -1425,17 +1416,10 @@ impl Index {
             maintenance_operation: Mutex::new(None),
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
-            persistence: Mutex::new(PersistenceState {
-                selected_cache: None,
-                saved: HashMap::new(),
-                protected_files: Vec::new(),
-            }),
             managed: Mutex::new(None),
             storage_status_snapshot: RwLock::new(None),
             storage_syncing: AtomicUsize::new(0),
             sync_storage: Mutex::new(None),
-            sync_cache: Mutex::new(None),
-            sync_cache_error: Mutex::new(None),
         }))
     }
 
@@ -1534,12 +1518,12 @@ impl Index {
             .budget())
     }
 
-    pub fn restored_from_cache(&self) -> bool {
-        self.0.restored_from_cache.load(Ordering::Acquire)
+    pub fn restored_from_storage(&self) -> bool {
+        self.0.restored_from_storage.load(Ordering::Acquire)
     }
 
-    pub(crate) fn mark_restored_from_cache(&self) {
-        self.0.restored_from_cache.store(true, Ordering::Release);
+    pub(crate) fn mark_restored_from_storage(&self) {
+        self.0.restored_from_storage.store(true, Ordering::Release);
     }
 
     /// Acquire one immutable view; no publication lock is held by its queries.
@@ -2142,308 +2126,6 @@ impl Index {
         Err(conflict.expect("rebuild retry always captures a revision conflict"))
     }
 
-    /// Persist one pinned revision to an explicit destination. Snapshot
-    /// writers are serialized by destination state, while queries and file
-    /// publication remain free to continue on newer roots.
-    pub fn flush_cache(&self, path: &Path) -> Result<IndexRevision, IndexError> {
-        self.flush_cache_with_stats(path)
-            .map(|(revision, _)| revision)
-    }
-
-    pub fn flush_cache_with_stats(
-        &self,
-        path: &Path,
-    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
-        self.flush_cache_with_stats_select(path, true)
-    }
-
-    /// Persist an additional cache copy without selecting it as the target of
-    /// later automatic writes when no target has been selected yet.
-    pub fn flush_cache_copy_with_stats(
-        &self,
-        path: &Path,
-    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
-        self.flush_cache_with_stats_select(path, false)
-    }
-
-    fn flush_cache_with_stats_select(
-        &self,
-        path: &Path,
-        select_if_none: bool,
-    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
-        if !cfg!(test) {
-            return Err(IndexError::InvalidCache(
-                "deprecated snapshot writing is unavailable; use Index::flush_storage".into(),
-            ));
-        }
-        let view = self.view()?;
-        if !view.initial_construction_complete() {
-            return Err(IndexError::IncompleteBuild);
-        }
-        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
-            .map_err(IndexError::InvalidCache)?;
-        let mut persistence = self
-            .0
-            .persistence
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if let Some(saved) = persistence.saved.get(&destination).copied()
-            && saved >= view.revision()
-        {
-            if select_if_none && persistence.selected_cache.is_none() {
-                persistence.selected_cache = Some(destination);
-                drop(persistence);
-                let mut published = self
-                    .0
-                    .published
-                    .write()
-                    .map_err(|_| IndexError::LockPoisoned)?;
-                let mut next = (**published).clone();
-                next.saved_revision = Some(saved);
-                *published = Arc::new(next);
-            }
-            return Ok((saved, crate::storage::SnapshotSaveStats::default()));
-        }
-        let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
-            &view.0,
-            &persistence.protected_files,
-        );
-        guard
-            .ensure_safe(&destination)
-            .map_err(IndexError::InvalidCache)?;
-        let stats = crate::storage::save_lifecycle_snapshot_with_stats(
-            &view.0,
-            &destination,
-            crate::lifecycle_segment_codec::encode_segment,
-            || guard.ensure_safe(&destination),
-        )
-        .map_err(IndexError::Io)?;
-        persistence
-            .saved
-            .insert(destination.clone(), view.revision());
-        let selected = match &persistence.selected_cache {
-            Some(selected) => selected == &destination,
-            None if select_if_none => {
-                persistence.selected_cache = Some(destination);
-                true
-            }
-            None => false,
-        };
-        drop(persistence);
-        if selected {
-            let mut published = self
-                .0
-                .published
-                .write()
-                .map_err(|_| IndexError::LockPoisoned)?;
-            if published
-                .saved_revision
-                .is_none_or(|saved| saved < view.revision())
-            {
-                let mut next = (**published).clone();
-                next.saved_revision = Some(view.revision());
-                *published = Arc::new(next);
-            }
-        }
-        Ok((view.revision(), stats))
-    }
-
-    pub(crate) fn select_cache_destination(
-        &self,
-        path: &Path,
-        saved: Option<IndexRevision>,
-        protected_files: Vec<PathBuf>,
-    ) -> Result<(), IndexError> {
-        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
-            .map_err(IndexError::InvalidCache)?;
-        let mut persistence = self
-            .0
-            .persistence
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        persistence.selected_cache = Some(destination.clone());
-        persistence.protected_files = protected_files;
-        if let Some(revision) = saved {
-            persistence.saved.insert(destination, revision);
-        }
-        Ok(())
-    }
-
-    /// Protect explicitly selected schema and configuration paths from cache
-    /// writes. Register them before the first flush; this operation resolves
-    /// relative paths against the current working directory once.
-    pub fn protect_configuration_files(&self, paths: &[PathBuf]) -> Result<(), IndexError> {
-        let mut resolved = Vec::with_capacity(paths.len());
-        for path in paths {
-            resolved.push(
-                std::path::absolute(path)
-                    .map_err(|error| IndexError::InvalidCache(error.to_string()))?,
-            );
-        }
-        let mut persistence = self
-            .0
-            .persistence
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        persistence.protected_files.extend(resolved);
-        persistence.protected_files.sort();
-        persistence.protected_files.dedup();
-        Ok(())
-    }
-
-    /// Remove a rejected cache only after the rebuilt index has proved that
-    /// the destination is neither indexed source data nor configuration.
-    pub(crate) fn discard_invalid_cache(&self, path: &Path) -> Result<(), IndexError> {
-        let view = self.view()?;
-        let persistence = self
-            .0
-            .persistence
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
-            &view.0,
-            &persistence.protected_files,
-        );
-        guard.ensure_safe(path).map_err(IndexError::InvalidCache)?;
-        let metadata = std::fs::symlink_metadata(path)
-            .map_err(|error| IndexError::Io(format!("{}: {error}", path.display())))?;
-        if !metadata.file_type().is_file() {
-            return Err(IndexError::InvalidCache(format!(
-                "refusing to delete non-file cache: {}",
-                path.display()
-            )));
-        }
-        std::fs::remove_file(path)
-            .map_err(|error| IndexError::Io(format!("{}: {error}", path.display())))
-    }
-
-    /// Enable one bounded, coalescing background cache writer for the selected
-    /// repository destination. Mutation commits only send a nonblocking signal.
-    /// Configure the repository's selected cache writer at runtime. Enabling
-    /// requires a cache destination, as selected by repository opening or a
-    /// previous explicit flush. Disabling stops future writes and joins the
-    /// worker; callers must run this off interactive threads.
-    pub fn set_sync_cache(&self, enabled: bool) -> Result<(), IndexError> {
-        if enabled && !cfg!(test) {
-            return Err(IndexError::InvalidCache(
-                "deprecated snapshot synchronization is unavailable; use Index::set_sync_storage"
-                    .into(),
-            ));
-        }
-        if enabled {
-            self.enable_sync_cache()
-        } else {
-            self.stop_sync_cache()
-        }
-    }
-
-    pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
-        if self.0.quiescing.load(Ordering::Acquire) {
-            return Err(IndexError::Cancelled);
-        }
-        if self
-            .0
-            .persistence
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .selected_cache
-            .is_none()
-        {
-            return Err(IndexError::InvalidCache(
-                "no cache destination selected".into(),
-            ));
-        }
-        let mut sync = self
-            .0
-            .sync_cache
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if self.0.quiescing.load(Ordering::Acquire) {
-            return Err(IndexError::Cancelled);
-        }
-        if sync.is_some() {
-            return Ok(());
-        }
-        let (signal, receiver) = mpsc::sync_channel(1);
-        let owner = Arc::downgrade(&self.0);
-        let worker = std::thread::Builder::new()
-            .name("objekte-sync-cache".into())
-            .spawn(move || {
-                while receiver.recv().is_ok() {
-                    // A quiet window folds bursts into one snapshot, while
-                    // a one-second ceiling prevents continuous writes from
-                    // postponing persistence indefinitely.
-                    let first_signal = Instant::now();
-                    while first_signal.elapsed() < Duration::from_secs(1)
-                        && receiver.recv_timeout(Duration::from_millis(100)).is_ok()
-                    {
-                    }
-                    let Some(inner) = owner.upgrade() else { break };
-                    // Closing owns the final persistence decision. A queued
-                    // automatic write must not become an implicit save after
-                    // the publication barrier has been established.
-                    if inner.quiescing.load(Ordering::Acquire) {
-                        break;
-                    }
-                    let index = Index(inner);
-                    let destination = index
-                        .0
-                        .persistence
-                        .lock()
-                        .ok()
-                        .and_then(|state| state.selected_cache.clone());
-                    let result = destination
-                        .map(|path| index.flush_cache(&path).map(|_| ()))
-                        .unwrap_or_else(|| {
-                            Err(IndexError::InvalidCache(
-                                "no cache destination selected".into(),
-                            ))
-                        });
-                    if let Ok(mut error) = index.0.sync_cache_error.lock() {
-                        *error = result.err().map(|error| error.to_string());
-                    }
-                }
-            })
-            .map_err(|error| IndexError::Io(error.to_string()))?;
-        *sync = Some(SyncCacheWorker { signal, worker });
-        drop(sync);
-        self.notify_sync_cache();
-        Ok(())
-    }
-
-    fn notify_sync_cache(&self) {
-        if let Ok(sync) = self.0.sync_cache.lock() {
-            if let Some(sync) = sync.as_ref() {
-                let _ = sync.signal.try_send(());
-            }
-        }
-    }
-
-    pub fn sync_cache_error(&self) -> Result<Option<String>, IndexError> {
-        Ok(self
-            .0
-            .sync_cache_error
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .clone())
-    }
-
-    pub fn stop_sync_cache(&self) -> Result<(), IndexError> {
-        let sync = self
-            .0
-            .sync_cache
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .take();
-        if let Some(sync) = sync {
-            drop(sync.signal);
-            sync.worker
-                .join()
-                .map_err(|_| IndexError::InvalidPublication("cache writer panicked".into()))?;
-        }
-        Ok(())
-    }
-
     /// Coalesce concurrent scan requests into one worker. The scan runs
     /// without holding a query or publication lock; waiters receive its
     /// report and can retry a later pass after partial failure.
@@ -2643,7 +2325,7 @@ impl Index {
 
     /// Prevent new data publications, stop recurring work, and wait for every
     /// currently owned mutation worker. The resulting view is stable for a
-    /// final cache save. This call may be retried after a save failure.
+    /// final managed storage flush. This call may be retried after a flush failure.
     pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
         {
             let _published = self
@@ -2655,7 +2337,6 @@ impl Index {
         }
         self.stop_periodic_reconciliation()?;
         self.stop_sync_storage()?;
-        self.stop_sync_cache()?;
         let operation = self
             .0
             .maintenance_operation
@@ -2926,39 +2607,6 @@ impl Index {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        let cache_paths = {
-            let persistence = self.0.persistence.lock();
-            match persistence {
-                Ok(persistence) => persistence
-                    .saved
-                    .keys()
-                    .filter_map(|destination| {
-                        destination
-                            .strip_prefix(root)
-                            .ok()
-                            .map(|relative| relative.to_owned())
-                    })
-                    .collect::<Vec<_>>(),
-                Err(_) => {
-                    report.record_issue("cache destination state is unavailable".into());
-                    report.duration = started.elapsed();
-                    on_progress(&report);
-                    return report;
-                }
-            }
-        };
-        let excluded = |path: &Path| {
-            !cache_paths.iter().any(|cache| {
-                path == cache
-                    || (path.parent() == cache.parent()
-                        && path
-                            .file_name()
-                            .and_then(|name| name.to_str())
-                            .is_some_and(|name| {
-                                name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp")
-                            }))
-            })
-        };
         let mut apply = |change: ScanChange| {
             if cancelled() {
                 report.cancelled = true;
@@ -3003,7 +2651,7 @@ impl Index {
             root,
             &definitions,
             &repository.sources,
-            |path| !excluded(path),
+            |_| false,
             |path| {
                 snapshot
                     .0
@@ -3030,9 +2678,6 @@ impl Index {
                 let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
                     continue;
                 };
-                if !excluded(&stamp.path) {
-                    continue;
-                }
                 if stamp.collections.is_subset(&scan.complete_collections) {
                     apply(ScanChange::Remove(stamp));
                 }
@@ -3234,7 +2879,6 @@ impl Index {
         drop(retired);
         if notify_cache {
             self.notify_sync_storage();
-            self.notify_sync_cache();
         }
         Ok(next_revision)
     }
