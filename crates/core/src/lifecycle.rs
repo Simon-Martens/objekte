@@ -1659,9 +1659,6 @@ impl Index {
     pub(crate) fn mark_storage_opened(
         &self,
         generation: u64,
-        names: &[String],
-        identities: &[(CollectionId, u64)],
-        indexes: &[Arc<IndexedCollectionSegment>],
         historical: Arc<crate::generation_catalog::RestoredGenerationCatalog>,
         validation: crate::lifecycle_storage::ValidationOpenStats,
     ) -> Result<(), IndexError> {
@@ -1675,9 +1672,7 @@ impl Index {
             .as_mut()
             .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
         state
-            .mark_opened(
-                &view.0, generation, names, identities, indexes, historical, validation,
-            )
+            .mark_opened(&view.0, generation, historical, validation)
             .map_err(IndexError::InvalidCache)?;
         *self
             .0
@@ -1704,13 +1699,9 @@ impl Index {
             .read_generation()
             .map_err(IndexError::from)?
             .ok_or_else(|| IndexError::InvalidCache("committed generation missing".into()))?;
-        if opened.generation != current.revision().0
-            || opened.segments.len() != opened.identities.len()
-            || opened.segments.len() != opened.active.len()
-            || opened.segments.len() != opened.segment_names.len()
-        {
+        if opened.generation != current.revision().0 {
             return Err(IndexError::InvalidCache(
-                "committed segment tables differ from current publication".into(),
+                "committed generation differs from current publication".into(),
             ));
         }
         let catalog_bytes = opened
@@ -1718,7 +1709,7 @@ impl Index {
             .as_ref()
             .ok_or_else(|| IndexError::InvalidCache("committed catalog missing".into()))?;
         let restored = Arc::new(
-            crate::generation_catalog::RestoredGenerationCatalog::decode_verified_arc(
+            crate::generation_catalog::RestoredGenerationCatalog::decode_arc(
                 Arc::clone(catalog_bytes),
                 current.0.configuration_identity,
                 current.0.segments.len(),
@@ -1729,6 +1720,7 @@ impl Index {
             || restored.next_segment_ordinal != current.0.next_segment_ordinal
             || restored.slot_count() != current.0.catalog.allocated_files()
             || restored.slot_count() != current.0.file_versions.len()
+            || restored.expected_segment_count as usize != opened.segments.len()
         {
             return Err(IndexError::InvalidCache(
                 "committed catalog differs from current publication".into(),
@@ -1749,11 +1741,15 @@ impl Index {
             }
         }
         let positions = opened
-            .identities
+            .segments
             .iter()
-            .copied()
             .enumerate()
-            .map(|(position, identity)| (identity, position))
+            .map(|(position, segment)| {
+                (
+                    (segment.descriptor.collection, segment.descriptor.ordinal),
+                    position,
+                )
+            })
             .collect::<HashMap<_, _>>();
         let segment_count = current
             .0
@@ -1761,12 +1757,11 @@ impl Index {
             .iter()
             .map(|group| group.len())
             .sum::<usize>();
-        if positions.len() != opened.identities.len() || positions.len() != segment_count {
+        if positions.len() != opened.segments.len() || positions.len() != segment_count {
             return Err(IndexError::InvalidCache(
                 "committed segment identities differ from current publication".into(),
             ));
         }
-        let mut indexes = vec![None; opened.segments.len()];
         let mut groups = Vec::with_capacity(current.0.segments.len());
         for (number, group) in current.0.segments.iter().enumerate() {
             let collection = CollectionId(number as u32);
@@ -1778,8 +1773,9 @@ impl Index {
                     .ok_or_else(|| {
                         IndexError::InvalidCache("committed segment identity missing".into())
                     })?;
-                if opened.active[position].slot_count() != segment.active.slot_count()
-                    || opened.active[position].bitmap() != segment.active.bitmap()
+                let descriptor = &opened.segments[position].descriptor;
+                if descriptor.active.slot_count() != segment.active.slot_count()
+                    || descriptor.active.bitmap() != segment.active.bitmap()
                 {
                     return Err(IndexError::InvalidCache(
                         "committed segment liveness differs from publication".into(),
@@ -1789,7 +1785,7 @@ impl Index {
                     restored.clone();
                 let decoded =
                     crate::hybrid_segment_codec::decode_segment_sealed_persisted_with_trust(
-                        Arc::clone(&opened.segments[position]),
+                        Arc::clone(&opened.segments[position].reader),
                         segment.ordinal,
                         &configured.definition,
                         current.repository().options(),
@@ -1800,20 +1796,14 @@ impl Index {
                         crate::segment_format::SegmentTrust::Untrusted,
                     )
                     .map_err(IndexError::InvalidCache)?;
-                let sealed = Arc::new(decoded);
-                indexes[position] = Some(Arc::clone(&sealed));
                 sealed_group.push(Arc::new(PublishedSegment {
                     ordinal: segment.ordinal,
-                    index: sealed,
+                    index: Arc::new(decoded),
                     active: segment.active.clone(),
                 }));
             }
             groups.push(Arc::new(sealed_group));
         }
-        let indexes = indexes
-            .into_iter()
-            .collect::<Option<Vec<_>>>()
-            .ok_or_else(|| IndexError::InvalidCache("committed segment unused".into()))?;
         let mut next = (*current.0).clone();
         next.segments = groups;
         next.catalog = crate::lifecycle_catalog::FileCatalog::restored_persisted(
@@ -1845,9 +1835,6 @@ impl Index {
             .mark_opened(
                 &next,
                 opened.generation,
-                &opened.segment_names,
-                &opened.identities,
-                &indexes,
                 restored,
                 crate::lifecycle_storage::ValidationOpenStats::default(),
             )
@@ -1947,7 +1934,7 @@ impl Index {
         })?;
         self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
         let _activity = StorageSyncActivity(&self.0.storage_syncing);
-        let (generation, unchanged, bytes_written, segments_reused) = {
+        let (generation, unchanged, bytes_written) = {
             let mut managed = self
                 .0
                 .managed
@@ -2001,7 +1988,6 @@ impl Index {
             unchanged,
             newer_changes_unsaved,
             segment_bytes_written: bytes_written,
-            segments_reused,
         })
     }
 

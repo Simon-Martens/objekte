@@ -1019,7 +1019,6 @@ fn close_waits_for_explicit_save_worker() {
                 unchanged: false,
                 newer_changes_unsaved: false,
                 segment_bytes_written: 0,
-                segments_reused: 0,
             }),
         },
         &mut updates,

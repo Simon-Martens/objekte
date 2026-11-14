@@ -88,7 +88,7 @@ fn verified_catalog_uses_direct_rows_and_persisted_version_overlays() {
     let (root, published) = publication();
     let bytes = GenerationCatalogBuilder::from_publication(&published)
         .unwrap().encode().unwrap();
-    let restored = Arc::new(RestoredGenerationCatalog::decode_verified_arc(
+    let restored = Arc::new(RestoredGenerationCatalog::decode_arc(
         Arc::from(bytes), published.configuration_identity, 1,
     ).unwrap());
     assert!(restored.slots.is_empty());
@@ -230,17 +230,13 @@ fn historical_reference_remains_valid_when_entry_becomes_current_again() {
 }
 
 #[test]
-fn checksum_identity_and_duplicate_current_paths_are_rejected() {
+fn identity_and_duplicate_current_paths_are_rejected() {
     let (_, published) = publication();
     let builder = GenerationCatalogBuilder::from_publication(&published).unwrap();
     let mut bytes = builder.encode().unwrap();
     assert!(RestoredGenerationCatalog::decode(&bytes, [9; 32], 1).is_err());
     bytes[HEADER_BYTES + 5] ^= 1;
-    assert!(
-        RestoredGenerationCatalog::decode(&bytes, published.configuration_identity, 1)
-            .unwrap_err()
-            .contains("checksum")
-    );
+    assert!(RestoredGenerationCatalog::decode(&bytes, published.configuration_identity, 1).is_err());
 
     let mut bytes = GenerationCatalogBuilder::from_publication(&published)
         .unwrap()

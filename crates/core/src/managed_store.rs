@@ -1,6 +1,6 @@
-//! Immutable generation files and atomic, checked manifest publication.
+//! Immutable generation files and an atomic, human-readable TOML manifest.
 
-use std::collections::HashSet;
+use std::collections::{BTreeMap, HashSet};
 use std::fmt;
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Read, Write};
@@ -10,20 +10,19 @@ use std::sync::Arc;
 use std::time::Instant;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
-use roaring::RoaringBitmap;
+use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::index_storage::ResolvedIndexStorage;
 use crate::inventory::ActiveRecords;
 use crate::model::CollectionId;
 use crate::segment_format::{
-    FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentOpenError, SegmentReader, SegmentTrust,
-    VALIDATOR_VERSION,
+    REQUIRED_SECTIONS, SectionKind, SegmentDescriptor, SegmentOpenError, SegmentReader,
+    SegmentTrust, SegmentWriteMetadata,
 };
 
-const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
-const MANIFEST_VERSION: u32 = 2;
-const MANIFEST_NAME: &str = "manifest.bin";
+const MANIFEST_NAME: &str = "manifest.toml";
+const LEGACY_MANIFEST_NAME: &str = "manifest.bin";
 const LOCK_NAME: &str = "store.lock";
 const GENERATIONS_DIR: &str = "generations";
 const CATALOG_NAME: &str = "catalog.bin";
@@ -42,52 +41,41 @@ const DEPRECATED_MAGIC: &[u8; 8] = b"OBJSNAP1";
 const DEPRECATED_VERSIONS: [u32; 2] = [27, 28];
 #[cfg(test)]
 const DEPRECATED_NAMES: [&str; 2] = ["search-core-ascii.snapshot", "search-core-unicode.snapshot"];
+const SEGMENT_MAGIC: &[u8; 8] = b"OBJHSEG1";
+const CATALOG_MAGIC: &[u8; 8] = b"OBJHCAT1";
+const LEGACY_MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
 
-#[derive(Clone, Debug)]
-struct SegmentRecord {
-    name: String,
-    length: u64,
-    collection: CollectionId,
-    ordinal: u64,
-    validation_version: u32,
-    active: ActiveRecords,
-}
-
-#[derive(Clone, Debug)]
-struct CatalogRecord {
-    name: String,
-    length: u64,
-    sha256: [u8; 32],
-}
-
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
 struct Manifest {
     version: u32,
     generation: u64,
-    catalog: Option<CatalogRecord>,
-    segments: Vec<SegmentRecord>,
+    repository: String,
+    configuration: String,
+    segments: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    catalog: Option<String>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    verify: BTreeMap<String, VerifyRecord>,
 }
 
-/// A previous immutable segment may be referenced without rewriting it.
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+struct VerifyRecord {
+    length: u64,
+    sha256: String,
+}
+
+/// A segment encoded by the current publish path. The writer-validation flag
+/// records a successful construction outcome for the unified program version.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum SegmentOrigin {
     Validated,
+    #[cfg_attr(not(test), allow(dead_code))]
     Unvalidated,
 }
 
 pub(crate) enum SegmentInput<'a> {
-    Existing {
-        name: &'a str,
-        active: &'a ActiveRecords,
-    },
-    #[cfg(test)]
-    New {
-        bytes: Arc<[u8]>,
-        collection: CollectionId,
-        ordinal: u64,
-        active: &'a ActiveRecords,
-        origin: SegmentOrigin,
-    },
     /// Encode directly into one owned immutable file while holding the writer
     /// lock. The callback is invoked once; its segment bytes are not retained
     /// alongside other pending new segments.
@@ -96,19 +84,31 @@ pub(crate) enum SegmentInput<'a> {
         ordinal: u64,
         active: &'a ActiveRecords,
         origin: SegmentOrigin,
-        write: Box<dyn Fn(&mut File) -> Result<(), String> + 'a>,
+        write: Box<dyn Fn(&mut File, &SegmentWriteMetadata<'_>) -> Result<(), String> + 'a>,
     },
+}
+
+pub(crate) struct OpenedSegment {
+    pub name: String,
+    pub length: u64,
+    pub reader: Arc<SegmentReader>,
+    pub descriptor: SegmentDescriptor,
+}
+
+impl OpenedSegment {
+    pub(crate) fn trust(&self) -> SegmentTrust {
+        if self.descriptor.write_validated {
+            SegmentTrust::WriteValidated
+        } else {
+            SegmentTrust::Untrusted
+        }
+    }
 }
 
 pub(crate) struct OpenedGeneration {
     pub generation: u64,
     pub catalog: Option<Arc<[u8]>>,
-    pub segment_names: Vec<String>,
-    pub segment_lengths: Vec<u64>,
-    pub segments: Vec<Arc<SegmentReader>>,
-    pub identities: Vec<(CollectionId, u64)>,
-    pub active: Vec<ActiveRecords>,
-    pub validation: Vec<crate::segment_format::SegmentTrust>,
+    pub segments: Vec<OpenedSegment>,
     #[cfg(test)]
     pub generation_directory: PathBuf,
 }
@@ -117,12 +117,10 @@ pub(crate) struct OpenedGeneration {
 pub(crate) struct CommitStats {
     pub segment_names: Vec<String>,
     pub segment_bytes_written: u64,
-    pub segments_reused: usize,
     pub orphan_files_reclaimed: usize,
     pub reclaim_errors: Vec<String>,
     pub generations_removed: usize,
     pub generation_bytes_reclaimed: u64,
-    pub segment_links_created: usize,
     pub orphan_generations_removed: usize,
 }
 
@@ -162,6 +160,9 @@ fn segment_open_store_error(path: &Path, error: SegmentOpenError) -> StoreReadEr
             path: path.to_path_buf(),
             source,
         },
+        SegmentOpenError::Incompatible(message) => {
+            StoreReadError::Incompatible(format!("{}: {message}", path.display()))
+        }
         SegmentOpenError::Invalid(message) => {
             StoreReadError::Corrupt(format!("{}: {message}", path.display()))
         }
@@ -215,7 +216,6 @@ pub(crate) struct ManagedStore {
     directory: PathBuf,
     repository_identity: [u8; 32],
     configuration_identity: [u8; 32],
-    root_bytes: Vec<u8>,
     #[cfg(test)]
     deprecated_directories: Vec<PathBuf>,
 }
@@ -241,7 +241,6 @@ impl ManagedStore {
             directory: directory.clone(),
             repository_identity: resolved.repository_identity,
             configuration_identity: resolved.configuration_identity,
-            root_bytes: path_bytes(&resolved.repository_root),
             #[cfg(test)]
             deprecated_directories: resolved.deprecated_directories.clone(),
         })
@@ -304,7 +303,6 @@ impl ManagedStore {
             directory: directory.clone(),
             repository_identity: resolved.repository_identity,
             configuration_identity: resolved.configuration_identity,
-            root_bytes: path_bytes(&resolved.repository_root),
             #[cfg(test)]
             deprecated_directories: resolved.deprecated_directories.clone(),
         }))
@@ -389,14 +387,14 @@ impl ManagedStore {
     /// retry if GC removed a generation while its files were being opened.
     #[cfg(test)]
     pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
-        self.read_generation_inner(false)
+        self.read_generation_inner()
     }
 
-    /// Read without format migration or validation-stamp writes.
+    /// Read without migration or validation writes.
     pub(crate) fn read_generation_readonly(
         &self,
     ) -> Result<Option<OpenedGeneration>, StoreReadError> {
-        self.read_generation_inner(true)
+        self.read_generation_inner()
     }
 
     /// Check the atomic pointer and its identity without reopening all
@@ -408,10 +406,7 @@ impl ManagedStore {
             .map(|manifest| manifest.generation))
     }
 
-    fn read_generation_inner(
-        &self,
-        #[allow(unused_variables)] readonly: bool,
-    ) -> Result<Option<OpenedGeneration>, StoreReadError> {
+    fn read_generation_inner(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
         for attempt in 0..MAX_OPEN_RETRIES {
             #[cfg(feature = "detailed-profiling")]
             let manifest_started = Instant::now();
@@ -424,16 +419,6 @@ impl ManagedStore {
                     "direct-open manifest_ns={}",
                     manifest_started.elapsed().as_nanos()
                 );
-            }
-            if manifest.version == 1 {
-                #[cfg(test)]
-                if !readonly {
-                    self.migrate_flat_v1()?;
-                    continue;
-                }
-                return Err(StoreReadError::Incompatible(
-                    "legacy flat generation requires explicit replacement".into(),
-                ));
             }
             match self.open_generation(&manifest) {
                 Ok(opened) => return Ok(Some(opened)),
@@ -462,72 +447,38 @@ impl ManagedStore {
         ))
     }
 
-    /// Retire only a checksum-valid manifest for this exact repository and
-    /// configuration whose segment format predates the direct-access tables.
-    /// This is called after a normal open rejects that format. The old
-    /// immutable files remain available to already pinned readers and are
-    /// reclaimed by the ordinary generation retirement path after rebuilding.
-    #[cfg(test)]
-    pub(crate) fn retire_obsolete_format_for_rebuild(&self) -> Result<bool, StoreReadError> {
-        let lock = self.open_lock_read()?;
-        lock.try_lock().map_err(|error| match error {
-            fs::TryLockError::WouldBlock => {
-                StoreReadError::Conflict("store writer lock is held".into())
+    fn resolve_manifest_directory(
+        &self,
+        value: &str,
+        context: &str,
+    ) -> Result<PathBuf, OpenGenerationError> {
+        let relative = manifest_relative_path(value, context)
+            .map_err(|message| StoreReadError::Corrupt(message))?;
+        let mut current = self.directory.clone();
+        for component in relative.components() {
+            current.push(component);
+            check_generation_directory(&current)?;
+        }
+        Ok(current)
+    }
+
+    fn resolve_manifest_file(
+        &self,
+        value: &str,
+        context: &str,
+    ) -> Result<PathBuf, OpenGenerationError> {
+        let relative = manifest_relative_path(value, context)
+            .map_err(|message| StoreReadError::Corrupt(message))?;
+        let mut parts = relative.components().peekable();
+        let mut current = self.directory.clone();
+        while let Some(component) = parts.next() {
+            current.push(component);
+            if parts.peek().is_none() {
+                break;
             }
-            fs::TryLockError::Error(source) => StoreReadError::Io {
-                path: self.directory.join(LOCK_NAME),
-                source,
-            },
-        })?;
-        let path = self.directory.join(MANIFEST_NAME);
-        match fs::symlink_metadata(&path) {
-            Err(error) if error.kind() == io::ErrorKind::NotFound => return Ok(false),
-            Err(source) => return Err(StoreReadError::Io { path, source }),
-            Ok(_) => {}
+            check_generation_directory(&current)?;
         }
-        let file = open_regular_nofollow_read(&path)?;
-        let mut bytes = Vec::new();
-        file.take((MAX_MANIFEST_BYTES + 1) as u64)
-            .read_to_end(&mut bytes)
-            .map_err(|source| StoreReadError::Io {
-                path: path.clone(),
-                source,
-            })?;
-        if bytes.len() > MAX_MANIFEST_BYTES || bytes.len() < 16 {
-            return Err(StoreReadError::Corrupt(
-                "obsolete manifest size invalid".into(),
-            ));
-        }
-        let version = u32::from_le_bytes(bytes[8..12].try_into().unwrap());
-        let format = if version == 1 {
-            0
-        } else if version == MANIFEST_VERSION {
-            u32::from_le_bytes(bytes[12..16].try_into().unwrap())
-        } else {
-            return Ok(false);
-        };
-        if version == MANIFEST_VERSION && !(2..FORMAT_VERSION).contains(&format) {
-            return Ok(false);
-        }
-        let manifest = self
-            .decode_manifest_with_format(&bytes, format)
-            .map_err(StoreReadError::Corrupt)?;
-        let generation = self.generation_directory(manifest.generation);
-        match fs::symlink_metadata(&generation) {
-            Ok(_) => {
-                checked_generation_contents(&generation).map_err(StoreReadError::Corrupt)?;
-            }
-            Err(error) if error.kind() == io::ErrorKind::NotFound => {}
-            Err(source) => {
-                return Err(StoreReadError::Io {
-                    path: generation,
-                    source,
-                });
-            }
-        }
-        fs::remove_file(&path).map_err(|source| StoreReadError::Io { path, source })?;
-        sync_directory(&self.directory).map_err(|error| store_write_io(&self.directory, error))?;
-        Ok(true)
+        Ok(current)
     }
 
     fn open_generation(
@@ -536,61 +487,89 @@ impl ManagedStore {
     ) -> Result<OpenedGeneration, OpenGenerationError> {
         #[cfg(feature = "detailed-profiling")]
         let opened_at = Instant::now();
-        check_generation_directory(&self.directory.join(GENERATIONS_DIR))?;
-        let directory = self.generation_directory(manifest.generation);
-        check_generation_directory(&directory)?;
-        let segment_directory = directory.join("segments");
-        check_generation_directory(&segment_directory)?;
-        let catalog = manifest
+        let segment_directory = self.resolve_manifest_directory(&manifest.segments, "segments")?;
+        let catalog_path = manifest
             .catalog
-            .as_ref()
-            .map(|record| self.read_catalog_typed(&directory, record))
+            .as_deref()
+            .map(|value| self.resolve_manifest_file(value, "catalog"))
+            .transpose()?;
+        let catalog = catalog_path
+            .as_deref()
+            .map(|path| self.read_catalog_typed(path))
             .transpose()?;
         #[cfg(feature = "detailed-profiling")]
         let catalog_ns = opened_at.elapsed().as_nanos();
+        let mut names = Vec::new();
+        for entry in fs::read_dir(&segment_directory).map_err(|source| StoreReadError::Io {
+            path: segment_directory.clone(),
+            source,
+        })? {
+            let entry = entry.map_err(|source| StoreReadError::Io {
+                path: segment_directory.clone(),
+                source,
+            })?;
+            let name = entry
+                .file_name()
+                .into_string()
+                .map_err(|_| StoreReadError::Corrupt("non-UTF-8 segment filename".into()))?;
+            if !name.ends_with(".idx") {
+                continue;
+            }
+            names.push((name, entry.path()));
+        }
+        names.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+        if names.len() > MAX_SEGMENTS {
+            return Err(StoreReadError::Resource(format!(
+                "generation contains more than {MAX_SEGMENTS} segments"
+            ))
+            .into());
+        }
         #[cfg(feature = "detailed-profiling")]
         let mut segment_map_ns = 0u128;
         #[cfg(feature = "detailed-profiling")]
         let mut section_check_ns = 0u128;
-        let mut segments = Vec::with_capacity(manifest.segments.len());
-        let mut names = Vec::with_capacity(manifest.segments.len());
-        let mut lengths = Vec::with_capacity(manifest.segments.len());
-        let mut identities = Vec::with_capacity(manifest.segments.len());
-        let mut active = Vec::with_capacity(manifest.segments.len());
-        let mut validation = Vec::with_capacity(manifest.segments.len());
-        for record in &manifest.segments {
-            #[cfg(feature = "detailed-profiling")]
-            let map_started = Instant::now();
-            let path = segment_directory.join(&record.name);
-            let file = open_generation_file(&path)?;
-            if file
-                .metadata()
-                .map_err(|source| StoreReadError::Io {
-                    path: path.clone(),
-                    source,
-                })?
-                .len()
-                != record.length
-            {
+        let mut segments = Vec::with_capacity(names.len());
+        let mut identities = HashSet::with_capacity(names.len());
+        for (name, path) in names {
+            let metadata = fs::symlink_metadata(&path).map_err(|source| StoreReadError::Io {
+                path: path.clone(),
+                source,
+            })?;
+            if metadata.file_type().is_symlink() || !metadata.is_file() {
                 return Err(StoreReadError::Corrupt(format!(
-                    "segment length changed: {}",
-                    record.name
+                    "segment is not a regular file: {}",
+                    path.display()
                 ))
                 .into());
             }
-            let reader =
-                SegmentReader::from_index_file_typed(&file).map_err(|error| match error {
-                    SegmentOpenError::Io(source) => StoreReadError::Io {
-                        path: path.clone(),
-                        source,
-                    },
-                    SegmentOpenError::Invalid(message) => {
-                        StoreReadError::Corrupt(format!("{}: {message}", path.display()))
-                    }
-                })?;
-            reader
-                .require_complete_sections()
-                .map_err(StoreReadError::Corrupt)?;
+            #[cfg(feature = "detailed-profiling")]
+            let map_started = Instant::now();
+            let file = open_generation_file(&path)?;
+            let reader = SegmentReader::from_index_file_typed(&file)
+                .map_err(|error| segment_open_store_error(&path, error))?;
+            reader.require_complete_sections().map_err(|message| {
+                StoreReadError::Corrupt(format!("{}: {message}", path.display()))
+            })?;
+            let descriptor = reader
+                .descriptor()
+                .ok_or_else(|| {
+                    StoreReadError::Corrupt(format!("segment header missing: {}", path.display()))
+                })?
+                .clone();
+            if descriptor.generation != manifest.generation {
+                return Err(StoreReadError::Corrupt(format!(
+                    "segment generation differs from manifest: {}",
+                    path.display()
+                ))
+                .into());
+            }
+            if !identities.insert((descriptor.collection, descriptor.ordinal)) {
+                return Err(StoreReadError::Corrupt(format!(
+                    "duplicate segment identity: {}",
+                    path.display()
+                ))
+                .into());
+            }
             #[cfg(feature = "detailed-profiling")]
             {
                 segment_map_ns += map_started.elapsed().as_nanos();
@@ -599,24 +578,32 @@ impl ManagedStore {
                 if kind != SectionKind::PostingPayloads {
                     #[cfg(feature = "detailed-profiling")]
                     let section_started = Instant::now();
-                    reader.section(kind).map_err(StoreReadError::Corrupt)?;
+                    reader.section(kind).map_err(|message| {
+                        StoreReadError::Corrupt(format!("{}: {message}", path.display()))
+                    })?;
                     #[cfg(feature = "detailed-profiling")]
                     {
                         section_check_ns += section_started.elapsed().as_nanos();
                     }
                 }
             }
-            names.push(record.name.clone());
-            lengths.push(record.length);
-            identities.push((record.collection, record.ordinal));
-            segments.push(Arc::new(reader));
-            active.push(record.active.clone());
-            validation.push(if record.validation_version == VALIDATOR_VERSION {
-                SegmentTrust::Stamped
-            } else {
-                SegmentTrust::Untrusted
+            let length = reader.encoded_len() as u64;
+            segments.push(OpenedSegment {
+                name,
+                length,
+                reader: Arc::new(reader),
+                descriptor,
             });
         }
+        segments.sort_unstable_by_key(|segment| {
+            (segment.descriptor.collection, segment.descriptor.ordinal)
+        });
+        self.run_verification(
+            manifest,
+            catalog_path.as_deref(),
+            catalog.as_deref(),
+            &segments,
+        )?;
         #[cfg(feature = "detailed-profiling")]
         if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
             eprintln!(
@@ -635,15 +622,75 @@ impl ManagedStore {
         Ok(OpenedGeneration {
             generation: manifest.generation,
             catalog,
-            segment_names: names,
-            segment_lengths: lengths,
             segments,
-            identities,
-            active,
-            validation,
             #[cfg(test)]
-            generation_directory: directory,
+            generation_directory: self.generation_directory(manifest.generation),
         })
+    }
+
+    fn run_verification(
+        &self,
+        manifest: &Manifest,
+        catalog_path: Option<&Path>,
+        catalog: Option<&[u8]>,
+        segments: &[OpenedSegment],
+    ) -> Result<(), OpenGenerationError> {
+        if manifest.verify.is_empty() {
+            return Ok(());
+        }
+        let manifest_path = self.directory.join(MANIFEST_NAME);
+        let segment_directory = self.resolve_manifest_directory(&manifest.segments, "segments")?;
+        for (key, record) in &manifest.verify {
+            let path = self.resolve_manifest_file(key, "verify entry")?;
+            if path == manifest_path {
+                return Err(StoreReadError::Corrupt("manifest cannot verify itself".into()).into());
+            }
+            let expected = decode_sha256(&record.sha256).map_err(StoreReadError::Corrupt)?;
+            if catalog_path == Some(path.as_path()) {
+                let bytes = catalog.ok_or_else(|| {
+                    StoreReadError::Corrupt(format!(
+                        "verification entry names an unopened catalog: {key}"
+                    ))
+                })?;
+                if bytes.len() as u64 != record.length
+                    || Sha256::digest(bytes).as_slice() != expected
+                {
+                    return Err(StoreReadError::Corrupt(format!(
+                        "catalog verification failed: {key}"
+                    ))
+                    .into());
+                }
+                continue;
+            }
+            if let Some(segment) = path
+                .parent()
+                .filter(|parent| *parent == segment_directory)
+                .and_then(|_| {
+                    let name = path.file_name()?.to_str()?;
+                    segments.iter().find(|segment| segment.name == name)
+                })
+            {
+                if segment.length != record.length {
+                    return Err(StoreReadError::Corrupt(format!(
+                        "segment verification length mismatch: {key}"
+                    ))
+                    .into());
+                }
+                let digest = segment
+                    .reader
+                    .whole_file_digest()
+                    .map_err(|message| StoreReadError::Corrupt(format!("{key}: {message}")))?;
+                if digest.as_slice() != expected {
+                    return Err(StoreReadError::Corrupt(format!(
+                        "segment verification digest mismatch: {key}"
+                    ))
+                    .into());
+                }
+                continue;
+            }
+            verify_regular_file(&path, &record.length, &expected, key)?;
+        }
+        Ok(())
     }
 
     fn generation_directory(&self, generation: u64) -> PathBuf {
@@ -652,228 +699,6 @@ impl ManagedStore {
             .join(format!("{generation:016x}"))
     }
 
-    /// Called only after the complete generation has decoded successfully.
-    /// A newer publication wins; this metadata-only write never creates a
-    /// second generation directory.
-    pub(crate) fn record_validation_stamps(
-        &self,
-        generation: u64,
-        segments: &[(String, u64, u32)],
-    ) -> Result<bool, StoreReadError> {
-        let lock = self.open_lock_read()?;
-        lock.try_lock().map_err(|error| match error {
-            fs::TryLockError::WouldBlock => {
-                StoreReadError::Conflict("stamp writer lock is held".into())
-            }
-            fs::TryLockError::Error(source) => StoreReadError::Io {
-                path: self.directory.join(LOCK_NAME),
-                source,
-            },
-        })?;
-        let Some(mut manifest) = self.read_manifest_typed()? else {
-            return Ok(false);
-        };
-        if manifest.generation != generation || manifest.version != MANIFEST_VERSION {
-            return Ok(false);
-        }
-        let directory = self.generation_directory(generation).join("segments");
-        let mut changed = false;
-        for (name, length, version) in segments {
-            if *version != VALIDATOR_VERSION {
-                continue;
-            }
-            let Some(record) = manifest
-                .segments
-                .iter_mut()
-                .find(|record| record.name == *name && record.length == *length)
-            else {
-                return Err(StoreReadError::Conflict(format!(
-                    "validated segment changed: {name}"
-                )));
-            };
-            let path = directory.join(name);
-            let file = open_regular_nofollow_read(&path)?;
-            if file
-                .metadata()
-                .map_err(|source| StoreReadError::Io {
-                    path: path.clone(),
-                    source,
-                })?
-                .len()
-                != *length
-            {
-                return Err(StoreReadError::Corrupt(format!(
-                    "validated segment length changed: {name}"
-                )));
-            }
-            if record.validation_version != VALIDATOR_VERSION {
-                record.validation_version = VALIDATOR_VERSION;
-                changed = true;
-            }
-        }
-        if changed {
-            self.publish_manifest(&manifest, unique_nonce().map_err(StoreReadError::Resource)?)?;
-        }
-        Ok(changed)
-    }
-
-    #[cfg(test)]
-    fn migrate_flat_v1(&self) -> Result<(), StoreReadError> {
-        let lock = self
-            .open_lock_read()
-            .map_err(|error| StoreReadError::Incompatible(format!("v1 migration lock: {error}")))?;
-        lock.try_lock().map_err(|error| {
-            StoreReadError::Incompatible(format!("v1 migration writer lock: {error}"))
-        })?;
-        if let Some(manifest) = self.read_manifest_typed()?
-            && manifest.version == 1
-        {
-            self.migrate_flat_v1_locked(&manifest)?;
-        }
-        Ok(())
-    }
-
-    /// The caller holds the exclusive writer lock. A v1 manifest remains
-    /// authoritative until every linked file and the v2 directory are durable.
-    fn migrate_flat_v1_locked(&self, old: &Manifest) -> Result<(), StoreReadError> {
-        let migrate = || -> Result<(), StoreReadError> {
-            let root = self.directory.join(GENERATIONS_DIR);
-            create_private_directory(&root).map_err(|error| store_write_io(&root, error))?;
-            check_owned_directory(
-                &root,
-                &fs::symlink_metadata(&root).map_err(|source| StoreReadError::Io {
-                    path: root.clone(),
-                    source,
-                })?,
-            )
-            .map_err(StoreReadError::Corrupt)?;
-            let nonce = unique_nonce().map_err(StoreReadError::Resource)?;
-            let temporary = root.join(format!(".tmp-{:016x}-{nonce:016x}", old.generation));
-            create_private_directory_new(&temporary)
-                .map_err(|error| store_write_io(&temporary, error))?;
-            let result = (|| -> Result<(), StoreReadError> {
-                let segments = temporary.join("segments");
-                create_private_directory_new(&segments)
-                    .map_err(|error| store_write_io(&segments, error))?;
-                for record in &old.segments {
-                    let source = self.directory.join(&record.name);
-                    let file = open_regular_nofollow_read(&source)?;
-                    if file
-                        .metadata()
-                        .map_err(|source_error| StoreReadError::Io {
-                            path: source.clone(),
-                            source: source_error,
-                        })?
-                        .len()
-                        != record.length
-                    {
-                        return Err(StoreReadError::Corrupt(format!(
-                            "v1 segment length changed: {}",
-                            record.name
-                        )));
-                    }
-                    SegmentReader::from_index_file_typed(&file)
-                        .map_err(|error| segment_open_store_error(&source, error))?
-                        .require_complete_sections()
-                        .map_err(StoreReadError::Corrupt)?;
-                    let target = segments.join(&record.name);
-                    fs::hard_link(&source, &target).map_err(|source| StoreReadError::Io {
-                        path: target,
-                        source,
-                    })?;
-                    let linked = open_regular_nofollow_read(&segments.join(&record.name))?;
-                    if linked
-                        .metadata()
-                        .map_err(|source_error| StoreReadError::Io {
-                            path: segments.join(&record.name),
-                            source: source_error,
-                        })?
-                        .len()
-                        != record.length
-                    {
-                        return Err(StoreReadError::Corrupt(
-                            "linked v1 segment length changed".into(),
-                        ));
-                    }
-                }
-                if let Some(catalog) = &old.catalog {
-                    let source = self.directory.join(&catalog.name);
-                    let file = open_regular_nofollow_read(&source)?;
-                    if file
-                        .metadata()
-                        .map_err(|source_error| StoreReadError::Io {
-                            path: source.clone(),
-                            source: source_error,
-                        })?
-                        .len()
-                        != catalog.length
-                    {
-                        return Err(StoreReadError::Corrupt("v1 catalog length changed".into()));
-                    }
-                    let mut bytes = Vec::new();
-                    file.take(catalog.length + 1)
-                        .read_to_end(&mut bytes)
-                        .map_err(|source_error| StoreReadError::Io {
-                            path: source.clone(),
-                            source: source_error,
-                        })?;
-                    if Sha256::digest(&bytes).as_slice() != catalog.sha256 {
-                        return Err(StoreReadError::Corrupt(
-                            "v1 catalog checksum mismatch".into(),
-                        ));
-                    }
-                    let target = temporary.join(CATALOG_NAME);
-                    fs::hard_link(&source, &target).map_err(|source| StoreReadError::Io {
-                        path: target,
-                        source,
-                    })?;
-                    open_regular_nofollow_read(&temporary.join(CATALOG_NAME))?;
-                }
-                sync_directory(&segments).map_err(|error| store_write_io(&segments, error))?;
-                sync_directory(&temporary).map_err(|error| store_write_io(&temporary, error))?;
-                let final_directory = self.generation_directory(old.generation);
-                let existing = match fs::symlink_metadata(&final_directory) {
-                    Ok(_) => true,
-                    Err(error) if error.kind() == io::ErrorKind::NotFound => false,
-                    Err(source) => {
-                        return Err(StoreReadError::Io {
-                            path: final_directory.clone(),
-                            source,
-                        });
-                    }
-                };
-                if existing {
-                    remove_generation_checked(&final_directory).map_err(StoreReadError::Corrupt)?;
-                }
-                fs::rename(&temporary, &final_directory).map_err(|source| StoreReadError::Io {
-                    path: final_directory,
-                    source,
-                })?;
-                sync_directory(&root).map_err(|error| store_write_io(&root, error))?;
-                let mut next = old.clone();
-                next.version = MANIFEST_VERSION;
-                if let Some(catalog) = &mut next.catalog {
-                    catalog.name = CATALOG_NAME.into();
-                }
-                for record in &mut next.segments {
-                    record.validation_version = 0;
-                }
-                self.publish_manifest(&next, nonce)?;
-                let mut stats = CommitStats::default();
-                let _ = self.reclaim_orphans(None, &mut stats);
-                Ok(())
-            })();
-            if result.is_err() && temporary.exists() {
-                let _ = fs::remove_dir_all(&temporary);
-            }
-            result
-        };
-        migrate()
-            .map_err(|error| StoreReadError::Incompatible(format!("v1 migration failed: {error}")))
-    }
-
-    /// Write only new immutable segments, then atomically replace the small
-    /// manifest. Existing entries must belong to the current generation.
     #[cfg(test)]
     pub(crate) fn commit_generation(
         &self,
@@ -886,7 +711,7 @@ impl ManagedStore {
     }
 
     /// Publish an immutable catalog sidecar in the same atomic manifest step
-    /// as the segment list. Segment record slots reference its metadata table.
+    /// as the segment directory.
     #[cfg(test)]
     pub(crate) fn commit_generation_with_catalog(
         &self,
@@ -906,7 +731,7 @@ impl ManagedStore {
         inputs: &[SegmentInput<'_>],
         catalog: Arc<[u8]>,
     ) -> Result<CommitStats, StoreReadError> {
-        if !catalog.starts_with(b"OBJHCAT1") || catalog.len() > MAX_CATALOG_BYTES {
+        if !catalog.starts_with(CATALOG_MAGIC) || catalog.len() > MAX_CATALOG_BYTES {
             return Err(StoreReadError::Corrupt(
                 "generation catalog byte length invalid".into(),
             ));
@@ -936,11 +761,11 @@ impl ManagedStore {
                 source,
             },
         })?;
-        let mut previous = self.read_manifest_typed()?;
-        if previous.as_ref().is_some_and(|entry| entry.version == 1) {
-            self.migrate_flat_v1_locked(previous.as_ref().unwrap())?;
-            previous = self.read_manifest_typed()?;
-        }
+        let previous = match self.read_manifest_typed() {
+            Ok(previous) => previous,
+            Err(StoreReadError::Incompatible(_)) => None,
+            Err(error) => return Err(error),
+        };
         if previous.as_ref().map(|old| old.generation) != expected_generation {
             return Err(StoreReadError::Conflict(
                 "durable generation changed during publication".into(),
@@ -954,20 +779,15 @@ impl ManagedStore {
                 "generation must advance monotonically".into(),
             ));
         }
-        let previous_names = previous
-            .as_ref()
-            .map(|old| {
-                old.segments
-                    .iter()
-                    .map(|segment| segment.name.as_str())
-                    .collect::<HashSet<_>>()
-            })
-            .unwrap_or_default();
+        let generation_path = format!("{GENERATIONS_DIR}/{generation:016x}");
         let mut next = Manifest {
-            version: MANIFEST_VERSION,
+            version: crate::PROGRAM_VERSION,
             generation,
+            repository: encode_hex(&self.repository_identity),
+            configuration: encode_hex(&self.configuration_identity),
+            segments: format!("{generation_path}/segments"),
             catalog: None,
-            segments: Vec::with_capacity(inputs.len()),
+            verify: BTreeMap::new(),
         };
         let mut stats = CommitStats::default();
         let generations = self.directory.join(GENERATIONS_DIR);
@@ -984,7 +804,7 @@ impl ManagedStore {
         let target = self.generation_directory(generation);
         let target_present = match fs::symlink_metadata(&target) {
             Ok(_) => true,
-            Err(error) if error.kind() == io::ErrorKind::NotFound => false,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => false,
             Err(source) => {
                 return Err(StoreReadError::Io {
                     path: target.clone(),
@@ -993,9 +813,6 @@ impl ManagedStore {
             }
         };
         if target_present {
-            // A format rebuild may reuse a revision number that belonged to
-            // an older pinned reader. Retire the prior directory through the
-            // ordinary aged-orphan path instead of unlinking its files here.
             retire_generation_checked(&target).map_err(StoreReadError::Corrupt)?;
             stats.orphan_generations_removed += 1;
             sync_directory(&generations).map_err(|error| store_write_io(&generations, error))?;
@@ -1009,8 +826,7 @@ impl ManagedStore {
             .map_err(|error| store_write_io(&segment_directory, error))?;
         let build_result = (|| -> Result<(), StoreReadError> {
             if let Some(catalog) = catalog {
-                let name = CATALOG_NAME.to_string();
-                let path = temporary.join(&name);
+                let path = temporary.join(CATALOG_NAME);
                 let mut file =
                     create_private_new(&path).map_err(|error| store_write_io(&path, error))?;
                 file.write_all(&catalog)
@@ -1022,152 +838,41 @@ impl ManagedStore {
                     path: path.clone(),
                     source,
                 })?;
-                next.catalog = Some(CatalogRecord {
-                    name,
-                    length: catalog.len() as u64,
-                    sha256: Sha256::digest(&catalog).into(),
-                });
+                next.catalog = Some(format!("{generation_path}/{CATALOG_NAME}"));
             }
+            let mut names = Vec::with_capacity(inputs.len());
+            let mut identities = HashSet::with_capacity(inputs.len());
             for (index, input) in inputs.iter().enumerate() {
-                match input {
-                    SegmentInput::Existing { name, active } => {
-                        if !previous_names.contains(name) {
-                            return Err(StoreReadError::Conflict(format!(
-                                "segment is not in durable generation: {name}"
-                            )));
-                        }
-                        let mut record = previous
-                            .as_ref()
-                            .unwrap()
-                            .segments
-                            .iter()
-                            .find(|segment| segment.name == *name)
-                            .unwrap()
-                            .clone();
-                        let path = self
-                            .generation_directory(previous.as_ref().unwrap().generation)
-                            .join("segments")
-                            .join(&record.name);
-                        let file = open_regular_nofollow_read(&path)?;
-                        if file
-                            .metadata()
-                            .map_err(|source| StoreReadError::Io {
-                                path: path.clone(),
-                                source,
-                            })?
-                            .len()
-                            != record.length
-                        {
-                            return Err(StoreReadError::Corrupt(
-                                "reused segment length changed".into(),
-                            ));
-                        }
-                        SegmentReader::from_index_file_typed(&file)
-                            .map_err(|error| segment_open_store_error(&path, error))?
-                            .require_complete_sections()
-                            .map_err(StoreReadError::Corrupt)?;
-                        if active.slot_count() != record.active.slot_count() {
-                            return Err(StoreReadError::Corrupt(
-                                "reused segment active slot count changed".into(),
-                            ));
-                        }
-                        record.active = (*active).clone();
-                        let linked = segment_directory.join(&record.name);
-                        fs::hard_link(&path, &linked).map_err(|source| StoreReadError::Io {
-                            path: linked.clone(),
-                            source: io::Error::other(format!("hard link reused segment: {source}")),
-                        })?;
-                        let linked_file = open_regular_nofollow_read(&linked)?;
-                        if linked_file
-                            .metadata()
-                            .map_err(|source| StoreReadError::Io {
-                                path: linked.clone(),
-                                source,
-                            })?
-                            .len()
-                            != record.length
-                        {
-                            return Err(StoreReadError::Corrupt(
-                                "linked segment length changed".into(),
-                            ));
-                        }
-                        next.segments.push(record);
-                        stats.segments_reused += 1;
-                        stats.segment_links_created += 1;
-                    }
-                    #[cfg(test)]
-                    SegmentInput::New {
-                        bytes,
-                        collection,
-                        ordinal,
-                        active,
-                        origin,
-                    } => {
-                        let reader = SegmentReader::from_owned(Arc::clone(bytes))
-                            .map_err(StoreReadError::Corrupt)?;
-                        reader
-                            .require_complete_sections()
-                            .map_err(StoreReadError::Corrupt)?;
-                        let record = self.write_new_segment(
-                            &segment_directory,
-                            generation,
-                            index,
-                            nonce,
-                            *collection,
-                            *ordinal,
-                            active,
-                            *origin,
-                            &mut stats,
-                            |file| file.write_all(bytes).map_err(|error| error.to_string()),
-                        )?;
-                        next.segments.push(record);
-                    }
-                    SegmentInput::NewStream {
-                        collection,
-                        ordinal,
-                        active,
-                        origin,
-                        write,
-                    } => {
-                        let record = self.write_new_segment(
-                            &segment_directory,
-                            generation,
-                            index,
-                            nonce,
-                            *collection,
-                            *ordinal,
-                            active,
-                            *origin,
-                            &mut stats,
-                            |file| write(file),
-                        )?;
-                        next.segments.push(record);
-                    }
+                let SegmentInput::NewStream {
+                    collection,
+                    ordinal,
+                    active,
+                    origin,
+                    write,
+                } = input;
+                let metadata = SegmentWriteMetadata {
+                    generation,
+                    collection: *collection,
+                    ordinal: *ordinal,
+                    slot_count: active.slot_count(),
+                    active: Some(active),
+                    write_validated: *origin == SegmentOrigin::Validated,
+                };
+                if !identities.insert((*collection, *ordinal)) {
+                    return Err(StoreReadError::Corrupt(
+                        "duplicate segment identity in new generation".into(),
+                    ));
                 }
-            }
-            if next
-                .segments
-                .iter()
-                .map(|record| &record.name)
-                .collect::<HashSet<_>>()
-                .len()
-                != next.segments.len()
-            {
-                return Err(StoreReadError::Corrupt(
-                    "duplicate segment in new generation".into(),
-                ));
-            }
-            if next
-                .segments
-                .iter()
-                .map(|record| (record.collection, record.ordinal))
-                .collect::<HashSet<_>>()
-                .len()
-                != next.segments.len()
-            {
-                return Err(StoreReadError::Corrupt(
-                    "duplicate segment identity in new generation".into(),
-                ));
+                let name = self.write_new_segment(
+                    &segment_directory,
+                    generation,
+                    index,
+                    nonce,
+                    &metadata,
+                    &mut stats,
+                    |file| write(file, &metadata),
+                )?;
+                names.push(name);
             }
             sync_directory(&segment_directory)
                 .map_err(|error| store_write_io(&segment_directory, error))?;
@@ -1179,6 +884,7 @@ impl ManagedStore {
             })?;
             sync_directory(&generations).map_err(|error| store_write_io(&generations, error))?;
             self.publish_manifest(&next, nonce)?;
+            stats.segment_names = names;
             Ok(())
         })();
         if build_result.is_err() && temporary.exists() {
@@ -1186,11 +892,7 @@ impl ManagedStore {
         }
         build_result?;
         self.reclaim_generations(generation, &mut stats);
-        stats.segment_names = next
-            .segments
-            .iter()
-            .map(|record| record.name.clone())
-            .collect();
+        self.reclaim_orphans(&mut stats);
         Ok(stats)
     }
 
@@ -1200,14 +902,11 @@ impl ManagedStore {
         generation: u64,
         index: usize,
         nonce: u64,
-        collection: CollectionId,
-        ordinal: u64,
-        active: &ActiveRecords,
-        origin: SegmentOrigin,
+        metadata: &SegmentWriteMetadata<'_>,
         stats: &mut CommitStats,
         write: impl FnOnce(&mut File) -> Result<(), String>,
-    ) -> Result<SegmentRecord, StoreReadError> {
-        if ordinal == 0 {
+    ) -> Result<String, StoreReadError> {
+        if metadata.ordinal == 0 {
             return Err(StoreReadError::Corrupt(
                 "segment ordinal must be nonzero".into(),
             ));
@@ -1233,6 +932,28 @@ impl ManagedStore {
             reader
                 .require_complete_sections()
                 .map_err(StoreReadError::Corrupt)?;
+            let descriptor = reader
+                .descriptor()
+                .ok_or_else(|| StoreReadError::Corrupt("new segment header missing".into()))?;
+            if descriptor.generation != metadata.generation
+                || descriptor.collection != metadata.collection
+                || descriptor.ordinal != metadata.ordinal
+                || descriptor.slot_count != metadata.slot_count
+                || descriptor.active.bitmap()
+                    != metadata
+                        .active
+                        .map(ActiveRecords::bitmap)
+                        .unwrap_or_else(|| {
+                            ActiveRecords::all(metadata.slot_count as usize)
+                                .expect("validated slot count")
+                                .bitmap()
+                        })
+                || descriptor.write_validated != metadata.write_validated
+            {
+                return Err(StoreReadError::Corrupt(
+                    "new segment identity differs from its writer metadata".into(),
+                ));
+            }
             Ok::<u64, StoreReadError>(length)
         })();
         drop(file);
@@ -1247,28 +968,21 @@ impl ManagedStore {
             }
         };
         stats.segment_bytes_written = stats.segment_bytes_written.saturating_add(length);
-        Ok(SegmentRecord {
-            name,
-            length,
-            collection,
-            ordinal,
-            validation_version: if origin == SegmentOrigin::Unvalidated {
-                0
-            } else {
-                VALIDATOR_VERSION
-            },
-            active: active.clone(),
-        })
+        Ok(name)
     }
 
     fn publish_manifest(&self, manifest: &Manifest, nonce: u64) -> Result<(), StoreReadError> {
-        let bytes = self
-            .encode_manifest(manifest)
-            .map_err(StoreReadError::Corrupt)?;
+        let text = toml::to_string_pretty(manifest)
+            .map_err(|error| StoreReadError::Corrupt(format!("manifest encode: {error}")))?;
+        if text.len() > MAX_MANIFEST_BYTES {
+            return Err(StoreReadError::Corrupt(
+                "manifest exceeds size limit".into(),
+            ));
+        }
         let temporary = self.directory.join(format!("manifest-{nonce:016x}.tmp"));
         let mut file =
             create_private_new(&temporary).map_err(|error| store_write_io(&temporary, error))?;
-        file.write_all(&bytes)
+        file.write_all(text.as_bytes())
             .map_err(|source| StoreReadError::Io {
                 path: temporary.clone(),
                 source,
@@ -1389,50 +1103,60 @@ impl ManagedStore {
         }
     }
 
-    fn reclaim_orphans(
-        &self,
-        current: Option<&Manifest>,
-        stats: &mut CommitStats,
-    ) -> Result<(), String> {
-        let referenced = current
-            .map(|manifest| {
-                manifest
-                    .segments
-                    .iter()
-                    .map(|entry| entry.name.as_str())
-                    .collect::<HashSet<_>>()
-            })
-            .unwrap_or_default();
-        let referenced_catalog = current
-            .and_then(|manifest| manifest.catalog.as_ref())
-            .map(|record| record.name.as_str());
-        for entry in fs::read_dir(&self.directory).map_err(|error| error.to_string())? {
-            let entry = entry.map_err(|error| error.to_string())?;
+    /// Remove only recognized temporary manifests and obsolete flat-format
+    /// artifacts directly inside the managed store. Unknown files are kept.
+    fn reclaim_orphans(&self, stats: &mut CommitStats) {
+        let entries = match fs::read_dir(&self.directory) {
+            Ok(entries) => entries,
+            Err(error) => {
+                stats.reclaim_errors.push(format!("orphan scan: {error}"));
+                return;
+            }
+        };
+        for entry in entries.flatten() {
             let name = entry.file_name();
             let Some(name) = name.to_str() else { continue };
-            let expected_magic = if valid_segment_name(name) && !referenced.contains(name) {
-                b"OBJHSEG1".as_slice()
-            } else if valid_catalog_name(name) && Some(name) != referenced_catalog {
-                b"OBJHCAT1".as_slice()
-            } else if valid_temporary_manifest_name(name) {
-                MANIFEST_MAGIC.as_slice()
+            let temporary_manifest = valid_temporary_manifest_name(name);
+            let expected_magic: Option<&[u8; 8]> = if name == LEGACY_MANIFEST_NAME {
+                Some(LEGACY_MANIFEST_MAGIC)
+            } else if valid_segment_name(name) {
+                Some(SEGMENT_MAGIC)
+            } else if name.starts_with("catalog-") && name.ends_with(".bin") {
+                Some(CATALOG_MAGIC)
+            } else if temporary_manifest {
+                None
             } else {
                 continue;
             };
             let path = entry.path();
-            let metadata = fs::symlink_metadata(&path).map_err(|error| error.to_string())?;
+            let metadata = match fs::symlink_metadata(&path) {
+                Ok(metadata) => metadata,
+                Err(error) => {
+                    stats
+                        .reclaim_errors
+                        .push(format!("{}: {error}", path.display()));
+                    continue;
+                }
+            };
             if !metadata.is_file()
                 || metadata.file_type().is_symlink()
                 || !owned_by_current_user(&metadata)
             {
                 continue;
             }
-            let mut file = open_regular_nofollow(&path)?;
-            let mut magic = [0u8; 8];
-            if file.read_exact(&mut magic).is_err() || magic != expected_magic {
-                continue;
+            if let Some(expected_magic) = expected_magic {
+                let mut file = match open_regular_nofollow(&path) {
+                    Ok(file) => file,
+                    Err(error) => {
+                        stats.reclaim_errors.push(error);
+                        continue;
+                    }
+                };
+                let mut magic = [0u8; 8];
+                if file.read_exact(&mut magic).is_err() || &magic != expected_magic {
+                    continue;
+                }
             }
-            drop(file);
             match fs::remove_file(&path) {
                 Ok(()) => stats.orphan_files_reclaimed += 1,
                 Err(error) => stats
@@ -1440,7 +1164,6 @@ impl ManagedStore {
                     .push(format!("{}: {error}", path.display())),
             }
         }
-        Ok(())
     }
 
     #[cfg(test)]
@@ -1481,7 +1204,23 @@ impl ManagedStore {
     fn read_manifest_typed(&self) -> Result<Option<Manifest>, StoreReadError> {
         let path = self.directory.join(MANIFEST_NAME);
         match fs::symlink_metadata(&path) {
-            Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                let legacy = self.directory.join(LEGACY_MANIFEST_NAME);
+                match fs::symlink_metadata(&legacy) {
+                    Ok(_) => {
+                        return Err(StoreReadError::Incompatible(
+                            "obsolete binary manifest requires an index rebuild".into(),
+                        ));
+                    }
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+                    Err(source) => {
+                        return Err(StoreReadError::Io {
+                            path: legacy,
+                            source,
+                        });
+                    }
+                }
+            }
             Err(source) => return Err(StoreReadError::Io { path, source }),
             Ok(_) => {}
         }
@@ -1498,41 +1237,57 @@ impl ManagedStore {
                 "manifest exceeds size limit".into(),
             ));
         }
-        self.decode_manifest(&bytes).map(Some).map_err(|message| {
-            if message.starts_with("unsupported manifest")
-                || message.contains("configuration identity mismatch")
-                || message.contains("repository root mismatch")
-            {
-                StoreReadError::Incompatible(message)
-            } else {
-                StoreReadError::Corrupt(message)
-            }
-        })
+        let text = std::str::from_utf8(&bytes)
+            .map_err(|_| StoreReadError::Corrupt("manifest is not UTF-8".into()))?;
+        let manifest: Manifest = toml::from_str(text)
+            .map_err(|error| StoreReadError::Corrupt(format!("manifest parse: {error}")))?;
+        if manifest.version != crate::PROGRAM_VERSION {
+            return Err(StoreReadError::Incompatible(format!(
+                "unsupported program version {}",
+                manifest.version
+            )));
+        }
+        if manifest.generation == 0 {
+            return Err(StoreReadError::Corrupt(
+                "manifest generation must be nonzero".into(),
+            ));
+        }
+        let repository = decode_sha256(&manifest.repository).map_err(|message| {
+            StoreReadError::Corrupt(format!("repository identity: {message}"))
+        })?;
+        let configuration = decode_sha256(&manifest.configuration).map_err(|message| {
+            StoreReadError::Corrupt(format!("configuration identity: {message}"))
+        })?;
+        if repository != self.repository_identity || configuration != self.configuration_identity {
+            return Err(StoreReadError::Incompatible(
+                "manifest repository or configuration identity mismatch".into(),
+            ));
+        }
+        manifest_relative_path(&manifest.segments, "segments").map_err(StoreReadError::Corrupt)?;
+        if let Some(catalog) = &manifest.catalog {
+            manifest_relative_path(catalog, "catalog").map_err(StoreReadError::Corrupt)?;
+        }
+        for (key, record) in &manifest.verify {
+            manifest_relative_path(key, "verify entry").map_err(StoreReadError::Corrupt)?;
+            decode_sha256(&record.sha256).map_err(|message| {
+                StoreReadError::Corrupt(format!("verify entry {key}: {message}"))
+            })?;
+        }
+        Ok(Some(manifest))
     }
 
-    fn read_catalog_typed(
-        &self,
-        directory: &Path,
-        record: &CatalogRecord,
-    ) -> Result<Arc<[u8]>, OpenGenerationError> {
-        let path = directory.join(&record.name);
-        let file = open_generation_file(&path)?;
-        if file
+    fn read_catalog_typed(&self, path: &Path) -> Result<Arc<[u8]>, OpenGenerationError> {
+        let file = open_generation_file(path)?;
+        let length = file
             .metadata()
             .map_err(|source| StoreReadError::Io {
-                path: path.clone(),
+                path: path.to_path_buf(),
                 source,
             })?
-            .len()
-            != record.length
-        {
-            return Err(
-                StoreReadError::Corrupt("generation catalog length mismatch".into()).into(),
-            );
-        }
-        let length = usize::try_from(record.length)
+            .len();
+        let length = usize::try_from(length)
             .map_err(|_| StoreReadError::Corrupt("catalog too large".into()))?;
-        if length == 0 || length > MAX_CATALOG_BYTES {
+        if length < 8 || length > MAX_CATALOG_BYTES {
             return Err(
                 StoreReadError::Corrupt("generation catalog byte length invalid".into()).into(),
             );
@@ -1544,257 +1299,128 @@ impl ManagedStore {
         file.take((length + 1) as u64)
             .read_to_end(&mut bytes)
             .map_err(|source| StoreReadError::Io {
-                path: path.clone(),
+                path: path.to_path_buf(),
                 source,
             })?;
-        if bytes.len() != length || Sha256::digest(&bytes).as_slice() != record.sha256 {
+        if bytes.len() != length {
             return Err(
-                StoreReadError::Corrupt("generation catalog checksum mismatch".into()).into(),
+                StoreReadError::Corrupt("generation catalog length mismatch".into()).into(),
             );
+        }
+        if !bytes.starts_with(CATALOG_MAGIC) {
+            return Err(StoreReadError::Corrupt(
+                "generation catalog file type marker mismatch".into(),
+            )
+            .into());
         }
         Ok(Arc::from(bytes))
     }
+}
 
-    fn encode_manifest(&self, manifest: &Manifest) -> Result<Vec<u8>, String> {
-        if self.root_bytes.len() > u32::MAX as usize {
-            return Err("repository root path too long".into());
-        }
-        let mut bytes = Vec::with_capacity(256 + manifest.segments.len() * 64);
-        bytes.extend_from_slice(MANIFEST_MAGIC);
-        bytes.extend_from_slice(&MANIFEST_VERSION.to_le_bytes());
-        bytes.extend_from_slice(&FORMAT_VERSION.to_le_bytes());
-        bytes.extend_from_slice(&crate::MODEL_VERSION.to_le_bytes());
-        bytes.extend_from_slice(&self.repository_identity);
-        bytes.extend_from_slice(&self.configuration_identity);
-        bytes.extend_from_slice(&(self.root_bytes.len() as u32).to_le_bytes());
-        bytes.extend_from_slice(&self.root_bytes);
-        bytes.extend_from_slice(&manifest.generation.to_le_bytes());
-        if let Some(catalog) = &manifest.catalog {
-            if catalog.name != CATALOG_NAME
-                || catalog.length == 0
-                || catalog.length > MAX_CATALOG_BYTES as u64
-            {
-                return Err("manifest catalog record invalid".into());
-            }
-            bytes.push(1);
-            bytes.extend_from_slice(&(catalog.name.len() as u16).to_le_bytes());
-            bytes.extend_from_slice(catalog.name.as_bytes());
-            bytes.extend_from_slice(&catalog.length.to_le_bytes());
-            bytes.extend_from_slice(&catalog.sha256);
-        } else {
-            bytes.push(0);
-        }
-        bytes.extend_from_slice(&(manifest.segments.len() as u32).to_le_bytes());
-        for record in &manifest.segments {
-            if !valid_segment_name(&record.name) {
-                return Err("invalid segment filename".into());
-            }
-            bytes.extend_from_slice(&(record.name.len() as u16).to_le_bytes());
-            bytes.extend_from_slice(record.name.as_bytes());
-            bytes.extend_from_slice(&record.length.to_le_bytes());
-            bytes.extend_from_slice(&record.collection.0.to_le_bytes());
-            bytes.extend_from_slice(&record.ordinal.to_le_bytes());
-            bytes.extend_from_slice(&record.validation_version.to_le_bytes());
-            bytes.extend_from_slice(&record.active.slot_count().to_le_bytes());
-            bytes.extend_from_slice(
-                &u32::try_from(record.active.len())
-                    .map_err(|_| "active cardinality too large")?
-                    .to_le_bytes(),
-            );
-            if record.active.len() == record.active.slot_count() as u64 {
-                bytes.push(0);
-            } else {
-                bytes.push(1);
-                let mask = record.active.bitmap();
-                let length =
-                    u32::try_from(mask.serialized_size()).map_err(|_| "active mask too large")?;
-                bytes.extend_from_slice(&length.to_le_bytes());
-                mask.serialize_into(&mut bytes)
-                    .map_err(|error| format!("active mask encode: {error}"))?;
-            }
-        }
-        let digest = Sha256::digest(&bytes);
-        bytes.extend_from_slice(&digest);
-        if bytes.len() > MAX_MANIFEST_BYTES {
-            return Err("manifest exceeds size limit".into());
-        }
-        Ok(bytes)
-    }
-
-    fn decode_manifest(&self, bytes: &[u8]) -> Result<Manifest, String> {
-        self.decode_manifest_with_format(bytes, FORMAT_VERSION)
-    }
-
-    fn decode_manifest_with_format(&self, bytes: &[u8], format: u32) -> Result<Manifest, String> {
-        if bytes.len() < 8 + 4 + 4 + 32 + 32 + 4 + 8 + 4 + 32 {
-            return Err("manifest truncated".into());
-        }
-        let payload_end = bytes.len() - 32;
-        if Sha256::digest(&bytes[..payload_end]).as_slice() != &bytes[payload_end..] {
-            return Err("manifest checksum mismatch".into());
-        }
-        let mut cursor = SliceCursor::new(&bytes[..payload_end]);
-        if cursor.take(8)? != MANIFEST_MAGIC {
-            return Err("manifest magic mismatch".into());
-        }
-        let version = cursor.u32()?;
-        if version != 1 && version != MANIFEST_VERSION {
-            return Err("unsupported manifest version".into());
-        }
-        if version == MANIFEST_VERSION && cursor.u32()? != format {
-            return Err("unsupported manifest segment format version".into());
-        }
-        if cursor.u32()? != crate::MODEL_VERSION {
-            return Err("unsupported manifest model version".into());
-        }
-        if cursor.take(32)? != self.repository_identity
-            || cursor.take(32)? != self.configuration_identity
+fn verify_regular_file(
+    path: &Path,
+    expected_length: &u64,
+    expected_digest: &[u8; 32],
+    key: &str,
+) -> Result<(), OpenGenerationError> {
+    let mut file = match open_regular_nofollow_read(path) {
+        Ok(file) => file,
+        Err(StoreReadError::Corrupt(message))
+            if message.starts_with("missing referenced store file:") =>
         {
-            return Err("manifest repository or configuration identity mismatch".into());
+            return Err(
+                StoreReadError::Corrupt(format!("verification target missing: {key}")).into(),
+            );
         }
-        let root_len = cursor.u32()? as usize;
-        if cursor.take(root_len)? != self.root_bytes {
-            return Err("manifest repository root mismatch".into());
-        }
-        let generation = cursor.u64()?;
-        let catalog = match cursor.u8()? {
-            0 => None,
-            1 => {
-                let name_len = cursor.u16()? as usize;
-                let name = std::str::from_utf8(cursor.take(name_len)?)
-                    .map_err(|_| "catalog name is not UTF-8")?
-                    .to_owned();
-                let length = cursor.u64()?;
-                let sha256: [u8; 32] = cursor.take(32)?.try_into().unwrap();
-                if !(if version == 1 {
-                    valid_catalog_name(&name)
-                } else {
-                    name == CATALOG_NAME
-                }) || length == 0
-                    || length > MAX_CATALOG_BYTES as u64
-                {
-                    return Err("manifest catalog record invalid".into());
-                }
-                Some(CatalogRecord {
-                    name,
-                    length,
-                    sha256,
-                })
-            }
-            _ => return Err("manifest catalog marker invalid".into()),
-        };
-        let count = cursor.u32()? as usize;
-        if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 35 {
-            return Err("manifest generation or segment count invalid".into());
-        }
-        let mut segments = Vec::with_capacity(count);
-        let mut names = HashSet::with_capacity(count);
-        let mut identities = HashSet::with_capacity(count);
-        for _ in 0..count {
-            let name_len = cursor.u16()? as usize;
-            let name = std::str::from_utf8(cursor.take(name_len)?)
-                .map_err(|_| "segment name is not UTF-8")?
-                .to_owned();
-            let length = cursor.u64()?;
-            let collection = CollectionId(cursor.u32()?);
-            let ordinal = cursor.u64()?;
-            let validation_version = if version == MANIFEST_VERSION {
-                cursor.u32()?
-            } else {
-                0
-            };
-            if !valid_segment_name(&name) || length == 0 || !names.insert(name.clone()) {
-                return Err("manifest segment entry invalid".into());
-            }
-            if ordinal == 0 || !identities.insert((collection, ordinal)) {
-                return Err("manifest segment identity invalid".into());
-            }
-            let slot_count = cursor.u32()?;
-            let live_count = cursor.u32()?;
-            if live_count > slot_count {
-                return Err("manifest active cardinality exceeds slot count".into());
-            }
-            let active = match cursor.u8()? {
-                0 if live_count == slot_count => ActiveRecords::all(slot_count as usize)?,
-                1 if live_count < slot_count => {
-                    let length = cursor.u32()? as usize;
-                    if length == 0 || length > cursor.remaining() {
-                        return Err("manifest active mask length invalid".into());
-                    }
-                    let bytes = cursor.take(length)?;
-                    let mut reader = std::io::Cursor::new(bytes);
-                    let mask = RoaringBitmap::deserialize_from(&mut reader)
-                        .map_err(|error| format!("manifest active mask invalid: {error}"))?;
-                    if reader.position() != length as u64 || mask.len() != live_count as u64 {
-                        return Err("manifest active mask cardinality mismatch".into());
-                    }
-                    ActiveRecords::from_bitmap(slot_count as usize, mask)?
-                }
-                _ => return Err("manifest active mask kind invalid".into()),
-            };
-            segments.push(SegmentRecord {
-                name,
-                length,
-                collection,
-                ordinal,
-                validation_version,
-                active,
-            });
-        }
-        if cursor.remaining() != 0 {
-            return Err("manifest trailing bytes".into());
-        }
-        Ok(Manifest {
-            version,
-            generation,
-            catalog,
-            segments,
-        })
+        Err(error) => return Err(error.into()),
+    };
+    let length = file
+        .metadata()
+        .map_err(|source| StoreReadError::Io {
+            path: path.to_path_buf(),
+            source,
+        })?
+        .len();
+    if length != *expected_length {
+        return Err(StoreReadError::Corrupt(format!("verification length mismatch: {key}")).into());
     }
+    let mut hash = Sha256::new();
+    let mut buffer = [0u8; 64 * 1024];
+    let mut total = 0u64;
+    loop {
+        let read = file
+            .read(&mut buffer)
+            .map_err(|source| StoreReadError::Io {
+                path: path.to_path_buf(),
+                source,
+            })?;
+        if read == 0 {
+            break;
+        }
+        total = total.saturating_add(read as u64);
+        if total > *expected_length {
+            return Err(
+                StoreReadError::Corrupt(format!("verification length changed: {key}")).into(),
+            );
+        }
+        hash.update(&buffer[..read]);
+    }
+    if total != *expected_length || hash.finalize().as_slice() != expected_digest {
+        return Err(StoreReadError::Corrupt(format!("verification digest mismatch: {key}")).into());
+    }
+    Ok(())
 }
 
-struct SliceCursor<'a> {
-    bytes: &'a [u8],
-    position: usize,
+fn manifest_relative_path(value: &str, context: &str) -> Result<PathBuf, String> {
+    if value.is_empty() {
+        return Err(format!("manifest {context} path is empty"));
+    }
+    let path = Path::new(value);
+    if path.is_absolute() {
+        return Err(format!("manifest {context} path is absolute"));
+    }
+    let mut normalized = PathBuf::new();
+    for component in path.components() {
+        match component {
+            Component::Normal(part) => normalized.push(part),
+            Component::CurDir
+            | Component::ParentDir
+            | Component::RootDir
+            | Component::Prefix(_) => {
+                return Err(format!(
+                    "manifest {context} path is not normalized: {value}"
+                ));
+            }
+        }
+    }
+    if normalized.as_os_str().is_empty() || path != normalized.as_path() {
+        return Err(format!(
+            "manifest {context} path is not normalized: {value}"
+        ));
+    }
+    Ok(normalized)
 }
 
-impl<'a> SliceCursor<'a> {
-    fn new(bytes: &'a [u8]) -> Self {
-        Self { bytes, position: 0 }
+fn decode_sha256(value: &str) -> Result<[u8; 32], String> {
+    if value.len() != 64 || !value.bytes().all(|byte| byte.is_ascii_hexdigit()) {
+        return Err("expected 64 hexadecimal characters".into());
     }
+    let mut bytes = [0u8; 32];
+    for (index, byte) in bytes.iter_mut().enumerate() {
+        *byte = u8::from_str_radix(&value[index * 2..index * 2 + 2], 16)
+            .map_err(|_| "invalid hexadecimal digest".to_string())?;
+    }
+    Ok(bytes)
+}
 
-    fn remaining(&self) -> usize {
-        self.bytes.len() - self.position
+fn encode_hex(bytes: &[u8]) -> String {
+    const DIGITS: &[u8; 16] = b"0123456789abcdef";
+    let mut text = String::with_capacity(bytes.len() * 2);
+    for &byte in bytes {
+        text.push(DIGITS[(byte >> 4) as usize] as char);
+        text.push(DIGITS[(byte & 15) as usize] as char);
     }
-
-    fn take(&mut self, len: usize) -> Result<&'a [u8], String> {
-        let end = self
-            .position
-            .checked_add(len)
-            .ok_or("manifest offset overflow")?;
-        let bytes = self
-            .bytes
-            .get(self.position..end)
-            .ok_or("manifest truncated")?;
-        self.position = end;
-        Ok(bytes)
-    }
-
-    fn u16(&mut self) -> Result<u16, String> {
-        Ok(u16::from_le_bytes(self.take(2)?.try_into().unwrap()))
-    }
-
-    fn u8(&mut self) -> Result<u8, String> {
-        Ok(self.take(1)?[0])
-    }
-
-    fn u32(&mut self) -> Result<u32, String> {
-        Ok(u32::from_le_bytes(self.take(4)?.try_into().unwrap()))
-    }
-
-    fn u64(&mut self) -> Result<u64, String> {
-        Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
-    }
+    text
 }
 
 fn valid_segment_name(name: &str) -> bool {
@@ -1805,19 +1431,6 @@ fn valid_segment_name(name: &str) -> bool {
     let mut parts = stem.split('-');
     matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && matches!(parts.next(), Some(part) if part.len() == 8 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
-        && matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
-        && parts.next().is_none()
-}
-
-fn valid_catalog_name(name: &str) -> bool {
-    let Some(stem) = name
-        .strip_prefix("catalog-")
-        .and_then(|value| value.strip_suffix(".bin"))
-    else {
-        return false;
-    };
-    let mut parts = stem.split('-');
-    matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && parts.next().is_none()
 }
@@ -2199,21 +1812,6 @@ fn open_regular_nofollow_read(path: &Path) -> Result<File, StoreReadError> {
         )));
     }
     Ok(file)
-}
-
-#[cfg(unix)]
-fn path_bytes(path: &Path) -> Vec<u8> {
-    use std::os::unix::ffi::OsStrExt;
-    path.as_os_str().as_bytes().to_vec()
-}
-
-#[cfg(windows)]
-fn path_bytes(path: &Path) -> Vec<u8> {
-    use std::os::windows::ffi::OsStrExt;
-    path.as_os_str()
-        .encode_wide()
-        .flat_map(u16::to_le_bytes)
-        .collect()
 }
 
 #[cfg(unix)]

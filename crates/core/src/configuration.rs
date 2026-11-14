@@ -39,17 +39,8 @@ pub fn configuration_hash(
     options: RepositoryOptions,
     sources: &SourceRegistry,
 ) -> Result<[u8; 32], String> {
-    configuration_hash_for_model(definitions, options, sources, crate::MODEL_VERSION)
-}
-
-fn configuration_hash_for_model(
-    definitions: &[CollectionDefinition],
-    options: RepositoryOptions,
-    sources: &SourceRegistry,
-    model_version: u32,
-) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
-    hash.update(model_version.to_le_bytes());
+    hash.update(crate::PROGRAM_VERSION.to_le_bytes());
     // Keep the identity stable for generations written before the build-settings
     // section was introduced. Their compatibility hash covers the same inputs.
     hash.update(CONFIGURATION_HASH_VERSION.to_le_bytes());
@@ -173,7 +164,6 @@ fn configuration_hash_for_model(
     Ok(hash.finalize().into())
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -192,16 +182,6 @@ mod tests {
         let definition = CollectionDefinition::folder("items", "items", SourceFormat::Json);
         let base =
             configuration_hash(std::slice::from_ref(&definition), options, &sources).unwrap();
-        assert_ne!(
-            base,
-            configuration_hash_for_model(
-                std::slice::from_ref(&definition),
-                options,
-                &sources,
-                crate::MODEL_VERSION + 1
-            )
-            .unwrap()
-        );
         let mut changed_options = options;
         changed_options.bigram_alphabet = BigramAlphabet::Unicode;
         assert_ne!(

@@ -13,8 +13,8 @@ use crate::managed_store::StoreReadError;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
 
-/// Version of the eager semantic checks used for managed segment stamps.
-pub const HYBRID_VALIDATOR_VERSION: u32 = crate::segment_format::VALIDATOR_VERSION;
+/// Version of the single saved-index compatibility counter.
+pub const PROGRAM_VERSION: u32 = crate::PROGRAM_VERSION;
 
 /// Where immutable Objekte index generations are kept.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -99,7 +99,6 @@ pub struct IndexFlushReport {
     pub unchanged: bool,
     pub newer_changes_unsaved: bool,
     pub segment_bytes_written: u64,
-    pub segments_reused: usize,
 }
 
 /// Historical internal location resolver retained for test fixtures.
@@ -138,9 +137,7 @@ impl IndexLocationResolver {
         self.validate()?;
         let root = canonical_root(root)?;
         let mut prepared = definitions.to_vec();
-        let Some(owned) = self.owned_source_namespace(&root)? else {
-            return Ok(prepared);
-        };
+        let owned_namespaces = self.owned_source_namespaces(&root)?;
         for definition in &mut prepared {
             let selected = root.join(normalized_selection(&definition.source_path)?);
             let selected = match selected.canonicalize() {
@@ -154,32 +151,34 @@ impl IndexLocationResolver {
                     ));
                 }
             };
-            if selected.starts_with(&owned) {
-                return Err(format!(
-                    "collection {} selects the managed index namespace as source data",
-                    definition.name
-                ));
-            }
-            if let Ok(relative) = owned.strip_prefix(&selected) {
-                if relative.as_os_str().is_empty() {
-                    return Err("managed index namespace is the collection source root".into());
+            for owned in &owned_namespaces {
+                if selected.starts_with(owned) {
+                    return Err(format!(
+                        "collection {} selects the managed index namespace as source data",
+                        definition.name
+                    ));
                 }
-                if !definition
-                    .discovery
-                    .exclude_directories
-                    .iter()
-                    .any(|existing| {
-                        !existing.as_os_str().is_empty()
-                            && existing
-                                .components()
-                                .all(|part| matches!(part, Component::Normal(_)))
-                            && relative.starts_with(existing)
-                    })
-                {
-                    definition
+                if let Ok(relative) = owned.strip_prefix(&selected) {
+                    if relative.as_os_str().is_empty() {
+                        return Err("managed index namespace is the collection source root".into());
+                    }
+                    if !definition
                         .discovery
                         .exclude_directories
-                        .push(relative.to_path_buf());
+                        .iter()
+                        .any(|existing| {
+                            !existing.as_os_str().is_empty()
+                                && existing
+                                    .components()
+                                    .all(|part| matches!(part, Component::Normal(_)))
+                                && relative.starts_with(existing)
+                        })
+                    {
+                        definition
+                            .discovery
+                            .exclude_directories
+                            .push(relative.to_path_buf());
+                    }
                 }
             }
         }
@@ -205,19 +204,20 @@ impl IndexLocationResolver {
         })
     }
 
-    fn owned_source_namespace(&self, root: &Path) -> Result<Option<PathBuf>, String> {
+    fn owned_source_namespaces(&self, root: &Path) -> Result<Vec<PathBuf>, String> {
         Ok(match &self.location {
-            IndexStorageLocation::MemoryOnly => None,
-            IndexStorageLocation::SystemTemporary => Some(
+            IndexStorageLocation::MemoryOnly => Vec::new(),
+            IndexStorageLocation::SystemTemporary => vec![
                 std::env::temp_dir()
                     .canonicalize()
                     .map_err(|error| format!("system temporary directory: {error}"))?
                     .join(private_temporary_namespace())
                     .join("indexes"),
-            ),
-            IndexStorageLocation::RepositoryDirectory => {
-                Some(root.join(".objekte").join("indexes"))
-            }
+            ],
+            IndexStorageLocation::RepositoryDirectory => vec![
+                root.join(".objekte").join(".indexes"),
+                root.join(".objekte").join("indexes"),
+            ],
             IndexStorageLocation::CustomDirectory(base) => {
                 let base = base
                     .canonicalize()
@@ -228,7 +228,7 @@ impl IndexLocationResolver {
                         base.display()
                     ));
                 }
-                Some(base.join("objekte-indexes"))
+                vec![base.join("objekte-indexes")]
             }
         })
     }
@@ -278,7 +278,7 @@ impl IndexLocationResolver {
                 )
             }
             IndexStorageLocation::RepositoryDirectory => {
-                let owned = root.join(".objekte").join("indexes");
+                let owned = root.join(".objekte").join(".indexes");
                 (
                     Some(owned.join(&configuration_id)),
                     Some(owned),
@@ -433,10 +433,7 @@ pub struct IndexStorageStatus {
     pub last_error_kind: Option<IndexStorageFailureKind>,
     pub managed_directory: Option<PathBuf>,
     pub segments_full_validated: usize,
-    pub segments_stamp_trusted: usize,
-    pub validation_stamps_written: usize,
-    pub validation_stamp_error: Option<String>,
-    pub validation_stamp_error_kind: Option<IndexStorageFailureKind>,
+    pub segments_write_validated: usize,
 }
 
 fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
@@ -721,6 +718,52 @@ mod tests {
         assert_ne!(a.repository_identity, b.repository_identity);
         assert_ne!(a.managed_directory, b.managed_directory);
         std::fs::remove_dir_all(base).unwrap();
+    }
+
+    #[test]
+    fn repository_preparation_excludes_current_and_renamed_index_namespaces() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-hybrid-repository-exclusions-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let definitions = [CollectionDefinition::folder(
+            "files",
+            "",
+            SourceFormat::Json,
+        )];
+        let policy = IndexLocationResolver {
+            location: IndexStorageLocation::RepositoryDirectory,
+        };
+        let prepared = policy
+            .prepare_source_definitions(&root, &definitions)
+            .unwrap();
+        assert_eq!(
+            prepared[0].discovery.exclude_directories,
+            vec![
+                PathBuf::from(".objekte/.indexes"),
+                PathBuf::from(".objekte/indexes")
+            ]
+        );
+        let resolved = policy
+            .resolve(
+                &root,
+                &definitions,
+                RepositoryOptions::default(),
+                &SourceRegistry::builtin(),
+            )
+            .unwrap();
+        assert!(
+            resolved
+                .managed_directory
+                .unwrap()
+                .starts_with(root.join(".objekte/.indexes"))
+        );
+        std::fs::remove_dir_all(root).unwrap();
     }
 
     #[test]

@@ -30,7 +30,8 @@ use crate::posting_dictionary::{
 };
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
-    PostingDescriptor, REQUIRED_SECTIONS, SectionKind, SegmentReader, SegmentWriter,
+    PostingDescriptor, REQUIRED_SECTIONS, SectionKind, SegmentReader, SegmentWriteMetadata,
+    SegmentWriter,
 };
 use crate::segment_metadata::{
     CheckedRecordSlots, PersistedRecordSlots, RecordIds, SegmentMetadataRefs,
@@ -40,7 +41,6 @@ use crate::segment_metadata::{
 };
 use crate::workload::BigramAlphabet;
 
-const META_VERSION: u32 = 2;
 const FIELD_MAGIC: &[u8; 8] = b"OBJHFLD1";
 const STRUCT_MAGIC: &[u8; 8] = b"OBJHSTR1";
 const TEXT_MAGIC: &[u8; 8] = b"OBJHTXT1";
@@ -63,8 +63,8 @@ fn encode_meta<T: Serialize>(magic: &[u8; 8], value: &T) -> Result<Vec<u8>, Stri
     }
     let mut out = Vec::with_capacity(16 + body.len());
     out.extend_from_slice(magic);
-    out.extend_from_slice(&META_VERSION.to_le_bytes());
-    out.extend_from_slice(&crate::MODEL_VERSION.to_le_bytes());
+    out.extend_from_slice(&crate::PROGRAM_VERSION.to_le_bytes());
+    out.extend_from_slice(&crate::PROGRAM_VERSION.to_le_bytes());
     out.extend_from_slice(&body);
     Ok(out)
 }
@@ -73,8 +73,8 @@ fn decode_meta<T: DeserializeOwned>(magic: &[u8; 8], bytes: &[u8]) -> Result<T, 
     if bytes.len() < 16
         || bytes.len() > MAX_META_BYTES
         || &bytes[..8] != magic
-        || u32::from_le_bytes(bytes[8..12].try_into().unwrap()) != META_VERSION
-        || u32::from_le_bytes(bytes[12..16].try_into().unwrap()) != crate::MODEL_VERSION
+        || u32::from_le_bytes(bytes[8..12].try_into().unwrap()) != crate::PROGRAM_VERSION
+        || u32::from_le_bytes(bytes[12..16].try_into().unwrap()) != crate::PROGRAM_VERSION
     {
         return Err("hybrid metadata magic, version, or size mismatch".into());
     }
@@ -320,6 +320,7 @@ pub(crate) fn write_segment<W: Write + Seek>(
     options: RepositoryOptions,
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    metadata: &SegmentWriteMetadata<'_>,
 ) -> Result<W, String> {
     write_segment_inner(
         segment,
@@ -328,6 +329,7 @@ pub(crate) fn write_segment<W: Write + Seek>(
         options,
         output,
         intern,
+        metadata,
         true,
         |_, _| Ok(()),
     )
@@ -343,6 +345,7 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     options: RepositoryOptions,
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    metadata: &SegmentWriteMetadata<'_>,
 ) -> Result<W, String> {
     let reader = segment
         .raw
@@ -352,16 +355,19 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     let identity: IntegritySection =
         decode_meta(INTEGRITY_MAGIC, required(&reader, SectionKind::Integrity)?)?;
     if identity.collection != segment.collection
+        || identity.collection != metadata.collection
         || identity.ordinal != ordinal
+        || ordinal != metadata.ordinal
         || identity.source_id != segment.source_id
         || identity.source_version != segment.source_version
         || identity.slot_count as usize != segment.records.len()
+        || identity.slot_count != metadata.slot_count
         || identity.alphabet != options.bigram_alphabet
     {
         return Err("sealed segment identity changed before persistence".into());
     }
     let record_bytes = encode_record_slots_constructed(segment, intern)?;
-    let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
+    let mut writer = SegmentWriter::new_with_metadata(output, REQUIRED_SECTIONS.len(), metadata)?;
     for &kind in &REQUIRED_SECTIONS {
         if kind == SectionKind::RecordSlots {
             write_bytes(&mut writer, kind, &record_bytes)?;
@@ -420,6 +426,7 @@ fn write_segment_inner<W: Write + Seek>(
     options: RepositoryOptions,
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    metadata: &SegmentWriteMetadata<'_>,
     validate_before_write: bool,
     reserve_remaining: impl FnOnce(&mut SegmentWriter<W>, usize) -> Result<(), String>,
 ) -> Result<W, String> {
@@ -435,7 +442,7 @@ fn write_segment_inner<W: Write + Seek>(
     let validation_ns = total_started
         .map(|started| started.elapsed().as_nanos())
         .unwrap_or(0);
-    let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
+    let mut writer = SegmentWriter::new_with_metadata(output, REQUIRED_SECTIONS.len(), metadata)?;
     let encoding_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sections = if validate_before_write {
         let mut pack = PostingPack::new();
@@ -798,6 +805,15 @@ fn encode_owned_bytes(
         .map(|file| &file.entry)
         .collect::<Vec<_>>();
     let mut position = 0usize;
+    let metadata = SegmentWriteMetadata {
+        generation: 0,
+        collection: segment.collection,
+        ordinal,
+        slot_count: u32::try_from(segment.records.len())
+            .map_err(|_| "too many owned segment slots")?,
+        active: None,
+        write_validated: true,
+    };
     // The sealed decoder validates the completed bytes before publication.
     // Avoid repeating the same component walk before encoding an owned copy.
     let bytes = write_segment_inner(
@@ -817,6 +833,7 @@ fn encode_owned_bytes(
             position += 1;
             Ok(reference)
         },
+        &metadata,
         false,
         |writer, bytes| writer.reserve_remaining(bytes),
     )?
@@ -1348,7 +1365,7 @@ fn decode_segment_impl<'a>(
                     field.values.checked()?,
                     Arc::clone(&allowed),
                 )?
-            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+            } else if trust == crate::segment_format::SegmentTrust::WriteValidated {
                 SealedPostingDictionary::open_with_proven_dictionary(
                     Arc::clone(&reader),
                     SectionKind::ScalarDictionaries,
@@ -1370,7 +1387,7 @@ fn decode_segment_impl<'a>(
                     field.lengths.checked()?,
                     allowed,
                 )?
-            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+            } else if trust == crate::segment_format::SegmentTrust::WriteValidated {
                 SealedPostingDictionary::open_with_proven_dictionary(
                     Arc::clone(&reader),
                     SectionKind::ScalarDictionaries,
@@ -1442,7 +1459,7 @@ fn decode_segment_impl<'a>(
             });
             if trust == crate::segment_format::SegmentTrust::Constructed {
                 index.install_constructed(Arc::clone(&reader), spans, binding_number as u32, allowed)?;
-            } else if trust == crate::segment_format::SegmentTrust::Stamped {
+            } else if trust == crate::segment_format::SegmentTrust::WriteValidated {
                 index.install_stamped(Arc::clone(&reader), spans, binding_number as u32, allowed)?;
             } else {
                 index.install_sealed(Arc::clone(&reader), spans, binding_number as u32, allowed)?;

@@ -132,7 +132,7 @@ An ordinary invocation builds in memory and ignores saved indexes. `--load-index
 | Target | Managed location |
 | --- | --- |
 | `temporary` | A stable per-user namespace under the operating system temporary directory. |
-| `repository` | The repository's `.objekte/indexes` directory. |
+| `repository` | The repository's `.objekte/.indexes` directory. |
 | `custom` | An Objekte-owned namespace under the selected base directory. |
 
 For example, build and save with `obj --path ./data --flush-index repository`; later query it with `obj --path ./data --load-index repository --fts Goethe`. To copy a snapshot, use `--load-index temporary --flush-index custom --flush-index-directory /mnt/index-storage`. Independent custom load and flush directories use their respective directory options. Existing compatible destinations receive an atomically published newer generation; unrelated files and source documents are preserved.

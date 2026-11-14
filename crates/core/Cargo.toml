@@ -16,6 +16,7 @@ detailed-profiling = []
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
 serde_json = { version = "1.0", features = ["arbitrary_precision"] }
+toml = { version = "0.8", features = ["parse", "display"] }
 memchr = "2.8.3"
 time = { version = "0.3", features = ["serde", "parsing", "formatting"] }
 unicode-casefold = "0.2"

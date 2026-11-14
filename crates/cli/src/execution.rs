@@ -577,7 +577,7 @@ fn run_start_event(
         "type": "run_start",
         "protocol_version": crate::output::PROTOCOL_VERSION,
         "executable_version": env!("CARGO_PKG_VERSION"),
-        "core_model_version": objekte_search_core::MODEL_VERSION,
+        "core_program_version": objekte_search_core::PROGRAM_VERSION,
         "root": path_repr::query_path(&paths.root),
         "collection": (!args.multiple_collections()).then_some("files"),
         "collections": collection_names,
@@ -764,7 +764,6 @@ fn complete_run<W: Write>(
             "unchanged": report.unchanged,
             "newer_changes_unsaved": report.newer_changes_unsaved,
             "segment_bytes_written": report.segment_bytes_written,
-            "segments_reused": report.segments_reused,
         })),
         "index_persistence": {
             "readiness": match storage.readiness {
@@ -780,9 +779,7 @@ fn complete_run<W: Write>(
             "last_error": storage.last_error,
             "last_error_kind": storage.last_error_kind.map(|kind| kind.as_str()),
             "segments_full_validated": storage.segments_full_validated,
-            "segments_stamp_trusted": storage.segments_stamp_trusted,
-            "validation_stamp_error": storage.validation_stamp_error,
-            "validation_stamp_error_kind": storage.validation_stamp_error_kind.map(|kind| kind.as_str()),
+            "segments_write_validated": storage.segments_write_validated,
         },
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({

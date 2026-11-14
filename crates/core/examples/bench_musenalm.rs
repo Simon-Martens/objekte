@@ -102,11 +102,13 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
+    let mut load = false;
     let mut storage: Option<IndexStorageTarget> = None;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
             "--incremental" => incremental = true,
+            "--load" => load = true,
             "--storage" => {
                 storage = match args.next().map(String::as_str) {
                     Some("memory") => None,
@@ -175,6 +177,9 @@ fn run() -> Result<(), String> {
     }
     if !incremental && storage.is_some() {
         return Err("--storage requires --incremental".into());
+    }
+    if load && (storage.is_none() || !incremental) {
+        return Err("--load requires --incremental and --storage".into());
     }
     let storage_label = storage
         .as_ref()
@@ -294,25 +299,31 @@ fn run() -> Result<(), String> {
             continue;
         }
         let backend = if incremental {
+            let options = RepositoryOptions {
+                bigram_alphabet: alphabet,
+                query_workers,
+                ..RepositoryOptions::default()
+            };
             let build_start = Instant::now();
-            let task = Index::start_incremental_build(
-                &root,
-                definitions.clone(),
-                RepositoryOptions {
-                    bigram_alphabet: alphabet,
-                    query_workers,
-                    ..RepositoryOptions::default()
-                },
-            )
-            .map_err(|error| error.to_string())?;
-            let index = task.wait_complete().map_err(|error| error.to_string())?;
-            if let Some(target) = &storage {
-                index.flush_to(target).map_err(|error| error.to_string())?;
-            }
+            let (index, build_status) = if load {
+                let target = storage.as_ref().ok_or("--load requires --storage")?;
+                let index = Index::try_load(&root, definitions.clone(), options, target)
+                    .map_err(|error| error.to_string())?
+                    .ok_or("no saved index at the selected location")?;
+                (index, None)
+            } else {
+                let task = Index::start_incremental_build(&root, definitions.clone(), options)
+                    .map_err(|error| error.to_string())?;
+                let index = task.wait_complete().map_err(|error| error.to_string())?;
+                if let Some(target) = &storage {
+                    index.flush_to(target).map_err(|error| error.to_string())?;
+                }
+                let status = task.status().map_err(|error| error.to_string())?;
+                (index, Some(status))
+            };
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
-            let build_status = task.status().map_err(|error| error.to_string())?;
             let storage_status = index.storage_status().map_err(|error| error.to_string())?;
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
@@ -331,10 +342,11 @@ fn run() -> Result<(), String> {
                 .map(|path| managed_tree_bytes(path))
                 .transpose()?;
             build_results.push(serde_json::json!({
-                "alphabet":alphabet,"build_mode":"hybrid","storage":storage_label,"build_ns":open_ns,"open_ns":open_ns,
-                "discovery_ns":build_status.catalogue_elapsed_ns,
-                "first_batch_ns":build_status.first_batch_elapsed_ns,
-                "searchable_batches":build_status.searchable_batches,
+                "alphabet":alphabet,"build_mode":if load {"explicit-load"} else {"hybrid"},
+                "load":load,"storage":storage_label,"build_ns":if load {0} else {open_ns},"open_ns":open_ns,
+                "discovery_ns":build_status.as_ref().and_then(|status| status.catalogue_elapsed_ns).unwrap_or(0),
+                "first_batch_ns":build_status.as_ref().and_then(|status| status.first_batch_elapsed_ns).unwrap_or(0),
+                "searchable_batches":build_status.as_ref().map_or(0, |status| status.searchable_batches),
                 "build_parses":status.build_parses,"source_reads":status.build_source_reads,
                 "source_bytes_read":status.build_source_bytes_read,
                 "inventory_heap_bytes":view.estimated_inventory_bytes(),
@@ -344,9 +356,7 @@ fn run() -> Result<(), String> {
                 "managed_bytes":managed_bytes,"managed_directory":storage_status.managed_directory,
                 "durable_generation":storage_status.durable_generation,
                 "segments_full_validated":storage_status.segments_full_validated,
-                "segments_stamp_trusted":storage_status.segments_stamp_trusted,
-                "validation_stamps_written":storage_status.validation_stamps_written,
-                "validation_stamp_error":storage_status.validation_stamp_error,
+                "segments_write_validated":storage_status.segments_write_validated,
             }));
             if registrations.is_empty() {
                 registrations = definitions.iter().map(|definition| serde_json::json!({
@@ -603,7 +613,7 @@ fn run() -> Result<(), String> {
         "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
         "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
         "source_cache_bytes":0,"query_workers":query_workers,
-        "validator_version":objekte_search_core::index_storage::HYBRID_VALIDATOR_VERSION,
+        "program_version":objekte_search_core::PROGRAM_VERSION,
         "internal_decoded_posting_cache":{
             "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
             "observations":decoded_cache_observations,
