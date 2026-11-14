@@ -30,3 +30,9 @@ globset = "0.4"
 regex = "=1.13.1"
 regex-syntax = "=0.8.11"
 libc = "0.2"
+memmap2 = "0.9.12"
+crc32fast = "1.5.4"
+uuid = { version = "1.29.1", features = ["v4"] }
+
+[dev-dependencies]
+tempfile = "3"

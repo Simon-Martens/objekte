@@ -5222,11 +5222,13 @@ name = "objekte-search-core"
 version = "0.1.0"
 dependencies = [
  "bincode",
+ "crc32fast",
  "globset",
  "icu_collator",
  "icu_locale_core",
  "libc",
  "memchr",
+ "memmap2",
  "rayon",
  "regex",
  "regex-syntax",
@@ -5235,8 +5237,10 @@ dependencies = [
  "serde_json",
  "sha2 0.10.9",
  "smallvec",
+ "tempfile",
  "time",
  "unicode-casefold",
+ "uuid",
 ]
 
 [[package]]
