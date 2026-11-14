@@ -1,6 +1,6 @@
 use super::*;
 
-use crate::index_storage::{IndexStorageLocation, IndexStoragePolicy};
+use crate::index_storage::{IndexStorageFailureKind, IndexStorageLocation, IndexStoragePolicy};
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
@@ -72,16 +72,17 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     assert_eq!(failed.durable_generation, initial);
     assert_eq!(failed.synchronization, IndexSynchronization::Failed);
     assert!(failed.last_error.is_some_and(|message| !message.is_empty()));
+    assert_eq!(failed.last_error_kind, Some(IndexStorageFailureKind::Access));
     assert_eq!(
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(2)
     );
     std::fs::remove_dir(&lock).unwrap();
     index.flush_storage().unwrap();
-    assert_eq!(
-        index.storage_status().unwrap().synchronization,
-        IndexSynchronization::Synchronized
-    );
+    let recovered = index.storage_status().unwrap();
+    assert_eq!(recovered.synchronization, IndexSynchronization::Synchronized);
+    assert_eq!(recovered.last_error, None);
+    assert_eq!(recovered.last_error_kind, None);
     drop(index);
     std::fs::remove_dir_all(root).unwrap();
 }

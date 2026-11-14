@@ -12,7 +12,8 @@ use std::time::Instant;
 use crate::build::IndexedCollectionSegment;
 use crate::generation_catalog::{GenerationCatalogBuilder, RestoredGenerationCatalog};
 use crate::index_storage::{
-    IndexReadiness, IndexResidency, IndexStoragePolicy, IndexStorageStatus, IndexSynchronization,
+    IndexReadiness, IndexResidency, IndexStorageFailureKind, IndexStoragePolicy,
+    IndexStorageStatus, IndexSynchronization,
     ResolvedIndexStorage,
 };
 use crate::inventory::{FileEntry, FileVersions};
@@ -44,6 +45,7 @@ pub(crate) struct ManagedPersistence {
     durable_segments: HashMap<(CollectionId, u64), DurableSegment>,
     historical: Vec<FileEntry>,
     pub(crate) last_error: Option<String>,
+    pub(crate) last_error_kind: Option<IndexStorageFailureKind>,
     validation: ValidationOpenStats,
 }
 
@@ -54,6 +56,7 @@ pub(crate) struct ValidationOpenStats {
     pub trusted: usize,
     pub written: usize,
     pub error: Option<String>,
+    pub error_kind: Option<IndexStorageFailureKind>,
 }
 
 
@@ -62,6 +65,7 @@ pub(crate) struct StorageStatusSnapshot {
     residency: IndexResidency,
     durable_generation: Option<u64>,
     last_error: Option<String>,
+    last_error_kind: Option<IndexStorageFailureKind>,
     managed_directory: PathBuf,
     validation: ValidationOpenStats,
 }
@@ -73,6 +77,7 @@ impl ManagedPersistence {
             residency: self.residency,
             durable_generation: self.durable_generation,
             last_error: self.last_error.clone(),
+            last_error_kind: self.last_error_kind,
             managed_directory: self.store.path().to_path_buf(),
             validation: self.validation.clone(),
         }
@@ -86,6 +91,7 @@ impl ManagedPersistence {
             durable_segments: HashMap::new(),
             historical: Vec::new(),
             last_error: None,
+            last_error_kind: None,
             validation: ValidationOpenStats::default(),
         })
     }
@@ -143,6 +149,7 @@ impl ManagedPersistence {
         let generation = publication.revision.0;
         if self.durable_generation == Some(generation) {
             self.last_error = None;
+            self.last_error_kind = None;
             return Ok(publication.revision);
         }
         if self
@@ -313,6 +320,7 @@ impl ManagedPersistence {
         self.durable_generation = Some(generation);
         self.historical = next_historical;
         self.last_error = None;
+        self.last_error_kind = None;
         Ok(publication.revision)
     }
 }
@@ -339,11 +347,13 @@ pub(crate) fn storage_status(
             durable_generation: None,
             synchronization: IndexSynchronization::MemoryOnly,
             last_error: None,
+            last_error_kind: None,
             managed_directory: None,
             segments_full_validated: 0,
             segments_stamp_trusted: 0,
             validation_stamps_written: 0,
             validation_stamp_error: None,
+            validation_stamp_error_kind: None,
         };
     };
     IndexStorageStatus {
@@ -367,11 +377,13 @@ pub(crate) fn storage_status(
             IndexSynchronization::Pending
         },
         last_error: managed.last_error.clone(),
+        last_error_kind: managed.last_error_kind,
         managed_directory: Some(managed.managed_directory.clone()),
         segments_full_validated: managed.validation.full,
         segments_stamp_trusted: managed.validation.trusted,
         validation_stamps_written: managed.validation.written,
         validation_stamp_error: managed.validation.error.clone(),
+        validation_stamp_error_kind: managed.validation.error_kind,
     }
 }
 
@@ -655,16 +667,19 @@ fn restore_generation(
                 ))
             })
             .collect::<Vec<_>>();
-        match ManagedStore::open(resolved)
-            .map_err(|error| error.to_string())
-            .and_then(|store| {
-                store
-                    .record_validation_stamps(opened.generation, &stamps)
-                    .map_err(|error| error.to_string())
-            }) {
+        let stamp_result = match ManagedStore::open(resolved) {
+            Ok(store) => store
+                .record_validation_stamps(opened.generation, &stamps)
+                .map_err(|error| (IndexStorageFailureKind::from(&error), error.to_string())),
+            Err(error) => Err((IndexStorageFailureKind::Access, error)),
+        };
+        match stamp_result {
             Ok(true) => validation.written = stamps.len(),
             Ok(false) => {}
-            Err(error) => validation.error = Some(error),
+            Err((kind, error)) => {
+                validation.error = Some(error);
+                validation.error_kind = Some(kind);
+            }
         }
     }
     index.mark_storage_opened(

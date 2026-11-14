@@ -6,6 +6,8 @@ use std::path::{Component, Path, PathBuf};
 
 use sha2::{Digest, Sha256};
 
+use crate::lifecycle::IndexError;
+use crate::managed_store::StoreReadError;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
 use crate::storage::configuration_hash;
@@ -316,9 +318,60 @@ pub enum IndexSynchronization {
     Failed,
 }
 
+/// User-facing classification of a persistent-storage failure.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum IndexStorageFailureKind {
+    Access,
+    Corrupt,
+    Incompatible,
+    Conflict,
+    Resource,
+    Other,
+}
+
+impl IndexStorageFailureKind {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Access => "access",
+            Self::Corrupt => "corrupt",
+            Self::Incompatible => "incompatible",
+            Self::Conflict => "conflict",
+            Self::Resource => "resource",
+            Self::Other => "other",
+        }
+    }
+}
+
+impl From<&IndexError> for IndexStorageFailureKind {
+    fn from(error: &IndexError) -> Self {
+        match error {
+            IndexError::Io(_) => Self::Access,
+            IndexError::InvalidCache(_) => Self::Corrupt,
+            IndexError::IncompatibleConfiguration(_) => Self::Incompatible,
+            IndexError::StoreConflict(_)
+            | IndexError::RevisionConflict { .. }
+            | IndexError::FileConflict { .. } => Self::Conflict,
+            IndexError::ResourceLimit(_) => Self::Resource,
+            _ => Self::Other,
+        }
+    }
+}
+
+impl From<&StoreReadError> for IndexStorageFailureKind {
+    fn from(error: &StoreReadError) -> Self {
+        match error {
+            StoreReadError::Io { .. } => Self::Access,
+            StoreReadError::Corrupt(_) => Self::Corrupt,
+            StoreReadError::Incompatible(_) => Self::Incompatible,
+            StoreReadError::Conflict(_) => Self::Conflict,
+            StoreReadError::Resource(_) => Self::Resource,
+        }
+    }
+}
+
 
 /// Separate searchable coverage, source freshness and durable state.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStorageStatus {
     pub readiness: IndexReadiness,
     pub source_reconciliation_complete: bool,
@@ -326,11 +379,13 @@ pub struct IndexStorageStatus {
     pub durable_generation: Option<u64>,
     pub synchronization: IndexSynchronization,
     pub last_error: Option<String>,
+    pub last_error_kind: Option<IndexStorageFailureKind>,
     pub managed_directory: Option<PathBuf>,
     pub segments_full_validated: usize,
     pub segments_stamp_trusted: usize,
     pub validation_stamps_written: usize,
     pub validation_stamp_error: Option<String>,
+    pub validation_stamp_error_kind: Option<IndexStorageFailureKind>,
 }
 
 
@@ -405,8 +460,31 @@ fn hex(bytes: &[u8]) -> String {
 mod tests {
     use super::*;
     use crate::discovery::discover;
+    use crate::lifecycle::IndexRevision;
     use crate::source::SourceFormat;
     use crate::workload::BigramAlphabet;
+
+    #[test]
+    fn storage_failure_classification_uses_typed_errors() {
+        let examples = [
+            (IndexError::Io("permission denied".into()), IndexStorageFailureKind::Access),
+            (IndexError::InvalidCache("bad checksum".into()), IndexStorageFailureKind::Corrupt),
+            (IndexError::IncompatibleConfiguration("old model".into()), IndexStorageFailureKind::Incompatible),
+            (IndexError::StoreConflict("lock held".into()), IndexStorageFailureKind::Conflict),
+            (IndexError::RevisionConflict { expected: IndexRevision(1), actual: IndexRevision(2) }, IndexStorageFailureKind::Conflict),
+            (IndexError::ResourceLimit("too large".into()), IndexStorageFailureKind::Resource),
+            (IndexError::Build("source error".into()), IndexStorageFailureKind::Other),
+        ];
+        for (error, expected) in examples {
+            assert_eq!(IndexStorageFailureKind::from(&error), expected);
+        }
+        let store = StoreReadError::Io {
+            path: "/tmp/index".into(),
+            source: std::io::Error::new(std::io::ErrorKind::PermissionDenied, "denied"),
+        };
+        assert_eq!(IndexStorageFailureKind::from(&store), IndexStorageFailureKind::Access);
+        assert_eq!(IndexStorageFailureKind::Access.as_str(), "access");
+    }
 
     #[test]
     fn memory_policy_never_resolves_a_store() {

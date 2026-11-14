@@ -1855,6 +1855,7 @@ impl Index {
             let result = state.flush(&view.0);
             if let Err(error) = &result {
                 state.last_error = Some(error.to_string());
+                state.last_error_kind = Some(crate::index_storage::IndexStorageFailureKind::from(error));
             }
             *self
                 .0
