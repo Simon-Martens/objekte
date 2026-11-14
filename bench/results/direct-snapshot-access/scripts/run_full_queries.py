@@ -63,6 +63,7 @@ def main():
     runs = []
     for label, program in programs.items():
         store = output / f"{label}-store"
+        store.mkdir()
         result = output / f"prime-{label}"
         command = [str(program), *common, "--repetitions", "1", "--cases", "Q001",
                    "--result-dir", str(result), "--storage", "custom", str(store)]
