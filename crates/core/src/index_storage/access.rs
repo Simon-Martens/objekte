@@ -10,11 +10,13 @@ use crate::bigram::BigramIndex;
 use crate::model::{LogicalType, Number};
 use crate::posting::{PostingIndex, ScalarKey, StructuralKey};
 use crate::query::Operator;
+use crate::reference::Schema;
 
 use super::bigram::BigramSectionView;
 use super::bigram_builder::{BigramBinding, BigramBindingKind};
 use super::error::StorageResult;
 use super::posting::FieldPostingsView;
+use super::segment::FrozenSegment;
 
 
 /// One borrowed typed posting, native or packed.
@@ -469,5 +471,63 @@ fn packed_binding<'a>(
         BigramBinding::Raw => section.binding(BigramBindingKind::Raw),
         BigramBinding::Fallback => section.binding(BigramBindingKind::Fallback),
         BigramBinding::Custom { path, name } => section.custom(path, name),
+    }
+}
+
+
+/// Borrowed packed field/bigram catalogue used by a future packed execution
+/// path. It offers the same access objects as the native catalogue without
+/// owning a reconstructed dictionary.
+pub struct PackedIndexCatalog<'a> {
+    segment: &'a FrozenSegment,
+    schema: &'a Schema,
+}
+
+
+impl std::fmt::Debug for PackedIndexCatalog<'_> {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("PackedIndexCatalog")
+            .field("collection", &self.segment.stats().collection)
+            .field("fields", &self.segment.postings().fields().len())
+            .finish_non_exhaustive()
+    }
+}
+
+
+impl<'a> PackedIndexCatalog<'a> {
+    pub fn new(segment: &'a FrozenSegment, schema: &'a Schema) -> Self {
+        Self { segment, schema }
+    }
+
+    pub fn schema(&self) -> &'a Schema {
+        self.schema
+    }
+
+    pub fn segment(&self) -> &'a FrozenSegment {
+        self.segment
+    }
+
+    pub fn field(&self, path: &[String]) -> Option<&'a FieldPostingsView> {
+        self.segment.postings().field(path)
+    }
+
+    pub fn field_postings(&self, path: &[String]) -> Option<PostingAccess<'a>> {
+        self.field(path).map(PostingAccess::Packed)
+    }
+
+    pub fn bigram(&self, binding: &BigramBinding) -> Option<BigramAccess<'a>> {
+        Some(BigramAccess::Packed {
+            section: self.segment.bigrams(),
+            binding: binding.clone(),
+        })
+    }
+
+    pub fn logical_records(&self) -> StorageResult<RoaringBitmap> {
+        collect(self.segment.coverage().logical_records()?)
+    }
+
+    pub fn active_records(&self) -> StorageResult<RoaringBitmap> {
+        collect(self.segment.coverage().active_records()?)
     }
 }

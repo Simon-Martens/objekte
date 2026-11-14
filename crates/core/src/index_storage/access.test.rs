@@ -8,7 +8,7 @@ use crate::model::{LogicalType, Number};
 use crate::posting::{PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey};
 use crate::query::Operator;
 
-use super::access::{BigramAccess, PostingAccess};
+use super::access::{BigramAccess, PackedIndexCatalog, PostingAccess};
 use super::bigram_builder::{BigramBinding, BigramInput};
 use super::posting_builder::FieldInput;
 use super::records::{FilePartInput, RecordInput};
@@ -392,6 +392,31 @@ fn native_packed_resident_and_mapped_access_agree() {
     compare_native_and_packed(&native_posting, &mapped);
     compare_bigrams(&native_bigram, &resident);
     compare_bigrams(&native_bigram, &mapped);
+    let schema = crate::reference::Schema::default();
+    let catalog = PackedIndexCatalog::new(&resident, &schema);
+    let catalog_access = catalog.field_postings(&["title".to_owned()]).unwrap();
+    assert_eq!(
+        PostingAccess::Native(&native_posting)
+            .exact(&ScalarKey::String("Alpha".into()))
+            .unwrap(),
+        catalog_access
+            .exact(&ScalarKey::String("Alpha".into()))
+            .unwrap()
+    );
+    assert_eq!(
+        catalog.logical_records().unwrap(),
+        bitmap(&(0..SLOTS).collect::<Vec<_>>())
+    );
+    let catalog_bigram = catalog.bigram(&BigramBinding::Raw).unwrap();
+    assert_eq!(
+        catalog_bigram.union_normal(&[1, 2]).unwrap(),
+        BigramAccess::Native {
+            index: &native_bigram,
+            binding: BigramBinding::Raw
+        }
+        .union_normal(&[1, 2])
+        .unwrap()
+    );
 
     let native_score = native_score();
     let resident_score = PostingAccess::Packed(
