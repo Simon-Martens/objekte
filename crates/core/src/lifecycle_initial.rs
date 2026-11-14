@@ -297,6 +297,12 @@ impl Index {
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
+        let root = root.into();
+        let definitions = crate::index_storage::IndexStorageTarget::prepare_logical_definitions(
+            &root,
+            &definitions,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
         Self::start_incremental_build_with_sources_and_completion(
             root,
             definitions,

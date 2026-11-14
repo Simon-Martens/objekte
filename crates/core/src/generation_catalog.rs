@@ -63,6 +63,9 @@ pub(crate) struct GenerationCatalogBuilder<'a> {
 }
 
 impl<'a> GenerationCatalogBuilder<'a> {
+    pub(crate) fn set_store_generation(&mut self, generation: u64) {
+        self.revision = generation;
+    }
     #[cfg(test)]
     pub(crate) fn from_publication(publication: &'a PublishedIndex) -> Result<Self, String> {
         Self::from_publication_with_history(publication, &[])

@@ -7,6 +7,7 @@ use std::path::{Component, Path, PathBuf};
 use sha2::{Digest, Sha256};
 
 use crate::lifecycle::IndexError;
+use crate::lifecycle::IndexRevision;
 use crate::managed_store::StoreReadError;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
@@ -53,6 +54,52 @@ impl IndexStorageTarget {
             residency: IndexResidency::OnDemand,
         }
     }
+
+    /// Keep the logical source selection independent of a later disk target.
+    /// The repository-owned index tree is reserved even for memory builds.
+    pub(crate) fn prepare_logical_definitions(
+        root: &Path,
+        definitions: &[CollectionDefinition],
+    ) -> Result<Vec<CollectionDefinition>, String> {
+        IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        }
+        .prepare_source_definitions(root, definitions)
+    }
+
+    /// Resolve the physical destination using the logical publication identity,
+    /// without including a target-specific discovery exclusion in that identity.
+    pub(crate) fn resolve_logical(
+        &self,
+        root: &Path,
+        definitions: &[CollectionDefinition],
+        options: RepositoryOptions,
+        sources: &SourceRegistry,
+    ) -> Result<ResolvedIndexStorage, String> {
+        let mut resolved = self.policy().resolve(root, definitions, options, sources)?;
+        let logical = configuration_hash(definitions, options, sources)?;
+        if resolved.configuration_identity != logical {
+            let directory = resolved.managed_directory.as_mut().ok_or("disk target has no directory")?;
+            directory.pop();
+            directory.push(hex(&logical));
+            resolved.configuration_identity = logical;
+        }
+        Ok(resolved)
+    }
+}
+
+/// Receipt for one explicitly requested complete-publication save.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IndexFlushReport {
+    pub saved_revision: IndexRevision,
+    pub target: IndexStorageTarget,
+    pub managed_directory: PathBuf,
+    pub store_generation: u64,
+    pub unchanged: bool,
+    pub newer_changes_unsaved: bool,
+    pub segment_bytes_written: u64,
+    pub segments_reused: usize,
 }
 
 

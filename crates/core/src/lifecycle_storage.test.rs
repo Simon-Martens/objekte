@@ -118,6 +118,144 @@ fn explicit_load_reuses_generation_without_writing_or_rebuilding() {
 }
 
 #[test]
+fn explicit_flush_replaces_existing_generation_with_fresh_equal_revision() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-replace-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/old.json"), br#"{"text":"old"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let target = IndexStorageTarget::RepositoryDirectory;
+    let first = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let saved = first.flush_to(&target).unwrap();
+    assert_eq!(saved.store_generation, 1);
+    assert_eq!(saved.saved_revision, first.status().unwrap().revision);
+    assert!(!saved.unchanged);
+    assert_eq!(first.flush_to(&target).unwrap().store_generation, 1);
+    assert!(first.flush_to(&target).unwrap().unchanged);
+    let loaded = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    drop(loaded);
+    std::fs::remove_file(root.join("data/old.json")).unwrap();
+    std::fs::write(root.join("data/new.json"), br#"{"text":"new"}"#).unwrap();
+    let second = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    assert_eq!(second.status().unwrap().revision, first.status().unwrap().revision);
+    let replaced = second.flush_to(&target).unwrap();
+    assert_eq!(replaced.store_generation, 2);
+    assert!(!replaced.unchanged);
+    let current = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    assert_eq!(current.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    let paths = current.view().unwrap().catalogue_rows()
+        .map(|row| row.relative_path.to_path_buf())
+        .collect::<Vec<_>>();
+    assert_eq!(paths, vec![std::path::PathBuf::from("data/new.json")]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn explicit_flush_to_second_target_keeps_loaded_backing_and_copies_all_data() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-copy-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::create_dir(root.join("source-store")).unwrap();
+    std::fs::create_dir(root.join("destination-store")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let source = IndexStorageTarget::CustomDirectory(root.join("source-store"));
+    let destination = IndexStorageTarget::CustomDirectory(root.join("destination-store"));
+    let built = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    built.flush_to(&source).unwrap();
+    let loaded = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &source)
+        .unwrap().unwrap();
+    let before = loaded.view().unwrap().search(&all_records()).unwrap();
+    let report = loaded.flush_to(&destination).unwrap();
+    assert!(!report.unchanged);
+    assert!(loaded.restored_from_storage());
+    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, before.count);
+    std::fs::remove_dir_all(root.join("source-store")).unwrap();
+    let copied = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &destination)
+        .unwrap().unwrap();
+    assert_eq!(copied.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn memory_build_and_repository_load_share_identity_when_source_is_root() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-root-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    std::fs::write(root.join("a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "", SourceFormat::Json);
+    let target = IndexStorageTarget::RepositoryDirectory;
+    let index = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let first_count = index.view().unwrap().search(&all_records()).unwrap().count;
+    index.flush_to(&target).unwrap();
+    let rebuilt = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    assert_eq!(rebuilt.view().unwrap().search(&all_records()).unwrap().count, first_count);
+    let loaded = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, first_count);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn stale_explicit_loaded_writer_cannot_replace_newer_generation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-conflict-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let target = IndexStorageTarget::RepositoryDirectory;
+    let built = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    built.flush_to(&target).unwrap();
+    let first = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    let stale = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    first.wait_for_reconciliation().unwrap();
+    stale.wait_for_reconciliation().unwrap();
+    let b = root.join("data/b.json");
+    std::fs::write(&b, br#"{"text":"beta"}"#).unwrap();
+    first.add_file(&b).unwrap();
+    let committed = first.flush_to(&target).unwrap();
+    assert_eq!(committed.store_generation, 2);
+    let c = root.join("data/c.json");
+    std::fs::write(&c, br#"{"text":"gamma"}"#).unwrap();
+    stale.add_file(&c).unwrap();
+    assert!(matches!(stale.flush_to(&target), Err(IndexError::StoreConflict(_))));
+    assert_eq!(stale.view().unwrap().search(&all_records()).unwrap().count, Some(2));
+    let current = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
+        .unwrap().unwrap();
+    assert_eq!(current.storage_status().unwrap().durable_generation, Some(2));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn managed_open_rebuilds_only_identified_obsolete_format() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-obsolete-rebuild-{}-{}",

@@ -43,6 +43,7 @@ pub(crate) struct ManagedPersistence {
     pub(crate) store: ManagedStore,
     residency: IndexResidency,
     durable_generation: Option<u64>,
+    last_saved_publication: Option<(u64, IndexRevision)>,
     durable_segments: HashMap<(CollectionId, u64), DurableSegment>,
     historical_base: Option<Arc<RestoredGenerationCatalog>>,
     pub(crate) last_error: Option<String>,
@@ -96,6 +97,7 @@ impl ManagedPersistence {
             store,
             residency,
             durable_generation: None,
+            last_saved_publication: None,
             durable_segments: HashMap::new(),
             historical_base: None,
             last_error: None,
@@ -156,6 +158,7 @@ impl ManagedPersistence {
             }
         }
         self.durable_generation = Some(generation);
+        self.last_saved_publication = Some((publication.instance_id, publication.revision));
         self.durable_segments = durable_segments;
         self.historical_base = Some(historical);
         self.validation = validation;
@@ -183,6 +186,48 @@ impl ManagedPersistence {
                 "published revision did not advance beyond durable generation".into(),
             ));
         }
+        self.flush_generation(publication, generation)?;
+        Ok(publication.revision)
+    }
+
+    pub(crate) fn flush_explicit(
+        &mut self,
+        publication: &PublishedIndex,
+    ) -> Result<(u64, bool, u64, usize), IndexError> {
+        if !publication.catalog.construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        let actual = self
+            .store
+            .read_generation_readonly()
+            .map_err(IndexError::from)?
+            .map(|opened| opened.generation);
+        if self.durable_generation.is_some() && self.durable_generation != actual {
+            return Err(IndexError::StoreConflict(
+                "destination generation changed since this index observed it".into(),
+            ));
+        }
+        self.durable_generation = actual;
+        if actual.is_some()
+            && self.last_saved_publication
+                == Some((publication.instance_id, publication.revision))
+        {
+            self.last_error = None;
+            self.last_error_kind = None;
+            return Ok((actual.unwrap(), true, 0, 0));
+        }
+        let generation = actual.unwrap_or(0).checked_add(1).ok_or_else(|| {
+            IndexError::StoreConflict("destination generation counter overflow".into())
+        })?;
+        let stats = self.flush_generation(publication, generation)?;
+        Ok((generation, false, stats.segment_bytes_written, stats.segments_reused))
+    }
+
+    fn flush_generation(
+        &mut self,
+        publication: &PublishedIndex,
+        generation: u64,
+    ) -> Result<crate::managed_store::CommitStats, IndexError> {
         // Historical refs have stable offsets only while their segment files
         // are reused. Once the table greatly exceeds the metadata still
         // referenced by this publication, rewrite those segments and rebuild
@@ -210,6 +255,7 @@ impl ManagedPersistence {
             GenerationCatalogBuilder::from_publication_with_history(publication, &[])
         };
         let mut catalog = catalog.map_err(IndexError::InvalidPublication)?;
+        catalog.set_store_generation(generation);
         let mut inputs = Vec::new();
         let mut next_indexes = Vec::new();
         for (number, group) in publication.segments.iter().enumerate() {
@@ -370,6 +416,16 @@ impl ManagedPersistence {
         }
         let catalog_bytes: Arc<[u8]> =
             Arc::from(catalog.encode().map_err(IndexError::InvalidPublication)?);
+        // Validate before the manifest commit so no fallible catalog decode can
+        // turn a committed save into a reported failure.
+        let validated_history = Arc::new(
+            RestoredGenerationCatalog::decode_verified_arc(
+                Arc::clone(&catalog_bytes),
+                publication.configuration_identity,
+                publication.repository.collections().len(),
+            )
+            .map_err(IndexError::InvalidPublication)?,
+        );
         let committed = self
             .store
             .commit_generation_with_catalog_typed(
@@ -380,39 +436,35 @@ impl ManagedPersistence {
             )
             .map_err(IndexError::from)?;
         drop(inputs);
-        if committed.segment_names.len() != next_indexes.len() {
-            return Err(IndexError::InvalidPublication(
-                "committed segment name count mismatch".into(),
-            ));
-        }
-        self.durable_segments = committed
-            .segment_names
-            .into_iter()
-            .zip(next_indexes)
-            .map(|(name, (identity, index, current_refs, catalog))| {
-                (
-                    identity,
-                    DurableSegment {
-                        name,
-                        index,
-                        current_refs,
-                        catalog,
-                    },
-                )
-            })
-            .collect();
+        let report = committed.clone();
+        self.durable_segments = if committed.segment_names.len() == next_indexes.len() {
+            committed
+                .segment_names
+                .into_iter()
+                .zip(next_indexes)
+                .map(|(name, (identity, index, current_refs, catalog))| {
+                    (
+                        identity,
+                        DurableSegment {
+                            name,
+                            index,
+                            current_refs,
+                            catalog,
+                        },
+                    )
+                })
+                .collect()
+        } else {
+            // The committed generation remains valid; omit reuse hints if a
+            // future store implementation returns an unexpected name table.
+            HashMap::new()
+        };
         self.durable_generation = Some(generation);
-        self.historical_base = Some(Arc::new(
-            RestoredGenerationCatalog::decode_verified_arc(
-                catalog_bytes,
-                publication.configuration_identity,
-                publication.repository.collections().len(),
-            )
-            .map_err(IndexError::InvalidPublication)?,
-        ));
+        self.last_saved_publication = Some((publication.instance_id, publication.revision));
+        self.historical_base = Some(validated_history);
         self.last_error = None;
         self.last_error_kind = None;
-        Ok(publication.revision)
+        Ok(report)
     }
 }
 
@@ -550,19 +602,19 @@ impl Index {
         let started = Instant::now();
         target.validate().map_err(IndexError::IncompatibleConfiguration)?;
         let root = root.into();
-        let prepared = target
-            .policy()
-            .prepare(&root, &definitions, options, &sources)
+        let definitions = IndexStorageTarget::prepare_logical_definitions(&root, &definitions)
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let Some(store) = ManagedStore::open_existing(&prepared.resolved).map_err(IndexError::from)? else {
+        let resolved = target.resolve_logical(&root, &definitions, options, &sources)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let Some(store) = ManagedStore::open_existing(&resolved).map_err(IndexError::from)? else {
             return Ok(None);
         };
         let Some(opened) = store.read_generation_readonly().map_err(IndexError::from)? else {
             return Ok(None);
         };
         restore_generation(
-            &prepared.resolved,
-            prepared.definitions,
+            &resolved,
+            definitions,
             options,
             sources,
             opened,

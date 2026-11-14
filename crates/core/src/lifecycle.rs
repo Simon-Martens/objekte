@@ -1858,6 +1858,84 @@ impl Index {
         Ok(saved)
     }
 
+    /// Persist one pinned publication to the target selected for this call.
+    /// The active query backing is left unchanged, including when it is an
+    /// on-demand mapping from another store.
+    pub fn flush_to(
+        &self,
+        target: &crate::index_storage::IndexStorageTarget,
+    ) -> Result<crate::index_storage::IndexFlushReport, IndexError> {
+        let view = self.view()?;
+        if !view.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        target.validate().map_err(IndexError::IncompatibleConfiguration)?;
+        let repository = view.repository();
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        let resolved = target
+            .resolve_logical(
+                &repository.files().root,
+                &definitions,
+                repository.options(),
+                &repository.sources,
+            )
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        if resolved.configuration_identity != view.configuration_identity() {
+            return Err(IndexError::IncompatibleConfiguration(
+                "selected destination changes the published index configuration".into(),
+            ));
+        }
+        let directory = resolved.managed_directory.clone().ok_or_else(|| {
+            IndexError::IncompatibleConfiguration("explicit flush needs a disk target".into())
+        })?;
+        self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
+        let _activity = StorageSyncActivity(&self.0.storage_syncing);
+        let (generation, unchanged, bytes_written, segments_reused) = {
+            let mut managed = self.0.managed.lock().map_err(|_| IndexError::LockPoisoned)?;
+            if managed.as_ref().is_some_and(|state| state.store.path() == directory) {
+                let state = managed.as_mut().expect("matching managed state");
+                let result = state.flush_explicit(&view.0);
+                if let Err(error) = &result {
+                    state.last_error = Some(error.to_string());
+                    state.last_error_kind = Some(
+                        crate::index_storage::IndexStorageFailureKind::from(error),
+                    );
+                }
+                *self.0.storage_status_snapshot.write().map_err(|_| IndexError::LockPoisoned)? =
+                    Some(state.status_snapshot());
+                result?
+            } else {
+                let mut candidate = crate::lifecycle_storage::ManagedPersistence::open(&resolved)
+                    .map_err(IndexError::Io)?;
+                let result = candidate.flush_explicit(&view.0)?;
+                *self.0.storage_status_snapshot.write().map_err(|_| IndexError::LockPoisoned)? =
+                    Some(candidate.status_snapshot());
+                *managed = Some(candidate);
+                result
+            }
+        };
+        let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+        let newer_changes_unsaved = published.revision != view.revision();
+        if !newer_changes_unsaved {
+            let next = Arc::make_mut(&mut *published);
+            next.saved_revision = Some(view.revision());
+        }
+        Ok(crate::index_storage::IndexFlushReport {
+            saved_revision: view.revision(),
+            target: target.clone(),
+            managed_directory: directory,
+            store_generation: generation,
+            unchanged,
+            newer_changes_unsaved,
+            segment_bytes_written: bytes_written,
+            segments_reused,
+        })
+    }
+
     /// Report searchable coverage, source freshness and durable state
     /// separately so an old valid generation is not mistaken for a fresh one.
     pub fn storage_status(&self) -> Result<crate::index_storage::IndexStorageStatus, IndexError> {

@@ -64,6 +64,15 @@ impl Index {
         seal_owned: bool,
     ) -> Result<Self, IndexError> {
         let root = root.into();
+        let definitions = if seal_owned {
+            crate::index_storage::IndexStorageTarget::prepare_logical_definitions(
+                &root,
+                &definitions,
+            )
+            .map_err(IndexError::IncompatibleConfiguration)?
+        } else {
+            definitions
+        };
         if let Some(direct) = Repository::build_direct_json(
             root.clone(),
             definitions.clone(),
