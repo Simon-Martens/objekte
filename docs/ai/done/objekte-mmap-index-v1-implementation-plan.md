@@ -2446,6 +2446,9 @@ source-check actions.
   reconstruction at Load.
 - `eb3ebff0`/`d9ea138d` — source-free compaction of loaded packed runs,
   sealing packed output and covering add/replace/move/delete plus pinned views.
+- Direct packed-to-packed remap in `stream_compact.rs`, removing the temporary
+  native materializer and preserving tombstone catalogue slots and base sort
+  descriptors across reload.
 
 ### Packed access abstraction
 
@@ -2509,16 +2512,18 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures (924 passed). The core library suite
-  reports 595 passed, 15 ignored; the CLI library reports 94 passed; the desktop
+- Workspace tests pass with no failures (925 passed). The core library suite
+  reports 596 passed, 15 ignored; the CLI library reports 94 passed; the desktop
   library reports 166 passed, 1 ignored. The all-targets run compiles and tests
   examples and integration targets as well.
-- The storage subsystem suite reports 79 passed, including dictionary,
+- The storage subsystem suite reports 80 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, posting-value enumeration over packed dictionaries, loaded
-  re-save object reuse, loaded packed compaction after add/replace/move/delete,
-  pinned prior views, compaction/save, concurrent-publication, and
-  background-task tests.
+  re-save object reuse, direct packed-to-packed compaction after
+  add/replace/move/delete, source removal before compaction, typed/FTS/sort/
+  relation differential results, pinned prior views, tombstone catalogue
+  preservation, compaction/save, concurrent-publication, and background-task
+  tests.
 - CLI tests include the end-to-end storage protocol, TUI storage overlay/Load,
   and six custom-index recipe tests: custom-only query and storage-only opening,
   schema/inference/alphabet restoration, conflicting interpretation, explicit
@@ -2529,10 +2534,10 @@ Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
 
 ```text
-records=20000  build=37.77 ms  save=12.55 ms  load=1.59 ms  first_query=0.536 ms  noop_save=0.020 ms
-objects_written=11  noop_bytes_written=0  load_speedup_over_build=23.80
-records=100000 build=170.92 ms save=59.38 ms load=6.95 ms  first_query=0.843 ms  noop_save=0.054 ms
-objects_written=50  noop_bytes_written=0  load_speedup_over_build=24.58
+records=20000  build=41.33 ms  save=28.14 ms  load=1.52 ms  first_query=0.579 ms  noop_save=0.027 ms
+objects_written=11  noop_bytes_written=0  load_speedup_over_build=27.24
+records=100000 build=178.00 ms save=128.03 ms load=6.95 ms  first_query=0.846 ms  noop_save=0.047 ms
+objects_written=50  noop_bytes_written=0  load_speedup_over_build=25.60
 ```
 
 The first measurement is a 20,000-record JSONL corpus; the second uses
@@ -2544,8 +2549,8 @@ objekte-search-core --example bench_mmap_load --release` with `TMPDIR` on a
 disk-backed filesystem so `fadvise(DONTNEED)` can evict pages:
 
 ```text
-records=20000  warm mean=1.79 ms  cold mean=4.59 ms  cold/warm=2.56
-records=100000 warm mean=9.13 ms  cold mean=19.89 ms cold/warm=2.18
+records=20000  warm mean=1.72 ms  cold mean=3.85 ms  cold/warm=2.24
+records=100000 warm mean=7.01 ms  cold mean=18.57 ms cold/warm=2.65
 ```
 
 Each entry is the mean of three loads. Cold runs evict every store file before
@@ -2559,9 +2564,11 @@ headlessly.
    columns/orders, relation adjacency, record rows, and logical-ID lookups are
    backed by mapped packed sections. No complete native dictionary, order
    vector, edge array, record vector, or ID map is rebuilt during Load; record
-   rows materialize one at a time on access. Remaining work is broader
-   fast-load/GUI validation, recorded in
-   `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
+   rows materialize one at a time on access. The packed-execution migration is
+   resolved in
+   `docs/ai/done/resolved-issues/mmap-index-packed-execution-migration.md`.
+   Automated GUI execution remains environment-blocked because no display
+   server or `xvfb-run` is available.
 2. **Desktop/TUI storage controls and custom-only opening are implemented.**
    The desktop Open dialog exposes Build/Load, three locations, custom path, and
    check-after-load; the Index panel exposes storage status and Save with
@@ -2577,15 +2584,17 @@ headlessly.
    latter, content-preserving moves preserve it, and delete tombstones retain
    it. The resolved report is in
    `docs/ai/done/resolved-issues/mmap-index-content-generations.md`.
-4. **Compaction has a source-free packed path.** Loaded packed runs are
-   materialized into bounded projection state, compacted without opening source
-   files, then sealed back into packed runs (records, postings, bigrams, sort,
-   relations, coverage, inference metadata). The temporary projection state is
-   dropped after sealing, and subsequent Save reuses the packed output. A
-   differential test covers loaded add/replace/move/delete plus pinned prior
-   views and save/reload. The projection is currently materialized rather than
-   consumed as a fully streaming cursor, so peak temporary memory during
-   compaction still scales with the bounded batch.
+4. **Compaction has a direct packed-to-packed path.** Loaded packed runs are
+   read through their mapped readers and remapped into new packed runs in
+   bounded 2,048-record parts. Records, file parts, typed/structural postings,
+   bigrams, sort keys/orders, relation adjacency/state, coverage, and inference
+   bitmaps are filtered and remapped directly; no native posting, bigram, sort,
+   relation, or record owner is materialized. The test removes the source tree
+   before compaction, covers loaded add/replace/move/delete, compares typed,
+   FTS, ascending/descending sort, and relation results against a freshly built
+   oracle, checks a pinned pre-mutation view, and saves/reloads the packed
+   output. The tombstone-range catalogue and base sort descriptors are restored
+   across reload.
 5. **Formatting check caveat.** `cargo fmt --all` and
    `python3 scripts/format-rust-spacing.py` were applied. The repository's
    `format-rust-spacing.py --check` first runs `cargo fmt --check`, which

@@ -16,7 +16,6 @@ pub mod error;
 pub mod format;
 pub mod manifest;
 pub mod native_pack;
-pub mod packed_materialize;
 pub mod packed_restore;
 pub mod posting;
 pub mod posting_builder;
@@ -29,6 +28,7 @@ pub mod segment_builder;
 pub mod sort;
 pub mod status;
 pub mod store;
+pub mod stream_compact;
 pub mod task;
 
 pub use backing::{Backing, MappedObject};

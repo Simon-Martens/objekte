@@ -34,6 +34,10 @@ struct ChangedFile {
 }
 
 
+type SnapshotSlot = (FileEntry, Option<[u8; 32]>, Option<[u8; 32]>);
+type LivenessSlot = (FileEntry, bool, Option<[u8; 32]>, Option<[u8; 32]>);
+
+
 /// One published view's active file table. Previous views retain their own
 /// path map, metadata and liveness after a new root is published.
 #[derive(Clone)]
@@ -94,11 +98,31 @@ impl FileCatalog {
         crate::configuration::configuration_hash(&definitions, base.options(), &base.sources)
     }
 
+    /// Materialize every stable file-ID slot, including retired tombstones.
+    /// Maintenance rebases use this so a deleted file in the middle of the
+    /// allocated range cannot leave a hole in the packed catalogue.
+    pub(crate) fn snapshot_slots_with_liveness(&self) -> Vec<Option<LivenessSlot>> {
+        (0..self.len)
+            .map(|number| {
+                let id = FileId(number);
+                if let Some(entry) = self.entry(id) {
+                    Some((
+                        entry.clone(),
+                        true,
+                        self.fingerprint(id),
+                        self.configuration(id),
+                    ))
+                } else {
+                    self.inactive_entry(id)
+                        .map(|entry| (entry.clone(), false, None, None))
+                }
+            })
+            .collect()
+    }
+
     /// Materialize stable file-ID slots for an explicit maintenance rebase.
     /// Ordinary mutations continue to use the shared sharded representation.
-    pub(crate) fn snapshot_slots(
-        &self,
-    ) -> Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>> {
+    pub(crate) fn snapshot_slots(&self) -> Vec<Option<SnapshotSlot>> {
         (0..self.len)
             .map(|number| {
                 let id = FileId(number);
@@ -113,7 +137,23 @@ impl FileCatalog {
     /// entries continue to borrow their metadata from `base`.
     pub(crate) fn restored(
         base: Arc<Repository>,
-        slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
+        slots: Vec<Option<SnapshotSlot>>,
+    ) -> Result<Self, String> {
+        let slots = slots
+            .into_iter()
+            .map(|slot| {
+                slot.map(|(entry, fingerprint, configuration)| {
+                    (entry, true, fingerprint, configuration)
+                })
+            })
+            .collect();
+        Self::restored_with_liveness(base, slots)
+    }
+
+    /// Rebuild a published catalog while retaining retired tombstone slots.
+    pub(crate) fn restored_with_liveness(
+        base: Arc<Repository>,
+        slots: Vec<Option<LivenessSlot>>,
     ) -> Result<Self, String> {
         let base_configuration = Self::configuration_for(&base)?;
         let len = u32::try_from(slots.len()).map_err(|_| "too many indexed files")?;
@@ -126,7 +166,7 @@ impl FileCatalog {
         let mut active = RoaringBitmap::new();
         let mut paths = HashSet::new();
         for (number, slot) in slots.into_iter().enumerate() {
-            let Some((entry, fingerprint, configuration)) = slot else {
+            let Some((entry, live, fingerprint, configuration)) = slot else {
                 continue;
             };
             let id = FileId(number as u32);
@@ -162,14 +202,15 @@ impl FileCatalog {
                     || original.diagnostics != entry.diagnostics
                     || original.omitted_diagnostics != entry.omitted_diagnostics
             });
-            if new_path {
+            if new_path && live {
                 let path = entry.relative_path.clone();
                 changed_relative_paths.insert((entry.relative_path.query_key(), id), ());
                 changed_paths[shard(&path)].insert(path, id);
             }
             let base_fingerprint = base.base_fingerprints.get(number).copied().flatten();
             let base_configuration_for_file = base_fingerprint.map(|_| base_configuration);
-            if new_path
+            if !live
+                || new_path
                 || changed_metadata
                 || fingerprint != base_fingerprint
                 || configuration != base_configuration_for_file
@@ -183,7 +224,9 @@ impl FileCatalog {
                     },
                 );
             }
-            active.insert(id.0);
+            if live {
+                active.insert(id.0);
+            }
         }
         Ok(Self {
             base,

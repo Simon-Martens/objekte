@@ -92,10 +92,7 @@ pub fn restore_from_store(
             empty_array_records: RoaringBitmap::new(),
             custom_text: HashMap::new(),
             text_bindings: crate::index_catalog::TextBindingCatalog::new(&definition.schema),
-            sorting: SortCollection {
-                columns: HashMap::new(),
-                composites: Vec::new(),
-            },
+            sorting: empty_sorting(definition)?,
             index_family_bytes: 0,
             id_lookup: crate::inventory::RecordIdLookup::default(),
             identity_order: Vec::new(),
@@ -451,6 +448,20 @@ fn native_path(bytes: &[u8]) -> Result<PathBuf, IndexError> {
     {
         Ok(PathBuf::from(String::from_utf8_lossy(bytes).into_owned()))
     }
+}
+
+fn empty_sorting(
+    definition: &crate::repository::CollectionDefinition,
+) -> Result<SortCollection, IndexError> {
+    crate::sorting::SortBuilder::new(
+        &definition.sort_fields,
+        &definition.schema,
+        &definition.sort_locale,
+        definition.sort_options,
+        &definition.sort_overrides,
+    )
+    .and_then(|builder| builder.finish_for_records(&[]))
+    .map_err(IndexError::Build)
 }
 
 fn segment_active(frozen: &FrozenSegment) -> Result<RoaringBitmap, IndexError> {

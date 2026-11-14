@@ -426,7 +426,10 @@ ordinary close and repository replacement keep all state in memory and release
 it when the index is dropped.
 
 `compact()` removes retired base and segment contributions without rereading
-source files. `rebuild()` rereads the current source configuration and retries
+source files. Loaded packed runs are remapped directly from their mapped
+readers into new packed runs in bounded parts: records, postings, bigrams, sort
+keys/orders, relations, coverage, and inference bitmaps are filtered and
+re-encoded without rebuilding native owners. `rebuild()` rereads the current source configuration and retries
 publication if a concurrent mutation wins. Complete old bytes can enable
 verified physical removal and compatible single-record slot preservation;
 otherwise the update safely uses tombstones and a new segment. The details

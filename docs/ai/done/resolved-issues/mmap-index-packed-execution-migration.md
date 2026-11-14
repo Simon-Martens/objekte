@@ -1,11 +1,11 @@
-# Packed readers are not yet the execution path
+# Packed readers replace the native execution path
 
 **Category:** feat  
 **Originating task:** `mmap-index-v1`  
 **Branch:** `integration/mmap-index-v1`  
 **Locations:** `crates/core/src/index_storage/`, `crates/core/src/lifecycle.rs`, `crates/core/src/run.rs`
 
-## Observed behavior
+## Original gap
 
 Saving an index writes immutable packed catalogue and segment objects. The
 same objects can be reopened through `FrozenSegment`, `CatalogueView`,
@@ -13,7 +13,7 @@ same objects can be reopened through `FrozenSegment`, `CatalogueView`,
 `Index` load path also writes and reads a source-free native query-state object;
 the existing query engine executes against that native representation.
 
-## Expected behavior
+## Acceptance
 
 The first-version specification asks published indexes to query packed readers
 directly, without reconstructing native posting maps, bigram maps, sort vectors,
@@ -46,12 +46,18 @@ Load performs zero eager record-row or ID-map reconstruction. Warm/cold mmap
 loads are measured; GUI automation remains blocked on a display server in this
 environment.
 
-## Why not resolved here
+## Resolution
 
-Migrating `IndexCatalog`, exact posting execution, bigram candidate execution,
-posting-value enumeration, sorting, and relations requires changing shared
-query interfaces across `run.rs`, `executor.rs`, `reference.rs`, and
-`index_catalog.rs`. That is a separate, large interface migration.
+Implemented for `mmap-index-v1`. Loaded packed executions no longer reconstruct
+native value/gram dictionaries, sort key/order vectors, relation edge/bitmap
+storage, record rows, or complete logical-ID maps. `IndexCatalog`,
+posting-value enumeration, relation probes, bigram candidates, sort access, and
+relation traversal read mapped `PostingAccess`/`BigramAccess`/`SortOrder`/
+`PackedRelation`/`RecordStore` views. Direct packed-to-packed compaction remaps
+every family into bounded replacement runs without source parsing, and loaded
+re-saves reuse the original packed run objects. Differential tests cover loaded
+typed/FTS/sort/relation queries, mutation and compaction with the source tree
+removed, pinned prior views, and save/reload.
 
 ## Possible approaches
 

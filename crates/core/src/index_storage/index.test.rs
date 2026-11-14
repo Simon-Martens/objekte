@@ -480,6 +480,8 @@ fn loaded_packed_index_compacts_after_add_replace_move_and_delete() {
     let added = loaded.add_file(&e).unwrap();
     loaded.delete_file(added.file).unwrap();
 
+    // Maintenance must not need any source file after mutations were staged.
+    std::fs::remove_dir_all(root.path().join("data")).unwrap();
     let report = loaded.compact().unwrap();
     assert!(report.slots_before >= report.slots_after);
     assert_eq!(count(&loaded, "Alpha replaced"), 1);
@@ -507,7 +509,9 @@ fn loaded_packed_index_compacts_after_add_replace_move_and_delete() {
     assert_eq!(count(&reloaded, "Gamma"), 1);
     assert_eq!(count(&reloaded, "Delta"), 0);
     let view = reloaded.view().unwrap();
-    let segment = view.0.segments[0].first().expect("compacted packed segment");
+    let segment = view.0.segments[0]
+        .first()
+        .expect("compacted packed segment");
     assert!(segment.packed.is_some());
     assert!(segment.index.records.as_slice().is_none());
 }

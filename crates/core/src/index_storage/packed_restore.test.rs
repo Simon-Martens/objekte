@@ -249,8 +249,8 @@ fn packed_restore_matches_typed_fts_sort_and_relation_queries() {
             Vec::new(),
         ),
         query(
-            "entries",
-            Some("mentions.title = \"Mention\""),
+            "mentions",
+            Some("parent.title = \"Alpha revised\""),
             None,
             Vec::new(),
         ),
@@ -327,4 +327,180 @@ fn packed_restore_serves_posting_values_without_native_dictionaries() {
     assert!(packed.values.iter().any(|entry| {
         entry.value == crate::posting::ScalarKey::String("Alpha".into()) && entry.count == 1
     }));
+}
+
+#[test]
+fn loaded_packed_compaction_preserves_typed_fts_sort_and_relations() {
+    let (root, definitions) = fixture();
+    let index = Index::build(
+        root.path(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let pinned = loaded.view().unwrap();
+    let old_alpha = query("entries", Some("title = \"Alpha\""), None, Vec::new());
+    let old_relation = query(
+        "mentions",
+        Some("parent.title = \"Alpha\""),
+        None,
+        Vec::new(),
+    );
+    assert_eq!(pinned.search(&old_alpha).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&old_relation).unwrap().count, Some(1));
+
+    // Replace one entry, add another, and delete the only mention.
+    std::fs::write(
+        root.path().join("entries/a.json"),
+        br#"{"id":"a","title":"Alpha revised","text":"Alpha revised story"}"#,
+    )
+    .unwrap();
+    let handle = pinned
+        .file_handle_for_path(&root.path().join("entries/a.json"))
+        .expect("entry file handle");
+    loaded
+        .update_file(handle, &root.path().join("entries/a.json"))
+        .unwrap();
+    let mention_handle = pinned
+        .file_handle_for_path(&root.path().join("mentions/m.json"))
+        .expect("mention file handle");
+    let mention_file = mention_handle.file_id;
+    loaded.delete_file(mention_handle).unwrap();
+    std::fs::remove_file(root.path().join("mentions/m.json")).unwrap();
+    std::fs::write(
+        root.path().join("entries/c.json"),
+        br#"{"id":"c","title":"Gamma","text":"Gamma story"}"#,
+    )
+    .unwrap();
+    loaded
+        .add_file(&root.path().join("entries/c.json"))
+        .unwrap();
+    std::fs::write(
+        root.path().join("mentions/n.json"),
+        br#"{"id":"n","title":"New mention","parent":"a"}"#,
+    )
+    .unwrap();
+    loaded
+        .add_file(&root.path().join("mentions/n.json"))
+        .unwrap();
+
+    let oracle = Index::build(
+        root.path(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let requests = [
+        query(
+            "entries",
+            Some("title = \"Alpha revised\""),
+            None,
+            Vec::new(),
+        ),
+        query("entries", Some("title = \"Alpha\""), None, Vec::new()),
+        query("entries", None, Some("Gamma"), Vec::new()),
+        query(
+            "entries",
+            None,
+            None,
+            vec![SortField {
+                field: "title".into(),
+                descending: false,
+                expression: None,
+            }],
+        ),
+        query(
+            "entries",
+            None,
+            None,
+            vec![SortField {
+                field: "title".into(),
+                descending: true,
+                expression: None,
+            }],
+        ),
+        query(
+            "mentions",
+            Some("parent.title = \"Alpha revised\""),
+            None,
+            Vec::new(),
+        ),
+    ];
+    // Source-free maintenance: every expected result was captured before the
+    // source tree disappears.
+    std::fs::remove_dir_all(root.path().join("entries")).unwrap();
+    std::fs::remove_dir_all(root.path().join("mentions")).unwrap();
+    let report = loaded.compact().unwrap();
+    assert!(report.retired_slots_removed > 0);
+    let compacted_view = loaded.view().unwrap();
+    let packed_parts = compacted_view.0.segments[0]
+        .iter()
+        .filter(|segment| segment.packed.is_some())
+        .collect::<Vec<_>>();
+    assert!(!packed_parts.is_empty());
+    assert!(
+        packed_parts
+            .iter()
+            .all(|segment| segment.index.records.as_slice().is_none())
+    );
+    assert!(
+        packed_parts
+            .iter()
+            .all(|segment| segment.index.records.materialized_rows() == 0)
+    );
+    assert!(
+        compacted_view
+            .0
+            .catalog
+            .inactive_entry(mention_file)
+            .is_some()
+    );
+    drop(compacted_view);
+    for request in &requests {
+        assert_eq!(
+            hits(&oracle, request),
+            hits(&loaded, request),
+            "{request:?}"
+        );
+    }
+    // The pinned pre-mutation view still answers from its old publication.
+    assert_eq!(pinned.search(&old_alpha).unwrap().count, Some(1));
+
+    let compacted = tempfile::tempdir().unwrap();
+    loaded
+        .save_to(compacted.path(), SaveOptions::default())
+        .unwrap();
+    let reloaded = Index::load_from(
+        compacted.path(),
+        definitions,
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let view = reloaded.view().unwrap();
+    let segment = view.0.segments[0]
+        .iter()
+        .find(|segment| segment.ordinal > 0)
+        .expect("compacted packed segment");
+    assert!(segment.packed.is_some());
+    assert!(segment.index.records.as_slice().is_none());
+    assert_eq!(segment.index.records.materialized_rows(), 0);
+    assert!(segment.index.id_lookup.native().is_none());
+    drop(view);
+    for request in &requests {
+        assert_eq!(
+            hits(&oracle, request),
+            hits(&reloaded, request),
+            "reloaded {request:?}"
+        );
+    }
 }
