@@ -1,0 +1,7 @@
+# Binding-cache removal measurements
+
+The ordinary release comparison uses the direct-access binary from `8747efc47e` (same ordinary release behavior as the task base `0c63651458`) and the cache-removal binary from `1e22afd17b`. Exact executable SHA-256 values and commands are in `campaign-summary.json` and `flush-pairs.json`. The feature-gated binding trace was built after `edb1e753db`; its executable SHA-256 and commands are in `binding-times.json`.
+
+The fixture is `/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm`, with 148,486 source records. The benchmark uses the extended 220-case workload, ASCII and Unicode, five repetitions, 32 query workers, verified-result cache disabled, and the ordinary release build. Both memory and source-free on-demand runs compare all 440 case/profile digests. Four compressed JSONL files retain every query sample. The CSV files and digest files preserve each result summary. `binding-times.json` contains each timed binding call from the 150- and 220-case feature-instrumented runs; those runs also include the benchmark's separate diagnostic query preparations, so their call counts exceed timed query sample counts. The raw stderr traces are included.
+
+The paired flush check used three alternating ASCII fresh builds per binary. Its stores were disposable and are not archived. The runner is `../../direct-snapshot-access/scripts/run_flush_pairs.py`; the two query/binding runners are in `../scripts/`. The interpretation and limitations are in `docs/ai/generated/remove_binding_cache_results.md`.

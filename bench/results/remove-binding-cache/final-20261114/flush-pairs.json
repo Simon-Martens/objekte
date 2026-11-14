@@ -1,0 +1,167 @@
+{
+  "alphabet": "ascii",
+  "trials": 3,
+  "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "program_sha256": {
+    "baseline": "9b7e255f993491be93c0edd8711d1d502c0bde5b362e82d6bf446cc8b7e6c9b4",
+    "candidate": "221da8ac9bc63578d2ace130763d1d27ec9e74b6410341cd9c0efbd3c7804713"
+  },
+  "medians": {
+    "baseline": {
+      "flush_ns": 323617028,
+      "unchanged_flush_ns": 1195,
+      "stored_bytes": 141616861
+    },
+    "candidate": {
+      "flush_ns": 352453101,
+      "unchanged_flush_ns": 1333,
+      "stored_bytes": 141616861
+    }
+  },
+  "records": [
+    {
+      "trial": 1,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/1/baseline",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 315191730,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/1/baseline/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1195
+      }
+    },
+    {
+      "trial": 1,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/1/candidate",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 352973613,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/1/candidate/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1266
+      }
+    },
+    {
+      "trial": 2,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/2/candidate",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 352453101,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/2/candidate/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1333
+      }
+    },
+    {
+      "trial": 2,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/2/baseline",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 336093707,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/2/baseline/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1317
+      }
+    },
+    {
+      "trial": 3,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/3/baseline",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 323617028,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/3/baseline/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1032
+      }
+    },
+    {
+      "trial": 3,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/candidate/bench_managed_flush",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/3/candidate",
+        "--alphabet",
+        "ascii"
+      ],
+      "stored_bytes": 141616861,
+      "result": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 330402089,
+        "managed_directory": "/home/simon/source/objekte-integration-remove-binding-cache/target/remove-binding-cache/flush-pairs-direct-base-1e22/stores/3/candidate/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1519
+      }
+    }
+  ]
+}
