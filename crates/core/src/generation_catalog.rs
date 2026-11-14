@@ -445,8 +445,8 @@ pub(crate) struct RestoredGenerationCatalog {
 }
 
 impl RestoredGenerationCatalog {
-    /// Convenient borrowed-input form for tests and one-off validation. The
-    /// production managed open uses `decode_arc` to retain the original owner.
+    /// Borrowed-input form for validation tests.
+    #[cfg(test)]
     pub(crate) fn decode(
         bytes: &[u8],
         expected_identity: [u8; 32],
@@ -455,6 +455,7 @@ impl RestoredGenerationCatalog {
         Self::decode_arc(Arc::from(bytes), expected_identity, collection_count)
     }
 
+    #[cfg(test)]
     pub(crate) fn decode_arc(
         bytes: Arc<[u8]>,
         expected_identity: [u8; 32],
@@ -852,10 +853,12 @@ impl RestoredGenerationCatalog {
             .collect()
     }
 
+    #[cfg(test)]
     pub(crate) fn historical_entries(&self) -> &[FileEntry] {
         &self.historical
     }
 
+    #[cfg(test)]
     pub(crate) fn resolve_metadata(&self, reference: u32) -> Option<&FileEntry> {
         if reference & HISTORICAL_TAG != 0 {
             self.historical.get((reference & !HISTORICAL_TAG) as usize)

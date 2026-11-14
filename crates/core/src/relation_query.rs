@@ -199,10 +199,12 @@ impl<'a> MergedRelationView<'a> {
             let record = segment
                 .try_record(address.slot)?
                 .ok_or("merged segment slot missing")?;
+            let file_index = segment
+                .try_file_index(record.file)?
+                .ok_or("merged segment file missing")?;
             let file = segment
-                .try_file(record.file)?
-                .ok_or("merged segment file missing")?
-                .entry.revision;
+                .try_file_revision_at(file_index)?
+                .ok_or("merged segment file missing")?;
             (record, file)
         } else {
             if !self.base_active[index].contains(address.slot) {
@@ -376,10 +378,8 @@ impl<'a> MergedRelationView<'a> {
             let id = if let Some(segment_index) = address.segment {
                 self.segments[index][segment_index]
                     .index
-                    .try_record(address.slot)?
+                    .try_record_id(address.slot)?
                     .ok_or("backlink segment slot missing")?
-                    .id
-                    .0
                     .to_string()
             } else {
                 collection.generation.records[address.slot.0 as usize]

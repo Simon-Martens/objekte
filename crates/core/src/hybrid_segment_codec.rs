@@ -1078,6 +1078,7 @@ pub(crate) fn decode_segment_owned<'a>(
 
 /// Open a managed segment with checked metadata and immutable dictionary
 /// readers. Both mapped and fully resident readers use this same path.
+#[cfg(test)]
 pub(crate) fn decode_segment_sealed<'a>(
     reader: Arc<SegmentReader>,
     expected_ordinal: u64,

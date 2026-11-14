@@ -2263,11 +2263,12 @@ fn segment_active_file<'a>(
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
-    let segment_file = segment.try_file(file_id)?.ok_or("segment record file missing")?;
+    let file_index = segment.try_file_index(file_id)?.ok_or("segment record file missing")?;
+    let segment_revision = segment.try_file_revision_at(file_index)?.ok_or("segment record file missing")?;
     let file = catalog
         .entry(file_id)
         .ok_or("active segment record file is retired")?;
-    if file.revision != segment_file.entry.revision
+    if file.revision != segment_revision
         || !file.collections.contains(&segment.collection)
     {
         return Err("active segment record file changed without retirement".into());
@@ -2288,15 +2289,14 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.try_record(slot)?.ok_or("segment record slot missing")?;
-    let segment_file = segment
-        .try_file(record.file)?
-        .ok_or("segment record file missing")?;
+    let file_index = segment.try_file_index(record.file)?.ok_or("segment record file missing")?;
+    let segment_revision = segment.try_file_revision_at(file_index)?.ok_or("segment record file missing")?;
     let file = catalog
         .entry(record.file)
         .ok_or("active segment record file is retired")?;
     // The catalog owns the path in this publication. A compatible move may
     // route an unchanged segment to a new path without rebuilding postings.
-    if file.revision != segment_file.entry.revision || !file.collections.contains(&segment.collection) {
+    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(Some(SegmentRecordRef { record, file }))
@@ -6842,7 +6842,28 @@ fn search_segmented_relations(
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 continue;
             }
-            for file_index in 0..published.index.file_count() {
+            // A posting may leave only a handful of slots in a large segment.
+            // Locate their files directly instead of decoding every file row.
+            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) = candidates.as_ref()
+                && may.len().saturating_mul(8) < published.index.file_count() as u64
+            {
+                let mut selected = std::collections::BTreeSet::new();
+                for number in may.iter() {
+                    let slot = RecordSlot(number);
+                    if !published.active.contains(slot) {
+                        continue;
+                    }
+                    let record = published.index.try_record(slot)?
+                        .ok_or("merged segment candidate missing")?;
+                    let index = published.index.try_file_index(record.file)?
+                        .ok_or("merged segment candidate file missing")?;
+                    selected.insert(index);
+                }
+                Box::new(selected.into_iter())
+            } else {
+                Box::new(0..published.index.file_count())
+            };
+            for file_index in file_indices {
                 let file = published.index.try_file_at(file_index)?
                     .ok_or("merged segment file missing")?;
                 if let Some(context) = context {

@@ -43,7 +43,7 @@ use crate::sorting::{
     COLLATION_VERSION, CompositeSortOrder, SortCollection, SortColumn, compare_composite,
     simple_composite_part,
 };
-use crate::segment_format::{SectionKind, SegmentReader};
+use crate::segment_format::SegmentReader;
 
 const RECORD_MAGIC: &[u8; 8] = b"OBJHREC3";
 const RECORD_VERSION: u32 = 3;
@@ -655,6 +655,7 @@ impl PersistedRecordSlots {
             && self.layout.file_row(bytes, low).is_some_and(|row| row.id == id)).then_some(low))
     }
 
+    #[cfg(test)]
     pub(crate) fn file_entry(&self, id: FileId) -> Result<Option<FileEntry>, String> {
         let Some(index) = self.file_index(id)? else { return Ok(None); };
         self.file_entry_at(index)
