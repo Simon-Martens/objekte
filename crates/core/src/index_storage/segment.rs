@@ -3,7 +3,7 @@
 use super::bigram::BigramSectionView;
 use super::coverage::CoverageView;
 use super::error::{StorageError, StorageResult};
-use super::format::{ObjectHeader, ObjectKind, ObjectView, SectionKind};
+use super::format::{ObjectHeader, ObjectKind, ObjectView, SectionDescriptor, SectionKind};
 use super::posting::PostingSectionView;
 use super::records::{RecordTableView, SegmentStats, decode_stats};
 use super::relations::RelationSectionView;
@@ -21,6 +21,7 @@ pub struct FrozenSegment {
     sorting: SortSectionView,
     relations: RelationSectionView,
     coverage: CoverageView,
+    metadata: Option<SectionDescriptor>,
 }
 
 
@@ -113,6 +114,7 @@ impl FrozenSegment {
             .copied()
             .ok_or_else(|| StorageError::corrupt("coverage is missing"))?;
         let coverage = CoverageView::open(backing.clone(), coverage_desc, stats.slot_count)?;
+        let metadata = sections.get(&SectionKind::Compatibility).copied();
         Ok(Self {
             backing,
             header,
@@ -123,6 +125,7 @@ impl FrozenSegment {
             sorting,
             relations,
             coverage,
+            metadata,
         })
     }
 
@@ -165,6 +168,12 @@ impl FrozenSegment {
 
     pub fn coverage(&self) -> &CoverageView {
         &self.coverage
+    }
+
+    pub fn metadata(&self) -> StorageResult<Option<&[u8]>> {
+        self.metadata
+            .map(|descriptor| self.backing.read(descriptor.offset, descriptor.length))
+            .transpose()
     }
 
     pub fn backing(&self) -> &super::backing::Backing {

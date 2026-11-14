@@ -1503,34 +1503,19 @@ impl Index {
                 "saved index configuration differs from the requested configuration".into(),
             ));
         }
-        let state_object = opened.state.as_ref().ok_or_else(|| {
-            IndexError::IncompatibleConfiguration("saved index has no native query state".into())
-        })?;
-        let state = crate::index_storage::native_state::decode_state_object(
-            &crate::index_storage::backing::Backing::mapped(std::sync::Arc::clone(state_object)),
-        )
-        .map_err(storage_error)?;
-        let mut packed = std::collections::HashMap::new();
-        for run in &opened.runs {
-            let frozen = std::sync::Arc::new(
-                crate::index_storage::segment::FrozenSegment::open(opened.run_backing(run))
-                    .map_err(storage_error)?,
-            );
-            packed.insert((run.reference.collection, run.reference.ordinal), frozen);
-        }
-        let index = state.restore(definitions, options, sources, &packed)?;
+        let index = crate::index_storage::packed_restore::restore_from_store(
+            &opened,
+            definitions,
+            options,
+            sources,
+        )?;
         let mapped_virtual_bytes = opened
             .manifest
             .runs
             .iter()
             .map(|run| run.object.length)
             .sum::<u64>()
-            + opened.manifest.catalogue.length
-            + opened
-                .manifest
-                .state
-                .as_ref()
-                .map_or(0, |state| state.length);
+            + opened.manifest.catalogue.length;
         let publication_id = index.view()?.0.publication_id;
         index.update_storage_status(|status| {
             *status = crate::index_storage::status::StorageStatus::loaded(
@@ -1606,9 +1591,6 @@ impl Index {
             })?;
             return Ok(report);
         }
-        let native = crate::index_storage::native_state::NativeState::capture(&view)?;
-        let state_object = crate::index_storage::native_state::build_state_object(&native)
-            .map_err(storage_error)?;
         let catalogue =
             crate::index_storage::native_pack::pack_catalogue(&view).map_err(storage_error)?;
         let runs = crate::index_storage::native_pack::pack_runs(&view).map_err(storage_error)?;
@@ -1625,7 +1607,7 @@ impl Index {
                 publication_id: view.0.publication_id,
                 lineage_id: view.0.lineage_id,
                 source_root: view.repository().files().root.clone(),
-                model_version: crate::index_storage::native_state::NATIVE_MODEL_VERSION,
+                model_version: crate::index_storage::native_pack::MODEL_VERSION,
                 configuration_identity: view.0.configuration_identity,
                 source_registrations: registrations
                     .into_iter()
@@ -1637,10 +1619,7 @@ impl Index {
                 bigram_representation_version: crate::bigram::BIGRAM_VERSION.to_string(),
                 file_id_high_water: view.0.catalog.allocated_files() as u32,
                 catalogue,
-                state: Some(crate::index_storage::store::ObjectInput {
-                    kind: crate::index_storage::format::ObjectKind::State,
-                    bytes: std::sync::Arc::from(state_object.into_bytes()),
-                }),
+                state: None,
                 runs,
                 collections,
                 frontend_metadata: options.frontend_metadata.clone(),

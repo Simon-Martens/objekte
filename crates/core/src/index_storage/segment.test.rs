@@ -33,6 +33,8 @@ fn fixture() -> SegmentInput {
         FieldInput {
             ordinal: 0,
             path: vec!["title".into()],
+            source: Default::default(),
+            complete: true,
             kind: LogicalType::String,
             multi: false,
             presence: vec![0, 1, 2],
@@ -51,6 +53,8 @@ fn fixture() -> SegmentInput {
         FieldInput {
             ordinal: 1,
             path: vec!["count".into()],
+            source: Default::default(),
+            complete: true,
             kind: LogicalType::Number,
             multi: false,
             presence: vec![0, 1, 2],
@@ -69,6 +73,8 @@ fn fixture() -> SegmentInput {
         FieldInput {
             ordinal: 2,
             path: vec!["flag".into()],
+            source: Default::default(),
+            complete: true,
             kind: LogicalType::Bool,
             multi: false,
             presence: vec![0, 1, 2],
@@ -184,6 +190,7 @@ fn fixture() -> SegmentInput {
         logical_records: vec![0, 1, 2],
         empty_arrays: vec![2],
         active_records: vec![0, 1, 2],
+        metadata: None,
         estimated_index_bytes: 1024,
     }
 }

@@ -15,9 +15,9 @@ use super::dictionary::{DictionaryReader, KeyOrder};
 use super::error::{StorageError, StorageResult};
 use super::format::SectionDescriptor;
 use super::posting_builder::{
-    FIELD_DIRECTORY_VERSION, FIELD_EMPTY_STRING_COMPLETE, FIELD_HAS_LENGTHS, FIELD_HAS_STRUCTURAL,
-    FIELD_LENGTH_COMPLETE, FIELD_VALUE_COMPLETE, FIELD_VALUES_INDEXED,
-    POSTING_FIELD_DESCRIPTOR_LEN, POSTING_PAYLOAD_MAGIC, POSTING_PAYLOAD_VERSION,
+    FIELD_COMPLETE, FIELD_DIRECTORY_VERSION, FIELD_EMPTY_STRING_COMPLETE, FIELD_HAS_LENGTHS,
+    FIELD_HAS_STRUCTURAL, FIELD_LENGTH_COMPLETE, FIELD_VALUE_COMPLETE, FIELD_VALUES_INDEXED,
+    FieldSource, POSTING_FIELD_DESCRIPTOR_LEN, POSTING_PAYLOAD_MAGIC, POSTING_PAYLOAD_VERSION,
 };
 use super::record_set::RecordSetRef;
 use super::record_set::RecordSetView;
@@ -31,6 +31,7 @@ pub struct FieldDefinitionView {
     pub path: Vec<String>,
     pub kind: LogicalType,
     pub multi: bool,
+    pub source: FieldSource,
 }
 
 
@@ -210,6 +211,8 @@ impl PostingSectionView {
                 path: definition.path,
                 kind: definition.kind,
                 multi: definition.multi,
+                source: definition.source,
+                complete: flags & FIELD_COMPLETE != 0,
                 flags,
                 presence,
                 nulls,
@@ -284,6 +287,8 @@ pub struct FieldPostingsView {
     path: Vec<String>,
     kind: LogicalType,
     multi: bool,
+    source: FieldSource,
+    complete: bool,
     flags: u32,
     presence: RecordSetRef,
     nulls: RecordSetRef,
@@ -328,6 +333,14 @@ impl FieldPostingsView {
 
     pub fn multi(&self) -> bool {
         self.multi
+    }
+
+    pub fn source(&self) -> &FieldSource {
+        &self.source
+    }
+
+    pub fn complete(&self) -> bool {
+        self.complete
     }
 
     pub fn covered_records(&self) -> u32 {
@@ -627,7 +640,7 @@ impl FieldPostingsView {
         Ok(())
     }
 
-    fn view(&self, reference: RecordSetRef) -> StorageResult<RecordSetView<'_>> {
+    pub(crate) fn view(&self, reference: RecordSetRef) -> StorageResult<RecordSetView<'_>> {
         let arena = self.arena()?;
         reference.view(arena, self.slot_count)
     }
@@ -662,11 +675,28 @@ fn parse_field_directory(
         let head = read_section(backing, descriptor, offset, 12)?;
         let ordinal = u32::from_le_bytes(head[..4].try_into().expect("field ordinal"));
         let kind = logical_type_from_codes(head[4], head[5])?;
-        if head[7] != 0 {
-            return Err(StorageError::corrupt(
-                "field directory reserved byte is not zero",
-            ));
-        }
+        let source = match head[7] {
+            0 => FieldSource::Declared,
+            1 => FieldSource::Observed,
+            2 => {
+                let length_bytes = read_section(backing, descriptor, offset + 12, 4)?;
+                let length =
+                    u32::from_le_bytes(length_bytes.try_into().expect("binding name length"))
+                        as u64;
+                let bytes = read_section(backing, descriptor, offset + 16, length)?;
+                offset += 4 + length;
+                FieldSource::Named(
+                    std::str::from_utf8(bytes)
+                        .map_err(|_| StorageError::corrupt("field binding is not UTF-8"))?
+                        .to_owned(),
+                )
+            }
+            other => {
+                return Err(StorageError::UnsupportedFormat(format!(
+                    "unknown field source code {other}"
+                )));
+            }
+        };
         let multi = head[6] != 0;
         let segments = u32::from_le_bytes(head[8..12].try_into().expect("path segments")) as usize;
         offset += 12;
@@ -687,6 +717,7 @@ fn parse_field_directory(
             path,
             kind,
             multi,
+            source,
         });
     }
     if offset != descriptor.length {
@@ -753,6 +784,7 @@ pub fn field_definition(view: &FieldPostingsView) -> FieldDefinitionView {
         path: view.path.clone(),
         kind: view.kind.clone(),
         multi: view.multi,
+        source: view.source.clone(),
     }
 }
 

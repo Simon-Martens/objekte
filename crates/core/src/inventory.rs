@@ -288,14 +288,6 @@ impl FileVersions {
         self.len
     }
 
-    /// Copy every version token in file-ID order.
-    pub(crate) fn versions(&self) -> Vec<FileVersion> {
-        self.chunks
-            .iter()
-            .flat_map(|chunk| chunk.iter().copied())
-            .collect()
-    }
-
     pub(crate) fn get(&self, file: FileId) -> Option<FileVersion> {
         let index = file.0 as usize;
         if index >= self.len {

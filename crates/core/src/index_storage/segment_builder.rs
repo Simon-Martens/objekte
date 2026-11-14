@@ -25,6 +25,7 @@ pub struct SegmentInput {
     pub logical_records: Vec<u32>,
     pub empty_arrays: Vec<u32>,
     pub active_records: Vec<u32>,
+    pub metadata: Option<Vec<u8>>,
     pub estimated_index_bytes: u64,
 }
 
@@ -108,6 +109,9 @@ pub fn build_segment(input: SegmentInput) -> StorageResult<BuiltSegment> {
     builder.add_section(SectionKind::StringArena, string_arena)?;
     builder.add_section(SectionKind::Coverage, coverage)?;
     builder.add_section(SectionKind::Statistics, statistics)?;
+    if let Some(metadata) = input.metadata {
+        builder.add_optional_section(SectionKind::Compatibility, metadata)?;
+    }
     let object = builder.finish()?;
     Ok(BuiltSegment { object, stats })
 }

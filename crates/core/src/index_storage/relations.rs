@@ -367,6 +367,7 @@ impl RelationSectionView {
                 target_collection: read_u32(slot, 4)?,
                 path,
                 reverse_alias,
+                cardinality: slot[12],
                 present,
                 nulls,
                 empty_arrays,
@@ -414,6 +415,7 @@ pub struct RelationView {
     pub target_collection: u32,
     pub path: Vec<String>,
     pub reverse_alias: Option<String>,
+    cardinality: u8,
     present: RecordSetRef,
     nulls: RecordSetRef,
     empty_arrays: RecordSetRef,
@@ -447,6 +449,10 @@ impl RelationView {
 
     pub fn unresolved_count(&self) -> u64 {
         self.unresolved_count
+    }
+
+    pub fn cardinality(&self) -> u8 {
+        self.cardinality
     }
 
     pub fn present(&self) -> StorageResult<RecordSetView<'_>> {

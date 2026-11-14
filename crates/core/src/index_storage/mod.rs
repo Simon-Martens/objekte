@@ -16,7 +16,7 @@ pub mod error;
 pub mod format;
 pub mod manifest;
 pub mod native_pack;
-pub mod native_state;
+pub mod packed_restore;
 pub mod posting;
 pub mod posting_builder;
 pub mod record_set;
@@ -58,6 +58,10 @@ mod dictionary_tests;
 #[cfg(test)]
 #[path = "index.test.rs"]
 mod index_tests;
+
+#[cfg(test)]
+#[path = "packed_restore.test.rs"]
+mod packed_restore_tests;
 
 #[cfg(test)]
 #[path = "posting.test.rs"]

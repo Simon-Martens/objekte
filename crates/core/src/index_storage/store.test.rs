@@ -80,6 +80,7 @@ fn segment_object(record_id: &str) -> Arc<[u8]> {
         logical_records: vec![0],
         empty_arrays: Vec::new(),
         active_records: vec![0],
+        metadata: None,
         estimated_index_bytes: 0,
     })
     .unwrap();

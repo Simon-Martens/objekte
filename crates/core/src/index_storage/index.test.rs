@@ -71,8 +71,10 @@ fn core_index_saves_loads_and_remains_updateable() {
     let store = tempfile::tempdir().unwrap();
     let report = index.save_to(store.path(), SaveOptions::default()).unwrap();
     assert!(!report.unchanged);
-    assert!(report.objects_written >= 3);
+    assert!(report.objects_written >= 2);
     let opened = super::store::open_store(store.path()).unwrap();
+    assert!(opened.state.is_none());
+    assert!(opened.manifest.state.is_none());
     opened.verify_full().unwrap();
     super::catalogue::CatalogueView::open(opened.catalogue_backing())
         .unwrap()
@@ -426,12 +428,13 @@ fn a_compacted_index_can_be_saved_and_reopened() {
     assert_eq!(count(&loaded, "Beta"), 1);
     let view = loaded.view().unwrap();
     let collection = &view.repository().collections()[0];
-    let access = crate::index_catalog::IndexCatalog::collection(collection)
+    let segment = view.0.segments[0].first().expect("compacted segment");
+    let access = crate::index_catalog::IndexCatalog::segment(&segment.index, collection)
         .field_postings(&["text".to_owned()], "default", false)
         .into_iter()
         .flatten()
         .next()
-        .expect("compacted collection access");
+        .expect("compacted segment access");
     assert!(matches!(
         access.access,
         crate::index_storage::access::PostingAccess::Packed(_)

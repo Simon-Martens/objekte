@@ -241,6 +241,38 @@ impl BigramBindingView<'_> {
         self.binding.normal.entry_count()
     }
 
+    pub fn normal_grams(&self) -> StorageResult<Vec<u64>> {
+        self.binding
+            .normal
+            .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+            .map(|entry| {
+                let (key, _) = entry?;
+                if key.len() != 8 {
+                    return Err(StorageError::corrupt("bigram key is not eight bytes"));
+                }
+                Ok(u64::from_le_bytes(
+                    key.try_into().expect("eight-byte bigram key"),
+                ))
+            })
+            .collect()
+    }
+
+    pub fn skip_grams(&self) -> StorageResult<Vec<u64>> {
+        self.binding
+            .skip
+            .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+            .map(|entry| {
+                let (key, _) = entry?;
+                if key.len() != 8 {
+                    return Err(StorageError::corrupt("bigram key is not eight bytes"));
+                }
+                Ok(u64::from_le_bytes(
+                    key.try_into().expect("eight-byte bigram key"),
+                ))
+            })
+            .collect()
+    }
+
     pub fn skip_gram_count(&self) -> u64 {
         self.binding.skip.entry_count()
     }

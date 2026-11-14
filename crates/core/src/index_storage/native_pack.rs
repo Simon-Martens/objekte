@@ -1,17 +1,21 @@
 //! Convert the resident publication into packed catalogue and run objects.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::sync::Arc;
+
+use bincode::Options;
+use serde::{Deserialize, Serialize};
 
 use roaring::RoaringBitmap;
 
 use crate::bigram::BigramIndex;
+use crate::inference::InferenceState;
 use crate::inventory::{FileEntry, FileVersions, RecordEntry};
 use crate::lifecycle::IndexView;
 use crate::model::{FieldPath, RecordSlot};
 use crate::posting::{PostingCollection, PostingIndex, StructuralKey};
 use crate::relation::{RelationIndex, RelationTarget};
-use crate::repository::CollectionState;
+use crate::repository::{CollectionState, GlobalInferenceSummary};
 use crate::sorting::{SortCollection, SortKey};
 use crate::source::DiagnosticCategory;
 
@@ -20,12 +24,26 @@ use super::catalogue::{DiagnosticInput, FileRowInput, build_catalogue_with_high_
 use super::error::StorageResult;
 use super::format::{ObjectBuilder, ObjectKind, SectionKind};
 use super::manifest::CollectionSummary;
-use super::posting_builder::FieldInput;
+use super::posting_builder::{FieldInput, FieldSource};
 use super::records::{FilePartInput, RecordInput};
 use super::relations::{RelationEdgeInput, RelationInput};
 use super::segment_builder::{SegmentInput, build_segment};
 use super::sort::SortColumnInput;
 use super::store::{ObjectInput, RunInput};
+
+
+/// Small inference metadata packed alongside observed postings.
+#[derive(Serialize, Deserialize)]
+pub(crate) struct InferenceMetadata {
+    pub report: crate::inference::InferenceReport,
+    pub empty_selections: HashMap<Vec<String>, RoaringBitmap>,
+    pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
+    pub global_inference: Option<GlobalInferenceSummary>,
+}
+
+
+/// Query model contract version stored in packed manifests.
+pub const MODEL_VERSION: u32 = 1;
 
 /// Build the packed catalogue object for one publication.
 pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
@@ -132,7 +150,7 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
     for (number, collection) in repository.collections().iter().enumerate() {
         let active = published.active[number].bitmap();
         let slot_count = collection.generation.records.len() as u32;
-        if slot_count > 0 || !collection.postings.fields.is_empty() {
+        if slot_count > 0 {
             let input = pack_collection(collection, &active, slot_count, &published.file_versions)?;
             let built = build_segment(input)?;
             runs.push(RunInput {
@@ -152,6 +170,7 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
                 &segment.index,
                 &segment.active.bitmap(),
                 &published.file_versions,
+                repository.collections(),
             )?;
             let built = build_segment(input)?;
             runs.push(RunInput {
@@ -197,9 +216,8 @@ pub fn collection_summaries(view: &IndexView) -> Vec<CollectionSummary> {
                 .iter()
                 .filter(|record| record.class.code() == 1)
                 .count() as u64,
-            run_count: u32::from(
-                collection.generation.records.len() > 0 || !collection.postings.fields.is_empty(),
-            ) + published.segments[number].len() as u32,
+            run_count: u32::from(collection.generation.records.len() > 0)
+                + published.segments[number].len() as u32,
         });
     }
     summaries
@@ -212,7 +230,11 @@ fn pack_collection(
     versions: &FileVersions,
 ) -> StorageResult<SegmentInput> {
     let (file_parts, records) = pack_records(&collection.generation.records, versions)?;
-    let fields = pack_fields(&collection.postings)?;
+    let fields = pack_fields(
+        &collection.postings,
+        collection.inference.as_ref(),
+        &collection.custom_postings,
+    )?;
     let bigrams = pack_bigrams(collection)?;
     let sorts = pack_sorts(&collection.sorting);
     let relations = pack_relations(&collection.relations, slot_count);
@@ -242,6 +264,10 @@ fn pack_collection(
         logical_records: logical,
         empty_arrays: empty,
         active_records: active,
+        metadata: pack_inference_metadata(
+            collection.inference.as_ref(),
+            collection.global_inference.as_ref(),
+        )?,
         estimated_index_bytes: collection.index_family_bytes as u64,
     })
 }
@@ -250,9 +276,14 @@ fn pack_segment(
     segment: &crate::build::IndexedCollectionSegment,
     active: &RoaringBitmap,
     versions: &FileVersions,
+    collections: &[CollectionState],
 ) -> StorageResult<SegmentInput> {
     let (file_parts, records) = pack_records(&segment.records, versions)?;
-    let fields = pack_fields(&segment.postings)?;
+    let fields = pack_fields(
+        &segment.postings,
+        segment.inference.as_ref(),
+        &segment.custom_postings,
+    )?;
     let mut bigrams = vec![
         pack_bigram(&segment.raw, BigramBinding::Raw)?,
         pack_bigram(&segment.fallback_text, BigramBinding::Fallback)?,
@@ -267,7 +298,11 @@ fn pack_segment(
         )?);
     }
     let sorts = pack_sorts(&segment.sorting);
-    let relations = pack_contributions(&segment.relations, segment.records.len() as u32);
+    let relations = pack_contributions(
+        &segment.relations,
+        segment.records.len() as u32,
+        collections,
+    );
     let logical = bitmap_slots(&segment.logical_records);
     let empty = bitmap_slots(&segment.empty_array_records);
     let slot_count = segment.records.len() as u32;
@@ -290,6 +325,7 @@ fn pack_segment(
         logical_records: logical,
         empty_arrays: empty,
         active_records: bitmap_slots(active),
+        metadata: pack_inference_metadata(segment.inference.as_ref(), None)?,
         estimated_index_bytes: segment.accounting.index_family_bytes as u64,
     })
 }
@@ -333,19 +369,56 @@ fn pack_records(
     Ok((parts, packed))
 }
 
-fn pack_fields(postings: &PostingCollection) -> StorageResult<Vec<FieldInput>> {
-    let mut fields = postings.fields.iter().collect::<Vec<_>>();
-    fields.sort_by(|left, right| left.0.cmp(right.0));
-    let mut result = Vec::with_capacity(fields.len());
-    for (ordinal, (path, index)) in fields.into_iter().enumerate() {
+fn pack_fields(
+    postings: &PostingCollection,
+    inference: Option<&InferenceState>,
+    custom: &HashMap<(Vec<String>, String), crate::posting::CustomPostingIndex>,
+) -> StorageResult<Vec<FieldInput>> {
+    let mut sources = Vec::new();
+    for (path, index) in &postings.fields {
+        sources.push((path.clone(), FieldSource::Declared, true, index, None));
+    }
+    if let Some(inference) = inference {
+        for (path, index) in &inference.indexes {
+            sources.push((
+                path.clone(),
+                FieldSource::Observed,
+                true,
+                index,
+                inference.empty_selections.get(path),
+            ));
+        }
+    }
+    for ((path, binding), postings) in custom {
+        sources.push((
+            path.clone(),
+            FieldSource::Named(binding.clone()),
+            postings.complete,
+            &postings.index,
+            None,
+        ));
+    }
+    sources.sort_by(|left, right| {
+        left.0
+            .cmp(&right.0)
+            .then_with(|| field_source_order(&left.1).cmp(&field_source_order(&right.1)))
+            .then_with(|| field_source_name(&left.1).cmp(field_source_name(&right.1)))
+    });
+    let mut result = Vec::with_capacity(sources.len());
+    for (ordinal, (path, source, complete, index, empty_selections)) in
+        sources.into_iter().enumerate()
+    {
         result.push(FieldInput {
             ordinal: ordinal as u32,
-            path: path.clone(),
+            path,
+            source,
+            complete,
             kind: index.kind.clone(),
             multi: index.multi,
             presence: bitmap_slots(&index.presence),
             nulls: bitmap_slots(&index.nulls),
-            empty_selections: bitmap_slots(&index.empty_selections),
+            empty_selections: empty_selections
+                .map_or_else(|| bitmap_slots(&index.empty_selections), bitmap_slots),
             empty_strings: index
                 .values
                 .get(&crate::posting::ScalarKey::String(String::new()))
@@ -369,6 +442,38 @@ fn pack_fields(postings: &PostingCollection) -> StorageResult<Vec<FieldInput>> {
         });
     }
     Ok(result)
+}
+
+fn field_source_order(source: &FieldSource) -> u8 {
+    source.code()
+}
+
+fn field_source_name(source: &FieldSource) -> &str {
+    match source {
+        FieldSource::Named(name) => name,
+        _ => "",
+    }
+}
+
+fn pack_inference_metadata(
+    inference: Option<&InferenceState>,
+    global: Option<&GlobalInferenceSummary>,
+) -> StorageResult<Option<Vec<u8>>> {
+    let Some(inference) = inference else {
+        return Ok(None);
+    };
+    let metadata = InferenceMetadata {
+        report: inference.report.clone(),
+        empty_selections: inference.empty_selections.clone(),
+        short_string_coverage: inference.short_string_coverage.clone(),
+        global_inference: global.cloned(),
+    };
+    let bytes = bincode::DefaultOptions::new()
+        .with_fixint_encoding()
+        .reject_trailing_bytes()
+        .serialize(&metadata)
+        .map_err(|error| super::error::StorageError::corrupt(error.to_string()))?;
+    Ok(Some(bytes))
 }
 
 fn pack_structural(index: &PostingIndex) -> BTreeMap<u8, Vec<u32>> {
@@ -498,6 +603,7 @@ fn pack_relations(relations: &[RelationIndex], slot_count: u32) -> Vec<RelationI
 fn pack_contributions(
     relations: &[crate::relation::RelationContribution],
     slot_count: u32,
+    collections: &[CollectionState],
 ) -> Vec<RelationInput> {
     relations
         .iter()
@@ -523,7 +629,12 @@ fn pack_contributions(
             }
             RelationInput {
                 id_ordinal: ordinal as u32,
-                target_collection: 0,
+                target_collection: collections
+                    .iter()
+                    .position(|collection| {
+                        collection.definition.name == relation.declaration.target_collection
+                    })
+                    .unwrap_or(0) as u32,
                 path: relation.declaration.path.clone(),
                 cardinality: match relation.declaration.cardinality {
                     crate::relation::RelationCardinality::One => 0,

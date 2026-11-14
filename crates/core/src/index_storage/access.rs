@@ -599,7 +599,10 @@ impl<'a> BigramAccess<'a> {
                 self.skip(key).ok()?
             } else {
                 self.normal(key).ok()?
-            }?;
+            };
+            let Some(column) = column else {
+                return Some(RoaringBitmap::new());
+            };
             columns.push(column);
         }
         columns.sort_by_key(RoaringBitmap::len);

@@ -1,0 +1,254 @@
+use crate::inference::{InferenceConfig, InferenceMode};
+use crate::lifecycle::Index;
+use crate::model::{FieldPath, LogicalType};
+use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
+use crate::reference::{FieldDefinition, Schema};
+use crate::relation::{RelationCardinality, RelationDefinition};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::source::{SourceFormat, SourceRegistry};
+use crate::workload::{ReturnMode, SortField};
+
+use super::store::SaveOptions;
+
+fn field(path: &str, kind: LogicalType) -> FieldDefinition {
+    FieldDefinition {
+        path: vec![path.into()],
+        kind,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: vec![],
+    }
+}
+
+fn definitions() -> Vec<CollectionDefinition> {
+    let mut entries = Schema::default();
+    entries
+        .register_field(field("id", LogicalType::Id))
+        .unwrap();
+    entries
+        .register_field(field("title", LogicalType::String))
+        .unwrap();
+    entries
+        .register_field(field("text", LogicalType::String))
+        .unwrap();
+    let mut mentions = Schema::default();
+    mentions
+        .register_field(field("id", LogicalType::Id))
+        .unwrap();
+    mentions
+        .register_field(field("title", LogicalType::String))
+        .unwrap();
+    mentions
+        .register_field(field("parent", LogicalType::Id))
+        .unwrap();
+    mentions
+        .register_relation(RelationDefinition {
+            path: vec!["parent".into()],
+            target_collection: "entries".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("mentions".into()),
+        })
+        .unwrap();
+    [
+        ("entries", entries, "entries"),
+        ("mentions", mentions, "mentions"),
+    ]
+    .into_iter()
+    .map(|(name, schema, source)| CollectionDefinition {
+        name: name.into(),
+        source_path: source.into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![FieldPath::parse("title").unwrap()],
+        sort_locale: "und".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    })
+    .collect()
+}
+
+fn fixture() -> (tempfile::TempDir, Vec<CollectionDefinition>) {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("entries")).unwrap();
+    std::fs::create_dir(root.path().join("mentions")).unwrap();
+    std::fs::write(
+        root.path().join("entries/a.json"),
+        br#"{"id":"a","title":"Alpha","text":"Alpha story"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("entries/b.json"),
+        br#"{"id":"b","title":"Beta","text":"Beta story"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("mentions/m.json"),
+        br#"{"id":"m","title":"Mention","parent":"a"}"#,
+    )
+    .unwrap();
+    (root, definitions())
+}
+
+fn query(collection: &str, filter: Option<&str>, fts: Option<&str>, sort: Vec<SortField>) -> Query {
+    Query {
+        collections: vec![collection.into()],
+        fts: fts.map(|literal| FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: literal.into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        }),
+        filter: filter.map(|filter| parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort,
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    }
+}
+
+fn ordered_hits(index: &Index, query: &Query) -> Vec<(String, String)> {
+    index
+        .view()
+        .unwrap()
+        .search(query)
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| (hit.collection, hit.record_id))
+        .collect()
+}
+
+fn hits(index: &Index, query: &Query) -> Vec<(String, String)> {
+    let mut hits = index
+        .view()
+        .unwrap()
+        .search(query)
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| (hit.collection, hit.record_id))
+        .collect::<Vec<_>>();
+    hits.sort();
+    hits
+}
+
+#[test]
+fn packed_restore_preserves_auto_index_inference() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join("data/a.json"),
+        br#"{"title":"Alpha","year":2024}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("data/b.json"),
+        br#"{"title":"Beta","year":2023}"#,
+    )
+    .unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "files",
+        "data",
+        SourceFormat::Json,
+    )];
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let index = Index::build(root.path(), definitions.clone(), options).unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        definitions,
+        options,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    for filter in ["year = 2024", "year >= 2024", "title = \"Alpha\""] {
+        let request = query("files", Some(filter), None, Vec::new());
+        let built = hits(&index, &request);
+        assert!(!built.is_empty(), "{filter}");
+        assert_eq!(built, hits(&loaded, &request), "{filter}");
+    }
+}
+
+#[test]
+fn packed_restore_matches_typed_fts_sort_and_relation_queries() {
+    let (root, definitions) = fixture();
+    let index = Index::build(
+        root.path(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        definitions,
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+
+    let queries = [
+        query("entries", Some("title = \"Alpha\""), None, Vec::new()),
+        query("entries", Some("title != \"Beta\""), None, Vec::new()),
+        query("entries", None, Some("Alpha"), Vec::new()),
+        query(
+            "entries",
+            None,
+            None,
+            vec![SortField {
+                field: "title".into(),
+                descending: false,
+                expression: None,
+            }],
+        ),
+        query(
+            "mentions",
+            Some("parent.title = \"Alpha\""),
+            None,
+            Vec::new(),
+        ),
+        query(
+            "entries",
+            Some("mentions.title = \"Mention\""),
+            None,
+            Vec::new(),
+        ),
+    ];
+    for (position, request) in queries.into_iter().enumerate() {
+        let built = hits(&index, &request);
+        assert_eq!(built, hits(&loaded, &request), "{request:?}");
+        if position == 3 {
+            assert_eq!(
+                ordered_hits(&index, &request),
+                ordered_hits(&loaded, &request),
+                "sorted order"
+            );
+        }
+        if matches!(position, 0 | 2 | 4) {
+            assert!(
+                !built.is_empty(),
+                "query family {position} unexpectedly empty"
+            );
+        }
+    }
+    let relation_catalog = loaded.view().unwrap();
+    let mentions = &relation_catalog.repository().collections()[1];
+    assert_eq!(mentions.definition.name, "mentions");
+}

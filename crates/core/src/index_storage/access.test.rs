@@ -135,6 +135,8 @@ fn packed_segment_bytes() -> Vec<u8> {
             FieldInput {
                 ordinal: 0,
                 path: vec!["title".into()],
+                source: Default::default(),
+                complete: true,
                 kind: LogicalType::String,
                 multi: false,
                 presence: (0..SLOTS).collect(),
@@ -161,6 +163,8 @@ fn packed_segment_bytes() -> Vec<u8> {
                 FieldInput {
                     ordinal: 1,
                     path: vec!["score".into()],
+                    source: Default::default(),
+                    complete: true,
                     kind: LogicalType::Number,
                     multi: false,
                     presence: (0..SLOTS).collect(),
@@ -195,6 +199,7 @@ fn packed_segment_bytes() -> Vec<u8> {
         logical_records: (0..SLOTS).collect(),
         empty_arrays: Vec::new(),
         active_records: (0..SLOTS).collect(),
+        metadata: None,
         estimated_index_bytes: 0,
     };
     build_segment(input).unwrap().object.into_bytes()

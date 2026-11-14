@@ -41,6 +41,8 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
     let sparse = FieldInput {
         ordinal: 1,
         path: vec!["sparse".into()],
+        source: Default::default(),
+        complete: true,
         kind: LogicalType::String,
         multi: false,
         presence: vec![0, 5, 10, 15, 20, 25],
@@ -59,6 +61,8 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
     let field = FieldInput {
         ordinal: 0,
         path: vec!["value".into()],
+        source: Default::default(),
+        complete: true,
         kind: LogicalType::Number,
         multi: false,
         presence: presence.clone(),
@@ -117,6 +121,7 @@ fn scalar_segment() -> (FrozenSegment, BTreeMap<ScalarKey, Vec<u32>>) {
         logical_records: presence.clone(),
         empty_arrays: Vec::new(),
         active_records: presence,
+        metadata: None,
         estimated_index_bytes: 0,
     };
     let built = build_segment(input).unwrap();

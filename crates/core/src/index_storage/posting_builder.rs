@@ -29,8 +29,36 @@ pub const FIELD_EMPTY_STRING_COMPLETE: u32 = 1 << 3;
 pub const FIELD_HAS_LENGTHS: u32 = 1 << 4;
 pub const FIELD_HAS_STRUCTURAL: u32 = 1 << 5;
 pub const FIELD_HAS_EMPTY_STRING: u32 = 1 << 6;
+pub const FIELD_COMPLETE: u32 = 1 << 7;
 /// Field directory version.
-pub const FIELD_DIRECTORY_VERSION: u16 = 1;
+pub const FIELD_DIRECTORY_VERSION: u16 = 2;
+
+
+/// Whether a packed field is declared, observed, or a named binding.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum FieldSource {
+    Declared,
+    Observed,
+    Named(String),
+}
+
+
+impl Default for FieldSource {
+    fn default() -> Self {
+        Self::Declared
+    }
+}
+
+
+impl FieldSource {
+    pub fn code(&self) -> u8 {
+        match self {
+            Self::Declared => 0,
+            Self::Observed => 1,
+            Self::Named(_) => 2,
+        }
+    }
+}
 
 
 /// One field contribution supplied to the packed posting builder.
@@ -38,6 +66,8 @@ pub const FIELD_DIRECTORY_VERSION: u16 = 1;
 pub struct FieldInput {
     pub ordinal: u32,
     pub path: Vec<String>,
+    pub source: FieldSource,
+    pub complete: bool,
     pub kind: LogicalType,
     pub multi: bool,
     pub presence: Vec<u32>,
@@ -152,6 +182,9 @@ pub fn build_postings(fields: &[FieldInput], slot_count: u32) -> StorageResult<P
         if field.empty_string_complete {
             flags |= FIELD_EMPTY_STRING_COMPLETE;
         }
+        if field.complete {
+            flags |= FIELD_COMPLETE;
+        }
         if !field.lengths.is_empty() {
             flags |= FIELD_HAS_LENGTHS;
         }
@@ -199,7 +232,13 @@ pub fn build_field_directory(fields: &[&FieldInput]) -> StorageResult<Vec<u8>> {
         bytes.push(kind);
         bytes.push(element);
         bytes.push(u8::from(field.multi));
-        bytes.push(0);
+        bytes.push(field.source.code());
+        if let FieldSource::Named(name) = &field.source {
+            let length = u32::try_from(name.len())
+                .map_err(|_| StorageError::ResourceLimit("field binding name too large".into()))?;
+            bytes.extend_from_slice(&length.to_le_bytes());
+            bytes.extend_from_slice(name.as_bytes());
+        }
         let path_segments = u32::try_from(field.path.len())
             .map_err(|_| StorageError::ResourceLimit("field path segment count overflow".into()))?;
         bytes.extend_from_slice(&path_segments.to_le_bytes());
