@@ -14,8 +14,8 @@ use objekte_search_core::workload::WorkCounters;
 use serde::de::IgnoredAny;
 use serde_json::{Number, Value, json};
 
-/// Version 2 publishes diagnostic durations in milliseconds.
-pub const PROTOCOL_VERSION: u32 = 2;
+/// Version 3 distinguishes explicit index loading and saving in run events.
+pub const PROTOCOL_VERSION: u32 = 3;
 
 /// JSON number with exactly three decimal places, including trailing zeros.
 pub fn milliseconds_value(nanoseconds: u128) -> Value {
@@ -82,7 +82,6 @@ pub(crate) fn detailed_elapsed_ns(started: Option<Instant>) -> u128 {
     }
 }
 
-
 /// Ordered event writer whose sequence belongs to the transport, not query rank.
 pub struct EventWriter<W: Write> {
     writer: W,
@@ -90,7 +89,6 @@ pub struct EventWriter<W: Write> {
     #[cfg(feature = "detailed-profiling")]
     sink_ns: u128,
 }
-
 
 impl<W: Write> EventWriter<W> {
     pub fn new(writer: W) -> Self {
@@ -263,7 +261,6 @@ impl<W: Write> EventWriter<W> {
         Ok(())
     }
 }
-
 
 fn record_class(class: RecordClass) -> &'static str {
     match class {

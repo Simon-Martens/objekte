@@ -112,8 +112,8 @@ fn incremental_admission_totals_match_each_collection() {
 
 #[test]
 fn direct_json_build_matches_static_inference_overlap_and_managed_restore() {
+    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-direct-json-{}-{}",
@@ -142,9 +142,8 @@ fn direct_json_build_matches_static_inference_overlap_and_managed_restore() {
         ..Default::default()
     };
     let static_repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-    let policy = IndexStoragePolicy {
+    let policy = IndexLocationResolver {
         location: IndexStorageLocation::CustomDirectory(root.join("index-store")),
-        residency: IndexResidency::OnDemand,
     };
     std::fs::create_dir(root.join("index-store")).unwrap();
     let index = Index::open_with_storage(

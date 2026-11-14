@@ -1,9 +1,9 @@
+#[path = "support/legacy_storage.rs"]
+mod legacy_storage;
+use legacy_storage::*;
 use std::collections::HashMap;
 use std::path::PathBuf;
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
@@ -325,7 +325,6 @@ fn explicit_composite_order_streams_and_matches_reference() {
     drop(repo);
     let storage = IndexStoragePolicy {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let first = Index::open_with_storage(
         &root,

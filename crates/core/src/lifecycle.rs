@@ -9,7 +9,9 @@ use std::fmt;
 use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
+#[cfg(test)]
+use std::sync::mpsc::SyncSender;
+use std::sync::mpsc::{self, RecvTimeoutError, Sender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
@@ -434,7 +436,9 @@ pub(crate) struct PublishedIndex {
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
 
-fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Result<Option<(usize, usize)>, String> {
+fn cheapest_consolidation_pair(
+    group: &[Arc<PublishedSegment>],
+) -> Result<Option<(usize, usize)>, String> {
     let mut sized = group
         .iter()
         .enumerate()
@@ -450,7 +454,9 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Result<Option
             let right_index = &group[right].index;
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
-                let file_id = left_index.try_file_id_at(file_number)?.ok_or("segment file row missing")?;
+                let file_id = left_index
+                    .try_file_id_at(file_number)?
+                    .ok_or("segment file row missing")?;
                 if right_index.try_file_index(file_id)?.is_some() {
                     overlaps = true;
                     break;
@@ -458,7 +464,9 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Result<Option
             }
             if !overlaps {
                 for &slot in &left_index.identity_order {
-                    let id = left_index.try_record_id(slot)?.ok_or("segment identity slot missing")?;
+                    let id = left_index
+                        .try_record_id(slot)?
+                        .ok_or("segment identity slot missing")?;
                     if right_index.try_id_lookup(id)?.is_some() {
                         overlaps = true;
                         break;
@@ -559,7 +567,9 @@ impl PublishedIndex {
                         .count() as u64;
                     let segments = self.segments[number]
                         .iter()
-                        .map(|segment| (&segment.active.bitmap() - &segment.index.logical_records).len())
+                        .map(|segment| {
+                            (&segment.active.bitmap() - &segment.index.logical_records).len()
+                        })
                         .sum::<u64>();
                     base + segments
                 })
@@ -618,11 +628,18 @@ impl PublishedIndex {
             }
         }
         for (id, _) in &index.id_lookup {
-            let existing_duplicate = self.segments[number].iter().try_fold(false, |found, segment| {
-                let slot = segment.index.try_id_lookup(id.0.as_ref())
-                    .map_err(IndexError::InvalidPublication)?;
-                Ok::<_, IndexError>(found || slot.is_some_and(|slot| segment.active.contains(slot)))
-            })?;
+            let existing_duplicate =
+                self.segments[number]
+                    .iter()
+                    .try_fold(false, |found, segment| {
+                        let slot = segment
+                            .index
+                            .try_id_lookup(id.0.as_ref())
+                            .map_err(IndexError::InvalidPublication)?;
+                        Ok::<_, IndexError>(
+                            found || slot.is_some_and(|slot| segment.active.contains(slot)),
+                        )
+                    })?;
             if collection
                 .id_lookup
                 .get(id)
@@ -723,9 +740,13 @@ impl PublishedIndex {
             for segment in group.drain(..) {
                 let mut current_file = false;
                 for file_number in 0..segment.index.file_count() {
-                    let file = segment.index.try_file_entry_at(file_number)
+                    let file = segment
+                        .index
+                        .try_file_entry_at(file_number)
                         .map_err(IndexError::InvalidPublication)?
-                        .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
+                        .ok_or_else(|| {
+                            IndexError::InvalidPublication("segment file row missing".into())
+                        })?;
                     if self.catalog.entry(file.id).is_some_and(|current| {
                         current.revision == file.revision
                             && current.created_ns == file.created_ns
@@ -812,7 +833,9 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group).map_err(IndexError::InvalidPublication)? else {
+        let Some((left, right)) =
+            cheapest_consolidation_pair(group).map_err(IndexError::InvalidPublication)?
+        else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(
@@ -880,8 +903,11 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("segment collection missing".into())
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
-                if let Some(slots) = segment.index.try_file_records(file.id)
-                    .map_err(IndexError::InvalidPublication)? {
+                if let Some(slots) = segment
+                    .index
+                    .try_file_records(file.id)
+                    .map_err(IndexError::InvalidPublication)?
+                {
                     let slots = slots.into_owned();
                     let segment = Arc::make_mut(segment);
                     retired_records += slots
@@ -1056,6 +1082,7 @@ struct IndexInner {
     loaded_origin: RwLock<Option<PathBuf>>,
     storage_status_snapshot: RwLock<Option<crate::lifecycle_storage::StorageStatusSnapshot>>,
     storage_syncing: AtomicUsize,
+    #[cfg(test)]
     sync_storage: Mutex<Option<SyncCacheWorker>>,
 }
 
@@ -1088,6 +1115,7 @@ enum PeriodicSignal {
     Stop,
 }
 
+#[cfg(test)]
 struct SyncCacheWorker {
     signal: SyncSender<()>,
     worker: JoinHandle<()>,
@@ -1421,6 +1449,7 @@ impl Index {
             loaded_origin: RwLock::new(None),
             storage_status_snapshot: RwLock::new(None),
             storage_syncing: AtomicUsize::new(0),
+            #[cfg(test)]
             sync_storage: Mutex::new(None),
         }))
     }
@@ -1525,11 +1554,20 @@ impl Index {
     }
 
     pub fn loaded_origin(&self) -> Result<Option<PathBuf>, IndexError> {
-        Ok(self.0.loaded_origin.read().map_err(|_| IndexError::LockPoisoned)?.clone())
+        Ok(self
+            .0
+            .loaded_origin
+            .read()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone())
     }
 
     pub(crate) fn mark_loaded_origin(&self, path: PathBuf) -> Result<(), IndexError> {
-        *self.0.loaded_origin.write().map_err(|_| IndexError::LockPoisoned)? = Some(path);
+        *self
+            .0
+            .loaded_origin
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)? = Some(path);
         Ok(())
     }
 
@@ -1561,7 +1599,7 @@ impl Index {
     /// Attach a resolved managed destination to a completed, paired index.
     /// A progressive initial builder calls this only after its final work
     /// unit; partial construction is never published as a complete store.
-    pub fn attach_storage(
+    pub(crate) fn attach_storage(
         &self,
         resolved: crate::index_storage::ResolvedIndexStorage,
     ) -> Result<(), IndexError> {
@@ -1603,11 +1641,11 @@ impl Index {
             ));
         }
         let state = if existing_only {
-            crate::lifecycle_storage::ManagedPersistence::open_existing(&resolved)?
-                .ok_or_else(|| IndexError::InvalidCache("managed store vanished during load".into()))?
+            crate::lifecycle_storage::ManagedPersistence::open_existing(&resolved)?.ok_or_else(
+                || IndexError::InvalidCache("managed store vanished during load".into()),
+            )?
         } else {
-            crate::lifecycle_storage::ManagedPersistence::open(&resolved)
-                .map_err(IndexError::Io)?
+            crate::lifecycle_storage::ManagedPersistence::open(&resolved).map_err(IndexError::Io)?
         };
         *self
             .0
@@ -1652,6 +1690,7 @@ impl Index {
     /// Replace the mutable shards of a newly committed generation with the
     /// same sealed readers used by a later managed reopen. Existing views
     /// remain pinned to their previous publication until they are dropped.
+    #[cfg(test)]
     pub(crate) fn install_committed_sealed_segments(&self) -> Result<(), IndexError> {
         let current = self.view()?;
         let opened = self
@@ -1827,7 +1866,8 @@ impl Index {
     /// Persist one complete pinned revision to the attached managed store.
     /// Concurrent query and mutation publications remain visible while the
     /// immutable files are written; a failed save leaves the old manifest.
-    pub fn flush_storage(&self) -> Result<IndexRevision, IndexError> {
+    #[cfg(test)]
+    pub(crate) fn flush_storage(&self) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
@@ -1880,7 +1920,9 @@ impl Index {
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
-        target.validate().map_err(IndexError::IncompatibleConfiguration)?;
+        target
+            .validate()
+            .map_err(IndexError::IncompatibleConfiguration)?;
         let repository = view.repository();
         let definitions = repository
             .collections()
@@ -1906,30 +1948,46 @@ impl Index {
         self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
         let _activity = StorageSyncActivity(&self.0.storage_syncing);
         let (generation, unchanged, bytes_written, segments_reused) = {
-            let mut managed = self.0.managed.lock().map_err(|_| IndexError::LockPoisoned)?;
-            if managed.as_ref().is_some_and(|state| state.store.path() == directory) {
+            let mut managed = self
+                .0
+                .managed
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if managed
+                .as_ref()
+                .is_some_and(|state| state.store.path() == directory)
+            {
                 let state = managed.as_mut().expect("matching managed state");
                 let result = state.flush_explicit(&view.0);
                 if let Err(error) = &result {
                     state.last_error = Some(error.to_string());
-                    state.last_error_kind = Some(
-                        crate::index_storage::IndexStorageFailureKind::from(error),
-                    );
+                    state.last_error_kind =
+                        Some(crate::index_storage::IndexStorageFailureKind::from(error));
                 }
-                *self.0.storage_status_snapshot.write().map_err(|_| IndexError::LockPoisoned)? =
-                    Some(state.status_snapshot());
+                *self
+                    .0
+                    .storage_status_snapshot
+                    .write()
+                    .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
                 result?
             } else {
                 let mut candidate = crate::lifecycle_storage::ManagedPersistence::open(&resolved)
                     .map_err(IndexError::Io)?;
                 let result = candidate.flush_explicit(&view.0)?;
-                *self.0.storage_status_snapshot.write().map_err(|_| IndexError::LockPoisoned)? =
-                    Some(candidate.status_snapshot());
+                *self
+                    .0
+                    .storage_status_snapshot
+                    .write()
+                    .map_err(|_| IndexError::LockPoisoned)? = Some(candidate.status_snapshot());
                 *managed = Some(candidate);
                 result
             }
         };
-        let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+        let mut published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
         let newer_changes_unsaved = published.revision != view.revision();
         if !newer_changes_unsaved {
             let next = Arc::make_mut(&mut *published);
@@ -1965,7 +2023,8 @@ impl Index {
 
     /// Coalesce completed publications into durable managed generations.
     /// Explicit flush remains available for finite commands and shutdown.
-    pub fn set_sync_storage(&self, enabled: bool) -> Result<(), IndexError> {
+    #[cfg(test)]
+    pub(crate) fn set_sync_storage(&self, enabled: bool) -> Result<(), IndexError> {
         if !enabled {
             return self.stop_sync_storage();
         }
@@ -2017,6 +2076,7 @@ impl Index {
         Ok(())
     }
 
+    #[cfg(test)]
     fn notify_sync_storage(&self) {
         if let Ok(sync) = self.0.sync_storage.lock()
             && let Some(sync) = sync.as_ref()
@@ -2025,7 +2085,8 @@ impl Index {
         }
     }
 
-    pub fn stop_sync_storage(&self) -> Result<(), IndexError> {
+    #[cfg(test)]
+    pub(crate) fn stop_sync_storage(&self) -> Result<(), IndexError> {
         let sync = self
             .0
             .sync_storage
@@ -2445,6 +2506,7 @@ impl Index {
             self.0.quiescing.store(true, Ordering::Release);
         }
         self.stop_periodic_reconciliation()?;
+        #[cfg(test)]
         self.stop_sync_storage()?;
         let operation = self
             .0
@@ -2966,6 +3028,7 @@ impl Index {
         if seal_owned_memory && self.0.seal_owned_memory.load(Ordering::Acquire) {
             Self::seal_new_owned_segments(&mut next)?;
         }
+        #[cfg(test)]
         let notify_cache = next.catalog.construction_complete();
         let next = Arc::new(next);
         let retired = {
@@ -2986,6 +3049,7 @@ impl Index {
             std::mem::replace(&mut *guard, next)
         };
         drop(retired);
+        #[cfg(test)]
         if notify_cache {
             self.notify_sync_storage();
         }

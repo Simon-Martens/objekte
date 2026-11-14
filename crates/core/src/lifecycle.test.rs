@@ -6,9 +6,7 @@ use crate::model::{FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
@@ -23,13 +21,22 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
         "objekte-size-maintenance-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/initial.json"), br#"{"name":"initial"}"#).unwrap();
-    let index = Index::build(&root, vec![CollectionDefinition::folder(
-        "data", "data", SourceFormat::Json,
-    )], RepositoryOptions::default()).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     for number in 0..2 {
         let path = root.join(format!("data/new-{number}.json"));
         std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
@@ -37,10 +44,14 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     }
     let mut staged = (*index.view().unwrap().0).clone();
     assert_eq!(staged.segments[0].len(), 3);
-    staged.make_room_for_segment_with_limits(0, 1, 16, false).unwrap();
+    staged
+        .make_room_for_segment_with_limits(0, 1, 16, false)
+        .unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
-    staged.make_room_for_segment_with_limits(0, 1, 16, false).unwrap();
+    staged
+        .make_room_for_segment_with_limits(0, 1, 16, false)
+        .unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -52,18 +63,28 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
         "objekte-retired-maintenance-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..256 {
         std::fs::write(
             root.join(format!("data/{number:03}.json")),
             format!("{{\"name\":\"item-{number}\"}}"),
-        ).unwrap();
+        )
+        .unwrap();
     }
-    let index = Index::build(&root, vec![CollectionDefinition::folder(
-        "data", "data", SourceFormat::Json,
-    )], RepositoryOptions::default()).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     let pinned = index.view().unwrap();
     let old = pinned.0.segments[0][0].clone();
     for number in 0..64 {
@@ -82,7 +103,11 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     std::fs::write(&added, br#"{"name":"new item"}"#).unwrap();
     index.add_file(&added).unwrap();
     let current = index.view().unwrap();
-    assert!(current.0.segments[0].iter().any(|segment| segment.index.records.len() == 192));
+    assert!(
+        current.0.segments[0]
+            .iter()
+            .any(|segment| segment.index.records.len() == 192)
+    );
     assert_eq!(current.0.status().live_records, 193);
     assert_eq!(maintained.0.status().live_records, 192);
     assert_eq!(pinned.0.status().live_records, 256);
@@ -137,9 +162,7 @@ fn all_records() -> Query {
 fn storage_status_reports_active_sync_without_waiting_for_the_store_writer() {
     use std::sync::atomic::Ordering;
 
-    use crate::index_storage::{
-        IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexSynchronization,
-    };
+    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver, IndexSynchronization};
     use crate::source::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
@@ -154,11 +177,14 @@ fn storage_status_reports_active_sync_without_waiting_for_the_store_writer() {
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let index = Index::open_with_storage(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions::default(),
-        IndexStoragePolicy {
+        IndexLocationResolver {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         },
         SourceRegistry::builtin(),
     )

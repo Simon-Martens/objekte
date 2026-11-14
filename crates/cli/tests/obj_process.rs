@@ -238,10 +238,7 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
     assert!(diagnostics["authors"]["paths"].is_array());
     assert!(diagnostics["books"]["paths"].is_array());
 
-    let (status, events) = invoke(
-        root.path(),
-        &["--repo", ".", "--flush-index", "repository"],
-    );
+    let (status, events) = invoke(root.path(), &["--repo", ".", "--flush-index", "repository"]);
     assert!(
         status.status.success(),
         "{}",
@@ -251,14 +248,7 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
     assert!(root.path().join(".objekte/indexes").is_dir());
     let (status, events) = invoke(
         root.path(),
-        &[
-            "--repo",
-            ".",
-            "--load-index",
-            "repository",
-            "--fts",
-            "Ada",
-        ],
+        &["--repo", ".", "--load-index", "repository", "--fts", "Ada"],
     );
     assert!(
         status.status.success(),
@@ -739,7 +729,7 @@ fn default_folder_admits_root_shapes_and_hidden_json() {
     assert_eq!(events[0]["inference"], "disabled");
     for (index, event) in events.iter().enumerate() {
         assert_eq!(event["sequence"], (index + 1) as u64);
-        assert_eq!(event["protocol_version"], 2);
+        assert_eq!(event["protocol_version"], 3);
     }
     let (result, events) = invoke(root.path(), &["--no-recurse", "--fts", "needle"]);
     assert!(result.status.success());
@@ -881,13 +871,24 @@ fn temporary_and_repository_explicit_flush_then_load() {
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     for mode in ["temporary", "repository"] {
         let (saved, events) = invoke(root.path(), &["--flush-index", mode]);
-        assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
-        assert_eq!(events[0]["protocol_version"], 2);
+        assert!(
+            saved.status.success(),
+            "{}",
+            String::from_utf8_lossy(&saved.stderr)
+        );
+        assert_eq!(events[0]["protocol_version"], 3);
         assert_eq!(events[0]["flush_index"], mode);
         assert_eq!(events.last().unwrap()["index_action"], "built_in_memory");
-        assert_eq!(events.last().unwrap()["index_flush_report"]["store_generation"], 1);
+        assert_eq!(
+            events.last().unwrap()["index_flush_report"]["store_generation"],
+            1
+        );
         let (loaded, events) = invoke(root.path(), &["--load-index", mode, "--fts", "needle"]);
-        assert!(loaded.status.success(), "{}", String::from_utf8_lossy(&loaded.stderr));
+        assert!(
+            loaded.status.success(),
+            "{}",
+            String::from_utf8_lossy(&loaded.stderr)
+        );
         assert_eq!(hits(&events).len(), 1);
         assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
         assert_eq!(events.last().unwrap()["build_parses"], 0);
@@ -899,7 +900,10 @@ fn temporary_and_repository_explicit_flush_then_load() {
 #[test]
 fn removed_residency_flag_is_rejected_with_migration_guidance() {
     let root = tempfile::tempdir().unwrap();
-    let (result, events) = invoke(root.path(), &["--index-residency", "full", "--fts", "needle"]);
+    let (result, events) = invoke(
+        root.path(),
+        &["--index-residency", "full", "--fts", "needle"],
+    );
     assert_eq!(result.status.code(), Some(2));
     assert!(events.is_empty());
     assert!(String::from_utf8_lossy(&result.stderr).contains("--load-index"));
@@ -914,7 +918,11 @@ fn bare_obj_errors_but_explicit_flush_allows_index_only() {
     assert!(events.is_empty());
     assert!(!root.path().join(".objekte").exists());
     let (saved, events) = invoke(root.path(), &["--flush-index", "repository"]);
-    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
+    assert!(
+        saved.status.success(),
+        "{}",
+        String::from_utf8_lossy(&saved.stderr)
+    );
     assert_eq!(events.len(), 2);
     assert_eq!(events[0]["type"], "run_start");
     assert_eq!(events[1]["type"], "run_complete");
@@ -934,10 +942,7 @@ fn diagnostic_disk_runs_report_timing_across_a_reopen() {
     assert!(events.last().unwrap()["startup_ms"].is_number());
     assert!(events.last().unwrap()["run_elapsed_ms"].is_number());
     assert!(root.path().join(".objekte/indexes").is_dir());
-    let (restored, events) = invoke(
-        root.path(),
-        &["--load-index", "repository", "--diagnostic"],
-    );
+    let (restored, events) = invoke(root.path(), &["--load-index", "repository", "--diagnostic"]);
     assert!(restored.status.success());
     assert_eq!(events.last().unwrap()["build_parses"], 0);
 }
@@ -1052,7 +1057,7 @@ fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
         assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
     };
     for event in &events {
-        assert_eq!(event["protocol_version"], 2);
+        assert_eq!(event["protocol_version"], 3);
         assert!(
             !event
                 .as_object()
@@ -1162,12 +1167,7 @@ fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
     }
     let (restored, events) = invoke(
         root.path(),
-        &[
-            "--load-index",
-            "repository",
-            "--auto-index",
-            "--diagnostic",
-        ],
+        &["--load-index", "repository", "--auto-index", "--diagnostic"],
     );
     assert!(restored.status.success());
     assert_eq!(events.last().unwrap()["build_parses"], 0);
@@ -1329,12 +1329,7 @@ fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
     assert_eq!(events.last().unwrap()["type"], "run_error");
     let (index_only, events) = invoke(
         root.path(),
-        &[
-            "--query-file",
-            "queries.txt",
-            "--flush-index",
-            "repository",
-        ],
+        &["--query-file", "queries.txt", "--flush-index", "repository"],
     );
     assert!(
         index_only.status.success(),
@@ -1348,25 +1343,61 @@ fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
 fn explicit_load_reconciles_sources_without_automatic_save() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
-    let (saved, events) = invoke(root.path(), &["--flush-index", "repository", "--fts", "needle"]);
-    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
+    let (saved, events) = invoke(
+        root.path(),
+        &["--flush-index", "repository", "--fts", "needle"],
+    );
+    assert!(
+        saved.status.success(),
+        "{}",
+        String::from_utf8_lossy(&saved.stderr)
+    );
     assert_eq!(hits(&events).len(), 1);
     let namespace = root.path().join(".objekte/indexes");
-    let directory = std::fs::read_dir(&namespace).unwrap().next().unwrap().unwrap().path();
+    let directory = std::fs::read_dir(&namespace)
+        .unwrap()
+        .next()
+        .unwrap()
+        .unwrap()
+        .path();
     let manifest = directory.join("manifest.bin");
     let before = std::fs::read(&manifest).unwrap();
-    let (loaded, events) = invoke(root.path(), &["--load-index", "repository", "--fts", "needle"]);
+    let (loaded, events) = invoke(
+        root.path(),
+        &["--load-index", "repository", "--fts", "needle"],
+    );
     assert!(loaded.status.success());
     assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
     assert_eq!(events.last().unwrap()["build_parses"], 0);
-    std::fs::write(root.path().join("data.json"), br#"{"title":"other, longer"}"#).unwrap();
-    let (reconciled, events) = invoke(root.path(), &["--load-index", "repository", "--fts", "other"]);
-    assert!(reconciled.status.success(), "{}", String::from_utf8_lossy(&reconciled.stderr));
+    std::fs::write(
+        root.path().join("data.json"),
+        br#"{"title":"other, longer"}"#,
+    )
+    .unwrap();
+    let (reconciled, events) = invoke(
+        root.path(),
+        &["--load-index", "repository", "--fts", "other"],
+    );
+    assert!(
+        reconciled.status.success(),
+        "{}",
+        String::from_utf8_lossy(&reconciled.stderr)
+    );
     assert_eq!(hits(&events).len(), 1);
     assert_eq!(std::fs::read(&manifest).unwrap(), before);
-    let (saved_again, events) = invoke(root.path(), &["--load-index", "repository", "--flush-index", "repository"]);
-    assert!(saved_again.status.success(), "{}", String::from_utf8_lossy(&saved_again.stderr));
-    assert_eq!(events.last().unwrap()["index_flush_report"]["store_generation"], 2);
+    let (saved_again, events) = invoke(
+        root.path(),
+        &["--load-index", "repository", "--flush-index", "repository"],
+    );
+    assert!(
+        saved_again.status.success(),
+        "{}",
+        String::from_utf8_lossy(&saved_again.stderr)
+    );
+    assert_eq!(
+        events.last().unwrap()["index_flush_report"]["store_generation"],
+        2
+    );
     assert_ne!(std::fs::read(&manifest).unwrap(), before);
 }
 
@@ -1375,17 +1406,57 @@ fn custom_index_namespace_does_not_hide_unrelated_source_files() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
     std::fs::create_dir(root.path().join("cache")).unwrap();
-    let (saved, events) = invoke(root.path(), &["--flush-index", "custom", "--flush-index-directory", "cache", "--fts", "needle"]);
-    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
+    let (saved, events) = invoke(
+        root.path(),
+        &[
+            "--flush-index",
+            "custom",
+            "--flush-index-directory",
+            "cache",
+            "--fts",
+            "needle",
+        ],
+    );
+    assert!(
+        saved.status.success(),
+        "{}",
+        String::from_utf8_lossy(&saved.stderr)
+    );
     assert_eq!(hits(&events).len(), 1);
     assert!(root.path().join("cache/objekte-indexes").is_dir());
-    std::fs::write(root.path().join("cache/source.json"), br#"{"title":"needle"}"#).unwrap();
-    std::fs::write(root.path().join("cache/objekte-indexes/not-source.json"), br#"{"title":"needle"}"#).unwrap();
-    let (loaded, events) = invoke(root.path(), &["--load-index", "custom", "--load-index-directory", "cache", "--fts", "needle"]);
-    assert!(loaded.status.success(), "{}", String::from_utf8_lossy(&loaded.stderr));
+    std::fs::write(
+        root.path().join("cache/source.json"),
+        br#"{"title":"needle"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("cache/objekte-indexes/not-source.json"),
+        br#"{"title":"needle"}"#,
+    )
+    .unwrap();
+    let (loaded, events) = invoke(
+        root.path(),
+        &[
+            "--load-index",
+            "custom",
+            "--load-index-directory",
+            "cache",
+            "--fts",
+            "needle",
+        ],
+    );
+    assert!(
+        loaded.status.success(),
+        "{}",
+        String::from_utf8_lossy(&loaded.stderr)
+    );
     assert_eq!(hits(&events).len(), 2);
     let (built, events) = invoke(root.path(), &["--fts", "needle"]);
-    assert!(built.status.success(), "{}", String::from_utf8_lossy(&built.stderr));
+    assert!(
+        built.status.success(),
+        "{}",
+        String::from_utf8_lossy(&built.stderr)
+    );
     assert_eq!(hits(&events).len(), 2);
 }
 

@@ -795,12 +795,14 @@ fn saved_index_open_and_close_leave_previous_generation_unchanged() {
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(session);
     controller.update_index_ui(&original.status().unwrap(), &mut Vec::new());
+    assert!(controller.index_ui.construction_complete);
     assert!(
         controller
             .index_ui
             .storage_location
             .starts_with("Loaded from ")
     );
+    original.wait_for_reconciliation().unwrap();
     std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
     original.add_file(&root.path().join("late.json")).unwrap();
     let mut updates = Vec::new();
@@ -852,7 +854,7 @@ fn explicit_save_worker_reports_generation_and_retry_keeps_session() {
         .unwrap();
     controller.complete(event, &mut updates);
     assert!(matches!(
-        controller.index_ui.synchronize,
+        controller.index_ui.save_task,
         IndexTaskState::Succeeded(_)
     ));
     let saved = controller.last_flush.as_ref().unwrap();
@@ -872,7 +874,7 @@ fn explicit_save_worker_reports_generation_and_retry_keeps_session() {
         .unwrap();
     controller.complete(event, &mut updates);
     assert!(matches!(
-        controller.index_ui.synchronize,
+        controller.index_ui.save_task,
         IndexTaskState::Failed(_)
     ));
     assert!(controller.session.is_some());
@@ -884,7 +886,7 @@ fn explicit_save_worker_reports_generation_and_retry_keeps_session() {
         .unwrap();
     controller.complete(event, &mut updates);
     assert!(matches!(
-        controller.index_ui.synchronize,
+        controller.index_ui.save_task,
         IndexTaskState::Succeeded(_)
     ));
 }
@@ -996,7 +998,7 @@ fn close_waits_for_explicit_save_worker() {
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
     controller.storage_sync_operation_id = 12;
-    controller.index_ui.synchronize = IndexTaskState::Running {
+    controller.index_ui.save_task = IndexTaskState::Running {
         operation_id: 12,
         processed: None,
         total: None,
@@ -1049,7 +1051,7 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     controller.update_index_ui(&status, &mut updates);
     assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
     assert_eq!(controller.index_ui.storage_location, "Built in memory");
-    assert_eq!(controller.index_ui.synchronization, "Not saved");
+    assert_eq!(controller.index_ui.save_summary, "Not saved");
 
     updates.clear();
     controller.update_index_ui(&status, &mut updates);

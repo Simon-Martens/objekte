@@ -147,31 +147,47 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
     }
     let mut declared_definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
-    declared_definition.schema.register_field(FieldDefinition {
-        path: vec!["score".into()],
-        kind: LogicalType::Number,
-        required: false,
-        nullable: true,
-        indexed: true,
-        multi: false,
-        element_nullable: Vec::new(),
-    }).unwrap();
+    declared_definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     let options = RepositoryOptions {
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let declared = Repository::open_with_options(&root, vec![declared_definition], options.clone()).unwrap();
+    let declared =
+        Repository::open_with_options(&root, vec![declared_definition], options.clone()).unwrap();
     let observed = Repository::open_with_options(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions {
-            inference: InferenceConfig { mode: InferenceMode::AutoIndex, ..Default::default() },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
             ..options
         },
-    ).unwrap();
+    )
+    .unwrap();
     let path = vec!["score".into()];
     let left = &declared.collections()[0].postings.fields[&path];
-    let right = &observed.collections()[0].inference.as_ref().unwrap().indexes[&path];
+    let right = &observed.collections()[0]
+        .inference
+        .as_ref()
+        .unwrap()
+        .indexes[&path];
     assert_eq!(left.kind, right.kind);
     assert_eq!(left.multi, right.multi);
     assert_eq!(left.presence, right.presence);
@@ -183,7 +199,10 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     assert_eq!(left.empty_string_complete, right.empty_string_complete);
     assert_eq!(left.covered_records, right.covered_records);
     for filter in [
-        "score = 2", "score >= 2", "score:exists = true", "score:null = true",
+        "score = 2",
+        "score >= 2",
+        "score:exists = true",
+        "score:null = true",
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -200,7 +219,10 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         let b_access = &b_plan[0].terms[0].selected;
         assert_eq!(a_access.kind, b_access.kind, "{filter}");
         assert_eq!(a_access.exact, b_access.exact, "{filter}");
-        assert_eq!(a_access.estimated_output, b_access.estimated_output, "{filter}");
+        assert_eq!(
+            a_access.estimated_output, b_access.estimated_output,
+            "{filter}"
+        );
     }
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -534,7 +556,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 
 #[test]
 fn mixed_short_strings_match_reference_after_managed_restore() {
-    use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
     use crate::lifecycle::Index;
     use crate::source::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
@@ -591,21 +613,31 @@ fn mixed_short_strings_match_reference_after_managed_restore() {
             },
             ..Default::default()
         };
-        let built = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let built =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert_eq!(built.build_parses(), 13);
         let base = root.join(format!("managed-{alphabet:?}"));
         std::fs::create_dir(&base).unwrap();
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::CustomDirectory(base),
-            residency: IndexResidency::OnDemand,
         };
         let first = Index::open_with_storage(
-            &root, vec![definition.clone()], options, policy.clone(), SourceRegistry::builtin(),
-        ).unwrap();
+            &root,
+            vec![definition.clone()],
+            options,
+            policy.clone(),
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
         first.shutdown().unwrap();
         let restored = Index::open_with_storage(
-            &root, vec![definition.clone()], options, policy, SourceRegistry::builtin(),
-        ).unwrap();
+            &root,
+            vec![definition.clone()],
+            options,
+            policy,
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
         assert!(restored.restored_from_storage());
         let restored_view = restored.view().unwrap();
         for filter in filters {
@@ -733,13 +765,25 @@ fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
         ("items.title:null = true", vec![22, 23]),
         ("items.title:string = true", (12..22).collect::<Vec<_>>()),
     ] {
-        let BoundExpr::Term(term) = crate::reference::bind_filter(
-            &parse_filter(filter).unwrap(), &schema,
-        ).unwrap() else { panic!("term") };
-        assert_eq!(index.exact_set(&term, &logical).unwrap().iter().collect::<Vec<_>>(),
-            expected, "{filter}");
-        assert_eq!(index.estimate_exact(&term, 24).unwrap().1,
-            expected.len() as u64, "{filter}");
+        let BoundExpr::Term(term) =
+            crate::reference::bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
+        else {
+            panic!("term")
+        };
+        assert_eq!(
+            index
+                .exact_set(&term, &logical)
+                .unwrap()
+                .iter()
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(
+            index.estimate_exact(&term, 24).unwrap().1,
+            expected.len() as u64,
+            "{filter}"
+        );
     }
 }
 
@@ -1700,8 +1744,7 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             repo.explain(&request).unwrap()[0]
                 .terms
                 .iter()
-                .all(|term| term.selected.kind == AccessPathKind::Posting
-                    && term.selected.exact),
+                .all(|term| term.selected.kind == AccessPathKind::Posting && term.selected.exact),
             "{filter}"
         );
     }

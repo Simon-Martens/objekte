@@ -6,7 +6,7 @@
 use std::collections::{HashMap, VecDeque};
 use std::fmt;
 use std::fs::File;
-use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
+use std::io::{self, Cursor, Seek, SeekFrom, Write};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, OnceLock, RwLock};
 
@@ -22,7 +22,6 @@ const MAX_SECTIONS: usize = 32;
 const MAX_SEGMENT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const MAX_DECODED_POSTING_CACHE_BYTES: usize = 8 * 1024 * 1024;
 pub(crate) const MIN_CACHED_POSTING_BYTES: u32 = 64;
-
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[repr(u32)]
@@ -40,7 +39,6 @@ pub(crate) enum SectionKind {
     GramFilters = 11,
 }
 
-
 pub(crate) const REQUIRED_SECTIONS: [SectionKind; 11] = [
     SectionKind::FieldMetadata,
     SectionKind::TextBindings,
@@ -54,7 +52,6 @@ pub(crate) const REQUIRED_SECTIONS: [SectionKind; 11] = [
     SectionKind::Integrity,
     SectionKind::GramFilters,
 ];
-
 
 impl TryFrom<u32> for SectionKind {
     type Error = String;
@@ -77,7 +74,6 @@ impl TryFrom<u32> for SectionKind {
     }
 }
 
-
 #[derive(Clone, Debug)]
 struct SectionEntry {
     kind: SectionKind,
@@ -86,7 +82,6 @@ struct SectionEntry {
     sha256: [u8; 32],
     checked: Arc<OnceLock<Result<(), String>>>,
 }
-
 
 /// Exactly one owner for the bytes used by all section and posting readers.
 #[derive(Clone)]
@@ -98,12 +93,10 @@ enum SegmentBytes {
     Constructed(Arc<ConstructedSections>),
 }
 
-
 struct ConstructedSections {
     buffers: [Vec<u8>; REQUIRED_SECTIONS.len()],
     encoded_len: usize,
 }
-
 
 impl SegmentBytes {
     fn contiguous(&self) -> Option<&[u8]> {
@@ -117,7 +110,6 @@ impl SegmentBytes {
     }
 }
 
-
 /// A segment reader validates framing at construction and section checksums
 /// once per immutable byte span. Posting payloads have narrower checksums.
 #[derive(Clone)]
@@ -129,25 +121,20 @@ pub(crate) struct SegmentReader {
     checked_postings: Arc<std::sync::atomic::AtomicU64>,
 }
 
-
 #[derive(Debug)]
 pub(crate) enum SegmentOpenError {
     Io(io::Error),
     Invalid(String),
-    Resource(String),
 }
-
 
 impl fmt::Display for SegmentOpenError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::Io(error) => write!(formatter, "{error}"),
             Self::Invalid(message) => formatter.write_str(message),
-            Self::Resource(message) => formatter.write_str(message),
         }
     }
 }
-
 
 #[derive(Default)]
 struct DecodedPostingCache {
@@ -157,13 +144,11 @@ struct DecodedPostingCache {
     limit_bytes: usize,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub(crate) enum PostingProof {
     Constructed,
     Checked,
 }
-
 
 /// The source of the proof for eager dictionary validation. A stamp never
 /// proves posting payloads; those still require checked access.
@@ -174,11 +159,9 @@ pub(crate) enum SegmentTrust {
     Untrusted,
 }
 
-
 /// Bump when dictionary ordering, metadata semantics, collation or the
 /// validator's interpretation changes. Old stamps then require a full open.
 pub(crate) const VALIDATOR_VERSION: u32 = 4;
-
 
 /// The retained domain owner makes the pointer identity stable for the
 /// lifetime of a cache entry. A descriptor checked for one eligible domain
@@ -190,7 +173,6 @@ struct PostingCacheKey {
     domain: usize,
     proof: PostingProof,
 }
-
 
 impl PostingCacheKey {
     fn new(
@@ -206,14 +188,12 @@ impl PostingCacheKey {
     }
 }
 
-
 struct CachedPosting {
     bitmap: Arc<RoaringBitmap>,
     _allowed: Arc<RoaringBitmap>,
     weight: usize,
     recently_used: AtomicBool,
 }
-
 
 impl SegmentReader {
     pub(crate) fn is_constructed(&self) -> bool {
@@ -304,27 +284,6 @@ impl SegmentReader {
         // publication never truncates or modifies an opened generation.
         let map = unsafe { MmapOptions::new().map(file) }.map_err(SegmentOpenError::Io)?;
         Self::parse(SegmentBytes::Mapped(Arc::new(map))).map_err(SegmentOpenError::Invalid)
-    }
-
-    /// Fully resident storage owns all file bytes. A short read or allocation
-    /// failure is an explicit error; no mapping remains in the returned reader.
-    pub(crate) fn from_index_file_owned_typed(mut file: &File) -> Result<Self, SegmentOpenError> {
-        let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
-        if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
-            return Err(SegmentOpenError::Invalid(
-                "index segment is not a supported regular file".into(),
-            ));
-        }
-        let length = usize::try_from(metadata.len()).map_err(|_| {
-            SegmentOpenError::Invalid("segment length exceeds address space".into())
-        })?;
-        let mut bytes = Vec::new();
-        bytes.try_reserve_exact(length).map_err(|error| {
-            SegmentOpenError::Resource(format!("full index residency allocation: {error}"))
-        })?;
-        bytes.resize(length, 0);
-        file.read_exact(&mut bytes).map_err(SegmentOpenError::Io)?;
-        Self::from_owned_vec(bytes).map_err(SegmentOpenError::Invalid)
     }
 
     #[cfg(test)]
@@ -547,14 +506,20 @@ impl SegmentReader {
     /// direct reader retains this offset so scalar lookups need no section
     /// directory hash lookup or OnceLock probe per record.
     pub(crate) fn checked_record_span(&self) -> Result<(usize, usize), String> {
-        self.section(SectionKind::RecordSlots)?.ok_or("record section missing")?;
-        let entry = self.sections.get(&SectionKind::RecordSlots).ok_or("record section missing")?;
+        self.section(SectionKind::RecordSlots)?
+            .ok_or("record section missing")?;
+        let entry = self
+            .sections
+            .get(&SectionKind::RecordSlots)
+            .ok_or("record section missing")?;
         Ok((entry.offset as usize, entry.length as usize))
     }
 
     pub(crate) fn checked_record_bytes(&self, span: (usize, usize)) -> &[u8] {
         match &self.bytes {
-            SegmentBytes::Constructed(sections) => &sections.buffers[SectionKind::RecordSlots as usize - 1],
+            SegmentBytes::Constructed(sections) => {
+                &sections.buffers[SectionKind::RecordSlots as usize - 1]
+            }
             other => {
                 let (start, length) = span;
                 &other.contiguous().expect("persisted segment bytes")[start..start + length]
@@ -676,7 +641,6 @@ impl SegmentReader {
     }
 }
 
-
 /// `u64` posting-region offset, `u32` payload length and cardinality, and an
 /// 8-byte payload checksum. No page is reserved for an individual posting.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -689,7 +653,6 @@ pub(crate) struct PostingDescriptor {
     /// Not serialized inside the 24-byte descriptor; dictionary lookup adds it.
     pub ordinal: u32,
 }
-
 
 impl PostingDescriptor {
     pub(crate) const EMPTY: Self = Self {
@@ -747,7 +710,6 @@ impl PostingDescriptor {
     }
 }
 
-
 /// Stream sections directly into the final owned buffer or immutable file.
 /// Only the small section directory is retained by this writer.
 pub(crate) struct SegmentWriter<W: Write + Seek> {
@@ -755,7 +717,6 @@ pub(crate) struct SegmentWriter<W: Write + Seek> {
     expected_sections: usize,
     sections: Vec<(SectionKind, u64, u64, [u8; 32])>,
 }
-
 
 impl<W: Write + Seek> SegmentWriter<W> {
     pub(crate) fn new(mut writer: W, expected_sections: usize) -> Result<Self, String> {
@@ -838,7 +799,6 @@ impl<W: Write + Seek> SegmentWriter<W> {
     }
 }
 
-
 impl SegmentWriter<std::io::Cursor<Vec<u8>>> {
     /// The owned writer learns the exact remaining section lengths after the
     /// posting stream is complete. Reserve once instead of doubling the final
@@ -861,13 +821,11 @@ impl SegmentWriter<std::io::Cursor<Vec<u8>>> {
     }
 }
 
-
 struct HashingWriter<'a, W: Write> {
     writer: &'a mut W,
     hash: Sha256,
     length: u64,
 }
-
 
 impl<'a, W: Write> HashingWriter<'a, W> {
     fn new(writer: &'a mut W) -> Self {
@@ -882,7 +840,6 @@ impl<'a, W: Write> HashingWriter<'a, W> {
         (self.length, self.hash.finalize().into())
     }
 }
-
 
 impl<W: Write> Write for HashingWriter<'_, W> {
     fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
@@ -901,7 +858,6 @@ impl<W: Write> Write for HashingWriter<'_, W> {
         self.writer.flush()
     }
 }
-
 
 fn short_checksum(bytes: &[u8]) -> u64 {
     let digest = Sha256::digest(bytes);

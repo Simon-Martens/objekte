@@ -6,14 +6,14 @@ use std::fs::{self, File, OpenOptions};
 use std::io::{self, Read, Write};
 use std::path::{Component, Path, PathBuf};
 use std::sync::Arc;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
 #[cfg(feature = "detailed-profiling")]
 use std::time::Instant;
+use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
 use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
-use crate::index_storage::{IndexResidency, ResolvedIndexStorage};
+use crate::index_storage::ResolvedIndexStorage;
 use crate::inventory::ActiveRecords;
 use crate::model::CollectionId;
 use crate::segment_format::{
@@ -36,10 +36,12 @@ const MAX_GC_ENTRIES: usize = 64;
 const MAX_MANIFEST_BYTES: usize = 4 * 1024 * 1024;
 const MAX_CATALOG_BYTES: usize = 512 * 1024 * 1024;
 const MAX_SEGMENTS: usize = 16_384;
+#[cfg(test)]
 const DEPRECATED_MAGIC: &[u8; 8] = b"OBJSNAP1";
+#[cfg(test)]
 const DEPRECATED_VERSIONS: [u32; 2] = [27, 28];
+#[cfg(test)]
 const DEPRECATED_NAMES: [&str; 2] = ["search-core-ascii.snapshot", "search-core-unicode.snapshot"];
-
 
 #[derive(Clone, Debug)]
 struct SegmentRecord {
@@ -51,14 +53,12 @@ struct SegmentRecord {
     active: ActiveRecords,
 }
 
-
 #[derive(Clone, Debug)]
 struct CatalogRecord {
     name: String,
     length: u64,
     sha256: [u8; 32],
 }
-
 
 #[derive(Clone, Debug)]
 struct Manifest {
@@ -68,14 +68,12 @@ struct Manifest {
     segments: Vec<SegmentRecord>,
 }
 
-
 /// A previous immutable segment may be referenced without rewriting it.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum SegmentOrigin {
     Validated,
     Unvalidated,
 }
-
 
 pub(crate) enum SegmentInput<'a> {
     Existing {
@@ -102,7 +100,6 @@ pub(crate) enum SegmentInput<'a> {
     },
 }
 
-
 pub(crate) struct OpenedGeneration {
     pub generation: u64,
     pub catalog: Option<Arc<[u8]>>,
@@ -115,7 +112,6 @@ pub(crate) struct OpenedGeneration {
     #[cfg(test)]
     pub generation_directory: PathBuf,
 }
-
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct CommitStats {
@@ -130,7 +126,6 @@ pub(crate) struct CommitStats {
     pub orphan_generations_removed: usize,
 }
 
-
 #[derive(Debug)]
 pub(crate) enum StoreReadError {
     Incompatible(String),
@@ -139,7 +134,6 @@ pub(crate) enum StoreReadError {
     Conflict(String),
     Resource(String),
 }
-
 
 impl fmt::Display for StoreReadError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -154,7 +148,6 @@ impl fmt::Display for StoreReadError {
         }
     }
 }
-
 
 fn store_write_io(path: &Path, error: impl fmt::Display) -> StoreReadError {
     StoreReadError::Io {
@@ -172,23 +165,19 @@ fn segment_open_store_error(path: &Path, error: SegmentOpenError) -> StoreReadEr
         SegmentOpenError::Invalid(message) => {
             StoreReadError::Corrupt(format!("{}: {message}", path.display()))
         }
-        SegmentOpenError::Resource(message) => StoreReadError::Resource(message),
     }
 }
-
 
 enum OpenGenerationError {
     Vanished(PathBuf),
     Store(StoreReadError),
 }
 
-
 impl From<StoreReadError> for OpenGenerationError {
     fn from(error: StoreReadError) -> Self {
         Self::Store(error)
     }
 }
-
 
 fn check_generation_directory(path: &Path) -> Result<(), OpenGenerationError> {
     let metadata = match fs::symlink_metadata(path) {
@@ -220,18 +209,16 @@ fn open_generation_file(path: &Path) -> Result<File, OpenGenerationError> {
     }
 }
 
-
 /// All paths are beneath one application-owned directory. A store exists only
-/// after a disk policy explicitly opens it; memory-only never constructs one.
+/// after an explicit disk operation opens it; memory construction never does.
 pub(crate) struct ManagedStore {
     directory: PathBuf,
     repository_identity: [u8; 32],
     configuration_identity: [u8; 32],
     root_bytes: Vec<u8>,
+    #[cfg(test)]
     deprecated_directories: Vec<PathBuf>,
-    residency: IndexResidency,
 }
-
 
 impl ManagedStore {
     pub(crate) fn open(resolved: &ResolvedIndexStorage) -> Result<Self, String> {
@@ -255,8 +242,8 @@ impl ManagedStore {
             repository_identity: resolved.repository_identity,
             configuration_identity: resolved.configuration_identity,
             root_bytes: path_bytes(&resolved.repository_root),
+            #[cfg(test)]
             deprecated_directories: resolved.deprecated_directories.clone(),
-            residency: resolved.residency,
         })
     }
 
@@ -318,8 +305,8 @@ impl ManagedStore {
             repository_identity: resolved.repository_identity,
             configuration_identity: resolved.configuration_identity,
             root_bytes: path_bytes(&resolved.repository_root),
+            #[cfg(test)]
             deprecated_directories: resolved.deprecated_directories.clone(),
-            residency: IndexResidency::OnDemand,
         }))
     }
 
@@ -330,6 +317,7 @@ impl ManagedStore {
     /// Remove only the two previous snapshot filenames in the selected
     /// storage scope, and only after their regular-file header proves a
     /// supported old format. This is never called for memory-only storage.
+    #[cfg(test)]
     pub(crate) fn cleanup_deprecated_snapshots(&self) -> Result<Vec<PathBuf>, String> {
         let lock = self.open_lock()?;
         lock.try_lock()
@@ -399,16 +387,31 @@ impl ManagedStore {
 
     /// The manifest is the atomic pointer. Readers take no writer lock and
     /// retry if GC removed a generation while its files were being opened.
+    #[cfg(test)]
     pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
         self.read_generation_inner(false)
     }
 
     /// Read without format migration or validation-stamp writes.
-    pub(crate) fn read_generation_readonly(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
+    pub(crate) fn read_generation_readonly(
+        &self,
+    ) -> Result<Option<OpenedGeneration>, StoreReadError> {
         self.read_generation_inner(true)
     }
 
-    fn read_generation_inner(&self, readonly: bool) -> Result<Option<OpenedGeneration>, StoreReadError> {
+    /// Check the atomic pointer and its identity without reopening all
+    /// immutable files. Used only when the same publication was already
+    /// written to this destination and an unchanged result is possible.
+    pub(crate) fn current_generation(&self) -> Result<Option<u64>, StoreReadError> {
+        Ok(self
+            .read_manifest_typed()?
+            .map(|manifest| manifest.generation))
+    }
+
+    fn read_generation_inner(
+        &self,
+        #[allow(unused_variables)] readonly: bool,
+    ) -> Result<Option<OpenedGeneration>, StoreReadError> {
         for attempt in 0..MAX_OPEN_RETRIES {
             #[cfg(feature = "detailed-profiling")]
             let manifest_started = Instant::now();
@@ -417,16 +420,20 @@ impl ManagedStore {
             };
             #[cfg(feature = "detailed-profiling")]
             if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
-                eprintln!("direct-open manifest_ns={}", manifest_started.elapsed().as_nanos());
+                eprintln!(
+                    "direct-open manifest_ns={}",
+                    manifest_started.elapsed().as_nanos()
+                );
             }
             if manifest.version == 1 {
-                if readonly {
-                    return Err(StoreReadError::Incompatible(
-                        "legacy flat generation requires explicit replacement".into(),
-                    ));
+                #[cfg(test)]
+                if !readonly {
+                    self.migrate_flat_v1()?;
+                    continue;
                 }
-                self.migrate_flat_v1()?;
-                continue;
+                return Err(StoreReadError::Incompatible(
+                    "legacy flat generation requires explicit replacement".into(),
+                ));
             }
             match self.open_generation(&manifest) {
                 Ok(opened) => return Ok(Some(opened)),
@@ -460,6 +467,7 @@ impl ManagedStore {
     /// This is called after a normal open rejects that format. The old
     /// immutable files remain available to already pinned readers and are
     /// reclaimed by the ordinary generation retirement path after rebuilding.
+    #[cfg(test)]
     pub(crate) fn retire_obsolete_format_for_rebuild(&self) -> Result<bool, StoreReadError> {
         let lock = self.open_lock_read()?;
         lock.try_lock().map_err(|error| match error {
@@ -481,9 +489,14 @@ impl ManagedStore {
         let mut bytes = Vec::new();
         file.take((MAX_MANIFEST_BYTES + 1) as u64)
             .read_to_end(&mut bytes)
-            .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
+            .map_err(|source| StoreReadError::Io {
+                path: path.clone(),
+                source,
+            })?;
         if bytes.len() > MAX_MANIFEST_BYTES || bytes.len() < 16 {
-            return Err(StoreReadError::Corrupt("obsolete manifest size invalid".into()));
+            return Err(StoreReadError::Corrupt(
+                "obsolete manifest size invalid".into(),
+            ));
         }
         let version = u32::from_le_bytes(bytes[8..12].try_into().unwrap());
         let format = if version == 1 {
@@ -496,17 +509,24 @@ impl ManagedStore {
         if version == MANIFEST_VERSION && !(2..FORMAT_VERSION).contains(&format) {
             return Ok(false);
         }
-        let manifest = self.decode_manifest_with_format(&bytes, format)
+        let manifest = self
+            .decode_manifest_with_format(&bytes, format)
             .map_err(StoreReadError::Corrupt)?;
         let generation = self.generation_directory(manifest.generation);
         match fs::symlink_metadata(&generation) {
-            Ok(_) => { checked_generation_contents(&generation).map_err(StoreReadError::Corrupt)?; }
+            Ok(_) => {
+                checked_generation_contents(&generation).map_err(StoreReadError::Corrupt)?;
+            }
             Err(error) if error.kind() == io::ErrorKind::NotFound => {}
-            Err(source) => return Err(StoreReadError::Io { path: generation, source }),
+            Err(source) => {
+                return Err(StoreReadError::Io {
+                    path: generation,
+                    source,
+                });
+            }
         }
         fs::remove_file(&path).map_err(|source| StoreReadError::Io { path, source })?;
-        sync_directory(&self.directory)
-            .map_err(|error| store_write_io(&self.directory, error))?;
+        sync_directory(&self.directory).map_err(|error| store_write_io(&self.directory, error))?;
         Ok(true)
     }
 
@@ -558,34 +578,32 @@ impl ManagedStore {
                 ))
                 .into());
             }
-            let reader = match self.residency {
-                IndexResidency::OnDemand => SegmentReader::from_index_file_typed(&file),
-                IndexResidency::FullyResident => SegmentReader::from_index_file_owned_typed(&file),
-            }
-            .map_err(|error| match error {
-                SegmentOpenError::Io(source) => StoreReadError::Io {
-                    path: path.clone(),
-                    source,
-                },
-                SegmentOpenError::Invalid(message) => {
-                    StoreReadError::Corrupt(format!("{}: {message}", path.display()))
-                }
-                SegmentOpenError::Resource(message) => StoreReadError::Resource(message),
-            })?;
+            let reader =
+                SegmentReader::from_index_file_typed(&file).map_err(|error| match error {
+                    SegmentOpenError::Io(source) => StoreReadError::Io {
+                        path: path.clone(),
+                        source,
+                    },
+                    SegmentOpenError::Invalid(message) => {
+                        StoreReadError::Corrupt(format!("{}: {message}", path.display()))
+                    }
+                })?;
             reader
                 .require_complete_sections()
                 .map_err(StoreReadError::Corrupt)?;
             #[cfg(feature = "detailed-profiling")]
-            { segment_map_ns += map_started.elapsed().as_nanos(); }
+            {
+                segment_map_ns += map_started.elapsed().as_nanos();
+            }
             for kind in REQUIRED_SECTIONS {
-                if kind != SectionKind::PostingPayloads
-                    || self.residency == IndexResidency::FullyResident
-                {
+                if kind != SectionKind::PostingPayloads {
                     #[cfg(feature = "detailed-profiling")]
                     let section_started = Instant::now();
                     reader.section(kind).map_err(StoreReadError::Corrupt)?;
                     #[cfg(feature = "detailed-profiling")]
-                    { section_check_ns += section_started.elapsed().as_nanos(); }
+                    {
+                        section_check_ns += section_started.elapsed().as_nanos();
+                    }
                 }
             }
             names.push(record.name.clone());
@@ -603,8 +621,14 @@ impl ManagedStore {
         if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
             eprintln!(
                 "direct-open generation={} catalog_read_ns={} segment_map_parse_ns={} section_check_ns={} other_ns={} total_ns={}",
-                manifest.generation, catalog_ns, segment_map_ns, section_check_ns,
-                opened_at.elapsed().as_nanos().saturating_sub(catalog_ns + segment_map_ns + section_check_ns),
+                manifest.generation,
+                catalog_ns,
+                segment_map_ns,
+                section_check_ns,
+                opened_at
+                    .elapsed()
+                    .as_nanos()
+                    .saturating_sub(catalog_ns + segment_map_ns + section_check_ns),
                 opened_at.elapsed().as_nanos(),
             );
         }
@@ -693,6 +717,7 @@ impl ManagedStore {
         Ok(changed)
     }
 
+    #[cfg(test)]
     fn migrate_flat_v1(&self) -> Result<(), StoreReadError> {
         let lock = self
             .open_lock_read()
@@ -1418,6 +1443,7 @@ impl ManagedStore {
         Ok(())
     }
 
+    #[cfg(test)]
     fn open_lock(&self) -> Result<File, String> {
         self.open_lock_read().map_err(|error| error.to_string())
     }
@@ -1727,12 +1753,10 @@ impl ManagedStore {
     }
 }
 
-
 struct SliceCursor<'a> {
     bytes: &'a [u8],
     position: usize,
 }
-
 
 impl<'a> SliceCursor<'a> {
     fn new(bytes: &'a [u8]) -> Self {
@@ -1772,7 +1796,6 @@ impl<'a> SliceCursor<'a> {
         Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
     }
 }
-
 
 fn valid_segment_name(name: &str) -> bool {
     if !name.starts_with("segment-") || !name.ends_with(".idx") {
@@ -1828,7 +1851,9 @@ fn valid_temporary_generation_name(name: &str) -> bool {
 /// Only known owned files under one owned generation may be removed. Listing
 /// before mutation means an unknown or symlinked entry preserves the whole
 /// directory for inspection rather than being swallowed by remove_dir_all.
-fn checked_generation_contents(directory: &Path) -> Result<(Vec<(PathBuf, u64)>, Option<PathBuf>), String> {
+fn checked_generation_contents(
+    directory: &Path,
+) -> Result<(Vec<(PathBuf, u64)>, Option<PathBuf>), String> {
     let metadata = fs::symlink_metadata(directory).map_err(|error| error.to_string())?;
     check_owned_directory(directory, &metadata)?;
     let mut files = Vec::new();
@@ -1872,14 +1897,21 @@ fn checked_generation_contents(directory: &Path) -> Result<(Vec<(PathBuf, u64)>,
 
 fn retire_generation_checked(directory: &Path) -> Result<(), String> {
     checked_generation_contents(directory)?;
-    let parent = directory.parent().ok_or("generation directory has no parent")?;
-    let number = directory.file_name().and_then(|name| name.to_str())
+    let parent = directory
+        .parent()
+        .ok_or("generation directory has no parent")?;
+    let number = directory
+        .file_name()
+        .and_then(|name| name.to_str())
         .and_then(parse_generation_name)
         .ok_or("retired generation name invalid")?;
     let nonce = unique_nonce()?;
     let retired = parent.join(format!(".tmp-{number:016x}-{nonce:016x}"));
     if fs::symlink_metadata(&retired).is_ok() {
-        return Err(format!("retired generation target already exists: {}", retired.display()));
+        return Err(format!(
+            "retired generation target already exists: {}",
+            retired.display()
+        ));
     }
     fs::rename(directory, &retired)
         .map_err(|error| format!("retire generation {}: {error}", directory.display()))?;

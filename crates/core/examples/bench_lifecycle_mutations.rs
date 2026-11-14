@@ -8,15 +8,15 @@ use std::sync::{Arc, mpsc};
 use std::thread;
 use std::time::{Duration, Instant};
 
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
-use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::repository_configuration::load_repository_configuration;
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
 struct QueryProbe {
@@ -249,22 +249,15 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     )?;
     emit("build", started.elapsed(), &built, "synthetic=true");
     let index = if std::env::var("OBJEKTE_BENCH_RESTORE_LOCALITY").as_deref() == Ok("1") {
-        let storage = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
-        };
-        let sources = SourceRegistry::builtin();
+        let target = IndexStorageTarget::RepositoryDirectory;
         let options = RepositoryOptions::default();
-        let prepared = storage.prepare(&root, &[definition.clone()], options, &sources)?;
-        built.attach_storage(prepared.resolved)?;
         let started = Instant::now();
-        built.flush_storage()?;
+        built.flush_to(&target)?;
         emit("flush", started.elapsed(), &built, "synthetic=true");
         built.shutdown()?;
         let started = Instant::now();
-        let restored = Index::open_with_storage(
-            &root, vec![definition], options, storage, sources,
-        )?;
+        let restored = Index::try_load(&root, vec![definition], options, &target)?
+            .ok_or("saved synthetic index missing")?;
         emit("restore", started.elapsed(), &restored, "synthetic=true");
         restored.wait_for_reconciliation()?;
         restored
@@ -358,14 +351,13 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     }
     println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
     let definitions = load_repository_configuration(root)?.definitions;
-    let storage = IndexStoragePolicy {
-        location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
-    };
+    let target = IndexStorageTarget::RepositoryDirectory;
+    let options = RepositoryOptions::default();
     let started = Instant::now();
-    let index = Index::open_with_storage(
-        root, definitions.clone(), RepositoryOptions::default(), storage.clone(), SourceRegistry::builtin(),
-    )?;
+    let index = match Index::try_load(root, definitions.clone(), options, &target)? {
+        Some(index) => index,
+        None => Index::build(root, definitions.clone(), options)?,
+    };
     emit(
         "build",
         started.elapsed(),
@@ -626,12 +618,17 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     }
 
     let (revision, flush_elapsed, flush_probe) = if let Some(query) = &probe_query {
-        let (result, elapsed, probe) =
-            while_querying(&index, query, || Ok(index.flush_storage()?))?;
+        let (result, elapsed, probe) = while_querying(&index, query, || {
+            Ok(index.flush_to(&target)?.saved_revision)
+        })?;
         (result, elapsed, probe.detail())
     } else {
         let started = Instant::now();
-        (index.flush_storage()?, started.elapsed(), String::new())
+        (
+            index.flush_to(&target)?.saved_revision,
+            started.elapsed(),
+            String::new(),
+        )
     };
     emit(
         "flush",
@@ -667,16 +664,18 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
             "pinned_read",
             started.elapsed(),
             &index,
-            format!("pinned_revision={};pinned_count={pinned_count}", pinned.revision().0),
+            format!(
+                "pinned_revision={};pinned_count={pinned_count}",
+                pinned.revision().0
+            ),
         );
     }
     drop(pinned);
     drop(index);
 
     let started = Instant::now();
-    let loaded = Index::open_with_storage(
-        root, definitions, RepositoryOptions::default(), storage, SourceRegistry::builtin(),
-    )?;
+    let loaded = Index::try_load(root, definitions, options, &target)?
+        .ok_or("saved lifecycle index missing")?;
     let loaded_count = count(&loaded, collection)?;
     emit(
         "decode_to_searchable",

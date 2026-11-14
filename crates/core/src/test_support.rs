@@ -4,7 +4,7 @@ use std::ops::Deref;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
 use crate::lifecycle::Index;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
@@ -43,9 +43,8 @@ pub(crate) fn restore_through_managed_store(
         NEXT_STORE.fetch_add(1, Ordering::Relaxed)
     ));
     std::fs::create_dir(&base).expect("create managed test store");
-    let policy = IndexStoragePolicy {
+    let policy = IndexLocationResolver {
         location: IndexStorageLocation::CustomDirectory(base.clone()),
-        residency: IndexResidency::OnDemand,
     };
     let sources = SourceRegistry::builtin();
     let prepared = policy

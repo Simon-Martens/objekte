@@ -1,0 +1,276 @@
+{
+  "fixture": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+  "trials": [
+    {
+      "round": 0,
+      "label": "baseline",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 415681668,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-0/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 929
+      },
+      "open": {
+        "allocation_calls": 3504773,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "gross_allocated_bytes": 248800892,
+        "open_ns": 248970398,
+        "resident": false,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-0",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-0",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    },
+    {
+      "round": 0,
+      "label": "candidate",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 1,
+        "flush_ns": 478844766,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-0/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 52086087
+      },
+      "open": {
+        "allocation_calls": 3506006,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 258,
+        "gross_allocated_bytes": 248816681,
+        "metadata_ms": 75,
+        "open_ns": 258218545,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-0",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-0",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    },
+    {
+      "round": 1,
+      "label": "candidate",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 1,
+        "flush_ns": 446234488,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-1/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 45449103
+      },
+      "open": {
+        "allocation_calls": 3506004,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 244,
+        "gross_allocated_bytes": 248811778,
+        "metadata_ms": 70,
+        "open_ns": 244749179,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-1",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-1",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    },
+    {
+      "round": 1,
+      "label": "baseline",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 451524503,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-1/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1444
+      },
+      "open": {
+        "allocation_calls": 3503980,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "gross_allocated_bytes": 248728270,
+        "open_ns": 255288035,
+        "resident": false,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-1",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-1",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    },
+    {
+      "round": 2,
+      "label": "baseline",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 10,
+        "flush_ns": 481377674,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-2/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 1050
+      },
+      "open": {
+        "allocation_calls": 3504362,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "gross_allocated_bytes": 248788939,
+        "open_ns": 249022261,
+        "resident": false,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-2",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/baseline-2",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    },
+    {
+      "round": 2,
+      "label": "candidate",
+      "flush": {
+        "alphabet": "ascii",
+        "durable_generation": 1,
+        "flush_ns": 497876977,
+        "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-2/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+        "revision": 10,
+        "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+        "source_reads": 148486,
+        "unchanged_flush_ns": 43118206
+      },
+      "open": {
+        "allocation_calls": 3506007,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 252,
+        "gross_allocated_bytes": 248817321,
+        "metadata_ms": 73,
+        "open_ns": 252731657,
+        "source_reads": 0
+      },
+      "commands": [
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--output",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-2",
+          "--alphabet",
+          "ascii"
+        ],
+        [
+          "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_open_alloc",
+          "--root",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+          "--store",
+          "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/bench-stores/candidate-2",
+          "--alphabet",
+          "ascii"
+        ]
+      ]
+    }
+  ],
+  "binary_sha256": {
+    "baseline": {
+      "bench_managed_flush": "9b7e255f993491be93c0edd8711d1d502c0bde5b362e82d6bf446cc8b7e6c9b4",
+      "bench_managed_open_alloc": "d05fa49e2160af148ab44cc6a74f7a38af53c3407cb368a04cf3d24e607e3e8f"
+    },
+    "candidate": {
+      "bench_managed_flush": "5f243da5a7ad1b96adc7544fcbe92cfe20ee82e6ea1fa3d342c86c978cd9c8af",
+      "bench_managed_open_alloc": "40a0193d18db52c954e7f3ad5b999a3140b808fa277c1d23110a843100ea0439"
+    }
+  }
+}

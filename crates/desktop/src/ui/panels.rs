@@ -1316,7 +1316,7 @@ impl DesktopView {
                     .child(div().text_xs().child(format!("Current index: {}", index.storage_location)))
                     .child(div().text_xs().child(format!("Readiness: {}", index.readiness)))
                     .child(div().text_xs().child(format!("Source files: {}", index.source_reconciliation)))
-                    .child(div().text_xs().child(format!("Save: {}", index.synchronization)))
+                    .child(div().text_xs().child(format!("Save: {}", index.save_summary)))
                     .child(div().text_xs().child(format!("Current revision: {}", index.current_generation)))
                     .when(index.durable_generation.is_some(), |this| this.child(div().text_xs().child(format!(
                         "Saved store generation: {}", index.durable_generation.unwrap_or_default()))))
@@ -1336,11 +1336,11 @@ impl DesktopView {
                         .on_click(cx.listener(|this, _, window, cx| {
                             this.show_storage_dialog(window, cx);
                         })))
-                    .child(Button::new("index-save").label(if matches!(index.synchronize, IndexTaskState::Failed(_)) {
+                    .child(Button::new("index-save").label(if matches!(index.save_task, IndexTaskState::Failed(_)) {
                         "Retry save…"
                     } else { "Save index…" })
                         .disabled(self.state.root.is_none() || !index.construction_complete
-                            || matches!(index.synchronize, IndexTaskState::Running { .. }))
+                            || matches!(index.save_task, IndexTaskState::Running { .. }))
                         .on_click(cx.listener(|this, _, window, cx| {
                             this.show_save_index_dialog(window, cx);
                         })))
@@ -1378,7 +1378,7 @@ impl DesktopView {
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
                         &index.maintenance,
                     ),
-                    ("Index save", IndexTaskKind::Synchronize, &index.synchronize),
+                    ("Index save", IndexTaskKind::Save, &index.save_task),
                 ] {
                     if let Some(summary) = index_task_summary(label, task) {
                         content = content.child(
@@ -1388,7 +1388,7 @@ impl DesktopView {
                                 .gap_2()
                                 .child(div().text_xs().flex_1().child(summary))
                                 .when(
-                                    kind != IndexTaskKind::Synchronize
+                                    kind != IndexTaskKind::Save
                                         && matches!(task, IndexTaskState::Running { .. }),
                                     |this| {
                                         this.child(
@@ -1437,7 +1437,7 @@ impl DesktopView {
                     .child(
                         div()
                             .text_xs()
-                            .child(format!("Save: {}", index.synchronization)),
+                            .child(format!("Save: {}", index.save_summary)),
                     );
                 content = content
                     .child(

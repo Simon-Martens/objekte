@@ -1,0 +1,49 @@
+{
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_open_alloc",
+    "--root",
+    "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+    "--store",
+    "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-0",
+    "--alphabet",
+    "ascii"
+  ],
+  "trials": [
+    {
+      "allocation_calls": 3506007,
+      "alphabet": "ascii",
+      "build_parses": 0,
+      "first_query_count": 4010,
+      "first_query_ns": 17673,
+      "full_available_ms": 273,
+      "gross_allocated_bytes": 248816893,
+      "metadata_ms": 95,
+      "open_ns": 273504470,
+      "source_reads": 0
+    },
+    {
+      "allocation_calls": 3506004,
+      "alphabet": "ascii",
+      "build_parses": 0,
+      "first_query_count": 4010,
+      "first_query_ns": 16752,
+      "full_available_ms": 243,
+      "gross_allocated_bytes": 248815261,
+      "metadata_ms": 72,
+      "open_ns": 244124951,
+      "source_reads": 0
+    },
+    {
+      "allocation_calls": 3506011,
+      "alphabet": "ascii",
+      "build_parses": 0,
+      "first_query_count": 4010,
+      "first_query_ns": 17751,
+      "full_available_ms": 249,
+      "gross_allocated_bytes": 248823990,
+      "metadata_ms": 73,
+      "open_ns": 250073444,
+      "source_reads": 0
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Explicit index persistence validation and performance
+
+Task: `explicit-index-persistence`; integration branch `integration/explicit-index-persistence`; baseline `e64a5caad5` (the reviewed direct-snapshot result merged to master before this task). Raw release measurements, exact commands, executable hashes, query digests, and trial manifests are in [the benchmark archive](../../../bench/results/explicit-index-persistence/2026-11-14/README.md).
+
+An ordinary build now creates an in-memory index without saved-store access. Explicit load checks one target with on-demand mappings and no writes. Explicit flush saves one complete publication to one target and leaves the active index backing unchanged. Production no longer has the full-residency reader, combined policy API, or automatic synchronization worker. The CLI, TUI, and desktop use independent open and save actions; NDJSON protocol version 3 reports publication revisions and destination generations separately.
+
+## Release comparison
+
+The paired total incremental build and save median improved from **1,806.797 ms to 1,498.619 ms** (0.829×). Source-free ASCII open moved from **249.022 ms to 252.732 ms** (1.015×), and gross open allocation remained about **248.8 MB**. The new unchanged explicit save takes **1.279 ms** after manifest verification, down from **45.449 ms** before the fast-path fix. Baseline no-op saves skipped that verification and took about 1 µs. The isolated initial-flush phases of the old auto-writing policy and new one-shot save are not equivalent; use the total build-and-save comparison.
+
+All **220 ASCII and 220 Unicode** query cases returned matching digests with zero failures, with result caching disabled. Per-case median geometric mean ratios were **0.944× ASCII** and **1.021× Unicode**. Ratios of summed medians were **1.001×** and **0.986×**. These were three-repetition release samples, so small latency differences are not interpreted as regressions or wins. A first query after explicit load returned 4,010 `agents` records in a **0.0177 ms** median, with zero source reads. A disposable 16,384-file first verified update after load took **11.175 ms** candidate versus **9.538 ms** baseline in one run; subsequent candidate updates were around 5.3 ms. No lookup reconstruction or reopen was observed.
+
+## Behavioral verification
+
+`cargo test --workspace --locked -- --quiet` covers the core load/flush contract, destination replacement and conflicts, read-only loading, independent targets, source reconciliation without automatic save, CLI option combinations, and desktop controller operations. `cargo check --workspace --all-targets --locked` compiles examples and tests. Default `cargo clippy --workspace --all-targets --locked` completes with the repository's existing lint warnings; forcing `-D warnings` reports hundreds of pre-existing warnings outside this task.
+
+The TUI PTY smoke opened a one-file fixture, showed the Ctrl+K actions overlay, completed a one-time `--flush-index repository` startup save, reopened with `--load-index repository`, and exited without changing the saved manifest.
+
+The native Wayland desktop window opened the same fixture in memory; **Save index…** succeeded to repository, system temporary, and custom targets while the result view stayed visible. **Open saved index…** loaded the custom target and displayed its origin. A read-only custom base caused a typed save-access failure and showed **Retry save…**; a subsequent explicit save succeeded. Closing the native window left the custom manifest SHA-256 unchanged (`ffbbfb50e73240f960d4d79c8c8b996fd9ac04f4fa01c5220fb5d2e405f97810`). Task-owned native screenshots are retained under the integration worktree's ignored `target/gui-validation/desktop/` directory. The native test also exposed a disabled Save button after a completed memory build; that state bug was fixed and regression-tested before the successful UI run.
+
+One limitation of this validation is that the retry used the Repository target after the custom-base access failure. The retry action is explicit and preserves the session, but the dialog prefills the last active custom path rather than the failed destination. This is a user-experience follow-up, not a persistence-correctness failure.

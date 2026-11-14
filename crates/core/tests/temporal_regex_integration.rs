@@ -1,8 +1,8 @@
+#[path = "support/legacy_storage.rs"]
+mod legacy_storage;
+use legacy_storage::*;
 use std::collections::HashMap;
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
@@ -111,7 +111,6 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
         let policy = IndexStoragePolicy {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         };
         let first = Index::open_with_storage(
             &root,

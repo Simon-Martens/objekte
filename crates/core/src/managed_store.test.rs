@@ -1,10 +1,9 @@
 use super::*;
-use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::segment_format::{REQUIRED_SECTIONS, SectionKind, SegmentWriter};
 use crate::source::{SourceFormat, SourceRegistry};
 use std::io::Cursor;
-
 
 struct TestStore {
     base: PathBuf,
@@ -12,26 +11,24 @@ struct TestStore {
     active: ActiveRecords,
 }
 
-
 impl TestStore {
     fn new() -> Self {
-        Self::with_residency(IndexResidency::OnDemand)
-    }
-
-    fn with_residency(residency: IndexResidency) -> Self {
         let base = std::env::temp_dir().join(format!(
             "objekte-hybrid-store-test-{}-{}",
             std::process::id(),
             unique_nonce().unwrap()
         ));
+        Self::create(base)
+    }
+
+    fn create(base: PathBuf) -> Self {
         fs::create_dir(&base).unwrap();
         let root = base.join("source");
         let destination = base.join("destination");
         fs::create_dir(&root).unwrap();
         fs::create_dir(&destination).unwrap();
-        let resolved = IndexStoragePolicy {
+        let resolved = IndexLocationResolver {
             location: IndexStorageLocation::CustomDirectory(destination),
-            residency,
         }
         .resolve(
             &root,
@@ -52,7 +49,6 @@ impl TestStore {
         }
     }
 }
-
 
 #[test]
 fn lock_free_reader_ignores_writer_lock() {
@@ -149,38 +145,6 @@ fn supported_corruption_and_unsupported_version_have_different_kinds() {
 }
 
 #[test]
-fn full_residency_owns_bytes_and_checks_all_sections() {
-    let fixture = TestStore::with_residency(IndexResidency::FullyResident);
-    fixture
-        .store
-        .commit_generation(
-            None,
-            1,
-            &[SegmentInput::New {
-                origin: SegmentOrigin::Unvalidated,
-                collection: CollectionId(0),
-                ordinal: 1,
-                bytes: Arc::from(complete_segment(4)),
-                active: &fixture.active,
-            }],
-        )
-        .unwrap();
-    let opened = fixture.store.read_generation().unwrap().unwrap();
-    assert!(opened.segments[0].is_owned());
-    let path = opened
-        .generation_directory
-        .join("segments")
-        .join(&opened.segment_names[0]);
-    fs::remove_file(&path).unwrap();
-    assert_eq!(
-        opened.segments[0]
-            .section(SectionKind::FieldMetadata)
-            .unwrap(),
-        Some(&[4][..])
-    );
-}
-
-#[test]
 fn opening_validates_metadata_but_defers_posting_payload_integrity_on_demand() {
     let fixture = TestStore::new();
     fixture
@@ -223,13 +187,11 @@ fn opening_validates_metadata_but_defers_posting_payload_integrity_on_demand() {
     );
 }
 
-
 impl Drop for TestStore {
     fn drop(&mut self) {
         fs::remove_dir_all(&self.base).unwrap();
     }
 }
-
 
 fn complete_segment(marker: u8) -> Vec<u8> {
     let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), REQUIRED_SECTIONS.len()).unwrap();
@@ -895,9 +857,8 @@ fn refuses_symlinked_managed_namespace() {
     fs::create_dir(&destination).unwrap();
     fs::create_dir(&other).unwrap();
     symlink(&other, destination.join("objekte-indexes")).unwrap();
-    let resolved = IndexStoragePolicy {
+    let resolved = IndexLocationResolver {
         location: IndexStorageLocation::CustomDirectory(destination),
-        residency: IndexResidency::OnDemand,
     }
     .resolve(
         &root,
@@ -927,9 +888,8 @@ fn refuses_writable_owned_namespace_before_creating_generation_children() {
     let destination = base.join("destination");
     fs::create_dir_all(&root).unwrap();
     fs::create_dir(&destination).unwrap();
-    let resolved = IndexStoragePolicy {
+    let resolved = IndexLocationResolver {
         location: IndexStorageLocation::CustomDirectory(destination),
-        residency: IndexResidency::OnDemand,
     }
     .resolve(
         &root,
@@ -1008,9 +968,8 @@ fn concurrent_first_open_converges_on_one_safe_namespace() {
     let destination = base.join("destination");
     fs::create_dir_all(&root).unwrap();
     fs::create_dir(&destination).unwrap();
-    let resolved = IndexStoragePolicy {
+    let resolved = IndexLocationResolver {
         location: IndexStorageLocation::CustomDirectory(destination),
-        residency: IndexResidency::OnDemand,
     }
     .resolve(
         &root,
@@ -1522,15 +1481,25 @@ fn obsolete_format_manifest_rebuild_retires_pinned_generation() {
     let digest = Sha256::digest(&bytes[..end - 32]);
     bytes[end - 32..].copy_from_slice(&digest);
     fs::write(&path, &bytes).unwrap();
-    assert!(matches!(fixture.store.read_generation(), Err(StoreReadError::Incompatible(_))));
+    assert!(matches!(
+        fixture.store.read_generation(),
+        Err(StoreReadError::Incompatible(_))
+    ));
     assert!(fixture.store.retire_obsolete_format_for_rebuild().unwrap());
     assert!(!path.exists());
     let stats = fixture.store.commit_generation(None, 1, &[]).unwrap();
     assert_eq!(stats.orphan_generations_removed, 1);
-    assert_eq!(fixture.store.read_generation().unwrap().unwrap().generation, 1);
+    assert_eq!(
+        fixture.store.read_generation().unwrap().unwrap().generation,
+        1
+    );
     let generations = fixture.store.path().join(GENERATIONS_DIR);
     assert!(fs::read_dir(generations).unwrap().any(|entry| {
-        entry.unwrap().file_name().to_string_lossy().starts_with(".tmp-0000000000000001-")
+        entry
+            .unwrap()
+            .file_name()
+            .to_string_lossy()
+            .starts_with(".tmp-0000000000000001-")
     }));
 }
 
@@ -1547,7 +1516,10 @@ fn obsolete_format_retirement_preserves_unknown_generation_entries() {
     fs::write(&path, bytes).unwrap();
     let unknown = fixture.store.generation_directory(1).join("user-note.txt");
     fs::write(&unknown, b"keep").unwrap();
-    assert!(matches!(fixture.store.retire_obsolete_format_for_rebuild(), Err(StoreReadError::Corrupt(_))));
+    assert!(matches!(
+        fixture.store.retire_obsolete_format_for_rebuild(),
+        Err(StoreReadError::Corrupt(_))
+    ));
     assert!(path.exists());
     assert_eq!(fs::read(unknown).unwrap(), b"keep");
 }

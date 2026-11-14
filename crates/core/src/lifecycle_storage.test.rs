@@ -1,6 +1,6 @@
 use super::*;
 
-use crate::index_storage::{IndexStorageFailureKind, IndexStorageLocation, IndexStoragePolicy};
+use crate::index_storage::{IndexLocationResolver, IndexStorageFailureKind, IndexStorageLocation};
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
@@ -73,7 +73,12 @@ fn explicit_load_reuses_generation_without_writing_or_rebuilding() {
     built.stop_sync_storage().unwrap();
     drop(built);
     let directory = policy
-        .prepare(&root, &[definition.clone()], RepositoryOptions::default(), &SourceRegistry::builtin())
+        .prepare(
+            &root,
+            &[definition.clone()],
+            RepositoryOptions::default(),
+            &SourceRegistry::builtin(),
+        )
         .unwrap()
         .resolved
         .managed_directory
@@ -109,7 +114,10 @@ fn explicit_load_reuses_generation_without_writing_or_rebuilding() {
     .unwrap();
     assert!(loaded.restored_from_storage());
     assert_eq!(loaded.status().unwrap().build_parses, 0);
-    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    assert_eq!(
+        loaded.view().unwrap().search(&all_records()).unwrap().count,
+        Some(1)
+    );
     assert_eq!(std::fs::read(&manifest).unwrap(), original);
     loaded.shutdown().unwrap();
     #[cfg(unix)]
@@ -131,28 +139,67 @@ fn explicit_flush_replaces_existing_generation_with_fresh_equal_revision() {
     std::fs::write(root.join("data/old.json"), br#"{"text":"old"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
     let target = IndexStorageTarget::RepositoryDirectory;
-    let first = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let first = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     let saved = first.flush_to(&target).unwrap();
     assert_eq!(saved.store_generation, 1);
     assert_eq!(saved.saved_revision, first.status().unwrap().revision);
     assert!(!saved.unchanged);
     assert_eq!(first.flush_to(&target).unwrap().store_generation, 1);
     assert!(first.flush_to(&target).unwrap().unchanged);
-    let loaded = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
-    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    let loaded = Index::try_load(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        loaded.view().unwrap().search(&all_records()).unwrap().count,
+        Some(1)
+    );
     drop(loaded);
     std::fs::remove_file(root.join("data/old.json")).unwrap();
     std::fs::write(root.join("data/new.json"), br#"{"text":"new"}"#).unwrap();
-    let second = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
-    assert_eq!(second.status().unwrap().revision, first.status().unwrap().revision);
+    let second = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        second.status().unwrap().revision,
+        first.status().unwrap().revision
+    );
     let replaced = second.flush_to(&target).unwrap();
     assert_eq!(replaced.store_generation, 2);
     assert!(!replaced.unchanged);
-    let current = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
-    assert_eq!(current.view().unwrap().search(&all_records()).unwrap().count, Some(1));
-    let paths = current.view().unwrap().catalogue_rows()
+    let current = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        current
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    let paths = current
+        .view()
+        .unwrap()
+        .catalogue_rows()
         .map(|row| row.relative_path.to_path_buf())
         .collect::<Vec<_>>();
     assert_eq!(paths, vec![std::path::PathBuf::from("data/new.json")]);
@@ -176,19 +223,42 @@ fn explicit_flush_to_second_target_keeps_loaded_backing_and_copies_all_data() {
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
     let source = IndexStorageTarget::CustomDirectory(root.join("source-store"));
     let destination = IndexStorageTarget::CustomDirectory(root.join("destination-store"));
-    let built = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let built = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     built.flush_to(&source).unwrap();
-    let loaded = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &source)
-        .unwrap().unwrap();
+    let loaded = Index::try_load(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        &source,
+    )
+    .unwrap()
+    .unwrap();
     let before = loaded.view().unwrap().search(&all_records()).unwrap();
     let report = loaded.flush_to(&destination).unwrap();
     assert!(!report.unchanged);
     assert!(loaded.restored_from_storage());
-    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, before.count);
+    assert_eq!(
+        loaded.view().unwrap().search(&all_records()).unwrap().count,
+        before.count
+    );
     std::fs::remove_dir_all(root.join("source-store")).unwrap();
-    let copied = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &destination)
-        .unwrap().unwrap();
-    assert_eq!(copied.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    let copied = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &destination,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        copied.view().unwrap().search(&all_records()).unwrap().count,
+        Some(1)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -206,14 +276,41 @@ fn memory_build_and_repository_load_share_identity_when_source_is_root() {
     std::fs::write(root.join("a.json"), br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "", SourceFormat::Json);
     let target = IndexStorageTarget::RepositoryDirectory;
-    let index = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let index = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     let first_count = index.view().unwrap().search(&all_records()).unwrap().count;
     index.flush_to(&target).unwrap();
-    let rebuilt = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
-    assert_eq!(rebuilt.view().unwrap().search(&all_records()).unwrap().count, first_count);
-    let loaded = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
-    assert_eq!(loaded.view().unwrap().search(&all_records()).unwrap().count, first_count);
+    let rebuilt = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        rebuilt
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        first_count
+    );
+    let loaded = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        loaded.view().unwrap().search(&all_records()).unwrap().count,
+        first_count
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -231,12 +328,29 @@ fn stale_explicit_loaded_writer_cannot_replace_newer_generation() {
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
     let target = IndexStorageTarget::RepositoryDirectory;
-    let built = Index::build(&root, vec![definition.clone()], RepositoryOptions::default()).unwrap();
+    let built = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     built.flush_to(&target).unwrap();
-    let first = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
-    let stale = Index::try_load(&root, vec![definition.clone()], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
+    let first = Index::try_load(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
+    let stale = Index::try_load(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
     first.wait_for_reconciliation().unwrap();
     stale.wait_for_reconciliation().unwrap();
     let b = root.join("data/b.json");
@@ -244,14 +358,33 @@ fn stale_explicit_loaded_writer_cannot_replace_newer_generation() {
     first.add_file(&b).unwrap();
     let committed = first.flush_to(&target).unwrap();
     assert_eq!(committed.store_generation, 2);
+    assert!(matches!(
+        built.flush_to(&target),
+        Err(IndexError::StoreConflict(_))
+    ));
     let c = root.join("data/c.json");
     std::fs::write(&c, br#"{"text":"gamma"}"#).unwrap();
     stale.add_file(&c).unwrap();
-    assert!(matches!(stale.flush_to(&target), Err(IndexError::StoreConflict(_))));
-    assert_eq!(stale.view().unwrap().search(&all_records()).unwrap().count, Some(2));
-    let current = Index::try_load(&root, vec![definition], RepositoryOptions::default(), &target)
-        .unwrap().unwrap();
-    assert_eq!(current.storage_status().unwrap().durable_generation, Some(2));
+    assert!(matches!(
+        stale.flush_to(&target),
+        Err(IndexError::StoreConflict(_))
+    ));
+    assert_eq!(
+        stale.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
+    let current = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &target,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        current.storage_status().unwrap().durable_generation,
+        Some(2)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -268,9 +401,8 @@ fn managed_open_rebuilds_only_identified_obsolete_format() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let storage = IndexStoragePolicy {
+    let storage = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let index = Index::open_with_storage(
         &root,
@@ -370,9 +502,8 @@ fn failed_flush_keeps_old_durable_generation_and_reports_io() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let storage = IndexStoragePolicy {
+    let storage = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let index = Index::open_with_storage(
         &root,
@@ -445,7 +576,7 @@ fn memory_only_build_and_updates_publish_owned_sealed_segments() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        IndexStoragePolicy::default(),
+        IndexLocationResolver::default(),
         SourceRegistry::builtin(),
     )
     .unwrap();
@@ -473,7 +604,7 @@ fn memory_only_build_and_updates_publish_owned_sealed_segments() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        IndexStoragePolicy::default(),
+        IndexLocationResolver::default(),
         SourceRegistry::builtin(),
     )
     .unwrap();
@@ -510,9 +641,8 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let storage = IndexStoragePolicy {
+    let storage = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let options = RepositoryOptions {
         inference: InferenceConfig {
@@ -539,7 +669,7 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         Some(1)
     );
     let first_status = first.storage_status().unwrap();
-    assert_eq!(first_status.current_generation, 1);
+    assert_eq!(first_status.current_revision, IndexRevision(1));
     assert_eq!(first_status.durable_generation, Some(1));
     assert_eq!(first_status.segments_full_validated, 0);
     assert_eq!(
@@ -632,9 +762,8 @@ fn repeated_replacements_rebase_unreferenced_historical_metadata() {
     let source = root.join("data/a.json");
     std::fs::write(&source, br#"{"text":"first"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let policy = IndexStoragePolicy {
+    let policy = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let index = Index::open_with_storage(
         &root,
@@ -731,9 +860,8 @@ fn progressive_managed_build_flushes_only_complete_generation() {
         .unwrap();
     }
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let policy = IndexStoragePolicy {
+    let policy = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let task = Index::start_incremental_build_with_storage(
         root.clone(),
@@ -806,9 +934,8 @@ fn managed_generation_reopens_add_move_and_retirement() {
     let initial = root.join("data/a.json");
     std::fs::write(&initial, br#"{"text":"alpha"}"#).unwrap();
     let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
-    let storage = IndexStoragePolicy {
+    let storage = IndexLocationResolver {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let index = Index::open_with_storage(
         root.clone(),
@@ -931,9 +1058,8 @@ fn managed_worker_synchronizes_completed_mutations() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        IndexStoragePolicy {
+        IndexLocationResolver {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         },
         SourceRegistry::builtin(),
     )

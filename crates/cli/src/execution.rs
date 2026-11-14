@@ -575,7 +575,7 @@ fn run_start_event(
     };
     json!({
         "type": "run_start",
-        "protocol_version": 2,
+        "protocol_version": crate::output::PROTOCOL_VERSION,
         "executable_version": env!("CARGO_PKG_VERSION"),
         "core_model_version": objekte_search_core::MODEL_VERSION,
         "root": path_repr::query_path(&paths.root),
@@ -755,7 +755,7 @@ fn complete_run<W: Write>(
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
-        "protocol_version": 2,
+        "protocol_version": crate::output::PROTOCOL_VERSION,
         "index_action": if repo.index().restored_from_storage() { "loaded_saved_index" } else { "built_in_memory" },
         "index_flush_report": run.flush_report.map(|report| json!({
             "saved_revision": report.saved_revision.0,

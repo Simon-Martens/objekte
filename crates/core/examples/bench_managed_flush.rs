@@ -9,12 +9,9 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::repository::{RepositoryOptions};
-use objekte_search_core::source::SourceRegistry;
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::BigramAlphabet;
 use serde_json::json;
 
@@ -46,29 +43,20 @@ fn run() -> Result<(), String> {
         inference: Default::default(),
         ..Default::default()
     };
-    let sources = SourceRegistry::builtin();
-    let prepared = IndexStoragePolicy {
-        location: IndexStorageLocation::CustomDirectory(output),
-        residency: IndexResidency::OnDemand,
-    }
-    .prepare(&root, &definitions, options, &sources)?;
-    let index =
-        Index::start_incremental_build_with_sources(&root, prepared.definitions, options, sources)
-            .map_err(|error| error.to_string())?;
-    let index = index.wait_complete().map_err(|error| error.to_string())?;
-    index
-        .attach_storage(prepared.resolved)
+    let target = IndexStorageTarget::CustomDirectory(output);
+    let index = Index::start_incremental_build(&root, definitions, options)
+        .map_err(|error| error.to_string())?
+        .wait_complete()
         .map_err(|error| error.to_string())?;
     let started = Instant::now();
-    let revision = index.flush_storage().map_err(|error| error.to_string())?;
+    let report = index.flush_to(&target).map_err(|error| error.to_string())?;
     let flush_ns = started.elapsed().as_nanos() as u64;
     let unchanged_started = Instant::now();
-    let unchanged_revision = index.flush_storage().map_err(|error| error.to_string())?;
+    let unchanged_report = index.flush_to(&target).map_err(|error| error.to_string())?;
     let unchanged_flush_ns = unchanged_started.elapsed().as_nanos() as u64;
-    if unchanged_revision != revision {
+    if unchanged_report.saved_revision != report.saved_revision {
         return Err("unchanged flush changed the durable revision".into());
     }
-    let status = index.storage_status().map_err(|error| error.to_string())?;
     println!(
         "{}",
         json!({
@@ -76,9 +64,9 @@ fn run() -> Result<(), String> {
             "alphabet": alphabet,
             "flush_ns": flush_ns,
             "unchanged_flush_ns": unchanged_flush_ns,
-            "revision": revision.0,
-            "durable_generation": status.durable_generation,
-            "managed_directory": status.managed_directory,
+            "revision": report.saved_revision.0,
+            "durable_generation": report.store_generation,
+            "managed_directory": report.managed_directory,
             "source_reads": index.status().map_err(|error| error.to_string())?.build_source_reads,
         })
     );

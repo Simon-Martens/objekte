@@ -1,0 +1,140 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+  "code_revision": "b54822f9afdf844e90b53aa73e1374c58983dcf0",
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_musenalm",
+    "--root",
+    "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-explicit-index-persistence/bench/results/explicit-index-persistence/2026-11-14/total-baseline-0",
+    "--extended",
+    "--incremental",
+    "--storage",
+    "custom",
+    "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/paired-total-stores/baseline-0",
+    "--cases",
+    "Q001",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--query-workers",
+    "32"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "7f57974fe7c18e339190ae246307a183d6aedbae8ccfd6f6e81fd9bfb5c99c0b",
+  "executable_sha256": "4e00854c573a503a429f2de770c5b698627a8a6f62ee9b7f20c1add56943bf52",
+  "execution_checkout_revision": "b54822f9afdf844e90b53aa73e1374c58983dcf0",
+  "extended": true,
+  "failures": 0,
+  "internal_decoded_posting_cache": {
+    "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+    "observations": [
+      {
+        "after_queries": {
+          "entries": 78,
+          "limit_bytes": 5610957,
+          "retained_bytes": 942508,
+          "sealed_segments": 8
+        },
+        "alphabet": "ascii"
+      }
+    ]
+  },
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+  "run_id": "1794666001-b54822f9af",
+  "schema_fingerprint": "966d2c44027a721042a1de9055f246c59b8ee7d4c1fdbbb032a54a272a7a07af",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/paired-total-stores/baseline-0\"), residency: OnDemand }",
+  "validator_version": 4,
+  "workload_fingerprint": "853ed7ff6194c29852cd5e4d8b3e2dda864abe1196925fde3b8d1be827ea04dc"
+}

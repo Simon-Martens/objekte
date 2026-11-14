@@ -1,0 +1,68 @@
+[
+  {
+    "round": 0,
+    "report": {
+      "alphabet": "ascii",
+      "durable_generation": 1,
+      "flush_ns": 328603056,
+      "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-0/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+      "revision": 10,
+      "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "source_reads": 148486,
+      "unchanged_flush_ns": 2962562
+    },
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+      "--root",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "--output",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-0",
+      "--alphabet",
+      "ascii"
+    ]
+  },
+  {
+    "round": 1,
+    "report": {
+      "alphabet": "ascii",
+      "durable_generation": 1,
+      "flush_ns": 324614993,
+      "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-1/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+      "revision": 10,
+      "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "source_reads": 148486,
+      "unchanged_flush_ns": 843241
+    },
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+      "--root",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "--output",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-1",
+      "--alphabet",
+      "ascii"
+    ]
+  },
+  {
+    "round": 2,
+    "report": {
+      "alphabet": "ascii",
+      "durable_generation": 1,
+      "flush_ns": 324826491,
+      "managed_directory": "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-2/objekte-indexes/f0e68a6a205f05b7254921c5263ebd3543c3e87fe8b652aedb71eeeeed8ca6f4/6961bf13e9263de42c0846f7d4515e56d9d038a7ba7c773644e3e1a1aa62df19",
+      "revision": 10,
+      "root": "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "source_reads": 148486,
+      "unchanged_flush_ns": 1279018
+    },
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/integration-build/release/examples/bench_managed_flush",
+      "--root",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/examples/musenalm",
+      "--output",
+      "/home/simon/source/objekte-integration-explicit-index-persistence/target/explicit-index-persistence/fastpath-stores/candidate-2",
+      "--alphabet",
+      "ascii"
+    ]
+  }
+]

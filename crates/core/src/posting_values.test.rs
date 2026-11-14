@@ -228,7 +228,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     };
     let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
     check(&repo);
-    let restored = Arc::new(Repository::open_with_options(&root, vec![definition], options).unwrap());
+    let restored =
+        Arc::new(Repository::open_with_options(&root, vec![definition], options).unwrap());
     check(&restored);
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
@@ -711,12 +712,10 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct FoldPosting {
     complete: bool,
 }
-
 
 impl crate::reference::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
@@ -761,7 +760,6 @@ impl crate::reference::BindingOperation for FoldPosting {
         self.complete
     }
 }
-
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
@@ -852,13 +850,12 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                     .unwrap_err()
                     .contains("continuation scope")
             );
-            use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+            use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
             use crate::lifecycle::Index;
             let base = root.join("managed-store");
             std::fs::create_dir_all(&base).unwrap();
-            let policy = IndexStoragePolicy {
+            let policy = IndexLocationResolver {
                 location: IndexStorageLocation::CustomDirectory(base),
-                residency: IndexResidency::OnDemand,
             };
             let first = Index::open_with_storage(
                 &root,

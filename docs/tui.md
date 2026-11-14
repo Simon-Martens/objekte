@@ -3,8 +3,7 @@
 Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
 index-building time. On a fresh build, the file catalogue opens after discovery
-and search can begin while records are still indexed. A valid stored generation
-opens without rebuilding. The first run may take
+and search can begin while records are still indexed. An explicitly requested saved generation opens without rebuilding. The first run may take
 longer while the index is built; the release build is recommended for the
 Musenalm corpus. After each search,
 the result status line shows its execution time.
@@ -12,7 +11,7 @@ The terminal UI is an optional feature of `crates/cli`, enabled by default for t
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
 `CollectionDefinition` values. Schema loading belongs to the CLI adapter;
 applications can also construct definitions directly and call
-`Index::open_with_storage`.
+`Index::build`, `Index::try_load`, and `Index::flush_to`.
 
 Type literal text in **Search**, or press Tab for a structured **Filter**.
 The Filter offers fields from the current index publication, built-in metadata,
@@ -30,27 +29,9 @@ columns. Alt+E exports the selected record; Alt+A exports all matches to a
 new JSON file. The UI fetches result pages of 100 records as you approach
 the end. Settings live in `.objekte/.cache/tui.json`.
 
-Ctrl+K opens **Index storage**. Choose Memory, Temporary, Repository, or
-Custom. The overlay shows the current location, residency, readiness, source
-reconciliation, synchronization, current and durable generations, validation
-counts, managed folder, and any classified storage issue with recovery guidance.
-Memory mode shows no disk generations, validation warning, or managed folder.
-Its status says that no index files are read or written.
+Ctrl+K opens index actions. Choose **Open saved index…** or **Save index…**, then choose Temporary, Repository, or Custom. Custom uses an existing base directory; relative paths resolve from the invocation's working directory. Editing the custom path does not start an operation. Opening a saved index checks only the selected location. On clean absence, the TUI builds in memory; a damaged saved index reports an error. The current session stays available until a replacement is ready.
 
-Custom takes an existing directory as a base. Relative paths resolve from the
-invocation's working directory; the overlay applies the canonical path. Enter
-on **Custom folder** starts editing the base. Disk choices offer **Keep entire
-index in memory**: on-demand reads index bytes from disk when needed, while
-full residency copies them into memory before readiness. **Apply and reopen**
-does nothing when the setting is unchanged. A changed setting preserves the
-current search and filter, flushes pending disk changes, then reopens. A failed
-flush leaves the current view open with the classified error and guidance.
-
-Disk indexes synchronize in the background. **Synchronize now** or **Retry
-synchronization** is available when changes are pending or a write failed; it
-runs without blocking the terminal. Ctrl+Q flushes pending disk changes before
-closing. A failed close flush leaves the current view open so it can be retried.
-The storage choice applies to this opening and is not saved across launches.
+Saving runs in a worker and keeps the current search, filter, collection selection, and result view. The status reports the saved revision and destination generation; later changes remain in memory until another explicit save. `--flush-index` requests one save after startup construction and reconciliation. Ctrl+Q closes without starting a save. An explicit save already in progress resolves through the operation lifecycle. Ordinary source reconciliation does not save automatically.
 
 Ctrl+I switches between search results and the physical file catalogue. The
 catalogue shows repository-relative paths, sizes, and file timestamps; a

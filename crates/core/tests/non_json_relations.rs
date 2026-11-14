@@ -1,9 +1,9 @@
+#[path = "support/legacy_storage.rs"]
+mod legacy_storage;
+use legacy_storage::*;
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
 use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
@@ -161,7 +161,6 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
         let policy = IndexStoragePolicy {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         };
         let first = Index::open_with_storage(
             &root,

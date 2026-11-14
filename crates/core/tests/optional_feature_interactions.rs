@@ -1,10 +1,10 @@
+#[path = "support/legacy_storage.rs"]
+mod legacy_storage;
+use legacy_storage::*;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
@@ -240,7 +240,6 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
     let fixture = Fixture::new();
     let policy = IndexStoragePolicy {
         location: IndexStorageLocation::RepositoryDirectory,
-        residency: IndexResidency::OnDemand,
     };
     let options = |mode| RepositoryOptions {
         inference: InferenceConfig {

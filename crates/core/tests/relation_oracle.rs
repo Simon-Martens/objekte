@@ -1,8 +1,8 @@
+#[path = "support/legacy_storage.rs"]
+mod legacy_storage;
+use legacy_storage::*;
 use std::collections::HashMap;
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
@@ -293,7 +293,6 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
         let policy = IndexStoragePolicy {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         };
         let first = Index::open_with_storage(
             &root,

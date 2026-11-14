@@ -47,6 +47,7 @@ impl Index {
     /// Build mutable shards for a first managed generation. The store writer
     /// encodes them directly to immutable files and the next open installs
     /// sealed readers; no temporary owned copy is made during this build.
+    #[cfg(test)]
     pub(crate) fn build_with_sources_unsealed(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
@@ -84,7 +85,7 @@ impl Index {
             return Self::from_direct_build(direct, seal_owned);
         }
         let repository = Repository::open_with_sources(root, definitions, options, sources)
-        .map_err(IndexError::Build)?;
+            .map_err(IndexError::Build)?;
         Self::from_repository_with_sealing(repository, seal_owned)
     }
 
@@ -110,7 +111,9 @@ impl Index {
         published.file_versions = FileVersions::initial(published.catalog.allocated_files());
         for group in segments {
             for segment in group {
-                published = published.with_segment_sealing(segment, seal_owned, false)?.0;
+                published = published
+                    .with_segment_sealing(segment, seal_owned, false)?
+                    .0;
             }
         }
         let index = Self::from_published(published);
@@ -125,7 +128,6 @@ impl Index {
         })?;
         Ok(index)
     }
-
 }
 
 #[cfg(test)]

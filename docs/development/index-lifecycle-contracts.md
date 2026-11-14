@@ -1,9 +1,9 @@
 # Index lifecycle implementation contracts
 
 This is a historical phase 0 design record for task `index-lifecycle`.
-The current persistence contract is `IndexStoragePolicy` with
-`Index::open_with_storage` and `Index::flush_storage`; see
-[search core](../search-core.md). The implementation
+The current persistence contract uses memory construction plus explicit
+`Index::try_load` and `Index::flush_to`; see [search core](../search-core.md).
+The policy and automatic synchronization descriptions below record the former design. The implementation
 base is `9a94bc90d0d80ff7d14f44e457acf8787212d5ab` on 8 November 2026.
 It records interfaces and ownership before production modules are changed.
 
@@ -11,7 +11,7 @@ It records interfaces and ownership before production modules are changed.
 
 At the phase 0 baseline, `Repository` was the primary immutable index.
 Today it remains an in-memory builder and library API. CLI, TUI, and desktop
-queries use the versioned `Index` lifecycle and managed generations.
+queries use the versioned `Index` lifecycle; managed generations are loaded or saved only on request.
 
 `cargo test --workspace --all-targets` on the base passed 333 core unit tests
 (two ignored) and the core integration tests, then failed in the existing
@@ -76,7 +76,7 @@ the design before exposing mutation as complete.
 
 ## Persistence and callers
 
-Current callers select a memory-only or managed `IndexStoragePolicy` and call
+At the time of this phase 0 design, callers selected `IndexStoragePolicy` and called
 `Index::open_with_storage`. A valid managed generation is validated before it
 becomes searchable; reconciliation then runs in the background. The caller
 can wait for reconciliation when exact current state is needed.

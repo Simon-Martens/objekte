@@ -38,18 +38,19 @@ invocation, independently of the process working directory.
 | `--offset N` | Skip `N` hits in final result order; default `0`. |
 | `--count` | Compute an exact total for a finite page. All-results mode always computes it. |
 | `--index-alphabet ascii\|unicode` | Select bigram alphabet; default `ascii`. Exact case behavior is a query property. |
-| `--index-storage memory\|temporary\|repository\|custom` | Choose where the index lives; default `memory`. |
-| `--index-directory DIR` | Existing base directory for `--index-storage custom`. Relative paths resolve from the invocation's working directory. |
-| `--index-residency on-demand\|full` | For disk storage, read index data on demand or keep it all in memory; default `on-demand`. Memory storage is always `full`. |
+| `--load-index temporary\|repository\|custom` | Try loading one saved generation from the selected target. A missing generation falls back to a memory build. |
+| `--load-index-directory DIR` | Base directory for `--load-index custom`. |
+| `--flush-index temporary\|repository\|custom` | Save the completed index publication once to the selected target. |
+| `--flush-index-directory DIR` | Base directory for `--flush-index custom`. Relative paths resolve from the invocation's working directory. |
 | `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
-`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An explicit storage choice permits an index-only invocation with no query. `custom` requires `--index-directory`; the directory option is invalid with other storage choices. An explicit `--index-residency on-demand` is invalid with `memory`. The removed `--load-index` and `--write-index` flags report replacement guidance.
+`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An explicit load or flush permits an index-only invocation with no query. Each `custom` operation requires its corresponding directory option; loading and flushing may use different targets. The removed combined storage and residency options report migration guidance.
 
-`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. The default builds in memory; select a disk storage choice to reuse and synchronize an index.
+`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. The default builds in memory. Use `--load-index` to try one saved target and `--flush-index` to save once.
 
 With repeated `--path`, each directory becomes a collection named after its final directory component. Queries search all selected collections, and the TUI can select one. Names must be distinct; directories must not overlap and must share a useful parent directory. That common parent is the repository root. Only the selected directories are searched. Repeated `--path` does not require `.objekte` or collection schemas, and it cannot be combined with `--schema`. A single `--path` retains the `files` collection name and existing `--schema` behavior.
 
-A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an explicit storage choice.
+A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an explicit load or flush operation.
 
 ```text
 "Goethe"
@@ -82,13 +83,12 @@ Malformed JSON follows the core's raw-text fallback behavior. Such a file can ma
 
 ## NDJSON output
 
-Stdout contains one UTF-8 JSON object per line, with `protocol_version: 2`, a monotonic `sequence`, and a `type`. A normal run emits `run_start`, then for each query `query_start`, zero or more ordered `hit` events, exactly one `query_complete`, and finally `run_complete`. Query and run errors or cancellation use the corresponding `query_error`, `query_cancelled`, `run_error`, or `run_cancelled` terminal type. An index-only run has only run events. Stderr carries operational messages and optional diagnostics; it never shares stdout's event stream.
+Stdout contains one UTF-8 JSON object per line, with `protocol_version: 3`, a monotonic `sequence`, and a `type`. A normal run emits `run_start`, then for each query `query_start`, zero or more ordered `hit` events, exactly one `query_complete`, and finally `run_complete`. Query and run errors or cancellation use the corresponding `query_error`, `query_cancelled`, `run_error`, or `run_cancelled` terminal type. An index-only run has only run events. Stderr carries operational messages and optional diagnostics; it never shares stdout's event stream.
 
 On a fresh build, the CLI may evaluate an accepted query internally as
 searchable batches arrive. It waits for construction to complete before
 emitting any query events, so hit order, exact counts, exports, and exit
-status retain the complete-index behavior. A valid stored generation can
-open without reparsing unchanged source content. Early internal evaluation covers direct inputs
+status retain the complete-index behavior. An explicitly loaded generation can open without reparsing unchanged source content. Early internal evaluation covers direct inputs
 and regular query files. Stdin and named pipes are read by the normal ordered
 query stream after opening so input reads cannot block construction.
 
@@ -96,9 +96,9 @@ query stream after opening so input reads cannot block construction.
 
 `data` is the complete original source JSON value, not a projection or a serialization of the core's typed model. Its insignificant outer and inter-token whitespace is removed so the event stays on one line; string escapes, number spelling, member order and duplicate names are preserved. `data_available: true` distinguishes a genuine JSON `null` from unavailable source JSON. For malformed raw fallback, `data_available` is false, `data` is null, and the event carries `raw_text` with `raw_encoding: "utf8"` or `raw_base64` with `raw_encoding: "base64"`.
 
-The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, `first_result_ms` (null if there was no hit), and `all_results_ms`. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, `index_timings_ms`, `index_storage_status`, and query success/error counts. The storage status separates source reconciliation, current and durable generations, residency readiness, synchronization state, and any persistence error. Its validation diagnostics are `segments_full_validated`, `segments_stamp_trusted`, `validation_stamps_written`, and `validation_stamp_error`; a failed stamp write does not invalidate an otherwise successful open. File creation and modification timestamps in hit events are Unix-epoch milliseconds with three decimals.
+The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, `first_result_ms` (null if there was no hit), and `all_results_ms`. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, `index_timings_ms`, `index_action`, `index_persistence`, `index_flush_report`, and query success/error counts. `index_persistence` separates source reconciliation, current publication revision, loaded origin, last saved revision, destination store generation, and validation diagnostics. `index_flush_report` identifies the saved publication revision, destination, store generation, unchanged outcome, and whether newer changes remain unsaved. File creation and modification timestamps in hit events are Unix-epoch milliseconds with three decimals.
 
-The additive `last_error_kind` and `validation_stamp_error_kind` fields classify storage failures as `access`, `corrupt`, `incompatible`, `conflict`, `resource`, or `other`. This does not change the NDJSON protocol version.
+Protocol version 3 replaces version 2's combined `index_storage_status` and `index_storage_action` fields with operation-specific `index_action`, `index_persistence`, and `index_flush_report`. The `last_error_kind` and `validation_stamp_error_kind` values are `access`, `corrupt`, `incompatible`, `conflict`, `resource`, or `other`.
 
 Timing fields use a monotonic clock. `first_result_ms` starts when the query begins and stops when its first hit reaches the output callback; `all_results_ms` stops after the query output flush, before the terminal event is written. Both are reported in milliseconds with three decimals. `index_timings_ms` contains elapsed integer milliseconds from the start of the build or load operation to `metadata`, `search_available`, `full_available`, and `inference_full_available`. The inference field is null when inference is disabled; other fields are null until their milestone is reached. With the Cargo feature `detailed-profiling`, additional preparation, search, sink, storage, and build phase timings are compiled and reported for diagnostics. Ordinary builds omit these detailed fields and their clock reads. The CLI and desktop feature flags forward to the core feature.
 
@@ -107,7 +107,7 @@ With `--auto-index --diagnostic`, the final event includes `automatic_index_path
 In multi-collection mode (`--repo` or repeated `--path`), `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
 ```sh
-obj --path examples/musenalm --index-storage repository --auto-index --diagnostic |
+obj --path examples/musenalm --load-index repository --auto-index --diagnostic |
   jq -r 'select(.type=="run_complete") | .automatic_index_paths[] |
     select(.index_status=="Built" and .value_keys>0) |
     "\(.path|join("."))\t\(.kind)\tkeys=\(.value_keys)\tmulti=\(.multi)"'
@@ -123,19 +123,19 @@ for path in repository.inference_index_diagnostics("files").unwrap_or_default() 
 }
 ```
 
-## Index storage
+## Index persistence
 
-| Choice | Opening and synchronization | Residency |
-| --- | --- | --- |
-| `memory` | Build from sources and leave index stores untouched. | Full |
-| `temporary` | Reuse a valid index in the system temporary folder, or build and synchronize there. | On demand by default; full optional |
-| `repository` | Reuse or build under the repository's `.objekte/indexes` directory. | On demand by default; full optional |
-| `custom` | Reuse or build in an Objekte-owned namespace beneath the selected base directory. | On demand by default; full optional |
+An ordinary invocation builds in memory and ignores saved indexes. `--load-index` checks only the selected target; on clean absence it reports the absence and builds in memory. A damaged or incompatible saved index is an error. Loading does not write index files. Saved segments are mapped and read on demand.
 
-Disk modes use an index namespace based on the repository and effective configuration. A valid generation can become searchable before source reconciliation finishes. Subsequent changes are synchronized automatically, and a finite command flushes its completed generation before successful exit. The full residency option prepares owned in-memory index data before reporting readiness. Recognized obsolete index files in the selected storage scope are cleaned up; source files, schemas, saved queries and unrelated files are preserved. Permission, I/O and synchronization failures are reported as errors.
+`--flush-index` saves one complete publication after construction and source reconciliation, before query output. It does not change the active index backing or enable automatic saves. A successful flush returns the saved publication revision and the destination's independent store generation. Later changes remain in memory until another explicit flush. Closing, Ctrl-C, and repository replacement do not save automatically.
 
-The terminal NDJSON event reports `index_storage_action` as
-`built_in_memory`, `managed_built`, or `managed_restored`.
+| Target | Managed location |
+| --- | --- |
+| `temporary` | A stable per-user namespace under the operating system temporary directory. |
+| `repository` | The repository's `.objekte/indexes` directory. |
+| `custom` | An Objekte-owned namespace under the selected base directory. |
+
+For example, build and save with `obj --path ./data --flush-index repository`; later query it with `obj --path ./data --load-index repository --fts Goethe`. To copy a snapshot, use `--load-index temporary --flush-index custom --flush-index-directory /mnt/index-storage`. Independent custom load and flush directories use their respective directory options. Existing compatible destinations receive an atomically published newer generation; unrelated files and source documents are preserved.
 
 ## Memory and exit behavior
 

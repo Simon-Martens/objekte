@@ -239,58 +239,62 @@ impl DesktopView {
             .as_ref()
             .and_then(|error| error.clone());
         let waiting = error.is_none();
-        let surface = div()
-            .w(px(430.))
-            .max_w_full()
-            .p_4()
-            .flex()
-            .flex_col()
-            .gap_3()
-            .bg(rgb(colors.panel))
-            .border_1()
-            .border_color(rgb(colors.border))
-            .rounded_lg()
-            .child(div().text_lg().child("Closing Objekte"))
-            .child(div().text_sm().child(error.unwrap_or_else(|| {
-                "Saving the latest index and stopping background work…".into()
-            })))
-            .child(div().text_xs().text_color(rgb(colors.secondary)).child(
-                "Source files are unaffected. You can close without saving the derived index cache.",
-            ))
-            .child(
-                div()
-                    .flex()
-                    .flex_wrap()
-                    .gap_2()
-                    .when(!waiting, |this| {
-                        this.child(
-                            Button::new("close-retry")
-                                .label("Retry")
-                                .on_click(cx.listener(|this, _, _, cx| {
+        let surface =
+            div()
+                .w(px(430.))
+                .max_w_full()
+                .p_4()
+                .flex()
+                .flex_col()
+                .gap_3()
+                .bg(rgb(colors.panel))
+                .border_1()
+                .border_color(rgb(colors.border))
+                .rounded_lg()
+                .child(div().text_lg().child("Closing Objekte"))
+                .child(
+                    div()
+                        .text_sm()
+                        .child(error.unwrap_or_else(|| "Stopping background work…".into())),
+                )
+                .child(
+                    div()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Source files and saved index generations are unaffected."),
+                )
+                .child(
+                    div()
+                        .flex()
+                        .flex_wrap()
+                        .gap_2()
+                        .when(!waiting, |this| {
+                            this.child(Button::new("close-retry").label("Retry").on_click(
+                                cx.listener(|this, _, _, cx| {
                                     this.send(UiAction::RetryClose);
                                     cx.notify();
-                                })),
-                        )
+                                }),
+                            ))
+                            .child(
+                                Button::new("close-cancel")
+                                    .ghost()
+                                    .label("Cancel close")
+                                    .on_click(cx.listener(|this, _, _, cx| {
+                                        this.send(UiAction::CancelClose);
+                                        cx.notify();
+                                    })),
+                            )
+                        })
                         .child(
-                            Button::new("close-cancel")
+                            Button::new("close-now")
                                 .ghost()
-                                .label("Cancel close")
+                                .label("Close now")
                                 .on_click(cx.listener(|this, _, _, cx| {
-                                    this.send(UiAction::CancelClose);
+                                    this.send(UiAction::CloseWithoutSaving);
                                     cx.notify();
                                 })),
-                        )
-                    })
-                    .child(
-                        Button::new("close-without-saving")
-                            .ghost()
-                            .label("Close without saving index")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.send(UiAction::CloseWithoutSaving);
-                                cx.notify();
-                            })),
-                    ),
-            );
+                        ),
+                );
         gpui_kit::base::Dialog::new(cx)
             .open(self.state.closing_index.is_some())
             .close_on_backdrop_press(false)
@@ -1701,10 +1705,14 @@ impl DesktopView {
             "Checking files…".to_owned()
         } else if matches!(index.check, IndexTaskState::Failed(_)) {
             "Some files could not be checked".to_owned()
-        } else if index.storage_location == "Memory only" {
-            "Index in memory".to_owned()
+        } else if index.dirty && index.save_summary == "Not saved" {
+            "Index in memory · not saved".to_owned()
         } else if index.dirty {
-            "Index changes not synchronized".to_owned()
+            "Index has changes since last save".to_owned()
+        } else if index.save_summary.starts_with("Saved revision") {
+            "Index saved".to_owned()
+        } else if index.storage_location == "Built in memory" {
+            "Index in memory".to_owned()
         } else if index.check_complete == Some(true) {
             "Files checked".to_owned()
         } else {
@@ -2960,12 +2968,14 @@ impl Render for DesktopView {
                 this.child(self.render_help(width, height, cx))
             })
             .child(self.render_status(cx))
-            .when(self.state.open_dialog.visible && !self.state.open_dialog.storage_only, |this| {
-                this.child(self.render_open_dialog(width, height, cx))
-            })
-            .when(self.state.open_dialog.visible && self.state.open_dialog.storage_only, |this| {
-                this.child(self.render_storage_dialog(width, height, cx))
-            })
+            .when(
+                self.state.open_dialog.visible && !self.state.open_dialog.storage_only,
+                |this| this.child(self.render_open_dialog(width, height, cx)),
+            )
+            .when(
+                self.state.open_dialog.visible && self.state.open_dialog.storage_only,
+                |this| this.child(self.render_storage_dialog(width, height, cx)),
+            )
             .when(self.state.closing_index.is_some(), |this| {
                 this.child(self.render_close_dialog(cx))
             })

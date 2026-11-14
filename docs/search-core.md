@@ -386,7 +386,7 @@ its result is rejected. Use a new context for each request.
 
 `Repository::open`, `open_with_options`, and `open_with_sources` build from
 sources and keep the resulting index in memory. They do not restore or write
-persistent state. For durable generations, use `Index::open_with_storage`.
+persistent state. Use `Index::flush_to` to save a complete publication explicitly.
 
 Fresh construction assumes sources remain stable while it reads them. It uses
 metadata gathered during discovery and does not repeatedly probe revisions
@@ -410,20 +410,21 @@ by the revision check.
 ### Versioned `Index` lifecycle
 
 `Index::build(root, definitions, options)` builds an in-memory index from the
-supplied configuration. `Index::open_with_storage` pairs the definitions and
-sources with an `IndexStoragePolicy`. A memory-only policy builds from source;
-a disk policy restores a valid managed generation or builds and publishes one.
-A restored generation becomes searchable before background source
-reconciliation finishes. The CLI, TUI, and desktop share this storage policy
-and their repository configuration loader.
+supplied configuration without probing a saved store. `Index::try_load` checks
+one explicit `IndexStorageTarget` and returns `None` for a missing committed
+generation. A loaded generation uses on-demand mapped readers and becomes
+searchable before optional source reconciliation finishes. `Index::flush_to`
+saves one complete pinned publication to one explicit target and reports the
+saved revision and destination store generation. Loading does not write; saving
+does not change the active backing. CLI, TUI, and desktop share the repository
+configuration loader and choose when to invoke these operations.
 
 The `Index` handle exposes versioned file add, update, move, and delete
 operations. They modify index state only; the application controls source
 files. Query calls pin one published revision. `start_reconcile`,
 `wait_for_reconciliation`, and `start_periodic_reconciliation` expose metadata
-checking without blocking search. `flush_storage()` persists a complete
-pinned revision to the attached managed store. `set_sync_storage` controls
-coalesced background synchronization for managed storage.
+checking without blocking search. Reconciliation, updates, compaction,
+ordinary close, and repository replacement do not save automatically.
 
 `compact()` removes retired base and segment contributions without rereading
 source files. `rebuild()` rereads the current source configuration and retries

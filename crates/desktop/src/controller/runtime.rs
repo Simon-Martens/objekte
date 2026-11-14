@@ -824,7 +824,6 @@ impl DesktopController {
         let index = session.repository.index();
         match index.loaded_origin() {
             Ok(origin) => {
-                self.index_ui.storage_memory = origin.is_none();
                 self.index_ui.storage_location = origin.as_ref().map_or_else(
                     || "Built in memory".to_owned(),
                     |path| format!("Loaded from {}", path.display()),
@@ -852,7 +851,7 @@ impl DesktopController {
                     .last_flush
                     .as_ref()
                     .map(|report| report.store_generation);
-                self.index_ui.synchronization = match &self.last_flush {
+                self.index_ui.save_summary = match &self.last_flush {
                     Some(report) => format!(
                         "Saved revision {} to {}, generation {}{}",
                         report.saved_revision.0,
@@ -867,8 +866,6 @@ impl DesktopController {
                     None if origin.is_some() => "Loaded saved index · no save requested".into(),
                     None => "Not saved".into(),
                 };
-                self.index_ui.storage_can_synchronize = status.initial_construction_complete;
-                self.index_ui.residency.clear();
                 self.index_ui.validation_summary.clear();
                 self.index_ui.storage_issue = None;
                 self.index_ui.validation_warning = None;
@@ -893,6 +890,7 @@ impl DesktopController {
             .iter()
             .map(|path| path.display().to_string())
             .collect();
+        self.index_ui.construction_complete = status.initial_construction_complete;
         if self.initial_construction_incomplete() {
             self.index_ui.indexed_files = None;
             self.index_ui.live_records = None;
@@ -3401,13 +3399,13 @@ impl DesktopController {
                 {
                     self.update_index_ui(&status, updates);
                 }
-                self.index_ui.synchronize = match result {
+                self.index_ui.save_task = match result {
                     Ok(report) => {
                         self.last_flush = Some(report.clone());
                         self.index_ui.durable_generation = Some(report.store_generation);
                         self.index_ui.managed_directory =
                             Some(report.managed_directory.display().to_string());
-                        self.index_ui.synchronization = format!(
+                        self.index_ui.save_summary = format!(
                             "Saved revision {} to {}, store generation {}{}",
                             report.saved_revision.0,
                             objekte_cli::storage_view::target_label(&report.target),
@@ -3418,7 +3416,7 @@ impl DesktopController {
                                 ""
                             }
                         );
-                        IndexTaskState::Succeeded(self.index_ui.synchronization.clone())
+                        IndexTaskState::Succeeded(self.index_ui.save_summary.clone())
                     }
                     Err(error) => IndexTaskState::Failed(error),
                 };
@@ -3871,7 +3869,7 @@ impl DesktopController {
     }
 
     fn request_close(&mut self, updates: &mut Vec<UiUpdate>) {
-        if matches!(self.index_ui.synchronize, IndexTaskState::Running { .. }) {
+        if matches!(self.index_ui.save_task, IndexTaskState::Running { .. }) {
             self.close_after_storage_sync = true;
             updates.push(UiUpdate::Status(
                 "Waiting for the requested index save before closing…".into(),
@@ -3956,7 +3954,7 @@ impl DesktopController {
         if self.opening_draft.is_some()
             || self.closing
             || self.initial_construction_incomplete()
-            || matches!(self.index_ui.synchronize, IndexTaskState::Running { .. })
+            || matches!(self.index_ui.save_task, IndexTaskState::Running { .. })
         {
             updates.push(UiUpdate::Status(
                 "Wait for initial index construction or the current save".into(),
@@ -3991,7 +3989,7 @@ impl DesktopController {
         let operation_id = self.storage_sync_operation_id;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
-        self.index_ui.synchronize = IndexTaskState::Running {
+        self.index_ui.save_task = IndexTaskState::Running {
             operation_id,
             processed: None,
             total: None,
@@ -4104,7 +4102,7 @@ impl DesktopController {
                 }
                 self.index_ui.load = IndexTaskState::Cancelled;
             }
-            IndexTaskKind::Synchronize => {}
+            IndexTaskKind::Save => {}
         }
         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
     }

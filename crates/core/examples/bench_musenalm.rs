@@ -7,26 +7,21 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
-use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
     load_manifest,
 };
 use sha2::{Digest, Sha256};
 
-
 enum SearchBackend {
     Direct(Repository),
     Incremental(Index, IndexView),
 }
-
 
 impl SearchBackend {
     fn decoded_posting_cache_usage(&self) -> serde_json::Value {
@@ -62,7 +57,6 @@ impl SearchBackend {
         }
     }
 }
-
 
 fn main() {
     if let Err(error) = run() {
@@ -108,21 +102,20 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
-    let mut storage = IndexStorageLocation::MemoryOnly;
-    let mut fully_resident = false;
+    let mut storage: Option<IndexStorageTarget> = None;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
             "--incremental" => incremental = true,
             "--storage" => {
                 storage = match args.next().map(String::as_str) {
-                    Some("memory") => IndexStorageLocation::MemoryOnly,
-                    Some("temporary") => IndexStorageLocation::SystemTemporary,
-                    Some("repository") => IndexStorageLocation::RepositoryDirectory,
-                    Some("custom") => IndexStorageLocation::CustomDirectory(PathBuf::from(
+                    Some("memory") => None,
+                    Some("temporary") => Some(IndexStorageTarget::SystemTemporary),
+                    Some("repository") => Some(IndexStorageTarget::RepositoryDirectory),
+                    Some("custom") => Some(IndexStorageTarget::CustomDirectory(PathBuf::from(
                         args.next()
                             .ok_or("--storage custom needs a base directory")?,
-                    )),
+                    ))),
                     _ => {
                         return Err(
                             "--storage needs memory, temporary, repository or custom".into()
@@ -130,7 +123,6 @@ fn run() -> Result<(), String> {
                     }
                 }
             }
-            "--fully-resident" => fully_resident = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -181,18 +173,12 @@ fn run() -> Result<(), String> {
     if repetitions == 0 {
         return Err("repetitions must be positive".into());
     }
-    if !incremental && (storage != IndexStorageLocation::MemoryOnly || fully_resident) {
-        return Err("--storage and --fully-resident require --incremental".into());
+    if !incremental && storage.is_some() {
+        return Err("--storage requires --incremental".into());
     }
-    let storage_policy = IndexStoragePolicy {
-        residency: if storage == IndexStorageLocation::MemoryOnly || fully_resident {
-            IndexResidency::FullyResident
-        } else {
-            IndexResidency::OnDemand
-        },
-        location: storage,
-    };
-    let storage_label = format!("{storage_policy:?}");
+    let storage_label = storage
+        .as_ref()
+        .map_or_else(|| "memory".to_owned(), |target| format!("{target:?}"));
     let mut profiles = Vec::new();
     for name in &profile_names {
         let profile = match name.as_str() {
@@ -309,7 +295,7 @@ fn run() -> Result<(), String> {
         }
         let backend = if incremental {
             let build_start = Instant::now();
-            let task = Index::start_incremental_build_with_storage(
+            let task = Index::start_incremental_build(
                 &root,
                 definitions.clone(),
                 RepositoryOptions {
@@ -317,11 +303,12 @@ fn run() -> Result<(), String> {
                     query_workers,
                     ..RepositoryOptions::default()
                 },
-                storage_policy.clone(),
-                SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())?;
             let index = task.wait_complete().map_err(|error| error.to_string())?;
+            if let Some(target) = &storage {
+                index.flush_to(target).map_err(|error| error.to_string())?;
+            }
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
@@ -902,7 +889,6 @@ fn nearest_rank_sorted(values: &[u64], numerator: usize, denominator: usize) -> 
     let rank = values.len().saturating_mul(numerator).div_ceil(denominator);
     values.get(rank - 1).copied()
 }
-
 
 #[cfg(test)]
 mod statistics_tests {

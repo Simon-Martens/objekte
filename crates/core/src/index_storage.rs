@@ -1,25 +1,24 @@
-//! Shared index location and residency policy for every frontend.
+//! Index targets and managed namespace resolution.
 //!
-//! Resolving a memory-only policy does not inspect or create an index store.
+//! Memory construction does not inspect or create an index store.
 
 use std::path::{Component, Path, PathBuf};
 
 use sha2::{Digest, Sha256};
 
+use crate::configuration::configuration_hash;
 use crate::lifecycle::IndexError;
 use crate::lifecycle::IndexRevision;
 use crate::managed_store::StoreReadError;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
-use crate::configuration::configuration_hash;
 
 /// Version of the eager semantic checks used for managed segment stamps.
 pub const HYBRID_VALIDATOR_VERSION: u32 = crate::segment_format::VALIDATOR_VERSION;
 
-
 /// Where immutable Objekte index generations are kept.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub enum IndexStorageLocation {
+pub(crate) enum IndexStorageLocation {
     #[default]
     MemoryOnly,
     SystemTemporary,
@@ -44,14 +43,13 @@ impl IndexStorageTarget {
         Ok(())
     }
 
-    pub(crate) fn policy(&self) -> IndexStoragePolicy {
-        IndexStoragePolicy {
+    pub(crate) fn policy(&self) -> IndexLocationResolver {
+        IndexLocationResolver {
             location: match self {
                 Self::SystemTemporary => IndexStorageLocation::SystemTemporary,
                 Self::RepositoryDirectory => IndexStorageLocation::RepositoryDirectory,
                 Self::CustomDirectory(path) => IndexStorageLocation::CustomDirectory(path.clone()),
             },
-            residency: IndexResidency::OnDemand,
         }
     }
 
@@ -61,9 +59,8 @@ impl IndexStorageTarget {
         root: &Path,
         definitions: &[CollectionDefinition],
     ) -> Result<Vec<CollectionDefinition>, String> {
-        IndexStoragePolicy {
+        IndexLocationResolver {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         }
         .prepare_source_definitions(root, definitions)
     }
@@ -80,7 +77,10 @@ impl IndexStorageTarget {
         let mut resolved = self.policy().resolve(root, definitions, options, sources)?;
         let logical = configuration_hash(definitions, options, sources)?;
         if resolved.configuration_identity != logical {
-            let directory = resolved.managed_directory.as_mut().ok_or("disk target has no directory")?;
+            let directory = resolved
+                .managed_directory
+                .as_mut()
+                .ok_or("disk target has no directory")?;
             directory.pop();
             directory.push(hex(&logical));
             resolved.configuration_identity = logical;
@@ -102,41 +102,22 @@ pub struct IndexFlushReport {
     pub segments_reused: usize,
 }
 
-
-/// Whether file-backed index bytes are accessed on demand or owned in memory.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum IndexResidency {
-    #[default]
-    OnDemand,
-    FullyResident,
-}
-
-
-/// One policy shared by direct library callers and all user interfaces.
+/// Historical internal location resolver retained for test fixtures.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IndexStoragePolicy {
+pub(crate) struct IndexLocationResolver {
     pub location: IndexStorageLocation,
-    pub residency: IndexResidency,
 }
 
-
-impl Default for IndexStoragePolicy {
+impl Default for IndexLocationResolver {
     fn default() -> Self {
         Self {
             location: IndexStorageLocation::MemoryOnly,
-            residency: IndexResidency::FullyResident,
         }
     }
 }
 
-
-impl IndexStoragePolicy {
+impl IndexLocationResolver {
     pub fn validate(&self) -> Result<(), String> {
-        if self.location == IndexStorageLocation::MemoryOnly
-            && self.residency != IndexResidency::FullyResident
-        {
-            return Err("memory-only index storage requires full residency".into());
-        }
         if let IndexStorageLocation::CustomDirectory(path) = &self.location {
             if path.as_os_str().is_empty() {
                 return Err("custom index base directory is empty".into());
@@ -149,7 +130,7 @@ impl IndexStoragePolicy {
     /// identity and source discovery. A disk store beneath a selected source
     /// directory is pruned before traversal; memory-only leaves definitions
     /// untouched. This operation does not inspect or create index files.
-    pub fn prepare_source_definitions(
+    pub(crate) fn prepare_source_definitions(
         &self,
         root: &Path,
         definitions: &[CollectionDefinition],
@@ -208,7 +189,8 @@ impl IndexStoragePolicy {
     /// Preferred construction entry point: keep the discovery definitions
     /// paired with the identity that was calculated from those definitions.
     /// Memory-only preparation never inspects an index store.
-    pub fn prepare(
+    #[cfg(test)]
+    pub(crate) fn prepare(
         &self,
         root: &Path,
         definitions: &[CollectionDefinition],
@@ -253,7 +235,7 @@ impl IndexStoragePolicy {
 
     /// Resolve stable identity and a managed directory without touching index files.
     /// The selected custom base must already exist; store creation is separate.
-    pub fn resolve(
+    pub(crate) fn resolve(
         &self,
         root: &Path,
         definitions: &[CollectionDefinition],
@@ -329,11 +311,9 @@ impl IndexStoragePolicy {
             owned_namespace_root,
             deprecated_directories,
             private_namespace: matches!(&self.location, IndexStorageLocation::SystemTemporary),
-            residency: self.residency,
         })
     }
 }
-
 
 fn canonical_root(root: &Path) -> Result<PathBuf, String> {
     let root = root
@@ -348,10 +328,9 @@ fn canonical_root(root: &Path) -> Result<PathBuf, String> {
     Ok(root)
 }
 
-
 /// Identity checked against manifests before a generation can be opened.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ResolvedIndexStorage {
+pub(crate) struct ResolvedIndexStorage {
     pub repository_root: PathBuf,
     pub repository_identity: [u8; 32],
     pub configuration_identity: [u8; 32],
@@ -361,29 +340,25 @@ pub struct ResolvedIndexStorage {
     /// Exact selected directories where the previous two snapshot names may exist.
     pub deprecated_directories: Vec<PathBuf>,
     pub private_namespace: bool,
-    pub residency: IndexResidency,
 }
-
 
 /// One immutable identity/discovery pair for building, opening and updating.
 /// Callers must pass `definitions` to the repository constructor and use the
 /// associated `resolved` store path; the two must not be recomputed separately.
 #[derive(Clone, Debug)]
-pub struct PreparedIndexStorage {
+#[cfg(test)]
+pub(crate) struct PreparedIndexStorage {
     pub definitions: Vec<CollectionDefinition>,
     pub resolved: ResolvedIndexStorage,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexReadiness {
     Building,
     Searchable,
-    PreparingFullResidency,
-    FullyResidentReady,
 }
 
-
+#[cfg(test)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexSynchronization {
     MemoryOnly,
@@ -444,14 +419,15 @@ impl From<&StoreReadError> for IndexStorageFailureKind {
     }
 }
 
-
-/// Separate searchable coverage, source freshness and durable state.
+/// Separate searchable coverage, source freshness and explicit save state.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStorageStatus {
     pub readiness: IndexReadiness,
     pub source_reconciliation_complete: bool,
-    pub current_generation: u64,
+    pub current_revision: IndexRevision,
+    pub last_saved_revision: Option<IndexRevision>,
     pub durable_generation: Option<u64>,
+    #[cfg(test)]
     pub synchronization: IndexSynchronization,
     pub last_error: Option<String>,
     pub last_error_kind: Option<IndexStorageFailureKind>,
@@ -462,7 +438,6 @@ pub struct IndexStorageStatus {
     pub validation_stamp_error: Option<String>,
     pub validation_stamp_error_kind: Option<IndexStorageFailureKind>,
 }
-
 
 fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
     if path.is_absolute() {
@@ -530,7 +505,6 @@ fn hex(bytes: &[u8]) -> String {
     text
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -542,13 +516,37 @@ mod tests {
     #[test]
     fn storage_failure_classification_uses_typed_errors() {
         let examples = [
-            (IndexError::Io("permission denied".into()), IndexStorageFailureKind::Access),
-            (IndexError::InvalidCache("bad checksum".into()), IndexStorageFailureKind::Corrupt),
-            (IndexError::IncompatibleConfiguration("old model".into()), IndexStorageFailureKind::Incompatible),
-            (IndexError::StoreConflict("lock held".into()), IndexStorageFailureKind::Conflict),
-            (IndexError::RevisionConflict { expected: IndexRevision(1), actual: IndexRevision(2) }, IndexStorageFailureKind::Conflict),
-            (IndexError::ResourceLimit("too large".into()), IndexStorageFailureKind::Resource),
-            (IndexError::Build("source error".into()), IndexStorageFailureKind::Other),
+            (
+                IndexError::Io("permission denied".into()),
+                IndexStorageFailureKind::Access,
+            ),
+            (
+                IndexError::InvalidCache("bad checksum".into()),
+                IndexStorageFailureKind::Corrupt,
+            ),
+            (
+                IndexError::IncompatibleConfiguration("old model".into()),
+                IndexStorageFailureKind::Incompatible,
+            ),
+            (
+                IndexError::StoreConflict("lock held".into()),
+                IndexStorageFailureKind::Conflict,
+            ),
+            (
+                IndexError::RevisionConflict {
+                    expected: IndexRevision(1),
+                    actual: IndexRevision(2),
+                },
+                IndexStorageFailureKind::Conflict,
+            ),
+            (
+                IndexError::ResourceLimit("too large".into()),
+                IndexStorageFailureKind::Resource,
+            ),
+            (
+                IndexError::Build("source error".into()),
+                IndexStorageFailureKind::Other,
+            ),
         ];
         for (error, expected) in examples {
             assert_eq!(IndexStorageFailureKind::from(&error), expected);
@@ -557,7 +555,10 @@ mod tests {
             path: "/tmp/index".into(),
             source: std::io::Error::new(std::io::ErrorKind::PermissionDenied, "denied"),
         };
-        assert_eq!(IndexStorageFailureKind::from(&store), IndexStorageFailureKind::Access);
+        assert_eq!(
+            IndexStorageFailureKind::from(&store),
+            IndexStorageFailureKind::Access
+        );
         assert_eq!(IndexStorageFailureKind::Access.as_str(), "access");
     }
 
@@ -569,7 +570,7 @@ mod tests {
             "data",
             SourceFormat::Json,
         )];
-        let resolved = IndexStoragePolicy::default()
+        let resolved = IndexLocationResolver::default()
             .resolve(
                 &root,
                 &definitions,
@@ -596,7 +597,7 @@ mod tests {
             "data",
             SourceFormat::Json,
         )];
-        let prepared = IndexStoragePolicy::default()
+        let prepared = IndexLocationResolver::default()
             .prepare(
                 &root,
                 &definitions,
@@ -632,9 +633,8 @@ mod tests {
             "data/nested",
             SourceFormat::Json,
         )];
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
         };
         assert!(
             policy
@@ -643,18 +643,6 @@ mod tests {
                 .contains("source selection")
         );
         std::fs::remove_dir_all(root).unwrap();
-    }
-
-    #[test]
-    fn memory_policy_rejects_on_demand() {
-        assert!(
-            IndexStoragePolicy {
-                location: IndexStorageLocation::MemoryOnly,
-                residency: IndexResidency::OnDemand,
-            }
-            .validate()
-            .is_err()
-        );
     }
 
     #[test]
@@ -674,9 +662,8 @@ mod tests {
             "data",
             SourceFormat::Json,
         )];
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::SystemTemporary,
-            residency: IndexResidency::OnDemand,
         };
         let sources = SourceRegistry::builtin();
         let first = policy
@@ -721,9 +708,8 @@ mod tests {
             "data",
             SourceFormat::Json,
         )];
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::SystemTemporary,
-            residency: IndexResidency::OnDemand,
         };
         let sources = SourceRegistry::builtin();
         let a = policy
@@ -758,9 +744,8 @@ mod tests {
             "data",
             SourceFormat::Json,
         )];
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::CustomDirectory(custom.clone()),
-            residency: IndexResidency::OnDemand,
         };
         let prepared = policy
             .prepare_source_definitions(&base, &definitions)
@@ -800,7 +785,7 @@ mod tests {
         )
         .unwrap();
         assert_eq!(found, vec![source_dir.join("record.json")]);
-        let memory = IndexStoragePolicy::default()
+        let memory = IndexLocationResolver::default()
             .prepare_source_definitions(&base, &definitions)
             .unwrap();
         assert!(memory[0].discovery.exclude_directories.is_empty());
@@ -835,9 +820,8 @@ mod tests {
         let custom = base.join("cache");
         let source = custom.join("objekte-indexes").join("data");
         std::fs::create_dir_all(&source).unwrap();
-        let policy = IndexStoragePolicy {
+        let policy = IndexLocationResolver {
             location: IndexStorageLocation::CustomDirectory(custom),
-            residency: IndexResidency::OnDemand,
         };
         let definitions = [CollectionDefinition::folder(
             "files",

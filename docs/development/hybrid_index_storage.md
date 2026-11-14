@@ -1,5 +1,7 @@
 # Hybrid index storage contract
 
+Historical design and benchmark record. The active persistence contract uses memory construction and explicit `Index::try_load` / `Index::flush_to`; automatic synchronization and full-residency selection were removed by `explicit-index-persistence`.
+
 Task `hybrid-index-storage`. This document fixes the wire and lifecycle contracts before replacing the current snapshot implementation. The baseline is `da8fde68472b8646a63a05b3b3654c58de877301`.
 
 ## Policy and identity

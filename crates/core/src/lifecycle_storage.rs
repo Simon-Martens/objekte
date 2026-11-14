@@ -12,19 +12,25 @@ use std::time::Instant;
 
 use crate::build::IndexedCollectionSegment;
 use crate::generation_catalog::{GenerationCatalogBuilder, RestoredGenerationCatalog};
+#[cfg(test)]
+use crate::index_storage::IndexLocationResolver;
+#[cfg(test)]
+use crate::index_storage::IndexSynchronization;
 use crate::index_storage::{
-    IndexReadiness, IndexResidency, IndexStorageFailureKind, IndexStoragePolicy,
-    IndexStorageStatus, IndexStorageTarget, IndexSynchronization, ResolvedIndexStorage,
+    IndexReadiness, IndexStorageFailureKind, IndexStorageStatus, IndexStorageTarget,
+    ResolvedIndexStorage,
 };
 use crate::inventory::FileVersions;
+#[cfg(test)]
+use crate::lifecycle::InitialBuildTask;
 use crate::lifecycle::{
-    Index, IndexError, IndexRevision, IndexStatus, InitialBuildTask, PublishedIndex,
-    PublishedSegment, ReconciliationState,
+    Index, IndexError, IndexRevision, IndexStatus, PublishedIndex, PublishedSegment,
+    ReconciliationState,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::managed_store::{
-    ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin, StoreReadError,
-};
+#[cfg(test)]
+use crate::managed_store::StoreReadError;
+use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::segment_format::{SegmentTrust, VALIDATOR_VERSION};
@@ -41,7 +47,6 @@ struct DurableSegment {
 
 pub(crate) struct ManagedPersistence {
     pub(crate) store: ManagedStore,
-    residency: IndexResidency,
     durable_generation: Option<u64>,
     last_saved_publication: Option<(u64, IndexRevision)>,
     durable_segments: HashMap<(CollectionId, u64), DurableSegment>,
@@ -62,7 +67,6 @@ pub(crate) struct ValidationOpenStats {
 
 #[derive(Clone)]
 pub(crate) struct StorageStatusSnapshot {
-    residency: IndexResidency,
     durable_generation: Option<u64>,
     last_error: Option<String>,
     last_error_kind: Option<IndexStorageFailureKind>,
@@ -73,7 +77,6 @@ pub(crate) struct StorageStatusSnapshot {
 impl ManagedPersistence {
     pub(crate) fn status_snapshot(&self) -> StorageStatusSnapshot {
         StorageStatusSnapshot {
-            residency: self.residency,
             durable_generation: self.durable_generation,
             last_error: self.last_error.clone(),
             last_error_kind: self.last_error_kind,
@@ -83,19 +86,20 @@ impl ManagedPersistence {
     }
 
     pub(crate) fn open(resolved: &ResolvedIndexStorage) -> Result<Self, String> {
-        Ok(Self::from_store(ManagedStore::open(resolved)?, resolved.residency))
+        Ok(Self::from_store(ManagedStore::open(resolved)?))
     }
 
-    pub(crate) fn open_existing(resolved: &ResolvedIndexStorage) -> Result<Option<Self>, IndexError> {
+    pub(crate) fn open_existing(
+        resolved: &ResolvedIndexStorage,
+    ) -> Result<Option<Self>, IndexError> {
         Ok(ManagedStore::open_existing(resolved)
             .map_err(IndexError::from)?
-            .map(|store| Self::from_store(store, IndexResidency::OnDemand)))
+            .map(Self::from_store))
     }
 
-    fn from_store(store: ManagedStore, residency: IndexResidency) -> Self {
+    fn from_store(store: ManagedStore) -> Self {
         Self {
             store,
-            residency,
             durable_generation: None,
             last_saved_publication: None,
             durable_segments: HashMap::new(),
@@ -165,6 +169,7 @@ impl ManagedPersistence {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn flush(
         &mut self,
         publication: &PublishedIndex,
@@ -197,6 +202,19 @@ impl ManagedPersistence {
         if !publication.catalog.construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
+        if self.last_saved_publication == Some((publication.instance_id, publication.revision))
+            && let Some(expected) = self.durable_generation
+        {
+            let current = self.store.current_generation().map_err(IndexError::from)?;
+            if current != Some(expected) {
+                return Err(IndexError::StoreConflict(
+                    "destination generation changed since this index saved it".into(),
+                ));
+            }
+            self.last_error = None;
+            self.last_error_kind = None;
+            return Ok((expected, true, 0, 0));
+        }
         let actual = self
             .store
             .read_generation_readonly()
@@ -208,19 +226,16 @@ impl ManagedPersistence {
             ));
         }
         self.durable_generation = actual;
-        if actual.is_some()
-            && self.last_saved_publication
-                == Some((publication.instance_id, publication.revision))
-        {
-            self.last_error = None;
-            self.last_error_kind = None;
-            return Ok((actual.unwrap(), true, 0, 0));
-        }
         let generation = actual.unwrap_or(0).checked_add(1).ok_or_else(|| {
             IndexError::StoreConflict("destination generation counter overflow".into())
         })?;
         let stats = self.flush_generation(publication, generation)?;
-        Ok((generation, false, stats.segment_bytes_written, stats.segments_reused))
+        Ok((
+            generation,
+            false,
+            stats.segment_bytes_written,
+            stats.segments_reused,
+        ))
     }
 
     fn flush_generation(
@@ -505,7 +520,7 @@ fn materialize_for_rewrite(
 pub(crate) fn storage_status(
     status: &IndexStatus,
     managed: Option<&StorageStatusSnapshot>,
-    synchronizing: bool,
+    _synchronizing: bool,
 ) -> IndexStorageStatus {
     let source_reconciliation_complete = matches!(
         status.reconciliation,
@@ -514,13 +529,15 @@ pub(crate) fn storage_status(
     let Some(managed) = managed else {
         return IndexStorageStatus {
             readiness: if status.initial_construction_complete {
-                IndexReadiness::FullyResidentReady
+                IndexReadiness::Searchable
             } else {
                 IndexReadiness::Building
             },
             source_reconciliation_complete,
-            current_generation: status.revision.0,
+            current_revision: status.revision,
+            last_saved_revision: status.saved_revision,
             durable_generation: None,
+            #[cfg(test)]
             synchronization: IndexSynchronization::MemoryOnly,
             last_error: None,
             last_error_kind: None,
@@ -535,15 +552,15 @@ pub(crate) fn storage_status(
     IndexStorageStatus {
         readiness: if !status.initial_construction_complete {
             IndexReadiness::Building
-        } else if managed.residency == IndexResidency::FullyResident {
-            IndexReadiness::FullyResidentReady
         } else {
             IndexReadiness::Searchable
         },
         source_reconciliation_complete,
-        current_generation: status.revision.0,
+        current_revision: status.revision,
+        last_saved_revision: status.saved_revision,
         durable_generation: managed.durable_generation,
-        synchronization: if synchronizing {
+        #[cfg(test)]
+        synchronization: if _synchronizing {
             IndexSynchronization::Synchronizing
         } else if managed.last_error.is_some() {
             IndexSynchronization::Failed
@@ -563,6 +580,7 @@ pub(crate) fn storage_status(
     }
 }
 
+#[cfg(test)]
 fn read_or_retire_obsolete(store: &ManagedStore) -> Result<Option<OpenedGeneration>, IndexError> {
     match store.read_generation() {
         Ok(opened) => Ok(opened),
@@ -589,7 +607,13 @@ impl Index {
         options: RepositoryOptions,
         target: &IndexStorageTarget,
     ) -> Result<Option<Self>, IndexError> {
-        Self::try_load_with_sources(root, definitions, options, target, SourceRegistry::builtin())
+        Self::try_load_with_sources(
+            root,
+            definitions,
+            options,
+            target,
+            SourceRegistry::builtin(),
+        )
     }
 
     pub fn try_load_with_sources(
@@ -600,11 +624,14 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Option<Self>, IndexError> {
         let started = Instant::now();
-        target.validate().map_err(IndexError::IncompatibleConfiguration)?;
+        target
+            .validate()
+            .map_err(IndexError::IncompatibleConfiguration)?;
         let root = root.into();
         let definitions = IndexStorageTarget::prepare_logical_definitions(&root, &definitions)
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let resolved = target.resolve_logical(&root, &definitions, options, &sources)
+        let resolved = target
+            .resolve_logical(&root, &definitions, options, &sources)
             .map_err(IndexError::IncompatibleConfiguration)?;
         let Some(store) = ManagedStore::open_existing(&resolved).map_err(IndexError::from)? else {
             return Ok(None);
@@ -627,11 +654,12 @@ impl Index {
     /// Start a managed initial build with catalogue and batch publications.
     /// A complete stored generation is returned as an already-ready task;
     /// an absent generation is flushed only after construction completes.
-    pub fn start_incremental_build_with_storage(
+    #[cfg(test)]
+    pub(crate) fn start_incremental_build_with_storage(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
-        storage: IndexStoragePolicy,
+        storage: IndexLocationResolver,
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
         let started = Instant::now();
@@ -687,11 +715,12 @@ impl Index {
     /// Open one memory-only or managed index from the paired storage policy.
     /// A valid durable generation becomes searchable without source discovery;
     /// source reconciliation then runs independently in the background.
-    pub fn open_with_storage(
+    #[cfg(test)]
+    pub(crate) fn open_with_storage(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
-        storage: IndexStoragePolicy,
+        storage: IndexLocationResolver,
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
         let started = Instant::now();
@@ -849,12 +878,17 @@ fn restore_generation(
         .map_err(IndexError::InvalidCache)?;
     let file_versions = FileVersions::from_persisted(Arc::clone(&restored));
     #[cfg(feature = "detailed-profiling")]
-    let catalog_install_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns - segment_install_ns;
+    let catalog_install_ns =
+        phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns - segment_install_ns;
     for group in &groups {
         validate_live_records(group, &restored)?;
     }
     #[cfg(feature = "detailed-profiling")]
-    let live_validation_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns - segment_install_ns - catalog_install_ns;
+    let live_validation_ns = phase_started.elapsed().as_nanos()
+        - catalog_validation_ns
+        - owner_ns
+        - segment_install_ns
+        - catalog_install_ns;
     let instance_id = crate::repository::next_repository_instance();
     let revision = IndexRevision(opened.generation);
     let mut published = PublishedIndex::from_repository(instance_id, revision, owner)?;
@@ -940,9 +974,18 @@ fn restore_generation(
     if std::env::var_os("OBJEKTE_DIRECT_OPEN_PHASES").is_some() {
         eprintln!(
             "direct-restore catalog_validation_ns={} owner_ns={} segment_install_ns={} catalog_install_ns={} live_validation_ns={} publication_ns={} total_ns={}",
-            catalog_validation_ns, owner_ns, segment_install_ns, catalog_install_ns,
+            catalog_validation_ns,
+            owner_ns,
+            segment_install_ns,
+            catalog_install_ns,
             live_validation_ns,
-            phase_started.elapsed().as_nanos().saturating_sub(catalog_validation_ns + owner_ns + segment_install_ns + catalog_install_ns + live_validation_ns),
+            phase_started.elapsed().as_nanos().saturating_sub(
+                catalog_validation_ns
+                    + owner_ns
+                    + segment_install_ns
+                    + catalog_install_ns
+                    + live_validation_ns
+            ),
             phase_started.elapsed().as_nanos(),
         );
     }

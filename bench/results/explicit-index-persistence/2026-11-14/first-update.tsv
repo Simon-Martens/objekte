@@ -1,0 +1,17 @@
+phase	ms	rss_kb	hwm_kb	revision	files	records	detail
+build	100.994	66492	67516	1	16384	16384	synthetic=true
+flush	33.384	69284	69284	1	16384	16384	synthetic=true
+restore	15.557	73356	73360	1	16384	16384	synthetic=true
+verified_original_update	11.175	77580	77580	2	16384	16384	sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.371	77580	77580	3	16384	16384	sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.303	77580	77580	4	16384	16384	sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.312	77580	77580	5	16384	16384	sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.342	77580	77580	6	16384	16384	sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.040	77580	77580	7	16384	16384	sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	4.939	77580	77580	8	16384	16384	sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.914	77580	77580	9	16384	16384	sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.093	77580	77580	10	16384	16384	sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	4.859	77580	77580	11	16384	16384	sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.128	77580	77580	12	16384	16384	sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+count	0.029	77896	77896	12	16384	16384	count=16384
+compact	0.000	77896	77896	12	16384	16384	removed=0
