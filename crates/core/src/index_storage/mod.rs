@@ -4,6 +4,7 @@
 //! objects. Construction seals mutable builders into these packed structures;
 //! persistence is an explicit store operation.
 
+pub mod access;
 pub mod backing;
 pub mod bigram;
 pub mod bigram_builder;
@@ -41,6 +42,10 @@ pub use record_set::{
     BlockCodec, EncodedRecordSet, RecordSetRef, RecordSetTag, RecordSetView, encode_record_set,
 };
 pub use scalar::{compare_scalar_keys, decode_scalar_key, encode_scalar_key};
+
+#[cfg(test)]
+#[path = "access.test.rs"]
+mod access_tests;
 
 #[cfg(test)]
 #[path = "backing.test.rs"]

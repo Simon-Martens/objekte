@@ -632,7 +632,7 @@ impl FieldPostingsView {
         reference.view(arena, self.slot_count)
     }
 
-    fn arena(&self) -> StorageResult<&[u8]> {
+    pub(crate) fn arena(&self) -> StorageResult<&[u8]> {
         self.backing.read(self.arena_base, self.arena_len)
     }
 }
