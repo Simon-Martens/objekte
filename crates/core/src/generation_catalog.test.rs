@@ -84,6 +84,50 @@ fn current_and_historical_metadata_round_trip_without_source_files() {
 }
 
 #[test]
+fn verified_catalog_uses_direct_rows_and_persisted_version_overlays() {
+    let (root, published) = publication();
+    let bytes = GenerationCatalogBuilder::from_publication(&published)
+        .unwrap().encode().unwrap();
+    let restored = Arc::new(RestoredGenerationCatalog::decode_verified_arc(
+        Arc::from(bytes), published.configuration_identity, 1,
+    ).unwrap());
+    assert!(restored.slots.is_empty());
+    assert!(restored.file_versions.is_empty());
+    assert_eq!(restored.native_id_for(Path::new("data/a.json")), Some(FileId(0)));
+    assert_eq!(restored.query_path_ids_in_bounds_up_to(
+        &crate::inventory::relative_path_bounds(crate::query::Operator::Eq, "data/a.json").unwrap(),
+        2, |_| true,
+    ).unwrap().0, vec![FileId(0)]);
+    let versions = FileVersions::from_persisted(Arc::clone(&restored));
+    assert_eq!(versions.get(FileId(0)), Some(FileVersion::INITIAL));
+    let (advanced, second) = versions.advanced(FileId(0)).unwrap();
+    assert_eq!(second, FileVersion(2));
+    assert_eq!(versions.get(FileId(0)), Some(FileVersion::INITIAL));
+    assert_eq!(advanced.get(FileId(0)), Some(second));
+    let appended = advanced.appended().unwrap();
+    assert_eq!(appended.get(FileId(2)), Some(FileVersion::INITIAL));
+
+    let owner = Arc::new(Repository::empty_for_managed_generation(
+        root.path().to_path_buf(),
+        vec![published.repository.collections()[0].definition.clone()],
+        published.repository.options(),
+        crate::source::SourceRegistry::builtin(),
+    ).unwrap());
+    let catalog = crate::lifecycle_catalog::FileCatalog::restored_persisted(
+        owner, Arc::clone(&restored),
+    ).unwrap();
+    assert_eq!(catalog.id_for(Path::new("data/a.json")), Some(FileId(0)));
+    assert_eq!(catalog.entry(FileId(0)), published.catalog.entry(FileId(0)));
+    let original = catalog.entry(FileId(0)).unwrap().clone();
+    let mut moved = original.clone();
+    moved.relative_path = "data/moved.json".into();
+    let changed = catalog.replaced(moved, None, None).unwrap();
+    assert_eq!(changed.id_for(Path::new("data/a.json")), None);
+    assert_eq!(changed.id_for(Path::new("data/moved.json")), Some(FileId(0)));
+    assert_eq!(catalog.id_for(Path::new("data/a.json")), Some(FileId(0)));
+}
+
+#[test]
 fn retired_hole_cannot_resolve_but_its_history_can() {
     let (_, mut published) = publication();
     let old = published.catalog.entry(FileId(0)).unwrap().clone();
