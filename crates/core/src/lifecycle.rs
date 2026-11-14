@@ -442,6 +442,7 @@ pub(crate) struct PublishedSegment {
     pub(crate) ordinal: u64,
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
+    pub(crate) packed: Option<Arc<crate::index_storage::segment::FrozenSegment>>,
 }
 
 
@@ -762,6 +763,7 @@ impl PublishedIndex {
             ordinal,
             index: Arc::new(index),
             active,
+            packed: None,
         }));
         Ok(self)
     }
@@ -857,6 +859,7 @@ impl PublishedIndex {
                             ordinal,
                             index: Arc::new(part),
                             active,
+                            packed: None,
                         }),
                     );
                 }
@@ -905,6 +908,7 @@ impl PublishedIndex {
             ordinal,
             index: Arc::new(merged_index),
             active,
+            packed: None,
         }));
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
@@ -1506,7 +1510,15 @@ impl Index {
             &crate::index_storage::backing::Backing::mapped(std::sync::Arc::clone(state_object)),
         )
         .map_err(storage_error)?;
-        let index = state.restore(definitions, options, sources)?;
+        let mut packed = std::collections::HashMap::new();
+        for run in &opened.runs {
+            let frozen = std::sync::Arc::new(
+                crate::index_storage::segment::FrozenSegment::open(opened.run_backing(run))
+                    .map_err(storage_error)?,
+            );
+            packed.insert((run.reference.collection, run.reference.ordinal), frozen);
+        }
+        let index = state.restore(definitions, options, sources, &packed)?;
         let mapped_virtual_bytes = opened
             .manifest
             .runs

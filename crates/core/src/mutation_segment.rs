@@ -311,6 +311,10 @@ pub(crate) struct IndexedCollectionSegment {
     /// Computed once after finalization; never an encoded copy or allocator
     /// measurement. Active-mask-only retirement retains the full physical size.
     pub accounting: SegmentAccounting,
+    /// Optional packed readers for this exact contribution. Skipped by the
+    /// compatibility state codec; production publications may attach them.
+    #[serde(skip)]
+    pub(crate) packed: Option<std::sync::Arc<crate::index_storage::segment::FrozenSegment>>,
 }
 
 
@@ -749,6 +753,7 @@ impl CollectionSegment {
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
+            packed: None,
         };
         index.recompute_accounting();
         Ok(index)
@@ -1638,6 +1643,7 @@ impl IndexedCollectionSegment {
             record_parses,
             failed_parses,
             accounting: SegmentAccounting::default(),
+            packed: None,
         };
         index.recompute_accounting();
         Ok(ConsolidatedSegment { index, offsets })
@@ -2872,6 +2878,7 @@ impl IndexedCollectionSegment {
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
+            packed: None,
         };
         index.recompute_accounting();
         Ok(index)

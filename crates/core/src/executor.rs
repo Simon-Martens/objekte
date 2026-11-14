@@ -220,7 +220,7 @@ fn segment_text_candidates(
         && term.operation.is_none()
         && term.matcher.is_none()
         && segment_raw_covers_identity_field(segment, collection);
-    let Some(index) = indexes.field_text_for(
+    let Some(index) = indexes.field_text_access(
         &collection.definition.schema,
         &term.path.segments,
         &term.binding_name,
@@ -1454,21 +1454,6 @@ fn custom_bigram_compatible(term: &BoundTerm) -> bool {
         .is_some_and(|matcher| matcher.bigram_compatible())
 }
 
-fn custom_text_index<'a>(
-    collection: &'a CollectionState,
-    path: &[String],
-    name: &str,
-) -> Option<&'a crate::bigram::BigramIndex> {
-    IndexCatalog::collection(collection).field_text_for(
-        &collection.definition.schema,
-        path,
-        name,
-        !matches!(name, "default" | "lower"),
-        true,
-        false,
-    )
-}
-
 fn enumerate_paths(
     collection: &CollectionState,
     term: &BoundTerm,
@@ -1666,9 +1651,14 @@ fn enumerate_paths(
                         && (!term.multi || term.quantifier == Quantifier::Any)
                         && custom_bigram_compatible(term)
                     {
-                        if let Some(index) =
-                            custom_text_index(collection, &term.path.segments, &term.binding_name)
-                        {
+                        if let Some(index) = IndexCatalog::collection(collection).field_text_access(
+                            &collection.definition.schema,
+                            &term.path.segments,
+                            &term.binding_name,
+                            !matches!(term.binding_name.as_str(), "default" | "lower"),
+                            true,
+                            false,
+                        ) {
                             if let Some(output) = term
                                 .gram_request
                                 .as_ref()
@@ -2513,7 +2503,15 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     if literal.contains(['%', '\\']) {
         return None;
     }
-    custom_text_index(collection, &term.path.segments, &term.binding_name)?
+    IndexCatalog::collection(collection)
+        .field_text_access(
+            &collection.definition.schema,
+            &term.path.segments,
+            &term.binding_name,
+            !matches!(term.binding_name.as_str(), "default" | "lower"),
+            true,
+            false,
+        )?
         .candidates_prepared(term.gram_request.as_ref()?)
 }
 
@@ -2522,7 +2520,7 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
 struct TextProbe<'a, 'b> {
-    index: &'a crate::bigram::BigramIndex,
+    index: crate::index_storage::access::BigramAccess<'a>,
     request: &'b crate::bigram::BigramRequest,
 }
 
@@ -2541,7 +2539,7 @@ impl PreparedFtsAccess<'_, '_> {
         let mut work = self.literal_work;
         for probe in &self.probes {
             if let Some(condition) = self.regex {
-                let (next_count, next_work) = condition.estimate(probe.index)?;
+                let (next_count, next_work) = condition.estimate(probe.index.native_index()?)?;
                 count = count.saturating_add(next_count);
                 work += next_work;
             } else {
@@ -2555,7 +2553,7 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             may |= if let Some(condition) = self.regex {
-                condition.candidates(probe.index)?
+                condition.candidates(probe.index.native_index()?)?
             } else {
                 probe.index.candidates_prepared(probe.request)?
             };
@@ -2567,7 +2565,11 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             let next = if let Some(condition) = self.regex {
-                condition.candidates_checked(probe.index)?
+                let native = probe
+                    .index
+                    .native_index()
+                    .ok_or("packed regex candidates are not available")?;
+                condition.candidates_checked(native)?
             } else {
                 probe.index.candidates_prepared(probe.request)
             };
@@ -2616,12 +2618,12 @@ fn prepare_fts_accesses<'a, 'b>(
             return None;
         }
         probes.push(TextProbe {
-            index: indexes.raw_text,
+            index: indexes.raw_text_access(),
             request: &fts.gram_request,
         });
         if has_fallback {
             probes.push(TextProbe {
-                index: indexes.fallback_text,
+                index: indexes.fallback_text_access(),
                 request: &fts.fallback_gram_request,
             });
         }
@@ -2642,7 +2644,7 @@ fn prepare_fts_accesses<'a, 'b>(
             {
                 return None;
             }
-            let index = indexes.field_text_for(
+            let index = indexes.field_text_access(
                 &collection.definition.schema,
                 &field.path.segments,
                 &field.binding_name,

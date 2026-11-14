@@ -303,6 +303,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         ordinal: 1,
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
+        packed: None,
     })])];
     let page = posting_values_segmented(
         &restored,

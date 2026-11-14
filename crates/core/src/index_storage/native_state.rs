@@ -179,6 +179,7 @@ impl NativeState {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
+        packed: &HashMap<(u32, u64), Arc<super::segment::FrozenSegment>>,
     ) -> Result<Index, IndexError> {
         if self.version != NATIVE_STATE_VERSION {
             return Err(IndexError::IncompatibleConfiguration(format!(
@@ -222,6 +223,7 @@ impl NativeState {
                 .resolve(&definition.format)
                 .map_err(IndexError::IncompatibleConfiguration)?;
             restored.push(CollectionState {
+                packed: packed.get(&(number as u32, 0)).cloned(),
                 definition: definition.clone(),
                 source,
                 generation: state.generation,
@@ -289,11 +291,15 @@ impl NativeState {
                     "segment collection identity mismatch".into(),
                 ));
             }
+            let packed_reader = packed.get(&(segment.collection, segment.ordinal)).cloned();
+            let mut index = segment.index;
+            index.packed = packed_reader.clone();
             group.push(Arc::new(PublishedSegment {
                 ordinal: segment.ordinal,
-                index: Arc::new(segment.index),
+                index: Arc::new(index),
                 active: ActiveRecords::from_bitmap(slot_count, segment.active)
                     .map_err(IndexError::InvalidPublication)?,
+                packed: packed_reader,
             }));
         }
         let file_versions = FileVersions::from_versions(

@@ -30,7 +30,7 @@ pub(crate) enum PostingId {
 #[derive(Clone, Copy)]
 pub(crate) struct PostingAccess<'a> {
     pub id: PostingId,
-    pub index: &'a PostingIndex,
+    pub access: crate::index_storage::access::PostingAccess<'a>,
     schema: &'a Schema,
     /// A named access without a completeness guarantee has no safe exclusion
     /// domain. The index may still exist for diagnostics and rebuilds.
@@ -66,14 +66,20 @@ pub(crate) struct PostingProposal {
 
 
 impl PostingAccess<'_> {
+    fn storage_error(error: crate::index_storage::error::StorageError) -> String {
+        error.to_string()
+    }
+
     pub fn assess(
         self,
         term: &BoundTerm,
         domain: &RoaringBitmap,
         visits: &mut u64,
     ) -> Result<Option<PostingProposal>, String> {
-        let index = self.index;
+        let index = self.access;
         let structural = term.derived.state_predicate().is_some();
+        let kind = index.kind();
+        let covered_records = index.covered_records();
         // The paired evaluator treats a present empty selection as vacuously
         // true. `:exists` excludes that selection, so this uses raw presence.
         // A non-scalar occurrence can compare false (or raise an ambiguity),
@@ -82,23 +88,29 @@ impl PostingAccess<'_> {
             && self.id == PostingId::Declared
             && term.path.root == PathRoot::Data
             && self_comparison_shape(term)
-            && term.source_kind == index.kind
+            && &term.source_kind == kind
             && (!term.query_path.has_explicit_array_step || declared_array_steps(self.schema, term))
-            && index.covered_records as u64 == domain.len()
-            && index.structural.as_ref().is_some_and(|facts| {
-                [StructuralKey::Array, StructuralKey::Object]
-                    .into_iter()
-                    .all(|key| facts.postings.get(&key).is_none_or(RoaringBitmap::is_empty))
-            })
+            && covered_records as u64 == domain.len()
+            && !index
+                .structural(StructuralKey::Array)
+                .map_err(Self::storage_error)?
+                .is_empty()
+                == false
+            && !index
+                .structural(StructuralKey::Object)
+                .map_err(Self::storage_error)?
+                .is_empty()
+                == false
         {
             *visits += 1;
+            let presence = index.presence().map_err(Self::storage_error)?;
             return Ok(Some(PostingProposal {
                 id: self.id,
                 operation: PostingOperation::SelfComparePresence,
                 exact: true,
                 lookup_work: 1.0,
-                output: index.presence.len(),
-                coverage: index.covered_records,
+                output: presence.len(),
+                coverage: covered_records,
             }));
         }
         if !self.admitted
@@ -111,11 +123,11 @@ impl PostingAccess<'_> {
                     || self.id != PostingId::Declared
                     || !declared_array_steps(self.schema, term)))
             || term.transform != Transform::Identity
-            || (term.period.is_some() && !index.value_complete)
-            || index.covered_records as u64 != domain.len()
+            || (term.period.is_some() && !index.value_complete())
+            || covered_records as u64 != domain.len()
             || (term.kind != LogicalType::Unknown
-                && term.kind != index.kind
-                && !matches!(&index.kind, LogicalType::Array(inner) if inner.as_ref() == &term.kind)
+                && term.kind != *kind
+                && !matches!(kind, LogicalType::Array(inner) if inner.as_ref() == &term.kind)
                 && !(structural && term.kind == LogicalType::Bool)
                 && !(term.derived == Derived::Length && term.kind == LogicalType::Number))
         {
@@ -127,13 +139,13 @@ impl PostingAccess<'_> {
             exact,
             lookup_work,
             output,
-            coverage: index.covered_records,
+            coverage: covered_records,
         };
         if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
-        if index.empty_string_complete
-            && !index.multi
+        if index.empty_string_complete()
+            && !index.multi()
             && !term.query_path.has_explicit_array_step
             && term.derived == Derived::None
             && term.operator == Operator::Eq
@@ -141,7 +153,9 @@ impl PostingAccess<'_> {
             && matches!(&term.literal, Value::String(value) if value.is_empty())
         {
             *visits += 1;
-            let output = index.value_cardinality(&ScalarKey::String(String::new()));
+            let output = index
+                .value_cardinality(&ScalarKey::String(String::new()))
+                .map_err(Self::storage_error)?;
             return Ok(Some(proposal(
                 PostingOperation::EmptyStringExact,
                 true,
@@ -158,14 +172,16 @@ impl PostingAccess<'_> {
         {
             return Ok(None);
         }
-        let complete_scalar = index.value_complete
-            && !index.multi
+        let presence = index.presence().map_err(Self::storage_error)?;
+        let nulls = index.nulls().map_err(Self::storage_error)?;
+        let complete_scalar = index.value_complete()
+            && !index.multi()
             && self.empty_selections.is_none_or(RoaringBitmap::is_empty)
             && self.short_string_coverage.is_none_or(|covered| {
-                index.presence.difference_len(covered) == index.nulls.difference_len(covered)
+                presence.difference_len(covered) == nulls.difference_len(covered)
             });
         let compatible_literal = matches!(
-            (&index.kind, &term.literal),
+            (kind, &term.literal),
             (LogicalType::Number, Value::Number(_))
                 | (LogicalType::Bool, Value::Bool(_))
                 | (LogicalType::String, Value::String(_))
@@ -181,8 +197,9 @@ impl PostingAccess<'_> {
                     let Some(key) = ScalarKey::from_value(&term.literal) else {
                         return Ok(None);
                     };
-                    if let Some((work, output)) =
-                        index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+                    if let Some((work, output)) = index
+                        .estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+                        .map_err(Self::storage_error)?
                     {
                         return Ok(Some(proposal(
                             PostingOperation::ObservedScalarExact,
@@ -192,7 +209,7 @@ impl PostingAccess<'_> {
                         )));
                     }
                 }
-                Operator::Contains | Operator::NotContains if index.kind == LogicalType::String => {
+                Operator::Contains | Operator::NotContains if *kind == LogicalType::String => {
                     return Ok(Some(proposal(
                         PostingOperation::StringDictionaryExact,
                         true,
@@ -203,11 +220,11 @@ impl PostingAccess<'_> {
                 _ => {}
             }
         }
-        if index.value_complete
+        if index.value_complete()
             && term.derived == Derived::None
             && term.operator == Operator::Contains
             && matches!(term.literal, Value::String(_))
-            && matches!(&index.kind, LogicalType::Array(inner) if inner.as_ref() == &LogicalType::String)
+            && matches!(kind, LogicalType::Array(inner) if inner.as_ref() == &LogicalType::String)
             && term.quantifier == Quantifier::Any
         {
             return Ok(Some(proposal(
@@ -236,8 +253,9 @@ impl PostingAccess<'_> {
             if !matches!(term.literal, Value::String(_)) {
                 return Ok(None);
             }
-            let Some((work, count)) =
-                index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+            let Some((work, count)) = index
+                .estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+                .map_err(Self::storage_error)?
             else {
                 return Ok(None);
             };
@@ -250,13 +268,14 @@ impl PostingAccess<'_> {
                     .min(domain.len()),
             )));
         }
-        if !index.value_complete
+        if !index.value_complete()
             || (term.quantifier != Quantifier::Any && self.empty_selections.is_none())
         {
             return Ok(None);
         }
-        let Some((work, count)) =
-            index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+        let Some((work, count)) = index
+            .estimate_observed_scalar(&key, term.operator, domain.len(), visits)
+            .map_err(Self::storage_error)?
         else {
             return Ok(None);
         };
@@ -280,14 +299,16 @@ impl PostingAccess<'_> {
         input: &RoaringBitmap,
         operation: PostingOperation,
     ) -> Result<Option<RoaringBitmap>, String> {
-        let index = self.index;
+        let index = self.access;
         match operation {
             PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),
-            PostingOperation::SelfComparePresence => Ok(Some(input & &index.presence)),
+            PostingOperation::SelfComparePresence => Ok(Some(
+                &index.presence().map_err(Self::storage_error)? & input,
+            )),
             PostingOperation::EmptyStringExact => Ok(Some(
                 index
                     .value_posting_restricted(&ScalarKey::String(String::new()), input)
-                    .unwrap_or_default(),
+                    .map_err(Self::storage_error)?,
             )),
             PostingOperation::ObservedScalarExact => {
                 let Some(key) = ScalarKey::from_value(&term.literal) else {
@@ -300,19 +321,21 @@ impl PostingAccess<'_> {
                     return Ok(None);
                 };
                 let mut result = RoaringBitmap::new();
-                index.for_each_value(|key, slots| {
-                    let ScalarKey::String(value) = key else {
-                        return Err("string posting dictionary has non-string key".into());
-                    };
-                    let contains = term.prepared_contains.as_ref().map_or_else(
-                        || crate::reference::contains_pattern(value, pattern),
-                        |prepared| prepared.matches(value, pattern),
-                    );
-                    if contains == (term.operator == Operator::Contains) {
-                        result |= slots & input;
-                    }
-                    Ok(())
-                })?;
+                index
+                    .for_each_value(|key, slots| {
+                        let ScalarKey::String(value) = key else {
+                            return Err("string posting dictionary has non-string key".into());
+                        };
+                        let contains = term.prepared_contains.as_ref().map_or_else(
+                            || crate::reference::contains_pattern(value, pattern),
+                            |prepared| prepared.matches(value, pattern),
+                        );
+                        if contains == (term.operator == Operator::Contains) {
+                            result |= slots & input;
+                        }
+                        Ok(())
+                    })
+                    .map_err(Self::storage_error)?;
                 Ok(Some(result))
             }
             PostingOperation::ShortStringCandidates | PostingOperation::ValueCandidates => {
@@ -322,10 +345,10 @@ impl PostingAccess<'_> {
                 let mut result = match term.operator {
                     Operator::Eq => index
                         .value_posting_restricted(&key, input)
-                        .unwrap_or_default(),
-                    Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                        index.union_scalar_range(&key, term.operator, Some(input))
-                    }
+                        .map_err(Self::storage_error)?,
+                    Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => index
+                        .union_scalar_range(&key, term.operator, Some(input))
+                        .map_err(Self::storage_error)?,
                     _ => return Ok(None),
                 };
                 if operation == PostingOperation::ShortStringCandidates {
@@ -408,6 +431,7 @@ pub(crate) struct IndexCatalog<'a> {
     pub logical: &'a RoaringBitmap,
     pub raw_text: &'a BigramIndex,
     pub fallback_text: &'a BigramIndex,
+    packed: Option<&'a crate::index_storage::segment::FrozenSegment>,
 }
 
 
@@ -449,6 +473,7 @@ impl<'a> IndexCatalog<'a> {
             logical: &state.logical_records,
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
+            packed: state.packed.as_deref(),
         }
     }
 
@@ -463,6 +488,7 @@ impl<'a> IndexCatalog<'a> {
             logical: &state.logical_records,
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
+            packed: state.packed.as_deref(),
         }
     }
 
@@ -474,12 +500,28 @@ impl<'a> IndexCatalog<'a> {
         binding: &str,
         named_operation: bool,
     ) -> [Option<PostingAccess<'a>>; 2] {
+        if let Some(packed) = self.packed
+            && !named_operation
+            && let Some(field) = packed.postings().field(path)
+        {
+            return [
+                Some(PostingAccess {
+                    id: PostingId::Declared,
+                    access: crate::index_storage::access::PostingAccess::Packed(field),
+                    schema: self.schema,
+                    admitted: true,
+                    empty_selections: None,
+                    short_string_coverage: None,
+                }),
+                None,
+            ];
+        }
         if named_operation {
             let named = self.named.get(&(path.to_vec(), binding.to_owned()));
             return [
                 named.map(|value| PostingAccess {
                     id: PostingId::Named,
-                    index: &value.index,
+                    access: crate::index_storage::access::PostingAccess::Native(&value.index),
                     schema: self.schema,
                     admitted: value.complete,
                     empty_selections: None,
@@ -490,7 +532,7 @@ impl<'a> IndexCatalog<'a> {
         }
         let declared = self.postings.fields.get(path).map(|index| PostingAccess {
             id: PostingId::Declared,
-            index,
+            access: crate::index_storage::access::PostingAccess::Native(index),
             schema: self.schema,
             admitted: true,
             empty_selections: None,
@@ -499,7 +541,7 @@ impl<'a> IndexCatalog<'a> {
         let observed = self.observed.and_then(|state| {
             state.indexes.get(path).map(|index| PostingAccess {
                 id: PostingId::Observed,
-                index,
+                access: crate::index_storage::access::PostingAccess::Native(index),
                 schema: self.schema,
                 admitted: true,
                 empty_selections: state.empty_selections.get(path),
@@ -530,6 +572,7 @@ impl<'a> IndexCatalog<'a> {
     /// for FILTER, FTS, full generations, and incremental segments. A raw
     /// corpus is candidate-only for a field: occurrence elsewhere in a record
     /// never proves that the selected field matched.
+    #[allow(dead_code)]
     pub fn field_text_for(
         &self,
         schema: &Schema,
@@ -558,6 +601,110 @@ impl<'a> IndexCatalog<'a> {
         (built_in && !named_operation && raw_field_compatible).then_some(self.raw_text)
     }
 
+    /// Raw-corpus candidate provider for this collection or segment.
+    pub fn raw_text_access(&self) -> crate::index_storage::access::BigramAccess<'a> {
+        use crate::index_storage::access::BigramAccess;
+        if let Some(packed) = self.packed
+            && packed
+                .bigrams()
+                .binding(crate::index_storage::bigram_builder::BigramBindingKind::Raw)
+                .is_some()
+        {
+            return BigramAccess::Packed {
+                section: packed.bigrams(),
+                binding: crate::index_storage::bigram_builder::BigramBinding::Raw,
+            };
+        }
+        BigramAccess::Native {
+            index: self.raw_text,
+            binding: crate::index_storage::bigram_builder::BigramBinding::Raw,
+        }
+    }
+
+    /// Fallback-corpus candidate provider for this collection or segment.
+    pub fn fallback_text_access(&self) -> crate::index_storage::access::BigramAccess<'a> {
+        use crate::index_storage::access::BigramAccess;
+        if let Some(packed) = self.packed
+            && packed
+                .bigrams()
+                .binding(crate::index_storage::bigram_builder::BigramBindingKind::Fallback)
+                .is_some()
+        {
+            return BigramAccess::Packed {
+                section: packed.bigrams(),
+                binding: crate::index_storage::bigram_builder::BigramBinding::Fallback,
+            };
+        }
+        BigramAccess::Native {
+            index: self.fallback_text,
+            binding: crate::index_storage::bigram_builder::BigramBinding::Fallback,
+        }
+    }
+
+    /// Resolve a field text binding to a native or packed candidate provider.
+    pub fn field_text_access(
+        &self,
+        schema: &Schema,
+        path: &[String],
+        binding: &str,
+        named_operation: bool,
+        logical_text_complete: bool,
+        raw_field_compatible: bool,
+    ) -> Option<crate::index_storage::access::BigramAccess<'a>> {
+        use crate::index_storage::access::BigramAccess;
+        use crate::index_storage::bigram_builder::BigramBinding;
+        let built_in = matches!(binding, "default" | "lower");
+        let canonical = self.text_bindings.canonical.get(path);
+        let name = if built_in
+            || schema
+                .custom
+                .contains_key(&(path.to_vec(), binding.to_owned()))
+        {
+            canonical.map(String::as_str)
+        } else {
+            Some(binding)
+        };
+        if logical_text_complete && let Some(name) = name {
+            let custom = BigramBinding::Custom {
+                path: path.to_vec(),
+                name: name.to_owned(),
+            };
+            if let Some(packed) = self.packed
+                && packed.bigrams().custom(path, name).is_some()
+            {
+                return Some(BigramAccess::Packed {
+                    section: packed.bigrams(),
+                    binding: custom,
+                });
+            }
+            if let Some(index) = self.field_text(path, name) {
+                return Some(BigramAccess::Native {
+                    index,
+                    binding: custom,
+                });
+            }
+        }
+        if built_in && !named_operation && raw_field_compatible {
+            let binding = BigramBinding::Raw;
+            if let Some(packed) = self.packed
+                && packed
+                    .bigrams()
+                    .binding(crate::index_storage::bigram_builder::BigramBindingKind::Raw)
+                    .is_some()
+            {
+                return Some(BigramAccess::Packed {
+                    section: packed.bigrams(),
+                    binding,
+                });
+            }
+            return Some(BigramAccess::Native {
+                index: self.raw_text,
+                binding,
+            });
+        }
+        None
+    }
+
     /// An ordered value access needs one complete scalar key or a known
     /// missing/null state for every logical record. This rule is independent
     /// of the producer that populated the posting.
@@ -566,21 +713,21 @@ impl<'a> IndexCatalog<'a> {
             .into_iter()
             .flatten()
             .find(|access| {
-                let index = access.index;
                 access.admitted
-                    && index.covered_records as u64 == self.logical.len()
-                    && index.value_complete
-                    && !index.multi
+                    && access.access.covered_records() as u64 == self.logical.len()
+                    && access.access.value_complete()
+                    && !access.access.multi()
                     && matches!(
-                        index.kind,
+                        access.access.kind(),
                         LogicalType::Number | LogicalType::Bool | LogicalType::String
                     )
                     && access.empty_selections.is_none_or(RoaringBitmap::is_empty)
                     && access.short_string_coverage.is_none_or(|covered| {
-                        index.presence.difference_len(covered)
-                            == index.nulls.difference_len(covered)
+                        let presence = access.access.presence().unwrap_or_default();
+                        let nulls = access.access.nulls().unwrap_or_default();
+                        presence.difference_len(covered) == nulls.difference_len(covered)
                     })
             })
-            .map(|access| access.index)
+            .and_then(|access| access.access.native())
     }
 }

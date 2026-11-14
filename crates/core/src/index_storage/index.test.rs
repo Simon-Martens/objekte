@@ -1,5 +1,7 @@
 use crate::lifecycle::Index;
+use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
+use crate::reference::FieldDefinition;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::{SourceFormat, SourceRegistry};
 use crate::workload::ReturnMode;
@@ -12,7 +14,19 @@ fn fixture() -> (tempfile::TempDir, CollectionDefinition) {
     std::fs::create_dir(root.path().join("data")).unwrap();
     std::fs::write(root.path().join("data/a.json"), br#"{"text":"Alpha"}"#).unwrap();
     std::fs::write(root.path().join("data/b.json"), br#"{"text":"Beta"}"#).unwrap();
-    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["text".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
     (root, definition)
 }
 
@@ -80,6 +94,39 @@ fn core_index_saves_loads_and_remains_updateable() {
     assert_eq!(count(&loaded, "Beta"), 1);
     let status = loaded.storage_status().unwrap();
     assert_eq!(status.origin, StorageOrigin::Loaded);
+    let view = loaded.view().unwrap();
+    let collection = &view.repository().collections()[0];
+    if let Some(segment) = view.0.segments[0].first() {
+        let segment_catalog =
+            crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
+        let segment_access = segment_catalog
+            .field_postings(&["text".to_owned()], "default", false)
+            .into_iter()
+            .flatten()
+            .next()
+            .expect("loaded segment access");
+        assert!(matches!(
+            segment_access.access,
+            crate::index_storage::access::PostingAccess::Packed(_)
+        ));
+        let schema = &collection.definition.schema;
+        let packed_text = segment_catalog
+            .field_text_access(schema, &["text".to_owned()], "default", false, true, true)
+            .expect("packed text access");
+        assert!(matches!(
+            packed_text,
+            crate::index_storage::access::BigramAccess::Packed { .. }
+        ));
+        let request = crate::bigram::BigramRequest::new("Alpha");
+        assert_eq!(
+            packed_text.candidates_prepared(&request),
+            crate::index_storage::access::BigramAccess::Native {
+                index: &segment.index.raw,
+                binding: crate::index_storage::bigram_builder::BigramBinding::Raw,
+            }
+            .candidates_prepared(&request)
+        );
+    }
     assert_eq!(status.freshness, FreshnessState::Unchecked);
     assert!(!status.unsaved_changes);
 
@@ -105,6 +152,89 @@ fn core_index_saves_loads_and_remains_updateable() {
         .unwrap();
     assert!(unchanged.unchanged);
     assert_eq!(unchanged.objects_written, 0);
+}
+
+fn hit_identity(index: &Index, query: &Query) -> Vec<(String, String)> {
+    let mut hits = index
+        .view()
+        .unwrap()
+        .search(query)
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| (hit.collection, hit.record_id))
+        .collect::<Vec<_>>();
+    hits.sort();
+    hits
+}
+
+#[test]
+fn built_and_loaded_packed_queries_return_identical_results() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let filters = [
+        "text = \"Alpha\"",
+        "text != \"Alpha\"",
+        "text = \"Missing\"",
+    ];
+    for filter in filters {
+        let query = Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 50,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        assert_eq!(
+            hit_identity(&index, &query),
+            hit_identity(&loaded, &query),
+            "{filter}"
+        );
+    }
+    let fts_query = |text: &str| Query {
+        collections: vec!["items".into()],
+        fts: Some(crate::query::FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+            mode: crate::query::FtsMode::Literal,
+            literal: text.into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(
+        hit_identity(&index, &fts_query("Alpha")),
+        hit_identity(&loaded, &fts_query("Alpha")),
+        "FTS packed candidate execution"
+    );
 }
 
 #[test]
@@ -255,6 +385,18 @@ fn a_compacted_index_can_be_saved_and_reopened() {
     .unwrap();
     assert_eq!(count(&loaded, "Alpha"), 1);
     assert_eq!(count(&loaded, "Beta"), 1);
+    let view = loaded.view().unwrap();
+    let collection = &view.repository().collections()[0];
+    let access = crate::index_catalog::IndexCatalog::collection(collection)
+        .field_postings(&["text".to_owned()], "default", false)
+        .into_iter()
+        .flatten()
+        .next()
+        .expect("compacted collection access");
+    assert!(matches!(
+        access.access,
+        crate::index_storage::access::PostingAccess::Packed(_)
+    ));
 }
 
 #[test]

@@ -146,11 +146,13 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             ordinal: 1,
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
+            packed: None,
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
             ordinal: 2,
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
+            packed: None,
         })]),
     ];
     let find = |request: Query| {

@@ -239,6 +239,7 @@ fn partition_base_with_limits_inner(
                 ordinal,
                 index: Arc::new(part),
                 active,
+                packed: None,
             }));
         }
         groups[number] = Arc::new(group);

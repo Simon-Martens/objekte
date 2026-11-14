@@ -224,14 +224,6 @@ impl PostingIndex {
         (union, lists, members)
     }
 
-    pub(crate) fn value_posting_restricted(
-        &self,
-        key: &ScalarKey,
-        input: &RoaringBitmap,
-    ) -> Option<RoaringBitmap> {
-        self.values.get(key).map(|bitmap| input & bitmap)
-    }
-
     pub(crate) fn for_each_value(
         &self,
         mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
@@ -1112,9 +1104,10 @@ impl PostingIndex {
 
             _ => return None,
         })
+
+
     }
 }
-
 
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment

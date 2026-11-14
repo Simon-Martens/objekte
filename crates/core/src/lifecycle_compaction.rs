@@ -125,6 +125,7 @@ pub(crate) fn base_as_segment(
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),
+        packed: None,
     };
     segment.recompute_accounting();
     Ok(segment)
@@ -247,6 +248,7 @@ fn compact_published_with_budget(
                         ordinal,
                         index: Arc::new(part),
                         active,
+                        packed: None,
                     }));
                 }
             }
@@ -294,6 +296,7 @@ fn compact_published_with_budget(
                     ordinal,
                     index: Arc::new(part),
                     active,
+                    packed: None,
                 }));
             }
             Ok(replacements)

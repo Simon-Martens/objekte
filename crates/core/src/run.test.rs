@@ -1105,6 +1105,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         ordinal: 1,
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
+        packed: None,
     })])];
     let base_active = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
     let revision = IndexRevision(2);

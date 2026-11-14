@@ -148,6 +148,8 @@ pub(crate) struct GlobalInferenceSummary {
 
 pub struct CollectionState {
     pub definition: CollectionDefinition,
+    #[allow(dead_code)]
+    pub(crate) packed: Option<Arc<crate::index_storage::segment::FrozenSegment>>,
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
@@ -1816,6 +1818,7 @@ impl Repository {
                 &sorting,
             );
             collections.push(CollectionState {
+                packed: None,
                 definition,
                 source,
                 generation,
