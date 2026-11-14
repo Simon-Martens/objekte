@@ -2387,6 +2387,13 @@ relations, coverage, diagnostics, and statistics. No native snapshot object is
 written or read. Packed readers are attached to loaded segments and used by
 `IndexCatalog`/`BigramAccess` for typed and bigram candidate execution.
 
+The desktop Open dialog now exposes Build vs Load, System cache/Repository/
+Custom locations, a custom index path, and check-after-load. The desktop Index
+panel exposes storage status and a Save action with progress and stale-worker
+rejection. The TUI F6 overlay supports Save, Load, and Check; Load runs on a
+worker, installs the replacement repository only after success, and ignores
+stale completions by operation generation.
+
 The CLI adds `--load-index`, `--save-index`, and `--check-index`, shared
 `IndexLocation`/`index_open` helpers, protocol version 5 storage events, and
 end-to-end tests for build/save/load/check/resave and failed-save behavior. The
@@ -2417,6 +2424,8 @@ source-check actions.
   deletion of the native snapshot object.
 - `17f5ace9` — independent content generations across replace, move, delete,
   and reload.
+- `a1f6ddad` — desktop Open/Save storage controls and TUI Load with session
+  replacement and operation-generation checks.
 
 ### Packed access abstraction
 
