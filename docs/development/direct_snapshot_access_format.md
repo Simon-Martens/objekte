@@ -29,4 +29,4 @@ The reader checks magic, versions, lengths, counts, dictionary span, binding ord
 
 ## Later metadata revisions
 
-Record-slot and generation-catalog direct-access layouts will be specified here, including field widths, offset tables, path comparator identity, domain descriptors, and membership invariants, before either decoder is implemented. Their current versions remain in force during the gram-filter change. No metadata reader may treat a newly persisted table as trusted solely because its checksum matches.
+The later [record-slot contract](direct_snapshot_segment_format.md) and [generation-catalog contract](direct_snapshot_catalog_format.md) specify the completed direct-access layouts. Their validators check ordering, membership, path semantics, and cross-table references in addition to checksums. This section records the earlier gram-filter revision; the containing segment format is now version 5.
