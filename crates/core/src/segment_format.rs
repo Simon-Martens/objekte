@@ -15,7 +15,7 @@ use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
 const MAGIC: &[u8; 8] = b"OBJHSEG1";
-pub(crate) const FORMAT_VERSION: u32 = 3;
+pub(crate) const FORMAT_VERSION: u32 = 4;
 const HEADER_BYTES: usize = 24;
 const DIRECTORY_ENTRY_BYTES: usize = 56;
 const MAX_SECTIONS: usize = 32;
@@ -177,7 +177,7 @@ pub(crate) enum SegmentTrust {
 
 /// Bump when dictionary ordering, metadata semantics, collation or the
 /// validator's interpretation changes. Old stamps then require a full open.
-pub(crate) const VALIDATOR_VERSION: u32 = 2;
+pub(crate) const VALIDATOR_VERSION: u32 = 3;
 
 
 /// The retained domain owner makes the pointer identity stable for the

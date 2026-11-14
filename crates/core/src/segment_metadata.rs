@@ -7,13 +7,11 @@
 //! relation-contribution leaves, each length-framed and validated after decode.
 //! Their serde field order is part of version 1; changing it requires a bump.
 //!
-//! RecordSlots v1: magic, section version, model version, collection ID,
-//! length-prefixed UTF-8 source ID, source version, file count, record count,
-//! then one u32 catalog metadata reference per file. Records follow in dense
-//! slot order as file ID, start/end u64 source offsets, class u8, diagnostic
-//! reference u32 and length-prefixed UTF-8 record ID. The catalog owns each
-//! current or historical FileEntry once; record revision and per-file slot
-//! vectors are derived from checked metadata and this dense table.
+//! RecordSlots v2 has a checked fixed-width file table, fixed-width record
+//! rows, per-file membership spans, an ID byte arena, and serialized logical
+//! and fallback domains. Catalog metadata references preserve current or
+//! historical FileEntry identity. See the byte-level format contract in
+//! docs/development/direct_snapshot_segment_format.md.
 //!
 //! SortData v1: header, slot/column/composite counts, then length-framed
 //! fixed-int bincode SortColumn leaves in deterministic path order and
@@ -44,7 +42,8 @@ use crate::sorting::{
     simple_composite_part,
 };
 
-const RECORD_MAGIC: &[u8; 8] = b"OBJHREC1";
+const RECORD_MAGIC: &[u8; 8] = b"OBJHREC2";
+const RECORD_VERSION: u32 = 2;
 const SORT_MAGIC: &[u8; 8] = b"OBJHSRT1";
 const RELATION_MAGIC: &[u8; 8] = b"OBJHREL1";
 const VERSION: u32 = 1;
@@ -129,8 +128,7 @@ fn finish(out: Vec<u8>) -> Result<Vec<u8>, String> {
 
 /// RecordSlots references each file metadata entry by an external catalog
 /// index. The catalog interns current and distinct historical revisions once.
-/// Per-file slot lists and record revision fields are reconstructed from the
-/// dense record table; the section contains no duplicate file metadata.
+/// Direct file, slot, membership, and domain tables share these references.
 pub(crate) fn encode_record_slots(
     segment: &IndexedCollectionSegment,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
@@ -141,6 +139,7 @@ pub(crate) fn encode_record_slots(
         segment.source_version,
         &segment.files,
         &segment.records,
+        &segment.logical_records,
         intern,
         true,
     )
@@ -158,6 +157,7 @@ pub(crate) fn encode_record_slots_constructed(
         segment.source_version,
         &segment.files,
         &segment.records,
+        &segment.logical_records,
         intern,
         false,
     )
@@ -201,7 +201,8 @@ fn encode_records(
     records: &[RecordEntry],
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<Vec<u8>, String> {
-    encode_records_inner(collection, source_id, source_version, files, records, intern, true)
+    let (logical, _) = record_domains(records)?;
+    encode_records_inner(collection, source_id, source_version, files, records, &logical, intern, true)
 }
 
 fn encode_records_inner(
@@ -210,17 +211,21 @@ fn encode_records_inner(
     source_version: u32,
     files: &[SegmentFile],
     records: &[RecordEntry],
+    logical_records: &RoaringBitmap,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
     validate: bool,
 ) -> Result<Vec<u8>, String> {
     if validate {
-        validate_records(
+        let (_, _, checked_logical, _) = validate_records(
             collection,
             source_id.to_owned(),
             source_version,
             files,
             records,
         )?;
+        if &checked_logical != logical_records {
+            return Err("record logical domain mismatch before persistence".into());
+        }
     } else if source_id.is_empty()
         || source_id.len() > MAX_SOURCE_BYTES
         || files.len() > MAX_FILES
@@ -228,25 +233,241 @@ fn encode_records_inner(
     {
         return Err("constructed record metadata exceeds format limits".into());
     }
+    if logical_records.max().is_some_and(|slot| slot as usize >= records.len()) {
+        return Err("record logical domain exceeds slots".into());
+    }
+    let fallback_records = &RoaringBitmap::from_iter(0..records.len() as u32) - logical_records;
+    let mut logical_bytes = Vec::with_capacity(logical_records.serialized_size());
+    logical_records.serialize_into(&mut logical_bytes).map_err(|error| error.to_string())?;
+    let mut fallback_bytes = Vec::with_capacity(fallback_records.serialized_size());
+    fallback_records.serialize_into(&mut fallback_bytes).map_err(|error| error.to_string())?;
+    let mut ordered_files = files.iter().collect::<Vec<_>>();
+    ordered_files.sort_unstable_by_key(|file| file.entry.id);
+    if ordered_files.windows(2).any(|pair| pair[0].entry.id == pair[1].entry.id) {
+        return Err("duplicate record file identity".into());
+    }
+    let id_bytes = records.iter().try_fold(0usize, |total, record| {
+        if record.id.0.is_empty() || record.id.0.len() > MAX_ID_BYTES {
+            return Err("record ID length invalid".into());
+        }
+        total.checked_add(record.id.0.len()).ok_or("record ID arena overflow")
+    })?;
+    let membership_count = ordered_files.iter().try_fold(0usize, |total, file| {
+        total.checked_add(file.records.len()).ok_or("record membership overflow")
+    })?;
+    if membership_count != records.len() || id_bytes > u32::MAX as usize {
+        return Err("record membership or ID arena size mismatch".into());
+    }
     let mut out = Vec::new();
-    start(&mut out, RECORD_MAGIC);
+    out.extend_from_slice(RECORD_MAGIC);
+    put_u32(&mut out, RECORD_VERSION);
+    put_u32(&mut out, crate::MODEL_VERSION);
     put_u32(&mut out, collection.0);
     put_bytes(&mut out, source_id.as_bytes(), MAX_SOURCE_BYTES)?;
     put_u32(&mut out, source_version);
     put_u32(&mut out, files.len() as u32);
     put_u32(&mut out, records.len() as u32);
-    for file in files {
+    put_u32(&mut out, id_bytes as u32);
+    put_u32(&mut out, membership_count as u32);
+    put_u32(&mut out, u32::try_from(logical_bytes.len()).map_err(|_| "logical domain size overflow")?);
+    put_u32(&mut out, u32::try_from(fallback_bytes.len()).map_err(|_| "fallback domain size overflow")?);
+    let mut member_start = 0u32;
+    for file in &ordered_files {
+        put_u32(&mut out, file.entry.id.0);
         put_u32(&mut out, intern(&file.entry)?);
+        put_u32(&mut out, member_start);
+        put_u32(&mut out, file.records.len() as u32);
+        member_start = member_start.checked_add(file.records.len() as u32).ok_or("record membership overflow")?;
     }
+    let mut id_start = 0u32;
     for record in records {
-        put_u32(&mut out, record.file.0);
+        let file_row = ordered_files.binary_search_by_key(&record.file, |file| file.entry.id)
+            .map_err(|_| "record file missing")?;
+        put_u32(&mut out, file_row as u32);
         put_u64(&mut out, record.range.start);
         put_u64(&mut out, record.range.end);
         out.push(record.class.code());
+        out.extend_from_slice(&[0; 3]);
         put_u32(&mut out, record.diagnostic_ref.0);
-        put_bytes(&mut out, record.id.0.as_bytes(), MAX_ID_BYTES)?;
+        put_u32(&mut out, id_start);
+        put_u32(&mut out, u32::try_from(record.id.0.len()).map_err(|_| "record ID length overflow")?);
+        id_start = id_start.checked_add(record.id.0.len() as u32).ok_or("record ID arena overflow")?;
     }
+    for file in ordered_files {
+        for slot in &file.records {
+            put_u32(&mut out, slot.0);
+        }
+    }
+    for record in records {
+        out.extend_from_slice(record.id.0.as_bytes());
+    }
+    out.extend_from_slice(&logical_bytes);
+    out.extend_from_slice(&fallback_bytes);
     finish(out)
+}
+
+#[derive(Clone, Copy)]
+struct FileRow {
+    id: FileId,
+    metadata_ref: u32,
+    membership_start: u32,
+    membership_count: u32,
+}
+
+struct RecordRow<'a> {
+    file_row: usize,
+    range: ByteRange,
+    class: RecordClass,
+    diagnostic_ref: DiagnosticRef,
+    id: &'a str,
+}
+
+struct RecordSlotsLayout {
+    source_id: String,
+    source_version: u32,
+    file_count: usize,
+    record_count: usize,
+    file_start: usize,
+    record_start: usize,
+    membership_start: usize,
+    id_start: usize,
+    id_bytes: usize,
+    logical_records: RoaringBitmap,
+    fallback_records: RoaringBitmap,
+}
+
+fn u32_slice(bytes: &[u8], offset: usize) -> u32 {
+    u32::from_le_bytes(bytes[offset..offset + 4].try_into().unwrap())
+}
+
+fn u64_slice(bytes: &[u8], offset: usize) -> u64 {
+    u64::from_le_bytes(bytes[offset..offset + 8].try_into().unwrap())
+}
+
+fn decode_domain(bytes: &[u8]) -> Result<RoaringBitmap, String> {
+    let mut cursor = std::io::Cursor::new(bytes);
+    let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
+        .map_err(|error| format!("record domain invalid: {error}"))?;
+    if cursor.position() != bytes.len() as u64 {
+        return Err("record domain has trailing bytes".into());
+    }
+    Ok(bitmap)
+}
+
+impl RecordSlotsLayout {
+    fn parse(
+        bytes: &[u8],
+        expected_collection: CollectionId,
+        expected_source: (&str, u32),
+    ) -> Result<Self, String> {
+        let mut cursor = Cursor::new(bytes)?;
+        if cursor.take(8)? != RECORD_MAGIC
+            || cursor.u32()? != RECORD_VERSION
+            || cursor.u32()? != crate::MODEL_VERSION
+        {
+            return Err("unsupported record section magic or version".into());
+        }
+        let collection = CollectionId(cursor.u32()?);
+        let source_id = std::str::from_utf8(cursor.bytes(MAX_SOURCE_BYTES)?)
+            .map_err(|_| "record source ID is not UTF-8")?;
+        let source_version = cursor.u32()?;
+        if collection != expected_collection
+            || source_id.is_empty()
+            || source_id != expected_source.0
+            || source_version != expected_source.1
+        {
+            return Err("record section source or collection identity mismatch".into());
+        }
+        let file_count = cursor.u32()? as usize;
+        let record_count = cursor.u32()? as usize;
+        let id_bytes = cursor.u32()? as usize;
+        let membership_count = cursor.u32()? as usize;
+        let logical_bytes = cursor.u32()? as usize;
+        let fallback_bytes = cursor.u32()? as usize;
+        if file_count > MAX_FILES || record_count > MAX_RECORDS || membership_count != record_count {
+            return Err("record table count invalid".into());
+        }
+        let file_start = cursor.offset;
+        cursor.take(file_count.checked_mul(16).ok_or("record file rows overflow")?)?;
+        let record_start = cursor.offset;
+        cursor.take(record_count.checked_mul(36).ok_or("record rows overflow")?)?;
+        let membership_start = cursor.offset;
+        cursor.take(membership_count.checked_mul(4).ok_or("record membership overflow")?)?;
+        let id_start = cursor.offset;
+        cursor.take(id_bytes)?;
+        let logical_records = decode_domain(cursor.take(logical_bytes)?)?;
+        let fallback_records = decode_domain(cursor.take(fallback_bytes)?)?;
+        cursor.end()?;
+        if logical_records.max().is_some_and(|slot| slot as usize >= record_count)
+            || fallback_records.max().is_some_and(|slot| slot as usize >= record_count)
+            || !logical_records.is_disjoint(&fallback_records)
+            || logical_records.len() + fallback_records.len() != record_count as u64
+        {
+            return Err("record class domains invalid".into());
+        }
+        Ok(Self {
+            source_id: source_id.to_owned(),
+            source_version,
+            file_count,
+            record_count,
+            file_start,
+            record_start,
+            membership_start,
+            id_start,
+            id_bytes,
+            logical_records,
+            fallback_records,
+        })
+    }
+
+    fn file_row(&self, bytes: &[u8], index: usize) -> Option<FileRow> {
+        (index < self.file_count).then(|| {
+            let start = self.file_start + index * 16;
+            FileRow {
+                id: FileId(u32_slice(bytes, start)),
+                metadata_ref: u32_slice(bytes, start + 4),
+                membership_start: u32_slice(bytes, start + 8),
+                membership_count: u32_slice(bytes, start + 12),
+            }
+        })
+    }
+
+    fn record_row<'a>(&self, bytes: &'a [u8], slot: usize) -> Result<Option<RecordRow<'a>>, String> {
+        if slot >= self.record_count {
+            return Ok(None);
+        }
+        let start = self.record_start + slot * 36;
+        let file_row = u32_slice(bytes, start) as usize;
+        let range = ByteRange {
+            start: u64_slice(bytes, start + 4),
+            end: u64_slice(bytes, start + 12),
+        };
+        let class = match bytes[start + 20] {
+            0 => RecordClass::Logical,
+            1 => RecordClass::RawFallback,
+            _ => return Err("record class invalid".into()),
+        };
+        let diagnostic_ref = DiagnosticRef(u32_slice(bytes, start + 24));
+        let id_offset = u32_slice(bytes, start + 28) as usize;
+        let id_len = u32_slice(bytes, start + 32) as usize;
+        let id_end = id_offset.checked_add(id_len).ok_or("record ID arena offset overflow")?;
+        if file_row >= self.file_count
+            || bytes[start + 21..start + 24] != [0; 3]
+            || id_len == 0
+            || id_len > MAX_ID_BYTES
+            || id_end > self.id_bytes
+        {
+            return Err("record row field invalid".into());
+        }
+        let id = std::str::from_utf8(&bytes[self.id_start + id_offset..self.id_start + id_end])
+            .map_err(|_| "record ID is not UTF-8")?;
+        Ok(Some(RecordRow { file_row, range, class, diagnostic_ref, id }))
+    }
+
+    fn membership(&self, bytes: &[u8], index: usize) -> Option<RecordSlot> {
+        (index < self.record_count)
+            .then(|| RecordSlot(u32_slice(bytes, self.membership_start + index * 4)))
+    }
 }
 
 pub(crate) fn decode_record_slots<'a>(
@@ -255,72 +476,89 @@ pub(crate) fn decode_record_slots<'a>(
     expected_source: (&str, u32),
     resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
 ) -> Result<CheckedRecordSlots, String> {
-    let mut cursor = Cursor::new(bytes)?;
-    check_header(&mut cursor, RECORD_MAGIC)?;
-    let collection = CollectionId(cursor.u32()?);
-    let source_id = cursor.string(MAX_SOURCE_BYTES)?;
-    let source_version = cursor.u32()?;
-    if collection != expected_collection
-        || source_id != expected_source.0
-        || source_version != expected_source.1
-    {
-        return Err("record section source or collection identity mismatch".into());
-    }
-    let file_count = cursor.count(MAX_FILES, 4)?;
-    let record_count = cursor.count(MAX_RECORDS, 4 + 8 + 8 + 1 + 4 + 4)?;
-    let mut files = Vec::with_capacity(file_count);
-    for _ in 0..file_count {
-        let metadata_ref = cursor.u32()?;
+    let layout = RecordSlotsLayout::parse(bytes, expected_collection, expected_source)?;
+    let mut files = Vec::with_capacity(layout.file_count);
+    let mut previous_file = None;
+    let mut next_member = 0usize;
+    for number in 0..layout.file_count {
+        let file_row = layout.file_row(bytes, number).ok_or("record file row missing")?;
+        if previous_file.is_some_and(|previous| previous >= file_row.id)
+            || file_row.membership_start as usize != next_member
+        {
+            return Err("record file row order or membership span invalid".into());
+        }
+        previous_file = Some(file_row.id);
+        next_member = next_member.checked_add(file_row.membership_count as usize)
+            .ok_or("record membership extent overflow")?;
+        if next_member > layout.record_count {
+            return Err("record membership extent out of bounds".into());
+        }
+        let metadata_ref = file_row.metadata_ref;
         let entry = resolve(metadata_ref)
             .ok_or_else(|| format!("record file metadata reference {metadata_ref} missing"))?;
+        if entry.id != file_row.id {
+            return Err("record file metadata identity mismatch".into());
+        }
         files.push(SegmentFile {
             entry: entry.clone(),
             records: Vec::new(),
         });
     }
-    let mut file_index = HashMap::with_capacity(file_count);
-    for (index, file) in files.iter().enumerate() {
-        if file_index.insert(file.entry.id, index).is_some() {
-            return Err("duplicate record file identity".into());
-        }
+    if next_member != layout.record_count {
+        return Err("record membership incomplete".into());
     }
-    let mut records = Vec::with_capacity(record_count);
-    for slot in 0..record_count {
-        let file = FileId(cursor.u32()?);
-        let range = ByteRange {
-            start: cursor.u64()?,
-            end: cursor.u64()?,
-        };
-        let class = match cursor.u8()? {
-            0 => RecordClass::Logical,
-            1 => RecordClass::RawFallback,
-            _ => return Err("record class invalid".into()),
-        };
-        let diagnostic_ref = DiagnosticRef(cursor.u32()?);
-        let id = RecordId(cursor.string(MAX_ID_BYTES)?.into());
-        let file_number = *file_index.get(&file).ok_or("record file missing")?;
+    let mut records = Vec::with_capacity(layout.record_count);
+    let mut id_position = 0usize;
+    for slot in 0..layout.record_count {
+        let row = layout.record_row(bytes, slot)?.ok_or("record row missing")?;
+        let row_offset = u32_slice(bytes, layout.record_start + slot * 36 + 28) as usize;
+        if row_offset != id_position {
+            return Err("record ID arena gap or overlap".into());
+        }
+        id_position += row.id.len();
         records.push(RecordEntry {
             slot: RecordSlot(slot as u32),
-            id,
-            file,
-            range,
-            revision: files[file_number].entry.revision,
-            class,
-            diagnostic_ref,
+            id: RecordId(row.id.into()),
+            file: files[row.file_row].entry.id,
+            range: row.range,
+            revision: files[row.file_row].entry.revision,
+            class: row.class,
+            diagnostic_ref: row.diagnostic_ref,
         });
-        files[file_number].records.push(RecordSlot(slot as u32));
     }
-    cursor.end()?;
+    if id_position != layout.id_bytes {
+        return Err("record ID arena has trailing bytes".into());
+    }
+    for (file_number, file) in files.iter_mut().enumerate() {
+        let file_row = layout.file_row(bytes, file_number).ok_or("record file row missing")?;
+        let mut previous_slot = None;
+        for index in file_row.membership_start as usize
+            ..file_row.membership_start as usize + file_row.membership_count as usize
+        {
+            let slot = layout.membership(bytes, index).ok_or("record membership missing")?;
+            if slot.0 as usize >= layout.record_count
+                || previous_slot.is_some_and(|previous| previous >= slot)
+                || records[slot.0 as usize].file != file.entry.id
+            {
+                return Err("record membership invalid".into());
+            }
+            previous_slot = Some(slot);
+            file.records.push(slot);
+        }
+    }
     let (file_index, id_lookup, logical_records, fallback_records) = validate_records(
-        collection,
-        source_id.clone(),
-        source_version,
+        expected_collection,
+        layout.source_id.clone(),
+        layout.source_version,
         &files,
         &records,
     )?;
+    if logical_records != layout.logical_records || fallback_records != layout.fallback_records {
+        return Err("record stored domain disagrees with classes".into());
+    }
     Ok(CheckedRecordSlots {
-        source_id,
-        source_version,
+        source_id: layout.source_id,
+        source_version: layout.source_version,
         files,
         records,
         file_index,
@@ -849,14 +1087,8 @@ impl<'a> Cursor<'a> {
         self.offset = end;
         Ok(slice)
     }
-    fn u8(&mut self) -> Result<u8, String> {
-        Ok(self.take(1)?[0])
-    }
     fn u32(&mut self) -> Result<u32, String> {
         Ok(u32::from_le_bytes(self.take(4)?.try_into().unwrap()))
-    }
-    fn u64(&mut self) -> Result<u64, String> {
-        Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
     }
     fn bytes(&mut self, max: usize) -> Result<&'a [u8], String> {
         let len = self.u32()? as usize;
@@ -864,10 +1096,6 @@ impl<'a> Cursor<'a> {
             return Err("metadata byte string exceeds limit".into());
         }
         self.take(len)
-    }
-    fn string(&mut self, max: usize) -> Result<String, String> {
-        String::from_utf8(self.bytes(max)?.to_vec())
-            .map_err(|_| "metadata string is not UTF-8".into())
     }
     fn count(&mut self, max: usize, min_bytes_each: usize) -> Result<usize, String> {
         let count = self.u32()? as usize;
