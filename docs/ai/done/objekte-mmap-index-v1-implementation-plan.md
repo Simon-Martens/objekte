@@ -2438,6 +2438,8 @@ source-check actions.
   replacement and operation-generation checks.
 - `d06af8d2` — versioned saved opening recipe, custom-only `--load-index`
   resolution, optional explicit alphabet, and CLI/desktop recipe tests.
+- `92de4202` — typed postings and bigrams remain mapped during Load; packed
+  posting-value/relation-probe access and loaded re-save object reuse.
 
 ### Packed access abstraction
 
