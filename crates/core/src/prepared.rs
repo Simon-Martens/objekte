@@ -16,6 +16,8 @@ pub(crate) struct PreparedQuery {
 
 /// Bind one query against the selected collections on every request.
 pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery, String> {
+    #[cfg(feature = "detailed-profiling")]
+    let started = std::time::Instant::now();
     let mut collections = Vec::new();
     let mut parameter_types = HashMap::new();
     for (index, collection) in repo.collections.iter().enumerate() {
@@ -45,8 +47,21 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
     if collections.is_empty() {
         return Err("unknown or unloaded collection scope".into());
     }
+
+    #[cfg(feature = "detailed-profiling")]
+    if std::env::var_os("OBJEKTE_BIND_PHASES").is_some() {
+        eprintln!(
+            "query-binding ns={} regex={}",
+            started.elapsed().as_nanos(),
+            query
+                .fts
+                .as_ref()
+                .is_some_and(|fts| matches!(fts.mode, crate::query::FtsMode::Regex(_)))
+        );
+    }
     Ok(PreparedQuery { collections })
 }
+
 
 #[cfg(test)]
 mod tests {
@@ -102,7 +117,10 @@ mod tests {
         assert_eq!(second.collections.len(), 2);
         assert_eq!(crate::regex_query::test_compile_count() - before, 4);
         first.collections[0].2.as_mut().unwrap().source_literal = "changed".into();
-        assert_eq!(second.collections[0].2.as_ref().unwrap().source_literal, "a+");
+        assert_eq!(
+            second.collections[0].2.as_ref().unwrap().source_literal,
+            "a+"
+        );
         std::fs::remove_dir_all(root).unwrap();
     }
 }
