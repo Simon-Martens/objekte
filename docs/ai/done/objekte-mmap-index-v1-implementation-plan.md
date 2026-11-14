@@ -2414,15 +2414,17 @@ Commands run in the integration worktree:
 
 ```text
 cargo test --workspace --locked --offline
+cargo test --workspace --all-targets --locked --offline
 cargo test -p objekte-search-core index_storage --offline
 cargo test -p objekte-cli --offline
-cargo clippy --workspace --all-targets --offline
+cargo clippy --workspace --all-targets --locked --offline
 ```
 
 Outcomes:
 
 - Workspace tests pass with no failures. The core library suite reports 584
-  passed, 15 ignored; all CLI and desktop suites pass.
+  passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
+  compiles and tests examples and integration targets as well.
 - The storage subsystem suite reports 68 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
