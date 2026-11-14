@@ -16,3 +16,7 @@ The representation repair removed 46.87 MB from the snapshot and lowered save an
 ## Possible follow-up
 
 A bounded design could encode and checksum each segment directly through the outer snapshot writer and decode validated segments one at a time, avoiding retention of all encoded payloads. It must preserve a coherent pinned publication, section checksums/limits, trailing-byte rejection, atomic replacement, historical metadata references, and complete structural validation before publication. Measure external save call time and fresh restore RSS after that change. This is a proposal for review, not an authorized implementation task.
+
+## Resolution in `remove-legacy-snapshot-stack`
+
+The legacy `OBJSNAP1` snapshot writer and reader, their encoded segment buffers, and `lifecycle_segment_codec.rs` were deleted in `da608b2799`. Managed generations are now the only persistence path, so the reported allocation can no longer occur. This is a historical issue record.
