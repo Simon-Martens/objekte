@@ -146,3 +146,42 @@ fn desktop_backend_saves_and_reopens_an_explicit_index() {
     );
     assert_eq!(loaded.collections, ["files"]);
 }
+
+#[test]
+fn desktop_backend_opens_a_custom_index_without_source_paths() {
+    let root = tempfile::tempdir().unwrap();
+    let store = root.path().join("store");
+    write_records(root.path());
+    let save_args = Arguments {
+        path: vec![root.path().to_path_buf()],
+        save_index: Some(store.clone()),
+        ..Default::default()
+    };
+    open(
+        &OpenSpec {
+            args: save_args,
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+
+    let load_args = Arguments {
+        load_index: Some(store),
+        ..Default::default()
+    };
+    let loaded = open(
+        &OpenSpec {
+            args: load_args,
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(
+        loaded.repository.index().storage_status().unwrap().origin,
+        objekte_search_core::index_storage::status::StorageOrigin::Loaded
+    );
+    assert_eq!(loaded.collections, ["files"]);
+    assert_eq!(loaded.paths.root, root.path().canonicalize().unwrap());
+}

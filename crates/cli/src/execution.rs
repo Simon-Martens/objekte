@@ -20,6 +20,7 @@ use serde_json::{Value, json};
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 use crate::index_location::IndexLocation;
+use crate::index_recipe::{EffectiveOpening, resolve_opening};
 use crate::loader::{ConfiguredDefinitions, configure_definitions, repository_options};
 use crate::output::{
     EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
@@ -38,20 +39,26 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
     let configured = (|| {
         let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
-        let paths = args.resolve_paths(&cwd)?;
-        let configured = configure_definitions(args, &paths)?;
-        let options = repository_options(args);
-        let mut source = QuerySource::open(args)?;
-        let storage_directory = args
+        let opening = resolve_opening(args, &cwd)?;
+        let effective = &opening.args;
+        let configured = configure_definitions(effective, &opening.paths)?;
+        let options = repository_options(effective);
+        let mut source = QuerySource::open(effective)?;
+        let storage_directory = effective
             .save_index
             .as_ref()
-            .or(args.load_index.as_ref())
+            .or(effective.load_index.as_ref())
             .map(|value| IndexLocation::parse(value))
             .unwrap_or(IndexLocation::SystemCache)
-            .resolve(&paths.root, &cwd, args.index_alphabet, args.auto_index)?;
+            .resolve(
+                &opening.paths.root,
+                &cwd,
+                effective.effective_alphabet(),
+                effective.auto_index,
+            )?;
         let (initial_search, initial_filter) = match source.next_input()? {
             Some(input) => {
-                let (_, decoded) = input.parse(args)?;
+                let (_, decoded) = input.parse(effective)?;
                 match input.kind {
                     QueryKind::Fts => (decoded.unwrap_or_default(), String::new()),
                     QueryKind::Structured => (String::new(), input.original),
@@ -59,22 +66,26 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             }
             None => (String::new(), String::new()),
         };
+        let save_options = opening.save_options();
         Ok::<_, String>((
-            paths.root,
+            opening.paths.root,
             configured.definitions,
             options,
             initial_search,
             initial_filter,
             storage_directory,
+            save_options,
         ))
     })();
-    let (root, definitions, options, search, filter, storage_directory) = match configured {
-        Ok(configured) => configured,
-        Err(error) => {
-            eprintln!("obj: {error}");
-            return Exit::Arguments;
-        }
-    };
+    let (root, definitions, options, search, filter, storage_directory, save_options) =
+        match configured {
+            Ok(configured) => configured,
+            Err(error) => {
+                eprintln!("obj: {error}");
+                return Exit::Arguments;
+            }
+        };
+    let tui_save_options = save_options.clone();
     let storage_load = {
         let directory = storage_directory.clone();
         let definitions = definitions.clone();
@@ -108,7 +119,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                     crate::index_open::check(&index)?;
                 }
                 if let Some(save) = save_directory {
-                    crate::index_open::save(&index, &save, &token_for_open)?;
+                    crate::index_open::save(&index, &save, &token_for_open, save_options.clone())?;
                 }
                 return Ok(crate::tui::TuiOpening::Ready(
                     IndexedRepository::new(index).map_err(|error| error.to_string())?,
@@ -117,7 +128,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             if let Some(save) = save_directory {
                 let index =
                     Index::build(&root, definitions, options).map_err(|error| error.to_string())?;
-                crate::index_open::save(&index, &save, &token_for_open)?;
+                crate::index_open::save(&index, &save, &token_for_open, save_options.clone())?;
                 return Ok(crate::tui::TuiOpening::Ready(
                     IndexedRepository::new(index).map_err(|error| error.to_string())?,
                 ));
@@ -136,6 +147,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             interruption: Some(token.clone()),
             storage_directory: Some(storage_directory),
             storage_load,
+            save_options: tui_save_options,
         },
     );
     match result {
@@ -304,14 +316,16 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let paths = match args.resolve_paths(&cwd) {
-        Ok(paths) => paths,
+    let opening = match resolve_opening(args, &cwd) {
+        Ok(opening) => opening,
         Err(message) => {
             eprintln!("obj: {message}");
             return Exit::Arguments;
         }
     };
-    let configured = match configure_definitions(args, &paths) {
+    let args = &opening.args;
+    let paths = &opening.paths;
+    let configured = match configure_definitions(args, paths) {
         Ok(configuration) => configuration,
         Err(message) => {
             eprintln!("obj: {message}");
@@ -330,10 +344,10 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     let opened = if storage_requested {
         open_explicit_storage(
             args,
-            &paths,
+            paths,
             &configured,
             options,
-            &cwd,
+            &opening,
             token,
             &mut storage_outcome,
         )
@@ -346,7 +360,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     } else {
         // A fresh construction starts before opening query input. The input is
         // replayed after completion to preserve the ordered machine protocol.
-        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
+        open_incremental_repository(args, paths, &configured, options, &mut source, token)
     };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
@@ -582,13 +596,18 @@ fn open_explicit_storage(
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
     options: objekte_search_core::repository::RepositoryOptions,
-    cwd: &std::path::Path,
+    opening: &EffectiveOpening,
     token: &CancellationToken,
     outcome: &mut StorageOutcome,
 ) -> Result<Index, String> {
     let index = if let Some(load) = &args.load_index {
         let location = IndexLocation::parse(load);
-        let directory = location.resolve(&paths.root, cwd, args.index_alphabet, args.auto_index)?;
+        let directory = opening.load_directory.clone().unwrap_or(location.resolve(
+            &paths.root,
+            std::path::Path::new(""),
+            args.effective_alphabet(),
+            args.auto_index,
+        )?);
         let index = crate::index_open::load(
             &directory,
             configured.definitions.clone(),
@@ -607,8 +626,14 @@ fn open_explicit_storage(
     }
     if let Some(save) = &args.save_index {
         let location = IndexLocation::parse(save);
-        let directory = location.resolve(&paths.root, cwd, args.index_alphabet, args.auto_index)?;
-        let report = crate::index_open::save(&index, &directory, token)?;
+        let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
+        let directory = location.resolve(
+            &paths.root,
+            &cwd,
+            args.effective_alphabet(),
+            args.auto_index,
+        )?;
+        let report = crate::index_open::save(&index, &directory, token, opening.save_options())?;
         outcome.publication_id = Some(report.publication_id.to_string());
         outcome.saved = Some(report);
         outcome.directory = Some(directory);
@@ -644,7 +669,7 @@ fn run_start_event(
         "hidden": args.repo.is_none(),
         "symlinks": "skip",
         "extension": (args.repo.is_none()).then_some(".json"),
-        "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
+        "alphabet": match args.effective_alphabet() { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
         "text_policy": if args.repo.is_some() { "configured" } else { "decoded_scalar_values" },
         "schema_fields": schema_fields,
         "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),

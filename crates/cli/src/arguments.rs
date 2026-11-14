@@ -79,8 +79,11 @@ pub struct Arguments {
     pub count: bool,
 
     /// Index alphabet, independent of exact case sensitivity.
-    #[arg(long, value_enum, default_value_t = Alphabet::Ascii)]
-    pub index_alphabet: Alphabet,
+    ///
+    /// Omission is distinct from `--index-alphabet ascii` so a saved opening
+    /// recipe can supply the recorded alphabet.
+    #[arg(long, value_enum)]
+    pub index_alphabet: Option<Alphabet>,
 
     /// Report inferred index paths in NDJSON and command status on stderr.
     #[arg(long = "diagnostic", visible_alias = "diagnostics")]
@@ -110,6 +113,11 @@ pub struct ResolvedPaths {
 
 
 impl Arguments {
+    /// Effective alphabet after applying an explicit choice or the default.
+    pub fn effective_alphabet(&self) -> Alphabet {
+        self.index_alphabet.unwrap_or_default()
+    }
+
     pub fn multiple_collections(&self) -> bool {
         self.repo.is_some() || self.path.len() > 1
     }

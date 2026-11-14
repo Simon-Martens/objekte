@@ -2394,6 +2394,16 @@ rejection. The TUI F6 overlay supports Save, Load, and Check; Load runs on a
 worker, installs the replacement repository only after success, and ignores
 stale completions by operation generation.
 
+Each frontend save records a versioned `opening_recipe` in
+`frontend_metadata`: source mode, canonical root, selected folders, explicit
+schema path, recursion, alphabet, and auto-index. Native paths are hex-encoded.
+`obj --load-index <custom-folder>` inspects the manifest, decodes the recipe,
+rebuilds definitions and options, and calls core Load without source arguments.
+`--index-alphabet` is optional so omission can be distinguished from an
+explicit ASCII choice; conflicting explicit source interpretation returns an
+argument error. Reading schema/configuration files is allowed; source records
+are not discovered or parsed.
+
 The CLI adds `--load-index`, `--save-index`, and `--check-index`, shared
 `IndexLocation`/`index_open` helpers, protocol version 5 storage events, and
 end-to-end tests for build/save/load/check/resave and failed-save behavior. The
@@ -2506,14 +2516,16 @@ the native query state. Unchanged saves write zero bytes.
    native work includes exact source verification, some custom/inference
    operations, and sort/relation views. This is recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
-2. **Desktop/TUI storage controls are implemented.** The desktop Open dialog
-   exposes Build/Load, three locations, custom path, and check-after-load; the
-   Index panel exposes storage status and Save with progress/stale checks. The
-   TUI F6 overlay supports Save/Load/Check, with Load installed only after
-   success and operation-generation rejection of stale completions. Resolved in
-   `docs/ai/done/resolved-issues/mmap-index-frontend-storage-controls.md`.
-   Custom-only opening still needs the saved opening recipe
-   (`docs/ai/issues/feat/mmap-index-saved-opening-recipe.md`).
+2. **Desktop/TUI storage controls and custom-only opening are implemented.**
+   The desktop Open dialog exposes Build/Load, three locations, custom path, and
+   check-after-load; the Index panel exposes storage status and Save with
+   progress/stale checks. The TUI F6 overlay supports Save/Load/Check, with Load
+   installed only after success and operation-generation rejection of stale
+   completions. Saves include a versioned opening recipe in manifest frontend
+   metadata; custom directories can open without `--path` or `--repo`, and
+   conflicting explicit interpretation options are rejected. Resolved in
+   `docs/ai/done/resolved-issues/mmap-index-frontend-storage-controls.md` and
+   `docs/ai/done/resolved-issues/mmap-index-saved-opening-recipe.md`.
 3. **Independent content generations are implemented.** Catalogue rows persist
    `file_version` and `content_generation` separately; replacement advances the
    latter, content-preserving moves preserve it, and delete tombstones retain

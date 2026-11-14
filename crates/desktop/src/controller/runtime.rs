@@ -3941,7 +3941,7 @@ impl DesktopController {
         let resolved = location.resolve(
             &session.paths.root,
             &session.paths.root,
-            session.args.index_alphabet,
+            session.args.effective_alphabet(),
             session.args.auto_index,
         );
         let directory = match resolved {
@@ -3956,10 +3956,19 @@ impl DesktopController {
                 return;
             }
         };
+        let save_options = SaveOptions {
+            frontend_metadata: Some(
+                objekte_cli::index_recipe::OpeningRecipe::from_opening(
+                    &session.args,
+                    &session.paths,
+                )
+                .to_metadata(),
+            ),
+        };
         match session
             .repository
             .index()
-            .start_save(directory, SaveOptions::default())
+            .start_save(directory, save_options)
         {
             Ok(task) => {
                 self.storage_task = Some(task);

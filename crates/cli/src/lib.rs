@@ -4,6 +4,7 @@ pub mod arguments;
 pub mod execution;
 pub mod index_location;
 pub mod index_open;
+pub mod index_recipe;
 pub mod loader;
 pub mod output;
 pub mod query_input;

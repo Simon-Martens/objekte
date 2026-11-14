@@ -130,3 +130,28 @@ fn disabled_filter_keeps_editor_text_out_of_execution() {
     assert!(spec.filter.is_empty());
     assert_eq!(draft.structured, "year >= 1900 SORT BY year DESC");
 }
+
+#[test]
+fn desktop_can_open_a_custom_index_from_its_recipe_without_paths() {
+    let draft = OpenDraft {
+        paths: String::new(),
+        index_source: crate::ui::model::IndexOpenSource::Load,
+        index_location: crate::ui::model::IndexStorageLocation::Custom,
+        custom_index: "/mnt/indexes/archive".into(),
+        check_after_load: true,
+        ..OpenDraft::default()
+    };
+    let spec = open_spec(&draft, Path::new("/tmp")).unwrap();
+    assert!(spec.args.path.is_empty());
+    assert!(spec.args.repo.is_none());
+    assert_eq!(
+        spec.args.load_index,
+        Some(std::path::PathBuf::from("/mnt/indexes/archive"))
+    );
+    assert!(spec.args.check_index);
+    assert_eq!(spec.args.index_alphabet, None);
+
+    let mut preset = draft.clone();
+    preset.index_location = crate::ui::model::IndexStorageLocation::SystemCache;
+    assert!(open_spec(&preset, Path::new("/tmp")).is_err());
+}

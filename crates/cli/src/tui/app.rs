@@ -256,6 +256,7 @@ pub(super) struct App {
     >,
     pub(super) storage_load_rx: Option<mpsc::Receiver<(u64, Result<IndexedRepository, String>)>>,
     pub(super) storage_generation: u64,
+    pub(super) save_options: objekte_search_core::SaveOptions,
     pub(super) sort: Option<SortField>,
     pub(super) case_sensitive: bool,
     pub(super) regex: bool,
@@ -434,6 +435,7 @@ impl App {
             storage_load,
             storage_load_rx: None,
             storage_generation: 1,
+            save_options: options.save_options,
             sort: None,
             case_sensitive: true,
             regex: false,
@@ -974,7 +976,7 @@ impl App {
         match self
             .repo
             .index()
-            .start_save(directory, objekte_search_core::SaveOptions::default())
+            .start_save(directory, self.save_options.clone())
         {
             Ok(task) => {
                 self.storage_task = Some(task);

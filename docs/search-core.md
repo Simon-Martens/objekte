@@ -528,3 +528,16 @@ obj --load-index /mnt/indexes/archive --check-index \
 
 Exactly `cache` and `repo` select the system cache and repository preset;
 every other value is a native path. `--check-index` requires `--load-index`.
+
+Saves include a versioned `opening_recipe` in manifest `frontend_metadata`
+(source mode, canonical root, selected folders, explicit schema, recursion,
+alphabet, and auto-index; native paths are hex-encoded). A custom directory can
+therefore open without `--path` or `--repo`:
+
+```bash
+obj --load-index /mnt/indexes/archive --fts Goethe
+```
+
+The recipe supplies semantic opening options. Explicit source arguments may
+confirm it; contradictory alphabet, schema, recursion, or inference options
+return an argument error.

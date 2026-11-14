@@ -6,6 +6,7 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
+use objekte_cli::index_recipe::resolve_opening;
 use objekte_cli::loader::{configure_definitions, repository_options};
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
@@ -95,31 +96,34 @@ fn open_sources(
     spec.args
         .validate_open_options()
         .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
-    let paths = spec
-        .args
-        .resolve_paths(&spec.cwd)
+    let opening = resolve_opening(&spec.args, &spec.cwd)
         .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
-    let configured = configure_definitions(&spec.args, &paths)
+    let effective_args = &opening.args;
+    let paths = &opening.paths;
+    let configured = configure_definitions(effective_args, paths)
         .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
-    let mut options = repository_options(&spec.args);
+    let mut options = repository_options(effective_args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let started = Instant::now();
-    if spec.args.load_index.is_some() || spec.args.save_index.is_some() {
+    if effective_args.load_index.is_some() || effective_args.save_index.is_some() {
         let resolve = |value: &PathBuf| {
             objekte_cli::index_location::IndexLocation::parse(value)
                 .resolve(
                     &paths.root,
                     &spec.cwd,
-                    spec.args.index_alphabet,
-                    spec.args.auto_index,
+                    effective_args.effective_alphabet(),
+                    effective_args.auto_index,
                 )
                 .map_err(|message| BackendError::new(BackendErrorKind::Options, message))
         };
-        let index = if let Some(load) = &spec.args.load_index {
-            let directory = resolve(load)?;
+        let index = if let Some(load) = &effective_args.load_index {
+            let directory = opening
+                .load_directory
+                .clone()
+                .map_or_else(|| resolve(load), Ok)?;
             let index = objekte_cli::index_open::load(
                 &directory,
                 configured.definitions.clone(),
@@ -127,7 +131,7 @@ fn open_sources(
                 objekte_search_core::source::SourceRegistry::builtin(),
             )
             .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
-            if spec.args.check_index {
+            if effective_args.check_index {
                 objekte_cli::index_open::check(&index)
                     .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
             }
@@ -136,9 +140,9 @@ fn open_sources(
             Index::build(&paths.root, configured.definitions.clone(), options)
                 .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
         };
-        if let Some(save) = &spec.args.save_index {
+        if let Some(save) = &effective_args.save_index {
             let directory = resolve(save)?;
-            objekte_cli::index_open::save(&index, &directory, cancellation)
+            objekte_cli::index_open::save(&index, &directory, cancellation, opening.save_options())
                 .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
         }
         let repository = IndexedRepository::new(index)
@@ -160,13 +164,13 @@ fn open_sources(
             OpenedSession {
                 repository: Arc::new(repository),
                 configuration: Arc::new(SessionConfiguration {
-                    configured_repository: spec.args.repo.is_some(),
+                    configured_repository: effective_args.repo.is_some(),
                     configuration_identity,
                 }),
-                args: spec.args.clone(),
-                paths,
+                args: effective_args.clone(),
+                paths: paths.clone(),
                 collections,
-                single_collection: !spec.args.multiple_collections(),
+                single_collection: !effective_args.multiple_collections(),
                 declared_values,
                 diagnostics: OpenDiagnostics {
                     open_ns: started.elapsed().as_nanos(),
@@ -240,13 +244,13 @@ fn open_sources(
         OpenedSession {
             repository: Arc::new(repository),
             configuration: Arc::new(SessionConfiguration {
-                configured_repository: spec.args.repo.is_some(),
+                configured_repository: effective_args.repo.is_some(),
                 configuration_identity,
             }),
-            args: spec.args.clone(),
-            paths,
+            args: effective_args.clone(),
+            paths: paths.clone(),
             collections,
-            single_collection: !spec.args.multiple_collections(),
+            single_collection: !effective_args.multiple_collections(),
             declared_values,
             diagnostics: OpenDiagnostics {
                 open_ns: started.elapsed().as_nanos(),

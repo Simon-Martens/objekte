@@ -135,7 +135,7 @@ pub fn repository_options(args: &Arguments) -> RepositoryOptions {
         // CLI batch commands and the TUI both enter through this loader. One
         // bounded lifecycle store is shared across their index revisions.
         verified_cache_bytes: 64 * 1024 * 1024,
-        bigram_alphabet: match args.index_alphabet {
+        bigram_alphabet: match args.effective_alphabet() {
             Alphabet::Ascii => BigramAlphabet::Ascii,
             Alphabet::Unicode => BigramAlphabet::Unicode,
         },

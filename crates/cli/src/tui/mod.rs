@@ -42,6 +42,7 @@ pub struct TuiOptions {
     pub storage_load: Option<
         std::sync::Arc<dyn Fn() -> Result<IndexedRepository, String> + Send + Sync + 'static>,
     >,
+    pub save_options: objekte_search_core::SaveOptions,
 }
 
 

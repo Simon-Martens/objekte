@@ -32,13 +32,9 @@ pub fn save(
     index: &Index,
     directory: &Path,
     token: &CancellationToken,
+    options: SaveOptions,
 ) -> Result<objekte_search_core::SaveReport, String> {
     index
-        .save_to_with_control(
-            directory,
-            SaveOptions::default(),
-            || token.is_cancelled(),
-            |_| {},
-        )
+        .save_to_with_control(directory, options, || token.is_cancelled(), |_| {})
         .map_err(|error| error.to_string())
 }
