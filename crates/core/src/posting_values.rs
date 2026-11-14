@@ -344,15 +344,19 @@ fn scan_inferred_segment(
     };
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
-    for file in &segment.index.files {
+    for file_index in 0..segment.index.file_count() {
+        let file = segment.index.try_file_at(file_index)?.ok_or("segment file row missing")?;
         let ranges = file
             .records
             .iter()
             .filter(|slot| segment.active.contains(**slot))
-            .filter_map(|slot| {
-                let record = &segment.index.records[slot.0 as usize];
-                (record.class == RecordClass::Logical).then_some((slot.0, record.range))
+            .map(|slot| {
+                let record = segment.index.try_record(*slot)?.ok_or("segment record row missing")?;
+                Ok((record.class == RecordClass::Logical).then_some((slot.0, record.range)))
             })
+            .collect::<Result<Vec<_>, String>>()?
+            .into_iter()
+            .flatten()
             .collect::<Vec<_>>();
         if ranges.is_empty() {
             continue;
@@ -548,8 +552,8 @@ pub(crate) fn select_exact_segmented(
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(&id)
-                && segment.active.contains(*slot)
+            if let Some(slot) = segment.index.try_id_lookup(id.0.as_ref())?
+                && segment.active.contains(slot)
             {
                 if found {
                     return Err("duplicate active selection ID".into());
@@ -647,7 +651,8 @@ pub(crate) fn posting_values_segmented(
             });
             continue;
         }
-        for file in &segment.index.files {
+        for file_index in 0..segment.index.file_count() {
+            let file = segment.index.try_file_at(file_index)?.ok_or("segment file row missing")?;
             if file
                 .records
                 .iter()
