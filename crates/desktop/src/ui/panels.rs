@@ -77,6 +77,17 @@ fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
     })
 }
 
+
+fn memory_label(bytes: usize) -> String {
+    if bytes >= 1024 * 1024 {
+        format!("{:.1} MiB", bytes as f64 / (1024.0 * 1024.0))
+    } else if bytes >= 1024 {
+        format!("{:.1} KiB", bytes as f64 / 1024.0)
+    } else {
+        format!("{bytes} B")
+    }
+}
+
 impl DesktopView {
     pub(super) fn render_batch(
         &self,
@@ -1312,38 +1323,14 @@ impl DesktopView {
                             .child(self.state.index_interval_error.clone().unwrap_or_default())
                     ))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
-                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Index persistence"))
-                    .child(div().text_xs().child(format!("Current index: {}", index.storage_location)))
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Index"))
                     .child(div().text_xs().child(format!("Readiness: {}", index.readiness)))
                     .child(div().text_xs().child(format!("Source files: {}", index.source_reconciliation)))
-                    .child(div().text_xs().child(format!("Save: {}", index.save_summary)))
-                    .child(div().text_xs().child(format!("Current revision: {}", index.current_generation)))
-                    .when(index.durable_generation.is_some(), |this| this.child(div().text_xs().child(format!(
-                        "Saved store generation: {}", index.durable_generation.unwrap_or_default()))))
-                    .when(index.validation_warning.is_some(), |this| this.child(
-                        div().text_xs().text_color(rgb(colors.error)).child(format!("Validation warning: {}",
-                            index.validation_warning.as_ref().map(|issue| issue.summary.as_str()).unwrap_or_default()))))
-                    .when(index.storage_issue.is_some(), |this| this.child(
-                        div().text_xs().text_color(rgb(colors.error)).child(format!("{} · {}",
-                            index.storage_issue.as_ref().map(|issue| issue.summary.as_str()).unwrap_or_default(),
-                            index.storage_issue.as_ref().map(|issue| issue.guidance.as_str()).unwrap_or_default()))))
-                    .when(index.managed_directory.is_some(), |this| this.child(
-                        div().text_xs().child(format!("Managed folder: {}",
-                            index.managed_directory.as_deref().unwrap_or_default()))
+                    .child(div().text_xs().child(format!("Revision: {}", index.revision)))
+                    .when(index.estimated_index_bytes.is_some(), |this| this.child(
+                        div().text_xs().child(format!("Estimated index memory: {}",
+                            memory_label(index.estimated_index_bytes.unwrap_or_default())))
                     ))
-                    .child(Button::new("index-open-saved").label("Open saved index…")
-                        .disabled(self.state.root.is_none())
-                        .on_click(cx.listener(|this, _, window, cx| {
-                            this.show_storage_dialog(window, cx);
-                        })))
-                    .child(Button::new("index-save").label(if matches!(index.save_task, IndexTaskState::Failed(_)) {
-                        "Retry save…"
-                    } else { "Save index…" })
-                        .disabled(self.state.root.is_none() || !index.construction_complete
-                            || matches!(index.save_task, IndexTaskState::Running { .. }))
-                        .on_click(cx.listener(|this, _, window, cx| {
-                            this.show_save_index_dialog(window, cx);
-                        })))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
                     .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Maintenance"))
                     .child(div().text_xs().child(format!("{} files · {} records",
@@ -1378,7 +1365,6 @@ impl DesktopView {
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
                         &index.maintenance,
                     ),
-                    ("Index save", IndexTaskKind::Save, &index.save_task),
                 ] {
                     if let Some(summary) = index_task_summary(label, task) {
                         content = content.child(
@@ -1388,8 +1374,7 @@ impl DesktopView {
                                 .gap_2()
                                 .child(div().text_xs().flex_1().child(summary))
                                 .when(
-                                    kind != IndexTaskKind::Save
-                                        && matches!(task, IndexTaskState::Running { .. }),
+                                    matches!(task, IndexTaskState::Running { .. }),
                                     |this| {
                                         this.child(
                                             Button::new(format!("index-cancel-{kind:?}"))
@@ -1418,12 +1403,7 @@ impl DesktopView {
                         div()
                             .text_sm()
                             .font_weight(FontWeight::SEMIBOLD)
-                            .child("Storage"),
-                    )
-                    .child(
-                        div()
-                            .text_xs()
-                            .child(format!("Current index: {}", index.storage_location)),
+                            .child("Index"),
                     )
                     .child(
                         div()
@@ -1437,21 +1417,11 @@ impl DesktopView {
                     .child(
                         div()
                             .text_xs()
-                            .child(format!("Save: {}", index.save_summary)),
-                    );
-                content = content
-                    .child(
-                        div()
-                            .text_xs()
-                            .child(format!("Current revision: {}", index.current_generation)),
+                            .child(format!("Current revision: {}", index.revision)),
                     )
                     .child(div().text_xs().child(format!(
-                        "Saved store generation: {:?}",
-                        index.durable_generation
-                    )))
-                    .child(div().text_xs().child(format!(
-                        "Managed folder: {}",
-                        index.managed_directory.as_deref().unwrap_or("—")
+                        "Estimated index memory: {}",
+                        memory_label(index.estimated_index_bytes.unwrap_or_default())
                     )));
             }
         }
@@ -1481,7 +1451,7 @@ impl DesktopView {
             .max_h(px((panel_height - 64.).clamp(40., 530.)))
             .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
-            .child(div().text_sm().child("Opening a folder builds the index in memory by default. Use Open saved index to load an existing generation from a selected location. Save index writes one current revision to a selected location. Closing or switching repositories does not save automatically. Source records, schemas, and saved queries are unaffected."))
+            .child(div().text_sm().child("Opening a folder builds the index in memory from its current sources. Closing or switching repositories releases it without writing an index. Source records, schemas, export files and saved queries are unaffected."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. The footer shows the exact match count."))

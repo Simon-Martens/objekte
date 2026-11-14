@@ -121,7 +121,6 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
     assert_eq!(app.overlay, Some(Overlay::Actions));
     key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
     key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
-    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
     key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
     assert_eq!(app.overlay, Some(Overlay::Columns));
     key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
@@ -129,65 +128,6 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
     assert_eq!(app.column_offset, 1);
     key(app, KeyEvent::new(KeyCode::Left, KeyModifiers::ALT));
     assert_eq!(app.column_offset, 0);
-}
-
-#[test]
-fn storage_action_requests_explicit_save_without_closing() {
-    let mut fixture = fixture(2);
-    let app = &mut fixture.app;
-    app.search = input::Input::with_text("needle");
-    key(
-        app,
-        KeyEvent::new(KeyCode::Char('k'), KeyModifiers::CONTROL),
-    );
-    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert_eq!(app.overlay, Some(Overlay::Storage));
-    app.storage_picker = 1;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    app.storage_picker = 3;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    app.storage_picker = 6;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert!(!app.done);
-    assert_eq!(app.search.text, "needle");
-    assert_eq!(
-        app.storage_request.take(),
-        Some((false, IndexStorageTarget::RepositoryDirectory))
-    );
-}
-
-#[test]
-fn storage_overlay_edits_custom_base_without_starting_operation() {
-    let mut fixture = fixture(1);
-    let app = &mut fixture.app;
-    app.open_storage();
-    app.storage_picker = 4;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert_eq!(app.storage_choice, 2);
-    assert_eq!(app.storage_picker, 5);
-    assert!(app.storage_editing);
-    key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
-    assert!(!app.storage_editing);
-    app.storage_directory = input::Input::with_text(".");
-    app.storage_editing = true;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert!(!app.storage_editing);
-    assert!(app.storage_request.is_none());
-    app.storage_directory = input::Input::default();
-    app.storage_picker = 6;
-    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert!(app.storage_request.is_none());
-    assert!(app.status.as_deref().unwrap().contains("existing custom"));
-    app.storage_directory = input::Input::with_text("/dev/null");
-    app.apply_storage();
-    assert!(app.status.as_deref().unwrap().contains("not a directory"));
-    app.storage_directory = input::Input::with_text(fixture._temp.path().to_str().unwrap());
-    app.apply_storage();
-    assert!(matches!(
-        app.storage_request.take(),
-        Some((true, IndexStorageTarget::CustomDirectory(_)))
-    ));
 }
 
 #[test]

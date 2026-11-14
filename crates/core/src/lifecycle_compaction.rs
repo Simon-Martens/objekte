@@ -26,7 +26,7 @@ pub struct CompactionReport {
     pub remaining_retired_slots: u64,
     /// Source slot metadata visited by this call.
     pub input_records_examined: u64,
-    /// Greater of immutable segment bytes and owning file sizes per shard.
+    /// Greater of the native retained-memory estimate and owning file sizes per shard.
     pub input_bytes_budgeted: u64,
     /// Planning estimate, not an allocator count or a strict peak bound.
     pub temporary_bytes_estimated: u64,
@@ -60,16 +60,10 @@ struct CompactionWork {
     temporary_bytes: u64,
 }
 
-fn source_budget_bytes(source: &IndexedCollectionSegment) -> Result<u64, IndexError> {
-    let encoded = source.raw.sealed_reader()
-        .map_or(0, |reader| reader.encoded_len() as u64);
-    let mut file_bytes = 0u64;
-    for number in 0..source.file_count() {
-        let file = source.try_file_entry_at(number).map_err(IndexError::InvalidPublication)?
-            .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
-        file_bytes = file_bytes.saturating_add(file.revision.size);
-    }
-    Ok(encoded.max(file_bytes))
+fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
+    u64::try_from(source.accounting.retained_bytes_estimated)
+        .unwrap_or(u64::MAX)
+        .max(source.accounting.source_bytes_estimated)
 }
 
 pub(crate) fn base_as_segment(
@@ -104,7 +98,7 @@ pub(crate) fn base_as_segment(
             .map_err(IndexError::InvalidPublication)
         })
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(IndexedCollectionSegment {
+    let mut segment = IndexedCollectionSegment {
         collection: collection.generation.collection,
         source_id: collection.source.id().into(),
         source_version: collection.source.version(),
@@ -112,7 +106,6 @@ pub(crate) fn base_as_segment(
         file_index,
         records: collection.generation.records.clone(),
         id_lookup: collection.id_lookup.clone(),
-        persisted: None,
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),
         inference: collection.inference.clone(),
@@ -126,7 +119,10 @@ pub(crate) fn base_as_segment(
         relations,
         record_parses: 0,
         failed_parses: 0,
-    })
+        accounting: Default::default(),
+    };
+    segment.recompute_accounting();
+    Ok(segment)
 }
 
 fn slot_count(root: &PublishedIndex) -> u64 {
@@ -204,7 +200,7 @@ fn compact_published_with_budget(
                     continue;
                 }
                 let records = segment.index.record_count() as u64;
-                let input_bytes = source_budget_bytes(&segment.index)?;
+                let input_bytes = source_budget_bytes(&segment.index);
                 let temporary_bytes = input_bytes.saturating_mul(3)
                     .saturating_add(records.saturating_mul(512));
                 if work.records > 0 && (work.records.saturating_add(records) > budget.records
@@ -253,7 +249,6 @@ fn compact_published_with_budget(
     next.file_versions = old.file_versions.clone();
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.last_size_maintenance_revision = old.last_size_maintenance_revision;
-    next.saved_revision = old.saved_revision;
     next.reconciliation = old.reconciliation;
     for (number, collection) in old.repository.collections().iter().enumerate() {
         if cancelled() {

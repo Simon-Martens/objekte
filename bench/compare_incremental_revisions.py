@@ -17,7 +17,7 @@ def require_compatible(before, after, before_queries, after_queries):
     for key in (
         "compiler", "corpus_fingerprint", "schema_fingerprint",
         "schema_manifest_digest", "query_workers", "source_cache_bytes",
-        "decoded_cache_bytes", "profiles", "repetitions",
+        "profiles", "repetitions",
     ):
         if before.get(key) != after.get(key):
             raise ValueError(f"incompatible {key}")

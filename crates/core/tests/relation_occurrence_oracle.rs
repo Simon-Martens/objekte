@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::HashMap;
 
 use objekte_search_core::lifecycle::Index;
@@ -248,27 +245,13 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        let policy = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-        };
-        let first = Index::open_with_storage(
+        let restored = Index::build_with_sources(
             &root,
             definitions(),
             options,
-            policy.clone(),
             SourceRegistry::builtin(),
         )
         .unwrap();
-        first.stop_sync_storage().unwrap();
-        let restored = Index::open_with_storage(
-            &root,
-            definitions(),
-            options,
-            policy,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
-        assert!(restored.restored_from_storage());
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {
@@ -374,7 +357,6 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
                 );
             }
         }
-        restored.stop_sync_storage().unwrap();
         restored.wait_for_reconciliation().unwrap();
     }
 }

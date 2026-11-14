@@ -85,14 +85,14 @@ fn measure_direct_shard_build_from_real_worker_batches() {
                 && (admission.record_count() + batch.records.len() > 2_048
                     || admission.file_count() + batch.files.len() > 2_048)
             {
-                chunks.push(std::mem::replace(&mut admission, new_admission()).seal());
+                chunks.push(std::mem::replace(&mut admission, new_admission()).finish());
             }
             admission.admit_batch(batch)
         },
     )
     .unwrap();
     if admission.file_count() > 0 {
-        chunks.push(admission.seal());
+        chunks.push(admission.finish());
     }
     let extracted = started.elapsed();
     let started = std::time::Instant::now();

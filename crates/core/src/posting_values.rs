@@ -345,13 +345,13 @@ fn scan_inferred_segment(
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
     for file_index in 0..segment.index.file_count() {
-        let file = segment.index.try_file_at(file_index)?.ok_or("segment file row missing")?;
+        let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
         let ranges = file
             .records
             .iter()
             .filter(|slot| segment.active.contains(**slot))
             .map(|slot| {
-                let record = segment.index.try_record(*slot)?.ok_or("segment record row missing")?;
+                let record = segment.index.record(*slot).ok_or("segment record row missing")?;
                 Ok((record.class == RecordClass::Logical).then_some((slot.0, record.range)))
             })
             .collect::<Result<Vec<_>, String>>()?
@@ -552,7 +552,7 @@ pub(crate) fn select_exact_segmented(
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.try_id_lookup(id.0.as_ref())?
+            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref()).copied()
                 && segment.active.contains(slot)
             {
                 if found {
@@ -652,7 +652,7 @@ pub(crate) fn posting_values_segmented(
             continue;
         }
         for file_index in 0..segment.index.file_count() {
-            let file = segment.index.try_file_at(file_index)?.ok_or("segment file row missing")?;
+            let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
             if file
                 .records
                 .iter()
@@ -818,11 +818,11 @@ pub(crate) fn posting_values_segmented(
                 .index
                 .value_range(lower.clone(), upper.clone(), request.descending)
         })
-        .collect::<Result<Vec<_>, _>>()?;
+        .collect::<Vec<_>>();
     let mut heads = iterators
         .iter_mut()
         .map(|iterator| iterator.next())
-        .collect::<Result<Vec<_>, _>>()?;
+        .collect::<Vec<_>>();
     let mut values = Vec::new();
     let mut visited_keys = 0;
     let mut has_more = false;
@@ -847,7 +847,7 @@ pub(crate) fn posting_values_segmented(
                 .is_some_and(|(candidate, _)| *candidate == key)
             {
                 count += head.as_ref().unwrap().1.intersection_len(&domains[index]);
-                *head = iterators[index].next()?;
+                *head = iterators[index].next();
             }
         }
         if count == 0 {
@@ -1097,11 +1097,11 @@ impl Repository {
                 visited_keys: 0,
             });
         }
-        let mut iterator = index.value_range(lower, upper, request.descending)?;
+        let mut iterator = index.value_range(lower, upper, request.descending);
         let mut values = Vec::new();
         let mut visited_keys = 0;
         while values.len() < request.limit {
-            let Some((value, posting)) = iterator.next()? else {
+            let Some((value, posting)) = iterator.next() else {
                 break;
             };
             visited_keys += 1;
@@ -1113,7 +1113,7 @@ impl Repository {
         }
         let mut has_more = false;
         if values.len() == request.limit {
-            while let Some((_, posting)) = iterator.next()? {
+            while let Some((_, posting)) = iterator.next() {
                 visited_keys += 1;
                 if selected_domain
                     .map_or(posting.len(), |selected| posting.intersection_len(selected))

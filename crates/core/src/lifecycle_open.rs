@@ -30,9 +30,14 @@ impl Index {
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
+        let root = root.into();
+        let definitions = crate::repository_configuration::prepare_source_definitions(
+            &root,
+            &definitions,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
         let started = Instant::now();
-        let index = Self::build_with_sources_inner(root, definitions, options, sources, true)?;
-        index.enable_owned_memory_sealing();
+        let index = Self::build_with_sources_inner(root, definitions, options, sources)?;
         let full_ms = started.elapsed().as_millis() as u64;
         index.update_timings_ms(|timings| {
             timings.search_available = Some(full_ms);
@@ -44,36 +49,13 @@ impl Index {
         Ok(index)
     }
 
-    /// Build mutable shards for a first managed generation. The store writer
-    /// encodes them directly to immutable files and the next open installs
-    /// sealed readers; no temporary owned copy is made during this build.
-    #[cfg(test)]
-    pub(crate) fn build_with_sources_unsealed(
-        root: impl Into<PathBuf>,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-        sources: SourceRegistry,
-    ) -> Result<Self, IndexError> {
-        Self::build_with_sources_inner(root, definitions, options, sources, false)
-    }
-
     fn build_with_sources_inner(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
-        seal_owned: bool,
     ) -> Result<Self, IndexError> {
         let root = root.into();
-        let definitions = if seal_owned {
-            crate::index_storage::IndexStorageTarget::prepare_logical_definitions(
-                &root,
-                &definitions,
-            )
-            .map_err(IndexError::IncompatibleConfiguration)?
-        } else {
-            definitions
-        };
         if let Some(direct) = Repository::build_direct_json(
             root.clone(),
             definitions.clone(),
@@ -82,14 +64,14 @@ impl Index {
         )
         .map_err(IndexError::Build)?
         {
-            return Self::from_direct_build(direct, seal_owned);
+            return Self::from_direct_build(direct);
         }
         let repository = Repository::open_with_sources(root, definitions, options, sources)
             .map_err(IndexError::Build)?;
-        Self::from_repository_with_sealing(repository, seal_owned)
+        Self::from_repository(repository)
     }
 
-    fn from_direct_build(direct: DirectBuild, seal_owned: bool) -> Result<Self, IndexError> {
+    fn from_direct_build(direct: DirectBuild) -> Result<Self, IndexError> {
         let DirectBuild {
             repository,
             catalog_slots,
@@ -111,9 +93,7 @@ impl Index {
         published.file_versions = FileVersions::initial(published.catalog.allocated_files());
         for group in segments {
             for segment in group {
-                published = published
-                    .with_segment_sealing(segment, seal_owned, false)?
-                    .0;
+                published = published.with_segment(segment)?;
             }
         }
         let index = Self::from_published(published);

@@ -66,7 +66,6 @@ struct Inputs {
     open_folder: Entity<InputState>,
     open_extra_folders: Vec<Entity<InputState>>,
     schema: Entity<InputState>,
-    index_directory: Entity<InputState>,
     index_interval: Entity<InputState>,
     full_text: Entity<InputState>,
     structured: Entity<InputState>,
@@ -135,8 +134,6 @@ impl DesktopView {
             open_extra_folders: Vec::new(),
             schema: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
-            index_directory: cx
-                .new(|cx| InputState::new(window, cx).placeholder("Custom index base folder")),
             index_interval: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Seconds between checks")),
             full_text: cx.new(|cx| InputState::new(window, cx).placeholder("Search entries…")),
@@ -159,21 +156,6 @@ impl DesktopView {
                 }
             }),
         );
-        subscriptions.push(cx.subscribe(
-            &inputs.index_directory,
-            |this: &mut Self, _, event, cx| {
-                if matches!(event, InputEvent::Change) && this.state.open_dialog.visible {
-                    this.state.open.index_directory =
-                        this.inputs.index_directory.read(cx).value().to_string();
-                    this.state.open_dialog.error = None;
-                    this.state.errors.remove(&model::ErrorField::Open);
-                    if this.state.busy != state::Busy::Opening {
-                        this.state.status = "Ready to open".into();
-                    }
-                    cx.notify();
-                }
-            },
-        ));
         let builder_view = cx.new(|cx| FilterBuilderView::new(window, cx));
         subscriptions.push(cx.subscribe_in(
             &builder_view,
@@ -383,14 +365,6 @@ impl DesktopView {
             self.state.open.schema = path.clone();
             self.inputs
                 .schema
-                .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
-        }
-        if let UiUpdate::ChosenIndexDirectory { generation, path } = &update
-            && self.state.open_dialog.accept_index_picker(*generation)
-        {
-            self.state.open.index_directory = path.clone();
-            self.inputs
-                .index_directory
                 .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
         }
         if let UiUpdate::RestoreQuery(draft) = &update {

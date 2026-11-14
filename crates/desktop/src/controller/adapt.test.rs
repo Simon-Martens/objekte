@@ -33,47 +33,28 @@ fn opening_modes_preserve_cli_validation() {
 }
 
 #[test]
-fn memory_only_is_default_and_desktop_query_has_no_range() {
-    let mut opening = OpenDraft {
-        index_directory: "/tmp/indexes".into(),
+fn desktop_open_has_no_storage_target_and_query_has_no_range() {
+    let opening = OpenDraft {
+        paths: "/tmp/data".into(),
         ..OpenDraft::default()
     };
-    opening.paths = "/tmp/data".into();
-    assert!(matches!(
-        open_spec(&opening, Path::new("/tmp")).unwrap().load_target,
-        None
-    ));
-    opening.index_storage = crate::ui::model::StorageChoice::Custom;
-    let custom = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert!(matches!(
-        custom.load_target.unwrap(),
-        IndexStorageTarget::CustomDirectory(path) if path == Path::new("/tmp/indexes")
-    ));
-
-    opening.index_directory = "indexes".into();
-    let relative = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert!(matches!(
-        relative.load_target.unwrap(),
-        IndexStorageTarget::CustomDirectory(path) if path == Path::new("/tmp/indexes")
-    ));
-
+    let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
+    assert_eq!(spec.args.path, vec![std::path::PathBuf::from("/tmp/data")]);
     let spec = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(spec.offset, 0);
     assert_eq!(spec.limit, None);
     assert!(!spec.count);
-    let unlimited = query_spec(&SearchDraft::default()).unwrap();
-    assert_eq!(unlimited.limit, None);
 }
 
 #[test]
-fn configured_repository_defaults_to_memory_storage() {
+fn configured_repository_builds_from_its_source_root() {
     let opening = OpenDraft {
         mode: OpenMode::ConfiguredRepository,
         paths: "/tmp/repository".into(),
         ..OpenDraft::default()
     };
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert!(matches!(spec.load_target, None));
+    assert_eq!(spec.args.repo.as_deref(), Some(Path::new("/tmp/repository")));
 }
 
 #[test]

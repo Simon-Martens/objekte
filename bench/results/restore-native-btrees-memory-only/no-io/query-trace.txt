@@ -1,0 +1,45 @@
+2546250 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/lib64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/lib64/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/proc/self/maps", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/session-37.scope/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = -1 ENOENT (Datei oder Verzeichnis nicht gefunden)
+2546252 openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/session-37.scope/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = -1 ENOENT (Datei oder Verzeichnis nicht gefunden)
+2546259 openat(AT_FDCWD, "/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+2546252 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+2546252 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/cache", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+2546252 openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/session-37.scope/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = -1 ENOENT (Datei oder Verzeichnis nicht gefunden)
+2546253 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/cache/source.json", O_RDONLY|O_CLOEXEC) = 3
+2546253 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/a.json", O_RDONLY|O_CLOEXEC) = 3
+2546253 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/b.json", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/session-37.scope/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/user-1000.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/user.slice/cpu.max", O_RDONLY|O_CLOEXEC) = 3
+2546252 openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = -1 ENOENT (Datei oder Verzeichnis nicht gefunden)
+2546250 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/a.json", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/b.json", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/a.json", O_RDONLY|O_CLOEXEC) = 3
+2546250 openat(AT_FDCWD, "/tmp/opencode/restore-btrees/io-final/data/b.json", O_RDONLY|O_CLOEXEC) = 4
+2546250 write(1, "{\"alphabet\":\"ascii\",\"collection\""..., 1562) = 1562
+2546250 write(1, "{\"all_results_ms\":0.801,\"complet"..., 1115) = 1115
+2546250 write(1, "{\"automatic_index_summary\":null,"..., 426) = 426
+2546250 write(2, "{\n  \"level\": \"info\",\n  \"message\""..., 96) = 96
+2546250 write(2, "\n", 1)               = 1
+2546409 ???( <unfinished ...>
+2546408 ???( <unfinished ...>
+2546407 ???( <unfinished ...>
+2546405 ???( <detached ...>

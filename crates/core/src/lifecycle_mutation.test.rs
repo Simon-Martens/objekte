@@ -57,7 +57,7 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
-fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() {
+fn partial_structural_postings_survive_explicit_mutations_and_compaction() {
     let root = test_root("structural-postings");
     let first = root.join("data/first.json");
     std::fs::write(&first, r#"{"tags":[],"text":""}"#).unwrap();
@@ -87,7 +87,7 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let index = Index::build_with_sources_unsealed(
+    let index = Index::build_with_sources(
         &root,
         vec![definition.clone()],
         options,
@@ -145,14 +145,7 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
     check(&index, [0, 1, 0], true);
     index.compact().unwrap();
     check(&index, [0, 1, 0], true);
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        vec![definition],
-        options,
-    );
-    check(&restored, [0, 1, 0], true);
-    restored.shutdown().unwrap();
+    check(&index, [0, 1, 0], true);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -563,7 +556,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     .unwrap();
     std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
     let definition = intrinsic_definition("items");
-    let index = Index::build_with_sources_unsealed(
+    let index = Index::build_with_sources(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
@@ -696,18 +689,11 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     );
     std::fs::remove_file(&original).unwrap();
 
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        vec![definition],
-        RepositoryOptions::default(),
-    );
-    check_current(&restored);
-    restored.compact().unwrap();
-    check_current(&restored);
-    restored.wait_for_reconciliation().unwrap();
-    check_current(&restored);
-    restored.shutdown().unwrap();
+    check_current(&index);
+    index.compact().unwrap();
+    check_current(&index);
+    index.wait_for_reconciliation().unwrap();
+    check_current(&index);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -845,7 +831,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
     std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
     std::fs::write(&middle, old).unwrap();
     std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
-    let built = Index::build_with_sources_unsealed(
+    let built = Index::build_with_sources(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
@@ -1157,18 +1143,8 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
         1
     );
     assert_eq!(index.status().unwrap().live_records, 1);
-    let loaded = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "data",
-            SourceFormat::JsonLines,
-        )],
-        RepositoryOptions::default(),
-    );
     assert_eq!(
-        loaded.view().unwrap().file_fingerprint(handle.file_id),
+        index.view().unwrap().file_fingerprint(handle.file_id),
         Some(Sha256::digest(b"{\"name\":\"new\"}\n").into())
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -1417,7 +1393,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
     let definitions = vec![targets, sources];
-    let index = Index::build_with_sources_unsealed(
+    let index = Index::build_with_sources(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
@@ -1569,14 +1545,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
             .any(|source| source.id == "S2")
     );
 
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        definitions,
-        RepositoryOptions::default(),
-    );
-    let loaded = restored.view().unwrap();
-    assert_eq!(loaded.revision(), current.revision());
+    let loaded = current;
     assert_eq!(ids(&loaded), ["S2", "R"]);
     let restored_locator = loaded
         .relation_outgoing_page("sources", &relation_path, "S2", 0, 10)
@@ -1587,7 +1556,6 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         changed_locator.segment_ordinal
     );
     assert_eq!(restored_locator.slot, RecordSlot(0));
-    restored.wait_for_reconciliation().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

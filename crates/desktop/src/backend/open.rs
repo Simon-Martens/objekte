@@ -7,8 +7,6 @@ use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{configure_definitions, repository_options};
-use objekte_cli::storage_view::format_index_error;
-use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
@@ -22,15 +20,12 @@ use super::{BackendError, BackendErrorKind};
 pub struct OpenSpec {
     pub args: Arguments,
     pub cwd: PathBuf,
-    /// Only this selected saved-index target is probed; `None` builds in memory.
-    pub load_target: Option<IndexStorageTarget>,
 }
 
 /// Observed opening work and configuration.
 #[derive(Clone, Debug)]
 pub struct OpenDiagnostics {
     pub open_ns: u128,
-    pub load_not_found: bool,
     pub startup: StartupStats,
     pub schema_files: Vec<PathBuf>,
     pub schema_fields: usize,
@@ -48,7 +43,6 @@ pub struct SessionConfiguration {
 #[derive(Clone)]
 pub struct OpenedSession {
     pub repository: Arc<IndexedRepository>,
-    pub load_target: Option<IndexStorageTarget>,
     pub configuration: Arc<SessionConfiguration>,
     pub args: Arguments,
     pub paths: ResolvedPaths,
@@ -76,23 +70,20 @@ pub fn open(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
 ) -> Result<OpenedSession, BackendError> {
-    open_shared_storage(spec, cancellation, spec.load_target.clone(), false)
-        .map(|(session, _)| session)
+    open_sources(spec, cancellation, false).map(|(session, _)| session)
 }
 
 /// Return a searchable catalogue while a fresh index continues building.
-/// A restored managed generation returns a completed session immediately.
 pub fn open_incremental(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
 ) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
-    open_shared_storage(spec, cancellation, spec.load_target.clone(), true)
+    open_sources(spec, cancellation, true)
 }
 
-fn open_shared_storage(
+fn open_sources(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
-    target: Option<IndexStorageTarget>,
     incremental: bool,
 ) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
     spec.args
@@ -109,73 +100,40 @@ fn open_shared_storage(
     }
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
-    let target = match target {
-        Some(IndexStorageTarget::CustomDirectory(path)) => {
-            let base = path.canonicalize().map_err(|error| {
-                BackendError::new(
-                    BackendErrorKind::Options,
-                    format!("custom index base {}: {error}", path.display()),
-                )
-            })?;
-            if !base.is_dir() {
-                return Err(BackendError::new(
-                    BackendErrorKind::Options,
-                    format!("custom index base is not a directory: {}", base.display()),
-                ));
-            }
-            Some(IndexStorageTarget::CustomDirectory(base))
-        }
-        other => other,
-    };
     let started = Instant::now();
-    let loaded = target
-        .as_ref()
-        .map(|target| Index::try_load(&paths.root, configured.definitions.clone(), options, target))
-        .transpose()
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?
-        .flatten();
-    let load_not_found = target.is_some() && loaded.is_none();
-    let (index, task) = if let Some(index) = loaded {
-        (index, None)
-    } else {
-        let build =
-            Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
-                .map_err(|error| {
-                    BackendError::new(BackendErrorKind::Open, format_index_error(&error))
-                })?;
-        let index = if incremental {
-            loop {
-                if cancellation.is_cancelled() {
-                    build.cancel();
-                    return Err(BackendError::cancelled());
-                }
-                let status = build.status().map_err(|error| {
-                    BackendError::new(BackendErrorKind::Open, error.to_string())
-                })?;
-                if status.catalogue_complete
-                    || matches!(
-                        status.phase,
-                        objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
-                            | objekte_search_core::lifecycle::InitialBuildPhase::Failed
-                    )
-                {
-                    break;
-                }
-                std::thread::sleep(std::time::Duration::from_millis(20));
+    let build = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let index = if incremental {
+        loop {
+            if cancellation.is_cancelled() {
+                build.cancel();
+                return Err(BackendError::cancelled());
             }
-            build.wait_catalogue()
-        } else {
-            build.wait_complete()
-        }
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, format_index_error(&error)))?;
-        let task = (incremental
-            && !build
+            let status = build
                 .status()
-                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
-                .construction_complete)
-            .then_some(build);
-        (index, task)
-    };
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            if status.catalogue_complete
+                || matches!(
+                    status.phase,
+                    objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+                        | objekte_search_core::lifecycle::InitialBuildPhase::Failed
+                )
+            {
+                break;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(20));
+        }
+        build.wait_catalogue()
+    } else {
+        build.wait_complete()
+    }
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let task = (incremental
+        && !build
+            .status()
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+            .construction_complete)
+        .then_some(build);
     if cancellation.is_cancelled() {
         if let Some(task) = &task {
             task.cancel();
@@ -202,7 +160,6 @@ fn open_shared_storage(
     Ok((
         OpenedSession {
             repository: Arc::new(repository),
-            load_target: target,
             configuration: Arc::new(SessionConfiguration {
                 configured_repository: spec.args.repo.is_some(),
                 configuration_identity,
@@ -214,7 +171,6 @@ fn open_shared_storage(
             declared_values,
             diagnostics: OpenDiagnostics {
                 open_ns: started.elapsed().as_nanos(),
-                load_not_found,
                 startup,
                 schema_files: configured.schema_files,
                 schema_fields: configured.schema_fields,

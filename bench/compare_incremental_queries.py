@@ -45,7 +45,6 @@ def require_compatible(before, after, before_queries, after_queries):
         "schema_manifest_digest",
         "query_workers",
         "source_cache_bytes",
-        "decoded_cache_bytes",
         "profiles",
         "repetitions",
     ):

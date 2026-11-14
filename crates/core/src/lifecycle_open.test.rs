@@ -111,8 +111,7 @@ fn incremental_admission_totals_match_each_collection() {
 }
 
 #[test]
-fn direct_json_build_matches_static_inference_overlap_and_managed_restore() {
-    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
+fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
     use crate::inference::{InferenceConfig, InferenceMode};
 
     let root = std::env::temp_dir().join(format!(
@@ -142,15 +141,11 @@ fn direct_json_build_matches_static_inference_overlap_and_managed_restore() {
         ..Default::default()
     };
     let static_repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-    let policy = IndexLocationResolver {
-        location: IndexStorageLocation::CustomDirectory(root.join("index-store")),
-    };
     std::fs::create_dir(root.join("index-store")).unwrap();
-    let index = Index::open_with_storage(
+    let index = Index::build_with_sources(
         &root,
         definitions.clone(),
         options,
-        policy.clone(),
         crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
@@ -219,15 +214,13 @@ fn direct_json_build_matches_static_inference_overlap_and_managed_restore() {
     };
     check(&index);
     index.shutdown().unwrap();
-    let restored = Index::open_with_storage(
+    let restored = Index::build_with_sources(
         &root,
         definitions,
         options,
-        policy,
         crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(restored.restored_from_storage());
     check(&restored);
     restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

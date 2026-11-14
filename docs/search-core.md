@@ -81,7 +81,7 @@ currently parsed once for each collection.
 Built-in and caller-supplied readers are resolved through `SourceRegistry`
 when a collection opens. A registration has a stable ID, semantic version, file
 extension, and reader. The prepared reader handles framing, query verification,
-and payload decoding. Managed configuration identity includes the resolved registration
+and payload decoding. Live configuration identity includes the resolved registration
 identity and version, so a changed registration rebuilds its state.
 
 `Repository` publishes its inventory, collection generations, definitions, and
@@ -117,7 +117,7 @@ posting or bigram indexes cover their values. An unmodified field may select a
 configured default operation. Unscoped FTS may select a configured raw-text
 operation; each extracted text segment remains separate. A missing or partial
 index falls back to scanner evaluation. The binding version and default/raw
-selection participate in managed generation compatibility; verified results
+selection participate in live configuration identity; verified results
 belong to the opened repository generation.
 
 Custom source readers own their extracted text segments, including omissions
@@ -380,13 +380,14 @@ type. Limits bound specified estimates and work, not total process RSS; an
 extension without a preparse size estimate may allocate during parsing before
 its result is rejected. Use a new context for each request.
 
-## Persistence and freshness
+## Memory and freshness
 
 ### In-memory `Repository`
 
 `Repository::open`, `open_with_options`, and `open_with_sources` build from
-sources and keep the resulting index in memory. They do not restore or write
-persistent state. Use `Index::flush_to` to save a complete publication explicitly.
+sources and keep the resulting index in memory. They never restore or write an
+index on disk; source documents, schemas, preferences and requested exports
+keep their ordinary filesystem behavior.
 
 Fresh construction assumes sources remain stable while it reads them. It uses
 metadata gathered during discovery and does not repeatedly probe revisions
@@ -409,22 +410,20 @@ by the revision check.
 
 ### Versioned `Index` lifecycle
 
-`Index::build(root, definitions, options)` builds an in-memory index from the
-supplied configuration without probing a saved store. `Index::try_load` checks
-one explicit `IndexStorageTarget` and returns `None` for a missing committed
-generation. A loaded generation uses on-demand mapped readers and becomes
-searchable before optional source reconciliation finishes. `Index::flush_to`
-saves one complete pinned publication to one explicit target and reports the
-saved revision and destination store generation. Loading does not write; saving
-does not change the active backing. CLI, TUI, and desktop share the repository
-configuration loader and choose when to invoke these operations.
+`Index::build(root, definitions, options)` builds a complete in-memory index
+from the supplied configuration. `start_incremental_build` exposes a
+progressively searchable catalogue while construction continues. CLI, TUI and
+desktop share the repository configuration loader and the same source-build
+entry points. There is no index load, save, cache-aware opening or
+destination-generation API.
 
 The `Index` handle exposes versioned file add, update, move, and delete
 operations. They modify index state only; the application controls source
 files. Query calls pin one published revision. `start_reconcile`,
 `wait_for_reconciliation`, and `start_periodic_reconciliation` expose metadata
 checking without blocking search. Reconciliation, updates, compaction,
-ordinary close, and repository replacement do not save automatically.
+ordinary close and repository replacement keep all state in memory and release
+it when the index is dropped.
 
 `compact()` removes retired base and segment contributions without rereading
 source files. `rebuild()` rereads the current source configuration and retries
@@ -449,9 +448,9 @@ source. Source failures request a coalesced reconciliation pass. Streams report
 the same incompleteness in their terminal summary. A pinned view still
 describes its captured index revision, not a live filesystem snapshot.
 
-Fresh builds capture file digests during indexing reads. Managed generations
-persist those digests so an old-content hint can be verified after restoration
-without rereading unchanged source files. Verified base maintenance may do
+Fresh builds capture file digests during indexing reads. The live index keeps
+those digests in memory so an old-content hint can be verified without rereading
+unchanged source files. Verified base maintenance may do
 collection-sized source-free compaction before one atomic publication; ordinary
 updates and deletes retain the sparse appended and tombstone strategy.
 

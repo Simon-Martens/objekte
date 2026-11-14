@@ -11,11 +11,10 @@ use std::ops::Bound;
 use std::path::Path;
 #[cfg(test)]
 use std::path::PathBuf;
-use std::sync::{Arc, OnceLock};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::generation_catalog::RestoredGenerationCatalog;
 use crate::inventory::{
     FileEntry, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
 };
@@ -25,7 +24,6 @@ use crate::query::Operator;
 use crate::repository::Repository;
 
 const SHARDS: usize = 1024;
-const PERSISTED_CACHE_BLOCK: usize = 64;
 
 #[derive(Clone)]
 struct ChangedFile {
@@ -34,50 +32,11 @@ struct ChangedFile {
     configuration: Option<[u8; 32]>,
 }
 
-struct PersistedBase {
-    catalog: Arc<RestoredGenerationCatalog>,
-    decoded: Vec<OnceLock<Box<[OnceLock<Option<FileEntry>>]>>>,
-}
-
-impl PersistedBase {
-    fn new(catalog: Arc<RestoredGenerationCatalog>) -> Self {
-        let blocks = catalog.slot_count().div_ceil(PERSISTED_CACHE_BLOCK);
-        Self {
-            catalog,
-            decoded: (0..blocks).map(|_| OnceLock::new()).collect(),
-        }
-    }
-
-    fn entry(&self, file: FileId) -> Option<&FileEntry> {
-        let number = file.0 as usize;
-        if !self.catalog.is_current(file) {
-            return None;
-        }
-        let block = self
-            .decoded
-            .get(number / PERSISTED_CACHE_BLOCK)?
-            .get_or_init(|| {
-                (0..PERSISTED_CACHE_BLOCK)
-                    .map(|_| OnceLock::new())
-                    .collect::<Vec<_>>()
-                    .into_boxed_slice()
-            });
-        block[number % PERSISTED_CACHE_BLOCK]
-            .get_or_init(|| {
-                self.catalog
-                    .entry_for_ref(file.0)
-                    .expect("validated catalog metadata")
-            })
-            .as_ref()
-    }
-}
-
 /// One published view's active file table. Previous views retain their own
 /// path map, metadata and liveness after a new root is published.
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
     base: Arc<Repository>,
-    persisted: Option<Arc<PersistedBase>>,
     /// A fresh build can expose its discovered paths before every member is
     /// indexed. Pinned views retain this value across later publications.
     construction_complete: bool,
@@ -224,7 +183,6 @@ impl FileCatalog {
         }
         Ok(Self {
             base,
-            persisted: None,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
@@ -242,35 +200,12 @@ impl FileCatalog {
         active.insert_range(0..len);
         Ok(Self {
             base,
-            persisted: None,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_relative_paths: Arc::new(BTreeMap::new()),
             active: Arc::new(active),
-            len,
-        })
-    }
-
-    /// Install the committed catalog as the immutable base. The cache holds
-    /// only FileEntry values reached through an ownership-facing accessor;
-    /// path queries and mutation checks use the encoded tables directly.
-    pub(crate) fn restored_persisted(
-        base: Arc<Repository>,
-        catalog: Arc<RestoredGenerationCatalog>,
-    ) -> Result<Self, String> {
-        let len = u32::try_from(catalog.slot_count()).map_err(|_| "too many indexed files")?;
-        let base_configuration = Self::configuration_for(&base)?;
-        Ok(Self {
-            base,
-            persisted: Some(Arc::new(PersistedBase::new(Arc::clone(&catalog)))),
-            construction_complete: true,
-            base_configuration,
-            changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
-            changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
-            changed_relative_paths: Arc::new(BTreeMap::new()),
-            active: Arc::new(catalog.active().clone()),
             len,
         })
     }
@@ -330,25 +265,7 @@ impl FileCatalog {
         self.changed[shard(&file)]
             .get(&file)
             .map(|changed| changed.entry.as_ref())
-            .or_else(|| self.persisted.as_ref().and_then(|base| base.entry(file)))
             .or_else(|| self.base.files().files.get(file.0 as usize))
-    }
-
-    /// A stable current metadata ref remains valid when this publication
-    /// still points at the same immutable catalog row, without decoding it.
-    pub(crate) fn unchanged_encoded_record(&self, file: FileId) -> Option<(&[u8], SharedPath)> {
-        if !self.is_active(file) || self.changed[shard(&file)].contains_key(&file) {
-            return None;
-        }
-        let base = self.persisted.as_ref()?;
-        Some((
-            base.catalog.current_encoded_record(file)?,
-            base.catalog.current_path(file)?,
-        ))
-    }
-
-    pub(crate) fn persisted_base(&self) -> Option<&Arc<RestoredGenerationCatalog>> {
-        self.persisted.as_ref().map(|base| &base.catalog)
     }
 
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -359,16 +276,11 @@ impl FileCatalog {
             .get(&file)
             .map(|changed| changed.fingerprint)
             .unwrap_or_else(|| {
-                self.persisted
-                    .as_ref()
-                    .and_then(|base| base.catalog.current_hashes(file).map(|hashes| hashes.0))
-                    .unwrap_or_else(|| {
-                        self.base
-                            .base_fingerprints
-                            .get(file.0 as usize)
-                            .copied()
-                            .flatten()
-                    })
+                self.base
+                    .base_fingerprints
+                    .get(file.0 as usize)
+                    .copied()
+                    .flatten()
             })
     }
 
@@ -379,32 +291,19 @@ impl FileCatalog {
         self.changed[shard(&file)]
             .get(&file)
             .map(|changed| changed.configuration)
-            .unwrap_or_else(|| {
-                self.persisted
-                    .as_ref()
-                    .and_then(|base| base.catalog.current_hashes(file).map(|hashes| hashes.1))
-                    .unwrap_or_else(|| self.fingerprint(file).map(|_| self.base_configuration))
-            })
+            .unwrap_or_else(|| self.fingerprint(file).map(|_| self.base_configuration))
     }
 
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
         let id = self.changed_paths[shard(&path)]
             .get(path)
             .copied()
-            .or_else(|| {
-                self.persisted
-                    .as_ref()
-                    .and_then(|base| base.catalog.native_id_for(path))
-            })
             .or_else(|| self.base.files().id_for(path))?;
         if !self.is_active(id) {
             return None;
         }
         if let Some(changed) = self.changed[shard(&id)].get(&id) {
             return (changed.entry.relative_path.as_path() == path).then_some(id);
-        }
-        if let Some(base) = &self.persisted {
-            return base.catalog.path_matches(id, path).then_some(id);
         }
         self.base
             .files()
@@ -452,16 +351,7 @@ impl FileCatalog {
         if empty_path_bounds(&bounds) {
             return Some(Vec::new());
         }
-        let (mut ids, mut scanned) = if let Some(base) = &self.persisted {
-            base.catalog
-                .query_path_ids_in_bounds_up_to(&bounds, limit, |id| {
-                    self.is_active(id)
-                        && self.changed[shard(&id)].get(&id).is_none_or(|changed| {
-                            base.catalog
-                                .path_matches(id, changed.entry.relative_path.as_path())
-                        })
-                })?
-        } else {
+        let (mut ids, mut scanned) = {
             let mut ids = Vec::new();
             let mut scanned = 0usize;
             for (_, id) in self.base.files().relative_paths.range(bounds.clone()) {
@@ -625,15 +515,11 @@ impl FileCatalog {
         let ordered = Arc::make_mut(&mut next.changed_relative_paths);
         ordered.remove(&(old_path.query_key(), id));
         let matches_base = next
-            .persisted
-            .as_ref()
-            .is_some_and(|base| base.catalog.path_matches(id, new_path.as_path()))
-            || next
-                .base
-                .files()
-                .files
-                .get(id.0 as usize)
-                .is_some_and(|baseline| baseline.relative_path == new_path);
+            .base
+            .files()
+            .files
+            .get(id.0 as usize)
+            .is_some_and(|baseline| baseline.relative_path == new_path);
         if !matches_base {
             ordered.insert((new_path.query_key(), id), ());
         }

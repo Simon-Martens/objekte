@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::HashMap;
 
 use objekte_search_core::lifecycle::Index;
@@ -85,28 +82,21 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![collection()], options).unwrap();
-        let policy = IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-        };
-        let first = Index::open_with_storage(
+        let first = Index::build_with_sources(
             &root,
             vec![collection()],
             options,
-            policy.clone(),
             SourceRegistry::builtin(),
         )
         .unwrap();
         let first_view = first.view().unwrap();
-        let restored = Index::open_with_storage(
+        let restored = Index::build_with_sources(
             &root,
             vec![collection()],
             options,
-            policy,
             SourceRegistry::builtin(),
         )
         .unwrap();
-        assert!(restored.restored_from_storage());
-        assert_eq!(restored.status().unwrap().build_source_reads, 0);
         let restored_view = restored.view().unwrap();
         for (iteration, id) in ["A", "a", "A"].into_iter().enumerate() {
             let params = HashMap::from([(
@@ -139,8 +129,6 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
                 }
             }
         }
-        first.stop_sync_storage().unwrap();
-        restored.stop_sync_storage().unwrap();
         restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();

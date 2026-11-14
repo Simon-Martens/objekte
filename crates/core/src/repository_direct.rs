@@ -159,7 +159,7 @@ impl DirectCollection {
                 },
             );
             self.sealed
-                .push(std::mem::replace(&mut self.admission, replacement).seal());
+                .push(std::mem::replace(&mut self.admission, replacement).finish());
         }
         self.admission.admit_batch(batch)
     }
@@ -196,7 +196,7 @@ impl DirectCollection {
             })
             .transpose()?;
         if self.admission.file_count() > 0 {
-            self.sealed.push(self.admission.seal());
+            self.sealed.push(self.admission.finish());
         }
         let segments = self
             .sealed

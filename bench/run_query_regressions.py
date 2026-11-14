@@ -33,7 +33,7 @@ def rows(path: Path) -> dict[tuple[str, str], dict[str, str]]:
 def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) -> list[str]:
     failures = []
     for key in ("corpus_fingerprint", "compiler",
-                "source_cache_bytes", "decoded_cache_bytes", "query_workers"):
+                "source_cache_bytes", "query_workers"):
         if old[key] != new[key]:
             failures.append(f"{key} differs from baseline")
     failures.extend(compare_schema_identity(

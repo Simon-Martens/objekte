@@ -6,11 +6,8 @@
 
 use std::collections::BTreeMap;
 use std::fmt;
-use std::path::PathBuf;
 use std::sync::Arc;
 
-use objekte_cli::storage_view::StorageIssueView;
-use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::FileId;
 
@@ -40,16 +37,6 @@ pub enum OpenMode {
     ConfiguredRepository,
 }
 
-/// Presentation choice for the shared core index storage policy.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum StorageChoice {
-    #[default]
-    Memory,
-    Temporary,
-    Repository,
-    Custom,
-}
-
 /// Editable opening options; strings stay intact until backend validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OpenDraft {
@@ -60,9 +47,6 @@ pub struct OpenDraft {
     pub recursive: bool,
     pub auto_index: bool,
     pub unicode_index: bool,
-    pub index_storage: StorageChoice,
-    /// Base folder for custom index storage, not an index filename.
-    pub index_directory: String,
     pub diagnostic: bool,
 }
 
@@ -75,49 +59,9 @@ impl Default for OpenDraft {
             recursive: true,
             auto_index: false,
             unicode_index: false,
-            index_storage: StorageChoice::Memory,
-            index_directory: String::new(),
             diagnostic: false,
         }
     }
-}
-
-impl OpenDraft {
-    pub fn load_target(&self) -> Result<Option<IndexStorageTarget>, String> {
-        let target = match self.index_storage {
-            StorageChoice::Memory => return Ok(None),
-            StorageChoice::Temporary => IndexStorageTarget::SystemTemporary,
-            StorageChoice::Repository => IndexStorageTarget::RepositoryDirectory,
-            StorageChoice::Custom => {
-                let directory = self.index_directory.trim();
-                if directory.is_empty() {
-                    return Err("Choose a base folder for the custom saved index".into());
-                }
-                IndexStorageTarget::CustomDirectory(directory.into())
-            }
-        };
-        target.validate()?;
-        Ok(Some(target))
-    }
-}
-
-/// A focused storage change requires an existing absolute base folder.
-pub fn canonical_storage_base(input: &str) -> Result<PathBuf, String> {
-    let value = input.trim();
-    if value.is_empty() {
-        return Err("Choose an existing custom index base folder".into());
-    }
-    let path = PathBuf::from(value);
-    if !path.is_absolute() {
-        return Err("Custom index base must be an absolute folder path".into());
-    }
-    let canonical = path
-        .canonicalize()
-        .map_err(|error| format!("Custom index base: {error}"))?;
-    if !canonical.is_dir() {
-        return Err("Custom index base is not a directory".into());
-    }
-    Ok(canonical)
 }
 
 /// The two independently editable query inputs and execution options.
@@ -406,7 +350,6 @@ pub enum IndexTaskKind {
     Load,
     Rebuild,
     Compact,
-    Save,
 }
 
 /// Terminal outcomes and bounded progress for one index operation.
@@ -429,20 +372,12 @@ pub enum IndexTaskState {
 pub struct IndexUiStatus {
     pub source_location: String,
     pub opening_mode: String,
-    pub storage_location: String,
-    pub save_summary: String,
     pub readiness: String,
     pub source_reconciliation: String,
-    pub current_generation: u64,
-    pub durable_generation: Option<u64>,
-    pub validation_summary: String,
-    pub storage_issue: Option<StorageIssueView>,
-    pub validation_warning: Option<StorageIssueView>,
-    pub save_task: IndexTaskState,
-    pub managed_directory: Option<String>,
     pub schema_paths: Vec<String>,
     pub indexed_files: Option<usize>,
     pub live_records: Option<usize>,
+    pub estimated_index_bytes: Option<usize>,
     pub discovered_files: Option<usize>,
     pub catalogue_complete: bool,
     pub processed_files: Option<usize>,
@@ -451,7 +386,6 @@ pub struct IndexUiStatus {
     pub searchable_batches: usize,
     pub index_instance: u64,
     pub revision: u64,
-    pub dirty: bool,
     pub last_check: Option<String>,
     pub check_complete: Option<bool>,
     pub automatic_check: bool,
@@ -467,20 +401,12 @@ impl Default for IndexUiStatus {
         Self {
             source_location: String::new(),
             opening_mode: String::new(),
-            storage_location: String::new(),
-            save_summary: String::new(),
             readiness: String::new(),
             source_reconciliation: String::new(),
-            current_generation: 0,
-            durable_generation: None,
-            validation_summary: String::new(),
-            storage_issue: None,
-            validation_warning: None,
-            save_task: IndexTaskState::Idle,
-            managed_directory: None,
             schema_paths: Vec::new(),
             indexed_files: None,
             live_records: None,
+            estimated_index_bytes: None,
             discovered_files: None,
             catalogue_complete: false,
             processed_files: None,
@@ -489,7 +415,6 @@ impl Default for IndexUiStatus {
             searchable_batches: 0,
             index_instance: 0,
             revision: 0,
-            dirty: false,
             last_check: None,
             check_complete: None,
             automatic_check: false,
@@ -574,13 +499,8 @@ pub enum UiAction {
     ChooseSchema {
         generation: u64,
     },
-    ChooseIndexDirectory {
-        generation: u64,
-    },
     CancelOpen,
     Open(OpenDraft),
-    ChangeStorage(OpenDraft),
-    SaveIndex(OpenDraft),
     SearchEdited(SearchDraft),
     SearchNow(SearchDraft),
     CompleteValues {
@@ -657,7 +577,6 @@ pub enum UiAction {
     CancelIndexTask(IndexTaskKind),
     RequestClose,
     RetryClose,
-    CloseWithoutSaving,
     CancelClose,
     RefreshResults,
     RefreshRecord(u64),
@@ -749,10 +668,6 @@ pub enum UiUpdate {
         path: String,
     },
     ChosenSchema {
-        generation: u64,
-        path: String,
-    },
-    ChosenIndexDirectory {
         generation: u64,
         path: String,
     },

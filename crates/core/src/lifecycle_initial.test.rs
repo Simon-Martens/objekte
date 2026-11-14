@@ -59,7 +59,6 @@ fn discovery_and_segments_publish_without_losing_records() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let restore_definition = definition.clone();
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let (publication_tx, publication_rx) = mpsc::sync_channel(0);
     let (resume_tx, resume_rx) = mpsc::sync_channel(0);
@@ -121,7 +120,6 @@ fn discovery_and_segments_publish_without_losing_records() {
     );
     assert!(catalogue.search_reference(&all_query()).is_err());
     assert!(catalogue.explain(&all_query()).is_err());
-    assert!(index.flush_storage().is_err());
     let available = catalogue.search_available(&all_query()).unwrap();
     assert!(!available.complete);
     assert_eq!(available.result.count, None);
@@ -320,23 +318,6 @@ fn discovery_and_segments_publish_without_losing_records() {
     );
     assert!(!first.initial_construction_complete());
     assert!(first.search(&all_query()).is_err());
-    let restored = crate::test_support::restore_through_managed_store(
-        &finished,
-        &root,
-        vec![restore_definition],
-        RepositoryOptions {
-            build_workers: std::num::NonZeroUsize::new(4),
-            inference: InferenceConfig {
-                mode: InferenceMode::AutoIndex,
-                ..Default::default()
-            },
-            ..RepositoryOptions::default()
-        },
-    );
-    assert_eq!(
-        restored.view().unwrap().search(&all_query()).unwrap().count,
-        Some(2_050)
-    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -436,13 +417,8 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             );
         }
     }
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        vec![definition],
-        RepositoryOptions::default(),
-    );
-    let restored_result = restored.view().unwrap().search(&all_query()).unwrap();
+    let rebuilt = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    let restored_result = rebuilt.view().unwrap().search(&all_query()).unwrap();
     assert_eq!(
         result
             .hits

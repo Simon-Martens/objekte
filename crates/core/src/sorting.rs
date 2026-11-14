@@ -124,7 +124,7 @@ impl SortKey {
 }
 
 /// Precomputed sort keys for one configured field.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct SortColumn {
     pub path: FieldPath,
     pub kind: LogicalType,
@@ -404,7 +404,7 @@ impl SortColumn {
             }
             *key = SortKey::Null;
         }
-        let value_map = index.values_view()?;
+        let value_map = &index.values;
         for (value, slots) in value_map.iter() {
             if let Some(execution) = execution {
                 execution.check_string()?;
@@ -554,21 +554,21 @@ fn append_inferred_group(
 }
 
 /// All sort columns available for a collection.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
 }
 
 /// Explicit composite order over compatible resident scalar columns.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct CompositeSortOrder {
     pub fields: Vec<CompositeSortPart>,
     pub order: Vec<RecordSlot>,
 }
 
 /// Fixed binary identity for one resident composite constituent.
-#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,

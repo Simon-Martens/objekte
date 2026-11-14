@@ -1,6 +1,3 @@
-#[path = "support/legacy_storage.rs"]
-mod legacy_storage;
-use legacy_storage::*;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -238,9 +235,6 @@ fn unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or() 
 #[test]
 fn reopening_without_inference_does_not_restore_inferred_postings() {
     let fixture = Fixture::new();
-    let policy = IndexStoragePolicy {
-        location: IndexStorageLocation::RepositoryDirectory,
-    };
     let options = |mode| RepositoryOptions {
         inference: InferenceConfig {
             mode,
@@ -250,15 +244,13 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
-    let auto = Index::open_with_storage(
+    let auto = Index::build_with_sources(
         &fixture.0,
         vec![fixture.definition()],
         options(InferenceMode::AutoIndex),
-        policy.clone(),
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(!auto.restored_from_storage());
     assert!(auto.view().unwrap().inference_report("data").is_some());
     let baseline = auto
         .view()
@@ -266,18 +258,15 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         .search(&query("score = 7", vec![], ReturnMode::Locator))
         .unwrap();
     assert_eq!(baseline.count, Some(24));
-    auto.stop_sync_storage().unwrap();
     drop(auto);
 
-    let disabled = Index::open_with_storage(
+    let disabled = Index::build_with_sources(
         &fixture.0,
         vec![fixture.definition()],
         options(InferenceMode::Disabled),
-        policy,
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(!disabled.restored_from_storage());
     assert!(disabled.view().unwrap().inference_report("data").is_none());
     let restored_answers = disabled
         .view()
@@ -285,7 +274,6 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         .search(&query("score = 7", vec![], ReturnMode::Locator))
         .unwrap();
     assert_eq!(ids(&restored_answers), ids(&baseline));
-    disabled.stop_sync_storage().unwrap();
 }
 
 #[test]

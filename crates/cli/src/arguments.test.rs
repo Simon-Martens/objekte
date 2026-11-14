@@ -1,21 +1,23 @@
 use clap::Parser;
-use objekte_search_core::index_storage::IndexStorageTarget;
-
-use super::{Arguments, IndexTargetChoice};
+use super::Arguments;
 
 #[test]
-fn removed_combined_options_give_specific_migration_guidance() {
+fn removed_storage_flags_are_unsupported_arguments() {
     for option in [
-        "--index-storage=repository",
-        "--index-directory=.",
-        "--index-residency=full",
+        "--load-index",
+        "--flush-index",
         "--write-index",
+        "--index-storage",
+        "--index-directory",
+        "--index-residency",
+        "--load-index-directory",
+        "--flush-index-directory",
     ] {
-        let args = Arguments::try_parse_from(["obj", option, "--fts", "A"]).unwrap();
-        let error = args.validate_input().unwrap_err();
-        assert!(error.contains("--load-index") || error.contains("--flush-index"), "{error}");
+        assert!(
+            Arguments::try_parse_from(["obj", option, "repository", "--fts", "A"]).is_err(),
+            "{option}"
+        );
     }
-    assert!(Arguments::try_parse_from(["obj", "--load-index=old/path", "--fts", "A"]).is_err());
 }
 
 #[test]
@@ -26,35 +28,14 @@ fn input_modes_and_repeated_positionals_are_rejected() {
 }
 
 #[test]
-fn bare_command_does_not_open_repository_but_explicit_index_operation_does() {
+fn bare_command_requires_a_query_or_interactive_mode() {
     assert!(Arguments::try_parse_from(["obj"]).unwrap().validate_input().is_err());
-    assert!(Arguments::try_parse_from(["obj", "--load-index", "repository"]).unwrap().validate_input().is_ok());
-    assert!(Arguments::try_parse_from(["obj", "--flush-index", "temporary"]).unwrap().validate_input().is_ok());
-}
-
-#[test]
-fn load_and_flush_targets_are_independent() {
-    let cwd = tempfile::tempdir().unwrap();
-    let load = cwd.path().join("load");
-    let save = cwd.path().join("save");
-    std::fs::create_dir(&load).unwrap();
-    std::fs::create_dir(&save).unwrap();
-    let args = Arguments::try_parse_from([
-        "obj", "--load-index", "custom", "--load-index-directory", "load",
-        "--flush-index", "custom", "--flush-index-directory", "save",
-    ]).unwrap();
-    assert_eq!(args.load_index, Some(IndexTargetChoice::Custom));
-    let paths = args.resolve_paths(cwd.path()).unwrap();
-    assert_eq!(args.resolved_load_target(&paths).unwrap(), Some(IndexStorageTarget::CustomDirectory(load)));
-    assert_eq!(args.resolved_flush_target(&paths).unwrap(), Some(IndexStorageTarget::CustomDirectory(save)));
-    for invalid in [
-        vec!["obj", "--load-index", "custom"],
-        vec!["obj", "--flush-index", "custom"],
-        vec!["obj", "--load-index-directory", ".", "--fts", "A"],
-        vec!["obj", "--flush-index-directory", ".", "--fts", "A"],
-    ] {
-        assert!(Arguments::try_parse_from(invalid).unwrap().validate_input().is_err());
-    }
+    assert!(
+        Arguments::try_parse_from(["obj", "--tui"])
+            .unwrap()
+            .validate_input()
+            .is_ok()
+    );
 }
 
 #[test]

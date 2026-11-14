@@ -7,7 +7,6 @@ use crate::source::SourceFormat;
 
 #[test]
 fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
-    use crate::index_storage::{IndexStorageLocation, IndexLocationResolver};
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
     use crate::repository::RepositoryOptions;
@@ -54,28 +53,21 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         ..Default::default()
     };
     let memory = Index::build(&root, vec![definition.clone()], options).unwrap();
-    let storage = IndexLocationResolver {
-        location: IndexStorageLocation::RepositoryDirectory,
-    };
-    let first = Index::open_with_storage(
+    let first = Index::build_with_sources(
         root.clone(),
         vec![definition.clone()],
         options,
-        storage.clone(),
         SourceRegistry::builtin(),
     )
     .unwrap();
-    first.stop_sync_storage().unwrap();
     drop(first);
-    let managed = Index::open_with_storage(
+    let managed = Index::build_with_sources(
         root.clone(),
         vec![definition],
         options,
-        storage,
         SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(managed.restored_from_storage());
     for index in [&memory, &managed] {
         for (pattern, case, flags, expected) in [
             (
@@ -145,7 +137,6 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
             assert_eq!(result.counters.exact_posting_matches, expected.len() as u64);
         }
     }
-    managed.stop_sync_storage().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1097,7 +1088,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .build()
         .unwrap();
     let index = admission
-        .seal()
+        .finish()
         .into_indexed(
             &collection.definition,
             repo.options.bigram_alphabet,
@@ -2131,7 +2122,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         .build()
         .unwrap();
     let segment = admission
-        .seal()
+        .finish()
         .into_indexed(
             &collection.definition,
             repo.options.bigram_alphabet,
@@ -2611,7 +2602,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
 }
 
 #[test]
-fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
+fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::RepositoryOptions;
     use crate::workload::SortField;

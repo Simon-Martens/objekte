@@ -231,7 +231,7 @@ fn segment_text_candidates(
     let Some(request) = term.gram_request.as_ref() else {
         return Ok(None);
     };
-    index.try_candidates_prepared(request)
+    Ok(index.candidates_prepared(request))
 }
 
 fn extend_segment_file_slots(
@@ -287,7 +287,7 @@ fn segment_file_size_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let revision = segment.try_file_revision_at(index)?.ok_or("segment file row missing")?;
+        let revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
         let order = Number::integer(revision.size as i128).cmp(literal);
         if order_matches(order, term.operator) {
             extend_segment_file_slots(segment, index, &mut matches)?;
@@ -306,7 +306,7 @@ fn segment_file_path_matches(
 ) -> Result<RoaringBitmap, String> {
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let id = segment.try_file_id_at(index)?.ok_or("segment file row missing")?;
+        let id = segment.files.get(index).map(|file| file.entry.id).ok_or("segment file row missing")?;
         let Some(entry) = catalog.entry(id) else {
             continue;
         };
@@ -351,10 +351,10 @@ fn segment_file_modified_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        if segment.try_file_record_count_at(index)?.ok_or("segment file row missing")? == 0 {
+        if segment.files.get(index).map(|file| file.records.len()).ok_or("segment file row missing")? == 0 {
             continue;
         }
-        file.revision = segment.try_file_revision_at(index)?.ok_or("segment file row missing")?;
+        file.revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
         let selected = if let Some(literal) = direct_literal {
             let modified = file.revision.modified_ns;
             time::OffsetDateTime::from_unix_timestamp_nanos(modified)
@@ -404,7 +404,7 @@ fn segment_record_range_matches(
     let mut record = metadata_probe_record();
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        record.range = segment.try_record_range(RecordSlot(slot))?.ok_or("segment record row missing")?;
+        record.range = segment.record(RecordSlot(slot)).map(|record| record.range).ok_or("segment record row missing")?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
@@ -528,7 +528,7 @@ fn segment_positional_eq_candidates(
     let Some(index) = segment.postings.fields.get(&term.path.segments) else {
         return Ok(None);
     };
-    index.exact_set_restricted_checked(term, &segment.logical_records, logical_active)
+    Ok(index.exact_set_restricted(term, &segment.logical_records, logical_active))
 }
 
 fn segment_raw_covers_identity_field(
@@ -569,12 +569,12 @@ fn segment_metadata_matches(
         let Some(slot) = domain.iter().next() else {
             return Ok(Some(RoaringBitmap::new()));
         };
-        let record = segment.try_record(crate::model::RecordSlot(slot))?.ok_or("segment record row missing")?;
+        let record = segment.record(crate::model::RecordSlot(slot)).ok_or("segment record row missing")?;
         let Some(file) = catalog.entry(record.file) else { return Ok(None); };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: &record,
+            record,
             file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
@@ -587,12 +587,12 @@ fn segment_metadata_matches(
     }
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        let record = segment.try_record(crate::model::RecordSlot(slot))?.ok_or("segment record row missing")?;
+        let record = segment.record(crate::model::RecordSlot(slot)).ok_or("segment record row missing")?;
         let Some(file) = catalog.entry(record.file) else { return Ok(None); };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: &record,
+            record,
             file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
@@ -640,7 +640,7 @@ fn segment_expr_bounds(
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.try_id_lookup(id.as_str())?
+                if let Some(slot) = segment.id_lookup.get(id.as_str()).copied()
                     && domain.contains(slot.0)
                 {
                     matches.insert(slot.0);
@@ -664,7 +664,7 @@ fn segment_expr_bounds(
                 {
                     let mut matches = RoaringBitmap::new();
                     for file in files {
-                        if let Some(slots) = segment.try_file_records(file)? {
+                        if let Some(slots) = segment.file_records(file) {
                             matches.extend(slots.iter().map(|slot| slot.0));
                         }
                     }
@@ -783,7 +783,7 @@ fn segment_expr_bounds(
             if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
                 for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
-                    if let Some(slots) = segment.try_file_records(file)? {
+                    if let Some(slots) = segment.file_records(file) {
                         matches.extend(slots.iter().map(|slot| slot.0));
                     }
                 }
@@ -1387,21 +1387,17 @@ fn term_set(
         return Ok(Some(result));
     }
     if term.operation.is_some() {
-        collection
+        Ok(collection
             .custom_postings
             .get(&(term.path.segments.clone(), term.binding_name.clone()))
             .filter(|posting| posting.complete)
-            .map(|posting| posting.index.exact_set_checked(term, domain))
-            .transpose()
-            .map(|value| value.flatten())
+            .and_then(|posting| posting.index.exact_set(term, domain)))
     } else {
-        collection
+        Ok(collection
             .postings
             .fields
             .get(&term.path.segments)
-            .map(|index| index.exact_set_checked(term, domain))
-            .transpose()
-            .map(|value| value.flatten())
+            .and_then(|index| index.exact_set(term, domain)))
     }
 }
 
@@ -2531,7 +2527,7 @@ impl PreparedFtsAccess<'_, '_> {
             let next = if let Some(condition) = self.regex {
                 condition.candidates_checked(probe.index)?
             } else {
-                probe.index.try_candidates_prepared(probe.request)?
+                probe.index.candidates_prepared(probe.request)
             };
             let Some(next) = next else {
                 return Ok(None);

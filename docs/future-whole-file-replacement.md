@@ -21,7 +21,7 @@ revision when path, metadata, memberships, configuration, and digest agree.
 
 `update_file_with_options` and `delete_file_with_old_content` accept complete
 old bytes for verified maintenance. The stored SHA-256 digest and compatible
-reader layout must agree. Fresh builds and managed generations retain digests for
+reader layout must agree. Fresh builds and live indexes retain digests for
 base files, so eligible base and delta contributions can discard old postings
 physically before publication. Base maintenance compacts a private staged
 root, bounded to 262,144 scanned records per collection; ordinary mutations
@@ -47,23 +47,21 @@ and segments without reading source files. It advances the revision only when
 retired slots exist. `Index::rebuild` rereads the current explicit source
 configuration while searches continue on the previous view. Both operations
 publish only against the revision they captured; a concurrent mutation causes
-a bounded retry. Compaction and rebuilding do not imply a storage flush.
+a bounded retry. Compaction and rebuilding keep all state in memory.
 `start_compaction` and `start_rebuild` return observable, cancellable worker
 handles. Cancellation before publication leaves the current view installed;
 `shutdown` cancels and joins active maintenance workers.
 
-`Index::build` uses explicit definitions and sources in memory.
-`Index::open_with_storage` uses the same definitions with an
-`IndexStoragePolicy` to restore or build a managed generation. A restored
-generation becomes searchable before background metadata reconciliation
-finishes. `wait_for_reconciliation` lets callers wait for that check.
-Reconciliation compares size and modification time; it does not hash
-unchanged files and cannot detect an edit that restores both metadata values.
-`flush_storage()` saves one pinned revision to its attached managed store.
+`Index::build` and `Index::start_incremental_build` use explicit definitions
+and sources in memory. A progressively built catalogue becomes searchable
+before background metadata reconciliation finishes. `wait_for_reconciliation`
+lets callers wait for that check. Reconciliation compares size and modification
+time; it does not hash unchanged files and cannot detect an edit that restores
+both metadata values. There is no index store or flush operation.
 
-The active record set and index revision are persisted with the managed
-generation. Verified query results stay in memory and are scoped to the
-published revision. Source access still checks the recorded revision, so an
+The active record set and index revision live in memory and are released when
+the owner drops the index. Verified query results stay in memory and are scoped
+to the published revision. Source access still checks the recorded revision, so an
 old pinned view does not make changed or missing source bytes available.
 Availability-oriented searches and streams report incomplete results and
 bounded source diagnostics when needed bytes cannot be read. Exact count and

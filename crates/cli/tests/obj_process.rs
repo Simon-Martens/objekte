@@ -25,14 +25,6 @@ fn hits(events: &[Value]) -> Vec<&Value> {
         .collect()
 }
 
-fn managed_configuration_count(root: &Path) -> usize {
-    std::fs::read_dir(root.join(".objekte/.indexes"))
-        .unwrap()
-        .filter_map(Result::ok)
-        .filter(|entry| entry.file_type().is_ok_and(|kind| kind.is_dir()))
-        .count()
-}
-
 #[test]
 fn boolean_field_predicates_keep_cli_results_and_errors_exact() {
     let root = tempfile::tempdir().unwrap();
@@ -238,25 +230,14 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
     assert!(diagnostics["authors"]["paths"].is_array());
     assert!(diagnostics["books"]["paths"].is_array());
 
-    let (status, events) = invoke(root.path(), &["--repo", ".", "--flush-index", "repository"]);
+    let (status, events) = invoke(root.path(), &["--repo", ".", "--fts", "Ada"]);
     assert!(
         status.status.success(),
         "{}",
         String::from_utf8_lossy(&status.stderr)
     );
-    assert_eq!(events.last().unwrap()["type"], "run_complete");
-    assert!(root.path().join(".objekte/.indexes").is_dir());
-    let (status, events) = invoke(
-        root.path(),
-        &["--repo", ".", "--load-index", "repository", "--fts", "Ada"],
-    );
-    assert!(
-        status.status.success(),
-        "{}",
-        String::from_utf8_lossy(&status.stderr)
-    );
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
     assert_eq!(hits(&events).len(), 1);
+    assert!(events.last().unwrap()["build_parses"].as_u64().unwrap() > 0);
 }
 
 #[test]
@@ -330,23 +311,9 @@ fn repeated_paths_open_only_selected_collections_without_repository_configuratio
     assert!(diagnostics["authors"]["paths"].is_array());
     assert!(diagnostics["books"]["paths"].is_array());
 
-    let (result, _) = invoke(
-        root.path(),
-        &[selected.as_slice(), &["--flush-index", "repository"]].concat(),
-    );
-    assert!(
-        result.status.success(),
-        "{}",
-        String::from_utf8_lossy(&result.stderr)
-    );
-    assert!(root.path().join(".objekte/.indexes").is_dir());
     let (result, events) = invoke(
         root.path(),
-        &[
-            selected.as_slice(),
-            &["--load-index", "repository", "--fts", "needle"],
-        ]
-        .concat(),
+        &[selected.as_slice(), &["--fts", "needle"]].concat(),
     );
     assert!(
         result.status.success(),
@@ -354,7 +321,7 @@ fn repeated_paths_open_only_selected_collections_without_repository_configuratio
         String::from_utf8_lossy(&result.stderr)
     );
     assert_eq!(hits(&events).len(), 2);
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
+    assert!(events.last().unwrap()["build_parses"].as_u64().unwrap() > 0);
 }
 
 #[test]
@@ -511,82 +478,38 @@ fn explicit_schema_and_auto_index_have_independent_cli_modes() {
 }
 
 #[test]
-fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
+fn schema_bytes_and_inference_modes_rebuild_from_source() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"code":"A"}"#).unwrap();
     let schema_path = root.path().join("schema.json");
     let base = serde_json::json!({"type":"object","properties":{"code":{"type":"string"}}});
     std::fs::write(&schema_path, base.to_string()).unwrap();
-    let (written, events) = invoke(
+    let (auto, auto_events) = invoke(
         root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--flush-index",
-            "repository",
-        ],
+        &["--schema", "schema.json", "--auto-index", "code = \"A\""],
     );
     assert!(
-        written.status.success(),
+        auto.status.success(),
         "{}",
-        String::from_utf8_lossy(&written.stderr)
+        String::from_utf8_lossy(&auto.stderr)
     );
-    assert_eq!(events.last().unwrap()["type"], "run_complete");
-    assert!(root.path().join(".objekte/.indexes").is_dir());
-    let (loaded, events) = invoke(
+    assert_eq!(hits(&auto_events).len(), 1);
+    assert!(!root.path().join(".objekte").exists());
+    let (manual, manual_events) = invoke(
         root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--load-index",
-            "repository",
-            "code = \"A\"",
-        ],
+        &["--schema", "schema.json", "code = \"A\""],
     );
     assert!(
-        loaded.status.success(),
+        manual.status.success(),
         "{}",
-        String::from_utf8_lossy(&loaded.stderr)
+        String::from_utf8_lossy(&manual.stderr)
     );
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
-    assert_eq!(hits(&events).len(), 1);
-    let (mismatch, mismatch_events) = invoke(
-        root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--load-index",
-            "repository",
-            "code = \"A\"",
-        ],
-    );
-    assert!(
-        mismatch.status.success(),
-        "{}",
-        String::from_utf8_lossy(&mismatch.stderr)
-    );
-    assert_eq!(hits(&mismatch_events).len(), 1);
-    assert!(
-        mismatch_events.last().unwrap()["build_parses"]
-            .as_u64()
-            .unwrap()
-            > 0
-    );
+    assert_eq!(hits(&manual_events).len(), 1);
+    assert!(manual_events.last().unwrap()["build_parses"].as_u64().unwrap() > 0);
     std::fs::write(&schema_path, format!("{}\n", base)).unwrap();
     let (changed, changed_events) = invoke(
         root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--load-index",
-            "repository",
-            "--flush-index",
-            "repository",
-            "code = \"A\"",
-        ],
+        &["--schema", "schema.json", "--auto-index", "code = \"A\""],
     );
     assert!(
         changed.status.success(),
@@ -594,30 +517,11 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
         String::from_utf8_lossy(&changed.stderr)
     );
     assert_eq!(hits(&changed_events).len(), 1);
-    assert!(
-        changed_events.last().unwrap()["build_parses"]
-            .as_u64()
-            .unwrap()
-            > 0
-    );
-    let (restored, restored_events) = invoke(
-        root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--load-index",
-            "repository",
-            "code = \"A\"",
-        ],
-    );
-    assert!(restored.status.success());
-    assert_eq!(restored_events.last().unwrap()["build_parses"], 0);
-    assert_eq!(managed_configuration_count(root.path()), 2);
+    assert!(!root.path().join(".objekte").exists());
 }
 
 #[test]
-fn manual_and_automatic_postings_reopen_together() {
+fn manual_and_automatic_postings_build_together() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(
         root.path().join("schema.json"),
@@ -637,48 +541,21 @@ fn manual_and_automatic_postings_reopen_together() {
         )
         .unwrap();
     }
-    let (built_status, built) = invoke(
+    let (status, events) = invoke(
         root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--flush-index",
-            "repository",
-            "group = 'g2'",
-        ],
+        &["--schema", "schema.json", "--auto-index", "group = 'g2'"],
     );
     assert!(
-        built_status.status.success(),
+        status.status.success(),
         "{}",
-        String::from_utf8_lossy(&built_status.stderr)
+        String::from_utf8_lossy(&status.stderr)
     );
     assert_eq!(
-        built.last().unwrap()["automatic_index_summary"]["admitted_paths"],
+        events.last().unwrap()["automatic_index_summary"]["admitted_paths"],
         1
     );
-    let (loaded_status, loaded) = invoke(
-        root.path(),
-        &[
-            "--schema",
-            "schema.json",
-            "--auto-index",
-            "--load-index",
-            "repository",
-            "group = 'g2'",
-        ],
-    );
-    assert!(
-        loaded_status.status.success(),
-        "{}",
-        String::from_utf8_lossy(&loaded_status.stderr)
-    );
-    assert_eq!(loaded.last().unwrap()["build_parses"], 0);
-    assert_eq!(hits(&built).len(), 1);
-    assert_eq!(
-        hits(&built)[0]["file"]["record_id"],
-        hits(&loaded)[0]["file"]["record_id"]
-    );
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["file"]["record_id"], "path:2.json");
 }
 
 #[test]
@@ -729,7 +606,7 @@ fn default_folder_admits_root_shapes_and_hidden_json() {
     assert_eq!(events[0]["inference"], "disabled");
     for (index, event) in events.iter().enumerate() {
         assert_eq!(event["sequence"], (index + 1) as u64);
-        assert_eq!(event["protocol_version"], 3);
+        assert_eq!(event["protocol_version"], 4);
     }
     let (result, events) = invoke(root.path(), &["--no-recurse", "--fts", "needle"]);
     assert!(result.status.success());
@@ -866,85 +743,55 @@ fn search_without_index_flags_leaves_disk_cache_absent() {
 }
 
 #[test]
-fn temporary_and_repository_explicit_flush_then_load() {
+fn removed_storage_flags_are_unsupported_arguments() {
     let root = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
-    for mode in ["temporary", "repository"] {
-        let (saved, events) = invoke(root.path(), &["--flush-index", mode]);
+    for flag in [
+        "--load-index",
+        "--flush-index",
+        "--write-index",
+        "--index-storage",
+        "--index-directory",
+        "--index-residency",
+        "--load-index-directory",
+        "--flush-index-directory",
+    ] {
+        let (result, events) = invoke(root.path(), &[flag, "repository", "--fts", "needle"]);
+        assert_eq!(result.status.code(), Some(2), "{flag}");
+        assert!(events.is_empty(), "{flag}");
         assert!(
-            saved.status.success(),
-            "{}",
-            String::from_utf8_lossy(&saved.stderr)
+            String::from_utf8_lossy(&result.stderr).contains("unexpected argument"),
+            "{flag}: {}",
+            String::from_utf8_lossy(&result.stderr)
         );
-        assert_eq!(events[0]["protocol_version"], 3);
-        assert_eq!(events[0]["flush_index"], mode);
-        assert_eq!(events.last().unwrap()["index_action"], "built_in_memory");
-        assert_eq!(
-            events.last().unwrap()["index_flush_report"]["store_generation"],
-            1
-        );
-        let (loaded, events) = invoke(root.path(), &["--load-index", mode, "--fts", "needle"]);
-        assert!(
-            loaded.status.success(),
-            "{}",
-            String::from_utf8_lossy(&loaded.stderr)
-        );
-        assert_eq!(hits(&events).len(), 1);
-        assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
-        assert_eq!(events.last().unwrap()["build_parses"], 0);
-        assert_eq!(events.last().unwrap()["index_flush_report"], Value::Null);
     }
-    assert!(root.path().join(".objekte/.indexes").is_dir());
+    assert!(!root.path().join(".objekte").exists());
 }
 
 #[test]
-fn removed_residency_flag_is_rejected_with_migration_guidance() {
-    let root = tempfile::tempdir().unwrap();
-    let (result, events) = invoke(
-        root.path(),
-        &["--index-residency", "full", "--fts", "needle"],
-    );
-    assert_eq!(result.status.code(), Some(2));
-    assert!(events.is_empty());
-    assert!(String::from_utf8_lossy(&result.stderr).contains("--load-index"));
-}
-
-#[test]
-fn bare_obj_errors_but_explicit_flush_allows_index_only() {
+fn bare_obj_requires_a_query() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     let (missing, events) = invoke(root.path(), &[]);
     assert_eq!(missing.status.code(), Some(2));
     assert!(events.is_empty());
-    assert!(!root.path().join(".objekte").exists());
-    let (saved, events) = invoke(root.path(), &["--flush-index", "repository"]);
     assert!(
-        saved.status.success(),
+        String::from_utf8_lossy(&missing.stderr).contains("missing query"),
         "{}",
-        String::from_utf8_lossy(&saved.stderr)
+        String::from_utf8_lossy(&missing.stderr)
     );
-    assert_eq!(events.len(), 2);
-    assert_eq!(events[0]["type"], "run_start");
-    assert_eq!(events[1]["type"], "run_complete");
-    assert!(root.path().join(".objekte/.indexes").is_dir());
+    assert!(!root.path().join(".objekte").exists());
 }
 
 #[cfg(feature = "detailed-profiling")]
 #[test]
-fn diagnostic_disk_runs_report_timing_across_a_reopen() {
+fn diagnostic_source_runs_report_timing() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
-    let (written, events) = invoke(
-        root.path(),
-        &["--flush-index", "repository", "--diagnostic"],
-    );
-    assert!(written.status.success());
+    let (run, events) = invoke(root.path(), &["--fts", "needle", "--diagnostic"]);
+    assert!(run.status.success());
     assert!(events.last().unwrap()["startup_ms"].is_number());
     assert!(events.last().unwrap()["run_elapsed_ms"].is_number());
-    assert!(root.path().join(".objekte/.indexes").is_dir());
-    let (restored, events) = invoke(root.path(), &["--load-index", "repository", "--diagnostic"]);
-    assert!(restored.status.success());
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
+    assert!(!root.path().join(".objekte").exists());
 }
 
 #[test]
@@ -1057,7 +904,7 @@ fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
         assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
     };
     for event in &events {
-        assert_eq!(event["protocol_version"], 3);
+        assert_eq!(event["protocol_version"], 4);
         assert!(
             !event
                 .as_object()
@@ -1114,7 +961,7 @@ fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
 }
 
 #[test]
-fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
+fn diagnostic_lists_inferred_btree_paths_after_a_source_build() {
     let root = tempfile::tempdir().unwrap();
     for number in 0..80 {
         std::fs::write(
@@ -1130,12 +977,7 @@ fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
     }
     let (built, events) = invoke(
         root.path(),
-        &[
-            "--flush-index",
-            "repository",
-            "--auto-index",
-            "--diagnostic",
-        ],
+        &["--auto-index", "--diagnostic", "--fts", "needle"],
     );
     assert!(
         built.status.success(),
@@ -1165,16 +1007,7 @@ fn diagnostic_lists_inferred_btree_paths_after_build_and_reopen() {
         assert_eq!(field["covered_records"], 80, "{path}");
         assert_eq!(field["multi"], false, "{path}");
     }
-    let (restored, events) = invoke(
-        root.path(),
-        &["--load-index", "repository", "--auto-index", "--diagnostic"],
-    );
-    assert!(restored.status.success());
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
-    assert_eq!(
-        events.last().unwrap()["automatic_index_paths"],
-        serde_json::json!(paths)
-    );
+    assert!(!root.path().join(".objekte").exists());
 }
 
 #[test]
@@ -1321,136 +1154,36 @@ fn malformed_query_line_is_terminal_but_later_lines_execute() {
 }
 
 #[test]
-fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
+fn empty_query_file_is_an_input_error() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("queries.txt"), b"  \r\n\n").unwrap();
     let (invalid, events) = invoke(root.path(), &["--query-file", "queries.txt"]);
     assert_eq!(invalid.status.code(), Some(1));
     assert_eq!(events.last().unwrap()["type"], "run_error");
-    let (index_only, events) = invoke(
-        root.path(),
-        &["--query-file", "queries.txt", "--flush-index", "repository"],
-    );
-    assert!(
-        index_only.status.success(),
-        "{}",
-        String::from_utf8_lossy(&index_only.stderr)
-    );
-    assert_eq!(events.last().unwrap()["type"], "run_complete");
 }
 
 #[test]
-fn explicit_load_reconciles_sources_without_automatic_save() {
-    let root = tempfile::tempdir().unwrap();
-    std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
-    let (saved, events) = invoke(
-        root.path(),
-        &["--flush-index", "repository", "--fts", "needle"],
-    );
-    assert!(
-        saved.status.success(),
-        "{}",
-        String::from_utf8_lossy(&saved.stderr)
-    );
-    assert_eq!(hits(&events).len(), 1);
-    let namespace = root.path().join(".objekte/.indexes");
-    let directory = std::fs::read_dir(&namespace)
-        .unwrap()
-        .next()
-        .unwrap()
-        .unwrap()
-        .path();
-    let manifest = directory.join("manifest.toml");
-    let before = std::fs::read(&manifest).unwrap();
-    let (loaded, events) = invoke(
-        root.path(),
-        &["--load-index", "repository", "--fts", "needle"],
-    );
-    assert!(loaded.status.success());
-    assert_eq!(events.last().unwrap()["index_action"], "loaded_saved_index");
-    assert_eq!(events.last().unwrap()["build_parses"], 0);
-    std::fs::write(
-        root.path().join("data.json"),
-        br#"{"title":"other, longer"}"#,
-    )
-    .unwrap();
-    let (reconciled, events) = invoke(
-        root.path(),
-        &["--load-index", "repository", "--fts", "other"],
-    );
-    assert!(
-        reconciled.status.success(),
-        "{}",
-        String::from_utf8_lossy(&reconciled.stderr)
-    );
-    assert_eq!(hits(&events).len(), 1);
-    assert_eq!(std::fs::read(&manifest).unwrap(), before);
-    let (saved_again, events) = invoke(
-        root.path(),
-        &["--load-index", "repository", "--flush-index", "repository"],
-    );
-    assert!(
-        saved_again.status.success(),
-        "{}",
-        String::from_utf8_lossy(&saved_again.stderr)
-    );
-    assert_eq!(
-        events.last().unwrap()["index_flush_report"]["store_generation"],
-        2
-    );
-    assert_ne!(std::fs::read(&manifest).unwrap(), before);
-}
-
-#[test]
-fn custom_index_namespace_does_not_hide_unrelated_source_files() {
+fn generated_index_namespaces_are_excluded_from_source_discovery() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
     std::fs::create_dir(root.path().join("cache")).unwrap();
-    let (saved, events) = invoke(
-        root.path(),
-        &[
-            "--flush-index",
-            "custom",
-            "--flush-index-directory",
-            "cache",
-            "--fts",
-            "needle",
-        ],
-    );
-    assert!(
-        saved.status.success(),
-        "{}",
-        String::from_utf8_lossy(&saved.stderr)
-    );
-    assert_eq!(hits(&events).len(), 1);
-    assert!(root.path().join("cache/objekte-indexes").is_dir());
     std::fs::write(
         root.path().join("cache/source.json"),
         br#"{"title":"needle"}"#,
     )
     .unwrap();
+    std::fs::create_dir_all(root.path().join("cache/objekte-indexes")).unwrap();
     std::fs::write(
         root.path().join("cache/objekte-indexes/not-source.json"),
         br#"{"title":"needle"}"#,
     )
     .unwrap();
-    let (loaded, events) = invoke(
-        root.path(),
-        &[
-            "--load-index",
-            "custom",
-            "--load-index-directory",
-            "cache",
-            "--fts",
-            "needle",
-        ],
-    );
-    assert!(
-        loaded.status.success(),
-        "{}",
-        String::from_utf8_lossy(&loaded.stderr)
-    );
-    assert_eq!(hits(&events).len(), 2);
+    std::fs::create_dir_all(root.path().join(".objekte/indexes")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/indexes/poison.json"),
+        br#"{"title":"needle"}"#,
+    )
+    .unwrap();
     let (built, events) = invoke(root.path(), &["--fts", "needle"]);
     assert!(
         built.status.success(),
@@ -1458,6 +1191,7 @@ fn custom_index_namespace_does_not_hide_unrelated_source_files() {
         String::from_utf8_lossy(&built.stderr)
     );
     assert_eq!(hits(&events).len(), 2);
+    assert_eq!(events.last().unwrap()["files"], 2);
 }
 
 #[test]

@@ -59,6 +59,51 @@ fn hidden(path: &Path) -> bool {
 
 /// Returns repository-native lexical paths. Symlink aliases to one physical
 /// source are reduced to the first path in lexical order.
+/// Generated index namespaces are pruned before descent, regardless of the
+/// hidden-source setting. Only source traversal prunes these names; a user
+/// selecting one as the collection root is rejected during preparation.
+fn generated_directory(selected: &Path) -> bool {
+    selected.file_name().is_some_and(|name| {
+        name == std::ffi::OsStr::new(".objekte")
+            || name == std::ffi::OsStr::new("objekte-indexes")
+    })
+}
+
+/// Any path component that names a generated index namespace. Source
+/// selections and selected files must not pass through one, including through
+/// an ordinary-named alias once the physical target is resolved.
+pub(crate) fn contains_generated_directory(path: &Path) -> bool {
+    path.components().any(|component| match component {
+        Component::Normal(name) => {
+            name == std::ffi::OsStr::new(".objekte")
+                || name == std::ffi::OsStr::new("objekte-indexes")
+        }
+        _ => false,
+    })
+}
+
+fn selected_file_is_generated(selected: &Path) -> bool {
+    selected
+        .parent()
+        .is_some_and(contains_generated_directory)
+}
+
+fn reject_generated_source(source_path: &Path) -> Result<(), String> {
+    if contains_generated_directory(source_path) {
+        return Err(format!(
+            "collection source selection {} selects or lies beneath a generated index namespace",
+            source_path.display()
+        ));
+    }
+    Ok(())
+}
+
+fn physical_path_is_generated(root: &Path, physical: &Path) -> bool {
+    physical
+        .strip_prefix(root)
+        .is_ok_and(contains_generated_directory)
+}
+
 pub fn discover(
     root: &Path,
     source_path: &Path,
@@ -87,6 +132,7 @@ pub(crate) fn discover_stream(
     {
         return Err("collection source path must be a contained relative path".into());
     }
+    reject_generated_source(source_path)?;
     let source_directory = root.join(source_path);
     let physical_root = source_directory
         .canonicalize()
@@ -96,12 +142,19 @@ pub(crate) fn discover_stream(
             "collection source directory escapes repository root or is not a directory".into(),
         );
     }
+    if physical_path_is_generated(root, &physical_root) {
+        return Err(format!(
+            "collection source selection {} resolves inside a generated index namespace",
+            source_path.display()
+        ));
+    }
     let includes = compile(&rules.include)?;
     let excludes = compile(&rules.exclude)?;
     let mut aliases = BTreeMap::<PathBuf, PathBuf>::new();
     let mut ancestors = vec![physical_root.clone()];
 
     struct Walk<'a> {
+        root: &'a Path,
         source_directory: &'a Path,
         physical_root: &'a Path,
         rules: &'a Discovery,
@@ -143,6 +196,7 @@ pub(crate) fn discover_stream(
                     if kind.is_dir() {
                         if self.rules.recursive
                             && !excluded_directory
+                            && !generated_directory(selected)
                             && !self.excludes.is_match(selected)
                         {
                             self.directory(&path, ancestors)?;
@@ -152,15 +206,21 @@ pub(crate) fn discover_stream(
                     }
                     continue;
                 }
+                if generated_directory(selected) {
+                    continue;
+                }
                 let physical = path
                     .canonicalize()
                     .map_err(|error| format!("{}: {error}", path.display()))?;
-                if !physical.starts_with(self.physical_root) {
+                if !physical.starts_with(self.physical_root)
+                    || physical_path_is_generated(self.root, &physical)
+                {
                     continue;
                 }
                 if physical.is_dir() {
                     if self.rules.recursive
                         && !excluded_directory
+                        && !generated_directory(selected)
                         && !self.excludes.is_match(selected)
                         && !ancestors.contains(&physical)
                     {
@@ -197,6 +257,7 @@ pub(crate) fn discover_stream(
     }
 
     Walk {
+        root,
         source_directory: &source_directory,
         physical_root: &physical_root,
         rules,
@@ -235,6 +296,7 @@ pub(crate) fn discover_bounded(
     {
         return Err("collection source path must be a contained relative path".into());
     }
+    reject_generated_source(source_path)?;
     let source_directory = root.join(source_path);
     let physical_root = source_directory
         .canonicalize()
@@ -243,6 +305,12 @@ pub(crate) fn discover_bounded(
         return Err(
             "collection source directory escapes repository root or is not a directory".into(),
         );
+    }
+    if physical_path_is_generated(root, &physical_root) {
+        return Err(format!(
+            "collection source selection {} resolves inside a generated index namespace",
+            source_path.display()
+        ));
     }
     let includes = compile(&rules.include)?;
     let excludes = compile(&rules.exclude)?;
@@ -268,7 +336,10 @@ pub(crate) fn discover_bounded(
                 .any(|excluded| selected_path == excluded);
             if rules.symlinks == SymlinkPolicy::Skip {
                 if kind.is_dir() && rules.recursive {
-                    if !directory_excluded && !excludes.is_match(selected_path) {
+                    if !directory_excluded
+                        && !generated_directory(selected_path)
+                        && !excludes.is_match(selected_path)
+                    {
                         if pending.len() >= max_paths {
                             return Err("source discovery directory budget exceeded".into());
                         }
@@ -292,15 +363,21 @@ pub(crate) fn discover_bounded(
                 }
                 continue;
             }
+            if generated_directory(selected_path) {
+                continue;
+            }
             let physical = path
                 .canonicalize()
                 .map_err(|e| format!("{}: {e}", path.display()))?;
-            if !physical.starts_with(&physical_root) {
+            if !physical.starts_with(&physical_root)
+                || physical_path_is_generated(root, &physical)
+            {
                 continue;
             }
             if physical.is_dir() {
                 if rules.recursive
                     && !directory_excluded
+                    && !generated_directory(selected_path)
                     && !excludes.is_match(selected_path)
                     && !ancestors.contains(&physical)
                 {
@@ -367,6 +444,7 @@ pub fn selects_file(
     {
         return Err("file and source paths must be contained repository-relative paths".into());
     }
+    reject_generated_source(source_path)?;
     if !selects_file_lexical(source_path, rules, source, relative_path)? {
         return Ok(false);
     }
@@ -381,6 +459,12 @@ pub fn selects_file(
         return Err(
             "collection source directory escapes repository root or is not a directory".into(),
         );
+    }
+    if physical_path_is_generated(root, &physical_root) {
+        return Err(format!(
+            "collection source selection {} resolves inside a generated index namespace",
+            source_path.display()
+        ));
     }
     let path = root.join(relative_path);
     if rules.symlinks == SymlinkPolicy::Skip {
@@ -403,7 +487,9 @@ pub fn selects_file(
             Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
             Err(error) => return Err(format!("{}: {error}", path.display())),
         };
-        Ok(physical.starts_with(&physical_root) && physical.is_file())
+        Ok(physical.starts_with(&physical_root)
+            && !physical_path_is_generated(root, &physical)
+            && physical.is_file())
     }
 }
 
@@ -417,10 +503,13 @@ pub(crate) fn selects_file_lexical(
     source: &PreparedSource,
     relative_path: &Path,
 ) -> Result<bool, String> {
+    if contains_generated_directory(source_path) {
+        return Ok(false);
+    }
     let Ok(selected) = relative_path.strip_prefix(source_path) else {
         return Ok(false);
     };
-    if selected.as_os_str().is_empty()
+    if selected_file_is_generated(selected) || selected.as_os_str().is_empty()
         || (!rules.recursive && selected.components().count() != 1)
         || (!rules.hidden && hidden(selected))
         || relative_path
@@ -487,6 +576,7 @@ impl PreparedScanSelection {
         {
             return Err("collection source path must be a contained relative path".into());
         }
+        reject_generated_source(source_path)?;
         let source_directory = root.join(source_path);
         let physical_root = source_directory
             .canonicalize()
@@ -495,6 +585,12 @@ impl PreparedScanSelection {
             return Err(
                 "collection source directory escapes repository root or is not a directory".into(),
             );
+        }
+        if physical_path_is_generated(root, &physical_root) {
+            return Err(format!(
+                "collection source selection {} resolves inside a generated index namespace",
+                source_path.display()
+            ));
         }
         Ok(Self {
             source_path: source_path.to_owned(),
@@ -508,10 +604,13 @@ impl PreparedScanSelection {
     }
 
     pub(crate) fn selects_lexical(&self, relative_path: &Path) -> bool {
+        if contains_generated_directory(&self.source_path) {
+            return false;
+        }
         let Ok(selected) = relative_path.strip_prefix(&self.source_path) else {
             return false;
         };
-        if selected.as_os_str().is_empty()
+        if selected_file_is_generated(selected) || selected.as_os_str().is_empty()
             || (!self.rules.recursive && selected.components().count() != 1)
             || (!self.rules.hidden && hidden(selected))
             || relative_path
@@ -574,7 +673,9 @@ impl PreparedScanSelection {
                 Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
                 Err(error) => return Err(format!("{}: {error}", path.display())),
             };
-            Ok(physical.starts_with(&self.physical_root) && physical.is_file())
+            Ok(physical.starts_with(&self.physical_root)
+                && !physical_path_is_generated(root, &physical)
+                && physical.is_file())
         }
     }
 }

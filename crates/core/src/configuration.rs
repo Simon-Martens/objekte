@@ -11,6 +11,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const CONFIGURATION_HASH_VERSION: u32 = 17;
+const CONFIGURATION_HASH_DOMAIN: u32 = 1;
 
 fn path_bytes(path: &Path) -> Vec<u8> {
     #[cfg(unix)]
@@ -40,7 +41,9 @@ pub fn configuration_hash(
     sources: &SourceRegistry,
 ) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
-    hash.update(crate::PROGRAM_VERSION.to_le_bytes());
+    // Historical fixed domain value. Keep it byte-for-byte so live prepared
+    // updates and desktop source-check identities remain stable.
+    hash.update(CONFIGURATION_HASH_DOMAIN.to_le_bytes());
     // Keep the identity stable for generations written before the build-settings
     // section was introduced. Their compatibility hash covers the same inputs.
     hash.update(CONFIGURATION_HASH_VERSION.to_le_bytes());
@@ -174,6 +177,53 @@ mod tests {
     use crate::reference::{CustomBinding, FieldDefinition, Transform};
     use crate::relation::{RelationCardinality, RelationDefinition};
     use crate::source::{JsonReader, SourceFormat};
+
+    #[test]
+    fn live_configuration_hash_matches_the_pre_restore_fixture() {
+        // Expected bytes were produced at the pre-restoration execution base
+        // with the same definitions/options. They prove the live identity did
+        // not change while disk format versions were removed.
+        let sources = SourceRegistry::builtin();
+        let folder =
+            vec![CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars)];
+        let configured = vec![
+            CollectionDefinition::folder("authors", "data/authors", SourceFormat::Json),
+            CollectionDefinition::folder("books", "data/books", SourceFormat::JsonLines),
+        ];
+        let cases = [
+            (
+                &folder,
+                RepositoryOptions::default(),
+                "3d6c9a95513505be8fa182c40bd88c655dca362932233b1aee53d697586590ec",
+            ),
+            (
+                &folder,
+                RepositoryOptions {
+                    bigram_alphabet: crate::workload::BigramAlphabet::Unicode,
+                    ..RepositoryOptions::default()
+                },
+                "8fed0f48d81a0838e8c264b9c5c98157fc219ea5c480b83d34257723262e2093",
+            ),
+            (
+                &configured,
+                RepositoryOptions::default(),
+                "9451bad09cf9cca9287b5452ef98be53cdab8e26579d4f0334cf3531078a0f04",
+            ),
+            (
+                &configured,
+                RepositoryOptions {
+                    bigram_alphabet: crate::workload::BigramAlphabet::Unicode,
+                    ..RepositoryOptions::default()
+                },
+                "bb15855855053c61c268094a65258f7568ae57283e282ee5154db4fbb892d4fb",
+            ),
+        ];
+        for (definitions, options, expected) in cases {
+            let hash = configuration_hash(definitions, options, &sources).unwrap();
+            let actual = hash.iter().map(|byte| format!("{byte:02x}")).collect::<String>();
+            assert_eq!(actual, expected);
+        }
+    }
 
     #[test]
     fn configuration_identity_tracks_content_inputs_and_ignores_runtime_budgets() {

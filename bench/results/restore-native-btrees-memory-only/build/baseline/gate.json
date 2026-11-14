@@ -1,0 +1,25 @@
+{
+  "revision": "66b932f31f922a13062a61658e843e3033b3aff4",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "binary": "/tmp/opencode/restore-btrees/bin/bench_build_musenalm-start",
+  "baseline": null,
+  "summary": {
+    "ascii": {
+      "samples": 3,
+      "median_wall_ns": 961562252,
+      "median_peak_resident_bytes": 483115008,
+      "min_wall_ns": 948327755,
+      "max_wall_ns": 987188568,
+      "index_signature_sha256": "ef8e7ae91113997ae9b5caa87c1333824d96ae72d5067ee482a7a9eed1784b3d"
+    },
+    "unicode": {
+      "samples": 3,
+      "median_wall_ns": 984764774,
+      "median_peak_resident_bytes": 507654144,
+      "min_wall_ns": 975564636,
+      "max_wall_ns": 989239944,
+      "index_signature_sha256": "f18d6bdbf0bd09272a9633c1d6ad51b45215e9871580a7feb168bc2ee9e40808"
+    }
+  },
+  "failures": []
+}

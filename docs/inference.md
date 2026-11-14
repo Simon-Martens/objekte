@@ -87,9 +87,9 @@ reporting, subject to the distinct-count and distinct-byte limits, and marks
 truncated summaries incomplete. `ReportOnly` likewise reports observations
 without publishing inferred postings.
 
-Inference mode and policy participate in snapshot compatibility. Reopening
+Inference mode and policy participate in live configuration identity. Reopening
 with a different mode or policy may rebuild from source; a `Disabled` opening
-does not activate `AutoIndex` postings from a previous snapshot. Queries keep
+starts from empty in-memory indexes. Queries keep
 their original membership, evidence, payload and error semantics across modes.
 A complete compatible scalar posting can prove supported comparisons without
 source reads. Partial short-string postings add covered candidates while

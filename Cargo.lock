@@ -5227,7 +5227,6 @@ dependencies = [
  "icu_locale_core",
  "libc",
  "memchr",
- "memmap2",
  "rayon",
  "regex",
  "regex-syntax",
@@ -5237,7 +5236,6 @@ dependencies = [
  "sha2 0.10.9",
  "smallvec",
  "time",
- "toml 0.8.23",
  "unicode-casefold",
 ]
 

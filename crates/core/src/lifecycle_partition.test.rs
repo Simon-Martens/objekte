@@ -230,7 +230,7 @@ fn compacts_one_large_file_in_source_free_parts() {
 }
 
 #[test]
-fn partition_and_managed_restore_keep_global_inference_diagnostics() {
+fn partition_and_native_publication_keep_global_inference_diagnostics() {
     let root = std::env::temp_dir().join(format!(
         "objekte-partition-inference-{}-{}",
         std::process::id(),
@@ -310,14 +310,7 @@ fn partition_and_managed_restore_keep_global_inference_diagnostics() {
         index.view().unwrap().repository().startup().build_workers,
         startup.build_workers
     );
-    let restored = crate::test_support::restore_through_managed_store(
-        &index,
-        &root,
-        definitions,
-        options,
-    );
-    check(&restored);
-    restored.shutdown().unwrap();
+    check(&index);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -38,19 +38,15 @@ invocation, independently of the process working directory.
 | `--offset N` | Skip `N` hits in final result order; default `0`. |
 | `--count` | Compute an exact total for a finite page. All-results mode always computes it. |
 | `--index-alphabet ascii\|unicode` | Select bigram alphabet; default `ascii`. Exact case behavior is a query property. |
-| `--load-index temporary\|repository\|custom` | Try loading one saved generation from the selected target. A missing generation falls back to a memory build. |
-| `--load-index-directory DIR` | Base directory for `--load-index custom`. |
-| `--flush-index temporary\|repository\|custom` | Save the completed index publication once to the selected target. |
-| `--flush-index-directory DIR` | Base directory for `--flush-index custom`. Relative paths resolve from the invocation's working directory. |
 | `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
-`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An explicit load or flush permits an index-only invocation with no query. Each `custom` operation requires its corresponding directory option; loading and flushing may use different targets. The removed combined storage and residency options report migration guidance.
+`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. Every run opens source definitions and builds the in-memory index; there is no index-only or saved-index invocation.
 
-`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. The default builds in memory. Use `--load-index` to try one saved target and `--flush-index` to save once.
+`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. Every open builds the index in memory from the configured sources.
 
 With repeated `--path`, each directory becomes a collection named after its final directory component. Queries search all selected collections, and the TUI can select one. Names must be distinct; directories must not overlap and must share a useful parent directory. That common parent is the repository root. Only the selected directories are searched. Repeated `--path` does not require `.objekte` or collection schemas, and it cannot be combined with `--schema`. A single `--path` retains the `files` collection name and existing `--schema` behavior.
 
-A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an explicit load or flush operation.
+A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error.
 
 ```text
 "Goethe"
@@ -96,18 +92,18 @@ query stream after opening so input reads cannot block construction.
 
 `data` is the complete original source JSON value, not a projection or a serialization of the core's typed model. Its insignificant outer and inter-token whitespace is removed so the event stays on one line; string escapes, number spelling, member order and duplicate names are preserved. `data_available: true` distinguishes a genuine JSON `null` from unavailable source JSON. For malformed raw fallback, `data_available` is false, `data` is null, and the event carries `raw_text` with `raw_encoding: "utf8"` or `raw_base64` with `raw_encoding: "base64"`.
 
-The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, `first_result_ms` (null if there was no hit), and `all_results_ms`. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, `index_timings_ms`, `index_action`, `index_persistence`, `index_flush_report`, and query success/error counts. `index_persistence` separates source reconciliation, current publication revision, loaded origin, last saved revision, destination store generation, and validation diagnostics. `index_flush_report` identifies the saved publication revision, destination, store generation, unchanged outcome, and whether newer changes remain unsaved. File creation and modification timestamps in hit events are Unix-epoch milliseconds with three decimals.
+The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, `first_result_ms` (null if there was no hit), and `all_results_ms`. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, `index_timings_ms`, source-reconciliation completion, the current publication revision, and query success/error counts. Index readiness and counts come from the live lifecycle status; there are no saved-origin, destination, durable-generation or validation fields. File creation and modification timestamps in hit events are Unix-epoch milliseconds with three decimals.
 
-Protocol version 3 replaces version 2's combined `index_storage_status` and `index_storage_action` fields with operation-specific `index_action`, `index_persistence`, and `index_flush_report`. The `last_error_kind` and `validation_stamp_error_kind` values are `access`, `corrupt`, `incompatible`, `conflict`, `resource`, or `other`.
+Protocol version 4 removes the persisted-index `index_action`, `index_persistence` and `index_flush_report` fields and the index load/save error stages. Source builds, query events and diagnostics keep their existing order and fields.
 
-Timing fields use a monotonic clock. `first_result_ms` starts when the query begins and stops when its first hit reaches the output callback; `all_results_ms` stops after the query output flush, before the terminal event is written. Both are reported in milliseconds with three decimals. `index_timings_ms` contains elapsed integer milliseconds from the start of the build or load operation to `metadata`, `search_available`, `full_available`, and `inference_full_available`. The inference field is null when inference is disabled; other fields are null until their milestone is reached. With the Cargo feature `detailed-profiling`, additional preparation, search, sink, storage, and build phase timings are compiled and reported for diagnostics. Ordinary builds omit these detailed fields and their clock reads. The CLI and desktop feature flags forward to the core feature.
+Timing fields use a monotonic clock. `first_result_ms` starts when the query begins and stops when its first hit reaches the output callback; `all_results_ms` stops after the query output flush, before the terminal event is written. Both are reported in milliseconds with three decimals. `index_timings_ms` contains elapsed integer milliseconds from the start of the build or load operation to `metadata`, `search_available`, `full_available`, and `inference_full_available`. The inference field is null when inference is disabled; other fields are null until their milestone is reached. With the Cargo feature `detailed-profiling`, additional preparation, search, sink, maintenance, and build phase timings are compiled and reported for diagnostics. Ordinary builds omit these detailed fields and their clock reads. The CLI and desktop feature flags forward to the core feature.
 
 With `--auto-index --diagnostic`, the final event includes `automatic_index_paths`, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. The same typed report is available to library callers through `Repository::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
 
 In multi-collection mode (`--repo` or repeated `--path`), `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
 ```sh
-obj --path examples/musenalm --load-index repository --auto-index --diagnostic |
+obj --path examples/musenalm --auto-index --diagnostic |
   jq -r 'select(.type=="run_complete") | .automatic_index_paths[] |
     select(.index_status=="Built" and .value_keys>0) |
     "\(.path|join("."))\t\(.kind)\tkeys=\(.value_keys)\tmulti=\(.multi)"'
@@ -123,19 +119,11 @@ for path in repository.inference_index_diagnostics("files").unwrap_or_default() 
 }
 ```
 
-## Index persistence
+## In-memory index
 
-An ordinary invocation builds in memory and ignores saved indexes. `--load-index` checks only the selected target; on clean absence it reports the absence and builds in memory. A damaged or incompatible saved index is an error. Loading does not write index files. Saved segments are mapped and read on demand.
+Every invocation discovers its source files, builds the complete index in RAM and keeps it there for the lifetime of the process. There is no index save, load, import, export, automatic synchronization, shutdown save, recovery, disk cache or mmap-backed index. Source documents, schemas, saved queries, preferences and user-requested result exports keep their ordinary filesystem behavior.
 
-`--flush-index` saves one complete publication after construction and source reconciliation, before query output. It does not change the active index backing or enable automatic saves. A successful flush returns the saved publication revision and the destination's independent store generation. Later changes remain in memory until another explicit flush. Closing, Ctrl-C, and repository replacement do not save automatically.
-
-| Target | Managed location |
-| --- | --- |
-| `temporary` | A stable per-user namespace under the operating system temporary directory. |
-| `repository` | The repository's `.objekte/.indexes` directory. |
-| `custom` | An Objekte-owned namespace under the selected base directory. |
-
-For example, build and save with `obj --path ./data --flush-index repository`; later query it with `obj --path ./data --load-index repository --fts Goethe`. To copy a snapshot, use `--load-index temporary --flush-index custom --flush-index-directory /mnt/index-storage`. Independent custom load and flush directories use their respective directory options. Existing compatible destinations receive an atomically published newer generation; unrelated files and source documents are preserved.
+Generated index directories (`.objekte` and `objekte-indexes`) are pruned before source descent, so old artifacts are never indexed or modified. A source selection inside a generated index namespace is rejected. Closing the process releases the index; the next invocation builds it again from the current sources.
 
 ## Memory and exit behavior
 

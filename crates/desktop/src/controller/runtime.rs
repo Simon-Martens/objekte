@@ -12,10 +12,6 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
-use objekte_cli::storage_view::StorageIssueView;
-use objekte_search_core::index_storage::{
-    IndexFlushReport, IndexStorageFailureKind, IndexStorageTarget,
-};
 use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
     MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
@@ -30,8 +26,8 @@ use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FileCatalogue, FilterValidationState, IndexTaskKind, IndexTaskState,
-    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, StorageChoice,
-    TabFreshness, TabViewState, UiAction, UiUpdate, canonical_storage_base,
+    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, TabFreshness,
+    TabViewState, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
@@ -433,10 +429,6 @@ enum WorkerEvent {
         generation: u64,
         result: Result<Option<Vec<PathBuf>>, String>,
     },
-    PickedIndexDirectory {
-        generation: u64,
-        result: Result<Option<Vec<PathBuf>>, String>,
-    },
     Exported {
         open_generation: u64,
         export_generation: u64,
@@ -446,11 +438,6 @@ enum WorkerEvent {
         open_generation: u64,
         operation_id: u64,
         result: Result<(), String>,
-    },
-    IndexSaved {
-        open_generation: u64,
-        operation_id: u64,
-        result: Result<IndexFlushReport, String>,
     },
     IndexCloseCancelled {
         open_generation: u64,
@@ -502,10 +489,7 @@ pub struct DesktopController {
     last_index_poll: Instant,
     index_ui: IndexUiStatus,
     last_index_status_sent: Option<IndexUiStatus>,
-    last_flush: Option<IndexFlushReport>,
     index_operation_id: u64,
-    storage_sync_operation_id: u64,
-    close_after_storage_sync: bool,
     close_operation_id: u64,
     closing: bool,
     automatic_check_operation_id: u64,
@@ -599,10 +583,7 @@ impl DesktopController {
                 last_index_poll: Instant::now(),
                 index_ui: IndexUiStatus::default(),
                 last_index_status_sent: None,
-                last_flush: None,
                 index_operation_id: 0,
-                storage_sync_operation_id: 0,
-                close_after_storage_sync: false,
                 close_operation_id: 0,
                 closing: false,
                 automatic_check_operation_id: 0,
@@ -821,65 +802,19 @@ impl DesktopController {
         } else {
             "Plain folder".into()
         };
-        let index = session.repository.index();
-        match index.loaded_origin() {
-            Ok(origin) => {
-                self.index_ui.storage_location = origin.as_ref().map_or_else(
-                    || "Built in memory".to_owned(),
-                    |path| format!("Loaded from {}", path.display()),
-                );
-                self.index_ui.readiness = if status.initial_construction_complete {
-                    "Searchable".into()
-                } else {
-                    "Building".into()
-                };
-                self.index_ui.source_reconciliation = match status.reconciliation {
-                    ReconciliationState::Complete => "Source files current".into(),
-                    ReconciliationState::Partial => "Source check partial".into(),
-                    ReconciliationState::Cancelled => "Source check cancelled".into(),
-                    ReconciliationState::Running => "Checking source files".into(),
-                    ReconciliationState::Pending => "Source check pending".into(),
-                    ReconciliationState::NotStarted => "Source files not checked".into(),
-                };
-                self.index_ui.current_generation = status.revision.0;
-                self.index_ui.managed_directory = self
-                    .last_flush
-                    .as_ref()
-                    .map(|report| report.managed_directory.display().to_string())
-                    .or_else(|| origin.as_ref().map(|path| path.display().to_string()));
-                self.index_ui.durable_generation = self
-                    .last_flush
-                    .as_ref()
-                    .map(|report| report.store_generation);
-                self.index_ui.save_summary = match &self.last_flush {
-                    Some(report) => format!(
-                        "Saved revision {} to {}, generation {}{}",
-                        report.saved_revision.0,
-                        objekte_cli::storage_view::target_label(&report.target),
-                        report.store_generation,
-                        if status.revision != report.saved_revision {
-                            " · changes since save"
-                        } else {
-                            ""
-                        }
-                    ),
-                    None if origin.is_some() => "Loaded saved index · no save requested".into(),
-                    None => "Not saved".into(),
-                };
-                self.index_ui.validation_summary.clear();
-                self.index_ui.storage_issue = None;
-                self.index_ui.validation_warning = None;
-            }
-            Err(error) => {
-                self.index_ui.readiness = "Status unavailable".into();
-                self.index_ui.storage_issue = Some(StorageIssueView {
-                    kind: IndexStorageFailureKind::from(&error),
-                    summary: "Index status error".into(),
-                    guidance: "Retry; if it persists, use Details to report the error.".into(),
-                    detail: error.to_string(),
-                });
-            }
-        }
+        self.index_ui.readiness = if status.initial_construction_complete {
+            "Searchable".into()
+        } else {
+            "Building".into()
+        };
+        self.index_ui.source_reconciliation = match status.reconciliation {
+            ReconciliationState::Complete => "Source files current".into(),
+            ReconciliationState::Partial => "Source check partial".into(),
+            ReconciliationState::Cancelled => "Source check cancelled".into(),
+            ReconciliationState::Running => "Checking source files".into(),
+            ReconciliationState::Pending => "Source check pending".into(),
+            ReconciliationState::NotStarted => "Source files not checked".into(),
+        };
         self.index_ui.schema_paths = session
             .diagnostics
             .schema_files
@@ -896,7 +831,12 @@ impl DesktopController {
         }
         self.index_ui.index_instance = status.instance_id;
         self.index_ui.revision = status.revision.0;
-        self.index_ui.dirty = status.dirty();
+        self.index_ui.estimated_index_bytes = session
+            .repository
+            .index()
+            .view()
+            .ok()
+            .map(|view| view.estimated_index_bytes());
         self.index_ui.check_complete = match status.reconciliation {
             ReconciliationState::Complete => Some(true),
             ReconciliationState::Partial | ReconciliationState::Cancelled => Some(false),
@@ -1163,13 +1103,8 @@ impl DesktopController {
                 generation,
             } => self.choose_folder(slot, generation, cx),
             UiAction::ChooseSchema { generation } => self.choose_schema(generation, cx),
-            UiAction::ChooseIndexDirectory { generation } => {
-                self.choose_index_directory(generation, cx)
-            }
             UiAction::CancelOpen => self.cancel_open(updates),
             UiAction::Open(draft) => self.start_open(draft, updates),
-            UiAction::ChangeStorage(draft) => self.start_change_storage(draft, updates),
-            UiAction::SaveIndex(draft) => self.start_save_index(draft, updates),
             UiAction::SearchEdited(draft) => {
                 self.current_draft = draft.clone();
                 self.pending_edit = Some((Instant::now(), draft));
@@ -1412,7 +1347,6 @@ impl DesktopController {
             } => self.set_automatic_check(enabled, interval_seconds, updates),
             UiAction::CancelIndexTask(kind) => self.cancel_index_task(kind, updates),
             UiAction::RequestClose | UiAction::RetryClose => self.request_close(updates),
-            UiAction::CloseWithoutSaving => self.close_without_saving(updates),
             UiAction::CancelClose => self.cancel_close(updates),
             UiAction::RefreshResults => self.refresh_results_if_ready(updates),
             UiAction::RefreshRecord(id) => self.refresh_record(id, updates),
@@ -1585,47 +1519,6 @@ impl DesktopController {
         .detach();
     }
 
-    fn choose_index_directory(&mut self, generation: u64, cx: &mut App) {
-        self.picker_generation = generation;
-        let sender = self.worker_tx.clone();
-        let receiver = cx.prompt_for_paths(PathPromptOptions {
-            files: false,
-            directories: true,
-            multiple: false,
-            prompt: Some("Choose custom index base folder".into()),
-        });
-        cx.spawn(async move |_| {
-            let result = receiver
-                .await
-                .map_err(|error| error.to_string())
-                .and_then(|result| result.map_err(|error| error.to_string()));
-            let _ = sender.send(WorkerEvent::PickedIndexDirectory { generation, result });
-        })
-        .detach();
-    }
-
-    fn start_change_storage(&mut self, proposed: OpenDraft, updates: &mut Vec<UiUpdate>) {
-        let Some(current) = self.open_draft.as_ref() else {
-            return;
-        };
-        let mut draft = current.clone();
-        draft.index_storage = proposed.index_storage;
-        draft.index_directory = proposed.index_directory;
-        if draft.index_storage == StorageChoice::Custom {
-            match canonical_storage_base(&draft.index_directory) {
-                Ok(path) => draft.index_directory = path.display().to_string(),
-                Err(message) => {
-                    updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message,
-                    });
-                    return;
-                }
-            }
-        }
-        self.start_open(draft, updates);
-    }
-
     fn start_open(&mut self, draft: OpenDraft, updates: &mut Vec<UiUpdate>) {
         let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
         let spec = match open_spec(&draft, &cwd) {
@@ -1654,7 +1547,8 @@ impl DesktopController {
         thread::spawn(move || {
             let result = match open_gate.lock() {
                 Ok(_open_gate) => {
-                    open_after_flushing_previous(&spec, &token, previous.as_ref(), requested_check)
+                    let _ = (previous.as_ref(), requested_check);
+                    open_replacement(&spec, &token)
                 }
                 Err(_) => Err("repository opening coordinator is unavailable".into()),
             };
@@ -2741,11 +2635,6 @@ impl DesktopController {
                         self.active_tab = None;
                         self.emit_tabs(updates);
                         self.open_draft = self.opening_draft.take();
-                        if let (Some(draft), Some(IndexStorageTarget::CustomDirectory(base))) =
-                            (self.open_draft.as_mut(), &session.load_target)
-                        {
-                            draft.index_directory = base.display().to_string();
-                        }
                         if let Some(draft) = &self.open_draft {
                             updates.push(UiUpdate::ActiveOpenDraft(draft.clone()));
                         }
@@ -2801,22 +2690,12 @@ impl DesktopController {
                             });
                         }
                         self.index_ui = IndexUiStatus::default();
-                        self.last_flush = None;
                         updates.push(UiUpdate::Opened {
                             root,
                             collections: collections.clone(),
                             single_collection,
                             directories,
                         });
-                        if self
-                            .session
-                            .as_ref()
-                            .is_some_and(|session| session.diagnostics.load_not_found)
-                        {
-                            updates.push(UiUpdate::Status(
-                                "No saved index at the selected location; built in memory".into(),
-                            ));
-                        }
                         updates.push(UiUpdate::FileCatalogue(file_catalogue));
                         if let Some(session) = &self.session
                             && let Ok(status) = backend::index_lifecycle::status(session)
@@ -3349,27 +3228,6 @@ impl DesktopController {
                     }),
                 }
             }
-            WorkerEvent::PickedIndexDirectory { generation, result }
-                if generation == self.picker_generation =>
-            {
-                match result {
-                    Ok(Some(paths)) => {
-                        if let Some(path) = paths.into_iter().next() {
-                            updates.push(UiUpdate::ChosenIndexDirectory {
-                                generation,
-                                path: path.display().to_string(),
-                            });
-                        }
-                    }
-                    Ok(None) => {}
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message: format!(
-                            "Index folder chooser failed: {message}. Enter a path instead."
-                        ),
-                    }),
-                }
-            }
             WorkerEvent::IndexShutdown {
                 open_generation,
                 operation_id,
@@ -3381,45 +3239,6 @@ impl DesktopController {
                 match result {
                     Ok(()) => updates.push(UiUpdate::CloseReady),
                     Err(error) => updates.push(UiUpdate::ClosingIndex { error: Some(error) }),
-                }
-            }
-            WorkerEvent::IndexSaved {
-                open_generation,
-                operation_id,
-                result,
-            } if open_generation == self.open_generation
-                && operation_id == self.storage_sync_operation_id =>
-            {
-                if let Some(session) = &self.session
-                    && let Ok(status) = backend::index_lifecycle::status(session)
-                {
-                    self.update_index_ui(&status, updates);
-                }
-                self.index_ui.save_task = match result {
-                    Ok(report) => {
-                        self.last_flush = Some(report.clone());
-                        self.index_ui.durable_generation = Some(report.store_generation);
-                        self.index_ui.managed_directory =
-                            Some(report.managed_directory.display().to_string());
-                        self.index_ui.save_summary = format!(
-                            "Saved revision {} to {}, store generation {}{}",
-                            report.saved_revision.0,
-                            objekte_cli::storage_view::target_label(&report.target),
-                            report.store_generation,
-                            if report.newer_changes_unsaved {
-                                " · newer changes remain unsaved"
-                            } else {
-                                ""
-                            }
-                        );
-                        IndexTaskState::Succeeded(self.index_ui.save_summary.clone())
-                    }
-                    Err(error) => IndexTaskState::Failed(error),
-                };
-                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-                if self.close_after_storage_sync {
-                    self.close_after_storage_sync = false;
-                    self.request_close(updates);
                 }
             }
             WorkerEvent::IndexCloseCancelled {
@@ -3865,15 +3684,8 @@ impl DesktopController {
     }
 
     fn request_close(&mut self, updates: &mut Vec<UiUpdate>) {
-        if matches!(self.index_ui.save_task, IndexTaskState::Running { .. }) {
-            self.close_after_storage_sync = true;
-            updates.push(UiUpdate::Status(
-                "Waiting for the requested index save before closing…".into(),
-            ));
-            return;
-        }
         if !self.closing {
-            self.close_without_saving(updates);
+            self.start_close(updates);
         }
     }
 
@@ -3883,7 +3695,7 @@ impl DesktopController {
             .store(self.automatic_check_operation_id, Ordering::Release);
     }
 
-    fn close_without_saving(&mut self, updates: &mut Vec<UiUpdate>) {
+    fn start_close(&mut self, updates: &mut Vec<UiUpdate>) {
         if self.closing {
             return;
         }
@@ -3939,65 +3751,6 @@ impl DesktopController {
                 Err(_) => Err("automatic checking coordinator is unavailable".into()),
             };
             let _ = sender.send(WorkerEvent::IndexCloseCancelled {
-                open_generation,
-                operation_id,
-                result,
-            });
-        });
-    }
-
-    fn start_save_index(&mut self, draft: OpenDraft, updates: &mut Vec<UiUpdate>) {
-        if self.opening_draft.is_some()
-            || self.closing
-            || self.initial_construction_incomplete()
-            || matches!(self.index_ui.save_task, IndexTaskState::Running { .. })
-        {
-            updates.push(UiUpdate::Status(
-                "Wait for initial index construction or the current save".into(),
-            ));
-            return;
-        }
-        let Some(session) = self.session.clone() else {
-            return;
-        };
-        let target = match draft.index_storage {
-            StorageChoice::Memory => {
-                updates.push(UiUpdate::Error {
-                    field: ErrorField::Open,
-                    message: "Select a saved-index destination".into(),
-                });
-                return;
-            }
-            StorageChoice::Temporary => IndexStorageTarget::SystemTemporary,
-            StorageChoice::Repository => IndexStorageTarget::RepositoryDirectory,
-            StorageChoice::Custom => match canonical_storage_base(&draft.index_directory) {
-                Ok(path) => IndexStorageTarget::CustomDirectory(path),
-                Err(message) => {
-                    updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message,
-                    });
-                    return;
-                }
-            },
-        };
-        self.storage_sync_operation_id = self.storage_sync_operation_id.wrapping_add(1);
-        let operation_id = self.storage_sync_operation_id;
-        let open_generation = self.open_generation;
-        let sender = self.worker_tx.clone();
-        self.index_ui.save_task = IndexTaskState::Running {
-            operation_id,
-            processed: None,
-            total: None,
-        };
-        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-        thread::spawn(move || {
-            let result = session
-                .repository
-                .index()
-                .flush_to(&target)
-                .map_err(|error| objekte_cli::storage_view::format_index_error(&error));
-            let _ = sender.send(WorkerEvent::IndexSaved {
                 open_generation,
                 operation_id,
                 result,
@@ -4098,7 +3851,6 @@ impl DesktopController {
                 }
                 self.index_ui.load = IndexTaskState::Cancelled;
             }
-            IndexTaskKind::Save => {}
         }
         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
     }
@@ -4284,12 +4036,7 @@ fn resume_previous_automation(
     .map_err(|error| error.to_string())
 }
 
-fn open_after_flushing_previous(
-    spec: &OpenSpec,
-    token: &CancellationToken,
-    _previous: Option<&OpenedSession>,
-    _requested_check: (bool, u64),
-) -> OpenCompletion {
+fn open_replacement(spec: &OpenSpec, token: &CancellationToken) -> OpenCompletion {
     let result = open_with_preferences(spec, token);
     if token.is_cancelled() {
         if let Ok((session, ..)) = &result {
