@@ -69,17 +69,21 @@ fn sealed_broad_id_union_uses_checked_borrowed_keys() {
     let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
     writer
         .write_section(SectionKind::ScalarDictionaries, |target| {
-            target.write_all(&dictionary).map_err(|error| error.to_string())
+            target
+                .write_all(&dictionary)
+                .map_err(|error| error.to_string())
         })
         .unwrap();
     writer
         .write_section(SectionKind::PostingPayloads, |target| {
-            target.write_all(pack.bytes()).map_err(|error| error.to_string())
+            target
+                .write_all(pack.bytes())
+                .map_err(|error| error.to_string())
         })
         .unwrap();
-    let reader = Arc::new(SegmentReader::from_owned(
-        Arc::from(writer.finish().unwrap().into_inner()),
-    ).unwrap());
+    let reader = Arc::new(
+        SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap(),
+    );
     let allowed = Arc::new(RoaringBitmap::from_iter(0..202));
     index
         .install_sealed(
@@ -88,13 +92,15 @@ fn sealed_broad_id_union_uses_checked_borrowed_keys() {
                 SectionKind::ScalarDictionaries,
                 values,
                 Arc::clone(&allowed),
-            ).unwrap(),
+            )
+            .unwrap(),
             SealedPostingDictionary::open(
                 reader,
                 SectionKind::ScalarDictionaries,
                 lengths,
                 allowed,
-            ).unwrap(),
+            )
+            .unwrap(),
         )
         .unwrap();
     for ids in [
@@ -766,10 +772,13 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00", r#"{"nums":[],"objects":[],"text":"","blocked":[]}"#),
+        (
+            "00",
+            r#"{"nums":[],"objects":[],"text":"","blocked":[],"score":1,"shape":{}}"#,
+        ),
         (
             "01",
-            r#"{"nums":[1],"objects":[{"x":1}],"text":" ","blocked":[1]}"#,
+            r#"{"nums":[1],"objects":[{"x":1}],"text":" ","blocked":[1],"score":null,"shape":null}"#,
         ),
         ("02", r#"{"nums":[1,2],"objects":[{},{}],"text":"Ω"}"#),
         (
@@ -797,6 +806,8 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
             true,
         ),
         ("text", LogicalType::String, false),
+        ("score", LogicalType::Number, false),
+        ("shape", LogicalType::Object, false),
         (
             "blocked",
             LogicalType::Array(Box::new(LogicalType::Number)),
@@ -817,9 +828,17 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     }
     schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
     let postings = PostingCollection::new(&schema);
-    assert_eq!(postings.fields.len(), 3);
-    assert!(!postings.fields.contains_key(&vec!["blocked".into()]));
+    assert_eq!(postings.fields.len(), 6);
+    assert!(
+        postings.fields[&vec!["blocked".into()]]
+            .structural
+            .is_some()
+    );
+    assert!(!postings.fields[&vec!["blocked".into()]].length_complete);
     assert!(!postings.fields[&vec!["nums".into()]].value_complete);
+    assert!(!postings.fields[&vec!["nums".into()]].values_indexed);
+    assert!(!postings.fields[&vec!["score".into()]].values_indexed);
+    assert!(postings.fields[&vec!["shape".into()]].structural.is_some());
     assert!(postings.fields[&vec!["objects".into()]].length_complete);
     assert!(postings.fields[&vec!["text".into()]].empty_string_complete);
     let mut wrong = postings.clone();
@@ -882,6 +901,13 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
         ("text = \"Ω\"", false),
         ("nums ?= 2", false),
         ("blocked:length = 0", false),
+        ("blocked:array = true", true),
+        ("score:number = true", true),
+        ("score:number = false", true),
+        ("score:null = true", true),
+        ("shape:object = true", true),
+        ("shape:object = false", true),
+        ("shape:exists = false", true),
     ] {
         let request = Query {
             collections: vec!["data".into()],
@@ -985,7 +1011,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     assert!(
         repo.collections()[0].postings.fields[&vec!["legacy".into()]]
             .structural
-            .is_none()
+            .is_some()
     );
     assert!(
         !repo.collections()[0]
@@ -1271,8 +1297,8 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
     let b = root.join("data/b.json");
     let moved = root.join("data/c.json");
     let added = root.join("data/d.json");
-    std::fs::write(&a, br#"{"x":null}"#).unwrap();
-    std::fs::write(&b, br#"{"x":"hello"}"#).unwrap();
+    std::fs::write(&a, br#"{"x":null,"shape":{}}"#).unwrap();
+    std::fs::write(&b, br#"{"x":"hello","shape":null}"#).unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1282,6 +1308,17 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             nullable: true,
             indexed: true,
             multi: true,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["shape".into()],
+            kind: LogicalType::Object,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
             element_nullable: Vec::new(),
         })
         .unwrap();
@@ -1321,12 +1358,14 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             evidence: false,
         },
     };
-    let check = |view: &crate::lifecycle::IndexView, expected: [usize; 4]| {
+    let check = |view: &crate::lifecycle::IndexView, expected: [usize; 6]| {
         for (filter, count) in [
             "x:null = true",
             "x:string = true",
             "x:array = true",
             "x:? = false",
+            "shape:object = true",
+            "shape:null = true",
         ]
         .into_iter()
         .zip(expected)
@@ -1336,21 +1375,21 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             assert_eq!(found.counters.files_opened, 0, "{filter}");
         }
     };
-    check(&initial, [1, 1, 0, 1]);
+    check(&initial, [1, 1, 0, 1, 1, 1]);
     let a_handle = initial.file_handle_for_path(&a).unwrap();
     let b_handle = initial.file_handle_for_path(&b).unwrap();
-    std::fs::write(&a, br#"{"x":[]}"#).unwrap();
+    std::fs::write(&a, br#"{"x":[],"shape":null}"#).unwrap();
     let replaced = index.update_file(a_handle, &a).unwrap();
-    check(&index.view().unwrap(), [0, 1, 1, 1]);
-    check(&initial, [1, 1, 0, 1]);
+    check(&index.view().unwrap(), [0, 1, 1, 1, 0, 2]);
+    check(&initial, [1, 1, 0, 1, 1, 1]);
     std::fs::rename(&b, &moved).unwrap();
     index.move_file(b_handle, &moved).unwrap();
-    check(&index.view().unwrap(), [0, 1, 1, 1]);
+    check(&index.view().unwrap(), [0, 1, 1, 1, 0, 2]);
     index.delete_file(replaced.file).unwrap();
-    check(&index.view().unwrap(), [0, 1, 0, 0]);
-    std::fs::write(&added, br#"{"x":0}"#).unwrap();
+    check(&index.view().unwrap(), [0, 1, 0, 0, 0, 1]);
+    std::fs::write(&added, br#"{"x":0,"shape":{}}"#).unwrap();
     index.add_file(&added).unwrap();
-    check(&index.view().unwrap(), [0, 1, 0, 0]);
+    check(&index.view().unwrap(), [0, 1, 0, 0, 1, 1]);
     let number = index
         .view()
         .unwrap()

@@ -160,6 +160,7 @@ struct FieldBinding {
     key: PostingKey,
     kind: LogicalType,
     multi: bool,
+    values_indexed: bool,
     value_complete: bool,
     length_complete: bool,
     empty_string_complete: bool,
@@ -591,6 +592,7 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             key,
             kind: index.kind.clone(),
             multi: index.multi,
+            values_indexed: index.values_indexed,
             value_complete: index.value_complete,
             length_complete: index.length_complete,
             empty_string_complete: index.empty_string_complete,
@@ -1249,6 +1251,7 @@ fn decode_segment_impl<'a>(
                 )?
             },
             sealed: None,
+            values_indexed: field.values_indexed,
             value_complete: field.value_complete,
             length_complete: field.length_complete,
             empty_string_complete: field.empty_string_complete,
@@ -1483,12 +1486,6 @@ fn validate_components(
         .schema
         .fields
         .values()
-        .filter(|field| {
-            field.indexed
-                || (!definition.schema.is_auto_index_prohibited(&field.path)
-                    && (matches!(field.kind, LogicalType::Array(_))
-                        || (field.kind == LogicalType::String && !field.multi)))
-        })
         .map(|field| field.path.clone())
         .collect::<HashSet<_>>();
     if segment
@@ -1503,7 +1500,19 @@ fn validate_components(
     }
     for (path, index) in &segment.postings.fields {
         let field = &definition.schema.fields[path];
-        if index.path != *path || index.kind != field.kind || index.multi != field.multi {
+        let auto_index_prohibited =
+            !field.indexed && definition.schema.is_auto_index_prohibited(path);
+        if index.path != *path
+            || index.kind != field.kind
+            || index.multi != field.multi
+            || index.values_indexed != field.indexed
+            || index.value_complete != field.indexed
+            || index.length_complete
+                != (matches!(field.kind, LogicalType::Array(_)) && !auto_index_prohibited)
+            || index.empty_string_complete
+                != (field.kind == LogicalType::String && !field.multi && !auto_index_prohibited)
+            || index.structural.is_none()
+        {
             return Err("hybrid declared posting binding mismatch".into());
         }
         validate_posting_stats(index)?;

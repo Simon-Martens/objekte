@@ -1355,6 +1355,7 @@ pub(crate) struct PostingProjection {
 }
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
+        values_indexed: source.values_indexed,
     PostingIndex {
         path: source.path.clone(),
         kind: source.kind.clone(),
@@ -1631,6 +1632,7 @@ fn project_posting(
     bounds: Option<(u32, u32)>,
 ) -> Result<PostingIndex, String> {
     let mut projected = PostingIndex {
+        values_indexed: index.values_indexed,
         path: index.path.clone(),
         kind: index.kind.clone(),
         multi: index.multi,

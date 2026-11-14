@@ -19,7 +19,7 @@ use crate::inventory::{
     SourceRevision,
 };
 use crate::lifecycle::PublishedIndex;
-use crate::model::{CollectionId, FileId, LogicalType, RecordId, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationIndex;
 use crate::repository::{
@@ -1938,12 +1938,6 @@ fn load_snapshot_parts(
             .schema
             .fields
             .values()
-            .filter(|f| {
-                f.indexed
-                    || (!definition.schema.is_auto_index_prohibited(&f.path)
-                        && (matches!(f.kind, LogicalType::Array(_))
-                            || (f.kind == LogicalType::String && !f.multi)))
-            })
             .map(|f| f.path.clone())
             .collect();
         if encoded
@@ -1958,7 +1952,13 @@ fn load_snapshot_parts(
         }
         for (path, posting) in &encoded.postings.fields {
             let field = &definition.schema.fields[path];
-            if posting.kind != field.kind || posting.multi != field.multi || posting.path != *path {
+            if posting.kind != field.kind
+                || posting.multi != field.multi
+                || posting.path != *path
+                || posting.values_indexed != field.indexed
+                || posting.value_complete != field.indexed
+                || posting.structural.is_none()
+            {
                 return Err("snapshot posting binding mismatch".into());
             }
         }

@@ -31,7 +31,7 @@ fn fixture() -> (
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/sample.jsonl");
     std::fs::write(&path,
-        b"{\"n\":1,\"ref\":\"alpha\",\"text\":\"One\"}\n{\"n\":2,\"ref\":\"beta\",\"text\":\"Two\"}\n{bad}\n").unwrap();
+        b"{\"n\":1,\"ref\":\"alpha\",\"text\":\"One\",\"shape\":{\"x\":1}}\n{\"n\":2,\"ref\":\"beta\",\"text\":\"Two\"}\n{bad}\n").unwrap();
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     for (name, kind) in [
         ("n", LogicalType::Number),
@@ -51,6 +51,18 @@ fn fixture() -> (
             })
             .unwrap();
     }
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["shape".into()],
+            kind: LogicalType::Object,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     definition
         .schema
         .register_custom(
@@ -179,7 +191,13 @@ fn complete_segment_roundtrips_without_source_io() {
         assert_eq!(actual.values, original.values);
         assert_eq!(actual.lengths, original.lengths);
         assert_eq!(actual.presence, original.presence);
+        assert_eq!(actual.values_indexed, original.values_indexed);
+        assert_eq!(actual.structural.is_some(), original.structural.is_some());
     }
+    let shape = &decoded.postings.fields[&vec!["shape".into()]];
+    assert!(!shape.values_indexed);
+    assert!(shape.values.is_empty());
+    assert!(shape.structural.is_some());
     assert_eq!(decoded.raw.normal, segment.raw.normal);
     assert_eq!(decoded.raw.skip, segment.raw.skip);
     assert_eq!(decoded.fallback_text.normal, segment.fallback_text.normal);
@@ -439,10 +457,14 @@ fn consuming_seal_keeps_builder_metadata_and_queries_without_source() {
     assert_eq!(sealed.raw.skip.capacity(), 0);
     assert_eq!(
         sealed.postings.fields[&path]
-            .exact_set_checked(&term, &sealed.logical_records).unwrap(),
+            .exact_set_checked(&term, &sealed.logical_records)
+            .unwrap(),
         expected,
     );
-    assert_eq!(sealed.raw.try_candidates_prepared(&gram).unwrap(), expected_gram);
+    assert_eq!(
+        sealed.raw.try_candidates_prepared(&gram).unwrap(),
+        expected_gram
+    );
     assert!(!root.join("segment.idx").exists());
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -454,27 +476,37 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let original = sealed.raw.sealed_reader().unwrap();
     assert_eq!(original.decoded_cache_usage().0, 0);
-    let bytes = write_sealed_segment(
-        &sealed, 1, options, Cursor::new(Vec::new()),
-        &mut |entry| {
-            assert_eq!(entry, &file);
-            Ok(7)
-        },
-    ).unwrap().into_inner();
+    let bytes = write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |entry| {
+        assert_eq!(entry, &file);
+        Ok(7)
+    })
+    .unwrap()
+    .into_inner();
     assert_eq!(original.decoded_cache_usage().0, 0);
     let reopened = decode_segment_sealed(
         Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
-        1, &definition, options, sealed.collection,
-        (&sealed.source_id, sealed.source_version), sealed.records.len() as u32,
+        1,
+        &definition,
+        options,
+        sealed.collection,
+        (&sealed.source_id, sealed.source_version),
+        sealed.records.len() as u32,
         &|reference| (reference == 7).then_some(&file),
-    ).unwrap();
+    )
+    .unwrap();
     let path = vec!["n".to_owned()];
     let BoundExpr::Term(term) =
         bind_filter(&parse_filter("n >= 2").unwrap(), &definition.schema).unwrap()
-    else { panic!("expected term"); };
+    else {
+        panic!("expected term");
+    };
     assert_eq!(
-        reopened.postings.fields[&path].exact_set_checked(&term, &reopened.logical_records).unwrap(),
-        sealed.postings.fields[&path].exact_set_checked(&term, &sealed.logical_records).unwrap(),
+        reopened.postings.fields[&path]
+            .exact_set_checked(&term, &reopened.logical_records)
+            .unwrap(),
+        sealed.postings.fields[&path]
+            .exact_set_checked(&term, &sealed.logical_records)
+            .unwrap(),
     );
     assert_eq!(reopened.files[0].entry, file);
     std::fs::remove_dir_all(root).unwrap();
@@ -484,9 +516,15 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
 fn streamed_owned_pack_matches_checked_buffered_pack() {
     let (root, definition, options, segment) = fixture();
     let buffered = write_segment(
-        &segment, 1, &definition, options, Cursor::new(Vec::new()),
+        &segment,
+        1,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
         &mut |_| Ok(0),
-    ).unwrap().into_inner();
+    )
+    .unwrap()
+    .into_inner();
     let buffered = SegmentReader::from_owned(Arc::from(buffered)).unwrap();
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let streamed = sealed.raw.sealed_reader().unwrap();
@@ -497,15 +535,22 @@ fn streamed_owned_pack_matches_checked_buffered_pack() {
         ) {
             assert_eq!(streamed.section(kind).unwrap(), Some(&[][..]));
         } else {
-            assert_eq!(buffered.section(kind).unwrap(), streamed.section(kind).unwrap());
+            assert_eq!(
+                buffered.section(kind).unwrap(),
+                streamed.section(kind).unwrap()
+            );
         }
     }
-    let persisted = write_sealed_segment(
-        &sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0),
-    ).unwrap().into_inner();
+    let persisted =
+        write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0))
+            .unwrap()
+            .into_inner();
     let persisted = SegmentReader::from_owned(Arc::from(persisted)).unwrap();
     for kind in REQUIRED_SECTIONS {
-        assert_eq!(buffered.section(kind).unwrap(), persisted.section(kind).unwrap());
+        assert_eq!(
+            buffered.section(kind).unwrap(),
+            persisted.section(kind).unwrap()
+        );
     }
     std::fs::remove_dir_all(root).unwrap();
 }

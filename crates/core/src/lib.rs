@@ -4,7 +4,7 @@
 //! workload execution live in the CLI integration layer.
 
 /// Version of the in-memory search model and future snapshot envelope.
-pub const MODEL_VERSION: u32 = 11;
+pub const MODEL_VERSION: u32 = 12;
 
 pub mod bigram;
 mod bigram_dictionary;
@@ -19,8 +19,8 @@ pub mod discovery;
 pub mod execution_options;
 pub mod executor;
 mod field_state;
-mod generation_catalog;
 pub mod fts_preview;
+mod generation_catalog;
 mod hybrid_segment_codec;
 mod index_catalog;
 pub mod index_storage;
@@ -38,18 +38,18 @@ mod lifecycle_open;
 mod lifecycle_partition;
 pub mod lifecycle_repository;
 mod lifecycle_scan;
-mod lifecycle_storage;
 mod lifecycle_segment_codec;
+mod lifecycle_storage;
 mod lifecycle_verified;
-mod materialization;
 mod managed_store;
+mod materialization;
 pub mod measurement;
 pub mod model;
 mod ordered_block;
-mod posting_dictionary;
 pub mod parameters;
 pub mod path_repr;
 pub mod posting;
+mod posting_dictionary;
 pub mod posting_values;
 mod prepared;
 pub mod query;

@@ -63,6 +63,9 @@ pub struct PostingIndex {
     /// Immutable dictionary readers replace the completed builder maps.
     #[serde(skip)]
     pub(crate) sealed: Option<SealedPostingPair>,
+    /// Whether the declared field admits a complete typed value dictionary.
+    /// Partial length and empty-string shortcuts are tracked separately.
+    pub values_indexed: bool,
     /// A partial dictionary cannot prove that an absent scalar value is absent.
     pub value_complete: bool,
     pub length_complete: bool,
@@ -778,6 +781,7 @@ impl PostingIndex {
         if self.path != batch.path
             || self.kind != batch.kind
             || self.multi != batch.multi
+            || self.values_indexed != batch.values_indexed
             || self.value_complete != batch.value_complete
             || self.length_complete != batch.length_complete
             || self.empty_string_complete != batch.empty_string_complete
@@ -994,6 +998,7 @@ impl PostingIndex {
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
             sealed: None,
+            values_indexed: true,
             value_complete: true,
             length_complete: matches!(field.kind, LogicalType::Array(_)),
             empty_string_complete: field.kind == LogicalType::String && !field.multi,
@@ -1004,8 +1009,9 @@ impl PostingIndex {
 
     fn structural(field: &FieldDefinition) -> Self {
         let mut index = Self::new(field);
+        index.values_indexed = field.indexed;
         index.value_complete = field.indexed;
-        index.structural = field.indexed.then(StructuralFacts::default);
+        index.structural = Some(StructuralFacts::default());
         index
     }
 
@@ -1125,6 +1131,9 @@ impl PostingIndex {
         slot_count: usize,
         eligible_count: usize,
     ) -> Result<(), String> {
+        if !self.values_indexed && self.value_complete {
+            return Err("structural-only posting has complete values".into());
+        }
         if self.covered_records as usize != eligible_count {
             return Err("incomplete posting coverage".into());
         }
@@ -1986,13 +1995,14 @@ impl PostingCollection {
         let fields = schema
             .fields
             .values()
-            .filter(|f| {
-                f.indexed
-                    || (!schema.is_auto_index_prohibited(&f.path)
-                        && (matches!(f.kind, LogicalType::Array(_))
-                            || (f.kind == LogicalType::String && !f.multi)))
+            .map(|field| {
+                let mut index = PostingIndex::structural(field);
+                if !field.indexed && schema.is_auto_index_prohibited(&field.path) {
+                    index.length_complete = false;
+                    index.empty_string_complete = false;
+                }
+                (field.path.clone(), index)
             })
-            .map(|f| (f.path.clone(), PostingIndex::structural(f)))
             .collect();
         Self { fields }
     }

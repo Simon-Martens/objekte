@@ -1,0 +1,3250 @@
+[
+  {
+    "pair": 0,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/0-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1386514374,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/0-base/trial-1794618116547813508-1026994"
+    },
+    "sample": {
+      "after_build_hwm": 605470720,
+      "after_build_rss": 591503360,
+      "after_release_rss": 434573312,
+      "before_rss": 7282688,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 427136172,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1386514374,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 62,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1386536562,
+      "catalogue_observed_ns": 438554343,
+      "completion_ns": 1386514374,
+      "discovery_ns": 438541780,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 568514856,
+      "first_publication_observed_ns": 568610404,
+      "first_result_ns": 568655801,
+      "first_result_probe_ns": 45092,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1386514374,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297766,
+        "read_bytes": 199348224,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 0,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/0-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1151009995,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/0-candidate/trial-1794618118244841008-1027190"
+    },
+    "sample": {
+      "after_build_hwm": 623308800,
+      "after_build_rss": 605003776,
+      "after_release_rss": 434372608,
+      "before_rss": 7147520,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 257346503,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1151009995,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1151032812,
+      "catalogue_observed_ns": 269967784,
+      "completion_ns": 1151009995,
+      "discovery_ns": 269952059,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 365355732,
+      "first_publication_observed_ns": 365419782,
+      "first_result_ns": 365499293,
+      "first_result_probe_ns": 79300,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1151009995,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297771,
+        "read_bytes": 0,
+        "syscr": 297009,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 1,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/1-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1205998972,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/1-candidate/trial-1794618119665141832-1027406"
+    },
+    "sample": {
+      "after_build_hwm": 618627072,
+      "after_build_rss": 604946432,
+      "after_release_rss": 439275520,
+      "before_rss": 6905856,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 250556221,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1205998972,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1206027445,
+      "catalogue_observed_ns": 261481977,
+      "completion_ns": 1205998972,
+      "discovery_ns": 261467141,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 364968041,
+      "first_publication_observed_ns": 365080610,
+      "first_result_ns": 365135223,
+      "first_result_probe_ns": 54364,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1205998972,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297765,
+        "read_bytes": 0,
+        "syscr": 297009,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 1,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/1-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1155732847,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/1-base/trial-1794618121138713642-1027601"
+    },
+    "sample": {
+      "after_build_hwm": 604794880,
+      "after_build_rss": 585191424,
+      "after_release_rss": 423346176,
+      "before_rss": 7315456,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 249662946,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1155732847,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 62,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1155757443,
+      "catalogue_observed_ns": 262197573,
+      "completion_ns": 1155732847,
+      "discovery_ns": 262178403,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 355815634,
+      "first_publication_observed_ns": 355874223,
+      "first_result_ns": 355916581,
+      "first_result_probe_ns": 42203,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1155732847,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297764,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 2,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/2-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1093890844,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/2-base/trial-1794618122563307875-1027796"
+    },
+    "sample": {
+      "after_build_hwm": 600649728,
+      "after_build_rss": 582766592,
+      "after_release_rss": 414593024,
+      "before_rss": 7331840,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 243422182,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1093890844,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1093912501,
+      "catalogue_observed_ns": 255289690,
+      "completion_ns": 1093890844,
+      "discovery_ns": 255270992,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 344117482,
+      "first_publication_observed_ns": 344240609,
+      "first_result_ns": 344282094,
+      "first_result_probe_ns": 41202,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1093890844,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 2,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1162858240,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/2-candidate/trial-1794618123921353124-1027992"
+    },
+    "sample": {
+      "after_build_hwm": 604229632,
+      "after_build_rss": 590983168,
+      "after_release_rss": 426782720,
+      "before_rss": 7221248,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 245269810,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1162858240,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1162890764,
+      "catalogue_observed_ns": 256685773,
+      "completion_ns": 1162858240,
+      "discovery_ns": 256665022,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 354136636,
+      "first_publication_observed_ns": 354195865,
+      "first_result_ns": 354237129,
+      "first_result_probe_ns": 41083,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1162858240,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 3,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/3-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1176893590,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/3-candidate/trial-1794618125346721650-1028187"
+    },
+    "sample": {
+      "after_build_hwm": 620675072,
+      "after_build_rss": 607309824,
+      "after_release_rss": 441630720,
+      "before_rss": 7061504,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 242657091,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1176893590,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1176912199,
+      "catalogue_observed_ns": 253343301,
+      "completion_ns": 1176893590,
+      "discovery_ns": 253323502,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 347654068,
+      "first_publication_observed_ns": 347746969,
+      "first_result_ns": 347787086,
+      "first_result_probe_ns": 39781,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1176893590,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 3,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/3-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1114849548,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/3-base/trial-1794618126787229056-1028382"
+    },
+    "sample": {
+      "after_build_hwm": 612909056,
+      "after_build_rss": 597618688,
+      "after_release_rss": 440614912,
+      "before_rss": 7409664,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 232574307,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1114849548,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 63,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1114970532,
+      "catalogue_observed_ns": 243442182,
+      "completion_ns": 1114849548,
+      "discovery_ns": 243425294,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 329968204,
+      "first_publication_observed_ns": 330102898,
+      "first_result_ns": 330146171,
+      "first_result_probe_ns": 43113,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1114849548,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 4,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/4-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1110780982,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/4-base/trial-1794618128167185835-1028577"
+    },
+    "sample": {
+      "after_build_hwm": 603578368,
+      "after_build_rss": 592961536,
+      "after_release_rss": 431128576,
+      "before_rss": 7467008,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 250524990,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1110780982,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1110802192,
+      "catalogue_observed_ns": 262978986,
+      "completion_ns": 1110780982,
+      "discovery_ns": 262963056,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 344849914,
+      "first_publication_observed_ns": 344973903,
+      "first_result_ns": 345021313,
+      "first_result_probe_ns": 46993,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1110780982,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 4,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/4-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1220712833,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/4-candidate/trial-1794618129548386420-1028772"
+    },
+    "sample": {
+      "after_build_hwm": 632659968,
+      "after_build_rss": 612519936,
+      "after_release_rss": 446857216,
+      "before_rss": 7057408,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 253389010,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1220712833,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 64,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1220733655,
+      "catalogue_observed_ns": 264922113,
+      "completion_ns": 1220712833,
+      "discovery_ns": 264909898,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 375178362,
+      "first_publication_observed_ns": 375273210,
+      "first_result_ns": 375310348,
+      "first_result_probe_ns": 36828,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1220712833,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 5,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/5-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1161788435,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/5-candidate/trial-1794618131041188514-1028967"
+    },
+    "sample": {
+      "after_build_hwm": 618582016,
+      "after_build_rss": 608174080,
+      "after_release_rss": 443928576,
+      "before_rss": 7041024,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 257450848,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1161788435,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 63,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1161810405,
+      "catalogue_observed_ns": 268779132,
+      "completion_ns": 1161788435,
+      "discovery_ns": 268764179,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 362949438,
+      "first_publication_observed_ns": 363076064,
+      "first_result_ns": 363118954,
+      "first_result_probe_ns": 42333,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1161788435,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297765,
+        "read_bytes": 0,
+        "syscr": 297009,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 5,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/5-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1117310805,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/5-base/trial-1794618132469139592-1029162"
+    },
+    "sample": {
+      "after_build_hwm": 614883328,
+      "after_build_rss": 601845760,
+      "after_release_rss": 444788736,
+      "before_rss": 7352320,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 250410570,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1117310805,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 63,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1117325945,
+      "catalogue_observed_ns": 261997316,
+      "completion_ns": 1117310805,
+      "discovery_ns": 261984070,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 345970394,
+      "first_publication_observed_ns": 346024371,
+      "first_result_ns": 346055036,
+      "first_result_probe_ns": 30581,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1117310805,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297764,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 6,
+    "label": "base",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-baseline-8ca/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/6-base",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "192e7b20be38be29d1770750b966b3233c462188a4444358ee870dff0c812401",
+    "result": {
+      "build_ns": 1143199782,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/6-base/trial-1794618133848490057-1029358"
+    },
+    "sample": {
+      "after_build_hwm": 615915520,
+      "after_build_rss": 597991424,
+      "after_release_rss": 436129792,
+      "before_rss": 7233536,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 251643629,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1143199782,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 63,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1143217641,
+      "catalogue_observed_ns": 263531219,
+      "completion_ns": 1143199782,
+      "discovery_ns": 263505196,
+      "estimated_index_bytes": 11918518,
+      "fallback_records": 0,
+      "first_batch_ns": 349206380,
+      "first_publication_observed_ns": 349329835,
+      "first_result_ns": 349378108,
+      "first_result_probe_ns": 47720,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 279610,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 85714,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 463072,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 341330,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 76766,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 2180,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 24376,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1143199782,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  },
+  {
+    "pair": 6,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/6-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--incremental"
+    ],
+    "binary_sha256": "26695817a9a9520743a6c5a385038ee006115516b4ff25774368b5a3e02c868f",
+    "result": {
+      "build_ns": 1148768336,
+      "result_dir": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/query-phase1/paired-construction/6-candidate/trial-1794618135249474344-1029554"
+    },
+    "sample": {
+      "after_build_hwm": 631656448,
+      "after_build_rss": 607965184,
+      "after_release_rss": 448638976,
+      "before_rss": 7225344,
+      "build_admission_ns": 0,
+      "build_discovery_ns": 244382381,
+      "build_extraction_index_ns": 0,
+      "build_finalization_ns": 0,
+      "build_job_execution_ns": 0,
+      "build_ns": 1148768336,
+      "build_parses": 148486,
+      "build_peak_active_jobs": 32,
+      "build_peak_ready_batches": 62,
+      "build_profile": null,
+      "build_publication_ns": 0,
+      "build_receive_wait_ns": 0,
+      "caller_return_ns": 1148789658,
+      "catalogue_observed_ns": 255694210,
+      "completion_ns": 1148768336,
+      "discovery_ns": 255679403,
+      "estimated_index_bytes": 14229308,
+      "fallback_records": 0,
+      "first_batch_ns": 346585500,
+      "first_publication_observed_ns": 346681440,
+      "first_result_ns": 346718775,
+      "first_result_probe_ns": 37026,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1036512,
+              "raw_bytes": 0,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 222624,
+              "raw_bytes": 0,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 1208018,
+              "raw_bytes": 0,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 855056,
+              "raw_bytes": 0,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 188164,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 576,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6976,
+              "raw_bytes": 0,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 65912,
+              "raw_bytes": 0,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460945,
+      "open_ns": 1148768336,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193297760,
+        "read_bytes": 0,
+        "syscr": 297008,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": null,
+      "searchable_batches": 8,
+      "snapshot_result": null,
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    }
+  }
+]

@@ -14,7 +14,7 @@ use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
 const MAGIC: &[u8; 8] = b"OBJHSEG1";
-pub(crate) const FORMAT_VERSION: u32 = 1;
+pub(crate) const FORMAT_VERSION: u32 = 2;
 const HEADER_BYTES: usize = 24;
 const DIRECTORY_ENTRY_BYTES: usize = 56;
 const MAX_SECTIONS: usize = 32;
