@@ -40,9 +40,32 @@ pub enum OpenMode {
 
 
 /// Editable opening options; strings stay intact until backend validation.
+/// Whether opening builds from source files or loads an existing index.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum IndexOpenSource {
+    #[default]
+    Build,
+    Load,
+}
+
+
+/// Persisted-index location choice in the Open dialog.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum IndexStorageLocation {
+    #[default]
+    SystemCache,
+    Repository,
+    Custom,
+}
+
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OpenDraft {
     pub mode: OpenMode,
+    pub index_source: IndexOpenSource,
+    pub index_location: IndexStorageLocation,
+    pub custom_index: String,
+    pub check_after_load: bool,
     /// One path per physical line for multiple-folder mode.
     pub paths: String,
     pub schema: String,
@@ -57,6 +80,10 @@ impl Default for OpenDraft {
     fn default() -> Self {
         Self {
             mode: OpenMode::Folder,
+            index_source: IndexOpenSource::Build,
+            index_location: IndexStorageLocation::SystemCache,
+            custom_index: String::new(),
+            check_after_load: false,
             paths: String::new(),
             schema: String::new(),
             recursive: true,
@@ -416,6 +443,15 @@ pub struct IndexUiStatus {
     pub load: IndexTaskState,
     pub maintenance: IndexTaskState,
     pub maintenance_kind: Option<IndexTaskKind>,
+    pub storage_origin: String,
+    pub storage_directory: String,
+    pub storage_mapped_bytes: u64,
+    pub storage_resident_bytes: u64,
+    pub storage_runs: u64,
+    pub storage_publication: String,
+    pub storage_unsaved: bool,
+    pub storage_freshness: String,
+    pub save: IndexTaskState,
 }
 
 
@@ -446,6 +482,15 @@ impl Default for IndexUiStatus {
             load: IndexTaskState::Idle,
             maintenance: IndexTaskState::Idle,
             maintenance_kind: None,
+            storage_origin: "Built in memory".into(),
+            storage_directory: String::new(),
+            storage_mapped_bytes: 0,
+            storage_resident_bytes: 0,
+            storage_runs: 0,
+            storage_publication: String::new(),
+            storage_unsaved: true,
+            storage_freshness: "Not applicable".into(),
+            save: IndexTaskState::Idle,
         }
     }
 }
@@ -598,6 +643,9 @@ pub enum UiAction {
         output_path: String,
     },
     CheckForChanges,
+    SaveIndex {
+        directory: String,
+    },
     RebuildIndex,
     CompactIndex,
     SetAutomaticChecking {

@@ -29,6 +29,9 @@ use crate::ui::model::{
     IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, TabFreshness,
     TabViewState, UiAction, UiUpdate,
 };
+use objekte_search_core::SaveOptions;
+use objekte_search_core::index_storage::task::StorageTask;
+
 use crate::ui::preferences::DesktopPreferences;
 
 use super::filter_validation::{field_choices, validate_request};
@@ -501,6 +504,8 @@ pub struct DesktopController {
     check_task: Option<ReconciliationTask>,
     check_origin: Option<CheckOrigin>,
     maintenance_task: Option<MaintenanceTask>,
+    storage_task: Option<StorageTask>,
+    storage_instance: u64,
     last_index_poll: Instant,
     index_ui: IndexUiStatus,
     last_index_status_sent: Option<IndexUiStatus>,
@@ -596,6 +601,8 @@ impl DesktopController {
                 check_task: None,
                 check_origin: None,
                 maintenance_task: None,
+                storage_task: None,
+                storage_instance: 0,
                 last_index_poll: Instant::now(),
                 index_ui: IndexUiStatus::default(),
                 last_index_status_sent: None,
@@ -847,6 +854,36 @@ impl DesktopController {
         }
         self.index_ui.index_instance = status.instance_id;
         self.index_ui.revision = status.revision.0;
+        if let Ok(storage) = session.repository.index().storage_status() {
+            self.index_ui.storage_origin = match storage.origin {
+                objekte_search_core::index_storage::status::StorageOrigin::Built => {
+                    "Built in memory".into()
+                }
+                objekte_search_core::index_storage::status::StorageOrigin::Loaded => {
+                    "Loaded from disk".into()
+                }
+            };
+            self.index_ui.storage_directory = storage
+                .directory
+                .as_ref()
+                .map_or_else(String::new, |path| path.display().to_string());
+            self.index_ui.storage_mapped_bytes = storage.mapped_virtual_bytes;
+            self.index_ui.storage_resident_bytes = storage.resident_packed_bytes;
+            self.index_ui.storage_runs = storage.searchable_run_count;
+            self.index_ui.storage_publication = storage.publication_id.to_string();
+            self.index_ui.storage_unsaved = storage.unsaved_changes;
+            self.index_ui.storage_freshness = match storage.freshness {
+                objekte_search_core::index_storage::status::FreshnessState::NotApplicable => {
+                    "Not applicable"
+                }
+                objekte_search_core::index_storage::status::FreshnessState::Unchecked => {
+                    "Not checked since loading"
+                }
+                objekte_search_core::index_storage::status::FreshnessState::Checking => "Checking",
+                objekte_search_core::index_storage::status::FreshnessState::Checked => "Checked",
+            }
+            .into();
+        }
         self.index_ui.estimated_index_bytes = session
             .repository
             .index()
@@ -1082,6 +1119,48 @@ impl DesktopController {
                     };
                 }
             }
+        }
+        if let Some(task) = &self.storage_task
+            && let Ok(progress) = task.progress()
+            && !task.is_complete().unwrap_or(false)
+        {
+            self.index_ui.save = IndexTaskState::Running {
+                operation_id: self.index_operation_id,
+                processed: Some(progress.objects_completed),
+                total: Some(progress.objects_total),
+            };
+        }
+        let storage_done = self
+            .storage_task
+            .as_ref()
+            .and_then(|task| task.is_complete().ok())
+            .unwrap_or(false);
+        if storage_done {
+            let task = self.storage_task.take().expect("completed storage task");
+            let current_instance = self
+                .session
+                .as_ref()
+                .map(|session| session.repository.index().instance_id());
+            if current_instance != Some(self.storage_instance) {
+                updates.push(UiUpdate::Status("Stale save completion ignored".into()));
+            } else {
+                match task.wait() {
+                    Ok(report) => {
+                        self.index_ui.save = IndexTaskState::Succeeded(if report.unchanged {
+                            "Index already saved (no-op)".into()
+                        } else {
+                            format!(
+                                "Saved generation {}: {} objects written, {} reused",
+                                report.generation_id, report.objects_written, report.objects_reused
+                            )
+                        });
+                    }
+                    Err(error) => {
+                        self.index_ui.save = IndexTaskState::Failed(error.to_string());
+                    }
+                }
+            }
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
         }
         if let Ok(status) = index.status() {
             self.update_index_ui(&status, updates);
@@ -1351,6 +1430,7 @@ impl DesktopController {
                 self.start_batch(source, text, path, output_path, updates);
             }
             UiAction::CheckForChanges => self.start_check(updates),
+            UiAction::SaveIndex { directory } => self.start_storage_save(directory, updates),
             UiAction::RebuildIndex => {
                 self.start_maintenance(MaintenanceOperation::Rebuild, updates)
             }
@@ -3847,6 +3927,54 @@ impl DesktopController {
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
             }
         }
+    }
+
+    fn start_storage_save(&mut self, directory: String, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
+            self.index_ui.save = IndexTaskState::Failed("No repository is open".into());
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            return;
+        };
+        let location = objekte_cli::index_location::IndexLocation::parse(std::path::Path::new(
+            directory.trim(),
+        ));
+        let resolved = location.resolve(
+            &session.paths.root,
+            &session.paths.root,
+            session.args.index_alphabet,
+            session.args.auto_index,
+        );
+        let directory = match resolved {
+            Ok(directory) => directory,
+            Err(message) => {
+                self.index_ui.save = IndexTaskState::Failed(message.clone());
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::General,
+                    message,
+                });
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                return;
+            }
+        };
+        match session
+            .repository
+            .index()
+            .start_save(directory, SaveOptions::default())
+        {
+            Ok(task) => {
+                self.storage_task = Some(task);
+                self.storage_instance = session.repository.index().instance_id();
+                self.index_ui.save = IndexTaskState::Running {
+                    operation_id: self.index_operation_id,
+                    processed: None,
+                    total: None,
+                };
+            }
+            Err(error) => {
+                self.index_ui.save = IndexTaskState::Failed(error.to_string());
+            }
+        }
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
     }
 
     fn cancel_index_task(&mut self, kind: IndexTaskKind, updates: &mut Vec<UiUpdate>) {

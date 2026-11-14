@@ -1334,6 +1334,43 @@ impl DesktopView {
                             memory_label(index.estimated_index_bytes.unwrap_or_default())))
                     ))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Storage"))
+                    .child(div().text_xs().child(format!("Origin: {}", index.storage_origin)))
+                    .when(!index.storage_directory.is_empty(), |this| this.child(
+                        div().text_xs().child(format!("Location: {}", index.storage_directory))
+                    ))
+                    .child(div().text_xs().child(format!(
+                        "Mapped bytes: {} · Resident packed bytes: {}",
+                        memory_label(index.storage_mapped_bytes as usize),
+                        memory_label(index.storage_resident_bytes as usize),
+                    )))
+                    .child(div().text_xs().child(format!(
+                        "Runs: {} · Publication: {}",
+                        index.storage_runs, index.storage_publication,
+                    )))
+                    .child(div().text_xs().child(format!(
+                        "Changes: {} · Source state: {}",
+                        if index.storage_unsaved { "Unsaved" } else { "Saved" },
+                        index.storage_freshness,
+                    )))
+                    .child(div().flex().items_center().gap_2()
+                        .child(Input::new(&self.inputs.index_storage_path)
+                            .id("index-storage-path").w(px(260.)))
+                        .child(Button::new("index-save")
+                            .label("Save index…")
+                            .disabled(self.state.root.is_none() || matches!(index.save, IndexTaskState::Running { .. }))
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                let directory =
+                                    this.inputs.index_storage_path.read(cx).value().to_string();
+                                this.send(UiAction::SaveIndex {
+                                    directory: if directory.trim().is_empty() {
+                                        "repo".into()
+                                    } else {
+                                        directory
+                                    },
+                                });
+                            }))))
+                    .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
                     .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Maintenance"))
                     .child(div().text_xs().child(format!("{} files · {} records",
                         index.indexed_files.map_or_else(|| "—".to_owned(), |n| n.to_string()),
@@ -1367,6 +1404,7 @@ impl DesktopView {
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
                         &index.maintenance,
                     ),
+                    ("Storage save", IndexTaskKind::Load, &index.save),
                 ] {
                     if let Some(summary) = index_task_summary(label, task) {
                         content = content.child(

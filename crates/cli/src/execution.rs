@@ -75,6 +75,22 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
+    let storage_load = {
+        let directory = storage_directory.clone();
+        let definitions = definitions.clone();
+        Some(std::sync::Arc::new(move || {
+            let index = crate::index_open::load(
+                &directory,
+                definitions.clone(),
+                options,
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )?;
+            IndexedRepository::new(index).map_err(|error| error.to_string())
+        })
+            as std::sync::Arc<
+                dyn Fn() -> Result<IndexedRepository, String> + Send + Sync,
+            >)
+    };
     let load_directory = args.load_index.as_ref().map(|_| storage_directory.clone());
     let save_directory = args.save_index.as_ref().map(|_| storage_directory.clone());
     let check = args.check_index;
@@ -119,6 +135,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             loading_label: Some("Building search index".to_owned()),
             interruption: Some(token.clone()),
             storage_directory: Some(storage_directory),
+            storage_load,
         },
     );
     match result {

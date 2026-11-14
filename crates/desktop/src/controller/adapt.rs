@@ -5,7 +5,7 @@ use std::path::{Path, PathBuf};
 use objekte_cli::arguments::{Alphabet, Arguments};
 
 use crate::backend::{OpenSpec, QuerySpec};
-use crate::ui::model::{OpenDraft, OpenMode, SearchDraft};
+use crate::ui::model::{IndexOpenSource, IndexStorageLocation, OpenDraft, OpenMode, SearchDraft};
 
 /// Build the existing CLI opening arguments from visible controls.
 pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
@@ -53,6 +53,19 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
             }
             args.repo = paths.into_iter().next();
         }
+    }
+    if draft.index_source == IndexOpenSource::Load {
+        args.check_index = draft.check_after_load;
+        args.load_index = Some(match draft.index_location {
+            IndexStorageLocation::SystemCache => PathBuf::from("cache"),
+            IndexStorageLocation::Repository => PathBuf::from("repo"),
+            IndexStorageLocation::Custom => {
+                if draft.custom_index.trim().is_empty() {
+                    return Err("Choose a custom index folder".into());
+                }
+                PathBuf::from(draft.custom_index.trim())
+            }
+        });
     }
     args.validate_open_options()?;
     Ok(OpenSpec {

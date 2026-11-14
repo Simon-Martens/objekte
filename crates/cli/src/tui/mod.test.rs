@@ -431,3 +431,79 @@ fn storage_overlay_opens_reports_status_and_checks_sources() {
     key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
     assert_eq!(app.overlay, None);
 }
+
+#[test]
+fn storage_load_replaces_the_repository_only_after_success() {
+    let mut first = fixture(2);
+    let other = fixture(2);
+    let replacement = std::sync::Arc::clone(&other.app.repo);
+    let app = &mut first.app;
+    let before = app.repo.index().instance_id();
+    app.storage_load = Some(std::sync::Arc::new(move || Ok((*replacement).clone())));
+    key(app, KeyEvent::new(KeyCode::F(6), KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Char('l'), KeyModifiers::NONE));
+    for _ in 0..200 {
+        app.tick(Instant::now());
+        if app
+            .storage_message
+            .as_deref()
+            .is_some_and(|message| message == "Saved index loaded")
+        {
+            break;
+        }
+        std::thread::sleep(Duration::from_millis(5));
+    }
+    assert_eq!(
+        app.storage_message.as_deref(),
+        Some("Saved index loaded"),
+        "{:?}",
+        app.storage_message
+    );
+    assert_ne!(app.repo.index().instance_id(), before);
+    let _keep = other._temp;
+}
+
+#[test]
+fn storage_load_failure_keeps_the_active_repository() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    let before = app.repo.index().instance_id();
+    app.storage_load = Some(std::sync::Arc::new(|| Err("missing index".into())));
+    key(app, KeyEvent::new(KeyCode::F(6), KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Char('l'), KeyModifiers::NONE));
+    for _ in 0..200 {
+        app.tick(Instant::now());
+        if app
+            .storage_message
+            .as_deref()
+            .is_some_and(|message| message.starts_with("Load failed"))
+        {
+            break;
+        }
+        std::thread::sleep(Duration::from_millis(5));
+    }
+    assert_eq!(app.repo.index().instance_id(), before);
+    assert!(
+        app.storage_message
+            .as_deref()
+            .unwrap_or_default()
+            .starts_with("Load failed")
+    );
+}
+
+#[test]
+fn stale_storage_load_completion_is_ignored() {
+    let mut first = fixture(2);
+    let other = fixture(2);
+    let replacement = (*other.app.repo).clone();
+    let app = &mut first.app;
+    let before = app.repo.index().instance_id();
+    let (sender, receiver) = std::sync::mpsc::channel();
+    sender
+        .send((app.storage_generation.wrapping_sub(1), Ok(replacement)))
+        .unwrap();
+    app.storage_load_rx = Some(receiver);
+    app.tick(Instant::now());
+    assert_eq!(app.repo.index().instance_id(), before);
+    assert!(app.storage_load_rx.is_none());
+}

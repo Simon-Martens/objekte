@@ -251,6 +251,11 @@ pub(super) struct App {
     pub(super) storage_task: Option<objekte_search_core::index_storage::task::StorageTask>,
     storage_check: Option<objekte_search_core::lifecycle::ReconciliationTask>,
     pub(super) storage_message: Option<String>,
+    pub(super) storage_load: Option<
+        std::sync::Arc<dyn Fn() -> Result<IndexedRepository, String> + Send + Sync + 'static>,
+    >,
+    pub(super) storage_load_rx: Option<mpsc::Receiver<(u64, Result<IndexedRepository, String>)>>,
+    pub(super) storage_generation: u64,
     pub(super) sort: Option<SortField>,
     pub(super) case_sensitive: bool,
     pub(super) regex: bool,
@@ -322,6 +327,7 @@ impl App {
     ) -> Self {
         let (sender, receiver) = mpsc::channel();
         let storage_directory = options.storage_directory.clone();
+        let storage_load = options.storage_load.clone();
         let (build_task, build_cursor, build_status, snapshot_view) = match initial {
             Some((task, snapshot)) => (
                 Some(task),
@@ -425,6 +431,9 @@ impl App {
             storage_task: None,
             storage_check: None,
             storage_message: None,
+            storage_load,
+            storage_load_rx: None,
+            storage_generation: 1,
             sort: None,
             case_sensitive: true,
             regex: false,
@@ -953,7 +962,7 @@ impl App {
             lines.push(message.clone());
         }
         lines.push(String::new());
-        lines.push("[S] Save index   [C] Check sources   [Esc] Close".into());
+        lines.push("[S] Save   [L] Load   [C] Check sources   [Esc] Close".into());
         lines
     }
 
@@ -985,7 +994,78 @@ impl App {
         }
     }
 
+    pub(super) fn load_storage(&mut self) {
+        let Some(loader) = self.storage_load.clone() else {
+            self.storage_message = Some("No saved index location is configured".into());
+            return;
+        };
+        if self.storage_load_rx.is_some() {
+            self.storage_message = Some("A load is already running".into());
+            return;
+        }
+        self.storage_generation = self.storage_generation.wrapping_add(1);
+        let generation = self.storage_generation;
+        let (sender, receiver) = mpsc::channel();
+        std::thread::spawn(move || {
+            let _ = sender.send((generation, loader()));
+        });
+        self.storage_load_rx = Some(receiver);
+        self.storage_message = Some("Loading saved index…".into());
+    }
+
+    fn install_storage_repository(&mut self, repository: IndexedRepository) {
+        self.repo = Arc::new(repository);
+        self.hits.clear();
+        self.display_rows.clear();
+        self.total = 0;
+        self.selected = 0;
+        self.scroll = 0;
+        self.window_start = 0;
+        self.next_offset = 0;
+        self.base_offset = 0;
+        self.file_selected = 0;
+        self.file_scroll = 0;
+        self.cached_file_ids = None;
+        self.detail_hit = None;
+        self.detail_history.clear();
+        self.relation_rows.clear();
+        self.record = crate::tui::record::RecordState::default();
+        self.generation = self.generation.wrapping_add(1);
+        self.searching = false;
+        if let Ok(view) = self.repo.index().view() {
+            self.catalogue_view = view;
+            self.catalogue_count = self.catalogue_view.catalogue_rows().count();
+        }
+        self.status = Some("Loaded saved index".into());
+        if !self.search.text.is_empty() || !self.filter.text.is_empty() {
+            self.changed(std::time::Instant::now());
+        }
+    }
+
     fn poll_storage(&mut self) {
+        if let Some(receiver) = self.storage_load_rx.as_ref() {
+            match receiver.try_recv() {
+                Ok((generation, result)) => {
+                    self.storage_load_rx = None;
+                    if generation == self.storage_generation {
+                        match result {
+                            Ok(repository) => {
+                                self.install_storage_repository(repository);
+                                self.storage_message = Some("Saved index loaded".into());
+                            }
+                            Err(error) => {
+                                self.storage_message = Some(format!("Load failed: {error}"));
+                            }
+                        }
+                    }
+                }
+                Err(mpsc::TryRecvError::Empty) => {}
+                Err(mpsc::TryRecvError::Disconnected) => {
+                    self.storage_load_rx = None;
+                    self.storage_message = Some("Load worker stopped".into());
+                }
+            }
+        }
         if let Some(task) = self.storage_task.as_ref() {
             if task.is_complete().unwrap_or(false) {
                 let task = self.storage_task.take().expect("storage task");

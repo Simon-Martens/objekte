@@ -1172,3 +1172,49 @@ fn export_uses_current_valid_draft_before_debounce_runs() {
     assert_eq!(result["query"]["filter"], "year >= 2024");
     assert_eq!(result["total"], 1);
 }
+
+#[test]
+fn desktop_storage_save_reports_success_and_ignores_stale_completion() {
+    let fixture = crate::backend::test_support::fixture();
+    let store = tempfile::tempdir().unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    let mut updates = Vec::new();
+    controller.start_storage_save(store.path().display().to_string(), &mut updates);
+    assert!(matches!(
+        controller.index_ui.save,
+        IndexTaskState::Running { .. }
+    ));
+    for _ in 0..500 {
+        let mut polled = Vec::new();
+        controller.poll_index_tasks(&mut polled);
+        if matches!(controller.index_ui.save, IndexTaskState::Succeeded(_)) {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(2));
+    }
+    assert!(
+        matches!(controller.index_ui.save, IndexTaskState::Succeeded(_)),
+        "{:?}",
+        controller.index_ui.save
+    );
+    assert!(store.path().join("CURRENT").exists());
+    assert_eq!(controller.index_ui.storage_origin, "Built in memory");
+
+    let stale_store = tempfile::tempdir().unwrap();
+    controller.start_storage_save(stale_store.path().display().to_string(), &mut updates);
+    controller.storage_instance = 0;
+    let mut saw_stale = false;
+    for _ in 0..500 {
+        let mut polled = Vec::new();
+        controller.poll_index_tasks(&mut polled);
+        if polled.iter().any(|update| {
+            matches!(update, UiUpdate::Status(message) if message == "Stale save completion ignored")
+        }) {
+            saw_stale = true;
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(2));
+    }
+    assert!(saw_stale);
+}

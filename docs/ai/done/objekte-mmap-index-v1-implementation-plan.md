@@ -2497,12 +2497,14 @@ the native query state. Unchanged saves write zero bytes.
    native work includes exact source verification, some custom/inference
    operations, and sort/relation views. This is recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
-2. **Desktop/TUI load-save UX is incomplete.** The CLI and desktop backend
-   understand storage flags; the TUI can save and check a running index. The
-   desktop Open dialog cannot yet choose Build vs Load, a location, or a custom
-   directory, and neither interface has a full Load action that replaces the
-   session. Recorded in
-   `docs/ai/issues/feat/mmap-index-frontend-storage-controls.md`.
+2. **Desktop/TUI storage controls are implemented.** The desktop Open dialog
+   exposes Build/Load, three locations, custom path, and check-after-load; the
+   Index panel exposes storage status and Save with progress/stale checks. The
+   TUI F6 overlay supports Save/Load/Check, with Load installed only after
+   success and operation-generation rejection of stale completions. Resolved in
+   `docs/ai/done/resolved-issues/mmap-index-frontend-storage-controls.md`.
+   Custom-only opening still needs the saved opening recipe
+   (`docs/ai/issues/feat/mmap-index-saved-opening-recipe.md`).
 3. **Independent content generations are implemented.** Catalogue rows persist
    `file_version` and `content_generation` separately; replacement advances the
    latter, content-preserving moves preserve it, and delete tombstones retain

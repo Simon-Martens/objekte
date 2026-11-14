@@ -52,6 +52,10 @@ pub enum DetectionState {
 #[derive(Clone, Debug)]
 pub struct OpenDialogState {
     pub visible: bool,
+    pub index_source: crate::ui::model::IndexOpenSource,
+    pub index_location: crate::ui::model::IndexStorageLocation,
+    pub custom_index: String,
+    pub check_after_load: bool,
     pub folders: Vec<String>,
     pub source_choice: SourceChoice,
     pub advanced_expanded: bool,
@@ -68,6 +72,10 @@ impl Default for OpenDialogState {
     fn default() -> Self {
         Self {
             visible: false,
+            index_source: Default::default(),
+            index_location: Default::default(),
+            custom_index: String::new(),
+            check_after_load: false,
             folders: vec![String::new()],
             source_choice: SourceChoice::Automatic,
             advanced_expanded: false,
@@ -251,6 +259,10 @@ impl OpenDialogState {
         };
         let mut draft = template.clone();
         draft.mode = mode;
+        draft.index_source = self.index_source;
+        draft.index_location = self.index_location;
+        draft.custom_index = self.custom_index.trim().to_owned();
+        draft.check_after_load = self.check_after_load;
         draft.paths = self
             .folders
             .iter()
@@ -422,6 +434,107 @@ impl DesktopView {
                     .label("+ Add another folder")
                     .on_click(cx.listener(|this, _, window, cx| this.add_open_folder(window, cx))),
             );
+        let index_source = self.state.open_dialog.index_source;
+        let index_location = self.state.open_dialog.index_location;
+        content = content
+            .child(div().h(px(1.)).bg(rgb(border)))
+            .child(
+                div()
+                    .text_xs()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("Index source"),
+            )
+            .child(
+                div()
+                    .flex()
+                    .flex_wrap()
+                    .gap_2()
+                    .child(
+                        Button::new("open-index-build")
+                            .label("Build from source files")
+                            .selected(index_source == crate::ui::model::IndexOpenSource::Build)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.open_dialog.index_source =
+                                    crate::ui::model::IndexOpenSource::Build;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("open-index-load")
+                            .label("Load saved index")
+                            .selected(index_source == crate::ui::model::IndexOpenSource::Load)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.open_dialog.index_source =
+                                    crate::ui::model::IndexOpenSource::Load;
+                                cx.notify();
+                            })),
+                    ),
+            );
+        if index_source == crate::ui::model::IndexOpenSource::Load {
+            content = content
+                .child(
+                    div()
+                        .flex()
+                        .flex_wrap()
+                        .gap_2()
+                        .child(
+                            Button::new("open-index-cache")
+                                .label("System cache")
+                                .selected(
+                                    index_location
+                                        == crate::ui::model::IndexStorageLocation::SystemCache,
+                                )
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.open_dialog.index_location =
+                                        crate::ui::model::IndexStorageLocation::SystemCache;
+                                    cx.notify();
+                                })),
+                        )
+                        .child(
+                            Button::new("open-index-repo")
+                                .label("Repository")
+                                .selected(
+                                    index_location
+                                        == crate::ui::model::IndexStorageLocation::Repository,
+                                )
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.open_dialog.index_location =
+                                        crate::ui::model::IndexStorageLocation::Repository;
+                                    cx.notify();
+                                })),
+                        )
+                        .child(
+                            Button::new("open-index-custom")
+                                .label("Custom folder")
+                                .selected(
+                                    index_location
+                                        == crate::ui::model::IndexStorageLocation::Custom,
+                                )
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.open_dialog.index_location =
+                                        crate::ui::model::IndexStorageLocation::Custom;
+                                    cx.notify();
+                                })),
+                        ),
+                )
+                .child(
+                    Checkbox::new("open-index-check")
+                        .accessibility_label("Check source files after loading")
+                        .checked(self.state.open_dialog.check_after_load)
+                        .child("Check source files after loading")
+                        .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                            this.state.open_dialog.check_after_load = *checked;
+                            cx.notify();
+                        })),
+                );
+            if index_location == crate::ui::model::IndexStorageLocation::Custom {
+                content = content.child(
+                    Input::new(&self.inputs.open_index_path)
+                        .id("open-index-path")
+                        .w_full(),
+                );
+            }
+        }
         if let Some((heading, detail, invalid)) = detection {
             content = content.child(
                 div()
@@ -690,6 +803,13 @@ impl DesktopView {
                 self.state.open.paths.lines().map(str::to_owned).collect();
         }
         self.state.open_dialog.show();
+        self.state.open_dialog.index_source = self.state.open.index_source;
+        self.state.open_dialog.index_location = self.state.open.index_location;
+        self.state.open_dialog.custom_index = self.state.open.custom_index.clone();
+        self.state.open_dialog.check_after_load = self.state.open.check_after_load;
+        self.inputs.open_index_path.update(cx, |input, cx| {
+            input.set_value(self.state.open_dialog.custom_index.clone(), window, cx);
+        });
         let first = self.state.open_dialog.folders[0].clone();
         self.inputs
             .open_folder

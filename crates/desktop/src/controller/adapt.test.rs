@@ -47,6 +47,34 @@ fn desktop_open_has_no_storage_target_and_query_has_no_range() {
 }
 
 #[test]
+fn desktop_open_can_load_an_explicit_or_preset_index() {
+    let mut draft = OpenDraft {
+        paths: "/tmp/data".into(),
+        index_source: crate::ui::model::IndexOpenSource::Load,
+        check_after_load: true,
+        ..OpenDraft::default()
+    };
+    let spec = open_spec(&draft, Path::new("/tmp")).unwrap();
+    assert_eq!(
+        spec.args.load_index,
+        Some(std::path::PathBuf::from("cache"))
+    );
+    assert!(spec.args.check_index);
+    draft.index_location = crate::ui::model::IndexStorageLocation::Repository;
+    let spec = open_spec(&draft, Path::new("/tmp")).unwrap();
+    assert_eq!(spec.args.load_index, Some(std::path::PathBuf::from("repo")));
+    draft.index_location = crate::ui::model::IndexStorageLocation::Custom;
+    draft.custom_index = String::new();
+    assert!(open_spec(&draft, Path::new("/tmp")).is_err());
+    draft.custom_index = "/mnt/indexes/archive".into();
+    let spec = open_spec(&draft, Path::new("/tmp")).unwrap();
+    assert_eq!(
+        spec.args.load_index,
+        Some(std::path::PathBuf::from("/mnt/indexes/archive"))
+    );
+}
+
+#[test]
 fn configured_repository_builds_from_its_source_root() {
     let opening = OpenDraft {
         mode: OpenMode::ConfiguredRepository,

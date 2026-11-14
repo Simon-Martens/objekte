@@ -39,6 +39,9 @@ pub struct TuiOptions {
     pub loading_label: Option<String>,
     pub interruption: Option<CancellationToken>,
     pub storage_directory: Option<std::path::PathBuf>,
+    pub storage_load: Option<
+        std::sync::Arc<dyn Fn() -> Result<IndexedRepository, String> + Send + Sync + 'static>,
+    >,
 }
 
 
@@ -514,6 +517,7 @@ fn key(app: &mut App, key: KeyEvent) {
             match key.code {
                 KeyCode::Esc => app.overlay = None,
                 KeyCode::Char('s' | 'S') => app.save_storage(),
+                KeyCode::Char('l' | 'L') => app.load_storage(),
                 KeyCode::Char('c' | 'C') => app.check_storage_sources(),
                 _ => {}
             }

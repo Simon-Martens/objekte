@@ -41,3 +41,20 @@ completion state.
    existing index-task ownership checks.
 3. In the TUI, load into a fresh `IndexedRepository` and install it only after
    the replacement view is valid.
+
+
+## Resolution
+
+The desktop Open dialog now exposes Build vs Load, System cache/Repository/
+Custom locations, a custom index path, and check-after-load. `open_spec`
+translates those choices into `Arguments.load_index`/`check_index`. The desktop
+Index panel exposes storage origin/location/mapped/resident/run/publication/
+changes/freshness plus a Save index action with progress and stale-completion
+rejection. The TUI F6 overlay now supports Load; it loads on a worker and
+installs the replacement repository only after success, with an operation
+generation check that ignores stale completions. Focused tests cover the Open
+draft translation, dialog choices, TUI successful/failed/stale loads, and
+desktop save completion.
+
+Remaining limitation: opening from only a custom index directory without source
+paths still needs the saved opening recipe; this is tracked separately.

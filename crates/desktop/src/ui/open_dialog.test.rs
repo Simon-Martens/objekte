@@ -103,3 +103,23 @@ fn schema_picker_is_rejected_after_dialog_closes() {
     dialog.close();
     assert!(!dialog.accept_schema_picker(generation));
 }
+
+#[test]
+fn storage_choices_are_copied_into_the_open_draft() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show();
+    dialog.source_choice = SourceChoice::Folder;
+    dialog.edit_folder(0, "/tmp/data".into());
+    dialog.index_source = crate::ui::model::IndexOpenSource::Load;
+    dialog.index_location = crate::ui::model::IndexStorageLocation::Custom;
+    dialog.custom_index = " /mnt/indexes/archive ".into();
+    dialog.check_after_load = true;
+    let draft = dialog.to_open_draft(&OpenDraft::default()).unwrap();
+    assert_eq!(draft.index_source, crate::ui::model::IndexOpenSource::Load);
+    assert_eq!(
+        draft.index_location,
+        crate::ui::model::IndexStorageLocation::Custom
+    );
+    assert_eq!(draft.custom_index, "/mnt/indexes/archive");
+    assert!(draft.check_after_load);
+}

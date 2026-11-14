@@ -70,8 +70,10 @@ pub fn init_keybindings(cx: &mut gpui_kit::App) {
 struct Inputs {
     open_folder: Entity<InputState>,
     open_extra_folders: Vec<Entity<InputState>>,
+    open_index_path: Entity<InputState>,
     schema: Entity<InputState>,
     index_interval: Entity<InputState>,
+    index_storage_path: Entity<InputState>,
     full_text: Entity<InputState>,
     structured: Entity<InputState>,
     rename_title: Entity<InputState>,
@@ -140,10 +142,15 @@ impl DesktopView {
         let inputs = Inputs {
             open_folder: cx.new(|cx| InputState::new(window, cx).placeholder("Choose a folder")),
             open_extra_folders: Vec::new(),
+            open_index_path: cx
+                .new(|cx| InputState::new(window, cx).placeholder("Custom saved-index folder")),
             schema: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
             index_interval: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Seconds between checks")),
+            index_storage_path: cx.new(|cx| {
+                InputState::new(window, cx).placeholder("cache, repo, or saved-index folder")
+            }),
             full_text: cx.new(|cx| InputState::new(window, cx).placeholder("Search entries…")),
             structured: cx.new(|cx| {
                 InputState::new(window, cx).placeholder("year >= 1900 && type = \"book\"")
@@ -164,6 +171,16 @@ impl DesktopView {
                 }
             }),
         );
+        subscriptions.push(cx.subscribe(
+            &inputs.open_index_path,
+            |this: &mut Self, _, event, cx| {
+                if matches!(event, InputEvent::Change) && this.state.open_dialog.visible {
+                    this.state.open_dialog.custom_index =
+                        this.inputs.open_index_path.read(cx).value().to_string();
+                    cx.notify();
+                }
+            },
+        ));
         let builder_view = cx.new(|cx| FilterBuilderView::new(window, cx));
         subscriptions.push(cx.subscribe_in(
             &builder_view,
