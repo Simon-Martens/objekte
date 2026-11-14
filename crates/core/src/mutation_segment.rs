@@ -13,6 +13,7 @@ use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_com
 
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
+#[derive(Clone)]
 pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
@@ -266,6 +267,9 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<RecordEntry>,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
+    /// Immutable byte-backed metadata for a restored disk segment. Constructed
+    /// segments use their native vectors and maps above.
+    pub persisted: Option<Arc<crate::segment_metadata::PersistedRecordSlots>>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
@@ -703,6 +707,7 @@ impl CollectionSegment {
             file_index: self.file_index,
             records: self.records,
             id_lookup: self.id_lookup,
+            persisted: None,
             identity_order,
             postings,
             inference,
@@ -721,6 +726,55 @@ impl CollectionSegment {
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn record_count(&self) -> usize {
+        self.persisted.as_ref().map_or(self.records.len(), |table| table.record_count())
+    }
+
+    pub(crate) fn file_count(&self) -> usize {
+        self.persisted.as_ref().map_or(self.files.len(), |table| table.file_count())
+    }
+
+    pub(crate) fn try_record(&self, slot: RecordSlot) -> Result<Option<std::borrow::Cow<'_, RecordEntry>>, String> {
+        if let Some(table) = &self.persisted {
+            Ok(table.record(slot)?.map(std::borrow::Cow::Owned))
+        } else {
+            Ok(self.records.get(slot.0 as usize).map(std::borrow::Cow::Borrowed))
+        }
+    }
+
+    pub(crate) fn try_file(&self, id: FileId) -> Result<Option<std::borrow::Cow<'_, SegmentFile>>, String> {
+        if let Some(table) = &self.persisted {
+            let Some(index) = table.file_index(id)? else { return Ok(None); };
+            Ok(table.file_at(index)?.map(std::borrow::Cow::Owned))
+        } else {
+            Ok(self.file(id).map(std::borrow::Cow::Borrowed))
+        }
+    }
+
+    pub(crate) fn try_file_at(&self, index: usize) -> Result<Option<std::borrow::Cow<'_, SegmentFile>>, String> {
+        if let Some(table) = &self.persisted {
+            Ok(table.file_at(index)?.map(std::borrow::Cow::Owned))
+        } else {
+            Ok(self.files.get(index).map(std::borrow::Cow::Borrowed))
+        }
+    }
+
+    pub(crate) fn try_file_records(&self, id: FileId) -> Result<Option<std::borrow::Cow<'_, [RecordSlot]>>, String> {
+        if let Some(table) = &self.persisted {
+            Ok(table.file_records(id)?.map(std::borrow::Cow::Owned))
+        } else {
+            Ok(self.file_records(id).map(std::borrow::Cow::Borrowed))
+        }
+    }
+
+    pub(crate) fn try_id_lookup(&self, id: &str) -> Result<Option<RecordSlot>, String> {
+        if let Some(table) = &self.persisted {
+            table.lookup_id(&self.identity_order, id)
+        } else {
+            Ok(self.id_lookup.get(id).copied())
+        }
+    }
+
     pub(crate) fn project_inference_for_partitions(
         &self,
         routing: &PartitionRouting,
@@ -1322,6 +1376,7 @@ impl IndexedCollectionSegment {
                 file_index,
                 records,
                 id_lookup,
+                persisted: None,
                 identity_order,
                 postings,
                 inference,
@@ -2457,6 +2512,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
+            persisted: None,
             identity_order,
             postings,
             inference,
