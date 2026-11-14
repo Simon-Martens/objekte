@@ -262,9 +262,9 @@ impl Repository {
                     .transpose()?,
             });
         }
-        let presence = if relation.unavailable().contains(slot.0) {
+        let presence = if relation.contains_unavailable(slot) {
             RelationPresence::Unavailable
-        } else if relation.present().contains(slot.0) {
+        } else if relation.contains_present(slot) {
             RelationPresence::Present
         } else {
             RelationPresence::Missing
@@ -274,8 +274,8 @@ impl Repository {
             source: inspected_record(self, source, slot)?,
             target_collection: relation.target_collection,
             presence,
-            contains_null: relation.nulls().contains(slot.0),
-            contains_empty_array: relation.empty_arrays().contains(slot.0),
+            contains_null: relation.contains_null(slot),
+            contains_empty_array: relation.contains_empty_array(slot),
             total_occurrences: edges.len(),
             offset,
             next_offset,
@@ -435,7 +435,7 @@ impl Repository {
                         occurrences = occurrences
                             .checked_add(edges.len())
                             .ok_or("relation occurrence count overflow")?;
-                        for edge in edges {
+                        for edge in edges.iter() {
                             if !target_collection
                                 .id_lookup
                                 .get(edge.target_id())
@@ -637,7 +637,7 @@ pub(crate) fn collection_graph_segmented(
                 occurrences = occurrences
                     .checked_add(references.len())
                     .ok_or("relation occurrence count overflow")?;
-                for (target_id, _) in references {
+                for (target_id, _) in &references {
                     if view
                         .resolve_id(relation.target_collection, target_id)?
                         .is_none()
@@ -688,7 +688,7 @@ pub(crate) fn collection_graph_segmented(
 fn graph_components(node_count: usize, edges: &[CollectionGraphEdge]) -> Vec<CollectionComponent> {
     let mut forward = vec![Vec::new(); node_count];
     let mut reverse = vec![Vec::new(); node_count];
-    for edge in edges {
+    for edge in edges.iter() {
         let source = edge.source.0 as usize;
         let target = edge.target.0 as usize;
         forward[source].push(target);

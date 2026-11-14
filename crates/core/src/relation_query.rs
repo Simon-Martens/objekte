@@ -287,7 +287,7 @@ impl<'a> MergedRelationView<'a> {
         &self,
         address: MergedRecordSlot,
         relation_index: usize,
-    ) -> Result<(Vec<(&str, &[u32])>, bool, bool, bool, bool), String> {
+    ) -> Result<(Vec<(String, Vec<u32>)>, bool, bool, bool, bool), String> {
         let index = address.collection.0 as usize;
         if let Some(segment_index) = address.segment {
             let published = &self.segments[index][segment_index];
@@ -297,11 +297,11 @@ impl<'a> MergedRelationView<'a> {
                 .get(relation_index)
                 .ok_or("merged segment relation missing")?;
             Ok((
-                contribution.references_for_source(address.slot).collect(),
-                contribution.present().contains(address.slot.0),
-                contribution.nulls().contains(address.slot.0),
-                contribution.empty_arrays().contains(address.slot.0),
-                contribution.unavailable().contains(address.slot.0),
+                contribution.references_for_source(address.slot),
+                contribution.contains_present(address.slot),
+                contribution.contains_null(address.slot),
+                contribution.contains_empty_array(address.slot),
+                contribution.contains_unavailable(address.slot),
             ))
         } else {
             let relation = self.repo.collections[index]
@@ -313,12 +313,12 @@ impl<'a> MergedRelationView<'a> {
                     .edges(address.slot)
                     .ok_or("merged base relation slot missing")?
                     .iter()
-                    .map(|edge| (edge.target_id(), edge.positions.as_slice()))
+                    .map(|edge| (edge.target_id().to_owned(), edge.positions.clone()))
                     .collect(),
-                relation.present().contains(address.slot.0),
-                relation.nulls().contains(address.slot.0),
-                relation.empty_arrays().contains(address.slot.0),
-                relation.unavailable().contains(address.slot.0),
+                relation.contains_present(address.slot),
+                relation.contains_null(address.slot),
+                relation.contains_empty_array(address.slot),
+                relation.contains_unavailable(address.slot),
             ))
         }
     }
@@ -1583,7 +1583,7 @@ fn visit_merged_hop(
                 return Ok(());
             }
             let mut selected = 0usize;
-            for (target_id, positions) in references {
+            for (target_id, positions) in &references {
                 if !positions_match(&hop.selectors, positions) {
                     continue;
                 }
@@ -1601,7 +1601,7 @@ fn visit_merged_hop(
                         truth,
                         work,
                         if depth == 0 {
-                            positions
+                            positions.as_slice()
                         } else {
                             source_positions
                         },
@@ -2074,7 +2074,7 @@ fn visit_hop(
     }
     match hop.direction {
         HopDirection::Forward => {
-            if relation.unavailable().contains(source_slot.0) {
+            if relation.contains_unavailable(source_slot) {
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             }
@@ -2082,7 +2082,7 @@ fn visit_hop(
                 .edges(source_slot)
                 .ok_or("relation source slot is missing")?;
             let mut selected = 0;
-            for edge in edges {
+            for edge in edges.iter() {
                 if !positions_match(&hop.selectors, &edge.positions) {
                     continue;
                 }
@@ -2121,8 +2121,8 @@ fn visit_hop(
                 }
             }
             if selected == 0
-                && (!relation.present().contains(source_slot.0)
-                    || relation.nulls().contains(source_slot.0)
+                && (!relation.contains_present(source_slot)
+                    || relation.contains_null(source_slot)
                     || hop.selectors.iter().any(Option::is_some))
             {
                 merge_truth(truth, Some(false), quantifier);

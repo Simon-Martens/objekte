@@ -204,6 +204,30 @@ fn packed_restore_matches_typed_fts_sort_and_relation_queries() {
     )
     .unwrap();
 
+    let loaded_view = loaded.view().unwrap();
+    let loaded_segment = loaded_view.0.segments[0].first().expect("loaded segment");
+    let loaded_column = loaded_segment
+        .index
+        .sorting
+        .column("title")
+        .expect("loaded sort column");
+    assert!(loaded_column.keys.is_empty());
+    assert!(loaded_column.ascending.is_empty());
+    assert!(loaded_column.descending.is_empty());
+    assert!(loaded_column.packed.is_some());
+    let loaded_relation = loaded_view.0.segments[1]
+        .first()
+        .expect("loaded mentions segment")
+        .index
+        .relations
+        .first()
+        .expect("loaded relation contribution");
+    assert!(loaded_relation.packed.is_some());
+    assert!(loaded_relation.references.is_empty());
+    assert!(loaded_relation.present.is_empty());
+    assert!(loaded_relation.nulls.is_empty());
+    drop(loaded_view);
+
     let queries = [
         query("entries", Some("title = \"Alpha\""), None, Vec::new()),
         query("entries", Some("title != \"Beta\""), None, Vec::new()),

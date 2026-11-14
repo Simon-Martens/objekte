@@ -39,7 +39,9 @@ use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchR
 use crate::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache, SortTargetCache,
 };
-use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
+use crate::sorting::{
+    InferredOrderKey, SortColumn, SortKey, SortOptions, SortOrder, simple_composite_part,
+};
 use crate::source::{
     ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
 };
@@ -257,8 +259,7 @@ impl<'a> ResolvedSort<'a> {
             .iter()
             .zip(&worst.parts)
         {
-            let key = &column.keys[record.slot.0 as usize];
-            let order = key.compare_with(other, *descending, column.options);
+            let order = column.compare_key_to(record.slot, other, *descending);
             if !order.is_eq() {
                 return order;
             }
@@ -2158,7 +2159,9 @@ fn rank_key(
         .expect("selected collection")
         .iter()
         .map(|(column, descending)| {
-            let key = column.keys[record.slot.0 as usize].clone();
+            let key = column
+                .key_at(record.slot)
+                .expect("stored sort key for a published slot");
             (key, *descending, column.options)
         })
         .collect();
@@ -2718,11 +2721,7 @@ fn segment_rank_key(
         let key = match &term.source {
             BoundSortSource::Stored(base_column) => {
                 let column = segment.sorting.column(&base_column.path.display())?;
-                column
-                    .keys
-                    .get(record.slot.0 as usize)
-                    .ok_or("segment sort slot missing")?
-                    .clone()
+                column.key_at(record.slot)?
             }
             BoundSortSource::Computed(computed) => {
                 computed.key_local(ctx.ok_or("computed segment sort needs record context")?)?
@@ -2762,11 +2761,7 @@ fn segment_compare_to_rank(
             .columns
             .get(&base_column.path)
             .ok_or("segment sort column missing")?;
-        let key = column
-            .keys
-            .get(slot.0 as usize)
-            .ok_or("segment sort slot missing")?;
-        let order = key.compare_with(other, term.descending, term.options);
+        let order = column.compare_key_to(slot, other, term.descending);
         if !order.is_eq() {
             return Ok(order);
         }
@@ -2864,16 +2859,9 @@ fn relation_rank_key_merged(
                     segment
                         .sorting
                         .column(&column.path.display())?
-                        .keys
-                        .get(address.slot.0 as usize)
-                        .ok_or("merged segment sort slot missing")?
-                        .clone()
+                        .key_at(address.slot)?
                 } else {
-                    column
-                        .keys
-                        .get(address.slot.0 as usize)
-                        .ok_or("merged base sort slot missing")?
-                        .clone()
+                    column.key_at(address.slot)?
                 }
             }
             BoundSortSource::Computed(computed) => {
@@ -3664,7 +3652,7 @@ fn push_exact_order_cursor(
     else {
         return Ok(false);
     };
-    while let Some(slot) = order.get(position).copied() {
+    while let Some(slot) = order.get(position) {
         position += 1;
         if !selected[segment_index].0.contains(slot.0) {
             continue;
@@ -4223,7 +4211,7 @@ fn search_segmented_impl(
                             continue;
                         }
                         let resolved =
-                            segment_record_ref(segment, &published.active, catalog, *slot)?
+                            segment_record_ref(segment, &published.active, catalog, slot)?
                                 .ok_or("active segment ordered candidate missing")?;
                         let key = segment_rank_key(
                             repo,
@@ -5584,7 +5572,7 @@ fn try_direct_relation_page(
                 counters.relation_target_matches += 1;
                 if !target_ids.contains(resolved.record.id.0.as_ref()) {
                     let sort_key = if let Some(path) = direct_sort_column.as_deref() {
-                        Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
+                        Some(segment.sorting.key(path, RecordSlot(slot))?)
                     } else {
                         None
                     };
@@ -5722,14 +5710,14 @@ fn try_direct_relation_page(
                     .relations
                     .get(hop.relation.ordinal as usize)
                     .ok_or("direct relation source contribution missing")?;
-                let mut references = relation.references_for_source(RecordSlot(slot));
+                let mut references = relation.references_for_source(RecordSlot(slot)).into_iter();
                 let Some((target_id, _)) = references.next() else {
                     return Ok(None);
                 };
                 if references.next().is_some() {
                     return Ok(None);
                 }
-                let Some(target_key) = target_sort_keys.get(target_id) else {
+                let Some(target_key) = target_sort_keys.get(target_id.as_str()) else {
                     return Ok(None);
                 };
                 let term = &sort.bound.terms[*source_index]
@@ -7395,26 +7383,22 @@ fn lifecycle_segment_order<'a>(
     sort: &ResolvedSort<'_>,
     query: &Query,
     collection_index: usize,
-) -> Option<&'a [RecordSlot]> {
+) -> Option<SortOrder<'a>> {
     if query.options.sort.len() > 1 {
         return segment
             .sorting
             .composite(&query.options.sort)
-            .map(|order| order.order.as_slice());
+            .map(|order| SortOrder::Native(&order.order));
     }
     if query.options.sort.is_empty() {
-        return Some(&segment.identity_order);
+        return Some(SortOrder::Native(&segment.identity_order));
     }
     let term = sort.bound.terms[collection_index].as_ref()?.first()?;
     let BoundSortSource::Stored(base_column) = &term.source else {
         return None;
     };
     let column = segment.sorting.columns.get(&base_column.path)?;
-    Some(if term.descending {
-        &column.descending
-    } else {
-        &column.ascending
-    })
+    Some(column.order(term.descending))
 }
 
 fn push_lifecycle_order_cursor(
@@ -7434,7 +7418,7 @@ fn push_lifecycle_order_cursor(
     let published = &segments[collection_index][segment_index];
     let order = lifecycle_segment_order(&published.index, sort, query, collection_index)
         .ok_or("lifecycle stored order unavailable")?;
-    while let Some(slot) = order.get(position).copied() {
+    while let Some(slot) = order.get(position) {
         position += 1;
         if !published.active.contains(slot)
             || candidates[collection_index][segment_index]
@@ -9045,17 +9029,14 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
             let b_collection = &repo.collections[b.collection_index];
             let a_record = &a_collection.generation.records[a.slot as usize];
             let b_record = &b_collection.generation.records[b.slot as usize];
-            for ((a_column, descending), (b_column, _)) in sort.columns[a.collection_index]
+            for ((a_column, descending), (_b_column, _)) in sort.columns[a.collection_index]
                 .as_ref()
                 .unwrap()
                 .iter()
                 .zip(sort.columns[b.collection_index].as_ref().unwrap())
             {
-                let order = a_column.keys[a.slot as usize].compare_with(
-                    &b_column.keys[b.slot as usize],
-                    *descending,
-                    a_column.options,
-                );
+                let order =
+                    a_column.compare_slots(RecordSlot(a.slot), RecordSlot(b.slot), *descending);
                 if !order.is_eq() {
                     return order;
                 }
@@ -9069,7 +9050,7 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
 
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
-    order: &'a [crate::model::RecordSlot],
+    order: SortOrder<'a>,
     record: &'a RecordEntry,
     collection_name: &'a str,
     collection_index: usize,
@@ -9098,12 +9079,8 @@ impl PartialOrd for StoredCursor<'_> {
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
         let mut keys = Ordering::Equal;
-        for ((a, descending), (b, _)) in self.columns.iter().zip(other.columns) {
-            keys = a.keys[self.record.slot.0 as usize].compare_with(
-                &b.keys[other.record.slot.0 as usize],
-                *descending,
-                a.options,
-            );
+        for ((a, descending), (_b, _)) in self.columns.iter().zip(other.columns) {
+            keys = a.compare_slots(self.record.slot, other.record.slot, *descending);
             if !keys.is_eq() {
                 break;
             }
@@ -9118,7 +9095,7 @@ impl Ord for StoredCursor<'_> {
 fn stored_cursor<'a>(
     repo: &'a Repository,
     columns: &'a [(&'a SortColumn, bool)],
-    order: &'a [crate::model::RecordSlot],
+    order: SortOrder<'a>,
     collection_index: usize,
     plan_index: usize,
     position: usize,
@@ -9705,29 +9682,21 @@ fn try_stored_order_page(
             .as_ref()
             .expect("selected collection");
         let order = if query.options.sort.len() > 1 {
-            &repo.collections[entry.collection_index]
-                .sorting
-                .composite(&query.options.sort)
-                .expect("composite checked")
-                .order
+            SortOrder::Native(
+                &repo.collections[entry.collection_index]
+                    .sorting
+                    .composite(&query.options.sort)
+                    .expect("composite checked")
+                    .order,
+            )
         } else if let Some(field) = query.options.sort.first() {
-            let column = columns[0].0;
-            if field.descending {
-                &column.descending
-            } else {
-                &column.ascending
-            }
+            columns[0].0.order(field.descending)
         } else {
-            &repo.collections[entry.collection_index].identity_order
+            SortOrder::Native(&repo.collections[entry.collection_index].identity_order)
         };
-        if let Some(cursor) = stored_cursor(
-            repo,
-            columns,
-            order.as_slice(),
-            entry.collection_index,
-            plan_index,
-            0,
-        ) {
+        if let Some(cursor) =
+            stored_cursor(repo, columns, order, entry.collection_index, plan_index, 0)
+        {
             heap.push(Reverse(cursor));
         }
     }

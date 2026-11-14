@@ -455,6 +455,29 @@ impl SortColumnView {
         Ok(Some(decode_sort_key(bytes)?))
     }
 
+    /// Read one ascending order slot without materializing the order array.
+    pub fn ascending_slot(&self, index: u32) -> StorageResult<Option<u32>> {
+        self.order_slot_at(self.ascending_offset, self.ascending_len, index)
+    }
+
+    /// Read one descending order slot without materializing the order array.
+    pub fn descending_slot(&self, index: u32) -> StorageResult<Option<u32>> {
+        self.order_slot_at(self.descending_offset, self.descending_len, index)
+    }
+
+    fn order_slot_at(&self, offset: u64, length: u64, index: u32) -> StorageResult<Option<u32>> {
+        let at = u64::from(index)
+            .checked_mul(4)
+            .ok_or_else(|| StorageError::corrupt("sort order index overflow"))?;
+        if at + 4 > length {
+            return Ok(None);
+        }
+        let bytes = self.backing.read(self.orders_base + offset + at, 4)?;
+        Ok(Some(u32::from_le_bytes(
+            bytes.try_into().expect("four-byte order slot"),
+        )))
+    }
+
     pub fn ascending(&self) -> SortOrderCursor<'_> {
         SortOrderCursor {
             column: self,

@@ -1,6 +1,10 @@
 //! Declared, collection-scoped links and immutable forward reference access.
 
 use std::collections::{BTreeMap, HashMap};
+use std::sync::Arc;
+
+use crate::index_storage::relations::RelationView;
+use crate::index_storage::segment::FrozenSegment;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -82,14 +86,153 @@ pub struct RelationIndex {
     empty_arrays: RoaringBitmap,
     unavailable: RoaringBitmap,
     unresolved_count: u64,
+    #[serde(skip)]
+    packed: Option<Arc<PackedRelation>>,
+}
+
+
+/// Mapped relation adjacency backing one loaded declaration.
+#[derive(Clone, Debug)]
+pub(crate) struct PackedRelation {
+    segment: Arc<FrozenSegment>,
+    ordinal: usize,
+    record_count: u32,
+    target_collection: CollectionId,
+}
+
+
+impl PackedRelation {
+    pub(crate) fn new(
+        segment: Arc<FrozenSegment>,
+        ordinal: usize,
+        record_count: u32,
+        target_collection: CollectionId,
+    ) -> Self {
+        Self {
+            segment,
+            ordinal,
+            record_count,
+            target_collection,
+        }
+    }
+
+    fn view(&self) -> &RelationView {
+        self.segment
+            .relations()
+            .relations()
+            .get(self.ordinal)
+            .expect("packed relation declaration is present")
+    }
 }
 
 
 impl RelationIndex {
-    pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
+    pub(crate) fn empty(
+        declaration: RelationDefinition,
+        source: CollectionId,
+        ordinal: u32,
+        target_collection: CollectionId,
+    ) -> Self {
+        Self {
+            id: RelationId { source, ordinal },
+            declaration,
+            target_collection,
+            offsets: vec![0],
+            edges: Vec::new(),
+            present: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            empty_arrays: RoaringBitmap::new(),
+            unavailable: RoaringBitmap::new(),
+            unresolved_count: 0,
+            packed: None,
+        }
+    }
+
+    pub(crate) fn from_packed(
+        declaration: RelationDefinition,
+        source: CollectionId,
+        ordinal: u32,
+        target_collection: CollectionId,
+        packed: PackedRelation,
+    ) -> Self {
+        Self {
+            id: RelationId { source, ordinal },
+            declaration,
+            target_collection,
+            offsets: Vec::new(),
+            edges: Vec::new(),
+            present: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            empty_arrays: RoaringBitmap::new(),
+            unavailable: RoaringBitmap::new(),
+            unresolved_count: packed.view().unresolved_count(),
+            packed: Some(Arc::new(packed)),
+        }
+    }
+
+    pub fn edges(&self, source: RecordSlot) -> Option<std::borrow::Cow<'_, [RelationEdge]>> {
+        if let Some(packed) = &self.packed {
+            return Some(std::borrow::Cow::Owned(packed_edges(packed, source)?));
+        }
         let start = *self.offsets.get(source.0 as usize)? as usize;
         let end = *self.offsets.get(source.0 as usize + 1)? as usize;
-        self.edges.get(start..end)
+        Some(std::borrow::Cow::Borrowed(self.edges.get(start..end)?))
+    }
+
+    pub fn contains_present(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.present.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .present()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub fn contains_null(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.nulls.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .nulls()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub fn contains_empty_array(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.empty_arrays.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .empty_arrays()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub fn contains_unavailable(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.unavailable.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .unavailable()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
     }
 
     pub fn present(&self) -> &RoaringBitmap {
@@ -106,6 +249,18 @@ impl RelationIndex {
 
     pub fn unavailable(&self) -> &RoaringBitmap {
         &self.unavailable
+    }
+
+    pub fn record_count(&self) -> u32 {
+        self.packed
+            .as_ref()
+            .map_or(self.offsets.len().saturating_sub(1) as u32, |packed| {
+                packed.record_count
+            })
+    }
+
+    pub fn packed_target_collection(&self) -> Option<CollectionId> {
+        self.packed.as_ref().map(|packed| packed.target_collection)
     }
 
     pub fn unresolved_count(&self) -> u64 {
@@ -170,7 +325,14 @@ impl RelationIndex {
                 .relations()
                 .get(&self.declaration.path)
                 != Some(&self.declaration)
-            || self.offsets.len() != source.generation.records.len() + 1
+        {
+            return Err("relation identity or declaration mismatch".into());
+        }
+        if self.packed.is_some() {
+            // The packed section is structurally validated when opened.
+            return Ok(());
+        }
+        if self.offsets.len() != source.generation.records.len() + 1
             || self.offsets.first() != Some(&0)
             || self.offsets.last().copied() != u32::try_from(self.edges.len()).ok()
         {
@@ -254,6 +416,24 @@ impl RelationIndex {
 }
 
 
+fn packed_edges(packed: &PackedRelation, source: RecordSlot) -> Option<Vec<RelationEdge>> {
+    let edges = packed.view().edges(source.0).ok()?;
+    Some(
+        edges
+            .into_iter()
+            .map(|edge| RelationEdge {
+                target: edge.target_slot.map_or_else(
+                    || RelationTarget::Unresolved(edge.target_id.clone()),
+                    |slot| RelationTarget::Resolved(RecordSlot(slot)),
+                ),
+                target_id: edge.target_id,
+                positions: edge.positions,
+            })
+            .collect(),
+    )
+}
+
+
 /// One local ID occurrence before target inventories are available.
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct PendingReference {
@@ -273,10 +453,29 @@ pub(crate) struct RelationContribution {
     pub(crate) nulls: RoaringBitmap,
     pub(crate) empty_arrays: RoaringBitmap,
     pub(crate) unavailable: RoaringBitmap,
+    #[serde(skip)]
+    pub(crate) packed: Option<Arc<PackedRelation>>,
 }
 
 
 impl RelationContribution {
+    pub(crate) fn from_packed(
+        declaration: RelationDefinition,
+        record_count: u32,
+        packed: PackedRelation,
+    ) -> Self {
+        Self {
+            declaration,
+            record_count,
+            references: Vec::new(),
+            present: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            empty_arrays: RoaringBitmap::new(),
+            unavailable: RoaringBitmap::new(),
+            packed: Some(Arc::new(packed)),
+        }
+    }
+
     /// Deterministic planning estimate for the native relation contribution.
     pub(crate) fn estimated_bytes(&self) -> usize {
         const OVERHEAD: usize = 48;
@@ -321,6 +520,7 @@ impl RelationContribution {
             for edge in index
                 .edges(RecordSlot(source))
                 .ok_or("relation adjacency missing")?
+                .iter()
             {
                 references.push(PendingReference {
                     source: RecordSlot(source),
@@ -337,6 +537,7 @@ impl RelationContribution {
             nulls: index.nulls.clone(),
             empty_arrays: index.empty_arrays.clone(),
             unavailable: index.unavailable.clone(),
+            packed: None,
         })
     }
 
@@ -362,31 +563,98 @@ impl RelationContribution {
         })
     }
 
-    pub(crate) fn references_for_source(
-        &self,
-        source: RecordSlot,
-    ) -> impl Iterator<Item = (&str, &[u32])> {
+    pub(crate) fn references_for_source(&self, source: RecordSlot) -> Vec<(String, Vec<u32>)> {
+        if let Some(packed) = &self.packed {
+            return packed
+                .view()
+                .edges(source.0)
+                .unwrap_or_default()
+                .into_iter()
+                .map(|edge| (edge.target_id, edge.positions))
+                .collect();
+        }
         let start = self
             .references
             .partition_point(|reference| reference.source.0 < source.0);
         self.references[start..]
             .iter()
             .take_while(move |reference| reference.source == source)
-            .map(|reference| (reference.target_id.as_str(), reference.positions.as_slice()))
+            .map(|reference| (reference.target_id.clone(), reference.positions.clone()))
+            .collect()
     }
 
+    pub(crate) fn contains_present(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.present.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .present()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub(crate) fn contains_null(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.nulls.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .nulls()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub(crate) fn contains_empty_array(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.empty_arrays.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .empty_arrays()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    pub(crate) fn contains_unavailable(&self, slot: RecordSlot) -> bool {
+        self.packed.as_ref().map_or_else(
+            || self.unavailable.contains(slot.0),
+            |packed| {
+                packed
+                    .view()
+                    .unavailable()
+                    .ok()
+                    .and_then(|set| set.contains(slot.0).ok())
+                    .unwrap_or(false)
+            },
+        )
+    }
+
+    #[allow(dead_code)]
     pub(crate) fn present(&self) -> &RoaringBitmap {
         &self.present
     }
 
+    #[allow(dead_code)]
     pub(crate) fn nulls(&self) -> &RoaringBitmap {
         &self.nulls
     }
 
+    #[allow(dead_code)]
     pub(crate) fn empty_arrays(&self) -> &RoaringBitmap {
         &self.empty_arrays
     }
 
+    #[allow(dead_code)]
     pub(crate) fn unavailable(&self) -> &RoaringBitmap {
         &self.unavailable
     }
@@ -449,6 +717,7 @@ impl RelationContribution {
             nulls: project(&self.nulls)?,
             empty_arrays: project(&self.empty_arrays)?,
             unavailable: project(&self.unavailable)?,
+            packed: None,
         })
     }
 
@@ -469,6 +738,7 @@ impl RelationContribution {
                 nulls: RoaringBitmap::new(),
                 empty_arrays: RoaringBitmap::new(),
                 unavailable: RoaringBitmap::new(),
+                packed: None,
             })
             .collect::<Vec<_>>();
         let mut locate = |old: u32| -> Result<Option<(usize, RecordSlot)>, String> {
@@ -528,6 +798,7 @@ impl RelationContribution {
                 nulls: RoaringBitmap::new(),
                 empty_arrays: RoaringBitmap::new(),
                 unavailable: RoaringBitmap::new(),
+                packed: None,
             })
             .collect()
     }
@@ -675,6 +946,7 @@ impl RelationContribution {
             empty_arrays: self.empty_arrays,
             unavailable: self.unavailable,
             unresolved_count,
+            packed: None,
         })
     }
 }

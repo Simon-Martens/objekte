@@ -14,6 +14,8 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
+use crate::index_storage::segment::FrozenSegment;
+use crate::index_storage::sort::SortColumnView;
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordClass, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
 use crate::posting::{PostingIndex, ScalarKey};
@@ -141,6 +143,88 @@ pub struct SortColumn {
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
+    /// Mapped packed column for loaded runs. Native vectors stay empty until
+    /// a mutation actually materializes a resident replacement.
+    #[serde(skip)]
+    pub(crate) packed: Option<Arc<PackedSortColumn>>,
+}
+
+
+/// Borrowed packed sort column binding.
+#[derive(Clone)]
+pub(crate) struct PackedSortColumn {
+    segment: Arc<FrozenSegment>,
+    path: Vec<String>,
+}
+
+
+impl std::fmt::Debug for PackedSortColumn {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("PackedSortColumn")
+            .field("path", &self.path)
+            .finish_non_exhaustive()
+    }
+}
+
+
+impl PackedSortColumn {
+    fn view(&self) -> &SortColumnView {
+        self.segment
+            .sorting()
+            .column(&self.path)
+            .expect("packed sort column is present")
+    }
+}
+
+
+/// Random-access stored order over native or packed columns.
+#[derive(Clone, Copy)]
+pub(crate) enum SortOrder<'a> {
+    Native(&'a [RecordSlot]),
+    Packed {
+        column: &'a SortColumn,
+        descending: bool,
+    },
+}
+
+
+impl<'a> SortOrder<'a> {
+    pub(crate) fn len(self) -> usize {
+        match self {
+            Self::Native(order) => order.len(),
+            Self::Packed { column, .. } => column.key_count(),
+        }
+    }
+
+    pub(crate) fn get(self, index: usize) -> Option<RecordSlot> {
+        match self {
+            Self::Native(order) => order.get(index).copied(),
+            Self::Packed { column, descending } => {
+                let index = u32::try_from(index).ok()?;
+                let slot = if descending {
+                    column.packed_view()?.descending_slot(index).ok()?
+                } else {
+                    column.packed_view()?.ascending_slot(index).ok()?
+                }?;
+                Some(RecordSlot(slot))
+            }
+        }
+    }
+
+    pub(crate) fn iter(self) -> impl Iterator<Item = RecordSlot> + 'a {
+        (0..self.len()).filter_map(move |index| self.get(index))
+    }
+}
+
+
+impl<'a> IntoIterator for SortOrder<'a> {
+    type Item = RecordSlot;
+    type IntoIter = Box<dyn Iterator<Item = RecordSlot> + 'a>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        Box::new(self.iter())
+    }
 }
 
 
@@ -309,6 +393,87 @@ impl InferredOrderCache {
 
 
 impl SortColumn {
+    pub(crate) fn from_packed(
+        segment: Arc<FrozenSegment>,
+        path: FieldPath,
+        kind: LogicalType,
+        locale: String,
+        options: SortOptions,
+        collation_version: String,
+    ) -> Self {
+        Self {
+            path: path.clone(),
+            kind,
+            keys: Vec::new(),
+            ascending: Vec::new(),
+            descending: Vec::new(),
+            locale,
+            options,
+            collation_version,
+            packed: Some(Arc::new(PackedSortColumn {
+                segment,
+                path: path.segments,
+            })),
+        }
+    }
+
+    fn packed_view(&self) -> Option<&SortColumnView> {
+        self.packed.as_ref().map(|packed| packed.view())
+    }
+
+    pub(crate) fn key_count(&self) -> usize {
+        self.packed_view().map_or(self.keys.len(), |view| {
+            usize::try_from(view.key_count()).unwrap_or(usize::MAX)
+        })
+    }
+
+    pub(crate) fn key_at(&self, slot: RecordSlot) -> Result<SortKey, String> {
+        if let Some(view) = self.packed_view() {
+            return view
+                .key_at(slot.0)
+                .map_err(|error| error.to_string())?
+                .ok_or_else(|| "sort slot out of bounds".into());
+        }
+        self.keys
+            .get(slot.0 as usize)
+            .cloned()
+            .ok_or_else(|| "sort slot out of bounds".into())
+    }
+
+    pub(crate) fn compare_slots(&self, a: RecordSlot, b: RecordSlot, descending: bool) -> Ordering {
+        let a = self
+            .key_at(a)
+            .expect("stored sort key for a published slot");
+        let b = self
+            .key_at(b)
+            .expect("stored sort key for a published slot");
+        a.compare_with(&b, descending, self.options)
+    }
+
+    pub(crate) fn compare_key_to(
+        &self,
+        slot: RecordSlot,
+        other: &SortKey,
+        descending: bool,
+    ) -> Ordering {
+        self.key_at(slot)
+            .expect("stored sort key for a published slot")
+            .compare_with(other, descending, self.options)
+    }
+
+    pub(crate) fn order(&self, descending: bool) -> SortOrder<'_> {
+        if self.packed.is_some() {
+            SortOrder::Packed {
+                column: self,
+                descending,
+            }
+        } else if descending {
+            SortOrder::Native(&self.descending)
+        } else {
+            SortOrder::Native(&self.ascending)
+        }
+    }
+
     pub(crate) fn retained_bytes(&self) -> usize {
         let mut bytes = std::mem::size_of::<Self>()
             .saturating_add(
@@ -549,6 +714,7 @@ impl SortColumn {
             locale: locale.to_owned(),
             options,
             collation_version: COLLATION_VERSION.into(),
+            packed: None,
         }))
     }
 }
@@ -720,6 +886,7 @@ impl SortBuilder {
                         locale: config.locale,
                         options: config.options,
                         collation_version: COLLATION_VERSION.into(),
+                        packed: None,
                     },
                 )
                 .is_some()
@@ -863,11 +1030,7 @@ pub(crate) fn compare_composite(
     b: RecordSlot,
 ) -> Ordering {
     for (column, descending) in columns {
-        let order = column.keys[a.0 as usize].compare_with(
-            &column.keys[b.0 as usize],
-            *descending,
-            column.options,
-        );
+        let order = column.compare_slots(a, b, *descending);
         if !order.is_eq() {
             return order;
         }
@@ -974,11 +1137,8 @@ impl SortCollection {
             .ok_or_else(|| format!("sort field is not registered: {field}"))
     }
 
-    pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
-        self.column(field)?
-            .keys
-            .get(slot.0 as usize)
-            .ok_or("sort slot out of bounds".into())
+    pub fn key(&self, field: &str, slot: RecordSlot) -> Result<SortKey, String> {
+        self.column(field)?.key_at(slot)
     }
 
     pub fn validate_request(&self, fields: &[SortField]) -> Result<(), String> {
@@ -986,7 +1146,7 @@ impl SortCollection {
             self.key(&field.field, RecordSlot(0)).or_else(|e| {
                 // An empty collection has no slot zero; the column still exists.
                 if self.columns.contains_key(&FieldPath::parse(&field.field)?) {
-                    Ok(&SortKey::Missing)
+                    Ok(SortKey::Missing)
                 } else {
                     Err(e)
                 }

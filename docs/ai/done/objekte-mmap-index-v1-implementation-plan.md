@@ -2467,8 +2467,7 @@ tests compare built-native and loaded-packed query hit identities and FTS
 candidates.
 
 `Index::load_from` now reconstructs the queryable repository directly from the
-packed catalogue and run objects. It rebuilds file inventory/catalogue slots,
-record rows, sort columns/orders, relation contributions, coverage,
+packed catalogue and run objects. It rebuilds file inventory/catalogue slots, record rows, coverage,
 diagnostics, and statistics. The native snapshot object is no longer written
 or read; a test asserts that the store has no state object.
 
@@ -2477,8 +2476,14 @@ into native dictionaries during Load. Only small field/bigram descriptors and
 inference coverage metadata are retained. Declared, observed, and named field
 access resolves through `PostingAccess::Packed`; posting-value enumeration and
 relation reverse probes use the same mapped reads; bigram candidates and
-estimates use `BigramAccess::Packed`. Re-saving a loaded index reuses the
-original packed run object bytes instead of re-packing from native state.
+estimates use `BigramAccess::Packed`.
+
+Stored sort columns and relation adjacency are also packed-backed. Load retains
+column descriptors with empty native key/order vectors and reads keys or order
+slots from mapped arrays through `SortColumn`/`SortOrder`. Relation declarations
+retain empty native edge/bitmap storage and read edges or state probes from
+mapped relation sections. Re-saving a loaded index reuses the original packed
+run object bytes instead of re-packing from native state.
 
 ### Validation
 
@@ -2521,16 +2526,31 @@ objects_written=50  noop_bytes_written=0  load_speedup_over_build=10.02
 
 The first measurement is a 20,000-record JSONL corpus; the second uses
 `OBJEKTE_STORAGE_RECORDS=100000`. Load includes opening the store and restoring
-the native query state. Unchanged saves write zero bytes.
+the query owners. Unchanged saves write zero bytes.
+
+Warm/cold mapped-load benchmark, `cargo run -p
+objekte-search-core --example bench_mmap_load --release` with `TMPDIR` on a
+disk-backed filesystem so `fadvise(DONTNEED)` can evict pages:
+
+```text
+records=20000  warm mean=4.90 ms  cold mean=8.82 ms  cold/warm=1.80
+records=100000 warm mean=18.01 ms cold mean=58.84 ms cold/warm=3.27
+```
+
+Each entry is the mean of three loads. Cold runs evict every store file before
+Load. The automated GUI matrix could not be run in this environment because no
+display server or `xvfb-run` is available; desktop controller/UI tests pass
+headlessly.
 
 ### Deviations and remaining limitations
 
-1. **Typed postings and bigrams are packed-only after Load.** Their native
-   dictionaries are no longer rebuilt; query, posting-value, and relation
-   candidate paths read mapped packed sections. Remaining native
-   reconstruction at Load is limited to record metadata, sort columns/orders,
-   and relation adjacency, which still serve existing execution interfaces and
-   exact-source fallbacks. This is recorded in
+1. **Typed postings, bigrams, sort, and relation adjacency are packed-only
+   after Load.** Their native dictionaries, key/order vectors, edge arrays, and
+   relation bitmaps are no longer rebuilt. Query, posting-value, relation
+   candidate, sort, and relation traversal paths read mapped packed sections.
+   Remaining native reconstruction at Load is record rows and the logical-ID
+   lookup, which still serve existing locator/frontend interfaces. This is
+   recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
 2. **Desktop/TUI storage controls and custom-only opening are implemented.**
    The desktop Open dialog exposes Build/Load, three locations, custom path, and

@@ -34,11 +34,17 @@ bigrams stay packed: no native value or gram dictionaries are rebuilt.
 candidates read mapped packed sections, and loaded re-saves reuse the original
 packed run object bytes.
 
-Still native after Load: record rows and the logical-ID lookup, sort
-columns/orders, relation adjacency, and source-verification fallbacks. These
-types' existing APIs return borrowed slices or owned vectors, so migrating them
-requires an access-type migration across `run.rs`, `executor.rs`,
-`relation_query.rs`, and `sorting.rs`.
+Sort columns/orders now retain packed descriptors and read keys/order slots
+directly from mapped arrays (`SortColumn`/`SortOrder`). Relation adjacency now
+retains packaged relation descriptors and reads edges/state probes from mapped
+sections (`PackedRelation`, `RelationIndex`, `RelationContribution`).
+
+Still native after Load: record rows and the complete logical-ID lookup, plus
+source-verification fallbacks. `CollectionGeneration.records` and the
+`id_lookup` map are indexed throughout locator, frontend, relation-inspection,
+and sort-binding code, so migrating them requires a record-access abstraction
+across those modules. Warm/cold mmap loads are measured; GUI automation remains
+blocked on a display server in this environment.
 
 ## Why not resolved here
 

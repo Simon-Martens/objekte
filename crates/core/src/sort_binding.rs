@@ -391,9 +391,7 @@ impl<'a> BoundSort<'a> {
             .iter()
             .map(|term| {
                 let key = match &term.source {
-                    BoundSortSource::Stored(column) => {
-                        column.keys[ctx.record.slot.0 as usize].clone()
-                    }
+                    BoundSortSource::Stored(column) => column.key_at(ctx.record.slot)?,
                     BoundSortSource::Computed(computed) => {
                         if computed.related.is_some() {
                             computed.key(
@@ -624,7 +622,7 @@ impl ComputedSort {
                         },
                     )?;
                 } else {
-                    for (id, positions) in edges {
+                    for (id, positions) in &edges {
                         if !positions_match(&hop.selectors, positions) {
                             continue;
                         }
@@ -1206,7 +1204,7 @@ impl ComputedSort {
             .relations
             .get(hop.relation.ordinal as usize)
             .ok_or("sort relation index is missing")?;
-        if hop.direction == HopDirection::Forward && relation.unavailable().contains(slot.0) {
+        if hop.direction == HopDirection::Forward && relation.contains_unavailable(slot) {
             reduced.observe_unavailable()?;
             return Ok(());
         }
@@ -1272,7 +1270,11 @@ impl ComputedSort {
                         },
                     )?;
                 } else {
-                    for edge in relation.edges(slot).ok_or("sort relation edges missing")? {
+                    for edge in relation
+                        .edges(slot)
+                        .ok_or("sort relation edges missing")?
+                        .iter()
+                    {
                         if !positions_match(&hop.selectors, &edge.positions) {
                             continue;
                         }
@@ -1299,7 +1301,7 @@ impl ComputedSort {
                             None => reduced.observe_unavailable()?,
                         }
                     }
-                    if relation.nulls().contains(slot.0) {
+                    if relation.contains_null(slot) {
                         reduced.observe_value(&Value::Null, self)?;
                     }
                 }

@@ -268,12 +268,13 @@ fn prepare_with_limits(
                 if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
                     return Err("stream cancelled".into());
                 }
-                if relation.unavailable().contains(slot) {
+                if relation.contains_unavailable(RecordSlot(slot)) {
                     continue;
                 }
                 for edge in relation
                     .edges(RecordSlot(slot))
                     .ok_or("relation source slot missing")?
+                    .iter()
                 {
                     if let Some(execution) = execution {
                         execution.charge_edges(1)?;

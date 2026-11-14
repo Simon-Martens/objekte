@@ -2,6 +2,7 @@ use super::*;
 
 fn inferred_test_column(path: &str) -> SortColumn {
     SortColumn {
+        packed: None,
         path: FieldPath::parse(path).unwrap(),
         kind: LogicalType::String,
         keys: vec![SortKey::String(vec![1, 2, 3])],

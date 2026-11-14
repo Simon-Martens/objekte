@@ -2370,13 +2370,13 @@ pub(crate) fn sort_rows(
             let crate::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source else {
                 unreachable!("all terms resident")
             };
-            let crate::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source else {
+            let crate::sort_binding::BoundSortSource::Stored(_b_column) = &b_term.source else {
                 unreachable!("all terms resident")
             };
-            let order = a_column.keys[*a_slot as usize].compare_with(
-                &b_column.keys[*b_slot as usize],
+            let order = a_column.compare_slots(
+                crate::model::RecordSlot(*a_slot),
+                crate::model::RecordSlot(*b_slot),
                 a_term.descending,
-                a_term.options,
             );
             if !order.is_eq() {
                 return order;

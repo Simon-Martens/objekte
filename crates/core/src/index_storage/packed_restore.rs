@@ -26,7 +26,7 @@ use crate::sorting::{SortCollection, SortColumn};
 use crate::source::{DiagnosticCategory, SourceRegistry};
 
 use super::catalogue::{CatalogueView, DiagnosticView, FileRowView};
-use super::error::{StorageError, StorageResult};
+use super::error::StorageError;
 use super::native_pack::InferenceMetadata;
 use super::segment::FrozenSegment;
 use super::store::OpenedStore;
@@ -50,7 +50,6 @@ pub fn restore_from_store(
     let files = FileInventory::from_restored_entries(root.clone(), entries)
         .map_err(IndexError::InvalidPublication)?;
     let mut base = Vec::with_capacity(definitions.len());
-    let mut contributions = Vec::with_capacity(definitions.len());
     for (number, definition) in definitions.iter().enumerate() {
         let collection_id = CollectionId(number as u32);
         let source = sources
@@ -78,8 +77,6 @@ pub fn restore_from_store(
             .filter_map(|id| rows.get(&id.0))
             .map(|row| row.size)
             .sum();
-        let relation_contributions = RelationContribution::for_schema(&definition.schema);
-        contributions.push(relation_contributions);
         base.push(CollectionState {
             definition: definition.clone(),
             packed: None,
@@ -110,30 +107,77 @@ pub fn restore_from_store(
             relations: Vec::new(),
         });
     }
-    for (number, collection_contributions) in contributions.into_iter().enumerate() {
-        let resolved = collection_contributions
-            .into_iter()
-            .enumerate()
-            .map(|(ordinal, contribution)| {
-                contribution
-                    .resolve(CollectionId(number as u32), ordinal as u32, &base)
-                    .map_err(IndexError::InvalidPublication)
-            })
-            .collect::<Result<Vec<_>, _>>()?;
-        base[number].relations = resolved;
-    }
     let mut frozen_runs = HashMap::new();
     for run in &opened.runs {
         let frozen = Arc::new(FrozenSegment::open(opened.run_backing(run)).map_err(storage_error)?);
         frozen_runs.insert((run.reference.collection, run.reference.ordinal), frozen);
     }
     for (number, collection) in base.iter_mut().enumerate() {
-        let Some(frozen) = frozen_runs.get(&(number as u32, 0)) else {
+        let Some(frozen) = frozen_runs.get(&(number as u32, 0)).cloned() else {
             continue;
         };
-        collection.packed = Some(Arc::clone(frozen));
+        collection.packed = Some(Arc::clone(&frozen));
         collection.stats.file_count = frozen.stats().file_part_count as usize;
         collection.stats.record_count = frozen.stats().record_count as usize;
+    }
+    for (number, collection) in base.iter_mut().enumerate() {
+        let Some(frozen) = frozen_runs.get(&(number as u32, 0)).cloned() else {
+            collection.relations = collection
+                .definition
+                .schema
+                .relations()
+                .values()
+                .enumerate()
+                .map(|(ordinal, declaration)| {
+                    let target = definitions
+                        .iter()
+                        .position(|target| target.name == declaration.target_collection)
+                        .ok_or_else(|| {
+                            IndexError::InvalidPublication(
+                                "relation target collection missing".into(),
+                            )
+                        })?;
+                    Ok(crate::relation::RelationIndex::empty(
+                        declaration.clone(),
+                        CollectionId(number as u32),
+                        ordinal as u32,
+                        CollectionId(target as u32),
+                    ))
+                })
+                .collect::<Result<Vec<_>, IndexError>>()?;
+            continue;
+        };
+        for (ordinal, relation) in frozen.relations().relations().iter().enumerate() {
+            let target = definitions
+                .get(relation.target_collection as usize)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("relation target collection missing".into())
+                })?;
+            let declaration = RelationDefinition {
+                path: relation.path.clone(),
+                target_collection: target.name.clone(),
+                cardinality: if relation.cardinality() == 0 {
+                    RelationCardinality::One
+                } else {
+                    RelationCardinality::Many
+                },
+                reverse_alias: relation.reverse_alias.clone(),
+            };
+            collection
+                .relations
+                .push(crate::relation::RelationIndex::from_packed(
+                    declaration,
+                    CollectionId(number as u32),
+                    ordinal as u32,
+                    CollectionId(relation.target_collection),
+                    crate::relation::PackedRelation::new(
+                        Arc::clone(&frozen),
+                        ordinal,
+                        relation.slot_count(),
+                        CollectionId(relation.target_collection),
+                    ),
+                ));
+        }
     }
     let base_fingerprints = (0..files.files.len())
         .map(|id| rows.get(&(id as u32)).and_then(|row| row.fingerprint))
@@ -243,17 +287,17 @@ fn manifest_root(hex: &str) -> Result<PathBuf, IndexError> {
 }
 
 fn decode_hex(text: &str) -> Result<Vec<u8>, IndexError> {
-    if text.len() % 2 != 0 {
+    if !text.len().is_multiple_of(2) {
         return Err(IndexError::InvalidPublication(
             "invalid source root hex".into(),
         ));
     }
     let mut bytes = Vec::with_capacity(text.len() / 2);
-    for chunk in text.as_bytes().chunks_exact(2) {
-        let high = (chunk[0] as char)
+    for index in (0..text.len()).step_by(2) {
+        let high = (text.as_bytes()[index] as char)
             .to_digit(16)
             .ok_or_else(|| IndexError::InvalidPublication("invalid source root hex".into()))?;
-        let low = (chunk[1] as char)
+        let low = (text.as_bytes()[index + 1] as char)
             .to_digit(16)
             .ok_or_else(|| IndexError::InvalidPublication("invalid source root hex".into()))?;
         bytes.push(((high << 4) | low) as u8);
@@ -488,38 +532,16 @@ fn segment_from_packed(
             root: PathRoot::Data,
             segments: column.path().to_vec(),
         };
-        let keys = (0..column.key_count())
-            .map(|slot| column.key_at(slot))
-            .collect::<StorageResult<Option<Vec<_>>>>()
-            .map_err(storage_error)?
-            .into_iter()
-            .flatten()
-            .collect::<Vec<_>>();
         sorting.columns.insert(
-            path,
-            SortColumn {
-                path: FieldPath {
-                    root: PathRoot::Data,
-                    segments: column.path().to_vec(),
-                },
-                kind: column.kind().clone(),
-                keys,
-                ascending: column
-                    .ascending_slots()
-                    .map_err(storage_error)?
-                    .into_iter()
-                    .map(RecordSlot)
-                    .collect(),
-                descending: column
-                    .descending_slots()
-                    .map_err(storage_error)?
-                    .into_iter()
-                    .map(RecordSlot)
-                    .collect(),
-                locale: column.locale().into(),
-                options: column.options(),
-                collation_version: column.collation_version().into(),
-            },
+            path.clone(),
+            SortColumn::from_packed(
+                Arc::clone(frozen),
+                path,
+                column.kind().clone(),
+                column.locale().into(),
+                column.options(),
+                column.collation_version().into(),
+            ),
         );
     }
     let mut logical_records = RoaringBitmap::new();
@@ -536,61 +558,32 @@ fn segment_from_packed(
         .map_err(storage_error)?
         .union_into(&mut empty_array_records)
         .map_err(storage_error)?;
-    let mut relations = Vec::new();
-    for relation in frozen.relations().relations() {
+    let mut relations = Vec::with_capacity(frozen.relations().relations().len());
+    for (ordinal, relation) in frozen.relations().relations().iter().enumerate() {
         let target_collection = definitions
             .get(relation.target_collection as usize)
             .ok_or_else(|| {
                 IndexError::InvalidPublication("relation target collection missing".into())
             })?;
-        let mut references = Vec::new();
-        for slot in 0..relation.slot_count() {
-            for edge in relation.edges(slot).map_err(storage_error)? {
-                references.push(crate::relation::PendingReference {
-                    source: RecordSlot(slot),
-                    target_id: edge.target_id,
-                    positions: edge.positions,
-                });
-            }
-        }
-        relations.push(RelationContribution {
-            declaration: RelationDefinition {
+        relations.push(RelationContribution::from_packed(
+            RelationDefinition {
                 path: relation.path.clone(),
                 target_collection: target_collection.name.clone(),
-                cardinality: if relation_cardinality(relation) {
+                cardinality: if relation.cardinality() == 0 {
                     RelationCardinality::One
                 } else {
                     RelationCardinality::Many
                 },
                 reverse_alias: relation.reverse_alias.clone(),
             },
-            record_count: relation.slot_count(),
-            references,
-            present: relation
-                .present()
-                .map_err(storage_error)?
-                .ids()
-                .collect::<StorageResult<RoaringBitmap>>()
-                .map_err(storage_error)?,
-            nulls: relation
-                .nulls()
-                .map_err(storage_error)?
-                .ids()
-                .collect::<StorageResult<RoaringBitmap>>()
-                .map_err(storage_error)?,
-            empty_arrays: relation
-                .empty_arrays()
-                .map_err(storage_error)?
-                .ids()
-                .collect::<StorageResult<RoaringBitmap>>()
-                .map_err(storage_error)?,
-            unavailable: relation
-                .unavailable()
-                .map_err(storage_error)?
-                .ids()
-                .collect::<StorageResult<RoaringBitmap>>()
-                .map_err(storage_error)?,
-        });
+            relation.slot_count(),
+            crate::relation::PackedRelation::new(
+                Arc::clone(frozen),
+                ordinal,
+                relation.slot_count(),
+                CollectionId(relation.target_collection),
+            ),
+        ));
     }
     Ok(IndexedCollectionSegment {
         collection: CollectionId(collection as u32),
@@ -621,10 +614,6 @@ fn segment_from_packed(
         accounting: Default::default(),
         packed: Some(Arc::clone(frozen)),
     })
-}
-
-fn relation_cardinality(relation: &crate::index_storage::relations::RelationView) -> bool {
-    relation.cardinality() == 0
 }
 
 fn posting_families(

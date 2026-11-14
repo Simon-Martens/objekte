@@ -264,12 +264,13 @@ fn reachable_targets(
             if source_active.is_some_and(|active| !active.contains(RecordSlot(slot))) {
                 continue;
             }
-            if index.unavailable().contains(slot) {
+            if index.contains_unavailable(RecordSlot(slot)) {
                 continue;
             }
             for edge in index
                 .edges(RecordSlot(slot))
                 .ok_or("relation source slot missing")?
+                .iter()
             {
                 visit_edge(work, execution)?;
                 if let Some(active) = target_active {

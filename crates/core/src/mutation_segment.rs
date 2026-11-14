@@ -2143,6 +2143,7 @@ fn project_sorting(
             locale: original.locale.clone(),
             options: original.options,
             collation_version: original.collation_version.clone(),
+            packed: None,
         };
         let old_keys = &original.keys;
         if old_keys.len() != slots.len() {
@@ -2415,6 +2416,7 @@ impl IndexedCollectionSegment {
                         locale: original.locale.clone(),
                         options: original.options,
                         collation_version: original.collation_version.clone(),
+                        packed: None,
                     },
                 );
             }

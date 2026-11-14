@@ -2286,6 +2286,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
 
 fn concurrent_test_inferred_column(path: &str) -> SortColumn {
     SortColumn {
+        packed: None,
         path: FieldPath::parse(path).unwrap(),
         kind: LogicalType::String,
         keys: vec![SortKey::String(vec![1])],

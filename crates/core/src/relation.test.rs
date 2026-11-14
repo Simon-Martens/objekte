@@ -279,7 +279,7 @@ fn check(repo: &Repository) {
             .collect::<Vec<_>>(),
         [&[0, 0][..], &[0, 1][..], &[1, 0][..]]
     );
-    assert_eq!(groups.edges(m2).unwrap(), []);
+    assert!(groups.edges(m2).unwrap().is_empty());
     assert!(groups.empty_arrays().contains(m2.0));
     assert!(groups.present().contains(m2.0));
     assert_eq!(
@@ -342,6 +342,7 @@ fn nested_array_occurrences_retain_every_scope_position() {
         nulls: RoaringBitmap::new(),
         empty_arrays: RoaringBitmap::new(),
         unavailable: RoaringBitmap::new(),
+        packed: None,
     };
     contribution.add_logical(RecordSlot(0), &value).unwrap();
     assert_eq!(
@@ -356,12 +357,14 @@ fn nested_array_occurrences_retain_every_scope_position() {
     );
     assert_eq!(contribution.record_count(), 1);
     assert_eq!(
-        contribution
-            .references_for_source(RecordSlot(0))
-            .collect::<Vec<_>>(),
-        [("A", &[0, 0][..]), ("A", &[0, 1][..]), ("B", &[1, 0][..])]
+        contribution.references_for_source(RecordSlot(0)),
+        vec![
+            ("A".to_owned(), vec![0, 0]),
+            ("A".to_owned(), vec![0, 1]),
+            ("B".to_owned(), vec![1, 0]),
+        ]
     );
-    assert_eq!(contribution.references_for_source(RecordSlot(1)).count(), 0);
+    assert_eq!(contribution.references_for_source(RecordSlot(1)).len(), 0);
     assert_eq!(contribution.declaration().target_collection, "entries");
     assert!(contribution.present().contains(0));
     assert!(contribution.nulls().is_empty());
@@ -379,6 +382,7 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
         nulls: RoaringBitmap::new(),
         empty_arrays: RoaringBitmap::new(),
         unavailable: RoaringBitmap::new(),
+        packed: None,
     };
     contribution.add_unavailable(RecordSlot(0)).unwrap();
     contribution
@@ -396,8 +400,8 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
         projected.references().collect::<Vec<_>>(),
         [(RecordSlot(0), "A", &[][..])]
     );
-    assert_eq!(projected.references_for_source(RecordSlot(0)).count(), 1);
-    assert_eq!(projected.references_for_source(RecordSlot(1)).count(), 0);
+    assert_eq!(projected.references_for_source(RecordSlot(0)).len(), 1);
+    assert_eq!(projected.references_for_source(RecordSlot(1)).len(), 0);
     assert!(projected.present().contains(0));
     assert!(projected.unavailable().contains(1));
     assert!(!projected.unavailable().contains(0));

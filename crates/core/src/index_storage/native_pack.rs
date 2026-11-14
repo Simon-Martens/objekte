@@ -581,7 +581,7 @@ fn pack_relations(relations: &[RelationIndex], slot_count: u32) -> Vec<RelationI
             offsets.push(0u32);
             for slot in 0..slot_count {
                 if let Some(source) = relation.edges(RecordSlot(slot)) {
-                    for edge in source {
+                    for edge in source.iter() {
                         edges.push(RelationEdgeInput {
                             source_slot: slot,
                             target_slot: match &edge.target {
