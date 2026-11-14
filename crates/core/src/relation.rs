@@ -395,7 +395,7 @@ impl RelationIndex {
                         if edge.target_id() != id.as_str() {
                             return Err("relation unresolved target ID mismatch".into());
                         }
-                        if target.id_lookup.contains_key(id.as_str()) {
+                        if target.id_lookup.contains(id.as_str()) {
                             return Err("relation unresolved target exists".into());
                         }
                         unresolved += 1;
@@ -914,7 +914,7 @@ impl RelationContribution {
                 let reference = references.next().unwrap();
                 let target_ref =
                     if let Some(target_slot) = target.id_lookup.get(reference.target_id.as_str()) {
-                        RelationTarget::Resolved(*target_slot)
+                        RelationTarget::Resolved(target_slot)
                     } else {
                         unresolved_count = unresolved_count
                             .checked_add(1)

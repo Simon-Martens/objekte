@@ -12,13 +12,13 @@ use crate::build::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::inventory::SourceDiagnostic;
 use crate::inventory::{
-    ByteRange, CollectionGeneration, DiagnosticRef, FileEntry, FileInventory, FileRecordIndex,
-    FileStatus, FileVersion, FileVersions, RecordClass, RecordEntry, SharedPath, SourceRevision,
+    CollectionGeneration, FileEntry, FileInventory, FileRecordIndex, FileStatus, FileVersion,
+    FileVersions, SharedPath, SourceRevision,
 };
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, PublishedIndex, PublishedSegment, ReconciliationState,
 };
-use crate::model::{CollectionId, FieldPath, FileId, PathRoot, RecordId, RecordSlot};
+use crate::model::{CollectionId, FieldPath, FileId, PathRoot, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::{RelationCardinality, RelationContribution, RelationDefinition};
 use crate::repository::{CollectionState, Repository};
@@ -46,7 +46,7 @@ pub fn restore_from_store(
     let catalogue = CatalogueView::open(opened.catalogue_backing()).map_err(storage_error)?;
     let root = manifest_root(&opened.manifest.source_root)?;
     let (entries, rows, slots) = catalogue_entries(&catalogue)?;
-    let file_entries = entries.clone();
+    let file_entries = Arc::new(entries.clone());
     let files = FileInventory::from_restored_entries(root.clone(), entries)
         .map_err(IndexError::InvalidPublication)?;
     let mut base = Vec::with_capacity(definitions.len());
@@ -65,7 +65,7 @@ pub fn restore_from_store(
             name: definition.name.clone(),
             generation: 1,
             files: file_ids.clone(),
-            records: Vec::new(),
+            records: crate::inventory::RecordStore::default(),
             file_records: FileRecordIndex {
                 file_count: files.files.len() as u32,
                 offsets: Vec::new(),
@@ -97,7 +97,7 @@ pub fn restore_from_store(
                 composites: Vec::new(),
             },
             index_family_bytes: 0,
-            id_lookup: HashMap::new(),
+            id_lookup: crate::inventory::RecordIdLookup::default(),
             identity_order: Vec::new(),
             stats: crate::repository::CollectionStats {
                 file_count: file_ids.len(),
@@ -117,6 +117,12 @@ pub fn restore_from_store(
             continue;
         };
         collection.packed = Some(Arc::clone(&frozen));
+        collection.generation.records =
+            crate::inventory::RecordStore::packed(Arc::clone(&frozen), Arc::clone(&file_entries));
+        collection.id_lookup = crate::inventory::RecordIdLookup::Packed {
+            segment: Arc::clone(&frozen),
+            len: frozen.stats().record_count as usize,
+        };
         collection.stats.file_count = frozen.stats().file_part_count as usize;
         collection.stats.record_count = frozen.stats().record_count as usize;
     }
@@ -461,15 +467,13 @@ fn segment_active(frozen: &FrozenSegment) -> Result<RoaringBitmap, IndexError> {
 fn segment_from_packed(
     frozen: &Arc<FrozenSegment>,
     collection: usize,
-    file_entries: &[FileEntry],
+    file_entries: &Arc<Vec<FileEntry>>,
     definitions: &[crate::repository::CollectionDefinition],
 ) -> Result<IndexedCollectionSegment, IndexError> {
     let stats = frozen.stats();
     let records_view = frozen.records();
     let mut files: Vec<crate::build::SegmentFile> = Vec::new();
     let mut file_index = HashMap::new();
-    let mut records = Vec::with_capacity(stats.record_count as usize);
-    let mut id_lookup = HashMap::new();
     for part_number in 0..stats.file_part_count {
         let part = records_view
             .file_part(part_number)
@@ -488,33 +492,7 @@ fn segment_from_packed(
         });
         for local in part.local_record_start..part.local_record_start + part.record_count {
             let slot = part.segment_slot_start + local;
-            let row = records_view
-                .record(slot)
-                .map_err(storage_error)?
-                .ok_or_else(|| IndexError::InvalidPublication("packed record missing".into()))?;
-            let record = RecordEntry {
-                slot: RecordSlot(slot),
-                id: RecordId(row.logical_id.into()),
-                file: FileId(part.file_id),
-                range: ByteRange {
-                    start: row.byte_start,
-                    end: row.byte_end,
-                },
-                revision: entry.revision,
-                class: match row.record_class {
-                    0 => RecordClass::Logical,
-                    1 => RecordClass::RawFallback,
-                    _ => {
-                        return Err(IndexError::InvalidPublication(
-                            "invalid packed record class".into(),
-                        ));
-                    }
-                },
-                diagnostic_ref: DiagnosticRef(row.diagnostic_ref),
-            };
-            id_lookup.insert(record.id.clone(), record.slot);
-            files[file_slot].records.push(record.slot);
-            records.push(record);
+            files[file_slot].records.push(RecordSlot(slot));
         }
     }
     let (posting_collection, inference, custom_postings) = posting_families(frozen)?;
@@ -591,8 +569,14 @@ fn segment_from_packed(
         source_version: stats.source_version,
         files,
         file_index,
-        records,
-        id_lookup,
+        records: crate::inventory::RecordStore::packed(
+            Arc::clone(frozen),
+            Arc::clone(file_entries),
+        ),
+        id_lookup: crate::inventory::RecordIdLookup::Packed {
+            segment: Arc::clone(frozen),
+            len: stats.record_count as usize,
+        },
         identity_order: records_view
             .identity_order()
             .map_err(storage_error)?

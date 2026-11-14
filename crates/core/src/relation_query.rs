@@ -257,7 +257,7 @@ impl<'a> MergedRelationView<'a> {
             .get(index)
             .ok_or("merged target collection missing")?;
         let mut found = None;
-        if let Some(slot) = state.id_lookup.get(id).copied()
+        if let Some(slot) = state.id_lookup.get(id)
             && self.base_active[index].contains(slot)
         {
             found = Some(MergedRecordSlot {
@@ -267,7 +267,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.id_lookup.get(id)
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -1984,7 +1984,6 @@ fn visit_hop(
                         target_collection
                             .id_lookup
                             .get(id.as_str())
-                            .copied()
                             .filter(|slot| work.is_active(hop.to, *slot))
                     } else {
                         targets
@@ -2092,7 +2091,6 @@ fn visit_hop(
                     repo.collections[hop.to.0 as usize]
                         .id_lookup
                         .get(edge.target_id())
-                        .copied()
                         .filter(|slot| work.is_active(hop.to, *slot))
                 } else if let RelationTarget::Resolved(target) = edge.target {
                     Some(target)

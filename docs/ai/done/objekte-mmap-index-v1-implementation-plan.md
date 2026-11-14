@@ -2469,8 +2469,8 @@ tests compare built-native and loaded-packed query hit identities and FTS
 candidates.
 
 `Index::load_from` now reconstructs the queryable repository directly from the
-packed catalogue and run objects. It rebuilds file inventory/catalogue slots, record rows, coverage,
-diagnostics, and statistics. The native snapshot object is no longer written
+packed catalogue and run objects. It rebuilds file inventory/catalogue slots, coverage, diagnostics, and
+statistics. The native snapshot object is no longer written
 or read; a test asserts that the store has no state object.
 
 Packed typed postings and raw/fallback/custom bigrams are no longer decoded
@@ -2484,8 +2484,12 @@ Stored sort columns and relation adjacency are also packed-backed. Load retains
 column descriptors with empty native key/order vectors and reads keys or order
 slots from mapped arrays through `SortColumn`/`SortOrder`. Relation declarations
 retain empty native edge/bitmap storage and read edges or state probes from
-mapped relation sections. Re-saving a loaded index reuses the original packed
-run object bytes instead of re-packing from native state.
+mapped relation sections. Record rows and logical-ID lookups are also lazy:
+`RecordStore` starts with the mapped record table and materializes individual
+rows only when a locator or query touches them; `RecordIdLookup` resolves IDs
+through the packed logical-ID dictionary. Load performs zero eager record-row
+or logical-ID-map reconstruction. Re-saving a loaded index reuses the original
+packed run object bytes instead of re-packing from native state.
 
 ### Validation
 
@@ -2520,10 +2524,10 @@ Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
 
 ```text
-records=20000  build=38.00 ms  save=12.65 ms  load=4.02 ms  first_query=0.657 ms  noop_save=0.029 ms
-objects_written=11  noop_bytes_written=0  load_speedup_over_build=9.45
-records=100000 build=174.68 ms save=61.75 ms load=17.43 ms first_query=0.861 ms noop_save=0.060 ms
-objects_written=50  noop_bytes_written=0  load_speedup_over_build=10.02
+records=20000  build=37.77 ms  save=12.55 ms  load=1.59 ms  first_query=0.536 ms  noop_save=0.020 ms
+objects_written=11  noop_bytes_written=0  load_speedup_over_build=23.80
+records=100000 build=170.92 ms save=59.38 ms load=6.95 ms  first_query=0.843 ms  noop_save=0.054 ms
+objects_written=50  noop_bytes_written=0  load_speedup_over_build=24.58
 ```
 
 The first measurement is a 20,000-record JSONL corpus; the second uses
@@ -2535,8 +2539,8 @@ objekte-search-core --example bench_mmap_load --release` with `TMPDIR` on a
 disk-backed filesystem so `fadvise(DONTNEED)` can evict pages:
 
 ```text
-records=20000  warm mean=4.90 ms  cold mean=8.82 ms  cold/warm=1.80
-records=100000 warm mean=18.01 ms cold mean=58.84 ms cold/warm=3.27
+records=20000  warm mean=2.68 ms  cold mean=7.77 ms  cold/warm=2.90
+records=100000 warm mean=7.57 ms  cold mean=31.32 ms cold/warm=4.14
 ```
 
 Each entry is the mean of three loads. Cold runs evict every store file before
@@ -2546,13 +2550,12 @@ headlessly.
 
 ### Deviations and remaining limitations
 
-1. **Typed postings, bigrams, sort, and relation adjacency are packed-only
-   after Load.** Their native dictionaries, key/order vectors, edge arrays, and
-   relation bitmaps are no longer rebuilt. Query, posting-value, relation
-   candidate, sort, and relation traversal paths read mapped packed sections.
-   Remaining native reconstruction at Load is record rows and the logical-ID
-   lookup, which still serve existing locator/frontend interfaces. This is
-   recorded in
+1. **Packed owners are lazy after Load.** Typed postings, bigrams, sort
+   columns/orders, relation adjacency, record rows, and logical-ID lookups are
+   backed by mapped packed sections. No complete native dictionary, order
+   vector, edge array, record vector, or ID map is rebuilt during Load; record
+   rows materialize one at a time on access. Remaining work is broader
+   fast-load/GUI validation, recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
 2. **Desktop/TUI storage controls and custom-only opening are implemented.**
    The desktop Open dialog exposes Build/Load, three locations, custom path, and

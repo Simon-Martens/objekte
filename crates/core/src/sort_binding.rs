@@ -823,7 +823,6 @@ impl SortTargetCache {
             Ok(repo.collections[collection.0 as usize]
                 .id_lookup
                 .get(target_id)
-                .copied()
                 .filter(|slot| domains[collection.0 as usize].contains(*slot)))
         } else {
             Ok(match static_target {
@@ -1240,10 +1239,8 @@ impl ComputedSort {
                             }
                             SortTargetCache::edge(cache)?;
                             if let Some(id) = id {
-                                if let Some(target) = repo.collections[hop.to.0 as usize]
-                                    .id_lookup
-                                    .get(id)
-                                    .copied()
+                                if let Some(target) =
+                                    repo.collections[hop.to.0 as usize].id_lookup.get(id)
                                 {
                                     if SortTargetCache::is_active(cache, hop.to, target)? {
                                         self.visit_related(

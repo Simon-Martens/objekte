@@ -130,10 +130,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                     && let Some(candidates) = raw_bigram_candidates(collection, &term)
                 {
                     for &id in expected {
-                        let slot = collection
-                            .id_lookup
-                            .get(&crate::model::RecordId(id.into()))
-                            .unwrap();
+                        let slot = collection.id_lookup.get(id).unwrap();
                         assert!(
                             candidates.contains(slot.0),
                             "candidate superset {expression}: {id}"

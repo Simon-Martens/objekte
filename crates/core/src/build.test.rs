@@ -1722,6 +1722,8 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
     assert_eq!(records[0].range.start, first_record_start);
     assert!(
         records
+            .as_slice()
+            .expect("native records")
             .windows(2)
             .all(|pair| pair[0].range.end < pair[1].range.start)
     );

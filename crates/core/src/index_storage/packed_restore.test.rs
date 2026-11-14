@@ -305,9 +305,18 @@ fn packed_restore_serves_posting_values_without_native_dictionaries() {
             .all(|field| field.values.is_empty())
     );
     assert!(collection.raw.normal.is_empty());
+    assert!(collection.generation.records.is_empty());
+    assert!(collection.id_lookup.is_empty());
     let segment = view.0.segments[0].first().expect("segment");
     assert!(segment.index.postings.fields.is_empty());
     assert!(segment.index.raw.normal.is_empty());
+    assert!(segment.index.records.as_slice().is_none());
+    assert_eq!(segment.index.records.materialized_rows(), 0);
+    assert!(segment.index.id_lookup.native().is_none());
+    assert_eq!(
+        segment.index.records.len(),
+        segment.index.identity_order.len()
+    );
 
     let request = crate::posting_values::PostingValuesRequest::new("entries", "title", 100);
     let built = index.view().unwrap().posting_values(&request).unwrap();

@@ -39,12 +39,12 @@ directly from mapped arrays (`SortColumn`/`SortOrder`). Relation adjacency now
 retains packaged relation descriptors and reads edges/state probes from mapped
 sections (`PackedRelation`, `RelationIndex`, `RelationContribution`).
 
-Still native after Load: record rows and the complete logical-ID lookup, plus
-source-verification fallbacks. `CollectionGeneration.records` and the
-`id_lookup` map are indexed throughout locator, frontend, relation-inspection,
-and sort-binding code, so migrating them requires a record-access abstraction
-across those modules. Warm/cold mmap loads are measured; GUI automation remains
-blocked on a display server in this environment.
+Record rows and logical IDs are now lazy packed views: `RecordStore` materializes
+individual `RecordEntry` rows on access from `RecordTableView`, and
+`RecordIdLookup::Packed` resolves IDs through the packed logical-ID dictionary.
+Load performs zero eager record-row or ID-map reconstruction. Warm/cold mmap
+loads are measured; GUI automation remains blocked on a display server in this
+environment.
 
 ## Why not resolved here
 

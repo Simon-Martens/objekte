@@ -5,11 +5,11 @@ use std::hash::{Hash, Hasher};
 use std::ops::Bound;
 use std::ops::Deref;
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
+use std::sync::{Arc, OnceLock};
 use std::time::SystemTime;
 
 use roaring::RoaringBitmap;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 use crate::query::Operator;
@@ -1094,6 +1094,371 @@ impl FileRecordIndex {
 }
 
 
+/// Record rows for one collection generation, native or mapped.
+///
+/// Loaded generations retain only the mapped record table and a per-slot
+/// lazy cell. Indexing, `get`, `len`, iteration, and `first` keep the existing
+/// call sites working without materializing every row during Load.
+#[derive(Default)]
+pub struct RecordStore {
+    native: Vec<RecordEntry>,
+    packed: Option<Arc<PackedRecordStore>>,
+}
+
+
+struct PackedRecordStore {
+    segment: Arc<crate::index_storage::segment::FrozenSegment>,
+    files: Arc<Vec<FileEntry>>,
+    cells: Vec<OnceLock<RecordEntry>>,
+}
+
+
+impl std::fmt::Debug for RecordStore {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("RecordStore")
+            .field("len", &self.len())
+            .field("packed", &self.packed.is_some())
+            .finish()
+    }
+}
+
+
+impl Clone for RecordStore {
+    fn clone(&self) -> Self {
+        if let Some(packed) = &self.packed {
+            return Self {
+                native: Vec::new(),
+                packed: Some(Arc::new(PackedRecordStore {
+                    segment: Arc::clone(&packed.segment),
+                    files: Arc::clone(&packed.files),
+                    cells: packed.cells.clone(),
+                })),
+            };
+        }
+        Self {
+            native: self.native.clone(),
+            packed: None,
+        }
+    }
+}
+
+
+impl Serialize for RecordStore {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        self.native.serialize(serializer)
+    }
+}
+
+
+impl<'de> Deserialize<'de> for RecordStore {
+    fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        Ok(Self {
+            native: Vec::<RecordEntry>::deserialize(deserializer)?,
+            packed: None,
+        })
+    }
+}
+
+
+impl RecordStore {
+    pub fn native(records: Vec<RecordEntry>) -> Self {
+        Self {
+            native: records,
+            packed: None,
+        }
+    }
+
+    pub fn packed(
+        segment: Arc<crate::index_storage::segment::FrozenSegment>,
+        files: Arc<Vec<FileEntry>>,
+    ) -> Self {
+        let len = segment.stats().record_count as usize;
+        Self {
+            native: Vec::new(),
+            packed: Some(Arc::new(PackedRecordStore {
+                segment,
+                files,
+                cells: (0..len).map(|_| OnceLock::new()).collect(),
+            })),
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.packed
+            .as_ref()
+            .map_or(self.native.len(), |packed| packed.cells.len())
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    pub fn get(&self, index: usize) -> Option<&RecordEntry> {
+        if let Some(packed) = &self.packed {
+            let cell = packed.cells.get(index)?;
+            return Some(cell.get_or_init(|| packed_record(packed, index)));
+        }
+        self.native.get(index)
+    }
+
+    pub fn first(&self) -> Option<&RecordEntry> {
+        self.get(0)
+    }
+
+    pub fn iter(&self) -> RecordStoreIter<'_> {
+        RecordStoreIter {
+            store: self,
+            index: 0,
+        }
+    }
+
+    pub fn materialized_rows(&self) -> usize {
+        self.packed.as_ref().map_or(self.native.len(), |packed| {
+            packed
+                .cells
+                .iter()
+                .filter(|cell| cell.get().is_some())
+                .count()
+        })
+    }
+
+    pub fn as_slice(&self) -> Option<&[RecordEntry]> {
+        self.packed.is_none().then_some(self.native.as_slice())
+    }
+
+    pub fn capacity(&self) -> usize {
+        self.packed
+            .as_ref()
+            .map_or(self.native.capacity(), |packed| packed.cells.len())
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn push(&mut self, record: RecordEntry) {
+        assert!(self.packed.is_none(), "packed record stores are immutable");
+        self.native.push(record);
+    }
+}
+
+
+fn packed_record(packed: &PackedRecordStore, slot: usize) -> RecordEntry {
+    let slot_u32 = u32::try_from(slot).expect("record slot fits u32");
+    let row = packed
+        .segment
+        .records()
+        .record(slot_u32)
+        .expect("packed record row is valid")
+        .expect("packed record slot exists");
+    let part = packed
+        .segment
+        .records()
+        .file_part(row.part_ordinal)
+        .expect("packed file part is valid")
+        .expect("packed file part exists");
+    let file_id = FileId(part.file_id);
+    let file = packed
+        .files
+        .get(file_id.0 as usize)
+        .expect("packed record file exists");
+    RecordEntry {
+        slot: RecordSlot(slot_u32),
+        id: RecordId(row.logical_id.into()),
+        file: file_id,
+        range: ByteRange {
+            start: row.byte_start,
+            end: row.byte_end,
+        },
+        revision: file.revision,
+        class: match row.record_class {
+            0 => RecordClass::Logical,
+            1 => RecordClass::RawFallback,
+            _ => panic!("invalid packed record class"),
+        },
+        diagnostic_ref: DiagnosticRef(row.diagnostic_ref),
+    }
+}
+
+
+pub struct RecordStoreIter<'a> {
+    store: &'a RecordStore,
+    index: usize,
+}
+
+
+impl<'a> Iterator for RecordStoreIter<'a> {
+    type Item = &'a RecordEntry;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let record = self.store.get(self.index)?;
+        self.index += 1;
+        Some(record)
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        let remaining = self.store.len().saturating_sub(self.index);
+        (remaining, Some(remaining))
+    }
+}
+
+
+impl ExactSizeIterator for RecordStoreIter<'_> {}
+
+
+impl<'a> IntoIterator for &'a RecordStore {
+    type Item = &'a RecordEntry;
+    type IntoIter = RecordStoreIter<'a>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter()
+    }
+}
+
+
+impl std::ops::Index<usize> for RecordStore {
+    type Output = RecordEntry;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        self.get(index).expect("record slot out of bounds")
+    }
+}
+
+
+impl std::ops::IndexMut<usize> for RecordStore {
+    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+        self.native
+            .get_mut(index)
+            .expect("native record slot out of bounds")
+    }
+}
+
+
+/// Logical-ID lookup over native maps or the mapped packed dictionary.
+#[derive(Clone, Debug)]
+pub enum RecordIdLookup {
+    Native(HashMap<RecordId, RecordSlot>),
+    Packed {
+        segment: Arc<crate::index_storage::segment::FrozenSegment>,
+        len: usize,
+    },
+}
+
+
+impl Default for RecordIdLookup {
+    fn default() -> Self {
+        Self::Native(HashMap::new())
+    }
+}
+
+
+impl Serialize for RecordIdLookup {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        match self {
+            Self::Native(map) => map.serialize(serializer),
+            Self::Packed { len, .. } => {
+                let empty: HashMap<RecordId, RecordSlot> = HashMap::new();
+                let _ = len;
+                empty.serialize(serializer)
+            }
+        }
+    }
+}
+
+
+impl<'de> Deserialize<'de> for RecordIdLookup {
+    fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        Ok(Self::Native(HashMap::deserialize(deserializer)?))
+    }
+}
+
+
+impl PartialEq for RecordIdLookup {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Native(left), Self::Native(right)) => left == right,
+            (Self::Packed { len: left, .. }, Self::Packed { len: right, .. }) => left == right,
+            _ => false,
+        }
+    }
+}
+
+
+impl Eq for RecordIdLookup {}
+
+
+impl std::ops::Index<&str> for RecordIdLookup {
+    type Output = RecordSlot;
+
+    fn index(&self, id: &str) -> &Self::Output {
+        self.native()
+            .and_then(|map| map.get(id))
+            .expect("record ID is present")
+    }
+}
+
+
+impl std::ops::Index<&RecordId> for RecordIdLookup {
+    type Output = RecordSlot;
+
+    fn index(&self, id: &RecordId) -> &Self::Output {
+        self.native()
+            .and_then(|map| map.get(id))
+            .expect("record ID is present")
+    }
+}
+
+
+impl RecordIdLookup {
+    pub fn capacity(&self) -> usize {
+        match self {
+            Self::Native(map) => map.capacity(),
+            Self::Packed { len, .. } => *len,
+        }
+    }
+
+    pub fn get(&self, id: &str) -> Option<RecordSlot> {
+        match self {
+            Self::Native(map) => map.get(id).copied(),
+            Self::Packed { segment, .. } => segment
+                .records()
+                .slot_for_logical_id(id)
+                .ok()
+                .flatten()
+                .map(RecordSlot),
+        }
+    }
+
+    pub fn get_record_id(&self, id: &RecordId) -> Option<RecordSlot> {
+        self.get(id.0.as_ref())
+    }
+
+    pub fn contains(&self, id: &str) -> bool {
+        self.get(id).is_some()
+    }
+
+    pub fn len(&self) -> usize {
+        match self {
+            Self::Native(map) => map.len(),
+            Self::Packed { len, .. } => *len,
+        }
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    pub fn get_key_value(&self, id: &str) -> Option<(&RecordId, &RecordSlot)> {
+        self.native().and_then(|map| map.get_key_value(id))
+    }
+
+    pub fn native(&self) -> Option<&HashMap<RecordId, RecordSlot>> {
+        match self {
+            Self::Native(map) => Some(map),
+            Self::Packed { .. } => None,
+        }
+    }
+}
+
+
 /// Immutable record inventory for one published collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CollectionGeneration {
@@ -1101,7 +1466,7 @@ pub struct CollectionGeneration {
     pub name: String,
     pub generation: u64,
     pub files: Vec<FileId>,
-    pub records: Vec<RecordEntry>,
+    pub records: RecordStore,
     pub file_records: FileRecordIndex,
 }
 
@@ -1308,7 +1673,7 @@ impl CollectionBuilder {
                 name: self.name,
                 generation: self.generation,
                 files: self.files,
-                records: self.records,
+                records: RecordStore::native(self.records),
                 file_records: FileRecordIndex {
                     file_count,
                     offsets: Vec::new(),
@@ -1348,7 +1713,7 @@ impl CollectionBuilder {
             name: self.name,
             generation: self.generation,
             files: self.files,
-            records: self.records,
+            records: RecordStore::native(self.records),
             file_records: FileRecordIndex {
                 file_count,
                 offsets,

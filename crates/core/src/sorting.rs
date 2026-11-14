@@ -979,7 +979,7 @@ impl SortBuilder {
     }
 
     pub fn finish(self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
-        self.finish_for_records(&generation.records)
+        self.finish_for_records(generation.records.as_slice().unwrap_or(&[]))
     }
 
     /// Finalize a locally slotted incremental segment without constructing

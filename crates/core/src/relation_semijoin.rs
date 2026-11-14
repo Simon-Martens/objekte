@@ -275,7 +275,7 @@ fn reachable_targets(
                 visit_edge(work, execution)?;
                 if let Some(active) = target_active {
                     if let Some(target) = target_collection.id_lookup.get(edge.target_id())
-                        && active.contains(*target)
+                        && active.contains(target)
                     {
                         next.insert(target.0);
                     }

@@ -245,7 +245,10 @@ fn pack_collection(
     slot_count: u32,
     versions: &FileVersions,
 ) -> StorageResult<SegmentInput> {
-    let (file_parts, records) = pack_records(&collection.generation.records, versions)?;
+    let (file_parts, records) = pack_records(
+        collection.generation.records.as_slice().unwrap_or(&[]),
+        versions,
+    )?;
     let fields = pack_fields(
         &collection.postings,
         collection.inference.as_ref(),
@@ -294,7 +297,7 @@ fn pack_segment(
     versions: &FileVersions,
     collections: &[CollectionState],
 ) -> StorageResult<SegmentInput> {
-    let (file_parts, records) = pack_records(&segment.records, versions)?;
+    let (file_parts, records) = pack_records(segment.records.as_slice().unwrap_or(&[]), versions)?;
     let fields = pack_fields(
         &segment.postings,
         segment.inference.as_ref(),

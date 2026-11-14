@@ -225,7 +225,7 @@ impl Repository {
         let relation = self
             .relation_index(source_collection, relation_path)
             .ok_or("relation not found in source collection")?;
-        let slot = *source
+        let slot = source
             .id_lookup
             .get(source_id)
             .ok_or("source ID not found")?;
@@ -246,7 +246,6 @@ impl Repository {
                 target
                     .id_lookup
                     .get(edge.target_id())
-                    .copied()
                     .filter(|slot| domains[relation.target_collection.0 as usize].contains(*slot))
             } else {
                 match &edge.target {
@@ -339,7 +338,7 @@ impl Repository {
         let relation = self
             .backlink_relation(target_collection, reverse_alias)
             .ok_or("reverse relation alias not found")?;
-        let target_slot = *target
+        let target_slot = target
             .id_lookup
             .get(target_id)
             .ok_or("target ID not found")?;
@@ -439,7 +438,7 @@ impl Repository {
                             if !target_collection
                                 .id_lookup
                                 .get(edge.target_id())
-                                .is_some_and(|slot| domains[target].contains(*slot))
+                                .is_some_and(|slot| domains[target].contains(slot))
                             {
                                 unresolved = unresolved
                                     .checked_add(1)

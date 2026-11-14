@@ -165,7 +165,7 @@ pub struct CollectionState {
     pub sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
-    pub id_lookup: HashMap<RecordId, RecordSlot>,
+    pub id_lookup: crate::inventory::RecordIdLookup,
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
@@ -770,10 +770,13 @@ impl Repository {
             .position(|collection| collection.definition.name == collection_name)
             .ok_or("unknown collection")?;
         let collection = &self.collections[collection_index];
-        let Some(slot) = collection.id_lookup.get(&RecordId(record_id.into())) else {
+        let Some(slot) = collection
+            .id_lookup
+            .get_record_id(&RecordId(record_id.into()))
+        else {
             return Ok(None);
         };
-        if active.is_some_and(|domains| !domains[collection_index].contains(*slot)) {
+        if active.is_some_and(|domains| !domains[collection_index].contains(slot)) {
             return Ok(None);
         }
         let record = collection
@@ -1782,11 +1785,13 @@ impl Repository {
                 profile.finalize_inference_ns += started.elapsed().as_nanos() as u64;
             }
             let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
-            let id_lookup = generation
-                .records
-                .iter()
-                .map(|r| (r.id.clone(), r.slot))
-                .collect();
+            let id_lookup = crate::inventory::RecordIdLookup::Native(
+                generation
+                    .records
+                    .iter()
+                    .map(|r| (r.id.clone(), r.slot))
+                    .collect(),
+            );
             let mut identity_order = generation
                 .records
                 .iter()

@@ -300,7 +300,6 @@ fn prepare_with_limits(
                         repo.collections[hop.to.0 as usize]
                             .id_lookup
                             .get(edge.target_id())
-                            .copied()
                             .filter(|slot| domains[hop.to.0 as usize].contains(*slot))
                     } else if let RelationTarget::Resolved(target) = edge.target {
                         Some(target)

@@ -558,7 +558,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
             if !overlaps {
                 for &slot in &left_index.identity_order {
                     let id = left_index.record(slot)?.id.0.as_ref();
-                    if right_index.id_lookup.get(id).copied().is_some() {
+                    if right_index.id_lookup.get(id).is_some() {
                         overlaps = true;
                         break;
                     }
@@ -712,20 +712,20 @@ impl PublishedIndex {
                 ));
             }
         }
-        for (id, _) in &index.id_lookup {
+        for (id, _) in index.id_lookup.native().into_iter().flatten() {
             let existing_duplicate =
                 self.segments[number]
                     .iter()
                     .try_fold(false, |found, segment| {
-                        let slot = segment.index.id_lookup.get(id.0.as_ref()).copied();
+                        let slot = segment.index.id_lookup.get(id.0.as_ref());
                         Ok::<_, IndexError>(
                             found || slot.is_some_and(|slot| segment.active.contains(slot)),
                         )
                     })?;
             if collection
                 .id_lookup
-                .get(id)
-                .is_some_and(|slot| self.active[number].contains(*slot))
+                .get_record_id(id)
+                .is_some_and(|slot| self.active[number].contains(slot))
                 || existing_duplicate
             {
                 return Err(IndexError::DuplicateRecordId {
@@ -2858,7 +2858,7 @@ impl IndexView {
         };
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
+            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()) else {
                 continue;
             };
             if !segment.active.contains(slot)

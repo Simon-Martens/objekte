@@ -567,15 +567,15 @@ pub(crate) fn select_exact_segmented(
     let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
     for hit in result.hits {
         let id = RecordId(hit.record_id.into());
-        if let Some(slot) = state.id_lookup.get(&id)
-            && base_active[collection_index].contains(*slot)
+        if let Some(slot) = state.id_lookup.get_record_id(&id)
+            && base_active[collection_index].contains(slot)
         {
             members.insert(slot.0);
             continue;
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref()).copied()
+            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref())
                 && segment.active.contains(slot)
             {
                 if found {

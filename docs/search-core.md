@@ -514,10 +514,12 @@ mapped sections; Load retains only small binding descriptors and inference
 coverage metadata, not native value or gram dictionaries. `IndexCatalog`,
 posting-value enumeration, relation candidate probes, and bigram candidate
 access read those mapped sections through `PostingAccess`/`BigramAccess`.
-Record metadata is still materialized as a native query owner. Stored sort
-columns/orders and relation adjacency are packed-backed: key lookup and order
-selection read mapped order arrays, and relation edges/state probes read mapped
-adjacency instead of rebuilding edge vectors and bitmaps.
+Record rows are lazy packed records: `RecordStore` keeps the mapped record
+table and materializes one row only when accessed; logical IDs resolve through
+the packed dictionary. Stored sort columns/orders and relation adjacency are
+also packed-backed: key lookup and order selection read mapped order arrays,
+and relation edges/state probes read mapped adjacency instead of rebuilding
+edge vectors and bitmaps.
 
 The CLI exposes:
 
