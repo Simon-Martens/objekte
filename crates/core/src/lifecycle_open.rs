@@ -365,7 +365,7 @@ impl Index {
                     decode_profile.as_mut(),
                 )
                 .map_err(IndexError::InvalidCache)?;
-                let active = ActiveRecords::from_bitmap(index.records.len(), segment.active)
+                let active = ActiveRecords::from_bitmap(index.record_count(), segment.active)
                     .map_err(IndexError::InvalidCache)?;
                 if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
                     let ns = started.elapsed().as_nanos() as u64;

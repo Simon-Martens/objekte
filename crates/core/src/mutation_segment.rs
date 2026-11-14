@@ -730,8 +730,23 @@ impl IndexedCollectionSegment {
         self.persisted.as_ref().map_or(self.records.len(), |table| table.record_count())
     }
 
+    pub(crate) fn max_record_range_len(&self) -> u64 {
+        self.persisted.as_ref().map_or_else(
+            || self.records.iter().map(|record| record.range.end.saturating_sub(record.range.start)).max().unwrap_or(0),
+            |table| table.max_record_range_len(),
+        )
+    }
+
     pub(crate) fn file_count(&self) -> usize {
         self.persisted.as_ref().map_or(self.files.len(), |table| table.file_count())
+    }
+
+    pub(crate) fn try_file_index(&self, id: FileId) -> Result<Option<usize>, String> {
+        if let Some(table) = &self.persisted {
+            table.file_index(id)
+        } else {
+            Ok(self.file_index.get(&id).copied())
+        }
     }
 
     pub(crate) fn try_record(&self, slot: RecordSlot) -> Result<Option<std::borrow::Cow<'_, RecordEntry>>, String> {
@@ -1181,7 +1196,7 @@ impl IndexedCollectionSegment {
         let first = *shards.first().ok_or("no segments to consolidate")?;
         let total_records = shards.iter().try_fold(0usize, |total, shard| {
             total
-                .checked_add(shard.records.len())
+                .checked_add(shard.record_count())
                 .ok_or("segment record count overflow")
         })?;
         if total_records > max_records || total_records > u32::MAX as usize {
@@ -1212,7 +1227,8 @@ impl IndexedCollectionSegment {
             }
             let base = u32::try_from(records.len()).map_err(|_| "segment slot overflow")?;
             offsets.push(base);
-            for file in &shard.files {
+            for file_number in 0..shard.file_count() {
+                let file = shard.try_file_at(file_number)?.ok_or("segment file row missing")?;
                 let mut entry = file.entry.clone();
                 if file_index.insert(entry.id, files.len()).is_some() {
                     return Err("overlapping physical file in consolidation".into());
@@ -1235,8 +1251,8 @@ impl IndexedCollectionSegment {
                     records: owned,
                 });
             }
-            for record in &shard.records {
-                let mut record = record.clone();
+            for slot in 0..shard.record_count() {
+                let mut record = shard.try_record(RecordSlot(slot as u32))?.ok_or("segment record row missing")?.into_owned();
                 record.slot = RecordSlot(
                     base.checked_add(record.slot.0)
                         .ok_or("record slot overflow")?,
@@ -1278,7 +1294,7 @@ impl IndexedCollectionSegment {
                     return Err("relation segment coverage mismatch".into());
                 }
                 for (target, source) in relations.iter_mut().zip(&shard.relations) {
-                    target.merge_shifted(source.clone(), base, shard.records.len() as u32)?;
+                    target.merge_shifted(source.clone(), base, shard.record_count() as u32)?;
                 }
                 if sorting.columns.len() != shard.sorting.columns.len()
                     || sorting.composites.len() != shard.sorting.composites.len()
@@ -1556,11 +1572,11 @@ impl PartitionRouting {
         source: &IndexedCollectionSegment,
         masks: &[ActiveRecords],
     ) -> Result<Self, String> {
-        let mut locations = vec![None; source.records.len()];
+        let mut locations = vec![None; source.record_count()];
         let mut selected = Vec::with_capacity(masks.len());
         let mut logical_counts = Vec::with_capacity(masks.len());
         for (part, mask) in masks.iter().enumerate() {
-            if mask.slot_count() as usize != source.records.len() {
+            if mask.slot_count() as usize != source.record_count() {
                 return Err("partition posting mask coverage mismatch".into());
             }
             let mut slots = Vec::with_capacity(mask.len() as usize);
@@ -2046,7 +2062,7 @@ impl IndexedCollectionSegment {
         &self,
         routing: &PartitionRouting,
     ) -> Result<Vec<SortCollection>, String> {
-        let source_len = self.records.len();
+        let source_len = self.record_count();
         let mut parts = routing.selected.iter()
             .map(|_| SortCollection {
                 columns: HashMap::with_capacity(self.sorting.columns.len()),
@@ -2192,12 +2208,12 @@ impl IndexedCollectionSegment {
     /// Reorder a dense bounded shard without changing its physical slot count.
     /// Used to put a verified replacement into the old record's local slot.
     pub(crate) fn remap_dense(&self, new_slots: &[RecordSlot]) -> Result<Self, String> {
-        if new_slots.len() != self.records.len() {
+        if new_slots.len() != self.record_count() {
             return Err("slot remap coverage mismatch".into());
         }
-        let active = ActiveRecords::all(self.records.len())?;
+        let active = ActiveRecords::all(self.record_count())?;
         Ok(self
-            .compact_active_mapped(&active, self.records.len(), |_| true, Some(new_slots), None)?
+            .compact_active_mapped(&active, self.record_count(), |_| true, Some(new_slots), None)?
             .index)
     }
 
@@ -2209,18 +2225,19 @@ impl IndexedCollectionSegment {
         new_slots: Option<&[RecordSlot]>,
         posting_projection: Option<PostingProjection>,
     ) -> Result<CompactedSegment, String> {
-        if active.slot_count() as usize != self.records.len() {
+        if active.slot_count() as usize != self.record_count() {
             return Err("compaction active-mask coverage mismatch".into());
         }
-        if self.records.len() > max_scanned_records {
+        if self.record_count() > max_scanned_records {
             return Err("compaction record budget exceeded".into());
         }
-        if new_slots.is_some_and(|slots| slots.len() != self.records.len()) {
+        if new_slots.is_some_and(|slots| slots.len() != self.record_count()) {
             return Err("slot remap coverage mismatch".into());
         }
-        let mut old_to_new = Vec::with_capacity(self.records.len());
+        let mut old_to_new = Vec::with_capacity(self.record_count());
         let mut next = 0u32;
-        for record in &self.records {
+        for slot in 0..self.record_count() {
+            let record = self.try_record(RecordSlot(slot as u32))?.ok_or("compaction record row missing")?;
             if record.slot.0 as usize != old_to_new.len() {
                 return Err("compaction record slots out of order".into());
             }
@@ -2257,7 +2274,7 @@ impl IndexedCollectionSegment {
             None,
         )?;
         Ok(CompactedSegment {
-            active: ActiveRecords::all(index.records.len())?,
+            active: ActiveRecords::all(index.record_count())?,
             index,
             old_to_new,
         })
@@ -2282,7 +2299,7 @@ impl IndexedCollectionSegment {
         let next = u32::try_from(selected.len()).map_err(|_| "partition slot overflow")?;
         let mut file_indices = selected_files
             .iter()
-            .map(|id| self.file_index.get(id).copied().ok_or("partition file missing"))
+            .map(|id| self.try_file_index(*id)?.ok_or_else(|| "partition file missing".to_owned()))
             .collect::<Result<Vec<_>, _>>()?;
         file_indices.sort_unstable();
         self.compact_with_mapping(
@@ -2317,9 +2334,7 @@ impl IndexedCollectionSegment {
         let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
         let mut selected_by_file: HashMap<FileId, Vec<RecordSlot>> = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self
-                .records
-                .get(old)
+            let record = self.try_record(RecordSlot(old as u32))?
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2327,15 +2342,13 @@ impl IndexedCollectionSegment {
             selected_by_file.entry(record.file).or_default().push(slot);
             Ok(())
         })?;
-        let all_files = 0..self.files.len();
+        let all_files = 0..self.file_count();
         let file_indices: Box<dyn Iterator<Item = usize> + '_> = match selected_files {
             Some(selected) => Box::new(selected.iter().copied()),
             None => Box::new(all_files),
         };
         for index in file_indices {
-            let file = self
-                .files
-                .get(index)
+            let file = self.try_file_at(index)?
                 .ok_or("compaction file index out of bounds")?;
             let retained = retain_file(&file.entry);
             let mut owned = selected_by_file.remove(&file.entry.id).unwrap_or_default();
@@ -2378,9 +2391,7 @@ impl IndexedCollectionSegment {
         let mut records = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
-            let record = self
-                .records
-                .get(old)
+            let record = self.try_record(RecordSlot(old as u32))?
                 .ok_or("compaction record slot out of bounds")?;
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
@@ -2388,7 +2399,7 @@ impl IndexedCollectionSegment {
             if !file_index.contains_key(&record.file) {
                 return Err("active record file missing".into());
             }
-            let mut compacted = record.clone();
+            let mut compacted = record.into_owned();
             compacted.slot = slot;
             if compacted.class == RecordClass::RawFallback {
                 compacted.diagnostic_ref = match compacted.diagnostic_ref.stored_index() {
