@@ -275,7 +275,11 @@ empty-selection, null, and typed structural-state facts, even when its values
 are not indexed. These structural-only bindings store no complete value
 dictionary; preexisting array-length and empty-string shortcuts remain only
 where admitted by the schema. Undeclared fields remain searchable through
-conservative text candidates or residual scans. Raw text uses record-level
+conservative text candidates or residual scans. State predicates with explicit
+`[*]` steps use exact structural postings when
+each step crosses a declared array. An inferred or undeclared array step stays
+on the scanner because its implicit path may select different occurrences.
+Raw text uses record-level
 normal and skip bigrams from the extracted string segments; selected custom
 text has its own index. ASCII mode retains only safe printable ASCII grams,
 including gram subsets inside mixed Unicode literals; Unicode mode indexes

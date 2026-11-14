@@ -1355,8 +1355,8 @@ pub(crate) struct PostingProjection {
 }
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
-        values_indexed: source.values_indexed,
     PostingIndex {
+        values_indexed: source.values_indexed,
         path: source.path.clone(),
         kind: source.kind.clone(),
         multi: source.multi,

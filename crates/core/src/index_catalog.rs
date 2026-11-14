@@ -12,8 +12,10 @@ use crate::model::{LogicalType, PathRoot, Value};
 use crate::posting::ScalarKey;
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::{Operator, Quantifier};
+use crate::query_path::PathStep;
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 use crate::repository::CollectionState;
+
 
 /// Physical identity is used only to resolve a selected borrowed access. It
 /// does not change applicability, proof, or cost.
@@ -24,16 +26,19 @@ pub(crate) enum PostingId {
     Named,
 }
 
+
 #[derive(Clone, Copy)]
 pub(crate) struct PostingAccess<'a> {
     pub id: PostingId,
     pub index: &'a PostingIndex,
+    schema: &'a Schema,
     /// A named access without a completeness guarantee has no safe exclusion
     /// domain. The index may still exist for diagnostics and rebuilds.
     pub admitted: bool,
     pub empty_selections: Option<&'a RoaringBitmap>,
     pub short_string_coverage: Option<&'a RoaringBitmap>,
 }
+
 
 /// The same prepared operation is used by estimation, execution, and EXPLAIN.
 /// It contains no handle that could outlive its published owner.
@@ -47,6 +52,7 @@ pub(crate) enum PostingOperation {
     ValueCandidates,
 }
 
+
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct PostingProposal {
     pub id: PostingId,
@@ -56,6 +62,7 @@ pub(crate) struct PostingProposal {
     pub output: u64,
     pub coverage: u32,
 }
+
 
 impl PostingAccess<'_> {
     pub fn assess(
@@ -71,8 +78,10 @@ impl PostingAccess<'_> {
             || term.related.is_some()
             || term.rhs.is_some()
             || term.query_path.has_position
-            || ((structural || term.derived == Derived::Length)
-                && term.query_path.has_explicit_array_step)
+            || (term.query_path.has_explicit_array_step
+                && (term.derived.state_predicate().is_none()
+                    || self.id != PostingId::Declared
+                    || !declared_array_steps(self.schema, term)))
             || term.transform != Transform::Identity
             || (term.period.is_some() && !index.value_complete)
             || index.covered_records as u64 != domain.len()
@@ -316,7 +325,30 @@ impl PostingAccess<'_> {
     }
 }
 
+
+fn declared_array_steps(schema: &Schema, term: &BoundTerm) -> bool {
+    let mut prefix = Vec::new();
+    for step in &term.query_path.steps {
+        match step {
+            PathStep::Field(name) => prefix.push(name.clone()),
+            PathStep::EachElement => {
+                if !schema
+                    .fields
+                    .get(&prefix)
+                    .is_some_and(|field| matches!(field.kind, LogicalType::Array(_)))
+                {
+                    return false;
+                }
+            }
+            PathStep::ArrayIndex(_) => return false,
+        }
+    }
+    true
+}
+
+
 pub(crate) struct IndexCatalog<'a> {
+    schema: &'a Schema,
     postings: &'a PostingCollection,
     observed: Option<&'a InferenceState>,
     named: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
@@ -327,12 +359,14 @@ pub(crate) struct IndexCatalog<'a> {
     pub fallback_text: &'a BigramIndex,
 }
 
+
 /// Derived once when a collection is published or restored. It contains only
 /// small binding names; postings and membership remain in their owners.
 #[derive(Clone, Debug, Default)]
 pub(crate) struct TextBindingCatalog {
     canonical: HashMap<Vec<String>, String>,
 }
+
 
 impl TextBindingCatalog {
     pub fn new(schema: &Schema) -> Self {
@@ -351,9 +385,11 @@ impl TextBindingCatalog {
     }
 }
 
+
 impl<'a> IndexCatalog<'a> {
     pub fn collection(state: &'a CollectionState) -> Self {
         Self {
+            schema: &state.definition.schema,
             postings: &state.postings,
             observed: state.inference.as_ref(),
             named: &state.custom_postings,
@@ -367,6 +403,7 @@ impl<'a> IndexCatalog<'a> {
 
     pub fn segment(state: &'a IndexedCollectionSegment, collection: &'a CollectionState) -> Self {
         Self {
+            schema: &collection.definition.schema,
             postings: &state.postings,
             observed: state.inference.as_ref(),
             named: &state.custom_postings,
@@ -392,6 +429,7 @@ impl<'a> IndexCatalog<'a> {
                 named.map(|value| PostingAccess {
                     id: PostingId::Named,
                     index: &value.index,
+                    schema: self.schema,
                     admitted: value.complete,
                     empty_selections: None,
                     short_string_coverage: None,
@@ -402,6 +440,7 @@ impl<'a> IndexCatalog<'a> {
         let declared = self.postings.fields.get(path).map(|index| PostingAccess {
             id: PostingId::Declared,
             index,
+            schema: self.schema,
             admitted: true,
             empty_selections: None,
             short_string_coverage: None,
@@ -410,6 +449,7 @@ impl<'a> IndexCatalog<'a> {
             state.indexes.get(path).map(|index| PostingAccess {
                 id: PostingId::Observed,
                 index,
+                schema: self.schema,
                 admitted: true,
                 empty_selections: state.empty_selections.get(path),
                 short_string_coverage: state.short_string_coverage.get(path),

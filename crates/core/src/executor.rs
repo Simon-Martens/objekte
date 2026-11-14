@@ -23,6 +23,7 @@ use serde::Serialize;
 
 const MAX_INDEXED_PATH_SCAN: usize = 8192;
 
+
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
@@ -30,6 +31,7 @@ pub(crate) struct SegmentCandidateBounds {
     pub may: RoaringBitmap,
     pub must: RoaringBitmap,
 }
+
 
 impl SegmentCandidateBounds {
     fn unknown(domain: &RoaringBitmap) -> Self {
@@ -39,6 +41,7 @@ impl SegmentCandidateBounds {
         }
     }
 }
+
 
 pub(crate) fn segment_filter_bounds(
     segment: &IndexedCollectionSegment,
@@ -555,7 +558,8 @@ fn segment_expr_bounds(
             }
             if term.related.is_some()
                 || term.rhs.is_some()
-                || term.query_path.has_explicit_array_step
+                || (term.query_path.has_explicit_array_step
+                    && term.derived.state_predicate().is_none())
             {
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
@@ -773,6 +777,7 @@ fn segment_expr_bounds(
     })
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum AccessPathKind {
@@ -787,6 +792,7 @@ pub enum AccessPathKind {
     Scanner,
 }
 
+
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -800,6 +806,7 @@ pub struct AccessPathEstimate {
     #[serde(skip)]
     pub(crate) posting: Option<(PostingId, PostingOperation, u32)>,
 }
+
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -823,6 +830,7 @@ pub struct TermChoice {
     pub executed: bool,
 }
 
+
 /// Work done to choose and execute access paths for one filter expression.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
 pub struct PlanningCounters {
@@ -833,12 +841,14 @@ pub struct PlanningCounters {
     pub reused_order_plans: u64,
 }
 
+
 #[derive(Default)]
 struct PlanContext {
     paths: HashMap<usize, Vec<AccessPathEstimate>>,
     counters: PlanningCounters,
     diagnostics: bool,
 }
+
 
 impl PlanContext {
     fn paths(
@@ -863,6 +873,7 @@ impl PlanContext {
         Ok(paths)
     }
 }
+
 
 fn rescore_paths(
     collection: &CollectionState,
@@ -950,6 +961,7 @@ fn skipped_choices(
     Ok(())
 }
 
+
 /// Known true and false fallback slots; all other slots are unavailable.
 struct FallbackTruth {
     yes: RoaringBitmap,
@@ -957,6 +969,7 @@ struct FallbackTruth {
     proofs: Vec<Proof>,
     choices: Vec<TermChoice>,
 }
+
 
 fn fallback_truth(
     repo: &Repository,
@@ -1099,12 +1112,14 @@ fn fallback_truth(
     })
 }
 
+
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
+
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -1116,6 +1131,7 @@ pub(crate) struct Plan {
     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
     pub planning: PlanningCounters,
 }
+
 
 /// A whole-record raw index is a field superset only when its source reader
 /// supplies every logical string and the indexed representation is identity.
@@ -1644,6 +1660,7 @@ pub(crate) fn estimate_expr(
     estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
 }
 
+
 /// An estimate-only physical decision. It has no candidate membership or
 /// exact proof and is safe to use for non-analyzing EXPLAIN.
 pub(crate) struct EstimatedPlan {
@@ -1653,12 +1670,14 @@ pub(crate) struct EstimatedPlan {
     pub planning: PlanningCounters,
 }
 
+
 struct EstimatedNode {
     candidates: u64,
     exact: bool,
     work: f64,
     choices: Vec<TermChoice>,
 }
+
 
 pub(crate) fn estimate_plan_expr(
     collection: &CollectionState,
@@ -2310,6 +2329,7 @@ fn plan_logical_expr(
                     (Some(mut union), Some(set)) => {
                         union |= set;
 
+
                         Some(union)
                     }
                     _ => None,
@@ -2378,6 +2398,7 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
         .candidates_prepared(term.gram_request.as_ref()?)
 }
 
+
 /// A prepared text access is a set of borrowed candidate providers. The same
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
@@ -2386,12 +2407,14 @@ struct TextProbe<'a, 'b> {
     request: &'b crate::bigram::BigramRequest,
 }
 
+
 struct PreparedFtsAccess<'a, 'b> {
     probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
     regex: Option<&'b crate::regex_query::RegexCondition>,
     literal_work: f64,
     max_count: u64,
 }
+
 
 impl PreparedFtsAccess<'_, '_> {
     fn estimate(&self) -> Option<(u64, f64)> {
@@ -2437,6 +2460,7 @@ impl PreparedFtsAccess<'_, '_> {
         Ok(Some(may))
     }
 }
+
 
 fn prepare_fts_accesses<'a, 'b>(
     indexes: &IndexCatalog<'a>,

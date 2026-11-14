@@ -22,7 +22,12 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, id) in [("a", "AbC-10"), ("b", "abc-20"), ("c", "Line\nBreak"), ("d", "XYZ-30")] {
+    for (name, id) in [
+        ("a", "AbC-10"),
+        ("b", "abc-20"),
+        ("c", "Line\nBreak"),
+        ("d", "XYZ-30"),
+    ] {
         std::fs::write(
             root.join(format!("data/{name}.json")),
             serde_json::json!({"id":id}).to_string(),
@@ -31,15 +36,18 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
     }
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
-    definition.schema.register_field(FieldDefinition {
-        path: vec!["id".into()],
-        kind: LogicalType::Id,
-        required: true,
-        nullable: false,
-        indexed: true,
-        multi: false,
-        element_nullable: Vec::new(),
-    }).unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     let options = RepositoryOptions {
         snapshot_mode: SnapshotMode::Disabled,
         verified_cache_bytes: 1 << 20,
@@ -52,19 +60,47 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         residency: IndexResidency::OnDemand,
     };
     let first = Index::open_with_storage(
-        root.clone(), vec![definition.clone()], options, storage.clone(), SourceRegistry::builtin(),
-    ).unwrap();
+        root.clone(),
+        vec![definition.clone()],
+        options,
+        storage.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
     first.stop_sync_storage().unwrap();
     drop(first);
     let managed = Index::open_with_storage(
-        root.clone(), vec![definition], options, storage, SourceRegistry::builtin(),
-    ).unwrap();
+        root.clone(),
+        vec![definition],
+        options,
+        storage,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
     assert!(managed.restored_from_cache());
     for index in [&memory, &managed] {
         for (pattern, case, flags, expected) in [
-            (r"^AbC-\d+$", CaseSensitivity::Sensitive, RegexOptions::default(), vec!["AbC-10"]),
-            (r"^AbC-\d+$", CaseSensitivity::Insensitive, RegexOptions::default(), vec!["AbC-10", "abc-20"]),
-            ("^Line.Break$", CaseSensitivity::Sensitive, RegexOptions {multi_line: false, dot_matches_new_line: true}, vec!["Line\nBreak"]),
+            (
+                r"^AbC-\d+$",
+                CaseSensitivity::Sensitive,
+                RegexOptions::default(),
+                vec!["AbC-10"],
+            ),
+            (
+                r"^AbC-\d+$",
+                CaseSensitivity::Insensitive,
+                RegexOptions::default(),
+                vec!["AbC-10", "abc-20"],
+            ),
+            (
+                "^Line.Break$",
+                CaseSensitivity::Sensitive,
+                RegexOptions {
+                    multi_line: false,
+                    dot_matches_new_line: true,
+                },
+                vec!["Line\nBreak"],
+            ),
         ] {
             let query = Query {
                 collections: vec!["data".into()],
@@ -81,16 +117,29 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
                 }),
                 filter: None,
                 options: QueryOptions {
-                    sort: Vec::new(), limit: 10, offset: 0, count: true,
-                    return_mode: ReturnMode::Locator, evidence: true,
+                    sort: Vec::new(),
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
                 },
             };
             let result = index.view().unwrap().search(&query).unwrap();
-            let mut ids = result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>();
+            let mut ids = result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>();
             ids.sort_unstable();
             assert_eq!(ids, expected);
             assert_eq!(result.count, Some(expected.len()));
-            assert!(result.hits.iter().all(|hit| hit.matched_fields == ["@record.id"]));
+            assert!(
+                result
+                    .hits
+                    .iter()
+                    .all(|hit| hit.matched_fields == ["@record.id"])
+            );
             assert_eq!(result.counters.files_opened, 0);
             assert_eq!(result.counters.bytes_read, 0);
             assert_eq!(result.counters.record_parses, 0);
@@ -641,6 +690,127 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
     }
     single.shutdown().unwrap();
     parallel.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_array_step_state_predicates_use_exact_structural_postings() {
+    use crate::lifecycle::Index;
+    use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-array-state-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/records.jsonl"),
+        concat!(
+            "{}\n",
+            "{\"contributors\":[]}\n",
+            "{\"contributors\":[{}]}\n",
+            "{\"contributors\":[{\"type\":null}]}\n",
+            "{\"contributors\":[{\"type\":\"Autor\"}]}\n",
+            "{\"contributors\":[{\"type\":\"\"},{\"type\":null}]}\n",
+            "{\"contributors\":null}\n",
+            "{\"contributors\":[{\"type\":\"A\"},{\"type\":\"B\"}]}\n"
+        ),
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    for (path, kind, indexed) in [
+        (
+            vec!["contributors".into()],
+            LogicalType::Array(Box::new(LogicalType::Object)),
+            false,
+        ),
+        (
+            vec!["contributors".into(), "type".into()],
+            LogicalType::String,
+            true,
+        ),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path,
+                kind,
+                required: false,
+                nullable: true,
+                indexed,
+                multi: true,
+                element_nullable: vec![true],
+            })
+            .unwrap();
+    }
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let direct = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let index = Index::build(&root, vec![definition], options).unwrap();
+    let segmented = index.view().unwrap();
+    for filter in [
+        "contributors:array = true",
+        "contributors:? = false",
+        "contributors[*].type:null = true",
+        "contributors[*].type:null = false",
+        "contributors[*].type:? = true",
+        "contributors[*].type:string = false",
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 50,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        for (segmented_path, result, reference, plan) in [
+            (
+                false,
+                direct.search(&query).unwrap(),
+                direct.search_reference(&query).unwrap(),
+                direct.explain(&query).unwrap(),
+            ),
+            (
+                true,
+                segmented.search(&query).unwrap(),
+                segmented.search_reference(&query).unwrap(),
+                segmented.explain(&query).unwrap(),
+            ),
+        ] {
+            assert_eq!(result.count, reference.count, "{filter}");
+            assert_eq!(result.hits, reference.hits, "{filter}");
+            assert_eq!(
+                result.counters.scanned_records, 0,
+                "{filter} segmented={segmented_path} plan={plan:?}"
+            );
+            assert_eq!(result.counters.bytes_read, 0, "{filter}");
+            if !segmented_path {
+                for trace in &plan {
+                    assert_eq!(
+                        trace.terms[0].selected.kind,
+                        crate::executor::AccessPathKind::Posting,
+                        "{filter}: {plan:?}"
+                    );
+                    assert!(trace.terms[0].selected.exact, "{filter}");
+                }
+            }
+        }
+    }
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
