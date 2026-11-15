@@ -9,7 +9,7 @@ use crate::posting::ScalarKey;
 
 use super::key_codec::KeyWriter;
 use super::StoreError;
-use super::tables::{FTS_BLOCK_SHIFT, MAX_STATE_TAG};
+use super::tables::MAX_STATE_TAG;
 use super::value_codec::{
     BindingId, CoverageKind, DomainKind, GramKind, RelationStateKind, SortDefinitionId, StateKind,
 };
@@ -108,13 +108,18 @@ pub fn length_directory_key(
     value_directory_key(collection, binding, length)
 }
 
-pub fn state_member(collection: u32, binding: BindingId, state: StateKind, slot: u32) -> Vec<u8> {
+pub fn state_block(
+    collection: u32,
+    binding: BindingId,
+    state: StateKind,
+    block: u32,
+) -> Vec<u8> {
     debug_assert!(state.tag() <= MAX_STATE_TAG);
-    let mut key = KeyWriter::with_capacity(12);
+    let mut key = KeyWriter::with_capacity(13);
     key.push_u32(collection);
     key.push_u32(binding);
     key.push_u8(state.tag());
-    key.push_u32(slot);
+    key.push_u32(block);
     key.into_bytes()
 }
 
@@ -124,6 +129,10 @@ pub fn state_prefix(collection: u32, binding: BindingId, state: StateKind) -> Ve
     key.push_u32(binding);
     key.push_u8(state.tag());
     key.into_bytes()
+}
+
+pub fn state_statistics(collection: u32, binding: BindingId, state: StateKind) -> Vec<u8> {
+    state_prefix(collection, binding, state)
 }
 
 pub fn coverage_member(
@@ -322,7 +331,7 @@ pub fn query_path(path_key: &str, file: FileId) -> Vec<u8> {
 }
 
 pub fn fts_block_of(slot: u32) -> u32 {
-    slot >> FTS_BLOCK_SHIFT
+    slot >> super::bitmap_block::BLOCK_SHIFT
 }
 
 pub fn fts_offset_of(slot: u32) -> u16 {

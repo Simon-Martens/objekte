@@ -20,186 +20,11 @@ use roaring::RoaringBitmap;
 use crate::model::{CollectionId, RecordSlot};
 
 use super::keys;
-use super::tables::{
-    FTS_BLOCK_MASK, FTS_BLOCK_SHIFT, FTS_BLOCK_SLOTS, FTS_MAX_CARDINALITY, FTS_SPARSE_LIMIT,
-};
+use super::bitmap_block::{BLOCK_MASK, BLOCK_SHIFT, BLOCK_SLOTS};
 use super::value_codec::{BindingId, GramKind, GramProjection};
 use super::{StoreError, StoreResult, StoreView, read, write};
 
-const BLOCK_WORDS: usize = 64;
-const DENSE_PAYLOAD_BYTES: usize = BLOCK_WORDS * 8;
-
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct Block {
-    words: [u64; BLOCK_WORDS],
-}
-
-impl Default for Block {
-    fn default() -> Self {
-        Self {
-            words: [0; BLOCK_WORDS],
-        }
-    }
-}
-
-impl Block {
-    pub fn contains(&self, offset: u16) -> bool {
-        let index = usize::from(offset);
-        self.words[index / 64] & (1u64 << (index % 64)) != 0
-    }
-
-    pub fn set(&mut self, offset: u16) {
-        let index = usize::from(offset);
-        self.words[index / 64] |= 1u64 << (index % 64);
-    }
-
-    pub fn clear(&mut self, offset: u16) {
-        let index = usize::from(offset);
-        self.words[index / 64] &= !(1u64 << (index % 64));
-    }
-
-    pub fn cardinality(&self) -> u16 {
-        self.words.iter().map(|word| word.count_ones() as u16).sum()
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.words.iter().all(|word| *word == 0)
-    }
-
-    pub fn intersect(&mut self, other: &Block) {
-        for (left, right) in self.words.iter_mut().zip(&other.words) {
-            *left &= *right;
-        }
-    }
-
-    pub fn for_each(&self, mut visit: impl FnMut(u16)) {
-        for (word_index, word) in self.words.iter().copied().enumerate() {
-            let mut word = word;
-            while word != 0 {
-                let bit = word.trailing_zeros();
-                visit((word_index * 64 + bit as usize) as u16);
-                word &= word - 1;
-            }
-        }
-    }
-
-    pub fn slots(&self, block: u32, out: &mut RoaringBitmap) {
-        self.for_each(|offset| {
-            let slot = (block << FTS_BLOCK_SHIFT) | u32::from(offset);
-            out.insert(slot);
-        });
-    }
-}
-
-pub fn encode_block(block: &Block) -> StoreResult<Vec<u8>> {
-    let cardinality = block.cardinality();
-    if cardinality == 0 {
-        return Err(StoreError::State("cannot encode an empty FTS block".into()));
-    }
-    let mut bytes = Vec::with_capacity(DENSE_PAYLOAD_BYTES + 4);
-    bytes.push(1);
-    if cardinality <= FTS_SPARSE_LIMIT {
-        bytes.push(0);
-        bytes.extend_from_slice(&cardinality.to_le_bytes());
-        block.for_each(|offset| bytes.extend_from_slice(&offset.to_le_bytes()));
-    } else {
-        bytes.push(1);
-        bytes.extend_from_slice(&cardinality.to_le_bytes());
-        for word in block.words {
-            bytes.extend_from_slice(&word.to_le_bytes());
-        }
-    }
-    debug_assert!(bytes.len() <= 516);
-    Ok(bytes)
-}
-
-pub fn decode_block(bytes: &[u8]) -> StoreResult<Block> {
-    let version = *bytes
-        .first()
-        .ok_or_else(|| StoreError::CorruptIndex("empty FTS block".into()))?;
-    if version != 1 {
-        return Err(StoreError::CorruptIndex(format!(
-            "unknown FTS block version {version}"
-        )));
-    }
-    let encoding = *bytes
-        .get(1)
-        .ok_or_else(|| StoreError::CorruptIndex("truncated FTS block header".into()))?;
-    let cardinality_bytes = bytes
-        .get(2..4)
-        .ok_or_else(|| StoreError::CorruptIndex("truncated FTS cardinality".into()))?;
-    let cardinality = u16::from_le_bytes(
-        cardinality_bytes
-            .try_into()
-            .expect("two-byte cardinality"),
-    );
-    if cardinality == 0 || cardinality > FTS_MAX_CARDINALITY {
-        return Err(StoreError::CorruptIndex(format!(
-            "invalid FTS block cardinality {cardinality}"
-        )));
-    }
-    let payload = &bytes[4..];
-    let mut block = Block::default();
-    match encoding {
-        0 => {
-            if cardinality > FTS_SPARSE_LIMIT {
-                return Err(StoreError::CorruptIndex(
-                    "sparse FTS block above the dense threshold".into(),
-                ));
-            }
-            if payload.len() != usize::from(cardinality) * 2 {
-                return Err(StoreError::CorruptIndex(
-                    "sparse FTS payload length mismatch".into(),
-                ));
-            }
-            let mut previous = None;
-            for chunk in payload.chunks(2) {
-                let offset = u16::from_le_bytes(chunk.try_into().expect("two-byte offset"));
-                if offset >= FTS_BLOCK_SLOTS as u16
-                    || previous.is_some_and(|previous| offset <= previous)
-                {
-                    return Err(StoreError::CorruptIndex(
-                        "noncanonical sparse FTS positions".into(),
-                    ));
-                }
-                previous = Some(offset);
-                block.set(offset);
-            }
-        }
-        1 => {
-            if cardinality <= FTS_SPARSE_LIMIT {
-                return Err(StoreError::CorruptIndex(
-                    "dense FTS block below the sparse threshold".into(),
-                ));
-            }
-            if payload.len() != DENSE_PAYLOAD_BYTES {
-                return Err(StoreError::CorruptIndex(
-                    "dense FTS payload length mismatch".into(),
-                ));
-            }
-            for (index, chunk) in payload.chunks(8).enumerate() {
-                block.words[index] =
-                    u64::from_le_bytes(chunk.try_into().expect("eight-byte word"));
-            }
-            if block.cardinality() != cardinality {
-                return Err(StoreError::CorruptIndex(
-                    "dense FTS popcount does not match its header".into(),
-                ));
-            }
-        }
-        other => {
-            return Err(StoreError::CorruptIndex(format!(
-                "unknown FTS block encoding {other}"
-            )));
-        }
-    }
-    if block.cardinality() != cardinality {
-        return Err(StoreError::CorruptIndex(
-            "FTS block bit count does not match its header".into(),
-        ));
-    }
-    Ok(block)
-}
+pub use super::bitmap_block::{Block, decode_block, encode_block};
 
 /// Accumulated bit changes for one admission or mutation batch, keyed by
 /// `(binding, gram kind, gram, block)`.
@@ -217,8 +42,8 @@ impl FtsBatch {
     }
 
     pub fn set(&mut self, binding: BindingId, kind: GramKind, gram: u64, slot: u32) {
-        let block = slot >> FTS_BLOCK_SHIFT;
-        let offset = (slot & FTS_BLOCK_MASK) as u16;
+        let block = slot >> BLOCK_SHIFT;
+        let offset = (slot & BLOCK_MASK) as u16;
         self.changes
             .entry((binding, kind, gram, block))
             .or_default()
@@ -227,8 +52,8 @@ impl FtsBatch {
     }
 
     pub fn clear(&mut self, binding: BindingId, kind: GramKind, gram: u64, slot: u32) {
-        let block = slot >> FTS_BLOCK_SHIFT;
-        let offset = (slot & FTS_BLOCK_MASK) as u16;
+        let block = slot >> BLOCK_SHIFT;
+        let offset = (slot & BLOCK_MASK) as u16;
         self.changes
             .entry((binding, kind, gram, block))
             .or_default()
@@ -438,9 +263,9 @@ pub fn candidates(
         let mut block = decode_block(&bytes)?;
         if let Some(restriction) = restriction {
             let mut restricted = RoaringBitmap::new();
-            let start = block_number << FTS_BLOCK_SHIFT;
-            for slot in restriction.range(start..start + FTS_BLOCK_SLOTS) {
-                let offset = (slot & FTS_BLOCK_MASK) as u16;
+            let start = block_number << BLOCK_SHIFT;
+            for slot in restriction.range(start..start + BLOCK_SLOTS) {
+                let offset = (slot & BLOCK_MASK) as u16;
                 if block.contains(offset) {
                     restricted.insert(slot);
                 }
@@ -450,7 +275,7 @@ pub fn candidates(
             }
             block = Block::default();
             for slot in restricted.iter() {
-                block.set((slot & FTS_BLOCK_MASK) as u16);
+                block.set((slot & BLOCK_MASK) as u16);
             }
         }
         for (_, gram) in &ordered[1..] {
@@ -465,7 +290,7 @@ pub fn candidates(
                 break;
             }
         }
-        block.slots(block_number, &mut result);
+        block.insert_global(block_number, &mut result);
     }
     Ok(Some(result))
 }

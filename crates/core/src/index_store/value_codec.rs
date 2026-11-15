@@ -22,6 +22,8 @@ use super::tables::{
 };
 
 pub const VALUE_FORMAT_TAG: u8 = 1;
+pub const CONTRIBUTION_FORMAT_TAG: u8 = 2;
+pub const STATE_MASK_BITS: u16 = 0x03FF;
 
 /// Store-wide header written during initialization.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, serde::Deserialize)]
@@ -238,7 +240,7 @@ impl RecordMetadata {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, serde::Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd, Serialize, serde::Deserialize)]
 pub enum StateKind {
     PathPresence,
     EmptySelection,
@@ -253,6 +255,22 @@ pub enum StateKind {
 }
 
 impl StateKind {
+    pub fn from_tag(tag: u8) -> Option<Self> {
+        Some(match tag {
+            STATE_PATH_PRESENCE => Self::PathPresence,
+            STATE_EMPTY_SELECTION => Self::EmptySelection,
+            STATE_LEGACY_NULL_SET => Self::LegacyNullSet,
+            STATE_ANY_NULL => Self::AnyNull,
+            STATE_NON_EMPTY => Self::NonEmpty,
+            STATE_STRING => Self::String,
+            STATE_NUMBER => Self::Number,
+            STATE_ARRAY => Self::Array,
+            STATE_OBJECT => Self::Object,
+            STATE_EMPTY_OBJECT => Self::EmptyObject,
+            _ => return None,
+        })
+    }
+
     pub fn tag(self) -> u8 {
         match self {
             Self::PathPresence => STATE_PATH_PRESENCE,
@@ -365,7 +383,7 @@ pub struct StoredContributions {
     pub record: RecordMetadata,
     pub values: Vec<(BindingId, ScalarKey)>,
     pub lengths: Vec<(BindingId, Number)>,
-    pub states: Vec<(BindingId, StateKind)>,
+    pub state_masks: Vec<(BindingId, u16)>,
     pub coverage: Vec<(BindingId, CoverageKind)>,
     pub domains: Vec<DomainKind>,
     pub sorts: Vec<SortProjection>,
@@ -379,8 +397,9 @@ impl StoredContributions {
         self.values.dedup();
         self.lengths.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
         self.lengths.dedup();
-        self.states.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
-        self.states.dedup();
+        self.state_masks.sort_by(|a, b| a.0.cmp(&b.0));
+        self.state_masks.dedup();
+        self.state_masks.retain(|(_, mask)| *mask != 0);
         self.coverage
             .sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
         self.coverage.dedup();
@@ -427,6 +446,52 @@ pub struct FieldCoverage {
     pub inference_status: u8,
     pub value_cardinality: u64,
     pub length_cardinality: u64,
+}
+
+/// Validate compact state masks: known bits only, sorted unique field IDs,
+/// zero masks omitted.
+pub fn validate_state_masks(masks: &[(BindingId, u16)]) -> Result<(), StoreError> {
+    let mut previous = None;
+    for (binding, mask) in masks {
+        if *mask == 0 || *mask & !STATE_MASK_BITS != 0 {
+            return Err(StoreError::CorruptIndex(format!(
+                "invalid state mask {mask:#06x} for binding {binding}"
+            )));
+        }
+        if previous.is_some_and(|previous| *binding <= previous) {
+            return Err(StoreError::CorruptIndex(
+                "state masks are not sorted by unique binding".into(),
+            ));
+        }
+        previous = Some(*binding);
+    }
+    Ok(())
+}
+
+pub fn encode_contribution(value: &StoredContributions) -> Result<Vec<u8>, StoreError> {
+    validate_state_masks(&value.state_masks)?;
+    let payload = bincode::serialize(value).map_err(|error| {
+        StoreError::CorruptIndex(format!("contribution encode failed: {error}"))
+    })?;
+    let mut bytes = Vec::with_capacity(payload.len() + 1);
+    bytes.push(CONTRIBUTION_FORMAT_TAG);
+    bytes.extend_from_slice(&payload);
+    Ok(bytes)
+}
+
+pub fn decode_contribution(bytes: &[u8]) -> Result<StoredContributions, StoreError> {
+    let (tag, payload) = bytes
+        .split_first()
+        .ok_or_else(|| StoreError::CorruptIndex("empty contribution record".into()))?;
+    if *tag != CONTRIBUTION_FORMAT_TAG {
+        return Err(StoreError::CorruptIndex(format!(
+            "obsolete or unknown contribution format tag {tag}"
+        )));
+    }
+    let value: StoredContributions = bincode::deserialize(payload)
+        .map_err(|error| StoreError::CorruptIndex(format!("malformed contribution: {error}")))?;
+    validate_state_masks(&value.state_masks)?;
+    Ok(value)
 }
 
 pub fn encode<T: Serialize>(value: &T) -> Result<Vec<u8>, StoreError> {

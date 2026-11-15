@@ -131,10 +131,7 @@ fn validate_collection(
             let mut cursor = Cursor::new(key.value());
             let collection = CollectionId(cursor.read_u32()?);
             let slot = RecordSlot(cursor.read_u32()?);
-            let contributions = value_codec::decode::<StoredContributions>(
-                value.value(),
-                "record contributions",
-            )?;
+            let contributions = value_codec::decode_contribution(value.value())?;
             map.insert((collection.0, slot.0), contributions);
         }
         map
@@ -172,6 +169,7 @@ fn validate_collection(
 
     validate_file_state(view, collection, &live, report)?;
     validate_directory_counts(view, c, report)?;
+    validate_state_blocks(view, c, &live, report)?;
     validate_fts(view, c, report)?;
     Ok(())
 }
@@ -214,15 +212,30 @@ fn validate_contributions(
         }
     }
     report.length_members += stored.lengths.len() as u64;
-    for (binding, state) in &stored.states {
-        if !read::state_members(view, collection, *binding, *state)?.contains(&slot) {
+    for (binding, mask) in &stored.state_masks {
+        if *mask == 0 || *mask & !value_codec::STATE_MASK_BITS != 0 {
             report.errors.push(format!(
-                "collection {} slot {} missing state membership",
+                "collection {} slot {} has an invalid state mask",
                 collection.0, slot.0
             ));
+            continue;
+        }
+        for tag in 0..=tables::MAX_STATE_TAG {
+            let Some(state) = super::value_codec::StateKind::from_tag(tag) else {
+                continue;
+            };
+            if mask & (1u16 << tag) == 0 {
+                continue;
+            }
+            report.state_members += 1;
+            if !super::states::state_contains(view, collection, *binding, state, slot)? {
+                report.errors.push(format!(
+                    "collection {} slot {} missing state membership",
+                    collection.0, slot.0
+                ));
+            }
         }
     }
-    report.state_members += stored.states.len() as u64;
     for projection in &stored.grams {
         let grams = read::record_grams(view, collection, slot, projection.binding, projection.kind)?;
         if grams.as_deref() != Some(projection.grams.as_slice()) {
@@ -415,6 +428,55 @@ fn scalar_display(scalar: &crate::posting::ScalarKey) -> String {
         crate::posting::ScalarKey::Datetime(value) => format!("datetime:{value}"),
         crate::posting::ScalarKey::Unixtime(value) => format!("unixtime:{value}"),
     }
+}
+
+fn validate_state_blocks(
+    view: &StoreView,
+    collection: CollectionId,
+    live: &BTreeMap<u32, RecordMetadata>,
+    report: &mut ValidationReport,
+) -> StoreResult<()> {
+    let mut statistics = Vec::new();
+    super::states::for_each_statistics(view, collection, |binding, state, stats| {
+        statistics.push((binding, state, stats));
+        Ok(true)
+    })?;
+    for (binding, state, stats) in statistics {
+        let mut observed_cardinality = 0u64;
+        let mut observed_blocks = 0u64;
+        let mut free_bit = None;
+        super::states::for_each_state_block(view, collection, binding, state, |block, bytes| {
+            let decoded = super::bitmap_block::decode_block(bytes)?;
+            observed_blocks += 1;
+            observed_cardinality += u64::from(decoded.cardinality());
+            decoded.for_each(|offset| {
+                let slot = (block << super::bitmap_block::BLOCK_SHIFT) | u32::from(offset);
+                if !live.contains_key(&slot) && free_bit.is_none() {
+                    free_bit = Some(slot);
+                }
+            });
+            Ok(true)
+        })?;
+        if observed_cardinality != stats.cardinality || observed_blocks != stats.blocks {
+            report.errors.push(format!(
+                "collection {} binding {} state {}: statistics ({}, {}) != observed ({observed_cardinality}, {observed_blocks})",
+                collection.0,
+                binding,
+                state.tag(),
+                stats.cardinality,
+                stats.blocks
+            ));
+        }
+        if let Some(slot) = free_bit {
+            report.errors.push(format!(
+                "collection {} binding {} state {}: bit on non-live slot {slot}",
+                collection.0,
+                binding,
+                state.tag()
+            ));
+        }
+    }
+    Ok(())
 }
 
 fn validate_fts(

@@ -1,0 +1,133 @@
+{
+  "task": "redb-primary-index",
+  "campaign": "phase-5-a1-state-blocks",
+  "date": "2026-11-15",
+  "amendment": "objekte_redb_structural_state_amendment_a1.md",
+  "baseline_commit": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "integration_branch": "integration/redb-primary-index",
+  "corpus": "/home/simon/source/objekte/examples/musenalm",
+  "environment": {
+    "redb": "4.6.0",
+    "backend": "InMemoryBackend",
+    "page_cache_bytes": 67108864,
+    "cpus": 32
+  },
+  "baseline": {
+    "ascii_resident_bytes": 478220288,
+    "unicode_resident_bytes": 493887488,
+    "ascii_peak_bytes": 488243200,
+    "unicode_peak_bytes": 504066048,
+    "evidence": "/home/simon/source/objekte-task-redb-primary-index-baseline/bench/results/redb-primary-index/b0/"
+  },
+  "candidate": {
+    "ascii_default_allocator": {
+      "store_only_rss_bytes": 2149543936,
+      "peak_rss_bytes": 2217197568,
+      "table_pages_bytes": 608763904,
+      "evidence": "bench/results/redb-primary-index/feasibility-a1/feasibility-Ascii-*.json"
+    },
+    "ascii_trimmed": {
+      "store_only_rss_bytes": 1232687104,
+      "peak_rss_bytes": 2028355584,
+      "evidence": "bench/results/redb-primary-index/feasibility-a1/feasibility-Ascii-*.json"
+    },
+    "unicode_trimmed": {
+      "store_only_rss_bytes": 1232728064,
+      "peak_rss_bytes": 2032402432,
+      "evidence": "bench/results/redb-primary-index/feasibility-a1/feasibility-Unicode-*.json"
+    },
+    "ascii_extended_trimmed": {
+      "store_only_rss_bytes": 1232027648,
+      "peak_rss_bytes": 2100195328,
+      "evidence": "bench/results/redb-primary-index/feasibility-a1/feasibility-Ascii-*.json"
+    }
+  },
+  "state": {
+    "facts": 14004908,
+    "blocks": 4877,
+    "statistics_rows": 1243,
+    "stored_bytes": 2345969,
+    "page_bytes": 2650112,
+    "previous_individual_rows": 14004908,
+    "previous_estimated_bytes": 1000000000
+  },
+  "contributions": {
+    "rows": 148486,
+    "encoded_bytes": 167497999,
+    "page_bytes": 211812352,
+    "record_grams": "omitted by bridge; estimated 112551816 bytes"
+  },
+  "dominant_tables_page_bytes": [
+    ["record_contributions", 211812352],
+    ["value_members", 93749248],
+    ["sort_entries", 92274688],
+    ["fts_blocks", 78503936],
+    ["length_members", 38273024]
+  ],
+  "gates": [
+    {
+      "gate": "state_block_codec",
+      "status": "pass",
+      "evidence": "bitmap_block.test.rs, states.test.rs, fts tests"
+    },
+    {
+      "gate": "fts_byte_compatibility",
+      "status": "pass",
+      "evidence": "existing FTS tests through shared codec"
+    },
+    {
+      "gate": "state_fact_parity",
+      "status": "pass",
+      "observed": 14004908
+    },
+    {
+      "gate": "physical_state_members_removed",
+      "status": "pass",
+      "observed": "table removed from registry and writers"
+    },
+    {
+      "gate": "post_build_rss",
+      "status": "fail",
+      "threshold": "<= max(1.15x baseline, baseline + 32 MiB) approximately 550 MB",
+      "observed_best_case_bytes": 1232027648,
+      "ratio_best_case": 2.58
+    },
+    {
+      "gate": "peak_construction_rss",
+      "status": "fail",
+      "threshold": "<= max(1.20x baseline, baseline + 64 MiB) approximately 590 MB",
+      "observed_best_case_bytes": 2028355584
+    },
+    {
+      "gate": "phase5_primitive_feasibility",
+      "status": "pass",
+      "observed": {
+        "state_scan_us": 3.2,
+        "value_lookup_us": 87,
+        "sort_page_us": 22,
+        "fts_candidates_us": 1.7
+      }
+    },
+    {
+      "gate": "end_to_end_query_latency",
+      "status": "unavailable",
+      "reason": "no production query path routed through the store"
+    },
+    {
+      "gate": "crud_native_comparison",
+      "status": "unavailable",
+      "reason": "store primitives only; no matched native operation log"
+    },
+    {
+      "gate": "production_cutover",
+      "status": "fail",
+      "observed": "not started; Phase 6 remains blocked"
+    }
+  ],
+  "next_dominant": "record_contributions",
+  "decision_required": [
+    "Amend reverse/value/length representation for a further Phase-5 cycle",
+    "Relax the RSS gate with an explicit decision",
+    "Stop the migration and keep the foundation and A1 state blocks"
+  ]
+}

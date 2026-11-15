@@ -14,7 +14,7 @@ use crate::index_store::tables;
 use crate::index_store::value_codec::{
     BindingDescriptor, BindingIdentity, BindingRole, BuildFileState, CollectionMetadata,
     FileBuildState, GramKind, RelationOccurrence, RelationStateKind, SortConstituent,
-    SortDefinition, SortDirection, SortProjection, StateKind, StoredBinding,
+    SortDefinition, SortDirection, SortProjection, StateKind, StoredBinding, StoredContributions,
 };
 use crate::index_store::{
     IndexStore, StoreConfig, read, write,
@@ -38,9 +38,13 @@ pub struct FeasibilityReport {
     pub sort_definitions: u64,
     pub sort_entries: u64,
     pub relation_occurrences: u64,
+    pub contribution_rows: u64,
+    pub reverse_contribution_bytes: u64,
+    pub state_blocks: u64,
     pub estimated_record_gram_bytes: u64,
     pub write_ns: u128,
     pub table_rows: Vec<(String, u64)>,
+    pub table_bytes: Vec<(String, u64, u64)>,
     pub rss_before_bytes: u64,
     pub rss_after_bytes: u64,
     pub rss_peak_bytes: u64,
@@ -161,7 +165,14 @@ pub fn export_native_index(
         let rows = table
             .len()
             .map_err(|error| error.to_string())?;
+        let stats = table.stats().map_err(|error| error.to_string())?;
+        let pages = stats.leaf_pages().saturating_add(stats.branch_pages());
         report.table_rows.push(((*name).to_string(), rows));
+        report.table_bytes.push((
+            (*name).to_string(),
+            stats.stored_bytes(),
+            pages.saturating_mul(4096),
+        ));
     }
     report.rss_after_bytes = resident_bytes();
     report.rss_peak_bytes = peak_resident_bytes();
@@ -259,6 +270,15 @@ fn export_collection(
         )
         .map_err(|error| error.to_string())?;
     }
+    let record_count = collection.generation.records.len();
+    let mut values_by_slot: Vec<Vec<(u32, ScalarKey)>> = vec![Vec::new(); record_count];
+    let mut lengths_by_slot: Vec<Vec<(u32, crate::model::Number)>> =
+        vec![Vec::new(); record_count];
+    let mut state_masks_by_slot: Vec<std::collections::BTreeMap<u32, u16>> =
+        vec![std::collections::BTreeMap::new(); record_count];
+    let mut sorts_by_slot: Vec<Vec<SortProjection>> = vec![Vec::new(); record_count];
+    let mut relations_by_slot: Vec<Vec<RelationOccurrence>> = vec![Vec::new(); record_count];
+    let mut state_batch = crate::index_store::states::StateBatch::new();
     let mut bindings = BindingAllocator {
         tx: &tx,
         collection: collection_id,
@@ -303,6 +323,7 @@ fn export_collection(
                     RecordSlot(slot),
                 )
                 .map_err(|error| error.to_string())?;
+                values_by_slot[slot as usize].push((binding, value.clone()));
                 report.value_members += 1;
             }
         }
@@ -316,41 +337,39 @@ fn export_collection(
                     RecordSlot(slot),
                 )
                 .map_err(|error| error.to_string())?;
+                lengths_by_slot[slot as usize].push((binding, length.clone()));
                 report.length_members += 1;
             }
         }
         for slot in posting.presence.iter() {
-            write::insert_state_member(
-                &tx,
-                collection_id,
+            record_state(
+                &mut state_batch,
+                &mut state_masks_by_slot,
                 binding,
                 StateKind::PathPresence,
-                RecordSlot(slot),
-            )
-            .map_err(|error| error.to_string())?;
-            report.state_members += 1;
+                slot,
+                report,
+            );
         }
         for slot in posting.empty_selections.iter() {
-            write::insert_state_member(
-                &tx,
-                collection_id,
+            record_state(
+                &mut state_batch,
+                &mut state_masks_by_slot,
                 binding,
                 StateKind::EmptySelection,
-                RecordSlot(slot),
-            )
-            .map_err(|error| error.to_string())?;
-            report.state_members += 1;
+                slot,
+                report,
+            );
         }
         for slot in posting.nulls.iter() {
-            write::insert_state_member(
-                &tx,
-                collection_id,
+            record_state(
+                &mut state_batch,
+                &mut state_masks_by_slot,
                 binding,
                 StateKind::LegacyNullSet,
-                RecordSlot(slot),
-            )
-            .map_err(|error| error.to_string())?;
-            report.state_members += 1;
+                slot,
+                report,
+            );
         }
         if let Some(structural) = &posting.structural {
             for (key, slots) in &structural.postings {
@@ -364,15 +383,14 @@ fn export_collection(
                     crate::posting::StructuralKey::EmptyObject => StateKind::EmptyObject,
                 };
                 for slot in slots.iter() {
-                    write::insert_state_member(
-                        &tx,
-                        collection_id,
+                    record_state(
+                        &mut state_batch,
+                        &mut state_masks_by_slot,
                         binding,
                         state,
-                        RecordSlot(slot),
-                    )
-                    .map_err(|error| error.to_string())?;
-                    report.state_members += 1;
+                        slot,
+                        report,
+                    );
                 }
             }
         }
@@ -398,10 +416,13 @@ fn export_collection(
                     RecordSlot(slot),
                 )
                 .map_err(|error| error.to_string())?;
+                values_by_slot[slot as usize].push((binding, value.clone()));
                 report.value_members += 1;
             }
         }
     }
+    crate::index_store::states::apply_batch(&tx, collection_id, &state_batch)
+        .map_err(|error| error.to_string())?;
     export_text(
         &tx,
         collection_id,
@@ -478,10 +499,11 @@ fn export_collection(
                     collection_id,
                     RecordSlot(u32::try_from(slot).expect("slot fits u32")),
                     &collection.generation.records[slot].id.0,
-                    &[projection],
+                    std::slice::from_ref(&projection),
                     &definitions,
                 )
                 .map_err(|error| error.to_string())?;
+                sorts_by_slot[slot].push(projection);
                 report.sort_entries += 1;
             }
         }
@@ -537,29 +559,75 @@ fn export_collection(
                 continue;
             };
             for (ordinal, edge) in edges.iter().enumerate() {
-                crate::index_store::relations::insert_relation_occurrences(
-                    &tx,
-                    collection_id,
-                    RecordSlot(source as u32),
-                    &[RelationOccurrence {
-                        declaration_ordinal: declaration,
-                        occurrence_ordinal: u32::try_from(ordinal).expect("ordinal fits u32"),
-                        target_collection,
-                        target_id: edge.target_id().to_string(),
-                        positions: edge.positions.clone(),
-                    }],
-                )
-                .map_err(|error| error.to_string())?;
+                relations_by_slot[source].push(RelationOccurrence {
+                    declaration_ordinal: declaration,
+                    occurrence_ordinal: u32::try_from(ordinal).expect("ordinal fits u32"),
+                    target_collection,
+                    target_id: edge.target_id().to_string(),
+                    positions: edge.positions.clone(),
+                });
                 report.relation_occurrences += 1;
             }
         }
     }
     report.bindings += u64::from(bindings.next);
+    for (slot, entry) in collection.generation.records.iter().enumerate() {
+        let mut values = std::mem::take(&mut values_by_slot[slot]);
+        values.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
+        values.dedup();
+        let mut lengths = std::mem::take(&mut lengths_by_slot[slot]);
+        lengths.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
+        lengths.dedup();
+        let state_masks = std::mem::take(&mut state_masks_by_slot[slot])
+            .into_iter()
+            .filter(|(_, mask)| *mask != 0)
+            .collect::<Vec<_>>();
+        let mut sorts = std::mem::take(&mut sorts_by_slot[slot]);
+        sorts.sort_by_key(|projection| projection.definition);
+        let relations = std::mem::take(&mut relations_by_slot[slot]);
+        let contribution = StoredContributions {
+            record: crate::index_store::value_codec::RecordMetadata::from_entry(entry, 1),
+            values,
+            lengths,
+            state_masks,
+            coverage: Vec::new(),
+            domains: Vec::new(),
+            sorts,
+            relations,
+            // The final native gram representation is gram→bitmap, not a
+            // per-record list. Record gram sets are estimated separately.
+            grams: Vec::new(),
+        };
+        let bytes = crate::index_store::value_codec::encode_contribution(&contribution)
+            .map_err(|error| error.to_string())?;
+        report.reverse_contribution_bytes += bytes.len() as u64;
+        write::put_contributions(&tx, collection_id, entry.slot, &contribution)
+            .map_err(|error| error.to_string())?;
+        report.contribution_rows += 1;
+    }
     metadata.revision = metadata.revision.saturating_add(1);
     write::put_collection(&tx, &collection_metadata).map_err(|error| error.to_string())?;
     write::put_metadata(&tx, &metadata).map_err(|error| error.to_string())?;
     tx.commit().map_err(|error| error.to_string())?;
     Ok(())
+}
+
+fn record_state(
+    batch: &mut crate::index_store::states::StateBatch,
+    masks: &mut [std::collections::BTreeMap<u32, u16>],
+    binding: u32,
+    state: StateKind,
+    slot: u32,
+    report: &mut FeasibilityReport,
+) {
+    batch.set(binding, state, slot);
+    let mask = masks
+        .get_mut(slot as usize)
+        .expect("state slot must be in range")
+        .entry(binding)
+        .or_insert(0);
+    *mask |= 1u16 << state.tag();
+    report.state_members += 1;
 }
 
 fn export_text(

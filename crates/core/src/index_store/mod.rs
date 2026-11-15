@@ -18,6 +18,7 @@ use redb::backends::InMemoryBackend;
 use redb::{Database, ReadTransaction, ReadableDatabase, WriteTransaction};
 
 pub mod construction;
+pub mod bitmap_block;
 pub mod contributions;
 pub mod fts;
 #[cfg(feature = "store-feasibility")]
@@ -29,6 +30,7 @@ pub mod read;
 pub mod regeneration;
 pub mod relations;
 pub mod slot_allocator;
+pub mod states;
 pub mod sorting;
 pub mod tables;
 pub mod validation;

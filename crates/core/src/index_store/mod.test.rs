@@ -83,7 +83,7 @@ fn contributions(record: &RecordEntry, incarnation: u64) -> StoredContributions 
             (0, ScalarKey::Number(crate::model::Number::Integer(4))),
         ],
         lengths: vec![(0, crate::model::Number::Integer(5))],
-        states: vec![(0, StateKind::PathPresence), (0, StateKind::NonEmpty)],
+        state_masks: vec![(0, (1 << StateKind::PathPresence.tag()) | (1 << StateKind::NonEmpty.tag()))],
         coverage: Vec::new(),
         domains: Vec::new(),
         sorts: Vec::new(),

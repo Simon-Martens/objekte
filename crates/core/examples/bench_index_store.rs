@@ -90,6 +90,7 @@ fn main() -> Result<(), String> {
     let rss_with_native_bytes = report.rss_after_bytes;
     let resolved_build_workers = repository.startup().build_workers;
     drop(repository);
+    trim_allocator();
     std::thread::sleep(std::time::Duration::from_millis(250));
     let rss_after_native_drop_bytes = resident_bytes();
     let read_measurements = measure_reads(&store)?;
@@ -111,6 +112,9 @@ fn main() -> Result<(), String> {
         "sort_definitions": report.sort_definitions,
         "sort_entries": report.sort_entries,
         "relation_occurrences": report.relation_occurrences,
+        "contribution_rows": report.contribution_rows,
+        "reverse_contribution_bytes": report.reverse_contribution_bytes,
+        "state_blocks": report.table_rows.iter().find(|(name, _)| name == "state_blocks").map_or(0, |(_, rows)| *rows),
         "estimated_record_gram_bytes": report.estimated_record_gram_bytes,
         "write_ns": report.write_ns,
         "rss_before_bytes": report.rss_before_bytes,
@@ -118,6 +122,7 @@ fn main() -> Result<(), String> {
         "rss_after_native_drop_bytes": rss_after_native_drop_bytes,
         "rss_peak_bytes": report.rss_peak_bytes,
         "table_rows": report.table_rows,
+        "table_bytes": report.table_bytes,
         "read_measurements": read_measurements,
         "churn": churn,
     });
@@ -136,6 +141,15 @@ fn main() -> Result<(), String> {
     }
     let _ = report;
     Ok(())
+}
+
+/// Benchmark-only allocator trim: returns freed scratch pages so the
+/// store-only RSS sample is not dominated by the temporary export buffers.
+fn trim_allocator() {
+    #[cfg(target_env = "gnu")]
+    unsafe {
+        libc::malloc_trim(0);
+    }
 }
 
 fn resident_bytes() -> u64 {
@@ -375,7 +389,7 @@ fn churn_contribution(index: usize, round: usize) -> StoredContributions {
         record: RecordMetadata::from_entry(&entry, 1),
         values: vec![(0, ScalarKey::String(format!("value-{round}-{index}")))],
         lengths: vec![(0, objekte_search_core::model::Number::Integer(8))],
-        states: vec![(0, StateKind::PathPresence), (0, StateKind::NonEmpty)],
+        state_masks: vec![(0, (1 << StateKind::PathPresence.tag()) | (1 << StateKind::NonEmpty.tag()))],
         coverage: Vec::new(),
         domains: Vec::new(),
         sorts: Vec::new(),

@@ -15,11 +15,10 @@ pub const FTS_CODEC_VERSION: u32 = 1;
 pub const COLLATION_VERSION: &str = "icu-2.4.0";
 pub const PAGE_CACHE_BYTES: usize = 64 * 1024 * 1024;
 
-pub const FTS_BLOCK_SLOTS: u32 = 4_096;
-pub const FTS_BLOCK_SHIFT: u32 = 12;
-pub const FTS_BLOCK_MASK: u32 = FTS_BLOCK_SLOTS - 1;
-pub const FTS_MAX_CARDINALITY: u16 = 4_096;
-pub const FTS_SPARSE_LIMIT: u16 = 255;
+pub use super::bitmap_block::{
+    BLOCK_MASK as FTS_BLOCK_MASK, BLOCK_SHIFT as FTS_BLOCK_SHIFT, BLOCK_SLOTS as FTS_BLOCK_SLOTS,
+    MAX_CARDINALITY as FTS_MAX_CARDINALITY, SPARSE_LIMIT as FTS_SPARSE_LIMIT,
+};
 
 pub type ByteTable = TableDefinition<'static, &'static [u8], &'static [u8]>;
 
@@ -46,7 +45,8 @@ pub const FREE_SLOTS: ByteTable = byte_table!("free_slots");
 pub const RECORD_CONTRIBUTIONS: ByteTable = byte_table!("record_contributions");
 pub const VALUE_MEMBERS: ByteTable = byte_table!("value_members");
 pub const LENGTH_MEMBERS: ByteTable = byte_table!("length_members");
-pub const STATE_MEMBERS: ByteTable = byte_table!("state_members");
+pub const STATE_BLOCKS: ByteTable = byte_table!("state_blocks");
+pub const STATE_STATISTICS: ByteTable = byte_table!("state_statistics");
 pub const VALUE_DIRECTORY: ByteTable = byte_table!("value_directory");
 pub const LENGTH_DIRECTORY: ByteTable = byte_table!("length_directory");
 pub const FIELD_COVERAGE: ByteTable = byte_table!("field_coverage");
@@ -82,7 +82,8 @@ pub const ALL_TABLES: &[(&str, ByteTable)] = &[
     ("record_contributions", RECORD_CONTRIBUTIONS),
     ("value_members", VALUE_MEMBERS),
     ("length_members", LENGTH_MEMBERS),
-    ("state_members", STATE_MEMBERS),
+    ("state_blocks", STATE_BLOCKS),
+    ("state_statistics", STATE_STATISTICS),
     ("value_directory", VALUE_DIRECTORY),
     ("length_directory", LENGTH_DIRECTORY),
     ("field_coverage", FIELD_COVERAGE),

@@ -1,0 +1,343 @@
+{
+  "bindings": 433,
+  "build_ns": 3526635219,
+  "churn": {
+    "delete_ns": 44782607,
+    "delete_reinsert_rounds": 2,
+    "records": 1000,
+    "update_ns": 27190385,
+    "update_rounds": 2
+  },
+  "collections": 7,
+  "contribution_rows": 148486,
+  "estimated_record_gram_bytes": 112551816,
+  "export_ns": 12942148047,
+  "files": 148486,
+  "fts_bits": 56275908,
+  "fts_blocks": 35595,
+  "fts_grams": 25477,
+  "length_members": 921173,
+  "read_measurements": {
+    "binding": 28,
+    "collection": "agents",
+    "fts_candidates": 940,
+    "fts_candidates_20_ns": 39755,
+    "fts_gram_cardinality": 47,
+    "fts_gram_key": 8224,
+    "record_lookup_100_ns": 46502,
+    "record_rows": 100,
+    "sort_page_100x50_ns": 1154594,
+    "sort_page_rows": 5000,
+    "state_lookup_200_ns": 579669,
+    "state_lookup_rows": 802000,
+    "value_cardinality": 1326,
+    "value_lookup_200_ns": 17682058,
+    "value_lookup_rows": 265200
+  },
+  "records": 148486,
+  "relation_occurrences": 0,
+  "resolved_build_workers": 32,
+  "reverse_contribution_bytes": 167497999,
+  "rss_after_native_drop_bytes": 1232687104,
+  "rss_before_bytes": 388780032,
+  "rss_peak_bytes": 2028355584,
+  "rss_with_native_bytes": 2028355584,
+  "sort_definitions": 16,
+  "sort_entries": 566768,
+  "state_blocks": 4877,
+  "state_members": 14004908,
+  "table_bytes": [
+    [
+      "store_metadata",
+      109,
+      4096
+    ],
+    [
+      "collections",
+      862,
+      4096
+    ],
+    [
+      "fields",
+      42312,
+      69632
+    ],
+    [
+      "bindings",
+      82681,
+      126976
+    ],
+    [
+      "files",
+      23432452,
+      25706496
+    ],
+    [
+      "file_build_state",
+      5048524,
+      6369280
+    ],
+    [
+      "pending_files",
+      0,
+      0
+    ],
+    [
+      "paths",
+      5614132,
+      7032832
+    ],
+    [
+      "query_paths",
+      5911104,
+      7290880
+    ],
+    [
+      "records",
+      13215254,
+      14741504
+    ],
+    [
+      "logical_ids",
+      4900038,
+      6250496
+    ],
+    [
+      "file_records",
+      1781832,
+      3031040
+    ],
+    [
+      "slot_incarnations",
+      0,
+      0
+    ],
+    [
+      "free_slots",
+      0,
+      0
+    ],
+    [
+      "record_contributions",
+      168685887,
+      211771392
+    ],
+    [
+      "value_members",
+      68142760,
+      93720576
+    ],
+    [
+      "length_members",
+      29324379,
+      38273024
+    ],
+    [
+      "state_blocks",
+      2345969,
+      2650112
+    ],
+    [
+      "state_statistics",
+      31075,
+      49152
+    ],
+    [
+      "value_directory",
+      12472799,
+      14303232
+    ],
+    [
+      "length_directory",
+      34270,
+      45056
+    ],
+    [
+      "field_coverage",
+      0,
+      0
+    ],
+    [
+      "coverage_members",
+      0,
+      0
+    ],
+    [
+      "domain_members",
+      2634219,
+      5087232
+    ],
+    [
+      "sort_definitions",
+      2424,
+      4096
+    ],
+    [
+      "sort_entries",
+      49006298,
+      92286976
+    ],
+    [
+      "relation_outgoing",
+      0,
+      0
+    ],
+    [
+      "relation_incoming",
+      0,
+      0
+    ],
+    [
+      "relation_states",
+      0,
+      0
+    ],
+    [
+      "fts_blocks",
+      44153856,
+      78544896
+    ],
+    [
+      "fts_gram_statistics",
+      840741,
+      1384448
+    ],
+    [
+      "record_grams",
+      0,
+      0
+    ]
+  ],
+  "table_rows": [
+    [
+      "store_metadata",
+      1
+    ],
+    [
+      "collections",
+      7
+    ],
+    [
+      "fields",
+      418
+    ],
+    [
+      "bindings",
+      433
+    ],
+    [
+      "files",
+      148486
+    ],
+    [
+      "file_build_state",
+      148486
+    ],
+    [
+      "pending_files",
+      0
+    ],
+    [
+      "paths",
+      148486
+    ],
+    [
+      "query_paths",
+      148486
+    ],
+    [
+      "records",
+      148486
+    ],
+    [
+      "logical_ids",
+      148486
+    ],
+    [
+      "file_records",
+      148486
+    ],
+    [
+      "slot_incarnations",
+      0
+    ],
+    [
+      "free_slots",
+      0
+    ],
+    [
+      "record_contributions",
+      148486
+    ],
+    [
+      "value_members",
+      2814411
+    ],
+    [
+      "length_members",
+      921173
+    ],
+    [
+      "state_blocks",
+      4877
+    ],
+    [
+      "state_statistics",
+      1243
+    ],
+    [
+      "value_directory",
+      152544
+    ],
+    [
+      "length_directory",
+      641
+    ],
+    [
+      "field_coverage",
+      0
+    ],
+    [
+      "coverage_members",
+      0
+    ],
+    [
+      "domain_members",
+      292691
+    ],
+    [
+      "sort_definitions",
+      16
+    ],
+    [
+      "sort_entries",
+      566768
+    ],
+    [
+      "relation_outgoing",
+      0
+    ],
+    [
+      "relation_incoming",
+      0
+    ],
+    [
+      "relation_states",
+      0
+    ],
+    [
+      "fts_blocks",
+      169856
+    ],
+    [
+      "fts_gram_statistics",
+      25477
+    ],
+    [
+      "record_grams",
+      0
+    ]
+  ],
+  "value_members": 2814411,
+  "write_ns": 12640228649
+}

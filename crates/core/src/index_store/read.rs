@@ -546,35 +546,33 @@ pub fn length_directory_entry(
     value_codec::decode(row_value(&value), "length directory").map(Some)
 }
 
+/// Semantic state membership iterator. Backed by bounded state blocks.
 pub fn state_members(
     view: &StoreView,
     collection: CollectionId,
     binding: BindingId,
     state: StateKind,
 ) -> StoreResult<Vec<RecordSlot>> {
-    let table = view
-        .read()
-        .open_table(tables::STATE_MEMBERS)
-        .map_err(map_table)?;
-    let prefix = keys::state_prefix(collection.0, binding, state);
-    let successor = prefix_successor(&prefix);
-    let upper = successor
-        .as_deref()
-        .map(Bound::Excluded)
-        .unwrap_or(Bound::Unbounded);
-    let mut slots = Vec::new();
-    for row in table
-        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
-        .map_err(map_storage)?
-    {
-        let (key, _) = row.map_err(map_storage)?;
-        let mut cursor = Cursor::new(key.value());
-        let _collection = cursor.read_u32()?;
-        let _binding = cursor.read_u32()?;
-        let _state = cursor.read_u8()?;
-        slots.push(RecordSlot(cursor.read_u32()?));
-    }
-    Ok(slots)
+    super::states::state_members(view, collection, binding, state)
+}
+
+pub fn state_cardinality(
+    view: &StoreView,
+    collection: CollectionId,
+    binding: BindingId,
+    state: StateKind,
+) -> StoreResult<u64> {
+    super::states::state_cardinality(view, collection, binding, state)
+}
+
+pub fn state_contains(
+    view: &StoreView,
+    collection: CollectionId,
+    binding: BindingId,
+    state: StateKind,
+    slot: RecordSlot,
+) -> StoreResult<bool> {
+    super::states::state_contains(view, collection, binding, state, slot)
 }
 
 pub fn coverage_members(

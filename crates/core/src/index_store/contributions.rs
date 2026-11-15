@@ -12,7 +12,7 @@ use crate::posting::ScalarKey;
 
 use super::value_codec::{
     BindingId, BindingIdentity, CoverageKind, DomainKind, GramKind, GramProjection,
-    RelationOccurrence, SortProjection, StoredContributions, StateKind,
+    RelationOccurrence, SortProjection, StoredContributions,
 };
 
 /// Extractor output for one record, before stored binding IDs are assigned.
@@ -20,7 +20,7 @@ use super::value_codec::{
 pub struct PreparedRecordContributions {
     pub values: Vec<(BindingIdentity, ScalarKey)>,
     pub lengths: Vec<(BindingIdentity, Number)>,
-    pub states: Vec<(BindingIdentity, StateKind)>,
+    pub state_masks: Vec<(BindingIdentity, u16)>,
     pub coverage: Vec<(BindingIdentity, CoverageKind)>,
     pub domains: Vec<DomainKind>,
     pub sorts: Vec<SortProjection>,
@@ -34,8 +34,8 @@ impl PreparedRecordContributions {
         self.values.dedup();
         self.lengths.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
         self.lengths.dedup();
-        self.states.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
-        self.states.dedup();
+        self.state_masks.sort_by(|a, b| a.0.cmp(&b.0));
+        self.state_masks.dedup_by(|a, b| a.0 == b.0);
         self.coverage
             .sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
         self.coverage.dedup();
@@ -77,10 +77,10 @@ pub fn bind_prepared(
         .iter()
         .map(|(identity, length)| (resolve(identity), length.clone()))
         .collect::<Vec<_>>();
-    let mut states = prepared
-        .states
+    let mut state_masks = prepared
+        .state_masks
         .iter()
-        .map(|(identity, state)| (resolve(identity), *state))
+        .map(|(identity, mask)| (resolve(identity), *mask))
         .collect::<Vec<_>>();
     let mut coverage = prepared
         .coverage
@@ -98,8 +98,8 @@ pub fn bind_prepared(
     values.dedup();
     lengths.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
     lengths.dedup();
-    states.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
-    states.dedup();
+    state_masks.sort_by(|a, b| a.0.cmp(&b.0));
+    state_masks.dedup_by(|a, b| a.0 == b.0);
     coverage.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.tag().cmp(&b.1.tag())));
     coverage.dedup();
     let mut domains = prepared.domains.clone();
@@ -124,7 +124,7 @@ pub fn bind_prepared(
         record,
         values,
         lengths,
-        states,
+        state_masks,
         coverage,
         domains,
         sorts,
@@ -140,8 +140,6 @@ pub struct ContributionDiff {
     pub values_added: Vec<(BindingId, ScalarKey)>,
     pub lengths_removed: Vec<(BindingId, Number)>,
     pub lengths_added: Vec<(BindingId, Number)>,
-    pub states_removed: Vec<(BindingId, StateKind)>,
-    pub states_added: Vec<(BindingId, StateKind)>,
     pub coverage_removed: Vec<(BindingId, CoverageKind)>,
     pub coverage_added: Vec<(BindingId, CoverageKind)>,
     pub domains_removed: Vec<DomainKind>,
@@ -160,8 +158,6 @@ impl ContributionDiff {
             && self.values_added.is_empty()
             && self.lengths_removed.is_empty()
             && self.lengths_added.is_empty()
-            && self.states_removed.is_empty()
-            && self.states_added.is_empty()
             && self.coverage_removed.is_empty()
             && self.coverage_added.is_empty()
             && self.domains_removed.is_empty()
@@ -181,8 +177,6 @@ pub fn diff(old: &StoredContributions, new: &StoredContributions) -> Contributio
         values_added: difference(&new.values, &old.values),
         lengths_removed: difference(&old.lengths, &new.lengths),
         lengths_added: difference(&new.lengths, &old.lengths),
-        states_removed: difference_by_tag(&old.states, &new.states),
-        states_added: difference_by_tag(&new.states, &old.states),
         coverage_removed: difference_by_tag(&old.coverage, &new.coverage),
         coverage_added: difference_by_tag(&new.coverage, &old.coverage),
         domains_removed: difference_by_key(&old.domains, &new.domains, |domain| domain.tag()),
@@ -282,16 +276,6 @@ trait Tagged {
     type Key: PartialEq;
     fn key(&self) -> Self::Key;
     fn tag(&self) -> u8;
-}
-
-impl Tagged for (BindingId, StateKind) {
-    type Key = BindingId;
-    fn key(&self) -> Self::Key {
-        self.0
-    }
-    fn tag(&self) -> u8 {
-        self.1.tag()
-    }
 }
 
 impl Tagged for (BindingId, CoverageKind) {

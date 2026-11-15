@@ -73,7 +73,7 @@ fn contribution(id: &str, start: u64, end: u64, value: &str, gram: u64) -> Store
         record: RecordMetadata::from_entry(&entry, 1),
         values: vec![(0, ScalarKey::String(value.into()))],
         lengths: vec![(0, crate::model::Number::Integer(value.len() as i128))],
-        states: vec![(0, StateKind::PathPresence)],
+        state_masks: vec![(0, 1 << StateKind::PathPresence.tag())],
         coverage: Vec::new(),
         domains: Vec::new(),
         sorts: Vec::new(),

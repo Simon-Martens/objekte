@@ -90,7 +90,7 @@ fn consistent_record_is_valid_and_corruption_is_reported() {
             record: RecordMetadata::from_entry(&entry, incarnation),
             values: vec![(0, ScalarKey::String("x".into()))],
             lengths: vec![(0, crate::model::Number::Integer(4))],
-            states: vec![(0, StateKind::PathPresence)],
+            state_masks: vec![(0, 1 << StateKind::PathPresence.tag())],
             coverage: Vec::new(),
             domains: Vec::new(),
             sorts: Vec::new(),

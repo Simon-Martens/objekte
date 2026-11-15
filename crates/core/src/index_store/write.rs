@@ -18,7 +18,7 @@ use super::tables;
 use super::value_codec::{
     BindingDescriptor, BindingId, CollectionMetadata, CoverageKind, DomainKind,
     FieldCoverage, FileBuildState, FileMetadata, GramKind, LengthDirectoryEntry, RecordMetadata,
-    RelationStateKind, SortDefinition, StateKind, StoredBinding, StoredContributions,
+    RelationStateKind, SortDefinition, StoredBinding, StoredContributions,
     ValueDirectoryEntry,
 };
 use super::{StoreError, StoreResult};
@@ -546,30 +546,6 @@ fn adjust_length_directory(
     Ok(())
 }
 
-pub fn insert_state_member(
-    tx: &WriteTransaction,
-    collection: CollectionId,
-    binding: BindingId,
-    state: StateKind,
-    slot: RecordSlot,
-) -> StoreResult<bool> {
-    let key = keys::state_member(collection.0, binding, state, slot.0);
-    let mut table = tx.open_table(tables::STATE_MEMBERS).map_err(map_table)?;
-    Ok(table.insert(key.as_slice(), &[][..]).map_err(map_storage)?.is_none())
-}
-
-pub fn remove_state_member(
-    tx: &WriteTransaction,
-    collection: CollectionId,
-    binding: BindingId,
-    state: StateKind,
-    slot: RecordSlot,
-) -> StoreResult<bool> {
-    let key = keys::state_member(collection.0, binding, state, slot.0);
-    let mut table = tx.open_table(tables::STATE_MEMBERS).map_err(map_table)?;
-    Ok(table.remove(key.as_slice()).map_err(map_storage)?.is_some())
-}
-
 pub fn insert_coverage_member(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -623,7 +599,7 @@ pub fn put_contributions(
     contributions: &StoredContributions,
 ) -> StoreResult<()> {
     let key = keys::record(collection.0, slot.0);
-    let encoded = super::value_codec::encode(contributions)?;
+    let encoded = super::value_codec::encode_contribution(contributions)?;
     let mut table = tx.open_table(tables::RECORD_CONTRIBUTIONS).map_err(map_table)?;
     table
         .insert(key.as_slice(), encoded.as_slice())
@@ -641,7 +617,7 @@ pub fn get_contributions(
     let Some(value) = table.get(key.as_slice()).map_err(map_storage)? else {
         return Ok(None);
     };
-    super::value_codec::decode(value.value(), "record contributions").map(Some)
+    super::value_codec::decode_contribution(value.value()).map(Some)
 }
 
 pub fn remove_contributions(
@@ -657,9 +633,7 @@ pub fn remove_contributions(
         for (binding, length) in &contributions.lengths {
             remove_length_member(tx, collection, *binding, &ScalarKey::Number(length.clone()), slot)?;
         }
-        for (binding, state) in &contributions.states {
-            remove_state_member(tx, collection, *binding, *state, slot)?;
-        }
+        super::states::remove_masks(tx, collection, slot, &contributions.state_masks)?;
         for (binding, coverage) in &contributions.coverage {
             remove_coverage_member(tx, collection, *binding, *coverage, slot)?;
         }
@@ -698,9 +672,7 @@ pub fn insert_structured(
     for (binding, length) in &contributions.lengths {
         insert_length_member(tx, collection, *binding, &ScalarKey::Number(length.clone()), slot)?;
     }
-    for (binding, state) in &contributions.states {
-        insert_state_member(tx, collection, *binding, *state, slot)?;
-    }
+    super::states::insert_masks(tx, collection, slot, &contributions.state_masks)?;
     for (binding, coverage) in &contributions.coverage {
         insert_coverage_member(tx, collection, *binding, *coverage, slot)?;
     }
@@ -722,9 +694,7 @@ pub fn remove_structured(
     for (binding, length) in &contributions.lengths {
         remove_length_member(tx, collection, *binding, &ScalarKey::Number(length.clone()), slot)?;
     }
-    for (binding, state) in &contributions.states {
-        remove_state_member(tx, collection, *binding, *state, slot)?;
-    }
+    super::states::remove_masks(tx, collection, slot, &contributions.state_masks)?;
     for (binding, coverage) in &contributions.coverage {
         remove_coverage_member(tx, collection, *binding, *coverage, slot)?;
     }
@@ -795,12 +765,7 @@ pub fn apply_contribution_diff(
             slot,
         )?;
     }
-    for (binding, state) in &diff.states_removed {
-        remove_state_member(tx, collection, *binding, *state, slot)?;
-    }
-    for (binding, state) in &diff.states_added {
-        insert_state_member(tx, collection, *binding, *state, slot)?;
-    }
+    super::states::apply_masks(tx, collection, slot, &old.state_masks, &new.state_masks)?;
     for (binding, coverage) in &diff.coverage_removed {
         remove_coverage_member(tx, collection, *binding, *coverage, slot)?;
     }
