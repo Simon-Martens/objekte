@@ -1,0 +1,67 @@
+{
+  "task": "rocksdb-index-prototype",
+  "base_revision": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "candidate_branch": "integration/rocksdb-index-prototype",
+  "dataset": "basic ASCII Musenalm",
+  "samples": {
+    "pristine_native": "bench/results/rocksdb-index-prototype/baseline/ascii-p8/build.json",
+    "candidate_native_control": "bench/results/rocksdb-index-prototype/native-phase2-control-fixed-20261115/build.json",
+    "candidate_rocksdb_w4": "bench/results/rocksdb-index-prototype/ascii-w4-final-current-20261115/build.json",
+    "candidate_validation": "bench/results/rocksdb-index-prototype/ascii-validate-final-phase2-20261115/validation.json"
+  },
+  "raw_values": {
+    "pristine_native": {
+      "build_ns": 936001020,
+      "resident_bytes": 394117120,
+      "peak_resident_bytes": 404692992
+    },
+    "candidate_native_control": {
+      "build_ns": 967230805,
+      "resident_bytes": 401756160,
+      "peak_resident_bytes": 412430336
+    },
+    "candidate_rocksdb_w4": {
+      "ready_ns": 76344067646,
+      "resident_bytes": 4766621696,
+      "peak_resident_bytes": 5054058496,
+      "admission_batches": 582,
+      "physical_files": 148486,
+      "records": 148486
+    }
+  },
+  "maximum_integer_allowances": {
+    "construction_ns": 1076401173,
+    "resident_bytes": 551763968,
+    "peak_resident_bytes": 647508787,
+    "rounding": "floor"
+  },
+  "ratios": {
+    "candidate_native_to_pristine_time": 1.033365,
+    "candidate_native_to_pristine_resident": 1.019383,
+    "candidate_native_to_pristine_peak": 1.019119,
+    "rocksdb_to_pristine_time": 81.564086,
+    "rocksdb_to_pristine_resident": 12.094429,
+    "rocksdb_to_pristine_peak": 12.488624
+  },
+  "gates": {
+    "native_control_time": "pass",
+    "native_control_resident_memory": "pass",
+    "native_control_peak_memory": "pass",
+    "construction_time": "fail",
+    "post_build_resident_memory": "fail",
+    "peak_construction_memory": "fail",
+    "full_internal_invariant_validation": "pass",
+    "fixture_native_exact_fact_comparison": "pass"
+  },
+  "missing_or_deferred": [
+    "primitive query timing and native query comparisons",
+    "source-free mutation/snapshot campaign",
+    "file-backed corpus reopen campaign",
+    "Unicode measured corpus construction",
+    "production planner, CLI and desktop migration"
+  ],
+  "decision": {
+    "recommendation": "reject",
+    "reason": "The required timing and memory gates fail by an order of magnitude after the documented batched-admission repair; later migration work is intentionally deferred under the early-exit rule."
+  }
+}
