@@ -516,7 +516,7 @@ Completion date: 2026-11-15
 Base commit: `81ba4ce200`  
 Integration branch: `integration/mmap-index-v1`  
 Integration worktree: `/home/simon/source/objekte-integration-mmap-index-v1`  
-Final repair head: `a2bf950f78`
+Final repair head: `73b5f0338f`
 
 ### Summary
 
@@ -532,7 +532,8 @@ The implementation reports, commands, and residual limitations are recorded in
 `cargo test --workspace --locked --offline` with 934 tests, the repository
 formatting/spacing checks, and `cargo clippy --workspace --all-targets`
 (exit 0, warning-level diagnostics only). Release-mode Musenalm performance
-measurements were not rerun and remain the only unverified gate.
+measurements were run as a quick checkpoint; the full 3,000-sample gate and a
+same-schema build baseline remain unverified.
 
 ### Commits
 

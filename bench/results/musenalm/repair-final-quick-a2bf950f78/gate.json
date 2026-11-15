@@ -1,0 +1,279 @@
+{
+  "mode": "quick",
+  "expected_samples": 150,
+  "jq_count_baseline": "/home/simon/source/objekte-integration-mmap-index-v1/bench/baselines/musenalm-jq-counts.json",
+  "comparison": "repair",
+  "baseline_code_revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "actual_code_revision": "73b5f0338fd1a0c2122dea990d5f9921576d85c7",
+  "build_flags": {},
+  "baseline_environment": {
+    "governor": "performance",
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "build_flags": {},
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K"
+  },
+  "governor": "performance",
+  "path_sensitive_fingerprint_difference": {
+    "schema": true,
+    "workload": true
+  },
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "actual_samples": 150,
+  "baseline": "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/controlled-foundation-performance-92cdb92b19",
+  "result_dir": "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-a2bf950f78",
+  "same_machine": true,
+  "aggregate_latency_ratio": 0.6845621919827122,
+  "thresholds": {
+    "per_case_relative": 1.8,
+    "per_case_absolute_ns": 5000000,
+    "aggregate_relative": 1.35
+  },
+  "confirmations": [
+    {
+      "case": "Q081",
+      "profile": "ascii-off",
+      "first_ns": 8332510,
+      "confirmed_median_ns": 1114097,
+      "threshold_ns": 6512299,
+      "passed": true
+    },
+    {
+      "case": "Q085",
+      "profile": "ascii-off",
+      "first_ns": 10980340,
+      "confirmed_median_ns": 11250440,
+      "threshold_ns": 9844488,
+      "passed": false
+    }
+  ],
+  "worst_slowdowns": [
+    {
+      "ratio": 5.5098297360508734,
+      "case": "Q081",
+      "profile": "ascii-off",
+      "baseline_ns": 1512299,
+      "actual_ns": 8332510
+    },
+    {
+      "ratio": 3.4855957413496164,
+      "case": "Q061",
+      "profile": "ascii-off",
+      "baseline_ns": 12774,
+      "actual_ns": 44525
+    },
+    {
+      "ratio": 2.516472809207722,
+      "case": "Q101",
+      "profile": "ascii-off",
+      "baseline_ns": 32842,
+      "actual_ns": 82646
+    },
+    {
+      "ratio": 2.4298737006817928,
+      "case": "Q084",
+      "profile": "ascii-off",
+      "baseline_ns": 223675,
+      "actual_ns": 543502
+    },
+    {
+      "ratio": 2.389051592431543,
+      "case": "Q086",
+      "profile": "ascii-off",
+      "baseline_ns": 212725,
+      "actual_ns": 508211
+    },
+    {
+      "ratio": 2.2665635666761896,
+      "case": "Q085",
+      "profile": "ascii-off",
+      "baseline_ns": 4844488,
+      "actual_ns": 10980340
+    },
+    {
+      "ratio": 2.178425472672565,
+      "case": "Q088",
+      "profile": "ascii-off",
+      "baseline_ns": 111335,
+      "actual_ns": 242535
+    },
+    {
+      "ratio": 1.9368102995270626,
+      "case": "Q009",
+      "profile": "ascii-off",
+      "baseline_ns": 15224,
+      "actual_ns": 29486
+    },
+    {
+      "ratio": 1.9164848702615302,
+      "case": "Q017",
+      "profile": "ascii-off",
+      "baseline_ns": 584445,
+      "actual_ns": 1120080
+    },
+    {
+      "ratio": 1.7211906142215507,
+      "case": "Q105",
+      "profile": "ascii-off",
+      "baseline_ns": 170769,
+      "actual_ns": 293926
+    },
+    {
+      "ratio": 1.7067463951588284,
+      "case": "Q090",
+      "profile": "ascii-off",
+      "baseline_ns": 55689,
+      "actual_ns": 95047
+    },
+    {
+      "ratio": 1.6651423256534965,
+      "case": "Q062",
+      "profile": "ascii-off",
+      "baseline_ns": 103214,
+      "actual_ns": 171866
+    },
+    {
+      "ratio": 1.6342038091498134,
+      "case": "Q125",
+      "profile": "ascii-off",
+      "baseline_ns": 5093,
+      "actual_ns": 8323
+    },
+    {
+      "ratio": 1.6294228152528567,
+      "case": "Q087",
+      "profile": "ascii-off",
+      "baseline_ns": 212393,
+      "actual_ns": 346078
+    },
+    {
+      "ratio": 1.622923932728702,
+      "case": "Q068",
+      "profile": "ascii-off",
+      "baseline_ns": 3363812,
+      "actual_ns": 5459211
+    },
+    {
+      "ratio": 1.6098209727522086,
+      "case": "Q051",
+      "profile": "ascii-off",
+      "baseline_ns": 577845,
+      "actual_ns": 930227
+    },
+    {
+      "ratio": 1.6069301994008496,
+      "case": "Q142",
+      "profile": "ascii-off",
+      "baseline_ns": 242677,
+      "actual_ns": 389965
+    },
+    {
+      "ratio": 1.5463547117992658,
+      "case": "Q069",
+      "profile": "ascii-off",
+      "baseline_ns": 5907393,
+      "actual_ns": 9134925
+    },
+    {
+      "ratio": 1.522106057594266,
+      "case": "Q082",
+      "profile": "ascii-off",
+      "baseline_ns": 5594168,
+      "actual_ns": 8514917
+    },
+    {
+      "ratio": 1.5026230050034561,
+      "case": "Q083",
+      "profile": "ascii-off",
+      "baseline_ns": 5433844,
+      "actual_ns": 8165019
+    }
+  ],
+  "failures": [
+    "corpus_fingerprint differs from baseline",
+    "baseline unverifiable schema baseline: missing schema-manifest.json",
+    "semantic registrations differ from baseline",
+    "('Q085', 'ascii-off'): confirmed 11.250 ms exceeds 4.844 ms baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-a2bf950f78"
+  ]
+}

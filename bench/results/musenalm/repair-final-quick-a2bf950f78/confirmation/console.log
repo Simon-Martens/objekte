@@ -1,0 +1,33 @@
+warning: unused variable: `len`
+    --> crates/core/src/inventory.rs:1219:13
+     |
+1219 |         let len = segment.stats().record_count as usize;
+     |             ^^^ help: if this is intentional, prefix it with an underscore: `_len`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `candidates`, `candidates_checked`, and `estimate` are never used
+   --> crates/core/src/regex_query.rs:121:12
+    |
+ 41 | impl RegexCondition {
+    | ------------------- methods in this implementation
+...
+121 |     pub fn candidates(&self, index: &BigramIndex) -> Option<RoaringBitmap> {
+    |            ^^^^^^^^^^
+...
+264 |     pub(crate) fn candidates_checked(
+    |                   ^^^^^^^^^^^^^^^^^^
+...
+296 |     pub fn estimate(&self, index: &BigramIndex) -> Option<(u64, f64)> {
+    |            ^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-search-core` (lib) generated 2 warnings (run `cargo fix --lib -p objekte-search-core` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.14s
+     Running `target/release/examples/bench_musenalm --cases Q081,Q085 --profiles ascii-off --repetitions 3 --result-dir /home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-a2bf950f78/confirmation`
+Q081 collection=entries FTS=None FILTER=Some("places ?= \"d7kbujq7399g22j\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 1091.146 / 1114.097 / 1580.393 / 1580.393 µs (min/median/p95/max; ok)
+Q085 collection=entries FTS=None FILTER=Some("language:each = \"ger\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 5164.956 / 11250.440 / 11260.265 / 11260.265 µs (min/median/p95/max; ok)
+build "ascii": 0.945 s; parses=148486; resident_bytes=480612352; peak_resident_bytes=489807872; estimated_index_bytes=69298144
+reports: /home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-a2bf950f78/confirmation
+reproduce: cargo run --release --example bench_musenalm -- "--cases" "Q081,Q085" "--profiles" "ascii-off" "--repetitions" "3" "--result-dir" "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-a2bf950f78/confirmation"

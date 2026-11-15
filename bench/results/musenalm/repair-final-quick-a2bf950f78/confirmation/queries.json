@@ -1,0 +1,28 @@
+[
+  {
+    "id": "Q081",
+    "collection": "entries",
+    "fts": null,
+    "filter": "places ?= \"d7kbujq7399g22j\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q085",
+    "collection": "entries",
+    "fts": null,
+    "filter": "language:each = \"ger\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

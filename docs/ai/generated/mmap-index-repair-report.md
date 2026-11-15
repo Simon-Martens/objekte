@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `a2bf950f78`
+Repair head: `73b5f0338f`
 
 ## Result
 
@@ -191,10 +191,32 @@ cargo test -p objekte-desktop --offline
 
 ## Benchmarks and remaining verification
 
-The Musenalm benchmark and release-mode performance gates were not rerun in this
-repair session. The deterministic work counters and the source-free lifecycle
-tests pass, but no new absolute Build/Load/query timing table is claimed here.
-The earlier GUI validation evidence remains under
+A release-mode Musenalm quick query checkpoint was run at `73b5f0338f`:
+
+```text
+python3 bench/run_query_regressions.py quick   --comparison repair   --baseline bench/results/musenalm/controlled-foundation-performance-92cdb92b19   --result-dir bench/results/musenalm/repair-final-quick-a2bf950f78
+```
+
+The aggregate ratio against the reviewed foundation was `0.685` (current/foundation)
+across 150 ASCII uncached samples. All result counts agree with the independent
+`jq` oracle, including Q140, Q147, Q149, and Q150 where the old foundation
+baseline itself disagreed with the oracle. One individual case, Q085
+(`language:each = "ger"`), measured 10.980 ms against a 4.844 ms baseline
+(+6.136 ms, +126.7%). Candidate and parsed-record counts are identical
+(4,928/4,928); the absolute regression is packed page decode overhead on a
+universal array predicate. The quick gate exits non-zero because the foundation
+baseline schema manifest is missing and because of Q085.
+
+Fresh in-memory build wall times at the same revision were 0.924 s (ASCII) and
+0.998 s (Unicode), one process each. The repository build-regression script
+could not compare these against the available foundation `gate.json` because
+that historical file uses the older `ascii-disabled` summary schema.
+
+Raw benchmark artifacts are under
+`bench/results/musenalm/repair-final-quick-a2bf950f78/` and
+`bench/results/musenalm/repair-final-build-a2bf950f78/`. The full 3,000-sample
+gate and a same-schema build baseline were not available in this session. The
+earlier GUI validation evidence remains under
 `docs/ai/generated/mmap-index-storage-gui/`.
 
 ## Commits
@@ -203,3 +225,4 @@ The earlier GUI validation evidence remains under
 - `141c6627c6` — merge packed runs by tier and open packed catalogue pages.
 - `8a08af99d8` — page packed metadata and bound packed record caches.
 - `a2bf950f78` — read default identity order through packed pages.
+- `73b5f0338f` — repair report and validation record.
