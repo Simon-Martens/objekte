@@ -301,6 +301,7 @@ fn opening_a_repository_returns_to_the_results_workspace() {
         directories: DirectoryCatalog {
             all: vec!["current".into()],
             by_collection: BTreeMap::from([("records".into(), vec!["current".into()])]),
+            more: false,
         },
     });
     assert!(!state.open_dialog.visible);
@@ -319,6 +320,7 @@ fn file_sidebar_shows_all_folders_and_resolves_collection_scope_on_selection() {
             ("books".into(), vec!["data/books".into()]),
             ("people".into(), vec!["data/people".into()]),
         ]),
+        more: false,
     });
     assert_eq!(state.sidebar_directories(), ["data/books", "data/people"]);
     state.search.collection = Some("books".into());

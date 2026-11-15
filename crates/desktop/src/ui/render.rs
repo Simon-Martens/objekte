@@ -646,7 +646,9 @@ impl DesktopView {
                 .as_ref()
                 .map(|catalogue| catalogue.view.clone());
             let file_more = self.state.visible_file_more;
-            let file_count = file_ids.len() + usize::from(file_more);
+            let directory_more = self.state.directories_more;
+            let more_row = usize::from(file_more || directory_more);
+            let file_count = file_ids.len() + more_row;
             let target = cx.entity();
             sidebar = sidebar.child(
                 div()
@@ -658,15 +660,24 @@ impl DesktopView {
                                 .map(|item| {
                                     if item >= directory_count + file_ids.len() {
                                         let load_target = target.clone();
+                                        let load_directories = directory_more && !file_more;
                                         return div().h(px(32.)).child(
-                                            Button::new("sidebar-load-more-files")
+                                            Button::new("sidebar-load-more")
                                                 .custom(row_style)
                                                 .cursor_pointer()
                                                 .h(px(28.))
-                                                .label("Load more files")
+                                                .label(if load_directories {
+                                                    "Load more folders"
+                                                } else {
+                                                    "Load more files"
+                                                })
                                                 .on_click(move |_, _, cx| {
                                                     load_target.update(cx, |this, cx| {
-                                                        this.state.load_more_visible_files();
+                                                        if load_directories {
+                                                            this.state.load_more_directories();
+                                                        } else {
+                                                            this.state.load_more_visible_files();
+                                                        }
                                                         cx.notify();
                                                     });
                                                 }),

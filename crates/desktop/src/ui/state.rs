@@ -131,6 +131,7 @@ pub struct UiState {
     pub single_collection: bool,
     pub directories: Vec<String>,
     pub directories_by_collection: BTreeMap<String, Vec<String>>,
+    pub directories_more: bool,
     pub file_catalogue: Option<FileCatalogue>,
     pub visible_file_ids: Arc<Vec<FileId>>,
     pub visible_file_more: bool,
@@ -252,6 +253,30 @@ impl UiState {
     fn install_directories(&mut self, catalog: DirectoryCatalog) {
         self.directories = catalog.all;
         self.directories_by_collection = catalog.by_collection;
+        self.directories_more = catalog.more;
+    }
+
+    pub fn load_more_directories(&mut self) {
+        let Some(catalogue) = &self.file_catalogue else {
+            return;
+        };
+        let mut page = catalogue
+            .view
+            .catalogue_directory_page(self.directories.len(), 257);
+        self.directories_more = page.len() > 256;
+        page.truncate(256);
+        for (directory, mask) in page {
+            for (number, name) in self.collections.iter().enumerate() {
+                if mask
+                    .get(number / 8)
+                    .is_some_and(|byte| byte & (1 << (number % 8)) != 0)
+                    && let Some(files) = self.directories_by_collection.get_mut(name)
+                {
+                    files.push(directory.clone());
+                }
+            }
+            self.directories.push(directory);
+        }
     }
 
     pub fn sidebar_directories(&self) -> &[String] {

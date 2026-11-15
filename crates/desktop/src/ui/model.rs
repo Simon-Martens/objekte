@@ -670,6 +670,7 @@ pub enum UiAction {
 pub struct DirectoryCatalog {
     pub all: Vec<String>,
     pub by_collection: std::collections::BTreeMap<String, Vec<String>>,
+    pub more: bool,
 }
 
 
@@ -678,7 +679,6 @@ pub struct DirectoryCatalog {
 #[derive(Clone)]
 pub struct FileCatalogue {
     pub view: IndexView,
-    pub ids: Arc<Vec<FileId>>,
     pub by_collection: BTreeMap<String, Arc<Vec<FileId>>>,
 }
 
@@ -737,7 +737,7 @@ impl fmt::Debug for FileCatalogue {
             .debug_struct("FileCatalogue")
             .field("instance_id", &self.view.instance_id())
             .field("revision", &self.view.revision())
-            .field("files", &self.ids.len())
+            .field("files", &self.view.catalogue_count())
             .finish()
     }
 }
@@ -747,7 +747,6 @@ impl PartialEq for FileCatalogue {
     fn eq(&self, other: &Self) -> bool {
         self.view.instance_id() == other.view.instance_id()
             && self.view.revision() == other.view.revision()
-            && self.ids == other.ids
             && self.by_collection == other.by_collection
     }
 }

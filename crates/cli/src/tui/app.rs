@@ -216,7 +216,7 @@ pub(super) struct App {
     pub(super) repo: Arc<IndexedRepository>,
     catalogue_view: IndexView,
     catalogue_count: usize,
-    cached_file_ids: Option<Vec<FileId>>,
+    sparse_file_ids: bool,
     build_receiver: Option<mpsc::Receiver<Result<InitialBuildSnapshot, String>>>,
     build_cursor: u64,
     pub(super) build_status: Option<InitialBuildStatus>,
@@ -342,14 +342,9 @@ impl App {
             .unwrap_or_else(|| repository.index().view().expect("opened repository view"));
         // Restored indexes may have sparse FileIds after reconciliation. Fresh
         // discovery assigns contiguous IDs, so it needs no second ID list.
-        let cached_file_ids = build_status.as_ref().is_none().then(|| {
-            catalogue_view
-                .catalogue_rows()
-                .map(|row| row.id)
-                .collect::<Vec<_>>()
-        });
+        let sparse_file_ids = build_status.is_none();
         let catalogue_count = build_status.as_ref().map_or_else(
-            || cached_file_ids.as_ref().map_or(0, Vec::len),
+            || catalogue_view.catalogue_count(),
             |status| status.discovered_files,
         );
         let building = build_status
@@ -397,7 +392,7 @@ impl App {
             repo: Arc::new(repository),
             catalogue_view,
             catalogue_count,
-            cached_file_ids,
+            sparse_file_ids,
             build_receiver,
             build_cursor,
             build_status,
@@ -565,8 +560,8 @@ impl App {
     }
 
     pub(super) fn file_at(&self, index: usize) -> Option<FileCatalogueRow> {
-        let id = if let Some(ids) = &self.cached_file_ids {
-            *ids.get(index)?
+        let id = if self.sparse_file_ids {
+            self.catalogue_view.catalogue_ids().nth(index)?
         } else {
             FileId(u32::try_from(index).ok()?)
         };
@@ -1027,7 +1022,7 @@ impl App {
         self.base_offset = 0;
         self.file_selected = 0;
         self.file_scroll = 0;
-        self.cached_file_ids = None;
+        self.sparse_file_ids = true;
         self.detail_hit = None;
         self.detail_history.clear();
         self.relation_rows.clear();
@@ -1036,7 +1031,7 @@ impl App {
         self.searching = false;
         if let Ok(view) = self.repo.index().view() {
             self.catalogue_view = view;
-            self.catalogue_count = self.catalogue_view.catalogue_rows().count();
+            self.catalogue_count = self.catalogue_view.catalogue_count();
         }
         self.status = Some("Loaded saved index".into());
         if !self.search.text.is_empty() || !self.filter.text.is_empty() {

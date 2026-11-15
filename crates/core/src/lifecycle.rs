@@ -2838,6 +2838,10 @@ impl IndexView {
         self.0.catalog.active_ids()
     }
 
+    pub fn catalogue_count(&self) -> usize {
+        self.0.catalog.active_files() as usize
+    }
+
     /// File IDs whose query path lies under one directory, without decoding
     /// unrelated catalogue rows. The packed path dictionary is the fast path.
     pub fn catalogue_ids_in_directory(&self, directory: &str, limit: usize) -> Vec<FileId> {

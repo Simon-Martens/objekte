@@ -4231,7 +4231,6 @@ fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalo
     // diagnostics are decoded only when a filtered page is requested.
     FileCatalogue {
         view,
-        ids: Arc::new(Vec::new()),
         by_collection: collections
             .iter()
             .map(|name| (name.clone(), Arc::new(Vec::new())))
@@ -4240,7 +4239,9 @@ fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalo
 }
 
 fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCatalog {
-    let indexed = view.catalogue_directories();
+    let mut indexed = view.catalogue_directory_page(0, 257);
+    let more = indexed.len() > 256;
+    indexed.truncate(256);
     let all = indexed
         .iter()
         .map(|(directory, _)| directory.clone())
@@ -4260,7 +4261,11 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
             (name.clone(), directories)
         })
         .collect();
-    DirectoryCatalog { all, by_collection }
+    DirectoryCatalog {
+        all,
+        by_collection,
+        more,
+    }
 }
 
 fn lifecycle_source_key(session: &OpenedSession) -> String {
