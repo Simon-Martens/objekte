@@ -1,0 +1,78 @@
+{
+  "task": "rocksdb-index-prototype",
+  "date": "2026-11-15",
+  "base_revision": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "candidate_branch": "integration/rocksdb-index-prototype",
+  "corpus": {
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "schema_profile": "basic",
+    "alphabet": "ascii",
+    "records": 148486,
+    "physical_files": 148486,
+    "collections": 7,
+    "configuration_digest": "eb03250be2bd299461b3eb11ee050a34b54e9b8ea6027f354ce574fa7991143a",
+    "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+  },
+  "environment": {
+    "available_parallelism": 32,
+    "rocksdb_binding": "0.25.0",
+    "librocksdb_sys": "0.19.0+11.8.1",
+    "storage": "memory",
+    "tmpdir": "<worktree>/target/cc-tmp"
+  },
+  "worker_policy": {
+    "background_jobs": 2,
+    "prepare_workers": 8,
+    "writer_runs": [1, 2, 4, 8],
+    "campaign": "C=32, W=min(4,max(1,C/4))=4 by default; W=8 was the permitted exploratory step after W=4 improved admission"
+  },
+  "runs": [
+    {
+      "name": "pristine-native-p8",
+      "backend": "native",
+      "result": "baseline/ascii-p8/build.json",
+      "status": "control"
+    },
+    {
+      "name": "candidate-native-p8",
+      "backend": "native",
+      "result": "native-phase2-control-fixed-20261115/build.json",
+      "status": "control"
+    },
+    {
+      "name": "rocksdb-w1",
+      "backend": "rocksdb",
+      "result": "ascii-w1-phase2-batched-20261115/build.json",
+      "status": "measured"
+    },
+    {
+      "name": "rocksdb-w2",
+      "backend": "rocksdb",
+      "result": "ascii-w2-phase2-20261115/build.json",
+      "status": "measured"
+    },
+    {
+      "name": "rocksdb-w4",
+      "backend": "rocksdb",
+      "result": "ascii-w4-final-current-20261115/build.json",
+      "status": "selected-valid-w4"
+    },
+    {
+      "name": "rocksdb-w8",
+      "backend": "rocksdb",
+      "result": "ascii-w8-phase2-20261115/build.json",
+      "status": "exploratory"
+    },
+    {
+      "name": "rocksdb-w4-validate",
+      "backend": "rocksdb",
+      "result": "ascii-validate-final-phase2-20261115/build.json",
+      "validation": "ascii-validate-final-phase2-20261115/validation.json",
+      "status": "validated"
+    }
+  ],
+  "early_exit": {
+    "triggered": true,
+    "reason": "Selected W=4 readiness is 81.56x the matched pristine native build and peak RSS is 12.49x."
+  }
+}

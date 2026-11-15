@@ -115,6 +115,47 @@ snapshots retain their versions, concurrent transactions preserve distinct bits
 in the same value, namespaces do not leak, and file mode survives WAL flush,
 memtable flush, close and reopen.
 
+### Extracted and adapted in Phase 2
+
+- Donor `crates/core/src/build.rs` A4 direct-preparation concepts were adapted
+  behind `rocksdb-prototype`: flat values, lengths, structural masks, sort
+  projections, relations, coverage, file fingerprints and sorted normal/skip
+  grams. The production native scheduler was restored to its master weights
+  after an exploratory donor weight multiplier caused a measurable native
+  control regression.
+- Donor `store_build_prepare.rs` types were moved into
+  `rocksdb_store/prepare.rs`; retained-capacity accounting now includes owned
+  record/fact vectors and gram buffers. Final coverage is not taken from these
+  provisional local counts.
+- Donor `keys.rs` and `value_codec.rs` semantics were extended with prototype
+  file, identity, receipt, coverage-delta, relation and namespace layouts.
+- Donor block-change and reverse-contribution algorithms informed
+  `rocksdb_store/write.rs`, but redb table access and transaction ownership were
+  replaced by one ordered RocksDB mutation plan per bounded physical-file
+  admission transaction.
+- Donor `posting.rs` and `bigram.rs` fact extraction was adapted as
+  feature-gated helpers. Master posting/bigram behavior remains unchanged when
+  the feature is off.
+- New `build.rs`, `finalize.rs`, `validation.rs` and `reference.rs` modules are
+  prototype-native. Finalization recomputes exact cardinalities from completed
+  block facts, and validation checks every forward membership against its
+  reverse contribution.
+
+Phase 2 validation: 31 `rocksdb_store` tests pass. This includes overlapping
+collection membership, multi-record files, empty/malformed input, native
+exact-fact fixture comparison, finalization and full reverse-membership
+invariants. The final measured-corpus validation has zero errors.
+
+| Matched ASCII measurement | Value |
+| --- | ---: |
+| Pristine native, P=8 | 936,001,020 ns |
+| Candidate native control, P=8 | 967,230,805 ns |
+| RocksDB W=4 readiness | 76,344,067,646 ns |
+| Pristine native resident / peak | 394,117,120 / 404,692,992 B |
+| RocksDB W=4 resident / peak | 4,766,621,696 / 5,054,058,496 B |
+
+Decision: reject production migration under the early-exit rule.
+
 ## Required semantic adaptations
 
 - Replace redb transaction state with pessimistic RocksDB `TransactionDB`.

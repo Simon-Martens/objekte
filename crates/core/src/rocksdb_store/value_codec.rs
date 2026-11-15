@@ -5,9 +5,7 @@ use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 
 use crate::inventory::{ByteRange, FileEntry, RecordClass, RecordEntry, SourceRevision};
-use crate::model::{
-    CollectionId, FieldPath, FileId, LogicalType, Number, RecordId, RecordSlot,
-};
+use crate::model::{CollectionId, FieldPath, FileId, LogicalType, Number, RecordId, RecordSlot};
 use crate::posting::ScalarKey;
 use crate::sorting::{SortKey, SortOptions};
 
@@ -131,9 +129,9 @@ pub fn encode<T: Serialize>(value: &T) -> StoreResult<Vec<u8>> {
 }
 
 pub fn decode<T: DeserializeOwned>(bytes: &[u8], what: &str) -> StoreResult<T> {
-    let (tag, payload) = bytes.split_first().ok_or_else(|| {
-        StoreError::CorruptValue(format!("empty {what} value record"))
-    })?;
+    let (tag, payload) = bytes
+        .split_first()
+        .ok_or_else(|| StoreError::CorruptValue(format!("empty {what} value record")))?;
     if *tag != VALUE_FORMAT_TAG {
         return Err(StoreError::CorruptValue(format!(
             "unknown {what} value format tag {tag}"
@@ -466,8 +464,7 @@ impl StoredContributions {
         self.domains.sort_by_key(|domain| domain.tag());
         self.domains.dedup();
         self.sorts.sort_by_key(|projection| projection.definition);
-        self.sorts
-            .dedup_by_key(|projection| projection.definition);
+        self.sorts.dedup_by_key(|projection| projection.definition);
         self.relations.sort_by(|a, b| {
             a.declaration_ordinal
                 .cmp(&b.declaration_ordinal)
@@ -539,6 +536,25 @@ pub struct FieldCoverage {
     pub inference_status: u8,
     pub value_cardinality: u64,
     pub length_cardinality: u64,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct BuildReceipt {
+    pub build_identity: [u8; 32],
+    pub build_epoch: u64,
+    pub batch_id: u64,
+    pub digest: [u8; 32],
+    pub slot_ranges: Vec<(CollectionId, u32, u32)>,
+    pub file_memberships: u32,
+    pub records: u32,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct FieldCoverageDelta {
+    pub collection: CollectionId,
+    pub binding: BindingId,
+    pub batch_id: u64,
+    pub coverage: FieldCoverage,
 }
 
 pub fn validate_state_masks(masks: &[(BindingId, u16)]) -> StoreResult<()> {
@@ -637,22 +653,13 @@ mod tests {
 
     #[test]
     fn header_round_trip_and_format_rejection() {
-        let header = StoreHeader::new(
-            [1; 32],
-            "ascii",
-            b"/source".to_vec(),
-            [2; 32],
-            "memory",
-        );
+        let header = StoreHeader::new([1; 32], "ascii", b"/source".to_vec(), [2; 32], "memory");
         let encoded = encode(&header).unwrap();
         assert_eq!(decode::<StoreHeader>(&encoded, "header").unwrap(), header);
 
         let mut wrong = header;
         wrong.format_version += 1;
-        assert!(matches!(
-            wrong.validate(),
-            Err(StoreError::Incompatible(_))
-        ));
+        assert!(matches!(wrong.validate(), Err(StoreError::Incompatible(_))));
     }
 
     #[test]

@@ -6,20 +6,28 @@
 
 use std::fmt;
 use std::path::PathBuf;
-use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use rocksdb::{
     BlockBasedOptions, Cache, DBCompressionType, DBRawIteratorWithThreadMode, Env, Options,
-    ReadOptions, SingleThreaded, SnapshotWithThreadMode, Transaction,
-    TransactionDB, TransactionDBOptions, TransactionOptions, WriteOptions,
+    ReadOptions, SingleThreaded, SnapshotWithThreadMode, Transaction, TransactionDB,
+    TransactionDBOptions, TransactionOptions, WriteOptions,
 };
 
 pub mod bitmap_block;
+pub mod build;
 pub mod contribution_codec;
+pub mod finalize;
 pub mod key_codec;
+pub mod keys;
 pub mod namespace;
+pub mod prepare;
+pub mod reference;
+pub(crate) mod schema;
+pub mod validation;
 pub mod value_codec;
+pub mod write;
 
 use namespace::Namespace;
 use value_codec::StoreHeader;
@@ -60,6 +68,12 @@ impl fmt::Display for StoreError {
 }
 
 impl std::error::Error for StoreError {}
+
+impl StoreError {
+    pub fn is_contention(&self) -> bool {
+        matches!(self, Self::Database(message) if message.contains("Busy") || message.contains("Timed out"))
+    }
+}
 
 impl From<rocksdb::Error> for StoreError {
     fn from(error: rocksdb::Error) -> Self {
@@ -204,11 +218,7 @@ impl RocksStore {
         transaction_db_options.set_default_lock_timeout(1_000);
         transaction_db_options.set_txn_lock_timeout(1_000);
 
-        let db = TransactionDB::<SingleThreaded>::open(
-            &options,
-            &transaction_db_options,
-            &path,
-        )?;
+        let db = TransactionDB::<SingleThreaded>::open(&options, &transaction_db_options, &path)?;
         let header = StoreHeader::new(
             config.configuration_digest,
             config.alphabet.clone(),
@@ -287,15 +297,11 @@ impl RocksStore {
         transaction_db_options.set_num_stripes(64);
         transaction_db_options.set_default_lock_timeout(1_000);
         transaction_db_options.set_txn_lock_timeout(1_000);
-        let db = TransactionDB::<SingleThreaded>::open(
-            &options,
-            &transaction_db_options,
-            &path,
-        )?;
+        let db = TransactionDB::<SingleThreaded>::open(&options, &transaction_db_options, &path)?;
         let header_key = Namespace::StoreMetadata.physical(HEADER_LOGICAL_KEY);
-        let bytes = db.get(&header_key)?.ok_or_else(|| {
-            StoreError::Incompatible("missing RocksDB prototype metadata".into())
-        })?;
+        let bytes = db
+            .get(&header_key)?
+            .ok_or_else(|| StoreError::Incompatible("missing RocksDB prototype metadata".into()))?;
         let header: StoreHeader = value_codec::decode(&bytes, "store header")?;
         header.validate()?;
         if header.storage_mode != "file" {
@@ -326,9 +332,9 @@ impl RocksStore {
     pub fn view(&self) -> StoreResult<StoreView<'_>> {
         let snapshot = self.resources.db.snapshot();
         let header_key = Namespace::StoreMetadata.physical(HEADER_LOGICAL_KEY);
-        let bytes = snapshot.get(&header_key)?.ok_or_else(|| {
-            StoreError::Incompatible("missing RocksDB prototype metadata".into())
-        })?;
+        let bytes = snapshot
+            .get(&header_key)?
+            .ok_or_else(|| StoreError::Incompatible("missing RocksDB prototype metadata".into()))?;
         let header: StoreHeader = value_codec::decode(&bytes, "store header")?;
         header.validate()?;
         Ok(StoreView {
@@ -358,9 +364,7 @@ impl RocksStore {
         ));
         let transaction = transaction_options();
         // Both option objects only initialize the native transaction.
-        self.resources
-            .db
-            .transaction_opt(&write, &transaction)
+        self.resources.db.transaction_opt(&write, &transaction)
     }
 
     pub fn memory_host_directory(&self) -> Option<&std::path::Path> {
@@ -417,9 +421,7 @@ impl<'db> StoreView<'db> {
         logical_key: &[u8],
     ) -> StoreResult<Option<rocksdb::DBPinnableSlice<'db>>> {
         let key = namespace.physical(logical_key);
-        self.snapshot
-            .get_pinned(key)
-            .map_err(StoreError::from)
+        self.snapshot.get_pinned(key).map_err(StoreError::from)
     }
 
     pub fn iterator(
@@ -444,8 +446,8 @@ impl<'db> StoreView<'db> {
         logical_prefix: &[u8],
     ) -> StoreResult<DBRawIteratorWithThreadMode<'db, TransactionDB<SingleThreaded>>> {
         let lower = namespace.physical(logical_prefix);
-        let upper = key_codec::prefix_successor(logical_prefix)
-            .map(|upper| namespace.physical(&upper));
+        let upper =
+            key_codec::prefix_successor(logical_prefix).map(|upper| namespace.physical(&upper));
         let mut options = ReadOptions::default();
         options.set_iterate_lower_bound(lower);
         if let Some(upper) = upper {
