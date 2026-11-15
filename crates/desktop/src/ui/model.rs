@@ -691,6 +691,33 @@ impl FileCatalogue {
         offset: usize,
         limit: usize,
     ) -> (Arc<Vec<FileId>>, bool) {
+        if let (Some(name), Some(directory)) = (collection, directory) {
+            let allowed = self.view.catalogue_collection_ids(name);
+            let mut ids = Vec::new();
+            let mut scan = offset;
+            let mut more = false;
+            loop {
+                let page = self
+                    .view
+                    .catalogue_ids_in_directory_page(directory, scan, 256);
+                let fetched = page.len();
+                for id in page {
+                    if allowed.contains(id.0) {
+                        ids.push(id);
+                        if ids.len() > limit {
+                            more = true;
+                            break;
+                        }
+                    }
+                }
+                scan = scan.saturating_add(fetched);
+                if more || fetched < 256 {
+                    break;
+                }
+            }
+            ids.truncate(limit);
+            return (Arc::new(ids), more);
+        }
         let all = match (collection, directory) {
             (Some(name), None) => {
                 self.view

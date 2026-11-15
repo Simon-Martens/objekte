@@ -2851,6 +2851,15 @@ impl IndexView {
     }
 
     /// File IDs in one collection from the persisted collection-file index.
+    pub fn catalogue_collection_ids(&self, name: &str) -> roaring::RoaringBitmap {
+        self.repository()
+            .collections()
+            .iter()
+            .position(|collection| collection.definition.name == name)
+            .map(|number| self.0.catalog.files_for_collection(number))
+            .unwrap_or_default()
+    }
+
     pub fn catalogue_ids_for_collection(&self, name: &str, limit: usize) -> Vec<FileId> {
         self.catalogue_ids_for_collection_page(name, 0, limit)
     }
