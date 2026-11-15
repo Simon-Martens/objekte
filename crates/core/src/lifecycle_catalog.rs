@@ -599,7 +599,16 @@ impl FileCatalog {
         limit: usize,
     ) -> Result<Vec<(String, Vec<u8>)>, String> {
         if let Some(packed) = &self.packed_base {
-            return packed.directory_page(offset, limit);
+            let overlay = self.changed.iter().any(|shard| !shard.is_empty());
+            if !overlay {
+                return packed.directory_page(offset, limit);
+            }
+            return Ok(self
+                .directories()
+                .into_iter()
+                .skip(offset)
+                .take(limit)
+                .collect());
         }
         Ok(self
             .directories()
@@ -611,7 +620,38 @@ impl FileCatalog {
 
     pub(crate) fn directories(&self) -> Vec<(String, Vec<u8>)> {
         if let Some(packed) = &self.packed_base {
-            return packed.directories();
+            let mut directories = packed
+                .directories()
+                .into_iter()
+                .collect::<std::collections::BTreeMap<_, _>>();
+            for shard in self.changed.iter() {
+                for (id, changed) in shard.iter() {
+                    if !self.active.contains(id.0) {
+                        continue;
+                    }
+                    let path = crate::path_repr::query_path(&changed.entry.relative_path);
+                    let mut prefix = String::new();
+                    let components = path
+                        .split('/')
+                        .filter(|part| !part.is_empty())
+                        .collect::<Vec<_>>();
+                    for component in components.iter().take(components.len().saturating_sub(1)) {
+                        if !prefix.is_empty() {
+                            prefix.push('/');
+                        }
+                        prefix.push_str(component);
+                        let mask = directories.entry(prefix.clone()).or_insert_with(|| {
+                            vec![0u8; self.base.collections().len().div_ceil(8)]
+                        });
+                        for collection in &changed.entry.collections {
+                            if let Some(byte) = mask.get_mut(collection.0 as usize / 8) {
+                                *byte |= 1 << (collection.0 % 8);
+                            }
+                        }
+                    }
+                }
+            }
+            return directories.into_iter().collect();
         }
         let mut directories = std::collections::BTreeMap::<String, Vec<u8>>::new();
         for id in self.active_ids() {
@@ -660,14 +700,17 @@ impl FileCatalog {
         result &= self.active.as_ref();
         for shard in self.changed.iter() {
             for (id, changed) in shard.iter() {
-                if self.active.contains(id.0)
-                    && changed
-                        .entry
-                        .collections
-                        .iter()
-                        .any(|c| c.0 as usize == collection)
+                if !self.active.contains(id.0) {
+                    result.remove(id.0);
+                } else if changed
+                    .entry
+                    .collections
+                    .iter()
+                    .any(|c| c.0 as usize == collection)
                 {
                     result.insert(id.0);
+                } else {
+                    result.remove(id.0);
                 }
             }
         }
@@ -681,7 +724,16 @@ impl FileCatalog {
         limit: usize,
     ) -> Vec<FileId> {
         if let Some(packed) = &self.packed_base {
-            return packed.ids_with_prefix_page(prefix, offset, limit);
+            let overlay = self.changed.iter().any(|shard| !shard.is_empty());
+            if !overlay {
+                return packed.ids_with_prefix_page(prefix, offset, limit);
+            }
+            return self
+                .ids_with_prefix(prefix, usize::MAX)
+                .into_iter()
+                .skip(offset)
+                .take(limit)
+                .collect();
         }
         self.ids_with_prefix(prefix, usize::MAX)
             .into_iter()
@@ -692,7 +744,26 @@ impl FileCatalog {
 
     pub(crate) fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
         if let Some(packed) = &self.packed_base {
-            return packed.ids_with_prefix(prefix, limit);
+            let mut result = packed
+                .ids_with_prefix(prefix, limit.saturating_add(4096))
+                .into_iter()
+                .filter(|id| self.is_active(*id))
+                .collect::<Vec<_>>();
+            for shard in self.changed.iter() {
+                for (id, changed) in shard.iter() {
+                    let matches = crate::path_repr::query_path(&changed.entry.relative_path)
+                        .starts_with(prefix);
+                    if matches && self.active.contains(id.0) {
+                        if !result.contains(id) {
+                            result.push(*id);
+                        }
+                    } else {
+                        result.retain(|candidate| candidate != id);
+                    }
+                }
+            }
+            result.truncate(limit);
+            return result;
         }
         self.active_ids()
             .filter(|id| {
