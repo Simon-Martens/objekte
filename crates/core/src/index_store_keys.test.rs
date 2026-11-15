@@ -226,6 +226,5 @@ fn prefix_end_bounds_exactly_the_prefix() {
     let prefix = prefix(3, 9);
     let end = prefix_end(&prefix).unwrap();
     assert!(prefix < end);
-    assert!(shard_key(&prefix) < end);
     assert!(records_key(&prefix, u32::MAX) < end);
 }

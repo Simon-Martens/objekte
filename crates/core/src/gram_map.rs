@@ -171,17 +171,6 @@ impl GramMap {
         }
     }
 
-    pub fn diff_chunks(
-        &self,
-        older: &Self,
-        visit: impl FnMut(crate::posting_map::ChunkChange<'_, u64>) -> Result<(), String>,
-    ) -> Result<bool, String> {
-        match (self, older) {
-            (Self::Shared(new), Self::Shared(old)) => new.diff_chunks(old, visit),
-            _ => Ok(false),
-        }
-    }
-
     #[cfg(test)]
     pub fn stored_chunk_count(&self) -> usize {
         match self {

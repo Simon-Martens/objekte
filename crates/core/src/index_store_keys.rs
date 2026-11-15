@@ -33,16 +33,11 @@ pub const FAMILY_DECLARED_LENGTHS: u8 = 1;
 pub const FAMILY_DECLARED_STRUCTURAL: u8 = 2;
 pub const FAMILY_CUSTOM_VALUES: u8 = 3;
 pub const FAMILY_CUSTOM_LENGTHS: u8 = 4;
-pub const FAMILY_CUSTOM_STRUCTURAL: u8 = 5;
 pub const FAMILY_INFERRED_VALUES: u8 = 6;
 pub const FAMILY_INFERRED_LENGTHS: u8 = 7;
-pub const FAMILY_INFERRED_STRUCTURAL: u8 = 8;
 pub const FAMILY_RAW_NORMAL: u8 = 9;
-pub const FAMILY_RAW_SKIP: u8 = 10;
 pub const FAMILY_FALLBACK_NORMAL: u8 = 11;
-pub const FAMILY_FALLBACK_SKIP: u8 = 12;
 pub const FAMILY_CUSTOM_TEXT_NORMAL: u8 = 13;
-pub const FAMILY_CUSTOM_TEXT_SKIP: u8 = 14;
 
 pub const BITMAP_PRESENCE: u8 = 0;
 pub const BITMAP_NULLS: u8 = 1;
@@ -111,10 +106,6 @@ pub(crate) fn push_u32(key: &mut Vec<u8>, value: u32) {
     key.extend_from_slice(&value.to_be_bytes());
 }
 
-pub(crate) fn push_u64(key: &mut Vec<u8>, value: u64) {
-    key.extend_from_slice(&value.to_be_bytes());
-}
-
 pub(crate) fn push_bytes(key: &mut Vec<u8>, value: &[u8]) {
     push_u32(key, u32::try_from(value.len()).expect("store key component is too long"));
     key.extend_from_slice(value);
@@ -125,10 +116,6 @@ fn with_prefix(prefix: &[u8], build: impl FnOnce(&mut Vec<u8>)) -> Vec<u8> {
     key.extend_from_slice(prefix);
     build(&mut key);
     key
-}
-
-pub(crate) fn shard_key(prefix: &[u8]) -> Vec<u8> {
-    prefix.to_vec()
 }
 
 pub(crate) fn files_key(prefix: &[u8], position: u32) -> Vec<u8> {
@@ -195,10 +182,6 @@ pub(crate) fn reference_key(prefix: &[u8], ordinal: u32, source: u32, index: u32
     })
 }
 
-pub(crate) fn inference_key(prefix: &[u8]) -> Vec<u8> {
-    prefix.to_vec()
-}
-
 /// The smallest byte string greater than every string with `prefix`.
 pub(crate) fn prefix_end(prefix: &[u8]) -> Option<Vec<u8>> {
     let mut end = prefix.to_vec();
@@ -247,14 +230,6 @@ pub(crate) fn bitmap_parts(key: &[u8]) -> Option<(u8, &[u8])> {
 #[cfg(test)]
 #[path = "index_store_keys.test.rs"]
 mod tests;
-
-fn number_tag(number: &Number) -> u8 {
-    match number {
-        Number::Integer(_) => 0,
-        Number::Float(_) => 1,
-        Number::ExactDecimal(_) => 2,
-    }
-}
 
 pub(crate) fn encode_number_value(number: &Number) -> Vec<u8> {
     let mut out = Vec::new();

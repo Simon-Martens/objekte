@@ -10,7 +10,7 @@ use crate::build::{BaseSegmentParts, IndexedCollectionSegment, ShardRole};
 use crate::index_store_keys as keys;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, RecordEntry};
-use crate::model::{FieldPath, Number, RecordId, RecordSlot};
+use crate::model::{Number, RecordId, RecordSlot};
 use crate::posting::{PostingIndex, PostingParts, StructuralFacts, StructuralKey};
 use crate::relation::{PendingReference, RelationContribution};
 use crate::slot_store::SlotTable;
@@ -104,17 +104,28 @@ fn write_bitmap_chunks(
     Ok(())
 }
 
+struct PostingWrite<'a> {
+    prefix: &'a [u8],
+    family: u8,
+    bitmap_offset: u8,
+    field: &'a [u8],
+    custom_complete: Option<bool>,
+}
+
 fn write_posting(
     fields: &mut Table<'_>,
     postings: &mut Table<'_>,
     bitmaps: &mut Table<'_>,
-    prefix: &[u8],
-    family: u8,
-    bitmap_offset: u8,
-    field: &[u8],
+    write: PostingWrite<'_>,
     index: &PostingIndex,
-    custom_complete: Option<bool>,
 ) -> Result<(), String> {
+    let PostingWrite {
+        prefix,
+        family,
+        bitmap_offset,
+        field,
+        custom_complete,
+    } = write;
     fields
         .insert(
             keys::posting_field_key(prefix, family, field).as_slice(),
@@ -285,39 +296,47 @@ pub(crate) fn write_shard(
             &mut fields,
             &mut postings,
             &mut bitmaps,
-            &prefix,
-            keys::FAMILY_DECLARED_VALUES,
-            0,
-            &field_bytes(path)?,
+            PostingWrite {
+                prefix: &prefix,
+                family: keys::FAMILY_DECLARED_VALUES,
+                bitmap_offset: 0,
+                field: &field_bytes(path)?,
+                custom_complete: None,
+            },
             index,
-            None,
         )?;
     }
     for ((path, binding), custom) in &shard.custom_postings {
+        let field = custom_field_bytes(path, binding)?;
         write_posting(
             &mut fields,
             &mut postings,
             &mut bitmaps,
-            &prefix,
-            keys::FAMILY_CUSTOM_VALUES,
-            10,
-            &custom_field_bytes(path, binding)?,
+            PostingWrite {
+                prefix: &prefix,
+                family: keys::FAMILY_CUSTOM_VALUES,
+                bitmap_offset: 10,
+                field: field.as_slice(),
+                custom_complete: Some(custom.complete),
+            },
             &custom.index,
-            Some(custom.complete),
         )?;
     }
     if let Some(inference) = &shard.inference {
         for (path, index) in &inference.indexes {
+            let field = field_bytes(path)?;
             write_posting(
                 &mut fields,
                 &mut postings,
                 &mut bitmaps,
-                &prefix,
-                keys::FAMILY_INFERRED_VALUES,
-                20,
-                &field_bytes(path)?,
+                PostingWrite {
+                    prefix: &prefix,
+                    family: keys::FAMILY_INFERRED_VALUES,
+                    bitmap_offset: 20,
+                    field: field.as_slice(),
+                    custom_complete: None,
+                },
                 index,
-                None,
             )?;
         }
     }
@@ -477,11 +496,13 @@ pub(crate) fn write_shard(
     Ok(())
 }
 
+type StoredRows = Vec<(Vec<u8>, Vec<u8>)>;
+
 fn rows(
     read: &ReadTransaction,
     definition: TableDefinition<&[u8], &[u8]>,
     prefix: &[u8],
-) -> Result<Vec<(Vec<u8>, Vec<u8>)>, String> {
+) -> Result<StoredRows, String> {
     let table = read.open_table(definition).map_err(error)?;
     let end = keys::prefix_end(prefix).ok_or("shard prefix overflow")?;
     let mut rows = Vec::new();
@@ -715,10 +736,8 @@ pub(crate) fn read_shard(
     let mut skip: BTreeMap<u64, RoaringBitmap> = BTreeMap::new();
     let mut fallback_normal = BTreeMap::new();
     let mut fallback_skip = BTreeMap::new();
-    let mut custom_text_parts: HashMap<
-        (Vec<String>, String),
-        (BTreeMap<u64, RoaringBitmap>, BTreeMap<u64, RoaringBitmap>),
-    > = HashMap::new();
+    type GramParts = (BTreeMap<u64, RoaringBitmap>, BTreeMap<u64, RoaringBitmap>);
+    let mut custom_text_parts: HashMap<(Vec<String>, String), GramParts> = HashMap::new();
     for (key, value) in rows(read, keys::POSTINGS, &prefix)? {
         let (family, field, posting_key, _) =
             keys::posting_parts(&key).ok_or("invalid gram key")?;
@@ -913,7 +932,7 @@ pub(crate) fn read_shard(
     let inference = if header.has_inference {
         let report = rows(read, keys::INFERENCE, &prefix)?
             .first()
-            .map(|(_, value)| decode(&value))
+            .map(|(_, value)| decode(value))
             .transpose()?
             .ok_or("inference report missing")?;
         let mut empty_selections = HashMap::new();
@@ -1062,16 +1081,25 @@ fn field_prefix(prefix: &[u8], family: u8, field: &[u8]) -> Vec<u8> {
     start
 }
 
+struct MapTarget<'a> {
+    prefix: &'a [u8],
+    family: u8,
+    field: &'a [u8],
+}
+
 fn diff_posting_map<K: Ord + Clone>(
     write: &WriteTransaction,
-    prefix: &[u8],
-    family: u8,
-    field: &[u8],
+    target: MapTarget<'_>,
     old: &crate::posting_map::PostingMap<K>,
     new: &crate::posting_map::PostingMap<K>,
     encode_key: impl Fn(&K) -> Vec<u8>,
     report: &mut DiffReport,
 ) -> Result<(), String> {
+    let MapTarget {
+        prefix,
+        family,
+        field,
+    } = target;
     let start = field_prefix(prefix, family, field);
     let end = keys::prefix_end(&start).ok_or("posting field prefix overflow")?;
     let compared = new
@@ -1212,7 +1240,7 @@ fn write_bitmap_if_changed(
     field: &[u8],
     old: Option<&RoaringBitmap>,
     new: &RoaringBitmap,
-    report: &mut DiffReport,
+    _report: &mut DiffReport,
 ) -> Result<(), String> {
     if old == Some(new) {
         return Ok(());
@@ -1312,9 +1340,7 @@ pub(crate) fn diff_main(
         let old_lengths = old_index.map_or(&fallback_lengths, |index| index.length_map());
         diff_posting_map(
             write,
-            &prefix,
-            keys::FAMILY_DECLARED_VALUES,
-            &field,
+            MapTarget { prefix: &prefix, family: keys::FAMILY_DECLARED_VALUES, field: &field },
             old_values,
             index.value_map(),
             keys::encode_scalar_key,
@@ -1322,9 +1348,7 @@ pub(crate) fn diff_main(
         )?;
         diff_posting_map(
             write,
-            &prefix,
-            keys::FAMILY_DECLARED_LENGTHS,
-            &field,
+            MapTarget { prefix: &prefix, family: keys::FAMILY_DECLARED_LENGTHS, field: &field },
             old_lengths,
             index.length_map(),
             keys::encode_number_value,
@@ -1340,9 +1364,7 @@ pub(crate) fn diff_main(
         if let (Some(old_map), Some(new_map)) = (old_structural, new_structural) {
             diff_posting_map(
                 write,
-                &prefix,
-                keys::FAMILY_DECLARED_STRUCTURAL,
-                &field,
+                MapTarget { prefix: &prefix, family: keys::FAMILY_DECLARED_STRUCTURAL, field: &field },
                 old_map,
                 new_map,
                 |key| vec![structural_code(*key)],
@@ -1380,9 +1402,7 @@ pub(crate) fn diff_main(
         let old_lengths = old_custom.map_or(&fallback_lengths, |custom| custom.index.length_map());
         diff_posting_map(
             write,
-            &prefix,
-            keys::FAMILY_CUSTOM_VALUES,
-            &field,
+            MapTarget { prefix: &prefix, family: keys::FAMILY_CUSTOM_VALUES, field: &field },
             old_values,
             custom.index.value_map(),
             keys::encode_scalar_key,
@@ -1390,9 +1410,7 @@ pub(crate) fn diff_main(
         )?;
         diff_posting_map(
             write,
-            &prefix,
-            keys::FAMILY_CUSTOM_LENGTHS,
-            &field,
+            MapTarget { prefix: &prefix, family: keys::FAMILY_CUSTOM_LENGTHS, field: &field },
             old_lengths,
             custom.index.length_map(),
             keys::encode_number_value,
@@ -1438,9 +1456,7 @@ pub(crate) fn diff_main(
             let old_lengths = old_index.map_or(&fallback_lengths, |index| index.length_map());
             diff_posting_map(
                 write,
-                &prefix,
-                keys::FAMILY_INFERRED_VALUES,
-                &field,
+                MapTarget { prefix: &prefix, family: keys::FAMILY_INFERRED_VALUES, field: &field },
                 old_values,
                 index.value_map(),
                 keys::encode_scalar_key,
@@ -1448,9 +1464,7 @@ pub(crate) fn diff_main(
             )?;
             diff_posting_map(
                 write,
-                &prefix,
-                keys::FAMILY_INFERRED_LENGTHS,
-                &field,
+                MapTarget { prefix: &prefix, family: keys::FAMILY_INFERRED_LENGTHS, field: &field },
                 old_lengths,
                 index.length_map(),
                 keys::encode_number_value,

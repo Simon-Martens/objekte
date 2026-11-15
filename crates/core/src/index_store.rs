@@ -5,16 +5,15 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use redb::{Database, Durability, ReadableDatabase, ReadableTable, WriteTransaction};
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 
 use crate::index_store_keys as keys;
 use crate::index_store_shard::{
     delete_shard_prefix, diff_main, read_shard, write_shard,
 };
-use crate::inventory::{FileEntry, FileVersions};
-use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
-use crate::repository::{CollectionDefinition, GlobalInferenceSummary, Repository, RepositoryOptions};
-use crate::source::SourceRegistry;
+use crate::inventory::FileEntry;
+use crate::lifecycle::PublishedIndex;
+use crate::repository::GlobalInferenceSummary;
 
 pub(crate) type CatalogSlot = (FileEntry, Option<[u8; 32]>, Option<[u8; 32]>);
 
@@ -46,11 +45,17 @@ struct StoredMain {
     active: crate::inventory::ActiveRecords,
 }
 
+pub(crate) type ShardRow = (
+    u64,
+    u64,
+    crate::build::IndexedCollectionSegment,
+    crate::inventory::ActiveRecords,
+);
+
 pub(crate) struct StoreContents {
     pub revision: u64,
     pub next_segment_ordinal: u64,
-    pub next_store_id: u64,
-    pub shards: Vec<(u64, u64, crate::build::IndexedCollectionSegment, crate::inventory::ActiveRecords)>,
+    pub shards: Vec<ShardRow>,
     pub catalog: Vec<Option<CatalogSlot>>,
     pub global_inference: Vec<Option<GlobalInferenceSummary>>,
 }
@@ -133,26 +138,6 @@ impl IndexStore {
             #[cfg(test)]
             fail_next_commit: false,
         })
-    }
-
-    #[cfg(test)]
-    pub(crate) fn open_in_memory() -> Self {
-        let database = Database::builder()
-            .create_with_backend(redb::backends::InMemoryBackend::new())
-            .unwrap();
-        Self {
-            database,
-            path: PathBuf::from(":memory:"),
-            durable: false,
-            revision: 0,
-            next_segment_ordinal: 1,
-            next_store_id: 1,
-            immutable: HashMap::new(),
-            main: HashMap::new(),
-            catalog: Vec::new(),
-            rewrite_all: false,
-            fail_next_commit: false,
-        }
     }
 
     #[cfg(test)]
@@ -478,10 +463,6 @@ impl IndexStore {
             .as_deref()
             .and_then(le_u64)
             .unwrap_or(1);
-        let next_store_id = meta_get(&self.database, "next_store_id")?
-            .as_deref()
-            .and_then(le_u64)
-            .unwrap_or(1);
         let read = self.database.begin_read().map_err(store_error)?;
         let mut shards = Vec::new();
         {
@@ -546,18 +527,13 @@ impl IndexStore {
         Ok(StoreContents {
             revision,
             next_segment_ordinal,
-            next_store_id,
             shards,
             catalog: slots,
             global_inference,
         })
     }
 
-    pub(crate) fn install_loaded(
-        &mut self,
-        shards: &[(u64, u64, crate::build::IndexedCollectionSegment, crate::inventory::ActiveRecords)],
-        catalog: &[Option<CatalogSlot>],
-    ) {
+    pub(crate) fn install_loaded(&mut self, shards: &[ShardRow], catalog: &[Option<CatalogSlot>]) {
         self.immutable.clear();
         self.main.clear();
         for (ordinal, store_id, shard, active) in shards {
@@ -583,17 +559,4 @@ impl IndexStore {
         self.catalog = catalog.to_vec();
     }
 
-    pub(crate) fn revision(&self) -> u64 {
-        self.revision
-    }
-}
-
-pub(crate) fn load_index(
-    store: IndexStore,
-    root: PathBuf,
-    definitions: Vec<CollectionDefinition>,
-    options: RepositoryOptions,
-    sources: SourceRegistry,
-) -> Result<Index, String> {
-    crate::lifecycle_store::assemble_loaded_index(store, root, definitions, options, sources)
 }

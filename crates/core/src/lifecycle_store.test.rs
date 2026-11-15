@@ -1,6 +1,5 @@
 use super::*;
-use crate::inventory::SourceRevision;
-use crate::model::{CollectionId, FieldPath, LogicalType};
+use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions};
 use crate::reference::FieldDefinition;
 use crate::repository::CollectionDefinition;
