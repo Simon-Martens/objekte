@@ -1,0 +1,118 @@
+{
+  "task": "rocksdb-bulk-construction-repair",
+  "date": "2026-11-15",
+  "actual_base": "00d16a040bc5f3bf83daba8ef6b0daa9657b9f0c",
+  "native_control_revision": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "candidate_source_revision": "a28892d02210a484be76d5dd42f7400ce1b7e93f",
+  "executable_sha256": "695b44f5e6cfa2bffff1032b5579f96883f24b8400d156c809bcdf5236bd90f2",
+  "cargo_lock_sha256": "cd5006b8a5819fb7ffcc1d54ff96d163f5eb1538a806f9c33a1d0f3181405704",
+  "configuration_digest": "eb03250be2bd299461b3eb11ee050a34b54e9b8ea6027f354ce574fa7991143a",
+  "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "environment": {
+    "os": "Linux 7.2.15-200.fc44.x86_64 x86_64",
+    "available_parallelism": 32,
+    "prepare_workers": 8,
+    "storage": "memory",
+    "alphabet": "ascii",
+    "schema_profile": "basic"
+  },
+  "raw": {
+    "native": {
+      "path": "bench/results/rocksdb-bulk-construction-repair/native-final-02/build.json",
+      "sha256": "72432af257449fd8fec2f66c4be9b8ee6f009b7beaa6a49e545960e75b509cf2"
+    },
+    "candidate_w1": {
+      "path": "bench/results/rocksdb-bulk-construction-repair/candidate-w1-final-02/build.json",
+      "sha256": "7255aebd2181219b2b6eef47692302d967017abd76bc555d7e3a4c49bbbc32b7"
+    },
+    "candidate_w4": {
+      "path": "bench/results/rocksdb-bulk-construction-repair/candidate-w4-final-02/build.json",
+      "sha256": "45603a37856d52f4154e9ebf8e1293a17019c76521b8d108b0d218ea206f561c"
+    },
+    "validation_build": {
+      "path": "bench/results/rocksdb-bulk-construction-repair/validate-final-02/build.json",
+      "sha256": "ed657b8d9ba280764f5d20fbb0138c90f59278a7a55e36e8234e0e1c5bf3d326"
+    },
+    "validation": {
+      "path": "bench/results/rocksdb-bulk-construction-repair/validate-final-02/validation.json",
+      "sha256": "a267f776b490372444a0cecb157f39c32de9b5a2d755e60ee3953e612ec3142f"
+    }
+  },
+  "native": {
+    "wall_ns": 990894820,
+    "resident_bytes": 399290368,
+    "peak_resident_bytes": 410054656
+  },
+  "candidate": {
+    "w1": {
+      "wall_ns": 11584790610,
+      "resident_bytes": 1097539584,
+      "peak_resident_bytes": 1191686144,
+      "user_cpu_ticks": 1902,
+      "system_cpu_ticks": 96,
+      "time_ratio": 11.691241467989508,
+      "resident_ratio": 2.748725418790969,
+      "peak_ratio": 2.906164157784859
+    },
+    "w4": {
+      "wall_ns": 11669616128,
+      "resident_bytes": 1103892480,
+      "peak_resident_bytes": 1196048384,
+      "user_cpu_ticks": 1902,
+      "system_cpu_ticks": 91,
+      "time_ratio": 11.77684643461957,
+      "resident_ratio": 2.764635885231271,
+      "peak_ratio": 2.916802349392175
+    }
+  },
+  "gates": {
+    "time_limit_ns": 1139529043,
+    "resident_limit_bytes": 559006515,
+    "peak_limit_bytes": 656087449,
+    "w1_time_pass": false,
+    "w1_resident_pass": false,
+    "w1_peak_pass": false,
+    "w4_time_pass": false,
+    "w4_resident_pass": false,
+    "w4_peak_pass": false,
+    "faster_than_native": false
+  },
+  "first_repair_comparison": {
+    "wall_ns": 35650433616,
+    "time_improvement_factor_w1": 3.077348121011917,
+    "resident_bytes": 1093632000,
+    "peak_resident_bytes": 2432851968,
+    "w1_peak_reduction_factor": 2.041518672209026
+  },
+  "mechanism": {
+    "bitmap_reads": 0,
+    "cold_reloads": 0,
+    "input_bitmap_memberships": 74016400,
+    "cohort_distinct_bitmap_keys": 415015,
+    "bitmap_puts": 415015,
+    "cohorts": 40,
+    "first_file_commit_ns": 80200569,
+    "peak_tail_keys": 31227,
+    "peak_tail_bytes": 23864904,
+    "physical_key_encodes": 415015
+  },
+  "validation": {
+    "valid": true,
+    "records": 148486,
+    "files": 148486,
+    "receipts": 40,
+    "value_members": 2814411,
+    "length_members": 921173,
+    "state_members": 14004908,
+    "gram_memberships": 56275908,
+    "sort_entries": 566768,
+    "errors": 0
+  },
+  "outcome": "performance-failure",
+  "implementation_complete": true,
+  "limitations": [
+    "Writer count is recorded but publication is coordinator-serialized to preserve authoritative live-tail images; W=4 therefore does not provide writer parallelism.",
+    "The pinned SingleThreaded TransactionDB binding exposes no supported detail properties, so memtable, cache, SST and compaction counters are unavailable rather than zero.",
+    "Sampling CPU profiling was unavailable because perf_event_paranoid=2 and SELinux denied CPU PMU access."
+  ]
+}

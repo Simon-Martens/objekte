@@ -1,0 +1,32 @@
+{
+  "task": "rocksdb-admission-repair",
+  "date": "2026-11-15",
+  "disposition": "compatible-fixes-integrated-conflicting-transaction-rmw-superseded",
+  "parent_commits": [
+    "54d07604ac",
+    "bc8696eb48",
+    "00d16a040b"
+  ],
+  "combined_commits": [
+    "a83ed20b2b",
+    "8481b32152",
+    "a28892d022",
+    "f9e0e7c94c"
+  ],
+  "first_repair_wall_ns": 35650433616,
+  "combined_wall_ns": 11584790610,
+  "improvement_factor": 3.077348121011917,
+  "verification": {
+    "workspace_check": "passed",
+    "workspace_tests": "passed",
+    "feature_enabled_core_tests": {
+      "passed": 553,
+      "ignored": 15,
+      "failed": 0
+    },
+    "feature_enabled_workspace_tests": "passed",
+    "full_ascii_validation_errors": 0
+  },
+  "outcome": "performance-failure",
+  "evidence": "docs/ai/generated/rocksdb-bulk-construction-repair/comparison.json"
+}
