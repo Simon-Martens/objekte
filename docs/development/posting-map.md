@@ -84,3 +84,11 @@ two backings:
 main shard and merges the delta family by family; a `Building` shard is
 correct but pays a deep clone, while a `Shared` shard shares all unchanged
 containers.
+
+## Vacuum and reuse
+
+`PostingMap::remove_slots` drops a key whose posting becomes empty.
+`PostingMap::union_with` merges a mapped delta posting. `SlotOrder::retain`
+removes dead slots from orders, `SharedMap::remove` drops id mappings and
+`SlotTable::insert` inserts a reused relation reference. A main shard vacuum
+applies these to every family before adding the slots to `free_slots`.

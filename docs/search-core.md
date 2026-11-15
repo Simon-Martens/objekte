@@ -426,6 +426,12 @@ checking without blocking search. Reconciliation, updates, compaction,
 ordinary close and repository replacement keep all state in memory and release
 it when the index is dropped.
 
+A main shard runs an in-place vacuum when at least 1,024 slots are retired and
+a quarter of it is dead; new records then reuse the freed slots in ascending
+order. `Index::vacuum()` forces a vacuum of every main shard. `Index::flush_folds()`
+folds all foldable mutation shards on request, and folding also triggers on
+four MiB of foldable shard estimates.
+
 A collection can have one growing main shard. Small mutation shards are folded
 into it eight at a time; a later incarnation of a file replaces its retired
 row and record slots without rewriting the large shard. The main shard is

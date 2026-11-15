@@ -42,7 +42,11 @@ retain its segment ordinal and local slot in a new immutable shard. The old
 and new views have distinct index revisions; an old pinned view still owns its
 original shard. Multi-record or shared-shard changes use a new segment.
 
-Small index shards are also folded into one main shard per collection. The
+A mainly retired main shard is vacuumed in place instead of being dissolved:
+dead slots are removed from every posting, gram, order and relation family and
+then reused by later appends. One-record build partitions that are mostly
+retired move their surviving records into the main shard rather than becoming
+new partitions. Small index shards are also folded into one main shard per collection. The
 main shard marks replaced records retired and appends the new incarnation;
 nothing is rewritten. When at least half of a main shard is retired and it has
 at least 4,096 slots, it is dissolved back into ordinary partitions. Verified

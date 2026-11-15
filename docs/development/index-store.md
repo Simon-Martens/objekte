@@ -32,6 +32,11 @@ path stay memory-only and never read, create or modify a store file.
 
 ## Validity
 
+Store format version 2 adds `free_slots`, `free_file_rows` and `dense_epoch` to
+a main shard so vacuumed and reused state survives a checkpoint. A checkpoint
+after a vacuum rewrites the shard's dense rows once; later checkpoints write
+only new and reused slots.
+
 The `meta` table records the store format version, the 32-byte configuration
 identity, the posting chunk size, the revision, the next ordinal and a
 completion flag. A store is used only when the format, configuration and chunk

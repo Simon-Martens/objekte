@@ -36,3 +36,11 @@ scope and must be measured and reported in this issue instead.
 - Keep derived fixed bitmaps lazily and rebuild them from the posting families
   after a fold.
 - Batch folds so several deltas amortize one fixed-bitmap copy.
+
+## Plan 5 update
+
+The plan 5 measurement after vacuum and reuse: 2,000 updates, 249 folds, no
+fold failure; updates that folded had a median of 11.99 ms versus 3.59 ms for
+plain updates. The main shard ended at 3,064 physical slots with 2,040 live
+records, showing reuse bounded growth. The issue remains open; the fixed-bitmap
+copy is still proportional to the main shard's record count, not the delta.
