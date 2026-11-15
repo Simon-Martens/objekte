@@ -72,6 +72,19 @@ pub fn put_field(
     Ok(())
 }
 
+pub fn get_field(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    path: &[String],
+) -> StoreResult<Option<super::value_codec::FieldDescriptor>> {
+    let table = tx.open_table(tables::FIELDS).map_err(map_table)?;
+    let key = keys::field(collection.0, path);
+    let Some(value) = table.get(key.as_slice()).map_err(map_storage)? else {
+        return Ok(None);
+    };
+    super::value_codec::decode(value.value(), "field").map(Some)
+}
+
 pub fn put_binding(
     tx: &WriteTransaction,
     collection: CollectionId,

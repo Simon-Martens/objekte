@@ -5,23 +5,28 @@
 //! and marks the catalog complete. No content is parsed and no native
 //! `FileInventory` is retained.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::sync::Arc;
 use std::path::{Path, PathBuf};
 
+use roaring::RoaringBitmap;
+
 use crate::discovery::discover;
-use crate::inventory::{FileEntry, FileStatus, SharedPath, SourceRevision};
+use crate::inventory::{DiagnosticRef, FileEntry, FileStatus, SharedPath, SourceRevision};
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
 use crate::source::SourceRegistry;
 
 use super::value_codec::{
-    BuildFileState, CollectionMetadata, ConstructionState, FileBuildState,
+    BuildFileState, CollectionMetadata, ConstructionState, FileBuildState, FileMetadata,
 };
 use super::value_codec::{BindingIdentity, DomainKind};
 use super::{IndexStore, read, write};
 use crate::model::RecordSlot;
 use crate::posting::ScalarKey;
+
+#[path = "store_build_inference.rs"]
+mod inference;
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DiscoveryReport {
@@ -203,6 +208,19 @@ mod tests {
     use super::*;
     use crate::source::SourceFormat;
 
+    fn test_root(label: &str) -> PathBuf {
+        let directory = std::env::temp_dir().join(format!(
+            "objekte-store-{label}-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::SystemTime::UNIX_EPOCH)
+                .expect("clock")
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(directory.join("data")).expect("directory");
+        directory
+    }
+
     #[test]
     fn discovery_writes_catalog_and_pending_files() {
         let directory = std::env::temp_dir().join(format!(
@@ -244,6 +262,171 @@ mod tests {
         );
         std::fs::remove_dir_all(directory).expect("cleanup");
     }
+
+    #[test]
+    fn source_build_counts_exactly_once_and_validates_all_families() {
+        let root = test_root("source-build-count");
+        std::fs::write(
+            root.join("data/records.jsonl"),
+            b"{\"title\":\"alpha\"}\n{\"title\":\"beta\"}\n",
+        )
+        .expect("source");
+        let definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+        let store = Arc::new(IndexStore::new(super::super::StoreConfig::default()).expect("store"));
+        let report = build_from_source(
+            &store,
+            &root,
+            &[definition],
+            &SourceBuildOptions {
+                build_workers: std::num::NonZeroUsize::new(1),
+                ..SourceBuildOptions::default()
+            },
+            &SourceRegistry::builtin(),
+        )
+        .expect("build");
+        assert_eq!(report.records, 2);
+        let view = store.view().expect("view");
+        let collection = read::collection(&view, CollectionId(0)).expect("collection");
+        assert_eq!(collection.live_records, 2);
+        assert_eq!(collection.pending_files, 0);
+        assert_eq!(collection.indexed_files, 1);
+        assert_eq!(collection.processed_files, 1);
+        let validation = super::super::validation::validate(&view).expect("validation");
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        std::fs::remove_dir_all(root).expect("cleanup");
+    }
+
+    #[test]
+    fn stale_catalog_version_rejects_prepared_file_before_slot_allocation() {
+        let root = test_root("stale-admission");
+        std::fs::write(root.join("data/records.jsonl"), b"{\"title\":\"alpha\"}\n")
+            .expect("source");
+        let definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+        let store = Arc::new(IndexStore::new(super::super::StoreConfig::default()).expect("store"));
+        let registry = SourceRegistry::builtin();
+        discover_into_store(&store, &root, &[definition], &registry).expect("discovery");
+        let metadata = store.metadata().expect("metadata");
+        let view = store.view().expect("view");
+        let file = read::file(&view, FileId(0)).expect("file").expect("file");
+        drop(view);
+        let batch_file = crate::build::BatchFile {
+            entry: file.entry,
+            records: 0..0,
+            first_range: true,
+        };
+        let tx = store.begin_write().expect("write");
+        let mut stale = write::get_build_state(&tx, FileId(0))
+            .expect("state")
+            .expect("state");
+        stale.expected_file_version += 1;
+        write::put_build_state(&tx, FileId(0), &stale).expect("stale state");
+        let error = validate_admission_file(
+            &tx,
+            CollectionId(0),
+            metadata.build_epoch,
+            &batch_file,
+        )
+        .expect_err("stale version must be rejected");
+        assert!(error.contains("does not match catalog expectation"), "{error}");
+        drop(tx);
+        std::fs::remove_dir_all(root).expect("cleanup");
+    }
+
+    #[test]
+    fn overlapping_collections_admit_one_physical_file_atomically() {
+        let root = test_root("overlap");
+        std::fs::write(root.join("data/shared.jsonl"), b"{\"title\":\"shared\"}\n")
+            .expect("source");
+        let definitions = vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+        ];
+        let store = Arc::new(IndexStore::new(super::super::StoreConfig::default()).expect("store"));
+        let report = build_from_source(
+            &store,
+            &root,
+            &definitions,
+            &SourceBuildOptions {
+                build_workers: std::num::NonZeroUsize::new(1),
+                ..SourceBuildOptions::default()
+            },
+            &SourceRegistry::builtin(),
+        )
+        .expect("build");
+        assert_eq!(report.records, 2);
+        let view = store.view().expect("view");
+        for collection in 0..2 {
+            let collection = read::collection(&view, CollectionId(collection)).expect("collection");
+            assert_eq!(collection.live_records, 1);
+            assert_eq!(collection.indexed_files, 1);
+            assert_eq!(read::pending_files(&view, collection.id).expect("pending").len(), 0);
+        }
+        let validation = super::super::validation::validate(&view).expect("validation");
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        std::fs::remove_dir_all(root).expect("cleanup");
+    }
+
+    #[test]
+    fn automatic_inference_publishes_typed_store_facts_and_reverse_contributions() {
+        let root = test_root("inference");
+        let records = (0..24)
+            .map(|index| {
+                format!(
+                    "{{\"status\":\"{}\"}}\n",
+                    if index % 2 == 0 { "open" } else { "closed" }
+                )
+            })
+            .collect::<String>();
+        std::fs::write(root.join("data/records.jsonl"), records).expect("source");
+        let definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+        let store = Arc::new(IndexStore::new(super::super::StoreConfig::default()).expect("store"));
+        let report = build_from_source(
+            &store,
+            &root,
+            &[definition],
+            &SourceBuildOptions {
+                build_workers: std::num::NonZeroUsize::new(1),
+                inference: crate::inference::InferenceConfig {
+                    mode: crate::inference::InferenceMode::AutoIndex,
+                    ..crate::inference::InferenceConfig::default()
+                },
+                ..SourceBuildOptions::default()
+            },
+            &SourceRegistry::builtin(),
+        )
+        .expect("build");
+        assert_eq!(report.records, 24);
+        let view = store.view().expect("view");
+        let field = read::field(&view, CollectionId(0), &["status".into()])
+            .expect("field")
+            .expect("inferred field");
+        assert!(field.values_indexed);
+        assert_eq!(field.covered_records, 24);
+        let binding = read::all_bindings(&view, CollectionId(0))
+            .expect("bindings")
+            .into_iter()
+            .find(|binding| {
+                binding.descriptor.identity
+                    == BindingIdentity::Declared {
+                        path: vec!["status".into()],
+                    }
+            })
+            .expect("inferred binding");
+        assert_eq!(
+            read::value_members(
+                &view,
+                CollectionId(0),
+                binding.id,
+                &ScalarKey::String("open".into())
+            )
+            .expect("members")
+            .len(),
+            12
+        );
+        let validation = super::super::validation::validate(&view).expect("validation");
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        std::fs::remove_dir_all(root).expect("cleanup");
+    }
 }
 
 /// Options for a direct source build into redb.
@@ -269,7 +452,44 @@ pub struct SourceBuildReport {
     pub discovery: DiscoveryReport,
     pub records: u64,
     pub batches: u64,
+    pub resolved_workers: usize,
+    pub discovery_ns: u128,
+    pub scheduling_job_ns: u64,
+    pub receive_wait_ns: u64,
+    pub admission_ns: u64,
+    pub finalization_ns: u128,
+    pub total_ns: u128,
+    pub out_of_order_batches: u64,
+    pub peak_active_jobs: usize,
+    pub peak_ready_batches: usize,
+    pub peak_weight_bytes: u64,
+    /// Historical field retained for evidence consumers. It now includes the
+    /// final completion transaction and buffer release.
     pub elapsed_ns: u128,
+}
+
+struct SourceBuildFailureGuard<'a> {
+    store: &'a Arc<IndexStore>,
+    completed: bool,
+}
+
+impl Drop for SourceBuildFailureGuard<'_> {
+    fn drop(&mut self) {
+        if self.completed {
+            return;
+        }
+        let Ok(tx) = self.store.begin_write() else {
+            return;
+        };
+        let Ok(mut metadata) = read::metadata_from_write(&tx) else {
+            return;
+        };
+        metadata.construction = ConstructionState::Failed;
+        metadata.revision = metadata.revision.saturating_add(1);
+        if write::put_metadata(&tx, &metadata).is_ok() {
+            let _ = tx.commit();
+        }
+    }
 }
 
 /// Build a complete redb index directly from source extraction.
@@ -285,7 +505,13 @@ pub fn build_from_source(
     sources: &SourceRegistry,
 ) -> Result<SourceBuildReport, String> {
     let started = std::time::Instant::now();
+    let discovery_started = std::time::Instant::now();
     let discovery = discover_into_store(store, root, definitions, sources)?;
+    let mut failure_guard = SourceBuildFailureGuard {
+        store,
+        completed: false,
+    };
+    let discovery_ns = discovery_started.elapsed().as_nanos();
     let root = root.canonicalize().map_err(|error| error.to_string())?;
     let workers = crate::build::resolve_build_workers(
         options.build_workers,
@@ -372,36 +598,66 @@ pub fn build_from_source(
                 next_sort: 0,
                 relations: HashMap::new(),
                 next_relation: 0,
+                inference: crate::inference::InferenceBuilder::for_collection(
+                    options.inference.clone(),
+                    definitions.len(),
+                ),
+                logical_records: RoaringBitmap::new(),
+                record_count: 0,
             })
             .collect(),
         collection_ids,
     };
     let mut report = SourceBuildReport {
         discovery,
+        resolved_workers: workers,
+        discovery_ns,
         ..SourceBuildReport::default()
     };
-    crate::build::process_repository_file_batches(
+    let scheduler = crate::build::process_repository_file_batches_profiled(
         &pool,
         Arc::new(root),
         &jobs,
         Arc::new(source_files),
         options.alphabet,
         options.inference.clone(),
+        false,
         |collection_index, batch| {
+            let admission_started = std::time::Instant::now();
             builder.admit(collection_index, batch)?;
             report.batches += 1;
+            report.admission_ns = report
+                .admission_ns
+                .saturating_add(admission_started.elapsed().as_nanos() as u64);
             Ok(())
         },
     )?;
     report.records = builder.records_written;
-    report.elapsed_ns = started.elapsed().as_nanos();
+    report.scheduling_job_ns = scheduler.job_execution_ns;
+    report.receive_wait_ns = scheduler.receive_wait_ns;
+    report.out_of_order_batches = scheduler.out_of_order_completed;
+    report.peak_active_jobs = scheduler.peak_active_jobs;
+    report.peak_ready_batches = scheduler.peak_ready_batches;
+    report.peak_weight_bytes = scheduler.peak_weight_bytes;
+
+    let finalization_started = std::time::Instant::now();
+    inference::finalize(store, &mut builder.collections)?;
     let tx = store.begin_write().map_err(|error| error.to_string())?;
     let mut metadata = read::metadata_from_write(&tx).map_err(|error| error.to_string())?;
     metadata.construction = ConstructionState::Complete;
     metadata.catalog_complete = true;
-    metadata.revision = metadata.revision.saturating_add(1);
+    metadata.revision = metadata
+        .revision
+        .checked_add(1)
+        .ok_or_else(|| "publication revision overflow".to_string())?;
     write::put_metadata(&tx, &metadata).map_err(|error| error.to_string())?;
     tx.commit().map_err(|error| error.to_string())?;
+    failure_guard.completed = true;
+    report.finalization_ns = finalization_started.elapsed().as_nanos();
+    drop(builder);
+    drop(pool);
+    report.total_ns = started.elapsed().as_nanos();
+    report.elapsed_ns = report.total_ns;
     Ok(report)
 }
 
@@ -414,6 +670,122 @@ struct BuildCollection {
     next_sort: u32,
     relations: HashMap<Vec<String>, u32>,
     next_relation: u32,
+    inference: Option<crate::inference::InferenceBuilder>,
+    logical_records: RoaringBitmap,
+    record_count: u64,
+}
+
+fn validate_admission_file(
+    tx: &redb::WriteTransaction,
+    collection: CollectionId,
+    expected_epoch: u64,
+    batch_file: &crate::build::BatchFile,
+) -> Result<FileMetadata, String> {
+    let current = write::get_file(tx, batch_file.entry.id)
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| format!("file {} was removed before admission", batch_file.entry.id.0))?;
+    let state = write::get_build_state(tx, batch_file.entry.id)
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| format!("file {} has no build state before admission", batch_file.entry.id.0))?;
+    if state.build_epoch != expected_epoch {
+        return Err(format!(
+            "stale build epoch for file {}: prepared {}, current {}",
+            batch_file.entry.id.0, expected_epoch, state.build_epoch
+        ));
+    }
+    if current.file_version != state.expected_file_version {
+        return Err(format!(
+            "file {} version {} does not match catalog expectation {}",
+            batch_file.entry.id.0, current.file_version, state.expected_file_version
+        ));
+    }
+    if current.entry.revision != batch_file.entry.revision {
+        return Err(format!(
+            "file {} source revision changed before admission",
+            batch_file.entry.id.0
+        ));
+    }
+    if !current.entry.collections.contains(&collection) {
+        return Err(format!(
+            "file {} no longer belongs to collection {}",
+            batch_file.entry.id.0, collection.0
+        ));
+    }
+    let pending =
+        read::pending_files_for_write(tx, collection).map_err(|error| error.to_string())?;
+    if !pending.contains(&batch_file.entry.id) {
+        return Err(format!(
+            "file {} is no longer pending in collection {}",
+            batch_file.entry.id.0, collection.0
+        ));
+    }
+    Ok(current)
+}
+
+fn merge_file_admission(
+    tx: &redb::WriteTransaction,
+    collection: CollectionId,
+    current: &FileMetadata,
+    batch_file: &crate::build::BatchFile,
+    local_to_global: &[RecordSlot],
+) -> Result<(FileEntry, Vec<DiagnosticRef>), String> {
+    let mut merged = current.entry.clone();
+    for other in &batch_file.entry.collections {
+        if !merged.collections.contains(other) {
+            merged.collections.push(*other);
+        }
+    }
+    if !merged.collections.contains(&collection) {
+        merged.collections.push(collection);
+    }
+    merged.collections.sort_unstable_by_key(|collection| collection.0);
+    merged.collections.dedup();
+    merged.status = merged.status.max(batch_file.entry.status);
+    merged.omitted_diagnostics = merged
+        .omitted_diagnostics
+        .checked_add(batch_file.entry.omitted_diagnostics)
+        .ok_or_else(|| "file diagnostic omission count overflow".to_string())?;
+    let mut remapped_refs = Vec::with_capacity(batch_file.entry.diagnostics.len());
+    for mut diagnostic in batch_file.entry.diagnostics.clone() {
+        if let Some(local) = diagnostic.record {
+            let global = local_to_global
+                .get(local.0 as usize)
+                .copied()
+                .ok_or_else(|| "diagnostic record slot is outside the prepared batch".to_string())?;
+            diagnostic.record = Some(global);
+        }
+        remapped_refs.push(
+            merged
+                .record_diagnostic(diagnostic)
+                .map_err(|error| format!("file {}: {error}", merged.id.0))?,
+        );
+    }
+    let key = super::keys::file(merged.id);
+    let metadata = FileMetadata {
+        entry: merged.clone(),
+        file_version: current.file_version,
+        fingerprint: current.fingerprint,
+    };
+    let encoded = super::value_codec::encode(&metadata).map_err(|error| error.to_string())?;
+    let mut files = tx.open_table(super::tables::FILES).map_err(|error| error.to_string())?;
+    files.insert(key.as_slice(), encoded.as_slice()).map_err(|error| error.to_string())?;
+    Ok((merged, remapped_refs))
+}
+
+fn remap_diagnostic_reference(
+    reference: DiagnosticRef,
+    remapped: &[DiagnosticRef],
+) -> DiagnosticRef {
+    reference
+        .stored_index()
+        .and_then(|index| remapped.get(index).copied())
+        .unwrap_or(reference)
+}
+
+struct AdmittedFile {
+    entry: FileEntry,
+    version: u64,
+    diagnostic_refs: Vec<DiagnosticRef>,
 }
 
 struct BatchStoreBuilder<'a> {
@@ -429,20 +801,122 @@ impl BatchStoreBuilder<'_> {
     fn admit(&mut self, collection_index: usize, mut batch: crate::build::BatchContribution) -> Result<(), String> {
         let collection = &mut self.collections[collection_index];
         let tx = self.store.begin_write().map_err(|error| error.to_string())?;
+        let store_metadata = read::metadata_from_write(&tx).map_err(|error| error.to_string())?;
+        if store_metadata.build_epoch != self.metadata.build_epoch {
+            return Err(format!(
+                "stale prepared batch epoch {}, current {}",
+                self.metadata.build_epoch, store_metadata.build_epoch
+            ));
+        }
         let mut collection_metadata =
             read::collection_from_write(&tx, collection.id).map_err(|error| error.to_string())?;
         let batch_records = std::mem::take(&mut batch.records);
         let count = batch_records.len();
+        let mut seen_local = vec![false; count];
+        for entry in &batch_records {
+            let seen = seen_local
+                .get_mut(entry.slot.0 as usize)
+                .ok_or_else(|| "prepared record slot is outside the batch".to_string())?;
+            if std::mem::replace(seen, true) {
+                return Err(format!("duplicate prepared record slot {} in one batch", entry.slot.0));
+            }
+        }
+        if seen_local.iter().any(|seen| !seen) {
+            return Err("prepared record slots are not contiguous".into());
+        }
+        let mut current_files = BTreeMap::new();
+        for batch_file in &batch.files {
+            let current = validate_admission_file(
+                &tx,
+                collection.id,
+                self.metadata.build_epoch,
+                batch_file,
+            )?;
+            current_files.insert(batch_file.entry.id, current);
+        }
         let mut local_to_global = vec![crate::model::RecordSlot(0); count];
-        let mut contributions: Vec<crate::index_store::value_codec::StoredContributions> =
-            Vec::with_capacity(count);
+        let mut incarnations = vec![0u64; count];
         for entry in &batch_records {
             let (slot, incarnation) =
                 super::slot_allocator::allocate(&tx, &mut collection_metadata)
                     .map_err(|error| error.to_string())?;
             local_to_global[entry.slot.0 as usize] = slot;
-            let record = crate::index_store::value_codec::RecordMetadata::from_entry(entry, incarnation);
+            incarnations[entry.slot.0 as usize] = incarnation;
+        }
+        if let Some(local) = batch.inference.take() {
+            let base = local_to_global
+                .first()
+                .copied()
+                .unwrap_or(RecordSlot(collection_metadata.slot_high_water as u32))
+                .0;
+            if local_to_global
+                .iter()
+                .enumerate()
+                .any(|(offset, slot)| slot.0 != base.saturating_add(offset as u32))
+            {
+                return Err("inference merge requires contiguous allocated slots".into());
+            }
+            collection
+                .inference
+                .as_mut()
+                .ok_or_else(|| "prepared inference output without enabled inference".to_string())?
+                .merge_shifted(local, base)
+                .map_err(|error| error.to_string())?;
+        }
+        for local in batch.logical_records.iter() {
+            let global = local_to_global
+                .get(local as usize)
+                .ok_or_else(|| "logical record slot is outside the prepared batch".to_string())?;
+            collection.logical_records.insert(global.0);
+        }
+        let fingerprints = batch
+            .file_fingerprints
+            .iter()
+            .copied()
+            .collect::<HashMap<_, _>>();
+        let mut admitted_files = BTreeMap::new();
+        for batch_file in &batch.files {
+            let current = current_files
+                .get(&batch_file.entry.id)
+                .ok_or_else(|| "admission file validation disappeared".to_string())?;
+            let (entry, diagnostic_refs) =
+                merge_file_admission(&tx, collection.id, current, batch_file, &local_to_global)?;
+            let fingerprint = fingerprints
+                .get(&entry.id)
+                .copied()
+                .or(current.fingerprint);
+            write::put_file(&tx, &entry, current.file_version, fingerprint)
+                .map_err(|error| error.to_string())?;
+            admitted_files.insert(
+                entry.id,
+                AdmittedFile {
+                    entry,
+                    version: current.file_version,
+                    diagnostic_refs,
+                },
+            );
+        }
+        let mut contributions: Vec<crate::index_store::value_codec::StoredContributions> =
+            Vec::with_capacity(count);
+        for entry in &batch_records {
+            let slot = local_to_global[entry.slot.0 as usize];
+            let incarnation = incarnations[entry.slot.0 as usize];
+            let admitted = admitted_files.get(&entry.file).ok_or_else(|| {
+                format!("record file {} is not in the prepared batch", entry.file.0)
+            })?;
+            let mut entry = entry.clone();
+            entry.diagnostic_ref =
+                remap_diagnostic_reference(entry.diagnostic_ref, &admitted.diagnostic_refs);
+            let record = crate::index_store::value_codec::RecordMetadata::from_entry(&entry, incarnation);
             write::put_record(&tx, collection.id, slot, &record).map_err(|error| error.to_string())?;
+            if let Some((existing_slot, _)) = write::get_logical_id(&tx, collection.id, &entry.id)
+                .map_err(|error| error.to_string())?
+            {
+                return Err(format!(
+                    "duplicate logical record ID {} in collection {} (existing slot {})",
+                    entry.id.0, collection.id.0, existing_slot.0
+                ));
+            }
             write::put_logical_id(&tx, collection.id, &entry.id, slot, incarnation)
                 .map_err(|error| error.to_string())?;
             write::put_file_record(&tx, entry.file, collection.id, slot)
@@ -465,7 +939,7 @@ impl BatchStoreBuilder<'_> {
         let mut gram_rows_for_batch: HashMap<(u32, u32, crate::index_store::value_codec::GramKind), Vec<u64>> = HashMap::new();
         let mut state_masks: Vec<std::collections::BTreeMap<u32, u16>> =
             vec![std::collections::BTreeMap::new(); count];
-        let mut declare_binding = |collection: &mut BuildCollection,
+        let declare_binding = |collection: &mut BuildCollection,
                                    tx: &redb::WriteTransaction,
                                    identity: BindingIdentity,
                                    kind: crate::model::LogicalType,
@@ -510,23 +984,64 @@ impl BatchStoreBuilder<'_> {
                 crate::index_store::value_codec::BindingRole::Structured,
                 None,
             )?;
-            write::put_field(
+            let existing = write::get_field(&tx, collection.id, path)
+                .map_err(|error| error.to_string())?;
+            if existing
+                .as_ref()
+                .is_some_and(|field| field.kind != posting.kind || field.multi != posting.multi)
+            {
+                return Err(format!(
+                    "field {} changed type or multiplicity across batches",
+                    path.join(".")
+                ));
+            }
+            let covered_records = existing
+                .as_ref()
+                .map_or(0, |field| u64::from(field.covered_records))
+                .checked_add(u64::from(posting.covered_records))
+                .and_then(|count| u32::try_from(count).ok())
+                .ok_or_else(|| format!("field {} covered-record count overflow", path.join(".")))?;
+            let descriptor = crate::index_store::value_codec::FieldDescriptor {
+                path: crate::model::FieldPath {
+                    root: crate::model::PathRoot::Data,
+                    segments: path.clone(),
+                },
+                kind: posting.kind.clone(),
+                multi: posting.multi,
+                indexed: existing.as_ref().is_some_and(|field| field.indexed)
+                    || posting.values_indexed,
+                values_indexed: existing
+                    .as_ref()
+                    .is_none_or(|field| field.values_indexed)
+                    && posting.values_indexed,
+                value_complete: existing.as_ref().is_none_or(|field| field.value_complete)
+                    && posting.value_complete,
+                length_complete: existing.as_ref().is_none_or(|field| field.length_complete)
+                    && posting.length_complete,
+                empty_string_complete: existing
+                    .as_ref()
+                    .is_none_or(|field| field.empty_string_complete)
+                    && posting.empty_string_complete,
+                covered_records,
+            };
+            write::put_field(&tx, collection.id, path, &descriptor)
+                .map_err(|error| error.to_string())?;
+            write::put_field_coverage(
                 &tx,
                 collection.id,
-                path,
-                &crate::index_store::value_codec::FieldDescriptor {
-                    path: crate::model::FieldPath {
-                        root: crate::model::PathRoot::Data,
-                        segments: path.clone(),
-                    },
+                binding,
+                &crate::index_store::value_codec::FieldCoverage {
                     kind: posting.kind.clone(),
                     multi: posting.multi,
-                    indexed: posting.values_indexed,
-                    values_indexed: posting.values_indexed,
-                    value_complete: posting.value_complete,
-                    length_complete: posting.length_complete,
-                    empty_string_complete: posting.empty_string_complete,
-                    covered_records: posting.covered_records,
+                    values_indexed: descriptor.values_indexed,
+                    value_complete: descriptor.value_complete,
+                    length_complete: descriptor.length_complete,
+                    empty_string_complete: descriptor.empty_string_complete,
+                    covered_records: descriptor.covered_records,
+                    inference_status:
+                        crate::index_store::value_codec::INFERENCE_STATUS_NOT_APPLICABLE,
+                    value_cardinality: posting.distinct_values() as u64,
+                    length_cardinality: posting.distinct_lengths() as u64,
                 },
             )
             .map_err(|error| error.to_string())?;
@@ -599,6 +1114,26 @@ impl BatchStoreBuilder<'_> {
                 crate::index_store::value_codec::BindingRole::Structured,
                 None,
             )?;
+            write::put_field_coverage(
+                &tx,
+                collection.id,
+                binding,
+                &crate::index_store::value_codec::FieldCoverage {
+                    kind: custom.index.kind.clone(),
+                    multi: custom.index.multi,
+                    values_indexed: custom.index.values_indexed,
+                    value_complete: custom.complete && custom.index.value_complete,
+                    length_complete: custom.complete && custom.index.length_complete,
+                    empty_string_complete: custom.complete
+                        && custom.index.empty_string_complete,
+                    covered_records: custom.index.covered_records,
+                    inference_status:
+                        crate::index_store::value_codec::INFERENCE_STATUS_NOT_APPLICABLE,
+                    value_cardinality: custom.index.distinct_values() as u64,
+                    length_cardinality: custom.index.distinct_lengths() as u64,
+                },
+            )
+            .map_err(|error| error.to_string())?;
             for (value, slots) in &custom.index.values {
                 for local in slots.iter() {
                     let global = local_to_global[local as usize];
@@ -609,6 +1144,50 @@ impl BatchStoreBuilder<'_> {
                         global,
                     );
                     contributions[local as usize].values.push((binding, value.clone()));
+                }
+            }
+            for (length, slots) in &custom.index.lengths {
+                let scalar = ScalarKey::Number(length.clone());
+                for local in slots.iter() {
+                    let global = local_to_global[local as usize];
+                    posting_batch.set(
+                        super::posting_blocks::PostingFamily::Length,
+                        binding,
+                        &scalar,
+                        global,
+                    );
+                    contributions[local as usize]
+                        .lengths
+                        .push((binding, length.clone()));
+                }
+            }
+            for (state, slots) in [
+                (crate::index_store::value_codec::StateKind::PathPresence, &custom.index.presence),
+                (crate::index_store::value_codec::StateKind::EmptySelection, &custom.index.empty_selections),
+                (crate::index_store::value_codec::StateKind::LegacyNullSet, &custom.index.nulls),
+            ] {
+                for local in slots.iter() {
+                    let global = local_to_global[local as usize];
+                    state_batch.set(binding, state, global.0);
+                    *state_masks[local as usize].entry(binding).or_insert(0) |= 1 << state.tag();
+                }
+            }
+            if let Some(structural) = &custom.index.structural {
+                for (key, slots) in &structural.postings {
+                    let state = match key {
+                        crate::posting::StructuralKey::AnyNull => crate::index_store::value_codec::StateKind::AnyNull,
+                        crate::posting::StructuralKey::NonEmpty => crate::index_store::value_codec::StateKind::NonEmpty,
+                        crate::posting::StructuralKey::String => crate::index_store::value_codec::StateKind::String,
+                        crate::posting::StructuralKey::Number => crate::index_store::value_codec::StateKind::Number,
+                        crate::posting::StructuralKey::Array => crate::index_store::value_codec::StateKind::Array,
+                        crate::posting::StructuralKey::Object => crate::index_store::value_codec::StateKind::Object,
+                        crate::posting::StructuralKey::EmptyObject => crate::index_store::value_codec::StateKind::EmptyObject,
+                    };
+                    for local in slots.iter() {
+                        let global = local_to_global[local as usize];
+                        state_batch.set(binding, state, global.0);
+                        *state_masks[local as usize].entry(binding).or_insert(0) |= 1 << state.tag();
+                    }
                 }
             }
         }
@@ -845,45 +1424,62 @@ impl BatchStoreBuilder<'_> {
             write::put_contributions(&tx, collection.id, local_to_global[local], contribution)
                 .map_err(|error| error.to_string())?;
         }
-        for batch_file in &batch.files {
-            let mut entry = batch_file.entry.clone();
-            if let Some(existing) = write::get_file(&tx, entry.id).map_err(|error| error.to_string())? {
-                for collection in existing.entry.collections {
-                    if !entry.collections.contains(&collection) {
-                        entry.collections.push(collection);
-                    }
-                }
-            }
-            let version = batch_file
-                .records
-                .start
-                .checked_add(1)
-                .unwrap_or(1) as u64;
-            write::put_file(&tx, &entry, version, None).map_err(|error| error.to_string())?;
+        for admitted in admitted_files.values() {
+            let state = if admitted.entry.status == FileStatus::Unreadable {
+                BuildFileState::Unavailable
+            } else {
+                BuildFileState::Indexed
+            };
             write::put_build_state(
                 &tx,
-                entry.id,
+                admitted.entry.id,
                 &crate::index_store::value_codec::FileBuildState {
-                    state: crate::index_store::value_codec::BuildFileState::Indexed,
-                    expected_file_version: version,
+                    state,
+                    expected_file_version: admitted.version,
                     build_epoch: self.metadata.build_epoch,
-                    last_admission_revision: self.metadata.revision,
+                    last_admission_revision: store_metadata.revision,
                     error: None,
                 },
             ).map_err(|error| error.to_string())?;
-            write::remove_pending_file(&tx, collection.id, entry.id).map_err(|error| error.to_string())?;
+            if !write::remove_pending_file(&tx, collection.id, admitted.entry.id)
+                .map_err(|error| error.to_string())?
+            {
+                return Err(format!(
+                    "file {} pending membership disappeared during admission",
+                    admitted.entry.id.0
+                ));
+            }
             if collection_metadata.pending_files > 0 {
                 collection_metadata.pending_files -= 1;
             }
-            collection_metadata.indexed_files += 1;
-            collection_metadata.processed_files += 1;
+            if state == BuildFileState::Indexed {
+                collection_metadata.indexed_files = collection_metadata
+                    .indexed_files
+                    .checked_add(1)
+                    .ok_or_else(|| "indexed file count overflow".to_string())?;
+            } else {
+                collection_metadata.unavailable_files = collection_metadata
+                    .unavailable_files
+                    .checked_add(1)
+                    .ok_or_else(|| "unavailable file count overflow".to_string())?;
+            }
+            collection_metadata.processed_files = collection_metadata
+                .processed_files
+                .checked_add(1)
+                .ok_or_else(|| "processed file count overflow".to_string())?;
         }
-        collection_metadata.live_records += count as u64;
         write::put_collection(&tx, &collection_metadata).map_err(|error| error.to_string())?;
         let mut metadata = read::metadata_from_write(&tx).map_err(|error| error.to_string())?;
-        metadata.revision = metadata.revision.saturating_add(1);
+        metadata.revision = metadata
+            .revision
+            .checked_add(1)
+            .ok_or_else(|| "publication revision overflow".to_string())?;
         write::put_metadata(&tx, &metadata).map_err(|error| error.to_string())?;
         tx.commit().map_err(|error| error.to_string())?;
+        collection.record_count = collection
+            .record_count
+            .checked_add(count as u64)
+            .ok_or_else(|| "collection record count overflow".to_string())?;
         self.records_written += count as u64;
         Ok(())
     }

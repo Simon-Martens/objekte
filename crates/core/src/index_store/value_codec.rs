@@ -24,6 +24,8 @@ use super::tables::{
 pub const VALUE_FORMAT_TAG: u8 = 1;
 pub const CONTRIBUTION_FORMAT_TAG: u8 = 3;
 pub const STATE_MASK_BITS: u16 = 0x03FF;
+pub const INFERENCE_STATUS_NOT_APPLICABLE: u8 = 0;
+pub const INFERENCE_STATUS_BUILT: u8 = 1;
 
 /// Store-wide header written during initialization.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, serde::Deserialize)]

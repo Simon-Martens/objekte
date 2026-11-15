@@ -96,7 +96,17 @@ fn main() -> Result<(), String> {
             other => return Err(format!("unknown argument {other}")),
         }
     }
+    if build_source && (prepare_input.is_some() || input.is_some() || mutations) {
+        return Err(
+            "--build-source cannot be combined with --prepare-input, --input, or --mutations"
+                .into(),
+        );
+    }
+    if !build_source && mutations {
+        return Err("--mutations currently requires --build-source".into());
+    }
     if build_source {
+        let build_started = Instant::now();
         let (definitions, _schemas): (Vec<CollectionDefinition>, Vec<musenalm::LoadedSchema>) =
             if extended {
                 musenalm::load_extended_definitions_with_schemas(&root)?
@@ -120,27 +130,71 @@ fn main() -> Result<(), String> {
         let rss_after = resident_bytes();
         let peak_after = peak_resident_bytes();
         let table_rows = table_statistics(&store)?;
+        let validation = if validate {
+            let view = store.view().map_err(|error| error.to_string())?;
+            Some(
+                objekte_search_core::index_store::validation::validate(&view)
+                    .map_err(|error| error.to_string())?,
+            )
+        } else {
+            None
+        };
+        let output = json!({
+            "mode": "build-source",
+            "report": {
+                "collections": report.discovery.collections,
+                "files": report.discovery.files,
+                "memberships": report.discovery.memberships,
+                "records": report.records,
+                "batches": report.batches,
+                "resolved_workers": report.resolved_workers,
+                "discovery_ns": report.discovery_ns,
+                "scheduling_job_ns": report.scheduling_job_ns,
+                "receive_wait_ns": report.receive_wait_ns,
+                "admission_ns": report.admission_ns,
+                "finalization_ns": report.finalization_ns,
+                "out_of_order_batches": report.out_of_order_batches,
+                "peak_active_jobs": report.peak_active_jobs,
+                "peak_ready_batches": report.peak_ready_batches,
+                "peak_weight_bytes": report.peak_weight_bytes,
+                "elapsed_ns": report.elapsed_ns,
+                "caller_elapsed_ns": build_started.elapsed().as_nanos(),
+            },
+            "rss_before_bytes": rss_before,
+            "rss_after_bytes": rss_after,
+            "peak_before_bytes": peak_before,
+            "peak_after_bytes": peak_after,
+            "table_rows": table_rows.0,
+            "table_bytes": table_rows.1,
+            "validation": validation.as_ref().map(|validation| json!({
+                "collections": validation.collections,
+                "live_records": validation.live_records,
+                "free_slots": validation.free_slots,
+                "value_members": validation.value_members,
+                "length_members": validation.length_members,
+                "state_members": validation.state_members,
+                "fts_blocks": validation.fts_blocks,
+                "sort_entries": validation.sort_entries,
+                "relation_occurrences": validation.relation_occurrences,
+                "errors": validation.errors,
+            })),
+        });
         println!(
             "{}",
-            serde_json::to_string_pretty(&json!({
-                "mode": "build-source",
-                "report": {
-                    "collections": report.discovery.collections,
-                    "files": report.discovery.files,
-                    "memberships": report.discovery.memberships,
-                    "records": report.records,
-                    "batches": report.batches,
-                    "elapsed_ns": report.elapsed_ns,
-                },
-                "rss_before_bytes": rss_before,
-                "rss_after_bytes": rss_after,
-                "peak_before_bytes": peak_before,
-                "peak_after_bytes": peak_after,
-                "table_rows": table_rows.0,
-                "table_bytes": table_rows.1,
-            }))
-            .map_err(|error| error.to_string())?
+            serde_json::to_string_pretty(&output).map_err(|error| error.to_string())?
         );
+        if let Some(directory) = result_dir {
+            std::fs::create_dir_all(&directory).map_err(|error| error.to_string())?;
+            let path = directory.join(format!(
+                "build-source-{alphabet:?}-{}.json",
+                std::process::id()
+            ));
+            std::fs::write(
+                &path,
+                serde_json::to_vec_pretty(&output).map_err(|error| error.to_string())?,
+            )
+            .map_err(|error| error.to_string())?;
+        }
         return Ok(());
     }
     if let Some(path) = prepare_input {
