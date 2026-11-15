@@ -18,7 +18,7 @@ use super::prepare::PreparedStoreBatch;
 use super::schema::RuntimeSchema;
 use super::value_codec::{
     BuildFileState, BuildPhase, BuildReceipt, CollectionMetadata, FieldCoverageDelta,
-    FileBuildState, FileMetadata, GramKind, StoredBinding, StoredContributions,
+    FileBuildState, FileMetadata, StoredBinding, StoredContributions,
 };
 use super::{RocksStore, StoreError, StoreResult, keys, value_codec};
 
@@ -347,37 +347,44 @@ pub(crate) fn map_prepared_file(
     })
 }
 
+struct BlockDelta([u64; 64]);
+
+impl Default for BlockDelta {
+    fn default() -> Self {
+        Self([0; 64])
+    }
+}
+
+impl BlockDelta {
+    fn set(&mut self, offset: u16) {
+        let index = usize::from(offset);
+        self.0[index / 64] |= 1u64 << (index % 64);
+    }
+
+    fn for_each(&self, mut visit: impl FnMut(u16)) {
+        for (word_index, word) in self.0.iter().copied().enumerate() {
+            let mut word = word;
+            while word != 0 {
+                let bit = word.trailing_zeros();
+                visit((word_index * 64 + bit as usize) as u16);
+                word &= word - 1;
+            }
+        }
+    }
+}
+
 #[derive(Default)]
 struct MutationPlan {
-    values: BTreeMap<Vec<u8>, BTreeSet<u16>>,
-    lengths: BTreeMap<Vec<u8>, BTreeSet<u16>>,
-    states: BTreeMap<Vec<u8>, BTreeSet<u16>>,
-    fts: BTreeMap<Vec<u8>, BTreeSet<u16>>,
+    values: BTreeMap<Vec<u8>, BlockDelta>,
+    lengths: BTreeMap<Vec<u8>, BlockDelta>,
+    states: BTreeMap<Vec<u8>, BlockDelta>,
+    fts: BTreeMap<Vec<u8>, BlockDelta>,
     puts: BTreeMap<Vec<u8>, Vec<u8>>,
     required_deletes: BTreeSet<Vec<u8>>,
 }
 
-impl MutationPlan {
-    fn merge(&mut self, other: Self) {
-        for (key, offsets) in other.values {
-            self.values.entry(key).or_default().extend(offsets);
-        }
-        for (key, offsets) in other.lengths {
-            self.lengths.entry(key).or_default().extend(offsets);
-        }
-        for (key, offsets) in other.states {
-            self.states.entry(key).or_default().extend(offsets);
-        }
-        for (key, offsets) in other.fts {
-            self.fts.entry(key).or_default().extend(offsets);
-        }
-        self.puts.extend(other.puts);
-        self.required_deletes.extend(other.required_deletes);
-    }
-}
-
 fn add_block(
-    blocks: &mut BTreeMap<Vec<u8>, BTreeSet<u16>>,
+    blocks: &mut BTreeMap<Vec<u8>, BlockDelta>,
     namespace: Namespace,
     key: Vec<u8>,
     slot: u32,
@@ -385,13 +392,14 @@ fn add_block(
     blocks
         .entry(namespace.physical(&key))
         .or_default()
-        .insert((slot & super::bitmap_block::BLOCK_MASK) as u16);
+        .set((slot & super::bitmap_block::BLOCK_MASK) as u16);
 }
 
 pub(crate) fn admit_physical_batch(
     store: &RocksStore,
     schema: &RuntimeSchema,
     admission: &AdmissionBatch,
+    scratch: &mut ContributionScratch,
 ) -> StoreResult<AdmissionExecutionStats> {
     if admission.files.is_empty() {
         return Ok(AdmissionExecutionStats::default());
@@ -431,9 +439,8 @@ pub(crate) fn admit_physical_batch(
     let mut receipt_files = Vec::new();
     let mut receipt_memberships = 0u32;
     let mut receipt_records = 0u32;
-    let mut scratch = ContributionScratch::default();
     for prepared in &admission.files {
-        let mut plan = MutationPlan::default();
+        let plan = &mut combined;
         let mut slot_ranges = Vec::new();
         let mut records_total = 0u32;
         for mapped in &prepared.collections {
@@ -574,7 +581,7 @@ pub(crate) fn admit_physical_batch(
                     .entry(state.binding)
                     .or_insert(0) |= state.mask;
             }
-            let mut grams = BTreeMap::<(u32, u32, GramKind), Vec<u64>>::new();
+            let mut grams_by_slot = BTreeMap::<u32, Vec<_>>::new();
             for gram_set in &batch.grams {
                 for gram in &gram_set.grams {
                     add_block(
@@ -590,10 +597,28 @@ pub(crate) fn admit_physical_batch(
                         gram_set.slot,
                     );
                 }
-                grams.insert(
-                    (gram_set.slot, gram_set.binding, gram_set.kind),
-                    gram_set.grams.clone(),
-                );
+                grams_by_slot
+                    .entry(gram_set.slot)
+                    .or_default()
+                    .push(gram_set);
+            }
+            let mut sorts_by_slot = BTreeMap::<u32, Vec<_>>::new();
+            for sort in &batch.sorts {
+                sorts_by_slot.entry(sort.slot).or_default().push(sort);
+            }
+            let mut relations_by_slot = BTreeMap::<u32, Vec<_>>::new();
+            for relation in &batch.relations {
+                relations_by_slot
+                    .entry(relation.slot)
+                    .or_default()
+                    .push(relation);
+            }
+            let mut relation_states_by_slot = BTreeMap::<u32, Vec<_>>::new();
+            for relation_state in &batch.relation_states {
+                relation_states_by_slot
+                    .entry(relation_state.slot)
+                    .or_default()
+                    .push(relation_state);
             }
             for (local, record) in batch.records.iter().enumerate() {
                 let slot = mapped.base_slot + local as u32;
@@ -625,7 +650,7 @@ pub(crate) fn admit_physical_batch(
                         .domains
                         .push(value_codec::DomainKind::RawFallback);
                 }
-                for sort in batch.sorts.iter().filter(|sort| sort.slot == slot) {
+                for sort in sorts_by_slot.get(&slot).into_iter().flatten() {
                     let ids = runtime.sort_ids.get(&sort.path).ok_or_else(|| {
                         StoreError::State(format!(
                             "sort field {} is not configured",
@@ -659,11 +684,7 @@ pub(crate) fn admit_physical_batch(
                         let _ = direction;
                     }
                 }
-                for relation in batch
-                    .relations
-                    .iter()
-                    .filter(|relation| relation.slot == slot)
-                {
+                for relation in relations_by_slot.get(&slot).into_iter().flatten() {
                     let ordinal = *runtime.relation_ids.get(&relation.path).ok_or_else(|| {
                         StoreError::State(format!(
                             "relation {} is not configured",
@@ -710,11 +731,7 @@ pub(crate) fn admit_physical_batch(
                     );
                     contribution.relations.push(occurrence);
                 }
-                for relation_state in batch
-                    .relation_states
-                    .iter()
-                    .filter(|state| state.slot == slot)
-                {
+                for relation_state in relation_states_by_slot.get(&slot).into_iter().flatten() {
                     let ordinal =
                         *runtime
                             .relation_ids
@@ -730,15 +747,6 @@ pub(crate) fn admit_physical_batch(
                         Vec::new(),
                     );
                 }
-                for ((gram_slot, binding, kind), list) in grams.iter() {
-                    if *gram_slot == slot {
-                        contribution.grams.push(value_codec::GramProjection {
-                            binding: *binding,
-                            kind: *kind,
-                            grams: list.clone(),
-                        });
-                    }
-                }
                 contribution.normalize();
                 plan.puts.insert(
                     physical(
@@ -747,7 +755,7 @@ pub(crate) fn admit_physical_batch(
                     ),
                     scratch.encode(&contribution)?.to_vec(),
                 );
-                for gram_set in &contribution.grams {
+                for gram_set in grams_by_slot.get(&slot).into_iter().flatten() {
                     plan.puts.insert(
                         physical(
                             Namespace::RecordGrams,
@@ -816,7 +824,6 @@ pub(crate) fn admit_physical_batch(
             physical(Namespace::FileBuildState, keys::file(prepared.file.id)),
             prepared.file_version,
         );
-        combined.merge(plan);
     }
     for ((collection, binding), coverage) in coverage {
         let delta = FieldCoverageDelta {
@@ -893,10 +900,9 @@ pub(crate) fn admit_physical_batch(
         .chain(combined.puts.keys())
         .chain(combined.required_deletes.iter())
         .cloned()
-        .collect::<BTreeSet<_>>()
-        .into_iter()
         .collect::<Vec<_>>();
-    all_keys.sort();
+    all_keys.sort_unstable();
+    all_keys.dedup();
     for key in all_keys {
         stats.keys = stats.keys.saturating_add(1);
         stats.encoded_bytes = stats.encoded_bytes.saturating_add(key.len() as u64);
@@ -934,9 +940,7 @@ pub(crate) fn admit_physical_batch(
                     .map(decode_block)
                     .transpose()?
                     .unwrap_or_default();
-                for offset in &blocks[&key] {
-                    block.set(*offset);
-                }
+                blocks[&key].for_each(|offset| block.set(offset));
                 let encoded = encode_block(&block)?;
                 stats.encoded_bytes = stats.encoded_bytes.saturating_add(encoded.len() as u64);
                 transaction.put(&key, encoded)?;
@@ -957,7 +961,7 @@ pub(crate) fn admit_physical_batch(
 
 fn admission_digest(admission: &AdmissionBatch) -> StoreResult<[u8; 32]> {
     let mut digest = Sha256::new();
-    digest.update(b"admission-batch-v2");
+    digest.update(b"admission-batch-v3");
     digest.update(admission.id.to_be_bytes());
     for prepared in &admission.files {
         digest.update(prepared.file.id.0.to_be_bytes());

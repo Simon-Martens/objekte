@@ -274,6 +274,8 @@ pub fn build_from_source(
                     eprintln!("rocksdb-build: writer {index} started");
                 }
                 let mut outcomes = Vec::new();
+                let mut scratch =
+                    crate::rocksdb_store::contribution_codec::ContributionScratch::default();
                 loop {
                     let admission = match receiver.lock() {
                         Ok(receiver) => receiver.recv(),
@@ -285,7 +287,8 @@ pub fn build_from_source(
                     let _ = admission_started.get_or_init(Instant::now);
                     let started = Instant::now();
                     let batch_id = admission.id;
-                    let outcome = admit_physical_batch_with_retry(store, &schema, &admission);
+                    let outcome =
+                        admit_physical_batch_with_retry(store, &schema, &admission, &mut scratch);
                     outcomes.push((batch_id, started.elapsed().as_nanos() as u64, outcome));
                 }
                 let _ = index;
@@ -667,13 +670,14 @@ fn admit_physical_batch_with_retry(
     store: &RocksStore,
     schema: &RuntimeSchema,
     admission: &AdmissionBatch,
+    scratch: &mut crate::rocksdb_store::contribution_codec::ContributionScratch,
 ) -> StoreResult<super::write::AdmissionExecutionStats> {
     for attempt in 0..4 {
         if attempt > 0 {
             let delay_ms = 1u64 << (attempt - 1);
             std::thread::sleep(std::time::Duration::from_millis(delay_ms));
         }
-        match admit_physical_batch(store, schema, admission) {
+        match admit_physical_batch(store, schema, admission, scratch) {
             Ok(mut stats) => {
                 stats.attempts = attempt + 1;
                 return Ok(stats);

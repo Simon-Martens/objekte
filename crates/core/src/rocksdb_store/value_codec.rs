@@ -12,7 +12,7 @@ use crate::sorting::{SortKey, SortOptions};
 use super::{StoreError, StoreResult};
 
 pub const MAGIC: &str = "OBJEKTE_ROCKSDB_PROTOTYPE";
-pub const FORMAT_VERSION: u32 = 2;
+pub const FORMAT_VERSION: u32 = 3;
 pub const SCALAR_CODEC_VERSION: u32 = 1;
 pub const BITMAP_CODEC_VERSION: u32 = 1;
 pub const CONTRIBUTION_CODEC_VERSION: u32 = 1;
