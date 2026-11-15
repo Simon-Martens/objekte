@@ -39,6 +39,10 @@ fn physical(namespace: Namespace, logical: Vec<u8>) -> Vec<u8> {
     namespace.physical(&logical)
 }
 
+pub(crate) fn physical_key(namespace: Namespace, logical: Vec<u8>) -> Vec<u8> {
+    physical(namespace, logical)
+}
+
 pub(crate) fn initialise_schema(store: &RocksStore, schema: &RuntimeSchema) -> StoreResult<()> {
     let transaction = store.transaction();
     for collection in &schema.collections {
@@ -188,7 +192,10 @@ pub(crate) fn discover(
         )?;
     }
     writer.flush()?;
-    let mut inventory = physical_files.into_values().map(|(_, entry)| entry).collect::<Vec<_>>();
+    let mut inventory = physical_files
+        .into_values()
+        .map(|(_, entry)| entry)
+        .collect::<Vec<_>>();
     inventory.sort_unstable_by_key(|entry| entry.id.0);
     Ok(DiscoveryReport {
         files: inventory.len() as u64,
@@ -818,6 +825,7 @@ pub(crate) fn admit_physical_batch(
             slot_ranges: receipt_slot_ranges,
             file_memberships: receipt_memberships,
             records: receipt_records,
+            coverage: Vec::new(),
         })?,
     );
     let mut stats = AdmissionExecutionStats {
@@ -958,7 +966,7 @@ fn digest_fact<T: serde::Serialize>(digest: &mut Sha256, value: &T) -> StoreResu
     Ok(())
 }
 
-fn encode_sort_projection(
+pub(crate) fn encode_sort_projection(
     projection: &value_codec::SortProjection,
     definition: &value_codec::SortDefinition,
 ) -> StoreResult<Vec<u8>> {
@@ -978,7 +986,9 @@ fn encode_sort_projection(
     Ok(writer.into_bytes())
 }
 
-fn encode_outgoing(occurrence: &value_codec::RelationOccurrence) -> StoreResult<Vec<u8>> {
+pub(crate) fn encode_outgoing(
+    occurrence: &value_codec::RelationOccurrence,
+) -> StoreResult<Vec<u8>> {
     let mut key = super::key_codec::KeyWriter::with_capacity(16 + occurrence.target_id.len());
     key.push_u32(occurrence.target_collection.0);
     key.push_str(&occurrence.target_id);
@@ -987,7 +997,7 @@ fn encode_outgoing(occurrence: &value_codec::RelationOccurrence) -> StoreResult<
     Ok(key.into_bytes())
 }
 
-fn encode_positions(positions: &[u32]) -> Vec<u8> {
+pub(crate) fn encode_positions(positions: &[u32]) -> Vec<u8> {
     let mut key = super::key_codec::KeyWriter::with_capacity(4 + positions.len() * 4);
     key.push_u32(positions.len() as u32);
     for position in positions {

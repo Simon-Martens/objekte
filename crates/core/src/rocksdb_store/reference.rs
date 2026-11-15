@@ -309,6 +309,8 @@ pub fn store_reference(
         );
         Ok(())
     })?;
+    let mut forward_sort_expectations =
+        BTreeMap::<(u32, u32, u32), (RecordFact, value_codec::SortProjection)>::new();
     let relation_paths = definitions
         .iter()
         .enumerate()
@@ -385,17 +387,10 @@ pub fn store_reference(
             })?);
         }
         for projection in &contribution.sorts {
-            let definition = sort_definitions
-                .get(&(collection, projection.definition))
-                .ok_or_else(|| StoreError::CorruptIndex("sort definition is missing".into()))?;
-            for (constituent, key) in definition.constituents.iter().zip(&projection.key) {
-                rows.sorts.push(encode(&SortFact {
-                    record: &record,
-                    path: constituent.key.segments.clone(),
-                    descending: constituent.direction == value_codec::SortDirection::Descending,
-                    key,
-                })?);
-            }
+            forward_sort_expectations.insert(
+                (collection, projection.definition, slot),
+                (record.clone(), projection.clone()),
+            );
         }
         for occurrence in &contribution.relations {
             let path = relation_paths
@@ -421,6 +416,57 @@ pub fn store_reference(
         Ok(())
     })?;
     let _ = contributions;
+
+    scan(&view, Namespace::SortEntries, |logical, _bytes| {
+        let mut cursor = Cursor::new(logical);
+        let collection = cursor.read_u32()?;
+        let definition_id = cursor.read_u32()?;
+        let actual_order = cursor.read_bytes()?;
+        let logical_id = cursor.read_str()?;
+        let slot = cursor.read_u32()?;
+        if !cursor.is_empty() {
+            return Err(StoreError::CorruptIndex(
+                "sort-entry key has trailing bytes".into(),
+            ));
+        }
+        let (record, projection) = forward_sort_expectations
+            .remove(&(collection, definition_id, slot))
+            .ok_or_else(|| {
+                StoreError::CorruptIndex(format!(
+                    "unexpected forward sort row {collection}/{definition_id}/{slot}"
+                ))
+            })?;
+        if record.id != logical_id {
+            return Err(StoreError::CorruptIndex(format!(
+                "forward sort identity mismatch for {collection}/{slot}: {logical_id} != {}",
+                record.id
+            )));
+        }
+        let definition = sort_definitions
+            .get(&(collection, definition_id))
+            .ok_or_else(|| StoreError::CorruptIndex("sort definition is missing".into()))?;
+        let expected_order = super::write::encode_sort_projection(&projection, definition)?;
+        if actual_order != expected_order {
+            return Err(StoreError::CorruptIndex(format!(
+                "forward sort order mismatch for {collection}/{definition_id}/{slot}"
+            )));
+        }
+        for (constituent, key) in definition.constituents.iter().zip(&projection.key) {
+            rows.sorts.push(encode(&SortFact {
+                record: &record,
+                path: constituent.key.segments.clone(),
+                descending: constituent.direction == value_codec::SortDirection::Descending,
+                key,
+            })?);
+        }
+        Ok(())
+    })?;
+    if let Some(((collection, definition, slot), _)) = forward_sort_expectations.into_iter().next()
+    {
+        return Err(StoreError::CorruptIndex(format!(
+            "missing forward sort row {collection}/{definition}/{slot}"
+        )));
+    }
 
     scan(&view, Namespace::RecordGrams, |logical, bytes| {
         let mut cursor = Cursor::new(logical);

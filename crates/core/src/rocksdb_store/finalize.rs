@@ -1,12 +1,12 @@
 //! Timed exact finalization for the RocksDB prototype.
 
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, HashSet};
 use std::time::Instant;
 
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-use crate::model::{CollectionId, FieldPath, PathRoot};
+use crate::model::{FieldPath, PathRoot};
 
 use super::bitmap_block::decode_block;
 use super::key_codec::Cursor;
@@ -14,8 +14,7 @@ use super::metadata::{MetadataWriteStats, MetadataWriter};
 use super::namespace::Namespace;
 use super::value_codec::{
     BuildFileState, BuildPhase, CollectionMetadata, FieldCoverage, FieldDescriptor, FileMetadata,
-    LengthDirectoryEntry, RecordMetadata, StateKind, StoredBinding, StoredContributions,
-    ValueDirectoryEntry,
+    LengthDirectoryEntry, RecordMetadata, StateKind, StoredBinding, ValueDirectoryEntry,
 };
 use super::{RocksStore, StoreError, StoreResult, keys, value_codec};
 
@@ -62,17 +61,14 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
     let mut collections = (0..256)
         .map(|_| CollectionScan::default())
         .collect::<Vec<_>>();
+    let mut initial_collection_metadata = BTreeMap::<u32, CollectionMetadata>::new();
     let mut binding_rows = BTreeMap::<(u32, u32), StoredBinding>::new();
     let mut structured_bindings = BTreeMap::<(u32, u32), BindingIdentityView>::new();
     let mut coverage_flags = BTreeMap::<(u32, u32), FieldCoverage>::new();
     let mut declared_covered = BTreeMap::<(u32, u32), u64>::new();
-    let mut named_covered = BTreeMap::<(u32, u32), u64>::new();
-    let mut value_directory = BTreeMap::<(u32, u32, crate::posting::ScalarKey), u64>::new();
-    let mut length_directory = BTreeMap::<(u32, u32, crate::posting::ScalarKey), u64>::new();
-    let mut state_statistics = BTreeMap::<(u32, u32, StateKind), u64>::new();
-    let mut fts_statistics = BTreeMap::<(u32, u32, value_codec::GramKind, u64), u64>::new();
-    let mut file_memberships = BTreeMap::<u32, Vec<CollectionId>>::new();
-    let mut file_states = BTreeMap::<u32, BuildFileState>::new();
+    let mut named_members = BTreeMap::<(u32, u32), HashSet<u32>>::new();
+    let mut value_cardinality = BTreeMap::<(u32, u32), u64>::new();
+    let mut length_cardinality = BTreeMap::<(u32, u32), u64>::new();
     let mut pending_count = 0u64;
     let mut free_slot_count = 0u64;
     let mut admission_receipts = 0u64;
@@ -85,6 +81,7 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             .get_mut(metadata.id.0 as usize)
             .ok_or_else(|| StoreError::CorruptIndex("collection ID is too large".into()))?;
         scan.discovered_files = metadata.discovered_files;
+        initial_collection_metadata.insert(metadata.id.0, metadata);
         Ok(())
     })?;
 
@@ -155,7 +152,16 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         aggregate.empty_string_complete &= delta.coverage.empty_string_complete;
         Ok(())
     })?;
-    scan_namespace(&view, Namespace::BuildReceipts, |_logical, _bytes| {
+    scan_namespace(&view, Namespace::BuildReceipts, |_logical, bytes| {
+        let receipt: value_codec::BuildReceipt = value_codec::decode(bytes, "build receipt")?;
+        for (collection, binding, coverage) in &receipt.coverage {
+            let aggregate = coverage_flags
+                .entry((collection.0, *binding))
+                .or_insert_with(|| coverage.clone());
+            aggregate.value_complete &= coverage.value_complete;
+            aggregate.length_complete &= coverage.length_complete;
+            aggregate.empty_string_complete &= coverage.empty_string_complete;
+        }
         admission_receipts = admission_receipts.saturating_add(1);
         Ok(())
     })?;
@@ -168,15 +174,57 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         )));
     }
 
-    scan_namespace(&view, Namespace::Files, |logical, bytes| {
-        let mut cursor = Cursor::new(logical);
+    scan_namespace(&view, Namespace::PendingFiles, |_logical, _bytes| {
+        pending_count = pending_count.saturating_add(1);
+        Ok(())
+    })?;
+    scan_namespace(&view, Namespace::FreeSlots, |_logical, _bytes| {
+        free_slot_count = free_slot_count.saturating_add(1);
+        Ok(())
+    })?;
+
+    let mut files_iterator = view.namespace_prefix(Namespace::Files, b"")?;
+    let mut states_iterator = view.namespace_prefix(Namespace::FileBuildState, b"")?;
+    files_iterator.seek_to_first();
+    states_iterator.seek_to_first();
+    while files_iterator.valid() {
+        let file_key = files_iterator
+            .key()
+            .ok_or_else(|| StoreError::CorruptIndex("missing file metadata key".into()))?;
+        let mut cursor = Cursor::new(&file_key[1..]);
         let file = cursor.read_u32()?;
-        let metadata: FileMetadata = value_codec::decode(bytes, "file metadata")?;
+        let metadata: FileMetadata = value_codec::decode(
+            files_iterator
+                .value()
+                .ok_or_else(|| StoreError::CorruptIndex("missing file metadata value".into()))?,
+            "file metadata",
+        )?;
         if metadata.entry.id.0 != file {
             return Err(StoreError::CorruptIndex(
                 "file metadata key/value mismatch".into(),
             ));
         }
+        if !states_iterator.valid() {
+            return Err(StoreError::CorruptIndex(format!(
+                "file {file} has no build state"
+            )));
+        }
+        let state_key = states_iterator
+            .key()
+            .ok_or_else(|| StoreError::CorruptIndex("missing file build state key".into()))?;
+        let mut state_cursor = Cursor::new(&state_key[1..]);
+        let state_file = state_cursor.read_u32()?;
+        if state_file != file {
+            return Err(StoreError::CorruptIndex(format!(
+                "file inventory order and build state order differ at {file} and {state_file}"
+            )));
+        }
+        let state: value_codec::FileBuildState = value_codec::decode(
+            states_iterator
+                .value()
+                .ok_or_else(|| StoreError::CorruptIndex("missing file build state value".into()))?,
+            "file build state",
+        )?;
         for collection in &metadata.entry.collections {
             let scan = collections
                 .get_mut(collection.0 as usize)
@@ -188,27 +236,30 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             scan.hash.update(metadata.entry.revision.size.to_be_bytes());
             scan.hash
                 .update(metadata.entry.revision.modified_ns.to_be_bytes());
+            match state.state {
+                BuildFileState::Indexed => {
+                    scan.indexed_files = scan.indexed_files.saturating_add(1)
+                }
+                BuildFileState::Unavailable => {
+                    scan.unavailable_files = scan.unavailable_files.saturating_add(1)
+                }
+                BuildFileState::Pending => {
+                    scan.pending_files = scan.pending_files.saturating_add(1)
+                }
+            }
         }
-        file_memberships.insert(file, metadata.entry.collections);
-        Ok(())
-    })?;
-
-    scan_namespace(&view, Namespace::FileBuildState, |logical, bytes| {
-        let mut cursor = Cursor::new(logical);
-        let file = cursor.read_u32()?;
-        let state: value_codec::FileBuildState = value_codec::decode(bytes, "file build state")?;
-        file_states.insert(file, state.state);
-        Ok(())
-    })?;
-
-    scan_namespace(&view, Namespace::PendingFiles, |_logical, _bytes| {
-        pending_count = pending_count.saturating_add(1);
-        Ok(())
-    })?;
-    scan_namespace(&view, Namespace::FreeSlots, |_logical, _bytes| {
-        free_slot_count = free_slot_count.saturating_add(1);
-        Ok(())
-    })?;
+        files_iterator.next();
+        states_iterator.next();
+    }
+    files_iterator.status()?;
+    states_iterator.status()?;
+    if states_iterator.valid() {
+        return Err(StoreError::CorruptIndex(
+            "file build state has rows without file metadata".into(),
+        ));
+    }
+    drop(files_iterator);
+    drop(states_iterator);
 
     scan_namespace(&view, Namespace::Records, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
@@ -223,96 +274,221 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         Ok(())
     })?;
 
-    scan_namespace(&view, Namespace::RecordContributions, |logical, bytes| {
+    scan_namespace(&view, Namespace::DomainMembers, |logical, _bytes| {
         let mut cursor = Cursor::new(logical);
         let collection = cursor.read_u32()?;
-        let _slot = cursor.read_u32()?;
-        let contribution: StoredContributions =
-            super::contribution_codec::decode(bytes)?.into_contributions(Vec::new());
-        if contribution
-            .domains
-            .contains(&value_codec::DomainKind::Logical)
-        {
+        let domain = match cursor.read_u8()? {
+            value_codec::DOMAIN_LOGICAL => value_codec::DomainKind::Logical,
+            value_codec::DOMAIN_RAW_FALLBACK => value_codec::DomainKind::RawFallback,
+            value_codec::DOMAIN_EMPTY_ARRAY => value_codec::DomainKind::EmptyArray,
+            tag => {
+                return Err(StoreError::CorruptIndex(format!(
+                    "unknown domain tag {tag}"
+                )));
+            }
+        };
+        if domain == value_codec::DomainKind::Logical {
             let scan = collections
                 .get_mut(collection as usize)
                 .ok_or_else(|| StoreError::CorruptIndex("record collection is unknown".into()))?;
             scan.logical_records = scan.logical_records.saturating_add(1);
-            for ((c, binding), identity) in &structured_bindings {
-                if *c == collection && matches!(identity, BindingIdentityView::Declared(_)) {
-                    *declared_covered.entry((*c, *binding)).or_default() += 1;
+            for ((binding_collection, binding), identity) in &structured_bindings {
+                if *binding_collection == collection
+                    && matches!(identity, BindingIdentityView::Declared(_))
+                {
+                    *declared_covered
+                        .entry((*binding_collection, *binding))
+                        .or_default() += 1;
                 }
-            }
-        }
-        let mut present = BTreeSet::new();
-        present.extend(contribution.values.iter().map(|(binding, _)| *binding));
-        present.extend(contribution.lengths.iter().map(|(binding, _)| *binding));
-        present.extend(contribution.state_masks.iter().map(|(binding, _)| *binding));
-        for binding in present {
-            if matches!(
-                structured_bindings.get(&(collection, binding)),
-                Some(BindingIdentityView::Named(_))
-            ) {
-                *named_covered.entry((collection, binding)).or_default() += 1;
             }
         }
         Ok(())
     })?;
 
+    let write_started = Instant::now();
+    let mut writer = MetadataWriter::new(store);
+    let mut value_directory_rows = 0u64;
+    let mut current_value = None::<(u32, u32, crate::posting::ScalarKey)>;
+    let mut current_value_cardinality = 0u64;
     scan_namespace(&view, Namespace::ValueBlocks, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
         let collection = cursor.read_u32()?;
         let binding = cursor.read_u32()?;
         let value = cursor.read_scalar()?;
-        let _block = cursor.read_u32()?;
+        let block_number = cursor.read_u32()?;
         if !cursor.is_empty() {
             return Err(StoreError::CorruptIndex(
                 "value block key has trailing bytes".into(),
             ));
         }
         let block = decode_block(bytes)?;
-        *value_directory
-            .entry((collection, binding, value))
-            .or_default() += u64::from(block.cardinality());
+        record_named_members(
+            &mut named_members,
+            &structured_bindings,
+            collection,
+            binding,
+            block_number,
+            &block,
+        );
+        let next = (collection, binding, value);
+        if current_value.as_ref() != Some(&next) {
+            if let Some(previous) = current_value.replace(next.clone()) {
+                writer.put(
+                    Namespace::ValueDirectory.physical(&keys::value_directory_key(
+                        previous.0,
+                        previous.1,
+                        &previous.2,
+                    )?),
+                    value_codec::encode(&ValueDirectoryEntry {
+                        cardinality: current_value_cardinality,
+                        representative: previous.2,
+                    })?,
+                )?;
+                value_directory_rows = value_directory_rows.saturating_add(1);
+                *value_cardinality
+                    .entry((previous.0, previous.1))
+                    .or_default() += 1;
+                current_value_cardinality = 0;
+            }
+        }
+        current_value_cardinality =
+            current_value_cardinality.saturating_add(u64::from(block.cardinality()));
         Ok(())
     })?;
+    if let Some(previous) = current_value {
+        writer.put(
+            Namespace::ValueDirectory.physical(&keys::value_directory_key(
+                previous.0,
+                previous.1,
+                &previous.2,
+            )?),
+            value_codec::encode(&ValueDirectoryEntry {
+                cardinality: current_value_cardinality,
+                representative: previous.2,
+            })?,
+        )?;
+        value_directory_rows = value_directory_rows.saturating_add(1);
+        *value_cardinality
+            .entry((previous.0, previous.1))
+            .or_default() += 1;
+    }
 
+    let mut length_directory_rows = 0u64;
+    let mut current_length = None::<(u32, u32, crate::posting::ScalarKey)>;
+    let mut current_length_cardinality = 0u64;
     scan_namespace(&view, Namespace::LengthBlocks, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
         let collection = cursor.read_u32()?;
         let binding = cursor.read_u32()?;
         let value = cursor.read_scalar()?;
-        let _block = cursor.read_u32()?;
+        let block_number = cursor.read_u32()?;
         if !cursor.is_empty() {
             return Err(StoreError::CorruptIndex(
                 "length block key has trailing bytes".into(),
             ));
         }
         let block = decode_block(bytes)?;
-        *length_directory
-            .entry((collection, binding, value))
-            .or_default() += u64::from(block.cardinality());
+        record_named_members(
+            &mut named_members,
+            &structured_bindings,
+            collection,
+            binding,
+            block_number,
+            &block,
+        );
+        let next = (collection, binding, value);
+        if current_length.as_ref() != Some(&next) {
+            if let Some(previous) = current_length.replace(next.clone()) {
+                writer.put(
+                    Namespace::LengthDirectory.physical(&keys::length_directory_key(
+                        previous.0,
+                        previous.1,
+                        &previous.2,
+                    )?),
+                    value_codec::encode(&LengthDirectoryEntry {
+                        cardinality: current_length_cardinality,
+                    })?,
+                )?;
+                length_directory_rows = length_directory_rows.saturating_add(1);
+                *length_cardinality
+                    .entry((previous.0, previous.1))
+                    .or_default() += 1;
+                current_length_cardinality = 0;
+            }
+        }
+        current_length_cardinality =
+            current_length_cardinality.saturating_add(u64::from(block.cardinality()));
         Ok(())
     })?;
+    if let Some(previous) = current_length {
+        writer.put(
+            Namespace::LengthDirectory.physical(&keys::length_directory_key(
+                previous.0,
+                previous.1,
+                &previous.2,
+            )?),
+            value_codec::encode(&LengthDirectoryEntry {
+                cardinality: current_length_cardinality,
+            })?,
+        )?;
+        length_directory_rows = length_directory_rows.saturating_add(1);
+        *length_cardinality
+            .entry((previous.0, previous.1))
+            .or_default() += 1;
+    }
 
+    let mut state_statistic_rows = 0u64;
+    let mut current_state = None::<(u32, u32, StateKind)>;
+    let mut current_state_cardinality = 0u64;
     scan_namespace(&view, Namespace::StateBlocks, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
         let collection = cursor.read_u32()?;
         let binding = cursor.read_u32()?;
         let state = StateKind::from_tag(cursor.read_u8()?)
             .ok_or_else(|| StoreError::CorruptIndex("unknown state key tag".into()))?;
-        let _block = cursor.read_u32()?;
+        let block_number = cursor.read_u32()?;
         if !cursor.is_empty() {
             return Err(StoreError::CorruptIndex(
                 "state block key has trailing bytes".into(),
             ));
         }
         let block = decode_block(bytes)?;
-        *state_statistics
-            .entry((collection, binding, state))
-            .or_default() += u64::from(block.cardinality());
+        record_named_members(
+            &mut named_members,
+            &structured_bindings,
+            collection,
+            binding,
+            block_number,
+            &block,
+        );
+        let next = (collection, binding, state);
+        if current_state.as_ref() != Some(&next) {
+            if let Some(previous) = current_state.replace(next) {
+                writer.put(
+                    Namespace::StateStatistics
+                        .physical(&keys::state_statistics(previous.0, previous.1, previous.2)),
+                    value_codec::encode(&current_state_cardinality)?,
+                )?;
+                state_statistic_rows = state_statistic_rows.saturating_add(1);
+                current_state_cardinality = 0;
+            }
+        }
+        current_state_cardinality =
+            current_state_cardinality.saturating_add(u64::from(block.cardinality()));
         Ok(())
     })?;
+    if let Some(previous) = current_state {
+        writer.put(
+            Namespace::StateStatistics
+                .physical(&keys::state_statistics(previous.0, previous.1, previous.2)),
+            value_codec::encode(&current_state_cardinality)?,
+        )?;
+        state_statistic_rows = state_statistic_rows.saturating_add(1);
+    }
 
+    let mut fts_statistic_rows = 0u64;
+    let mut current_fts = None::<(u32, u32, value_codec::GramKind, u64)>;
+    let mut current_fts_cardinality = 0u64;
     scan_namespace(&view, Namespace::FtsBlocks, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
         let collection = cursor.read_u32()?;
@@ -327,40 +503,38 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             }
         };
         let gram = cursor.read_u64()?;
-        let _block = cursor.read_u32()?;
+        let _block_number = cursor.read_u32()?;
         if !cursor.is_empty() {
             return Err(StoreError::CorruptIndex(
                 "FTS block key has trailing bytes".into(),
             ));
         }
         let block = decode_block(bytes)?;
-        *fts_statistics
-            .entry((collection, binding, kind, gram))
-            .or_default() += u64::from(block.cardinality());
-        Ok(())
-    })?;
-
-    for (file, collections_for_file) in &file_memberships {
-        let state = file_states
-            .get(file)
-            .copied()
-            .ok_or_else(|| StoreError::CorruptIndex(format!("file {file} has no build state")))?;
-        for collection in collections_for_file {
-            let scan = collections
-                .get_mut(collection.0 as usize)
-                .ok_or_else(|| StoreError::CorruptIndex("file collection is unknown".into()))?;
-            match state {
-                BuildFileState::Indexed => {
-                    scan.indexed_files = scan.indexed_files.saturating_add(1)
-                }
-                BuildFileState::Unavailable => {
-                    scan.unavailable_files = scan.unavailable_files.saturating_add(1)
-                }
-                BuildFileState::Pending => {
-                    scan.pending_files = scan.pending_files.saturating_add(1)
-                }
+        let next = (collection, binding, kind, gram);
+        if current_fts.as_ref() != Some(&next) {
+            if let Some(previous) = current_fts.replace(next) {
+                writer.put(
+                    Namespace::FtsGramStatistics.physical(&keys::fts_statistics_key(
+                        previous.0, previous.1, previous.2, previous.3,
+                    )),
+                    value_codec::encode(&current_fts_cardinality)?,
+                )?;
+                fts_statistic_rows = fts_statistic_rows.saturating_add(1);
+                current_fts_cardinality = 0;
             }
         }
+        current_fts_cardinality =
+            current_fts_cardinality.saturating_add(u64::from(block.cardinality()));
+        Ok(())
+    })?;
+    if let Some(previous) = current_fts {
+        writer.put(
+            Namespace::FtsGramStatistics.physical(&keys::fts_statistics_key(
+                previous.0, previous.1, previous.2, previous.3,
+            )),
+            value_codec::encode(&current_fts_cardinality)?,
+        )?;
+        fts_statistic_rows = fts_statistic_rows.saturating_add(1);
     }
     if pending_count != 0 {
         return Err(StoreError::State(format!(
@@ -375,55 +549,6 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
     let scan_ns = elapsed_ns(scan_started);
     drop(view);
 
-    let write_started = Instant::now();
-    let mut writer = MetadataWriter::new(store);
-    for ((collection, binding, value), cardinality) in &value_directory {
-        writer.put(
-            Namespace::ValueDirectory.physical(&keys::value_directory_key(
-                *collection,
-                *binding,
-                value,
-            )?),
-            value_codec::encode(&ValueDirectoryEntry {
-                cardinality: *cardinality,
-                representative: value.clone(),
-            })?,
-        )?;
-    }
-    for ((collection, binding, value), cardinality) in &length_directory {
-        writer.put(
-            Namespace::LengthDirectory.physical(&keys::length_directory_key(
-                *collection,
-                *binding,
-                value,
-            )?),
-            value_codec::encode(&LengthDirectoryEntry {
-                cardinality: *cardinality,
-            })?,
-        )?;
-    }
-    for ((collection, binding, state), cardinality) in &state_statistics {
-        writer.put(
-            Namespace::StateStatistics.physical(&keys::state_statistics(
-                *collection,
-                *binding,
-                *state,
-            )),
-            value_codec::encode(cardinality)?,
-        )?;
-    }
-    for ((collection, binding, kind, gram), cardinality) in &fts_statistics {
-        writer.put(
-            Namespace::FtsGramStatistics.physical(&keys::fts_statistics_key(
-                *collection,
-                *binding,
-                *kind,
-                *gram,
-            )),
-            value_codec::encode(cardinality)?,
-        )?;
-    }
-
     for ((collection, binding), identity) in &structured_bindings {
         let flags = coverage_flags
             .get(&(*collection, *binding))
@@ -433,23 +558,22 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
                 ))
             })?
             .clone();
-        let values = value_directory
-            .keys()
-            .filter(|(c, b, _)| c == collection && b == binding)
-            .count() as u64;
-        let lengths = length_directory
-            .keys()
-            .filter(|(c, b, _)| c == collection && b == binding)
-            .count() as u64;
+        let values = value_cardinality
+            .get(&(*collection, *binding))
+            .copied()
+            .unwrap_or(0);
+        let lengths = length_cardinality
+            .get(&(*collection, *binding))
+            .copied()
+            .unwrap_or(0);
         let covered_records = match identity {
             BindingIdentityView::Declared(_) => declared_covered
                 .get(&(*collection, *binding))
                 .copied()
                 .unwrap_or(0),
-            BindingIdentityView::Named(_) => named_covered
+            BindingIdentityView::Named(_) => named_members
                 .get(&(*collection, *binding))
-                .copied()
-                .unwrap_or(0),
+                .map_or(0, |members| members.len() as u64),
         };
         let kind = flags.kind.clone();
         let coverage = FieldCoverage {
@@ -463,11 +587,12 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             Namespace::FieldCoverage.physical(&keys::binding(*collection, *binding)),
             value_codec::encode(&coverage)?,
         )?;
-        let path = match identity {
-            BindingIdentityView::Declared(path) | BindingIdentityView::Named(path) => FieldPath {
-                root: PathRoot::Data,
-                segments: path.clone(),
-            },
+        let BindingIdentityView::Declared(path) = identity else {
+            continue;
+        };
+        let path = FieldPath {
+            root: PathRoot::Data,
+            segments: path.clone(),
         };
         writer.put(
             Namespace::Fields.physical(&keys::field(*collection, &path.segments)),
@@ -495,11 +620,8 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             continue;
         }
         let existing_key = Namespace::Collections.physical(&keys::collection(index as u32));
-        let mut metadata = store
-            .view()?
-            .get(Namespace::Collections, &keys::collection(index as u32))?
-            .map(|bytes| value_codec::decode::<CollectionMetadata>(&bytes, "collection metadata"))
-            .transpose()?
+        let mut metadata = initial_collection_metadata
+            .remove(&(index as u32))
             .ok_or_else(|| {
                 StoreError::CorruptIndex(format!("collection {index} metadata is missing"))
             })?;
@@ -514,35 +636,9 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         writer.put(existing_key, value_codec::encode(&metadata)?)?;
     }
 
-    let delta_view = store.view()?;
-    scan_namespace(
-        &delta_view,
-        Namespace::FieldCoverageDeltas,
-        |logical, _bytes| {
-            writer.delete(Namespace::FieldCoverageDeltas.physical(logical))?;
-            Ok(())
-        },
-    )?;
-    drop(delta_view);
     writer.flush()?;
     let metadata = writer.stats();
     let metadata_batches = metadata.batches;
-    let verify_view = store.view()?;
-    let mut remaining_deltas = 0u64;
-    scan_namespace(
-        &verify_view,
-        Namespace::FieldCoverageDeltas,
-        |_logical, _bytes| {
-            remaining_deltas = remaining_deltas.saturating_add(1);
-            Ok(())
-        },
-    )?;
-    drop(verify_view);
-    if remaining_deltas != 0 {
-        return Err(StoreError::State(format!(
-            "{remaining_deltas} coverage deltas remain after bounded cleanup"
-        )));
-    }
     transition_phase(store, BuildPhase::Finalizing, BuildPhase::Complete)?;
     let metadata_write_ns = elapsed_ns(write_started);
 
@@ -553,10 +649,10 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
             .iter()
             .map(|collection| collection.records)
             .sum(),
-        value_directory_rows: value_directory.len() as u64,
-        length_directory_rows: length_directory.len() as u64,
-        state_statistic_rows: state_statistics.len() as u64,
-        fts_statistic_rows: fts_statistics.len() as u64,
+        value_directory_rows,
+        length_directory_rows,
+        state_statistic_rows,
+        fts_statistic_rows,
         field_rows: structured_bindings.len() as u64,
         coverage_rows: structured_bindings.len() as u64,
         coverage_delta_rows,
@@ -565,6 +661,25 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         metadata_batches,
         metadata,
     })
+}
+
+fn record_named_members(
+    members: &mut BTreeMap<(u32, u32), HashSet<u32>>,
+    identities: &BTreeMap<(u32, u32), BindingIdentityView>,
+    collection: u32,
+    binding: u32,
+    block_number: u32,
+    block: &super::bitmap_block::Block,
+) {
+    if matches!(
+        identities.get(&(collection, binding)),
+        Some(BindingIdentityView::Named(_))
+    ) {
+        let entries = members.entry((collection, binding)).or_default();
+        block.for_each(|offset| {
+            entries.insert((block_number << super::bitmap_block::BLOCK_SHIFT) | u32::from(offset));
+        });
+    }
 }
 
 fn transition_phase(store: &RocksStore, expected: BuildPhase, next: BuildPhase) -> StoreResult<()> {

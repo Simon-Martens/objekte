@@ -1,6 +1,6 @@
 //! Bounded direct-source construction for the RocksDB prototype.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, HashMap, VecDeque};
 use std::path::Path;
 use std::sync::mpsc::{self, sync_channel};
 use std::sync::{Arc, OnceLock};
@@ -17,6 +17,7 @@ use crate::repository::CollectionDefinition;
 use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
+use super::bulk::{BulkConstructionReport, BulkConstructor};
 use super::finalize::{FinalizationReport, finalize};
 use super::prepare::PreparedStoreBatch;
 use super::schema::RuntimeSchema;
@@ -104,6 +105,7 @@ pub struct DirectBuildReport {
     pub schedule: DirectBuildSchedule,
     pub profile: BuildWorkProfile,
     pub admission: AdmissionExecutionStats,
+    pub bulk_construction: BulkConstructionReport,
     pub discovery_metadata: super::metadata::MetadataWriteStats,
     pub finalization: FinalizationReport,
 }
@@ -113,6 +115,17 @@ pub struct BuiltStore {
     pub report: DirectBuildReport,
 }
 
+struct BulkBuildOutput {
+    preparation_worker_ns: u64,
+    coordinator_mapping_ns: u64,
+    profile: BuildWorkProfile,
+    counts: DirectBuildCounts,
+    peak_in_flight_jobs: usize,
+    peak_charge_bytes: u64,
+    bulk_construction: BulkConstructionReport,
+}
+
+#[derive(Clone)]
 struct PreparationJob {
     index: usize,
     files: Vec<FileEntry>,
@@ -134,6 +147,74 @@ struct PreparedChunk {
     failed_parses: u64,
     source_reads: u64,
     source_bytes_read: u64,
+}
+
+struct OpenCohort {
+    files: Vec<PhysicalPreparedFile>,
+    first_seen: Instant,
+    source_bytes: u64,
+    anchor: Option<(CollectionId, u32)>,
+}
+
+impl OpenCohort {
+    fn new() -> Self {
+        Self {
+            files: Vec::new(),
+            first_seen: Instant::now(),
+            source_bytes: 0,
+            anchor: None,
+        }
+    }
+
+    fn push(&mut self, file: PhysicalPreparedFile) {
+        if self.files.is_empty() {
+            self.first_seen = Instant::now();
+            self.anchor = file
+                .collections
+                .iter()
+                .find(|mapped| !mapped.batch.records.is_empty())
+                .map(|mapped| {
+                    let endpoint = (mapped.base_slot / 4_096 + 1).saturating_mul(4_096);
+                    (mapped.collection, endpoint)
+                });
+        }
+        self.source_bytes = self.source_bytes.saturating_add(file.file.revision.size);
+        self.files.push(file);
+    }
+
+    fn endpoint_reached(&self) -> bool {
+        let Some((anchor, endpoint)) = self.anchor else {
+            return false;
+        };
+        self.files.iter().any(|file| {
+            file.collections.iter().any(|mapped| {
+                mapped.collection == anchor
+                    && mapped
+                        .base_slot
+                        .saturating_add(mapped.batch.records.len() as u32)
+                        >= endpoint
+            })
+        })
+    }
+
+    fn seal_reason(&self) -> Option<&'static str> {
+        if self.files.is_empty() {
+            return None;
+        }
+        if self.files.len() >= super::bulk::MAX_COHORT_FILES {
+            return Some("file-limit");
+        }
+        if self.source_bytes >= super::bulk::MAX_COHORT_SOURCE_BYTES {
+            return Some("source-byte-limit");
+        }
+        if self.endpoint_reached() {
+            return Some("anchor-block-boundary");
+        }
+        if self.first_seen.elapsed() >= std::time::Duration::from_millis(100) {
+            return Some("accumulation-age");
+        }
+        None
+    }
 }
 
 pub fn build_from_source(
@@ -206,6 +287,63 @@ pub fn build_from_source(
         );
     }
     let discovery_ns = elapsed_ns(discovery_started);
+
+    let preparation_started = Instant::now();
+    let bulk_build = build_bulk_cohorts(
+        &store,
+        &schema,
+        root,
+        &jobs,
+        &source_files,
+        alphabet,
+        prepare,
+        options.profile,
+    )?;
+    let preparation_wall_ns = elapsed_ns(preparation_started);
+    let finalization_started = Instant::now();
+    let finalization = finalize(&store)?;
+    let finalization_ns = elapsed_ns(finalization_started);
+    let mut counts = bulk_build.counts;
+    counts.physical_files = discovery.files;
+    counts.memberships = discovery.memberships;
+    counts.batches = bulk_build.bulk_construction.cohorts;
+    return Ok(BuiltStore {
+        store,
+        report: DirectBuildReport {
+            timing: DirectBuildTiming {
+                open_ns,
+                schema_ns,
+                discovery_ns,
+                preparation_wall_ns,
+                preparation_worker_ns: bulk_build.preparation_worker_ns,
+                coordinator_mapping_ns: bulk_build.coordinator_mapping_ns,
+                writer_queue_wait_ns: 0,
+                admission_wall_ns: bulk_build.bulk_construction.write_ns,
+                admission_worker_ns: bulk_build.bulk_construction.write_ns,
+                finalization_ns,
+                ready_ns: elapsed_ns(ready_started),
+            },
+            counts,
+            schedule: DirectBuildSchedule {
+                available_parallelism: available,
+                background_jobs,
+                requested_prepare_workers: options.prepare_workers,
+                resolved_prepare_workers: prepare,
+                requested_write_workers: options.write_workers,
+                resolved_write_workers: writers,
+                retained_target_bytes: options.retained_target_bytes,
+                peak_ready_physical_files: bulk_build.peak_in_flight_jobs,
+                peak_ready_bytes: bulk_build.peak_charge_bytes,
+                peak_reservation_estimate_bytes: bulk_build.peak_charge_bytes,
+                job_count,
+            },
+            profile: bulk_build.profile,
+            admission: AdmissionExecutionStats::default(),
+            discovery_metadata: discovery.metadata,
+            finalization,
+            bulk_construction: bulk_build.bulk_construction,
+        },
+    });
 
     let max_in_flight = (prepare.saturating_mul(2).saturating_add(writers))
         .min(16)
@@ -662,7 +800,179 @@ pub fn build_from_source(
             admission: admission_totals,
             discovery_metadata: discovery.metadata,
             finalization,
+            bulk_construction: BulkConstructionReport::default(),
         },
+    })
+}
+
+fn build_bulk_cohorts(
+    store: &RocksStore,
+    schema: &RuntimeSchema,
+    root: &Path,
+    jobs: &[PreparationJob],
+    source_files: &Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    prepare_workers: usize,
+    profile_build: bool,
+) -> StoreResult<BulkBuildOutput> {
+    let build_header = store.view()?.header().clone();
+    let mut constructor = BulkConstructor::new(
+        store,
+        schema,
+        build_header.build_identity,
+        build_header.build_epoch,
+    );
+    let mut base_slots = BTreeMap::<u32, u32>::new();
+    let mut pending_jobs = VecDeque::from(jobs.to_vec());
+    let (job_sender, job_receiver) = sync_channel::<PreparationJob>(prepare_workers.max(1));
+    let (prepared_sender, prepared_receiver) =
+        sync_channel::<Result<PreparedChunk, String>>(prepare_workers.max(1));
+    let shared_job_receiver = Arc::new(std::sync::Mutex::new(job_receiver));
+    let schema_for_workers = Arc::new(schema);
+    let root = Arc::new(root.to_path_buf());
+    let source_files = Arc::clone(source_files);
+    let worker_count = prepare_workers.min(jobs.len()).max(1);
+    let initial_worker_count = worker_count.min(jobs.len());
+
+    std::thread::scope(|scope| -> StoreResult<BulkBuildOutput> {
+        let mut handles = Vec::with_capacity(worker_count);
+        for _ in 0..worker_count {
+            let receiver = Arc::clone(&shared_job_receiver);
+            let sender = prepared_sender.clone();
+            let root = Arc::clone(&root);
+            let schema = Arc::clone(&schema_for_workers);
+            let source_files = Arc::clone(&source_files);
+            handles.push(scope.spawn(move || {
+                loop {
+                    let job = match receiver.lock() {
+                        Ok(receiver) => receiver.recv(),
+                        Err(_) => return,
+                    };
+                    let Ok(job) = job else {
+                        return;
+                    };
+                    let result = prepare_job(
+                        &root,
+                        &schema,
+                        &job,
+                        &source_files,
+                        alphabet,
+                        profile_build,
+                        prepare_workers,
+                    );
+                    if sender.send(result).is_err() {
+                        return;
+                    }
+                }
+            }));
+        }
+        drop(prepared_sender);
+
+        for _ in 0..initial_worker_count {
+            let job = pending_jobs
+                .pop_front()
+                .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
+            job_sender
+                .send(job)
+                .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
+        }
+
+        let mut ready = BTreeMap::<usize, (PreparedChunk, u64)>::new();
+        let mut next_job = 0usize;
+        let mut received = 0usize;
+        let mut open = OpenCohort::new();
+        let mut first_file_committed = false;
+        let mut worker_ns = 0u64;
+        let mut mapping_ns = 0u64;
+        let mut profile = BuildWorkProfile::default();
+        let mut counts = DirectBuildCounts::default();
+        let mut peak_in_flight_jobs = initial_worker_count;
+        let mut peak_charge_bytes = 0u64;
+        let mut outstanding_charge = 0u64;
+
+        while received < jobs.len() {
+            let result = prepared_receiver.recv().map_err(|_| {
+                StoreError::State("preparation result queue closed before all jobs".into())
+            })?;
+            received += 1;
+            if let Some(job) = pending_jobs.pop_front() {
+                job_sender
+                    .send(job)
+                    .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
+                peak_in_flight_jobs =
+                    peak_in_flight_jobs.max(outstanding_charge.min(jobs.len() as u64) as usize);
+            }
+            let chunk = result.map_err(StoreError::State)?;
+            let chunk_bytes = chunk
+                .files
+                .iter()
+                .flat_map(|file| &file.collections)
+                .map(|(_, batch)| batch.retained_capacity_bytes as u64)
+                .fold(0u64, u64::saturating_add);
+            outstanding_charge = outstanding_charge.saturating_add(chunk_bytes);
+            peak_charge_bytes = peak_charge_bytes.max(outstanding_charge);
+            worker_ns = worker_ns.saturating_add(chunk.preparation_ns);
+            profile.absorb(&chunk.profile);
+            counts.records = counts.records.saturating_add(chunk.records);
+            counts.record_parses = counts.record_parses.saturating_add(chunk.record_parses);
+            counts.failed_parses = counts.failed_parses.saturating_add(chunk.failed_parses);
+            counts.source_reads = counts.source_reads.saturating_add(chunk.source_reads);
+            counts.source_bytes_read = counts
+                .source_bytes_read
+                .saturating_add(chunk.source_bytes_read);
+            let index = chunk.index;
+            ready.insert(index, (chunk, chunk_bytes));
+            peak_in_flight_jobs = peak_in_flight_jobs.max(received - next_job);
+
+            while let Some((chunk, chunk_bytes)) = ready.remove(&next_job) {
+                outstanding_charge = outstanding_charge.saturating_sub(chunk_bytes);
+                let map_started = Instant::now();
+                for prepared in chunk.files {
+                    let merged = merge_file_entry(&prepared.file, &prepared.collections);
+                    let mut mapped = map_prepared_file(
+                        schema,
+                        prepared.file.id,
+                        prepared.collections,
+                        &mut base_slots,
+                    )?;
+                    mapped.file = merged;
+                    if !first_file_committed {
+                        first_file_committed = true;
+                        constructor.publish(vec![mapped], &base_slots, false, "first-file")?;
+                        continue;
+                    }
+                    open.push(mapped);
+                    if let Some(reason) = open.seal_reason() {
+                        let files = std::mem::take(&mut open.files);
+                        constructor.publish(files, &base_slots, false, reason)?;
+                        open = OpenCohort::new();
+                    }
+                }
+                mapping_ns = mapping_ns.saturating_add(elapsed_ns(map_started));
+                next_job += 1;
+            }
+        }
+        if !open.files.is_empty() {
+            let files = std::mem::take(&mut open.files);
+            constructor.publish(files, &base_slots, true, "end-of-input")?;
+        }
+        drop(job_sender);
+        for handle in handles {
+            handle
+                .join()
+                .map_err(|_| StoreError::State("bulk preparation worker panicked".into()))?;
+        }
+        let bulk_construction = constructor.finish();
+        counts.batches = bulk_construction.cohorts;
+        Ok(BulkBuildOutput {
+            preparation_worker_ns: worker_ns,
+            coordinator_mapping_ns: mapping_ns,
+            profile,
+            counts,
+            peak_in_flight_jobs,
+            peak_charge_bytes,
+            bulk_construction,
+        })
     })
 }
 
@@ -1176,7 +1486,7 @@ mod tests {
         assert_eq!(built.report.counts.memberships, 6);
         assert_eq!(built.report.counts.records, 8);
         assert_eq!(built.report.finalization.admission_receipts, 2);
-        assert_eq!(built.report.finalization.coverage_delta_rows, 12);
+        assert_eq!(built.report.finalization.coverage_delta_rows, 0);
         assert_eq!(built.report.finalization.coverage_rows, 6);
         for collection in 0..2 {
             let metadata: CollectionMetadata = value_codec::decode(

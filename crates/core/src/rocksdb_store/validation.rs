@@ -65,6 +65,10 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
     let mut incoming = BTreeSet::new();
     let mut receipt_files = BTreeSet::new();
     let mut receipt_ids = Vec::new();
+    let mut sort_definitions = BTreeMap::<(u32, u32), value_codec::SortDefinition>::new();
+    let mut actual_sort_entries = BTreeSet::new();
+    let mut expected_sort_entries = BTreeSet::new();
+    let mut record_slots = BTreeSet::new();
 
     scan(&view, Namespace::Collections, |_logical, bytes| {
         let metadata: CollectionMetadata = value_codec::decode(bytes, "collection")?;
@@ -96,6 +100,16 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
         }
         receipt_ids.push(receipt.batch_id);
         report.receipts = report.receipts.saturating_add(1);
+        Ok(())
+    })?;
+    scan(&view, Namespace::SortDefinitions, |logical, bytes| {
+        let mut cursor = Cursor::new(logical);
+        let collection = cursor.read_u32()?;
+        let id = cursor.read_u32()?;
+        sort_definitions.insert(
+            (collection, id),
+            value_codec::decode(bytes, "sort definition")?,
+        );
         Ok(())
     })?;
     receipt_ids.sort_unstable();
@@ -278,6 +292,8 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
             &domain_members,
             &outgoing,
             &incoming,
+            &sort_definitions,
+            &mut expected_sort_entries,
             &mut report,
         )?;
         let counts = collection_counts
@@ -286,8 +302,45 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
         counts.0 = counts.0.saturating_add(1);
         counts.1 = counts.1.max(u64::from(slot) + 1);
         report.records = report.records.saturating_add(1);
+        record_slots.insert((collection, slot));
         Ok(())
     })?;
+
+    scan(&view, Namespace::SortEntries, |logical, _bytes| {
+        let mut cursor = Cursor::new(logical);
+        let collection = cursor.read_u32()?;
+        let definition = cursor.read_u32()?;
+        let _order = cursor.read_bytes()?;
+        let logical_id = cursor.read_str()?;
+        let slot = cursor.read_u32()?;
+        if !cursor.is_empty() {
+            report.error("sort-entry key has trailing bytes");
+        }
+        if !sort_definitions.contains_key(&(collection, definition)) {
+            report.error(format!(
+                "sort entry references missing definition {collection}/{definition}"
+            ));
+        }
+        if !record_slots.contains(&(collection, slot)) {
+            report.error(format!(
+                "sort entry references missing record {collection}/{slot}"
+            ));
+        }
+        if logical_id.is_empty() {
+            report.error(format!(
+                "sort entry for collection {collection} slot {slot} has an empty identity"
+            ));
+        }
+        actual_sort_entries.insert(logical.to_vec());
+        Ok(())
+    })?;
+    for missing in expected_sort_entries.difference(&actual_sort_entries) {
+        report.error(format!("missing forward sort entry {:02x?}", missing));
+    }
+    for extra in actual_sort_entries.difference(&expected_sort_entries) {
+        report.error(format!("unexpected forward sort entry {:02x?}", extra));
+    }
+    report.sort_entries = actual_sort_entries.len() as u64;
 
     let mut value_directory = BTreeMap::<(u32, u32, crate::posting::ScalarKey), u64>::new();
     for (logical, block) in &value_members {
@@ -448,6 +501,8 @@ fn validate_contribution(
     domain_members: &BTreeSet<Vec<u8>>,
     outgoing: &BTreeSet<Vec<u8>>,
     incoming: &BTreeSet<Vec<u8>>,
+    sort_definitions: &BTreeMap<(u32, u32), value_codec::SortDefinition>,
+    expected_sort_entries: &mut BTreeSet<Vec<u8>>,
     report: &mut ValidationReport,
 ) -> StoreResult<()> {
     let file_record = keys::file_record(contribution.record.file, collection, slot);
@@ -553,9 +608,21 @@ fn validate_contribution(
             }
         }
     }
-    report.sort_entries = report
-        .sort_entries
-        .saturating_add(contribution.sorts.len() as u64);
+    for projection in &contribution.sorts {
+        let definition = sort_definitions
+            .get(&(collection, projection.definition))
+            .ok_or_else(|| {
+                StoreError::CorruptIndex("contribution sort definition is missing".into())
+            })?;
+        let order = super::write::encode_sort_projection(projection, definition)?;
+        expected_sort_entries.insert(keys::sort_entry(
+            collection,
+            projection.definition,
+            &order,
+            &contribution.record.id.0,
+            slot,
+        ));
+    }
     report.relation_occurrences = report
         .relation_occurrences
         .saturating_add(contribution.relations.len() as u64);

@@ -12,7 +12,7 @@ use crate::sorting::{SortKey, SortOptions};
 use super::{StoreError, StoreResult};
 
 pub const MAGIC: &str = "OBJEKTE_ROCKSDB_PROTOTYPE";
-pub const FORMAT_VERSION: u32 = 3;
+pub const FORMAT_VERSION: u32 = 4;
 pub const SCALAR_CODEC_VERSION: u32 = 1;
 pub const BITMAP_CODEC_VERSION: u32 = 1;
 pub const CONTRIBUTION_CODEC_VERSION: u32 = 1;
@@ -289,7 +289,7 @@ impl RecordMetadata {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub enum StateKind {
     PathPresence,
     EmptySelection,
@@ -548,6 +548,7 @@ pub struct BuildReceipt {
     pub slot_ranges: Vec<(CollectionId, u32, u32)>,
     pub file_memberships: u32,
     pub records: u32,
+    pub coverage: Vec<(CollectionId, BindingId, FieldCoverage)>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]

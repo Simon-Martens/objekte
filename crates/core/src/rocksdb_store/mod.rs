@@ -12,11 +12,12 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use rocksdb::{
     BlockBasedOptions, Cache, DBCompressionType, DBRawIteratorWithThreadMode, Env, Options,
     ReadOptions, SingleThreaded, SnapshotWithThreadMode, Transaction, TransactionDB,
-    TransactionDBOptions, TransactionOptions, WriteOptions,
+    TransactionDBOptions, TransactionOptions, WriteBatchWithTransaction, WriteOptions,
 };
 
 pub mod bitmap_block;
 pub mod build;
+pub(crate) mod bulk;
 pub mod contribution_codec;
 pub mod finalize;
 pub mod key_codec;
@@ -149,6 +150,17 @@ impl Drop for MemoryDirectory {
 }
 
 impl RocksStore {
+    pub(crate) fn atomic_write(&self, batch: WriteBatchWithTransaction<true>) -> StoreResult<()> {
+        let options = write_options(matches!(
+            self.resources.config.location,
+            StoreLocation::Memory
+        ));
+        self.resources
+            .db
+            .write_opt(batch, &options)
+            .map_err(StoreError::from)
+    }
+
     pub fn create(config: StoreConfig) -> StoreResult<Self> {
         let instance_id = NEXT_INSTANCE.fetch_add(1, Ordering::Relaxed);
         let (path, memory_directory) = match &config.location {
