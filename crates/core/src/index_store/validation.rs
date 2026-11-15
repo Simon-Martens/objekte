@@ -18,6 +18,10 @@ use super::value_codec::{
     StoredContributions, ValueDirectoryEntry,
 };
 use super::{StoreError, StoreResult, StoreView, fts, read, tables, value_codec};
+#[cfg(feature = "store-posting-rows")]
+use super::posting_rows as postings;
+#[cfg(not(feature = "store-posting-rows"))]
+use super::posting_blocks as postings;
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ValidationReport {
@@ -127,11 +131,12 @@ fn validate_collection(
             .map_err(StoreError::database)?;
         let mut map = HashMap::new();
         for row in table.iter().map_err(StoreError::database)? {
-            let (key, value) = row.map_err(StoreError::database)?;
+            let (key, _value) = row.map_err(StoreError::database)?;
             let mut cursor = Cursor::new(key.value());
             let collection = CollectionId(cursor.read_u32()?);
             let slot = RecordSlot(cursor.read_u32()?);
-            let contributions = value_codec::decode_contribution(value.value())?;
+            let contributions = read::contributions(view, collection, slot)?
+                .ok_or_else(|| StoreError::CorruptIndex("missing record contributions".into()))?;
             map.insert((collection.0, slot.0), contributions);
         }
         map
@@ -171,6 +176,8 @@ fn validate_collection(
     validate_directory_counts(view, c, report)?;
     validate_state_blocks(view, c, &live, report)?;
     validate_fts(view, c, report)?;
+    validate_reverse_grams(view, c, &live, report)?;
+    validate_sort_and_relation_rows(view, c, &live, report)?;
     Ok(())
 }
 
@@ -194,17 +201,15 @@ fn validate_contributions(
     }
     report.value_members += value_members;
     for (binding, length) in &stored.lengths {
-        let key = keys::length_member(
-            collection.0,
+        let length = crate::posting::ScalarKey::Number(length.clone());
+        if !postings::contains(
+            view,
+            postings::PostingFamily::Length,
+            collection,
             *binding,
-            &crate::posting::ScalarKey::Number(length.clone()),
-            slot.0,
-        )?;
-        let table = view
-            .read()
-            .open_table(tables::LENGTH_MEMBERS)
-            .map_err(StoreError::database)?;
-        if table.get(key.as_slice()).map_err(StoreError::database)?.is_none() {
+            &length,
+            slot,
+        )? {
             report.errors.push(format!(
                 "collection {} slot {} missing length membership",
                 collection.0, slot.0
@@ -384,34 +389,17 @@ fn validate_directory_counts(
         let scalar = cursor.read_scalar()?;
         let entry =
             value_codec::decode::<LengthDirectoryEntry>(value.value(), "length directory")?;
-        let mut count = 0u64;
-        let table = view
-            .read()
-            .open_table(tables::LENGTH_MEMBERS)
-            .map_err(StoreError::database)?;
-        let prefix = keys::value_prefix(collection.0, binding);
-        let successor = super::key_codec::prefix_successor(&prefix);
-        let upper = successor
-            .as_deref()
-            .map(Bound::Excluded)
-            .unwrap_or(Bound::Unbounded);
-        for row in table
-            .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
-            .map_err(StoreError::database)?
-        {
-            let (member_key, _) = row.map_err(StoreError::database)?;
-            let mut cursor = Cursor::new(member_key.value());
-            let _ = cursor.read_u32()?;
-            let _ = cursor.read_u32()?;
-            let member_scalar = cursor.read_scalar()?;
-            if member_scalar == scalar {
-                count += 1;
-            }
-        }
-        if count != entry.cardinality {
+        if let Some(error) = postings::validate_directory(
+            view,
+            postings::PostingFamily::Length,
+            collection,
+            binding,
+            &scalar,
+            entry.cardinality,
+        )? {
             report.errors.push(format!(
-                "collection {} binding {} length cardinality {} != {} members",
-                collection.0, binding, entry.cardinality, count
+                "collection {} binding {} length {}: {error}",
+                collection.0, binding, scalar_display(&scalar)
             ));
         }
     }
@@ -475,6 +463,132 @@ fn validate_state_blocks(
                 state.tag()
             ));
         }
+    }
+    Ok(())
+}
+
+fn validate_sort_and_relation_rows(
+    view: &StoreView,
+    collection: CollectionId,
+    live: &BTreeMap<u32, RecordMetadata>,
+    report: &mut ValidationReport,
+) -> StoreResult<()> {
+    for (table_name, definition) in [
+        ("sort_entries", tables::SORT_ENTRIES),
+        ("relation_outgoing", tables::RELATION_OUTGOING),
+    ] {
+        let table = view
+            .read()
+            .open_table(definition)
+            .map_err(StoreError::database)?;
+        let prefix = keys::collection_prefix(collection.0);
+        let successor = super::key_codec::prefix_successor(&prefix);
+        let upper = successor
+            .as_deref()
+            .map(std::ops::Bound::Excluded)
+            .unwrap_or(std::ops::Bound::Unbounded);
+        let mut count = 0u64;
+        let mut bad_slot = false;
+        for row in table
+            .range::<&[u8]>((std::ops::Bound::Included(prefix.as_slice()), upper))
+            .map_err(StoreError::database)?
+        {
+            let (key, _) = row.map_err(StoreError::database)?;
+            count += 1;
+            let slot = u32::from_be_bytes(
+                key.value()[key.value().len() - 4..]
+                    .try_into()
+                    .expect("four-byte slot"),
+            );
+            if !live.contains_key(&slot) {
+                bad_slot = true;
+            }
+        }
+        if bad_slot {
+            report.errors.push(format!(
+                "collection {} {table_name} references a non-live slot",
+                collection.0
+            ));
+        }
+        if table_name == "sort_entries" {
+            report.sort_entries += count;
+        } else {
+            report.relation_occurrences += count;
+        }
+    }
+    Ok(())
+}
+
+fn validate_reverse_grams(
+    view: &StoreView,
+    collection: CollectionId,
+    live: &BTreeMap<u32, RecordMetadata>,
+    report: &mut ValidationReport,
+) -> StoreResult<()> {
+    let table = view
+        .read()
+        .open_table(tables::RECORD_GRAMS)
+        .map_err(StoreError::database)?;
+    let prefix = keys::collection_prefix(collection.0);
+    let successor = super::key_codec::prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(std::ops::Bound::Excluded)
+        .unwrap_or(std::ops::Bound::Unbounded);
+    let mut reverse = 0u64;
+    for row in table
+        .range::<&[u8]>((std::ops::Bound::Included(prefix.as_slice()), upper))
+        .map_err(StoreError::database)?
+    {
+        let (key, value) = row.map_err(StoreError::database)?;
+        let mut cursor = Cursor::new(key.value());
+        let _collection = cursor.read_u32()?;
+        let slot = cursor.read_u32()?;
+        let _binding = cursor.read_u32()?;
+        let _kind = cursor.read_u8()?;
+        if !live.contains_key(&slot) {
+            report.errors.push(format!(
+                "collection {} reverse grams reference free slot {slot}",
+                collection.0
+            ));
+        }
+        let grams = value_codec::decode_gram_list(value.value())?;
+        reverse = reverse
+            .checked_add(grams.len() as u64)
+            .ok_or_else(|| StoreError::CorruptIndex("reverse gram count overflow".into()))?;
+    }
+    let mut forward = 0u64;
+    let statistics = view
+        .read()
+        .open_table(tables::FTS_GRAM_STATISTICS)
+        .map_err(StoreError::database)?;
+    let prefix = keys::collection_prefix(collection.0);
+    let successor = super::key_codec::prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(std::ops::Bound::Excluded)
+        .unwrap_or(std::ops::Bound::Unbounded);
+    for row in statistics
+        .range::<&[u8]>((std::ops::Bound::Included(prefix.as_slice()), upper))
+        .map_err(StoreError::database)?
+    {
+        let (key, value) = row.map_err(StoreError::database)?;
+        let mut cursor = Cursor::new(key.value());
+        let _collection = cursor.read_u32()?;
+        let _binding = cursor.read_u32()?;
+        let _kind = cursor.read_u8()?;
+        let _gram = cursor.read_u64()?;
+        let mut value_cursor = Cursor::new(value.value());
+        let cardinality = value_cursor.read_u64()?;
+        forward = forward
+            .checked_add(cardinality)
+            .ok_or_else(|| StoreError::CorruptIndex("forward gram count overflow".into()))?;
+    }
+    if reverse != forward {
+        report.errors.push(format!(
+            "collection {} reverse gram memberships {reverse} != forward {forward}",
+            collection.0
+        ));
     }
     Ok(())
 }

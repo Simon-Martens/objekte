@@ -21,7 +21,11 @@ use super::value_codec::{
     RelationStateKind, SortDefinition, StoredBinding, StoredContributions,
     ValueDirectoryEntry,
 };
-use super::{StoreError, StoreResult};
+use super::{StoreError, StoreResult, contribution_codec};
+#[cfg(feature = "store-posting-rows")]
+use super::posting_rows as postings;
+#[cfg(not(feature = "store-posting-rows"))]
+use super::posting_blocks as postings;
 
 pub(crate) fn map_table(error: redb::TableError) -> StoreError {
     StoreError::database(error)
@@ -344,14 +348,14 @@ pub fn insert_value_member(
     value: &ScalarKey,
     slot: RecordSlot,
 ) -> StoreResult<bool> {
-    let key = keys::value_member(collection.0, binding, value, slot.0)?;
-    let mut members = tx.open_table(tables::VALUE_MEMBERS).map_err(map_table)?;
-    let inserted = members.insert(key.as_slice(), &[][..]).map_err(map_storage)?.is_none();
-    drop(members);
-    if inserted {
-        adjust_value_directory(tx, collection, binding, value, 1)?;
-    }
-    Ok(inserted)
+    postings::insert_member(
+        tx,
+        postings::PostingFamily::Value,
+        collection,
+        binding,
+        value,
+        slot,
+    )
 }
 
 pub fn remove_value_member(
@@ -361,14 +365,14 @@ pub fn remove_value_member(
     value: &ScalarKey,
     slot: RecordSlot,
 ) -> StoreResult<bool> {
-    let key = keys::value_member(collection.0, binding, value, slot.0)?;
-    let mut members = tx.open_table(tables::VALUE_MEMBERS).map_err(map_table)?;
-    let removed = members.remove(key.as_slice()).map_err(map_storage)?.is_some();
-    drop(members);
-    if removed {
-        adjust_value_directory(tx, collection, binding, value, -1)?;
-    }
-    Ok(removed)
+    postings::remove_member(
+        tx,
+        postings::PostingFamily::Value,
+        collection,
+        binding,
+        value,
+        slot,
+    )
 }
 
 pub fn adjust_value_directory(
@@ -387,52 +391,26 @@ pub fn adjust_value_directory(
             super::value_codec::decode::<ValueDirectoryEntry>(guard.value(), "value directory")
         })
         .transpose()?;
-    match (existing, delta) {
-        (Some(entry), 1) => {
-            let updated = ValueDirectoryEntry {
-                cardinality: entry.cardinality.checked_add(1).ok_or_else(|| {
-                    StoreError::CorruptIndex("value directory cardinality overflow".into())
-                })?,
-                representative: entry.representative,
-            };
-            let encoded = super::value_codec::encode(&updated)?;
-            table
-                .insert(key.as_slice(), encoded.as_slice())
-                .map_err(map_storage)?;
-        }
-        (Some(entry), -1) => {
-            if entry.cardinality <= 1 {
-                table.remove(key.as_slice()).map_err(map_storage)?;
-            } else {
-                let updated = ValueDirectoryEntry {
-                    cardinality: entry.cardinality - 1,
-                    representative: entry.representative,
-                };
-                let encoded = super::value_codec::encode(&updated)?;
-                table
-                    .insert(key.as_slice(), encoded.as_slice())
-                    .map_err(map_storage)?;
-            }
-        }
-        (None, 1) => {
-            let encoded = super::value_codec::encode(&ValueDirectoryEntry {
-                cardinality: 1,
-                representative: value.clone(),
-            })?;
-            table
-                .insert(key.as_slice(), encoded.as_slice())
-                .map_err(map_storage)?;
-        }
-        (None, -1) => {
-            return Err(StoreError::CorruptIndex(
-                "removing a value without a directory entry".into(),
-            ));
-        }
-        (_, other) => {
-            return Err(StoreError::State(format!(
-                "invalid value directory delta {other}"
-            )));
-        }
+    let current = existing.as_ref().map_or(0, |entry| entry.cardinality);
+    let updated = if delta >= 0 {
+        current.checked_add(delta as u64)
+    } else {
+        current.checked_sub((-delta) as u64)
+    }
+    .ok_or_else(|| StoreError::CorruptIndex("value directory cardinality overflow".into()))?;
+    if updated == 0 {
+        table.remove(key.as_slice()).map_err(map_storage)?;
+    } else {
+        let representative = existing
+            .map(|entry| entry.representative)
+            .unwrap_or_else(|| value.clone());
+        let encoded = super::value_codec::encode(&ValueDirectoryEntry {
+            cardinality: updated,
+            representative,
+        })?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
     }
     Ok(())
 }
@@ -460,14 +438,14 @@ pub fn insert_length_member(
     length: &ScalarKey,
     slot: RecordSlot,
 ) -> StoreResult<bool> {
-    let key = keys::length_member(collection.0, binding, length, slot.0)?;
-    let mut members = tx.open_table(tables::LENGTH_MEMBERS).map_err(map_table)?;
-    let inserted = members.insert(key.as_slice(), &[][..]).map_err(map_storage)?.is_none();
-    drop(members);
-    if inserted {
-        adjust_length_directory(tx, collection, binding, length, 1)?;
-    }
-    Ok(inserted)
+    postings::insert_member(
+        tx,
+        postings::PostingFamily::Length,
+        collection,
+        binding,
+        length,
+        slot,
+    )
 }
 
 pub fn remove_length_member(
@@ -477,17 +455,17 @@ pub fn remove_length_member(
     length: &ScalarKey,
     slot: RecordSlot,
 ) -> StoreResult<bool> {
-    let key = keys::length_member(collection.0, binding, length, slot.0)?;
-    let mut members = tx.open_table(tables::LENGTH_MEMBERS).map_err(map_table)?;
-    let removed = members.remove(key.as_slice()).map_err(map_storage)?.is_some();
-    drop(members);
-    if removed {
-        adjust_length_directory(tx, collection, binding, length, -1)?;
-    }
-    Ok(removed)
+    postings::remove_member(
+        tx,
+        postings::PostingFamily::Length,
+        collection,
+        binding,
+        length,
+        slot,
+    )
 }
 
-fn adjust_length_directory(
+pub fn adjust_length_directory(
     tx: &WriteTransaction,
     collection: CollectionId,
     binding: BindingId,
@@ -503,45 +481,22 @@ fn adjust_length_directory(
             super::value_codec::decode::<LengthDirectoryEntry>(guard.value(), "length directory")
         })
         .transpose()?;
-    match (existing, delta) {
-        (Some(entry), 1) => {
-            let encoded = super::value_codec::encode(&LengthDirectoryEntry {
-                cardinality: entry.cardinality.checked_add(1).ok_or_else(|| {
-                    StoreError::CorruptIndex("length directory cardinality overflow".into())
-                })?,
-            })?;
-            table
-                .insert(key.as_slice(), encoded.as_slice())
-                .map_err(map_storage)?;
-        }
-        (Some(entry), -1) if entry.cardinality <= 1 => {
-            table.remove(key.as_slice()).map_err(map_storage)?;
-        }
-        (Some(entry), -1) => {
-            let encoded = super::value_codec::encode(&LengthDirectoryEntry {
-                cardinality: entry.cardinality - 1,
-            })?;
-            table
-                .insert(key.as_slice(), encoded.as_slice())
-                .map_err(map_storage)?;
-        }
-        (None, 1) => {
-            let encoded =
-                super::value_codec::encode(&LengthDirectoryEntry { cardinality: 1 })?;
-            table
-                .insert(key.as_slice(), encoded.as_slice())
-                .map_err(map_storage)?;
-        }
-        (None, -1) => {
-            return Err(StoreError::CorruptIndex(
-                "removing a length without a directory entry".into(),
-            ));
-        }
-        (_, other) => {
-            return Err(StoreError::State(format!(
-                "invalid length directory delta {other}"
-            )));
-        }
+    let current = existing.as_ref().map_or(0, |entry| entry.cardinality);
+    let updated = if delta >= 0 {
+        current.checked_add(delta as u64)
+    } else {
+        current.checked_sub((-delta) as u64)
+    }
+    .ok_or_else(|| StoreError::CorruptIndex("length directory cardinality overflow".into()))?;
+    if updated == 0 {
+        table.remove(key.as_slice()).map_err(map_storage)?;
+    } else {
+        let encoded = super::value_codec::encode(&LengthDirectoryEntry {
+            cardinality: updated,
+        })?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
     }
     Ok(())
 }
@@ -599,7 +554,7 @@ pub fn put_contributions(
     contributions: &StoredContributions,
 ) -> StoreResult<()> {
     let key = keys::record(collection.0, slot.0);
-    let encoded = super::value_codec::encode_contribution(contributions)?;
+    let encoded = contribution_codec::encode(contributions)?;
     let mut table = tx.open_table(tables::RECORD_CONTRIBUTIONS).map_err(map_table)?;
     table
         .insert(key.as_slice(), encoded.as_slice())
@@ -617,7 +572,9 @@ pub fn get_contributions(
     let Some(value) = table.get(key.as_slice()).map_err(map_storage)? else {
         return Ok(None);
     };
-    super::value_codec::decode_contribution(value.value()).map(Some)
+    let payload = contribution_codec::decode(value.value())?;
+    let grams = read_record_grams_tx(tx, collection, slot)?;
+    Ok(Some(payload.into_contributions(grams)))
 }
 
 pub fn remove_contributions(
@@ -666,13 +623,41 @@ pub fn insert_structured(
     slot: RecordSlot,
     contributions: &StoredContributions,
 ) -> StoreResult<()> {
+    insert_structured_without_states(tx, collection, slot, contributions)?;
+    super::states::insert_masks(tx, collection, slot, &contributions.state_masks)
+}
+
+/// Insert value, length, coverage and domain memberships; callers that batch
+/// structural-state changes separately use this to avoid duplicate state work.
+pub fn insert_structured_without_states(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    slot: RecordSlot,
+    contributions: &StoredContributions,
+) -> StoreResult<()> {
     for (binding, value) in &contributions.values {
         insert_value_member(tx, collection, *binding, value, slot)?;
     }
     for (binding, length) in &contributions.lengths {
         insert_length_member(tx, collection, *binding, &ScalarKey::Number(length.clone()), slot)?;
     }
-    super::states::insert_masks(tx, collection, slot, &contributions.state_masks)?;
+    for (binding, coverage) in &contributions.coverage {
+        insert_coverage_member(tx, collection, *binding, *coverage, slot)?;
+    }
+    for domain in &contributions.domains {
+        insert_domain_member(tx, collection, *domain, slot)?;
+    }
+    Ok(())
+}
+
+/// Insert only coverage and domain memberships. Used by batch importers that
+/// handle value/length blocks separately.
+pub fn insert_metadata_memberships(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    slot: RecordSlot,
+    contributions: &StoredContributions,
+) -> StoreResult<()> {
     for (binding, coverage) in &contributions.coverage {
         insert_coverage_member(tx, collection, *binding, *coverage, slot)?;
     }
@@ -702,6 +687,44 @@ pub fn remove_structured(
         remove_domain_member(tx, collection, *domain, slot)?;
     }
     Ok(())
+}
+
+/// Read every reverse gram list for one record inside the current transaction.
+pub fn read_record_grams_tx(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    slot: RecordSlot,
+) -> StoreResult<Vec<super::value_codec::GramProjection>> {
+    let prefix = keys::record_grams_prefix(collection.0, slot.0);
+    let successor = prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    let table = tx.open_table(tables::RECORD_GRAMS).map_err(map_table)?;
+    let mut grams = Vec::new();
+    for row in table
+        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+        .map_err(map_storage)?
+    {
+        let (key, value) = row.map_err(map_storage)?;
+        let mut cursor = Cursor::new(key.value());
+        let _collection = cursor.read_u32()?;
+        let _slot = cursor.read_u32()?;
+        let binding = cursor.read_u32()?;
+        let kind = cursor.read_u8()?;
+        let list = super::value_codec::decode_gram_list(value.value())?;
+        grams.push(super::value_codec::GramProjection {
+            binding,
+            kind: if kind == super::tables::GRAM_SKIP {
+                super::value_codec::GramKind::Skip
+            } else {
+                super::value_codec::GramKind::Normal
+            },
+            grams: list,
+        });
+    }
+    Ok(grams)
 }
 
 pub fn sort_definitions(

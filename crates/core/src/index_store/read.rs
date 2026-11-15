@@ -20,6 +20,10 @@ use super::value_codec::{
     StateKind, ValueDirectoryEntry,
 };
 use super::{StoreError, StoreResult, StoreView, tables, value_codec};
+#[cfg(feature = "store-posting-rows")]
+use super::posting_rows as postings;
+#[cfg(not(feature = "store-posting-rows"))]
+use super::posting_blocks as postings;
 
 #[derive(Clone, Debug)]
 pub struct FileIdAndSlot {
@@ -418,29 +422,16 @@ pub fn value_members(
     binding: BindingId,
     value: &ScalarKey,
 ) -> StoreResult<Vec<RecordSlot>> {
-    let table = view
-        .read()
-        .open_table(tables::VALUE_MEMBERS)
-        .map_err(map_table)?;
-    let prefix = keys::value_directory_key(collection.0, binding, value)?;
-    let successor = prefix_successor(&prefix);
-    let upper = successor
-        .as_deref()
-        .map(Bound::Excluded)
-        .unwrap_or(Bound::Unbounded);
-    let mut slots = Vec::new();
-    for row in table
-        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
-        .map_err(map_storage)?
-    {
-        let (key, _) = row.map_err(map_storage)?;
-        let mut cursor = Cursor::new(key.value());
-        let _collection = cursor.read_u32()?;
-        let _binding = cursor.read_u32()?;
-        let _value = cursor.read_scalar()?;
-        slots.push(RecordSlot(cursor.read_u32()?));
-    }
-    Ok(slots)
+    postings::members(view, postings::PostingFamily::Value, collection, binding, value)
+}
+
+pub fn length_members(
+    view: &StoreView,
+    collection: CollectionId,
+    binding: BindingId,
+    length: &ScalarKey,
+) -> StoreResult<Vec<RecordSlot>> {
+    postings::members(view, postings::PostingFamily::Length, collection, binding, length)
 }
 
 /// Stream value memberships in key order. The callback receives the exact
@@ -449,33 +440,56 @@ pub fn for_each_value_member(
     view: &StoreView,
     collection: CollectionId,
     binding: BindingId,
-    mut visit: impl FnMut(&ScalarKey, RecordSlot) -> StoreResult<bool>,
+    #[allow(unused_mut)] mut visit: impl FnMut(&ScalarKey, RecordSlot) -> StoreResult<bool>,
 ) -> StoreResult<()> {
-    let table = view
-        .read()
-        .open_table(tables::VALUE_MEMBERS)
-        .map_err(map_table)?;
-    let prefix = keys::value_prefix(collection.0, binding);
-    let successor = prefix_successor(&prefix);
-    let upper = successor
-        .as_deref()
-        .map(Bound::Excluded)
-        .unwrap_or(Bound::Unbounded);
-    for row in table
-        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
-        .map_err(map_storage)?
+    #[cfg(not(feature = "store-posting-rows"))]
     {
-        let (key, _) = row.map_err(map_storage)?;
-        let mut cursor = Cursor::new(key.value());
-        let _collection = cursor.read_u32()?;
-        let _binding = cursor.read_u32()?;
-        let value = cursor.read_scalar()?;
-        let slot = RecordSlot(cursor.read_u32()?);
-        if !visit(&value, slot)? {
-            break;
-        }
+        return super::posting_blocks::for_each_member(
+            view,
+            super::posting_blocks::PostingFamily::Value,
+            collection,
+            binding,
+            visit,
+        );
     }
-    Ok(())
+    #[cfg(feature = "store-posting-rows")]
+    {
+        let mut values = Vec::new();
+        let table = view
+            .read()
+            .open_table(tables::VALUE_DIRECTORY)
+            .map_err(map_table)?;
+        let prefix = keys::value_prefix(collection.0, binding);
+        let successor = prefix_successor(&prefix);
+        let upper = successor
+            .as_deref()
+            .map(Bound::Excluded)
+            .unwrap_or(Bound::Unbounded);
+        for row in table
+            .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+            .map_err(map_storage)?
+        {
+            let (key, _) = row.map_err(map_storage)?;
+            let mut cursor = Cursor::new(key.value());
+            let _collection = cursor.read_u32()?;
+            let _binding = cursor.read_u32()?;
+            values.push(cursor.read_scalar()?);
+        }
+        for value in values {
+            for slot in postings::members(
+                view,
+                postings::PostingFamily::Value,
+                collection,
+                binding,
+                &value,
+            )? {
+                if !visit(&value, slot)? {
+                    return Ok(());
+                }
+            }
+        }
+        Ok(())
+    }
 }
 
 pub fn value_directory_entry(
@@ -742,6 +756,56 @@ pub fn for_each_fts_block(
         }
     }
     Ok(())
+}
+
+/// Complete reverse bundle for one record: stored payload plus `record_grams`
+/// rows read from the same snapshot.
+pub fn contributions(
+    view: &StoreView,
+    collection: CollectionId,
+    slot: RecordSlot,
+) -> StoreResult<Option<super::value_codec::StoredContributions>> {
+    let table = view
+        .read()
+        .open_table(tables::RECORD_CONTRIBUTIONS)
+        .map_err(map_table)?;
+    let key = keys::record(collection.0, slot.0);
+    let Some(value) = table.get(key.as_slice()).map_err(map_storage)? else {
+        return Ok(None);
+    };
+    let payload = super::contribution_codec::decode(value.value())?;
+    let mut grams = Vec::new();
+    let prefix = keys::record_grams_prefix(collection.0, slot.0);
+    let successor = prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    let gram_table = view
+        .read()
+        .open_table(tables::RECORD_GRAMS)
+        .map_err(map_table)?;
+    for row in gram_table
+        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+        .map_err(map_storage)?
+    {
+        let (key, value) = row.map_err(map_storage)?;
+        let mut cursor = Cursor::new(key.value());
+        let _collection = cursor.read_u32()?;
+        let _slot = cursor.read_u32()?;
+        let binding = cursor.read_u32()?;
+        let kind = cursor.read_u8()?;
+        grams.push(super::value_codec::GramProjection {
+            binding,
+            kind: if kind == super::tables::GRAM_SKIP {
+                super::value_codec::GramKind::Skip
+            } else {
+                super::value_codec::GramKind::Normal
+            },
+            grams: super::value_codec::decode_gram_list(value.value())?,
+        });
+    }
+    Ok(Some(payload.into_contributions(grams)))
 }
 
 pub fn record_grams(

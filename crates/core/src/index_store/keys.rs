@@ -70,6 +70,7 @@ pub fn value_prefix(collection: u32, id: BindingId) -> Vec<u8> {
     binding(collection, id)
 }
 
+#[cfg(feature = "store-posting-rows")]
 pub fn value_member(
     collection: u32,
     binding: BindingId,
@@ -84,6 +85,16 @@ pub fn value_member(
     Ok(key.into_bytes())
 }
 
+#[cfg(feature = "store-posting-rows")]
+pub fn length_member(
+    collection: u32,
+    binding: BindingId,
+    length: &ScalarKey,
+    slot: u32,
+) -> Result<Vec<u8>, StoreError> {
+    value_member(collection, binding, length, slot)
+}
+
 pub fn value_directory_key(
     collection: u32,
     binding: BindingId,
@@ -94,10 +105,6 @@ pub fn value_directory_key(
     key.push_u32(binding);
     key.push_scalar(value)?;
     Ok(key.into_bytes())
-}
-
-pub fn length_member(collection: u32, binding: BindingId, length: &ScalarKey, slot: u32) -> Result<Vec<u8>, StoreError> {
-    value_member(collection, binding, length, slot)
 }
 
 pub fn length_directory_key(
@@ -280,6 +287,13 @@ pub fn record_grams(collection: u32, slot: u32, binding: BindingId, kind: GramKi
     key.push_u32(slot);
     key.push_u32(binding);
     key.push_u8(kind.tag());
+    key.into_bytes()
+}
+
+pub fn record_grams_prefix(collection: u32, slot: u32) -> Vec<u8> {
+    let mut key = KeyWriter::with_capacity(8);
+    key.push_u32(collection);
+    key.push_u32(slot);
     key.into_bytes()
 }
 

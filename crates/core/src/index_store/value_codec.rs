@@ -22,7 +22,7 @@ use super::tables::{
 };
 
 pub const VALUE_FORMAT_TAG: u8 = 1;
-pub const CONTRIBUTION_FORMAT_TAG: u8 = 2;
+pub const CONTRIBUTION_FORMAT_TAG: u8 = 3;
 pub const STATE_MASK_BITS: u16 = 0x03FF;
 
 /// Store-wide header written during initialization.
@@ -375,9 +375,23 @@ pub struct GramProjection {
     pub grams: Vec<u64>,
 }
 
-/// Complete reverse contribution for one record. This is the authority for
-/// removing old memberships; caller-supplied old source bytes are never
-/// required for deletion.
+/// Stored reverse-contribution payload. Gram lists are deliberately absent:
+/// they live only in `record_grams`, the single authoritative reverse FTS
+/// representation.
+#[derive(Clone, Debug, PartialEq, Serialize, serde::Deserialize)]
+pub struct ContributionPayload {
+    pub record: RecordMetadata,
+    pub values: Vec<(BindingId, ScalarKey)>,
+    pub lengths: Vec<(BindingId, Number)>,
+    pub state_masks: Vec<(BindingId, u16)>,
+    pub coverage: Vec<(BindingId, CoverageKind)>,
+    pub domains: Vec<DomainKind>,
+    pub sorts: Vec<SortProjection>,
+    pub relations: Vec<RelationOccurrence>,
+}
+
+/// Complete preparation/mutation bundle for one record. The stored payload
+/// excludes `grams`; readers join `record_grams` in the same transaction.
 #[derive(Clone, Debug, PartialEq, Serialize, serde::Deserialize)]
 pub struct StoredContributions {
     pub record: RecordMetadata,
@@ -420,6 +434,35 @@ impl StoredContributions {
         }
         self.grams
             .dedup_by(|a, b| a.binding == b.binding && a.kind == b.kind);
+    }
+}
+
+impl ContributionPayload {
+    pub fn from_contributions(contributions: &StoredContributions) -> Self {
+        Self {
+            record: contributions.record.clone(),
+            values: contributions.values.clone(),
+            lengths: contributions.lengths.clone(),
+            state_masks: contributions.state_masks.clone(),
+            coverage: contributions.coverage.clone(),
+            domains: contributions.domains.clone(),
+            sorts: contributions.sorts.clone(),
+            relations: contributions.relations.clone(),
+        }
+    }
+
+    pub fn into_contributions(self, grams: Vec<GramProjection>) -> StoredContributions {
+        StoredContributions {
+            record: self.record,
+            values: self.values,
+            lengths: self.lengths,
+            state_masks: self.state_masks,
+            coverage: self.coverage,
+            domains: self.domains,
+            sorts: self.sorts,
+            relations: self.relations,
+            grams,
+        }
     }
 }
 
@@ -468,31 +511,6 @@ pub fn validate_state_masks(masks: &[(BindingId, u16)]) -> Result<(), StoreError
     Ok(())
 }
 
-pub fn encode_contribution(value: &StoredContributions) -> Result<Vec<u8>, StoreError> {
-    validate_state_masks(&value.state_masks)?;
-    let payload = bincode::serialize(value).map_err(|error| {
-        StoreError::CorruptIndex(format!("contribution encode failed: {error}"))
-    })?;
-    let mut bytes = Vec::with_capacity(payload.len() + 1);
-    bytes.push(CONTRIBUTION_FORMAT_TAG);
-    bytes.extend_from_slice(&payload);
-    Ok(bytes)
-}
-
-pub fn decode_contribution(bytes: &[u8]) -> Result<StoredContributions, StoreError> {
-    let (tag, payload) = bytes
-        .split_first()
-        .ok_or_else(|| StoreError::CorruptIndex("empty contribution record".into()))?;
-    if *tag != CONTRIBUTION_FORMAT_TAG {
-        return Err(StoreError::CorruptIndex(format!(
-            "obsolete or unknown contribution format tag {tag}"
-        )));
-    }
-    let value: StoredContributions = bincode::deserialize(payload)
-        .map_err(|error| StoreError::CorruptIndex(format!("malformed contribution: {error}")))?;
-    validate_state_masks(&value.state_masks)?;
-    Ok(value)
-}
 
 pub fn encode<T: Serialize>(value: &T) -> Result<Vec<u8>, StoreError> {
     let payload = bincode::serialize(value)

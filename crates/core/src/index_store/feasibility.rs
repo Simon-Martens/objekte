@@ -598,7 +598,7 @@ fn export_collection(
             // per-record list. Record gram sets are estimated separately.
             grams: Vec::new(),
         };
-        let bytes = crate::index_store::value_codec::encode_contribution(&contribution)
+        let bytes = crate::index_store::contribution_codec::encode(&contribution)
             .map_err(|error| error.to_string())?;
         report.reverse_contribution_bytes += bytes.len() as u64;
         write::put_contributions(&tx, collection_id, entry.slot, &contribution)

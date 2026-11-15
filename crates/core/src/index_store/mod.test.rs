@@ -7,13 +7,14 @@ use crate::inventory::{
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot};
 use crate::posting::ScalarKey;
+use redb::ReadableTable;
 
 use super::construction::{ConstructionCounters, mark_indexed};
 use super::key_codec::encode_scalar;
 use super::regeneration::reset_tables;
 use super::value_codec::{
     BindingDescriptor, BindingIdentity, BindingRole, BuildFileState, CollectionMetadata,
-    ConstructionState, FieldDescriptor, FileBuildState, GramKind, RecordMetadata,
+    ConstructionState, FieldDescriptor, FileBuildState, GramKind, GramProjection, RecordMetadata,
     RelationOccurrence, SortDefinition, SortDirection, SortProjection, StateKind, StoredBinding,
     StoredContributions, ValueDirectoryEntry,
 };
@@ -623,4 +624,41 @@ fn scalar_encoding_is_not_dependent_on_rust_enum_layout() {
         encode_scalar(&ScalarKey::Bool(true)).expect("scalar"),
         vec![3, 1]
     );
+}
+
+#[test]
+fn contribution_payload_excludes_grams_and_reads_them_from_record_grams() {
+    let store = empty_store();
+    let tx = store.begin_write().expect("write");
+    let entry = record_entry(0, "r");
+    let mut contribution = contributions(&entry, 1);
+    contribution.grams = vec![GramProjection {
+        binding: 0,
+        kind: GramKind::Normal,
+        grams: vec![1, 2, 3],
+    }];
+    super::fts::insert_record_grams(&tx, CollectionId(0), RecordSlot(0), &contribution.grams)
+        .expect("grams");
+    write::put_contributions(&tx, CollectionId(0), RecordSlot(0), &contribution)
+        .expect("contributions");
+    tx.commit().expect("commit");
+    let view = store.view().expect("view");
+    let loaded = read::contributions(&view, CollectionId(0), RecordSlot(0))
+        .expect("load")
+        .expect("present");
+    assert_eq!(loaded.grams, contribution.grams);
+    let raw = {
+        let tx = store.begin_write().expect("write");
+        let table = tx
+            .open_table(super::tables::RECORD_CONTRIBUTIONS)
+            .expect("table");
+        let key = super::keys::record(0, 0);
+        table
+            .get(key.as_slice())
+            .expect("get")
+            .expect("present")
+            .value()
+            .to_vec()
+    };
+    assert!(!raw.windows(3).any(|window| window == [1, 2, 3]));
 }

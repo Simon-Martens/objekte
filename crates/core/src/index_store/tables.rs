@@ -43,6 +43,8 @@ pub const FILE_RECORDS: ByteTable = byte_table!("file_records");
 pub const SLOT_INCARNATIONS: ByteTable = byte_table!("slot_incarnations");
 pub const FREE_SLOTS: ByteTable = byte_table!("free_slots");
 pub const RECORD_CONTRIBUTIONS: ByteTable = byte_table!("record_contributions");
+pub const VALUE_BLOCKS: ByteTable = byte_table!("value_blocks");
+pub const LENGTH_BLOCKS: ByteTable = byte_table!("length_blocks");
 pub const VALUE_MEMBERS: ByteTable = byte_table!("value_members");
 pub const LENGTH_MEMBERS: ByteTable = byte_table!("length_members");
 pub const STATE_BLOCKS: ByteTable = byte_table!("state_blocks");
@@ -80,6 +82,8 @@ pub const ALL_TABLES: &[(&str, ByteTable)] = &[
     ("slot_incarnations", SLOT_INCARNATIONS),
     ("free_slots", FREE_SLOTS),
     ("record_contributions", RECORD_CONTRIBUTIONS),
+    ("value_blocks", VALUE_BLOCKS),
+    ("length_blocks", LENGTH_BLOCKS),
     ("value_members", VALUE_MEMBERS),
     ("length_members", LENGTH_MEMBERS),
     ("state_blocks", STATE_BLOCKS),

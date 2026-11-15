@@ -260,19 +260,24 @@ fn reverse_masks_reconstruct_exact_memberships() {
         grams: Vec::new(),
     };
     let encoded =
-        crate::index_store::value_codec::encode_contribution(&contributions).expect("encode");
-    let decoded =
-        crate::index_store::value_codec::decode_contribution(&encoded).expect("decode");
-    assert_eq!(decoded, contributions);
+        crate::index_store::contribution_codec::encode(&contributions).expect("encode");
+    let decoded = crate::index_store::contribution_codec::decode(&encoded).expect("decode");
+    assert_eq!(
+        decoded.into_contributions(Vec::new()),
+        crate::index_store::value_codec::StoredContributions {
+            grams: Vec::new(),
+            ..contributions.clone()
+        }
+    );
     let mut bad = contributions.clone();
     bad.state_masks = vec![(2, STATE_MASK_BITS + 1)];
-    assert!(crate::index_store::value_codec::encode_contribution(&bad).is_err());
+    assert!(crate::index_store::contribution_codec::encode(&bad).is_err());
     let mut unsorted = contributions.clone();
     unsorted.state_masks = vec![(2, 1), (1, 1)];
-    assert!(crate::index_store::value_codec::encode_contribution(&unsorted).is_err());
+    assert!(crate::index_store::contribution_codec::encode(&unsorted).is_err());
     let mut zero = contributions;
     zero.state_masks = vec![(2, 0)];
-    assert!(crate::index_store::value_codec::encode_contribution(&zero).is_err());
+    assert!(crate::index_store::contribution_codec::encode(&zero).is_err());
 }
 
 #[test]

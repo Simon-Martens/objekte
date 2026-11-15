@@ -27,9 +27,12 @@ pub struct StateStatistics {
 }
 
 /// Accumulated bit changes keyed by `(binding, predicate, block)`.
+type StateBlockKey = (BindingId, StateKind, u32);
+type StateBlockChanges = (Vec<u16>, Vec<u16>);
+
 #[derive(Default)]
 pub struct StateBatch {
-    changes: BTreeMap<(BindingId, StateKind, u32), (Vec<u16>, Vec<u16>)>,
+    changes: BTreeMap<StateBlockKey, StateBlockChanges>,
 }
 
 impl StateBatch {

@@ -13,6 +13,8 @@ path = "src/lib.rs"
 default = []
 detailed-profiling = []
 store-feasibility = []
+store-posting-rows = []
+store-reverse-lz4 = []
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
@@ -32,6 +34,7 @@ regex = "=1.13.1"
 regex-syntax = "=0.8.11"
 libc = "0.2"
 redb = "=4.6.0"
+lz4_flex = { version = "=0.14.0", default-features = false, features = ["std", "safe-encode", "safe-decode", "checked-decode"] }
 
 [[example]]
 name = "bench_index_store"

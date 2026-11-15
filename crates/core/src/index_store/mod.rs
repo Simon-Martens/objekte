@@ -19,13 +19,19 @@ use redb::{Database, ReadTransaction, ReadableDatabase, WriteTransaction};
 
 pub mod construction;
 pub mod bitmap_block;
+pub mod contribution_codec;
 pub mod contributions;
 pub mod fts;
 #[cfg(feature = "store-feasibility")]
 pub mod feasibility;
+#[cfg(feature = "store-feasibility")]
+pub mod feasibility_input;
 pub mod key_codec;
 pub(crate) mod keys;
 pub mod mutations;
+pub mod posting_blocks;
+#[cfg(feature = "store-posting-rows")]
+pub mod posting_rows;
 pub mod read;
 pub mod regeneration;
 pub mod relations;
@@ -127,10 +133,20 @@ impl fmt::Debug for IndexStore {
 impl IndexStore {
     /// Create an empty in-memory store and initialize every registered table.
     pub fn new(config: StoreConfig) -> StoreResult<Self> {
+        Self::with_backend(config, InMemoryBackend::new())
+    }
+
+    /// Create a store over an explicitly supplied backend. The feasibility
+    /// harness uses this for allocation accounting; production always passes
+    /// `InMemoryBackend`.
+    pub fn with_backend(
+        config: StoreConfig,
+        backend: impl redb::StorageBackend,
+    ) -> StoreResult<Self> {
         let mut builder = redb::Builder::new();
         builder.set_cache_size(config.cache_bytes);
         let database = builder
-            .create_with_backend(InMemoryBackend::new())
+            .create_with_backend(backend)
             .map_err(StoreError::database)?;
         let instance_id = next_instance_id();
         let store = Self {

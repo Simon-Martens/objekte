@@ -1,0 +1,202 @@
+{
+  "task": "redb-primary-index",
+  "campaign": "phase-5-a2-complete-store",
+  "date": "2026-11-15",
+  "amendments": [
+    "objekte_redb_structural_state_amendment_a1.md",
+    "objekte_redb_storage_amendment_a2.md"
+  ],
+  "baseline": {
+    "ascii_resident_bytes": 478220288,
+    "ascii_peak_bytes": 488243200,
+    "gate_post_build_bytes": 549953331,
+    "gate_peak_bytes": 585891840
+  },
+  "input": {
+    "records": 148486,
+    "files": 148486,
+    "collections": 7,
+    "state_facts": 14004908,
+    "ascii_gram_memberships": 56275908,
+    "unicode_gram_memberships": 58058087,
+    "value_members": 2814411,
+    "length_members": 921173,
+    "sort_entries": 566768
+  },
+  "variants": {
+    "control": {
+      "profiles": [
+        "ascii"
+      ],
+      "samples": 7,
+      "rss_median_bytes": 1231368192,
+      "peak_median_bytes": 1231536128,
+      "page_median_bytes": 845381632,
+      "import_median_ns": 16826048677
+    },
+    "reverse": {
+      "profiles": [
+        "ascii"
+      ],
+      "samples": 7,
+      "rss_median_bytes": 1231568896,
+      "peak_median_bytes": 1231593472,
+      "page_median_bytes": 739622912,
+      "import_median_ns": 16486898109
+    },
+    "postings": {
+      "profiles": [
+        "ascii"
+      ],
+      "samples": 7,
+      "rss_median_bytes": 1231589376,
+      "peak_median_bytes": 1231716352,
+      "page_median_bytes": 622342144,
+      "import_median_ns": 8663672752
+    },
+    "combined": {
+      "profiles": [
+        "ascii",
+        "unicode"
+      ],
+      "samples": 7,
+      "ascii": {
+        "rss_median_bytes": 661000192,
+        "peak_median_bytes": 661348352,
+        "page_median_bytes": 516440064,
+        "import_median_ns": 8755170558
+      },
+      "unicode": {
+        "rss_median_bytes": 662102016,
+        "peak_median_bytes": 662401024,
+        "page_median_bytes": 550846464,
+        "import_median_ns": 8982532507
+      }
+    }
+  },
+  "combined_backend": {
+    "backend_len_bytes": 570429440,
+    "backend_peak_bytes": 570429440,
+    "process_rss_bytes": 661270528,
+    "table_page_bytes": 516325376
+  },
+  "combined_tables_ascii": [
+    [
+      "record_grams",
+      73399936,
+      113261000
+    ],
+    [
+      "record_contributions",
+      93139763,
+      106168320
+    ],
+    [
+      "sort_entries",
+      49007820,
+      92397568
+    ],
+    [
+      "fts_blocks",
+      44155316,
+      77873152
+    ],
+    [
+      "files",
+      23435674,
+      25710592
+    ],
+    [
+      "value_blocks",
+      12855541,
+      21643264
+    ],
+    [
+      "value_directory",
+      12464210,
+      20234240
+    ],
+    [
+      "records",
+      13212058,
+      14745600
+    ],
+    [
+      "domain_members",
+      2631926,
+      7561216
+    ],
+    [
+      "state_blocks",
+      2348992,
+      4227072
+    ]
+  ],
+  "gates": [
+    {
+      "gate": "complete_input_one_copy_reverse_grams",
+      "status": "pass",
+      "observed": {
+        "reverse_gram_memberships": 56275908,
+        "forward_gram_memberships": 56275908
+      }
+    },
+    {
+      "gate": "four_variants_built_and_measured",
+      "status": "pass",
+      "observed": [
+        "control",
+        "reverse",
+        "postings",
+        "combined"
+      ]
+    },
+    {
+      "gate": "post_build_rss",
+      "status": "fail",
+      "threshold_bytes": 549953331,
+      "observed_best_bytes": 661000192,
+      "ratio": 1.38
+    },
+    {
+      "gate": "peak_rss",
+      "status": "fail",
+      "threshold_bytes": 585891840,
+      "observed_best_bytes": 661363712,
+      "ratio": 1.29
+    },
+    {
+      "gate": "backend_length",
+      "status": "fail",
+      "threshold_bytes": 549953331,
+      "observed_bytes": 570429440
+    },
+    {
+      "gate": "page_bytes_plus_cache",
+      "status": "fail",
+      "threshold_bytes": 549953331,
+      "observed_bytes": 583845376
+    },
+    {
+      "gate": "end_to_end_query",
+      "status": "unavailable",
+      "reason": "no production query path routed through the store"
+    },
+    {
+      "gate": "production_cutover",
+      "status": "fail",
+      "reason": "Phase 5 gate not met; Phases 6-12 remain blocked"
+    }
+  ],
+  "next_dominant": [
+    "record_grams",
+    "record_contributions",
+    "sort_entries",
+    "fts_blocks"
+  ],
+  "decision_required": [
+    "Amend reverse gram and/or sort compression for another Phase-5 cycle",
+    "Relax the RSS gate with an explicit decision",
+    "Stop the migration and keep the A1/A2 evidence"
+  ]
+}
