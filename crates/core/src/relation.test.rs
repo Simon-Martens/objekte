@@ -938,3 +938,81 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn vacuum_primitives_remove_and_map_references() {
+    let declaration = relation(&["target"], "entries", RelationCardinality::One, "mentions");
+    let make = || RelationContribution {
+        declaration: declaration.clone(),
+        record_count: 4,
+        references: crate::slot_store::SlotTable::from_vec(vec![
+            PendingReference {
+                source: RecordSlot(0),
+                target_id: "a".into(),
+                positions: vec![0],
+            },
+            PendingReference {
+                source: RecordSlot(1),
+                target_id: "b".into(),
+                positions: vec![1],
+            },
+            PendingReference {
+                source: RecordSlot(2),
+                target_id: "c".into(),
+                positions: vec![2],
+            },
+        ]),
+        present: [0u32, 1, 2].into_iter().collect(),
+        nulls: [3u32].into_iter().collect(),
+        empty_arrays: RoaringBitmap::new(),
+        unavailable: RoaringBitmap::new(),
+    };
+    let mut contribution = make();
+    contribution.remove_sources(&[0u32, 2].into_iter().collect());
+    assert_eq!(contribution.references_for_source(RecordSlot(0)).count(), 0);
+    assert_eq!(contribution.references_for_source(RecordSlot(2)).count(), 0);
+    assert_eq!(
+        contribution
+            .references_for_source(RecordSlot(1))
+            .map(|(target, positions)| (target.to_owned(), positions.to_vec()))
+            .collect::<Vec<_>>(),
+        vec![("b".to_owned(), vec![1])]
+    );
+    assert_eq!(contribution.present(), &[1u32].into_iter().collect());
+
+    let mut target = make();
+    target.references = crate::slot_store::SlotTable::new();
+    let batch = make();
+    target
+        .merge_mapped(
+            &batch,
+            &crate::build::SlotMapping {
+                reused: vec![RecordSlot(5), RecordSlot(7)],
+                base: 10,
+            },
+            14,
+        )
+        .unwrap();
+    assert_eq!(target.record_count(), 14);
+    assert_eq!(
+        target
+            .references_for_source(RecordSlot(5))
+            .map(|(target, positions)| (target.to_owned(), positions.to_vec()))
+            .collect::<Vec<_>>(),
+        vec![("a".to_owned(), vec![0])]
+    );
+    assert_eq!(
+        target
+            .references_for_source(RecordSlot(7))
+            .map(|(target, positions)| (target.to_owned(), positions.to_vec()))
+            .collect::<Vec<_>>(),
+        vec![("b".to_owned(), vec![1])]
+    );
+    assert_eq!(
+        target
+            .references_for_source(RecordSlot(10))
+            .map(|(target, positions)| (target.to_owned(), positions.to_vec()))
+            .collect::<Vec<_>>(),
+        vec![("c".to_owned(), vec![2])]
+    );
+}

@@ -384,3 +384,68 @@ fn diff_chunks_refuses_native_maps() {
     assert!(!shared.diff_chunks(&native, |_| Ok(())).unwrap());
     assert!(!native.diff_chunks(&shared, |_| Ok(())).unwrap());
 }
+
+/// `remove_slots` equals subtracting the dead set from every posting and
+/// dropping keys that became empty, in both backings.
+#[test]
+fn remove_slots_matches_the_model() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    for seed in 0..40u64 {
+        let mut random = Lcg(seed + 500);
+        let mut model: BTreeMap<u16, RoaringBitmap> = BTreeMap::new();
+        for _ in 0..600 {
+            model
+                .entry(random.next(40) as u16)
+                .or_default()
+                .insert(random.next(3 * chunk));
+        }
+        let mut dead = RoaringBitmap::new();
+        for _ in 0..random.next(400) {
+            dead.insert(random.next(3 * chunk));
+        }
+        if seed % 5 == 0 {
+            dead.insert_range(0..chunk);
+        }
+        let native = PostingMap::from_btree_map(model.clone());
+        let mut shared = native.clone();
+        shared.freeze();
+        let snapshot = shared.clone();
+        let mut expected_removed = 0u64;
+        model.retain(|_, posting| {
+            expected_removed += posting.intersection_len(&dead);
+            *posting -= &dead;
+            !posting.is_empty()
+        });
+        for mut map in [native, shared] {
+            assert_eq!(map.remove_slots(&dead), expected_removed);
+            assert_eq!(map.to_btree_map(), model);
+            assert_eq!(map.len(), model.len());
+            assert_eq!(map.first_key(), model.keys().next());
+        }
+        assert!(snapshot.len() >= model.len());
+        assert!(snapshot.all_bitmaps(|part| !part.is_empty()));
+    }
+}
+
+/// `union_with` accepts slots below, between and above the existing ones.
+#[test]
+fn union_with_matches_bitmap_union() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    for frozen in [false, true] {
+        let mut map: PostingMap<u16> = PostingMap::new();
+        if frozen {
+            map.freeze();
+        }
+        map.insert_slot(1, chunk + 5);
+        let extra: RoaringBitmap = [2u32, chunk + 1, chunk + 9, 4 * chunk].into_iter().collect();
+        map.union_with(1, extra.clone());
+        map.union_with(2, extra.clone());
+        map.union_with(3, RoaringBitmap::new());
+        let mut expected = extra.clone();
+        expected.insert(chunk + 5);
+        assert_eq!(map.get(&1).unwrap().into_owned(), expected);
+        assert_eq!(map.get(&2).unwrap().into_owned(), extra);
+        assert_eq!(map.cardinality(&3), 0);
+        assert_eq!(map.len(), 3);
+    }
+}

@@ -725,6 +725,94 @@ impl<K: Ord + Clone> PostingMap<K> {
     }
 }
 
+impl<K: Ord + Clone> SharedPostings<K> {
+    /// Remove `dead` slots from every posting. A key whose posting becomes
+    /// empty is removed. Returns the number of removed memberships.
+    pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        let mut dead_parts: std::collections::HashMap<ChunkId, Option<RoaringBitmap>> =
+            std::collections::HashMap::new();
+        let mut rewrites = Vec::new();
+        for ((key, chunk), part) in self.chunks.iter() {
+            let dead_part = dead_parts.entry(*chunk).or_insert_with(|| {
+                let part = dead & &chunk_mask(*chunk);
+                (!part.is_empty()).then_some(part)
+            });
+            let Some(dead_part) = dead_part else {
+                continue;
+            };
+            let hits = part.intersection_len(dead_part);
+            if hits == 0 {
+                continue;
+            }
+            rewrites.push(((key.clone(), *chunk), part.as_ref() - &*dead_part, hits));
+        }
+        let mut removed = 0u64;
+        let mut touched_keys = Vec::new();
+        for (address, remaining, hits) in rewrites {
+            removed += hits;
+            if remaining.is_empty() {
+                self.chunks.remove(&address);
+                touched_keys.push(address.0);
+            } else {
+                self.chunks.insert(address, Arc::new(remaining));
+            }
+        }
+        touched_keys.dedup_by(|a, b| a == b);
+        for key in touched_keys {
+            if !self.contains_key(&key) {
+                self.keys -= 1;
+            }
+        }
+        removed
+    }
+
+    /// Add every slot of `posting` to `key`. Slots may be in any position
+    /// relative to the existing ones.
+    pub fn union_with(&mut self, key: &K, posting: RoaringBitmap) {
+        let parts = split_chunks(posting);
+        if parts.is_empty() {
+            self.ensure_key(key);
+            return;
+        }
+        for (chunk, part) in parts {
+            self.merge_part(key, chunk, part);
+        }
+    }
+}
+
+impl<K: Ord + Clone> PostingMap<K> {
+    /// Remove `dead` slots from every posting; drop keys that become empty.
+    /// Returns the number of removed memberships.
+    pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        match &mut self.backing {
+            Backing::Building(entries) => {
+                let mut removed = 0u64;
+                entries.retain(|_, posting| {
+                    let hits = posting.intersection_len(dead);
+                    if hits == 0 {
+                        return true;
+                    }
+                    removed += hits;
+                    *posting -= dead;
+                    !posting.is_empty()
+                });
+                removed
+            }
+            Backing::Shared(shared) => shared.remove_slots(dead),
+        }
+    }
+
+    /// `*entry(key).or_default() |= posting`.
+    pub fn union_with(&mut self, key: K, posting: RoaringBitmap) {
+        match &mut self.backing {
+            Backing::Building(entries) => {
+                *entries.entry(key).or_default() |= posting;
+            }
+            Backing::Shared(shared) => shared.union_with(&key, posting),
+        }
+    }
+}
+
 #[cfg(test)]
 #[path = "posting_map.test.rs"]
 mod tests;

@@ -2688,6 +2688,7 @@ mod tests;
 mod mutation_segment;
 pub(crate) use mutation_segment::PartitionRouting;
 pub(crate) use mutation_segment::next_lineage;
+pub(crate) use mutation_segment::SlotMapping;
 
 pub(crate) use mutation_segment::{
     BaseSegmentParts, CollectionSegment, IndexedCollectionSegment, SegmentAdmission, SegmentFile,

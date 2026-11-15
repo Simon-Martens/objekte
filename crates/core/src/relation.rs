@@ -357,6 +357,55 @@ impl RelationContribution {
         self.reference_rows()
     }
 
+    pub(crate) fn remove_sources(&mut self, dead: &RoaringBitmap) {
+        let kept = self
+            .references
+            .to_vec()
+            .into_iter()
+            .filter(|reference| !dead.contains(reference.source.0))
+            .collect::<Vec<_>>();
+        self.references = crate::slot_store::SlotTable::from_vec(kept);
+        self.present -= dead;
+        self.nulls -= dead;
+        self.empty_arrays -= dead;
+        self.unavailable -= dead;
+    }
+
+    pub(crate) fn merge_mapped(
+        &mut self,
+        batch: &Self,
+        mapping: &crate::build::SlotMapping,
+        new_record_count: u32,
+    ) -> Result<(), String> {
+        if self.declaration != batch.declaration {
+            return Err("relation batch representation mismatch".into());
+        }
+        let mapped = |bitmap: &RoaringBitmap| {
+            bitmap
+                .iter()
+                .map(|slot| mapping.target(slot).0)
+                .collect::<RoaringBitmap>()
+        };
+        self.present |= mapped(&batch.present);
+        self.nulls |= mapped(&batch.nulls);
+        self.empty_arrays |= mapped(&batch.empty_arrays);
+        self.unavailable |= mapped(&batch.unavailable);
+        for reference in batch.references.to_vec() {
+            let source = mapping.target(reference.source.0);
+            let entry = PendingReference {
+                source,
+                target_id: reference.target_id,
+                positions: reference.positions,
+            };
+            let position = self
+                .references
+                .partition_point(|existing| existing.source.0 <= source.0);
+            self.references.insert(position, entry);
+        }
+        self.record_count = new_record_count;
+        Ok(())
+    }
+
     pub(crate) fn freeze(&mut self) {
         self.references.freeze();
     }

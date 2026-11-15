@@ -284,6 +284,25 @@ pub(crate) enum ShardRole {
 
 static NEXT_LINEAGE: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
 
+/// Where each slot of a delta shard lands in the main shard.
+pub(crate) struct SlotMapping {
+    pub(crate) reused: Vec<RecordSlot>,
+    pub(crate) base: u32,
+}
+
+impl SlotMapping {
+    pub(crate) fn target(&self, delta_slot: u32) -> RecordSlot {
+        self.reused
+            .get(delta_slot as usize)
+            .copied()
+            .unwrap_or(RecordSlot(self.base + delta_slot - self.reused.len() as u32))
+    }
+
+    pub(crate) fn slot_count(&self, delta_records: u32) -> u32 {
+        self.base + delta_records - self.reused.len() as u32
+    }
+}
+
 pub(crate) fn next_lineage() -> u64 {
     NEXT_LINEAGE.fetch_add(1, std::sync::atomic::Ordering::Relaxed) + 1
 }

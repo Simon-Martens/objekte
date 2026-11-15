@@ -171,6 +171,34 @@ impl GramMap {
         }
     }
 
+    pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        match self {
+            Self::Building(entries) => {
+                let mut removed = 0u64;
+                entries.retain(|_, posting| {
+                    let hits = posting.intersection_len(dead);
+                    if hits == 0 {
+                        return true;
+                    }
+                    removed += hits;
+                    *posting -= dead;
+                    !posting.is_empty()
+                });
+                removed
+            }
+            Self::Shared(shared) => shared.remove_slots(dead),
+        }
+    }
+
+    pub fn union_with(&mut self, key: u64, posting: RoaringBitmap) {
+        match self {
+            Self::Building(entries) => {
+                *entries.entry(key).or_default() |= posting;
+            }
+            Self::Shared(shared) => shared.union_with(key, posting),
+        }
+    }
+
     #[cfg(test)]
     pub fn stored_chunk_count(&self) -> usize {
         match self {

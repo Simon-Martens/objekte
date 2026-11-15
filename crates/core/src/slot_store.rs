@@ -102,6 +102,13 @@ impl<T: Clone> SlotTable<T> {
         }
     }
 
+    pub(crate) fn insert(&mut self, index: usize, value: T) {
+        match self {
+            Self::Building(values) => values.insert(index, value),
+            Self::Shared(values) => values.insert(index, value),
+        }
+    }
+
     pub(crate) fn set(&mut self, index: usize, value: T) {
         match self {
             Self::Building(values) => values[index] = value,
@@ -277,6 +284,10 @@ impl SlotOrder {
         }
     }
 
+    pub(crate) fn insert(&mut self, index: usize, slot: RecordSlot) {
+        self.insert_at(index, slot);
+    }
+
     pub(crate) fn insert_at(&mut self, index: usize, slot: RecordSlot) {
         match self {
             Self::Building(values) => values.insert(index, slot),
@@ -284,7 +295,6 @@ impl SlotOrder {
         }
     }
 
-    #[cfg(test)]
     pub(crate) fn retain(&mut self, mut keep: impl FnMut(RecordSlot) -> bool) {
         match self {
             Self::Building(values) => values.retain(|slot| keep(*slot)),
@@ -404,7 +414,6 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
         }
     }
 
-    #[cfg(test)]
     pub(crate) fn remove<Q>(&mut self, key: &Q) -> Option<V>
     where
         K: std::borrow::Borrow<Q>,
