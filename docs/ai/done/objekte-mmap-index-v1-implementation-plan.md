@@ -2558,9 +2558,33 @@ records=100000 warm mean=6.18 ms  cold mean=18.75 ms cold/warm=3.03
 ```
 
 Each entry is the mean of five loads after one discarded warmup. Cold runs
-evict every store file before Load. The automated GUI matrix could not be run in this environment because no
-display server or `xvfb-run` is available; desktop controller/UI tests pass
-headlessly.
+evict every store file before Load.
+
+Native GUI validation ran in the task-owned headless Sway session
+(1920 × 1080, scale 1, 60 Hz):
+
+```text
+bash scripts/gui/install_user_dependencies.sh
+bash scripts/gui/run_gui_validation.sh prepare
+bash scripts/gui/run_gui_validation.sh exercise 400 132 34 173 76 214 500 450 180 214
+bash scripts/gui/run_desktop.sh prepare
+```
+
+The automated control script passed the Unicode/click/scroll/save fixture
+check. The production desktop binary was
+then driven through Build mode, Load mode, all three locations, check-after-load,
+source reconciliation with unsaved changes, explicit Save, and an invalid
+custom path that preserved the current session. Evidence is in
+`docs/ai/generated/mmap-index-storage-gui/validation.md`:
+
+- Build mode and the Load dialog with three location choices.
+- Repository, system-cache, and custom-directory loads each reporting
+  `Origin: Loaded from disk`, mapped bytes, and one run.
+- Check-after-load reporting a complete source check.
+- Source mutation followed by `Check for changes`, `Changes: Unsaved`, and a
+  successful Save.
+- Invalid custom path showing an inline error while results and `Index ready`
+  remain active.
 
 ### Deviations and remaining limitations
 
@@ -2571,8 +2595,8 @@ headlessly.
    rows materialize one at a time on access. The packed-execution migration is
    resolved in
    `docs/ai/done/resolved-issues/mmap-index-packed-execution-migration.md`.
-   Automated GUI execution remains environment-blocked because no display
-   server or `xvfb-run` is available.
+   Native GUI storage validation is complete and recorded in
+   `docs/ai/generated/mmap-index-storage-gui/validation.md`.
 2. **Desktop/TUI storage controls and custom-only opening are implemented.**
    The desktop Open dialog exposes Build/Load, three locations, custom path, and
    check-after-load; the Index panel exposes storage status and Save with
