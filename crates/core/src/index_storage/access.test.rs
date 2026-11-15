@@ -9,7 +9,9 @@ use crate::posting::{PostingIndex, PostingStats, ScalarKey, StructuralFacts, Str
 use crate::query::Operator;
 
 use super::access::{BigramAccess, PackedIndexCatalog, PostingAccess};
+use super::backing::Backing;
 use super::bigram_builder::{BigramBinding, BigramInput};
+use super::format::{ObjectView, SectionKind};
 use super::posting_builder::FieldInput;
 use super::records::{FilePartInput, RecordInput};
 use super::segment::FrozenSegment;
@@ -466,4 +468,35 @@ fn native_packed_resident_and_mapped_access_agree() {
             );
         }
     }
+}
+
+#[test]
+fn corrupt_unused_arena_is_reported_only_when_read() {
+    let mut bytes = packed_segment_bytes();
+    let backing = Backing::resident(bytes.clone());
+    let view = ObjectView::new(&backing).unwrap();
+    let arena = view.required_section(SectionKind::StringArena).unwrap();
+    drop(view);
+    let last = (arena.offset + arena.length - 1) as usize;
+    bytes[last] = 0xff;
+    let packed = FrozenSegment::from_bytes(bytes).expect("admission must not validate payloads");
+    // An unrelated posting lookup remains valid.
+    let title = packed.postings().field(&["title".to_owned()]).unwrap();
+    assert_eq!(
+        title
+            .value(&ScalarKey::String("Alpha".into()))
+            .unwrap()
+            .unwrap()
+            .cardinality(),
+        2
+    );
+    // Reading every record row eventually touches the corrupt string arena.
+    let mut saw_error = false;
+    for slot in 0..SLOTS {
+        if packed.records().record(slot).is_err() {
+            saw_error = true;
+            break;
+        }
+    }
+    assert!(saw_error, "corrupt string arena was not reported");
 }
