@@ -935,6 +935,9 @@ fn index_prepared_file(
                 .map_err(IndexError::Build)?,
         );
     }
+    for segment in &mut indexed {
+        segment.role = crate::build::ShardRole::Mutation;
+    }
     let memberships = indexed.iter().map(|segment| segment.collection).collect();
     let mut entry = FileEntry {
         id: source.id,

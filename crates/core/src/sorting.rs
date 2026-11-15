@@ -347,6 +347,14 @@ impl SortColumn {
         self.keys.extend(source.keys.iter().cloned());
     }
 
+    pub(crate) fn ascending_mut(&mut self) -> &mut crate::slot_store::SlotOrder {
+        &mut self.ascending
+    }
+
+    pub(crate) fn descending_mut(&mut self) -> &mut crate::slot_store::SlotOrder {
+        &mut self.descending
+    }
+
     pub(crate) fn push_ascending(&mut self, slot: RecordSlot) {
         self.ascending.push(slot);
     }
@@ -690,6 +698,10 @@ impl CompositeSortOrder {
             fields,
             order: crate::slot_store::SlotOrder::from_vec(order),
         }
+    }
+
+    pub(crate) fn order_mut(&mut self) -> &mut crate::slot_store::SlotOrder {
+        &mut self.order
     }
 
     pub(crate) fn push_order(&mut self, slot: RecordSlot) {

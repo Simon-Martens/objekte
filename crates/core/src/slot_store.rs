@@ -273,6 +273,13 @@ impl SlotOrder {
         }
     }
 
+    pub(crate) fn insert_at(&mut self, index: usize, slot: RecordSlot) {
+        match self {
+            Self::Building(values) => values.insert(index, slot),
+            Self::Shared(values) => values.insert(index, slot),
+        }
+    }
+
     pub(crate) fn retain(&mut self, mut keep: impl FnMut(RecordSlot) -> bool) {
         match self {
             Self::Building(values) => values.retain(|slot| keep(*slot)),

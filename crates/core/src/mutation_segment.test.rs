@@ -1469,3 +1469,396 @@ fn measure_shared_backing_on_real_fixture() {
         shared_field.distinct_values()
     );
 }
+
+fn append_fixture_shard(tag: &str, file_id: u32, record_count: usize) -> IndexedCollectionSegment {
+    append_fixture_shard_records(tag, file_id, &(0..record_count).collect::<Vec<_>>())
+}
+
+fn append_fixture_shard_records(
+    tag: &str,
+    file_id: u32,
+    numbers: &[usize],
+) -> IndexedCollectionSegment {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-append-{tag}-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    for (path, kind, multi) in [
+        ("name", LogicalType::String, false),
+        ("n", LogicalType::Number, false),
+        (
+            "tags",
+            LogicalType::Array(Box::new(LogicalType::String)),
+            true,
+        ),
+        ("ref", LogicalType::Id, false),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition
+        .schema
+        .register_relation(RelationDefinition {
+            path: vec!["ref".into()],
+            target_collection: "target".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_custom(
+            vec!["name".into()],
+            crate::reference::CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: crate::reference::Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    definition.sort_fields.push(FieldPath::parse("name").unwrap());
+    definition.sort_fields.push(FieldPath::parse("n").unwrap());
+    definition
+        .schema
+        .register_composite_sort(vec![
+            crate::workload::SortField {
+                field: "n".into(),
+                descending: false,
+                expression: None,
+            },
+            crate::workload::SortField {
+                field: "name".into(),
+                descending: true,
+                expression: None,
+            },
+        ])
+        .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let name = format!("{tag}.jsonl");
+    let body = numbers
+        .iter()
+        .map(|number| {
+            format!(
+                "{{\"name\":\"name-{number}\",\"n\":{number},\"tags\":[\"tag-a\",\"tag-b\"],\"ref\":\"target-{}\",\"extra\":{number}}}\n",
+                number % 5
+            )
+        })
+        .collect::<String>();
+    std::fs::write(root.join(&name), body).unwrap();
+    let input = SourceFileInput {
+        id: FileId(file_id),
+        relative_path: name.clone().into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(root.join(&name)).unwrap())
+            .unwrap(),
+        created_ns: None,
+    };
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let inference = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        policy: InferencePolicy::default(),
+    };
+    let prepared = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    admission
+        .admit(&input, prepared.collections.into_iter().next().unwrap())
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let indexed = admission
+        .finish()
+        .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+    indexed
+}
+
+fn assert_shards_equal(actual: &IndexedCollectionSegment, expected: &IndexedCollectionSegment) {
+    assert_eq!(actual.record_count(), expected.record_count());
+    for slot in 0..actual.record_count() {
+        assert_eq!(
+            format!("{:?}", actual.record(RecordSlot(slot as u32))),
+            format!("{:?}", expected.record(RecordSlot(slot as u32)))
+        );
+    }
+    assert_eq!(actual.file_count(), expected.file_count());
+    for position in 0..actual.file_count() {
+        let left = actual.file_at(position).unwrap();
+        let right = expected.file_at(position).unwrap();
+        assert_eq!(format!("{:?}", left.entry), format!("{:?}", right.entry));
+        assert_eq!(left.records, right.records);
+    }
+    let ids = |shard: &IndexedCollectionSegment| {
+        shard
+            .ids_iter()
+            .map(|(id, slot)| (id.clone(), slot))
+            .collect::<std::collections::BTreeMap<_, _>>()
+    };
+    assert_eq!(ids(actual), ids(expected));
+    assert_eq!(actual.identity_order().to_vec(), expected.identity_order().to_vec());
+    assert_eq!(actual.logical_records(), expected.logical_records());
+    assert_eq!(actual.empty_array_records(), expected.empty_array_records());
+    for (path, field) in &expected.postings.fields {
+        let other = &actual.postings.fields[path];
+        assert_eq!(other.value_entries(), field.value_entries());
+        assert_eq!(other.length_entries(), field.length_entries());
+        assert_eq!(
+            other.structural.as_ref().unwrap().entries(),
+            field.structural.as_ref().unwrap().entries()
+        );
+        assert_eq!(other.presence, field.presence);
+        assert_eq!(other.nulls, field.nulls);
+        assert_eq!(other.empty_selections, field.empty_selections);
+        assert_eq!(other.covered_records, field.covered_records);
+        assert_eq!(other.stats.present_count, field.stats.present_count);
+        assert_eq!(other.stats.null_count, field.stats.null_count);
+        assert_eq!(other.stats.distinct_count, field.stats.distinct_count);
+        assert_eq!(other.stats.min_key, field.stats.min_key);
+        assert_eq!(other.stats.max_key, field.stats.max_key);
+    }
+    assert_eq!(actual.custom_postings.len(), expected.custom_postings.len());
+    for (key, custom) in &expected.custom_postings {
+        let other = &actual.custom_postings[key];
+        assert_eq!(other.index.value_entries(), custom.index.value_entries());
+        assert_eq!(other.complete, custom.complete);
+    }
+    match (&actual.inference, &expected.inference) {
+        (None, None) => {}
+        (Some(left), Some(right)) => {
+            assert_eq!(format!("{:?}", left.report), format!("{:?}", right.report));
+            let paths = left
+                .indexes
+                .keys()
+                .chain(right.indexes.keys())
+                .collect::<std::collections::BTreeSet<_>>();
+            for path in paths {
+                assert_eq!(left.indexes.get(path).map(|i| i.value_entries()), right.indexes.get(path).map(|i| i.value_entries()));
+                assert_eq!(left.empty_selections.get(path), right.empty_selections.get(path));
+                assert_eq!(left.short_string_coverage.get(path), right.short_string_coverage.get(path));
+            }
+        }
+        _ => panic!("inference presence differs"),
+    }
+    let grams = |index: &BigramIndex| {
+        (
+            index.normal_entries(),
+            index.skip_entries(),
+            index.record_count,
+        )
+    };
+    assert_eq!(grams(&actual.raw), grams(&expected.raw));
+    assert_eq!(grams(&actual.fallback_text), grams(&expected.fallback_text));
+    assert_eq!(actual.custom_text.len(), expected.custom_text.len());
+    for (key, index) in &expected.custom_text {
+        assert_eq!(grams(&actual.custom_text[key]), grams(index));
+    }
+    assert_eq!(
+        actual.sorting.columns.len(),
+        expected.sorting.columns.len()
+    );
+    for (path, column) in &expected.sorting.columns {
+        let other = &actual.sorting.columns[path];
+        assert_eq!(
+            other.keys_iter().cloned().collect::<Vec<_>>(),
+            column.keys_iter().cloned().collect::<Vec<_>>()
+        );
+        assert_eq!(other.ascending().to_vec(), column.ascending().to_vec());
+        assert_eq!(other.descending().to_vec(), column.descending().to_vec());
+    }
+    assert_eq!(
+        actual.sorting.composites.len(),
+        expected.sorting.composites.len()
+    );
+    for (left, right) in actual.sorting.composites.iter().zip(&expected.sorting.composites) {
+        assert_eq!(left.order().to_vec(), right.order().to_vec());
+    }
+    assert_eq!(actual.relations.len(), expected.relations.len());
+    for (left, right) in actual.relations.iter().zip(&expected.relations) {
+        assert_eq!(left.present(), right.present());
+        assert_eq!(left.nulls(), right.nulls());
+        assert_eq!(left.empty_arrays(), right.empty_arrays());
+        assert_eq!(left.unavailable(), right.unavailable());
+        assert_eq!(
+            left.references().collect::<Vec<_>>(),
+            right.references().collect::<Vec<_>>()
+        );
+    }
+    assert_eq!(actual.record_parses, expected.record_parses);
+    assert_eq!(actual.failed_parses, expected.failed_parses);
+}
+
+#[test]
+fn append_matches_consolidate() {
+    let a = append_fixture_shard("append-base", 1, 300);
+    for count in [1usize, 2, 40] {
+        let b = append_fixture_shard(&format!("append-delta-{count}"), 2, count);
+        let expected = IndexedCollectionSegment::consolidate(&[&a, &b], usize::MAX).unwrap();
+        let actual = a
+            .to_shared()
+            .append(&ActiveRecords::all(a.record_count()).unwrap(), &b)
+            .unwrap();
+        assert_eq!(actual.base, a.record_count() as u32);
+        assert_eq!(actual.index.role, ShardRole::Main);
+        assert_shards_equal(&actual.index, &expected.index);
+    }
+}
+
+#[test]
+fn repeated_append_matches_one_consolidate() {
+    let a = append_fixture_shard("repeat-base", 1, 300);
+    let deltas = (0..6)
+        .map(|index| append_fixture_shard(&format!("repeat-delta-{index}"), 2 + index as u32, 1 + index))
+        .collect::<Vec<_>>();
+    let refs = std::iter::once(&a)
+        .chain(deltas.iter())
+        .collect::<Vec<_>>();
+    let expected = IndexedCollectionSegment::consolidate(&refs, usize::MAX).unwrap();
+    let mut main = a.to_shared();
+    let mut active = ActiveRecords::all(a.record_count()).unwrap();
+    for delta in &deltas {
+        let appended = main.append(&active, delta).unwrap();
+        active = active.concat(&ActiveRecords::all(delta.record_count()).unwrap()).unwrap();
+        main = appended.index;
+    }
+    assert_shards_equal(&main, &expected.index);
+}
+
+#[test]
+fn append_into_native_backing_matches_shared() {
+    let a = append_fixture_shard("native-base", 1, 40);
+    let b = append_fixture_shard("native-delta", 2, 3);
+    let expected = IndexedCollectionSegment::consolidate(&[&a, &b], usize::MAX).unwrap();
+    let mut native = a.clone();
+    native.role = ShardRole::Main;
+    let actual = native
+        .append(&ActiveRecords::all(a.record_count()).unwrap(), &b)
+        .unwrap();
+    assert_shards_equal(&actual.index, &expected.index);
+}
+
+#[test]
+fn append_does_not_change_the_original() {
+    let a = append_fixture_shard("unchanged-base", 1, 20);
+    let b = append_fixture_shard("unchanged-delta", 2, 2);
+    let before = a.to_shared();
+    let main = a.to_shared();
+    main.append(&ActiveRecords::all(a.record_count()).unwrap(), &b)
+        .unwrap();
+    assert_shards_equal(&main, &before);
+}
+
+#[test]
+fn append_replaces_a_retired_file() {
+    let a = append_fixture_shard("replace-base", 7, 3);
+    let active = ActiveRecords::all(a.record_count())
+        .unwrap()
+        .retired(&(0..a.record_count() as u32).map(RecordSlot).collect::<Vec<_>>())
+        .unwrap();
+    let b = append_fixture_shard("replace-delta", 7, 3);
+    let main = a.to_shared();
+    let appended = main.append(&active, &b).unwrap();
+    let base = appended.base;
+    let file = appended.index.file(FileId(7)).unwrap();
+    assert_eq!(file.records, [RecordSlot(base), RecordSlot(base + 1), RecordSlot(base + 2)]);
+    assert_eq!(appended.index.file_count(), a.file_count());
+    for record in b.records_iter() {
+        assert_eq!(
+            appended.index.slot_for_id(record.id.0.as_ref()),
+            Some(RecordSlot(base + record.slot.0))
+        );
+        assert!(appended.index.record(record.slot).is_some());
+        assert!(appended
+            .index
+            .identity_order()
+            .to_vec()
+            .contains(&RecordSlot(base + record.slot.0)));
+        for column in appended.index.sorting.columns.values() {
+            assert!(column.ascending().to_vec().contains(&RecordSlot(base + record.slot.0)));
+        }
+    }
+}
+
+#[test]
+fn append_rejects_an_active_duplicate() {
+    let a = append_fixture_shard("duplicate-base", 7, 2);
+    let b = append_fixture_shard("duplicate-delta", 7, 2);
+    let main = a.to_shared();
+    let active = ActiveRecords::all(a.record_count()).unwrap();
+    assert_eq!(
+        main.append(&active, &b).err().unwrap(),
+        "append would duplicate an active file"
+    );
+    let id = a.record(RecordSlot(0)).unwrap().id.clone();
+    let mut foreign = b.clone();
+    foreign.files = crate::slot_store::SlotTable::new();
+    foreign.file_index = crate::slot_store::SharedMap::new();
+    foreign.records.get_mut(0).unwrap().id = id.clone();
+    foreign.id_lookup.insert(id, RecordSlot(0));
+    assert_eq!(
+        main.append(&active, &foreign).err().unwrap(),
+        "append would duplicate an active record ID"
+    );
+}
+
+#[test]
+fn append_rejects_a_foreign_collection() {
+    let a = append_fixture_shard("foreign-base", 1, 2);
+    let mut b = append_fixture_shard("foreign-delta", 2, 2);
+    b.collection = CollectionId(1);
+    let main = a.to_shared();
+    assert_eq!(
+        main.append(&ActiveRecords::all(a.record_count()).unwrap(), &b)
+            .err().unwrap(),
+        "segment collection or source binding mismatch"
+    );
+}
+
+#[test]
+fn append_handles_an_inference_type_conflict() {
+    let a = append_fixture_shard("conflict-base", 1, 20);
+    let mut b = append_fixture_shard("conflict-delta", 2, 20);
+    b.inference
+        .as_mut()
+        .unwrap()
+        .indexes
+        .get_mut(&vec!["extra".to_owned()])
+        .unwrap()
+        .kind = LogicalType::String;
+    let expected = IndexedCollectionSegment::consolidate(&[&a, &b], usize::MAX).unwrap();
+    let actual = a
+        .to_shared()
+        .append(&ActiveRecords::all(a.record_count()).unwrap(), &b)
+        .unwrap();
+    assert_shards_equal(&actual.index, &expected.index);
+}

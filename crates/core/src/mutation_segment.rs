@@ -273,6 +273,16 @@ impl Default for SegmentLimits {
 
 /// Complete local search structures. The publication owner assigns a segment
 /// ID and combines it with the base and other live segments in one IndexView.
+/// Why a shard exists. Only mutation shards are folded; only one main shard
+/// exists per collection.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ShardRole {
+    Built,
+    Mutation,
+    Main,
+}
+
+#[derive(Clone)]
 pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,
@@ -294,6 +304,7 @@ pub(crate) struct IndexedCollectionSegment {
     /// Source references retain target logical IDs for later merged-view
     /// resolution; existing `RelationIndex::resolve` needs full collections.
     relations: Vec<RelationContribution>,
+    pub(crate) role: ShardRole,
     pub record_parses: u64,
     pub failed_parses: u64,
     /// Cached deterministic planning estimate and native scheduling bounds.
@@ -733,6 +744,7 @@ impl CollectionSegment {
             empty_array_records,
             sorting,
             relations,
+            role: ShardRole::Built,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
@@ -932,6 +944,7 @@ impl IndexedCollectionSegment {
             empty_array_records: parts.empty_array_records,
             sorting: parts.sorting,
             relations: parts.relations,
+            role: ShardRole::Built,
             record_parses: 0,
             failed_parses: 0,
             accounting: SegmentAccounting::default(),
@@ -1253,11 +1266,163 @@ fn merge_bigram_index(
     Ok(())
 }
 
+fn merge_inference_indexes(
+    states: &[&crate::inference::InferenceState],
+    shards: &[&IndexedCollectionSegment],
+    logical: &RoaringBitmap,
+    record_count: usize,
+    offsets: &[u32],
+    mode: InferenceMergeMode,
+) -> Result<
+    (
+        HashMap<Vec<String>, PostingIndex>,
+        HashMap<Vec<String>, RoaringBitmap>,
+        HashMap<Vec<String>, RoaringBitmap>,
+    ),
+    String,
+> {
+    let complete = states.iter().all(|state| state.report.complete);
+    let mut indexes = HashMap::new();
+    let mut empty_selections = HashMap::new();
+    let mut short_string_coverage = HashMap::new();
+    if !complete {
+        return Ok((indexes, empty_selections, short_string_coverage));
+    }
+    if mode == InferenceMergeMode::AppendToFirst {
+        if states.len() == 2
+            && !shards[0].logical_records.is_empty()
+            && !shards[1].logical_records.is_empty()
+        {
+            let base = *offsets.get(1).ok_or("inferred append offset missing")?;
+            for (path, initial) in &states[0].indexes {
+                let Some(source) = states[1].indexes.get(path) else {
+                    continue;
+                };
+                if source.kind != initial.kind || source.multi != initial.multi {
+                    continue;
+                }
+                let mut index = initial.clone();
+                index.merge_shifted(source.clone(), base)?;
+                index.finish_stats();
+                let mut empty = states[0]
+                    .empty_selections
+                    .get(path)
+                    .cloned()
+                    .ok_or("inferred empty coverage missing")?;
+                append_shifted_bitmap(
+                    &mut empty,
+                    states[1]
+                        .empty_selections
+                        .get(path)
+                        .ok_or("inferred empty coverage missing")?,
+                    base,
+                )?;
+                let short = match (
+                    states[0].short_string_coverage.get(path),
+                    states[1].short_string_coverage.get(path),
+                ) {
+                    (None, None) => None,
+                    (Some(first), None) => Some(first.clone()),
+                    (None, Some(second)) => {
+                        let mut target = RoaringBitmap::new();
+                        append_shifted_bitmap(&mut target, second, base)?;
+                        Some(target)
+                    }
+                    (Some(first), Some(second)) => {
+                        let mut target = first.clone();
+                        append_shifted_bitmap(&mut target, second, base)?;
+                        Some(target)
+                    }
+                };
+                if let Some(short) = short {
+                    short_string_coverage.insert(path.clone(), short);
+                }
+                empty_selections.insert(path.clone(), empty);
+                indexes.insert(path.clone(), index);
+            }
+            return Ok((indexes, empty_selections, short_string_coverage));
+        }
+    }
+    let seed = shards
+        .iter()
+        .position(|shard| !shard.logical_records.is_empty());
+    for (path, initial) in seed
+        .into_iter()
+        .flat_map(|position| &states[position].indexes)
+    {
+        if states.iter().zip(shards).any(|(state, shard)| {
+            !shard.logical_records.is_empty()
+                && state.indexes.get(path).is_none_or(|index| {
+                    index.kind != initial.kind || index.multi != initial.multi
+                })
+        }) {
+            continue;
+        }
+        let mut index = initial.clone();
+        index.presence.clear();
+        index.empty_selections.clear();
+        index.nulls.clear();
+        index.clear_postings();
+        index.covered_records = 0;
+        let mut empty = RoaringBitmap::new();
+        let mut short = None;
+        for ((state, shard), base) in states.iter().zip(shards).zip(offsets) {
+            if shard.logical_records.is_empty() {
+                continue;
+            }
+            index.merge_shifted(state.indexes[path].clone(), *base)?;
+            append_shifted_bitmap(
+                &mut empty,
+                state
+                    .empty_selections
+                    .get(path)
+                    .ok_or("inferred empty coverage missing")?,
+                *base,
+            )?;
+            if let Some(source) = state.short_string_coverage.get(path) {
+                let target = short.get_or_insert_with(RoaringBitmap::new);
+                append_shifted_bitmap(target, source, *base)?;
+            }
+        }
+        index.finish_stats();
+        index.validate_eligible(record_count, logical.len() as usize)?;
+        index.validate_domain(logical)?;
+        empty_selections.insert(path.clone(), empty);
+        if let Some(short) = short {
+            short_string_coverage.insert(path.clone(), short);
+        }
+        indexes.insert(path.clone(), index);
+    }
+    Ok((indexes, empty_selections, short_string_coverage))
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum InferenceMergeMode {
+    Rebuild,
+    AppendToFirst,
+}
+
 fn consolidate_inference(
     shards: &[&IndexedCollectionSegment],
     logical: &RoaringBitmap,
     record_count: usize,
     offsets: &[u32],
+) -> Result<Option<InferenceState>, String> {
+    consolidate_inference_with_mode(
+        shards,
+        logical,
+        record_count,
+        offsets,
+        InferenceMergeMode::Rebuild,
+    )
+}
+
+fn consolidate_inference_with_mode(
+    shards: &[&IndexedCollectionSegment],
+    logical: &RoaringBitmap,
+    record_count: usize,
+    offsets: &[u32],
+    merge_mode: InferenceMergeMode,
 ) -> Result<Option<InferenceState>, String> {
     let states = shards
         .iter()
@@ -1354,61 +1519,14 @@ fn consolidate_inference(
                 .saturating_add(source.index_bytes_estimate);
         }
     }
-    let mut indexes = HashMap::new();
-    let mut empty_selections = HashMap::new();
-    let mut short_string_coverage = HashMap::new();
-    if complete {
-        let seed = shards
-            .iter()
-            .position(|shard| !shard.logical_records.is_empty());
-        for (path, initial) in seed
-            .into_iter()
-            .flat_map(|position| &states[position].indexes)
-        {
-            if states.iter().zip(shards).any(|(state, shard)| {
-                !shard.logical_records.is_empty()
-                    && state.indexes.get(path).is_none_or(|index| {
-                        index.kind != initial.kind || index.multi != initial.multi
-                    })
-            }) {
-                continue;
-            }
-            let mut index = initial.clone();
-            index.presence.clear();
-            index.empty_selections.clear();
-            index.nulls.clear();
-            index.clear_postings();
-            index.covered_records = 0;
-            let mut empty = RoaringBitmap::new();
-            let mut short = None;
-            for ((state, shard), base) in states.iter().zip(shards).zip(offsets) {
-                if shard.logical_records.is_empty() {
-                    continue;
-                }
-                index.merge_shifted(state.indexes[path].clone(), *base)?;
-                append_shifted_bitmap(
-                    &mut empty,
-                    state
-                        .empty_selections
-                        .get(path)
-                        .ok_or("inferred empty coverage missing")?,
-                    *base,
-                )?;
-                if let Some(source) = state.short_string_coverage.get(path) {
-                    let target = short.get_or_insert_with(RoaringBitmap::new);
-                    append_shifted_bitmap(target, source, *base)?;
-                }
-            }
-            index.finish_stats();
-            index.validate_eligible(record_count, logical.len() as usize)?;
-            index.validate_domain(logical)?;
-            empty_selections.insert(path.clone(), empty);
-            if let Some(short) = short {
-                short_string_coverage.insert(path.clone(), short);
-            }
-            indexes.insert(path.clone(), index);
-        }
-    }
+    let (indexes, empty_selections, short_string_coverage) = merge_inference_indexes(
+        &states,
+        shards,
+        logical,
+        record_count,
+        offsets,
+        merge_mode,
+    )?;
     let eligible = logical.len();
     let unavailable = record_count as u64 - eligible;
     let mut fields = fields.into_values().collect::<Vec<_>>();
@@ -1487,7 +1605,286 @@ fn consolidate_inference(
     }))
 }
 
+/// Result of appending `delta` to a main shard.
+pub(crate) struct AppendedSegment {
+    pub index: IndexedCollectionSegment,
+    /// Slot of `delta`'s slot 0 in `index`.
+    pub base: u32,
+}
+
 impl IndexedCollectionSegment {
+    /// An owned copy with every family in the shared backing and role `Main`.
+    pub(crate) fn to_shared(&self) -> Self {
+        let mut copy = self.clone();
+        copy.freeze_all();
+        copy.role = ShardRole::Main;
+        copy
+    }
+
+    /// `self` followed by `delta`. Slots of `self` are unchanged; slot `s` of
+    /// `delta` becomes `base + s`. `self_active` is the published liveness of
+    /// `self`.
+    pub(crate) fn append(
+        &self,
+        self_active: &ActiveRecords,
+        delta: &Self,
+    ) -> Result<AppendedSegment, String> {
+        if self.collection != delta.collection
+            || self.source_id != delta.source_id
+            || self.source_version != delta.source_version
+        {
+            return Err("segment collection or source binding mismatch".into());
+        }
+        let base = u32::try_from(self.record_count()).map_err(|_| "segment slot overflow")?;
+        base.checked_add(delta.record_count() as u32)
+            .ok_or("segment slot overflow")?;
+        for file in delta.files_iter() {
+            if let Some(position) = self.file_position(file.entry.id) {
+                let row = self.file_at(position).expect("file position is valid");
+                if row
+                    .records
+                    .iter()
+                    .any(|slot| self_active.contains(*slot))
+                {
+                    return Err("append would duplicate an active file".into());
+                }
+            }
+        }
+        for record in delta.records_iter() {
+            if let Some(slot) = self.slot_for_id(record.id.0.as_ref())
+                && self_active.contains(slot)
+            {
+                return Err("append would duplicate an active record ID".into());
+            }
+        }
+
+        let mut index = self.clone();
+        index.records.extend(delta.records_iter().map(|record| {
+            let mut record = record.clone();
+            record.slot = RecordSlot(base + record.slot.0);
+            record
+        }));
+        for file in delta.files_iter() {
+            let mut entry = file.entry.clone();
+            for diagnostic in &mut entry.diagnostics {
+                if let Some(slot) = diagnostic.record {
+                    diagnostic.record = Some(RecordSlot(base + slot.0));
+                }
+            }
+            let records = file
+                .records
+                .iter()
+                .map(|slot| RecordSlot(base + slot.0))
+                .collect::<Vec<_>>();
+            let row = SegmentFile { entry, records };
+            if let Some(position) = index.file_position(file.entry.id) {
+                index.files.set(position, row);
+            } else {
+                let position = index.file_count();
+                index.file_index.insert(file.entry.id, position);
+                index.files.push(row);
+            }
+        }
+        for record in index.records.iter().skip(self.record_count()) {
+            index.id_lookup.insert(record.id.clone(), record.slot);
+        }
+
+        index.postings.merge_shifted(delta.postings.clone(), base)?;
+        index.postings.finish_stats();
+        if index.custom_postings.len() != delta.custom_postings.len() {
+            return Err("custom posting segment coverage mismatch".into());
+        }
+        for (key, source) in &delta.custom_postings {
+            let target = index
+                .custom_postings
+                .get_mut(key)
+                .ok_or("custom posting segment missing")?;
+            target.index.merge_shifted(source.index.clone(), base)?;
+            target.index.finish_stats();
+            target.complete &= source.complete;
+        }
+        merge_bigram_index(&mut index.raw, &delta.raw, base)?;
+        merge_bigram_index(&mut index.fallback_text, &delta.fallback_text, base)?;
+        if index.custom_text.len() != delta.custom_text.len() {
+            return Err("custom bigram segment coverage mismatch".into());
+        }
+        for (key, source) in &delta.custom_text {
+            merge_bigram_index(
+                index
+                    .custom_text
+                    .get_mut(key)
+                    .ok_or("custom bigram segment missing")?,
+                source,
+                base,
+            )?;
+        }
+        append_shifted_bitmap(&mut index.logical_records, &delta.logical_records, base)?;
+        append_shifted_bitmap(
+            &mut index.empty_array_records,
+            &delta.empty_array_records,
+            base,
+        )?;
+        if index.relations.len() != delta.relations.len() {
+            return Err("relation segment coverage mismatch".into());
+        }
+        for (target, source) in index.relations.iter_mut().zip(&delta.relations) {
+            target.merge_shifted(source.clone(), base, delta.record_count() as u32)?;
+        }
+        if index.sorting.columns.len() != delta.sorting.columns.len()
+            || index.sorting.composites.len() != delta.sorting.composites.len()
+        {
+            return Err("sort segment coverage mismatch".into());
+        }
+        for (path, source) in &delta.sorting.columns {
+            let target = index
+                .sorting
+                .columns
+                .get_mut(path)
+                .ok_or("sort column missing")?;
+            if target.kind != source.kind
+                || target.locale != source.locale
+                || target.options != source.options
+                || target.collation_version != source.collation_version
+            {
+                return Err("sort column representation mismatch".into());
+            }
+            target.extend_keys_from(source);
+        }
+        for (target, source) in index
+            .sorting
+            .composites
+            .iter()
+            .zip(&delta.sorting.composites)
+        {
+            if target.fields != source.fields {
+                return Err("composite sort representation mismatch".into());
+            }
+        }
+        let sort_paths = delta.sorting.columns.keys().cloned().collect::<Vec<_>>();
+        let composite_count = delta.sorting.composites.len();
+        for s in 0..delta.record_count() {
+            let target = RecordSlot(base + s as u32);
+            let position = index.identity_order.partition_point(|existing| {
+                index
+                    .record(existing)
+                    .unwrap()
+                    .id
+                    .cmp(&index.record(target).unwrap().id)
+                    .then_with(|| existing.cmp(&target))
+                    != std::cmp::Ordering::Greater
+            });
+            index.identity_order.insert_at(position, target);
+            for path in &sort_paths {
+                let position = {
+                    let column = &index.sorting.columns[path];
+                    column.ascending().partition_point(|existing| {
+                        column
+                            .key(existing)
+                            .unwrap()
+                            .compare_with(column.key(target).unwrap(), false, column.options)
+                            .then_with(|| {
+                                index
+                                    .record(existing)
+                                    .unwrap()
+                                    .id
+                                    .cmp(&index.record(target).unwrap().id)
+                            })
+                            .then_with(|| existing.cmp(&target))
+                            != std::cmp::Ordering::Greater
+                    })
+                };
+                index
+                    .sorting
+                    .columns
+                    .get_mut(path)
+                    .unwrap()
+                    .ascending_mut()
+                    .insert_at(position, target);
+                let position = {
+                    let column = &index.sorting.columns[path];
+                    column.descending().partition_point(|existing| {
+                        column
+                            .key(existing)
+                            .unwrap()
+                            .compare_with(column.key(target).unwrap(), true, column.options)
+                            .then_with(|| {
+                                index
+                                    .record(existing)
+                                    .unwrap()
+                                    .id
+                                    .cmp(&index.record(target).unwrap().id)
+                            })
+                            .then_with(|| existing.cmp(&target))
+                            != std::cmp::Ordering::Greater
+                    })
+                };
+                index
+                    .sorting
+                    .columns
+                    .get_mut(path)
+                    .unwrap()
+                    .descending_mut()
+                    .insert_at(position, target);
+            }
+            for number in 0..composite_count {
+                let position = {
+                    let composite = &index.sorting.composites[number];
+                    let columns = composite
+                        .fields
+                        .iter()
+                        .map(|field| (&index.sorting.columns[&field.path], field.descending))
+                        .collect::<Vec<_>>();
+                    composite.order().partition_point(|existing| {
+                        compare_composite(&columns, existing, target)
+                            .then_with(|| {
+                                index
+                                    .record(existing)
+                                    .unwrap()
+                                    .id
+                                    .cmp(&index.record(target).unwrap().id)
+                            })
+                            .then_with(|| existing.cmp(&target))
+                            != std::cmp::Ordering::Greater
+                    })
+                };
+                index
+                    .sorting
+                    .composites[number]
+                    .order_mut()
+                    .insert_at(position, target);
+            }
+        }
+        index.inference = consolidate_inference_with_mode(
+            &[self, delta],
+            &index.logical_records,
+            index.record_count(),
+            &[0, base],
+            InferenceMergeMode::AppendToFirst,
+        )?;
+        index.record_parses = self.record_parses.saturating_add(delta.record_parses);
+        index.failed_parses = self.failed_parses.saturating_add(delta.failed_parses);
+        index.accounting = SegmentAccounting {
+            retained_bytes_estimated: self
+                .accounting
+                .retained_bytes_estimated
+                .saturating_add(delta.accounting.retained_bytes_estimated),
+            source_bytes_estimated: self
+                .accounting
+                .source_bytes_estimated
+                .saturating_add(delta.accounting.source_bytes_estimated),
+            max_record_range_len: self
+                .accounting
+                .max_record_range_len
+                .max(delta.accounting.max_record_range_len),
+            index_family_bytes: self
+                .accounting
+                .index_family_bytes
+                .saturating_add(delta.accounting.index_family_bytes),
+        };
+        index.role = ShardRole::Main;
+        Ok(AppendedSegment { index, base })
+    }
+
     /// Combine already indexed shards without opening or parsing source files.
     /// Shards with overlapping FileIds or logical IDs must first be resolved
     /// by the coordinator's active-version policy. `max_records` bounds this
@@ -1719,6 +2116,7 @@ impl IndexedCollectionSegment {
                 empty_array_records,
                 sorting,
                 relations,
+                role: ShardRole::Built,
                 record_parses,
                 failed_parses,
                 accounting: SegmentAccounting::default(),
@@ -2807,6 +3205,7 @@ impl IndexedCollectionSegment {
             empty_array_records,
             sorting,
             relations,
+            role: ShardRole::Built,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
