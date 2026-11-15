@@ -1,8 +1,10 @@
 //! Ordered transaction planning for schema setup, discovery and admission.
 
 use std::collections::{BTreeMap, BTreeSet};
+use std::time::Instant;
 
 use bincode::Options;
+use serde::Serialize;
 use sha2::{Digest, Sha256};
 
 use crate::inventory::{FileEntry, RecordClass};
@@ -249,6 +251,17 @@ pub(crate) struct AdmissionBatch {
     pub files: Vec<PhysicalPreparedFile>,
 }
 
+#[derive(Clone, Copy, Debug, Default, Serialize)]
+pub struct AdmissionExecutionStats {
+    pub planning_ns: u64,
+    pub database_ns: u64,
+    pub commit_ns: u64,
+    pub keys: u64,
+    pub encoded_bytes: u64,
+    pub block_reads: u64,
+    pub attempts: u64,
+}
+
 pub(crate) fn map_prepared_file(
     schema: &RuntimeSchema,
     file: FileId,
@@ -379,10 +392,11 @@ pub(crate) fn admit_physical_batch(
     store: &RocksStore,
     schema: &RuntimeSchema,
     admission: &AdmissionBatch,
-) -> StoreResult<()> {
+) -> StoreResult<AdmissionExecutionStats> {
     if admission.files.is_empty() {
-        return Ok(());
+        return Ok(AdmissionExecutionStats::default());
     }
+    let started = Instant::now();
     let preflight = store.view()?;
     let header = preflight.header().clone();
     if header.phase != BuildPhase::Building {
@@ -402,7 +416,10 @@ pub(crate) fn admit_physical_batch(
             && receipt.batch_id == admission.id
             && receipt.digest == expected_digest
         {
-            return Ok(());
+            return Ok(AdmissionExecutionStats {
+                planning_ns: started.elapsed().as_nanos() as u64,
+                ..AdmissionExecutionStats::default()
+            });
         }
         return Err(StoreError::State(format!(
             "admission batch ID {} reused with different content",
@@ -830,6 +847,11 @@ pub(crate) fn admit_physical_batch(
             records: receipt_records,
         })?,
     );
+    let mut stats = AdmissionExecutionStats {
+        planning_ns: started.elapsed().as_nanos() as u64,
+        ..AdmissionExecutionStats::default()
+    };
+    let transaction_started = Instant::now();
 
     let transaction = store.transaction();
     let header_key = Namespace::StoreMetadata.physical(b"header");
@@ -853,7 +875,8 @@ pub(crate) fn admit_physical_batch(
             && receipt.batch_id == admission.id
             && receipt.digest == expected_digest
         {
-            return Ok(());
+            stats.database_ns = transaction_started.elapsed().as_nanos() as u64;
+            return Ok(stats);
         }
         return Err(StoreError::State(format!(
             "admission batch ID {} reused with different content",
@@ -875,6 +898,8 @@ pub(crate) fn admit_physical_batch(
         .collect::<Vec<_>>();
     all_keys.sort();
     for key in all_keys {
+        stats.keys = stats.keys.saturating_add(1);
+        stats.encoded_bytes = stats.encoded_bytes.saturating_add(key.len() as u64);
         if let Some(expected_file_version) = file_versions.get(&key) {
             let bytes = transaction
                 .get_for_update(&key, true)?
@@ -902,6 +927,7 @@ pub(crate) fn admit_physical_batch(
             (&combined.fts, Namespace::FtsBlocks),
         ] {
             if blocks.contains_key(&key) {
+                stats.block_reads = stats.block_reads.saturating_add(1);
                 let existing = transaction.get_for_update(&key, true)?;
                 let mut block = existing
                     .as_deref()
@@ -911,16 +937,22 @@ pub(crate) fn admit_physical_batch(
                 for offset in &blocks[&key] {
                     block.set(*offset);
                 }
-                transaction.put(&key, encode_block(&block)?)?;
+                let encoded = encode_block(&block)?;
+                stats.encoded_bytes = stats.encoded_bytes.saturating_add(encoded.len() as u64);
+                transaction.put(&key, encoded)?;
                 let _ = namespace;
             }
         }
         if let Some(value) = combined.puts.get(&key) {
             transaction.put(&key, value)?;
+            stats.encoded_bytes = stats.encoded_bytes.saturating_add(value.len() as u64);
         }
     }
+    stats.database_ns = transaction_started.elapsed().as_nanos() as u64;
+    let commit_started = Instant::now();
     transaction.commit()?;
-    Ok(())
+    stats.commit_ns = commit_started.elapsed().as_nanos() as u64;
+    Ok(stats)
 }
 
 fn admission_digest(admission: &AdmissionBatch) -> StoreResult<[u8; 32]> {

@@ -21,8 +21,8 @@ use super::finalize::{FinalizationReport, finalize};
 use super::prepare::PreparedStoreBatch;
 use super::schema::RuntimeSchema;
 use super::write::{
-    AdmissionBatch, PhysicalPreparedFile, admit_physical_batch, discover, initialise_schema,
-    map_prepared_file,
+    AdmissionBatch, AdmissionExecutionStats, PhysicalPreparedFile, admit_physical_batch, discover,
+    initialise_schema, map_prepared_file,
 };
 use super::{RocksStore, StoreConfig, StoreError, StoreResult, value_codec};
 
@@ -103,6 +103,7 @@ pub struct DirectBuildReport {
     pub counts: DirectBuildCounts,
     pub schedule: DirectBuildSchedule,
     pub profile: BuildWorkProfile,
+    pub admission: AdmissionExecutionStats,
     pub discovery_metadata: super::metadata::MetadataWriteStats,
     pub finalization: FinalizationReport,
 }
@@ -254,6 +255,7 @@ pub fn build_from_source(
         peak_ready_bytes,
         build_profile,
         prepared_counts,
+        admission_totals,
         writer_failure,
         writer_time,
     ) = std::thread::scope(|scope| -> StoreResult<_> {
@@ -552,6 +554,7 @@ pub fn build_from_source(
 
         let mut writer_failure = None;
         let mut writer_time = 0u64;
+        let mut admission_totals = AdmissionExecutionStats::default();
         let mut writer_commits = Vec::new();
         for handle in writer_handles {
             let outcomes = handle
@@ -559,6 +562,25 @@ pub fn build_from_source(
                 .map_err(|_| StoreError::State("RocksDB admission worker panicked".into()))?;
             for (batch_id, elapsed, outcome) in outcomes {
                 writer_time = writer_time.saturating_add(elapsed);
+                if let Ok(stats) = &outcome {
+                    admission_totals.planning_ns = admission_totals
+                        .planning_ns
+                        .saturating_add(stats.planning_ns);
+                    admission_totals.database_ns = admission_totals
+                        .database_ns
+                        .saturating_add(stats.database_ns);
+                    admission_totals.commit_ns =
+                        admission_totals.commit_ns.saturating_add(stats.commit_ns);
+                    admission_totals.keys = admission_totals.keys.saturating_add(stats.keys);
+                    admission_totals.encoded_bytes = admission_totals
+                        .encoded_bytes
+                        .saturating_add(stats.encoded_bytes);
+                    admission_totals.block_reads = admission_totals
+                        .block_reads
+                        .saturating_add(stats.block_reads);
+                    admission_totals.attempts =
+                        admission_totals.attempts.saturating_add(stats.attempts);
+                }
                 writer_commits.push((batch_id, outcome));
             }
         }
@@ -579,6 +601,7 @@ pub fn build_from_source(
             peak_ready_bytes,
             profile,
             counts,
+            admission_totals,
             writer_failure,
             writer_time,
         ))
@@ -633,6 +656,7 @@ pub fn build_from_source(
                 job_count,
             },
             profile: build_profile,
+            admission: admission_totals,
             discovery_metadata: discovery.metadata,
             finalization,
         },
@@ -643,14 +667,17 @@ fn admit_physical_batch_with_retry(
     store: &RocksStore,
     schema: &RuntimeSchema,
     admission: &AdmissionBatch,
-) -> StoreResult<()> {
+) -> StoreResult<super::write::AdmissionExecutionStats> {
     for attempt in 0..4 {
         if attempt > 0 {
             let delay_ms = 1u64 << (attempt - 1);
             std::thread::sleep(std::time::Duration::from_millis(delay_ms));
         }
         match admit_physical_batch(store, schema, admission) {
-            Ok(()) => return Ok(()),
+            Ok(mut stats) => {
+                stats.attempts = attempt + 1;
+                return Ok(stats);
+            }
             Err(error) if error.is_contention() && attempt < 3 => continue,
             Err(error) => return Err(error),
         }
