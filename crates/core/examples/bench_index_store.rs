@@ -52,6 +52,7 @@ fn main() -> Result<(), String> {
     let mut validate = false;
     let mut mutations = false;
     let mut build_source = false;
+    let mut profile_build = false;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -93,6 +94,7 @@ fn main() -> Result<(), String> {
             "--validate" => validate = true,
             "--mutations" => mutations = true,
             "--build-source" => build_source = true,
+            "--profile-build" => profile_build = true,
             other => return Err(format!("unknown argument {other}")),
         }
     }
@@ -104,6 +106,10 @@ fn main() -> Result<(), String> {
     }
     if !build_source && mutations {
         return Err("--mutations currently requires --build-source".into());
+    }
+    #[cfg(not(feature = "detailed-profiling"))]
+    if profile_build {
+        return Err("--profile-build requires the detailed-profiling feature".into());
     }
     if build_source {
         let build_started = Instant::now();
@@ -124,6 +130,7 @@ fn main() -> Result<(), String> {
                 build_workers,
                 alphabet,
                 inference: objekte_search_core::inference::InferenceConfig::default(),
+                profile_build,
             },
             &objekte_search_core::source::SourceRegistry::builtin(),
         )?;
@@ -157,6 +164,18 @@ fn main() -> Result<(), String> {
                 "peak_active_jobs": report.peak_active_jobs,
                 "peak_ready_batches": report.peak_ready_batches,
                 "peak_weight_bytes": report.peak_weight_bytes,
+                "work_profile": report.work_profile,
+                "admission_stats": {
+                    "files": report.admission_stats.files,
+                    "records": report.admission_stats.records,
+                    "posting_blocks_changed": report.admission_stats.posting_blocks_changed,
+                    "state_blocks_changed": report.admission_stats.state_blocks_changed,
+                    "fts_blocks_changed": report.admission_stats.fts_blocks_changed,
+                    "reverse_gram_rows": report.admission_stats.reverse_gram_rows,
+                    "sort_entries": report.admission_stats.sort_entries,
+                    "relation_occurrences": report.admission_stats.relation_occurrences,
+                    "reverse_contributions": report.admission_stats.reverse_contributions,
+                },
                 "elapsed_ns": report.elapsed_ns,
                 "caller_elapsed_ns": build_started.elapsed().as_nanos(),
             },

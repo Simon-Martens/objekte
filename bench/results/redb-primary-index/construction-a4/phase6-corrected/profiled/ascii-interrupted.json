@@ -1,0 +1,15 @@
+{
+  "candidate": "phase6-corrected",
+  "alphabet": "ascii",
+  "build_workers": "auto",
+  "command": "target/release/examples/bench_index_store --root examples/musenalm --alphabet ascii --build-workers auto --build-source --profile-build --validate --result-dir bench/results/redb-primary-index/construction-a4/phase6-corrected/profiled",
+  "outcome": "interrupted",
+  "reason": "The mixed construction/validation process remained in coordinator admission and then validation beyond the bounded profiling attempt. A4 requires validation in a separate process.",
+  "wall_time_seconds": 596.83,
+  "user_cpu_seconds": 598.99,
+  "system_cpu_seconds": 2.47,
+  "maximum_resident_set_bytes": 2446737408,
+  "observed_bottleneck": "One coordinator core; repeated transaction table access and per-file pending scans.",
+  "construction_json": null,
+  "note": "This failed control is retained. It is not an acceptance measurement."
+}

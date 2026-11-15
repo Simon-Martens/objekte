@@ -435,6 +435,7 @@ pub struct SourceBuildOptions {
     pub build_workers: Option<std::num::NonZeroUsize>,
     pub alphabet: crate::workload::BigramAlphabet,
     pub inference: crate::inference::InferenceConfig,
+    pub profile_build: bool,
 }
 
 impl Default for SourceBuildOptions {
@@ -443,8 +444,22 @@ impl Default for SourceBuildOptions {
             build_workers: None,
             alphabet: crate::workload::BigramAlphabet::Ascii,
             inference: crate::inference::InferenceConfig::default(),
+            profile_build: false,
         }
     }
+}
+
+#[derive(Clone, Debug, Default)]
+pub struct SourceAdmissionStats {
+    pub files: u64,
+    pub records: u64,
+    pub posting_blocks_changed: u64,
+    pub state_blocks_changed: u64,
+    pub fts_blocks_changed: u64,
+    pub reverse_gram_rows: u64,
+    pub sort_entries: u64,
+    pub relation_occurrences: u64,
+    pub reverse_contributions: u64,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -463,6 +478,8 @@ pub struct SourceBuildReport {
     pub peak_active_jobs: usize,
     pub peak_ready_batches: usize,
     pub peak_weight_bytes: u64,
+    pub work_profile: crate::build::BuildWorkProfile,
+    pub admission_stats: SourceAdmissionStats,
     /// Historical field retained for evidence consumers. It now includes the
     /// final completion transaction and buffer release.
     pub elapsed_ns: u128,
@@ -607,6 +624,8 @@ pub fn build_from_source(
             })
             .collect(),
         collection_ids,
+        work_profile: crate::build::BuildWorkProfile::default(),
+        admission_stats: SourceAdmissionStats::default(),
     };
     let mut report = SourceBuildReport {
         discovery,
@@ -621,7 +640,7 @@ pub fn build_from_source(
         Arc::new(source_files),
         options.alphabet,
         options.inference.clone(),
-        false,
+        options.profile_build,
         |collection_index, batch| {
             let admission_started = std::time::Instant::now();
             builder.admit(collection_index, batch)?;
@@ -654,6 +673,8 @@ pub fn build_from_source(
     tx.commit().map_err(|error| error.to_string())?;
     failure_guard.completed = true;
     report.finalization_ns = finalization_started.elapsed().as_nanos();
+    report.work_profile = builder.work_profile.clone();
+    report.admission_stats = builder.admission_stats.clone();
     drop(builder);
     drop(pool);
     report.total_ns = started.elapsed().as_nanos();
@@ -795,10 +816,23 @@ struct BatchStoreBuilder<'a> {
     collections: Vec<BuildCollection>,
     collection_ids: HashMap<String, CollectionId>,
     records_written: u64,
+    work_profile: crate::build::BuildWorkProfile,
+    admission_stats: SourceAdmissionStats,
 }
 
 impl BatchStoreBuilder<'_> {
     fn admit(&mut self, collection_index: usize, mut batch: crate::build::BatchContribution) -> Result<(), String> {
+        self.work_profile.absorb(&batch.profile);
+        self.admission_stats.files = self
+            .admission_stats
+            .files
+            .checked_add(batch.files.len() as u64)
+            .ok_or_else(|| "admitted file count overflow".to_string())?;
+        self.admission_stats.records = self
+            .admission_stats
+            .records
+            .checked_add(batch.records.len() as u64)
+            .ok_or_else(|| "admitted record count overflow".to_string())?;
         let collection = &mut self.collections[collection_index];
         let tx = self.store.begin_write().map_err(|error| error.to_string())?;
         let store_metadata = read::metadata_from_write(&tx).map_err(|error| error.to_string())?;
@@ -1406,6 +1440,21 @@ impl BatchStoreBuilder<'_> {
         }
         super::posting_blocks::apply_batch(&tx, collection.id, &posting_batch).map_err(|error| error.to_string())?;
         super::fts::apply_batch(&tx, collection.id, &fts_batch).map_err(|error| error.to_string())?;
+        self.admission_stats.posting_blocks_changed = self
+            .admission_stats
+            .posting_blocks_changed
+            .checked_add(posting_batch.changed_blocks() as u64)
+            .ok_or_else(|| "posting block count overflow".to_string())?;
+        self.admission_stats.fts_blocks_changed = self
+            .admission_stats
+            .fts_blocks_changed
+            .checked_add(fts_batch.changed_blocks() as u64)
+            .ok_or_else(|| "FTS block count overflow".to_string())?;
+        self.admission_stats.reverse_gram_rows = self
+            .admission_stats
+            .reverse_gram_rows
+            .checked_add(gram_rows_for_batch.len() as u64)
+            .ok_or_else(|| "reverse gram row count overflow".to_string())?;
         {
             let mut table = tx
                 .open_table(crate::index_store::tables::RECORD_GRAMS)
@@ -1419,6 +1468,36 @@ impl BatchStoreBuilder<'_> {
             }
         }
         super::states::apply_batch(&tx, collection.id, &state_batch).map_err(|error| error.to_string())?;
+        self.admission_stats.state_blocks_changed = self
+            .admission_stats
+            .state_blocks_changed
+            .checked_add(state_batch.changed_blocks() as u64)
+            .ok_or_else(|| "state block count overflow".to_string())?;
+        self.admission_stats.sort_entries = self
+            .admission_stats
+            .sort_entries
+            .checked_add(
+                contributions
+                    .iter()
+                    .map(|contribution| contribution.sorts.len() as u64)
+                    .sum::<u64>(),
+            )
+            .ok_or_else(|| "sort entry count overflow".to_string())?;
+        self.admission_stats.relation_occurrences = self
+            .admission_stats
+            .relation_occurrences
+            .checked_add(
+                contributions
+                    .iter()
+                    .map(|contribution| contribution.relations.len() as u64)
+                    .sum::<u64>(),
+            )
+            .ok_or_else(|| "relation occurrence count overflow".to_string())?;
+        self.admission_stats.reverse_contributions = self
+            .admission_stats
+            .reverse_contributions
+            .checked_add(contributions.len() as u64)
+            .ok_or_else(|| "reverse contribution count overflow".to_string())?;
         for (local, contribution) in contributions.iter_mut().enumerate() {
             contribution.state_masks = std::mem::take(&mut state_masks[local]).into_iter().collect();
             write::put_contributions(&tx, collection.id, local_to_global[local], contribution)
