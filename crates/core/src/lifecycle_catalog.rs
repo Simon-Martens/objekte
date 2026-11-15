@@ -71,9 +71,9 @@ fn valid_relative_path(path: &Path) -> bool {
             .all(|part| matches!(part, std::path::Component::Normal(_)))
 }
 
-fn path_bounds_with_ids(
-    bounds: &(Bound<Arc<str>>, Bound<Arc<str>>),
-) -> (Bound<(Arc<str>, FileId)>, Bound<(Arc<str>, FileId)>) {
+type IdPathBounds = (Bound<(Arc<str>, FileId)>, Bound<(Arc<str>, FileId)>);
+
+fn path_bounds_with_ids(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> IdPathBounds {
     let lower = match &bounds.0 {
         Bound::Unbounded => Bound::Unbounded,
         Bound::Included(key) => Bound::Included((Arc::clone(key), FileId(0))),
@@ -249,8 +249,16 @@ impl FileCatalog {
             base,
             construction_complete: true,
             base_configuration,
-            changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
-            changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
+            changed: Arc::new(
+                (0..SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect::<Vec<_>>(),
+            ),
+            changed_paths: Arc::new(
+                (0..SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect::<Vec<_>>(),
+            ),
             changed_relative_paths: Arc::new(BTreeMap::new()),
             active: Arc::new(active),
             len,

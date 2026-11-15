@@ -308,16 +308,7 @@ fn decode_hex(text: &str) -> Result<Vec<u8>, IndexError> {
     Ok(bytes)
 }
 
-fn catalogue_entries(
-    catalogue: &CatalogueView,
-) -> Result<
-    (
-        Vec<FileEntry>,
-        HashMap<u32, FileRowView>,
-        Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
-    ),
-    IndexError,
-> {
+fn catalogue_entries(catalogue: &CatalogueView) -> Result<CatalogueEntries, IndexError> {
     let mut entries = Vec::new();
     let mut rows = HashMap::new();
     let mut slots = Vec::new();
@@ -449,6 +440,18 @@ fn native_path(bytes: &[u8]) -> Result<PathBuf, IndexError> {
         Ok(PathBuf::from(String::from_utf8_lossy(bytes).into_owned()))
     }
 }
+
+type CatalogueSlot = (FileEntry, Option<[u8; 32]>, Option<[u8; 32]>);
+type CatalogueEntries = (
+    Vec<FileEntry>,
+    HashMap<u32, FileRowView>,
+    Vec<Option<CatalogueSlot>>,
+);
+type PostingFamilies = (
+    PostingCollection,
+    Option<InferenceState>,
+    HashMap<(Vec<String>, String), CustomPostingIndex>,
+);
 
 fn empty_sorting(
     definition: &crate::repository::CollectionDefinition,
@@ -611,16 +614,7 @@ pub(crate) fn segment_from_packed(
     })
 }
 
-fn posting_families(
-    frozen: &FrozenSegment,
-) -> Result<
-    (
-        PostingCollection,
-        Option<InferenceState>,
-        HashMap<(Vec<String>, String), CustomPostingIndex>,
-    ),
-    IndexError,
-> {
+fn posting_families(frozen: &FrozenSegment) -> Result<PostingFamilies, IndexError> {
     let metadata = frozen
         .metadata()
         .map_err(storage_error)?

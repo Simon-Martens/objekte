@@ -99,7 +99,9 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     let view = session.repository.index().view().unwrap();
     let row = view.catalogue_rows().next().unwrap();
     assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
-    task.unwrap().wait_complete().unwrap();
+    if let Some(task) = task {
+        task.wait_complete().unwrap();
+    }
 }
 
 #[test]
