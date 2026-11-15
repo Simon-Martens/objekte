@@ -394,3 +394,80 @@ fn deleting_a_shard_prefix_removes_every_row() {
         );
     }
 }
+
+#[test]
+fn diff_then_read_equals_full_write() {
+    let base = append_fixture_shard("diff-base", 1, 40);
+    let delta = append_fixture_shard("diff-delta", 2, 3);
+    let m1 = base.to_shared();
+    let active = ActiveRecords::all(base.record_count()).unwrap();
+    let m2 = m1.append(&active, &delta).unwrap().index;
+    let active2 = ActiveRecords::all(m2.record_count()).unwrap();
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &m1, &active).unwrap();
+        write.commit().unwrap();
+    }
+    {
+        let write = db.begin_write().unwrap();
+        diff_main(&write, 0, 1, &m1, &m2, &active, &active2).unwrap();
+        write.commit().unwrap();
+    }
+    let read = db.begin_read().unwrap();
+    let (actual, actual_active) = read_shard(&read, 0, 1).unwrap();
+    assert_shards_equal(&actual, &m2);
+    assert_eq!(actual_active.bitmap(), active2.bitmap());
+}
+
+#[test]
+fn diff_writes_are_proportional_to_the_delta() {
+    let base = append_fixture_shard("diff-large", 1, 5_000);
+    let delta = append_fixture_shard("diff-small", 2, 1);
+    let m1 = base.to_shared();
+    let active = ActiveRecords::all(base.record_count()).unwrap();
+    let m2 = m1.append(&active, &delta).unwrap().index;
+    let active2 = ActiveRecords::all(m2.record_count()).unwrap();
+    let mut distinct = std::collections::BTreeSet::new();
+    for (path, index) in &delta.postings.fields {
+        for (key, _) in index.value_entries() {
+            distinct.insert(format!("v:{path:?}:{key:?}"));
+        }
+        for (key, _) in index.length_entries() {
+            distinct.insert(format!("l:{path:?}:{key:?}"));
+        }
+    }
+    for (key, _) in delta.raw.normal_entries() {
+        distinct.insert(format!("gn:{key}"));
+    }
+    for (key, _) in delta.raw.skip_entries() {
+        distinct.insert(format!("gs:{key}"));
+    }
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &m1, &active).unwrap();
+        write.commit().unwrap();
+    }
+    let report = {
+        let write = db.begin_write().unwrap();
+        let report = diff_main(&write, 0, 1, &m1, &m2, &active, &active2).unwrap();
+        write.commit().unwrap();
+        report
+    };
+    assert!(
+        report.chunks_written <= 4 * distinct.len() as u64,
+        "chunks {} distinct {}",
+        report.chunks_written,
+        distinct.len()
+    );
+    assert!(
+        report.rows_written <= 10 + m2.file_count() as u64,
+        "rows {} files {}",
+        report.rows_written,
+        m2.file_count()
+    );
+    let read = db.begin_read().unwrap();
+    let (actual, _) = read_shard(&read, 0, 1).unwrap();
+    assert_shards_equal(&actual, &m2);
+}

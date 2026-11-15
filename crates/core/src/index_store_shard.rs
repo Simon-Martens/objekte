@@ -2,7 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap};
 
-use redb::{ReadTransaction, ReadableTable, TableDefinition, WriteTransaction};
+use redb::{ReadTransaction, TableDefinition, WriteTransaction};
 use roaring::RoaringBitmap;
 
 use crate::bigram::BigramIndex;
@@ -13,7 +13,7 @@ use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::model::{FieldPath, Number, RecordId, RecordSlot};
 use crate::posting::{PostingIndex, PostingParts, StructuralFacts, StructuralKey};
 use crate::relation::{PendingReference, RelationContribution};
-use crate::slot_store::{SharedMap, SlotOrder, SlotTable};
+use crate::slot_store::SlotTable;
 use crate::sorting::{
     CompositeSortOrder, SortCollection, SortColumn, SortColumnParts, SortKey, compare_composite,
 };
@@ -1028,3 +1028,654 @@ pub(crate) fn delete_shard_prefix(
 #[cfg(test)]
 #[path = "index_store_shard.test.rs"]
 mod tests;
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub(crate) struct DiffReport {
+    pub chunks_written: u64,
+    pub chunks_deleted: u64,
+    pub rows_written: u64,
+}
+
+fn delete_range(
+    write: &WriteTransaction,
+    definition: TableDefinition<&[u8], &[u8]>,
+    start: &[u8],
+    end: &[u8],
+) -> Result<(), String> {
+    let mut table = write.open_table(definition).map_err(error)?;
+    table
+        .retain_in::<&[u8], _>(start..end, |_, _| false)
+        .map_err(error)?;
+    Ok(())
+}
+
+fn field_prefix(prefix: &[u8], family: u8, field: &[u8]) -> Vec<u8> {
+    let mut start = prefix.to_vec();
+    start.push(family);
+    keys::push_bytes(&mut start, field);
+    start
+}
+
+fn diff_posting_map<K: Ord + Clone>(
+    write: &WriteTransaction,
+    prefix: &[u8],
+    family: u8,
+    field: &[u8],
+    old: &crate::posting_map::PostingMap<K>,
+    new: &crate::posting_map::PostingMap<K>,
+    encode_key: impl Fn(&K) -> Vec<u8>,
+    report: &mut DiffReport,
+) -> Result<(), String> {
+    let start = field_prefix(prefix, family, field);
+    let end = keys::prefix_end(&start).ok_or("posting field prefix overflow")?;
+    let compared = new
+        .diff_chunks(old, |change| {
+            match change {
+                crate::posting_map::ChunkChange::Put(key, chunk, posting) => {
+                    let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+                    table
+                        .insert(
+                            keys::posting_key(prefix, family, field, &encode_key(key), chunk)
+                                .as_slice(),
+                            bitmap_bytes(posting)?.as_slice(),
+                        )
+                        .map_err(error)?;
+                    report.chunks_written += 1;
+                }
+                crate::posting_map::ChunkChange::Delete(key, chunk) => {
+                    let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+                    table
+                        .remove(
+                            keys::posting_key(prefix, family, field, &encode_key(key), chunk)
+                                .as_slice(),
+                        )
+                        .map_err(error)?;
+                    report.chunks_deleted += 1;
+                }
+            }
+            Ok(())
+        })?;
+    if !compared {
+        delete_range(write, keys::POSTINGS, &start, &end)?;
+        new.for_each_chunk(|key, chunk, posting| {
+            let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+            table
+                .insert(
+                    keys::posting_key(prefix, family, field, &encode_key(key), chunk).as_slice(),
+                    bitmap_bytes(posting)?.as_slice(),
+                )
+                .map_err(error)?;
+            report.chunks_written += 1;
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
+fn diff_gram_map(
+    write: &WriteTransaction,
+    prefix: &[u8],
+    family: u8,
+    field: &[u8],
+    old: &crate::gram_map::GramMap,
+    new: &crate::gram_map::GramMap,
+    report: &mut DiffReport,
+) -> Result<(), String> {
+    let start = field_prefix(prefix, family, field);
+    let end = keys::prefix_end(&start).ok_or("gram field prefix overflow")?;
+    let compared = match (old.shared_map(), new.shared_map()) {
+        (Some(old), Some(new)) => new.diff_chunks(old, |change| {
+            match change {
+                crate::posting_map::ChunkChange::Put(key, chunk, posting) => {
+                    let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+                    table
+                        .insert(
+                            keys::posting_key(prefix, family, field, &key.to_be_bytes(), chunk)
+                                .as_slice(),
+                            bitmap_bytes(posting)?.as_slice(),
+                        )
+                        .map_err(error)?;
+                    report.chunks_written += 1;
+                }
+                crate::posting_map::ChunkChange::Delete(key, chunk) => {
+                    let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+                    table
+                        .remove(
+                            keys::posting_key(prefix, family, field, &key.to_be_bytes(), chunk)
+                                .as_slice(),
+                        )
+                        .map_err(error)?;
+                    report.chunks_deleted += 1;
+                }
+            }
+            Ok(())
+        })?,
+        _ => false,
+    };
+    if !compared {
+        delete_range(write, keys::POSTINGS, &start, &end)?;
+        new.for_each_chunk(|key, chunk, posting| {
+            let mut table = write.open_table(keys::POSTINGS).map_err(error)?;
+            table
+                .insert(
+                    keys::posting_key(prefix, family, field, &key.to_be_bytes(), chunk).as_slice(),
+                    bitmap_bytes(posting)?.as_slice(),
+                )
+                .map_err(error)?;
+            report.chunks_written += 1;
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
+fn write_posting_header(
+    write: &WriteTransaction,
+    prefix: &[u8],
+    family: u8,
+    field: &[u8],
+    index: &PostingIndex,
+    complete: Option<bool>,
+    _report: &mut DiffReport,
+) -> Result<(), String> {
+    let mut table = write.open_table(keys::POSTING_FIELDS).map_err(error)?;
+    table
+        .insert(
+            keys::posting_field_key(prefix, family, field).as_slice(),
+            encode(&keys::PostingHeader {
+                kind: index.kind.clone(),
+                multi: index.multi,
+                values_indexed: index.values_indexed,
+                value_complete: index.value_complete,
+                length_complete: index.length_complete,
+                empty_string_complete: index.empty_string_complete,
+                covered_records: index.covered_records,
+                has_structural: index.structural.is_some(),
+                custom_complete: complete,
+            })?
+            .as_slice(),
+        )
+        .map_err(error)?;
+    Ok(())
+}
+
+fn write_bitmap_if_changed(
+    write: &WriteTransaction,
+    prefix: &[u8],
+    kind: u8,
+    field: &[u8],
+    old: Option<&RoaringBitmap>,
+    new: &RoaringBitmap,
+    report: &mut DiffReport,
+) -> Result<(), String> {
+    if old == Some(new) {
+        return Ok(());
+    }
+    let mut table = write.open_table(keys::BITMAPS).map_err(error)?;
+    table
+        .insert(
+            keys::bitmap_key(prefix, kind, field).as_slice(),
+            bitmap_bytes(new)?.as_slice(),
+        )
+        .map_err(error)?;
+    Ok(())
+}
+
+pub(crate) fn diff_main(
+    write: &WriteTransaction,
+    collection: u32,
+    store_id: u64,
+    old: &IndexedCollectionSegment,
+    new: &IndexedCollectionSegment,
+    old_active: &ActiveRecords,
+    new_active: &ActiveRecords,
+) -> Result<DiffReport, String> {
+    let prefix = keys::prefix(collection, store_id);
+    let mut report = DiffReport::default();
+    if old_active.bitmap() != new_active.bitmap() {
+        let mut table = write.open_table(keys::ACTIVE).map_err(error)?;
+        table
+            .insert(
+                prefix.as_slice(),
+                bitmap_bytes(&new_active.bitmap())?.as_slice(),
+            )
+            .map_err(error)?;
+    }
+
+    // Shard header and fixed shard bitmaps.
+    let mut table = write.open_table(keys::SHARDS).map_err(error)?;
+    table
+        .insert(
+            prefix.as_slice(),
+            encode(&keys::ShardHeader {
+                ordinal: 0,
+                alphabet: new.raw.alphabet,
+                role: match new.role {
+                    ShardRole::Built => 0,
+                    ShardRole::Mutation => 1,
+                    ShardRole::Main => 2,
+                },
+                shared: new.identity_order().is_shared(),
+                source_id: new.source_id.clone(),
+                source_version: new.source_version,
+                record_count: new.record_count() as u32,
+                file_count: new.file_count() as u32,
+                record_parses: new.record_parses,
+                failed_parses: new.failed_parses,
+                has_inference: new.inference.is_some(),
+            })?
+            .as_slice(),
+        )
+        .map_err(error)?;
+    drop(table);
+    write_bitmap_if_changed(
+        write,
+        &prefix,
+        keys::BITMAP_LOGICAL_RECORDS,
+        b"",
+        Some(old.logical_records()),
+        new.logical_records(),
+        &mut report,
+    )?;
+    write_bitmap_if_changed(
+        write,
+        &prefix,
+        keys::BITMAP_EMPTY_ARRAY_RECORDS,
+        b"",
+        Some(old.empty_array_records()),
+        new.empty_array_records(),
+        &mut report,
+    )?;
+
+    // Declared and custom and inferred posting families.
+    for (path, index) in &new.postings.fields {
+        let field = field_bytes(path)?;
+        let old_index = old.postings.fields.get(path);
+        write_posting_header(
+            write,
+            &prefix,
+            keys::FAMILY_DECLARED_VALUES,
+            &field,
+            index,
+            None,
+            &mut report,
+        )?;
+        let fallback_values = crate::posting_map::PostingMap::new();
+        let fallback_lengths = crate::posting_map::PostingMap::new();
+        let old_values = old_index.map_or(&fallback_values, |index| index.value_map());
+        let old_lengths = old_index.map_or(&fallback_lengths, |index| index.length_map());
+        diff_posting_map(
+            write,
+            &prefix,
+            keys::FAMILY_DECLARED_VALUES,
+            &field,
+            old_values,
+            index.value_map(),
+            keys::encode_scalar_key,
+            &mut report,
+        )?;
+        diff_posting_map(
+            write,
+            &prefix,
+            keys::FAMILY_DECLARED_LENGTHS,
+            &field,
+            old_lengths,
+            index.length_map(),
+            keys::encode_number_value,
+            &mut report,
+        )?;
+        let old_structural = old_index
+            .and_then(|index| index.structural.as_ref())
+            .map(|facts| facts.postings_map());
+        let new_structural = index
+            .structural
+            .as_ref()
+            .map(|facts| facts.postings_map());
+        if let (Some(old_map), Some(new_map)) = (old_structural, new_structural) {
+            diff_posting_map(
+                write,
+                &prefix,
+                keys::FAMILY_DECLARED_STRUCTURAL,
+                &field,
+                old_map,
+                new_map,
+                |key| vec![structural_code(*key)],
+                &mut report,
+            )?;
+        }
+        for (kind, value) in [
+            (keys::BITMAP_PRESENCE, &index.presence),
+            (keys::BITMAP_NULLS, &index.nulls),
+            (keys::BITMAP_EMPTY_SELECTIONS, &index.empty_selections),
+        ] {
+            let old_value = old_index.map(|index| match kind {
+                keys::BITMAP_PRESENCE => &index.presence,
+                keys::BITMAP_NULLS => &index.nulls,
+                _ => &index.empty_selections,
+            });
+            write_bitmap_if_changed(write, &prefix, kind, &field, old_value, value, &mut report)?;
+        }
+    }
+    for ((path, binding), custom) in &new.custom_postings {
+        let field = custom_field_bytes(path, binding)?;
+        let old_custom = old.custom_postings.get(&(path.clone(), binding.clone()));
+        write_posting_header(
+            write,
+            &prefix,
+            keys::FAMILY_CUSTOM_VALUES,
+            &field,
+            &custom.index,
+            Some(custom.complete),
+            &mut report,
+        )?;
+        let fallback_values = crate::posting_map::PostingMap::new();
+        let fallback_lengths = crate::posting_map::PostingMap::new();
+        let old_values = old_custom.map_or(&fallback_values, |custom| custom.index.value_map());
+        let old_lengths = old_custom.map_or(&fallback_lengths, |custom| custom.index.length_map());
+        diff_posting_map(
+            write,
+            &prefix,
+            keys::FAMILY_CUSTOM_VALUES,
+            &field,
+            old_values,
+            custom.index.value_map(),
+            keys::encode_scalar_key,
+            &mut report,
+        )?;
+        diff_posting_map(
+            write,
+            &prefix,
+            keys::FAMILY_CUSTOM_LENGTHS,
+            &field,
+            old_lengths,
+            custom.index.length_map(),
+            keys::encode_number_value,
+            &mut report,
+        )?;
+        for (kind, value) in [
+            (keys::BITMAP_PRESENCE + 10, &custom.index.presence),
+            (keys::BITMAP_NULLS + 10, &custom.index.nulls),
+            (
+                keys::BITMAP_EMPTY_SELECTIONS + 10,
+                &custom.index.empty_selections,
+            ),
+        ] {
+            let old_value = old_custom.map(|custom| {
+                if kind == keys::BITMAP_PRESENCE + 10 {
+                    &custom.index.presence
+                } else if kind == keys::BITMAP_NULLS + 10 {
+                    &custom.index.nulls
+                } else {
+                    &custom.index.empty_selections
+                }
+            });
+            write_bitmap_if_changed(write, &prefix, kind, &field, old_value, value, &mut report)?;
+        }
+    }
+    if let Some(inference) = &new.inference {
+        let old_inference = old.inference.as_ref();
+        for (path, index) in &inference.indexes {
+            let field = field_bytes(path)?;
+            let old_index = old_inference.and_then(|state| state.indexes.get(path));
+            write_posting_header(
+                write,
+                &prefix,
+                keys::FAMILY_INFERRED_VALUES,
+                &field,
+                index,
+                None,
+                &mut report,
+            )?;
+            let fallback_values = crate::posting_map::PostingMap::new();
+            let fallback_lengths = crate::posting_map::PostingMap::new();
+            let old_values = old_index.map_or(&fallback_values, |index| index.value_map());
+            let old_lengths = old_index.map_or(&fallback_lengths, |index| index.length_map());
+            diff_posting_map(
+                write,
+                &prefix,
+                keys::FAMILY_INFERRED_VALUES,
+                &field,
+                old_values,
+                index.value_map(),
+                keys::encode_scalar_key,
+                &mut report,
+            )?;
+            diff_posting_map(
+                write,
+                &prefix,
+                keys::FAMILY_INFERRED_LENGTHS,
+                &field,
+                old_lengths,
+                index.length_map(),
+                keys::encode_number_value,
+                &mut report,
+            )?;
+        }
+        for (kind, map) in [
+            (
+                keys::BITMAP_INFERRED_EMPTY_SELECTIONS,
+                &inference.empty_selections,
+            ),
+            (
+                keys::BITMAP_INFERRED_SHORT_STRING_COVERAGE,
+                &inference.short_string_coverage,
+            ),
+        ] {
+            for (path, bitmap) in map {
+                let field = field_bytes(path)?;
+                let old_value = old_inference
+                    .and_then(|state| {
+                        if kind == keys::BITMAP_INFERRED_EMPTY_SELECTIONS {
+                            state.empty_selections.get(path)
+                        } else {
+                            state.short_string_coverage.get(path)
+                        }
+                    });
+                write_bitmap_if_changed(
+                    write,
+                    &prefix,
+                    kind,
+                    &field,
+                    old_value,
+                    bitmap,
+                    &mut report,
+                )?;
+            }
+        }
+        let old_report = old_inference.map(|state| encode(&state.report)).transpose()?;
+        let new_report = encode(&inference.report)?;
+        if old_report.as_deref() != Some(new_report.as_slice()) {
+            let mut table = write.open_table(keys::INFERENCE).map_err(error)?;
+            table
+                .insert(prefix.as_slice(), new_report.as_slice())
+                .map_err(error)?;
+            report.rows_written += 1;
+        }
+    }
+
+    // Gram families.
+    for (base, old_index, new_index) in [
+        (keys::FAMILY_RAW_NORMAL, &old.raw, &new.raw),
+        (
+            keys::FAMILY_FALLBACK_NORMAL,
+            &old.fallback_text,
+            &new.fallback_text,
+        ),
+    ] {
+        for skip in [false, true] {
+            let family = if skip { base + 1 } else { base };
+            diff_gram_map(
+                write,
+                &prefix,
+                family,
+                b"",
+                old_index.gram_map(skip),
+                new_index.gram_map(skip),
+                &mut report,
+            )?;
+        }
+    }
+    for ((path, binding), index) in &new.custom_text {
+        let field = custom_field_bytes(path, binding)?;
+        let old_index = old.custom_text.get(&(path.clone(), binding.clone()));
+        for skip in [false, true] {
+            let family = keys::FAMILY_CUSTOM_TEXT_NORMAL + u8::from(skip);
+            let fallback = crate::gram_map::GramMap::default();
+            let old_map = old_index.map_or(&fallback, |index| index.gram_map(skip));
+            diff_gram_map(
+                write,
+                &prefix,
+                family,
+                &field,
+                old_map,
+                index.gram_map(skip),
+                &mut report,
+            )?;
+        }
+    }
+
+    // Files and records.
+    let mut files = write.open_table(keys::FILES).map_err(error)?;
+    for (position, file) in new.files_iter().enumerate() {
+        files
+            .insert(
+                keys::files_key(&prefix, position as u32).as_slice(),
+                encode(file)?.as_slice(),
+            )
+            .map_err(error)?;
+        report.rows_written += 1;
+    }
+    for position in new.file_count()..old.file_count() {
+        files
+            .remove(keys::files_key(&prefix, position as u32).as_slice())
+            .map_err(error)?;
+    }
+    drop(files);
+    let mut records = write.open_table(keys::RECORDS).map_err(error)?;
+    for slot in old.record_count()..new.record_count() {
+        let record = new.record(RecordSlot(slot as u32)).ok_or("new record missing")?;
+        records
+            .insert(
+                keys::records_key(&prefix, slot as u32).as_slice(),
+                encode(record)?.as_slice(),
+            )
+            .map_err(error)?;
+        report.rows_written += 1;
+    }
+    drop(records);
+
+    // Sort keys for new slots only.
+    let mut sort_keys = write.open_table(keys::SORT_KEYS).map_err(error)?;
+    for column in new.sorting.columns.values() {
+        let column_bytes = encode(&column.path)?;
+        for slot in old.record_count()..new.record_count() {
+            let key = column.key(RecordSlot(slot as u32)).ok_or("new sort key missing")?;
+            sort_keys
+                .insert(
+                    keys::sort_key_key(&prefix, &column_bytes, slot as u32).as_slice(),
+                    keys::encode_sort_key(key).as_slice(),
+                )
+                .map_err(error)?;
+            report.rows_written += 1;
+        }
+    }
+    drop(sort_keys);
+    let mut columns = write.open_table(keys::SORT_COLUMNS).map_err(error)?;
+    for column in new.sorting.columns.values() {
+        let column_bytes = encode(&column.path)?;
+        columns
+            .insert(
+                keys::sort_column_key(&prefix, &column_bytes).as_slice(),
+                encode(&keys::SortColumnHeader {
+                    path: column.path.clone(),
+                    kind: column.kind.clone(),
+                    locale: column.locale.clone(),
+                    options: column.options,
+                    collation_version: column.collation_version.clone(),
+                })?
+                .as_slice(),
+            )
+            .map_err(error)?;
+    }
+    drop(columns);
+    let mut composites = write.open_table(keys::COMPOSITES).map_err(error)?;
+    for (index, composite) in new.sorting.composites.iter().enumerate() {
+        composites
+            .insert(
+                keys::composite_key(&prefix, index as u32).as_slice(),
+                encode(&composite.fields)?.as_slice(),
+            )
+            .map_err(error)?;
+    }
+    drop(composites);
+
+    // Relations.
+    let mut relations = write.open_table(keys::RELATIONS).map_err(error)?;
+    let mut references = write.open_table(keys::REFERENCES).map_err(error)?;
+    for (ordinal, relation) in new.relations().iter().enumerate() {
+        relations
+            .insert(
+                keys::relation_key(&prefix, ordinal as u32).as_slice(),
+                encode(&keys::RelationHeader {
+                    declaration: relation.declaration.clone(),
+                    record_count: relation.record_count,
+                    reference_count: relation.reference_rows().count() as u32,
+                })?
+                .as_slice(),
+            )
+            .map_err(error)?;
+        for (kind, bitmap) in [
+            (keys::BITMAP_RELATION_PRESENT, &relation.present),
+            (keys::BITMAP_RELATION_NULLS, &relation.nulls),
+            (keys::BITMAP_RELATION_EMPTY_ARRAYS, &relation.empty_arrays),
+            (keys::BITMAP_RELATION_UNAVAILABLE, &relation.unavailable),
+        ] {
+            let old_value = old.relations().get(ordinal).map(|old| match kind {
+                keys::BITMAP_RELATION_PRESENT => &old.present,
+                keys::BITMAP_RELATION_NULLS => &old.nulls,
+                keys::BITMAP_RELATION_EMPTY_ARRAYS => &old.empty_arrays,
+                _ => &old.unavailable,
+            });
+            write_bitmap_if_changed(
+                write,
+                &prefix,
+                kind,
+                &(ordinal as u32).to_be_bytes(),
+                old_value,
+                bitmap,
+                &mut report,
+            )?;
+        }
+        for slot in old.record_count()..new.record_count() {
+            let source = RecordSlot(slot as u32);
+            let mut start = prefix.to_vec();
+            keys::push_u32(&mut start, ordinal as u32);
+            keys::push_u32(&mut start, source.0);
+            let end = keys::prefix_end(&start).unwrap();
+            references
+                .retain_in::<&[u8], _>(start.as_slice()..end.as_slice(), |_, _| false)
+                .map_err(error)?;
+        }
+        let rows = relation.reference_rows().collect::<Vec<_>>();
+        for (index, (source, target, positions)) in rows.iter().enumerate() {
+            if source.0 < old.record_count() as u32 {
+                continue;
+            }
+            references
+                .insert(
+                    keys::reference_key(&prefix, ordinal as u32, source.0, index as u32).as_slice(),
+                    encode(&PendingReference {
+                        source: *source,
+                        target_id: (*target).to_owned(),
+                        positions: positions.to_vec(),
+                    })?
+                    .as_slice(),
+                )
+                .map_err(error)?;
+            report.rows_written += 1;
+        }
+    }
+    drop(relations);
+    drop(references);
+    Ok(report)
+}

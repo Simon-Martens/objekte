@@ -282,6 +282,10 @@ impl BigramIndex {
         Self::new(BigramAlphabet::Ascii)
     }
 
+    pub(crate) fn gram_map(&self, skip: bool) -> &GramMap {
+        if skip { &self.skip } else { &self.normal }
+    }
+
     pub(crate) fn from_parts(
         alphabet: BigramAlphabet,
         record_count: u32,

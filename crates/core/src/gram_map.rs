@@ -164,6 +164,13 @@ impl GramMap {
         Ok(())
     }
 
+    pub(crate) fn shared_map(&self) -> Option<&crate::posting_map::PostingMap<u64>> {
+        match self {
+            Self::Shared(shared) => Some(shared),
+            Self::Building(_) => None,
+        }
+    }
+
     pub fn diff_chunks(
         &self,
         older: &Self,

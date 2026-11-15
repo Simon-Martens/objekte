@@ -143,6 +143,10 @@ impl StructuralFacts {
         self.postings.stored_chunk_count()
     }
 
+    pub(crate) fn postings_map(&self) -> &PostingMap<StructuralKey> {
+        &self.postings
+    }
+
     fn all_bitmaps(&self, valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
         self.postings.all_bitmaps(valid)
     }
@@ -262,6 +266,14 @@ impl PostingIndex {
             covered_records,
             stats: PostingStats::default(),
         }
+    }
+
+    pub(crate) fn value_map(&self) -> &PostingMap<ScalarKey> {
+        &self.values
+    }
+
+    pub(crate) fn length_map(&self) -> &PostingMap<Number> {
+        &self.lengths
     }
 
     pub(crate) fn insert_value_slot(&mut self, key: ScalarKey, slot: u32) {
