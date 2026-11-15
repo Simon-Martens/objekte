@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `73b5f0338f`
+Repair head: `430d54a8c0`
 
 ## Result
 
@@ -78,14 +78,21 @@ native posting dictionary.
   the catalogue object directly; it no longer calls `catalogue_entries`,
   builds a complete `FileInventory`, or rebuilds path maps.
 - Path lookup and directory-prefix lookup use the persisted path dictionary.
-- Run construction decodes only the file rows referenced by that run.
+- Run construction decodes only the file rows referenced by that run. File
+  ownership uses compact segment-slot ranges rather than one `RecordSlot` per
+  record, and per-run `file_index` HashMaps are not rebuilt at Load.
 - Packed record access allocates page cells only when a row is first read; one
   access decodes at most one 64-record page. Load allocates zero record cells.
 - Default identity order is read through the packed identity-order section on
   demand instead of collecting a complete slot array at Load.
 - Desktop catalogue startup materializes active file IDs only. Collection and
-  directory filtering reads rows/path prefixes on demand, with a 256-ID visible
-  page bound.
+  directory filtering reads rows/path prefixes on demand.
+- Added `SectionKind::Directories`, a persisted directory/collection-membership
+  index. `catalogue_directory_page` and `catalogue_page` return bounded pages
+  without decoding file rows or unrelated directories.
+- A full mutation overlay is merged into fresh resident packed catalogue
+  metadata after 4,096 entries. The merge is explicit in-memory maintenance and
+  does not Save or enumerate source files.
 - File versions and active IDs are read through the catalogue rather than a
   reconstructed row vector.
 
@@ -96,10 +103,10 @@ cargo test -p objekte-search-core load_defers_packed
 test load_defers_packed_record_page_allocation_until_a_row_is_read ... ok
 ```
 
-Remaining limitation: the desktop directory tree still derives directory names
-from the publication paths when the tree is refreshed. It does not decode file
-rows or diagnostics, but a full directory list is an explicit enumeration rather
-than a persisted child-directory page. No correctness path depends on it.
+The desktop sidebar currently requests the complete persisted directory list for
+its tree. The bounded directory-page API is implemented for callers that browse
+incrementally; the sidebar's own incremental continuation is a frontend
+follow-up, not a storage reconstruction path.
 
 ## R5 — durable object reuse: resolved
 
@@ -125,6 +132,11 @@ test same_store_save_reuses_mapped_run_and_visibility_objects ... ok
   dictionaries, records, bigrams, sorts, relations, coverage, and metadata.
   Output is one packed run with bounded pages; 2,048-slot output fragmentation
   no longer rescans the complete input.
+- The 64-run admission bound is enforced for every collection before a mutation
+  publishes another run. Full base partitions no longer receive an extra
+  allowance, and consolidation loops until the bound holds.
+- Cancellation is checked between merge inputs and while walking large value,
+  length, gram, and relation postings.
 - Record slot translation is built once per selected merge.
 - Fully active runs participate, so fan-out is bounded without tombstones.
 - Compaction remains source-free and reuses the existing compare-and-swap
@@ -144,6 +156,9 @@ reduced run count, and verifies the complete result set.
 
 - Packed planner estimates, exact execution, length predicates, derived state
   predicates, and bigram candidate/estimate paths return `StorageResult`.
+- Catalogue row and directory-page access has fallible `try_*` entry points;
+  corrupt packed catalogue pages surface as operation errors.
+- Sorting-column eligibility uses a fallible packed presence/null accessor.
 - `index_catalog` and executor convert storage errors at the planning boundary
   instead of erasing them with `ok()` or empty candidate sets.
 - Packed row access returns typed failures; no packed record path contains a
@@ -172,14 +187,14 @@ python3 scripts/format-rust-spacing.py
 python3 scripts/format-rust-spacing.py --check   # passed
 cargo clippy --workspace --all-targets --offline  # exit 0, warning-level diagnostics only
 cargo test --workspace --locked --offline
-934 passed; 0 failed
+935 passed; 0 failed
 ```
 
 Core-only suite:
 
 ```text
 cargo test -p objekte-search-core --lib --offline
-605 passed; 0 failed; 15 ignored
+606 passed; 0 failed; 15 ignored
 ```
 
 Desktop suite:
@@ -226,3 +241,5 @@ earlier GUI validation evidence remains under
 - `8a08af99d8` — page packed metadata and bound packed record caches.
 - `a2bf950f78` — read default identity order through packed pages.
 - `73b5f0338f` — repair report and validation record.
+- `430d54a8c0` — packed file ranges, persisted directory index, bounded
+  overlay merge, and strict run admission.
