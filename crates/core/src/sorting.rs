@@ -335,6 +335,14 @@ impl SortColumn {
         &self.descending
     }
 
+    pub(crate) fn set_or_push_key(&mut self, slot: RecordSlot, key: SortKey) {
+        if (slot.0 as usize) < self.key_count() {
+            self.keys.set(slot.0 as usize, key);
+        } else {
+            self.keys.push(key);
+        }
+    }
+
     pub(crate) fn set_keys(&mut self, keys: Vec<SortKey>) {
         self.keys = crate::slot_store::SlotTable::from_vec(keys);
     }

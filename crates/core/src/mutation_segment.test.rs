@@ -2046,3 +2046,99 @@ fn vacuum_marks_dead_file_rows_free() {
     assert_eq!(vacuumed.free_file_rows.len(), 1);
     assert!(vacuumed.file(crate::model::FileId(2)).is_some());
 }
+
+fn vacuumed_main(
+    tag: &str,
+    base_n: usize,
+    delta_n: usize,
+    retired: &[u32],
+) -> (IndexedCollectionSegment, ActiveRecords) {
+    let base = append_fixture_shard(&format!("{tag}-base"), 1, base_n);
+    let delta = append_fixture_shard(&format!("{tag}-delta"), 2, delta_n);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(base.record_count()).unwrap();
+    let main = main.append(&active, &delta).unwrap().index;
+    let retired = retired.iter().copied().map(RecordSlot).collect::<Vec<_>>();
+    let active = ActiveRecords::all(main.record_count()).unwrap().retired(&retired).unwrap();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().unwrap();
+    (vacuumed, active)
+}
+
+#[test]
+fn append_reuses_free_slots_first() {
+    let (main, active) = vacuumed_main("reuse", 20, 10, &[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    let delta = append_fixture_shard("reuse-delta", 3, 4);
+    let count = main.record_count();
+    let freed = main.free_slots.len();
+    let appended = main.append(&active, &delta).unwrap();
+    assert_eq!(appended.index.record_count(), count);
+    assert_eq!(appended.index.free_slots.len(), freed - 4);
+    assert_eq!(appended.index.reuse_log.len(), 4);
+    assert_eq!(appended.base, count as u32);
+}
+
+#[test]
+fn append_overflows_into_new_slots() {
+    let (main, active) = vacuumed_main("overflow", 20, 5, &[0, 2, 4]);
+    let delta = append_fixture_shard("overflow-delta", 3, 5);
+    let count = main.record_count();
+    let appended = main.append(&active, &delta).unwrap();
+    assert_eq!(appended.index.record_count(), count + 2);
+    assert_eq!(appended.index.free_slots.len(), 0);
+    assert_eq!(appended.index.reuse_log.len(), 3);
+}
+
+#[test]
+fn append_rejects_reuse_of_an_active_slot() {
+    let (main, active) = vacuumed_main("reuse-active", 10, 2, &[9]);
+    let mut corrupted = main.clone();
+    corrupted.free_slots.insert(0);
+    let delta = append_fixture_shard("reuse-active-delta", 3, 2);
+    assert_eq!(
+        corrupted.append(&active, &delta).err().unwrap(),
+        "append would reuse an active slot"
+    );
+}
+
+#[test]
+fn with_mapped_matches_bitmap_model() {
+    let mapping = SlotMapping {
+        reused: vec![RecordSlot(0), RecordSlot(3)],
+        base: 5,
+    };
+    let left = ActiveRecords::all(2).unwrap();
+    let right = ActiveRecords::all(3)
+        .unwrap()
+        .retired(&[RecordSlot(1)])
+        .unwrap();
+    let combined = left.with_mapped(&right, &mapping).unwrap();
+    let mut expected = left.bitmap();
+    for slot in right.bitmap().iter() {
+        expected.insert(mapping.target(slot).0);
+    }
+    assert_eq!(combined.bitmap(), expected);
+    assert_eq!(combined.slot_count(), mapping.slot_count(3));
+}
+
+#[test]
+fn reused_slots_carry_only_the_new_record() {
+    let (main, active) = vacuumed_main("reused", 20, 5, &[2, 4, 6, 8]);
+    let delta = append_fixture_shard("reused-delta", 3, 3);
+    let appended = main.append(&active, &delta).unwrap();
+    let compacted = main.compact_active(&active, usize::MAX, |_| true).unwrap();
+    let expected = IndexedCollectionSegment::consolidate(&[&compacted.index, &delta], usize::MAX)
+        .unwrap();
+    let active_after = active
+        .with_mapped(&ActiveRecords::all(delta.record_count()).unwrap(), &appended.mapping)
+        .unwrap();
+    let delta_active = ActiveRecords::all(delta.record_count()).unwrap();
+    let expected_active = expected
+        .translate_active(&[&compacted.active, &delta_active])
+        .unwrap();
+    assert_shards_equivalent_by_id(
+        &appended.index,
+        &active_after,
+        &expected.index,
+        &expected_active,
+    );
+}

@@ -368,6 +368,30 @@ impl BigramIndex {
         self.skip.for_each_sorted(visit)
     }
 
+    pub(crate) fn merge_mapped(
+        &mut self,
+        batch: &Self,
+        mapping: &crate::build::SlotMapping,
+    ) -> Result<(), String> {
+        if self.alphabet != batch.alphabet {
+            return Err("bigram batch alphabet mismatch".into());
+        }
+        let mapped = |bitmap: &RoaringBitmap| {
+            bitmap
+                .iter()
+                .map(|slot| mapping.target(slot).0)
+                .collect::<RoaringBitmap>()
+        };
+        for (key, posting) in batch.normal_entries() {
+            self.normal.union_with(key, mapped(&posting));
+        }
+        for (key, posting) in batch.skip_entries() {
+            self.skip.union_with(key, mapped(&posting));
+        }
+        self.record_count = mapping.slot_count(batch.record_count);
+        Ok(())
+    }
+
     pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
         self.normal.remove_slots(dead) + self.skip.remove_slots(dead)
     }

@@ -439,6 +439,32 @@ impl ActiveRecords {
                 .all(|(left, right)| Arc::ptr_eq(left, right))
     }
 
+    pub(crate) fn with_mapped(
+        &self,
+        other: &Self,
+        mapping: &crate::build::SlotMapping,
+    ) -> Result<Self, String> {
+        let slot_count = mapping.slot_count(other.slot_count());
+        let mut chunks = (*self.chunks).clone();
+        chunks.resize_with(
+            (slot_count as usize).div_ceil(ACTIVE_SLOT_CHUNK as usize),
+            || Arc::new(RoaringBitmap::new()),
+        );
+        for (group, chunk) in other.chunks.iter().enumerate() {
+            let base = group as u32 * ACTIVE_SLOT_CHUNK;
+            for local in chunk.iter() {
+                let target = mapping.target(base + local);
+                let target_group = (target.0 / ACTIVE_SLOT_CHUNK) as usize;
+                Arc::make_mut(&mut chunks[target_group]).insert(target.0 % ACTIVE_SLOT_CHUNK);
+            }
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            slot_count,
+            live_count: self.live_count + other.live_count,
+        })
+    }
+
     #[cfg(test)]
     pub(crate) fn chunk_arc(&self, index: usize) -> Option<&Arc<RoaringBitmap>> {
         self.chunks.get(index)

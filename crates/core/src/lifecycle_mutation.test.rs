@@ -2141,3 +2141,65 @@ fn measure_fold_cost_on_real_fixture() {
         main.map_or(0, |segment| segment.active.len()),
     );
 }
+
+#[test]
+fn explicit_vacuum_reports_and_preserves_results() {
+    let root = test_root("explicit-vacuum");
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    for number in 0..30usize {
+        let path = root.join(format!("data/vac-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    for number in 0..10usize {
+        let path = root.join(format!("data/vac-{number}.jsonl"));
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap();
+        std::fs::write(&path, format!("{{\"name\":\"changed-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.update_file(handle, &path).unwrap();
+    }
+    let live = index.view().unwrap().search(&count_query()).unwrap().count;
+    let report = index.vacuum().unwrap();
+    assert!(report.slots_freed > 0, "{report:?}");
+    assert!(report.memberships_removed > 0);
+    assert_eq!(
+        index.view().unwrap().search(&count_query()).unwrap().count,
+        live
+    );
+    let revision = report.revision;
+    let second = index.vacuum().unwrap();
+    assert_eq!(second.slots_freed, 0);
+    assert_eq!(second.revision, revision);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn pinned_view_survives_a_vacuum() {
+    let root = test_root("pinned-vacuum");
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    for number in 0..20usize {
+        let path = root.join(format!("data/pv-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let pinned = index.view().unwrap();
+    let before = pinned.search(&count_query()).unwrap().count;
+    for number in 0..10usize {
+        let path = root.join(format!("data/pv-{number}.jsonl"));
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap();
+        std::fs::write(&path, format!("{{\"name\":\"changed-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.update_file(handle, &path).unwrap();
+    }
+    index.vacuum().unwrap();
+    assert_eq!(pinned.search(&count_query()).unwrap().count, before);
+    std::fs::remove_dir_all(root).unwrap();
+}

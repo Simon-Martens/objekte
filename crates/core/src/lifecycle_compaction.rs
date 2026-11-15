@@ -375,3 +375,57 @@ impl Index {
 #[cfg(test)]
 #[path = "lifecycle_compaction.test.rs"]
 mod tests;
+
+/// Counters of one explicit vacuum call.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VacuumReport {
+    pub revision: crate::lifecycle::IndexRevision,
+    pub collections_vacuumed: usize,
+    pub slots_freed: u64,
+    pub memberships_removed: u64,
+    pub duration: std::time::Duration,
+}
+
+impl Index {
+    /// Vacuum every main shard that has retired records, whatever the ratio.
+    pub fn vacuum(&self) -> Result<VacuumReport, IndexError> {
+        let started = std::time::Instant::now();
+        for _ in 0..3 {
+            let view = self.view()?;
+            let expected = view.revision();
+            let mut next = (*view.0).clone();
+            let mut collections = 0usize;
+            let mut slots = 0u64;
+            let mut memberships = 0u64;
+            for number in 0..next.segments.len() {
+                if let Some(stats) = next.vacuum_main(number)? {
+                    collections += 1;
+                    slots += stats.slots_freed;
+                    memberships += stats.memberships_removed;
+                }
+            }
+            if collections == 0 {
+                return Ok(VacuumReport {
+                    revision: expected,
+                    collections_vacuumed: 0,
+                    slots_freed: 0,
+                    memberships_removed: 0,
+                    duration: started.elapsed(),
+                });
+            }
+            next.revision = expected.next()?;
+            self.publish_prepared(expected, next)?;
+            return Ok(VacuumReport {
+                revision: expected.next()?,
+                collections_vacuumed: collections,
+                slots_freed: slots,
+                memberships_removed: memberships,
+                duration: started.elapsed(),
+            });
+        }
+        Err(IndexError::RevisionConflict {
+            expected: self.view()?.revision(),
+            actual: self.view()?.revision(),
+        })
+    }
+}

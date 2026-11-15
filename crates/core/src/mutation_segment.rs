@@ -1648,6 +1648,7 @@ pub(crate) struct AppendedSegment {
     pub index: IndexedCollectionSegment,
     /// Slot of `delta`'s slot 0 in `index`.
     pub base: u32,
+    pub mapping: SlotMapping,
 }
 
 impl IndexedCollectionSegment {
@@ -1697,12 +1698,33 @@ impl IndexedCollectionSegment {
             }
         }
 
+        let reused_count = self
+            .free_slots
+            .len()
+            .min(delta.record_count() as u64) as u32;
+        let reused = self
+            .free_slots
+            .iter()
+            .take(reused_count as usize)
+            .map(RecordSlot)
+            .collect::<Vec<_>>();
+        for slot in &reused {
+            if self_active.contains(*slot) {
+                return Err("append would reuse an active slot".into());
+            }
+        }
+        let mapping = SlotMapping { reused, base };
         let mut index = self.clone();
-        index.records.extend(delta.records_iter().map(|record| {
+        for record in delta.records_iter() {
+            let target = mapping.target(record.slot.0);
             let mut record = record.clone();
-            record.slot = RecordSlot(base + record.slot.0);
-            record
-        }));
+            record.slot = target;
+            if (target.0 as usize) < self.record_count() {
+                index.records.set(target.0 as usize, record);
+            } else {
+                index.records.push(record);
+            }
+        }
         for file in delta.files_iter() {
             let mut entry = file.entry.clone();
             for diagnostic in &mut entry.diagnostics {
@@ -1713,7 +1735,7 @@ impl IndexedCollectionSegment {
             let records = file
                 .records
                 .iter()
-                .map(|slot| RecordSlot(base + slot.0))
+                .map(|slot| mapping.target(slot.0))
                 .collect::<Vec<_>>();
             let row = SegmentFile { entry, records };
             if let Some(position) = index.file_position(file.entry.id) {
@@ -1724,11 +1746,13 @@ impl IndexedCollectionSegment {
                 index.files.push(row);
             }
         }
-        for record in index.records.iter().skip(self.record_count()) {
-            index.id_lookup.insert(record.id.clone(), record.slot);
+        for record in delta.records_iter() {
+            index
+                .id_lookup
+                .insert(record.id.clone(), mapping.target(record.slot.0));
         }
 
-        index.postings.merge_shifted(delta.postings.clone(), base)?;
+        index.postings.merge_mapped(&delta.postings, &mapping)?;
         index.postings.finish_stats();
         if index.custom_postings.len() != delta.custom_postings.len() {
             return Err("custom posting segment coverage mismatch".into());
@@ -1738,36 +1762,39 @@ impl IndexedCollectionSegment {
                 .custom_postings
                 .get_mut(key)
                 .ok_or("custom posting segment missing")?;
-            target.index.merge_shifted(source.index.clone(), base)?;
+            target.index.merge_mapped(&source.index, &mapping)?;
             target.index.finish_stats();
             target.complete &= source.complete;
         }
-        merge_bigram_index(&mut index.raw, &delta.raw, base)?;
-        merge_bigram_index(&mut index.fallback_text, &delta.fallback_text, base)?;
+        index.raw.merge_mapped(&delta.raw, &mapping)?;
+        index.fallback_text.merge_mapped(&delta.fallback_text, &mapping)?;
         if index.custom_text.len() != delta.custom_text.len() {
             return Err("custom bigram segment coverage mismatch".into());
         }
         for (key, source) in &delta.custom_text {
-            merge_bigram_index(
-                index
-                    .custom_text
-                    .get_mut(key)
-                    .ok_or("custom bigram segment missing")?,
-                source,
-                base,
-            )?;
+            index
+                .custom_text
+                .get_mut(key)
+                .ok_or("custom bigram segment missing")?
+                .merge_mapped(source, &mapping)?;
         }
-        append_shifted_bitmap(&mut index.logical_records, &delta.logical_records, base)?;
-        append_shifted_bitmap(
-            &mut index.empty_array_records,
-            &delta.empty_array_records,
-            base,
-        )?;
+        let mapped = |bitmap: &RoaringBitmap| {
+            bitmap
+                .iter()
+                .map(|slot| mapping.target(slot).0)
+                .collect::<RoaringBitmap>()
+        };
+        index.logical_records |= mapped(&delta.logical_records);
+        index.empty_array_records |= mapped(&delta.empty_array_records);
         if index.relations.len() != delta.relations.len() {
             return Err("relation segment coverage mismatch".into());
         }
         for (target, source) in index.relations.iter_mut().zip(&delta.relations) {
-            target.merge_shifted(source.clone(), base, delta.record_count() as u32)?;
+            target.merge_mapped(
+                source,
+                &mapping,
+                mapping.slot_count(delta.record_count() as u32),
+            )?;
         }
         if index.sorting.columns.len() != delta.sorting.columns.len()
             || index.sorting.composites.len() != delta.sorting.composites.len()
@@ -1788,6 +1815,10 @@ impl IndexedCollectionSegment {
                 return Err("sort column representation mismatch".into());
             }
             target.extend_keys_from(source);
+            for s in 0..delta.record_count() {
+                let key = source.key(RecordSlot(s as u32)).unwrap().clone();
+                target.set_or_push_key(mapping.target(s as u32), key);
+            }
         }
         for (target, source) in index
             .sorting
@@ -1802,7 +1833,7 @@ impl IndexedCollectionSegment {
         let sort_paths = delta.sorting.columns.keys().cloned().collect::<Vec<_>>();
         let composite_count = delta.sorting.composites.len();
         for s in 0..delta.record_count() {
-            let target = RecordSlot(base + s as u32);
+            let target = mapping.target(s as u32);
             let position = index.identity_order.partition_point(|existing| {
                 index
                     .record(existing)
@@ -1920,8 +1951,14 @@ impl IndexedCollectionSegment {
                 .index_family_bytes
                 .saturating_add(delta.accounting.index_family_bytes),
         };
+        index.free_slots -= &mapping.reused.iter().map(|slot| slot.0).collect::<RoaringBitmap>();
+        index.reuse_log.extend(mapping.reused.iter().copied());
         index.role = ShardRole::Main;
-        Ok(AppendedSegment { index, base })
+        Ok(AppendedSegment {
+            index,
+            base,
+            mapping,
+        })
     }
 
     /// A copy of this main shard without the retired records. Slots are not

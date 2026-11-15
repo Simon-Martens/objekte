@@ -493,9 +493,15 @@ pub(crate) fn index_family_estimate(
     }
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub(crate) struct VacuumStats {
+    pub slots_freed: u64,
+    pub memberships_removed: u64,
+}
+
 pub(crate) const FOLD_TRIGGER_SHARDS: usize = 8;
+pub(crate) const MAIN_VACUUM_MIN_DEAD: usize = 1_024;
 pub(crate) const FOLD_MAX_RECORDS: usize = 256;
-pub(crate) const MAIN_DISSOLVE_MIN_SLOTS: usize = 4_096;
 
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
     let mut sized = group
@@ -690,6 +696,56 @@ impl PublishedIndex {
             }
         }
         false
+    }
+
+    pub(crate) fn vacuum_main(
+        &mut self,
+        number: usize,
+    ) -> Result<Option<VacuumStats>, IndexError> {
+        let group = Arc::clone(&self.segments[number]);
+        let Some(position) = group
+            .iter()
+            .position(|segment| segment.index.role == crate::build::ShardRole::Main)
+        else {
+            return Ok(None);
+        };
+        let segment = &group[position];
+        let is_current = |entry: &crate::inventory::FileEntry| {
+            self.catalog.entry(entry.id).is_some_and(|current| {
+                current.revision == entry.revision
+                    && current.created_ns == entry.created_ns
+                    && current.collections.contains(&segment.index.collection)
+            })
+        };
+        let Some(vacuumed) = segment
+            .index
+            .vacuum(&segment.active, is_current)
+            .map_err(IndexError::InvalidPublication)?
+        else {
+            return Ok(None);
+        };
+        let stats = VacuumStats {
+            slots_freed: vacuumed
+                .free_slots
+                .len()
+                .saturating_sub(segment.index.free_slots.len()),
+            memberships_removed: vacuumed
+                .record_count()
+                .saturating_sub(vacuumed.live_slot_count()) as u64,
+        };
+        let ordinal = self.next_segment_ordinal;
+        self.next_segment_ordinal = self
+            .next_segment_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let mut copy = (*group).clone();
+        copy[position] = Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(vacuumed),
+            active: segment.active.clone(),
+        });
+        self.segments[number] = Arc::new(copy);
+        Ok(Some(stats))
     }
 
     /// Fold small mutation shards into the collection's main shard.
@@ -927,6 +983,22 @@ impl PublishedIndex {
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
+            if let Some(position) = group
+                .iter()
+                .position(|segment| segment.index.role == crate::build::ShardRole::Main)
+            {
+                let segment = &group[position];
+                let total = segment.index.record_count();
+                let dead = total
+                    .saturating_sub(segment.active.len() as usize)
+                    .saturating_sub(segment.index.free_slots.len() as usize);
+                if dead >= MAIN_VACUUM_MIN_DEAD
+                    && dead.saturating_mul(4) >= segment.index.live_slot_count()
+                {
+                    self.vacuum_main(number)?;
+                    return Ok(());
+                }
+            }
             let retired = group
                 .iter()
                 .enumerate()
@@ -936,10 +1008,7 @@ impl PublishedIndex {
                     let partition = total >= MIN_RETIREMENT_SLOTS
                         && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
                         && removed.saturating_mul(4) >= total;
-                    let dissolve = segment.index.role == crate::build::ShardRole::Main
-                        && total >= MAIN_DISSOLVE_MIN_SLOTS
-                        && removed.saturating_mul(2) >= total;
-                    (partition || dissolve).then_some((removed, index))
+                    partition.then_some((removed, index))
                 })
                 .max();
             if let Some((_, index)) = retired {

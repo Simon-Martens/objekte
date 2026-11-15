@@ -143,6 +143,10 @@ impl StructuralFacts {
         self.postings.stored_chunk_count()
     }
 
+    pub(crate) fn union_with(&mut self, key: StructuralKey, posting: RoaringBitmap) {
+        self.postings.union_with(key, posting);
+    }
+
     pub(crate) fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
         self.postings.remove_slots(dead)
     }
@@ -298,6 +302,52 @@ impl PostingIndex {
 
     pub(crate) fn retain_values(&mut self, keep: impl FnMut(&ScalarKey) -> bool) {
         self.values.retain_keys(keep);
+    }
+
+    pub(crate) fn merge_mapped(
+        &mut self,
+        batch: &Self,
+        mapping: &crate::build::SlotMapping,
+    ) -> Result<(), String> {
+        if self.path != batch.path
+            || self.kind != batch.kind
+            || self.multi != batch.multi
+            || self.values_indexed != batch.values_indexed
+            || self.value_complete != batch.value_complete
+            || self.length_complete != batch.length_complete
+            || self.empty_string_complete != batch.empty_string_complete
+            || self.structural.is_some() != batch.structural.is_some()
+        {
+            return Err("posting batch representation mismatch".into());
+        }
+        let covered = self
+            .covered_records
+            .checked_add(batch.covered_records)
+            .ok_or("posting coverage overflow")?;
+        let mapped = |bitmap: &RoaringBitmap| {
+            bitmap
+                .iter()
+                .map(|slot| mapping.target(slot).0)
+                .collect::<RoaringBitmap>()
+        };
+        self.presence |= mapped(&batch.presence);
+        self.empty_selections |= mapped(&batch.empty_selections);
+        self.nulls |= mapped(&batch.nulls);
+        if let (Some(target), Some(source)) = (&mut self.structural, &batch.structural) {
+            source.for_each(|key, slots| {
+                target.union_with(key, mapped(slots));
+                Ok(())
+            })?;
+        }
+        for (key, posting) in batch.value_entries() {
+            self.values.union_with(key, mapped(&posting));
+        }
+        for (key, posting) in batch.length_entries() {
+            self.lengths.union_with(key, mapped(&posting));
+        }
+        self.covered_records = covered;
+        self.finish_stats();
+        Ok(())
     }
 
     pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
@@ -1506,6 +1556,23 @@ pub struct PostingCollection {
 }
 
 impl PostingCollection {
+    pub(crate) fn merge_mapped(
+        &mut self,
+        batch: &Self,
+        mapping: &crate::build::SlotMapping,
+    ) -> Result<(), String> {
+        if self.fields.len() != batch.fields.len() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        for (path, index) in &batch.fields {
+            self.fields
+                .get_mut(path)
+                .ok_or("posting batch field missing")?
+                .merge_mapped(index, mapping)?;
+        }
+        Ok(())
+    }
+
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.fields.len() != batch.fields.len() {
             return Err("posting batch field coverage mismatch".into());
