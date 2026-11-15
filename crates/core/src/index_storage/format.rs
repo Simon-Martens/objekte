@@ -16,7 +16,7 @@ pub const OBJECT_MAGIC: [u8; 8] = *b"OBJXOBJ1";
 /// Eight-byte store marker magic.
 pub const STORE_MAGIC: [u8; 8] = *b"OBJEST01";
 /// Current object format version.
-pub const FORMAT_VERSION: u16 = 1;
+pub const FORMAT_VERSION: u16 = 2;
 /// Fixed object header length.
 pub const HEADER_LEN: usize = 128;
 /// Fixed section directory entry length.
@@ -44,6 +44,8 @@ pub enum ObjectKind {
     Catalogue,
     /// Native query-engine compatibility state for one pinned publication.
     State,
+    /// Publication-specific active record set for one immutable run.
+    Visibility,
 }
 
 
@@ -53,6 +55,7 @@ impl ObjectKind {
             Self::Segment => 1,
             Self::Catalogue => 2,
             Self::State => 3,
+            Self::Visibility => 4,
         }
     }
 
@@ -61,6 +64,7 @@ impl ObjectKind {
             1 => Some(Self::Segment),
             2 => Some(Self::Catalogue),
             3 => Some(Self::State),
+            4 => Some(Self::Visibility),
             _ => None,
         }
     }
@@ -91,6 +95,7 @@ impl ObjectKind {
                 SectionKind::Statistics,
             ],
             Self::State => &[SectionKind::NativeState],
+            Self::Visibility => &[SectionKind::Visibility],
         }
     }
 }
@@ -129,6 +134,8 @@ pub enum SectionKind {
     Relations = 22,
     /// Native query-engine compatibility state.
     NativeState = 23,
+    /// Publication-specific active record set for one run.
+    Visibility = 24,
 }
 
 
@@ -162,6 +169,7 @@ impl SectionKind {
             21 => Self::IdentityOrder,
             22 => Self::Relations,
             23 => Self::NativeState,
+            24 => Self::Visibility,
             _ => return None,
         })
     }

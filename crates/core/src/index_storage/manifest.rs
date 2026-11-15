@@ -11,7 +11,7 @@ use super::error::{StorageError, StorageResult};
 use super::format::{FORMAT_VERSION, STORE_MAGIC};
 
 pub const STORE_MARKER_LEN: usize = 64;
-pub const MANIFEST_VERSION: u32 = 1;
+pub const MANIFEST_VERSION: u32 = 2;
 pub const CURRENT_VERSION: u32 = 1;
 pub const MAX_MANIFEST_BYTES: usize = 8 * 1024 * 1024;
 pub const MAX_FRONTEND_METADATA_BYTES: usize = 1024 * 1024;
@@ -167,6 +167,7 @@ pub struct RunRef {
     pub ordinal: u64,
     pub level: u32,
     pub object: ObjectRef,
+    pub visibility: ObjectRef,
     pub slot_count: u32,
     pub active_count: u64,
 }
@@ -272,6 +273,7 @@ impl GenerationManifest {
         let mut ordinals = HashSet::new();
         for run in &self.runs {
             run.object.validate()?;
+            run.visibility.validate()?;
             if !ordinals.insert((run.collection, run.ordinal)) {
                 return Err(StorageError::InvalidManifest(
                     "duplicate run ordinal".into(),

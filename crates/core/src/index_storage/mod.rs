@@ -30,6 +30,7 @@ pub mod status;
 pub mod store;
 pub mod stream_compact;
 pub mod task;
+pub mod visibility;
 
 pub use backing::{Backing, MappedObject};
 pub use dictionary::{DictionaryCursor, DictionaryReader, KeyOrder};

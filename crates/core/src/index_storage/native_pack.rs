@@ -30,6 +30,7 @@ use super::relations::{RelationEdgeInput, RelationInput};
 use super::segment_builder::{SegmentInput, build_segment};
 use super::sort::SortColumnInput;
 use super::store::{ObjectInput, RunInput};
+use super::visibility::build_visibility;
 
 
 /// Small inference metadata packed alongside observed postings.
@@ -165,20 +166,23 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
                     kind: ObjectKind::Segment,
                     bytes: Arc::from(built.object.into_bytes()),
                 },
+                visibility: build_visibility(&active, slot_count)?,
             });
         }
         for segment in published.segments[number].iter() {
             if let Some(packed) = &segment.packed {
+                let active = segment.active.bitmap();
                 runs.push(RunInput {
                     collection: number as u32,
                     ordinal: segment.ordinal,
-                    level: 0,
+                    level: segment.level,
                     slot_count: packed.stats().record_count,
                     active_count: segment.active.len(),
                     object: ObjectInput {
                         kind: ObjectKind::Segment,
                         bytes: packed.object_bytes()?,
                     },
+                    visibility: build_visibility(&active, packed.stats().record_count)?,
                 });
                 continue;
             }
@@ -189,16 +193,19 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
                 repository.collections(),
             )?;
             let built = build_segment(input)?;
+            let active = segment.active.bitmap();
+            let slot_count = segment.index.records.len() as u32;
             runs.push(RunInput {
                 collection: number as u32,
                 ordinal: segment.ordinal,
-                level: 0,
-                slot_count: segment.index.records.len() as u32,
+                level: segment.level,
+                slot_count,
                 active_count: segment.active.len(),
                 object: ObjectInput {
                     kind: ObjectKind::Segment,
                     bytes: Arc::from(built.object.into_bytes()),
                 },
+                visibility: build_visibility(&active, slot_count)?,
             });
         }
     }

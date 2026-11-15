@@ -30,6 +30,7 @@ use super::error::StorageError;
 use super::native_pack::InferenceMetadata;
 use super::segment::FrozenSegment;
 use super::store::OpenedStore;
+use super::visibility::VisibilityView;
 
 /// Reconstruct one complete queryable repository from the packed catalogue and
 /// run objects in an opened store. The compatibility native-state object is
@@ -213,7 +214,15 @@ pub fn restore_from_store(
             .cloned()
             .ok_or_else(|| IndexError::InvalidPublication("opened run is missing".into()))?;
         let segment = segment_from_packed(&frozen, collection, &file_entries, &definitions)?;
-        let active_slots = segment_active(&frozen)?;
+        let visibility =
+            VisibilityView::open(opened.visibility_backing(run), frozen.stats().record_count)
+                .map_err(storage_error)?;
+        if visibility.cardinality() != run.reference.active_count {
+            return Err(IndexError::InvalidPublication(
+                "run visibility cardinality differs from the manifest active count".into(),
+            ));
+        }
+        let active_slots = visibility.bitmap().map_err(storage_error)?;
         next_segment_ordinal = next_segment_ordinal.max(run.reference.ordinal + 1);
         groups
             .get_mut(collection)
@@ -222,6 +231,7 @@ pub fn restore_from_store(
             })?
             .push(Arc::new(PublishedSegment {
                 ordinal: run.reference.ordinal,
+                level: run.reference.level,
                 index: Arc::new(segment),
                 active: crate::inventory::ActiveRecords::from_bitmap(
                     frozen.stats().record_count as usize,
@@ -465,17 +475,6 @@ fn empty_sorting(
     )
     .and_then(|builder| builder.finish_for_records(&[]))
     .map_err(IndexError::Build)
-}
-
-fn segment_active(frozen: &FrozenSegment) -> Result<RoaringBitmap, IndexError> {
-    let mut bitmap = RoaringBitmap::new();
-    frozen
-        .coverage()
-        .active_records()
-        .map_err(storage_error)?
-        .union_into(&mut bitmap)
-        .map_err(storage_error)?;
-    Ok(bitmap)
 }
 
 pub(crate) fn segment_from_packed(

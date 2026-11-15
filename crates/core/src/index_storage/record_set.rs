@@ -237,14 +237,81 @@ struct BlockDescriptor {
 pub struct RecordSetView<'a> {
     reference: RecordSetRef,
     arena: &'a [u8],
+    paged: Option<PagedArena>,
+    arena_len: u64,
     domain_len: u32,
     blocks: Vec<BlockDescriptor>,
 }
 
 
+struct PagedArena {
+    backing: super::backing::Backing,
+    offset: u64,
+}
+
+
 impl<'a> RecordSetView<'a> {
     pub fn new(reference: RecordSetRef, arena: &'a [u8], domain_len: u32) -> StorageResult<Self> {
-        let mut blocks = Vec::new();
+        let mut view = Self {
+            reference,
+            arena,
+            paged: None,
+            arena_len: arena.len() as u64,
+            domain_len,
+            blocks: Vec::new(),
+        };
+        view.validate()?;
+        Ok(view)
+    }
+
+    /// Open a record set whose arena remains in its backing. Only the block
+    /// directory and the requested block payloads are read.
+    pub fn new_paged(
+        reference: RecordSetRef,
+        backing: super::backing::Backing,
+        arena_offset: u64,
+        arena_len: u64,
+        domain_len: u32,
+    ) -> StorageResult<Self> {
+        arena_offset
+            .checked_add(arena_len)
+            .ok_or_else(|| StorageError::corrupt("record-set arena bounds overflow"))?;
+        let mut view = Self {
+            reference,
+            arena: &[],
+            paged: Some(PagedArena {
+                backing,
+                offset: arena_offset,
+            }),
+            arena_len,
+            domain_len,
+            blocks: Vec::new(),
+        };
+        view.validate()?;
+        Ok(view)
+    }
+
+    fn arena_slice(&self, start: u64, length: u64) -> StorageResult<&[u8]> {
+        let end = start
+            .checked_add(length)
+            .ok_or_else(|| StorageError::corrupt("record-set arena range overflow"))?;
+        if end > self.arena_len {
+            return Err(StorageError::corrupt(
+                "record-set arena range out of bounds",
+            ));
+        }
+        match &self.paged {
+            Some(paged) => paged.backing.read(paged.offset + start, length),
+            None => self
+                .arena
+                .get(start as usize..end as usize)
+                .ok_or_else(|| StorageError::corrupt("record-set arena range out of bounds")),
+        }
+    }
+
+    fn validate(&mut self) -> StorageResult<()> {
+        self.blocks.clear();
+        let reference = self.reference;
         match reference.tag {
             RecordSetTag::Empty => {
                 if reference.cardinality != 0 {
@@ -254,14 +321,14 @@ impl<'a> RecordSetView<'a> {
                 }
             }
             RecordSetTag::All => {
-                if reference.cardinality != domain_len as u64 {
+                if reference.cardinality != self.domain_len as u64 {
                     return Err(StorageError::corrupt(
                         "all record set does not match its owning domain",
                     ));
                 }
             }
             RecordSetTag::Range => {
-                if reference.b > domain_len as u64
+                if reference.b > self.domain_len as u64
                     || reference.a > reference.b
                     || reference.cardinality != reference.b - reference.a
                 {
@@ -277,7 +344,7 @@ impl<'a> RecordSetView<'a> {
                 let slots = inline_slots(reference);
                 let used = &slots[..reference.inline_count as usize];
                 if used.windows(2).any(|pair| pair[0] >= pair[1])
-                    || used.iter().any(|slot| *slot >= domain_len)
+                    || used.iter().any(|slot| *slot >= self.domain_len)
                 {
                     return Err(StorageError::corrupt(
                         "inline record members are not sorted or are out of domain",
@@ -285,23 +352,13 @@ impl<'a> RecordSetView<'a> {
                 }
             }
             RecordSetTag::Blocks => {
-                let start = usize::try_from(reference.a)
-                    .map_err(|_| StorageError::corrupt("block directory offset overflow"))?;
-                let length = usize::try_from(reference.b)
-                    .map_err(|_| StorageError::corrupt("block directory length overflow"))?;
-                let dir = arena
-                    .get(
-                        start
-                            ..start.checked_add(length).ok_or_else(|| {
-                                StorageError::corrupt("block directory end overflow")
-                            })?,
-                    )
-                    .ok_or_else(|| StorageError::corrupt("block directory out of bounds"))?;
-                if length == 0 || length % BLOCK_DESCRIPTOR_LEN != 0 {
+                let dir = self.arena_slice(reference.a, reference.b)?;
+                if reference.b == 0 || reference.b % BLOCK_DESCRIPTOR_LEN as u64 != 0 {
                     return Err(StorageError::corrupt("invalid block directory length"));
                 }
                 let mut previous_key = None;
                 let mut total = 0u64;
+                let mut blocks = Vec::new();
                 for chunk in dir.chunks_exact(BLOCK_DESCRIPTOR_LEN) {
                     let key =
                         u32::from_le_bytes(chunk[..4].try_into().expect("four-byte block key"));
@@ -349,7 +406,7 @@ impl<'a> RecordSetView<'a> {
                     if reference
                         .a
                         .checked_add(payload_end)
-                        .is_none_or(|end| end > arena.len() as u64)
+                        .is_none_or(|end| end > self.arena_len)
                     {
                         return Err(StorageError::corrupt("block payload out of bounds"));
                     }
@@ -369,14 +426,10 @@ impl<'a> RecordSetView<'a> {
                         "block cardinalities do not match the record-set descriptor",
                     ));
                 }
+                self.blocks = blocks;
             }
         }
-        Ok(Self {
-            reference,
-            arena,
-            domain_len,
-            blocks,
-        })
+        Ok(())
     }
 
     pub fn reference(&self) -> RecordSetRef {
@@ -627,15 +680,7 @@ impl<'a> RecordSetView<'a> {
             .a
             .checked_add(block.payload_offset)
             .ok_or_else(|| StorageError::corrupt("block payload offset overflow"))?;
-        let start = usize::try_from(start)
-            .map_err(|_| StorageError::corrupt("block payload offset does not fit usize"))?;
-        let end = start
-            .checked_add(block.payload_length as usize)
-            .ok_or_else(|| StorageError::corrupt("block payload end overflow"))?;
-        let payload = self
-            .arena
-            .get(start..end)
-            .ok_or_else(|| StorageError::corrupt("block payload out of bounds"))?;
+        let payload = self.arena_slice(start, block.payload_length as u64)?;
         let base = block.key << 16;
         let mut ids = Vec::with_capacity(block.cardinality as usize);
         match block.codec {

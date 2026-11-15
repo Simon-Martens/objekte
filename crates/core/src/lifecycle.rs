@@ -440,6 +440,7 @@ pub(crate) struct PreparedReplacement {
 #[derive(Clone)]
 pub(crate) struct PublishedSegment {
     pub(crate) ordinal: u64,
+    pub(crate) level: u32,
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
     pub(crate) packed: Option<Arc<crate::index_storage::segment::FrozenSegment>>,
@@ -761,6 +762,7 @@ impl PublishedIndex {
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
             ordinal,
+            level: 0,
             index: Arc::new(index),
             active,
             packed: None,
@@ -857,6 +859,7 @@ impl PublishedIndex {
                         index + offset,
                         Arc::new(PublishedSegment {
                             ordinal,
+                            level: 0,
                             index: Arc::new(part),
                             active,
                             packed: None,
@@ -906,6 +909,7 @@ impl PublishedIndex {
         group.remove(left);
         group.push(Arc::new(PublishedSegment {
             ordinal,
+            level: 0,
             index: Arc::new(merged_index),
             active,
             packed: None,

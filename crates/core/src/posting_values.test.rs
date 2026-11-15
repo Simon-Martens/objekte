@@ -301,6 +301,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     let active = vec![ActiveRecords::all(state.generation.records.len()).unwrap()];
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
         ordinal: 1,
+        level: 0,
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
         packed: None,

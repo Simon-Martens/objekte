@@ -144,12 +144,14 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
             ordinal: 1,
+            level: 0,
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
             packed: None,
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
             ordinal: 2,
+            level: 0,
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
             packed: None,

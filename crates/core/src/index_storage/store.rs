@@ -48,6 +48,7 @@ pub struct RunInput {
     pub slot_count: u32,
     pub active_count: u64,
     pub object: ObjectInput,
+    pub visibility: ObjectInput,
 }
 
 
@@ -174,6 +175,7 @@ impl SaveHooks for NoHooks {}
 pub struct OpenedRun {
     pub reference: RunRef,
     pub object: Arc<MappedObject>,
+    pub visibility: Arc<MappedObject>,
 }
 
 
@@ -244,6 +246,10 @@ impl OpenedStore {
         Backing::mapped(Arc::clone(&run.object))
     }
 
+    pub fn visibility_backing(&self, run: &OpenedRun) -> Backing {
+        Backing::mapped(Arc::clone(&run.visibility))
+    }
+
     /// Validate every referenced object checksum. Normal load does not call
     /// this; explicit diagnostics do.
     pub fn verify_full(&self) -> StorageResult<()> {
@@ -253,6 +259,7 @@ impl OpenedStore {
         }
         for run in &self.runs {
             ObjectView::new(&self.run_backing(run))?.verify_full()?;
+            ObjectView::new(&self.visibility_backing(run))?.verify_full()?;
         }
         Ok(())
     }
@@ -303,9 +310,16 @@ pub fn open_store(directory: &Path) -> StorageResult<OpenedStore> {
             ObjectKind::Segment,
             Some(Arc::clone(&lease)),
         )?;
+        let visibility = open_object(
+            directory,
+            &reference.visibility,
+            ObjectKind::Visibility,
+            Some(Arc::clone(&lease)),
+        )?;
         runs.push(OpenedRun {
             reference: reference.clone(),
             object,
+            visibility,
         });
     }
     Ok(OpenedStore {
@@ -512,6 +526,7 @@ pub fn save_with_control(
     }
     for run in &plan.runs {
         prepared.push(prepare_object(run.object.clone())?);
+        prepared.push(prepare_object(run.visibility.clone())?);
     }
     let mut unique: BTreeMap<[u8; 32], PreparedObject> = BTreeMap::new();
     for object in prepared {
@@ -793,11 +808,16 @@ fn build_manifest(
             .get(&digest)
             .cloned()
             .ok_or_else(|| StorageError::InvalidManifest("run object was not staged".into()))?;
+        let visibility_digest = sha256(&run.visibility.bytes);
+        let visibility = objects.get(&visibility_digest).cloned().ok_or_else(|| {
+            StorageError::InvalidManifest("run visibility object was not staged".into())
+        })?;
         runs.push(RunRef {
             collection: run.collection,
             ordinal: run.ordinal,
             level: run.level,
             object,
+            visibility,
             slot_count: run.slot_count,
             active_count: run.active_count,
         });
@@ -979,6 +999,7 @@ fn cleanup_after_commit(
                 }
                 for run in manifest.runs {
                     retained_objects.insert(run.object.sha256);
+                    retained_objects.insert(run.visibility.sha256);
                 }
             }
             Err(()) => safe_to_delete_objects = false,

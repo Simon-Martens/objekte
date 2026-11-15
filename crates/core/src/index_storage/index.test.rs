@@ -517,6 +517,70 @@ fn loaded_packed_index_compacts_after_add_replace_move_and_delete() {
 }
 
 #[test]
+fn packed_reuse_preserves_deleted_and_replaced_visibility() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let first = tempfile::tempdir().unwrap();
+    index.save_to(first.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        first.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let handle = loaded
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.path().join("data/a.json"))
+        .expect("deleted file handle");
+    loaded.delete_file(handle).unwrap();
+    // No compaction: the immutable run bytes are reused and visibility must
+    // still carry the retirement.
+    let second = tempfile::tempdir().unwrap();
+    loaded
+        .save_to(second.path(), SaveOptions::default())
+        .unwrap();
+    let reloaded = Index::load_from(
+        second.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(count(&reloaded, "Alpha"), 0);
+    assert_eq!(count(&reloaded, "Beta"), 1);
+
+    std::fs::write(root.path().join("data/b.json"), br#"{"text":"Gamma"}"#).unwrap();
+    let handle = reloaded
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.path().join("data/b.json"))
+        .expect("replaced file handle");
+    reloaded
+        .update_file(handle, &root.path().join("data/b.json"))
+        .unwrap();
+    let third = tempfile::tempdir().unwrap();
+    reloaded
+        .save_to(third.path(), SaveOptions::default())
+        .unwrap();
+    let replaced = Index::load_from(
+        third.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(count(&replaced, "Beta"), 0);
+    assert_eq!(count(&replaced, "Gamma"), 1);
+}
+
+#[test]
 fn background_save_reports_progress_and_completion() {
     let (root, definition) = fixture();
     let index = Index::build(

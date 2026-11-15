@@ -1,5 +1,7 @@
 use std::sync::Arc;
 
+use roaring::RoaringBitmap;
+
 use uuid::Uuid;
 
 use super::catalogue::{CatalogueView, FileRowInput, build_catalogue};
@@ -13,6 +15,7 @@ use super::store::{
     ObjectInput, RunInput, STORE_FILE, SaveHooks, SaveOptions, SavePlan, inspect_store, open_store,
     save, save_with_control,
 };
+use super::visibility::build_visibility;
 
 fn catalogue_object(row: FileRowInput) -> Arc<[u8]> {
     let sections = build_catalogue(&[row]).unwrap();
@@ -116,6 +119,7 @@ fn plan(lineage: Uuid, publication: Uuid, path: &str, record: &str) -> SavePlan 
                 kind: ObjectKind::Segment,
                 bytes: segment_object(record),
             },
+            visibility: build_visibility(&RoaringBitmap::from_iter([0]), 1).unwrap(),
         }],
         collections: Vec::new(),
         frontend_metadata: None,
@@ -187,7 +191,7 @@ fn save_load_reuse_and_inspect_round_trip() {
     )
     .unwrap();
     assert!(!report.unchanged);
-    assert_eq!(report.objects_written, 2);
+    assert_eq!(report.objects_written, 3);
     assert!(report.bytes_written > 0);
     assert!(directory.path().join(STORE_FILE).exists());
 
@@ -238,7 +242,7 @@ fn changed_save_reuses_segment_objects_and_keeps_a_valid_generation() {
     .unwrap();
     assert!(!report.unchanged);
     assert_eq!(report.objects_written, 1);
-    assert_eq!(report.objects_reused, 1);
+    assert_eq!(report.objects_reused, 2);
     let opened = open_store(directory.path()).unwrap();
     assert_eq!(opened.manifest.publication_id, second.to_string());
     assert_eq!(

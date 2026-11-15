@@ -264,10 +264,10 @@ fn compact_fields(
 fn record_set<'a>(
     bytes: &[u8],
     field: &'a super::posting::FieldPostingsView,
-    source: &'a FrozenSegment,
+    _source: &'a FrozenSegment,
 ) -> StorageResult<super::record_set::RecordSetView<'a>> {
     let reference = super::record_set::RecordSetRef::decode(bytes)?;
-    reference.view(field.arena()?, source.stats().record_count)
+    field.view(reference)
 }
 
 fn compact_bigrams(

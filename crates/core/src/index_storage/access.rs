@@ -439,8 +439,7 @@ impl<'a> PostingAccess<'a> {
                     let (key, value) = entry?;
                     let key = super::scalar::decode_scalar_key(&key)?;
                     let reference = super::record_set::RecordSetRef::decode(&value)?;
-                    let bitmap =
-                        collect(reference.view(index_arena(index)?, index_domain(index)?)?)?;
+                    let bitmap = collect(index.view(reference)?)?;
                     visit(&key, &bitmap).map_err(super::error::StorageError::corrupt)?;
                 }
             }
@@ -468,22 +467,13 @@ impl<'a> PostingAccess<'a> {
                         ));
                     };
                     let reference = super::record_set::RecordSetRef::decode(&value)?;
-                    let bitmap =
-                        collect(reference.view(index_arena(index)?, index_domain(index)?)?)?;
+                    let bitmap = collect(index.view(reference)?)?;
                     visit(&length, &bitmap).map_err(super::error::StorageError::corrupt)?;
                 }
             }
         }
         Ok(())
     }
-}
-
-fn index_domain(index: &FieldPostingsView) -> StorageResult<u32> {
-    Ok(index.presence()?.domain_len())
-}
-
-fn index_arena(index: &FieldPostingsView) -> StorageResult<&[u8]> {
-    index.arena()
 }
 
 fn owned_bound_ref(bound: &std::ops::Bound<Vec<u8>>) -> std::ops::Bound<&[u8]> {

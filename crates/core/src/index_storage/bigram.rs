@@ -354,8 +354,13 @@ impl BigramBindingView<'_> {
             return Ok(None);
         };
         let reference = RecordSetRef::decode(&bytes)?;
-        let arena = self.section.arena()?;
-        Ok(Some(reference.view(arena, self.section.slot_count)?))
+        Ok(Some(RecordSetView::new_paged(
+            reference,
+            self.section.backing.clone(),
+            self.section.arena_base,
+            self.section.arena_len,
+            self.section.slot_count,
+        )?))
     }
 }
 

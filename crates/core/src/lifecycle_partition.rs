@@ -237,6 +237,7 @@ fn partition_base_with_limits_inner(
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
                 ordinal,
+                level: 0,
                 index: Arc::new(part),
                 active,
                 packed: None,

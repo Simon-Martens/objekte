@@ -276,6 +276,7 @@ fn compact_published_with_budget(
                             .map_err(IndexError::ResourceLimit)?;
                         compacted.push(Arc::new(PublishedSegment {
                             ordinal,
+                            level: 0,
                             index: Arc::new(index),
                             active,
                             packed: Some(Arc::clone(&packed)),
@@ -300,6 +301,7 @@ fn compact_published_with_budget(
                         .map_err(IndexError::ResourceLimit)?;
                     compacted.push(Arc::new(PublishedSegment {
                         ordinal,
+                        level: 0,
                         index: Arc::new(part),
                         active,
                         packed: None,
@@ -372,6 +374,7 @@ fn compact_published_with_budget(
                         .map_err(IndexError::ResourceLimit)?;
                     replacements.push(Arc::new(PublishedSegment {
                         ordinal,
+                        level: 0,
                         index: Arc::new(index),
                         active,
                         packed: Some(Arc::clone(&packed)),
@@ -391,6 +394,7 @@ fn compact_published_with_budget(
                     ActiveRecords::all(part.record_count()).map_err(IndexError::ResourceLimit)?;
                 replacements.push(Arc::new(PublishedSegment {
                     ordinal,
+                    level: 0,
                     index: Arc::new(part),
                     active,
                     packed: None,

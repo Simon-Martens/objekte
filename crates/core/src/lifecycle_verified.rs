@@ -258,8 +258,10 @@ pub(crate) fn preserve_single_record_slots(
     for (collection, old_position, new_position, old_ordinal) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         let replacement = Arc::clone(&group[new_position]);
+        let old_level = group[old_position].level;
         group[old_position] = Arc::new(PublishedSegment {
             ordinal: old_ordinal,
+            level: old_level,
             index: Arc::clone(&replacement.index),
             active: replacement.active.clone(),
             packed: replacement.packed.clone(),
@@ -376,8 +378,10 @@ pub(crate) fn preserve_partition_record_slots(
     let mut candidate = next.clone();
     for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+        let old_level = group[old_position].level;
         group[old_position] = Arc::new(PublishedSegment {
             ordinal: old_ordinal,
+            level: old_level,
             active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
             index: Arc::new(replacement),
             packed: None,
@@ -459,6 +463,7 @@ pub(crate) fn remove_verified_old_shards(
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
                 group[position] = Arc::new(PublishedSegment {
                     ordinal: candidate.next_segment_ordinal,
+                    level: 0,
                     index: Arc::new(compacted.index),
                     active: compacted.active,
                     packed: None,

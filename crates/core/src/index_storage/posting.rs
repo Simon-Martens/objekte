@@ -652,12 +652,13 @@ impl FieldPostingsView {
     }
 
     pub(crate) fn view(&self, reference: RecordSetRef) -> StorageResult<RecordSetView<'_>> {
-        let arena = self.arena()?;
-        reference.view(arena, self.slot_count)
-    }
-
-    pub(crate) fn arena(&self) -> StorageResult<&[u8]> {
-        self.backing.read(self.arena_base, self.arena_len)
+        RecordSetView::new_paged(
+            reference,
+            self.backing.clone(),
+            self.arena_base,
+            self.arena_len,
+            self.slot_count,
+        )
     }
 }
 

@@ -1103,6 +1103,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .unwrap();
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
         ordinal: 1,
+        level: 0,
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
         packed: None,
