@@ -90,12 +90,12 @@ pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), Inde
                 next.repository.collections(),
                 &next.catalog,
             )
-            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            .map_err(crate::index_storage::packed_restore::storage_error)?;
             let built = crate::index_storage::segment_builder::build_segment(input)
-                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+                .map_err(crate::index_storage::packed_restore::storage_error)?;
             let frozen = Arc::new(
                 crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
-                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+                    .map_err(crate::index_storage::packed_restore::storage_error)?,
             );
             let index = crate::index_storage::packed_restore::segment_from_packed(
                 &frozen,
@@ -143,7 +143,11 @@ pub(crate) fn base_as_segment(
             .ok_or_else(|| IndexError::InvalidPublication("base file ownership missing".into()))?
             .to_vec();
         file_index.insert(*id, segment_files.len());
-        segment_files.push(SegmentFile { entry, records });
+        segment_files.push(SegmentFile {
+            entry,
+            records,
+            ranges: Vec::new(),
+        });
     }
     let relations = collection
         .relations
@@ -288,8 +292,9 @@ fn compact_published_with_budget(
                             &[frozen],
                             &[segment.active.bitmap()],
                             number as u32,
+                            &cancelled,
                         )
-                        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+                        .map_err(crate::index_storage::packed_restore::storage_error)?
                     {
                         let packed = Arc::new(packed);
                         let ordinal = next.next_segment_ordinal;
@@ -389,16 +394,14 @@ fn compact_published_with_budget(
             }
             let mut replacements = Vec::new();
             if let Some(frozen) = source.packed.as_ref() {
-                let parts = crate::index_storage::stream_compact::compact_packed_parts(
-                    frozen,
-                    &active.bitmap(),
+                if let Some(packed) = crate::index_storage::stream_compact::compact_packed_merge(
+                    &[frozen],
+                    &[active.bitmap()],
                     number as u32,
+                    &cancelled,
                 )
-                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
-                for packed in parts {
-                    if cancelled() {
-                        return Err(IndexError::Cancelled);
-                    }
+                .map_err(crate::index_storage::packed_restore::storage_error)?
+                {
                     let packed = Arc::new(packed);
                     let ordinal = next.next_segment_ordinal;
                     next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
@@ -635,8 +638,9 @@ fn consolidate_same_level_runs(
             &sources,
             &actives,
             collection as u32,
+            cancelled,
         )
-        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+        .map_err(crate::index_storage::packed_restore::storage_error)?
         else {
             break;
         };
@@ -687,11 +691,11 @@ pub(crate) fn resident_packed_run(
         collections,
         catalog,
     )
-    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    .map_err(crate::index_storage::packed_restore::storage_error)?;
     let built = crate::index_storage::segment_builder::build_segment(input)
-        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+        .map_err(crate::index_storage::packed_restore::storage_error)?;
     let frozen =
         crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
-            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            .map_err(crate::index_storage::packed_restore::storage_error)?;
     Ok(Arc::new(frozen))
 }

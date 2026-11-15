@@ -743,26 +743,39 @@ impl<'a> IndexCatalog<'a> {
     /// An ordered value access needs one complete scalar key or a known
     /// missing/null state for every logical record. This rule is independent
     /// of the producer that populated the posting.
-    pub fn sortable_scalar(&self, path: &[String]) -> Option<&'a PostingIndex> {
-        self.field_postings(path, "default", false)
+
+    pub fn try_sortable_scalar(&self, path: &[String]) -> Result<Option<&'a PostingIndex>, String> {
+        for access in self
+            .field_postings(path, "default", false)
             .into_iter()
             .flatten()
-            .find(|access| {
-                access.admitted
-                    && access.access.covered_records() as u64 == self.logical.len()
-                    && access.access.value_complete()
-                    && !access.access.multi()
-                    && matches!(
-                        access.access.kind(),
-                        LogicalType::Number | LogicalType::Bool | LogicalType::String
-                    )
-                    && access.empty_selections.is_none_or(RoaringBitmap::is_empty)
-                    && access.short_string_coverage.is_none_or(|covered| {
-                        let presence = access.access.presence().unwrap_or_default();
-                        let nulls = access.access.nulls().unwrap_or_default();
-                        presence.difference_len(covered) == nulls.difference_len(covered)
-                    })
-            })
-            .and_then(|access| access.access.native())
+        {
+            if !(access.admitted
+                && access.access.covered_records() as u64 == self.logical.len()
+                && access.access.value_complete()
+                && !access.access.multi()
+                && matches!(
+                    access.access.kind(),
+                    LogicalType::Number | LogicalType::Bool | LogicalType::String
+                )
+                && access.empty_selections.is_none_or(RoaringBitmap::is_empty))
+            {
+                continue;
+            }
+            if let Some(covered) = access.short_string_coverage {
+                let presence = access
+                    .access
+                    .presence()
+                    .map_err(|error| error.to_string())?;
+                let nulls = access.access.nulls().map_err(|error| error.to_string())?;
+                if presence.difference_len(covered) != nulls.difference_len(covered) {
+                    continue;
+                }
+            }
+            if let Some(native) = access.access.native() {
+                return Ok(Some(native));
+            }
+        }
+        Ok(None)
     }
 }

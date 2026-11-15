@@ -312,6 +312,14 @@ fn packed_restore_serves_posting_values_without_native_dictionaries() {
     assert!(segment.index.raw.normal.is_empty());
     assert!(segment.index.records.as_slice().is_none());
     assert_eq!(segment.index.records.materialized_rows(), 0);
+    assert!(segment.index.file_index.is_empty());
+    assert!(
+        segment
+            .index
+            .files
+            .iter()
+            .all(|file| file.records.is_empty())
+    );
     assert!(segment.index.records.try_get(usize::MAX).unwrap().is_none());
     assert!(segment.index.id_lookup.native().is_none());
     assert!(segment.index.identity_order.is_empty());
@@ -495,6 +503,7 @@ fn loaded_packed_compaction_preserves_typed_fts_sort_and_relations() {
     );
     drop(compacted_view);
     for request in &requests {
+        eprintln!("request={request:?}");
         assert_eq!(
             hits(&oracle, request),
             hits(&loaded, request),
@@ -616,6 +625,7 @@ fn loaded_packed_compaction_preserves_auto_index_inference_coverage() {
     let report = loaded.compact().unwrap();
     assert!(report.retired_slots_removed > 0);
     for request in &requests {
+        eprintln!("request={request:?}");
         assert_eq!(
             hits(&oracle, request),
             hits(&loaded, request),

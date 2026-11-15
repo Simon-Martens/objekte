@@ -1216,7 +1216,6 @@ impl RecordStore {
         segment: Arc<crate::index_storage::segment::FrozenSegment>,
         files: Arc<Vec<FileEntry>>,
     ) -> Self {
-        let len = segment.stats().record_count as usize;
         let files = files
             .iter()
             .map(|file| (file.id, file.clone()))

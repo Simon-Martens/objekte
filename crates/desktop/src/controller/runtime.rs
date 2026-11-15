@@ -4241,29 +4241,27 @@ fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalo
 }
 
 fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCatalog {
-    let all = parent_directories(view.file_paths());
+    let indexed = view.catalogue_directories();
+    let all = indexed
+        .iter()
+        .map(|(directory, _)| directory.clone())
+        .collect();
     let by_collection = collections
         .iter()
-        .map(|name| {
-            (
-                name.clone(),
-                parent_directories(view.file_paths_for_collection(name)),
-            )
+        .enumerate()
+        .map(|(number, name)| {
+            let directories = indexed
+                .iter()
+                .filter(|(_, mask)| {
+                    mask.get(number / 8)
+                        .is_some_and(|byte| byte & (1 << (number % 8)) != 0)
+                })
+                .map(|(directory, _)| directory.clone())
+                .collect();
+            (name.clone(), directories)
         })
         .collect();
     DirectoryCatalog { all, by_collection }
-}
-
-fn parent_directories(paths: impl Iterator<Item = std::path::PathBuf>) -> Vec<String> {
-    let mut directories = BTreeSet::new();
-    for path in paths {
-        let mut parent = path.parent();
-        while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
-            directories.insert(objekte_search_core::path_repr::query_path(directory));
-            parent = directory.parent();
-        }
-    }
-    directories.into_iter().collect()
 }
 
 fn lifecycle_source_key(session: &OpenedSession) -> String {

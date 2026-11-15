@@ -673,10 +673,6 @@ pub struct DirectoryCatalog {
 }
 
 
-/// Maximum file IDs materialized for one sidebar page.
-pub const MAX_VISIBLE_FILE_IDS: usize = 256;
-
-
 /// A pinned catalogue and compact physical-file IDs. Paths remain owned by
 /// the index, even while progress publications arrive.
 #[derive(Clone)]
@@ -694,15 +690,8 @@ impl FileCatalogue {
         directory: Option<&str>,
     ) -> Arc<Vec<FileId>> {
         let candidates = match directory {
-            Some(directory) => self
-                .view
-                .catalogue_ids_in_directory(directory, super::model::MAX_VISIBLE_FILE_IDS),
-            None => self
-                .ids
-                .iter()
-                .copied()
-                .take(super::model::MAX_VISIBLE_FILE_IDS)
-                .collect(),
+            Some(directory) => self.view.catalogue_ids_in_directory(directory, usize::MAX),
+            None => self.ids.as_ref().clone(),
         };
         let Some(name) = collection else {
             return Arc::new(candidates);

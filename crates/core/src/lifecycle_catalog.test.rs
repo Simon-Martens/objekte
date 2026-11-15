@@ -144,3 +144,40 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn exhausted_overlay_merges_into_resident_packed_catalogue() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-catalog-overlay-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    let repository = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions::default(),
+        )
+        .unwrap(),
+    );
+    let mut catalog = FileCatalog::from_repository(repository).unwrap();
+    let mut entry = catalog.entry(FileId(0)).unwrap().as_ref().clone();
+    entry.relative_path = "data/moved.json".into();
+    catalog = catalog.replaced(entry, Some([9; 32]), None).unwrap();
+    assert!(catalog.packed_base.is_none());
+    catalog.compact_overlay_with_limit(1).unwrap();
+    assert!(catalog.packed_base.is_some());
+    assert_eq!(
+        catalog.id_for(std::path::Path::new("data/moved.json")),
+        Some(FileId(0))
+    );
+    assert_eq!(catalog.fingerprint(FileId(0)), Some([9; 32]));
+    std::fs::remove_dir_all(root).unwrap();
+}

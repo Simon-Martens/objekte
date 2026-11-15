@@ -56,6 +56,7 @@ pub(crate) fn materialize_native_segment(
             files.push(crate::build::SegmentFile {
                 entry: entry.clone(),
                 records: Vec::new(),
+                ranges: Vec::new(),
             });
             files.len() - 1
         });

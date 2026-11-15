@@ -139,6 +139,8 @@ pub enum SectionKind {
     Visibility = 24,
     /// Active file IDs in the packed catalogue domain.
     ActiveFiles = 25,
+    /// Persisted directory prefixes and collection memberships.
+    Directories = 26,
 }
 
 
@@ -174,6 +176,7 @@ impl SectionKind {
             23 => Self::NativeState,
             24 => Self::Visibility,
             25 => Self::ActiveFiles,
+            26 => Self::Directories,
             _ => return None,
         })
     }

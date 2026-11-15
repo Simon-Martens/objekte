@@ -203,14 +203,8 @@ impl<'a> MergedRelationView<'a> {
             let record = segment
                 .record(address.slot)
                 .ok_or("merged segment slot missing")?;
-            let file_index = segment
-                .file_index
-                .get(&record.file)
-                .copied()
-                .ok_or("merged segment file missing")?;
             let file = segment
-                .files
-                .get(file_index)
+                .file(record.file)
                 .map(|file| file.entry.revision)
                 .ok_or("merged segment file missing")?;
             (record, file)

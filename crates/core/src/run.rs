@@ -2281,14 +2281,8 @@ fn segment_active_file(
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
-    let file_index = segment
-        .file_index
-        .get(&file_id)
-        .copied()
-        .ok_or("segment record file missing")?;
     let segment_revision = segment
-        .files
-        .get(file_index)
+        .file(file_id)
         .map(|file| file.entry.revision)
         .ok_or("segment record file missing")?;
     let file = catalog
@@ -2313,14 +2307,8 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
-    let file_index = segment
-        .file_index
-        .get(&record.file)
-        .copied()
-        .ok_or("segment record file missing")?;
     let segment_revision = segment
-        .files
-        .get(file_index)
+        .file(record.file)
         .map(|file| file.entry.revision)
         .ok_or("segment record file missing")?;
     let file = catalog
@@ -3209,18 +3197,16 @@ fn has_unavailable_active_source(
                     return true;
                 };
                 if file
-                    .records
-                    .iter()
-                    .any(|slot| segment.active.contains(*slot))
+                    .slots()
+                    .any(|slot| segment.active.contains(RecordSlot(slot)))
                     && let Some(current) = catalog.entry(file.entry.id)
                 {
                     if unavailable(current.as_ref())
                         || file
-                            .records
-                            .iter()
-                            .filter(|slot| segment.active.contains(**slot))
+                            .slots()
+                            .filter(|slot| segment.active.contains(RecordSlot(*slot)))
                             .any(|slot| {
-                                segment.index.record(*slot).is_none_or(|record| {
+                                segment.index.record(RecordSlot(slot)).is_none_or(|record| {
                                     record.range.start > record.range.end
                                         || record.range.end > current.revision.size
                                 })
@@ -6274,11 +6260,11 @@ fn try_parallel_relation_page(
                 .files
                 .get(file_index)
                 .ok_or("parallel relation file missing")?;
-            let mut selected = file.records.iter().filter(|slot| {
-                published.active.contains(**slot)
-                    && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+            let mut selected = file.slots().filter(|slot| {
+                published.active.contains(RecordSlot(*slot))
+                    && candidates.as_ref().is_none_or(|may| may.contains(*slot))
             });
-            let Some(slot) = selected.next().copied() else {
+            let Some(slot) = selected.next() else {
                 continue;
             };
             if selected.next().is_some() {
@@ -6286,7 +6272,7 @@ fn try_parallel_relation_page(
             }
             let record = published
                 .index
-                .record(slot)
+                .record(RecordSlot(slot))
                 .ok_or("parallel relation slot missing")?;
             if record.range.len() > 64 * 1024
                 || record.id.0.len() > 1024
@@ -6297,7 +6283,7 @@ fn try_parallel_relation_page(
             jobs.push(RelationFileJob {
                 segment_index,
                 file_id: file.entry.id.0,
-                slot,
+                slot: RecordSlot(slot),
                 range: record.range,
             });
             if jobs.len() > 50_000 {
@@ -6894,9 +6880,7 @@ fn search_segmented_relations(
                         .ok_or("merged segment candidate missing")?;
                     let index = published
                         .index
-                        .file_index
-                        .get(&record.file)
-                        .copied()
+                        .file_position(record.file)
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }
@@ -6914,15 +6898,15 @@ fn search_segmented_relations(
                     context.check_string()?;
                 }
                 let mut ranges = Vec::new();
-                for slot in &file.records {
-                    if published.active.contains(*slot)
-                        && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+                for slot in file.slots() {
+                    if published.active.contains(RecordSlot(slot))
+                        && candidates.as_ref().is_none_or(|may| may.contains(slot))
                     {
                         let record = published
                             .index
-                            .record(*slot)
+                            .record(RecordSlot(slot))
                             .ok_or("merged segment record missing")?;
-                        ranges.push((slot.0, record.range));
+                        ranges.push((slot, record.range));
                     }
                 }
                 if let Some(context) = context
@@ -9265,12 +9249,21 @@ fn inferred_order_index<'a>(
     repo: &'a Repository,
     query: &Query,
 ) -> Option<(usize, FieldPath, &'a PostingIndex)> {
+    try_inferred_order_index(repo, query).ok().flatten()
+}
+
+fn try_inferred_order_index<'a>(
+    repo: &'a Repository,
+    query: &Query,
+) -> Result<Option<(usize, FieldPath, &'a PostingIndex)>, String> {
     if query.options.sort.len() != 1 {
-        return None;
+        return Ok(None);
     }
-    let part = simple_composite_part(&query.options.sort[0])?;
+    let Some(part) = simple_composite_part(&query.options.sort[0]) else {
+        return Ok(None);
+    };
     if part.path.root != PathRoot::Data {
-        return None;
+        return Ok(None);
     }
     let mut selected = repo
         .collections
@@ -9279,7 +9272,9 @@ fn inferred_order_index<'a>(
         .filter(|(_, collection)| {
             query.collections.is_empty() || query.collections.contains(&collection.definition.name)
         });
-    let (collection_index, collection) = selected.next()?;
+    let Some((collection_index, collection)) = selected.next() else {
+        return Ok(None);
+    };
     if selected.next().is_some()
         || collection.sorting.columns.contains_key(&part.path)
         || collection
@@ -9289,11 +9284,11 @@ fn inferred_order_index<'a>(
             .get(&part.path.segments)
             .is_some_and(|name| name != "default")
     {
-        return None;
+        return Ok(None);
     }
     let index = crate::index_catalog::IndexCatalog::collection(collection)
-        .sortable_scalar(&part.path.segments)?;
-    Some((collection_index, part.path, index))
+        .try_sortable_scalar(&part.path.segments)?;
+    Ok(index.map(|index| (collection_index, part.path, index)))
 }
 
 /// A posting order is useful for an unrestricted page or a filter whose
@@ -9340,7 +9335,7 @@ fn inferred_order_column(
     prepared: &crate::prepared::PreparedQuery,
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
-    let Some((collection_index, path, index)) = inferred_order_index(repo, query) else {
+    let Some((collection_index, path, index)) = try_inferred_order_index(repo, query)? else {
         return Ok(None);
     };
     if prepared.collections.len() != 1 || prepared.collections[0].0 != collection_index {

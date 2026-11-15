@@ -375,7 +375,7 @@ fn segment_file_modified_matches(
         if segment
             .files
             .get(index)
-            .map(|file| file.records.len())
+            .map(|file| file.record_count())
             .ok_or("segment file row missing")?
             == 0
         {

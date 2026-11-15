@@ -20,6 +20,34 @@ use serde::{Deserialize, Serialize};
 pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
+    /// Compact segment-slot ranges used by packed runs instead of one
+    /// `RecordSlot` per record.
+    #[serde(default)]
+    pub ranges: Vec<(u32, u32)>,
+}
+
+
+impl SegmentFile {
+    pub(crate) fn record_count(&self) -> usize {
+        self.records.len()
+            + self
+                .ranges
+                .iter()
+                .map(|(_, count)| *count as usize)
+                .sum::<usize>()
+    }
+
+    pub(crate) fn slots(&self) -> impl Iterator<Item = u32> + '_ {
+        self.records.iter().map(|slot| slot.0).chain(
+            self.ranges
+                .iter()
+                .flat_map(|(start, count)| *start..start + count),
+        )
+    }
+
+    pub(crate) fn record_slots(&self) -> Vec<RecordSlot> {
+        self.slots().map(RecordSlot).collect()
+    }
 }
 
 
@@ -491,6 +519,7 @@ impl SegmentAdmission {
                 self.files.push(SegmentFile {
                     entry,
                     records: Vec::new(),
+                    ranges: Vec::new(),
                 });
                 self.file_index.insert(file_id, index);
                 index
@@ -1048,7 +1077,7 @@ impl IndexedCollectionSegment {
         matches: &mut RoaringBitmap,
     ) -> Result<(), String> {
         let file = self.files.get(index).ok_or("segment file row missing")?;
-        matches.extend(file.records.iter().map(|slot| slot.0));
+        matches.extend(file.slots());
         Ok(())
     }
 
@@ -1133,16 +1162,24 @@ impl IndexedCollectionSegment {
         Ok(projected)
     }
 
+    pub fn file_position(&self, id: FileId) -> Option<usize> {
+        if let Some(position) = self.file_index.get(&id) {
+            return Some(*position);
+        }
+        self.files.iter().position(|file| file.entry.id == id)
+    }
+
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
-        self.files.get(*self.file_index.get(&id)?)
+        self.file_position(id)
+            .and_then(|position| self.files.get(position))
     }
 
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
         self.records.get(slot.0 as usize)
     }
 
-    pub fn file_records(&self, id: FileId) -> Option<&[RecordSlot]> {
-        Some(&self.file(id)?.records)
+    pub fn file_records(&self, id: FileId) -> Option<Vec<RecordSlot>> {
+        Some(self.file(id)?.record_slots())
     }
 }
 
@@ -1512,9 +1549,17 @@ impl IndexedCollectionSegment {
                         base.checked_add(slot.0).ok_or("file slot overflow")?,
                     ));
                 }
+                let mut ranges = Vec::with_capacity(file.ranges.len());
+                for (start, count) in &file.ranges {
+                    ranges.push((
+                        base.checked_add(*start).ok_or("file slot overflow")?,
+                        *count,
+                    ));
+                }
                 files.push(SegmentFile {
                     entry,
                     records: owned,
+                    ranges,
                 });
             }
             for slot in 0..shard.record_count() {
@@ -2755,6 +2800,7 @@ impl IndexedCollectionSegment {
             files.push(SegmentFile {
                 entry,
                 records: owned,
+                ranges: Vec::new(),
             });
         }
         if !selected_by_file.is_empty() {

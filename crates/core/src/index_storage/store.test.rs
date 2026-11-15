@@ -35,6 +35,9 @@ fn catalogue_object(row: FileRowInput) -> Arc<[u8]> {
     builder
         .add_section(SectionKind::ActiveFiles, sections.active_files)
         .unwrap();
+    builder
+        .add_section(SectionKind::Directories, sections.directories)
+        .unwrap();
     Arc::from(builder.finish().unwrap().into_bytes())
 }
 

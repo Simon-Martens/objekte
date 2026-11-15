@@ -2576,7 +2576,8 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     .unwrap();
     let collection = &repo.collections[0];
     let index = crate::index_catalog::IndexCatalog::collection(collection)
-        .sortable_scalar(&["label".into()])
+        .try_sortable_scalar(&["label".into()])
+        .unwrap()
         .unwrap();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(

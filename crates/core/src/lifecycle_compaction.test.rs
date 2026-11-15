@@ -532,6 +532,37 @@ fn four_same_level_runs_consolidate_and_promote() {
     assert!(runs.iter().any(|run| run.level > 0), "no promoted run");
     assert!(runs.len() < before.segments(CollectionId(0)).unwrap().len());
     assert_eq!(after.search(&all()).unwrap().count, Some(4));
+    let promoted = runs.iter().map(|run| run.level).max().unwrap_or(0);
+    let store = tempfile::tempdir().unwrap();
+    index
+        .save_to(
+            store.path(),
+            crate::index_storage::store::SaveOptions::default(),
+        )
+        .unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let reloaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let reloaded_view = reloaded.view().unwrap();
+    assert_eq!(
+        reloaded_view
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .map(|run| run.level)
+            .max(),
+        Some(promoted)
+    );
+    assert_eq!(reloaded_view.search(&all()).unwrap().count, Some(4));
+    drop(after);
+    drop(before);
+    drop(reloaded_view);
     index.shutdown().unwrap();
+    reloaded.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

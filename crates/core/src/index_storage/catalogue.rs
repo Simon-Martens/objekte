@@ -116,6 +116,7 @@ pub struct CatalogueSections {
     pub diagnostics: Vec<u8>,
     pub statistics: Vec<u8>,
     pub active_files: Vec<u8>,
+    pub directories: Vec<u8>,
     pub stats: CatalogueStats,
 }
 
@@ -309,12 +310,39 @@ pub fn build_catalogue_with_high_water(
     active
         .serialize_into(&mut active_files)
         .map_err(|error| StorageError::corrupt(error.to_string()))?;
+    let value_len = collection_count.div_ceil(8) as usize;
+    let mut directories = std::collections::BTreeMap::<Vec<u8>, Vec<u8>>::new();
+    for row in rows.iter().filter(|row| !row.tombstone) {
+        let mut prefix = Vec::new();
+        let components = row
+            .query_path
+            .split(|byte| *byte == b'/')
+            .filter(|component| !component.is_empty())
+            .collect::<Vec<_>>();
+        for component in components.iter().take(components.len().saturating_sub(1)) {
+            if !prefix.is_empty() {
+                prefix.push(b'/');
+            }
+            prefix.extend_from_slice(component);
+            let mask = directories
+                .entry(prefix.clone())
+                .or_insert_with(|| vec![0u8; value_len]);
+            for collection in &row.collections {
+                if let Some(byte) = mask.get_mut(*collection as usize / 8) {
+                    *byte |= 1 << (*collection % 8);
+                }
+            }
+        }
+    }
+    let directory_index =
+        build_dictionary(directories.into_iter().collect(), KeyOrder::Bytes, 8192)?;
     Ok(CatalogueSections {
         file_rows,
         path_dictionary,
         diagnostics,
         statistics,
         active_files,
+        directories: directory_index,
         stats,
     })
 }
@@ -370,6 +398,7 @@ pub struct CatalogueView {
     sections: BTreeMap<SectionKind, SectionDescriptor>,
     stats: CatalogueStats,
     path_dictionary: DictionaryReader,
+    directories: DictionaryReader,
     active: roaring::RoaringBitmap,
 }
 
@@ -421,11 +450,21 @@ impl CatalogueView {
                 "catalogue active-file cardinality differs from its statistics",
             ));
         }
+        let directory_section = sections
+            .get(&SectionKind::Directories)
+            .copied()
+            .ok_or_else(|| StorageError::corrupt("catalogue directory index is missing"))?;
+        let directories = DictionaryReader::open(
+            backing.clone(),
+            directory_section.offset,
+            directory_section.length,
+        )?;
         Ok(Self {
             backing,
             sections,
             stats,
             path_dictionary,
+            directories,
             active,
         })
     }
@@ -444,6 +483,10 @@ impl CatalogueView {
 
     pub fn is_active(&self, file_id: u32) -> bool {
         self.active.contains(file_id)
+    }
+
+    pub fn directories(&self) -> &DictionaryReader {
+        &self.directories
     }
 
     pub fn page_count(&self) -> u32 {

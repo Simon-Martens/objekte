@@ -387,7 +387,7 @@ pub(crate) fn segment_from_packed(
     let records_view = frozen.records();
     let mut files: Vec<crate::build::SegmentFile> = Vec::new();
     let mut file_entries: Vec<FileEntry> = Vec::new();
-    let mut file_index = HashMap::new();
+    let mut file_index: HashMap<FileId, usize> = HashMap::new();
     for part_number in 0..stats.file_part_count {
         let part = records_view
             .file_part(part_number)
@@ -408,15 +408,16 @@ pub(crate) fn segment_from_packed(
             files.push(crate::build::SegmentFile {
                 entry: entry.clone(),
                 records: Vec::new(),
+                ranges: Vec::new(),
             });
             file_entries.push(entry);
             files.len() - 1
         });
-        for local in part.local_record_start..part.local_record_start + part.record_count {
-            let slot = part.segment_slot_start + local;
-            files[file_slot].records.push(RecordSlot(slot));
-        }
+        files[file_slot]
+            .ranges
+            .push((part.segment_slot_start, part.record_count));
     }
+    let file_index = HashMap::new();
     let (posting_collection, inference, custom_postings) = posting_families(frozen)?;
     // Bigram postings stay in the mapped packed section. Only small binding
     // descriptors are retained so status checks and packed `BigramAccess` can

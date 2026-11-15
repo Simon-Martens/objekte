@@ -551,7 +551,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
                 let file_id = left_index.files.get(file_number)?.entry.id;
-                if right_index.file_index.get(&file_id).copied().is_some() {
+                if right_index.file(file_id).is_some() {
                     overlaps = true;
                     break;
                 }
@@ -787,13 +787,7 @@ impl PublishedIndex {
         sparse_byte_limit: usize,
         size_cooldown: u64,
     ) -> Result<(), IndexError> {
-        let full_partitions = self.segments[number]
-            .iter()
-            .filter(|segment| {
-                segment.index.record_count() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
-            })
-            .count();
-        let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
+        let admission_limit = MAX_SEGMENTS_PER_COLLECTION;
         let count_triggered = self.segments[number].len() >= admission_limit;
         let group = Arc::make_mut(&mut self.segments[number]);
         if count_triggered {
@@ -841,6 +835,46 @@ impl PublishedIndex {
                 .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
+                let ordinal = self.next_segment_ordinal;
+                self.next_segment_ordinal = ordinal
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+                if let Some(frozen) = old.packed.as_ref() {
+                    let definitions = self
+                        .repository
+                        .collections()
+                        .iter()
+                        .map(|collection| collection.definition.clone())
+                        .collect::<Vec<_>>();
+                    let Some(packed) = crate::index_storage::stream_compact::compact_packed_merge(
+                        &[frozen],
+                        &[old.active.bitmap()],
+                        number as u32,
+                        &|| false,
+                    )
+                    .map_err(crate::index_storage::packed_restore::storage_error)?
+                    else {
+                        group.remove(index);
+                        return Ok(());
+                    };
+                    let packed = Arc::new(packed);
+                    let part = crate::index_storage::packed_restore::segment_from_packed(
+                        &packed,
+                        number,
+                        &self.catalog,
+                        &definitions,
+                    )?;
+                    let active = ActiveRecords::all(part.record_count())
+                        .map_err(IndexError::ResourceLimit)?;
+                    group[index] = Arc::new(PublishedSegment {
+                        ordinal,
+                        level: old.level.saturating_add(1),
+                        index: Arc::new(part),
+                        active,
+                        packed: Some(packed),
+                    });
+                    return Ok(());
+                }
                 let replacements = crate::lifecycle_partition::compact_source_parts(
                     &old.index,
                     &old.active,
@@ -849,16 +883,17 @@ impl PublishedIndex {
                 )?;
                 group.remove(index);
                 for (offset, part) in replacements.into_iter().enumerate() {
-                    let ordinal = self.next_segment_ordinal;
-                    self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
-                        IndexError::ResourceLimit("segment ordinal overflow".into())
-                    })?;
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
+                    let replacement_ordinal = self.next_segment_ordinal;
+                    self.next_segment_ordinal =
+                        replacement_ordinal.checked_add(1).ok_or_else(|| {
+                            IndexError::ResourceLimit("segment ordinal overflow".into())
+                        })?;
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
-                            ordinal,
+                            ordinal: replacement_ordinal,
                             level: 0,
                             index: Arc::new(part),
                             active,
@@ -888,75 +923,86 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group) else {
-            return Ok(());
-        };
-        let ordinal = self.next_segment_ordinal;
-        self.next_segment_ordinal = self
-            .next_segment_ordinal
-            .checked_add(1)
-            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let merged = if group[left].packed.is_some() || group[right].packed.is_some() {
-            let definitions = self
-                .repository
-                .collections()
-                .iter()
-                .map(|collection| collection.definition.clone())
-                .collect::<Vec<_>>();
-            let left_packed = crate::lifecycle_compaction::resident_packed_run(
-                &group[left],
-                &self.catalog,
-                &self.file_versions,
-                self.repository.collections(),
-            )?;
-            let right_packed = crate::lifecycle_compaction::resident_packed_run(
-                &group[right],
-                &self.catalog,
-                &self.file_versions,
-                self.repository.collections(),
-            )?;
-            let packed = crate::index_storage::stream_compact::compact_packed_merge(
-                &[left_packed.as_ref(), right_packed.as_ref()],
-                &[group[left].active.bitmap(), group[right].active.bitmap()],
-                number as u32,
-            )
-            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
-            .ok_or_else(|| IndexError::InvalidPublication("empty consolidation".into()))?;
-            let packed = Arc::new(packed);
-            let index = crate::index_storage::packed_restore::segment_from_packed(
-                &packed,
-                number,
-                &self.catalog,
-                &definitions,
-            )?;
-            PublishedSegment {
-                ordinal,
-                level: group[left].level.max(group[right].level).saturating_add(1),
-                active: ActiveRecords::all(index.record_count())
-                    .map_err(IndexError::ResourceLimit)?,
-                index: Arc::new(index),
-                packed: Some(packed),
-            }
+        let merges = if count_triggered {
+            group
+                .len()
+                .saturating_sub(admission_limit)
+                .saturating_add(1)
         } else {
-            let merged = IndexedCollectionSegment::consolidate(
-                &[&group[left].index, &group[right].index],
-                crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-            )
-            .map_err(IndexError::Build)?;
-            let active = merged
-                .translate_active(&[&group[left].active, &group[right].active])
-                .map_err(IndexError::Build)?;
-            PublishedSegment {
-                ordinal,
-                level: 0,
-                index: Arc::new(merged.index),
-                active,
-                packed: None,
-            }
+            1
         };
-        group.remove(right);
-        group.remove(left);
-        group.push(Arc::new(merged));
+        for _ in 0..merges {
+            let Some((left, right)) = cheapest_consolidation_pair(group) else {
+                break;
+            };
+            let ordinal = self.next_segment_ordinal;
+            self.next_segment_ordinal = self
+                .next_segment_ordinal
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            let merged = if group[left].packed.is_some() || group[right].packed.is_some() {
+                let definitions = self
+                    .repository
+                    .collections()
+                    .iter()
+                    .map(|collection| collection.definition.clone())
+                    .collect::<Vec<_>>();
+                let left_packed = crate::lifecycle_compaction::resident_packed_run(
+                    &group[left],
+                    &self.catalog,
+                    &self.file_versions,
+                    self.repository.collections(),
+                )?;
+                let right_packed = crate::lifecycle_compaction::resident_packed_run(
+                    &group[right],
+                    &self.catalog,
+                    &self.file_versions,
+                    self.repository.collections(),
+                )?;
+                let packed = crate::index_storage::stream_compact::compact_packed_merge(
+                    &[left_packed.as_ref(), right_packed.as_ref()],
+                    &[group[left].active.bitmap(), group[right].active.bitmap()],
+                    number as u32,
+                    &|| false,
+                )
+                .map_err(crate::index_storage::packed_restore::storage_error)?
+                .ok_or_else(|| IndexError::InvalidPublication("empty consolidation".into()))?;
+                let packed = Arc::new(packed);
+                let index = crate::index_storage::packed_restore::segment_from_packed(
+                    &packed,
+                    number,
+                    &self.catalog,
+                    &definitions,
+                )?;
+                PublishedSegment {
+                    ordinal,
+                    level: group[left].level.max(group[right].level).saturating_add(1),
+                    active: ActiveRecords::all(index.record_count())
+                        .map_err(IndexError::ResourceLimit)?,
+                    index: Arc::new(index),
+                    packed: Some(packed),
+                }
+            } else {
+                let merged = IndexedCollectionSegment::consolidate(
+                    &[&group[left].index, &group[right].index],
+                    crate::lifecycle_partition::BASE_PARTITION_RECORDS,
+                )
+                .map_err(IndexError::Build)?;
+                let active = merged
+                    .translate_active(&[&group[left].active, &group[right].active])
+                    .map_err(IndexError::Build)?;
+                PublishedSegment {
+                    ordinal,
+                    level: 0,
+                    index: Arc::new(merged.index),
+                    active,
+                    packed: None,
+                }
+            };
+            group.remove(right);
+            group.remove(left);
+            group.push(Arc::new(merged));
+        }
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
         }
@@ -992,7 +1038,6 @@ impl PublishedIndex {
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
                 if let Some(slots) = segment.index.file_records(file.id) {
-                    let slots = slots.to_vec();
                     let segment = Arc::make_mut(segment);
                     retired_records += slots
                         .iter()
@@ -2766,18 +2811,26 @@ impl IndexView {
     /// Borrow a row from this pinned publication without copying the corpus
     /// path catalogue or implying that the file has been parsed.
     pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow> {
+        self.try_catalogue_row(id).ok().flatten()
+    }
+
+    /// Fallible row lookup for frontends that must report a corrupt catalogue
+    /// instead of presenting the file as merely missing.
+    pub fn try_catalogue_row(&self, id: FileId) -> Result<Option<FileCatalogueRow>, String> {
         if !self.0.catalog.is_active(id) {
-            return None;
+            return Ok(None);
         }
-        let file = self.0.catalog.entry(id)?;
-        Some(FileCatalogueRow {
+        let Some(file) = self.0.catalog.try_entry(id)? else {
+            return Ok(None);
+        };
+        Ok(Some(FileCatalogueRow {
             id,
             relative_path: file.relative_path.to_path_buf(),
             collections: file.collections.clone(),
             size: file.revision.size,
             modified_ns: file.revision.modified_ns,
             created_ns: file.created_ns,
-        })
+        }))
     }
 
     /// Active file IDs only. This does not decode paths, diagnostics, or rows.
@@ -2791,6 +2844,43 @@ impl IndexView {
         self.0
             .catalog
             .ids_with_prefix(&format!("{directory}/"), limit)
+    }
+
+    /// Directory prefixes and their collection-membership masks from the
+    /// persisted catalogue index. This never enumerates file rows.
+    pub fn catalogue_directories(&self) -> Vec<(String, Vec<u8>)> {
+        self.0.catalog.directories()
+    }
+
+    /// One bounded directory page. The persisted directory index is read in
+    /// key order; decoding is limited to the requested window.
+    pub fn catalogue_directory_page(&self, offset: usize, limit: usize) -> Vec<(String, Vec<u8>)> {
+        self.try_catalogue_directory_page(offset, limit)
+            .unwrap_or_default()
+    }
+
+    pub fn try_catalogue_directory_page(
+        &self,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<(String, Vec<u8>)>, String> {
+        self.0.catalog.try_directory_page(offset, limit)
+    }
+
+    /// One bounded file-catalogue page in active-ID order.
+    pub fn catalogue_page(
+        &self,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<FileCatalogueRow>, String> {
+        let mut rows = Vec::with_capacity(limit.min(256));
+        for id in self.0.catalog.active_ids().skip(offset).take(limit) {
+            let row = self
+                .try_catalogue_row(id)?
+                .ok_or_else(|| "catalogue row is unavailable".to_string())?;
+            rows.push(row);
+        }
+        Ok(rows)
     }
 
     pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow> + '_ {

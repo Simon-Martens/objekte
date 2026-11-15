@@ -76,6 +76,7 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     builder.add_section(SectionKind::Diagnostics, sections.diagnostics)?;
     builder.add_section(SectionKind::Statistics, sections.statistics)?;
     builder.add_section(SectionKind::ActiveFiles, sections.active_files)?;
+    builder.add_section(SectionKind::Directories, sections.directories)?;
     let object = builder.finish()?;
     let _ = repository;
     let digest = object.sha256();
@@ -86,7 +87,7 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     ))
 }
 
-fn file_row(
+pub(crate) fn file_row(
     entry: &FileEntry,
     version: u64,
     fingerprint: Option<[u8; 32]>,

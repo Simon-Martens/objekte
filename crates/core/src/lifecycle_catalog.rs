@@ -78,23 +78,30 @@ impl PackedCatalogue {
         }
     }
 
-    fn row(&self, file: FileId) -> Option<Arc<FileEntry>> {
+    fn row(&self, file: FileId) -> Result<Option<Arc<FileEntry>>, String> {
         if let Ok(cache) = self.cache.lock()
             && let Some(entry) = cache.get(&file.0)
         {
-            return Some(Arc::clone(entry));
+            return Ok(Some(Arc::clone(entry)));
         }
-        let row = self.view.file(file.0).ok().flatten()?;
-        let diagnostics = self.view.diagnostics(&row).ok()?;
-        let entry =
-            Arc::new(crate::index_storage::packed_restore::file_entry(&row, &diagnostics).ok()?);
+        let Some(row) = self.view.file(file.0).map_err(|error| error.to_string())? else {
+            return Ok(None);
+        };
+        let diagnostics = self
+            .view
+            .diagnostics(&row)
+            .map_err(|error| error.to_string())?;
+        let entry = Arc::new(
+            crate::index_storage::packed_restore::file_entry(&row, &diagnostics)
+                .map_err(|error| error.to_string())?,
+        );
         if let Ok(mut cache) = self.cache.lock() {
             if cache.len() >= 4096 {
                 cache.clear();
             }
             cache.insert(file.0, Arc::clone(&entry));
         }
-        Some(entry)
+        Ok(Some(entry))
     }
 
     fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -106,6 +113,35 @@ impl PackedCatalogue {
             .ok()
             .flatten()
             .and_then(|row| row.fingerprint)
+    }
+
+    fn directory_page(
+        &self,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<(String, Vec<u8>)>, String> {
+        let mut result = Vec::new();
+        for (position, entry) in self
+            .view
+            .directories()
+            .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+            .enumerate()
+        {
+            if position < offset {
+                continue;
+            }
+            if result.len() >= limit {
+                break;
+            }
+            let (key, mask) = entry.map_err(|error| error.to_string())?;
+            let name = String::from_utf8(key).map_err(|error| error.to_string())?;
+            result.push((name, mask));
+        }
+        Ok(result)
+    }
+
+    fn directories(&self) -> Vec<(String, Vec<u8>)> {
+        self.directory_page(0, usize::MAX).unwrap_or_default()
     }
 
     fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
@@ -468,7 +504,7 @@ impl FileCatalog {
             return Some(Arc::clone(&changed.entry));
         }
         if let Some(packed) = &self.packed_base {
-            return packed.row(file);
+            return packed.row(file).ok().flatten();
         }
         self.base
             .files()
@@ -478,6 +514,24 @@ impl FileCatalog {
     }
 
     /// Entry metadata for one retired file slot, retained as a tombstone.
+    pub(crate) fn try_entry(&self, file: FileId) -> Result<Option<Arc<FileEntry>>, String> {
+        if !self.is_active(file) {
+            return Ok(None);
+        }
+        if let Some(changed) = self.changed[shard(&file)].get(&file) {
+            return Ok(Some(Arc::clone(&changed.entry)));
+        }
+        if let Some(packed) = &self.packed_base {
+            return packed.row(file);
+        }
+        Ok(self
+            .base
+            .files()
+            .files
+            .get(file.0 as usize)
+            .map(|entry| Arc::new(entry.clone())))
+    }
+
     pub(crate) fn inactive_entry(&self, file: FileId) -> Option<Arc<FileEntry>> {
         if self.active.contains(file.0) {
             return None;
@@ -486,7 +540,7 @@ impl FileCatalog {
             return Some(Arc::clone(&changed.entry));
         }
         if let Some(packed) = &self.packed_base {
-            return packed.row(file);
+            return packed.row(file).ok().flatten();
         }
         self.base
             .files()
@@ -522,6 +576,55 @@ impl FileCatalog {
             .get(&file)
             .map(|changed| changed.configuration)
             .unwrap_or_else(|| self.fingerprint(file).map(|_| self.base_configuration))
+    }
+
+    pub(crate) fn try_directory_page(
+        &self,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<(String, Vec<u8>)>, String> {
+        if let Some(packed) = &self.packed_base {
+            return packed.directory_page(offset, limit);
+        }
+        Ok(self
+            .directories()
+            .into_iter()
+            .skip(offset)
+            .take(limit)
+            .collect())
+    }
+
+    pub(crate) fn directories(&self) -> Vec<(String, Vec<u8>)> {
+        if let Some(packed) = &self.packed_base {
+            return packed.directories();
+        }
+        let mut directories = std::collections::BTreeMap::<String, Vec<u8>>::new();
+        for id in self.active_ids() {
+            let Some(entry) = self.entry(id) else {
+                continue;
+            };
+            let path = crate::path_repr::query_path(&entry.relative_path);
+            let mut prefix = String::new();
+            let components = path
+                .split('/')
+                .filter(|part| !part.is_empty())
+                .collect::<Vec<_>>();
+            for component in components.iter().take(components.len().saturating_sub(1)) {
+                if !prefix.is_empty() {
+                    prefix.push('/');
+                }
+                prefix.push_str(component);
+                let mask = directories
+                    .entry(prefix.clone())
+                    .or_insert_with(|| vec![0u8; self.base.collections().len().div_ceil(8)]);
+                for collection in &entry.collections {
+                    if let Some(byte) = mask.get_mut(collection.0 as usize / 8) {
+                        *byte |= 1 << (collection.0 % 8);
+                    }
+                }
+            }
+        }
+        directories.into_iter().collect()
     }
 
     pub(crate) fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
@@ -705,6 +808,105 @@ impl FileCatalog {
         Ok(next)
     }
 
+    /// Merge a full mutation overlay into a fresh resident packed catalogue.
+    /// This is explicit in-memory maintenance: it never writes a store and it
+    /// only runs after the bounded overlay policy is exhausted.
+    fn compact_overlay_if_needed(&mut self) -> Result<(), String> {
+        self.compact_overlay_with_limit(4_096)
+    }
+
+    pub(crate) fn compact_overlay_with_limit(&mut self, limit: usize) -> Result<(), String> {
+        let overlay = self.changed.iter().map(|shard| shard.len()).sum::<usize>()
+            + self
+                .changed_paths
+                .iter()
+                .map(|shard| shard.len())
+                .sum::<usize>();
+        if overlay < limit.max(1) {
+            return Ok(());
+        }
+        let mut rows = Vec::with_capacity(self.len as usize);
+        for number in 0..self.len {
+            let id = FileId(number);
+            if let Some(entry) = self.entry(id) {
+                rows.push(
+                    crate::index_storage::native_pack::file_row(
+                        entry.as_ref(),
+                        1,
+                        self.fingerprint(id),
+                        false,
+                    )
+                    .map_err(|error| error.to_string())?,
+                );
+            } else if let Some(entry) = self.inactive_entry(id) {
+                rows.push(
+                    crate::index_storage::native_pack::file_row(entry.as_ref(), 1, None, true)
+                        .map_err(|error| error.to_string())?,
+                );
+            }
+        }
+        let sections =
+            crate::index_storage::catalogue::build_catalogue_with_high_water(&rows, self.len)
+                .map_err(|error| error.to_string())?;
+        let mut builder = crate::index_storage::format::ObjectBuilder::new(
+            crate::index_storage::format::ObjectKind::Catalogue,
+        );
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::FileRows,
+                sections.file_rows,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::PathDictionary,
+                sections.path_dictionary,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::Diagnostics,
+                sections.diagnostics,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::Statistics,
+                sections.statistics,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::ActiveFiles,
+                sections.active_files,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::Directories,
+                sections.directories,
+            )
+            .map_err(|error| error.to_string())?;
+        let object = builder.finish().map_err(|error| error.to_string())?;
+        let view = crate::index_storage::catalogue::CatalogueView::open(
+            crate::index_storage::backing::Backing::resident(object.into_bytes()),
+        )
+        .map_err(|error| error.to_string())?;
+        self.packed_base = Some(Arc::new(PackedCatalogue::new(Arc::new(view))));
+        self.changed = Arc::new(
+            (0..SHARDS)
+                .map(|_| Arc::new(HashMap::new()))
+                .collect::<Vec<_>>(),
+        );
+        self.changed_paths = Arc::new(
+            (0..SHARDS)
+                .map(|_| Arc::new(HashMap::new()))
+                .collect::<Vec<_>>(),
+        );
+        self.changed_relative_paths = Arc::new(BTreeMap::new());
+        Ok(())
+    }
+
     pub(crate) fn appended(
         &self,
         entry: FileEntry,
@@ -735,6 +937,7 @@ impl FileCatalog {
         Arc::make_mut(&mut next.changed_relative_paths).insert((query_key, id), ());
         Arc::make_mut(&mut next.active).insert(id.0);
         next.len = next.len.checked_add(1).ok_or("too many indexed files")?;
+        next.compact_overlay_if_needed()?;
         Ok(next)
     }
 
@@ -784,6 +987,7 @@ impl FileCatalog {
         if !matches_base {
             ordered.insert((new_path.query_key(), id), ());
         }
+        next.compact_overlay_if_needed()?;
         Ok(next)
     }
 }

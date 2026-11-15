@@ -67,6 +67,9 @@ fn catalogue_bytes() -> Vec<u8> {
     builder
         .add_section(SectionKind::ActiveFiles, sections.active_files)
         .unwrap();
+    builder
+        .add_section(SectionKind::Directories, sections.directories)
+        .unwrap();
     builder.finish().unwrap().into_bytes()
 }
 
@@ -127,6 +130,18 @@ fn paged_rows_paths_and_statistics_round_trip() {
         .collect::<Vec<_>>();
     expected.sort_by_key(|file| format!("dir3/file{file}.txt"));
     assert_eq!(view.paths_with_prefix(b"dir3/", 100).unwrap(), expected);
+    let directories = view
+        .directories()
+        .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+        .map(|entry| entry.map(|(key, _)| String::from_utf8(key).unwrap()))
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    assert_eq!(
+        directories,
+        (0..7)
+            .map(|number| format!("dir{number}"))
+            .collect::<Vec<_>>()
+    );
     view.verify_full().unwrap();
 }
 
@@ -185,6 +200,9 @@ fn allocated_high_water_survives_deleted_tail_slots() {
         .unwrap();
     builder
         .add_section(SectionKind::ActiveFiles, sections.active_files)
+        .unwrap();
+    builder
+        .add_section(SectionKind::Directories, sections.directories)
         .unwrap();
     let view = open(builder.finish().unwrap().into_bytes());
     assert_eq!(view.high_water(), 25);
