@@ -1996,6 +1996,7 @@ fn concurrent_queries_during_folding_see_consistent_revisions() {
         index.add_file(&path).unwrap();
     }
     index.set_fold_trigger_for_tests(2).unwrap();
+    index.set_vacuum_min_dead_for_tests(16).unwrap();
     let stop = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
     std::thread::scope(|scope| {
         let mut readers = Vec::new();
@@ -2201,5 +2202,156 @@ fn pinned_view_survives_a_vacuum() {
     }
     index.vacuum().unwrap();
     assert_eq!(pinned.search(&count_query()).unwrap().count, before);
+    assert!(index.view().unwrap().vacuum_count() > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn churn_matches_an_index_that_never_folds() {
+    let roots = [
+        test_root("churn-never"),
+        test_root("churn-always"),
+        test_root("churn-default"),
+    ];
+    for root in &roots {
+        for number in 0..150usize {
+            std::fs::write(
+                root.join(format!("data/base-{number}.jsonl")),
+                format!(
+                    "{{\"id\":\"id-{number}\",\"name\":\"name-{number}\",\"n\":{number},\"tags\":[\"tag\"]}}\n"
+                ),
+            )
+            .unwrap();
+        }
+    }
+    let build = |root: &std::path::Path| {
+        Index::build(root, vec![fold_definition()], RepositoryOptions::default()).unwrap()
+    };
+    let never = build(&roots[0]);
+    never.set_fold_trigger_for_tests(usize::MAX).unwrap();
+    let always = build(&roots[1]);
+    always.set_fold_trigger_for_tests(1).unwrap();
+    always.set_vacuum_min_dead_for_tests(64).unwrap();
+    let default = build(&roots[2]);
+    let indexes = [&never, &always, &default];
+    let queries = folding_queries();
+    for step in 0..600usize {
+        let number = step % 150;
+        let path = |root: &std::path::Path| root.join(format!("data/base-{number}.jsonl"));
+        match step % 20 {
+            0 => {
+                for (index, root) in indexes.iter().zip(&roots) {
+                    let added = root.join(format!("data/added-{step}.jsonl"));
+                    std::fs::write(
+                        &added,
+                        format!(
+                            "{{\"id\":\"added-{step}\",\"name\":\"added-{step}\",\"n\":{step},\"tags\":[]}}\n"
+                        ),
+                    )
+                    .unwrap();
+                    index.add_file(&added).unwrap_or_else(|error| panic!("step {step}: {error}"));
+                }
+            }
+            1 => {
+                for (index, root) in indexes.iter().zip(&roots) {
+                    let current = path(root);
+                    let old = std::fs::read(&current).unwrap();
+                    let handle = index
+                        .view()
+                        .unwrap()
+                        .file_handle_for_path(&current)
+                        .unwrap();
+                    index.delete_file_with_old_content(handle, &old).unwrap_or_else(|error| panic!("step {step}: {error}"));
+                    std::fs::write(
+                        &current,
+                        format!(
+                            "{{\"id\":\"id-{number}\",\"name\":\"re-{step}\",\"n\":{step},\"tags\":[\"tag\"]}}\n"
+                        ),
+                    )
+                    .unwrap();
+                    index.add_file(&current).unwrap_or_else(|error| panic!("step {step}: {error}"));
+                }
+            }
+            _ => {
+                for (index, root) in indexes.iter().zip(&roots) {
+                    let current = path(root);
+                                        let handle = index
+                        .view()
+                        .unwrap()
+                        .file_handle_for_path(&current)
+                        .unwrap();
+                    std::fs::write(
+                        &current,
+                        format!(
+                            "{{\"id\":\"id-{number}\",\"name\":\"name-{number}\",\"n\":{step},\"tags\":[\"tag\"]}}\n"
+                        ),
+                    )
+                    .unwrap();
+                    index.update_file(handle, &current).unwrap_or_else(|error| panic!("step {step}: {error}"));
+                }
+            }
+        }
+        for index in [&always, &default] {
+            for segment in index.view().unwrap().segments(CollectionId(0)).unwrap() {
+                assert_eq!(
+                    segment.active.slot_count() as usize,
+                    segment.index.record_count(),
+                    "step {step} role {:?} ordinal {}",
+                    segment.index.role,
+                    segment.ordinal
+                );
+            }
+        }
+        if step % 20 == 19 {
+            for query in &queries {
+                let expected = query_signature(&never, query);
+                assert_eq!(query_signature(&always, query), expected, "step {step}");
+                assert_eq!(query_signature(&default, query), expected, "step {step}");
+            }
+        }
+    }
+    assert!(always.view().unwrap().vacuum_count() >= 3);
+    assert_eq!(always.view().unwrap().fold_failures(), 0);
+    for root in &roots {
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn slot_count_is_bounded_under_steady_updates() {
+    let root = test_root("slot-bound");
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    index.set_vacuum_min_dead_for_tests(64).unwrap();
+    for number in 0..200usize {
+        let path = root.join(format!("data/sb-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    for step in 0..5_000usize {
+        let number = step % 200;
+        let path = root.join(format!("data/sb-{number}.jsonl"));
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap();
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{step}}}\n")).unwrap();
+        index.update_file(handle, &path).unwrap();
+        if let Some(main) = index
+            .view()
+            .unwrap()
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .find(|segment| segment.index.role == crate::build::ShardRole::Main)
+        {
+            assert!(
+                main.index.record_count() <= 200 + 2 * 200,
+                "main slots {}",
+                main.index.record_count()
+            );
+        }
+    }
     std::fs::remove_dir_all(root).unwrap();
 }

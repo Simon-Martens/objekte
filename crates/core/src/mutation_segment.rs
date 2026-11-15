@@ -1738,11 +1738,21 @@ impl IndexedCollectionSegment {
                 .map(|slot| mapping.target(slot.0))
                 .collect::<Vec<_>>();
             let row = SegmentFile { entry, records };
-            if let Some(position) = index.file_position(file.entry.id) {
+            let id = row.entry.id;
+            let existing = index
+                .file_position(id)
+                .or_else(|| index.files_iter().position(|file| file.entry.id == id));
+            if let Some(position) = existing {
                 index.files.set(position, row);
+                index.file_index.insert(id, position);
+                index.free_file_rows.remove(position as u32);
+            } else if let Some(position) = index.free_file_rows.iter().next() {
+                index.files.set(position as usize, row);
+                index.file_index.insert(id, position as usize);
+                index.free_file_rows.remove(position);
             } else {
                 let position = index.file_count();
-                index.file_index.insert(file.entry.id, position);
+                index.file_index.insert(id, position);
                 index.files.push(row);
             }
         }

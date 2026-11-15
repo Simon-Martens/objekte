@@ -435,10 +435,13 @@ pub(crate) struct PublishedIndex {
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
     pub(crate) fold_trigger: usize,
+    pub(crate) vacuum_min_dead: usize,
     #[cfg(test)]
     pub(crate) fold_failures: usize,
     #[cfg(test)]
     pub(crate) fold_count: usize,
+    #[cfg(test)]
+    pub(crate) vacuum_count: usize,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -588,10 +591,13 @@ impl PublishedIndex {
             processed_files,
             processed_memberships: Vec::new(),
             fold_trigger: FOLD_TRIGGER_SHARDS,
+            vacuum_min_dead: MAIN_VACUUM_MIN_DEAD,
             #[cfg(test)]
             fold_failures: 0,
             #[cfg(test)]
             fold_count: 0,
+            #[cfg(test)]
+            vacuum_count: 0,
         })
     }
 
@@ -745,6 +751,10 @@ impl PublishedIndex {
             active: segment.active.clone(),
         });
         self.segments[number] = Arc::new(copy);
+        #[cfg(test)]
+        {
+            self.vacuum_count += 1;
+        }
         Ok(Some(stats))
     }
 
@@ -795,7 +805,9 @@ impl PublishedIndex {
         for position in &candidates {
             match main_index.append(&main_active, &group[*position].index) {
                 Ok(appended) => {
-                    main_active = match main_active.concat(&group[*position].active) {
+                    main_active = match main_active
+                        .with_mapped(&group[*position].active, &appended.mapping)
+                    {
                         Ok(active) => active,
                         Err(_) => {
                             folded = false;
@@ -992,7 +1004,7 @@ impl PublishedIndex {
                 let dead = total
                     .saturating_sub(segment.active.len() as usize)
                     .saturating_sub(segment.index.free_slots.len() as usize);
-                if dead >= MAIN_VACUUM_MIN_DEAD
+                if dead >= self.vacuum_min_dead
                     && dead.saturating_mul(4) >= segment.index.live_slot_count()
                 {
                     self.vacuum_main(number)?;
@@ -1669,6 +1681,19 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?;
         let mut next = (**guard).clone();
         next.fold_trigger = trigger;
+        *guard = Arc::new(next);
+        Ok(())
+    }
+
+    #[cfg(test)]
+    pub(crate) fn set_vacuum_min_dead_for_tests(&self, minimum: usize) -> Result<(), IndexError> {
+        let mut guard = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut next = (**guard).clone();
+        next.vacuum_min_dead = minimum;
         *guard = Arc::new(next);
         Ok(())
     }
@@ -2653,6 +2678,11 @@ impl IndexView {
     #[cfg(test)]
     pub(crate) fn fold_count(&self) -> usize {
         self.0.fold_count
+    }
+
+    #[cfg(test)]
+    pub(crate) fn vacuum_count(&self) -> usize {
+        self.0.vacuum_count
     }
 
     /// Startup observations belonging to this immutable publication.
