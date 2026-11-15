@@ -2,6 +2,7 @@
 
 use roaring::RoaringBitmap;
 use serde::Serialize;
+use std::sync::Arc;
 
 use super::value_codec::{
     BindingDescriptor, FieldCoverage, FieldDescriptor, GramKind, RelationStateKind,
@@ -70,10 +71,16 @@ pub(crate) struct PreparedGramSet {
     pub(crate) grams: Vec<u64>,
 }
 
+pub(crate) struct PreparedDescriptors {
+    pub(crate) bindings: Vec<PreparedBinding>,
+    pub(crate) fields: Vec<(Vec<String>, FieldDescriptor)>,
+    pub(crate) coverage: Vec<(u32, FieldCoverage)>,
+}
+
 pub(crate) struct PreparedStoreBatch {
     pub(crate) files: Vec<BatchFile>,
     pub(crate) file_fingerprints: Vec<(crate::model::FileId, [u8; 32])>,
-    pub(crate) bindings: Vec<PreparedBinding>,
+    pub(crate) descriptors: Arc<PreparedDescriptors>,
     pub(crate) records: Vec<RecordEntry>,
     pub(crate) values: Vec<PreparedValue>,
     pub(crate) lengths: Vec<PreparedLength>,
@@ -82,8 +89,6 @@ pub(crate) struct PreparedStoreBatch {
     pub(crate) relations: Vec<PreparedRelation>,
     pub(crate) relation_states: Vec<PreparedRelationState>,
     pub(crate) grams: Vec<PreparedGramSet>,
-    pub(crate) fields: Vec<(Vec<String>, FieldDescriptor)>,
-    pub(crate) coverage: Vec<(u32, FieldCoverage)>,
     pub(crate) inference: Option<crate::inference::InferenceBuilder>,
     pub(crate) logical_records: RoaringBitmap,
     pub(crate) empty_array_records: RoaringBitmap,

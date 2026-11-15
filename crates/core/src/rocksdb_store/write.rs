@@ -91,6 +91,7 @@ pub(crate) struct DiscoveryReport {
     pub files: u64,
     pub memberships: u64,
     pub metadata: MetadataWriteStats,
+    pub inventory: Vec<FileEntry>,
 }
 
 pub(crate) fn discover(
@@ -166,51 +167,12 @@ pub(crate) fn discover(
         );
     }
     drop(view);
-    let mut writer = MetadataWriter::new(store);
-    for (file_id, mut entry) in physical_files.values().cloned() {
+    for (_, entry) in physical_files.values_mut() {
         entry
             .collections
             .sort_unstable_by_key(|collection| collection.0);
-        let mut operations = Vec::with_capacity(5 + entry.collections.len());
-        operations.push((
-            physical(Namespace::Files, keys::file(file_id)),
-            Some(value_codec::encode(&FileMetadata {
-                entry: entry.clone(),
-                file_version: 1,
-                fingerprint: None,
-            })?),
-        ));
-        let native = crate::path_repr::native_bytes(entry.relative_path.as_path());
-        operations.push((
-            physical(Namespace::Paths, native.clone()),
-            Some(file_id.0.to_be_bytes().to_vec()),
-        ));
-        let query = crate::path_repr::query_path(entry.relative_path.as_path());
-        operations.push((
-            physical(Namespace::QueryPaths, keys::query_path(&query, file_id)),
-            Some(Vec::new()),
-        ));
-        operations.push((
-            physical(Namespace::FileBuildState, keys::file(file_id)),
-            Some(value_codec::encode(&FileBuildState {
-                state: BuildFileState::Pending,
-                expected_file_version: 1,
-                build_epoch: 1,
-                last_admission_revision: 0,
-                error: None,
-            })?),
-        ));
-        for collection in &entry.collections {
-            operations.push((
-                physical(
-                    Namespace::PendingFiles,
-                    keys::pending_file(collection.0, file_id),
-                ),
-                Some(Vec::new()),
-            ));
-        }
-        writer.put_group(operations)?;
     }
+    let mut writer = MetadataWriter::new(store);
     for (collection, file) in &memberships {
         let _ = file;
         let metadata = counts
@@ -226,16 +188,20 @@ pub(crate) fn discover(
         )?;
     }
     writer.flush()?;
+    let mut inventory = physical_files.into_values().map(|(_, entry)| entry).collect::<Vec<_>>();
+    inventory.sort_unstable_by_key(|entry| entry.id.0);
     Ok(DiscoveryReport {
-        files: physical_files.len() as u64,
+        files: inventory.len() as u64,
         memberships: memberships.len() as u64,
         metadata: writer.stats(),
+        inventory,
     })
 }
 
 pub(crate) struct MappedCollectionBatch {
     pub collection: CollectionId,
     pub base_slot: u32,
+    pub binding_ids: Vec<u32>,
     pub batch: PreparedStoreBatch,
 }
 
@@ -293,6 +259,7 @@ pub(crate) fn map_prepared_file(
             .ok_or_else(|| StoreError::State("record slot overflow".into()))?;
         base_slots.insert(collection.0, next);
         let local_bindings = batch
+            .descriptors
             .bindings
             .iter()
             .map(|binding| {
@@ -330,12 +297,10 @@ pub(crate) fn map_prepared_file(
             gram.binding = local_bindings[gram.binding as usize];
             gram.slot += base_slot;
         }
-        for (binding, _coverage) in &mut batch.coverage {
-            *binding = local_bindings[*binding as usize];
-        }
         mapped.push(MappedCollectionBatch {
             collection,
             base_slot,
+            binding_ids: local_bindings,
             batch,
         });
     }
@@ -765,9 +730,10 @@ pub(crate) fn admit_physical_batch(
                     );
                 }
             }
-            for (binding, batch_coverage) in &batch.coverage {
+            for (binding, batch_coverage) in &batch.descriptors.coverage {
+                let binding = mapped.binding_ids[*binding as usize];
                 let entry = coverage
-                    .entry((collection, *binding))
+                    .entry((collection, binding))
                     .or_insert_with(|| batch_coverage.clone());
                 entry.value_complete &= batch_coverage.value_complete;
                 entry.length_complete &= batch_coverage.length_complete;
@@ -977,7 +943,7 @@ fn admission_digest(admission: &AdmissionBatch) -> StoreResult<[u8; 32]> {
             digest_fact(&mut digest, &mapped.batch.relations)?;
             digest_fact(&mut digest, &mapped.batch.relation_states)?;
             digest_fact(&mut digest, &mapped.batch.grams)?;
-            digest_fact(&mut digest, &mapped.batch.coverage)?;
+            digest_fact(&mut digest, &mapped.batch.descriptors.coverage)?;
         }
     }
     Ok(digest.finalize().into())

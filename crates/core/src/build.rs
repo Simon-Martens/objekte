@@ -1572,7 +1572,13 @@ impl<'a> DirectStoreBatchBuilder<'a> {
         Ok(PreparedStoreBatch {
             files: self.files,
             file_fingerprints: self.file_fingerprints,
-            bindings: self.bindings.bindings,
+            descriptors: std::sync::Arc::new(
+                crate::rocksdb_store::prepare::PreparedDescriptors {
+                    bindings: self.bindings.bindings,
+                    fields: self.fields.into_iter().collect(),
+                    coverage: self.coverage.into_iter().collect(),
+                },
+            ),
             records: self.records,
             values: self.values,
             lengths: self.lengths,
@@ -1581,8 +1587,6 @@ impl<'a> DirectStoreBatchBuilder<'a> {
             relations,
             relation_states,
             grams: self.grams,
-            fields: self.fields.into_iter().collect(),
-            coverage: self.coverage.into_iter().collect(),
             inference: self.inference,
             logical_records: self.logical_records,
             empty_array_records: self.empty_array_records,

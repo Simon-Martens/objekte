@@ -189,7 +189,7 @@ pub fn build_from_source(
 
     let discovery_started = Instant::now();
     let discovery = discover(&store, &schema, root)?;
-    let mut files = read_discovered_files(&store)?;
+    let mut files = discovery.inventory.clone();
     files.sort_by_key(|file| file.id.0);
     let source_files = Arc::new(
         files
@@ -872,9 +872,7 @@ fn split_prepared_batch(
         }
     }
 
-    let bindings = batch.bindings.clone();
-    let fields = batch.fields.clone();
-    let coverage = batch.coverage.clone();
+    let descriptors = std::sync::Arc::clone(&batch.descriptors);
     let mut records = (0..count).map(|_| Vec::new()).collect::<Vec<_>>();
     let mut values = (0..count).map(|_| Vec::new()).collect::<Vec<_>>();
     let mut lengths = (0..count).map(|_| Vec::new()).collect::<Vec<_>>();
@@ -971,7 +969,7 @@ fn split_prepared_batch(
                 file_fingerprints: fingerprint
                     .map(|fingerprint| vec![(file_id, fingerprint)])
                     .unwrap_or_default(),
-                bindings: bindings.clone(),
+                descriptors: std::sync::Arc::clone(&descriptors),
                 records: std::mem::take(&mut records[index]),
                 values: std::mem::take(&mut values[index]),
                 lengths: std::mem::take(&mut lengths[index]),
@@ -980,15 +978,6 @@ fn split_prepared_batch(
                 relations: std::mem::take(&mut relations[index]),
                 relation_states: std::mem::take(&mut relation_states[index]),
                 grams: std::mem::take(&mut grams[index]),
-                fields: fields.clone(),
-                coverage: coverage
-                    .iter()
-                    .map(|(binding, coverage)| {
-                        let mut coverage = coverage.clone();
-                        coverage.covered_records = 0;
-                        (*binding, coverage)
-                    })
-                    .collect(),
                 inference: None,
                 logical_records: std::mem::take(&mut logical[index]),
                 empty_array_records: std::mem::take(&mut empty_arrays[index]),
