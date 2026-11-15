@@ -107,8 +107,12 @@ overhead.
 - Tests cover block boundaries, cardinalities, directory counts, state masks,
   contribution raw/LZ4 envelopes, truncation/malformed lengths, value/length
   prefix isolation, abort, same-slot replacement, and reverse-mask round trips.
-- Full-store validation on the imported combined candidate is recorded
-  separately in `validation-a2.json` when the validation process completes.
+- Full-store validation on the imported combined candidate completed with
+  **zero errors**: 7 collections, 148,486 live records, 2,814,411 value
+  memberships, 921,173 length memberships, 14,004,908 state facts, 169,856 FTS
+  blocks and 566,768 sort entries. The validation process also checked that
+  reverse gram memberships equal forward gram cardinalities and that state
+  blocks agree with reverse masks and statistics.
 - No production query path is routed through the store; end-to-end query gates
   remain unavailable, not passed.
 
@@ -151,6 +155,7 @@ compression, followed by another Phase-5 cycle. Phases 6–12 remain blocked.
 ## 8. Evidence
 
 - Raw campaigns: `bench/results/redb-primary-index/feasibility-a2/<variant>/<profile>/`.
+- Full validation: `bench/results/redb-primary-index/feasibility-a2/combined/ascii/validation.json`.
 - Input fixture: `/tmp/opencode/a2/ascii.input`, `/tmp/opencode/a2/unicode.input`
   (benchmark fixtures, not production storage; recreate with the recorded
   `--prepare-input` command).

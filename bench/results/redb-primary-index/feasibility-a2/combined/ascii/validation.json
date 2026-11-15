@@ -1,0 +1,17 @@
+{
+  "mode": "validate",
+  "peak_after_bytes": 661188608,
+  "rss_after_bytes": 661188608,
+  "validation": {
+    "collections": 7,
+    "errors": [],
+    "free_slots": 0,
+    "fts_blocks": 169856,
+    "length_members": 921173,
+    "live_records": 148486,
+    "relation_occurrences": 0,
+    "sort_entries": 566768,
+    "state_members": 14004908,
+    "value_members": 2814411
+  }
+}
