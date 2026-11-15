@@ -3,105 +3,203 @@
 Date: 2026-11-15  
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
-Repair head: `1a052f0209`
+Original baseline: `c54486f893`  
+Repair head: `a2bf950f78`
+
+## Result
+
+All seven review findings now have an implemented repair path and executable
+coverage. The publication path is packed-only: fresh builds, direct builds,
+incremental builds, add/update/move/delete, verified replacement, and
+compaction all seal completed runs into the canonical packed representation
+before the publication becomes searchable. Load opens the packed catalogue and
+run objects without rebuilding complete file tables, dictionaries, posting
+arenas, or per-record cache cells.
 
 ## R1 — visibility persistence: resolved
 
-- Added `ObjectKind::Visibility` and `SectionKind::Visibility`; bumped object
-  format and manifest versions to 2.
-- Each manifest run now carries a content-addressed visibility object encoded
-  with the packed record-set representation.
+- Added `ObjectKind::Visibility` and `SectionKind::Visibility`; object and
+  manifest format versions are 2.
+- Every manifest run carries `RunRef.visibility`, a content-addressed packed
+  record set bound to that run's slot universe.
 - Save persists the pinned publication's current active mask even when the
-  immutable segment object is reused.
-- Load opens the visibility object and uses it for the segment's active domain;
-  it no longer trusts the run's embedded coverage.
-- Compaction and mutation publication retain their own active masks; pinned
-  views keep their old visibility.
+  immutable run object is reused.
+- Load attaches the visibility reader directly. Catalogue coverage is not used
+  as a substitute for visibility.
 - Cleanup retains visibility objects and rejects stores without them.
 
-Regression test:
+Regression:
 
 ```text
 cargo test -p objekte-search-core index_storage::index_tests::packed_reuse_preserves
 test packed_reuse_preserves_deleted_and_replaced_visibility ... ok
 ```
 
-The test deletes one file and replaces another, saves without compaction,
-reloads, and verifies the retired values are absent and replacement values are
-present.
+## R2 — bounded, fallible page access: resolved
 
-## R2 — bounded, fallible access: substantially implemented
+- Posting and bigram reads use checked descriptors and 8 KiB integrity units.
+- `RecordSetView` uses paged backing rather than borrowing complete arenas.
+- Estimates read stored cardinalities and bounded dictionaries, not full
+  posting payloads.
+- `RecordStore::try_get` is fallible; packed row access never panics for a
+  missing row, part, file, or record class.
+- Corrupt payload units fail at the operation that touches them, while
+  unrelated admissions and lookups continue to work.
 
-- `RecordSetView` now supports a paged backing that reads only the block
-  directory and requested block payloads. Posting and bigram query paths use
-  paged views instead of borrowing whole arenas.
-- Object checksum units changed from 64 KiB to 8 KiB, aligned with dictionary
-  pages.
-- `RecordStore::try_get` returns storage errors instead of panicking on packed
-  row failure; `get` no longer contains `expect` calls for persisted rows.
-- Remaining: some explicit diagnostic/verification paths still read full
-  arenas, and not every query error is propagated as a distinct typed error.
+## R3 — resident packed publication: resolved
 
-## R3 — resident packed publication: not completed
+- `lifecycle_compaction::seal_native_segments` seals every native shard before
+  `publish_prepared_inner` installs a publication.
+- Direct builds seal their staged shards before `from_published`.
+- `partition_base` emits resident packed parts rather than native parts.
+- Packed execution parity covers derived existence/null/array/object/length
+  predicates, declared array steps, relation source fields, regex gram
+  candidates, and verified slot-preserving replacement.
+- `IndexCatalog::segment` and `BigramAccess` use the segment's packed reader.
+- Save no longer constructs dictionaries, record sets, records, or sort
+  indexes as its normal path.
 
-Fresh builds and mutations still publish native query owners; Save is still the
-point that creates packed bytes. A prototype that packed `partition_base` parts
-resident was reverted because it exposed unresolved packed execution parity gaps
-(array-element structural predicates, mixed-type ranges, relation membership,
-and verified slot-preserving update). The branch therefore keeps the previous
-native publication path until those gaps are repaired.
+Regression:
 
-## R4 — packed catalogue and bounded record views: not completed
+```text
+cargo test -p objekte-search-core index_storage::index_tests::every_published_mutation_family
+test every_published_mutation_family_uses_resident_packed_runs ... ok
+```
 
-Load still reconstructs catalogue entries, file lookup maps, and
-publication-level record metadata. `RecordStore` still allocates one lazy cell
-per packed record. Frontend catalogue helpers still enumerate complete
-catalogues. This remains the largest outstanding repair.
+The test inspects the publication after build, update, move, add, and delete and
+asserts every run has resident packed backing, no native record vector, and no
+native posting dictionary.
 
-## R5 — durable object reuse: substantially implemented
+## R4 — packed catalogue and bounded record views: resolved
 
-- `ObjectInput` now distinguishes resident bytes from durable object
-  references carrying identity, length, and path.
-- Packed mapped segments expose durable save sources; Save reuses existing
-  object paths without copying or hashing the complete payload.
-- Cross-store saves stream durable objects in 1 MiB chunks and verify the
-  content digest.
-- Save manifest construction uses retained digests instead of rehashing
-  complete resident objects.
-- Regression test:
+- Added `SectionKind::ActiveFiles`, a persisted active-file bitmap, so Load does
+  not reconstruct the active set by reading every catalogue row.
+- `FileCatalog` can now use a packed catalogue base. `restore_from_store` opens
+  the catalogue object directly; it no longer calls `catalogue_entries`,
+  builds a complete `FileInventory`, or rebuilds path maps.
+- Path lookup and directory-prefix lookup use the persisted path dictionary.
+- Run construction decodes only the file rows referenced by that run.
+- Packed record access allocates page cells only when a row is first read; one
+  access decodes at most one 64-record page. Load allocates zero record cells.
+- Default identity order is read through the packed identity-order section on
+  demand instead of collecting a complete slot array at Load.
+- Desktop catalogue startup materializes active file IDs only. Collection and
+  directory filtering reads rows/path prefixes on demand, with a 256-ID visible
+  page bound.
+- File versions and active IDs are read through the catalogue rather than a
+  reconstructed row vector.
+
+Regression:
+
+```text
+cargo test -p objekte-search-core load_defers_packed
+test load_defers_packed_record_page_allocation_until_a_row_is_read ... ok
+```
+
+Remaining limitation: the desktop directory tree still derives directory names
+from the publication paths when the tree is refreshed. It does not decode file
+rows or diagnostics, but a full directory list is an explicit enumeration rather
+than a persisted child-directory page. No correctness path depends on it.
+
+## R5 — durable object reuse: resolved
+
+- `ObjectInput` distinguishes resident bytes from durable object references.
+- Save reuses mapped run and visibility objects without copying or hashing
+  their payloads.
+- Cross-store transfer streams in bounded chunks and verifies the digest.
+- Retained sealing digests avoid rehashing complete resident objects.
+- Save planning and transfer observe cancellation.
+
+Regression:
 
 ```text
 cargo test -p objekte-search-core index_storage::index_tests::same_store_save_reuses
 test same_store_save_reuses_mapped_run_and_visibility_objects ... ok
 ```
 
-The test updates one file while another mapped run remains untouched and
-asserts `objects_reused >= 2` and `bytes_reused > 0`.
+## R6 — streaming tiered compaction: resolved
 
-## R6 — tiered streaming compaction: partial
+- Run levels persist in the manifest and survive Save/Load.
+- Four oldest runs at the same level are merged and promoted one level.
+- `compact_packed_merge` performs one k-way pass over selected input
+  dictionaries, records, bigrams, sorts, relations, coverage, and metadata.
+  Output is one packed run with bounded pages; 2,048-slot output fragmentation
+  no longer rescans the complete input.
+- Record slot translation is built once per selected merge.
+- Fully active runs participate, so fan-out is bounded without tombstones.
+- Compaction remains source-free and reuses the existing compare-and-swap
+  publication path.
 
-- Run level is persisted in the manifest and restored into published segments.
-- Compaction output promotes the source level instead of always writing level 0.
-- The 64-run admission limit remains enforced.
-- Not implemented: four-run same-level consolidation, a k-way dictionary merge,
-  and once-per-merge translation structures. Current compaction remains bounded
-  per 2,048-slot output part and repeats input field/bigram scans per part.
+Regression:
 
-## R7 — error propagation: partial
+```text
+cargo test -p objekte-search-core four_same_level_runs
+test four_same_level_runs_consolidate_and_promote ... ok
+```
 
-- Packed row access is fallible (`try_get`) and no longer panics for missing
-  rows, parts, files, or invalid record classes.
-- Record-set and posting readers return typed storage errors.
-- Remaining: several query/planner paths still convert storage errors into
-  `None`/empty candidates, and catalogue/front-end handlers still need the
-  fallible interface.
+The test creates four level-0 runs, compacts, asserts a promoted run and a
+reduced run count, and verifies the complete result set.
+
+## R7 — typed error propagation: resolved
+
+- Packed planner estimates, exact execution, length predicates, derived state
+  predicates, and bigram candidate/estimate paths return `StorageResult`.
+- `index_catalog` and executor convert storage errors at the planning boundary
+  instead of erasing them with `ok()` or empty candidate sets.
+- Packed row access returns typed failures; no packed record path contains a
+  persisted-row `expect`.
+- Record-set, posting, dictionary, sort, relation, and catalogue readers return
+  storage errors with object/section context.
+- Frontend and CLI consumers receive operation errors without discarding the
+  previous usable publication.
+
+## Updated contracts
+
+- Object format: 2.
+- Manifest format: 2.
+- Segment statistics: 2 (adds `max_record_range_len` for bounded read
+  scheduling).
+- Catalogue section: `ActiveFiles` (25).
+- Older experimental stores without visibility, active-file, or version-2
+  segment statistics are rejected explicitly. No implicit source rebuild is
+  attempted.
 
 ## Validation
 
 ```text
+cargo fmt --all
+python3 scripts/format-rust-spacing.py
+python3 scripts/format-rust-spacing.py --check   # passed
+cargo clippy --workspace --all-targets --offline  # exit 0, warning-level diagnostics only
 cargo test --workspace --locked --offline
-931 passed; 0 failed
+934 passed; 0 failed
 ```
 
-Required repairs R3, R4, the four-run merge in R6, and complete R7 propagation
-remain before this task can be marked complete.
+Core-only suite:
+
+```text
+cargo test -p objekte-search-core --lib --offline
+605 passed; 0 failed; 15 ignored
+```
+
+Desktop suite:
+
+```text
+cargo test -p objekte-desktop --offline
+166 passed; 0 failed
+```
+
+## Benchmarks and remaining verification
+
+The Musenalm benchmark and release-mode performance gates were not rerun in this
+repair session. The deterministic work counters and the source-free lifecycle
+tests pass, but no new absolute Build/Load/query timing table is claimed here.
+The earlier GUI validation evidence remains under
+`docs/ai/generated/mmap-index-storage-gui/`.
+
+## Commits
+
+- `163a8e9afd` — publish every resident run through packed readers.
+- `141c6627c6` — merge packed runs by tier and open packed catalogue pages.
+- `8a08af99d8` — page packed metadata and bound packed record caches.
+- `a2bf950f78` — read default identity order through packed pages.
