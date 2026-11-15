@@ -62,6 +62,24 @@ pub fn query_path(path: &Path) -> String {
     }
 }
 
+/// Native root-relative path bytes used as an exact store key.
+///
+/// On Unix this is the raw `OsStr` byte sequence, so non-UTF-8 names round-trip
+/// exactly. Other platforms use the lossy UTF-8 representation because the
+/// store format is currently built and measured on Unix; discovery still
+/// rejects escaping paths before they reach this function.
+pub fn native_bytes(path: &Path) -> Vec<u8> {
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStrExt;
+        path.as_os_str().as_bytes().to_vec()
+    }
+    #[cfg(not(unix))]
+    {
+        path.to_string_lossy().into_owned().into_bytes()
+    }
+}
+
 #[cfg(unix)]
 fn append_valid(output: &mut String, valid: &str) {
     for ch in valid.chars() {
