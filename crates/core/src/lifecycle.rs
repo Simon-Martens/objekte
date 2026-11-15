@@ -437,6 +437,8 @@ pub(crate) struct PublishedIndex {
     pub(crate) fold_trigger: usize,
     #[cfg(test)]
     pub(crate) fold_failures: usize,
+    #[cfg(test)]
+    pub(crate) fold_count: usize,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -582,6 +584,8 @@ impl PublishedIndex {
             fold_trigger: FOLD_TRIGGER_SHARDS,
             #[cfg(test)]
             fold_failures: 0,
+            #[cfg(test)]
+            fold_count: 0,
         })
     }
 
@@ -743,6 +747,10 @@ impl PublishedIndex {
             active: main_active,
         }));
         self.segments[number] = Arc::new(copy);
+        #[cfg(test)]
+        {
+            self.fold_count += 1;
+        }
         Ok(())
     }
 
@@ -2538,6 +2546,11 @@ impl IndexView {
     #[cfg(test)]
     pub(crate) fn fold_failures(&self) -> usize {
         self.0.fold_failures
+    }
+
+    #[cfg(test)]
+    pub(crate) fn fold_count(&self) -> usize {
+        self.0.fold_count
     }
 
     /// Startup observations belonging to this immutable publication.

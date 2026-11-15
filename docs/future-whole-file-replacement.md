@@ -42,6 +42,13 @@ retain its segment ordinal and local slot in a new immutable shard. The old
 and new views have distinct index revisions; an old pinned view still owns its
 original shard. Multi-record or shared-shard changes use a new segment.
 
+Small index shards are also folded into one main shard per collection. The
+main shard marks replaced records retired and appends the new incarnation;
+nothing is rewritten. When at least half of a main shard is retired and it has
+at least 4,096 slots, it is dissolved back into ordinary partitions. Verified
+maintenance treats a main shard as too expensive to rewrite and falls back to
+normal appended replacement for its files.
+
 `Index::compact` constructs dense active-only indexes from the published base
 and segments without reading source files. It advances the revision only when
 retired slots exist. `Index::rebuild` rereads the current explicit source

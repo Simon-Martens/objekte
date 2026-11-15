@@ -425,6 +425,14 @@ checking without blocking search. Reconciliation, updates, compaction,
 ordinary close and repository replacement keep all state in memory and release
 it when the index is dropped.
 
+A collection can have one growing main shard. Small mutation shards are folded
+into it eight at a time; a later incarnation of a file replaces its retired
+row and record slots without rewriting the large shard. The main shard is
+dissolved back into ordinary partitions when at least half of it is retired and
+it holds at least 4,096 slots. Verified maintenance does not rewrite a main
+shard; a verified update of one of its files falls back to appended
+replacement. A build-only index never creates a main shard.
+
 `compact()` removes retired base and segment contributions without rereading
 source files. `rebuild()` rereads the current source configuration and retries
 publication if a concurrent mutation wins. Complete old bytes can enable

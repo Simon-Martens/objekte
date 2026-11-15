@@ -2060,3 +2060,84 @@ fn concurrent_queries_during_folding_see_consistent_revisions() {
     });
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+#[ignore = "manual real-fixture fold-cost measurement; run in release with --nocapture"]
+fn measure_fold_cost_on_real_fixture() {
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_FOLD_FIXTURE")
+            .expect("set OBJEKTE_FOLD_FIXTURE to a Musenalm root"),
+    );
+    let configuration =
+        crate::repository_configuration::load_repository_configuration(&root).unwrap();
+    let index = Index::build(&root, configuration.definitions, RepositoryOptions::default())
+        .unwrap();
+    let collection = index
+        .view()
+        .unwrap()
+        .repository()
+        .collections()
+        .iter()
+        .position(|collection| collection.definition.name == "contents")
+        .map(|position| CollectionId(position as u32))
+        .unwrap();
+    let paths = index
+        .view()
+        .unwrap()
+        .file_paths_for_collection("contents")
+        .take(2_000)
+        .map(std::path::Path::to_path_buf)
+        .collect::<Vec<_>>();
+    let mut folded = Vec::new();
+    let mut plain = Vec::new();
+    let mut folds_before = index.view().unwrap().fold_count();
+    for relative in &paths {
+        let view = index.view().unwrap();
+        let handle = view.file_handle_for_path(relative).unwrap();
+        let path = root.join(relative);
+        let mut bytes = std::fs::read(&path).unwrap();
+        bytes.push(b'\n');
+        std::fs::write(&path, &bytes).unwrap();
+        let revision =
+            SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let started = std::time::Instant::now();
+        index
+            .update_file_from_bytes(handle, &path, &bytes, revision)
+            .unwrap();
+        let elapsed = started.elapsed().as_secs_f64() * 1_000.0;
+        let folds_after = index.view().unwrap().fold_count();
+        if folds_after > folds_before {
+            folded.push(elapsed);
+            folds_before = folds_after;
+        } else {
+            plain.push(elapsed);
+        }
+    }
+    let stats = |mut values: Vec<f64>| {
+        values.sort_by(|a, b| a.partial_cmp(b).unwrap());
+        if values.is_empty() {
+            return (0.0, 0.0, 0.0);
+        }
+        let median = values[values.len() / 2];
+        let p95 = values[(values.len() - 1) * 95 / 100];
+        (median, p95, *values.last().unwrap())
+    };
+    let (plain_median, plain_p95, plain_max) = stats(plain);
+    let (fold_median, fold_p95, fold_max) = stats(folded);
+    let view = index.view().unwrap();
+    let segments = view.segments(collection).unwrap();
+    let main = segments
+        .iter()
+        .find(|segment| segment.index.role == crate::build::ShardRole::Main);
+    eprintln!("updates={}", paths.len());
+    eprintln!("plain_median_ms={plain_median:.3} plain_p95_ms={plain_p95:.3} plain_max_ms={plain_max:.3}");
+    eprintln!("fold_median_ms={fold_median:.3} fold_p95_ms={fold_p95:.3} fold_max_ms={fold_max:.3}");
+    eprintln!(
+        "folds={} fold_failures={} shards={} main_records={} main_live={}",
+        view.fold_count(),
+        view.fold_failures(),
+        segments.len(),
+        main.map_or(0, |segment| segment.index.record_count()),
+        main.map_or(0, |segment| segment.active.len()),
+    );
+}

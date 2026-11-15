@@ -65,3 +65,22 @@ and walks the shared map in key order.
   `value_key_text_bytes`. For the native backing these produce exactly the old
   numbers; for the shared backing they are the sum over stored chunks and may
   differ slightly because each chunk carries its own roaring header.
+
+## Shard tables
+
+The dual-backed containers in `crates/core/src/slot_store.rs` give the shard's
+record table, file table, id lookup, identity order and sort orders the same
+two backings:
+
+- `SlotTable<T>` is a dense `Vec<T>` or an `imbl::Vector<T>` addressed by row
+  position or record slot.
+- `SlotOrder` is an ordered `Vec<RecordSlot>` or an `imbl::Vector<RecordSlot>`.
+  It supports `insert_sorted`, `insert_at`, range iteration and partition
+  search, so appending a small shard inserts only the delta's slots.
+- `SharedMap<K, V>` is a `HashMap` or an `imbl::HashMap`, used for the file
+  index and the record-id lookup.
+
+`IndexedCollectionSegment::freeze_all` freezes every family. `append` clones a
+main shard and merges the delta family by family; a `Building` shard is
+correct but pays a deep clone, while a `Shared` shard shares all unchanged
+containers.

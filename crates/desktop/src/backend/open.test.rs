@@ -50,7 +50,7 @@ fn repeated_paths_keep_cli_collection_names() {
 #[test]
 fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache() {
     let root = tempfile::tempdir().unwrap();
-    for number in 0..64 {
+    for number in 0..2_000 {
         std::fs::write(
             root.path().join(format!("{number:04}.json")),
             format!(r#"{{"title":"Record {number}"}}"#),
@@ -67,8 +67,8 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     let task = task.expect("fresh open must retain construction task");
     let catalogue = session.repository.index().view().unwrap();
-    assert_eq!(catalogue.catalogue_rows().count(), 64);
-    assert_eq!(task.status().unwrap().discovered_files, 64);
+    assert_eq!(catalogue.catalogue_rows().count(), 2_000);
+    assert_eq!(task.status().unwrap().discovered_files, 2_000);
     task.wait_complete().unwrap();
     assert!(
         session
