@@ -284,6 +284,10 @@ pub(crate) enum ShardRole {
 
 static NEXT_LINEAGE: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
 
+pub(crate) fn next_lineage() -> u64 {
+    NEXT_LINEAGE.fetch_add(1, std::sync::atomic::Ordering::Relaxed) + 1
+}
+
 #[derive(Clone)]
 pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
@@ -1617,7 +1621,7 @@ impl IndexedCollectionSegment {
         let mut copy = self.clone();
         copy.freeze_all();
         copy.role = ShardRole::Main;
-        copy.lineage = NEXT_LINEAGE.fetch_add(1, std::sync::atomic::Ordering::Relaxed) + 1;
+        copy.lineage = next_lineage();
         copy
     }
 

@@ -428,6 +428,17 @@ impl ActiveRecords {
         })
     }
 
+    pub(crate) fn same_as(&self, other: &Self) -> bool {
+        self.slot_count == other.slot_count
+            && self.live_count == other.live_count
+            && self.chunks.len() == other.chunks.len()
+            && self
+                .chunks
+                .iter()
+                .zip(other.chunks.iter())
+                .all(|(left, right)| Arc::ptr_eq(left, right))
+    }
+
     #[cfg(test)]
     pub(crate) fn chunk_arc(&self, index: usize) -> Option<&Arc<RoaringBitmap>> {
         self.chunks.get(index)

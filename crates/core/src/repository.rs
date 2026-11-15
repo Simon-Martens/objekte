@@ -812,6 +812,27 @@ impl Repository {
         &self.files
     }
 
+    pub(crate) fn empty_for_configuration(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: &SourceRegistry,
+    ) -> Result<Self, String> {
+        Self::build_fresh(root, definitions, options, sources, false)
+    }
+
+    pub(crate) fn set_global_inference(
+        &mut self,
+        collection: usize,
+        summary: Option<GlobalInferenceSummary>,
+    ) -> Result<(), String> {
+        self.collections
+            .get_mut(collection)
+            .ok_or_else(|| "collection missing".to_string())?
+            .global_inference = summary;
+        Ok(())
+    }
+
     pub fn collections(&self) -> &[CollectionState] {
         &self.collections
     }

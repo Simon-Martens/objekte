@@ -554,7 +554,7 @@ pub(crate) fn read_shard(
     read: &ReadTransaction,
     collection: u32,
     store_id: u64,
-) -> Result<(IndexedCollectionSegment, ActiveRecords), String> {
+) -> Result<(IndexedCollectionSegment, ActiveRecords, keys::ShardHeader), String> {
     let prefix = keys::prefix(collection, store_id);
     let header_rows = rows(read, keys::SHARDS, &prefix)?;
     let header: keys::ShardHeader = decode(
@@ -955,10 +955,16 @@ pub(crate) fn read_shard(
             .cmp(&records[b.0 as usize].id)
             .then_with(|| a.cmp(b))
     });
+    let source_id = header.source_id.clone();
+    let source_version = header.source_version;
+    let role = header.role;
+    let record_parses = header.record_parses;
+    let failed_parses = header.failed_parses;
+    let shared = header.shared;
     let mut shard = IndexedCollectionSegment::from_base_parts(BaseSegmentParts {
         collection: crate::model::CollectionId(collection),
-        source_id: header.source_id,
-        source_version: header.source_version,
+        source_id,
+        source_version,
         files,
         file_index,
         records,
@@ -981,18 +987,18 @@ pub(crate) fn read_shard(
         sorting,
         relations,
     });
-    shard.role = match header.role {
+    shard.role = match role {
         1 => ShardRole::Mutation,
         2 => ShardRole::Main,
         _ => ShardRole::Built,
     };
-    shard.record_parses = header.record_parses;
-    shard.failed_parses = header.failed_parses;
-    if header.shared {
+    shard.record_parses = record_parses;
+    shard.failed_parses = failed_parses;
+    if shared {
         shard.freeze_all();
     }
     shard.recompute_accounting();
-    Ok((shard, active))
+    Ok((shard, active, header))
 }
 
 pub(crate) fn delete_shard_prefix(

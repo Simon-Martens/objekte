@@ -280,7 +280,7 @@ fn shard_round_trip_native() {
         write.commit().unwrap();
     }
     let read = db.begin_read().unwrap();
-    let (actual, actual_active) = read_shard(&read, 0, 1).unwrap();
+    let (actual, actual_active, _) = read_shard(&read, 0, 1).unwrap();
     assert_shards_equal(&actual, &expected);
     assert_eq!(actual_active.bitmap(), active.bitmap());
     if !cfg!(feature = "force-shared-backing") {
@@ -319,7 +319,7 @@ fn shard_round_trip_shared() {
         write.commit().unwrap();
     }
     let read = db.begin_read().unwrap();
-    let (actual, actual_active) = read_shard(&read, 0, 9).unwrap();
+    let (actual, actual_active, _) = read_shard(&read, 0, 9).unwrap();
     assert_shards_equal(&actual, &expected);
     assert_eq!(actual_active.bitmap(), active.bitmap());
 }
@@ -338,7 +338,7 @@ fn shard_round_trip_keeps_the_active_mask() {
         write.commit().unwrap();
     }
     let read = db.begin_read().unwrap();
-    let (_, actual) = read_shard(&read, 0, 2).unwrap();
+    let (_, actual, _) = read_shard(&read, 0, 2).unwrap();
     assert_eq!(actual.bitmap(), active.bitmap());
     assert_eq!(actual.len(), active.len());
 }
@@ -415,7 +415,7 @@ fn diff_then_read_equals_full_write() {
         write.commit().unwrap();
     }
     let read = db.begin_read().unwrap();
-    let (actual, actual_active) = read_shard(&read, 0, 1).unwrap();
+    let (actual, actual_active, _) = read_shard(&read, 0, 1).unwrap();
     assert_shards_equal(&actual, &m2);
     assert_eq!(actual_active.bitmap(), active2.bitmap());
 }
@@ -468,6 +468,6 @@ fn diff_writes_are_proportional_to_the_delta() {
         m2.file_count()
     );
     let read = db.begin_read().unwrap();
-    let (actual, _) = read_shard(&read, 0, 1).unwrap();
+    let (actual, _, _) = read_shard(&read, 0, 1).unwrap();
     assert_shards_equal(&actual, &m2);
 }

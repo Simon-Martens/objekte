@@ -645,6 +645,37 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
+    pub(crate) fn with_restored_segment(
+        mut self,
+        index: crate::build::IndexedCollectionSegment,
+        active: ActiveRecords,
+        ordinal: u64,
+    ) -> Result<Self, IndexError> {
+        let number = index.collection.0 as usize;
+        let collection = self.repository.collections().get(number).ok_or_else(|| {
+            IndexError::InvalidPublication("segment collection missing".into())
+        })?;
+        if index.source_id != collection.source.id()
+            || index.source_version != collection.source.version()
+        {
+            return Err(IndexError::IncompatibleConfiguration(
+                "segment source registration changed".into(),
+            ));
+        }
+        if active.slot_count() as usize != index.record_count() {
+            return Err(IndexError::InvalidPublication(
+                "restored active mask coverage mismatch".into(),
+            ));
+        }
+        self.next_segment_ordinal = self.next_segment_ordinal.max(ordinal.saturating_add(1));
+        Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(index),
+            active,
+        }));
+        Ok(self)
+    }
+
     fn segment_has_current_file(&self, segment: &PublishedSegment) -> bool {
         for file_number in 0..segment.index.file_count() {
             let Some(file) = segment.index.file_at(file_number).map(|file| &file.entry) else {
@@ -1174,7 +1205,7 @@ fn prepare_file_at(
     .map_err(IndexError::Build)
 }
 
-struct IndexInner {
+pub(crate) struct IndexInner {
     instance_id: u64,
     timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
@@ -1188,6 +1219,7 @@ struct IndexInner {
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
+    pub(crate) store: Mutex<Option<crate::index_store::IndexStore>>,
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
@@ -1358,7 +1390,7 @@ impl ReconciliationTask {
 
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
-pub struct Index(Arc<IndexInner>);
+pub struct Index(pub(crate) Arc<IndexInner>);
 
 impl Index {
     /// Publish one complete initial work unit. A concurrent lifecycle
@@ -1508,6 +1540,7 @@ impl Index {
             maintenance_operation: Mutex::new(None),
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
+            store: Mutex::new(None),
         }))
     }
 
