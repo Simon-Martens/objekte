@@ -1,0 +1,59 @@
+{
+  "task": "rocksdb-construction-repair",
+  "base_revision": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "raw_inputs": {
+    "baseline": {
+      "path": "bench/results/rocksdb-construction-repair/baseline-native-p8/build.json",
+      "sha256": "52a5b29b0cd4e35cd4e02d30a9237b1b2d68e24dd66d2853a1fa469210b1bc1b"
+    },
+    "native_control": {
+      "path": "bench/results/rocksdb-construction-repair/candidate-native-p8-20261115/build.json",
+      "sha256": "cbc8a65a81308613a4f9bb58b5ce3c5d0063e978ac06d95a76c38cb96c080fc5"
+    },
+    "candidate": {
+      "path": "bench/results/rocksdb-construction-repair/ascii-w4-final-20261115/build.json",
+      "sha256": "0bfe5062c73e06e71e89123c3c702a71ce30f5d113f1f858cea5fccb5102acfb"
+    },
+    "validation": {
+      "path": "bench/results/rocksdb-construction-repair/ascii-validate-20261115/validation.json",
+      "sha256": "41d7976fa136aa8bbbf014153eb7779f4c584d3cc662208f6fefd73903c4395d"
+    }
+  },
+  "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "raw_values": {
+    "baseline": {
+      "wall_ns": 1079312756,
+      "resident_bytes": 395444224,
+      "peak_resident_bytes": 404967424
+    },
+    "native_control": {
+      "wall_ns": 960935149,
+      "resident_bytes": 406888448,
+      "peak_resident_bytes": 416894976
+    },
+    "candidate": {
+      "wall_ns": 35650433616,
+      "resident_bytes": 1093632000,
+      "peak_resident_bytes": 2432851968
+    }
+  },
+  "limits_floor": {
+    "wall_ns": 1241209669,
+    "resident_bytes": 553621913,
+    "peak_resident_bytes": 647947878
+  },
+  "ratios": {
+    "candidate_to_baseline_time": 33.03067940021641,
+    "candidate_to_baseline_resident": 2.7655783891282733,
+    "candidate_to_baseline_peak": 6.007525108982593,
+    "native_control_to_baseline_time": 0.8903213120182932
+  },
+  "gates": {
+    "construction_time": false,
+    "resident_memory": false,
+    "peak_memory": false,
+    "internal_validation": true
+  },
+  "outcome": "performance_failure",
+  "correctness_scope": "full ASCII internal invariants; native exact facts on fixtures only"
+}

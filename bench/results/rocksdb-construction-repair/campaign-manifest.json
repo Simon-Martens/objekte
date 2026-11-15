@@ -1,0 +1,38 @@
+{
+  "task": "rocksdb-construction-repair",
+  "date": "2026-11-15",
+  "parent_revision": "63b212fcf9a6cb6fb42af8fdee8a29cd2fce7e3b",
+  "native_base_revision": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "candidate_revision": "0147a0cb73",
+  "candidate_worktree_clean_for_final_run": true,
+  "corpus": {
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "schema_profile": "basic",
+    "alphabet": "ascii",
+    "records": 148486,
+    "physical_files": 148486,
+    "configuration_digest": "eb03250be2bd299461b3eb11ee050a34b54e9b8ea6027f354ce574fa7991143a",
+    "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+  },
+  "configuration": {
+    "prepare_workers": 8,
+    "write_workers": 4,
+    "storage": "memory",
+    "max_admission_files": 256,
+    "max_admission_records": 2048,
+    "max_admission_source_bytes": 8388608,
+    "metadata_batch_bytes": 8388608,
+    "metadata_batch_operations": 32768,
+    "retained_work_target_bytes": 67108864
+  },
+  "runs": {
+    "baseline_native": "baseline-native-p8/build.json",
+    "candidate_native_control": "candidate-native-p8-20261115/build.json",
+    "first_screen": "ascii-w4-screen-20261115/build.json",
+    "diagnostic": "ascii-w4-diagnostic-20261115/build.json",
+    "ordinary_confirmation": "ascii-w4-confirm-20261115/build.json",
+    "final_clean": "ascii-w4-final-20261115/build.json",
+    "validation": "ascii-validate-20261115/validation.json"
+  },
+  "comparison": "comparison.json"
+}

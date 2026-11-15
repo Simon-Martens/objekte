@@ -1,0 +1,45 @@
+{
+  "mode": "native-build",
+  "schema_profile": "basic",
+  "alphabet": "ascii",
+  "storage": "memory",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "configuration_digest": "eb03250be2bd299461b3eb11ee050a34b54e9b8ea6027f354ce574fa7991143a",
+  "build_identity": "6a89a5e2c2ae2f1b26c5e5fa1a932fe728c3e8229276fe7f4321392aacc18001",
+  "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "elapsed_ns": 960935149,
+  "resident_bytes": 406888448,
+  "peak_resident_bytes": 416894976,
+  "memory_host_files": null,
+  "report": null,
+  "validation": null,
+  "native": {
+    "build_ns": 960925215,
+    "discovery_ns": 180086075,
+    "extraction_index_ns": 0,
+    "finalization_ns": 0,
+    "records": 148486,
+    "requested_build_workers": 8,
+    "resolved_build_workers": 8
+  },
+  "environment": {
+    "available_parallelism": 32,
+    "executable_sha256": "a7da2b6e636b7b5a1fe2ca361a375060b696af841a7f1c5a6ea9ff886dfec66f",
+    "rust_version": "1.99",
+    "os": "linux",
+    "args": [
+      "--mode",
+      "native-build",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--schema-profile",
+      "basic",
+      "--alphabet",
+      "ascii",
+      "--prepare-workers",
+      "8",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-rocksdb-construction-repair/bench/results/rocksdb-construction-repair/candidate-native-p8-20261115"
+    ]
+  }
+}
