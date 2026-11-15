@@ -137,7 +137,7 @@ impl GramMap {
 
     /// Number of stored bitmaps: one per key while building, one per chunk
     /// once shared. Used only by byte estimates.
-    pub fn all_bitmaps(&self, mut valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
+    pub fn all_bitmaps(&self, valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
         match self {
             Self::Building(entries) => entries.values().all(valid),
             Self::Shared(shared) => shared.all_bitmaps(valid),
