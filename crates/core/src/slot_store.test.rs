@@ -56,7 +56,7 @@ fn slot_table_matches_vec_in_both_backings() {
             }
             assert_eq!(
                 table.iter().copied().collect::<Vec<_>>(),
-                model.iter().copied().collect::<Vec<_>>()
+                model.clone()
             );
             let start = random.next(model.len() as u32 + 1) as usize;
             assert_eq!(

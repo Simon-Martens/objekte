@@ -215,7 +215,8 @@ pub(crate) fn preserve_single_record_slots(
             .segments(*collection)?
             .iter()
             .find(|shard| shard.ordinal == old_ordinal)?;
-        if old.index.file_count() != 1
+        if old.index.role == crate::build::ShardRole::Main
+            || old.index.file_count() != 1
             || old.index.record_count() != 1
             || old.active.len() != 1
             || !old.active.contains(RecordSlot(0))
@@ -240,7 +241,8 @@ pub(crate) fn preserve_single_record_slots(
             return None;
         }
         let new = &group[new_position];
-        if new.index.file_count() != 1
+        if new.index.role == crate::build::ShardRole::Main
+            || new.index.file_count() != 1
             || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
@@ -302,7 +304,8 @@ pub(crate) fn preserve_partition_record_slots(
             .iter()
             .find(|shard| shard.ordinal == old_ordinal)?;
         let old_slots = old.index.file_records(file)?;
-        if old_slots.len() != 1
+        if old.index.role == crate::build::ShardRole::Main
+            || old_slots.len() != 1
             || old.index.record_count() <= 1
             || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
             || old.active.len() as usize != old.index.record_count()
@@ -328,7 +331,8 @@ pub(crate) fn preserve_partition_record_slots(
             return None;
         }
         let new = &group[new_position];
-        if new.index.file_count() != 1
+        if new.index.role == crate::build::ShardRole::Main
+            || new.index.file_count() != 1
             || new.index.record_count() != 1
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
@@ -430,7 +434,9 @@ pub(crate) fn remove_verified_old_shards(
                 position += 1;
                 continue;
             }
-            if shard.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS {
+            if shard.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
+                || shard.index.role == crate::build::ShardRole::Main
+            {
                 return Err(VerifiedFallbackReason::CompactionBudget);
             }
             if shard.active.len() == 0 {

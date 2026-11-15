@@ -1069,10 +1069,6 @@ impl IndexedCollectionSegment {
         self.files.for_each_mut(visit);
     }
 
-    pub(crate) fn has_file(&self, id: FileId) -> bool {
-        self.file_index.contains_key(&id)
-    }
-
     pub(crate) fn file_position(&self, id: FileId) -> Option<usize> {
         self.file_index.get(&id).copied()
     }
@@ -1266,6 +1262,12 @@ fn merge_bigram_index(
     Ok(())
 }
 
+type InferenceIndexMaps = (
+    HashMap<Vec<String>, PostingIndex>,
+    HashMap<Vec<String>, RoaringBitmap>,
+    HashMap<Vec<String>, RoaringBitmap>,
+);
+
 fn merge_inference_indexes(
     states: &[&crate::inference::InferenceState],
     shards: &[&IndexedCollectionSegment],
@@ -1273,14 +1275,7 @@ fn merge_inference_indexes(
     record_count: usize,
     offsets: &[u32],
     mode: InferenceMergeMode,
-) -> Result<
-    (
-        HashMap<Vec<String>, PostingIndex>,
-        HashMap<Vec<String>, RoaringBitmap>,
-        HashMap<Vec<String>, RoaringBitmap>,
-    ),
-    String,
-> {
+) -> Result<InferenceIndexMaps, String> {
     let complete = states.iter().all(|state| state.report.complete);
     let mut indexes = HashMap::new();
     let mut empty_selections = HashMap::new();
@@ -1288,11 +1283,11 @@ fn merge_inference_indexes(
     if !complete {
         return Ok((indexes, empty_selections, short_string_coverage));
     }
-    if mode == InferenceMergeMode::AppendToFirst {
-        if states.len() == 2
-            && !shards[0].logical_records.is_empty()
-            && !shards[1].logical_records.is_empty()
-        {
+    if mode == InferenceMergeMode::AppendToFirst
+        && states.len() == 2
+        && !shards[0].logical_records.is_empty()
+        && !shards[1].logical_records.is_empty()
+    {
             let base = *offsets.get(1).ok_or("inferred append offset missing")?;
             for (path, initial) in &states[0].indexes {
                 let Some(source) = states[1].indexes.get(path) else {
@@ -1340,8 +1335,7 @@ fn merge_inference_indexes(
                 empty_selections.insert(path.clone(), empty);
                 indexes.insert(path.clone(), index);
             }
-            return Ok((indexes, empty_selections, short_string_coverage));
-        }
+        return Ok((indexes, empty_selections, short_string_coverage));
     }
     let seed = shards
         .iter()
@@ -2746,7 +2740,7 @@ impl IndexedCollectionSegment {
             }
             for (part, selected) in routing.selected.iter().enumerate() {
                 let keys = selected.iter()
-                    .map(|&old| original.key(RecordSlot(old as u32)).cloned()
+                    .map(|&old| original.key(RecordSlot(old)).cloned()
                         .ok_or("sort projection slot out of bounds"))
                     .collect::<Result<Vec<_>, _>>()?;
                 parts[part].columns.insert(path.clone(), SortColumn::from_parts(SortColumnParts {

@@ -335,10 +335,6 @@ impl SortColumn {
         &self.descending
     }
 
-    pub(crate) fn extend_keys(&mut self, keys: &[SortKey]) {
-        self.keys.extend(keys.iter().cloned());
-    }
-
     pub(crate) fn set_keys(&mut self, keys: Vec<SortKey>) {
         self.keys = crate::slot_store::SlotTable::from_vec(keys);
     }

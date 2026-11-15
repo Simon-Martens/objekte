@@ -39,6 +39,7 @@ impl<T: Clone> SlotTable<T> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn is_empty(&self) -> bool {
         self.len() == 0
     }
@@ -50,6 +51,7 @@ impl<T: Clone> SlotTable<T> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn get_mut(&mut self, index: usize) -> Option<&mut T> {
         match self {
             Self::Building(values) => values.get_mut(index),
@@ -74,6 +76,7 @@ impl<T: Clone> SlotTable<T> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn last(&self) -> Option<&T> {
         match self {
             Self::Building(values) => values.last(),
@@ -167,6 +170,7 @@ impl<T: Clone> SlotTable<T> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn is_shared(&self) -> bool {
         matches!(self, Self::Shared(_))
     }
@@ -197,6 +201,8 @@ impl SlotOrder {
         }
     }
 
+    #[cfg(test)]
+    #[cfg(test)]
     pub(crate) fn is_empty(&self) -> bool {
         self.len() == 0
     }
@@ -261,6 +267,7 @@ impl SlotOrder {
 
     /// Insert `slot` at the position given by `compare`, which returns how an
     /// existing slot orders relative to the new one.
+    #[cfg(test)]
     pub(crate) fn insert_sorted(
         &mut self,
         slot: RecordSlot,
@@ -280,6 +287,7 @@ impl SlotOrder {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn retain(&mut self, mut keep: impl FnMut(RecordSlot) -> bool) {
         match self {
             Self::Building(values) => values.retain(|slot| keep(*slot)),
@@ -328,6 +336,7 @@ impl SlotOrder {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn is_shared(&self) -> bool {
         matches!(self, Self::Shared(_))
     }
@@ -347,6 +356,7 @@ impl<K: Clone + Eq + Hash, V: Clone + PartialEq> PartialEq for SharedMap<K, V> {
 }
 
 impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
+    #[cfg(test)]
     pub(crate) fn new() -> Self {
         Self::Building(HashMap::new())
     }
@@ -362,6 +372,7 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn is_empty(&self) -> bool {
         self.len() == 0
     }
@@ -384,6 +395,7 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn contains_key<Q>(&self, key: &Q) -> bool
     where
         K: std::borrow::Borrow<Q>,
@@ -402,6 +414,7 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn remove<Q>(&mut self, key: &Q) -> Option<V>
     where
         K: std::borrow::Borrow<Q>,
@@ -426,6 +439,7 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn is_shared(&self) -> bool {
         matches!(self, Self::Shared(_))
     }

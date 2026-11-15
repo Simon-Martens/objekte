@@ -434,6 +434,9 @@ pub(crate) struct PublishedIndex {
     /// Only populated during an initial build. One bitmap per collection
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
+    pub(crate) fold_trigger: usize,
+    #[cfg(test)]
+    pub(crate) fold_failures: usize,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -488,10 +491,15 @@ pub(crate) fn index_family_estimate(
     }
 }
 
+pub(crate) const FOLD_TRIGGER_SHARDS: usize = 8;
+pub(crate) const FOLD_MAX_RECORDS: usize = 256;
+pub(crate) const MAIN_DISSOLVE_MIN_SLOTS: usize = 4_096;
+
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
     let mut sized = group
         .iter()
         .enumerate()
+        .filter(|(_, segment)| segment.index.role != crate::build::ShardRole::Main)
         .map(|(index, segment)| (segment.index.record_count(), index))
         .collect::<Vec<_>>();
     sized.sort_unstable();
@@ -571,6 +579,9 @@ impl PublishedIndex {
             reconciliation: ReconciliationState::NotStarted,
             processed_files,
             processed_memberships: Vec::new(),
+            fold_trigger: FOLD_TRIGGER_SHARDS,
+            #[cfg(test)]
+            fold_failures: 0,
         })
     }
 
@@ -630,6 +641,111 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
+    fn segment_has_current_file(&self, segment: &PublishedSegment) -> bool {
+        for file_number in 0..segment.index.file_count() {
+            let Some(file) = segment.index.file_at(file_number).map(|file| &file.entry) else {
+                return false;
+            };
+            if self.catalog.entry(file.id).is_some_and(|current| {
+                current.revision == file.revision
+                    && current.created_ns == file.created_ns
+                    && current.collections.contains(&segment.index.collection)
+            }) {
+                return true;
+            }
+        }
+        false
+    }
+
+    /// Fold small mutation shards into the collection's main shard.
+    pub(crate) fn fold_mutation_shards(&mut self, number: usize) -> Result<(), IndexError> {
+        let group = Arc::clone(&self.segments[number]);
+        let mut candidates = group
+            .iter()
+            .enumerate()
+            .filter(|(_, segment)| {
+                segment.index.role == crate::build::ShardRole::Mutation
+                    && segment.index.record_count() <= FOLD_MAX_RECORDS
+            })
+            .map(|(position, _)| position)
+            .collect::<Vec<_>>();
+        if candidates.len() < self.fold_trigger {
+            return Ok(());
+        }
+        candidates.sort_by_key(|position| group[*position].ordinal);
+        candidates.retain(|position| {
+            group[*position].active.len() > 0 || self.segment_has_current_file(&group[*position])
+        });
+        if candidates.is_empty() {
+            return Ok(());
+        }
+        let main = group
+            .iter()
+            .enumerate()
+            .filter(|(_, segment)| segment.index.role == crate::build::ShardRole::Main)
+            .max_by_key(|(_, segment)| segment.index.record_count())
+            .map(|(position, _)| position);
+        let mut consumed = Vec::new();
+        let (mut main_index, mut main_active) = if let Some(position) = main {
+            consumed.push(position);
+            (
+                (*group[position].index).clone(),
+                group[position].active.clone(),
+            )
+        } else {
+            let position = candidates.remove(0);
+            consumed.push(position);
+            (
+                group[position].index.to_shared(),
+                group[position].active.clone(),
+            )
+        };
+        let mut folded = true;
+        for position in &candidates {
+            match main_index.append(&main_active, &group[*position].index) {
+                Ok(appended) => {
+                    main_active = match main_active.concat(&group[*position].active) {
+                        Ok(active) => active,
+                        Err(_) => {
+                            folded = false;
+                            break;
+                        }
+                    };
+                    main_index = appended.index;
+                    consumed.push(*position);
+                }
+                Err(_) => {
+                    folded = false;
+                    break;
+                }
+            }
+        }
+        if !folded {
+            #[cfg(test)]
+            {
+                self.fold_failures += 1;
+            }
+            return Ok(());
+        }
+        consumed.sort_unstable();
+        let ordinal = self.next_segment_ordinal;
+        self.next_segment_ordinal = self
+            .next_segment_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let mut copy = (*group).clone();
+        for position in consumed.into_iter().rev() {
+            copy.remove(position);
+        }
+        copy.push(Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(main_index),
+            active: main_active,
+        }));
+        self.segments[number] = Arc::new(copy);
+        Ok(())
+    }
+
     pub(crate) fn with_segment(mut self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
@@ -637,6 +753,7 @@ impl PublishedIndex {
                 "segment collection missing".into(),
             ));
         }
+        self.fold_mutation_shards(number)?;
         self.make_room_for_segment(number)?;
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
@@ -777,10 +894,13 @@ impl PublishedIndex {
                 .filter_map(|(index, segment)| {
                     let total = segment.index.record_count();
                     let removed = total.saturating_sub(segment.active.len() as usize);
-                    (total >= MIN_RETIREMENT_SLOTS
+                    let partition = total >= MIN_RETIREMENT_SLOTS
                         && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
-                        && removed.saturating_mul(4) >= total)
-                        .then_some((removed, index))
+                        && removed.saturating_mul(4) >= total;
+                    let dissolve = segment.index.role == crate::build::ShardRole::Main
+                        && total >= MAIN_DISSOLVE_MIN_SLOTS
+                        && removed.saturating_mul(2) >= total;
+                    (partition || dissolve).then_some((removed, index))
                 })
                 .max();
             if let Some((_, index)) = retired {
@@ -1428,6 +1548,19 @@ impl Index {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?
             .budget())
+    }
+
+    #[cfg(test)]
+    pub(crate) fn set_fold_trigger_for_tests(&self, trigger: usize) -> Result<(), IndexError> {
+        let mut guard = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut next = (**guard).clone();
+        next.fold_trigger = trigger;
+        *guard = Arc::new(next);
+        Ok(())
     }
 
     /// Acquire one immutable view; no publication lock is held by its queries.
@@ -2402,6 +2535,11 @@ impl Index {
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 impl IndexView {
+    #[cfg(test)]
+    pub(crate) fn fold_failures(&self) -> usize {
+        self.0.fold_failures
+    }
+
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::StartupStats {
         self.repository().startup()

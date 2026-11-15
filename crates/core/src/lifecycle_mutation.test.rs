@@ -1194,6 +1194,7 @@ fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
 fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
     let root = test_root("shared-shard");
     let index = index(&root);
+    index.set_fold_trigger_for_tests(usize::MAX).unwrap();
     for number in 0..65 {
         let path = root.join(format!("data/{number}.jsonl"));
         std::fs::write(&path, format!("{{\"name\":\"item-{number}\"}}\n")).unwrap();
@@ -1635,5 +1636,427 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
         assert_eq!(pinned.segments(collection).unwrap()[0].ordinal, ordinal);
     }
     assert_eq!(index.status().unwrap().live_records, 2);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+fn shard_roles(index: &Index) -> (usize, usize) {
+    let view = index.view().unwrap();
+    let segments = view.segments(CollectionId(0)).unwrap();
+    let mutations = segments
+        .iter()
+        .filter(|segment| segment.index.role == crate::build::ShardRole::Mutation)
+        .count();
+    let mains = segments
+        .iter()
+        .filter(|segment| segment.index.role == crate::build::ShardRole::Main)
+        .count();
+    (mutations, mains)
+}
+
+fn count_query() -> Query {
+    Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 0,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    }
+}
+
+#[test]
+fn folding_bounds_the_shard_count() {
+    let root = test_root("fold-bound");
+    let index = index(&root);
+    for number in 0..200usize {
+        let path = root.join(format!("data/add-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let (mutations, mains) = shard_roles(&index);
+    assert!(mutations <= crate::lifecycle::FOLD_TRIGGER_SHARDS, "{mutations}");
+    assert_eq!(mains, 1);
+    assert_eq!(index.view().unwrap().fold_failures(), 0);
+}
+
+#[test]
+fn build_only_index_has_no_main_shard() {
+    let root = test_root("build-only");
+    for number in 0..10usize {
+        std::fs::write(
+            root.join(format!("data/base-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n"),
+        )
+        .unwrap();
+    }
+    let index = index(&root);
+    let query = count_query();
+    assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(10));
+    let (mutations, mains) = shard_roles(&index);
+    assert_eq!(mutations, 0);
+    assert_eq!(mains, 0);
+}
+
+#[test]
+fn pinned_view_survives_a_fold() {
+    let root = test_root("pinned-fold");
+    for number in 0..10usize {
+        std::fs::write(
+            root.join(format!("data/base-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n"),
+        )
+        .unwrap();
+    }
+    let index = index(&root);
+    let pinned = index.view().unwrap();
+    let query = count_query();
+    assert_eq!(pinned.search(&query).unwrap().count, Some(10));
+    for number in 0..30usize {
+        let path = root.join(format!("data/more-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"more-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    assert_eq!(pinned.search(&query).unwrap().count, Some(10));
+    assert_eq!(
+        index.view().unwrap().search(&query).unwrap().count,
+        Some(40)
+    );
+}
+
+#[test]
+fn verified_update_of_a_main_shard_file_falls_back() {
+    let root = test_root("main-verified");
+    let index = index(&root);
+    for number in 0..20usize {
+        let path = root.join(format!("data/main-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let view = index.view().unwrap();
+    let main = view
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| segment.index.role == crate::build::ShardRole::Main)
+        .expect("folded main shard");
+    let target = main.index.file_at(0).unwrap().entry.id;
+    let handle = view.file_handle(target).unwrap();
+    let path = root.join(&view.file_entry(target).unwrap().relative_path);
+    let old = std::fs::read(&path).unwrap();
+    std::fs::write(&path, b"{\"name\":\"changed\",\"n\":99}\n").unwrap();
+    let result = index
+        .update_file_with_options(
+            handle,
+            &path,
+            UpdateOptions {
+                old_content: Some(&old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        result.fallback_reason,
+        Some(VerifiedFallbackReason::CompactionBudget)
+    );
+    assert_eq!(shard_roles(&index).1, 1);
+    assert_eq!(count_query_count(&index), 20);
+}
+
+fn count_query_count(index: &Index) -> usize {
+    index
+        .view()
+        .unwrap()
+        .search(&count_query())
+        .unwrap()
+        .count
+        .unwrap_or(0)
+}
+
+fn fold_definition() -> CollectionDefinition {
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (path, kind, multi) in [
+        ("id", LogicalType::Id, false),
+        ("name", LogicalType::String, false),
+        ("n", LogicalType::Number, false),
+        (
+            "tags",
+            LogicalType::Array(Box::new(LogicalType::String)),
+            true,
+        ),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: path == "id",
+                nullable: false,
+                indexed: true,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition
+        .sort_fields
+        .push(FieldPath::parse("name").unwrap());
+    definition.sort_fields.push(FieldPath::parse("n").unwrap());
+    definition
+}
+
+fn folding_queries() -> Vec<Query> {
+    let options = |sort: Vec<SortField>, offset: usize| QueryOptions {
+        sort,
+        limit: 10,
+        offset,
+        count: true,
+        return_mode: ReturnMode::Locator,
+        evidence: false,
+    };
+    vec![
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: None,
+            options: options(Vec::new(), 0),
+        },
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: Some(parse_filter("n >= 30").unwrap()),
+            options: options(Vec::new(), 0),
+        },
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: Some(parse_filter("name = \"name-5\"").unwrap()),
+            options: options(Vec::new(), 0),
+        },
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: None,
+            options: options(
+                vec![SortField {
+                    field: "n".into(),
+                    descending: false,
+                    expression: None,
+                }],
+                0,
+            ),
+        },
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: None,
+            options: options(
+                vec![SortField {
+                    field: "n".into(),
+                    descending: true,
+                    expression: None,
+                }],
+                5,
+            ),
+        },
+        Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: Some(parse_filter("tags:length > 0").unwrap()),
+            options: options(Vec::new(), 0),
+        },
+    ]
+}
+
+fn query_signature(index: &Index, query: &Query) -> (Option<usize>, Vec<String>) {
+    let result = index.view().unwrap().search(query).unwrap();
+    (
+        result.count,
+        result.hits.iter().map(|hit| hit.record_id.clone()).collect(),
+    )
+}
+
+#[test]
+fn folding_matches_an_index_that_never_folds() {
+    let roots = [
+        test_root("fold-never"),
+        test_root("fold-always"),
+        test_root("fold-default"),
+    ];
+    for root in &roots {
+        for number in 0..60usize {
+            std::fs::write(
+                root.join(format!("data/base-{number}.jsonl")),
+                format!(
+                    "{{\"id\":\"id-{number}\",\"name\":\"name-{number}\",\"n\":{number},\"tags\":[\"tag\"]}}\n"
+                ),
+            )
+            .unwrap();
+        }
+    }
+    let build = |root: &std::path::Path| {
+        Index::build(
+            root,
+            vec![fold_definition()],
+            RepositoryOptions::default(),
+        )
+        .unwrap()
+    };
+    let never = build(&roots[0]);
+    never.set_fold_trigger_for_tests(usize::MAX).unwrap();
+    let always = build(&roots[1]);
+    always.set_fold_trigger_for_tests(1).unwrap();
+    let default = build(&roots[2]);
+    let indexes = [&never, &always, &default];
+    let queries = folding_queries();
+    for step in 0..120usize {
+        let number = step % 60;
+        if step % 10 == 0 {
+            for (index, root) in indexes.iter().zip(&roots) {
+                let added = root.join(format!("data/added-{step}.jsonl"));
+                std::fs::write(
+                    &added,
+                    format!(
+                        "{{\"id\":\"added-{step}\",\"name\":\"added-{step}\",\"n\":{step},\"tags\":[]}}\n"
+                    ),
+                )
+                .unwrap();
+                index.add_file(&added).unwrap();
+            }
+        } else if step % 20 == 5 {
+            for (index, root) in indexes.iter().zip(&roots) {
+                let current = root.join(format!("data/base-{number}.jsonl"));
+                let old = std::fs::read(&current).unwrap();
+                let handle = index
+                    .view()
+                    .unwrap()
+                    .file_handle_for_path(&current)
+                    .unwrap();
+                index
+                    .delete_file_with_old_content(handle, &old)
+                    .unwrap();
+                std::fs::write(
+                    &current,
+                    format!(
+                        "{{\"id\":\"id-{number}\",\"name\":\"re-{step}\",\"n\":{step},\"tags\":[\"tag\"]}}\n"
+                    ),
+                )
+                .unwrap();
+                index.add_file(&current).unwrap();
+            }
+        } else {
+            for (index, root) in indexes.iter().zip(&roots) {
+                let current = root.join(format!("data/base-{number}.jsonl"));
+                let handle = index
+                    .view()
+                    .unwrap()
+                    .file_handle_for_path(&current)
+                    .unwrap();
+                std::fs::write(
+                    &current,
+                    format!(
+                        "{{\"id\":\"id-{number}\",\"name\":\"name-{number}\",\"n\":{step},\"tags\":[\"tag\"]}}\n"
+                    ),
+                )
+                .unwrap();
+                index.update_file(handle, &current).unwrap();
+            }
+        }
+        if step % 10 == 9 {
+            for query in &queries {
+                let expected = query_signature(&never, query);
+                assert_eq!(query_signature(&always, query), expected, "step {step}");
+                assert_eq!(query_signature(&default, query), expected, "step {step}");
+            }
+        }
+    }
+    for root in &roots {
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn concurrent_queries_during_folding_see_consistent_revisions() {
+    let root = test_root("fold-concurrent");
+    let index = index(&root);
+    for number in 0..20usize {
+        std::fs::write(
+            root.join(format!("data/base-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\",\"n\":{number},\"tags\":[]}}\n"),
+        )
+        .unwrap();
+    }
+    for number in 0..20usize {
+        let path = root.join(format!("data/base-{number}.jsonl"));
+        index.add_file(&path).unwrap();
+    }
+    index.set_fold_trigger_for_tests(2).unwrap();
+    let stop = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
+    std::thread::scope(|scope| {
+        let mut readers = Vec::new();
+        for _ in 0..4 {
+            let index = index.clone();
+            let stop = std::sync::Arc::clone(&stop);
+            readers.push(scope.spawn(move || {
+                let mut views = 0usize;
+                while !stop.load(std::sync::atomic::Ordering::Acquire) && views < 100 {
+                    let view = index.view().unwrap();
+                    let count = view.search(&count_query()).unwrap().count.unwrap_or(0);
+                    let mut paged = 0usize;
+                    let mut offset = 0usize;
+                    loop {
+                        let query = Query {
+                            collections: vec!["items".into()],
+                            fts: None,
+                            filter: None,
+                            options: QueryOptions {
+                                sort: Vec::new(),
+                                limit: 7,
+                                offset,
+                                count: false,
+                                return_mode: ReturnMode::Locator,
+                                evidence: false,
+                            },
+                        };
+                        let hits = view.search(&query).unwrap().hits.len();
+                        paged += hits;
+                        if hits < 7 {
+                            break;
+                        }
+                        offset += 7;
+                        assert!(offset <= count + 7);
+                    }
+                    assert_eq!(paged, count);
+                    views += 1;
+                }
+                views
+            }));
+        }
+        for step in 0..300usize {
+            let number = step % 20;
+            let path = root.join(format!("data/base-{number}.jsonl"));
+            let handle = index
+                .view()
+                .unwrap()
+                .file_handle_for_path(&path)
+                .unwrap();
+            std::fs::write(
+                &path,
+                format!("{{\"name\":\"name-{number}\",\"n\":{step},\"tags\":[]}}\n"),
+            )
+            .unwrap();
+            index.update_file(handle, &path).unwrap();
+        }
+        stop.store(true, std::sync::atomic::Ordering::Release);
+        for reader in readers {
+            let views = reader.join().unwrap();
+            assert!(views > 0);
+        }
+    });
     std::fs::remove_dir_all(root).unwrap();
 }
