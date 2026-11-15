@@ -35,6 +35,7 @@ pub struct BulkConstructionReport {
     pub actions: u64,
     pub static_actions: u64,
     pub bitmap_keys: u64,
+    pub input_bitmap_memberships: u64,
     pub bitmap_puts: u64,
     pub bitmap_reads: u64,
     pub cold_reloads: u64,
@@ -85,6 +86,7 @@ struct CohortPlan {
     coverage: Vec<(CollectionId, u32, FieldCoverage)>,
     static_actions: u64,
     bitmap_keys: u64,
+    input_bitmap_memberships: u64,
     physical_key_encodes: u64,
     touched_tails: Vec<BitmapKey>,
 }
@@ -247,6 +249,10 @@ impl<'a> BulkConstructor<'a> {
             .static_actions
             .saturating_add(plan.static_actions);
         self.report.bitmap_keys = self.report.bitmap_keys.saturating_add(plan.bitmap_keys);
+        self.report.input_bitmap_memberships = self
+            .report
+            .input_bitmap_memberships
+            .saturating_add(plan.input_bitmap_memberships);
         self.report.bitmap_puts = self.report.bitmap_puts.saturating_add(bitmap_puts);
         self.report.physical_key_encodes = self
             .report
@@ -601,11 +607,12 @@ impl<'a> BulkConstructor<'a> {
         let was_dirty = self.tails.get(&key).is_some_and(|image| image.dirty);
         if !was_dirty {
             plan.touched_tails.push(key.clone());
+            plan.bitmap_keys = plan.bitmap_keys.saturating_add(1);
         }
         let image = self.tails.entry(key).or_default();
         image.offsets.push((slot & BLOCK_MASK) as u16);
         image.dirty = true;
-        plan.bitmap_keys = plan.bitmap_keys.saturating_add(1);
+        plan.input_bitmap_memberships = plan.input_bitmap_memberships.saturating_add(1);
     }
 
     fn add_sort_rows(

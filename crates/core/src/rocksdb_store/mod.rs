@@ -14,6 +14,7 @@ use rocksdb::{
     ReadOptions, SingleThreaded, SnapshotWithThreadMode, Transaction, TransactionDB,
     TransactionDBOptions, TransactionOptions, WriteBatchWithTransaction, WriteOptions,
 };
+use serde::Serialize;
 
 pub mod bitmap_block;
 pub mod build;
@@ -91,6 +92,26 @@ impl From<std::io::Error> for StoreError {
 
 pub type StoreResult<T> = Result<T, StoreError>;
 
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct EngineSnapshot {
+    pub memtable_bytes: Option<u64>,
+    pub active_memtable_bytes: Option<u64>,
+    pub block_cache_usage_bytes: Option<u64>,
+    pub block_cache_pinned_bytes: Option<u64>,
+    pub table_readers_bytes: Option<u64>,
+    pub sst_bytes: Option<u64>,
+    pub pending_compaction_bytes: Option<u64>,
+    pub running_flushes: Option<u64>,
+    pub running_compactions: Option<u64>,
+    pub estimated_keys: Option<u64>,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct EnginePhaseSample {
+    pub phase: String,
+    pub snapshot: EngineSnapshot,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum StoreLocation {
     Memory,
@@ -159,6 +180,15 @@ impl RocksStore {
             .db
             .write_opt(batch, &options)
             .map_err(StoreError::from)
+    }
+
+    pub fn engine_snapshot(&self) -> EngineSnapshot {
+        // The pinned binding exposes TransactionDB properties only for its
+        // MultiThreaded specialization. This store intentionally uses
+        // SingleThreaded, so engine internals remain unavailable rather than
+        // being reported as zero.
+        let _ = &self.resources.db;
+        EngineSnapshot::default()
     }
 
     pub fn create(config: StoreConfig) -> StoreResult<Self> {

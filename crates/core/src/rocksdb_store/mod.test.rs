@@ -191,6 +191,40 @@ fn unbounded_and_one_sided_iterator_queries_are_namespace_clamped() {
 }
 
 #[test]
+fn all_ff_prefixes_remain_namespace_clamped() {
+    let store = RocksStore::create(config(StoreLocation::Memory)).expect("store");
+    let transaction = store.transaction();
+    for key in [
+        b"\xff".as_slice(),
+        b"\xff\xff".as_slice(),
+        b"\xff\x00".as_slice(),
+        b"\xff\x7f".as_slice(),
+    ] {
+        transaction
+            .put(Namespace::Records.physical(key), b"record")
+            .unwrap();
+    }
+    transaction
+        .put(Namespace::LogicalIds.physical(&[0xff]), b"logical")
+        .unwrap();
+    transaction.commit().unwrap();
+    let view = store.view().unwrap();
+    let mut iterator = view.namespace_prefix(Namespace::Records, &[0xff]).unwrap();
+    iterator.seek_to_first();
+    let mut count = 0;
+    while iterator.valid() {
+        assert_eq!(
+            super::namespace::namespace_of(iterator.key().unwrap()),
+            Some(Namespace::Records)
+        );
+        count += 1;
+        iterator.next();
+    }
+    iterator.status().unwrap();
+    assert_eq!(count, 4);
+}
+
+#[test]
 fn file_mode_flush_reopen_preserves_complete_values() {
     let path = std::env::temp_dir().join(format!(
         "objekte-rocksdb-file-{}-{}",

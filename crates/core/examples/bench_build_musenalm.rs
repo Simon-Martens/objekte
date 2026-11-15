@@ -151,6 +151,7 @@ fn run() -> Result<(), String> {
     let mut alphabet = BigramAlphabet::Ascii;
     let mut build_workers = None;
     let mut schema_manifest_path = None;
+    let mut result_dir = None;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -181,6 +182,11 @@ fn run() -> Result<(), String> {
                         .ok_or("build-workers must be positive")?,
                     )
                 };
+            }
+            "--result-dir" => {
+                result_dir = Some(PathBuf::from(
+                    arguments.next().ok_or("--result-dir needs a path")?,
+                ));
             }
             other => return Err(format!("unknown argument {other}")),
         }
@@ -226,41 +232,50 @@ fn run() -> Result<(), String> {
     let resident_bytes = memory_bytes("VmRSS:");
     let peak_resident_bytes = memory_bytes("VmHWM:");
     let index_signature_sha256 = index_signature(&repo)?;
+    let output = serde_json::json!({
+        "alphabet": alphabet,
+        "requested_build_workers": build_workers.map(NonZeroUsize::get),
+        "resolved_build_workers": repo.startup().build_workers,
+        "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
+        "query_workers": query_workers,
+        "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,
+        "build_weight_limit_bytes": repo.startup().build_weight_limit_bytes,
+        "build_peak_active_jobs": repo.startup().build_peak_active_jobs,
+        "build_peak_ready_batches": repo.startup().build_peak_ready_batches,
+        "build_job_execution_ns": repo.startup().build_job_execution_ns,
+        "build_receive_wait_ns": repo.startup().build_receive_wait_ns,
+        "build_admission_ns": repo.startup().build_admission_ns,
+        "wall_ns": wall_ns,
+        "build_ns": repo.startup().build_ns,
+        "discovery_ns": repo.startup().build_discovery_ns,
+        "extraction_index_ns": repo.startup().build_extraction_index_ns,
+        "finalization_ns": repo.startup().build_finalization_ns,
+        "build_parses": repo.build_parses(),
+        "failed_parses": repo.build_failed_parses(),
+        "inventory_heap_bytes": inventory_heap_bytes,
+        "diagnostic_heap_bytes": diagnostic_heap_bytes,
+        "index_stores": index_stores,
+        "distinct_gram_keys": distinct_gram_keys,
+        "bigram_heap_bytes": bigram_heap_bytes,
+        "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
+        "resident_bytes": resident_bytes,
+        "peak_resident_bytes": peak_resident_bytes,
+        "index_signature_sha256": index_signature_sha256,
+        "schema_manifest_digest": schema_manifest["sha256"],
+        "schema_collections": loaded_schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
+        "registrations": registrations,
+    });
+    if let Some(result_dir) = result_dir {
+        std::fs::create_dir_all(&result_dir).map_err(|error| error.to_string())?;
+        std::fs::write(
+            result_dir.join("build.json"),
+            serde_json::to_vec_pretty(&output).map_err(|error| error.to_string())?,
+        )
+        .map_err(|error| error.to_string())?;
+    }
     println!(
         "{}",
-        serde_json::json!({
-            "alphabet": alphabet,
-            "requested_build_workers": build_workers.map(NonZeroUsize::get),
-            "resolved_build_workers": repo.startup().build_workers,
-            "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
-            "query_workers": query_workers,
-            "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,
-            "build_weight_limit_bytes": repo.startup().build_weight_limit_bytes,
-            "build_peak_active_jobs": repo.startup().build_peak_active_jobs,
-            "build_peak_ready_batches": repo.startup().build_peak_ready_batches,
-            "build_job_execution_ns": repo.startup().build_job_execution_ns,
-            "build_receive_wait_ns": repo.startup().build_receive_wait_ns,
-            "build_admission_ns": repo.startup().build_admission_ns,
-            "wall_ns": wall_ns,
-            "build_ns": repo.startup().build_ns,
-            "discovery_ns": repo.startup().build_discovery_ns,
-            "extraction_index_ns": repo.startup().build_extraction_index_ns,
-            "finalization_ns": repo.startup().build_finalization_ns,
-            "build_parses": repo.build_parses(),
-            "failed_parses": repo.build_failed_parses(),
-            "inventory_heap_bytes": inventory_heap_bytes,
-            "diagnostic_heap_bytes": diagnostic_heap_bytes,
-            "index_stores": index_stores,
-            "distinct_gram_keys": distinct_gram_keys,
-            "bigram_heap_bytes": bigram_heap_bytes,
-            "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
-            "resident_bytes": resident_bytes,
-            "peak_resident_bytes": peak_resident_bytes,
-            "index_signature_sha256": index_signature_sha256,
-            "schema_manifest_digest": schema_manifest["sha256"],
-            "schema_collections": loaded_schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
-            "registrations": registrations,
-        })
+        serde_json::to_string(&output).map_err(|error| error.to_string())?
     );
     Ok(())
 }

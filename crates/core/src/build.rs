@@ -1572,13 +1572,10 @@ impl<'a> DirectStoreBatchBuilder<'a> {
         Ok(PreparedStoreBatch {
             files: self.files,
             file_fingerprints: self.file_fingerprints,
-            descriptors: std::sync::Arc::new(
-                crate::rocksdb_store::prepare::PreparedDescriptors {
-                    bindings: self.bindings.bindings,
-                    fields: self.fields.into_iter().collect(),
-                    coverage: self.coverage.into_iter().collect(),
-                },
-            ),
+            descriptors: std::sync::Arc::new(crate::rocksdb_store::prepare::PreparedDescriptors {
+                bindings: self.bindings.bindings,
+                coverage: self.coverage.into_iter().collect(),
+            }),
             records: self.records,
             values: self.values,
             lengths: self.lengths,

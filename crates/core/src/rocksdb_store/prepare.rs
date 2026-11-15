@@ -4,9 +4,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use std::sync::Arc;
 
-use super::value_codec::{
-    BindingDescriptor, FieldCoverage, FieldDescriptor, GramKind, RelationStateKind,
-};
+use super::value_codec::{BindingDescriptor, FieldCoverage, GramKind, RelationStateKind};
 use crate::build::{BatchFile, BuildWorkProfile};
 use crate::inventory::RecordEntry;
 use crate::model::{FieldPath, Number};
@@ -73,7 +71,6 @@ pub(crate) struct PreparedGramSet {
 
 pub(crate) struct PreparedDescriptors {
     pub(crate) bindings: Vec<PreparedBinding>,
-    pub(crate) fields: Vec<(Vec<String>, FieldDescriptor)>,
     pub(crate) coverage: Vec<(u32, FieldCoverage)>,
 }
 

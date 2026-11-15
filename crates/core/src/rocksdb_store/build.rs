@@ -25,7 +25,7 @@ use super::write::{
     AdmissionBatch, AdmissionExecutionStats, PhysicalPreparedFile, admit_physical_batch, discover,
     initialise_schema, map_prepared_file,
 };
-use super::{RocksStore, StoreConfig, StoreError, StoreResult, value_codec};
+use super::{RocksStore, StoreConfig, StoreError, StoreResult};
 
 const FIRST_JOB_FILES: usize = 1;
 const MAX_JOB_FILES: usize = 256;
@@ -106,6 +106,7 @@ pub struct DirectBuildReport {
     pub profile: BuildWorkProfile,
     pub admission: AdmissionExecutionStats,
     pub bulk_construction: BulkConstructionReport,
+    pub engine_samples: Vec<super::EnginePhaseSample>,
     pub discovery_metadata: super::metadata::MetadataWriteStats,
     pub finalization: FinalizationReport,
 }
@@ -267,6 +268,10 @@ pub fn build_from_source(
     let schema = Arc::new(RuntimeSchema::new(definitions, registry, alphabet)?);
     initialise_schema(&store, &schema)?;
     let schema_ns = elapsed_ns(schema_started);
+    let mut engine_samples = vec![super::EnginePhaseSample {
+        phase: "opened".into(),
+        snapshot: store.engine_snapshot(),
+    }];
 
     let discovery_started = Instant::now();
     let discovery = discover(&store, &schema, root)?;
@@ -287,6 +292,10 @@ pub fn build_from_source(
         );
     }
     let discovery_ns = elapsed_ns(discovery_started);
+    engine_samples.push(super::EnginePhaseSample {
+        phase: "discovered".into(),
+        snapshot: store.engine_snapshot(),
+    });
 
     let preparation_started = Instant::now();
     let bulk_build = build_bulk_cohorts(
@@ -297,12 +306,22 @@ pub fn build_from_source(
         &source_files,
         alphabet,
         prepare,
+        writers,
+        options.retained_target_bytes,
         options.profile,
     )?;
     let preparation_wall_ns = elapsed_ns(preparation_started);
+    engine_samples.push(super::EnginePhaseSample {
+        phase: "admitted".into(),
+        snapshot: store.engine_snapshot(),
+    });
     let finalization_started = Instant::now();
     let finalization = finalize(&store)?;
     let finalization_ns = elapsed_ns(finalization_started);
+    engine_samples.push(super::EnginePhaseSample {
+        phase: "ready".into(),
+        snapshot: store.engine_snapshot(),
+    });
     let mut counts = bulk_build.counts;
     counts.physical_files = discovery.files;
     counts.memberships = discovery.memberships;
@@ -342,6 +361,7 @@ pub fn build_from_source(
             discovery_metadata: discovery.metadata,
             finalization,
             bulk_construction: bulk_build.bulk_construction,
+            engine_samples,
         },
     });
 
@@ -801,6 +821,7 @@ pub fn build_from_source(
             discovery_metadata: discovery.metadata,
             finalization,
             bulk_construction: BulkConstructionReport::default(),
+            engine_samples: Vec::new(),
         },
     })
 }
@@ -813,6 +834,8 @@ fn build_bulk_cohorts(
     source_files: &Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     prepare_workers: usize,
+    write_workers: usize,
+    retained_target_bytes: usize,
     profile_build: bool,
 ) -> StoreResult<BulkBuildOutput> {
     let build_header = store.view()?.header().clone();
@@ -824,7 +847,12 @@ fn build_bulk_cohorts(
     );
     let mut base_slots = BTreeMap::<u32, u32>::new();
     let mut pending_jobs = VecDeque::from(jobs.to_vec());
-    let (job_sender, job_receiver) = sync_channel::<PreparationJob>(prepare_workers.max(1));
+    let max_in_flight = prepare_workers
+        .saturating_mul(2)
+        .saturating_add(write_workers)
+        .min(16)
+        .max(1);
+    let (job_sender, job_receiver) = sync_channel::<PreparationJob>(max_in_flight);
     let (prepared_sender, prepared_receiver) =
         sync_channel::<Result<PreparedChunk, String>>(prepare_workers.max(1));
     let shared_job_receiver = Arc::new(std::sync::Mutex::new(job_receiver));
@@ -832,7 +860,6 @@ fn build_bulk_cohorts(
     let root = Arc::new(root.to_path_buf());
     let source_files = Arc::clone(source_files);
     let worker_count = prepare_workers.min(jobs.len()).max(1);
-    let initial_worker_count = worker_count.min(jobs.len());
 
     std::thread::scope(|scope| -> StoreResult<BulkBuildOutput> {
         let mut handles = Vec::with_capacity(worker_count);
@@ -868,16 +895,9 @@ fn build_bulk_cohorts(
         }
         drop(prepared_sender);
 
-        for _ in 0..initial_worker_count {
-            let job = pending_jobs
-                .pop_front()
-                .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
-            job_sender
-                .send(job)
-                .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
-        }
-
         let mut ready = BTreeMap::<usize, (PreparedChunk, u64)>::new();
+        let mut reservations = BTreeMap::<usize, u64>::new();
+        let mut dispatched = 0usize;
         let mut next_job = 0usize;
         let mut received = 0usize;
         let mut open = OpenCohort::new();
@@ -886,23 +906,50 @@ fn build_bulk_cohorts(
         let mut mapping_ns = 0u64;
         let mut profile = BuildWorkProfile::default();
         let mut counts = DirectBuildCounts::default();
-        let mut peak_in_flight_jobs = initial_worker_count;
+        let mut peak_in_flight_jobs = 0usize;
         let mut peak_charge_bytes = 0u64;
+        let mut estimated_outstanding = 0u64;
         let mut outstanding_charge = 0u64;
+
+        while dispatched < jobs.len() {
+            let next = pending_jobs
+                .front()
+                .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
+            let estimate = reservation_estimate(next.source_bytes)?;
+            let jobs_in_flight = dispatched.saturating_sub(received);
+            let at_job_limit = jobs_in_flight >= max_in_flight;
+            let at_byte_limit = jobs_in_flight > 0
+                && estimated_outstanding
+                    .saturating_add(outstanding_charge)
+                    .saturating_add(estimate)
+                    > retained_target_bytes as u64;
+            if at_job_limit || at_byte_limit {
+                break;
+            }
+            let job = pending_jobs
+                .pop_front()
+                .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
+            let index = job.index;
+            job_sender
+                .send(job)
+                .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
+            reservations.insert(index, estimate);
+            estimated_outstanding = estimated_outstanding.saturating_add(estimate);
+            dispatched += 1;
+            peak_in_flight_jobs = peak_in_flight_jobs.max(dispatched.saturating_sub(received));
+            peak_charge_bytes =
+                peak_charge_bytes.max(estimated_outstanding.saturating_add(outstanding_charge));
+        }
 
         while received < jobs.len() {
             let result = prepared_receiver.recv().map_err(|_| {
                 StoreError::State("preparation result queue closed before all jobs".into())
             })?;
             received += 1;
-            if let Some(job) = pending_jobs.pop_front() {
-                job_sender
-                    .send(job)
-                    .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
-                peak_in_flight_jobs =
-                    peak_in_flight_jobs.max(outstanding_charge.min(jobs.len() as u64) as usize);
-            }
             let chunk = result.map_err(StoreError::State)?;
+            if let Some(estimate) = reservations.remove(&chunk.index) {
+                estimated_outstanding = estimated_outstanding.saturating_sub(estimate);
+            }
             let chunk_bytes = chunk
                 .files
                 .iter()
@@ -910,7 +957,8 @@ fn build_bulk_cohorts(
                 .map(|(_, batch)| batch.retained_capacity_bytes as u64)
                 .fold(0u64, u64::saturating_add);
             outstanding_charge = outstanding_charge.saturating_add(chunk_bytes);
-            peak_charge_bytes = peak_charge_bytes.max(outstanding_charge);
+            peak_charge_bytes =
+                peak_charge_bytes.max(estimated_outstanding.saturating_add(outstanding_charge));
             worker_ns = worker_ns.saturating_add(chunk.preparation_ns);
             profile.absorb(&chunk.profile);
             counts.records = counts.records.saturating_add(chunk.records);
@@ -950,6 +998,35 @@ fn build_bulk_cohorts(
                 }
                 mapping_ns = mapping_ns.saturating_add(elapsed_ns(map_started));
                 next_job += 1;
+            }
+            while dispatched < jobs.len() {
+                let next = pending_jobs
+                    .front()
+                    .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
+                let estimate = reservation_estimate(next.source_bytes)?;
+                let jobs_in_flight = dispatched.saturating_sub(received);
+                let at_job_limit = jobs_in_flight >= max_in_flight;
+                let at_byte_limit = jobs_in_flight > 0
+                    && estimated_outstanding
+                        .saturating_add(outstanding_charge)
+                        .saturating_add(estimate)
+                        > retained_target_bytes as u64;
+                if at_job_limit || at_byte_limit {
+                    break;
+                }
+                let job = pending_jobs
+                    .pop_front()
+                    .ok_or_else(|| StoreError::State("preparation queue underflow".into()))?;
+                let index = job.index;
+                job_sender
+                    .send(job)
+                    .map_err(|_| StoreError::State("preparation workers stopped".into()))?;
+                reservations.insert(index, estimate);
+                estimated_outstanding = estimated_outstanding.saturating_add(estimate);
+                dispatched += 1;
+                peak_in_flight_jobs = peak_in_flight_jobs.max(dispatched.saturating_sub(received));
+                peak_charge_bytes =
+                    peak_charge_bytes.max(estimated_outstanding.saturating_add(outstanding_charge));
             }
         }
         if !open.files.is_empty() {
@@ -1017,25 +1094,15 @@ fn resolve_requested_workers(
     Ok(resolved)
 }
 
-fn elapsed_ns(started: Instant) -> u64 {
-    u64::try_from(started.elapsed().as_nanos()).unwrap_or(u64::MAX)
+fn reservation_estimate(source_bytes: u64) -> StoreResult<u64> {
+    source_bytes
+        .checked_mul(8)
+        .map(|estimate| estimate.max(1024 * 1024))
+        .ok_or_else(|| StoreError::State("preparation reservation estimate overflow".into()))
 }
 
-fn read_discovered_files(store: &RocksStore) -> StoreResult<Vec<FileEntry>> {
-    let view = store.view()?;
-    let mut iterator = view.namespace_prefix(super::namespace::Namespace::Files, b"")?;
-    iterator.seek_to_first();
-    let mut files = Vec::new();
-    while iterator.valid() {
-        let bytes = iterator
-            .value()
-            .ok_or_else(|| StoreError::CorruptIndex("missing file metadata value".into()))?;
-        let metadata: value_codec::FileMetadata = value_codec::decode(bytes, "file metadata")?;
-        files.push(metadata.entry);
-        iterator.next();
-    }
-    iterator.status()?;
-    Ok(files)
+fn elapsed_ns(started: Instant) -> u64 {
+    u64::try_from(started.elapsed().as_nanos()).unwrap_or(u64::MAX)
 }
 
 fn preparation_jobs(files: &[FileEntry]) -> Vec<PreparationJob> {
@@ -1398,6 +1465,7 @@ mod tests {
     use crate::reference::FieldDefinition;
     use crate::repository::CollectionDefinition;
     use crate::rocksdb_store::keys;
+    use crate::rocksdb_store::value_codec;
     use crate::rocksdb_store::value_codec::CollectionMetadata;
     use crate::source::{SourceFormat, SourceRegistry};
     use crate::workload::BigramAlphabet;
@@ -1531,6 +1599,47 @@ mod tests {
             super::super::reference::store_reference(&built.store, &definitions).unwrap();
         let comparison = super::super::reference::compare_reference(&native_facts, &store_facts);
         assert!(comparison.equal, "{comparison:?}");
+        let sort_view = built.store.view().unwrap();
+        let mut sorts = sort_view
+            .namespace_prefix(super::super::namespace::Namespace::SortEntries, b"")
+            .unwrap();
+        sorts.seek_to_first();
+        assert!(sorts.valid());
+        let sort_key = sorts.key().unwrap().to_vec();
+        drop(sorts);
+        drop(sort_view);
+        let mut cursor = super::super::key_codec::Cursor::new(&sort_key[1 + 4 + 4..]);
+        let mut order = cursor.read_bytes().unwrap();
+        order[0] ^= 1;
+        let logical_id = cursor.read_str().unwrap();
+        let slot = cursor.read_u32().unwrap();
+        let collection = u32::from_be_bytes(sort_key[1..5].try_into().unwrap());
+        let definition = u32::from_be_bytes(sort_key[5..9].try_into().unwrap());
+        let transaction = built.store.transaction();
+        transaction.delete(&sort_key).unwrap();
+        transaction
+            .put(
+                super::super::namespace::Namespace::SortEntries.physical(&keys::sort_entry(
+                    collection,
+                    definition,
+                    &order,
+                    &logical_id,
+                    slot,
+                )),
+                Vec::<u8>::new(),
+            )
+            .unwrap();
+        transaction.commit().unwrap();
+        let corrupted = super::super::validation::validate(&built.store).unwrap();
+        assert!(!corrupted.is_valid());
+        assert!(
+            corrupted
+                .errors
+                .iter()
+                .any(|error| error.contains("sort entry")),
+            "{:?}",
+            corrupted.errors
+        );
         drop(pending);
         drop(view);
         std::fs::remove_dir_all(root).unwrap();
@@ -1594,6 +1703,95 @@ mod tests {
         assert!(comparison.equal, "{comparison:?}");
         drop(native);
         drop(built);
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn common_gram_blocks_use_complete_images_without_bitmap_reads() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-rocksdb-common-blocks-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        for index in 0..16_384u32 {
+            std::fs::write(
+                root.join(format!("data/{index:05}.jsonl")),
+                b"{\"body\":\"common repeated text\"}\n",
+            )
+            .unwrap();
+        }
+        let definitions = vec![CollectionDefinition::folder(
+            "records",
+            "data",
+            SourceFormat::JsonLines,
+        )];
+        let built = build_from_source(
+            StoreConfig {
+                location: super::super::StoreLocation::Memory,
+                configuration_digest: [11; 32],
+                alphabet: "ascii".into(),
+                source_root: crate::path_repr::native_bytes(&root),
+                build_identity: [12; 32],
+            },
+            &root,
+            &definitions,
+            &SourceRegistry::builtin(),
+            BigramAlphabet::Ascii,
+            DirectBuildOptions {
+                prepare_workers: Some(8),
+                write_workers: Some(1),
+                ..DirectBuildOptions::default()
+            },
+        )
+        .unwrap();
+        assert_eq!(built.report.counts.records, 16_384);
+        assert_eq!(built.report.bulk_construction.bitmap_reads, 0);
+        assert_eq!(built.report.bulk_construction.cold_reloads, 0);
+        assert!(built.report.bulk_construction.bitmap_puts > 0);
+        assert!(
+            built.report.bulk_construction.bitmap_puts
+                <= built.report.bulk_construction.bitmap_keys.saturating_mul(3),
+            "{:?}",
+            built.report.bulk_construction
+        );
+        assert!(
+            built.report.bulk_construction.input_bitmap_memberships
+                > built.report.bulk_construction.bitmap_keys
+        );
+        let unrestricted_jobs = built.report.schedule.peak_ready_physical_files;
+        let validation = super::super::validation::validate(&built.store).unwrap();
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        drop(built);
+
+        let constrained = build_from_source(
+            StoreConfig {
+                location: super::super::StoreLocation::Memory,
+                configuration_digest: [11; 32],
+                alphabet: "ascii".into(),
+                source_root: crate::path_repr::native_bytes(&root),
+                build_identity: [13; 32],
+            },
+            &root,
+            &definitions,
+            &SourceRegistry::builtin(),
+            BigramAlphabet::Ascii,
+            DirectBuildOptions {
+                prepare_workers: Some(8),
+                write_workers: Some(1),
+                retained_target_bytes: 1024 * 1024,
+                ..DirectBuildOptions::default()
+            },
+        )
+        .unwrap();
+        assert!(
+            constrained.report.schedule.peak_ready_physical_files < unrestricted_jobs,
+            "tiny byte target should reduce dispatched preparation jobs"
+        );
+        drop(constrained);
         std::fs::remove_dir_all(root).unwrap();
     }
 }

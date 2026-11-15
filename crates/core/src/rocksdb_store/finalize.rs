@@ -51,7 +51,7 @@ struct CollectionScan {
 #[derive(Clone)]
 enum BindingIdentityView {
     Declared(Vec<String>),
-    Named(Vec<String>),
+    Named,
 }
 
 pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
@@ -99,7 +99,8 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
                 Some(BindingIdentityView::Declared(path.clone()))
             }
             value_codec::BindingIdentity::Named { path, name: _ } => {
-                Some(BindingIdentityView::Named(path.clone()))
+                let _ = path;
+                Some(BindingIdentityView::Named)
             }
             _ => None,
         };
@@ -571,7 +572,7 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
                 .get(&(*collection, *binding))
                 .copied()
                 .unwrap_or(0),
-            BindingIdentityView::Named(_) => named_members
+            BindingIdentityView::Named => named_members
                 .get(&(*collection, *binding))
                 .map_or(0, |members| members.len() as u64),
         };
@@ -673,7 +674,7 @@ fn record_named_members(
 ) {
     if matches!(
         identities.get(&(collection, binding)),
-        Some(BindingIdentityView::Named(_))
+        Some(BindingIdentityView::Named)
     ) {
         let entries = members.entry((collection, binding)).or_default();
         block.for_each(|offset| {

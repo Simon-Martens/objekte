@@ -85,6 +85,8 @@ struct BuildOutput<'a> {
     elapsed_ns: u64,
     resident_bytes: Option<u64>,
     peak_resident_bytes: Option<u64>,
+    user_cpu_ticks: Option<u64>,
+    system_cpu_ticks: Option<u64>,
     memory_host_files: Option<Vec<String>>,
     report: Option<&'a DirectBuildReport>,
     validation: Option<&'a ValidationReport>,
@@ -153,6 +155,7 @@ fn run() -> Result<(), String> {
     build_identity.update(configuration_digest);
     build_identity.update(objekte_search_core::path_repr::native_bytes(&root));
     let build_identity: [u8; 32] = build_identity.finalize().into();
+    let cpu_start = process_cpu_ticks();
 
     match args.mode {
         Mode::NativeBuild => {
@@ -176,6 +179,12 @@ fn run() -> Result<(), String> {
                 elapsed_ns: elapsed,
                 resident_bytes: memory_bytes("VmRSS:"),
                 peak_resident_bytes: memory_bytes("VmHWM:"),
+                user_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.0.saturating_sub(start.0)),
+                system_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.1.saturating_sub(start.1)),
                 memory_host_files: None,
                 report: None,
                 validation: None,
@@ -266,6 +275,12 @@ fn run() -> Result<(), String> {
                 elapsed_ns: built.report.timing.ready_ns,
                 resident_bytes: memory_bytes("VmRSS:"),
                 peak_resident_bytes: memory_bytes("VmHWM:"),
+                user_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.0.saturating_sub(start.0)),
+                system_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.1.saturating_sub(start.1)),
                 memory_host_files: host_files,
                 report: Some(&built.report),
                 validation: None,
@@ -343,6 +358,12 @@ fn run() -> Result<(), String> {
                 elapsed_ns: built.report.timing.ready_ns,
                 resident_bytes: memory_bytes("VmRSS:"),
                 peak_resident_bytes: memory_bytes("VmHWM:"),
+                user_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.0.saturating_sub(start.0)),
+                system_cpu_ticks: process_cpu_ticks()
+                    .zip(cpu_start)
+                    .map(|(end, start)| end.1.saturating_sub(start.1)),
                 memory_host_files: None,
                 report: Some(&built.report),
                 validation: Some(&validation),
@@ -560,6 +581,13 @@ fn memory_bytes(name: &str) -> Option<u64> {
                 .ok()
                 .map(|value| value * 1024)
         })
+}
+
+fn process_cpu_ticks() -> Option<(u64, u64)> {
+    let stat = std::fs::read_to_string("/proc/self/stat").ok()?;
+    let after_command = stat.rsplit_once(')')?.1;
+    let fields = after_command.split_whitespace().collect::<Vec<_>>();
+    Some((fields.get(11)?.parse().ok()?, fields.get(12)?.parse().ok()?))
 }
 
 fn elapsed_ns(started: Instant) -> u64 {
