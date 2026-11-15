@@ -1,0 +1,261 @@
+{
+  "mode": "quick",
+  "expected_samples": 150,
+  "jq_count_baseline": "/home/simon/source/objekte-integration-mmap-index-v1/bench/baselines/musenalm-jq-counts.json",
+  "comparison": "repair",
+  "baseline_code_revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "actual_code_revision": "6d956c70eab719a5783b752b9709de0183bb5fd2",
+  "build_flags": {},
+  "baseline_environment": {
+    "governor": "performance",
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "build_flags": {},
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K"
+  },
+  "governor": "performance",
+  "path_sensitive_fingerprint_difference": {
+    "schema": true,
+    "workload": true
+  },
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "actual_samples": 150,
+  "baseline": "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/controlled-foundation-performance-92cdb92b19",
+  "result_dir": "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-6d956c70ea",
+  "same_machine": true,
+  "aggregate_latency_ratio": 0.4240285506607537,
+  "thresholds": {
+    "per_case_relative": 1.8,
+    "per_case_absolute_ns": 5000000,
+    "aggregate_relative": 1.35
+  },
+  "confirmations": [],
+  "worst_slowdowns": [
+    {
+      "ratio": 3.8103647768101823,
+      "case": "Q101",
+      "profile": "ascii-off",
+      "baseline_ns": 32842,
+      "actual_ns": 125140
+    },
+    {
+      "ratio": 3.7537184906842023,
+      "case": "Q061",
+      "profile": "ascii-off",
+      "baseline_ns": 12774,
+      "actual_ns": 47950
+    },
+    {
+      "ratio": 2.731351290935509,
+      "case": "Q084",
+      "profile": "ascii-off",
+      "baseline_ns": 223675,
+      "actual_ns": 610935
+    },
+    {
+      "ratio": 2.447911192853389,
+      "case": "Q009",
+      "profile": "ascii-off",
+      "baseline_ns": 15224,
+      "actual_ns": 37267
+    },
+    {
+      "ratio": 2.316895832446469,
+      "case": "Q038",
+      "profile": "ascii-off",
+      "baseline_ns": 234910,
+      "actual_ns": 544262
+    },
+    {
+      "ratio": 2.00808936825886,
+      "case": "Q032",
+      "profile": "ascii-off",
+      "baseline_ns": 7788,
+      "actual_ns": 15639
+    },
+    {
+      "ratio": 1.8204607715453363,
+      "case": "Q088",
+      "profile": "ascii-off",
+      "baseline_ns": 111335,
+      "actual_ns": 202681
+    },
+    {
+      "ratio": 1.7873684210526315,
+      "case": "Q034",
+      "profile": "ascii-off",
+      "baseline_ns": 6175,
+      "actual_ns": 11037
+    },
+    {
+      "ratio": 1.782987544577763,
+      "case": "Q105",
+      "profile": "ascii-off",
+      "baseline_ns": 170769,
+      "actual_ns": 304479
+    },
+    {
+      "ratio": 1.7606997831541955,
+      "case": "Q037",
+      "profile": "ascii-off",
+      "baseline_ns": 170167,
+      "actual_ns": 299613
+    },
+    {
+      "ratio": 1.7456259334659188,
+      "case": "Q043",
+      "profile": "ascii-off",
+      "baseline_ns": 2552316,
+      "actual_ns": 4455389
+    },
+    {
+      "ratio": 1.7004497670849024,
+      "case": "Q057",
+      "profile": "ascii-off",
+      "baseline_ns": 224116,
+      "actual_ns": 381098
+    },
+    {
+      "ratio": 1.6376654329838976,
+      "case": "Q062",
+      "profile": "ascii-off",
+      "baseline_ns": 103214,
+      "actual_ns": 169030
+    },
+    {
+      "ratio": 1.574283761216243,
+      "case": "Q051",
+      "profile": "ascii-off",
+      "baseline_ns": 577845,
+      "actual_ns": 909692
+    },
+    {
+      "ratio": 1.5584135087374829,
+      "case": "Q125",
+      "profile": "ascii-off",
+      "baseline_ns": 5093,
+      "actual_ns": 7937
+    },
+    {
+      "ratio": 1.541713195355443,
+      "case": "Q060",
+      "profile": "ascii-off",
+      "baseline_ns": 92237,
+      "actual_ns": 142203
+    },
+    {
+      "ratio": 1.4968543689320388,
+      "case": "Q010",
+      "profile": "ascii-off",
+      "baseline_ns": 12875,
+      "actual_ns": 19272
+    },
+    {
+      "ratio": 1.4789715677647566,
+      "case": "Q091",
+      "profile": "ascii-off",
+      "baseline_ns": 171601,
+      "actual_ns": 253793
+    },
+    {
+      "ratio": 1.4325748577858348,
+      "case": "Q128",
+      "profile": "ascii-off",
+      "baseline_ns": 319940,
+      "actual_ns": 458338
+    },
+    {
+      "ratio": 1.4072451259348584,
+      "case": "Q065",
+      "profile": "ascii-off",
+      "baseline_ns": 242149,
+      "actual_ns": 340763
+    }
+  ],
+  "failures": [
+    "corpus_fingerprint differs from baseline",
+    "baseline unverifiable schema baseline: missing schema-manifest.json",
+    "semantic registrations differ from baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-mmap-index-v1/bench/results/musenalm/repair-final-quick-6d956c70ea"
+  ]
+}

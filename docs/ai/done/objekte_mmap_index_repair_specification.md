@@ -516,7 +516,7 @@ Completion date: 2026-11-15
 Base commit: `81ba4ce200`  
 Integration branch: `integration/mmap-index-v1`  
 Integration worktree: `/home/simon/source/objekte-integration-mmap-index-v1`  
-Final repair head: `430d54a8c0`
+Final repair head: `6d956c70ea`
 
 ### Summary
 
@@ -532,8 +532,9 @@ The implementation reports, commands, and residual limitations are recorded in
 `cargo test --workspace --locked --offline` with 935 tests, the repository
 formatting/spacing checks, and `cargo clippy --workspace --all-targets`
 (exit 0, warning-level diagnostics only). Release-mode Musenalm performance
-measurements were run as a quick checkpoint; the full 3,000-sample gate and a
-same-schema build baseline remain unverified.
+measurements were run as a quick checkpoint (aggregate ratio 0.424, no query
+timing/count failures); the full 3,000-sample gate and a same-schema build
+baseline remain unverified.
 
 ### Commits
 
@@ -542,6 +543,8 @@ same-schema build baseline remain unverified.
 - `8a08af99d8` packed metadata paging and bounded record caches.
 - `a2bf950f78` lazy packed identity order.
 - `430d54a8c0` packed file ranges, directory index, overlay merge, strict admission.
+- `1575b9c675` deferred visibility and catalogue-page materialization.
+- `6d956c70ea` descriptor-only estimates and format version 3.
 
 The task specification above is preserved unchanged; this report is appended as
 required by the repository completion workflow.

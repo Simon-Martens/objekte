@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `430d54a8c0`
+Repair head: `6d956c70ea`
 
 ## Result
 
@@ -19,13 +19,14 @@ arenas, or per-record cache cells.
 ## R1 — visibility persistence: resolved
 
 - Added `ObjectKind::Visibility` and `SectionKind::Visibility`; object and
-  manifest format versions are 2.
+  manifest format versions are 3.
 - Every manifest run carries `RunRef.visibility`, a content-addressed packed
   record set bound to that run's slot universe.
 - Save persists the pinned publication's current active mask even when the
   immutable run object is reused.
 - Load attaches the visibility reader directly. Catalogue coverage is not used
-  as a substitute for visibility.
+  as a substitute for visibility, and the active bitmap is materialized on the
+  first query rather than scanned during Load.
 - Cleanup retains visibility objects and rejects stores without them.
 
 Regression:
@@ -39,8 +40,8 @@ test packed_reuse_preserves_deleted_and_replaced_visibility ... ok
 
 - Posting and bigram reads use checked descriptors and 8 KiB integrity units.
 - `RecordSetView` uses paged backing rather than borrowing complete arenas.
-- Estimates read stored cardinalities and bounded dictionaries, not full
-  posting payloads.
+- Estimates read stored cardinalities, dictionary keys, and record-set
+  descriptors without decoding posting payloads.
 - `RecordStore::try_get` is fallible; packed row access never panics for a
   missing row, part, file, or record class.
 - Corrupt payload units fail at the operation that touches them, while
@@ -170,8 +171,8 @@ reduced run count, and verifies the complete result set.
 
 ## Updated contracts
 
-- Object format: 2.
-- Manifest format: 2.
+- Object format: 3.
+- Manifest format: 3.
 - Segment statistics: 2 (adds `max_record_range_len` for bounded read
   scheduling).
 - Catalogue section: `ActiveFiles` (25).
@@ -206,21 +207,20 @@ cargo test -p objekte-desktop --offline
 
 ## Benchmarks and remaining verification
 
-A release-mode Musenalm quick query checkpoint was run at `73b5f0338f`:
+A release-mode Musenalm quick query checkpoint was run at `6d956c70ea`:
 
 ```text
-python3 bench/run_query_regressions.py quick   --comparison repair   --baseline bench/results/musenalm/controlled-foundation-performance-92cdb92b19   --result-dir bench/results/musenalm/repair-final-quick-a2bf950f78
+python3 bench/run_query_regressions.py quick   --comparison repair   --baseline bench/results/musenalm/controlled-foundation-performance-92cdb92b19   --result-dir bench/results/musenalm/repair-final-quick-6d956c70ea
 ```
 
-The aggregate ratio against the reviewed foundation was `0.685` (current/foundation)
+The aggregate ratio against the reviewed foundation was `0.424` (current/foundation)
 across 150 ASCII uncached samples. All result counts agree with the independent
 `jq` oracle, including Q140, Q147, Q149, and Q150 where the old foundation
-baseline itself disagreed with the oracle. One individual case, Q085
-(`language:each = "ger"`), measured 10.980 ms against a 4.844 ms baseline
-(+6.136 ms, +126.7%). Candidate and parsed-record counts are identical
-(4,928/4,928); the absolute regression is packed page decode overhead on a
-universal array predicate. The quick gate exits non-zero because the foundation
-baseline schema manifest is missing and because of Q085.
+baseline itself disagreed with the oracle. Q085 (`language:each = "ger"`) now
+measures 4.682 ms against a 4.844 ms baseline (-3.3%). The quick gate's three
+remaining diagnostics are baseline metadata incompatibilities: corpus
+fingerprint, a missing baseline `schema-manifest.json`, and semantic
+registration metadata. No query count or individual timing fails.
 
 Fresh in-memory build wall times at the same revision were 0.924 s (ASCII) and
 0.998 s (Unicode), one process each. The repository build-regression script
@@ -228,7 +228,7 @@ could not compare these against the available foundation `gate.json` because
 that historical file uses the older `ascii-disabled` summary schema.
 
 Raw benchmark artifacts are under
-`bench/results/musenalm/repair-final-quick-a2bf950f78/` and
+`bench/results/musenalm/repair-final-quick-6d956c70ea/` and
 `bench/results/musenalm/repair-final-build-a2bf950f78/`. The full 3,000-sample
 gate and a same-schema build baseline were not available in this session. The
 earlier GUI validation evidence remains under
@@ -243,3 +243,5 @@ earlier GUI validation evidence remains under
 - `73b5f0338f` — repair report and validation record.
 - `430d54a8c0` — packed file ranges, persisted directory index, bounded
   overlay merge, and strict run admission.
+- `1575b9c675` — deferred run-visibility and catalogue-page materialization.
+- `6d956c70ea` — descriptor-only packed estimates and format version 3.
