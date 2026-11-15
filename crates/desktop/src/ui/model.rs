@@ -684,34 +684,49 @@ pub struct FileCatalogue {
 
 
 impl FileCatalogue {
+    pub fn page(
+        &self,
+        collection: Option<&str>,
+        directory: Option<&str>,
+        offset: usize,
+        limit: usize,
+    ) -> (Arc<Vec<FileId>>, bool) {
+        let all = match (collection, directory) {
+            (Some(name), None) => {
+                self.view
+                    .catalogue_ids_for_collection_page(name, offset, limit.saturating_add(1))
+            }
+            (_, Some(directory)) => self.view.catalogue_ids_in_directory_page(
+                directory,
+                offset,
+                limit.saturating_add(1),
+            ),
+            (None, None) => {
+                return {
+                    let mut ids = self
+                        .view
+                        .catalogue_ids()
+                        .skip(offset)
+                        .take(limit.saturating_add(1))
+                        .collect::<Vec<_>>();
+                    let more = ids.len() > limit;
+                    ids.truncate(limit);
+                    (Arc::new(ids), more)
+                };
+            }
+        };
+        let mut ids = all;
+        let more = ids.len() > limit;
+        ids.truncate(limit);
+        (Arc::new(ids), more)
+    }
+
     pub fn filtered_ids(
         &self,
         collection: Option<&str>,
         directory: Option<&str>,
     ) -> Arc<Vec<FileId>> {
-        let candidates = match (collection, directory) {
-            (Some(name), None) => self.view.catalogue_ids_for_collection(name, usize::MAX),
-            (_, Some(directory)) => self.view.catalogue_ids_in_directory(directory, usize::MAX),
-            (None, None) => self.ids.as_ref().clone(),
-        };
-        let Some(name) = collection else {
-            return Arc::new(candidates);
-        };
-        Arc::new(
-            candidates
-                .into_iter()
-                .filter(|id| {
-                    self.view.catalogue_row(*id).is_some_and(|row| {
-                        row.collections.iter().any(|collection| {
-                            self.view
-                                .collection_definitions()
-                                .nth(collection.0 as usize)
-                                .is_some_and(|definition| definition.name == name)
-                        })
-                    })
-                })
-                .collect(),
-        )
+        self.page(collection, directory, 0, usize::MAX).0
     }
 }
 

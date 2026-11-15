@@ -148,6 +148,17 @@ impl PackedCatalogue {
         self.view.files_for_collection(collection).ok()
     }
 
+    fn ids_with_prefix_page(&self, prefix: &str, offset: usize, limit: usize) -> Vec<FileId> {
+        self.view
+            .paths_with_prefix(prefix.as_bytes(), offset.saturating_add(limit))
+            .unwrap_or_default()
+            .into_iter()
+            .skip(offset)
+            .take(limit)
+            .map(FileId)
+            .collect()
+    }
+
     fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
         self.view
             .paths_with_prefix(prefix.as_bytes(), limit)
@@ -661,6 +672,22 @@ impl FileCatalog {
             }
         }
         result
+    }
+
+    pub(crate) fn ids_with_prefix_page(
+        &self,
+        prefix: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Vec<FileId> {
+        if let Some(packed) = &self.packed_base {
+            return packed.ids_with_prefix_page(prefix, offset, limit);
+        }
+        self.ids_with_prefix(prefix, usize::MAX)
+            .into_iter()
+            .skip(offset)
+            .take(limit)
+            .collect()
     }
 
     pub(crate) fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {

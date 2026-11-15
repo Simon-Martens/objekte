@@ -500,10 +500,15 @@ fn file_catalogue_uses_pinned_file_ids_without_copied_paths() {
     let fixture = crate::backend::test_support::fixture();
     let view = fixture.session.repository.index().view().unwrap();
     let catalogue = indexed_file_catalogue(view, &fixture.session.collections);
-    assert_eq!(catalogue.ids.len(), 3);
+    let (ids, more) = catalogue.page(None, None, 0, 2);
+    assert_eq!(ids.len(), 2);
+    assert!(more);
+    let (remainder, more) = catalogue.page(None, None, 2, 2);
+    assert_eq!(remainder.len(), 1);
+    assert!(!more);
     assert_eq!(catalogue.filtered_ids(Some("files"), None).len(), 3);
     assert_eq!(catalogue.filtered_ids(Some("missing"), None).len(), 0);
-    for id in catalogue.ids.iter().copied() {
+    for id in ids.iter().chain(remainder.iter()).copied() {
         assert!(catalogue.view.catalogue_row(id).is_some());
     }
 }

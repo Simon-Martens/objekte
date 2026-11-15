@@ -645,7 +645,8 @@ impl DesktopView {
                 .file_catalogue
                 .as_ref()
                 .map(|catalogue| catalogue.view.clone());
-            let file_count = file_ids.len();
+            let file_more = self.state.visible_file_more;
+            let file_count = file_ids.len() + usize::from(file_more);
             let target = cx.entity();
             sidebar = sidebar.child(
                 div()
@@ -655,6 +656,22 @@ impl DesktopView {
                         uniform_list("sidebar-files-list", directory_count + file_count, move |range, _, _| {
                             range
                                 .map(|item| {
+                                    if item >= directory_count + file_ids.len() {
+                                        let load_target = target.clone();
+                                        return div().h(px(32.)).child(
+                                            Button::new("sidebar-load-more-files")
+                                                .custom(row_style)
+                                                .cursor_pointer()
+                                                .h(px(28.))
+                                                .label("Load more files")
+                                                .on_click(move |_, _, cx| {
+                                                    load_target.update(cx, |this, cx| {
+                                                        this.state.load_more_visible_files();
+                                                        cx.notify();
+                                                    });
+                                                }),
+                                        ).into_any_element();
+                                    }
                                     if item >= directory_count {
                                         let Some(view) = &catalogue_view else {
                                             return div().into_any_element();

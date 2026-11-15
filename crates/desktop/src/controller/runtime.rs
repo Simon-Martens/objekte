@@ -4229,10 +4229,9 @@ fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenComp
 fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalogue {
     // IDs come from the packed publication's active bitmap; paths and
     // diagnostics are decoded only when a filtered page is requested.
-    let ids = view.catalogue_ids().collect::<Vec<_>>();
     FileCatalogue {
         view,
-        ids: Arc::new(ids),
+        ids: Arc::new(Vec::new()),
         by_collection: collections
             .iter()
             .map(|name| (name.clone(), Arc::new(Vec::new())))

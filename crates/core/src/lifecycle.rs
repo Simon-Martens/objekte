@@ -2848,6 +2848,15 @@ impl IndexView {
 
     /// File IDs in one collection from the persisted collection-file index.
     pub fn catalogue_ids_for_collection(&self, name: &str, limit: usize) -> Vec<FileId> {
+        self.catalogue_ids_for_collection_page(name, 0, limit)
+    }
+
+    pub fn catalogue_ids_for_collection_page(
+        &self,
+        name: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Vec<FileId> {
         let Some(number) = self
             .repository()
             .collections()
@@ -2860,9 +2869,21 @@ impl IndexView {
             .catalog
             .files_for_collection(number)
             .iter()
+            .skip(offset)
             .take(limit)
             .map(FileId)
             .collect()
+    }
+
+    pub fn catalogue_ids_in_directory_page(
+        &self,
+        directory: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Vec<FileId> {
+        self.0
+            .catalog
+            .ids_with_prefix_page(&format!("{directory}/"), offset, limit)
     }
 
     /// Directory prefixes and their collection-membership masks from the

@@ -133,6 +133,7 @@ pub struct UiState {
     pub directories_by_collection: BTreeMap<String, Vec<String>>,
     pub file_catalogue: Option<FileCatalogue>,
     pub visible_file_ids: Arc<Vec<FileId>>,
+    pub visible_file_more: bool,
     pub(super) visible_file_scope: Option<(Option<String>, Option<String>, u64)>,
     pub expanded_directories: BTreeSet<String>,
     pub page: PageView,
@@ -223,8 +224,29 @@ impl UiState {
         if self.visible_file_scope.as_ref() == Some(&scope) {
             return;
         }
-        self.visible_file_ids = catalogue.filtered_ids(scope.0.as_deref(), scope.1.as_deref());
+        let (ids, more) = catalogue.page(scope.0.as_deref(), scope.1.as_deref(), 0, 256);
+        self.visible_file_ids = ids;
+        self.visible_file_more = more;
         self.visible_file_scope = Some(scope);
+    }
+
+    pub fn load_more_visible_files(&mut self) {
+        let Some(catalogue) = &self.file_catalogue else {
+            return;
+        };
+        let Some((collection, directory, _)) = &self.visible_file_scope else {
+            return;
+        };
+        let (ids, more) = catalogue.page(
+            collection.as_deref(),
+            directory.as_deref(),
+            self.visible_file_ids.len(),
+            256,
+        );
+        let mut merged = self.visible_file_ids.as_ref().clone();
+        merged.extend(ids.iter().copied());
+        self.visible_file_ids = Arc::new(merged);
+        self.visible_file_more = more;
     }
 
     fn install_directories(&mut self, catalog: DirectoryCatalog) {
@@ -276,6 +298,7 @@ impl UiState {
                 self.install_directories(directories);
                 self.file_catalogue = None;
                 self.visible_file_ids = Arc::new(Vec::new());
+                self.visible_file_more = false;
                 self.visible_file_scope = None;
                 self.expanded_directories.clear();
                 self.sidebar_mode = if single_collection {
