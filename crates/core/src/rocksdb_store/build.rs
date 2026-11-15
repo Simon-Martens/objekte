@@ -21,7 +21,8 @@ use super::finalize::{FinalizationReport, finalize};
 use super::prepare::PreparedStoreBatch;
 use super::schema::RuntimeSchema;
 use super::write::{
-    PhysicalPreparedFile, admit_physical_files, discover, initialise_schema, map_prepared_file,
+    AdmissionBatch, PhysicalPreparedFile, admit_physical_batch, discover, initialise_schema,
+    map_prepared_file,
 };
 use super::{RocksStore, StoreConfig, StoreError, StoreResult, value_codec};
 
@@ -226,8 +227,7 @@ pub fn build_from_source(
 
     let (prepared_sender, prepared_receiver) =
         sync_channel::<StoreResult<PreparedChunk>>(preparation_concurrency.max(1));
-    let (file_sender, file_receiver) =
-        sync_channel::<Vec<PhysicalPreparedFile>>(writer_queue_capacity);
+    let (file_sender, file_receiver) = sync_channel::<AdmissionBatch>(writer_queue_capacity);
     let root = Arc::new(root.to_path_buf());
     let shared_job_receiver = Arc::new(std::sync::Mutex::new(job_receiver));
     let schema_for_workers = Arc::clone(&schema);
@@ -263,19 +263,17 @@ pub fn build_from_source(
                 }
                 let mut outcomes = Vec::new();
                 loop {
-                    let prepared_batch = match receiver.lock() {
+                    let admission = match receiver.lock() {
                         Ok(receiver) => receiver.recv(),
                         Err(_) => break,
                     };
-                    let Ok(prepared_batch) = prepared_batch else {
+                    let Ok(admission) = admission else {
                         break;
                     };
                     let _ = admission_started.get_or_init(Instant::now);
                     let started = Instant::now();
-                    let batch_id = prepared_batch
-                        .first()
-                        .map_or(u64::MAX, |prepared| prepared.batch_id);
-                    let outcome = admit_physical_files_with_retry(store, &schema, &prepared_batch);
+                    let batch_id = admission.id;
+                    let outcome = admit_physical_batch_with_retry(store, &schema, &admission);
                     outcomes.push((batch_id, started.elapsed().as_nanos() as u64, outcome));
                 }
                 let _ = index;
@@ -342,7 +340,8 @@ pub fn build_from_source(
 
         let mut ready = BTreeMap::new();
         let mut next_job = 0usize;
-        let mut next_batch_id = 0u64;
+        let mut next_admission_id = 1u64;
+        let mut sent_admissions = 0u64;
         let mut base_slots = BTreeMap::<u32, u32>::new();
         let mut failure = None;
         let mut mapping_ns = 0u64;
@@ -432,7 +431,6 @@ pub fn build_from_source(
                         &schema,
                         prepared.file.id,
                         prepared.collections,
-                        next_batch_id,
                         &mut base_slots,
                     )?;
                     let records = mapped
@@ -461,8 +459,16 @@ pub fn build_from_source(
                             || admission_bytes.saturating_add(file_bytes) > MAX_ADMISSION_BYTES)
                     {
                         let send_started = Instant::now();
+                        let id = next_admission_id;
+                        next_admission_id = next_admission_id.checked_add(1).ok_or_else(|| {
+                            StoreError::State("admission batch ID overflow".into())
+                        })?;
+                        sent_admissions += 1;
                         file_sender
-                            .send(std::mem::take(&mut admission_batch))
+                            .send(AdmissionBatch {
+                                id,
+                                files: std::mem::take(&mut admission_batch),
+                            })
                             .map_err(|_| {
                                 StoreError::State("admission worker queue closed".into())
                             })?;
@@ -473,13 +479,18 @@ pub fn build_from_source(
                     admission_records = admission_records.saturating_add(records);
                     admission_bytes = admission_bytes.saturating_add(file_bytes);
                     admission_batch.push(mapped);
-                    next_batch_id = next_batch_id
-                        .checked_add(1)
-                        .ok_or_else(|| StoreError::State("physical batch ID overflow".into()))?;
-                    if next_batch_id == 1 {
+                    if sent_admissions == 0 {
                         let send_started = Instant::now();
+                        let id = next_admission_id;
+                        next_admission_id = next_admission_id.checked_add(1).ok_or_else(|| {
+                            StoreError::State("admission batch ID overflow".into())
+                        })?;
+                        sent_admissions += 1;
                         file_sender
-                            .send(std::mem::take(&mut admission_batch))
+                            .send(AdmissionBatch {
+                                id,
+                                files: std::mem::take(&mut admission_batch),
+                            })
                             .map_err(|_| {
                                 StoreError::State("admission worker queue closed".into())
                             })?;
@@ -501,8 +512,16 @@ pub fn build_from_source(
                         );
                     }
                     let send_started = Instant::now();
+                    let id = next_admission_id;
+                    next_admission_id = next_admission_id
+                        .checked_add(1)
+                        .ok_or_else(|| StoreError::State("admission batch ID overflow".into()))?;
+                    sent_admissions += 1;
                     file_sender
-                        .send(admission_batch)
+                        .send(AdmissionBatch {
+                            id,
+                            files: admission_batch,
+                        })
                         .map_err(|_| StoreError::State("admission worker queue closed".into()))?;
                     queue_wait_ns = queue_wait_ns.saturating_add(elapsed_ns(send_started));
                 }
@@ -608,26 +627,23 @@ pub fn build_from_source(
     })
 }
 
-fn admit_physical_files_with_retry(
+fn admit_physical_batch_with_retry(
     store: &RocksStore,
     schema: &RuntimeSchema,
-    prepared: &[PhysicalPreparedFile],
+    admission: &AdmissionBatch,
 ) -> StoreResult<()> {
-    match admit_physical_files(store, schema, prepared) {
-        Ok(()) => Ok(()),
-        Err(error) if error.is_contention() => {
-            for delay_ms in [1u64, 2, 4] {
-                std::thread::sleep(std::time::Duration::from_millis(delay_ms));
-                match admit_physical_files(store, schema, prepared) {
-                    Ok(()) => return Ok(()),
-                    Err(error) if error.is_contention() => continue,
-                    Err(error) => return Err(error),
-                }
-            }
-            admit_physical_files(store, schema, prepared)
+    for attempt in 0..4 {
+        if attempt > 0 {
+            let delay_ms = 1u64 << (attempt - 1);
+            std::thread::sleep(std::time::Duration::from_millis(delay_ms));
         }
-        Err(error) => Err(error),
+        match admit_physical_batch(store, schema, admission) {
+            Ok(()) => return Ok(()),
+            Err(error) if error.is_contention() && attempt < 3 => continue,
+            Err(error) => return Err(error),
+        }
     }
+    unreachable!("bounded admission retry loop always returns")
 }
 
 fn resolve_requested_workers(
@@ -1064,6 +1080,11 @@ mod tests {
             b"{\"title\":\"gamma\",\"count\":3,\"tags\":[\"c\"]}\n",
         )
         .unwrap();
+        std::fs::write(
+            root.join("data/c.jsonl"),
+            b"{\"title\":\"delta\",\"count\":4,\"tags\":[\"d\"]}\n",
+        )
+        .unwrap();
         let mut definitions = vec![
             CollectionDefinition::folder("first", "data", SourceFormat::JsonLines),
             CollectionDefinition::folder("second", "data", SourceFormat::JsonLines),
@@ -1118,9 +1139,12 @@ mod tests {
             view.header().phase,
             super::super::value_codec::BuildPhase::Complete
         );
-        assert_eq!(built.report.counts.physical_files, 2);
-        assert_eq!(built.report.counts.memberships, 4);
-        assert_eq!(built.report.counts.records, 6);
+        assert_eq!(built.report.counts.physical_files, 3);
+        assert_eq!(built.report.counts.memberships, 6);
+        assert_eq!(built.report.counts.records, 8);
+        assert_eq!(built.report.finalization.admission_receipts, 2);
+        assert_eq!(built.report.finalization.coverage_delta_rows, 12);
+        assert_eq!(built.report.finalization.coverage_rows, 6);
         for collection in 0..2 {
             let metadata: CollectionMetadata = value_codec::decode(
                 &view
@@ -1133,9 +1157,9 @@ mod tests {
                 "collection metadata",
             )
             .unwrap();
-            assert_eq!(metadata.live_records, 3);
-            assert_eq!(metadata.discovered_files, 2);
-            assert_eq!(metadata.indexed_files, 2);
+            assert_eq!(metadata.live_records, 4);
+            assert_eq!(metadata.discovered_files, 3);
+            assert_eq!(metadata.indexed_files, 3);
             assert_eq!(metadata.pending_files, 0);
         }
         let mut pending = view
@@ -1146,7 +1170,7 @@ mod tests {
         pending.status().unwrap();
         let validation = super::super::validation::validate(&built.store).unwrap();
         assert!(validation.is_valid(), "{:?}", validation.errors);
-        assert_eq!(validation.records, 6);
+        assert_eq!(validation.records, 8);
         assert_eq!(validation.receipts, 2);
         assert!(validation.gram_memberships > 0);
         let native = crate::repository::Repository::open_with_options(

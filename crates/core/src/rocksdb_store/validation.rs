@@ -16,6 +16,7 @@ pub struct ValidationReport {
     pub records: u64,
     pub files: u64,
     pub receipts: u64,
+    pub receipt_files: u64,
     pub value_members: u64,
     pub length_members: u64,
     pub state_members: u64,
@@ -62,6 +63,8 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
     let mut domain_members = BTreeSet::new();
     let mut outgoing = BTreeSet::new();
     let mut incoming = BTreeSet::new();
+    let mut receipt_files = BTreeSet::new();
+    let mut receipt_ids = Vec::new();
 
     scan(&view, Namespace::Collections, |_logical, bytes| {
         let metadata: CollectionMetadata = value_codec::decode(bytes, "collection")?;
@@ -73,10 +76,43 @@ pub fn validate(store: &RocksStore) -> StoreResult<ValidationReport> {
         report.files = report.files.saturating_add(1);
         Ok(())
     })?;
-    scan(&view, Namespace::BuildReceipts, |_logical, _bytes| {
+    scan(&view, Namespace::BuildReceipts, |logical, bytes| {
+        let mut cursor = Cursor::new(logical);
+        let key_id = cursor.read_u64()?;
+        let receipt: value_codec::BuildReceipt = value_codec::decode(bytes, "build receipt")?;
+        if key_id != receipt.batch_id {
+            report.error(format!(
+                "receipt key {} does not match receipt batch {}",
+                key_id, receipt.batch_id
+            ));
+        }
+        if receipt.files.is_empty() {
+            report.error(format!("receipt {} has no files", receipt.batch_id));
+        }
+        for (file, _version) in &receipt.files {
+            if !receipt_files.insert(file.0) {
+                report.error(format!("file {} appears in multiple receipts", file.0));
+            }
+        }
+        receipt_ids.push(receipt.batch_id);
         report.receipts = report.receipts.saturating_add(1);
         Ok(())
     })?;
+    receipt_ids.sort_unstable();
+    if receipt_ids
+        .iter()
+        .enumerate()
+        .any(|(index, id)| *id != index as u64 + 1)
+    {
+        report.error("admission receipt IDs are not contiguous from one");
+    }
+    report.receipt_files = receipt_files.len() as u64;
+    if report.receipt_files != report.files {
+        report.error(format!(
+            "receipts account for {} files but inventory contains {}",
+            report.receipt_files, report.files
+        ));
+    }
     scan(&view, Namespace::PendingFiles, |_logical, _bytes| {
         report.error("pending file membership remains in a Complete store");
         Ok(())

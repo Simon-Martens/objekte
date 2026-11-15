@@ -31,6 +31,9 @@ pub struct FinalizationReport {
     pub fts_statistic_rows: u64,
     pub field_rows: u64,
     pub coverage_rows: u64,
+    pub coverage_delta_rows: u64,
+    pub coverage_delta_bytes: u64,
+    pub admission_receipts: u64,
     pub metadata_batches: u64,
 }
 
@@ -72,6 +75,9 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
     let mut file_states = BTreeMap::<u32, BuildFileState>::new();
     let mut pending_count = 0u64;
     let mut free_slot_count = 0u64;
+    let mut admission_receipts = 0u64;
+    let mut coverage_delta_rows = 0u64;
+    let mut coverage_delta_bytes = 0u64;
 
     scan_namespace(&view, Namespace::Collections, |_logical, bytes| {
         let metadata: CollectionMetadata = value_codec::decode(bytes, "collection metadata")?;
@@ -106,6 +112,10 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
     }
 
     scan_namespace(&view, Namespace::FieldCoverageDeltas, |logical, bytes| {
+        coverage_delta_rows = coverage_delta_rows.saturating_add(1);
+        coverage_delta_bytes = coverage_delta_bytes
+            .saturating_add(logical.len() as u64)
+            .saturating_add(bytes.len() as u64);
         let mut cursor = Cursor::new(logical);
         let _batch = cursor.read_u64()?;
         let collection = cursor.read_u32()?;
@@ -125,6 +135,18 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         coverage_flags.insert((collection, binding), delta.coverage);
         Ok(())
     })?;
+    scan_namespace(&view, Namespace::BuildReceipts, |_logical, _bytes| {
+        admission_receipts = admission_receipts.saturating_add(1);
+        Ok(())
+    })?;
+    let coverage_row_upper_bound =
+        admission_receipts.saturating_mul(structured_bindings.len() as u64);
+    if coverage_delta_rows > coverage_row_upper_bound {
+        return Err(StoreError::CorruptIndex(format!(
+            "{coverage_delta_rows} coverage deltas exceed {admission_receipts} receipts times {} bindings",
+            structured_bindings.len()
+        )));
+    }
 
     scan_namespace(&view, Namespace::Files, |logical, bytes| {
         let mut cursor = Cursor::new(logical);
@@ -500,6 +522,9 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         fts_statistic_rows: fts_statistics.len() as u64,
         field_rows: structured_bindings.len() as u64,
         coverage_rows: structured_bindings.len() as u64,
+        coverage_delta_rows,
+        coverage_delta_bytes,
+        admission_receipts,
         metadata_batches,
     })
 }

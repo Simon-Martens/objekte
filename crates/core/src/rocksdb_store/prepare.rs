@@ -1,6 +1,7 @@
 //! Flat worker output consumed by the single redb admission coordinator.
 
 use roaring::RoaringBitmap;
+use serde::Serialize;
 
 use super::value_codec::{
     BindingDescriptor, FieldCoverage, FieldDescriptor, GramKind, RelationStateKind,
@@ -11,40 +12,40 @@ use crate::model::{FieldPath, Number};
 use crate::posting::ScalarKey;
 use crate::sorting::SortKey;
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedBinding {
     pub(crate) descriptor: BindingDescriptor,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedValue {
     pub(crate) slot: u32,
     pub(crate) binding: u32,
     pub(crate) value: ScalarKey,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedLength {
     pub(crate) slot: u32,
     pub(crate) binding: u32,
     pub(crate) length: Number,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedState {
     pub(crate) slot: u32,
     pub(crate) binding: u32,
     pub(crate) mask: u16,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedSort {
     pub(crate) slot: u32,
     pub(crate) path: FieldPath,
     pub(crate) key: SortKey,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedRelation {
     pub(crate) slot: u32,
     pub(crate) path: Vec<String>,
@@ -54,14 +55,14 @@ pub(crate) struct PreparedRelation {
     pub(crate) positions: Vec<u32>,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedRelationState {
     pub(crate) slot: u32,
     pub(crate) path: Vec<String>,
     pub(crate) state: RelationStateKind,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub(crate) struct PreparedGramSet {
     pub(crate) slot: u32,
     pub(crate) binding: u32,

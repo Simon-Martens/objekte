@@ -230,14 +230,17 @@ pub(crate) struct PhysicalPreparedFile {
     pub file_version: u64,
     pub fingerprint: Option<[u8; 32]>,
     pub collections: Vec<MappedCollectionBatch>,
-    pub batch_id: u64,
+}
+
+pub(crate) struct AdmissionBatch {
+    pub id: u64,
+    pub files: Vec<PhysicalPreparedFile>,
 }
 
 pub(crate) fn map_prepared_file(
     schema: &RuntimeSchema,
     file: FileId,
     mut batches: Vec<(CollectionId, PreparedStoreBatch)>,
-    batch_id: u64,
     base_slots: &mut BTreeMap<u32, u32>,
 ) -> StoreResult<PhysicalPreparedFile> {
     let first = batches
@@ -316,7 +319,6 @@ pub(crate) fn map_prepared_file(
         file_version: 1,
         fingerprint,
         collections: mapped,
-        batch_id,
     })
 }
 
@@ -361,12 +363,12 @@ fn add_block(
         .insert((slot & super::bitmap_block::BLOCK_MASK) as u16);
 }
 
-pub(crate) fn admit_physical_files(
+pub(crate) fn admit_physical_batch(
     store: &RocksStore,
     schema: &RuntimeSchema,
-    prepared_files: &[PhysicalPreparedFile],
+    admission: &AdmissionBatch,
 ) -> StoreResult<()> {
-    if prepared_files.is_empty() {
+    if admission.files.is_empty() {
         return Ok(());
     }
     let transaction = store.transaction();
@@ -382,24 +384,28 @@ pub(crate) fn admit_physical_files(
     }
     let mut combined = MutationPlan::default();
     let mut file_versions = BTreeMap::<Vec<u8>, u64>::new();
-    for prepared in prepared_files {
-        let expected_digest = prepared_digest(prepared);
-        let receipt_key = Namespace::BuildReceipts.physical(&prepared.batch_id.to_be_bytes());
-        if let Some(existing) = transaction.get_for_update(&receipt_key, true)? {
-            let receipt: BuildReceipt = value_codec::decode(&existing, "build receipt")?;
-            if receipt.build_identity == header.build_identity
-                && receipt.build_epoch == header.build_epoch
-                && receipt.batch_id == prepared.batch_id
-                && receipt.digest == expected_digest
-            {
-                continue;
-            }
-            return Err(StoreError::State(format!(
-                "batch ID {} reused with different content",
-                prepared.batch_id
-            )));
+    let mut coverage = BTreeMap::<(CollectionId, u32), value_codec::FieldCoverage>::new();
+    let expected_digest = admission_digest(admission)?;
+    let receipt_key = Namespace::BuildReceipts.physical(&admission.id.to_be_bytes());
+    if let Some(existing) = transaction.get_for_update(&receipt_key, true)? {
+        let receipt: BuildReceipt = value_codec::decode(&existing, "build receipt")?;
+        if receipt.build_identity == header.build_identity
+            && receipt.build_epoch == header.build_epoch
+            && receipt.batch_id == admission.id
+            && receipt.digest == expected_digest
+        {
+            return Ok(());
         }
-
+        return Err(StoreError::State(format!(
+            "admission batch ID {} reused with different content",
+            admission.id
+        )));
+    }
+    let mut receipt_slot_ranges = Vec::new();
+    let mut receipt_files = Vec::new();
+    let mut receipt_memberships = 0u32;
+    let mut receipt_records = 0u32;
+    for prepared in &admission.files {
         let mut plan = MutationPlan::default();
         let mut scratch = ContributionScratch::default();
         let mut slot_ranges = Vec::new();
@@ -725,21 +731,13 @@ pub(crate) fn admit_physical_files(
                     );
                 }
             }
-            for (binding, coverage) in &batch.coverage {
-                let delta = FieldCoverageDelta {
-                    collection,
-                    binding: *binding,
-                    batch_id: prepared.batch_id,
-                    coverage: coverage.clone(),
-                };
-                let mut key = super::key_codec::KeyWriter::with_capacity(16);
-                key.push_u64(prepared.batch_id);
-                key.push_u32(collection.0);
-                key.push_u32(*binding);
-                plan.puts.insert(
-                    physical(Namespace::FieldCoverageDeltas, key.into_bytes()),
-                    value_codec::encode(&delta)?,
-                );
+            for (binding, batch_coverage) in &batch.coverage {
+                let entry = coverage
+                    .entry((collection, *binding))
+                    .or_insert_with(|| batch_coverage.clone());
+                entry.value_complete &= batch_coverage.value_complete;
+                entry.length_complete &= batch_coverage.length_complete;
+                entry.empty_string_complete &= batch_coverage.empty_string_complete;
             }
             let pending = physical(
                 Namespace::PendingFiles,
@@ -780,27 +778,49 @@ pub(crate) fn admit_physical_files(
                 state,
                 expected_file_version: prepared.file_version,
                 build_epoch: header.build_epoch,
-                last_admission_revision: prepared.batch_id,
+                last_admission_revision: admission.id,
                 error: None,
             })?,
         );
-        let receipt = BuildReceipt {
-            build_identity: header.build_identity,
-            build_epoch: header.build_epoch,
-            batch_id: prepared.batch_id,
-            digest: expected_digest,
-            slot_ranges,
-            file_memberships: prepared.collections.len() as u32,
-            records: records_total,
-        };
-        plan.puts
-            .insert(receipt_key, value_codec::encode(&receipt)?);
+        receipt_files.push((prepared.file.id, prepared.file_version));
+        receipt_slot_ranges.extend(slot_ranges);
+        receipt_memberships = receipt_memberships.saturating_add(prepared.collections.len() as u32);
+        receipt_records = receipt_records.saturating_add(records_total);
         file_versions.insert(
             physical(Namespace::FileBuildState, keys::file(prepared.file.id)),
             prepared.file_version,
         );
         combined.merge(plan);
     }
+    for ((collection, binding), coverage) in coverage {
+        let delta = FieldCoverageDelta {
+            collection,
+            binding,
+            batch_id: admission.id,
+            coverage,
+        };
+        let mut key = super::key_codec::KeyWriter::with_capacity(16);
+        key.push_u64(admission.id);
+        key.push_u32(collection.0);
+        key.push_u32(binding);
+        combined.puts.insert(
+            physical(Namespace::FieldCoverageDeltas, key.into_bytes()),
+            value_codec::encode(&delta)?,
+        );
+    }
+    combined.puts.insert(
+        receipt_key,
+        value_codec::encode(&BuildReceipt {
+            build_identity: header.build_identity,
+            build_epoch: header.build_epoch,
+            batch_id: admission.id,
+            digest: expected_digest,
+            files: receipt_files,
+            slot_ranges: receipt_slot_ranges,
+            file_memberships: receipt_memberships,
+            records: receipt_records,
+        })?,
+    );
 
     let mut all_keys = combined
         .values
@@ -864,20 +884,37 @@ pub(crate) fn admit_physical_files(
     Ok(())
 }
 
-fn prepared_digest(prepared: &PhysicalPreparedFile) -> [u8; 32] {
+fn admission_digest(admission: &AdmissionBatch) -> StoreResult<[u8; 32]> {
     let mut digest = Sha256::new();
-    digest.update(b"physical-file");
-    digest.update(prepared.file.id.0.to_be_bytes());
-    for mapped in &prepared.collections {
-        digest.update(mapped.collection.0.to_be_bytes());
-        digest.update(mapped.base_slot.to_be_bytes());
-        for (local, record) in mapped.batch.records.iter().enumerate() {
-            let slot = mapped.base_slot + local as u32;
-            digest.update(slot.to_be_bytes());
-            digest.update(record.id.0.as_bytes());
+    digest.update(b"admission-batch-v2");
+    digest.update(admission.id.to_be_bytes());
+    for prepared in &admission.files {
+        digest.update(prepared.file.id.0.to_be_bytes());
+        digest.update(prepared.file_version.to_be_bytes());
+        for mapped in &prepared.collections {
+            digest.update(mapped.collection.0.to_be_bytes());
+            digest.update(mapped.base_slot.to_be_bytes());
+            digest_fact(&mut digest, &mapped.batch.records)?;
+            digest_fact(&mut digest, &mapped.batch.values)?;
+            digest_fact(&mut digest, &mapped.batch.lengths)?;
+            digest_fact(&mut digest, &mapped.batch.states)?;
+            digest_fact(&mut digest, &mapped.batch.sorts)?;
+            digest_fact(&mut digest, &mapped.batch.relations)?;
+            digest_fact(&mut digest, &mapped.batch.relation_states)?;
+            digest_fact(&mut digest, &mapped.batch.grams)?;
+            digest_fact(&mut digest, &mapped.batch.coverage)?;
         }
     }
-    digest.finalize().into()
+    Ok(digest.finalize().into())
+}
+
+fn digest_fact<T: serde::Serialize>(digest: &mut Sha256, value: &T) -> StoreResult<()> {
+    let bytes = bincode_options()
+        .serialize(value)
+        .map_err(|error| StoreError::CorruptValue(format!("admission digest: {error}")))?;
+    digest.update((bytes.len() as u64).to_le_bytes());
+    digest.update(bytes);
+    Ok(())
 }
 
 fn encode_sort_projection(

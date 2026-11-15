@@ -12,7 +12,7 @@ use crate::sorting::{SortKey, SortOptions};
 use super::{StoreError, StoreResult};
 
 pub const MAGIC: &str = "OBJEKTE_ROCKSDB_PROTOTYPE";
-pub const FORMAT_VERSION: u32 = 1;
+pub const FORMAT_VERSION: u32 = 2;
 pub const SCALAR_CODEC_VERSION: u32 = 1;
 pub const BITMAP_CODEC_VERSION: u32 = 1;
 pub const CONTRIBUTION_CODEC_VERSION: u32 = 1;
@@ -544,6 +544,7 @@ pub struct BuildReceipt {
     pub build_epoch: u64,
     pub batch_id: u64,
     pub digest: [u8; 32],
+    pub files: Vec<(FileId, u64)>,
     pub slot_ranges: Vec<(CollectionId, u32, u32)>,
     pub file_memberships: u32,
     pub records: u32,
@@ -660,6 +661,12 @@ mod tests {
         let mut wrong = header;
         wrong.format_version += 1;
         assert!(matches!(wrong.validate(), Err(StoreError::Incompatible(_))));
+        let mut version_one = wrong;
+        version_one.format_version = 1;
+        assert!(matches!(
+            version_one.validate(),
+            Err(StoreError::Incompatible(_))
+        ));
     }
 
     #[test]
