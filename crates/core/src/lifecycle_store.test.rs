@@ -1,6 +1,6 @@
 use super::*;
 use crate::model::{FieldPath, LogicalType};
-use crate::query::{Query, QueryOptions};
+use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
 use crate::repository::CollectionDefinition;
 use crate::source::SourceFormat;
@@ -556,4 +556,129 @@ fn measure_index_store_on_real_fixture() {
     );
     eprintln!("load_ms={load_ms:.1} loaded_records={}", count(&loaded));
     let _ = std::fs::remove_file(store_path);
+}
+
+
+fn churn_signature(index: &Index) -> (Option<usize>, Vec<String>) {
+    let query = Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: Some(parse_filter("n >= 0").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 0,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = index.view().unwrap().search(&query).unwrap();
+    (
+        result.count,
+        result.hits.iter().map(|hit| hit.record_id.clone()).collect(),
+    )
+}
+
+#[test]
+fn format_one_store_is_rebuilt() {
+    let root = root("format-one");
+    seed(&root);
+    let store = root.join("store.redb");
+    let (index, _) = Index::open_persistent(
+        &root,
+        vec![definition()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    drop(index);
+    {
+        let database = redb::Database::open(&store).unwrap();
+        let write = database.begin_write().unwrap();
+        let mut meta = write.open_table(crate::index_store_keys::META).unwrap();
+        meta.insert("format", 1u32.to_le_bytes().as_slice()).unwrap();
+        drop(meta);
+        write.commit().unwrap();
+    }
+    let (rebuilt, outcome) = Index::open_persistent(
+        &root,
+        vec![definition()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    assert_eq!(
+        outcome,
+        StoreOpenOutcome::Rebuilt(StoreRebuildReason::FormatVersion)
+    );
+    assert_eq!(count(&rebuilt), 20);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn churn_with_checkpoints_reopens_equal_to_control() {
+    let root = root("churn-checkpoints");
+    for number in 0..30usize {
+        std::fs::write(
+            root.join(format!("data/churn-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n"),
+        )
+        .unwrap();
+    }
+    let definitions = vec![definition()];
+    let store = root.join("store.redb");
+    let control = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let (mut current, _) = Index::open_persistent(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    let mut reopens = 0usize;
+    for step in 0..150usize {
+        let number = step % 30;
+        let path = root.join(format!("data/churn-{number}.jsonl"));
+        std::fs::write(
+            &path,
+            format!("{{\"name\":\"name-{number}\",\"n\":{step}}}\n"),
+        )
+        .unwrap();
+        for index in [&control, &current] {
+            let handle = index
+                .view()
+                .unwrap()
+                .file_handle_for_path(&path)
+                .unwrap();
+            index.update_file(handle, &path).unwrap();
+        }
+        if step % 50 == 49 {
+            current.checkpoint().unwrap();
+            drop(current);
+            let (reopened, outcome) = Index::open_persistent(
+                &root,
+                definitions.clone(),
+                RepositoryOptions::default(),
+                SourceRegistry::builtin(),
+                options(&store),
+            )
+            .unwrap();
+            assert_eq!(outcome, StoreOpenOutcome::Loaded, "step {step}");
+            reopened.wait_for_reconciliation().unwrap();
+            assert_eq!(
+                churn_signature(&reopened),
+                churn_signature(&control),
+                "step {step}"
+            );
+            current = reopened;
+            reopens += 1;
+        }
+    }
+    assert_eq!(reopens, 3);
+    assert_eq!(churn_signature(&current), churn_signature(&control));
+    std::fs::remove_dir_all(root).unwrap();
 }

@@ -438,6 +438,8 @@ pub(crate) struct PublishedIndex {
     pub(crate) vacuum_min_dead: usize,
     pub(crate) fold_trigger_bytes: usize,
     #[cfg(test)]
+    pub(crate) migration_failure: bool,
+    #[cfg(test)]
     pub(crate) fold_failures: usize,
     #[cfg(test)]
     pub(crate) fold_count: usize,
@@ -598,6 +600,8 @@ impl PublishedIndex {
             vacuum_min_dead: MAIN_VACUUM_MIN_DEAD,
             fold_trigger_bytes: FOLD_TRIGGER_BYTES,
             #[cfg(test)]
+            migration_failure: false,
+            #[cfg(test)]
             fold_failures: 0,
             #[cfg(test)]
             fold_count: 0,
@@ -709,6 +713,17 @@ impl PublishedIndex {
             }
         }
         false
+    }
+
+    fn migration_allowed(&self) -> bool {
+        #[cfg(test)]
+        {
+            !self.migration_failure
+        }
+        #[cfg(not(test))]
+        {
+            true
+        }
     }
 
     pub(crate) fn vacuum_main(
@@ -971,6 +986,7 @@ impl PublishedIndex {
         sparse_byte_limit: usize,
         size_cooldown: u64,
     ) -> Result<(), IndexError> {
+        let migration_allowed = self.migration_allowed();
         let full_partitions = self.segments[number]
             .iter()
             .filter(|segment| {
@@ -1039,7 +1055,8 @@ impl PublishedIndex {
                 .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
-                if old.index.role == crate::build::ShardRole::Built
+                if migration_allowed
+                    && old.index.role == crate::build::ShardRole::Built
                     && old.index.files_iter().all(|file| file.records.len() == 1)
                 {
                     let keep_current = |entry: &crate::inventory::FileEntry| {
@@ -1772,6 +1789,19 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?;
         let mut next = (**guard).clone();
         next.vacuum_min_dead = minimum;
+        *guard = Arc::new(next);
+        Ok(())
+    }
+
+    #[cfg(test)]
+    pub(crate) fn set_migration_failure_for_tests(&self, fail: bool) -> Result<(), IndexError> {
+        let mut guard = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut next = (**guard).clone();
+        next.migration_failure = fail;
         *guard = Arc::new(next);
         Ok(())
     }

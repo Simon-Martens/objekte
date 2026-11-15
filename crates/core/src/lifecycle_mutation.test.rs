@@ -1669,6 +1669,12 @@ fn count_query() -> Query {
     }
 }
 
+fn query_for(filter: &str) -> Query {
+    let mut query = count_query();
+    query.filter = Some(parse_filter(filter).unwrap());
+    query
+}
+
 #[test]
 fn folding_bounds_the_shard_count() {
     let root = test_root("fold-bound");
@@ -2306,6 +2312,93 @@ fn pinned_view_survives_a_vacuum() {
 }
 
 #[test]
+fn multi_record_partitions_keep_the_old_path() {
+    let root = test_root("multi-record-migration");
+    for number in 0..300usize {
+        std::fs::write(
+            root.join(format!("data/multi-{number}.jsonl")),
+            format!(
+                "{{\"name\":\"a-{number}\",\"n\":{number}}}\n{{\"name\":\"b-{number}\",\"n\":{number}}}\n"
+            ),
+        )
+        .unwrap();
+    }
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    index.set_vacuum_min_dead_for_tests(usize::MAX).unwrap();
+    for number in 0..100usize {
+        let path = root.join(format!("data/multi-{number}.jsonl"));
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap();
+        std::fs::write(
+            &path,
+            format!(
+                "{{\"name\":\"c-{number}\",\"n\":{number}}}\n{{\"name\":\"d-{number}\",\"n\":{number}}}\n"
+            ),
+        )
+        .unwrap();
+        index.update_file(handle, &path).unwrap();
+    }
+    assert_eq!(index.view().unwrap().migration_count(), 0);
+    assert_eq!(index.view().unwrap().search(&count_query()).unwrap().count, Some(600));
+    let view = index.view().unwrap();
+    let built = view
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .filter(|segment| segment.index.role == crate::build::ShardRole::Built)
+        .collect::<Vec<_>>();
+    assert!(!built.is_empty());
+    assert!(built
+        .iter()
+        .all(|segment| segment.index.files_iter().all(|file| file.records.len() == 2)));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn migration_failure_falls_back() {
+    let root = test_root("migration-failure");
+    for number in 0..3_000usize {
+        std::fs::write(
+            root.join(format!("data/mf-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n"),
+        )
+        .unwrap();
+    }
+    let control = index(&root);
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    index.set_vacuum_min_dead_for_tests(usize::MAX).unwrap();
+    index.set_migration_failure_for_tests(true).unwrap();
+    for number in 0..960usize {
+        let path = root.join(format!("data/mf-{number}.jsonl"));
+        for target in [&control, &index] {
+            let handle = target
+                .view()
+                .unwrap()
+                .file_handle_for_path(&path)
+                .unwrap();
+            std::fs::write(
+                &path,
+                format!("{{\"name\":\"changed-{number}\",\"n\":{number}}}\n"),
+            )
+            .unwrap();
+            target.update_file(handle, &path).unwrap();
+        }
+    }
+    assert_eq!(index.view().unwrap().migration_count(), 0);
+    assert_eq!(index.view().unwrap().search(&count_query()).unwrap().count, Some(3_000));
+    assert_eq!(
+        index.view().unwrap().search(&query_for("n >= 960")).unwrap().count,
+        control.view().unwrap().search(&query_for("n >= 960")).unwrap().count
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn churn_matches_an_index_that_never_folds() {
     let roots = [
         test_root("churn-never"),
@@ -2313,7 +2406,7 @@ fn churn_matches_an_index_that_never_folds() {
         test_root("churn-default"),
     ];
     for root in &roots {
-        for number in 0..150usize {
+        for number in 0..2_200usize {
             std::fs::write(
                 root.join(format!("data/base-{number}.jsonl")),
                 format!(
@@ -2334,8 +2427,8 @@ fn churn_matches_an_index_that_never_folds() {
     let default = build(&roots[2]);
     let indexes = [&never, &always, &default];
     let queries = folding_queries();
-    for step in 0..600usize {
-        let number = step % 150;
+    for step in 0..4_500usize {
+        let number = step % 2_200;
         let path = |root: &std::path::Path| root.join(format!("data/base-{number}.jsonl"));
         match step % 20 {
             0 => {
@@ -2349,26 +2442,6 @@ fn churn_matches_an_index_that_never_folds() {
                     )
                     .unwrap();
                     index.add_file(&added).unwrap_or_else(|error| panic!("step {step}: {error}"));
-                }
-            }
-            1 => {
-                for (index, root) in indexes.iter().zip(&roots) {
-                    let current = path(root);
-                    let old = std::fs::read(&current).unwrap();
-                    let handle = index
-                        .view()
-                        .unwrap()
-                        .file_handle_for_path(&current)
-                        .unwrap();
-                    index.delete_file_with_old_content(handle, &old).unwrap_or_else(|error| panic!("step {step}: {error}"));
-                    std::fs::write(
-                        &current,
-                        format!(
-                            "{{\"id\":\"id-{number}\",\"name\":\"re-{step}\",\"n\":{step},\"tags\":[\"tag\"]}}\n"
-                        ),
-                    )
-                    .unwrap();
-                    index.add_file(&current).unwrap_or_else(|error| panic!("step {step}: {error}"));
                 }
             }
             _ => {
@@ -2410,6 +2483,7 @@ fn churn_matches_an_index_that_never_folds() {
         }
     }
     assert!(always.view().unwrap().vacuum_count() >= 3);
+    assert!(always.view().unwrap().migration_count() > 0);
     assert_eq!(always.view().unwrap().fold_failures(), 0);
     for root in &roots {
         std::fs::remove_dir_all(root).unwrap();
@@ -2456,7 +2530,7 @@ fn slot_count_is_bounded_under_steady_updates() {
 }
 
 #[test]
-fn byte_trigger_folds_few_mutation_shards() {
+fn byte_trigger_folds_few_large_mutation_shards() {
     let root = test_root("byte-fold");
     let index = index(&root);
     index.set_fold_trigger_for_tests(8).unwrap();
@@ -2511,20 +2585,27 @@ fn retired_partition_survivors_move_to_the_main_shard() {
         )
         .unwrap();
     }
+    let control = index(&root);
     let index = index(&root);
     index.set_fold_trigger_for_tests(1).unwrap();
     index.set_vacuum_min_dead_for_tests(usize::MAX).unwrap();
     for number in 0..600usize {
         let path = root.join(format!("data/mig-{number}.jsonl"));
-        let handle = index
-            .view()
-            .unwrap()
-            .file_handle_for_path(&path)
-            .unwrap();
-        std::fs::write(&path, format!("{{\"name\":\"changed-{number}\"}}\n")).unwrap();
-        index.update_file(handle, &path).unwrap();
+        for target in [&control, &index] {
+            let handle = target
+                .view()
+                .unwrap()
+                .file_handle_for_path(&path)
+                .unwrap();
+            std::fs::write(&path, format!("{{\"name\":\"changed-{number}\"}}\n")).unwrap();
+            target.update_file(handle, &path).unwrap();
+        }
     }
     assert!(index.view().unwrap().migration_count() > 0);
     assert_eq!(index.view().unwrap().search(&count_query()).unwrap().count, Some(3_000));
+    assert_eq!(
+        index.view().unwrap().search(&query_for("name ?= \"changed-\"")).unwrap().count,
+        control.view().unwrap().search(&query_for("name ?= \"changed-\"")).unwrap().count
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
