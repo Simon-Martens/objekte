@@ -554,6 +554,16 @@ Follow the repository task-document lifecycle. At completion preserve the full s
 
 This document specifies implementation work. Preparing it did not execute a new corpus benchmark or establish a 35× speedup.
 
+## 17. Source references
+
+- [Inspected second-repair head](https://github.com/Simon-Martens/objekte/tree/bc8696eb485d00221ad78e53fca70ed273f72b3c)
+- [First-repair report](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/docs/ai/generated/rocksdb-construction-repair/repair-report.md)
+- [First-repair raw build](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/bench/results/rocksdb-construction-repair/ascii-w4-final-20261115/build.json)
+- [Admission implementation](https://github.com/Simon-Martens/objekte/blob/bc8696eb485d00221ad78e53fca70ed273f72b3c/crates/core/src/rocksdb_store/write.rs)
+- [Native gram construction](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/crates/core/src/bigram.rs)
+- [Pinned TransactionDB batch API](https://github.com/rust-rocksdb/rust-rocksdb/blob/v0.25.0/src/transactions/transaction_db.rs)
+- [Pinned WriteBatch API](https://github.com/rust-rocksdb/rust-rocksdb/blob/v0.25.0/src/write_batch.rs)
+
 ## Implementation report
 
 **Task identifier and completion:** `rocksdb-bulk-construction-repair`,
@@ -609,14 +619,4 @@ interiors remain only visible through process RSS/HWM.
 `bench/results/rocksdb-bulk-construction-repair/`. The report is
 `docs/ai/generated/rocksdb-bulk-construction-repair/repair-report.md`;
 comparison and hashes are in the adjacent `comparison.json`.
-
-## 17. Source references
-
-- [Inspected second-repair head](https://github.com/Simon-Martens/objekte/tree/bc8696eb485d00221ad78e53fca70ed273f72b3c)
-- [First-repair report](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/docs/ai/generated/rocksdb-construction-repair/repair-report.md)
-- [First-repair raw build](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/bench/results/rocksdb-construction-repair/ascii-w4-final-20261115/build.json)
-- [Admission implementation](https://github.com/Simon-Martens/objekte/blob/bc8696eb485d00221ad78e53fca70ed273f72b3c/crates/core/src/rocksdb_store/write.rs)
-- [Native gram construction](https://github.com/Simon-Martens/objekte/blob/08591e8452132f392201cfdb745d958f502a556b/crates/core/src/bigram.rs)
-- [Pinned TransactionDB batch API](https://github.com/rust-rocksdb/rust-rocksdb/blob/v0.25.0/src/transactions/transaction_db.rs)
-- [Pinned WriteBatch API](https://github.com/rust-rocksdb/rust-rocksdb/blob/v0.25.0/src/write_batch.rs)
 
