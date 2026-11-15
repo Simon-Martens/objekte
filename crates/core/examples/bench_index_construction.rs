@@ -243,8 +243,7 @@ fn run() -> Result<(), String> {
                     .values()
                     .map(|column| {
                         column
-                            .keys
-                            .iter()
+                            .keys_iter()
                             .map(|key| match key {
                                 objekte_search_core::sorting::SortKey::String(value) => value.len(),
                                 _ => 24,

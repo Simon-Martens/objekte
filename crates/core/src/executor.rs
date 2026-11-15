@@ -445,7 +445,7 @@ fn segment_sort_column_matches(
     }
     let literal = sort_key(&term.literal)?;
     let column = segment.sorting.column(&term.path.display()).ok()?;
-    if column.keys.len() != segment.record_count() {
+    if column.key_count() != segment.record_count() {
         return None;
     }
     // A configured numeric/temporal order is already sorted by these keys.
@@ -454,16 +454,16 @@ fn segment_sort_column_matches(
     if matches!(
         term.operator,
         Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-    ) && column.ascending.len() == column.keys.len()
+    ) && column.ascending().len() == column.key_count()
         && let (Some(first), Some(last)) = (
             column
-                .ascending
+                .ascending()
                 .first()
-                .and_then(|slot| column.keys.get(slot.0 as usize)),
+                .and_then(|slot| column.key(*slot)),
             column
-                .ascending
+                .ascending()
                 .last()
-                .and_then(|slot| column.keys.get(slot.0 as usize)),
+                .and_then(|slot| column.key(*slot)),
         )
         && std::mem::discriminant(first) == std::mem::discriminant(&literal)
         && std::mem::discriminant(last) == std::mem::discriminant(&literal)
@@ -473,17 +473,17 @@ fn segment_sort_column_matches(
         {
             return Some(logical_active.clone());
         }
-        let lower = column.ascending.partition_point(|slot| {
-            column.keys[slot.0 as usize].compare(&literal, false) == std::cmp::Ordering::Less
+        let lower = column.ascending().partition_point(|slot| {
+            column.key(*slot).unwrap().compare(&literal, false) == std::cmp::Ordering::Less
         });
-        let upper = column.ascending.partition_point(|slot| {
-            column.keys[slot.0 as usize].compare(&literal, false) != std::cmp::Ordering::Greater
+        let upper = column.ascending().partition_point(|slot| {
+            column.key(*slot).unwrap().compare(&literal, false) != std::cmp::Ordering::Greater
         });
         let selected = match term.operator {
-            Operator::Gt => &column.ascending[upper..],
-            Operator::Ge => &column.ascending[lower..],
-            Operator::Lt => &column.ascending[..lower],
-            Operator::Le => &column.ascending[..upper],
+            Operator::Gt => &column.ascending()[upper..],
+            Operator::Ge => &column.ascending()[lower..],
+            Operator::Lt => &column.ascending()[..lower],
+            Operator::Le => &column.ascending()[..upper],
             _ => unreachable!(),
         };
         let mut matches = RoaringBitmap::new();
@@ -496,7 +496,7 @@ fn segment_sort_column_matches(
     }
     let mut matches = RoaringBitmap::new();
     for slot in logical_active.iter() {
-        let key = &column.keys[slot as usize];
+        let key = column.key(RecordSlot(slot)).unwrap();
         if !matches!(key, SortKey::Missing | SortKey::Null)
             && order_matches(key.compare(&literal, false), term.operator)
         {
@@ -1681,7 +1681,7 @@ fn execute_path(
             let column = collection.sorting.column(&term.path.display())?;
             let literal = sort_key(&term.literal).ok_or("sort-column predicate is not scalar")?;
             let mut result = RoaringBitmap::new();
-            for (slot, key) in column.keys.iter().enumerate() {
+            for (slot, key) in column.keys_iter().enumerate() {
                 if !matches!(key, SortKey::Missing | SortKey::Null)
                     && order_matches(key.compare(&literal, false), term.operator)
                 {

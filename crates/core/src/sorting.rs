@@ -128,9 +128,9 @@ impl SortKey {
 pub struct SortColumn {
     pub path: FieldPath,
     pub kind: LogicalType,
-    pub keys: Vec<SortKey>,
-    pub ascending: Vec<RecordSlot>,
-    pub descending: Vec<RecordSlot>,
+    keys: Vec<SortKey>,
+    ascending: Vec<RecordSlot>,
+    descending: Vec<RecordSlot>,
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
@@ -294,7 +294,101 @@ impl InferredOrderCache {
     }
 }
 
+/// Constructor inputs for a sort column.
+pub(crate) struct SortColumnParts {
+    pub path: FieldPath,
+    pub kind: LogicalType,
+    pub keys: Vec<SortKey>,
+    pub ascending: Vec<RecordSlot>,
+    pub descending: Vec<RecordSlot>,
+    pub locale: String,
+    pub options: SortOptions,
+    pub collation_version: String,
+}
+
 impl SortColumn {
+    pub fn key(&self, slot: RecordSlot) -> Option<&SortKey> {
+        self.keys.get(slot.0 as usize)
+    }
+
+    pub fn key_count(&self) -> usize {
+        self.keys.len()
+    }
+
+    pub fn keys_iter(&self) -> impl Iterator<Item = &SortKey> {
+        self.keys.iter()
+    }
+
+    pub fn ascending_vec(&self) -> Vec<RecordSlot> {
+        self.ascending.clone()
+    }
+
+    pub fn descending_vec(&self) -> Vec<RecordSlot> {
+        self.descending.clone()
+    }
+
+    pub(crate) fn ascending(&self) -> &Vec<RecordSlot> {
+        &self.ascending
+    }
+
+    pub(crate) fn descending(&self) -> &Vec<RecordSlot> {
+        &self.descending
+    }
+
+    pub(crate) fn extend_keys(&mut self, keys: &[SortKey]) {
+        self.keys.extend_from_slice(keys);
+    }
+
+    pub(crate) fn set_keys(&mut self, keys: Vec<SortKey>) {
+        self.keys = keys;
+    }
+
+    pub(crate) fn extend_keys_from(&mut self, source: &Self) {
+        self.keys.extend_from_slice(&source.keys);
+    }
+
+    pub(crate) fn push_ascending(&mut self, slot: RecordSlot) {
+        self.ascending.push(slot);
+    }
+
+    pub(crate) fn push_descending(&mut self, slot: RecordSlot) {
+        self.descending.push(slot);
+    }
+
+    pub(crate) fn keys_capacity(&self) -> usize {
+        self.keys.capacity()
+    }
+
+    pub(crate) fn ascending_capacity(&self) -> usize {
+        self.ascending.capacity()
+    }
+
+    pub(crate) fn descending_capacity(&self) -> usize {
+        self.descending.capacity()
+    }
+
+    pub(crate) fn set_orders(
+        &mut self,
+        ascending: Vec<RecordSlot>,
+        descending: Vec<RecordSlot>,
+    ) {
+        self.ascending = ascending;
+        self.descending = descending;
+    }
+
+    pub(crate) fn from_parts(parts: SortColumnParts) -> Self {
+        Self {
+            path: parts.path,
+            kind: parts.kind,
+            keys: parts.keys,
+            ascending: parts.ascending,
+            descending: parts.descending,
+            locale: parts.locale,
+            options: parts.options,
+            collation_version: parts.collation_version,
+        }
+    }
+
     pub(crate) fn retained_bytes(&self) -> usize {
         let mut bytes = std::mem::size_of::<Self>()
             .saturating_add(
@@ -568,7 +662,29 @@ pub struct SortCollection {
 #[derive(Clone, Debug)]
 pub struct CompositeSortOrder {
     pub fields: Vec<CompositeSortPart>,
-    pub order: Vec<RecordSlot>,
+    order: Vec<RecordSlot>,
+}
+
+impl CompositeSortOrder {
+    pub(crate) fn order(&self) -> &Vec<RecordSlot> {
+        &self.order
+    }
+
+    pub(crate) fn set_order(&mut self, order: Vec<RecordSlot>) {
+        self.order = order;
+    }
+
+    pub(crate) fn from_parts(fields: Vec<CompositeSortPart>, order: Vec<RecordSlot>) -> Self {
+        Self { fields, order }
+    }
+
+    pub(crate) fn push_order(&mut self, slot: RecordSlot) {
+        self.order.push(slot);
+    }
+
+    pub(crate) fn order_capacity(&self) -> usize {
+        self.order.capacity()
+    }
 }
 
 /// Fixed binary identity for one resident composite constituent.

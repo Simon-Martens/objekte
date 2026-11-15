@@ -1412,9 +1412,12 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
     let sort_path = FieldPath::parse("title").unwrap();
     let one_sort = &one.collections()[0].sorting.columns[&sort_path];
     let parallel_sort = &parallel.collections()[0].sorting.columns[&sort_path];
-    assert_eq!(one_sort.keys, parallel_sort.keys);
-    assert_eq!(one_sort.ascending, parallel_sort.ascending);
-    assert_eq!(one_sort.descending, parallel_sort.descending);
+    assert_eq!(
+        one_sort.keys_iter().collect::<Vec<_>>(),
+        parallel_sort.keys_iter().collect::<Vec<_>>()
+    );
+    assert_eq!(one_sort.ascending(), parallel_sort.ascending());
+    assert_eq!(one_sort.descending(), parallel_sort.descending());
     assert_eq!(one.collections()[0].generation.files.len(), 1);
     assert_eq!(
         one.collections()[0]
@@ -2126,9 +2129,12 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         }
         for (path, column) in &a.sorting.columns {
             let other = &b.sorting.columns[path];
-            assert_eq!(column.keys, other.keys);
-            assert_eq!(column.ascending, other.ascending);
-            assert_eq!(column.descending, other.descending);
+            assert_eq!(
+                column.keys_iter().collect::<Vec<_>>(),
+                other.keys_iter().collect::<Vec<_>>()
+            );
+            assert_eq!(column.ascending(), other.ascending());
+            assert_eq!(column.descending(), other.descending());
         }
     }
     std::fs::remove_dir_all(root).unwrap();

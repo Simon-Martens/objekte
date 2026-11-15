@@ -2324,8 +2324,8 @@ pub(crate) fn sort_rows(
             let crate::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source else {
                 unreachable!("all terms resident")
             };
-            let order = a_column.keys[*a_slot as usize].compare_with(
-                &b_column.keys[*b_slot as usize],
+            let order = a_column.key(RecordSlot(*a_slot)).unwrap().compare_with(
+                b_column.key(RecordSlot(*b_slot)).unwrap(),
                 a_term.descending,
                 a_term.options,
             );

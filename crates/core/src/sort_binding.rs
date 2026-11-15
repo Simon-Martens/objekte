@@ -392,7 +392,7 @@ impl<'a> BoundSort<'a> {
             .map(|term| {
                 let key = match &term.source {
                     BoundSortSource::Stored(column) => {
-                        column.keys[ctx.record.slot.0 as usize].clone()
+                        column.key(ctx.record.slot).unwrap().clone()
                     }
                     BoundSortSource::Computed(computed) => {
                         if computed.related.is_some() {

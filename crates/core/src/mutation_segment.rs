@@ -10,7 +10,9 @@ use crate::inventory::ActiveRecords;
 use crate::model::Number;
 use crate::posting::{ScalarKey, StructuralKey};
 use crate::repository::IncrementalSegmentProfile;
-use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
+use crate::sorting::{
+    CompositeSortOrder, SortCollection, SortColumn, SortColumnParts, compare_composite,
+};
 
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
@@ -796,12 +798,12 @@ fn sort_bytes(sorting: &crate::sorting::SortCollection) -> usize {
         total = total
             .saturating_add(field_path_bytes(path))
             .saturating_add(ACCOUNTING_OVERHEAD)
-            .saturating_add(column.keys.capacity() * std::mem::size_of::<crate::sorting::SortKey>())
-            .saturating_add(column.ascending.capacity() * std::mem::size_of::<RecordSlot>())
-            .saturating_add(column.descending.capacity() * std::mem::size_of::<RecordSlot>())
+            .saturating_add(column.keys_capacity() * std::mem::size_of::<crate::sorting::SortKey>())
+            .saturating_add(column.ascending_capacity() * std::mem::size_of::<RecordSlot>())
+            .saturating_add(column.descending_capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(column.locale.len())
             .saturating_add(column.collation_version.len());
-        for key in &column.keys {
+        for key in column.keys_iter() {
             total = total.saturating_add(match key {
                 crate::sorting::SortKey::String(value) => value.len(),
                 crate::sorting::SortKey::Id(value) => value.len(),
@@ -815,7 +817,7 @@ fn sort_bytes(sorting: &crate::sorting::SortCollection) -> usize {
                 composite.fields.capacity()
                     * std::mem::size_of::<crate::sorting::CompositeSortPart>(),
             )
-            .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
+            .saturating_add(composite.order_capacity() * std::mem::size_of::<RecordSlot>());
         for part in &composite.fields {
             total = total.saturating_add(field_path_bytes(&part.path));
         }
@@ -1597,7 +1599,7 @@ impl IndexedCollectionSegment {
                     {
                         return Err("sort column representation mismatch".into());
                     }
-                    target.keys.extend_from_slice(&source.keys);
+                    target.extend_keys_from(source);
                 }
                 for (target, source) in sorting.composites.iter().zip(&shard.sorting.composites) {
                     if target.fields != source.fields {
@@ -1641,21 +1643,26 @@ impl IndexedCollectionSegment {
             }
         }
         for column in sorting.columns.values_mut() {
-            if column.keys.len() != records.len() {
+            if column.key_count() != records.len() {
                 return Err("sort column coverage mismatch".into());
             }
-            column.ascending = records.iter().map(|record| record.slot).collect();
-            column.ascending.sort_by(|a, b| {
-                column.keys[a.0 as usize]
-                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+            let mut ascending = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+            ascending.sort_by(|a, b| {
+                column
+                    .key(*a)
+                    .unwrap()
+                    .compare_with(column.key(*b).unwrap(), false, column.options)
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
-            column.descending = records.iter().map(|record| record.slot).collect();
-            column.descending.sort_by(|a, b| {
-                column.keys[a.0 as usize]
-                    .compare_with(&column.keys[b.0 as usize], true, column.options)
+            let mut descending = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+            descending.sort_by(|a, b| {
+                column
+                    .key(*a)
+                    .unwrap()
+                    .compare_with(column.key(*b).unwrap(), true, column.options)
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
+            column.set_orders(ascending, descending);
         }
         for composite in &mut sorting.composites {
             let columns = composite
@@ -1669,11 +1676,12 @@ impl IndexedCollectionSegment {
                         .ok_or("composite sort column missing")
                 })
                 .collect::<Result<Vec<_>, _>>()?;
-            composite.order = records.iter().map(|record| record.slot).collect();
-            composite.order.sort_by(|a, b| {
+            let mut order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+            order.sort_by(|a, b| {
                 compare_composite(&columns, *a, *b)
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
+            composite.set_order(order);
         }
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
@@ -2073,14 +2081,11 @@ fn project_sorting(
         composites: source
             .composites
             .iter()
-            .map(|order| CompositeSortOrder {
-                fields: order.fields.clone(),
-                order: Vec::new(),
-            })
+            .map(|order| CompositeSortOrder::from_parts(order.fields.clone(), Vec::new()))
             .collect(),
     };
     for (path, original) in &source.columns {
-        let mut column = SortColumn {
+        let mut column = SortColumn::from_parts(SortColumnParts {
             path: original.path.clone(),
             kind: original.kind.clone(),
             keys: Vec::new(),
@@ -2089,16 +2094,17 @@ fn project_sorting(
             locale: original.locale.clone(),
             options: original.options,
             collation_version: original.collation_version.clone(),
-        };
-        let old_keys = &original.keys;
-        if old_keys.len() != slots.len() {
+        });
+        if original.key_count() != slots.len() {
             return Err("sort projection coverage mismatch".into());
         }
         let mut keys = std::iter::repeat_with(|| None)
             .take(records.len())
             .collect::<Vec<_>>();
         slots.for_each_selected(|old, slot| {
-            let key = old_keys.get(old).ok_or("sort projection slot out of bounds")?;
+            let key = original
+                .key(RecordSlot(old as u32))
+                .ok_or("sort projection slot out of bounds")?;
             let target = keys
                 .get_mut(slot.0 as usize)
                 .ok_or("sort projection slot out of bounds")?;
@@ -2107,22 +2113,28 @@ fn project_sorting(
             }
             Ok(())
         })?;
-        column.keys = keys
-            .into_iter()
-            .collect::<Option<Vec<_>>>()
-            .ok_or("sort projection slot mismatch")?;
-        column.ascending = records.iter().map(|record| record.slot).collect();
-        column.ascending.sort_by(|a, b| {
-            column.keys[a.0 as usize]
-                .compare_with(&column.keys[b.0 as usize], false, column.options)
+        column.set_keys(
+            keys.into_iter()
+                .collect::<Option<Vec<_>>>()
+                .ok_or("sort projection slot mismatch")?,
+        );
+        let mut ascending = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+        ascending.sort_by(|a, b| {
+            column
+                .key(*a)
+                .unwrap()
+                .compare_with(column.key(*b).unwrap(), false, column.options)
                 .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
         });
-        column.descending = records.iter().map(|record| record.slot).collect();
-        column.descending.sort_by(|a, b| {
-            column.keys[a.0 as usize]
-                .compare_with(&column.keys[b.0 as usize], true, column.options)
+        let mut descending = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+        descending.sort_by(|a, b| {
+            column
+                .key(*a)
+                .unwrap()
+                .compare_with(column.key(*b).unwrap(), true, column.options)
                 .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
         });
+        column.set_orders(ascending, descending);
         sorting.columns.insert(path.clone(), column);
     }
     for composite in &mut sorting.composites {
@@ -2137,11 +2149,12 @@ fn project_sorting(
                     .ok_or("composite sort column missing")
             })
             .collect::<Result<Vec<_>, _>>()?;
-        composite.order = records.iter().map(|record| record.slot).collect();
-        composite.order.sort_by(|a, b| {
+        let mut order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+        order.sort_by(|a, b| {
             compare_composite(&columns, *a, *b)
                 .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
         });
+        composite.set_order(order);
     }
     Ok(sorting)
 }
@@ -2308,26 +2321,23 @@ impl IndexedCollectionSegment {
             .map(|_| SortCollection {
                 columns: HashMap::with_capacity(self.sorting.columns.len()),
                 composites: self.sorting.composites.iter()
-                    .map(|order| CompositeSortOrder {
-                        fields: order.fields.clone(),
-                        order: Vec::new(),
-                    })
+                    .map(|order| CompositeSortOrder::from_parts(order.fields.clone(), Vec::new()))
                     .collect(),
             })
             .collect::<Vec<_>>();
         for (path, original) in &self.sorting.columns {
-            if original.keys.len() != source_len
-                || original.ascending.len() != source_len
-                || original.descending.len() != source_len
+            if original.key_count() != source_len
+                || original.ascending().len() != source_len
+                || original.descending().len() != source_len
             {
                 return Err("sort projection coverage mismatch".into());
             }
             for (part, selected) in routing.selected.iter().enumerate() {
                 let keys = selected.iter()
-                    .map(|&old| original.keys.get(old as usize).cloned()
+                    .map(|&old| original.key(RecordSlot(old as u32)).cloned()
                         .ok_or("sort projection slot out of bounds"))
                     .collect::<Result<Vec<_>, _>>()?;
-                parts[part].columns.insert(path.clone(), SortColumn {
+                parts[part].columns.insert(path.clone(), SortColumn::from_parts(SortColumnParts {
                     path: original.path.clone(),
                     kind: original.kind.clone(),
                     keys,
@@ -2336,42 +2346,42 @@ impl IndexedCollectionSegment {
                     locale: original.locale.clone(),
                     options: original.options,
                     collation_version: original.collation_version.clone(),
-                });
+                }));
             }
-            for (source_order, descending) in [(&original.ascending, false), (&original.descending, true)] {
+            for (source_order, descending) in [(original.ascending(), false), (original.descending(), true)] {
                 for old in source_order {
                     if let Some((part, slot)) = routing.locations
                         .get(old.0 as usize).ok_or("sort order slot outside source")? {
                         let column = parts[*part].columns.get_mut(path)
                             .ok_or("partition sort column missing")?;
                         if descending {
-                            column.descending.push(*slot);
+                            column.push_descending(*slot);
                         } else {
-                            column.ascending.push(*slot);
+                            column.push_ascending(*slot);
                         }
                     }
                 }
             }
         }
         for (number, original) in self.sorting.composites.iter().enumerate() {
-            if original.order.len() != source_len
+            if original.order().len() != source_len
                 || original.fields.iter().any(|field| !self.sorting.columns.contains_key(&field.path))
             {
                 return Err("composite sort projection coverage mismatch".into());
             }
-            for old in &original.order {
+            for old in original.order() {
                 if let Some((part, slot)) = routing.locations
                     .get(old.0 as usize).ok_or("composite sort slot outside source")? {
-                    parts[*part].composites[number].order.push(*slot);
+                    parts[*part].composites[number].push_order(*slot);
                 }
             }
         }
         for (part, sorting) in parts.iter().enumerate() {
             let expected = routing.selected[part].len();
             if sorting.columns.values().any(|column| {
-                column.keys.len() != expected || column.ascending.len() != expected
-                    || column.descending.len() != expected
-            }) || sorting.composites.iter().any(|order| order.order.len() != expected) {
+                column.key_count() != expected || column.ascending().len() != expected
+                    || column.descending().len() != expected
+            }) || sorting.composites.iter().any(|order| order.order().len() != expected) {
                 return Err("partition sort order coverage mismatch".into());
             }
         }

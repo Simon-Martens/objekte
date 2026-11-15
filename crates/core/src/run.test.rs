@@ -2284,7 +2284,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
 }
 
 fn concurrent_test_inferred_column(path: &str) -> SortColumn {
-    SortColumn {
+    SortColumn::from_parts(crate::sorting::SortColumnParts {
         path: FieldPath::parse(path).unwrap(),
         kind: LogicalType::String,
         keys: vec![SortKey::String(vec![1])],
@@ -2293,7 +2293,7 @@ fn concurrent_test_inferred_column(path: &str) -> SortColumn {
         locale: "de".into(),
         options: SortOptions::default(),
         collation_version: crate::sorting::COLLATION_VERSION.into(),
-    }
+    })
 }
 
 #[test]

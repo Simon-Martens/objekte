@@ -115,11 +115,11 @@ fn index_signature(repo: &Repository) -> Result<String, String> {
             let column = &collection.sorting.columns[path];
             hash_value(&mut hash, &column.locale)?;
             hash_value(&mut hash, &column.collation_version)?;
-            for key in &column.keys {
+            for key in column.keys_iter() {
                 hash_value(&mut hash, key)?;
             }
-            hash_value(&mut hash, &column.ascending)?;
-            hash_value(&mut hash, &column.descending)?;
+            hash_value(&mut hash, &column.ascending_vec())?;
+            hash_value(&mut hash, &column.descending_vec())?;
         }
     }
     Ok(format!("{:x}", hash.finalize()))

@@ -256,7 +256,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     );
     assert_eq!(
         indexed.sorting.columns[&FieldPath::parse("n").unwrap()]
-            .ascending
+            .ascending()
             .iter()
             .map(|slot| slot.0)
             .collect::<Vec<_>>(),
@@ -581,16 +581,16 @@ fn consolidation_matches_direct_admission_without_source_files() {
     assert_eq!(merged.raw.normal_entries(), direct.raw.normal_entries());
     assert_eq!(merged.fallback_text.normal_entries(), direct.fallback_text.normal_entries());
     assert_eq!(
-        merged.sorting.columns[&FieldPath::parse("n").unwrap()].ascending,
-        direct.sorting.columns[&FieldPath::parse("n").unwrap()].ascending
+        merged.sorting.columns[&FieldPath::parse("n").unwrap()].ascending(),
+        direct.sorting.columns[&FieldPath::parse("n").unwrap()].ascending()
     );
     assert_eq!(
-        merged.sorting.columns[&FieldPath::parse("n").unwrap()].descending,
-        direct.sorting.columns[&FieldPath::parse("n").unwrap()].descending
+        merged.sorting.columns[&FieldPath::parse("n").unwrap()].descending(),
+        direct.sorting.columns[&FieldPath::parse("n").unwrap()].descending()
     );
     assert_eq!(
-        merged.sorting.composites[0].order,
-        direct.sorting.composites[0].order
+        merged.sorting.composites[0].order(),
+        direct.sorting.composites[0].order()
     );
     assert_eq!(merged.identity_order, direct.identity_order);
     assert_eq!(merged.relations.len(), 1);
@@ -875,11 +875,11 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         ).unwrap();
         for (path, column) in &sorting.columns {
             let expected = &reference.columns[path];
-            assert_eq!(column.ascending, expected.ascending);
-            assert_eq!(column.descending, expected.descending);
+            assert_eq!(column.ascending(), expected.ascending());
+            assert_eq!(column.descending(), expected.descending());
         }
         for (actual, expected) in sorting.composites.iter().zip(&reference.composites) {
-            assert_eq!(actual.order, expected.order);
+            assert_eq!(actual.order(), expected.order());
         }
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -917,12 +917,12 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     assert_eq!(compacted.raw.normal_entries(), oracle.raw.normal_entries());
     assert_eq!(compacted.fallback_text.normal_entries(), oracle.fallback_text.normal_entries());
     assert_eq!(
-        compacted.sorting.columns[&FieldPath::parse("n").unwrap()].ascending,
-        oracle.sorting.columns[&FieldPath::parse("n").unwrap()].ascending
+        compacted.sorting.columns[&FieldPath::parse("n").unwrap()].ascending(),
+        oracle.sorting.columns[&FieldPath::parse("n").unwrap()].ascending()
     );
     assert_eq!(
-        compacted.sorting.composites[0].order,
-        oracle.sorting.composites[0].order
+        compacted.sorting.composites[0].order(),
+        oracle.sorting.composites[0].order()
     );
     assert_eq!(
         compacted.relations[0].references().collect::<Vec<_>>(),

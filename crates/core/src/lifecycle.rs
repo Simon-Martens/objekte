@@ -477,8 +477,7 @@ pub(crate) fn index_family_estimate(
             .values()
             .map(|column| {
                 column
-                    .keys
-                    .iter()
+                    .keys_iter()
                     .map(|key| match key {
                         crate::sorting::SortKey::String(value) => value.len(),
                         _ => 24,

@@ -257,7 +257,7 @@ impl<'a> ResolvedSort<'a> {
             .iter()
             .zip(&worst.parts)
         {
-            let key = &column.keys[record.slot.0 as usize];
+            let key = column.key(record.slot).unwrap();
             let order = key.compare_with(other, *descending, column.options);
             if !order.is_eq() {
                 return order;
@@ -2158,7 +2158,7 @@ fn rank_key(
         .expect("selected collection")
         .iter()
         .map(|(column, descending)| {
-            let key = column.keys[record.slot.0 as usize].clone();
+            let key = column.key(record.slot).unwrap().clone();
             (key, *descending, column.options)
         })
         .collect();
@@ -2705,8 +2705,7 @@ fn segment_rank_key(
             BoundSortSource::Stored(base_column) => {
                 let column = segment.sorting.column(&base_column.path.display())?;
                 column
-                    .keys
-                    .get(record.slot.0 as usize)
+                    .key(record.slot)
                     .ok_or("segment sort slot missing")?
                     .clone()
             }
@@ -2749,8 +2748,7 @@ fn segment_compare_to_rank(
             .get(&base_column.path)
             .ok_or("segment sort column missing")?;
         let key = column
-            .keys
-            .get(slot.0 as usize)
+            .key(slot)
             .ok_or("segment sort slot missing")?;
         let order = key.compare_with(other, term.descending, term.options);
         if !order.is_eq() {
@@ -2847,14 +2845,12 @@ fn relation_rank_key_merged(
                     segment
                         .sorting
                         .column(&column.path.display())?
-                        .keys
-                        .get(address.slot.0 as usize)
+                        .key(address.slot)
                         .ok_or("merged segment sort slot missing")?
                         .clone()
                 } else {
                     column
-                        .keys
-                        .get(address.slot.0 as usize)
+                        .key(address.slot)
                         .ok_or("merged base sort slot missing")?
                         .clone()
                 }
@@ -7362,7 +7358,7 @@ fn lifecycle_segment_order<'a>(
         return segment
             .sorting
             .composite(&query.options.sort)
-            .map(|order| order.order.as_slice());
+            .map(|order| order.order().as_slice());
     }
     if query.options.sort.is_empty() {
         return Some(segment.identity_order());
@@ -7373,9 +7369,9 @@ fn lifecycle_segment_order<'a>(
     };
     let column = segment.sorting.columns.get(&base_column.path)?;
     Some(if term.descending {
-        &column.descending
+        column.descending()
     } else {
-        &column.ascending
+        column.ascending()
     })
 }
 
@@ -9016,8 +9012,11 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
                 .iter()
                 .zip(sort.columns[b.collection_index].as_ref().unwrap())
             {
-                let order = a_column.keys[a.slot as usize].compare_with(
-                    &b_column.keys[b.slot as usize],
+                let order = a_column
+                    .key(RecordSlot(a.slot))
+                    .unwrap()
+                    .compare_with(
+                    b_column.key(RecordSlot(b.slot)).unwrap(),
                     *descending,
                     a_column.options,
                 );
@@ -9064,8 +9063,11 @@ impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
         let mut keys = Ordering::Equal;
         for ((a, descending), (b, _)) in self.columns.iter().zip(other.columns) {
-            keys = a.keys[self.record.slot.0 as usize].compare_with(
-                &b.keys[other.record.slot.0 as usize],
+            keys = a
+                .key(self.record.slot)
+                .unwrap()
+                .compare_with(
+                b.key(other.record.slot).unwrap(),
                 *descending,
                 a.options,
             );
@@ -9674,13 +9676,13 @@ fn try_stored_order_page(
                 .sorting
                 .composite(&query.options.sort)
                 .expect("composite checked")
-                .order
+                .order()
         } else if let Some(field) = query.options.sort.first() {
             let column = columns[0].0;
             if field.descending {
-                &column.descending
+                column.descending()
             } else {
-                &column.ascending
+                column.ascending()
             }
         } else {
             &repo.collections[entry.collection_index].identity_order
