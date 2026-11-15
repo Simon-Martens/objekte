@@ -388,6 +388,10 @@ const ACTIVE_SLOT_CHUNK: u32 = 1 << 16;
 #[derive(Clone, Debug)]
 pub(crate) struct ActiveRecords {
     chunks: Arc<Vec<Arc<RoaringBitmap>>>,
+    /// Mapped visibility is attached at Load and materialized only when a
+    /// query first needs the active domain.
+    visibility: Option<Arc<crate::index_storage::visibility::VisibilityView>>,
+    deferred: OnceLock<Arc<Vec<Arc<RoaringBitmap>>>>,
     slot_count: u32,
     live_count: u64,
 }
@@ -407,9 +411,49 @@ impl ActiveRecords {
         }
         Ok(Self {
             chunks: Arc::new(chunks.into_iter().map(Arc::new).collect()),
+            visibility: None,
+            deferred: OnceLock::new(),
             slot_count,
             live_count: bitmap.len(),
         })
+    }
+
+    pub(crate) fn from_visibility(
+        slot_count: usize,
+        visibility: Arc<crate::index_storage::visibility::VisibilityView>,
+    ) -> Result<Self, String> {
+        let slot_count = u32::try_from(slot_count).map_err(|_| "too many records")?;
+        if visibility.slot_count() != slot_count {
+            return Err("visibility slot domain mismatch".into());
+        }
+        Ok(Self {
+            chunks: Arc::new(Vec::new()),
+            live_count: visibility.cardinality(),
+            visibility: Some(visibility),
+            deferred: OnceLock::new(),
+            slot_count,
+        })
+    }
+
+    fn chunks(&self) -> &Arc<Vec<Arc<RoaringBitmap>>> {
+        if let Some(loaded) = self.deferred.get() {
+            return loaded;
+        }
+        if let Some(visibility) = &self.visibility {
+            let bitmap = visibility.bitmap().unwrap_or_default();
+            return self.deferred.get_or_init(|| {
+                let mut chunks = vec![
+                    RoaringBitmap::new();
+                    (self.slot_count as usize)
+                        .div_ceil(ACTIVE_SLOT_CHUNK as usize)
+                ];
+                for slot in bitmap.iter() {
+                    chunks[(slot / ACTIVE_SLOT_CHUNK) as usize].insert(slot % ACTIVE_SLOT_CHUNK);
+                }
+                Arc::new(chunks.into_iter().map(Arc::new).collect())
+            });
+        }
+        &self.chunks
     }
 
     pub(crate) fn all(slot_count: usize) -> Result<Self, String> {
@@ -425,6 +469,8 @@ impl ActiveRecords {
         }
         Ok(Self {
             chunks: Arc::new(chunks),
+            visibility: None,
+            deferred: OnceLock::new(),
             slot_count,
             live_count: slot_count as u64,
         })
@@ -438,17 +484,22 @@ impl ActiveRecords {
         self.live_count
     }
 
+    #[cfg(test)]
+    pub(crate) fn is_materialized(&self) -> bool {
+        self.visibility.is_none() || self.deferred.get().is_some()
+    }
+
     pub(crate) fn contains(&self, slot: RecordSlot) -> bool {
         if slot.0 >= self.slot_count {
             return false;
         }
-        self.chunks
+        self.chunks()
             .get((slot.0 / ACTIVE_SLOT_CHUNK) as usize)
             .is_some_and(|chunk| chunk.contains(slot.0 % ACTIVE_SLOT_CHUNK))
     }
 
     pub(crate) fn retired(&self, slots: &[RecordSlot]) -> Result<Self, String> {
-        let mut chunks = (*self.chunks).clone();
+        let mut chunks = (**self.chunks()).clone();
         let mut live_count = self.live_count;
         for slot in slots {
             if slot.0 >= self.slot_count {
@@ -461,6 +512,8 @@ impl ActiveRecords {
         }
         Ok(Self {
             chunks: Arc::new(chunks),
+            visibility: None,
+            deferred: OnceLock::new(),
             slot_count: self.slot_count,
             live_count,
         })
@@ -472,7 +525,7 @@ impl ActiveRecords {
             .slot_count
             .checked_add(count)
             .ok_or("record slot overflow")?;
-        let mut chunks = (*self.chunks).clone();
+        let mut chunks = (**self.chunks()).clone();
         let mut current = self.slot_count;
         while current < slot_count {
             let group = (current / ACTIVE_SLOT_CHUNK) as usize;
@@ -486,6 +539,8 @@ impl ActiveRecords {
         }
         Ok(Self {
             chunks: Arc::new(chunks),
+            visibility: None,
+            deferred: OnceLock::new(),
             slot_count,
             live_count: self.live_count + count as u64,
         })
@@ -497,7 +552,7 @@ impl ActiveRecords {
             full.insert_range(0..self.slot_count);
             return full;
         }
-        self.chunks
+        self.chunks()
             .iter()
             .enumerate()
             .flat_map(|(group, chunk)| {

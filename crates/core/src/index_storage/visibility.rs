@@ -19,6 +19,17 @@ pub struct VisibilityView {
 }
 
 
+impl std::fmt::Debug for VisibilityView {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("VisibilityView")
+            .field("slot_count", &self.slot_count)
+            .field("cardinality", &self.reference.cardinality)
+            .finish_non_exhaustive()
+    }
+}
+
+
 impl VisibilityView {
     pub fn open(backing: Backing, slot_count: u32) -> StorageResult<Self> {
         let view = ObjectView::new(&backing)?;

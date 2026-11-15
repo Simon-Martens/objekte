@@ -1166,7 +1166,9 @@ impl IndexedCollectionSegment {
         if let Some(position) = self.file_index.get(&id) {
             return Some(*position);
         }
-        self.files.iter().position(|file| file.entry.id == id)
+        self.files
+            .binary_search_by_key(&id.0, |file| file.entry.id.0)
+            .ok()
     }
 
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {

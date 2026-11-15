@@ -186,7 +186,7 @@ pub fn restore_from_store(
                 "run visibility cardinality differs from the manifest active count".into(),
             ));
         }
-        let active_slots = visibility.bitmap().map_err(storage_error)?;
+        let visibility = Arc::new(visibility);
         next_segment_ordinal = next_segment_ordinal.max(run.reference.ordinal + 1);
         groups
             .get_mut(collection)
@@ -197,9 +197,9 @@ pub fn restore_from_store(
                 ordinal: run.reference.ordinal,
                 level: run.reference.level,
                 index: Arc::new(segment),
-                active: crate::inventory::ActiveRecords::from_bitmap(
+                active: crate::inventory::ActiveRecords::from_visibility(
                     frozen.stats().record_count as usize,
-                    active_slots,
+                    visibility,
                 )
                 .map_err(IndexError::InvalidPublication)?,
                 packed: Some(Arc::clone(&frozen)),
@@ -417,6 +417,7 @@ pub(crate) fn segment_from_packed(
             .ranges
             .push((part.segment_slot_start, part.record_count));
     }
+    files.sort_by_key(|file| file.entry.id.0);
     let file_index = HashMap::new();
     let (posting_collection, inference, custom_postings) = posting_families(frozen)?;
     // Bigram postings stay in the mapped packed section. Only small binding

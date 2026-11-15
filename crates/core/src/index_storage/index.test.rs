@@ -614,6 +614,10 @@ fn load_defers_packed_record_page_allocation_until_a_row_is_read() {
     .unwrap();
     let view = loaded.view().unwrap();
     let segment = view.0.segments[0].first().expect("packed run");
+    assert!(
+        !segment.active.is_materialized(),
+        "Load scanned the complete run visibility"
+    );
     assert_eq!(
         segment.index.records.capacity(),
         0,
