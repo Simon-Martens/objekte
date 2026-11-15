@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `23ae6b0384`
+Repair head: `a839ee6c76`
 
 ## Result
 
@@ -250,3 +250,5 @@ earlier GUI validation evidence remains under
 - `81b1995867` — collection index completion and corruption regression.
 - `aa2019b28b` — desktop file-catalogue paging.
 - `23ae6b0384` — desktop and TUI bounded metadata browsing.
+- `fd7df8475f` — live directory/path overlays after mutation.
+- `a839ee6c76` — collection-filtered paged file browsing.
