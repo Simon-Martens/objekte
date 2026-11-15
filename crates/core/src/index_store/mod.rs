@@ -37,6 +37,7 @@ pub mod regeneration;
 pub mod relations;
 pub mod slot_allocator;
 pub mod states;
+pub mod store_build;
 pub mod sorting;
 pub mod tables;
 pub mod validation;

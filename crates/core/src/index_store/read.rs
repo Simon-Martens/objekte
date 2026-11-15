@@ -62,6 +62,19 @@ pub fn collection(view: &StoreView, id: CollectionId) -> StoreResult<CollectionM
     value_codec::decode(row_value(&value), "collection")
 }
 
+pub(crate) fn collection_from_write(
+    tx: &redb::WriteTransaction,
+    id: CollectionId,
+) -> StoreResult<CollectionMetadata> {
+    let table = tx.open_table(tables::COLLECTIONS).map_err(map_table)?;
+    let key = keys::collection(id.0);
+    let value = table
+        .get(key.as_slice())
+        .map_err(map_storage)?
+        .ok_or_else(|| StoreError::CorruptIndex(format!("missing collection {}", id.0)))?;
+    value_codec::decode(row_value(&value), "collection")
+}
+
 pub fn all_collections(view: &StoreView) -> StoreResult<Vec<CollectionMetadata>> {
     let table = view
         .read()
