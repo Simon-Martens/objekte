@@ -34,6 +34,18 @@ Read-only donor: `abandoned/redb-primary-index` at
 No `ROCKSDB_LIB_DIR` override is configured. The prototype will build the
 binding's bundled native library.
 
+Resolved locked engine:
+
+| Crate | Resolved version |
+| --- | --- |
+| `rocksdb` | `0.25.0` |
+| `librocksdb-sys` | `0.19.0+11.8.1` |
+
+The first native build exhausted the 12.7-GiB user quota on `/tmp`. All final
+builds set `TMPDIR=<worktree>/target/cc-tmp`, which is on the home filesystem.
+This changes only compiler temporary-file placement; it does not substitute or
+override the RocksDB native library.
+
 ## Frozen native baseline
 
 Command:
@@ -79,6 +91,29 @@ Additional donor algorithms will be extracted selectively from `keys.rs`,
 and `posting.rs` where they implement source-independent semantics. Redb
 transactions, table handles, backend ownership, page accounting and lifecycle
 publishing are excluded.
+
+### Extracted in Phase 1
+
+- `crates/core/src/rocksdb_store/key_codec.rs` and
+  `key_codec.test.rs`: donor ordered encoding copied without semantic changes;
+  the module-local `StoreError` is the prototype error type.
+- `crates/core/src/rocksdb_store/bitmap_block.rs` and
+  `bitmap_block.test.rs`: donor sparse/dense 4,096-slot codec copied without
+  format changes; the module-local `StoreError` is the prototype error type.
+- `crates/core/src/rocksdb_store/value_codec.rs`: prototype-specific format
+  header plus selected donor metadata/contribution types. Legacy redb revision
+  and construction metadata are not reused.
+- `crates/core/src/rocksdb_store/contribution_codec.rs`: donor LZ4 policy
+  adapted to unconditional prototype-feature use, borrowed serialization and
+  reusable scratch buffers.
+- New `namespace.rs`, `mod.rs` and `mod.test.rs` are prototype-native and have
+  no redb dependency.
+
+Phase 1 validation: 29 `rocksdb_store` tests pass. A memory-environment host
+directory remains empty, a replacement memory environment recovers nothing,
+snapshots retain their versions, concurrent transactions preserve distinct bits
+in the same value, namespaces do not leak, and file mode survives WAL flush,
+memtable flush, close and reopen.
 
 ## Required semantic adaptations
 

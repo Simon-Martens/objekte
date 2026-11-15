@@ -12,6 +12,7 @@ path = "src/lib.rs"
 [features]
 default = []
 detailed-profiling = []
+rocksdb-prototype = ["dep:rocksdb", "dep:lz4_flex"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
@@ -30,3 +31,9 @@ globset = "0.4"
 regex = "=1.13.1"
 regex-syntax = "=0.8.11"
 libc = "0.2"
+rocksdb = { version = "=0.25.0", optional = true, default-features = false, features = ["lz4", "bindgen-runtime"] }
+lz4_flex = { version = "=0.14.0", optional = true, default-features = false, features = ["std", "safe-encode", "safe-decode", "checked-decode"] }
+
+[[example]]
+name = "bench_rocksdb_index_store"
+required-features = ["rocksdb-prototype"]
