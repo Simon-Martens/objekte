@@ -295,13 +295,13 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap();
     index.inference = None;
     let mut catalog = FileCatalog::from_repository(Arc::clone(&restored)).unwrap();
-    for file in &index.files {
+    for file in index.files_iter() {
         catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
     }
     let active = vec![ActiveRecords::all(state.generation.records.len()).unwrap()];
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
         ordinal: 1,
-        active: ActiveRecords::all(index.records.len()).unwrap(),
+        active: ActiveRecords::all(index.record_count()).unwrap(),
         index: Arc::new(index),
     })])];
     let page = posting_values_segmented(

@@ -847,7 +847,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .iter()
         .find(|shard| shard.index.file(handle.file_id).is_some())
         .unwrap();
-    assert_eq!(old_shard.index.records.len(), 3);
+    assert_eq!(old_shard.index.record_count(), 3);
     let old_slot = old_shard.index.file_records(handle.file_id).unwrap()[0];
     let old_ordinal = old_shard.ordinal;
     std::fs::write(&middle, b"{\"id\":\"middle\",\"name\":\"after!\"}\n").unwrap();
@@ -877,7 +877,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         new_shard.index.file_records(handle.file_id).unwrap(),
         [old_slot]
     );
-    assert_eq!(new_shard.index.records.len(), 3);
+    assert_eq!(new_shard.index.record_count(), 3);
     assert_eq!(new_shard.active.len(), 3);
     assert_eq!(
         old_shard.index.file_records(handle.file_id).unwrap(),
@@ -1204,10 +1204,10 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         .segments(CollectionId(0))
         .unwrap()
         .iter()
-        .find(|shard| shard.index.files.len() > 1)
+        .find(|shard| shard.index.file_count() > 1)
         .expect("segment consolidation should share a shard");
-    let target = shared.index.files[0].entry.id;
-    let sibling = shared.index.files[1].entry.id;
+    let target = shared.index.file_at(0).unwrap().entry.id;
+    let sibling = shared.index.file_at(1).unwrap().entry.id;
     let handle = before.file_handle(target).unwrap();
     let path = root.join(&before.file_entry(target).unwrap().relative_path);
     let old = std::fs::read(&path).unwrap();
@@ -1631,7 +1631,7 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
         let shards = current.segments(collection).unwrap();
         assert_eq!(shards.len(), 1);
         assert_eq!(shards[0].ordinal, ordinal);
-        assert_eq!(shards[0].index.records[0].slot, RecordSlot(0));
+        assert_eq!(shards[0].index.record(RecordSlot(0)).unwrap().slot, RecordSlot(0));
         assert_eq!(pinned.segments(collection).unwrap()[0].ordinal, ordinal);
     }
     assert_eq!(index.status().unwrap().live_records, 2);

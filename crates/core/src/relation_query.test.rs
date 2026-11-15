@@ -139,19 +139,19 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         "mentions/new-m.json",
     );
     let catalog = catalog
-        .appended(target.files[0].entry.clone(), None, None)
+        .appended(target.file_at(0).unwrap().entry.clone(), None, None)
         .unwrap()
-        .appended(source.files[0].entry.clone(), None, None)
+        .appended(source.file_at(0).unwrap().entry.clone(), None, None)
         .unwrap();
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
             ordinal: 1,
-            active: ActiveRecords::all(target.records.len()).unwrap(),
+            active: ActiveRecords::all(target.record_count()).unwrap(),
             index: Arc::new(target),
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
             ordinal: 2,
-            active: ActiveRecords::all(source.records.len()).unwrap(),
+            active: ActiveRecords::all(source.record_count()).unwrap(),
             index: Arc::new(source),
         })]),
     ];

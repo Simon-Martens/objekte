@@ -72,7 +72,7 @@ fn compact_source_parts_with_limits(
         Ok(())
     };
     for file_index in 0..source.file_count() {
-        let file = source.files.get(file_index)
+        let file = source.file_at(file_index)
             .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
         if cancelled() {
             return Err(IndexError::Cancelled);
@@ -169,7 +169,7 @@ fn compact_source_parts_with_limits(
                 inference,
             )
             .map_err(IndexError::Build)?;
-        for file in &mut compacted.files {
+        for file in compacted.files_iter_mut() {
             if let Some(current) = catalog.entry(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
@@ -229,7 +229,7 @@ fn partition_base_with_limits_inner(
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active =
-                ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
+                ActiveRecords::all(part.record_count()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
                 ordinal,
                 index: Arc::new(part),

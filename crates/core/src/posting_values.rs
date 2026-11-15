@@ -291,7 +291,7 @@ fn resolve_segment<'a>(
         }
         (&custom.index, None)
     };
-    if index.covered_records as u64 != segment.logical_records.len() {
+    if index.covered_records as u64 != segment.logical_records().len() {
         return Err("incomplete segment posting logical coverage".into());
     }
     Ok(ResolvedPosting {
@@ -345,7 +345,7 @@ fn scan_inferred_segment(
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
     for file_index in 0..segment.index.file_count() {
-        let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+        let file = segment.index.file_at(file_index).ok_or("segment file row missing")?;
         let ranges = file
             .records
             .iter()
@@ -551,7 +551,7 @@ pub(crate) fn select_exact_segmented(
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref()).copied()
+            if let Some(slot) = segment.index.slot_for_id(id.0.as_ref())
                 && segment.active.contains(slot)
             {
                 if found {
@@ -651,7 +651,7 @@ pub(crate) fn posting_values_segmented(
             continue;
         }
         for file_index in 0..segment.index.file_count() {
-            let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+            let file = segment.index.file_at(file_index).ok_or("segment file row missing")?;
             if file
                 .records
                 .iter()
@@ -734,7 +734,7 @@ pub(crate) fn posting_values_segmented(
         let logical = if index == 0 {
             &collection.logical_records
         } else {
-            &segments[collection_index][index - 1].index.logical_records
+            segments[collection_index][index - 1].index.logical_records()
         };
         let domain = &domains[index];
         selected_total += domain.len();

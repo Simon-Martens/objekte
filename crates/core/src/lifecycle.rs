@@ -505,16 +505,16 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
             let right_index = &group[right].index;
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
-                let file_id = left_index.files.get(file_number)?.entry.id;
-                if right_index.file_index.get(&file_id).copied().is_some() {
+                let file_id = left_index.file_at(file_number)?.entry.id;
+                if right_index.file_position(file_id).is_some() {
                     overlaps = true;
                     break;
                 }
             }
             if !overlaps {
-                for &slot in &left_index.identity_order {
+                for &slot in left_index.identity_order() {
                     let id = left_index.record(slot)?.id.0.as_ref();
-                    if right_index.id_lookup.get(id).copied().is_some() {
+                    if right_index.slot_for_id(id).is_some() {
                         overlaps = true;
                         break;
                     }
@@ -613,7 +613,7 @@ impl PublishedIndex {
                     let segments = self.segments[number]
                         .iter()
                         .map(|segment| {
-                            (&segment.active.bitmap() - &segment.index.logical_records).len()
+                            (&segment.active.bitmap() - segment.index.logical_records()).len()
                         })
                         .sum::<u64>();
                     base + segments
@@ -650,7 +650,7 @@ impl PublishedIndex {
                 "segment source registration changed".into(),
             ));
         }
-        for file in &index.files {
+        for file in index.files_iter() {
             if self.catalog.entry(file.entry.id).is_none_or(|current| {
                 !current.collections.contains(&index.collection)
                     || current.relative_path != file.entry.relative_path
@@ -662,12 +662,12 @@ impl PublishedIndex {
                 ));
             }
         }
-        for (id, _) in &index.id_lookup {
+        for (id, _) in index.ids_iter() {
             let existing_duplicate =
                 self.segments[number]
                     .iter()
                     .try_fold(false, |found, segment| {
-                        let slot = segment.index.id_lookup.get(id.0.as_ref()).copied();
+                        let slot = segment.index.slot_for_id(id.0.as_ref());
                         Ok::<_, IndexError>(
                             found || slot.is_some_and(|slot| segment.active.contains(slot)),
                         )
@@ -685,7 +685,7 @@ impl PublishedIndex {
             }
         }
         if !self.catalog.construction_complete() {
-            for file in &index.files {
+            for file in index.files_iter() {
                 let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
                     IndexError::InvalidPublication("processed membership missing".into())
                 })?;
@@ -703,7 +703,7 @@ impl PublishedIndex {
                 }
             }
         }
-        let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
+        let active = ActiveRecords::all(index.record_count()).map_err(IndexError::ResourceLimit)?;
         let ordinal = self.next_segment_ordinal;
         self.next_segment_ordinal = self
             .next_segment_ordinal
@@ -751,7 +751,7 @@ impl PublishedIndex {
                 for file_number in 0..segment.index.file_count() {
                     let file = segment
                         .index
-                        .files.get(file_number).map(|file| &file.entry)
+                        .file_at(file_number).map(|file| &file.entry)
                         .ok_or_else(|| {
                             IndexError::InvalidPublication("segment file row missing".into())
                         })?;
@@ -798,7 +798,7 @@ impl PublishedIndex {
                     self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
+                    let active = ActiveRecords::all(part.record_count())
                         .map_err(IndexError::ResourceLimit)?;
                     group.insert(
                         index + offset,
@@ -1253,7 +1253,7 @@ impl Index {
             ));
         }
         let mut next = (*view.0).clone();
-        for file in &segment.files {
+        for file in segment.files_iter() {
             if file.entry.status == FileStatus::Valid
                 && file.entry.diagnostics.is_empty()
                 && file.entry.omitted_diagnostics == 0
@@ -2570,7 +2570,7 @@ impl IndexView {
         };
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
+            let Some(slot) = segment.index.slot_for_id(hit.record_id.as_str()) else {
                 continue;
             };
             if !segment.active.contains(slot)

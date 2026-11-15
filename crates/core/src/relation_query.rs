@@ -156,7 +156,7 @@ impl<'a> MergedRelationView<'a> {
                 {
                     return Err("merged relation segment scope mismatch".into());
                 }
-                for (relation_index, relation) in published.index.relations.iter().enumerate() {
+                for (relation_index, relation) in published.index.relations().iter().enumerate() {
                     if relation.record_count() as usize != published.index.record_count()
                         || repo.collections[collection_index]
                             .relations
@@ -200,10 +200,10 @@ impl<'a> MergedRelationView<'a> {
                 .record(address.slot)
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
-                .file_index.get(&record.file).copied()
+                .file_position(record.file)
                 .ok_or("merged segment file missing")?;
             let file = segment
-                .files.get(file_index).map(|file| file.entry.revision)
+                .file_at(file_index).map(|file| file.entry.revision)
                 .ok_or("merged segment file missing")?;
             (record, file)
         } else {
@@ -261,7 +261,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.slot_for_id(id)
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -287,7 +287,7 @@ impl<'a> MergedRelationView<'a> {
             let published = &self.segments[index][segment_index];
             let contribution = published
                 .index
-                .relations
+                .relations()
                 .get(relation_index)
                 .ok_or("merged segment relation missing")?;
             Ok((
@@ -348,7 +348,7 @@ impl<'a> MergedRelationView<'a> {
         for (segment_index, published) in self.segments[index].iter().enumerate() {
             let relation_contribution = published
                 .index
-                .relations
+                .relations()
                 .get(relation.ordinal as usize)
                 .ok_or("backlink segment relation missing")?;
             if let Some(field) = published

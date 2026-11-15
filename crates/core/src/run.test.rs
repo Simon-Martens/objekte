@@ -1099,11 +1099,11 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .unwrap();
     let catalog = FileCatalog::from_repository(Arc::clone(&repo))
         .unwrap()
-        .appended(index.files[0].entry.clone(), None, None)
+        .appended(index.file_at(0).unwrap().entry.clone(), None, None)
         .unwrap();
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
         ordinal: 1,
-        active: ActiveRecords::all(index.records.len()).unwrap(),
+        active: ActiveRecords::all(index.record_count()).unwrap(),
         index: Arc::new(index),
     })])];
     let base_active = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
@@ -1168,7 +1168,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     direct_id.filter = Some(
         parse_filter(&format!(
             "@record.id = '{}'",
-            segments[0][0].index.records[0].id.0,
+            segments[0][0].index.record(RecordSlot(0)).unwrap().id.0,
         ))
         .unwrap(),
     );
@@ -1850,7 +1850,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     ));
     assert!(live.hits.iter().all(
         |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
-            || hit.byte_start != retired_segments[0][0].index.records[1].range.start
+            || hit.byte_start != retired_segments[0][0].index.record(RecordSlot(1)).unwrap().range.start
     ));
     let hidden_path = root.join("data/hidden.jsonl");
     std::fs::rename(&path, &hidden_path).unwrap();
@@ -2011,7 +2011,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         summary.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::Missing
     );
-    let delta_id = &retired_segments[0][0].index.records[2].id.0;
+    let delta_id = &retired_segments[0][0].index.record(RecordSlot(2)).unwrap().id.0;
     assert!(matches!(
         direct_lookup_segmented(
             &repo, "data", delta_id, ReturnMode::Bytes, &retired_base,
@@ -2133,10 +2133,10 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         .unwrap();
     let catalog = FileCatalog::from_repository(Arc::clone(&repo))
         .unwrap()
-        .appended(segment.files[0].entry.clone(), None, None)
+        .appended(segment.file_at(0).unwrap().entry.clone(), None, None)
         .unwrap();
-    let id = segment.records[0].id.0.as_ref();
-    let active = ActiveRecords::all(segment.records.len()).unwrap();
+    let id = segment.record(RecordSlot(0)).unwrap().id.0.as_ref();
+    let active = ActiveRecords::all(segment.record_count()).unwrap();
     let revision = IndexRevision(9);
     let locator = get_segment_record_by_id(
         &repo,

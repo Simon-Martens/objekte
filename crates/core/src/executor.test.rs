@@ -87,7 +87,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         },
     ).unwrap();
     let collection = &repo.collections()[0];
-    assert_eq!(segment.records.len(), 4);
+    assert_eq!(segment.record_count(), 4);
     let active = ActiveRecords::all(4)
         .unwrap()
         .retired(&[RecordSlot(3)])

@@ -323,7 +323,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     std::fs::write(&b, br#"{"name":"bb"}"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
     let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
-    assert!(dense.active.len() < dense.index.records.len() as u64);
+    assert!(dense.active.len() < dense.index.record_count() as u64);
     for number in 0..70 {
         let path = root.join(format!("data/new-{number}.json"));
         std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();

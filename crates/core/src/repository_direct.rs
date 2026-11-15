@@ -213,7 +213,7 @@ impl DirectCollection {
             .collect::<Result<Vec<_>, _>>()?;
         let owned = segments
             .iter()
-            .map(|segment| segment.records.len())
+            .map(|segment| segment.record_count())
             .sum::<usize>();
         if owned != count {
             return Err("direct shard record coverage mismatch".into());

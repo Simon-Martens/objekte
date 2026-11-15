@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use crate::build::{IndexedCollectionSegment, SegmentFile};
+use crate::build::{BaseSegmentParts, IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
@@ -98,7 +98,7 @@ pub(crate) fn base_as_segment(
             .map_err(IndexError::InvalidPublication)
         })
         .collect::<Result<Vec<_>, _>>()?;
-    let mut segment = IndexedCollectionSegment {
+    let mut segment = IndexedCollectionSegment::from_base_parts(BaseSegmentParts {
         collection: collection.generation.collection,
         source_id: collection.source.id().into(),
         source_version: collection.source.version(),
@@ -117,10 +117,7 @@ pub(crate) fn base_as_segment(
         empty_array_records: collection.empty_array_records.clone(),
         sorting: collection.sorting.clone(),
         relations,
-        record_parses: 0,
-        failed_parses: 0,
-        accounting: Default::default(),
-    };
+    });
     segment.recompute_accounting();
     Ok(segment)
 }
@@ -223,7 +220,7 @@ fn compact_published_with_budget(
                     next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
+                    let active = ActiveRecords::all(part.record_count())
                         .map_err(IndexError::ResourceLimit)?;
                     compacted.push(Arc::new(PublishedSegment {
                         ordinal,
@@ -269,7 +266,7 @@ fn compact_published_with_budget(
                     next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
+                    let active = ActiveRecords::all(part.record_count())
                         .map_err(IndexError::ResourceLimit)?;
                     replacements.push(Arc::new(PublishedSegment {
                         ordinal,

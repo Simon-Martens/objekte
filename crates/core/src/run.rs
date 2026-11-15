@@ -2270,8 +2270,8 @@ fn segment_active_file<'a>(
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
-    let file_index = segment.file_index.get(&file_id).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment.file_position(file_id).ok_or("segment record file missing")?;
+    let segment_revision = segment.file_at(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
     let file = catalog
         .entry(file_id)
         .ok_or("active segment record file is retired")?;
@@ -2296,8 +2296,8 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
-    let file_index = segment.file_index.get(&record.file).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment.file_position(record.file).ok_or("segment record file missing")?;
+    let segment_revision = segment.file_at(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
     let file = catalog
         .entry(record.file)
         .ok_or("active segment record file is retired")?;
@@ -2328,7 +2328,7 @@ pub(crate) fn get_segment_record_by_id(
     if segment.collection != collection.generation.collection {
         return Err("segment collection mismatch".into());
     }
-    let Some(slot) = segment.id_lookup.get(record_id).copied() else {
+    let Some(slot) = segment.slot_for_id(record_id) else {
         return Ok(None);
     };
     let Some(resolved) = segment_record_ref(segment, active, catalog, slot)? else {
@@ -2402,7 +2402,7 @@ pub(crate) fn direct_lookup_segmented(
         .filter(|slot| base_active[collection_index].contains(*slot));
     let mut selected_segment = None;
     for (index, segment) in segments[collection_index].iter().enumerate() {
-        if let Some(slot) = segment.index.id_lookup.get(record_id).copied()
+        if let Some(slot) = segment.index.slot_for_id(record_id)
             && segment.active.contains(slot)
         {
             if base.is_some() || selected_segment.is_some() {
@@ -3193,7 +3193,7 @@ fn has_unavailable_active_source(
         }
         for segment in segments[index].iter() {
             for file_index in 0..segment.index.file_count() {
-                let Some(file) = segment.index.files.get(file_index) else {
+                let Some(file) = segment.index.file_at(file_index) else {
                     return true;
                 };
                 if file
@@ -5118,7 +5118,7 @@ fn relation_source_candidates(
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
-        &published.active.bitmap() - &published.index.logical_records
+        &published.active.bitmap() - published.index.logical_records()
     };
     for id in &plan.target_ids {
         if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone())) {
@@ -5346,7 +5346,7 @@ fn try_direct_relation_page(
             )?;
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = &published.active.bitmap() & published.index.logical_records();
             let may = &bounds.may & &logical;
             let must = &bounds.must & &logical;
             if may != must {
@@ -5605,7 +5605,7 @@ fn try_direct_relation_page(
         counters.relation_reverse_postings_visited += lists;
         counters.relation_reverse_members_visited += members;
         may &= published.active.bitmap();
-        may &= &published.index.logical_records;
+        may &= published.index.logical_records();
         if local_filter.is_some() {
             may &= &local_proofs[segment_index];
         }
@@ -5694,7 +5694,7 @@ fn try_direct_relation_page(
             let key = if direct_sort_column.is_some() {
                 let relation = published
                     .index
-                    .relations
+                    .relations()
                     .get(hop.relation.ordinal as usize)
                     .ok_or("direct relation source contribution missing")?;
                 let mut references = relation.references_for_source(RecordSlot(slot));
@@ -6242,7 +6242,7 @@ fn try_parallel_relation_page(
             continue;
         }
         for file_index in 0..published.index.file_count() {
-            let file = published.index.files.get(file_index)
+            let file = published.index.file_at(file_index)
                 .ok_or("parallel relation file missing")?;
             let mut selected = file.records.iter().filter(|slot| {
                 published.active.contains(**slot)
@@ -6859,7 +6859,7 @@ fn search_segmented_relations(
                     }
                     let record = published.index.record(slot)
                         .ok_or("merged segment candidate missing")?;
-                    let index = published.index.file_index.get(&record.file).copied()
+                    let index = published.index.file_position(record.file)
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }
@@ -6868,7 +6868,7 @@ fn search_segmented_relations(
                 Box::new(0..published.index.file_count())
             };
             for file_index in file_indices {
-                let file = published.index.files.get(file_index)
+                let file = published.index.file_at(file_index)
                     .ok_or("merged segment file missing")?;
                 if let Some(context) = context {
                     context.check_string()?;
@@ -7365,7 +7365,7 @@ fn lifecycle_segment_order<'a>(
             .map(|order| order.order.as_slice());
     }
     if query.options.sort.is_empty() {
-        return Some(&segment.identity_order);
+        return Some(segment.identity_order());
     }
     let term = sort.bound.terms[collection_index].as_ref()?.first()?;
     let BoundSortSource::Stored(base_column) = &term.source else {

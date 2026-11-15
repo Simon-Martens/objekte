@@ -275,23 +275,23 @@ pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
-    pub files: Vec<SegmentFile>,
-    pub file_index: HashMap<FileId, usize>,
-    pub records: Vec<RecordEntry>,
-    pub id_lookup: HashMap<RecordId, RecordSlot>,
-    pub identity_order: Vec<RecordSlot>,
+    files: Vec<SegmentFile>,
+    file_index: HashMap<FileId, usize>,
+    records: Vec<RecordEntry>,
+    id_lookup: HashMap<RecordId, RecordSlot>,
+    identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
-    pub logical_records: RoaringBitmap,
-    pub empty_array_records: RoaringBitmap,
+    logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
     pub sorting: SortCollection,
     /// Source references retain target logical IDs for later merged-view
     /// resolution; existing `RelationIndex::resolve` needs full collections.
-    pub relations: Vec<RelationContribution>,
+    relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
     /// Cached deterministic planning estimate and native scheduling bounds.
@@ -844,6 +844,28 @@ fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
     total
 }
 
+/// Constructor inputs for a shard assembled outside this module.
+pub(crate) struct BaseSegmentParts {
+    pub collection: CollectionId,
+    pub source_id: String,
+    pub source_version: u32,
+    pub files: Vec<SegmentFile>,
+    pub file_index: HashMap<FileId, usize>,
+    pub records: Vec<RecordEntry>,
+    pub id_lookup: HashMap<RecordId, RecordSlot>,
+    pub identity_order: Vec<RecordSlot>,
+    pub postings: PostingCollection,
+    pub inference: Option<InferenceState>,
+    pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub raw: BigramIndex,
+    pub fallback_text: BigramIndex,
+    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub logical_records: RoaringBitmap,
+    pub empty_array_records: RoaringBitmap,
+    pub sorting: SortCollection,
+    pub relations: Vec<RelationContribution>,
+}
+
 impl IndexedCollectionSegment {
     /// Use the persistent backing when the shard-size policy asks for it.
     /// Contents and query results are identical in both backings.
@@ -871,6 +893,32 @@ impl IndexedCollectionSegment {
         self.fallback_text.freeze_shared();
         for index in self.custom_text.values_mut() {
             index.freeze_shared();
+        }
+    }
+
+    pub(crate) fn from_base_parts(parts: BaseSegmentParts) -> Self {
+        Self {
+            collection: parts.collection,
+            source_id: parts.source_id,
+            source_version: parts.source_version,
+            files: parts.files,
+            file_index: parts.file_index,
+            records: parts.records,
+            id_lookup: parts.id_lookup,
+            identity_order: parts.identity_order,
+            postings: parts.postings,
+            inference: parts.inference,
+            custom_postings: parts.custom_postings,
+            raw: parts.raw,
+            fallback_text: parts.fallback_text,
+            custom_text: parts.custom_text,
+            logical_records: parts.logical_records,
+            empty_array_records: parts.empty_array_records,
+            sorting: parts.sorting,
+            relations: parts.relations,
+            record_parses: 0,
+            failed_parses: 0,
+            accounting: SegmentAccounting::default(),
         }
     }
 
@@ -978,6 +1026,54 @@ impl IndexedCollectionSegment {
 
     pub(crate) fn record_count(&self) -> usize {
         self.records.len()
+    }
+
+    pub(crate) fn file_at(&self, position: usize) -> Option<&SegmentFile> {
+        self.files.get(position)
+    }
+
+    pub(crate) fn files_iter(&self) -> impl Iterator<Item = &SegmentFile> {
+        self.files.iter()
+    }
+
+    pub(crate) fn files_iter_mut(&mut self) -> impl Iterator<Item = &mut SegmentFile> {
+        self.files.iter_mut()
+    }
+
+    pub(crate) fn has_file(&self, id: FileId) -> bool {
+        self.file_index.contains_key(&id)
+    }
+
+    pub(crate) fn file_position(&self, id: FileId) -> Option<usize> {
+        self.file_index.get(&id).copied()
+    }
+
+    pub(crate) fn records_iter(&self) -> impl Iterator<Item = &RecordEntry> {
+        self.records.iter()
+    }
+
+    pub(crate) fn slot_for_id(&self, id: &str) -> Option<RecordSlot> {
+        self.id_lookup.get(id).copied()
+    }
+
+    pub(crate) fn ids_iter(&self) -> impl Iterator<Item = (&RecordId, RecordSlot)> {
+        self.id_lookup.iter().map(|(id, slot)| (id, *slot))
+    }
+
+    pub(crate) fn identity_order(&self) -> &[RecordSlot] {
+        &self.identity_order
+    }
+
+    pub(crate) fn logical_records(&self) -> &RoaringBitmap {
+        &self.logical_records
+    }
+
+    pub(crate) fn empty_array_records(&self) -> &RoaringBitmap {
+        &self.empty_array_records
+    }
+
+    pub(crate) fn relations(&self) -> &[RelationContribution] {
+        &self.relations
     }
 
     pub(crate) fn max_record_range_len(&self) -> u64 {

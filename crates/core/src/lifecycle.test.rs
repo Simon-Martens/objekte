@@ -100,9 +100,9 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     let maintained = index.view().unwrap();
     assert_eq!(maintained.0.segments[0].len(), 1);
     assert!(!Arc::ptr_eq(&old, &maintained.0.segments[0][0]));
-    assert_eq!(maintained.0.segments[0][0].index.records.len(), 192);
+    assert_eq!(maintained.0.segments[0][0].index.record_count(), 192);
     assert_eq!(maintained.0.segments[0][0].active.len(), 192);
-    assert_eq!(old.index.records.len(), 256);
+    assert_eq!(old.index.record_count(), 256);
     let added = root.join("data/added.json");
     std::fs::write(&added, br#"{"name":"new item"}"#).unwrap();
     index.add_file(&added).unwrap();
@@ -110,7 +110,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     assert!(
         current.0.segments[0]
             .iter()
-            .any(|segment| segment.index.records.len() == 192)
+            .any(|segment| segment.index.record_count() == 192)
     );
     assert_eq!(current.0.status().live_records, 193);
     assert_eq!(maintained.0.status().live_records, 192);
@@ -1409,8 +1409,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         first.index.accounting.max_record_range_len,
         first
             .index
-            .records
-            .iter()
+            .records_iter()
             .map(|record| record.range.len())
             .max()
             .unwrap_or(0)

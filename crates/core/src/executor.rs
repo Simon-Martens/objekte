@@ -66,8 +66,8 @@ pub(crate) fn segment_filter_bounds_with_catalog(
         return Err("segment active domain length mismatch".into());
     }
     let domain = active.bitmap();
-    let logical_active = &domain & &segment.logical_records;
-    let fallback_active = &domain - &segment.logical_records;
+    let logical_active = &domain & segment.logical_records();
+    let fallback_active = &domain - segment.logical_records();
     segment_expr_bounds(
         segment,
         expr,
@@ -187,7 +187,7 @@ pub(crate) fn segment_fts_candidates(
         collection,
         fts,
         segment.raw.record_count as usize == segment.record_count(),
-        segment.logical_records.len() != segment.record_count() as u64,
+        segment.logical_records().len() != segment.record_count() as u64,
         segment_raw_covers_identity_field(segment, collection),
         segment.record_count() as u64,
     ) else {
@@ -287,7 +287,7 @@ fn segment_file_size_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
+        let revision = segment.file_at(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
         let order = Number::integer(revision.size as i128).cmp(literal);
         if order_matches(order, term.operator) {
             extend_segment_file_slots(segment, index, &mut matches)?;
@@ -306,7 +306,7 @@ fn segment_file_path_matches(
 ) -> Result<RoaringBitmap, String> {
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let id = segment.files.get(index).map(|file| file.entry.id).ok_or("segment file row missing")?;
+        let id = segment.file_at(index).map(|file| file.entry.id).ok_or("segment file row missing")?;
         let Some(entry) = catalog.entry(id) else {
             continue;
         };
@@ -351,10 +351,10 @@ fn segment_file_modified_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        if segment.files.get(index).map(|file| file.records.len()).ok_or("segment file row missing")? == 0 {
+        if segment.file_at(index).map(|file| file.records.len()).ok_or("segment file row missing")? == 0 {
             continue;
         }
-        file.revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
+        file.revision = segment.file_at(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
         let selected = if let Some(literal) = direct_literal {
             let modified = file.revision.modified_ns;
             time::OffsetDateTime::from_unix_timestamp_nanos(modified)
@@ -528,7 +528,7 @@ fn segment_positional_eq_candidates(
     let Some(index) = segment.postings.fields.get(&term.path.segments) else {
         return Ok(None);
     };
-    Ok(index.exact_set_restricted(term, &segment.logical_records, logical_active))
+    Ok(index.exact_set_restricted(term, segment.logical_records(), logical_active))
 }
 
 fn segment_raw_covers_identity_field(
@@ -640,7 +640,7 @@ fn segment_expr_bounds(
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.id_lookup.get(id.as_str()).copied()
+                if let Some(slot) = segment.slot_for_id(id.as_str())
                     && domain.contains(slot.0)
                 {
                     matches.insert(slot.0);
@@ -761,7 +761,7 @@ fn segment_expr_bounds(
                 }
                 if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
                     if empty_selection_preservation(term) {
-                        grams |= &segment.empty_array_records;
+                        grams |= segment.empty_array_records();
                     }
                     SegmentCandidateBounds {
                         may: (&grams & domain) | fallback_active,

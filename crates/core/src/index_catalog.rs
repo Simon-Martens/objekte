@@ -461,7 +461,7 @@ impl<'a> IndexCatalog<'a> {
             named: &state.custom_postings,
             text: &state.custom_text,
             text_bindings: &collection.text_bindings,
-            logical: &state.logical_records,
+            logical: state.logical_records(),
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
         }

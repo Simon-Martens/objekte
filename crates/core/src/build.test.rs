@@ -112,10 +112,10 @@ fn measure_direct_shard_build_from_real_worker_batches() {
     let finalized = started.elapsed();
     let records = shards
         .iter()
-        .map(|shard| shard.records.len())
+        .map(|shard| shard.record_count())
         .sum::<usize>();
     assert_eq!(records, collection.generation.records.len());
-    assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
+    assert!(shards.iter().all(|shard| shard.record_count() <= 2_048));
     eprintln!(
         "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
         collection.generation.files.len(),
