@@ -2846,6 +2846,25 @@ impl IndexView {
             .ids_with_prefix(&format!("{directory}/"), limit)
     }
 
+    /// File IDs in one collection from the persisted collection-file index.
+    pub fn catalogue_ids_for_collection(&self, name: &str, limit: usize) -> Vec<FileId> {
+        let Some(number) = self
+            .repository()
+            .collections()
+            .iter()
+            .position(|collection| collection.definition.name == name)
+        else {
+            return Vec::new();
+        };
+        self.0
+            .catalog
+            .files_for_collection(number)
+            .iter()
+            .take(limit)
+            .map(FileId)
+            .collect()
+    }
+
     /// Directory prefixes and their collection-membership masks from the
     /// persisted catalogue index. This never enumerates file rows.
     pub fn catalogue_directories(&self) -> Vec<(String, Vec<u8>)> {

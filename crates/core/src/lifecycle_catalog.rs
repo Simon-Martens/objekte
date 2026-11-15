@@ -144,6 +144,10 @@ impl PackedCatalogue {
         self.directory_page(0, usize::MAX).unwrap_or_default()
     }
 
+    fn files_for_collection(&self, collection: usize) -> Option<roaring::RoaringBitmap> {
+        self.view.files_for_collection(collection).ok()
+    }
+
     fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
         self.view
             .paths_with_prefix(prefix.as_bytes(), limit)
@@ -627,6 +631,38 @@ impl FileCatalog {
         directories.into_iter().collect()
     }
 
+    pub(crate) fn files_for_collection(&self, collection: usize) -> roaring::RoaringBitmap {
+        let mut result = match &self.packed_base {
+            Some(packed) => packed.files_for_collection(collection).unwrap_or_default(),
+            None => {
+                let mut set = roaring::RoaringBitmap::new();
+                for id in self.active_ids() {
+                    if self.entry(id).is_some_and(|entry| {
+                        entry.collections.iter().any(|c| c.0 as usize == collection)
+                    }) {
+                        set.insert(id.0);
+                    }
+                }
+                set
+            }
+        };
+        result &= self.active.as_ref();
+        for shard in self.changed.iter() {
+            for (id, changed) in shard.iter() {
+                if self.active.contains(id.0)
+                    && changed
+                        .entry
+                        .collections
+                        .iter()
+                        .any(|c| c.0 as usize == collection)
+                {
+                    result.insert(id.0);
+                }
+            }
+        }
+        result
+    }
+
     pub(crate) fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
         if let Some(packed) = &self.packed_base {
             return packed.ids_with_prefix(prefix, limit);
@@ -885,6 +921,12 @@ impl FileCatalog {
             .add_section(
                 crate::index_storage::format::SectionKind::Directories,
                 sections.directories,
+            )
+            .map_err(|error| error.to_string())?;
+        builder
+            .add_section(
+                crate::index_storage::format::SectionKind::CollectionFiles,
+                sections.collection_files,
             )
             .map_err(|error| error.to_string())?;
         let object = builder.finish().map_err(|error| error.to_string())?;

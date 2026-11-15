@@ -16,7 +16,7 @@ pub const OBJECT_MAGIC: [u8; 8] = *b"OBJXOBJ1";
 /// Eight-byte store marker magic.
 pub const STORE_MAGIC: [u8; 8] = *b"OBJEST01";
 /// Current object format version.
-pub const FORMAT_VERSION: u16 = 3;
+pub const FORMAT_VERSION: u16 = 4;
 /// Fixed object header length.
 pub const HEADER_LEN: usize = 128;
 /// Fixed section directory entry length.
@@ -141,6 +141,8 @@ pub enum SectionKind {
     ActiveFiles = 25,
     /// Persisted directory prefixes and collection memberships.
     Directories = 26,
+    /// Per-collection active file-ID sets.
+    CollectionFiles = 27,
 }
 
 
@@ -177,6 +179,7 @@ impl SectionKind {
             24 => Self::Visibility,
             25 => Self::ActiveFiles,
             26 => Self::Directories,
+            27 => Self::CollectionFiles,
             _ => return None,
         })
     }

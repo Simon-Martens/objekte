@@ -70,6 +70,9 @@ fn catalogue_bytes() -> Vec<u8> {
     builder
         .add_section(SectionKind::Directories, sections.directories)
         .unwrap();
+    builder
+        .add_section(SectionKind::CollectionFiles, sections.collection_files)
+        .unwrap();
     builder.finish().unwrap().into_bytes()
 }
 
@@ -142,6 +145,9 @@ fn paged_rows_paths_and_statistics_round_trip() {
             .map(|number| format!("dir{number}"))
             .collect::<Vec<_>>()
     );
+    let collection_zero = view.files_for_collection(0).unwrap();
+    assert!(collection_zero.contains(1));
+    assert!(!collection_zero.contains(0));
     view.verify_full().unwrap();
 }
 
@@ -203,6 +209,9 @@ fn allocated_high_water_survives_deleted_tail_slots() {
         .unwrap();
     builder
         .add_section(SectionKind::Directories, sections.directories)
+        .unwrap();
+    builder
+        .add_section(SectionKind::CollectionFiles, sections.collection_files)
         .unwrap();
     let view = open(builder.finish().unwrap().into_bytes());
     assert_eq!(view.high_water(), 25);

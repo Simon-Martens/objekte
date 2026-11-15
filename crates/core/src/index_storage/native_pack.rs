@@ -77,6 +77,7 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     builder.add_section(SectionKind::Statistics, sections.statistics)?;
     builder.add_section(SectionKind::ActiveFiles, sections.active_files)?;
     builder.add_section(SectionKind::Directories, sections.directories)?;
+    builder.add_section(SectionKind::CollectionFiles, sections.collection_files)?;
     let object = builder.finish()?;
     let _ = repository;
     let digest = object.sha256();

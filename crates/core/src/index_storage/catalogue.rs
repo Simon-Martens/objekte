@@ -117,6 +117,7 @@ pub struct CatalogueSections {
     pub statistics: Vec<u8>,
     pub active_files: Vec<u8>,
     pub directories: Vec<u8>,
+    pub collection_files: Vec<u8>,
     pub stats: CatalogueStats,
 }
 
@@ -336,6 +337,27 @@ pub fn build_catalogue_with_high_water(
     }
     let directory_index =
         build_dictionary(directories.into_iter().collect(), KeyOrder::Bytes, 8192)?;
+    let mut collection_files = (0..collection_count)
+        .map(|_| roaring::RoaringBitmap::new())
+        .collect::<Vec<_>>();
+    for row in rows.iter().filter(|row| !row.tombstone) {
+        for collection in &row.collections {
+            if let Some(set) = collection_files.get_mut(*collection as usize) {
+                set.insert(row.file_id);
+            }
+        }
+    }
+    let mut collection_files_bytes = Vec::new();
+    let header_len = 4usize + collection_files.len() * 8;
+    collection_files_bytes.extend_from_slice(&(collection_files.len() as u32).to_le_bytes());
+    collection_files_bytes.resize(header_len, 0);
+    for (number, set) in collection_files.iter().enumerate() {
+        let offset = collection_files_bytes.len() as u64;
+        collection_files_bytes[4 + number * 8..12 + number * 8]
+            .copy_from_slice(&offset.to_le_bytes());
+        set.serialize_into(&mut collection_files_bytes)
+            .map_err(|error| StorageError::corrupt(error.to_string()))?;
+    }
     Ok(CatalogueSections {
         file_rows,
         path_dictionary,
@@ -343,6 +365,7 @@ pub fn build_catalogue_with_high_water(
         statistics,
         active_files,
         directories: directory_index,
+        collection_files: collection_files_bytes,
         stats,
     })
 }
@@ -399,6 +422,8 @@ pub struct CatalogueView {
     stats: CatalogueStats,
     path_dictionary: DictionaryReader,
     directories: DictionaryReader,
+    collection_files: SectionDescriptor,
+    collection_offsets: Vec<u64>,
     active: roaring::RoaringBitmap,
 }
 
@@ -459,12 +484,30 @@ impl CatalogueView {
             directory_section.offset,
             directory_section.length,
         )?;
+        let collection_files = sections
+            .get(&SectionKind::CollectionFiles)
+            .copied()
+            .ok_or_else(|| StorageError::corrupt("catalogue collection-file index is missing"))?;
+        let count_bytes = backing.read(collection_files.offset, 4)?;
+        let count = u32::from_le_bytes(count_bytes.try_into().expect("collection count")) as usize;
+        if count > 65_536 {
+            return Err(StorageError::corrupt(
+                "catalogue collection-file index count is out of range",
+            ));
+        }
+        let offsets_bytes = backing.read(collection_files.offset + 4, (count * 8) as u64)?;
+        let collection_offsets = offsets_bytes
+            .chunks_exact(8)
+            .map(|bytes| u64::from_le_bytes(bytes.try_into().expect("collection offset")))
+            .collect::<Vec<_>>();
         Ok(Self {
             backing,
             sections,
             stats,
             path_dictionary,
             directories,
+            collection_files,
+            collection_offsets,
             active,
         })
     }
@@ -487,6 +530,26 @@ impl CatalogueView {
 
     pub fn directories(&self) -> &DictionaryReader {
         &self.directories
+    }
+
+    pub fn files_for_collection(&self, collection: usize) -> StorageResult<roaring::RoaringBitmap> {
+        let offset = self
+            .collection_offsets
+            .get(collection)
+            .copied()
+            .ok_or_else(|| StorageError::InvalidArgument("collection index out of range".into()))?;
+        let length = self
+            .collection_offsets
+            .get(collection + 1)
+            .copied()
+            .unwrap_or(self.collection_files.length)
+            .checked_sub(offset)
+            .ok_or_else(|| StorageError::corrupt("collection-file offsets are unordered"))?;
+        let bytes = self
+            .backing
+            .read(self.collection_files.offset + offset, length)?;
+        roaring::RoaringBitmap::deserialize_from(std::io::Cursor::new(bytes))
+            .map_err(|error| StorageError::corrupt(error.to_string()))
     }
 
     pub fn page_count(&self) -> u32 {

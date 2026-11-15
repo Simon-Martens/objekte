@@ -689,9 +689,10 @@ impl FileCatalogue {
         collection: Option<&str>,
         directory: Option<&str>,
     ) -> Arc<Vec<FileId>> {
-        let candidates = match directory {
-            Some(directory) => self.view.catalogue_ids_in_directory(directory, usize::MAX),
-            None => self.ids.as_ref().clone(),
+        let candidates = match (collection, directory) {
+            (Some(name), None) => self.view.catalogue_ids_for_collection(name, usize::MAX),
+            (_, Some(directory)) => self.view.catalogue_ids_in_directory(directory, usize::MAX),
+            (None, None) => self.ids.as_ref().clone(),
         };
         let Some(name) = collection else {
             return Arc::new(candidates);
