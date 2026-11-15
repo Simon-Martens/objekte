@@ -169,11 +169,11 @@ fn compact_source_parts_with_limits(
                 inference,
             )
             .map_err(IndexError::Build)?;
-        for file in compacted.files_iter_mut() {
+        compacted.files_for_each_mut(|file| {
             if let Some(current) = catalog.entry(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
-        }
+        });
         parts.push(compacted);
     }
     Ok(parts)

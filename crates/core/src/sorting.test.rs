@@ -1,7 +1,7 @@
 use super::*;
 
 fn inferred_test_column(path: &str) -> SortColumn {
-    SortColumn {
+    SortColumn::from_parts(SortColumnParts {
         path: FieldPath::parse(path).unwrap(),
         kind: LogicalType::String,
         keys: vec![SortKey::String(vec![1, 2, 3])],
@@ -10,7 +10,7 @@ fn inferred_test_column(path: &str) -> SortColumn {
         locale: "de".into(),
         options: SortOptions::default(),
         collation_version: COLLATION_VERSION.into(),
-    }
+    })
 }
 
 #[test]
@@ -306,7 +306,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         .find(|record| record.id.0.as_ref() == "h")
         .unwrap()
         .slot;
-    assert_eq!(column.keys[g.0 as usize], column.keys[h.0 as usize]);
+    assert_eq!(column.key(g).unwrap(), column.key(h).unwrap());
     query.options.count = false;
     query.options.limit = 2;
     let (first_page, first_trace) = rebuilt.explain_analyze(&query).unwrap();

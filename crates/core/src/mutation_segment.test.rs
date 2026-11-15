@@ -79,10 +79,10 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
         )
         .unwrap();
     assert_eq!(indexed.files.len(), 2);
-    assert_eq!(indexed.records.len(), 2);
-    assert_eq!(indexed.files[0].records, [RecordSlot(0)]);
-    assert_eq!(indexed.files[1].records, [RecordSlot(1)]);
-    assert_eq!(indexed.files[1].entry.diagnostics.len(), 1);
+    assert_eq!(indexed.record_count(), 2);
+    assert_eq!(indexed.file_at(0).unwrap().records, [RecordSlot(0)]);
+    assert_eq!(indexed.file_at(1).unwrap().records, [RecordSlot(1)]);
+    assert_eq!(indexed.file_at(1).unwrap().entry.diagnostics.len(), 1);
     indexed.raw.validate(2).unwrap();
     indexed.postings.validate_eligible(2, 1).unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -235,8 +235,8 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let indexed = segment
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
-    assert_eq!(indexed.records.len(), 3);
-    assert_eq!(indexed.logical_records.iter().collect::<Vec<_>>(), [0, 1]);
+    assert_eq!(indexed.record_count(), 3);
+    assert_eq!(indexed.logical_records().iter().collect::<Vec<_>>(), [0, 1]);
     assert_eq!(
         indexed
             .fallback_text
@@ -340,9 +340,9 @@ fn same_physical_file_can_enter_two_collection_segments() {
                 &pool,
             )
             .unwrap();
-        assert_eq!(indexed.records.len(), 1);
-        assert_eq!(indexed.files[0].entry.id, FileId(700));
-        assert_eq!(indexed.logical_records.iter().collect::<Vec<_>>(), [0]);
+        assert_eq!(indexed.record_count(), 1);
+        assert_eq!(indexed.file_at(0).unwrap().entry.id, FileId(700));
+        assert_eq!(indexed.logical_records().iter().collect::<Vec<_>>(), [0]);
     }
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -399,7 +399,7 @@ fn measure_single_file_segment_cost() {
             .finish()
             .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
             .unwrap();
-        assert_eq!(indexed.records.len(), 1);
+        assert_eq!(indexed.record_count(), 1);
     }
     eprintln!(
         "small-file prepare/admit/finalize: {:.1} µs/call (100 calls, debug/release as invoked)",
@@ -841,7 +841,7 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         assert_eq!(domains[part].logical, project_bitmap(&all.logical_records, &slot_map).unwrap());
         assert_eq!(domains[part].empty_array, project_bitmap(&all.empty_array_records, &slot_map).unwrap());
         let records = routing.selected[part].iter().enumerate().map(|(new, &old)| {
-            let mut record = all.records[old as usize].clone();
+            let mut record = all.record(RecordSlot(old)).unwrap().clone();
             record.slot = RecordSlot(new as u32);
             record
         }).collect::<Vec<_>>();
@@ -894,9 +894,9 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     assert_eq!(compacted.active.len(), 1);
     let compacted = compacted.index;
     assert_eq!(compacted.records.len(), 1);
-    assert_eq!(compacted.files.len(), 1);
-    assert_eq!(compacted.files[0].entry.id, FileId(200));
-    assert_eq!(compacted.id_lookup, oracle.id_lookup);
+    assert_eq!(compacted.file_count(), 1);
+    assert_eq!(compacted.file_at(0).unwrap().entry.id, FileId(200));
+    assert_eq!(compacted.id_lookup, oracle.id_lookup.clone());
     assert_eq!(compacted.logical_records, oracle.logical_records);
     assert_eq!(
         compacted.postings.fields[&vec!["n".to_owned()]].value_entries(),
@@ -1036,11 +1036,11 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
     assert!(compacted.iter().all(|part| part.index.records.is_empty()));
     let refs = compacted.iter().map(|part| &part.index).collect::<Vec<_>>();
     let combined = IndexedCollectionSegment::consolidate(&refs, 0).unwrap();
-    assert_eq!(combined.index.files.len(), 1);
-    assert_eq!(combined.index.files[0].entry.id, FileId(77));
+    assert_eq!(combined.index.file_count(), 1);
+    assert_eq!(combined.index.file_at(0).unwrap().entry.id, FileId(77));
     assert_eq!(
-        combined.index.files[0].entry.revision,
-        versions[2].files[0].entry.revision
+        combined.index.file_at(0).unwrap().entry.revision,
+        versions[2].file_at(0).unwrap().entry.revision
     );
     assert!(combined.index.records.is_empty());
     let deleted = versions[2].compact_active(&zero, 0, |_| false).unwrap();
@@ -1103,15 +1103,15 @@ fn compaction_remaps_retained_fallback_diagnostics() {
         .unwrap();
     let compacted = indexed.compact_active(&active, 2, |_| true).unwrap();
     assert_eq!(compacted.old_to_new, [None, Some(RecordSlot(0))]);
-    assert_eq!(compacted.index.records.len(), 1);
-    assert_eq!(compacted.index.records[0].diagnostic_ref, DiagnosticRef(2));
-    assert_eq!(compacted.index.files[0].entry.diagnostics.len(), 2);
-    assert_eq!(compacted.index.files[0].entry.diagnostics[0].record, None);
+    assert_eq!(compacted.index.record_count(), 1);
+    assert_eq!(compacted.index.record(RecordSlot(0)).unwrap().diagnostic_ref, DiagnosticRef(2));
+    assert_eq!(compacted.index.file_at(0).unwrap().entry.diagnostics.len(), 2);
+    assert_eq!(compacted.index.file_at(0).unwrap().entry.diagnostics[0].record, None);
     assert_eq!(
-        compacted.index.files[0].entry.diagnostics[1].record,
+        compacted.index.file_at(0).unwrap().entry.diagnostics[1].record,
         Some(RecordSlot(0))
     );
-    assert_eq!(compacted.index.files[0].entry.status, FileStatus::Broken);
+    assert_eq!(compacted.index.file_at(0).unwrap().entry.status, FileStatus::Broken);
     assert_eq!(
         compacted
             .index
@@ -1221,6 +1221,20 @@ fn sealed_shard_backing_follows_policy() {
     }
     assert_eq!(shard.raw.grams_are_shared(), expected);
     assert_eq!(shard.fallback_text.grams_are_shared(), expected);
+    assert_eq!(shard.files.is_shared(), expected);
+    assert_eq!(shard.file_index.is_shared(), expected);
+    assert_eq!(shard.records.is_shared(), expected);
+    assert_eq!(shard.id_lookup.is_shared(), expected);
+    assert_eq!(shard.identity_order.is_shared(), expected);
+    for column in shard.sorting.columns.values() {
+        assert_eq!(column.is_shared(), expected);
+    }
+    for composite in &shard.sorting.composites {
+        assert_eq!(composite.is_shared(), expected);
+    }
+    for relation in shard.relations() {
+        assert_eq!(relation.references_are_shared(), expected);
+    }
 }
 
 #[test]

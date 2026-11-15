@@ -277,11 +277,11 @@ pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
-    files: Vec<SegmentFile>,
-    file_index: HashMap<FileId, usize>,
-    records: Vec<RecordEntry>,
-    id_lookup: HashMap<RecordId, RecordSlot>,
-    identity_order: Vec<RecordSlot>,
+    files: crate::slot_store::SlotTable<SegmentFile>,
+    file_index: crate::slot_store::SharedMap<FileId, usize>,
+    records: crate::slot_store::SlotTable<RecordEntry>,
+    id_lookup: crate::slot_store::SharedMap<RecordId, RecordSlot>,
+    identity_order: crate::slot_store::SlotOrder,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
@@ -718,11 +718,11 @@ impl CollectionSegment {
             collection: self.collection,
             source_id: self.source_id,
             source_version: self.source_version,
-            files: self.files,
-            file_index: self.file_index,
-            records: self.records,
-            id_lookup: self.id_lookup,
-            identity_order,
+            files: crate::slot_store::SlotTable::from_vec(self.files),
+            file_index: crate::slot_store::SharedMap::from_hash_map(self.file_index),
+            records: crate::slot_store::SlotTable::from_vec(self.records),
+            id_lookup: crate::slot_store::SharedMap::from_hash_map(self.id_lookup),
+            identity_order: crate::slot_store::SlotOrder::from_vec(identity_order),
             postings,
             inference,
             custom_postings,
@@ -896,6 +896,20 @@ impl IndexedCollectionSegment {
         for index in self.custom_text.values_mut() {
             index.freeze_shared();
         }
+        self.files.freeze();
+        self.file_index.freeze();
+        self.records.freeze();
+        self.id_lookup.freeze();
+        self.identity_order.freeze();
+        for column in self.sorting.columns.values_mut() {
+            column.freeze();
+        }
+        for composite in &mut self.sorting.composites {
+            composite.freeze();
+        }
+        for relation in &mut self.relations {
+            relation.freeze();
+        }
     }
 
     pub(crate) fn from_base_parts(parts: BaseSegmentParts) -> Self {
@@ -903,11 +917,11 @@ impl IndexedCollectionSegment {
             collection: parts.collection,
             source_id: parts.source_id,
             source_version: parts.source_version,
-            files: parts.files,
-            file_index: parts.file_index,
-            records: parts.records,
-            id_lookup: parts.id_lookup,
-            identity_order: parts.identity_order,
+            files: crate::slot_store::SlotTable::from_vec(parts.files),
+            file_index: crate::slot_store::SharedMap::from_hash_map(parts.file_index),
+            records: crate::slot_store::SlotTable::from_vec(parts.records),
+            id_lookup: crate::slot_store::SharedMap::from_hash_map(parts.id_lookup),
+            identity_order: crate::slot_store::SlotOrder::from_vec(parts.identity_order),
             postings: parts.postings,
             inference: parts.inference,
             custom_postings: parts.custom_postings,
@@ -931,7 +945,7 @@ impl IndexedCollectionSegment {
         retained = retained.saturating_add(
             self.files.capacity() * std::mem::size_of::<SegmentFile>(),
         );
-        for file in &self.files {
+        for file in self.files.iter() {
             retained = retained
                 .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
                 .saturating_add(file.entry.relative_path.as_path().as_os_str().len())
@@ -963,7 +977,7 @@ impl IndexedCollectionSegment {
                     .capacity()
                     .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<RecordSlot>()),
             );
-        for record in &self.records {
+        for record in self.records.iter() {
             retained = retained.saturating_add(record.id.0.len());
         }
         for (path, index) in &self.postings.fields {
@@ -1038,8 +1052,8 @@ impl IndexedCollectionSegment {
         self.files.iter()
     }
 
-    pub(crate) fn files_iter_mut(&mut self) -> impl Iterator<Item = &mut SegmentFile> {
-        self.files.iter_mut()
+    pub(crate) fn files_for_each_mut(&mut self, visit: impl FnMut(&mut SegmentFile)) {
+        self.files.for_each_mut(visit);
     }
 
     pub(crate) fn has_file(&self, id: FileId) -> bool {
@@ -1062,7 +1076,7 @@ impl IndexedCollectionSegment {
         self.id_lookup.iter().map(|(id, slot)| (id, *slot))
     }
 
-    pub(crate) fn identity_order(&self) -> &[RecordSlot] {
+    pub(crate) fn identity_order(&self) -> &crate::slot_store::SlotOrder {
         &self.identity_order
     }
 
@@ -1690,11 +1704,11 @@ impl IndexedCollectionSegment {
                 collection: first.collection,
                 source_id: first.source_id.clone(),
                 source_version: first.source_version,
-                files,
-                file_index,
-                records,
-                id_lookup,
-                    identity_order,
+                files: crate::slot_store::SlotTable::from_vec(files),
+                file_index: crate::slot_store::SharedMap::from_hash_map(file_index),
+                records: crate::slot_store::SlotTable::from_vec(records),
+                id_lookup: crate::slot_store::SharedMap::from_hash_map(id_lookup),
+                identity_order: crate::slot_store::SlotOrder::from_vec(identity_order),
                 postings,
                 inference,
                 custom_postings,
@@ -2349,7 +2363,7 @@ impl IndexedCollectionSegment {
                 }));
             }
             for (source_order, descending) in [(original.ascending(), false), (original.descending(), true)] {
-                for old in source_order {
+                for old in source_order.iter() {
                     if let Some((part, slot)) = routing.locations
                         .get(old.0 as usize).ok_or("sort order slot outside source")? {
                         let column = parts[*part].columns.get_mut(path)
@@ -2369,7 +2383,7 @@ impl IndexedCollectionSegment {
             {
                 return Err("composite sort projection coverage mismatch".into());
             }
-            for old in original.order() {
+            for old in original.order().iter() {
                 if let Some((part, slot)) = routing.locations
                     .get(old.0 as usize).ok_or("composite sort slot outside source")? {
                     parts[*part].composites[number].push_order(*slot);
@@ -2778,11 +2792,11 @@ impl IndexedCollectionSegment {
             collection: self.collection,
             source_id: self.source_id.clone(),
             source_version: self.source_version,
-            files,
-            file_index,
-            records,
-            id_lookup,
-            identity_order,
+            files: crate::slot_store::SlotTable::from_vec(files),
+            file_index: crate::slot_store::SharedMap::from_hash_map(file_index),
+            records: crate::slot_store::SlotTable::from_vec(records),
+            id_lookup: crate::slot_store::SharedMap::from_hash_map(id_lookup),
+            identity_order: crate::slot_store::SlotOrder::from_vec(identity_order),
             postings,
             inference,
             custom_postings,

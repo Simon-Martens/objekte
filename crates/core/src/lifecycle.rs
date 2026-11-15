@@ -511,7 +511,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
                 }
             }
             if !overlaps {
-                for &slot in left_index.identity_order() {
+                for slot in left_index.identity_order().iter() {
                     let id = left_index.record(slot)?.id.0.as_ref();
                     if right_index.slot_for_id(id).is_some() {
                         overlaps = true;

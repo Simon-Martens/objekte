@@ -459,11 +459,11 @@ fn segment_sort_column_matches(
             column
                 .ascending()
                 .first()
-                .and_then(|slot| column.key(*slot)),
+                .and_then(|slot| column.key(slot)),
             column
                 .ascending()
                 .last()
-                .and_then(|slot| column.key(*slot)),
+                .and_then(|slot| column.key(slot)),
         )
         && std::mem::discriminant(first) == std::mem::discriminant(&literal)
         && std::mem::discriminant(last) == std::mem::discriminant(&literal)
@@ -474,20 +474,21 @@ fn segment_sort_column_matches(
             return Some(logical_active.clone());
         }
         let lower = column.ascending().partition_point(|slot| {
-            column.key(*slot).unwrap().compare(&literal, false) == std::cmp::Ordering::Less
+            column.key(slot).unwrap().compare(&literal, false) == std::cmp::Ordering::Less
         });
         let upper = column.ascending().partition_point(|slot| {
-            column.key(*slot).unwrap().compare(&literal, false) != std::cmp::Ordering::Greater
+            column.key(slot).unwrap().compare(&literal, false) != std::cmp::Ordering::Greater
         });
+        let ascending = column.ascending();
         let selected = match term.operator {
-            Operator::Gt => &column.ascending()[upper..],
-            Operator::Ge => &column.ascending()[lower..],
-            Operator::Lt => &column.ascending()[..lower],
-            Operator::Le => &column.ascending()[..upper],
+            Operator::Gt => ascending.iter_range(upper..ascending.len()).collect::<Vec<_>>(),
+            Operator::Ge => ascending.iter_range(lower..ascending.len()).collect::<Vec<_>>(),
+            Operator::Lt => ascending.iter_range(0..lower).collect::<Vec<_>>(),
+            Operator::Le => ascending.iter_range(0..upper).collect::<Vec<_>>(),
             _ => unreachable!(),
         };
         let mut matches = RoaringBitmap::new();
-        matches.extend(selected.iter().map(|slot| slot.0));
+        matches.extend(selected.into_iter().map(|slot| slot.0));
         matches &= logical_active;
         return Some(matches);
     }

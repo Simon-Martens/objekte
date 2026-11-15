@@ -337,7 +337,7 @@ fn nested_array_occurrences_retain_every_scope_position() {
             "group_mentions",
         ),
         record_count: 0,
-        references: Vec::new(),
+        references: crate::slot_store::SlotTable::new(),
         present: RoaringBitmap::new(),
         nulls: RoaringBitmap::new(),
         empty_arrays: RoaringBitmap::new(),
@@ -374,7 +374,7 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
     let mut contribution = RelationContribution {
         declaration: relation(&["target"], "entries", RelationCardinality::One, "mentions"),
         record_count: 0,
-        references: Vec::new(),
+        references: crate::slot_store::SlotTable::new(),
         present: RoaringBitmap::new(),
         nulls: RoaringBitmap::new(),
         empty_arrays: RoaringBitmap::new(),

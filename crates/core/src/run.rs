@@ -3643,7 +3643,7 @@ fn push_exact_order_cursor(
     else {
         return Ok(false);
     };
-    while let Some(slot) = order.get(position).copied() {
+    while let Some(slot) = order.get(position) {
         position += 1;
         if !selected[segment_index].0.contains(slot.0) {
             continue;
@@ -4194,7 +4194,7 @@ fn search_segmented_impl(
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
                     let mut selected = 0usize;
-                    for slot in order {
+                    for slot in order.iter() {
                         if selected == cap {
                             break;
                         }
@@ -4202,7 +4202,7 @@ fn search_segmented_impl(
                             continue;
                         }
                         let resolved =
-                            segment_record_ref(segment, &published.active, catalog, *slot)?
+                            segment_record_ref(segment, &published.active, catalog, slot)?
                                 .ok_or("active segment ordered candidate missing")?;
                         let key = segment_rank_key(
                             repo,
@@ -7353,12 +7353,12 @@ fn lifecycle_segment_order<'a>(
     sort: &ResolvedSort<'_>,
     query: &Query,
     collection_index: usize,
-) -> Option<&'a [RecordSlot]> {
+) -> Option<&'a crate::slot_store::SlotOrder> {
     if query.options.sort.len() > 1 {
         return segment
             .sorting
             .composite(&query.options.sort)
-            .map(|order| order.order().as_slice());
+            .map(|order| order.order());
     }
     if query.options.sort.is_empty() {
         return Some(segment.identity_order());
@@ -7392,7 +7392,7 @@ fn push_lifecycle_order_cursor(
     let published = &segments[collection_index][segment_index];
     let order = lifecycle_segment_order(&published.index, sort, query, collection_index)
         .ok_or("lifecycle stored order unavailable")?;
-    while let Some(slot) = order.get(position).copied() {
+    while let Some(slot) = order.get(position) {
         position += 1;
         if !published.active.contains(slot)
             || candidates[collection_index][segment_index]
@@ -9671,26 +9671,29 @@ fn try_stored_order_page(
         let columns = sort.columns[entry.collection_index]
             .as_ref()
             .expect("selected collection");
-        let order = if query.options.sort.len() > 1 {
-            &repo.collections[entry.collection_index]
+        let order: &[RecordSlot] = if query.options.sort.len() > 1 {
+            repo.collections[entry.collection_index]
                 .sorting
                 .composite(&query.options.sort)
                 .expect("composite checked")
                 .order()
+                .as_slice()
+                .ok_or("static sort order is not native")?
         } else if let Some(field) = query.options.sort.first() {
             let column = columns[0].0;
-            if field.descending {
+            let order = if field.descending {
                 column.descending()
             } else {
                 column.ascending()
-            }
+            };
+            order.as_slice().ok_or("static sort order is not native")?
         } else {
             &repo.collections[entry.collection_index].identity_order
         };
         if let Some(cursor) = stored_cursor(
             repo,
             columns,
-            order.as_slice(),
+            order,
             entry.collection_index,
             plan_index,
             0,

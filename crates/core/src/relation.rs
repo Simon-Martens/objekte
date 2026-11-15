@@ -258,7 +258,7 @@ struct PendingReference {
 pub(crate) struct RelationContribution {
     declaration: RelationDefinition,
     record_count: u32,
-    references: Vec<PendingReference>,
+    references: crate::slot_store::SlotTable<PendingReference>,
     present: RoaringBitmap,
     nulls: RoaringBitmap,
     empty_arrays: RoaringBitmap,
@@ -286,7 +286,7 @@ impl RelationContribution {
             self.references.capacity()
                 * (std::mem::size_of::<PendingReference>() + OVERHEAD),
         );
-        for reference in &self.references {
+        for reference in self.references.iter() {
             total = total
                 .saturating_add(reference.target_id.len())
                 .saturating_add(reference.positions.capacity() * std::mem::size_of::<u32>());
@@ -322,7 +322,7 @@ impl RelationContribution {
         Ok(Self {
             declaration: index.declaration.clone(),
             record_count,
-            references,
+            references: crate::slot_store::SlotTable::from_vec(references),
             present: index.present.clone(),
             nulls: index.nulls.clone(),
             empty_arrays: index.empty_arrays.clone(),
@@ -353,6 +353,15 @@ impl RelationContribution {
         })
     }
 
+    pub(crate) fn freeze(&mut self) {
+        self.references.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn references_are_shared(&self) -> bool {
+        self.references.is_shared()
+    }
+
     pub(crate) fn references_for_source(
         &self,
         source: RecordSlot,
@@ -360,8 +369,8 @@ impl RelationContribution {
         let start = self
             .references
             .partition_point(|reference| reference.source.0 < source.0);
-        self.references[start..]
-            .iter()
+        self.references
+            .iter_from(start)
             .take_while(move |reference| reference.source == source)
             .map(|reference| (reference.target_id.as_str(), reference.positions.as_slice()))
     }
@@ -421,7 +430,7 @@ impl RelationContribution {
             Ok(projected)
         };
         let mut references = Vec::new();
-        for reference in &self.references {
+        for reference in self.references.iter() {
             if let Some(source) = resolve(reference.source.0)
                 .ok_or("relation projection source out of bounds")?
             {
@@ -436,7 +445,7 @@ impl RelationContribution {
         Ok(Self {
             declaration: self.declaration.clone(),
             record_count: next_count,
-            references,
+            references: crate::slot_store::SlotTable::from_vec(references),
             present: project(&self.present)?,
             nulls: project(&self.nulls)?,
             empty_arrays: project(&self.empty_arrays)?,
@@ -456,7 +465,7 @@ impl RelationContribution {
             .map(|&record_count| Self {
                 declaration: self.declaration.clone(),
                 record_count,
-                references: Vec::new(),
+                references: crate::slot_store::SlotTable::new(),
                 present: RoaringBitmap::new(),
                 nulls: RoaringBitmap::new(),
                 empty_arrays: RoaringBitmap::new(),
@@ -475,7 +484,7 @@ impl RelationContribution {
             }
             Ok(Some((part, slot)))
         };
-        for reference in &self.references {
+        for reference in self.references.iter() {
             if let Some((part, source)) = locate(reference.source.0)? {
                 parts[part].references.push(PendingReference {
                     source,
@@ -515,7 +524,7 @@ impl RelationContribution {
             .map(|declaration| Self {
                 declaration,
                 record_count: 0,
-                references: Vec::new(),
+                references: crate::slot_store::SlotTable::new(),
                 present: RoaringBitmap::new(),
                 nulls: RoaringBitmap::new(),
                 empty_arrays: RoaringBitmap::new(),
@@ -591,7 +600,7 @@ impl RelationContribution {
         append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
         append_shifted_bitmap(&mut self.empty_arrays, &batch.empty_arrays, base)?;
         append_shifted_bitmap(&mut self.unavailable, &batch.unavailable, base)?;
-        for mut reference in batch.references {
+        for mut reference in batch.references.into_vec() {
             reference.source.0 = reference
                 .source
                 .0
@@ -624,7 +633,7 @@ impl RelationContribution {
             .ok_or("relation target collection missing")?;
         let mut offsets = Vec::with_capacity(self.record_count as usize + 1);
         let mut edges = Vec::with_capacity(self.references.len());
-        let mut references = self.references.into_iter().peekable();
+        let mut references = self.references.into_vec().into_iter().peekable();
         let mut unresolved_count = 0u64;
         offsets.push(0);
         for slot in 0..self.record_count {

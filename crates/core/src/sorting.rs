@@ -128,9 +128,9 @@ impl SortKey {
 pub struct SortColumn {
     pub path: FieldPath,
     pub kind: LogicalType,
-    keys: Vec<SortKey>,
-    ascending: Vec<RecordSlot>,
-    descending: Vec<RecordSlot>,
+    keys: crate::slot_store::SlotTable<SortKey>,
+    ascending: crate::slot_store::SlotOrder,
+    descending: crate::slot_store::SlotOrder,
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
@@ -320,31 +320,31 @@ impl SortColumn {
     }
 
     pub fn ascending_vec(&self) -> Vec<RecordSlot> {
-        self.ascending.clone()
+        self.ascending.to_vec()
     }
 
     pub fn descending_vec(&self) -> Vec<RecordSlot> {
-        self.descending.clone()
+        self.descending.to_vec()
     }
 
-    pub(crate) fn ascending(&self) -> &Vec<RecordSlot> {
+    pub(crate) fn ascending(&self) -> &crate::slot_store::SlotOrder {
         &self.ascending
     }
 
-    pub(crate) fn descending(&self) -> &Vec<RecordSlot> {
+    pub(crate) fn descending(&self) -> &crate::slot_store::SlotOrder {
         &self.descending
     }
 
     pub(crate) fn extend_keys(&mut self, keys: &[SortKey]) {
-        self.keys.extend_from_slice(keys);
+        self.keys.extend(keys.iter().cloned());
     }
 
     pub(crate) fn set_keys(&mut self, keys: Vec<SortKey>) {
-        self.keys = keys;
+        self.keys = crate::slot_store::SlotTable::from_vec(keys);
     }
 
     pub(crate) fn extend_keys_from(&mut self, source: &Self) {
-        self.keys.extend_from_slice(&source.keys);
+        self.keys.extend(source.keys.iter().cloned());
     }
 
     pub(crate) fn push_ascending(&mut self, slot: RecordSlot) {
@@ -372,21 +372,32 @@ impl SortColumn {
         ascending: Vec<RecordSlot>,
         descending: Vec<RecordSlot>,
     ) {
-        self.ascending = ascending;
-        self.descending = descending;
+        self.ascending = crate::slot_store::SlotOrder::from_vec(ascending);
+        self.descending = crate::slot_store::SlotOrder::from_vec(descending);
     }
 
     pub(crate) fn from_parts(parts: SortColumnParts) -> Self {
         Self {
             path: parts.path,
             kind: parts.kind,
-            keys: parts.keys,
-            ascending: parts.ascending,
-            descending: parts.descending,
+            keys: crate::slot_store::SlotTable::from_vec(parts.keys),
+            ascending: crate::slot_store::SlotOrder::from_vec(parts.ascending),
+            descending: crate::slot_store::SlotOrder::from_vec(parts.descending),
             locale: parts.locale,
             options: parts.options,
             collation_version: parts.collation_version,
         }
+    }
+
+    pub(crate) fn freeze(&mut self) {
+        self.keys.freeze();
+        self.ascending.freeze();
+        self.descending.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn is_shared(&self) -> bool {
+        self.keys.is_shared() && self.ascending.is_shared() && self.descending.is_shared()
     }
 
     pub(crate) fn retained_bytes(&self) -> usize {
@@ -420,7 +431,7 @@ impl SortColumn {
             )
             .saturating_add(self.locale.capacity())
             .saturating_add(self.collation_version.capacity());
-        for key in &self.keys {
+        for key in self.keys.iter() {
             bytes = bytes.saturating_add(match key {
                 SortKey::String(value) => value.capacity(),
                 SortKey::Id(value) => value.capacity(),
@@ -624,7 +635,7 @@ impl SortColumn {
         } else {
             (order, Vec::new())
         };
-        Ok(Some(Self {
+        Ok(Some(Self::from_parts(crate::sorting::SortColumnParts {
             path,
             kind: index.kind.clone(),
             keys,
@@ -633,7 +644,7 @@ impl SortColumn {
             locale: locale.to_owned(),
             options,
             collation_version: COLLATION_VERSION.into(),
-        }))
+        })))
     }
 }
 
@@ -662,20 +673,23 @@ pub struct SortCollection {
 #[derive(Clone, Debug)]
 pub struct CompositeSortOrder {
     pub fields: Vec<CompositeSortPart>,
-    order: Vec<RecordSlot>,
+    order: crate::slot_store::SlotOrder,
 }
 
 impl CompositeSortOrder {
-    pub(crate) fn order(&self) -> &Vec<RecordSlot> {
+    pub(crate) fn order(&self) -> &crate::slot_store::SlotOrder {
         &self.order
     }
 
     pub(crate) fn set_order(&mut self, order: Vec<RecordSlot>) {
-        self.order = order;
+        self.order = crate::slot_store::SlotOrder::from_vec(order);
     }
 
     pub(crate) fn from_parts(fields: Vec<CompositeSortPart>, order: Vec<RecordSlot>) -> Self {
-        Self { fields, order }
+        Self {
+            fields,
+            order: crate::slot_store::SlotOrder::from_vec(order),
+        }
     }
 
     pub(crate) fn push_order(&mut self, slot: RecordSlot) {
@@ -684,6 +698,15 @@ impl CompositeSortOrder {
 
     pub(crate) fn order_capacity(&self) -> usize {
         self.order.capacity()
+    }
+
+    pub(crate) fn freeze(&mut self) {
+        self.order.freeze();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn is_shared(&self) -> bool {
+        self.order.is_shared()
     }
 }
 
@@ -753,7 +776,7 @@ impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
         self.columns
             .into_iter()
-            .map(|(path, column)| (path, column.keys))
+            .map(|(path, column)| (path, column.keys.to_vec()))
             .collect()
     }
 
@@ -766,7 +789,7 @@ impl SortBuilder {
         if self.columns.len() != keys.len() {
             return Err("sort batch column coverage mismatch".into());
         }
-        for (path, mut values) in keys {
+        for (path, values) in keys {
             let column = self
                 .columns
                 .get_mut(&path)
@@ -774,7 +797,7 @@ impl SortBuilder {
             if column.keys.len() != base as usize || values.len() != batch_count as usize {
                 return Err("sort batch key coverage mismatch".into());
             }
-            column.keys.append(&mut values);
+            column.keys.extend(values);
         }
         Ok(())
     }
@@ -808,7 +831,7 @@ impl SortBuilder {
             if columns
                 .insert(
                     path.clone(),
-                    SortColumn {
+                    SortColumn::from_parts(SortColumnParts {
                         path: path.clone(),
                         kind: field.kind,
                         keys: Vec::new(),
@@ -817,7 +840,7 @@ impl SortBuilder {
                         locale: config.locale,
                         options: config.options,
                         collation_version: COLLATION_VERSION.into(),
-                    },
+                    }),
                 )
                 .is_some()
             {
@@ -919,16 +942,23 @@ impl SortBuilder {
         records: &[RecordEntry],
     ) -> Result<SortCollection, String> {
         for column in self.columns.values_mut() {
-            if column.keys.len() != records.len() {
+            if column.key_count() != records.len() {
                 return Err("sort column coverage mismatch".into());
             }
-            column.ascending = records.iter().map(|r| r.slot).collect();
-            column.ascending.sort_by(|a, b| {
-                column.keys[a.0 as usize]
-                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+            let mut ascending = records.iter().map(|r| r.slot).collect::<Vec<_>>();
+            ascending.sort_by(|a, b| {
+                column
+                    .key(*a)
+                    .unwrap()
+                    .compare_with(column.key(*b).unwrap(), false, column.options)
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
-            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+            let descending = descending_order(
+                &crate::slot_store::SlotOrder::from_vec(ascending.clone()),
+                &column.keys,
+                column.options,
+            );
+            column.set_orders(ascending, descending);
         }
         let composites = self
             .composites
@@ -943,7 +973,7 @@ impl SortBuilder {
                     compare_composite(&columns, *a, *b)
                         .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
                 });
-                CompositeSortOrder { fields, order }
+                CompositeSortOrder::from_parts(fields, order)
             })
             .collect();
         Ok(SortCollection {
@@ -959,8 +989,8 @@ pub(crate) fn compare_composite(
     b: RecordSlot,
 ) -> Ordering {
     for (column, descending) in columns {
-        let order = column.keys[a.0 as usize].compare_with(
-            &column.keys[b.0 as usize],
+        let order = column.key(a).unwrap().compare_with(
+            column.key(b).unwrap(),
             *descending,
             column.options,
         );
@@ -972,16 +1002,17 @@ pub(crate) fn compare_composite(
 }
 
 fn descending_order(
-    ascending: &[RecordSlot],
-    keys: &[SortKey],
+    ascending: &crate::slot_store::SlotOrder,
+    keys: &crate::slot_store::SlotTable<SortKey>,
     options: SortOptions,
 ) -> Vec<RecordSlot> {
+    let ascending = ascending.to_vec();
     let mut result = Vec::with_capacity(ascending.len());
     let mut start = 0;
     while start < ascending.len() {
-        let rank = keys[ascending[start].0 as usize].rank(options);
+        let rank = keys.get(ascending[start].0 as usize).unwrap().rank(options);
         let mut end = start + 1;
-        while end < ascending.len() && keys[ascending[end].0 as usize].rank(options) == rank {
+        while end < ascending.len() && keys.get(ascending[end].0 as usize).unwrap().rank(options) == rank {
             end += 1;
         }
         if rank == 0 {
@@ -989,8 +1020,14 @@ fn descending_order(
             while group_end > start {
                 let mut group_start = group_end - 1;
                 while group_start > start
-                    && keys[ascending[group_start - 1].0 as usize]
-                        .compare_with(&keys[ascending[group_end - 1].0 as usize], false, options)
+                    && keys
+                        .get(ascending[group_start - 1].0 as usize)
+                        .unwrap()
+                        .compare_with(
+                            keys.get(ascending[group_end - 1].0 as usize).unwrap(),
+                            false,
+                            options,
+                        )
                         .is_eq()
                 {
                     group_start -= 1;
@@ -1022,20 +1059,33 @@ impl SortCollection {
             refreshed = true;
             for record in &generation.records {
                 let status = inventory.files[record.file.0 as usize].status.code();
-                column.keys[record.slot.0 as usize] =
-                    SortKey::Number(Number::integer(status as i128));
+                column.keys.set(
+                    record.slot.0 as usize,
+                    SortKey::Number(Number::integer(status as i128)),
+                );
             }
-            column.ascending = generation.records.iter().map(|r| r.slot).collect();
-            column.ascending.sort_by(|a, b| {
-                column.keys[a.0 as usize]
-                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+            let mut ascending = generation
+                .records
+                .iter()
+                .map(|r| r.slot)
+                .collect::<Vec<_>>();
+            ascending.sort_by(|a, b| {
+                column
+                    .key(*a)
+                    .unwrap()
+                    .compare_with(column.key(*b).unwrap(), false, column.options)
                     .then_with(|| {
                         generation.records[a.0 as usize]
                             .id
                             .cmp(&generation.records[b.0 as usize].id)
                     })
             });
-            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+            let descending = descending_order(
+                &crate::slot_store::SlotOrder::from_vec(ascending.clone()),
+                &column.keys,
+                column.options,
+            );
+            column.set_orders(ascending, descending);
         }
         if refreshed {
             for composite in &mut self.composites {
@@ -1051,13 +1101,15 @@ impl SortCollection {
                     .iter()
                     .map(|field| (&self.columns[&field.path], field.descending))
                     .collect::<Vec<_>>();
-                composite.order.sort_by(|a, b| {
+                let mut order = composite.order().to_vec();
+                order.sort_by(|a, b| {
                     compare_composite(&columns, *a, *b).then_with(|| {
                         generation.records[a.0 as usize]
                             .id
                             .cmp(&generation.records[b.0 as usize].id)
                     })
                 });
+                composite.set_order(order);
             }
         }
     }
