@@ -2453,6 +2453,10 @@ source-check actions.
   owners remain mapped with empty native storage.
 - `16bf0269` — auto-index inference coverage survives packed compaction,
   source removal, and reload.
+- `81ba4ce2` — stable five-run warm/cold mmap benchmark with a discarded warmup.
+- `ccf1a035` — native headless GUI storage validation and committed evidence.
+- `63e0914a` — changed-module lint cleanup and a timing-robust incremental-open
+  test.
 
 ### Packed access abstraction
 
