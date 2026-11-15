@@ -21,6 +21,7 @@ pub mod contribution_codec;
 pub mod finalize;
 pub mod key_codec;
 pub mod keys;
+pub mod metadata;
 pub mod namespace;
 pub mod prepare;
 pub mod reference;

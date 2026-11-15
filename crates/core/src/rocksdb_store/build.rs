@@ -102,6 +102,7 @@ pub struct DirectBuildReport {
     pub counts: DirectBuildCounts,
     pub schedule: DirectBuildSchedule,
     pub profile: BuildWorkProfile,
+    pub discovery_metadata: super::metadata::MetadataWriteStats,
     pub finalization: FinalizationReport,
 }
 
@@ -622,6 +623,7 @@ pub fn build_from_source(
                 job_count,
             },
             profile: build_profile,
+            discovery_metadata: discovery.metadata,
             finalization,
         },
     })

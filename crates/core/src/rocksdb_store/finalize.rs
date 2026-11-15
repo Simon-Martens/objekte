@@ -10,6 +10,7 @@ use crate::model::{CollectionId, FieldPath, PathRoot};
 
 use super::bitmap_block::decode_block;
 use super::key_codec::Cursor;
+use super::metadata::{MetadataWriteStats, MetadataWriter};
 use super::namespace::Namespace;
 use super::value_codec::{
     BuildFileState, BuildPhase, CollectionMetadata, FieldCoverage, FieldDescriptor, FileMetadata,
@@ -17,8 +18,6 @@ use super::value_codec::{
     ValueDirectoryEntry,
 };
 use super::{RocksStore, StoreError, StoreResult, keys, value_codec};
-
-const MAX_METADATA_BATCH_BYTES: usize = 8 * 1024 * 1024;
 
 #[derive(Clone, Copy, Debug, Default, Serialize)]
 pub struct FinalizationReport {
@@ -35,6 +34,7 @@ pub struct FinalizationReport {
     pub coverage_delta_bytes: u64,
     pub admission_receipts: u64,
     pub metadata_batches: u64,
+    pub metadata: MetadataWriteStats,
 }
 
 #[derive(Default)]
@@ -499,13 +499,30 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         &delta_view,
         Namespace::FieldCoverageDeltas,
         |logical, _bytes| {
-            writer.delete(Namespace::FieldCoverageDeltas.physical(logical));
+            writer.delete(Namespace::FieldCoverageDeltas.physical(logical))?;
             Ok(())
         },
     )?;
     drop(delta_view);
     writer.flush()?;
-    let metadata_batches = writer.batches;
+    let metadata = writer.stats();
+    let metadata_batches = metadata.batches;
+    let verify_view = store.view()?;
+    let mut remaining_deltas = 0u64;
+    scan_namespace(
+        &verify_view,
+        Namespace::FieldCoverageDeltas,
+        |_logical, _bytes| {
+            remaining_deltas = remaining_deltas.saturating_add(1);
+            Ok(())
+        },
+    )?;
+    drop(verify_view);
+    if remaining_deltas != 0 {
+        return Err(StoreError::State(format!(
+            "{remaining_deltas} coverage deltas remain after bounded cleanup"
+        )));
+    }
     transition_phase(store, BuildPhase::Finalizing, BuildPhase::Complete)?;
     let metadata_write_ns = elapsed_ns(write_started);
 
@@ -526,6 +543,7 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         coverage_delta_bytes,
         admission_receipts,
         metadata_batches,
+        metadata,
     })
 }
 
@@ -572,61 +590,6 @@ fn scan_namespace(
     }
     iterator.status()?;
     Ok(())
-}
-
-struct MetadataWriter<'a> {
-    store: &'a RocksStore,
-    puts: BTreeMap<Vec<u8>, Vec<u8>>,
-    deletes: BTreeSet<Vec<u8>>,
-    bytes: usize,
-    batches: u64,
-}
-
-impl<'a> MetadataWriter<'a> {
-    fn new(store: &'a RocksStore) -> Self {
-        Self {
-            store,
-            puts: BTreeMap::new(),
-            deletes: BTreeSet::new(),
-            bytes: 0,
-            batches: 0,
-        }
-    }
-
-    fn put(&mut self, key: Vec<u8>, value: Vec<u8>) -> StoreResult<()> {
-        self.bytes = self
-            .bytes
-            .saturating_add(key.len().saturating_add(value.len()));
-        self.puts.insert(key, value);
-        if self.bytes >= MAX_METADATA_BATCH_BYTES {
-            self.flush()?;
-        }
-        Ok(())
-    }
-
-    fn delete(&mut self, key: Vec<u8>) {
-        self.bytes = self.bytes.saturating_add(key.len());
-        self.deletes.insert(key);
-    }
-
-    fn flush(&mut self) -> StoreResult<()> {
-        if self.puts.is_empty() && self.deletes.is_empty() {
-            return Ok(());
-        }
-        let transaction = self.store.transaction();
-        for key in &self.deletes {
-            transaction.delete(key)?;
-        }
-        for (key, value) in &self.puts {
-            transaction.put(key, value)?;
-        }
-        transaction.commit()?;
-        self.puts.clear();
-        self.deletes.clear();
-        self.bytes = 0;
-        self.batches += 1;
-        Ok(())
-    }
 }
 
 fn elapsed_ns(started: Instant) -> u64 {

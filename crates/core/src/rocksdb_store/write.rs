@@ -10,6 +10,7 @@ use crate::model::{CollectionId, FileId, RecordSlot};
 
 use super::bitmap_block::{BLOCK_SHIFT, decode_block, encode_block};
 use super::contribution_codec::ContributionScratch;
+use super::metadata::{MetadataWriteStats, MetadataWriter};
 use super::namespace::Namespace;
 use super::prepare::PreparedStoreBatch;
 use super::schema::RuntimeSchema;
@@ -84,9 +85,10 @@ pub(crate) fn initialise_schema(store: &RocksStore, schema: &RuntimeSchema) -> S
 }
 
 #[derive(Clone, Debug, Default)]
-pub struct DiscoveryReport {
+pub(crate) struct DiscoveryReport {
     pub files: u64,
     pub memberships: u64,
+    pub metadata: MetadataWriteStats,
 }
 
 pub(crate) fn discover(
@@ -150,56 +152,65 @@ pub(crate) fn discover(
             }
         }
     }
-    let transaction = store.transaction();
+    let view = store.view()?;
+    let mut counts = BTreeMap::<u32, CollectionMetadata>::new();
+    for collection in &schema.collections {
+        let bytes = view
+            .get(Namespace::Collections, &keys::collection(collection.id.0))?
+            .ok_or_else(|| StoreError::CorruptIndex("collection metadata missing".into()))?;
+        counts.insert(
+            collection.id.0,
+            value_codec::decode(&bytes, "collection metadata")?,
+        );
+    }
+    drop(view);
+    let mut writer = MetadataWriter::new(store);
     for (file_id, mut entry) in physical_files.values().cloned() {
         entry
             .collections
             .sort_unstable_by_key(|collection| collection.0);
-        transaction.put(
+        let mut operations = Vec::with_capacity(5 + entry.collections.len());
+        operations.push((
             physical(Namespace::Files, keys::file(file_id)),
-            value_codec::encode(&FileMetadata {
+            Some(value_codec::encode(&FileMetadata {
                 entry: entry.clone(),
                 file_version: 1,
                 fingerprint: None,
-            })?,
-        )?;
+            })?),
+        ));
         let native = crate::path_repr::native_bytes(entry.relative_path.as_path());
-        transaction.put(
+        operations.push((
             physical(Namespace::Paths, native.clone()),
-            file_id.0.to_be_bytes(),
-        )?;
+            Some(file_id.0.to_be_bytes().to_vec()),
+        ));
         let query = crate::path_repr::query_path(entry.relative_path.as_path());
-        transaction.put(
+        operations.push((
             physical(Namespace::QueryPaths, keys::query_path(&query, file_id)),
-            &[],
-        )?;
-        transaction.put(
+            Some(Vec::new()),
+        ));
+        operations.push((
             physical(Namespace::FileBuildState, keys::file(file_id)),
-            value_codec::encode(&FileBuildState {
+            Some(value_codec::encode(&FileBuildState {
                 state: BuildFileState::Pending,
                 expected_file_version: 1,
                 build_epoch: 1,
                 last_admission_revision: 0,
                 error: None,
-            })?,
-        )?;
-    }
-    let mut counts = BTreeMap::<u32, CollectionMetadata>::new();
-    for collection in &schema.collections {
-        let table_key = physical(Namespace::Collections, keys::collection(collection.id.0));
-        let bytes = transaction
-            .get(&table_key)?
-            .ok_or_else(|| StoreError::CorruptIndex("collection metadata missing".into()))?;
-        counts.insert(collection.id.0, value_codec::decode(&bytes, "collection")?);
+            })?),
+        ));
+        for collection in &entry.collections {
+            operations.push((
+                physical(
+                    Namespace::PendingFiles,
+                    keys::pending_file(collection.0, file_id),
+                ),
+                Some(Vec::new()),
+            ));
+        }
+        writer.put_group(operations)?;
     }
     for (collection, file) in &memberships {
-        transaction.put(
-            physical(
-                Namespace::PendingFiles,
-                keys::pending_file(collection.0, *file),
-            ),
-            &[],
-        )?;
+        let _ = file;
         let metadata = counts
             .get_mut(&collection.0)
             .ok_or_else(|| StoreError::CorruptIndex("collection counter missing".into()))?;
@@ -207,15 +218,16 @@ pub(crate) fn discover(
         metadata.pending_files += 1;
     }
     for metadata in counts.values() {
-        transaction.put(
+        writer.put(
             physical(Namespace::Collections, keys::collection(metadata.id.0)),
             value_codec::encode(metadata)?,
         )?;
     }
-    transaction.commit()?;
+    writer.flush()?;
     Ok(DiscoveryReport {
         files: physical_files.len() as u64,
         memberships: memberships.len() as u64,
+        metadata: writer.stats(),
     })
 }
 
