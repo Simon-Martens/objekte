@@ -474,6 +474,66 @@ impl FieldPostingsView {
             .map(|(result, _)| result)
     }
 
+    /// Descriptor-only range cardinality. This reads dictionary keys and
+    /// record-set descriptors but never posting payloads.
+    pub fn range_cardinality(&self, value: &ScalarKey, operator: Operator) -> StorageResult<u64> {
+        match operator {
+            Operator::Eq => Ok(self.value(value)?.map_or(0, |view| view.cardinality())),
+            Operator::Ne => {
+                let presence = self.presence()?.cardinality();
+                let nulls = self.nulls()?.cardinality();
+                Ok(presence
+                    .saturating_sub(nulls)
+                    .saturating_sub(self.value(value)?.map_or(0, |view| view.cardinality())))
+            }
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                let encoded = encode_scalar_key(value)?;
+                let (lower, upper) = match operator {
+                    Operator::Gt => (
+                        std::ops::Bound::Excluded(encoded),
+                        std::ops::Bound::Unbounded,
+                    ),
+                    Operator::Ge => (
+                        std::ops::Bound::Included(encoded),
+                        std::ops::Bound::Unbounded,
+                    ),
+                    Operator::Lt => (
+                        std::ops::Bound::Unbounded,
+                        std::ops::Bound::Excluded(encoded),
+                    ),
+                    Operator::Le => (
+                        std::ops::Bound::Unbounded,
+                        std::ops::Bound::Included(encoded),
+                    ),
+                    _ => unreachable!(),
+                };
+                let discriminant = std::mem::discriminant(value);
+                let descending = matches!(operator, Operator::Lt | Operator::Le);
+                let entries = if descending {
+                    self.values
+                        .range_reverse(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                } else {
+                    self.values
+                        .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                };
+                let mut total = 0u64;
+                for (key, reference) in entries {
+                    let key = super::scalar::decode_scalar_key(&key)?;
+                    if std::mem::discriminant(&key) != discriminant {
+                        break;
+                    }
+                    total = total.saturating_add(
+                        super::record_set::RecordSetRef::decode(&reference)?.cardinality,
+                    );
+                }
+                Ok(total)
+            }
+            _ => Ok(0),
+        }
+    }
+
     /// Range posting with an optional input restriction and visited-key count.
     pub fn range_restricted(
         &self,

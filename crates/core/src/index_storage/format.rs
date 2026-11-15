@@ -16,7 +16,7 @@ pub const OBJECT_MAGIC: [u8; 8] = *b"OBJXOBJ1";
 /// Eight-byte store marker magic.
 pub const STORE_MAGIC: [u8; 8] = *b"OBJEST01";
 /// Current object format version.
-pub const FORMAT_VERSION: u16 = 2;
+pub const FORMAT_VERSION: u16 = 3;
 /// Fixed object header length.
 pub const HEADER_LEN: usize = 128;
 /// Fixed section directory entry length.

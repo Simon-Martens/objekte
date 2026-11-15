@@ -273,6 +273,47 @@ impl<'a> PostingAccess<'a> {
         }
     }
 
+    fn presence_len(&self) -> StorageResult<u64> {
+        Ok(match self {
+            Self::Native(index) => index.presence.len(),
+            Self::Packed(index) => index.presence()?.cardinality(),
+        })
+    }
+
+    fn nulls_len(&self) -> StorageResult<u64> {
+        Ok(match self {
+            Self::Native(index) => index.nulls.len(),
+            Self::Packed(index) => index.nulls()?.cardinality(),
+        })
+    }
+
+    fn empty_selections_len(&self) -> StorageResult<u64> {
+        Ok(match self {
+            Self::Native(index) => index.empty_selections.len(),
+            Self::Packed(index) => index.empty_selections()?.cardinality(),
+        })
+    }
+
+    fn structural_len(&self, key: StructuralKey) -> StorageResult<u64> {
+        Ok(match self {
+            Self::Native(index) => index
+                .structural
+                .as_ref()
+                .and_then(|facts| facts.postings.get(&key))
+                .map_or(0, RoaringBitmap::len),
+            Self::Packed(index) => index
+                .structural(structural_code(key))?
+                .map_or(0, |view| view.cardinality()),
+        })
+    }
+
+    fn range_cardinality(&self, key: &ScalarKey, operator: Operator) -> StorageResult<u64> {
+        match self {
+            Self::Native(_) => Ok(self.range(key, operator)?.len()),
+            Self::Packed(index) => index.range_cardinality(key, operator),
+        }
+    }
+
     fn estimate_length(&self, term: &BoundTerm, domain_len: u64) -> StorageResult<Option<u64>> {
         if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
             return Ok(None);
@@ -280,6 +321,36 @@ impl<'a> PostingAccess<'a> {
         let crate::model::Value::Number(number) = &term.literal else {
             return Ok(None);
         };
+        if let Self::Packed(index) = self {
+            let Some(lengths) = index.lengths() else {
+                return Ok(Some(0));
+            };
+            let mut total = 0u64;
+            for entry in lengths.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded) {
+                let (key, reference) = entry?;
+                let (ScalarKey::Number(length), reference) = (
+                    super::scalar::decode_scalar_key(&key)?,
+                    super::record_set::RecordSetRef::decode(&reference)?,
+                ) else {
+                    return Err(super::error::StorageError::corrupt(
+                        "length dictionary contains a non-number key",
+                    ));
+                };
+                let matches = match term.operator {
+                    Operator::Eq => length == *number,
+                    Operator::Ne => length != *number,
+                    Operator::Gt => length > *number,
+                    Operator::Ge => length >= *number,
+                    Operator::Lt => length < *number,
+                    Operator::Le => length <= *number,
+                    _ => false,
+                };
+                if matches {
+                    total = total.saturating_add(reference.cardinality);
+                }
+            }
+            return Ok(Some(total.min(domain_len)));
+        }
         let mut total = 0u64;
         let mut keys = 0u64;
         self.for_each_length(|length, bitmap| {
@@ -351,9 +422,9 @@ impl<'a> PostingAccess<'a> {
                 return Ok(None);
             };
             let value = if term.derived == crate::reference::Derived::Null && !self.multi() {
-                self.nulls()?.len()
+                self.nulls_len()?
             } else {
-                self.structural(key)?.len()
+                self.structural_len(key)?
             };
             if truth {
                 value
@@ -458,14 +529,14 @@ impl<'a> PostingAccess<'a> {
         let output = match term.operator {
             Operator::Eq => self.value_cardinality(&key)?,
             Operator::Ne if !term.multi => {
-                let presence = self.presence()?.len();
-                let nulls = self.nulls()?.len();
+                let presence = self.presence_len()?;
+                let nulls = self.nulls_len()?;
                 presence
                     .saturating_sub(nulls)
                     .saturating_sub(self.value_cardinality(&key)?)
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                self.range(&key, term.operator)?.len()
+                self.range_cardinality(&key, term.operator)?
             }
             _ => return Ok(None),
         };
@@ -488,14 +559,14 @@ impl<'a> PostingAccess<'a> {
         let output = match operator {
             Operator::Eq => self.value_cardinality(key)?,
             Operator::Ne if !self.multi() => {
-                let presence = self.presence()?.len();
-                let nulls = self.nulls()?.len();
+                let presence = self.presence_len()?;
+                let nulls = self.nulls_len()?;
                 presence
                     .saturating_sub(nulls)
                     .saturating_sub(self.value_cardinality(key)?)
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                self.range(key, operator)?.len()
+                self.range_cardinality(key, operator)?
             }
             _ => return Ok(None),
         };
