@@ -93,6 +93,7 @@ pub struct DirectBuildSchedule {
     pub retained_target_bytes: usize,
     pub peak_ready_physical_files: usize,
     pub peak_ready_bytes: u64,
+    pub peak_reservation_estimate_bytes: u64,
     pub job_count: usize,
 }
 
@@ -114,6 +115,7 @@ pub struct BuiltStore {
 struct PreparationJob {
     index: usize,
     files: Vec<FileEntry>,
+    source_bytes: u64,
 }
 
 struct PreparedPhysical {
@@ -207,8 +209,15 @@ pub fn build_from_source(
     let max_in_flight = (prepare.saturating_mul(2).saturating_add(writers))
         .min(16)
         .max(1);
+    let peak_reservation_estimate_bytes = jobs
+        .iter()
+        .take(max_in_flight)
+        .map(|job| job.source_bytes.saturating_mul(8).max(1024 * 1024))
+        .fold(0u64, u64::saturating_add);
     let preparation_concurrency = prepare.min(max_in_flight);
-    let writer_queue_capacity = max_in_flight.saturating_sub(preparation_concurrency).max(1);
+    let queue_budget = max_in_flight.saturating_sub(preparation_concurrency);
+    let prepared_queue_capacity = queue_budget.div_ceil(2).max(1);
+    let writer_queue_capacity = queue_budget.saturating_sub(prepared_queue_capacity).max(1);
     if trace {
         eprintln!(
             "rocksdb-build: pools prepare={prepare} writers={writers} in_flight={max_in_flight}"
@@ -227,7 +236,7 @@ pub fn build_from_source(
     }
 
     let (prepared_sender, prepared_receiver) =
-        sync_channel::<StoreResult<PreparedChunk>>(preparation_concurrency.max(1));
+        sync_channel::<StoreResult<PreparedChunk>>(prepared_queue_capacity);
     let (file_sender, file_receiver) = sync_channel::<AdmissionBatch>(writer_queue_capacity);
     let root = Arc::new(root.to_path_buf());
     let shared_job_receiver = Arc::new(std::sync::Mutex::new(job_receiver));
@@ -620,6 +629,7 @@ pub fn build_from_source(
                 retained_target_bytes: options.retained_target_bytes,
                 peak_ready_physical_files: peak_ready_files,
                 peak_ready_bytes,
+                peak_reservation_estimate_bytes,
                 job_count,
             },
             profile: build_profile,
@@ -708,6 +718,7 @@ fn preparation_jobs(files: &[FileEntry]) -> Vec<PreparationJob> {
         jobs.push(PreparationJob {
             index: jobs.len(),
             files: files[start..end].to_vec(),
+            source_bytes: bytes,
         });
         start = end;
     }

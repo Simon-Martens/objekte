@@ -383,12 +383,8 @@ pub(crate) fn admit_physical_batch(
     if admission.files.is_empty() {
         return Ok(());
     }
-    let transaction = store.transaction();
-    let header_key = Namespace::StoreMetadata.physical(b"header");
-    let header_bytes = transaction
-        .get_for_update(&header_key, false)?
-        .ok_or_else(|| StoreError::Incompatible("missing prototype header".into()))?;
-    let header: value_codec::StoreHeader = value_codec::decode(&header_bytes, "store header")?;
+    let preflight = store.view()?;
+    let header = preflight.header().clone();
     if header.phase != BuildPhase::Building {
         return Err(StoreError::State(
             "admission requires Building phase".into(),
@@ -399,7 +395,7 @@ pub(crate) fn admit_physical_batch(
     let mut coverage = BTreeMap::<(CollectionId, u32), value_codec::FieldCoverage>::new();
     let expected_digest = admission_digest(admission)?;
     let receipt_key = Namespace::BuildReceipts.physical(&admission.id.to_be_bytes());
-    if let Some(existing) = transaction.get_for_update(&receipt_key, true)? {
+    if let Some(existing) = preflight.get(Namespace::BuildReceipts, &admission.id.to_be_bytes())? {
         let receipt: BuildReceipt = value_codec::decode(&existing, "build receipt")?;
         if receipt.build_identity == header.build_identity
             && receipt.build_epoch == header.build_epoch
@@ -413,13 +409,14 @@ pub(crate) fn admit_physical_batch(
             admission.id
         )));
     }
+    drop(preflight);
     let mut receipt_slot_ranges = Vec::new();
     let mut receipt_files = Vec::new();
     let mut receipt_memberships = 0u32;
     let mut receipt_records = 0u32;
+    let mut scratch = ContributionScratch::default();
     for prepared in &admission.files {
         let mut plan = MutationPlan::default();
-        let mut scratch = ContributionScratch::default();
         let mut slot_ranges = Vec::new();
         let mut records_total = 0u32;
         for mapped in &prepared.collections {
@@ -821,7 +818,7 @@ pub(crate) fn admit_physical_batch(
         );
     }
     combined.puts.insert(
-        receipt_key,
+        receipt_key.clone(),
         value_codec::encode(&BuildReceipt {
             build_identity: header.build_identity,
             build_epoch: header.build_epoch,
@@ -833,6 +830,36 @@ pub(crate) fn admit_physical_batch(
             records: receipt_records,
         })?,
     );
+
+    let transaction = store.transaction();
+    let header_key = Namespace::StoreMetadata.physical(b"header");
+    let header_bytes = transaction
+        .get_for_update(&header_key, false)?
+        .ok_or_else(|| StoreError::Incompatible("missing prototype header".into()))?;
+    let current_header: value_codec::StoreHeader =
+        value_codec::decode(&header_bytes, "store header")?;
+    if current_header.phase != BuildPhase::Building
+        || current_header.build_identity != header.build_identity
+        || current_header.build_epoch != header.build_epoch
+    {
+        return Err(StoreError::StaleHandle(
+            "build gate changed before admission".into(),
+        ));
+    }
+    if let Some(existing) = transaction.get_for_update(&receipt_key, true)? {
+        let receipt: BuildReceipt = value_codec::decode(&existing, "build receipt")?;
+        if receipt.build_identity == current_header.build_identity
+            && receipt.build_epoch == current_header.build_epoch
+            && receipt.batch_id == admission.id
+            && receipt.digest == expected_digest
+        {
+            return Ok(());
+        }
+        return Err(StoreError::State(format!(
+            "admission batch ID {} reused with different content",
+            admission.id
+        )));
+    }
 
     let mut all_keys = combined
         .values
