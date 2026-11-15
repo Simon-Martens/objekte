@@ -402,6 +402,37 @@ impl ActiveRecords {
         })
     }
 
+    /// `self` followed by `other`, with `other`'s slots shifted by
+    /// `self.slot_count()`. Unchanged chunks of `self` stay shared.
+    pub(crate) fn concat(&self, other: &Self) -> Result<Self, String> {
+        let slot_count = self
+            .slot_count
+            .checked_add(other.slot_count)
+            .ok_or("record slot overflow")?;
+        let total_chunks = (slot_count as usize).div_ceil(ACTIVE_SLOT_CHUNK as usize);
+        let mut chunks = self.chunks.iter().cloned().collect::<Vec<_>>();
+        chunks.resize_with(total_chunks, || Arc::new(RoaringBitmap::new()));
+        for (group, chunk) in other.chunks.iter().enumerate() {
+            let base = group as u32 * ACTIVE_SLOT_CHUNK;
+            for local in chunk.iter() {
+                let slot = self.slot_count + base + local;
+                let target = (slot / ACTIVE_SLOT_CHUNK) as usize;
+                let offset = slot % ACTIVE_SLOT_CHUNK;
+                Arc::make_mut(&mut chunks[target]).insert(offset);
+            }
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            slot_count,
+            live_count: self.live_count + other.live_count,
+        })
+    }
+
+    #[cfg(test)]
+    pub(crate) fn chunk_arc(&self, index: usize) -> Option<&Arc<RoaringBitmap>> {
+        self.chunks.get(index)
+    }
+
     #[cfg(test)]
     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
         let slot_count = self

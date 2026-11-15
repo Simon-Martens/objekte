@@ -558,3 +558,63 @@ fn restored_active_records_keep_sparse_domains_and_append_boundary() {
         0
     );
 }
+
+#[test]
+fn concat_matches_bitmap_concatenation() {
+    let cases = [
+        (ActiveRecords::all(0).unwrap(), ActiveRecords::all(0).unwrap()),
+        (ActiveRecords::all(3).unwrap(), ActiveRecords::all(0).unwrap()),
+        (
+            ActiveRecords::all(5)
+                .unwrap()
+                .retired(&[RecordSlot(1), RecordSlot(4)])
+                .unwrap(),
+            ActiveRecords::all(7)
+                .unwrap()
+                .retired(&[RecordSlot(0), RecordSlot(5)])
+                .unwrap(),
+        ),
+        (
+            ActiveRecords::all(70_000)
+                .unwrap()
+                .retired(&[RecordSlot(0), RecordSlot(65_535), RecordSlot(69_999)])
+                .unwrap(),
+            ActiveRecords::all(70_000)
+                .unwrap()
+                .retired(&[RecordSlot(0), RecordSlot(65_536), RecordSlot(69_999)])
+                .unwrap(),
+        ),
+    ];
+    for (left, right) in cases {
+        let combined = left.concat(&right).unwrap();
+        assert_eq!(combined.slot_count(), left.slot_count() + right.slot_count());
+        assert_eq!(combined.len(), left.len() + right.len());
+        let mut expected = left.bitmap();
+        let shifted = right
+            .bitmap()
+            .iter()
+            .map(|slot| left.slot_count() + slot)
+            .collect::<RoaringBitmap>();
+        expected |= shifted;
+        assert_eq!(combined.bitmap(), expected);
+    }
+}
+
+#[test]
+fn concat_reuses_untouched_chunks() {
+    let left = ActiveRecords::all(3 * ACTIVE_SLOT_CHUNK as usize)
+        .unwrap()
+        .retired(&[RecordSlot(ACTIVE_SLOT_CHUNK)])
+        .unwrap();
+    let right = ActiveRecords::all(4)
+        .unwrap()
+        .retired(&[RecordSlot(1)])
+        .unwrap();
+    let combined = left.concat(&right).unwrap();
+    for index in 0..2usize {
+        assert!(Arc::ptr_eq(
+            left.chunk_arc(index).unwrap(),
+            combined.chunk_arc(index).unwrap()
+        ));
+    }
+}
