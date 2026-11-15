@@ -88,24 +88,21 @@ pub(super) fn finalize(
                 },
             )
             .map_err(|error| error.to_string())?;
-            write::put_field_coverage(
-                &tx,
-                collection.id,
-                binding,
-                &FieldCoverage {
-                    kind: index.kind.clone(),
-                    multi: index.multi,
-                    values_indexed: index.values_indexed,
-                    value_complete: index.value_complete,
-                    length_complete: index.length_complete,
-                    empty_string_complete: index.empty_string_complete,
-                    covered_records: index.covered_records,
-                    inference_status: crate::index_store::value_codec::INFERENCE_STATUS_BUILT,
-                    value_cardinality: index.distinct_values() as u64,
-                    length_cardinality: index.distinct_lengths() as u64,
-                },
-            )
-            .map_err(|error| error.to_string())?;
+            let coverage = FieldCoverage {
+                kind: index.kind.clone(),
+                multi: index.multi,
+                values_indexed: index.values_indexed,
+                value_complete: index.value_complete,
+                length_complete: index.length_complete,
+                empty_string_complete: index.empty_string_complete,
+                covered_records: index.covered_records,
+                inference_status: crate::index_store::value_codec::INFERENCE_STATUS_BUILT,
+                value_cardinality: index.distinct_values() as u64,
+                length_cardinality: index.distinct_lengths() as u64,
+            };
+            write::put_field_coverage(&tx, collection.id, binding, &coverage)
+                .map_err(|error| error.to_string())?;
+            collection.coverage.insert(binding, coverage);
 
             let mut posting_batch = posting_blocks::PostingBatch::new();
             let mut state_batch = states::StateBatch::new();

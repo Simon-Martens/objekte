@@ -119,7 +119,12 @@ fn main() -> Result<(), String> {
             } else {
                 musenalm::load_definitions_with_schemas(&root)?
             };
-        let store = Arc::new(IndexStore::new(StoreConfig::default()).map_err(|error| error.to_string())?);
+        let (backend, backend_current, backend_peak) =
+            feasibility_input::CountingBackend::new();
+        let store = Arc::new(
+            IndexStore::with_backend(StoreConfig::default(), backend)
+                .map_err(|error| error.to_string())?,
+        );
         let rss_before = resident_bytes();
         let peak_before = peak_resident_bytes();
         let report = objekte_search_core::index_store::store_build::build_from_source(
@@ -183,6 +188,8 @@ fn main() -> Result<(), String> {
             "rss_after_bytes": rss_after,
             "peak_before_bytes": peak_before,
             "peak_after_bytes": peak_after,
+            "backend_len_bytes": backend_current.load(std::sync::atomic::Ordering::Relaxed),
+            "backend_peak_bytes": backend_peak.load(std::sync::atomic::Ordering::Relaxed),
             "table_rows": table_rows.0,
             "table_bytes": table_rows.1,
             "validation": validation.as_ref().map(|validation| json!({
@@ -193,6 +200,7 @@ fn main() -> Result<(), String> {
                 "length_members": validation.length_members,
                 "state_members": validation.state_members,
                 "fts_blocks": validation.fts_blocks,
+                "gram_memberships": validation.gram_memberships,
                 "sort_entries": validation.sort_entries,
                 "relation_occurrences": validation.relation_occurrences,
                 "errors": validation.errors,
@@ -277,6 +285,7 @@ fn main() -> Result<(), String> {
                     "length_members": validation.length_members,
                     "state_members": validation.state_members,
                     "fts_blocks": validation.fts_blocks,
+                    "gram_memberships": validation.gram_memberships,
                     "sort_entries": validation.sort_entries,
                     "relation_occurrences": validation.relation_occurrences,
                     "errors": validation.errors,

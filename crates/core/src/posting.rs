@@ -67,6 +67,16 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
+#[derive(Clone, Debug, Default)]
+pub(crate) struct RecordPostingFacts {
+    pub presence: bool,
+    pub empty_selection: bool,
+    pub null: bool,
+    pub values: Vec<ScalarKey>,
+    pub lengths: Vec<Number>,
+    pub structural: Vec<StructuralKey>,
+}
+
 /// Sparse facts inside the owning field posting, never synthetic field paths.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
 pub enum StructuralKey {
@@ -157,6 +167,98 @@ impl<'a> PostingValueCursor<'a> {
 }
 
 impl PostingIndex {
+    pub(crate) fn record_facts(&self, record: &Value) -> RecordPostingFacts {
+        let selected = data_values_small(record, &self.path);
+        self.record_facts_selected(selected.as_deref())
+    }
+
+    pub(crate) fn record_facts_selected(
+        &self,
+        selected: Option<&[&Value]>,
+    ) -> RecordPostingFacts {
+        let mut facts = RecordPostingFacts::default();
+        let Some(selected) = selected else {
+            return facts;
+        };
+        facts.presence = true;
+        if selected.is_empty() {
+            facts.empty_selection = true;
+            return facts;
+        }
+        if let Some(structural) = &self.structural {
+            for value in selected {
+                if value_matches(value, StatePredicate::NonEmpty) {
+                    facts.structural.push(StructuralKey::NonEmpty);
+                }
+                match value {
+                    Value::Null if self.multi => facts.structural.push(StructuralKey::AnyNull),
+                    Value::String(_) | Value::Id(_) => {
+                        facts.structural.push(StructuralKey::String)
+                    }
+                    Value::Number(_) => facts.structural.push(StructuralKey::Number),
+                    Value::Array(_) => facts.structural.push(StructuralKey::Array),
+                    Value::Object(map) => {
+                        facts.structural.push(StructuralKey::Object);
+                        if map.is_empty() {
+                            facts.structural.push(StructuralKey::EmptyObject);
+                        }
+                    }
+                    _ => {}
+                }
+            }
+            // Structural facts are sparse predicates. Their duplicate values
+            // are removed while relation occurrence order remains untouched.
+            facts.structural.sort_unstable();
+            facts.structural.dedup();
+            let _ = structural;
+        }
+        if selected.len() == 1 && matches!(selected[0], Value::Null) {
+            facts.null = true;
+            return facts;
+        }
+        if let [value] = selected
+            && !matches!(value, Value::Array(_))
+        {
+            if let Value::String(text) = value
+                && text.is_empty()
+                && self.empty_string_complete
+                && !self.value_complete
+            {
+                facts.values.push(ScalarKey::String(String::new()));
+            } else if self.value_complete
+                && let Some(key) = ScalarKey::from_value(value)
+            {
+                facts.values.push(key);
+            }
+            return facts;
+        }
+        let mut unique = HashSet::new();
+        for value in selected {
+            if let Value::Array(array) = value {
+                if self.length_complete {
+                    facts
+                        .lengths
+                        .push(Number::integer(array.values.len() as i128));
+                }
+                if self.value_complete {
+                    for item in &array.values {
+                        if let Some(key) = ScalarKey::from_value(item) {
+                            unique.insert(key);
+                        }
+                    }
+                }
+            } else if self.value_complete
+                && let Some(key) = ScalarKey::from_value(value)
+            {
+                unique.insert(key);
+            }
+        }
+        facts.values.extend(unique);
+        facts.lengths.sort();
+        facts.lengths.dedup();
+        facts
+    }
+
     /// Borrow the ordered value keys of this posting index. The native
     /// B-tree is the completed query representation; callers never decode it.
     pub(crate) fn value_range(

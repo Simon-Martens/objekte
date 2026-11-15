@@ -210,6 +210,32 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
     }
 }
 
+pub(crate) fn collect_record_gram_facts<I, S>(
+    alphabet: BigramAlphabet,
+    segments: I,
+) -> (Vec<u64>, Vec<u64>)
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<str>,
+{
+    let mut normal = Vec::new();
+    let mut skip = Vec::new();
+    for segment in segments {
+        for_each_segment_gram(segment.as_ref(), alphabet, |is_skip, key| {
+            if is_skip {
+                skip.push(key);
+            } else {
+                normal.push(key);
+            }
+        });
+    }
+    normal.sort_unstable();
+    normal.dedup();
+    skip.sort_unstable();
+    skip.dedup();
+    (normal, skip)
+}
+
 
 /// Both alphabets' necessary grams for one already prepared representation.
 /// Exact matching never reads these keys as a literal.

@@ -1,0 +1,389 @@
+{
+  "backend_len_bytes": 1140854784,
+  "backend_peak_bytes": 1140854784,
+  "mode": "build-source",
+  "peak_after_bytes": 1308602368,
+  "peak_before_bytes": 7176192,
+  "report": {
+    "admission_ns": 20396121932,
+    "admission_stats": {
+      "files": 148486,
+      "fts_blocks_changed": 2097121,
+      "posting_blocks_changed": 637247,
+      "records": 148486,
+      "relation_occurrences": 0,
+      "reverse_contributions": 148486,
+      "reverse_gram_rows": 304984,
+      "sort_entries": 566768,
+      "state_blocks_changed": 70702
+    },
+    "batches": 584,
+    "caller_elapsed_ns": 205367538834,
+    "collections": 7,
+    "discovery_ns": 2226202697,
+    "elapsed_ns": 28080306469,
+    "files": 148486,
+    "finalization_ns": 77374907,
+    "memberships": 148486,
+    "out_of_order_batches": 0,
+    "peak_active_jobs": 1,
+    "peak_ready_batches": 2,
+    "peak_weight_bytes": 34681752,
+    "receive_wait_ns": 5263557865,
+    "records": 148486,
+    "resolved_workers": 1,
+    "scheduling_job_ns": 5159193131,
+    "work_profile": {
+      "batch_finish_ns": 0,
+      "batches": 584,
+      "custom_postings_ns": 0,
+      "custom_text_ns": 0,
+      "inference_ns": 0,
+      "input_buffer_batch_end_capacity_bytes": 0,
+      "input_buffer_files_read": 0,
+      "input_buffer_growth_files": 0,
+      "input_buffer_oversized_drops": 0,
+      "input_buffer_peak_capacity_bytes": 0,
+      "postings_ns": 0,
+      "relations_ns": 0,
+      "sampled_callback_ns": 0,
+      "sampled_component_records": 0,
+      "sampled_file_bytes": 0,
+      "sampled_files": 0,
+      "sampled_read_calls": 0,
+      "sampled_source_records": 0,
+      "sorting_ns": 0,
+      "source_extraction_ns": 0,
+      "source_frame_ns": 0,
+      "source_hash_ns": 0,
+      "source_open_ns": 0,
+      "source_read_ns": 0,
+      "text_bigram_ns": 0,
+      "validation_ns": 0
+    }
+  },
+  "rss_after_bytes": 1295421440,
+  "rss_before_bytes": 7176192,
+  "table_bytes": [
+    [
+      "store_metadata",
+      109,
+      4096
+    ],
+    [
+      "collections",
+      862,
+      4096
+    ],
+    [
+      "fields",
+      42312,
+      53248
+    ],
+    [
+      "bindings",
+      82583,
+      143360
+    ],
+    [
+      "files",
+      23432452,
+      39813120
+    ],
+    [
+      "file_build_state",
+      5048524,
+      6369280
+    ],
+    [
+      "pending_files",
+      0,
+      0
+    ],
+    [
+      "paths",
+      5614132,
+      7032832
+    ],
+    [
+      "query_paths",
+      5911104,
+      7290880
+    ],
+    [
+      "records",
+      13215254,
+      14741504
+    ],
+    [
+      "logical_ids",
+      4900038,
+      6250496
+    ],
+    [
+      "file_records",
+      1781832,
+      3031040
+    ],
+    [
+      "slot_incarnations",
+      2375776,
+      3645440
+    ],
+    [
+      "free_slots",
+      0,
+      0
+    ],
+    [
+      "record_contributions",
+      184342147,
+      215842816
+    ],
+    [
+      "value_blocks",
+      22293830,
+      38281216
+    ],
+    [
+      "length_blocks",
+      307934,
+      540672
+    ],
+    [
+      "value_members",
+      0,
+      0
+    ],
+    [
+      "length_members",
+      0,
+      0
+    ],
+    [
+      "state_blocks",
+      2345969,
+      4276224
+    ],
+    [
+      "state_statistics",
+      31075,
+      65536
+    ],
+    [
+      "value_directory",
+      27753569,
+      45408256
+    ],
+    [
+      "length_directory",
+      34270,
+      69632
+    ],
+    [
+      "field_coverage",
+      16830,
+      32768
+    ],
+    [
+      "coverage_members",
+      0,
+      0
+    ],
+    [
+      "domain_members",
+      2634219,
+      7561216
+    ],
+    [
+      "sort_definitions",
+      1464,
+      4096
+    ],
+    [
+      "sort_entries",
+      49006298,
+      92372992
+    ],
+    [
+      "relation_outgoing",
+      0,
+      0
+    ],
+    [
+      "relation_incoming",
+      0,
+      0
+    ],
+    [
+      "relation_states",
+      0,
+      0
+    ],
+    [
+      "fts_blocks",
+      44153856,
+      78712832
+    ],
+    [
+      "fts_gram_statistics",
+      840741,
+      1720320
+    ],
+    [
+      "record_grams",
+      73398146,
+      80089088
+    ]
+  ],
+  "table_rows": [
+    [
+      "store_metadata",
+      1
+    ],
+    [
+      "collections",
+      7
+    ],
+    [
+      "fields",
+      418
+    ],
+    [
+      "bindings",
+      433
+    ],
+    [
+      "files",
+      148486
+    ],
+    [
+      "file_build_state",
+      148486
+    ],
+    [
+      "pending_files",
+      0
+    ],
+    [
+      "paths",
+      148486
+    ],
+    [
+      "query_paths",
+      148486
+    ],
+    [
+      "records",
+      148486
+    ],
+    [
+      "logical_ids",
+      148486
+    ],
+    [
+      "file_records",
+      148486
+    ],
+    [
+      "slot_incarnations",
+      148486
+    ],
+    [
+      "free_slots",
+      0
+    ],
+    [
+      "record_contributions",
+      148486
+    ],
+    [
+      "value_blocks",
+      413579
+    ],
+    [
+      "length_blocks",
+      1198
+    ],
+    [
+      "value_members",
+      0
+    ],
+    [
+      "length_members",
+      0
+    ],
+    [
+      "state_blocks",
+      4877
+    ],
+    [
+      "state_statistics",
+      1243
+    ],
+    [
+      "value_directory",
+      330130
+    ],
+    [
+      "length_directory",
+      641
+    ],
+    [
+      "field_coverage",
+      418
+    ],
+    [
+      "coverage_members",
+      0
+    ],
+    [
+      "domain_members",
+      292691
+    ],
+    [
+      "sort_definitions",
+      16
+    ],
+    [
+      "sort_entries",
+      566768
+    ],
+    [
+      "relation_outgoing",
+      0
+    ],
+    [
+      "relation_incoming",
+      0
+    ],
+    [
+      "relation_states",
+      0
+    ],
+    [
+      "fts_blocks",
+      169856
+    ],
+    [
+      "fts_gram_statistics",
+      25477
+    ],
+    [
+      "record_grams",
+      304984
+    ]
+  ],
+  "validation": {
+    "collections": 7,
+    "errors": [],
+    "free_slots": 0,
+    "fts_blocks": 169856,
+    "length_members": 921173,
+    "live_records": 148486,
+    "relation_occurrences": 0,
+    "sort_entries": 566768,
+    "state_members": 14004908,
+    "value_members": 3155728
+  }
+}

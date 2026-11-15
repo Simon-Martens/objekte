@@ -32,6 +32,7 @@ pub struct ValidationReport {
     pub length_members: u64,
     pub state_members: u64,
     pub fts_blocks: u64,
+    pub gram_memberships: u64,
     pub sort_entries: u64,
     pub relation_occurrences: u64,
     pub errors: Vec<String>,
@@ -638,6 +639,11 @@ fn validate_fts(
                 "collection {} binding {} gram {gram}: statistics ({cardinality}, {blocks}) != observed ({observed_cardinality}, {observed_blocks})",
                 collection.0, binding
             ));
+        } else {
+            report.gram_memberships = report
+                .gram_memberships
+                .checked_add(cardinality)
+                .ok_or_else(|| StoreError::CorruptIndex("gram membership count overflow".into()))?;
         }
     }
     Ok(())

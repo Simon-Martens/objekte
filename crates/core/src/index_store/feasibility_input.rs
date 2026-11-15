@@ -602,14 +602,14 @@ fn corpus_digest(repository: &Repository) -> [u8; 32] {
 
 
 #[derive(Debug)]
-struct CountingBackend {
+pub struct CountingBackend {
     inner: InMemoryBackend,
     current: Arc<AtomicU64>,
     peak: Arc<AtomicU64>,
 }
 
 impl CountingBackend {
-    fn new() -> (Self, Arc<AtomicU64>, Arc<AtomicU64>) {
+    pub fn new() -> (Self, Arc<AtomicU64>, Arc<AtomicU64>) {
         let current = Arc::new(AtomicU64::new(0));
         let peak = Arc::new(AtomicU64::new(0));
         (

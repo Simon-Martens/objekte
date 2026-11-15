@@ -573,6 +573,34 @@ pub fn length_directory_entry(
     value_codec::decode(row_value(&value), "length directory").map(Some)
 }
 
+pub fn length_directory_count(
+    view: &StoreView,
+    collection: CollectionId,
+    binding: BindingId,
+) -> StoreResult<u64> {
+    let table = view
+        .read()
+        .open_table(tables::LENGTH_DIRECTORY)
+        .map_err(map_table)?;
+    let prefix = keys::binding(collection.0, binding);
+    let successor = prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    let mut count = 0u64;
+    for row in table
+        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+        .map_err(map_storage)?
+    {
+        row.map_err(map_storage)?;
+        count = count
+            .checked_add(1)
+            .ok_or_else(|| StoreError::CorruptIndex("length directory count overflow".into()))?;
+    }
+    Ok(count)
+}
+
 /// Semantic state membership iterator. Backed by bounded state blocks.
 pub fn state_members(
     view: &StoreView,
