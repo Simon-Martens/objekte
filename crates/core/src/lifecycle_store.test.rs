@@ -473,3 +473,87 @@ fn pinned_views_are_unaffected_by_checkpoints() {
     assert_eq!(pinned.search(&query).unwrap().count, Some(20));
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+#[ignore = "manual real-fixture index-store measurement; run in release with --nocapture"]
+fn measure_index_store_on_real_fixture() {
+    let root = PathBuf::from(
+        std::env::var_os("OBJEKTE_INDEX_STORE_FIXTURE")
+            .expect("set OBJEKTE_INDEX_STORE_FIXTURE to a disposable Musenalm copy"),
+    );
+    let store_path = std::env::temp_dir().join(format!(
+        "objekte-store-measure-{}-{}.redb",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let configuration =
+        crate::repository_configuration::load_repository_configuration(&root).unwrap();
+    let built_started = std::time::Instant::now();
+    let (index, _) = Index::open_persistent(
+        &root,
+        configuration.definitions.clone(),
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        StoreOptions {
+            path: Some(store_path.clone()),
+            durable: true,
+        },
+    )
+    .unwrap();
+    let build_ms = built_started.elapsed().as_secs_f64() * 1_000.0;
+    let checkpoint_started = std::time::Instant::now();
+    index.checkpoint().unwrap();
+    let checkpoint_ms = checkpoint_started.elapsed().as_secs_f64() * 1_000.0;
+    let file_bytes = std::fs::metadata(&store_path).unwrap().len();
+    let paths = index
+        .view()
+        .unwrap()
+        .file_paths_for_collection("contents")
+        .take(1_000)
+        .map(std::path::Path::to_path_buf)
+        .collect::<Vec<_>>();
+    for relative in &paths {
+        let view = index.view().unwrap();
+        let handle = view.file_handle_for_path(relative).unwrap();
+        let path = root.join(relative);
+        let mut bytes = std::fs::read(&path).unwrap();
+        bytes.push(b'\n');
+        std::fs::write(&path, &bytes).unwrap();
+        let revision =
+            crate::inventory::SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap())
+                .unwrap();
+        index.update_file_from_bytes(handle, &path, &bytes, revision).unwrap();
+    }
+    let update_checkpoint_started = std::time::Instant::now();
+    let update_report = index.checkpoint().unwrap();
+    let update_checkpoint_ms = update_checkpoint_started.elapsed().as_secs_f64() * 1_000.0;
+    drop(index);
+    let load_started = std::time::Instant::now();
+    let (loaded, outcome) = Index::open_persistent(
+        &root,
+        configuration.definitions,
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        StoreOptions {
+            path: Some(store_path.clone()),
+            durable: true,
+        },
+    )
+    .unwrap();
+    let load_ms = load_started.elapsed().as_secs_f64() * 1_000.0;
+    assert_eq!(outcome, StoreOpenOutcome::Loaded);
+    eprintln!("build_and_first_checkpoint_ms={build_ms:.1}");
+    eprintln!("checkpoint_ms={checkpoint_ms:.1} store_bytes={file_bytes}");
+    eprintln!(
+        "updates={} update_checkpoint_ms={update_checkpoint_ms:.1} chunks_written={} rows_written={} main_shards_updated={}",
+        paths.len(),
+        update_report.chunks_written,
+        update_report.rows_written,
+        update_report.main_shards_updated
+    );
+    eprintln!("load_ms={load_ms:.1} loaded_records={}", count(&loaded));
+    let _ = std::fs::remove_file(store_path);
+}

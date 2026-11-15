@@ -414,8 +414,9 @@ by the revision check.
 from the supplied configuration. `start_incremental_build` exposes a
 progressively searchable catalogue while construction continues. CLI, TUI and
 desktop share the repository configuration loader and the same source-build
-entry points. There is no index load, save, cache-aware opening or
-destination-generation API.
+entry points. The explicit persistence API is `Index::open_persistent`, `Index::checkpoint`
+and `Index::has_store`; see [the index store](development/index-store.md).
+Builds and normal frontend opens remain memory only.
 
 The `Index` handle exposes versioned file add, update, move, and delete
 operations. They modify index state only; the application controls source

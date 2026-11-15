@@ -9,3 +9,5 @@ See [search-core](../search-core.md) for the current in-memory lifecycle and
 the historical specification at
 [objekte_hybrid_index_storage_implementation_plan.md](../ai/done/objekte_hybrid_index_storage_implementation_plan.md).
 The original document remains available in Git history.
+
+Index persistence uses the separate redb store described in [index-store.md](index-store.md).
