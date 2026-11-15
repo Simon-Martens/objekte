@@ -1,0 +1,70 @@
+{
+  "task": "redb-primary-index",
+  "amendment": "A4",
+  "starting_commit": "d9d76c997a28e03662c99b361d37f84cfb705896",
+  "final_implementation_commit": "a61bbe1b8c",
+  "native_baseline_commit": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "candidate_sha256": "1e73f616b38b40184677bcf34bb390e9764c56aaf06532477ae47aafac63b50d",
+  "corpus_digest": "08cc127cb75e9f0bc54714a76beb9730a708bdc5a90d825783298a215d3c5f68",
+  "configuration_digest": "eb03250be2bd299461b3eb11ee050a34b54e9b8ea6027f354ce574fa7991143a",
+  "environment": {
+    "kernel": "Linux 7.2.15-200.fc44.x86_64",
+    "logical_cpus": 32,
+    "rustc": "1.99.1",
+    "cargo": "1.99.1",
+    "profile": "release",
+    "redb_page_cache_bytes": 67108864
+  },
+  "semantic_correctness": {
+    "status": "pass",
+    "validation_errors": 0,
+    "live_records": 148486,
+    "value_members": 2814411,
+    "length_members": 921173,
+    "state_members": 14004908,
+    "gram_memberships": 56275908,
+    "sort_entries": 566768,
+    "relation_occurrences": 0
+  },
+  "construction": {
+    "status": "fail",
+    "native_build_ns": 991173803,
+    "candidate_auto_build_ns_median": 26478415348,
+    "ratio_to_native": 26.714,
+    "allowed_ratio": 1.15,
+    "candidate_one_worker_build_ns": 25985421308
+  },
+  "post_build_rss": {
+    "status": "fail",
+    "candidate_median_bytes": 1287385088,
+    "allowed_bytes": 669508403
+  },
+  "peak_construction_rss": {
+    "status": "fail",
+    "candidate_median_bytes": 1299578880,
+    "allowed_bytes": 781189120
+  },
+  "memory_only": {
+    "status": "pass",
+    "database_file_created": false
+  },
+  "backend": {
+    "length_bytes": 1140854784,
+    "reachable_application_pages_bytes": 608202752,
+    "publication_transactions": 584
+  },
+  "full_seven_pair_campaign": {
+    "status": "not_run",
+    "reason": "The hard construction and memory failures were stable across three automatic-worker runs and one single-worker run; A4 requires an architecture decision rather than further optimization."
+  },
+  "phase7": {
+    "status": "not_started",
+    "reason": "Phase 6 remains failed under the unchanged acceptance gates."
+  },
+  "evidence": {
+    "report": "docs/ai/generated/redb-primary-index/construction-a4-report.md",
+    "final_runs": "bench/results/redb-primary-index/construction-a4/phase6-final/ascii/",
+    "full_validation": "bench/results/redb-primary-index/construction-a4/phase6-final/ascii-validation/full-validation-current.json",
+    "native_manifest": "bench/results/redb-primary-index/construction-a4/phase6-final/native-input-manifest.json"
+  }
+}
