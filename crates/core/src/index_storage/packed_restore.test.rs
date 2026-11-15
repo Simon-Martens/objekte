@@ -312,6 +312,7 @@ fn packed_restore_serves_posting_values_without_native_dictionaries() {
     assert!(segment.index.raw.normal.is_empty());
     assert!(segment.index.records.as_slice().is_none());
     assert_eq!(segment.index.records.materialized_rows(), 0);
+    assert!(segment.index.records.try_get(usize::MAX).unwrap().is_none());
     assert!(segment.index.id_lookup.native().is_none());
     assert_eq!(
         segment.index.records.len(),
@@ -516,6 +517,7 @@ fn loaded_packed_compaction_preserves_typed_fts_sort_and_relations() {
     assert!(segment.packed.is_some());
     assert!(segment.index.records.as_slice().is_none());
     assert_eq!(segment.index.records.materialized_rows(), 0);
+    assert!(segment.index.records.try_get(usize::MAX).unwrap().is_none());
     assert!(segment.index.id_lookup.native().is_none());
     drop(view);
     for request in &requests {

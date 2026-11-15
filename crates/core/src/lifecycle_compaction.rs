@@ -297,7 +297,7 @@ fn compact_published_with_budget(
                             .map_err(IndexError::ResourceLimit)?;
                         compacted.push(Arc::new(PublishedSegment {
                             ordinal,
-                            level: 0,
+                            level: segment.level.saturating_add(1),
                             index: Arc::new(index),
                             active,
                             packed: Some(Arc::clone(&packed)),
@@ -322,7 +322,7 @@ fn compact_published_with_budget(
                         .map_err(IndexError::ResourceLimit)?;
                     compacted.push(Arc::new(PublishedSegment {
                         ordinal,
-                        level: 0,
+                        level: segment.level.saturating_add(1),
                         index: Arc::new(part),
                         active,
                         packed: None,
@@ -363,7 +363,8 @@ fn compact_published_with_budget(
         }
         let mut compacted = Vec::new();
         let mut compact_source = |source: &IndexedCollectionSegment,
-                                  active: &ActiveRecords|
+                                  active: &ActiveRecords,
+                                  source_level: u32|
          -> Result<Vec<Arc<PublishedSegment>>, IndexError> {
             if cancelled() {
                 return Err(IndexError::Cancelled);
@@ -395,7 +396,7 @@ fn compact_published_with_budget(
                         .map_err(IndexError::ResourceLimit)?;
                     replacements.push(Arc::new(PublishedSegment {
                         ordinal,
-                        level: 0,
+                        level: source_level.saturating_add(1),
                         index: Arc::new(index),
                         active,
                         packed: Some(Arc::clone(&packed)),
@@ -415,7 +416,7 @@ fn compact_published_with_budget(
                     ActiveRecords::all(part.record_count()).map_err(IndexError::ResourceLimit)?;
                 replacements.push(Arc::new(PublishedSegment {
                     ordinal,
-                    level: 0,
+                    level: source_level.saturating_add(1),
                     index: Arc::new(part),
                     active,
                     packed: None,
@@ -425,13 +426,17 @@ fn compact_published_with_budget(
         };
         if !collection.generation.records.is_empty() {
             let base = base_as_segment(collection, old.repository.files())?;
-            compacted.extend(compact_source(&base, &old.active[number])?);
+            compacted.extend(compact_source(&base, &old.active[number], 0)?);
         }
         for segment in old.segments[number].iter() {
             if segment.active.len() == segment.index.record_count() as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
-                compacted.extend(compact_source(&segment.index, &segment.active)?);
+                compacted.extend(compact_source(
+                    &segment.index,
+                    &segment.active,
+                    segment.level,
+                )?);
             }
         }
         drop(compact_source);

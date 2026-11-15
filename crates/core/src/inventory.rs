@@ -1194,12 +1194,23 @@ impl RecordStore {
         self.len() == 0
     }
 
-    pub fn get(&self, index: usize) -> Option<&RecordEntry> {
+    pub fn try_get(&self, index: usize) -> Result<Option<&RecordEntry>, String> {
         if let Some(packed) = &self.packed {
-            let cell = packed.cells.get(index)?;
-            return Some(cell.get_or_init(|| packed_record(packed, index)));
+            let Some(cell) = packed.cells.get(index) else {
+                return Ok(None);
+            };
+            if let Some(record) = cell.get() {
+                return Ok(Some(record));
+            }
+            let record = packed_record(packed, index)?;
+            let _ = cell.set(record);
+            return Ok(cell.get());
         }
-        self.native.get(index)
+        Ok(self.native.get(index))
+    }
+
+    pub fn get(&self, index: usize) -> Option<&RecordEntry> {
+        self.try_get(index).ok().flatten()
     }
 
     pub fn first(&self) -> Option<&RecordEntry> {
@@ -1241,26 +1252,26 @@ impl RecordStore {
 }
 
 
-fn packed_record(packed: &PackedRecordStore, slot: usize) -> RecordEntry {
-    let slot_u32 = u32::try_from(slot).expect("record slot fits u32");
+fn packed_record(packed: &PackedRecordStore, slot: usize) -> Result<RecordEntry, String> {
+    let slot_u32 = u32::try_from(slot).map_err(|_| "record slot does not fit u32".to_string())?;
     let row = packed
         .segment
         .records()
         .record(slot_u32)
-        .expect("packed record row is valid")
-        .expect("packed record slot exists");
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| "packed record slot is out of bounds".to_string())?;
     let part = packed
         .segment
         .records()
         .file_part(row.part_ordinal)
-        .expect("packed file part is valid")
-        .expect("packed file part exists");
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| "packed file part is out of bounds".to_string())?;
     let file_id = FileId(part.file_id);
     let file = packed
         .files
         .get(file_id.0 as usize)
-        .expect("packed record file exists");
-    RecordEntry {
+        .ok_or_else(|| "packed record file metadata is missing".to_string())?;
+    Ok(RecordEntry {
         slot: RecordSlot(slot_u32),
         id: RecordId(row.logical_id.into()),
         file: file_id,
@@ -1272,10 +1283,10 @@ fn packed_record(packed: &PackedRecordStore, slot: usize) -> RecordEntry {
         class: match row.record_class {
             0 => RecordClass::Logical,
             1 => RecordClass::RawFallback,
-            _ => panic!("invalid packed record class"),
+            _ => return Err("packed record class is invalid".into()),
         },
         diagnostic_ref: DiagnosticRef(row.diagnostic_ref),
-    }
+    })
 }
 
 
