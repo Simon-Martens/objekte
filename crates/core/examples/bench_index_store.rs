@@ -19,7 +19,7 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::sync::Arc;
 
-use redb::ReadableTableMetadata;
+use redb::{ReadableTable, ReadableTableMetadata};
 use std::time::Instant;
 
 use objekte_search_core::index_store::construction::discover_file;
@@ -50,6 +50,7 @@ fn main() -> Result<(), String> {
     let mut prepare_input = None;
     let mut input = None;
     let mut validate = false;
+    let mut mutations = false;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -89,6 +90,7 @@ fn main() -> Result<(), String> {
                 ));
             }
             "--validate" => validate = true,
+            "--mutations" => mutations = true,
             other => return Err(format!("unknown argument {other}")),
         }
     }
@@ -165,6 +167,11 @@ fn main() -> Result<(), String> {
     let table_rows = table_statistics(&store)?;
     let read_measurements = measure_reads(&store)?;
     let churn = measure_churn(&store)?;
+    let single_record = if mutations {
+        Some(measure_single_record_mutations(&store)?)
+    } else {
+        None
+    };
     let output = json!({
         "mode": "import",
         "input_path": input_path,
@@ -190,6 +197,7 @@ fn main() -> Result<(), String> {
         "table_bytes": table_rows.1,
         "read_measurements": read_measurements,
         "churn": churn,
+        "single_record_mutations": single_record,
     });
     println!("{}", serde_json::to_string_pretty(&output).map_err(|error| error.to_string())?);
     if let Some(directory) = result_dir {
@@ -311,6 +319,78 @@ fn measure_reads(store: &Arc<IndexStore>) -> Result<serde_json::Value, String> {
         );
     }
     let record_lookup_ns = started.elapsed().as_nanos();
+
+    let state_slot = read::state_members(&view, collection.id, binding.id, StateKind::PathPresence)
+        .map_err(|error| error.to_string())?
+        .first()
+        .copied();
+    let started = Instant::now();
+    let mut point_hits = 0usize;
+    for _ in 0..1_000 {
+        if let Some(slot) = state_slot {
+            point_hits += usize::from(
+                read::state_contains(
+                    &view,
+                    collection.id,
+                    binding.id,
+                    StateKind::PathPresence,
+                    slot,
+                )
+                .map_err(|error| error.to_string())?,
+            );
+        }
+    }
+    let point_membership_ns = started.elapsed().as_nanos();
+
+    let mut length = None;
+    {
+        let table = view
+            .read()
+            .open_table(tables::LENGTH_DIRECTORY)
+            .map_err(|error| error.to_string())?;
+        for row in table.iter().map_err(|error| error.to_string())? {
+            let (key, _) = row.map_err(|error| error.to_string())?;
+            let mut cursor = objekte_search_core::index_store::key_codec::Cursor::new(key.value());
+            let _collection = cursor.read_u32().map_err(|error| error.to_string())?;
+            let _binding = cursor.read_u32().map_err(|error| error.to_string())?;
+            let scalar = cursor.read_scalar().map_err(|error| error.to_string())?;
+            length = Some(scalar);
+            break;
+        }
+    }
+    let started = Instant::now();
+    let mut length_rows = 0usize;
+    if let Some(length) = &length {
+        for _ in 0..100 {
+            length_rows += read::length_members(&view, collection.id, binding.id, length)
+                .map_err(|error| error.to_string())?
+                .len();
+        }
+    }
+    let length_lookup_ns = started.elapsed().as_nanos();
+
+    let restriction = read::value_members(&view, collection.id, binding.id, &scalar)
+        .map_err(|error| error.to_string())?;
+    let restriction = restriction
+        .iter()
+        .map(|slot| slot.0)
+        .collect::<roaring::RoaringBitmap>();
+    let started = Instant::now();
+    let mut restricted = 0usize;
+    for _ in 0..20 {
+        restricted += fts::candidates(
+            &view,
+            collection.id,
+            gram_binding,
+            kind,
+            &[key],
+            Some(&restriction),
+        )
+        .map_err(|error| error.to_string())?
+        .map_or(0, |bitmap| bitmap.len() as usize);
+    }
+    let restricted_candidates_ns = started.elapsed().as_nanos();
+
     Ok(json!({
         "collection": collection.name,
         "binding": binding.id,
@@ -327,7 +407,180 @@ fn measure_reads(store: &Arc<IndexStore>) -> Result<serde_json::Value, String> {
         "fts_candidates": candidates,
         "record_lookup_100_ns": record_lookup_ns,
         "record_rows": record_rows,
+        "point_membership_1000_ns": point_membership_ns,
+        "point_membership_hits": point_hits,
+        "length_lookup_100_ns": length_lookup_ns,
+        "length_lookup_rows": length_rows,
+        "restricted_candidates_20_ns": restricted_candidates_ns,
+        "restricted_candidates": restricted,
     }))
+}
+
+fn measure_single_record_mutations(
+    store: &Arc<IndexStore>,
+) -> Result<serde_json::Value, String> {
+    let metadata = store.metadata().map_err(|error| error.to_string())?;
+    let collection_id = CollectionId(20_000);
+    let tx = store.begin_write().map_err(|error| error.to_string())?;
+    write::put_collection(
+        &tx,
+        &CollectionMetadata {
+            id: collection_id,
+            name: "single-record-mutations".into(),
+            generation: 1,
+            source_fingerprint: [0; 32],
+            slot_high_water: 0,
+            live_records: 0,
+            discovered_files: 0,
+            pending_files: 0,
+            indexed_files: 0,
+            unavailable_files: 0,
+            processed_files: 0,
+            next_binding_id: 1,
+        },
+    )
+    .map_err(|error| error.to_string())?;
+    tx.commit().map_err(|error| error.to_string())?;
+    let epoch = store.view().map_err(|error| error.to_string())?.build_epoch();
+    let mut files = Vec::new();
+    for index in 0..1_000u32 {
+        let file = single_file(index);
+        let mut collection = read::collection(
+            &store.view().map_err(|error| error.to_string())?,
+            collection_id,
+        )
+        .map_err(|error| error.to_string())?;
+        let tx = store.begin_write().map_err(|error| error.to_string())?;
+        discover_file(&tx, &mut collection, &file, 1, epoch, metadata.revision)
+            .map_err(|error| error.to_string())?;
+        write::put_collection(&tx, &collection).map_err(|error| error.to_string())?;
+        tx.commit().map_err(|error| error.to_string())?;
+        admit_file(
+            store,
+            collection_id,
+            &PreparedFile {
+                file: file.clone(),
+                file_version: 1,
+                fingerprint: None,
+                records: vec![single_contribution(index, 0)],
+            },
+            epoch,
+        )
+        .map_err(|error| error.to_string())?;
+        files.push(file);
+    }
+    let mut update = Vec::with_capacity(1_000);
+    for (index, file) in files.iter().enumerate() {
+        let mut replacement = file.clone();
+        replacement.revision.modified_ns += 1;
+        let started = Instant::now();
+        objekte_search_core::index_store::mutations::update_file(
+            store,
+            collection_id,
+            &PreparedFile {
+                file: replacement,
+                file_version: 2,
+                fingerprint: None,
+                records: vec![single_contribution(index as u32, 1)],
+            },
+            1,
+            epoch,
+        )
+        .map_err(|error| error.to_string())?;
+        update.push(started.elapsed().as_nanos());
+    }
+    let mut delete = Vec::with_capacity(1_000);
+    for (index, file) in files.iter().enumerate() {
+        let started = Instant::now();
+        delete_file(store, file.id).map_err(|error| error.to_string())?;
+        let mut collection = read::collection(
+            &store.view().map_err(|error| error.to_string())?,
+            collection_id,
+        )
+        .map_err(|error| error.to_string())?;
+        let tx = store.begin_write().map_err(|error| error.to_string())?;
+        discover_file(&tx, &mut collection, file, 2, epoch, metadata.revision)
+            .map_err(|error| error.to_string())?;
+        write::put_collection(&tx, &collection).map_err(|error| error.to_string())?;
+        tx.commit().map_err(|error| error.to_string())?;
+        admit_file(
+            store,
+            collection_id,
+            &PreparedFile {
+                file: file.clone(),
+                file_version: 2,
+                fingerprint: None,
+                records: vec![single_contribution(index as u32, 2)],
+            },
+            epoch,
+        )
+        .map_err(|error| error.to_string())?;
+        delete.push(started.elapsed().as_nanos());
+    }
+    fn percentile(values: &[u128], percentile: f64) -> u128 {
+        let mut sorted = values.to_vec();
+        sorted.sort_unstable();
+        let index = ((sorted.len() as f64 - 1.0) * percentile).round() as usize;
+        sorted[index]
+    }
+    Ok(json!({
+        "files": 1_000,
+        "update_p50_ns": percentile(&update, 0.50),
+        "update_p95_ns": percentile(&update, 0.95),
+        "update_p99_ns": percentile(&update, 0.99),
+        "delete_reinsert_p50_ns": percentile(&delete, 0.50),
+        "delete_reinsert_p95_ns": percentile(&delete, 0.95),
+        "delete_reinsert_p99_ns": percentile(&delete, 0.99),
+    }))
+}
+
+fn single_file(index: u32) -> FileEntry {
+    FileEntry {
+        id: FileId(20_000 + index),
+        relative_path: std::path::PathBuf::from(format!("m{index}.jsonl")).into(),
+        revision: SourceRevision {
+            modified_ns: 1,
+            size: 100,
+        },
+        created_ns: None,
+        collections: vec![CollectionId(20_000)],
+        status: FileStatus::Valid,
+        diagnostics: Vec::new(),
+        omitted_diagnostics: 0,
+    }
+}
+
+fn single_contribution(index: u32, round: usize) -> StoredContributions {
+    let entry = RecordEntry {
+        slot: RecordSlot(0),
+        id: RecordId(format!("m{index}").into()),
+        file: FileId(20_000 + index),
+        range: ByteRange { start: 0, end: 8 },
+        revision: SourceRevision {
+            modified_ns: 1,
+            size: 100,
+        },
+        class: RecordClass::Logical,
+        diagnostic_ref: DiagnosticRef(0),
+    };
+    StoredContributions {
+        record: RecordMetadata::from_entry(&entry, 1),
+        values: vec![(0, ScalarKey::String(format!("value-{round}-{index}")))],
+        lengths: vec![(0, objekte_search_core::model::Number::Integer(8))],
+        state_masks: vec![(
+            0,
+            (1 << StateKind::PathPresence.tag()) | (1 << StateKind::NonEmpty.tag()),
+        )],
+        coverage: Vec::new(),
+        domains: Vec::new(),
+        sorts: Vec::new(),
+        relations: Vec::new(),
+        grams: vec![GramProjection {
+            binding: 0,
+            kind: GramKind::Normal,
+            grams: vec![u64::from(index) + u64::from(round as u32)],
+        }],
+    }
 }
 
 fn measure_churn(store: &Arc<IndexStore>) -> Result<serde_json::Value, String> {
