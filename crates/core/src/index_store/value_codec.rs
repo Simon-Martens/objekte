@@ -317,7 +317,7 @@ impl CoverageKind {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd, Serialize, serde::Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, serde::Deserialize)]
 pub enum GramKind {
     Normal,
     Skip,

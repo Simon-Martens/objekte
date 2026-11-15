@@ -51,6 +51,7 @@ fn main() -> Result<(), String> {
     let mut input = None;
     let mut validate = false;
     let mut mutations = false;
+    let mut build_source = false;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -91,8 +92,56 @@ fn main() -> Result<(), String> {
             }
             "--validate" => validate = true,
             "--mutations" => mutations = true,
+            "--build-source" => build_source = true,
             other => return Err(format!("unknown argument {other}")),
         }
+    }
+    if build_source {
+        let (definitions, _schemas): (Vec<CollectionDefinition>, Vec<musenalm::LoadedSchema>) =
+            if extended {
+                musenalm::load_extended_definitions_with_schemas(&root)?
+            } else {
+                musenalm::load_definitions_with_schemas(&root)?
+            };
+        let store = Arc::new(IndexStore::new(StoreConfig::default()).map_err(|error| error.to_string())?);
+        let rss_before = resident_bytes();
+        let peak_before = peak_resident_bytes();
+        let report = objekte_search_core::index_store::store_build::build_from_source(
+            &store,
+            &root,
+            &definitions,
+            &objekte_search_core::index_store::store_build::SourceBuildOptions {
+                build_workers,
+                alphabet,
+                inference: objekte_search_core::inference::InferenceConfig::default(),
+            },
+            &objekte_search_core::source::SourceRegistry::builtin(),
+        )?;
+        let rss_after = resident_bytes();
+        let peak_after = peak_resident_bytes();
+        let table_rows = table_statistics(&store)?;
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&json!({
+                "mode": "build-source",
+                "report": {
+                    "collections": report.discovery.collections,
+                    "files": report.discovery.files,
+                    "memberships": report.discovery.memberships,
+                    "records": report.records,
+                    "batches": report.batches,
+                    "elapsed_ns": report.elapsed_ns,
+                },
+                "rss_before_bytes": rss_before,
+                "rss_after_bytes": rss_after,
+                "peak_before_bytes": peak_before,
+                "peak_after_bytes": peak_after,
+                "table_rows": table_rows.0,
+                "table_bytes": table_rows.1,
+            }))
+            .map_err(|error| error.to_string())?
+        );
+        return Ok(());
     }
     if let Some(path) = prepare_input {
         let (definitions, _schemas): (Vec<CollectionDefinition>, Vec<musenalm::LoadedSchema>) =
