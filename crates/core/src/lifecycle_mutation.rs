@@ -494,7 +494,7 @@ impl Index {
             {
                 return Err(IndexError::DestinationExists);
             }
-            if !path_independent_memberships(&view, old, &relative)? {
+            if !path_independent_memberships(&view, old.as_ref(), &relative)? {
                 return Ok(None);
             }
             let Some(fingerprint) = view.file_fingerprint(handle.file_id) else {
@@ -509,7 +509,7 @@ impl Index {
                 return Ok(None);
             }
             let mut next = (*view.0).clone();
-            let mut relocated = old.clone();
+            let mut relocated = old.as_ref().clone();
             relocated.relative_path = relative.into();
             next.catalog = next
                 .catalog

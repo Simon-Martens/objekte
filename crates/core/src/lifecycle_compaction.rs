@@ -77,14 +77,13 @@ pub(crate) fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
             .entry(id)
             .or_else(|| root.catalog.inactive_entry(id))
         {
-            *file = entry.clone();
+            *file = entry.as_ref().clone();
         }
     }
     files
 }
 
 pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), IndexError> {
-    let files = Arc::new(current_file_entries(next));
     let definitions = next
         .repository
         .collections()
@@ -121,7 +120,7 @@ pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), Inde
             let index = crate::index_storage::packed_restore::segment_from_packed(
                 &frozen,
                 number,
-                &files,
+                &next.catalog,
                 &definitions,
             )?;
             let active = ActiveRecords::from_bitmap(index.record_count(), active)
@@ -282,7 +281,6 @@ fn compact_published_with_budget(
         let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
-        let current_files = Arc::new(current_file_entries(old));
         let definitions = old
             .repository
             .collections()
@@ -292,12 +290,6 @@ fn compact_published_with_budget(
         'collections: for (number, group) in old.segments.iter().enumerate() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
-            }
-            if group
-                .iter()
-                .all(|segment| segment.active.len() == segment.index.record_count() as u64)
-            {
-                continue;
             }
             let mut compacted = Vec::with_capacity(group.len());
             for (position, segment) in group.iter().enumerate() {
@@ -328,16 +320,13 @@ fn compact_published_with_budget(
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
                 if let Some(frozen) = segment.index.packed.as_ref() {
-                    let parts = crate::index_storage::stream_compact::compact_packed_parts(
-                        frozen,
-                        &segment.active.bitmap(),
+                    if let Some(packed) = crate::index_storage::stream_compact::compact_packed_merge(
+                        &[frozen],
+                        &[segment.active.bitmap()],
                         number as u32,
                     )
-                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
-                    for packed in parts {
-                        if cancelled() {
-                            return Err(IndexError::Cancelled);
-                        }
+                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+                    {
                         let packed = Arc::new(packed);
                         let ordinal = next.next_segment_ordinal;
                         next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
@@ -346,7 +335,7 @@ fn compact_published_with_budget(
                         let index = crate::index_storage::packed_restore::segment_from_packed(
                             &packed,
                             number,
-                            &current_files,
+                            &next.catalog,
                             &definitions,
                         )?;
                         let active = ActiveRecords::all(index.record_count())
@@ -385,6 +374,16 @@ fn compact_published_with_budget(
                     }));
                 }
             }
+            consolidate_same_level_runs(
+                &mut compacted,
+                number,
+                &next.catalog,
+                &definitions,
+                &mut next.next_segment_ordinal,
+                &cancelled,
+                &budget,
+                &mut work,
+            )?;
             next.segments[number] = Arc::new(compacted);
         }
         return Ok((next, work));
@@ -406,7 +405,6 @@ fn compact_published_with_budget(
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.last_size_maintenance_revision = old.last_size_maintenance_revision;
     next.reconciliation = old.reconciliation;
-    let current_files = Arc::new(current_file_entries(old));
     let definitions = old
         .repository
         .collections()
@@ -445,7 +443,7 @@ fn compact_published_with_budget(
                     let index = crate::index_storage::packed_restore::segment_from_packed(
                         &packed,
                         number,
-                        &current_files,
+                        &next.catalog,
                         &definitions,
                     )?;
                     let active = ActiveRecords::all(index.record_count())
@@ -533,7 +531,16 @@ impl Index {
                     .flat_map(|group| group.iter())
                     .map(|segment| segment.active.len())
                     .sum::<u64>();
-            if before == live {
+            let mergeable = old.segments.iter().any(|group| {
+                let mut levels = std::collections::BTreeMap::<u32, usize>::new();
+                for run in group.iter() {
+                    if run.packed.is_some() {
+                        *levels.entry(run.level).or_default() += 1;
+                    }
+                }
+                levels.values().any(|count| *count >= 4)
+            });
+            if before == live && !mergeable {
                 return Ok(CompactionReport {
                     revision: view.revision(),
                     attempts: attempt,
@@ -588,3 +595,113 @@ impl Index {
 #[cfg(test)]
 #[path = "lifecycle_compaction.test.rs"]
 mod tests;
+
+/// Merge four oldest runs at the same persisted level and promote the output.
+/// Fully active runs participate, so fan-out is bounded even without tombstones.
+fn consolidate_same_level_runs(
+    runs: &mut Vec<Arc<PublishedSegment>>,
+    collection: usize,
+    catalog: &FileCatalog,
+    definitions: &[crate::repository::CollectionDefinition],
+    next_ordinal: &mut u64,
+    cancelled: &impl Fn() -> bool,
+    budget: &CompactionBudget,
+    work: &mut CompactionWork,
+) -> Result<(), IndexError> {
+    loop {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        let mut levels = runs
+            .iter()
+            .filter_map(|run| run.packed.is_some().then_some(run.level))
+            .collect::<std::collections::BTreeSet<_>>()
+            .into_iter()
+            .filter_map(|level| {
+                let positions = runs
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, run)| run.level == level && run.packed.is_some())
+                    .map(|(position, _)| position)
+                    .collect::<Vec<_>>();
+                (positions.len() >= 4).then_some((level, positions))
+            })
+            .collect::<Vec<_>>();
+        levels.sort_by_key(|(level, _)| *level);
+        let Some((level, positions)) = levels.into_iter().next() else {
+            break;
+        };
+        let mut selected = positions
+            .iter()
+            .copied()
+            .map(|position| (position, runs[position].ordinal))
+            .collect::<Vec<_>>();
+        selected.sort_by_key(|(_, ordinal)| *ordinal);
+        selected.truncate(4);
+        let records = selected
+            .iter()
+            .map(|(position, _)| runs[*position].index.record_count() as u64)
+            .sum::<u64>();
+        let input_bytes = selected
+            .iter()
+            .map(|(position, _)| source_budget_bytes(&runs[*position].index))
+            .sum::<u64>();
+        let temporary = input_bytes.saturating_mul(3).saturating_add(records * 512);
+        if work.records > 0
+            && (work.records.saturating_add(records) > budget.records
+                || work.input_bytes.saturating_add(input_bytes) > budget.input_bytes
+                || work.temporary_bytes.saturating_add(temporary) > budget.temporary_bytes)
+        {
+            break;
+        }
+        let sources = selected
+            .iter()
+            .map(|(position, _)| {
+                runs[*position]
+                    .packed
+                    .as_deref()
+                    .ok_or_else(|| IndexError::InvalidPublication("merge run is not packed".into()))
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        let actives = selected
+            .iter()
+            .map(|(position, _)| runs[*position].active.bitmap())
+            .collect::<Vec<_>>();
+        let Some(packed) = crate::index_storage::stream_compact::compact_packed_merge(
+            &sources,
+            &actives,
+            collection as u32,
+        )
+        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+        else {
+            break;
+        };
+        work.records = work.records.saturating_add(records);
+        work.input_bytes = work.input_bytes.saturating_add(input_bytes);
+        work.temporary_bytes = work.temporary_bytes.saturating_add(temporary);
+        let packed = Arc::new(packed);
+        let ordinal = *next_ordinal;
+        *next_ordinal = next_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let index = crate::index_storage::packed_restore::segment_from_packed(
+            &packed,
+            collection,
+            catalog,
+            definitions,
+        )?;
+        let active = ActiveRecords::all(index.record_count()).map_err(IndexError::ResourceLimit)?;
+        let merged = Arc::new(PublishedSegment {
+            ordinal,
+            level: level.saturating_add(1),
+            index: Arc::new(index),
+            active,
+            packed: Some(Arc::clone(&packed)),
+        });
+        for position in selected.iter().map(|(position, _)| *position).rev() {
+            runs.remove(position);
+        }
+        runs.push(merged);
+    }
+    Ok(())
+}

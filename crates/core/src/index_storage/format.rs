@@ -137,6 +137,8 @@ pub enum SectionKind {
     NativeState = 23,
     /// Publication-specific active record set for one run.
     Visibility = 24,
+    /// Active file IDs in the packed catalogue domain.
+    ActiveFiles = 25,
 }
 
 
@@ -171,6 +173,7 @@ impl SectionKind {
             22 => Self::Relations,
             23 => Self::NativeState,
             24 => Self::Visibility,
+            25 => Self::ActiveFiles,
             _ => return None,
         })
     }

@@ -147,13 +147,15 @@ impl RegexCondition {
     pub(crate) fn candidates_access(
         &self,
         index: &crate::index_storage::access::BigramAccess<'_>,
-    ) -> Option<RoaringBitmap> {
+    ) -> Result<Option<RoaringBitmap>, String> {
         match self {
-            Self::Literal(request) => index.candidates_prepared(request),
+            Self::Literal(request) => index
+                .candidates_prepared(request)
+                .map_err(|error| error.to_string()),
             Self::All(parts) => {
                 let mut result: Option<RoaringBitmap> = None;
                 for part in parts {
-                    if let Some(set) = part.candidates_access(index) {
+                    if let Some(set) = part.candidates_access(index)? {
                         if let Some(result) = &mut result {
                             *result &= set;
                         } else {
@@ -161,14 +163,17 @@ impl RegexCondition {
                         }
                     }
                 }
-                result
+                Ok(result)
             }
             Self::Any(parts) => {
                 let mut result = RoaringBitmap::new();
                 for part in parts {
-                    result |= part.candidates_access(index)?;
+                    let Some(set) = part.candidates_access(index)? else {
+                        return Ok(None);
+                    };
+                    result |= set;
                 }
-                Some(result)
+                Ok(Some(result))
             }
         }
     }
@@ -178,7 +183,9 @@ impl RegexCondition {
         index: &crate::index_storage::access::BigramAccess<'_>,
     ) -> Result<Option<RoaringBitmap>, String> {
         match self {
-            Self::Literal(request) => Ok(index.candidates_prepared(request)),
+            Self::Literal(request) => Ok(index
+                .candidates_prepared(request)
+                .map_err(|error| error.to_string())?),
             Self::All(parts) => {
                 let mut result: Option<RoaringBitmap> = None;
                 for part in parts {
@@ -208,19 +215,27 @@ impl RegexCondition {
     pub(crate) fn estimate_access(
         &self,
         index: &crate::index_storage::access::BigramAccess<'_>,
-    ) -> Option<(u64, f64)> {
+    ) -> Result<Option<(u64, f64)>, String> {
         match self {
-            Self::Literal(request) => Some((
-                index.estimate_prepared(request)?,
-                request.gram_count(match index.alphabet() {
-                    0 => crate::execution_options::BigramAlphabet::Ascii,
-                    _ => crate::execution_options::BigramAlphabet::Unicode,
-                }) as f64,
-            )),
+            Self::Literal(request) => {
+                let Some(count) = index
+                    .estimate_prepared(request)
+                    .map_err(|error| error.to_string())?
+                else {
+                    return Ok(None);
+                };
+                Ok(Some((
+                    count,
+                    request.gram_count(match index.alphabet() {
+                        0 => crate::execution_options::BigramAlphabet::Ascii,
+                        _ => crate::execution_options::BigramAlphabet::Unicode,
+                    }) as f64,
+                )))
+            }
             Self::All(parts) => {
                 let mut result: Option<(u64, f64)> = None;
                 for part in parts {
-                    if let Some((count, work)) = part.estimate_access(index) {
+                    if let Some((count, work)) = part.estimate_access(index)? {
                         if let Some((current, total_work)) = &mut result {
                             *current = (*current).min(count);
                             *total_work += work;
@@ -229,17 +244,19 @@ impl RegexCondition {
                         }
                     }
                 }
-                result
+                Ok(result)
             }
             Self::Any(parts) => {
                 let mut count = 0u64;
                 let mut work = 0.0;
                 for part in parts {
-                    let (branch_count, branch_work) = part.estimate_access(index)?;
+                    let Some((branch_count, branch_work)) = part.estimate_access(index)? else {
+                        return Ok(None);
+                    };
                     count = count.saturating_add(branch_count);
                     work += branch_work;
                 }
-                Some((count, work))
+                Ok(Some((count, work)))
             }
         }
     }

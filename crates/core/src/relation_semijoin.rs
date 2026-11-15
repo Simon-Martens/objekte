@@ -577,8 +577,8 @@ pub(crate) fn fts_witnesses(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
-        let (estimated_targets, lookup) =
-            estimate_fts_candidates(target, &local).unwrap_or((target.logical_records.len(), 0.0));
+        let (estimated_targets, lookup) = estimate_fts_candidates(target, &local)?
+            .unwrap_or((target.logical_records.len(), 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
             let index = relation(repo, hop)?;
@@ -610,9 +610,10 @@ pub(crate) fn fts_witnesses(
             ensure_slots(domain.len(), execution)?;
             domain
         };
-        let candidates = fts_candidates(target, &local)
-            .map(|set| &set & &domain)
-            .unwrap_or(domain);
+        let candidates = match fts_candidates(target, &local)? {
+            Some(set) => &set & &domain,
+            None => domain,
+        };
         ensure_slots(candidates.len(), execution)?;
         work.target_candidates += candidates.len();
         let matched = verify_target_records(

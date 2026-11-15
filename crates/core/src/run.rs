@@ -1884,10 +1884,12 @@ fn fts_covered_target(fts: Option<&BoundFts>) -> String {
 fn regex_prefilter_reason(
     collection: &crate::repository::CollectionState,
     fts: Option<&BoundFts>,
-) -> Option<String> {
-    let fts = fts?;
+) -> Result<Option<String>, String> {
+    let Some(fts) = fts else {
+        return Ok(None);
+    };
     if !matches!(fts.mode, FtsMode::Regex(_)) {
-        return None;
+        return Ok(None);
     }
     if fts
         .fallback_regex
@@ -1895,12 +1897,18 @@ fn regex_prefilter_reason(
         .and_then(|regex| regex.condition())
         .is_none()
     {
-        return Some("regex has no bounded necessary literal; scanner fallback".into());
+        return Ok(Some(
+            "regex has no bounded necessary literal; scanner fallback".into(),
+        ));
     }
-    if estimate_fts_candidates(collection, fts).is_none() {
-        Some("regex has no usable grams or compatible index coverage; scanner fallback".into())
+    if estimate_fts_candidates(collection, fts)?.is_none() {
+        Ok(Some(
+            "regex has no usable grams or compatible index coverage; scanner fallback".into(),
+        ))
     } else {
-        Some("regex uses necessary folded grams; exact verification remains".into())
+        Ok(Some(
+            "regex uses necessary folded grams; exact verification remains".into(),
+        ))
     }
 }
 
@@ -2103,7 +2111,7 @@ fn segment_metadata_fts_evidence(
             value: &empty,
             source_bytes: None,
             record: resolved.record,
-            file: resolved.file,
+            file: resolved.file.as_ref(),
             collection_name: &collection.definition.name,
             repository_root: &repo.files.root,
         };
@@ -2260,16 +2268,16 @@ pub(crate) fn make_hit(
 /// address a file added after the base generation was built.
 pub(crate) struct SegmentRecordRef<'a> {
     pub record: &'a RecordEntry,
-    pub file: &'a FileEntry,
+    pub file: std::sync::Arc<FileEntry>,
 }
 
 
-fn segment_active_file<'a>(
+fn segment_active_file(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &'a FileCatalog,
+    catalog: &FileCatalog,
     file_id: crate::model::FileId,
-) -> Result<&'a FileEntry, String> {
+) -> Result<std::sync::Arc<FileEntry>, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
@@ -2829,7 +2837,7 @@ fn base_rank_key_merged(
         value: &extracted.value,
         source_bytes: bytes.as_deref(),
         record,
-        file,
+        file: file.as_ref(),
         collection_name: &collection.definition.name,
         repository_root: &repo.files.root,
     };
@@ -3182,7 +3190,7 @@ fn has_unavailable_active_source(
                 && slots.iter().any(|slot| base_active[index].contains(*slot))
                 && let Some(file) = catalog.entry(*file_id)
             {
-                if unavailable(file)
+                if unavailable(file.as_ref())
                     || slots
                         .iter()
                         .filter(|slot| base_active[index].contains(**slot))
@@ -3206,7 +3214,7 @@ fn has_unavailable_active_source(
                     .any(|slot| segment.active.contains(*slot))
                     && let Some(current) = catalog.entry(file.entry.id)
                 {
-                    if unavailable(current)
+                    if unavailable(current.as_ref())
                         || file
                             .records
                             .iter()
@@ -3573,7 +3581,10 @@ fn scan_segment_file_parallel(
             if record.file.0 != file_id {
                 return Err("segment scan file ownership mismatch".into());
             }
-            let resolved = SegmentRecordRef { record, file };
+            let resolved = SegmentRecordRef {
+                record,
+                file: std::sync::Arc::clone(&file),
+            };
             let record = resolved.record;
             result.record_parses += u64::from(record.class == RecordClass::Logical);
             result.residual_evaluations += u64::from(filter.is_some() && filter_proof.is_none());
@@ -3581,7 +3592,7 @@ fn scan_segment_file_parallel(
                 repo,
                 collection,
                 record,
-                resolved.file,
+                resolved.file.as_ref(),
                 &bytes,
                 filter,
                 fts,
@@ -3600,7 +3611,7 @@ fn scan_segment_file_parallel(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file: resolved.file,
+                file: resolved.file.as_ref(),
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
@@ -4456,7 +4467,7 @@ fn search_segmented_impl(
                                     repo,
                                     collection,
                                     resolved.record,
-                                    resolved.file,
+                                    resolved.file.as_ref(),
                                     source_bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -4539,7 +4550,10 @@ fn search_segmented_impl(
                         if record.file.0 != file_id {
                             return Err("segment scan file ownership mismatch".into());
                         }
-                        let resolved = SegmentRecordRef { record, file };
+                        let resolved = SegmentRecordRef {
+                record,
+                file: std::sync::Arc::clone(&file),
+            };
                         let record = resolved.record;
                         counters.record_parses += u64::from(record.class == RecordClass::Logical);
                         counters.residual_evaluations +=
@@ -4549,7 +4563,7 @@ fn search_segmented_impl(
                                 repo,
                                 collection,
                                 record,
-                                resolved.file,
+                                resolved.file.as_ref(),
                                 &bytes,
                                 filter.as_ref(),
                                 fts.as_ref(),
@@ -4569,7 +4583,7 @@ fn search_segmented_impl(
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
                             record,
-                            file: resolved.file,
+                            file: resolved.file.as_ref(),
                             collection_name: &collection.definition.name,
                             repository_root: &repo.files.root,
                         };
@@ -4597,7 +4611,7 @@ fn search_segmented_impl(
                                     repo,
                                     collection,
                                     record,
-                                    resolved.file,
+                                    resolved.file.as_ref(),
                                     &bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -4829,7 +4843,10 @@ fn materialize_lifecycle_cached(
         };
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record,
+                file: std::sync::Arc::clone(&file),
+            },
             revision,
             member.matched_fields.clone(),
         );
@@ -5218,7 +5235,7 @@ fn scan_direct_target_parallel(
         value: &extracted.value,
         source_bytes: Some(&bytes),
         record: resolved.record,
-        file: resolved.file,
+        file: resolved.file.as_ref(),
         collection_name: &target_collection.definition.name,
         repository_root: &repo.files.root,
     };
@@ -5552,7 +5569,7 @@ fn try_direct_relation_page(
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
                     record: resolved.record,
-                    file: resolved.file,
+                    file: resolved.file.as_ref(),
                     collection_name: &target_collection.definition.name,
                     repository_root: &repo.files.root,
                 };
@@ -5954,7 +5971,7 @@ fn scan_relation_file_parallel(
         value: &extracted.value,
         source_bytes: Some(&bytes),
         record,
-        file: resolved.file,
+        file: resolved.file.as_ref(),
         collection_name: &resolved.collection.definition.name,
         repository_root: &repo.files.root,
     };
@@ -6533,7 +6550,7 @@ fn search_segmented_relations(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file: resolved.file,
+                file: resolved.file.as_ref(),
                 collection_name: &resolved.collection.definition.name,
                 repository_root: &repo.files.root,
             };
@@ -7681,7 +7698,7 @@ fn try_lifecycle_ordered_stream(
             continue;
         };
         let record = resolved.record;
-        let file = resolved.file;
+        let file = std::sync::Arc::clone(&resolved.file);
         let collection = &repo.collections[cursor.collection_index];
         counters.candidates += 1;
         let (filter, fts) = filters[cursor.collection_index]
@@ -7730,7 +7747,7 @@ fn try_lifecycle_ordered_stream(
             let read = match read_lifecycle_ordered_record(
                 repo,
                 catalog,
-                file,
+                file.as_ref(),
                 record,
                 cursor.slot,
                 &mut reader,
@@ -7766,7 +7783,7 @@ fn try_lifecycle_ordered_stream(
                 repo,
                 collection,
                 record,
-                file,
+                file.as_ref(),
                 &read,
                 filter.as_ref(),
                 fts.as_ref(),
@@ -7796,7 +7813,10 @@ fn try_lifecycle_ordered_stream(
         }
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record,
+                file: std::sync::Arc::clone(&file),
+            },
             revision,
             if request.options.evidence {
                 evidence.into_iter().collect()
@@ -7839,7 +7859,7 @@ fn try_lifecycle_ordered_stream(
                     let read = read_lifecycle_ordered_record(
                         repo,
                         catalog,
-                        file,
+                        file.as_ref(),
                         record,
                         cursor.slot,
                         &mut reader,
@@ -9531,7 +9551,11 @@ fn try_stored_order_page(
             });
         let mut candidates = plan.candidates.take().unwrap_or_else(|| domain.clone());
         candidates &= &domain;
-        if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
+        let fts_candidate_set = match fts.as_ref() {
+            Some(fts) => fts_candidates(collection, fts)?,
+            None => None,
+        };
+        if let Some(fts_candidates) = fts_candidate_set {
             candidates &= fts_candidates;
         }
         candidate_total += candidates.len();
@@ -9605,6 +9629,10 @@ fn try_stored_order_page(
     if let Some(traces) = traces.as_deref_mut() {
         for entry in &plans {
             let collection = &repo.collections[entry.collection_index];
+            let fts_estimated_candidates = match entry.fts {
+                Some(fts) => estimate_fts_candidates(collection, fts)?.map(|estimate| estimate.0),
+                None => None,
+            };
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
@@ -9613,11 +9641,9 @@ fn try_stored_order_page(
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
                 fts_mode: entry.fts.map(|fts| fts.mode),
                 fts_exact_literal: entry.fts.map(|fts| fts.source_literal.clone()),
-                fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts),
+                fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts)?,
                 fts_covered_target: fts_covered_target(entry.fts),
-                fts_estimated_candidates: entry.fts.and_then(|fts| {
-                    estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
-                }),
+                fts_estimated_candidates,
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
                 input_records: collection_domain(collection, entry.collection_index, active).len(),
                 fts_strategy: if collection.logical_records.len()
@@ -10517,9 +10543,10 @@ pub(crate) fn explain_with_active(
             .as_ref()
             .map(|expr| estimate_plan_expr(collection, expr, domain_len))
             .transpose()?;
-        let fts_estimate = fts
-            .as_ref()
-            .and_then(|fts| estimate_fts_candidates(collection, fts));
+        let fts_estimate = match fts.as_ref() {
+            Some(fts) => estimate_fts_candidates(collection, fts)?,
+            None => None,
+        };
         let candidates = estimated
             .as_ref()
             .map_or(domain_len, |plan| plan.candidates)
@@ -10540,7 +10567,7 @@ pub(crate) fn explain_with_active(
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
             fts_mode: fts.as_ref().map(|fts| fts.mode),
             fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
-            fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
+            fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref())?,
             fts_covered_target: fts_covered_target(fts.as_ref()),
             fts_estimated_candidates: fts_estimate.map(|estimate| estimate.0.min(domain_len)),
             remaining_verification: fts.is_some() || !filter_exact,
@@ -10991,9 +11018,10 @@ fn search_impl_with_collector<'a>(
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain = collection_domain(collection, collection_index, active);
-        let text_estimate = fts
-            .as_ref()
-            .and_then(|fts| estimate_fts_candidates(collection, fts));
+        let text_estimate = match fts.as_ref() {
+            Some(fts) => estimate_fts_candidates(collection, fts)?,
+            None => None,
+        };
         let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
         let (plan, mut candidates, text_first) = if let Some((mut plan, candidates)) =
             reused_order.next()
@@ -11016,7 +11044,7 @@ fn search_impl_with_collector<'a>(
             };
             if text_first {
                 if let Some(fts) = &fts {
-                    if let Some(text) = fts_candidates(collection, fts) {
+                    if let Some(text) = fts_candidates(collection, fts)? {
                         input &= text;
                     }
                 }
@@ -11049,7 +11077,7 @@ fn search_impl_with_collector<'a>(
             if !text_first {
                 if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
                     if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
-                        if let Some(text_candidates) = fts_candidates(collection, fts) {
+                        if let Some(text_candidates) = fts_candidates(collection, fts)? {
                             candidates &= text_candidates;
                         }
                     }
@@ -11116,7 +11144,7 @@ fn search_impl_with_collector<'a>(
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
                 fts_mode: fts.as_ref().map(|fts| fts.mode),
                 fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
-                fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
+                fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref())?,
                 fts_covered_target: fts_covered_target(fts.as_ref()),
                 fts_estimated_candidates: text_estimate.map(|estimate| estimate.0),
                 remaining_verification: needs_scan,

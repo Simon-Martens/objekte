@@ -64,6 +64,9 @@ fn catalogue_bytes() -> Vec<u8> {
     builder
         .add_section(SectionKind::Statistics, sections.statistics)
         .unwrap();
+    builder
+        .add_section(SectionKind::ActiveFiles, sections.active_files)
+        .unwrap();
     builder.finish().unwrap().into_bytes()
 }
 
@@ -179,6 +182,9 @@ fn allocated_high_water_survives_deleted_tail_slots() {
         .unwrap();
     builder
         .add_section(SectionKind::Statistics, sections.statistics)
+        .unwrap();
+    builder
+        .add_section(SectionKind::ActiveFiles, sections.active_files)
         .unwrap();
     let view = open(builder.finish().unwrap().into_bytes());
     assert_eq!(view.high_water(), 25);

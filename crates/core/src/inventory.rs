@@ -248,6 +248,7 @@ const FILE_VERSION_CHUNK: usize = 1024;
 pub(crate) struct FileVersions {
     chunks: Arc<Vec<Arc<Vec<FileVersion>>>>,
     len: usize,
+    packed: Option<Arc<crate::index_storage::catalogue::CatalogueView>>,
 }
 
 
@@ -266,7 +267,34 @@ impl FileVersions {
         Ok(Self {
             chunks: Arc::new(chunks),
             len,
+            packed: None,
         })
+    }
+
+    pub(crate) fn packed(
+        view: Arc<crate::index_storage::catalogue::CatalogueView>,
+    ) -> Self {
+        let len = view.high_water() as usize;
+        Self {
+            chunks: Arc::new(Vec::new()),
+            len,
+            packed: Some(view),
+        }
+    }
+
+    fn materialized(&self) -> Result<Self, String> {
+        let Some(view) = &self.packed else {
+            return Ok(self.clone());
+        };
+        let mut versions = Vec::with_capacity(self.len);
+        for id in 0..self.len {
+            let version = view
+                .file(id as u32)
+                .map_err(|error| error.to_string())?
+                .map_or(FileVersion::INITIAL, |row| FileVersion(row.file_version));
+            versions.push(version);
+        }
+        Self::from_versions(versions)
     }
 
     pub(crate) fn initial(len: usize) -> Self {
@@ -281,6 +309,7 @@ impl FileVersions {
         Self {
             chunks: Arc::new(chunks),
             len,
+            packed: None,
         }
     }
 
@@ -293,6 +322,13 @@ impl FileVersions {
         if index >= self.len {
             return None;
         }
+        if let Some(view) = &self.packed {
+            return view
+                .file(file.0)
+                .ok()
+                .flatten()
+                .map(|row| FileVersion(row.file_version));
+        }
         self.chunks
             .get(index / FILE_VERSION_CHUNK)?
             .get(index % FILE_VERSION_CHUNK)
@@ -301,6 +337,9 @@ impl FileVersions {
 
     /// Create a private next version without changing any published view.
     pub(crate) fn advanced(&self, file: FileId) -> Result<(Self, FileVersion), String> {
+        if self.packed.is_some() {
+            return self.materialized()?.advanced(file);
+        }
         let index = file.0 as usize;
         if index >= self.len {
             return Err("file ID out of bounds".into());
@@ -315,6 +354,7 @@ impl FileVersions {
             Self {
                 chunks: Arc::new(chunks),
                 len: self.len,
+                packed: None,
             },
             next_version,
         ))
@@ -322,6 +362,9 @@ impl FileVersions {
 
     /// Assign a never-before-used file ID its first incarnation token.
     pub(crate) fn appended(&self) -> Result<Self, String> {
+        if self.packed.is_some() {
+            return self.materialized()?.appended();
+        }
         u32::try_from(self.len).map_err(|_| "too many files")?;
         let mut chunks = (*self.chunks).clone();
         if self.len % FILE_VERSION_CHUNK == 0 {
@@ -333,6 +376,7 @@ impl FileVersions {
         Ok(Self {
             chunks: Arc::new(chunks),
             len: self.len + 1,
+            packed: None,
         })
     }
 }
@@ -1106,10 +1150,13 @@ pub struct RecordStore {
 }
 
 
+const PACKED_RECORD_PAGE: usize = 64;
+
+
 struct PackedRecordStore {
     segment: Arc<crate::index_storage::segment::FrozenSegment>,
-    files: Arc<Vec<FileEntry>>,
-    cells: Vec<OnceLock<RecordEntry>>,
+    files: std::collections::HashMap<FileId, FileEntry>,
+    pages: Vec<OnceLock<Box<[RecordEntry]>>>,
 }
 
 
@@ -1131,8 +1178,8 @@ impl Clone for RecordStore {
                 native: Vec::new(),
                 packed: Some(Arc::new(PackedRecordStore {
                     segment: Arc::clone(&packed.segment),
-                    files: Arc::clone(&packed.files),
-                    cells: packed.cells.clone(),
+                    files: packed.files.clone(),
+                    pages: packed.pages.clone(),
                 })),
             };
         }
@@ -1174,20 +1221,28 @@ impl RecordStore {
         files: Arc<Vec<FileEntry>>,
     ) -> Self {
         let len = segment.stats().record_count as usize;
+        let files = files
+            .iter()
+            .map(|file| (file.id, file.clone()))
+            .collect::<std::collections::HashMap<_, _>>();
         Self {
             native: Vec::new(),
             packed: Some(Arc::new(PackedRecordStore {
                 segment,
                 files,
-                cells: (0..len).map(|_| OnceLock::new()).collect(),
+                pages: (0..len.div_ceil(PACKED_RECORD_PAGE))
+                    .map(|_| OnceLock::new())
+                    .collect(),
             })),
         }
     }
 
     pub fn len(&self) -> usize {
-        self.packed
-            .as_ref()
-            .map_or(self.native.len(), |packed| packed.cells.len())
+        self.packed.as_ref().map_or(self.native.len(), |packed| {
+            packed.pages.len().saturating_mul(PACKED_RECORD_PAGE).min(
+                packed.segment.stats().record_count as usize,
+            )
+        })
     }
 
     pub fn is_empty(&self) -> bool {
@@ -1196,15 +1251,24 @@ impl RecordStore {
 
     pub fn try_get(&self, index: usize) -> Result<Option<&RecordEntry>, String> {
         if let Some(packed) = &self.packed {
-            let Some(cell) = packed.cells.get(index) else {
+            let page_index = index / PACKED_RECORD_PAGE;
+            let Some(cell) = packed.pages.get(page_index) else {
                 return Ok(None);
             };
-            if let Some(record) = cell.get() {
-                return Ok(Some(record));
+            if let Some(page) = cell.get() {
+                return Ok(page.get(index % PACKED_RECORD_PAGE));
             }
-            let record = packed_record(packed, index)?;
-            let _ = cell.set(record);
-            return Ok(cell.get());
+            let start = page_index * PACKED_RECORD_PAGE;
+            let end = (start + PACKED_RECORD_PAGE)
+                .min(packed.segment.stats().record_count as usize);
+            let mut page = Vec::with_capacity(end - start);
+            for slot in start..end {
+                page.push(packed_record(packed, slot)?);
+            }
+            let _ = cell.set(page.into_boxed_slice());
+            return Ok(cell
+                .get()
+                .and_then(|page| page.get(index % PACKED_RECORD_PAGE)));
         }
         Ok(self.native.get(index))
     }
@@ -1226,11 +1290,12 @@ impl RecordStore {
 
     pub fn materialized_rows(&self) -> usize {
         self.packed.as_ref().map_or(self.native.len(), |packed| {
-            packed
-                .cells
+            let decoded = packed
+                .pages
                 .iter()
                 .filter(|cell| cell.get().is_some())
-                .count()
+                .count();
+            (decoded * PACKED_RECORD_PAGE).min(self.len())
         })
     }
 
@@ -1239,9 +1304,12 @@ impl RecordStore {
     }
 
     pub fn capacity(&self) -> usize {
-        self.packed
-            .as_ref()
-            .map_or(self.native.capacity(), |packed| packed.cells.len())
+        self.packed.as_ref().map_or(self.native.capacity(), |packed| {
+            packed
+                .pages
+                .len()
+                .saturating_mul(std::mem::size_of::<OnceLock<Box<[RecordEntry]>>>())
+        })
     }
 
     #[allow(dead_code)]
@@ -1269,7 +1337,7 @@ fn packed_record(packed: &PackedRecordStore, slot: usize) -> Result<RecordEntry,
     let file_id = FileId(part.file_id);
     let file = packed
         .files
-        .get(file_id.0 as usize)
+        .get(&file_id)
         .ok_or_else(|| "packed record file metadata is missing".to_string())?;
     Ok(RecordEntry {
         slot: RecordSlot(slot_u32),

@@ -233,7 +233,9 @@ fn segment_text_candidates(
     let Some(request) = term.gram_request.as_ref() else {
         return Ok(None);
     };
-    Ok(index.candidates_prepared(request))
+    index
+        .candidates_prepared(request)
+        .map_err(|error| error.to_string())
 }
 
 fn extend_segment_file_slots(
@@ -562,7 +564,9 @@ fn segment_positional_eq_candidates(
     let Some(access) = segment.posting_access(&term.path.segments, "default", false) else {
         return Ok(None);
     };
-    Ok(access.exact_set_restricted(term, &segment.logical_records, logical_active))
+    access
+        .exact_set_restricted(term, &segment.logical_records, logical_active)
+        .map_err(|error| error.to_string())
 }
 
 fn segment_raw_covers_identity_field(
@@ -615,7 +619,7 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            file,
+            file: file.as_ref(),
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
         };
@@ -637,7 +641,7 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            file,
+            file: file.as_ref(),
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
         };
@@ -1278,17 +1282,26 @@ fn empty_selection_preservation(term: &BoundTerm) -> bool {
     term.multi && term.quantifier != Quantifier::Any
 }
 
-fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
-    let request = term.gram_request.as_ref()?;
-    let mut grams = IndexCatalog::collection(collection)
+fn raw_bigram_candidates(
+    collection: &CollectionState,
+    term: &BoundTerm,
+) -> Result<Option<RoaringBitmap>, String> {
+    let Some(request) = term.gram_request.as_ref() else {
+        return Ok(None);
+    };
+    let Some(mut grams) = IndexCatalog::collection(collection)
         .raw_text_access()
-        .candidates_prepared(request)?;
+        .candidates_prepared(request)
+        .map_err(|error| error.to_string())?
+    else {
+        return Ok(None);
+    };
     if empty_selection_preservation(term) {
         // The universal comparison may be true on a present empty array with
         // no string witness. This bitmap is deliberately collection-wide.
         grams |= &collection.empty_array_records;
     }
-    Some(grams)
+    Ok(Some(grams))
 }
 
 fn term_set(
@@ -1633,11 +1646,14 @@ fn enumerate_paths(
                         && term.matcher.is_none()
                         && raw_covers_identity_field(collection).is_ok()
                     {
-                        if let Some(gram_count) = term.gram_request.as_ref().and_then(|request| {
-                            IndexCatalog::collection(collection)
+                        let raw_estimate = match term.gram_request.as_ref() {
+                            Some(request) => IndexCatalog::collection(collection)
                                 .raw_text_access()
                                 .estimate_prepared(request)
-                        }) {
+                                .map_err(|error| error.to_string())?,
+                            None => None,
+                        };
+                        if let Some(gram_count) = raw_estimate {
                             let structural_count = empty_selection_preservation(term)
                                 .then_some(collection.empty_array_records.len());
                             let output = gram_count
@@ -1664,11 +1680,13 @@ fn enumerate_paths(
                             true,
                             false,
                         ) {
-                            if let Some(output) = term
-                                .gram_request
-                                .as_ref()
-                                .and_then(|request| index.estimate_prepared(request))
-                            {
+                            let custom_estimate = match term.gram_request.as_ref() {
+                                Some(request) => index
+                                    .estimate_prepared(request)
+                                    .map_err(|error| error.to_string())?,
+                                None => None,
+                            };
+                            if let Some(output) = custom_estimate {
                                 add(
                                     AccessPathKind::CustomBigram,
                                     false,
@@ -1712,8 +1730,8 @@ fn execute_path(
                 None => None,
             }
         }
-        AccessPathKind::CustomBigram => custom_candidates(collection, term),
-        AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
+        AccessPathKind::CustomBigram => custom_candidates(collection, term)?,
+        AccessPathKind::RawBigram => raw_bigram_candidates(collection, term)?,
         AccessPathKind::SortColumn => {
             let column = collection.sorting.column(&term.path.display())?;
             let literal = sort_key(&term.literal).ok_or("sort-column predicate is not scalar")?;
@@ -1819,15 +1837,17 @@ fn estimate_plan_node(
                     .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
             });
             let selected = paths.remove(0);
-            let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
-                .then(|| {
-                    term.gram_request.as_ref().and_then(|request| {
-                        IndexCatalog::collection(collection)
-                            .raw_text_access()
-                            .estimate_prepared(request)
-                    })
-                })
-                .flatten();
+            let gram_candidates = if selected.kind == AccessPathKind::RawBigram {
+                match term.gram_request.as_ref() {
+                    Some(request) => IndexCatalog::collection(collection)
+                        .raw_text_access()
+                        .estimate_prepared(request)
+                        .map_err(|error| error.to_string())?,
+                    None => None,
+                }
+            } else {
+                None
+            };
             let structural_candidates = (selected.kind == AccessPathKind::RawBigram
                 && empty_selection_preservation(term))
             .then_some(collection.empty_array_records.len());
@@ -2251,16 +2271,30 @@ fn plan_logical_expr(
                 })
                 .unwrap_or_default();
             let dynamic_binding = term.kind == LogicalType::Unknown;
+            let raw_estimate_missing = if context.diagnostics {
+                match term.gram_request.as_ref() {
+                    Some(request) => IndexCatalog::collection(collection)
+                        .raw_text_access()
+                        .estimate_prepared(request)
+                        .map_err(|error| error.to_string())?
+                        .is_none(),
+                    None => true,
+                }
+            } else {
+                false
+            };
             let choices = if context.diagnostics {
-                let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
-                    .then(|| {
-                        term.gram_request.as_ref().and_then(|request| {
-                            IndexCatalog::collection(collection)
-                                .raw_text_access()
-                                .estimate_prepared(request)
-                        })
-                    })
-                    .flatten();
+                let gram_candidates = if selected.kind == AccessPathKind::RawBigram {
+                    match term.gram_request.as_ref() {
+                        Some(request) => IndexCatalog::collection(collection)
+                            .raw_text_access()
+                            .estimate_prepared(request)
+                            .map_err(|error| error.to_string())?,
+                        None => None,
+                    }
+                } else {
+                    None
+                };
                 let structural_candidates = (selected.kind == AccessPathKind::RawBigram
                     && empty_selection_preservation(term))
                 .then_some(collection.empty_array_records.len());
@@ -2315,14 +2349,7 @@ fn plan_logical_expr(
                         )
                     })
                     .unwrap_or_else(|| {
-                        if term.gram_request.is_none()
-                            || term.gram_request.as_ref().is_some_and(|request| {
-                                IndexCatalog::collection(collection)
-                                    .raw_text_access()
-                                    .estimate_prepared(request)
-                                    .is_none()
-                            })
-                        {
+                        if raw_estimate_missing {
                             "raw bigram has no usable necessary grams; scanner selected".into()
                         } else {
                             "lowest estimated lookup plus remaining source work for current input"
@@ -2504,30 +2531,39 @@ fn plan_logical_expr(
     })
 }
 
-fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
+fn custom_candidates(
+    collection: &CollectionState,
+    term: &BoundTerm,
+) -> Result<Option<RoaringBitmap>, String> {
     if term.derived != Derived::None || !matches!(term.operator, Operator::Contains | Operator::Eq)
     {
-        return None;
+        return Ok(None);
     }
     if !custom_bigram_compatible(term) {
-        return None;
+        return Ok(None);
     }
     let Value::String(literal) = &term.literal else {
-        return None;
+        return Ok(None);
     };
     if literal.contains(['%', '\\']) {
-        return None;
+        return Ok(None);
     }
-    IndexCatalog::collection(collection)
-        .field_text_access(
-            &collection.definition.schema,
-            &term.path.segments,
-            &term.binding_name,
-            !matches!(term.binding_name.as_str(), "default" | "lower"),
-            true,
-            false,
-        )?
-        .candidates_prepared(term.gram_request.as_ref()?)
+    let Some(index) = IndexCatalog::collection(collection).field_text_access(
+        &collection.definition.schema,
+        &term.path.segments,
+        &term.binding_name,
+        !matches!(term.binding_name.as_str(), "default" | "lower"),
+        true,
+        false,
+    ) else {
+        return Ok(None);
+    };
+    let Some(request) = term.gram_request.as_ref() else {
+        return Ok(None);
+    };
+    index
+        .candidates_prepared(request)
+        .map_err(|error| error.to_string())
 }
 
 
@@ -2549,31 +2585,47 @@ struct PreparedFtsAccess<'a, 'b> {
 
 
 impl PreparedFtsAccess<'_, '_> {
-    fn estimate(&self) -> Option<(u64, f64)> {
+    fn estimate(&self) -> Result<Option<(u64, f64)>, String> {
         let mut count = 0u64;
         let mut work = self.literal_work;
         for probe in &self.probes {
             if let Some(condition) = self.regex {
-                let (next_count, next_work) = condition.estimate(probe.index.native_index()?)?;
+                let Some((next_count, next_work)) = condition.estimate_access(&probe.index)? else {
+                    return Ok(None);
+                };
                 count = count.saturating_add(next_count);
                 work += next_work;
             } else {
-                count = count.saturating_add(probe.index.estimate_prepared(probe.request)?);
+                let Some(next) = probe
+                    .index
+                    .estimate_prepared(probe.request)
+                    .map_err(|error| error.to_string())?
+                else {
+                    return Ok(None);
+                };
+                count = count.saturating_add(next);
             }
         }
-        Some((count.min(self.max_count), work))
+        Ok(Some((count.min(self.max_count), work)))
     }
 
-    fn candidates(&self) -> Option<RoaringBitmap> {
+    fn candidates(&self) -> Result<Option<RoaringBitmap>, String> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
-            may |= if let Some(condition) = self.regex {
+            let next = if let Some(condition) = self.regex {
                 condition.candidates_access(&probe.index)?
             } else {
-                probe.index.candidates_prepared(probe.request)?
+                probe
+                    .index
+                    .candidates_prepared(probe.request)
+                    .map_err(|error| error.to_string())?
             };
+            let Some(next) = next else {
+                return Ok(None);
+            };
+            may |= next;
         }
-        Some(may)
+        Ok(Some(may))
     }
 
     fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
@@ -2582,7 +2634,10 @@ impl PreparedFtsAccess<'_, '_> {
             let next = if let Some(condition) = self.regex {
                 condition.candidates_checked_access(&probe.index)?
             } else {
-                probe.index.candidates_prepared(probe.request)
+                probe
+                    .index
+                    .candidates_prepared(probe.request)
+                    .map_err(|error| error.to_string())?
             };
             let Some(next) = next else {
                 return Ok(None);
@@ -2688,9 +2743,9 @@ fn prepare_fts_accesses<'a, 'b>(
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
+    let Some(access) = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -2698,16 +2753,18 @@ pub(crate) fn fts_candidates(
         collection.logical_records.len() != collection.generation.records.len() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?
-    .candidates()
+    ) else {
+        return Ok(None);
+    };
+    access.candidates()
 }
 
 pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
-) -> Option<(u64, f64)> {
+) -> Result<Option<(u64, f64)>, String> {
     let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
+    let Some(access) = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -2715,8 +2772,10 @@ pub(crate) fn estimate_fts_candidates(
         collection.logical_records.len() != collection.generation.records.len() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?
-    .estimate()
+    ) else {
+        return Ok(None);
+    };
+    access.estimate()
 }
 
 #[cfg(test)]

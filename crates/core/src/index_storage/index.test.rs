@@ -122,6 +122,7 @@ fn core_index_saves_loads_and_remains_updateable() {
         let request = crate::bigram::BigramRequest::new("Alpha");
         let candidates = packed_text
             .candidates_prepared(&request)
+            .unwrap()
             .expect("packed candidates");
         assert!(candidates.contains(0));
         assert!(segment.index.raw.normal.is_empty());

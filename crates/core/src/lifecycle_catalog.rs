@@ -11,7 +11,7 @@ use std::ops::Bound;
 use std::path::Path;
 #[cfg(test)]
 use std::path::PathBuf;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 
@@ -43,6 +43,7 @@ type LivenessSlot = (FileEntry, bool, Option<[u8; 32]>, Option<[u8; 32]>);
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
     base: Arc<Repository>,
+    packed_base: Option<Arc<PackedCatalogue>>,
     /// A fresh build can expose its discovered paths before every member is
     /// indexed. Pinned views retain this value across later publications.
     construction_complete: bool,
@@ -54,6 +55,103 @@ pub(crate) struct FileCatalog {
     changed_relative_paths: Arc<BTreeMap<(Arc<str>, FileId), ()>>,
     active: Arc<RoaringBitmap>,
     len: u32,
+}
+
+
+/// Immutable packed catalogue rows plus a small bounded decode cache. Path and
+/// row reads touch only the referenced 64-row page; no file table is rebuilt
+/// when a publication is opened.
+pub(crate) struct PackedCatalogue {
+    view: Arc<crate::index_storage::catalogue::CatalogueView>,
+    len: u32,
+    cache: Mutex<std::collections::HashMap<u32, Arc<FileEntry>>>,
+}
+
+
+impl PackedCatalogue {
+    fn new(view: Arc<crate::index_storage::catalogue::CatalogueView>) -> Self {
+        let len = view.high_water();
+        Self {
+            view,
+            len,
+            cache: Mutex::new(std::collections::HashMap::new()),
+        }
+    }
+
+    fn row(&self, file: FileId) -> Option<Arc<FileEntry>> {
+        if let Ok(cache) = self.cache.lock()
+            && let Some(entry) = cache.get(&file.0)
+        {
+            return Some(Arc::clone(entry));
+        }
+        let row = self.view.file(file.0).ok().flatten()?;
+        let diagnostics = self.view.diagnostics(&row).ok()?;
+        let entry = Arc::new(
+            crate::index_storage::packed_restore::file_entry(&row, &diagnostics).ok()?,
+        );
+        if let Ok(mut cache) = self.cache.lock() {
+            if cache.len() >= 4096 {
+                cache.clear();
+            }
+            cache.insert(file.0, Arc::clone(&entry));
+        }
+        Some(entry)
+    }
+
+    fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
+        if !self.view.is_active(file.0) {
+            return None;
+        }
+        self.view.file(file.0).ok().flatten().and_then(|row| row.fingerprint)
+    }
+
+    fn id_for(&self, path: &Path) -> Option<FileId> {
+        let query = crate::path_repr::query_path(path);
+        self.view.path(query.as_bytes()).ok().flatten().map(FileId)
+    }
+
+    fn relative_path_ids(
+        &self,
+        bounds: (std::ops::Bound<Arc<str>>, std::ops::Bound<Arc<str>>),
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        let lower = match &bounds.0 {
+            std::ops::Bound::Included(key) => std::ops::Bound::Included(key.as_bytes().to_vec()),
+            std::ops::Bound::Excluded(key) => std::ops::Bound::Excluded(key.as_bytes().to_vec()),
+            std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+        };
+        let upper = match &bounds.1 {
+            std::ops::Bound::Included(key) => std::ops::Bound::Included(key.as_bytes().to_vec()),
+            std::ops::Bound::Excluded(key) => std::ops::Bound::Excluded(key.as_bytes().to_vec()),
+            std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+        };
+        let mut result = Vec::new();
+        for entry in self
+            .view
+            .path_dictionary()
+            .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+        {
+            let (_, value) = entry.ok()?;
+            let id = u32::from_le_bytes(value.as_slice().try_into().ok()?);
+            if id != u32::MAX && self.view.is_active(id) {
+                result.push(FileId(id));
+                if result.len() == limit {
+                    return None;
+                }
+            }
+        }
+        Some(result)
+    }
+}
+
+fn owned_bound_ref(
+    bound: &std::ops::Bound<Vec<u8>>,
+) -> std::ops::Bound<&[u8]> {
+    match bound {
+        std::ops::Bound::Included(value) => std::ops::Bound::Included(value.as_slice()),
+        std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(value.as_slice()),
+        std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+    }
 }
 
 
@@ -107,14 +205,14 @@ impl FileCatalog {
                 let id = FileId(number);
                 if let Some(entry) = self.entry(id) {
                     Some((
-                        entry.clone(),
+                        entry.as_ref().clone(),
                         true,
                         self.fingerprint(id),
                         self.configuration(id),
                     ))
                 } else {
                     self.inactive_entry(id)
-                        .map(|entry| (entry.clone(), false, None, None))
+                        .map(|entry| (entry.as_ref().clone(), false, None, None))
                 }
             })
             .collect()
@@ -127,7 +225,7 @@ impl FileCatalog {
             .map(|number| {
                 let id = FileId(number);
                 self.entry(id)
-                    .map(|entry| (entry.clone(), self.fingerprint(id), self.configuration(id)))
+                    .map(|entry| (entry.as_ref().clone(), self.fingerprint(id), self.configuration(id)))
             })
             .collect()
     }
@@ -230,6 +328,7 @@ impl FileCatalog {
         }
         Ok(Self {
             base,
+            packed_base: None,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
@@ -247,6 +346,7 @@ impl FileCatalog {
         active.insert_range(0..len);
         Ok(Self {
             base,
+            packed_base: None,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(
@@ -261,6 +361,38 @@ impl FileCatalog {
             ),
             changed_relative_paths: Arc::new(BTreeMap::new()),
             active: Arc::new(active),
+            len,
+        })
+    }
+
+    /// Open a publication catalogue without materializing its file rows.
+    /// `base` must be an empty repository that still carries configuration and
+    /// collection metadata; rows and paths are read from the packed object.
+    pub(crate) fn from_packed(
+        base: Arc<Repository>,
+        view: Arc<crate::index_storage::catalogue::CatalogueView>,
+    ) -> Result<Self, String> {
+        let base_configuration = Self::configuration_for(&base)?;
+        let packed = PackedCatalogue::new(view);
+        let len = packed.len;
+        let active = Arc::new(packed.view.active_files().clone());
+        Ok(Self {
+            base,
+            packed_base: Some(Arc::new(packed)),
+            construction_complete: true,
+            base_configuration,
+            changed: Arc::new(
+                (0..SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect::<Vec<_>>(),
+            ),
+            changed_paths: Arc::new(
+                (0..SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect::<Vec<_>>(),
+            ),
+            changed_relative_paths: Arc::new(BTreeMap::new()),
+            active,
             len,
         })
     }
@@ -313,26 +445,39 @@ impl FileCatalog {
         self.active.contains(file.0)
     }
 
-    pub(crate) fn entry(&self, file: FileId) -> Option<&FileEntry> {
+    pub(crate) fn entry(&self, file: FileId) -> Option<Arc<FileEntry>> {
         if !self.is_active(file) {
             return None;
         }
-        self.changed[shard(&file)]
-            .get(&file)
-            .map(|changed| changed.entry.as_ref())
-            .or_else(|| self.base.files().files.get(file.0 as usize))
+        if let Some(changed) = self.changed[shard(&file)].get(&file) {
+            return Some(Arc::clone(&changed.entry));
+        }
+        if let Some(packed) = &self.packed_base {
+            return packed.row(file);
+        }
+        self.base
+            .files()
+            .files
+            .get(file.0 as usize)
+            .map(|entry| Arc::new(entry.clone()))
     }
 
     /// Entry metadata for one retired file slot, retained as a tombstone.
-    pub(crate) fn inactive_entry(&self, file: FileId) -> Option<&FileEntry> {
+    pub(crate) fn inactive_entry(&self, file: FileId) -> Option<Arc<FileEntry>> {
         if self.active.contains(file.0) {
             return None;
         }
-        self.changed
-            .get(shard(&file))
-            .and_then(|changed| changed.get(&file))
-            .map(|changed| changed.entry.as_ref())
-            .or_else(|| self.base.files().files.get(file.0 as usize))
+        if let Some(changed) = self.changed[shard(&file)].get(&file) {
+            return Some(Arc::clone(&changed.entry));
+        }
+        if let Some(packed) = &self.packed_base {
+            return packed.row(file);
+        }
+        self.base
+            .files()
+            .files
+            .get(file.0 as usize)
+            .map(|entry| Arc::new(entry.clone()))
     }
 
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -343,6 +488,9 @@ impl FileCatalog {
             .get(&file)
             .map(|changed| changed.fingerprint)
             .unwrap_or_else(|| {
+                if let Some(packed) = &self.packed_base {
+                    return packed.fingerprint(file);
+                }
                 self.base
                     .base_fingerprints
                     .get(file.0 as usize)
@@ -365,12 +513,20 @@ impl FileCatalog {
         let id = self.changed_paths[shard(&path)]
             .get(path)
             .copied()
-            .or_else(|| self.base.files().id_for(path))?;
+            .or_else(|| {
+                if let Some(packed) = &self.packed_base {
+                    return packed.id_for(path);
+                }
+                self.base.files().id_for(path)
+            })?;
         if !self.is_active(id) {
             return None;
         }
         if let Some(changed) = self.changed[shard(&id)].get(&id) {
             return (changed.entry.relative_path.as_path() == path).then_some(id);
+        }
+        if let Some(packed) = &self.packed_base {
+            return (packed.id_for(path) == Some(id)).then_some(id);
         }
         self.base
             .files()
@@ -417,6 +573,15 @@ impl FileCatalog {
     ) -> Option<Vec<FileId>> {
         if empty_path_bounds(&bounds) {
             return Some(Vec::new());
+        }
+        if let Some(packed) = &self.packed_base {
+            return packed.relative_path_ids(
+                (
+                    bounds.0.map(|key| Arc::clone(&key)),
+                    bounds.1.map(|key| Arc::clone(&key)),
+                ),
+                limit,
+            );
         }
         let (mut ids, mut scanned) = {
             let mut ids = Vec::new();

@@ -498,3 +498,40 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn four_same_level_runs_consolidate_and_promote() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-tier-merge-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/base.json"), br#"{"name":"base"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    for number in 0..3 {
+        let path = root.join(format!("data/extra-{number}.json"));
+        std::fs::write(&path, format!(r#"{{"name":"extra-{number}"}}"#)).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let before = index.view().unwrap();
+    assert!(before.segments(CollectionId(0)).unwrap().len() >= 4);
+    index.compact().unwrap();
+    let after = index.view().unwrap();
+    let runs = after.segments(CollectionId(0)).unwrap();
+    assert!(runs.iter().any(|run| run.level > 0), "no promoted run");
+    assert!(runs.len() < before.segments(CollectionId(0)).unwrap().len());
+    assert_eq!(after.search(&all()).unwrap().count, Some(4));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

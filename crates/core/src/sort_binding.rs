@@ -176,7 +176,7 @@ impl MergedSortTargetCache {
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
-                view.record_source_failure(current.file, current.record.range, message);
+                view.record_source_failure(current.file.as_ref(), current.record.range, message);
                 return Ok(None);
             }
         };
@@ -533,7 +533,7 @@ impl ComputedSort {
                     value: source_value.unwrap_or(&empty),
                     source_bytes: None,
                     record: current.record,
-                    file: current.file,
+                    file: current.file.as_ref(),
                     collection_name: &current.collection.definition.name,
                     repository_root: view.repository_root(),
                 };

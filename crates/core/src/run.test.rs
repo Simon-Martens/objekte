@@ -2188,7 +2188,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     assert!(matches!(logical.payload, Some(Payload::Logical(_))));
     let moved_path = root.join("data/moved.jsonl");
     std::fs::rename(&path, &moved_path).unwrap();
-    let mut moved_entry = catalog.entry(FileId(1)).unwrap().clone();
+    let mut moved_entry = catalog.entry(FileId(1)).unwrap().as_ref().clone();
     moved_entry.relative_path = "data/moved.jsonl".into();
     let moved_catalog = catalog.replaced(moved_entry, None, None).unwrap();
     let moved = get_segment_record_by_id(
@@ -2207,7 +2207,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     assert_eq!(moved.payload, bytes.payload);
     let base_path = root.join("data/base-moved.jsonl");
     std::fs::rename(root.join("data/base.jsonl"), &base_path).unwrap();
-    let mut base_entry = moved_catalog.entry(FileId(0)).unwrap().clone();
+    let mut base_entry = moved_catalog.entry(FileId(0)).unwrap().as_ref().clone();
     base_entry.relative_path = "data/base-moved.jsonl".into();
     let moved_catalog = moved_catalog.replaced(base_entry, None, None).unwrap();
     let base_id = &repo.collections()[0].generation.records[0].id.0;

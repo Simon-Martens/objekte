@@ -59,13 +59,13 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
             .map_or(1, |version| version.0);
         if let Some(entry) = published.catalog.entry(file) {
             rows.push(file_row(
-                entry,
+                entry.as_ref(),
                 version,
                 published.catalog.fingerprint(file),
                 false,
             )?);
         } else if let Some(entry) = published.catalog.inactive_entry(file) {
-            rows.push(file_row(entry, version, None, true)?);
+            rows.push(file_row(entry.as_ref(), version, None, true)?);
         }
     }
     let sections =
@@ -75,6 +75,7 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     builder.add_section(SectionKind::PathDictionary, sections.path_dictionary)?;
     builder.add_section(SectionKind::Diagnostics, sections.diagnostics)?;
     builder.add_section(SectionKind::Statistics, sections.statistics)?;
+    builder.add_section(SectionKind::ActiveFiles, sections.active_files)?;
     let object = builder.finish()?;
     let _ = repository;
     let digest = object.sha256();
@@ -271,7 +272,11 @@ fn pack_collection(
         .as_slice()
         .unwrap_or(&[])
         .iter()
-        .filter_map(|record| catalog.entry(record.file).map(|entry| (record.file, entry)))
+        .filter_map(|record| {
+            catalog
+                .entry(record.file)
+                .map(|entry| (record.file, entry))
+        })
         .collect::<std::collections::HashMap<_, _>>();
     let (file_parts, records) = pack_records(
         collection.generation.records.as_slice().unwrap_or(&[]),
@@ -331,7 +336,7 @@ pub(crate) fn pack_segment(
     let segment_files = segment
         .files
         .iter()
-        .map(|file| (file.entry.id, &file.entry))
+        .map(|file| (file.entry.id, Arc::new(file.entry.clone())))
         .collect::<std::collections::HashMap<_, _>>();
     let (file_parts, records) = pack_records(
         segment.records.as_slice().unwrap_or(&[]),
@@ -373,6 +378,11 @@ pub(crate) fn pack_segment(
     let slot_count = segment.records.len() as u32;
     let identity_order = if segment.identity_order.len() == slot_count as usize {
         segment.identity_order.iter().map(|slot| slot.0).collect()
+    } else if let Some(packed) = &segment.packed {
+        packed
+            .records()
+            .identity_order()
+            .map_err(|error| super::error::StorageError::corrupt(error.to_string()))?
     } else {
         (0..slot_count).collect()
     };
@@ -398,7 +408,7 @@ pub(crate) fn pack_segment(
 fn pack_records(
     records: &[RecordEntry],
     versions: &FileVersions,
-    segment_files: &std::collections::HashMap<FileId, &crate::inventory::FileEntry>,
+    segment_files: &std::collections::HashMap<FileId, Arc<crate::inventory::FileEntry>>,
     catalog: &crate::lifecycle_catalog::FileCatalog,
 ) -> StorageResult<(Vec<FilePartInput>, Vec<RecordInput>)> {
     let mut parts = Vec::new();
@@ -439,7 +449,7 @@ fn pack_records(
 
 fn remap_diagnostic_ref(
     record: &RecordEntry,
-    segment_files: &std::collections::HashMap<FileId, &crate::inventory::FileEntry>,
+    segment_files: &std::collections::HashMap<FileId, Arc<crate::inventory::FileEntry>>,
     catalog: &crate::lifecycle_catalog::FileCatalog,
 ) -> u32 {
     let Some(local) = record.diagnostic_ref.stored_index() else {

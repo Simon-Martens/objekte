@@ -46,38 +46,25 @@ pub fn restore_from_store(
             .map_err(IndexError::IncompatibleConfiguration)?;
     let catalogue = CatalogueView::open(opened.catalogue_backing()).map_err(storage_error)?;
     let root = manifest_root(&opened.manifest.source_root)?;
-    let (entries, rows, slots) = catalogue_entries(&catalogue)?;
-    let file_entries = Arc::new(entries.clone());
-    let files = FileInventory::from_restored_entries(root.clone(), entries)
-        .map_err(IndexError::InvalidPublication)?;
+    let catalogue = Arc::new(catalogue);
     let mut base = Vec::with_capacity(definitions.len());
     for (number, definition) in definitions.iter().enumerate() {
         let collection_id = CollectionId(number as u32);
         let source = sources
             .resolve(&definition.format)
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let file_ids = rows
-            .values()
-            .filter(|row| row.collections.contains(&collection_id.0))
-            .map(|row| FileId(row.file_id))
-            .collect::<Vec<_>>();
         let generation = CollectionGeneration {
             collection: collection_id,
             name: definition.name.clone(),
             generation: 1,
-            files: file_ids.clone(),
+            files: Vec::new(),
             records: crate::inventory::RecordStore::default(),
             file_records: FileRecordIndex {
-                file_count: files.files.len() as u32,
+                file_count: 0,
                 offsets: Vec::new(),
                 slots: Vec::new(),
             },
         };
-        let total_file_bytes = file_ids
-            .iter()
-            .filter_map(|id| rows.get(&id.0))
-            .map(|row| row.size)
-            .sum();
         base.push(CollectionState {
             definition: definition.clone(),
             packed: None,
@@ -98,9 +85,9 @@ pub fn restore_from_store(
             id_lookup: crate::inventory::RecordIdLookup::default(),
             identity_order: Vec::new(),
             stats: crate::repository::CollectionStats {
-                file_count: file_ids.len(),
+                file_count: 0,
                 record_count: 0,
-                total_file_bytes,
+                total_file_bytes: 0,
             },
             relations: Vec::new(),
         });
@@ -109,20 +96,6 @@ pub fn restore_from_store(
     for run in &opened.runs {
         let frozen = Arc::new(FrozenSegment::open(opened.run_backing(run)).map_err(storage_error)?);
         frozen_runs.insert((run.reference.collection, run.reference.ordinal), frozen);
-    }
-    for (number, collection) in base.iter_mut().enumerate() {
-        let Some(frozen) = frozen_runs.get(&(number as u32, 0)).cloned() else {
-            continue;
-        };
-        collection.packed = Some(Arc::clone(&frozen));
-        collection.generation.records =
-            crate::inventory::RecordStore::packed(Arc::clone(&frozen), Arc::clone(&file_entries));
-        collection.id_lookup = crate::inventory::RecordIdLookup::Packed {
-            segment: Arc::clone(&frozen),
-            len: frozen.stats().record_count as usize,
-        };
-        collection.stats.file_count = frozen.stats().file_part_count as usize;
-        collection.stats.record_count = frozen.stats().record_count as usize;
     }
     for (number, collection) in base.iter_mut().enumerate() {
         let Some(frozen) = frozen_runs.get(&(number as u32, 0)).cloned() else {
@@ -183,14 +156,11 @@ pub fn restore_from_store(
                 ));
         }
     }
-    let base_fingerprints = (0..files.files.len())
-        .map(|id| rows.get(&(id as u32)).and_then(|row| row.fingerprint))
-        .collect::<Vec<_>>();
     let repository = Arc::new(
         Repository::from_restored_parts(
             root,
-            files.files.clone(),
-            base_fingerprints,
+            Vec::new(),
+            Vec::new(),
             base,
             sources,
             options,
@@ -199,8 +169,11 @@ pub fn restore_from_store(
         )
         .map_err(IndexError::InvalidPublication)?,
     );
-    let catalog = crate::lifecycle_catalog::FileCatalog::restored(Arc::clone(&repository), slots)
-        .map_err(IndexError::InvalidPublication)?;
+    let catalog = crate::lifecycle_catalog::FileCatalog::from_packed(
+        Arc::clone(&repository),
+        Arc::clone(&catalogue),
+    )
+    .map_err(IndexError::InvalidPublication)?;
     let active = vec![
         crate::inventory::ActiveRecords::all(0).map_err(IndexError::ResourceLimit)?;
         repository.collections().len()
@@ -213,7 +186,7 @@ pub fn restore_from_store(
             .get(&(run.reference.collection, run.reference.ordinal))
             .cloned()
             .ok_or_else(|| IndexError::InvalidPublication("opened run is missing".into()))?;
-        let segment = segment_from_packed(&frozen, collection, &file_entries, &definitions)?;
+        let segment = segment_from_packed(&frozen, collection, &catalog, &definitions)?;
         let visibility =
             VisibilityView::open(opened.visibility_backing(run), frozen.stats().record_count)
                 .map_err(storage_error)?;
@@ -241,14 +214,7 @@ pub fn restore_from_store(
                 packed: Some(Arc::clone(&frozen)),
             }));
     }
-    let versions = (0..catalogue.high_water() as usize)
-        .map(|id| {
-            rows.get(&(id as u32))
-                .map_or(FileVersion::INITIAL, |row| FileVersion(row.file_version))
-        })
-        .collect::<Vec<_>>();
-    let file_versions =
-        FileVersions::from_versions(versions).map_err(IndexError::InvalidPublication)?;
+    let file_versions = FileVersions::packed(Arc::clone(&catalogue));
     let publication_id = uuid::Uuid::parse_str(&opened.manifest.publication_id)
         .map_err(|_| IndexError::InvalidPublication("invalid publication UUID".into()))?;
     let lineage_id = uuid::Uuid::parse_str(&opened.manifest.lineage_id)
@@ -267,7 +233,7 @@ pub fn restore_from_store(
         catalog,
         file_versions,
         reconciliation: ReconciliationState::NotStarted,
-        processed_files: rows.len(),
+        processed_files: catalogue.stats().active_count as usize,
         processed_memberships: Vec::new(),
     };
     Ok(Index::from_published(published))
@@ -372,7 +338,7 @@ fn tombstone_entry(id: FileId, row: Option<&FileRowView>) -> FileEntry {
     }
 }
 
-fn file_entry(row: &FileRowView, diagnostics: &[DiagnosticView]) -> Result<FileEntry, IndexError> {
+pub(crate) fn file_entry(row: &FileRowView, diagnostics: &[DiagnosticView]) -> Result<FileEntry, IndexError> {
     let path = native_path(&row.native_path)?;
     let diagnostics = diagnostics
         .iter()
@@ -477,36 +443,69 @@ fn empty_sorting(
     .map_err(IndexError::Build)
 }
 
+fn packed_file_entries(
+    frozen: &Arc<FrozenSegment>,
+    catalog: &crate::lifecycle_catalog::FileCatalog,
+) -> Result<Vec<FileEntry>, IndexError> {
+    let mut result = Vec::new();
+    let mut seen = std::collections::HashSet::new();
+    for part_number in 0..frozen.stats().file_part_count {
+        let part = frozen
+            .records()
+            .file_part(part_number)
+            .map_err(storage_error)?
+            .ok_or_else(|| IndexError::InvalidPublication("packed file part missing".into()))?;
+        if !seen.insert(part.file_id) {
+            continue;
+        }
+        let file = FileId(part.file_id);
+        let entry = catalog
+            .entry(file)
+            .or_else(|| catalog.inactive_entry(file))
+            .ok_or_else(|| {
+                IndexError::InvalidPublication(format!(
+                    "packed file metadata missing for {}",
+                    part.file_id
+                ))
+            })?;
+        result.push(entry.as_ref().clone());
+    }
+    Ok(result)
+}
+
 pub(crate) fn segment_from_packed(
     frozen: &Arc<FrozenSegment>,
     collection: usize,
-    file_entries: &Arc<Vec<FileEntry>>,
+    catalog: &crate::lifecycle_catalog::FileCatalog,
     definitions: &[crate::repository::CollectionDefinition],
 ) -> Result<IndexedCollectionSegment, IndexError> {
     let stats = frozen.stats();
     let records_view = frozen.records();
     let mut files: Vec<crate::build::SegmentFile> = Vec::new();
+    let mut file_entries: Vec<FileEntry> = Vec::new();
     let mut file_index = HashMap::new();
     for part_number in 0..stats.file_part_count {
         let part = records_view
             .file_part(part_number)
             .map_err(storage_error)?
             .ok_or_else(|| IndexError::InvalidPublication("packed file part missing".into()))?;
-        let entry = file_entries
-            .get(part.file_id as usize)
-            .cloned()
+        let file_id = FileId(part.file_id);
+        let entry = catalog
+            .entry(file_id)
+            .or_else(|| catalog.inactive_entry(file_id))
             .ok_or_else(|| {
                 IndexError::InvalidPublication(format!(
-                    "packed file metadata missing for {} (have {})",
-                    part.file_id,
-                    file_entries.len()
+                    "packed file metadata missing for {}",
+                    part.file_id
                 ))
             })?;
-        let file_slot = *file_index.entry(FileId(part.file_id)).or_insert_with(|| {
+        let entry = entry.as_ref().clone();
+        let file_slot = *file_index.entry(file_id).or_insert_with(|| {
             files.push(crate::build::SegmentFile {
                 entry: entry.clone(),
                 records: Vec::new(),
             });
+            file_entries.push(entry);
             files.len() - 1
         });
         for local in part.local_record_start..part.local_record_start + part.record_count {
@@ -590,7 +589,7 @@ pub(crate) fn segment_from_packed(
         file_index,
         records: crate::inventory::RecordStore::packed(
             Arc::clone(frozen),
-            Arc::clone(file_entries),
+            Arc::new(file_entries),
         ),
         id_lookup: crate::inventory::RecordIdLookup::Packed {
             segment: Arc::clone(frozen),

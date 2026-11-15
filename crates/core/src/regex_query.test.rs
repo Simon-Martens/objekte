@@ -222,6 +222,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         assert_eq!(
             fts_candidates(&repo.collections()[0], &bound)
                 .unwrap()
+                .unwrap()
                 .len(),
             3
         );
@@ -269,7 +270,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             repo.search_reference(&folded).unwrap().hits
         );
         let bound = bind_fts(folded.fts.as_ref().unwrap(), &definition.schema).unwrap();
-        assert!(fts_candidates(&repo.collections()[0], &bound).is_some());
+        assert!(fts_candidates(&repo.collections()[0], &bound).unwrap().is_some());
         let fallback = query(
             "\\{\\\"title\\\":needle",
             None,
@@ -287,6 +288,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             .0;
         assert!(
             fts_candidates(&repo.collections()[0], &bound)
+                .unwrap()
                 .unwrap()
                 .contains(fallback_slot)
         );
@@ -598,7 +600,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
         for (pattern, expected) in [("^foobar$", 1), ("foobar", 2), ("foo-bar", 0)] {
             let request = query(pattern);
             let bound = bind_fts(request.fts.as_ref().unwrap(), &definition.schema).unwrap();
-            let candidates = fts_candidates(collection, &bound).unwrap();
+            let candidates = fts_candidates(collection, &bound).unwrap().unwrap();
             if pattern == "foobar" {
                 assert_eq!(candidates.len(), 2, "{alphabet:?}");
                 assert!(candidates.contains(fallback_slot));

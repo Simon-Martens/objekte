@@ -141,7 +141,9 @@ impl PostingAccess<'_> {
             output,
             coverage: covered_records,
         };
-        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
+        if let Some((work, output)) =
+            index.estimate_exact_with_visits(term, domain.len(), visits).map_err(Self::storage_error)?
+        {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
         if index.empty_string_complete()
@@ -301,7 +303,9 @@ impl PostingAccess<'_> {
     ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.access;
         match operation {
-            PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),
+            PostingOperation::Exact => index
+                .exact_set_restricted(term, domain, input)
+                .map_err(Self::storage_error),
             PostingOperation::SelfComparePresence => Ok(Some(
                 &index.presence().map_err(Self::storage_error)? & input,
             )),
@@ -314,7 +318,9 @@ impl PostingAccess<'_> {
                 let Some(key) = ScalarKey::from_value(&term.literal) else {
                     return Ok(None);
                 };
-                Ok(index.exact_observed_scalar_restricted(&key, term.operator, domain, input))
+                index
+                    .exact_observed_scalar_restricted(&key, term.operator, domain, input)
+                    .map_err(Self::storage_error)
             }
             PostingOperation::StringDictionaryExact => {
                 let Value::String(pattern) = &term.literal else {

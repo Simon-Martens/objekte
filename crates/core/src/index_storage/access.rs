@@ -273,12 +273,16 @@ impl<'a> PostingAccess<'a> {
         }
     }
 
-    fn estimate_length(&self, term: &BoundTerm, domain_len: u64) -> Option<u64> {
+    fn estimate_length(
+        &self,
+        term: &BoundTerm,
+        domain_len: u64,
+    ) -> StorageResult<Option<u64>> {
         if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
-            return None;
+            return Ok(None);
         }
         let crate::model::Value::Number(number) = &term.literal else {
-            return None;
+            return Ok(None);
         };
         let mut total = 0u64;
         let mut keys = 0u64;
@@ -297,18 +301,21 @@ impl<'a> PostingAccess<'a> {
                 total = total.saturating_add(bitmap.len());
             }
             Ok(())
-        })
-        .ok()?;
+        })?;
         let _ = domain_len;
-        Some(total.min(domain_len))
+        Ok(Some(total.min(domain_len)))
     }
 
-    fn exact_length(&self, term: &BoundTerm, input: &RoaringBitmap) -> Option<RoaringBitmap> {
+    fn exact_length(
+        &self,
+        term: &BoundTerm,
+        input: &RoaringBitmap,
+    ) -> StorageResult<Option<RoaringBitmap>> {
         if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
-            return None;
+            return Ok(None);
         }
         let crate::model::Value::Number(number) = &term.literal else {
-            return None;
+            return Ok(None);
         };
         let mut result = RoaringBitmap::new();
         self.for_each_length(|length, bitmap| {
@@ -325,58 +332,68 @@ impl<'a> PostingAccess<'a> {
                 result |= bitmap & input;
             }
             Ok(())
-        })
-        .ok()?;
-        Some(result)
+        })?;
+        Ok(Some(result))
     }
 
-    fn estimate_derived(&self, term: &BoundTerm, domain_len: u64) -> Option<Option<u64>> {
+    fn estimate_derived(
+        &self,
+        term: &BoundTerm,
+        domain_len: u64,
+    ) -> StorageResult<Option<u64>> {
         if term.derived == crate::reference::Derived::None {
-            return None;
+            return Ok(None);
         }
-        let truth = state_truth(term)?;
+        let Some(truth) = state_truth(term) else {
+            return Ok(None);
+        };
         let output = if term.derived == crate::reference::Derived::Exists {
             let yes = self
-                .presence()
-                .ok()?
-                .difference_len(&self.empty_selections().ok()?);
+                .presence()?
+                .difference_len(&self.empty_selections()?);
             if truth { yes } else { domain_len.saturating_sub(yes) }
         } else {
-            let key = derived_structural_key(term.derived, self.multi())?;
+            let Some(key) = derived_structural_key(term.derived, self.multi()) else {
+                return Ok(None);
+            };
             let value = if term.derived == crate::reference::Derived::Null && !self.multi() {
-                self.nulls().ok()?.len()
+                self.nulls()?.len()
             } else {
-                self.structural(key).ok()?.len()
+                self.structural(key)?.len()
             };
             if truth { value } else { domain_len.saturating_sub(value) }
         };
-        Some(Some(output))
+        Ok(Some(output))
     }
 
     fn exact_derived(
         &self,
         term: &BoundTerm,
-        domain: &RoaringBitmap,
+        _domain: &RoaringBitmap,
         input: &RoaringBitmap,
-    ) -> Option<Option<RoaringBitmap>> {
+    ) -> StorageResult<Option<RoaringBitmap>> {
         if term.derived == crate::reference::Derived::None {
-            return None;
+            return Ok(None);
         }
-        let truth = state_truth(term)?;
+        let Some(truth) = state_truth(term) else {
+            return Ok(None);
+        };
         let value = if term.derived == crate::reference::Derived::Exists {
-            let mut present = input & &self.presence().ok()?;
-            present -= &self.empty_selections().ok()?;
+            let mut present = input & &self.presence()?;
+            present -= &self.empty_selections()?;
             present
         } else {
-            let key = derived_structural_key(term.derived, self.multi())?;
+            let Some(key) = derived_structural_key(term.derived, self.multi()) else {
+                return Ok(None);
+            };
             if term.derived == crate::reference::Derived::Null && !self.multi() {
-                input & &self.nulls().ok()?
+                input & &self.nulls()?
             } else {
-                input & &self.structural(key).ok()?
+                input & &self.structural(key)?
             }
         };
         let result = if truth { value } else { input - &value };
-        Some(Some(result))
+        Ok(Some(result))
     }
 
     pub(crate) fn native(&self) -> Option<&'a PostingIndex> {
@@ -393,26 +410,30 @@ impl<'a> PostingAccess<'a> {
         term: &BoundTerm,
         domain_len: u64,
         visits: &mut u64,
-    ) -> Option<(f64, u64)> {
+    ) -> StorageResult<Option<(f64, u64)>> {
         if let Some(index) = self.native() {
-            return index.estimate_exact_with_visits(term, domain_len, visits);
+            return Ok(index.estimate_exact_with_visits(term, domain_len, visits));
         }
         if term
             .matcher
             .as_ref()
             .is_some_and(|matcher| !matcher.posting_compatible())
         {
-            return None;
+            return Ok(None);
         }
         if term.derived == crate::reference::Derived::Length {
-            let output = self.estimate_length(term, domain_len)?;
+            let Some(output) = self.estimate_length(term, domain_len)? else {
+                return Ok(None);
+            };
             *visits = visits.saturating_add(1);
-            return Some((1.0 + output as f64 / 8.0, output));
+            return Ok(Some((1.0 + output as f64 / 8.0, output)));
         }
         if term.derived != crate::reference::Derived::None {
-            let output = self.estimate_derived(term, domain_len)??;
+            let Some(output) = self.estimate_derived(term, domain_len)? else {
+                return Ok(None);
+            };
             *visits = visits.saturating_add(1);
-            return Some((1.0, output));
+            return Ok(Some((1.0, output)));
         }
         if self.covered_records() as u64 != domain_len
             || term.period.is_some()
@@ -422,33 +443,35 @@ impl<'a> PostingAccess<'a> {
             || term.derived != crate::reference::Derived::None
             || term.transform != crate::reference::Transform::Identity
         {
-            return None;
+            return Ok(None);
         }
         if term.multi
             && (term.operator != Operator::Eq || term.quantifier != crate::query::Quantifier::Any)
         {
-            return None;
+            return Ok(None);
         }
-        let key = ScalarKey::from_value(&term.literal)?;
+        let Some(key) = ScalarKey::from_value(&term.literal) else {
+            return Ok(None);
+        };
         if !self.value_complete() {
-            return None;
+            return Ok(None);
         }
         *visits = visits.saturating_add(1);
         let output = match term.operator {
-            Operator::Eq => self.value_cardinality(&key).ok()?,
+            Operator::Eq => self.value_cardinality(&key)?,
             Operator::Ne if !term.multi => {
-                let presence = self.presence().ok()?.len();
-                let nulls = self.nulls().ok()?.len();
+                let presence = self.presence()?.len();
+                let nulls = self.nulls()?.len();
                 presence
                     .saturating_sub(nulls)
-                    .saturating_sub(self.value_cardinality(&key).ok()?)
+                    .saturating_sub(self.value_cardinality(&key)?)
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                self.range(&key, term.operator).ok()?.len()
+                self.range(&key, term.operator)?.len()
             }
-            _ => return None,
+            _ => return Ok(None),
         };
-        Some((1.0 + output as f64 / 8.0, output))
+        Ok(Some((1.0 + output as f64 / 8.0, output)))
     }
 
     pub(crate) fn estimate_observed_scalar(
@@ -489,18 +512,18 @@ impl<'a> PostingAccess<'a> {
         term: &BoundTerm,
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
-    ) -> Option<RoaringBitmap> {
+    ) -> StorageResult<Option<RoaringBitmap>> {
         match self {
-            Self::Native(index) => index.exact_set_restricted(term, domain, input),
+            Self::Native(index) => Ok(index.exact_set_restricted(term, domain, input)),
             Self::Packed(_) => {
                 if term.derived == crate::reference::Derived::Length {
                     return self.exact_length(term, input);
                 }
-                if let Some(matches) = self.exact_derived(term, domain, input) {
-                    return matches;
+                if let Some(matches) = self.exact_derived(term, domain, input)? {
+                    return Ok(Some(matches));
                 }
                 if !self.values_indexed() {
-                    return None;
+                    return Ok(None);
                 }
                 if term.operation.is_some()
                     || term.matcher.is_some()
@@ -511,11 +534,13 @@ impl<'a> PostingAccess<'a> {
                     || term.derived != crate::reference::Derived::None
                     || (term.multi && term.operator != crate::query::Operator::Eq)
                 {
-                    return None;
+                    return Ok(None);
                 }
-                let key = ScalarKey::from_value(&term.literal)?;
-                let matches = self.range(&key, term.operator).ok()?;
-                Some(&matches & input)
+                let Some(key) = ScalarKey::from_value(&term.literal) else {
+                    return Ok(None);
+                };
+                let matches = self.range(&key, term.operator)?;
+                Ok(Some(&matches & input))
             }
         }
     }
@@ -527,12 +552,12 @@ impl<'a> PostingAccess<'a> {
         operator: Operator,
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
-    ) -> Option<RoaringBitmap> {
+    ) -> StorageResult<Option<RoaringBitmap>> {
         if let Some(index) = self.native() {
-            return index.exact_observed_scalar_restricted(key, operator, domain, input);
+            return Ok(index.exact_observed_scalar_restricted(key, operator, domain, input));
         }
         if self.covered_records() as u64 != domain.len() || self.multi() {
-            return None;
+            return Ok(None);
         }
         let result = match operator {
             Operator::Eq
@@ -540,10 +565,10 @@ impl<'a> PostingAccess<'a> {
             | Operator::Gt
             | Operator::Ge
             | Operator::Lt
-            | Operator::Le => self.range(key, operator).ok()?,
-            _ => return None,
+            | Operator::Le => self.range(key, operator)?,
+            _ => return Ok(None),
         };
-        Some(&result & input)
+        Ok(Some(&result & input))
     }
 
     pub(crate) fn value_posting_restricted(
@@ -854,63 +879,66 @@ impl<'a> BigramAccess<'a> {
     }
 
     /// Candidate intersection for one prepared literal request.
-    pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
+    pub(crate) fn candidates_prepared(
+        &self,
+        request: &BigramRequest,
+    ) -> StorageResult<Option<RoaringBitmap>> {
         let alphabet = match self.alphabet() {
             0 => crate::execution_options::BigramAlphabet::Ascii,
             _ => crate::execution_options::BigramAlphabet::Unicode,
         };
         let grams = request.grams(alphabet);
         if grams.is_empty() {
-            return None;
+            return Ok(None);
         }
         if let Some(index) = self.native_index() {
-            return index.candidates_prepared(request);
+            return Ok(index.candidates_prepared(request));
         }
         let mut columns = Vec::with_capacity(grams.len());
         for &(skip, key) in grams {
             let column = if skip {
-                self.skip(key).ok()?
+                self.skip(key)?
             } else {
-                self.normal(key).ok()?
+                self.normal(key)?
             };
             let Some(column) = column else {
-                return Some(RoaringBitmap::new());
+                return Ok(Some(RoaringBitmap::new()));
             };
             columns.push(column);
         }
         columns.sort_by_key(RoaringBitmap::len);
-        let mut result = columns.first()?.clone();
+        let Some(first) = columns.first() else {
+            return Ok(None);
+        };
+        let mut result = first.clone();
         for column in columns.iter().skip(1) {
             result &= column;
             if result.is_empty() {
                 break;
             }
         }
-        Some(result)
+        Ok(Some(result))
     }
 
-    pub(crate) fn estimate_prepared(&self, request: &BigramRequest) -> Option<u64> {
+    pub(crate) fn estimate_prepared(
+        &self,
+        request: &BigramRequest,
+    ) -> StorageResult<Option<u64>> {
         let alphabet = match self.alphabet() {
             0 => crate::execution_options::BigramAlphabet::Ascii,
             _ => crate::execution_options::BigramAlphabet::Unicode,
         };
-        request
-            .grams(alphabet)
-            .iter()
-            .map(|(skip, key)| {
-                if *skip {
-                    self.skip(*key)
-                        .ok()
-                        .flatten()
-                        .map_or(0, |bitmap| bitmap.len())
-                } else {
-                    self.normal(*key)
-                        .ok()
-                        .flatten()
-                        .map_or(0, |bitmap| bitmap.len())
-                }
-            })
-            .min()
+        let mut minimum: Option<u64> = None;
+        for (skip, key) in request.grams(alphabet).iter() {
+            let bitmap = if *skip {
+                self.skip(*key)?
+            } else {
+                self.normal(*key)?
+            };
+            let count = bitmap.map_or(0, |bitmap| bitmap.len());
+            minimum = Some(minimum.map_or(count, |current| current.min(count)));
+        }
+        Ok(minimum)
     }
 
     pub(crate) fn normal_gram_count(&self) -> u64 {

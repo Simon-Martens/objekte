@@ -96,7 +96,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             let id = FileId(number as u32);
             appended
                 .entry(id)
-                .cloned()
+                .map(|entry| entry.as_ref().clone())
                 .map(|entry| (entry, appended.fingerprint(id), appended.configuration(id)))
         })
         .collect::<Vec<_>>();

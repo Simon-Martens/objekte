@@ -215,7 +215,6 @@ fn partition_base_with_limits_inner(
     let catalog =
         FileCatalog::restored(Arc::clone(&empty), slots).map_err(IndexError::InvalidPublication)?;
     let mut groups = root.segments.clone();
-    let files = Arc::new(root.repository.files().files.clone());
     let definitions = root
         .repository
         .collections()
@@ -261,7 +260,7 @@ fn partition_base_with_limits_inner(
             let index = crate::index_storage::packed_restore::segment_from_packed(
                 &frozen,
                 number,
-                &files,
+                &catalog,
                 &definitions,
             )?;
             let active =

@@ -211,11 +211,11 @@ pub struct IndexStatus {
 
 /// Discovery-only facts for one physical file. Record identity, validity,
 /// byte ranges and record counts require construction and are omitted here.
-#[derive(Clone, Copy, Debug)]
-pub struct FileCatalogueRow<'a> {
+#[derive(Clone, Debug)]
+pub struct FileCatalogueRow {
     pub id: FileId,
-    pub relative_path: &'a Path,
-    pub collections: &'a [CollectionId],
+    pub relative_path: std::path::PathBuf,
+    pub collections: Vec<CollectionId>,
     pub size: u64,
     pub modified_ns: i128,
     pub created_ns: Option<i128>,
@@ -1340,6 +1340,7 @@ impl Index {
                 .catalog
                 .entry(file.entry.id)
                 .ok_or(IndexError::UnknownFile)?
+                .as_ref()
                 .clone();
             merged.status = merged.status.max(file.entry.status);
             for diagnostic in &file.entry.diagnostics {
@@ -2355,7 +2356,7 @@ impl Index {
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("content generation overflow".into()))?;
         let mut next = (*view.0).clone();
-        next.retire_file_records(previous)?;
+        next.retire_file_records(previous.as_ref())?;
         next.catalog = next
             .catalog
             .replaced(entry, fingerprint, Some(prepared.configuration_identity))
@@ -2599,7 +2600,7 @@ impl Index {
             .entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
         let mut next = (*current.0).clone();
-        let retired_records = next.retire_file_records(file)?;
+        let retired_records = next.retire_file_records(file.as_ref())?;
         let affected_collections = file
             .collections
             .iter()
@@ -2721,22 +2722,22 @@ impl IndexView {
 
     /// Borrow a row from this pinned publication without copying the corpus
     /// path catalogue or implying that the file has been parsed.
-    pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {
+    pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow> {
         if !self.0.catalog.is_active(id) {
             return None;
         }
         let file = self.0.catalog.entry(id)?;
         Some(FileCatalogueRow {
             id,
-            relative_path: file.relative_path.as_path(),
-            collections: &file.collections,
+            relative_path: file.relative_path.to_path_buf(),
+            collections: file.collections.clone(),
             size: file.revision.size,
             modified_ns: file.revision.modified_ns,
             created_ns: file.created_ns,
         })
     }
 
-    pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {
+    pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow> + '_ {
         (0..self.0.catalog.allocated_files())
             .filter_map(|number| self.catalogue_row(FileId(number as u32)))
     }
@@ -2939,17 +2940,17 @@ impl IndexView {
     }
 
     /// Paths of files active in this immutable publication.
-    pub fn file_paths(&self) -> impl Iterator<Item = &Path> + '_ {
+    pub fn file_paths(&self) -> impl Iterator<Item = std::path::PathBuf> + '_ {
         (0..self.0.catalog.allocated_files()).filter_map(|number| {
             self.0
                 .catalog
                 .entry(FileId(number as u32))
-                .map(|entry| entry.relative_path.as_path())
+                .map(|entry| entry.relative_path.to_path_buf())
         })
     }
 
     /// Paths of active files indexed for one collection in this publication.
-    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = &Path> + '_ {
+    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = std::path::PathBuf> + '_ {
         let collection_id = self
             .0
             .repository
@@ -2961,7 +2962,7 @@ impl IndexView {
             let entry = self.0.catalog.entry(FileId(number as u32))?;
             collection_id
                 .filter(|id| entry.collections.contains(id))
-                .map(|_| entry.relative_path.as_path())
+                .map(|_| entry.relative_path.to_path_buf())
         })
     }
 
@@ -2976,7 +2977,7 @@ impl IndexView {
         self.0.file_versions.get(file)
     }
 
-    pub(crate) fn file_entry(&self, file: FileId) -> Option<&FileEntry> {
+    pub(crate) fn file_entry(&self, file: FileId) -> Option<Arc<FileEntry>> {
         self.0.catalog.entry(file)
     }
 
@@ -2984,12 +2985,13 @@ impl IndexView {
         &self,
         file: FileId,
         reference: crate::inventory::DiagnosticRef,
-    ) -> Option<&crate::inventory::SourceDiagnostic> {
+    ) -> Option<crate::inventory::SourceDiagnostic> {
         self.0
             .catalog
             .entry(file)?
             .diagnostics
             .get(reference.stored_index()?)
+            .cloned()
     }
 
     pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {

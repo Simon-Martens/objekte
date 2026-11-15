@@ -127,7 +127,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 )
                 .unwrap();
                 if let BoundExpr::Term(term) = bound
-                    && let Some(candidates) = raw_bigram_candidates(collection, &term)
+                    && let Some(candidates) = raw_bigram_candidates(collection, &term).unwrap()
                 {
                     for &id in expected {
                         let slot = collection.id_lookup.get(id).unwrap();

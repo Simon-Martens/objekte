@@ -1038,7 +1038,7 @@ pub(crate) fn compare_composite(
     Ordering::Equal
 }
 
-fn descending_order(
+pub(crate) fn descending_order(
     ascending: &[RecordSlot],
     keys: &[SortKey],
     options: SortOptions,

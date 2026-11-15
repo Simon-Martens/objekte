@@ -66,7 +66,7 @@ pub(crate) struct MergedRecordSlot {
 
 pub(crate) struct MergedRecord<'a> {
     pub record: &'a crate::inventory::RecordEntry,
-    pub file: &'a crate::inventory::FileEntry,
+    pub file: std::sync::Arc<crate::inventory::FileEntry>,
     pub collection: &'a CollectionState,
 }
 
@@ -1490,7 +1490,7 @@ fn visit_merged_hop(
                 value: &value,
                 source_bytes: None,
                 record: current.record,
-                file: current.file,
+                file: current.file.as_ref(),
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
             };
@@ -1514,7 +1514,7 @@ fn visit_merged_hop(
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
-                view.record_source_failure(current.file, current.record.range, message);
+                view.record_source_failure(current.file.as_ref(), current.record.range, message);
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             }
@@ -1543,7 +1543,7 @@ fn visit_merged_hop(
                 value: &value,
                 source_bytes: None,
                 record: current.record,
-                file: current.file,
+                file: current.file.as_ref(),
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
             };
@@ -1557,7 +1557,7 @@ fn visit_merged_hop(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record: current.record,
-                file: current.file,
+                file: current.file.as_ref(),
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
             };

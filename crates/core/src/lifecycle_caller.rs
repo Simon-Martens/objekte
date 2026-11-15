@@ -70,7 +70,7 @@ impl IndexedRepository {
     /// after the base repository was built. Return an owned value because the
     /// publication pin is released when this method returns.
     pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<SourceDiagnostic> {
-        self.read_view().ok()?.diagnostic(file, reference).cloned()
+        self.read_view().ok()?.diagnostic(file, reference)
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {

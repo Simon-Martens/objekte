@@ -115,6 +115,7 @@ pub struct CatalogueSections {
     pub path_dictionary: Vec<u8>,
     pub diagnostics: Vec<u8>,
     pub statistics: Vec<u8>,
+    pub active_files: Vec<u8>,
     pub stats: CatalogueStats,
 }
 
@@ -299,11 +300,21 @@ pub fn build_catalogue_with_high_water(
     statistics[20..24].copy_from_slice(&tombstone_count.to_le_bytes());
     statistics[24..28].copy_from_slice(&page_count.to_le_bytes());
     statistics[28..32].copy_from_slice(&collection_count.to_le_bytes());
+    let active = rows
+        .iter()
+        .filter(|row| !row.tombstone)
+        .map(|row| row.file_id)
+        .collect::<roaring::RoaringBitmap>();
+    let mut active_files = Vec::new();
+    active
+        .serialize_into(&mut active_files)
+        .map_err(|error| StorageError::corrupt(error.to_string()))?;
     Ok(CatalogueSections {
         file_rows,
         path_dictionary,
         diagnostics,
         statistics,
+        active_files,
         stats,
     })
 }
@@ -359,6 +370,7 @@ pub struct CatalogueView {
     sections: BTreeMap<SectionKind, SectionDescriptor>,
     stats: CatalogueStats,
     path_dictionary: DictionaryReader,
+    active: roaring::RoaringBitmap,
 }
 
 
@@ -396,11 +408,25 @@ impl CatalogueView {
             .ok_or_else(|| StorageError::corrupt("path dictionary is missing"))?;
         let path_dictionary =
             DictionaryReader::open(backing.clone(), path_section.offset, path_section.length)?;
+        let active_section = sections
+            .get(&SectionKind::ActiveFiles)
+            .copied()
+            .ok_or_else(|| StorageError::corrupt("catalogue active-file index is missing"))?;
+        let active = roaring::RoaringBitmap::deserialize_from(std::io::Cursor::new(
+            backing.read(active_section.offset, active_section.length)?,
+        ))
+        .map_err(|error| StorageError::corrupt(error.to_string()))?;
+        if active.len() != stats.active_count as u64 {
+            return Err(StorageError::corrupt(
+                "catalogue active-file cardinality differs from its statistics",
+            ));
+        }
         Ok(Self {
             backing,
             sections,
             stats,
             path_dictionary,
+            active,
         })
     }
 
@@ -410,6 +436,14 @@ impl CatalogueView {
 
     pub fn high_water(&self) -> u32 {
         self.stats.high_water
+    }
+
+    pub fn active_files(&self) -> &roaring::RoaringBitmap {
+        &self.active
+    }
+
+    pub fn is_active(&self, file_id: u32) -> bool {
+        self.active.contains(file_id)
     }
 
     pub fn page_count(&self) -> u32 {

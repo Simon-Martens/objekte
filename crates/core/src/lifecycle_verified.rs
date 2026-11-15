@@ -304,7 +304,7 @@ pub(crate) fn preserve_partition_record_slots(
                     .catalog
                     .entry(id)
                     .or_else(|| view.0.catalog.inactive_entry(id))
-                    .cloned()
+                    .map(|entry| entry.as_ref().clone())
             })
             .collect::<Vec<_>>()
     } else {
