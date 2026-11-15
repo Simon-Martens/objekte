@@ -7407,6 +7407,12 @@ fn lifecycle_segment_order<'a>(
             .map(|order| SortOrder::Native(&order.order));
     }
     if query.options.sort.is_empty() {
+        if !segment.identity_order.is_empty() {
+            return Some(SortOrder::Native(&segment.identity_order));
+        }
+        if let Some(packed) = &segment.packed {
+            return Some(SortOrder::PackedIdentity(packed));
+        }
         return Some(SortOrder::Native(&segment.identity_order));
     }
     let term = sort.bound.terms[collection_index].as_ref()?.first()?;

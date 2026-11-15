@@ -492,6 +492,17 @@ impl RecordTableView {
     }
 
     /// Identity order slots, decoded from the packed array.
+    pub fn identity_slot(&self, index: u32) -> StorageResult<Option<u32>> {
+        let section = self.section(SectionKind::IdentityOrder)?;
+        if index as u64 >= section.length / 4 {
+            return Ok(None);
+        }
+        let bytes = self.backing.read(section.offset + index as u64 * 4, 4)?;
+        Ok(Some(u32::from_le_bytes(
+            bytes.try_into().expect("four-byte identity slot"),
+        )))
+    }
+
     pub fn identity_order(&self) -> StorageResult<Vec<u32>> {
         let section = self.section(SectionKind::IdentityOrder)?;
         if section.length % 4 != 0 || section.length / 4 != self.stats.identity_count as u64 {

@@ -314,9 +314,15 @@ fn packed_restore_serves_posting_values_without_native_dictionaries() {
     assert_eq!(segment.index.records.materialized_rows(), 0);
     assert!(segment.index.records.try_get(usize::MAX).unwrap().is_none());
     assert!(segment.index.id_lookup.native().is_none());
+    assert!(segment.index.identity_order.is_empty());
     assert_eq!(
         segment.index.records.len(),
-        segment.index.identity_order.len()
+        segment
+            .packed
+            .as_ref()
+            .expect("packed run")
+            .stats()
+            .identity_count as usize
     );
 
     let request = crate::posting_values::PostingValuesRequest::new("entries", "title", 100);

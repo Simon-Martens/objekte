@@ -182,6 +182,7 @@ impl PackedSortColumn {
 #[derive(Clone, Copy)]
 pub(crate) enum SortOrder<'a> {
     Native(&'a [RecordSlot]),
+    PackedIdentity(&'a crate::index_storage::segment::FrozenSegment),
     Packed {
         column: &'a SortColumn,
         descending: bool,
@@ -193,6 +194,7 @@ impl<'a> SortOrder<'a> {
     pub(crate) fn len(self) -> usize {
         match self {
             Self::Native(order) => order.len(),
+            Self::PackedIdentity(segment) => segment.stats().identity_count as usize,
             Self::Packed { column, .. } => column.key_count(),
         }
     }
@@ -200,6 +202,15 @@ impl<'a> SortOrder<'a> {
     pub(crate) fn get(self, index: usize) -> Option<RecordSlot> {
         match self {
             Self::Native(order) => order.get(index).copied(),
+            Self::PackedIdentity(segment) => {
+                let index = u32::try_from(index).ok()?;
+                segment
+                    .records()
+                    .identity_slot(index)
+                    .ok()
+                    .flatten()
+                    .map(RecordSlot)
+            }
             Self::Packed { column, descending } => {
                 let index = u32::try_from(index).ok()?;
                 let slot = if descending {

@@ -496,12 +496,7 @@ pub(crate) fn segment_from_packed(
             segment: Arc::clone(frozen),
             len: stats.record_count as usize,
         },
-        identity_order: records_view
-            .identity_order()
-            .map_err(storage_error)?
-            .into_iter()
-            .map(RecordSlot)
-            .collect(),
+        identity_order: Vec::new(),
         postings: posting_collection,
         inference,
         custom_postings,
