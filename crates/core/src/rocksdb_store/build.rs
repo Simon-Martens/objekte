@@ -1794,4 +1794,61 @@ mod tests {
         drop(constrained);
         std::fs::remove_dir_all(root).unwrap();
     }
+
+    #[test]
+    fn unicode_file_build_survives_durable_reopen() {
+        let base = std::env::temp_dir().join(format!(
+            "objekte-rocksdb-unicode-reopen-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        let root = base.join("source");
+        let database = base.join("database");
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/unicode.jsonl"),
+            "{\"body\":\"Grüße aus Köln — 東京\"}\n".as_bytes(),
+        )
+        .unwrap();
+        let definitions = vec![CollectionDefinition::folder(
+            "records",
+            "data",
+            SourceFormat::JsonLines,
+        )];
+        let config = StoreConfig {
+            location: super::super::StoreLocation::File(database.clone()),
+            configuration_digest: [21; 32],
+            alphabet: "unicode".into(),
+            source_root: crate::path_repr::native_bytes(&root),
+            build_identity: [22; 32],
+        };
+        let built = build_from_source(
+            config.clone(),
+            &root,
+            &definitions,
+            &SourceRegistry::builtin(),
+            BigramAlphabet::Unicode,
+            DirectBuildOptions {
+                prepare_workers: Some(1),
+                write_workers: Some(1),
+                ..DirectBuildOptions::default()
+            },
+        )
+        .unwrap();
+        built.store.flush_wal(true).unwrap();
+        built.store.flush_memtable().unwrap();
+        let validation = super::super::validation::validate(&built.store).unwrap();
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        drop(built);
+
+        let reopened =
+            super::super::RocksStore::reopen_file(database.clone(), config).unwrap();
+        let validation = super::super::validation::validate(&reopened).unwrap();
+        assert!(validation.is_valid(), "{:?}", validation.errors);
+        drop(reopened);
+        std::fs::remove_dir_all(base).unwrap();
+    }
 }
