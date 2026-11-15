@@ -175,3 +175,44 @@ cargo build --release --locked -p objekte-search-core \
   --example bench_index_store --features store-feasibility,store-reverse-lz4
 target/release/examples/bench_index_store --input /tmp/a2/ascii.input
 ```
+
+## 9. A3 decision and revised gate
+
+`objekte_redb_memory_budget_amendment_a3.md` adopts the combined
+representation and replaces the resident/peak factors with 1.40/1.60 while
+keeping correctness, speed, CRUD and stability gates.
+
+| Gate | Old limit | A3 limit | Combined |
+| --- | ---: | ---: | ---: |
+| Post-build RSS | 549,953,331 B (524.5 MiB) | 669,508,403 B (638.5 MiB) | 661,000,192 B (630.4 MiB) |
+| Peak RSS | 585,891,840 B (558.7 MiB) | 781,189,120 B (745.0 MiB) | 661,348,352 B (630.7 MiB) |
+
+Under A3 the combined candidate passes both memory limits. The original 1.15
+and 1.20 results remain failures and are not relabelled. Backend length
+(570.4 MiB) and page-plus-cache totals are retained as diagnostics, not
+standalone RSS gates.
+
+The A2-specific primitive and mutation evidence required by A3 is recorded in
+`bench/results/redb-primary-index/feasibility-a3/ascii/primitives-mutations.json`:
+point membership 0.34 us, value lookup 1.40 us, state scan 2.58 us, FTS
+candidate 2.11 us, restricted candidates 5.90 us, sort page 20.3 us, single
+record update p50/p95/p99 112/118/124 us, and delete/reinsert p50/p95/p99
+2.88/3.58/3.99 ms. The relative native baseline comparison is unavailable
+because no equivalent native primitive harness exists; the Phase-5 early
+feasibility bound is therefore recorded as absolute evidence rather than a
+claimed ratio. Phase 5 is closed; Phase 6 starts from the A2 combined
+implementation commit on `integration/redb-primary-index`. Production
+construction, query, CRUD and frontend paths remain unimplemented and must
+still pass their unchanged gates.
+
+## 10. A3 decision record
+
+- Selected representation: `a2-combined` (A1 state blocks, A2 value/length
+  blocks, per-record raw/LZ4 contributions, one-copy reverse grams).
+- Revised resident factor: 1.40; revised peak factor: 1.60. Absolute
+  allowances remain 32/64 MiB.
+- ASCII limits: post-build 669,508,403 B, peak 781,189,120 B. Combined:
+  661,000,192 B / 661,348,352 B. Both pass.
+- Historical 1.15/1.20 failures remain recorded and are not relabelled.
+- Phase 5 is closed. Phase 6 starts from the A2 combined implementation on
+  `integration/redb-primary-index`.

@@ -153,29 +153,35 @@
     },
     {
       "gate": "post_build_rss",
-      "status": "fail",
-      "threshold_bytes": 549953331,
+      "status": "pass",
+      "threshold_bytes": 669508403,
       "observed_best_bytes": 661000192,
-      "ratio": 1.38
+      "ratio": 1.382,
+      "policy": "A3",
+      "old_threshold_bytes": 549953331
     },
     {
       "gate": "peak_rss",
-      "status": "fail",
-      "threshold_bytes": 585891840,
-      "observed_best_bytes": 661363712,
-      "ratio": 1.29
+      "status": "pass",
+      "threshold_bytes": 781189120,
+      "observed_best_bytes": 661348352,
+      "ratio": 1.354,
+      "policy": "A3",
+      "old_threshold_bytes": 585891840
     },
     {
       "gate": "backend_length",
-      "status": "fail",
+      "status": "diagnostic",
       "threshold_bytes": 549953331,
-      "observed_bytes": 570429440
+      "observed_bytes": 570429440,
+      "reason": "A3: backend length is a diagnostic component, not a second RSS gate"
     },
     {
       "gate": "page_bytes_plus_cache",
-      "status": "fail",
+      "status": "diagnostic",
       "threshold_bytes": 549953331,
-      "observed_bytes": 583845376
+      "observed_bytes": 583845376,
+      "reason": "A3: page total plus cache capacity is not measured RSS"
     },
     {
       "gate": "end_to_end_query",
@@ -195,8 +201,23 @@
     "fts_blocks"
   ],
   "decision_required": [
-    "Amend reverse gram and/or sort compression for another Phase-5 cycle",
-    "Relax the RSS gate with an explicit decision",
-    "Stop the migration and keep the A1/A2 evidence"
-  ]
+    "Proceed with a2-combined and close the A2 primitive/mutation evidence gap before Phase 6"
+  ],
+  "policy": {
+    "decision": "A3",
+    "old_post_build_limit_bytes": 549953331,
+    "old_peak_limit_bytes": 585891840,
+    "a3_post_build_limit_bytes": 669508403,
+    "a3_peak_limit_bytes": 781189120,
+    "a3_factors": {
+      "post_build": 1.4,
+      "post_query": 1.4,
+      "peak": 1.6,
+      "regeneration_peak": 1.6
+    },
+    "a3_absolute_allowances": {
+      "resident": 33554432,
+      "peak": 67108864
+    }
+  }
 }
