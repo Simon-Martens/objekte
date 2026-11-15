@@ -1,0 +1,23 @@
+{
+  "candidate": "phase6-table-access",
+  "alphabet": "ascii",
+  "build_workers": "auto",
+  "base_commit": "b6b9ae2d1c78bc4cb7249fe05a0bd6b79f8ac1ae",
+  "candidate_worktree": "/home/simon/source/objekte-integration-redb-primary-index",
+  "executable_sha256": "fb826753686251d4152fd35ca50e6a952293629e7c4a668114d60e1a553cc0c3",
+  "command": "/usr/bin/time -v target/release/examples/bench_index_store --root examples/musenalm --alphabet ascii --build-workers auto --build-source --profile-build --result-dir bench/results/redb-primary-index/construction-a4/phase6-table-access/ascii",
+  "wall_time_seconds": 24.33,
+  "user_cpu_seconds": 27.16,
+  "system_cpu_seconds": 1.44,
+  "cpu_percent": 117,
+  "maximum_resident_set_kib": 1384812,
+  "maximum_resident_set_bytes": 1418047488,
+  "construction_elapsed_ns": 23968067534,
+  "discovery_ns": 2342446091,
+  "scheduling_job_ns": 4507104521,
+  "receive_wait_ns": 38954646,
+  "admission_ns": 21462398092,
+  "finalization_ns": 245350,
+  "validation": "not run; A4 requires separate correctness process",
+  "status": "diagnostic candidate; not final acceptance"
+}

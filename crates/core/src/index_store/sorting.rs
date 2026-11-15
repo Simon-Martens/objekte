@@ -66,6 +66,40 @@ pub fn insert_sort_projection(
     Ok(())
 }
 
+pub fn insert_sort_projections<'a>(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: impl IntoIterator<Item = (RecordSlot, &'a str, &'a [SortProjection])>,
+    definitions: &[SortDefinition],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::SORT_ENTRIES).map_err(write::map_table)?;
+    for (slot, logical_id, projections) in rows {
+        for projection in projections {
+            let definition = definitions
+                .iter()
+                .find(|definition| definition.id == projection.definition)
+                .ok_or_else(|| {
+                    StoreError::State(format!(
+                        "missing sort definition {}",
+                        projection.definition
+                    ))
+                })?;
+            let order = encode_order_key(projection, definition)?;
+            let key = keys::sort_entry(
+                collection.0,
+                projection.definition,
+                &order,
+                logical_id,
+                slot.0,
+            );
+            table
+                .insert(key.as_slice(), &[][..])
+                .map_err(write::map_storage)?;
+        }
+    }
+    Ok(())
+}
+
 pub fn remove_sort_projection(
     tx: &WriteTransaction,
     collection: CollectionId,

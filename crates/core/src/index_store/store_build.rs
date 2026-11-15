@@ -325,6 +325,7 @@ mod tests {
             CollectionId(0),
             metadata.build_epoch,
             &batch_file,
+            &[FileId(0)].into_iter().collect(),
         )
         .expect_err("stale version must be rejected");
         assert!(error.contains("does not match catalog expectation"), "{error}");
@@ -578,7 +579,7 @@ pub fn build_from_source(
         while start < pending.len() {
             let mut end = start;
             let mut bytes = 0u64;
-            while end < pending.len() && end - start < 512 {
+            while end < pending.len() && end - start < 256 {
                 let size = source_files
                     .get(pending[end].0 as usize)
                     .map_or(0, |file| file.revision.size);
@@ -610,6 +611,7 @@ pub fn build_from_source(
                 id: CollectionId(index as u32),
                 definition: definition.clone(),
                 bindings: HashMap::new(),
+                fields: HashMap::new(),
                 next_binding: 0,
                 sort_ids: HashMap::new(),
                 next_sort: 0,
@@ -686,6 +688,7 @@ struct BuildCollection {
     id: CollectionId,
     definition: CollectionDefinition,
     bindings: HashMap<BindingIdentity, u32>,
+    fields: HashMap<Vec<String>, crate::index_store::value_codec::FieldDescriptor>,
     next_binding: u32,
     sort_ids: HashMap<crate::model::FieldPath, (u32, u32)>,
     next_sort: u32,
@@ -701,6 +704,7 @@ fn validate_admission_file(
     collection: CollectionId,
     expected_epoch: u64,
     batch_file: &crate::build::BatchFile,
+    pending: &std::collections::HashSet<FileId>,
 ) -> Result<FileMetadata, String> {
     let current = write::get_file(tx, batch_file.entry.id)
         .map_err(|error| error.to_string())?
@@ -732,8 +736,6 @@ fn validate_admission_file(
             batch_file.entry.id.0, collection.0
         ));
     }
-    let pending =
-        read::pending_files_for_write(tx, collection).map_err(|error| error.to_string())?;
     if !pending.contains(&batch_file.entry.id) {
         return Err(format!(
             "file {} is no longer pending in collection {}",
@@ -744,7 +746,6 @@ fn validate_admission_file(
 }
 
 fn merge_file_admission(
-    tx: &redb::WriteTransaction,
     collection: CollectionId,
     current: &FileMetadata,
     batch_file: &crate::build::BatchFile,
@@ -781,15 +782,6 @@ fn merge_file_admission(
                 .map_err(|error| format!("file {}: {error}", merged.id.0))?,
         );
     }
-    let key = super::keys::file(merged.id);
-    let metadata = FileMetadata {
-        entry: merged.clone(),
-        file_version: current.file_version,
-        fingerprint: current.fingerprint,
-    };
-    let encoded = super::value_codec::encode(&metadata).map_err(|error| error.to_string())?;
-    let mut files = tx.open_table(super::tables::FILES).map_err(|error| error.to_string())?;
-    files.insert(key.as_slice(), encoded.as_slice()).map_err(|error| error.to_string())?;
     Ok((merged, remapped_refs))
 }
 
@@ -859,21 +851,26 @@ impl BatchStoreBuilder<'_> {
             return Err("prepared record slots are not contiguous".into());
         }
         let mut current_files = BTreeMap::new();
+        let pending = read::pending_files_for_write(&tx, collection.id)
+            .map_err(|error| error.to_string())?
+            .into_iter()
+            .collect::<std::collections::HashSet<_>>();
         for batch_file in &batch.files {
             let current = validate_admission_file(
                 &tx,
                 collection.id,
                 self.metadata.build_epoch,
                 batch_file,
+                &pending,
             )?;
             current_files.insert(batch_file.entry.id, current);
         }
         let mut local_to_global = vec![crate::model::RecordSlot(0); count];
         let mut incarnations = vec![0u64; count];
-        for entry in &batch_records {
-            let (slot, incarnation) =
-                super::slot_allocator::allocate(&tx, &mut collection_metadata)
-                    .map_err(|error| error.to_string())?;
+        let allocated =
+            super::slot_allocator::allocate_many(&tx, &mut collection_metadata, count)
+                .map_err(|error| error.to_string())?;
+        for (entry, (slot, incarnation)) in batch_records.iter().zip(allocated) {
             local_to_global[entry.slot.0 as usize] = slot;
             incarnations[entry.slot.0 as usize] = incarnation;
         }
@@ -908,19 +905,27 @@ impl BatchStoreBuilder<'_> {
             .iter()
             .copied()
             .collect::<HashMap<_, _>>();
+        let mut file_rows = Vec::with_capacity(batch.files.len());
         let mut admitted_files = BTreeMap::new();
         for batch_file in &batch.files {
             let current = current_files
                 .get(&batch_file.entry.id)
                 .ok_or_else(|| "admission file validation disappeared".to_string())?;
-            let (entry, diagnostic_refs) =
-                merge_file_admission(&tx, collection.id, current, batch_file, &local_to_global)?;
             let fingerprint = fingerprints
-                .get(&entry.id)
+                .get(&batch_file.entry.id)
                 .copied()
                 .or(current.fingerprint);
-            write::put_file(&tx, &entry, current.file_version, fingerprint)
-                .map_err(|error| error.to_string())?;
+            let (entry, diagnostic_refs) = merge_file_admission(
+                collection.id,
+                current,
+                batch_file,
+                &local_to_global,
+            )?;
+            file_rows.push(FileMetadata {
+                entry: entry.clone(),
+                file_version: current.file_version,
+                fingerprint,
+            });
             admitted_files.insert(
                 entry.id,
                 AdmittedFile {
@@ -930,8 +935,13 @@ impl BatchStoreBuilder<'_> {
                 },
             );
         }
+        write::put_files_without_paths_batch(&tx, &file_rows)
+            .map_err(|error| error.to_string())?;
         let mut contributions: Vec<crate::index_store::value_codec::StoredContributions> =
             Vec::with_capacity(count);
+        let mut record_rows = Vec::with_capacity(count);
+        let mut logical_rows = Vec::with_capacity(count);
+        let mut file_record_rows = Vec::with_capacity(count);
         for entry in &batch_records {
             let slot = local_to_global[entry.slot.0 as usize];
             let incarnation = incarnations[entry.slot.0 as usize];
@@ -942,19 +952,9 @@ impl BatchStoreBuilder<'_> {
             entry.diagnostic_ref =
                 remap_diagnostic_reference(entry.diagnostic_ref, &admitted.diagnostic_refs);
             let record = crate::index_store::value_codec::RecordMetadata::from_entry(&entry, incarnation);
-            write::put_record(&tx, collection.id, slot, &record).map_err(|error| error.to_string())?;
-            if let Some((existing_slot, _)) = write::get_logical_id(&tx, collection.id, &entry.id)
-                .map_err(|error| error.to_string())?
-            {
-                return Err(format!(
-                    "duplicate logical record ID {} in collection {} (existing slot {})",
-                    entry.id.0, collection.id.0, existing_slot.0
-                ));
-            }
-            write::put_logical_id(&tx, collection.id, &entry.id, slot, incarnation)
-                .map_err(|error| error.to_string())?;
-            write::put_file_record(&tx, entry.file, collection.id, slot)
-                .map_err(|error| error.to_string())?;
+            record_rows.push((slot, record.clone()));
+            logical_rows.push((entry.id.clone(), slot, incarnation));
+            file_record_rows.push((entry.file, collection.id, slot));
             contributions.push(crate::index_store::value_codec::StoredContributions {
                 record,
                 values: Vec::new(),
@@ -967,10 +967,19 @@ impl BatchStoreBuilder<'_> {
                 grams: Vec::new(),
             });
         }
+        write::put_records_batch(&tx, collection.id, &record_rows)
+            .map_err(|error| error.to_string())?;
+        write::put_logical_ids_batch(&tx, collection.id, &logical_rows)
+            .map_err(|error| error.to_string())?;
+        write::put_file_records_batch(&tx, &file_record_rows)
+            .map_err(|error| error.to_string())?;
         let mut state_batch = super::states::StateBatch::new();
         let mut posting_batch = super::posting_blocks::PostingBatch::new();
         let mut fts_batch = super::fts::FtsBatch::new();
-        let mut gram_rows_for_batch: HashMap<(u32, u32, crate::index_store::value_codec::GramKind), Vec<u64>> = HashMap::new();
+        let mut gram_rows_for_batch: BTreeMap<
+            (u32, u32, crate::index_store::value_codec::GramKind),
+            Vec<u64>,
+        > = BTreeMap::new();
         let mut state_masks: Vec<std::collections::BTreeMap<u32, u16>> =
             vec![std::collections::BTreeMap::new(); count];
         let declare_binding = |collection: &mut BuildCollection,
@@ -1008,6 +1017,8 @@ impl BatchStoreBuilder<'_> {
             collection.bindings.insert(identity, id);
             Ok(id)
         };
+        let mut field_rows = BTreeMap::new();
+        let mut coverage_rows = Vec::new();
         for (path, posting) in &batch.postings.fields {
             let binding = declare_binding(
                 collection,
@@ -1018,8 +1029,7 @@ impl BatchStoreBuilder<'_> {
                 crate::index_store::value_codec::BindingRole::Structured,
                 None,
             )?;
-            let existing = write::get_field(&tx, collection.id, path)
-                .map_err(|error| error.to_string())?;
+            let existing = collection.fields.get(path).cloned();
             if existing
                 .as_ref()
                 .is_some_and(|field| field.kind != posting.kind || field.multi != posting.multi)
@@ -1058,13 +1068,11 @@ impl BatchStoreBuilder<'_> {
                     && posting.empty_string_complete,
                 covered_records,
             };
-            write::put_field(&tx, collection.id, path, &descriptor)
-                .map_err(|error| error.to_string())?;
-            write::put_field_coverage(
-                &tx,
-                collection.id,
+            collection.fields.insert(path.clone(), descriptor.clone());
+            field_rows.insert(path.clone(), descriptor.clone());
+            coverage_rows.push((
                 binding,
-                &crate::index_store::value_codec::FieldCoverage {
+                crate::index_store::value_codec::FieldCoverage {
                     kind: posting.kind.clone(),
                     multi: posting.multi,
                     values_indexed: descriptor.values_indexed,
@@ -1077,8 +1085,7 @@ impl BatchStoreBuilder<'_> {
                     value_cardinality: posting.distinct_values() as u64,
                     length_cardinality: posting.distinct_lengths() as u64,
                 },
-            )
-            .map_err(|error| error.to_string())?;
+            ));
             for (value, slots) in &posting.values {
                 for local in slots.iter() {
                     let global = local_to_global[local as usize];
@@ -1138,6 +1145,12 @@ impl BatchStoreBuilder<'_> {
                 }
             }
         }
+        write::put_fields_batch(
+            &tx,
+            collection.id,
+            &field_rows.into_iter().collect::<Vec<_>>(),
+        )
+        .map_err(|error| error.to_string())?;
         for ((path, name), custom) in &batch.custom_postings {
             let binding = declare_binding(
                 collection,
@@ -1148,11 +1161,9 @@ impl BatchStoreBuilder<'_> {
                 crate::index_store::value_codec::BindingRole::Structured,
                 None,
             )?;
-            write::put_field_coverage(
-                &tx,
-                collection.id,
+            coverage_rows.push((
                 binding,
-                &crate::index_store::value_codec::FieldCoverage {
+                crate::index_store::value_codec::FieldCoverage {
                     kind: custom.index.kind.clone(),
                     multi: custom.index.multi,
                     values_indexed: custom.index.values_indexed,
@@ -1166,8 +1177,7 @@ impl BatchStoreBuilder<'_> {
                     value_cardinality: custom.index.distinct_values() as u64,
                     length_cardinality: custom.index.distinct_lengths() as u64,
                 },
-            )
-            .map_err(|error| error.to_string())?;
+            ));
             for (value, slots) in &custom.index.values {
                 for local in slots.iter() {
                     let global = local_to_global[local as usize];
@@ -1225,20 +1235,23 @@ impl BatchStoreBuilder<'_> {
                 }
             }
         }
+        write::put_field_coverages_batch(&tx, collection.id, &coverage_rows)
+            .map_err(|error| error.to_string())?;
+        let mut domain_rows = Vec::new();
         for local in batch.logical_records.iter() {
             let global = local_to_global[local as usize];
             let kind = DomainKind::Logical;
-            write::insert_domain_member(&tx, collection.id, kind, global)
-                .map_err(|error| error.to_string())?;
+            domain_rows.push((collection.id, kind, global));
             contributions[local as usize].domains.push(kind);
         }
         for local in batch.empty_array_records.iter() {
             let global = local_to_global[local as usize];
             let kind = DomainKind::EmptyArray;
-            write::insert_domain_member(&tx, collection.id, kind, global)
-                .map_err(|error| error.to_string())?;
+            domain_rows.push((collection.id, kind, global));
             contributions[local as usize].domains.push(kind);
         }
+        write::insert_domain_members_batch(&tx, &domain_rows)
+            .map_err(|error| error.to_string())?;
         for (path, keys) in &batch.sort_keys {
             let (ascending, descending) = if let Some(ids) = collection.sort_ids.get(path) {
                 *ids
@@ -1297,6 +1310,7 @@ impl BatchStoreBuilder<'_> {
                 let _ = global;
             }
         }
+        let mut relation_state_rows = Vec::new();
         for relation in &batch.relations {
             let path = relation.declaration().path.clone();
             let ordinal = if let Some(ordinal) = collection.relations.get(&path) {
@@ -1317,7 +1331,6 @@ impl BatchStoreBuilder<'_> {
                     .references_for_source(RecordSlot(local as u32))
                     .enumerate()
                 {
-                    let global = local_to_global[local];
                     let occurrence = crate::index_store::value_codec::RelationOccurrence {
                         declaration_ordinal: ordinal,
                         occurrence_ordinal: index as u32,
@@ -1325,13 +1338,6 @@ impl BatchStoreBuilder<'_> {
                         target_id: target_id.to_string(),
                         positions: positions.to_vec(),
                     };
-                    crate::index_store::relations::insert_relation_occurrences(
-                        &tx,
-                        collection.id,
-                        global,
-                        std::slice::from_ref(&occurrence),
-                    )
-                    .map_err(|error| error.to_string())?;
                     contributions[local].relations.push(occurrence);
                 }
                 for (state, slots) in [
@@ -1341,12 +1347,21 @@ impl BatchStoreBuilder<'_> {
                     (crate::index_store::value_codec::RelationStateKind::Unavailable, relation.unavailable()),
                 ] {
                     if slots.contains(local as u32) {
-                        write::put_relation_state(&tx, collection.id, ordinal, state, local_to_global[local])
-                            .map_err(|error| error.to_string())?;
+                        relation_state_rows.push((ordinal, state, local_to_global[local]));
                     }
                 }
             }
         }
+        crate::index_store::relations::insert_relation_occurrences_batch(
+            &tx,
+            collection.id,
+            contributions.iter().enumerate().map(|(local, contribution)| {
+                (local_to_global[local], contribution.relations.as_slice())
+            }),
+        )
+        .map_err(|error| error.to_string())?;
+        write::put_relation_states_batch(&tx, collection.id, &relation_state_rows)
+            .map_err(|error| error.to_string())?;
         let text_indices = [
             (BindingIdentity::RawText, Some(batch.raw)),
             (BindingIdentity::FallbackText, Some(batch.fallback_text)),
@@ -1419,25 +1434,28 @@ impl BatchStoreBuilder<'_> {
                 grams.sort_unstable();
                 grams.dedup();
                 let kind = if kind == crate::index_store::tables::GRAM_SKIP { crate::index_store::value_codec::GramKind::Skip } else { crate::index_store::value_codec::GramKind::Normal };
-                crate::index_store::fts::insert_record_grams(
-                    &tx,
-                    collection.id,
-                    RecordSlot(slot),
-                    &[crate::index_store::value_codec::GramProjection { binding, kind, grams }],
-                ).map_err(|error| error.to_string())?;
+                for gram in &grams {
+                    fts_batch.set(binding, kind, *gram, slot);
+                }
+                gram_rows_for_batch
+                    .entry((slot, binding, kind))
+                    .or_default()
+                    .extend(grams);
             }
         }
         let sort_definitions = write::sort_definitions(&tx, collection.id).map_err(|error| error.to_string())?;
-        for (local, contribution) in contributions.iter().enumerate() {
-            crate::index_store::sorting::insert_sort_projection(
-                &tx,
-                collection.id,
-                local_to_global[local],
-                &contribution.record.id.0,
-                &contribution.sorts,
-                &sort_definitions,
-            ).map_err(|error| error.to_string())?;
-        }
+        crate::index_store::sorting::insert_sort_projections(
+            &tx,
+            collection.id,
+            contributions.iter().enumerate().map(|(local, contribution)| {
+                (
+                    local_to_global[local],
+                    contribution.record.id.0.as_ref(),
+                    contribution.sorts.as_slice(),
+                )
+            }),
+            &sort_definitions,
+        ).map_err(|error| error.to_string())?;
         super::posting_blocks::apply_batch(&tx, collection.id, &posting_batch).map_err(|error| error.to_string())?;
         super::fts::apply_batch(&tx, collection.id, &fts_batch).map_err(|error| error.to_string())?;
         self.admission_stats.posting_blocks_changed = self
@@ -1459,7 +1477,7 @@ impl BatchStoreBuilder<'_> {
             let mut table = tx
                 .open_table(crate::index_store::tables::RECORD_GRAMS)
                 .map_err(|error| error.to_string())?;
-            for ((slot, binding, kind), mut grams) in gram_rows_for_batch.drain() {
+            for ((slot, binding, kind), mut grams) in std::mem::take(&mut gram_rows_for_batch) {
                 grams.sort_unstable();
                 grams.dedup();
                 let key = crate::index_store::keys::record_grams(collection.id.0, slot, binding, kind);
@@ -1498,36 +1516,33 @@ impl BatchStoreBuilder<'_> {
             .reverse_contributions
             .checked_add(contributions.len() as u64)
             .ok_or_else(|| "reverse contribution count overflow".to_string())?;
-        for (local, contribution) in contributions.iter_mut().enumerate() {
+        let mut contribution_rows = Vec::with_capacity(count);
+        for (local, mut contribution) in contributions.into_iter().enumerate() {
             contribution.state_masks = std::mem::take(&mut state_masks[local]).into_iter().collect();
-            write::put_contributions(&tx, collection.id, local_to_global[local], contribution)
-                .map_err(|error| error.to_string())?;
+            contribution.normalize();
+            contribution_rows.push((local_to_global[local], contribution));
         }
+        write::put_contributions_batch(&tx, collection.id, &contribution_rows)
+            .map_err(|error| error.to_string())?;
+        let mut build_state_rows = Vec::with_capacity(admitted_files.len());
+        let mut admitted_file_ids = Vec::with_capacity(admitted_files.len());
         for admitted in admitted_files.values() {
             let state = if admitted.entry.status == FileStatus::Unreadable {
                 BuildFileState::Unavailable
             } else {
                 BuildFileState::Indexed
             };
-            write::put_build_state(
-                &tx,
+            build_state_rows.push((
                 admitted.entry.id,
-                &crate::index_store::value_codec::FileBuildState {
+                crate::index_store::value_codec::FileBuildState {
                     state,
                     expected_file_version: admitted.version,
                     build_epoch: self.metadata.build_epoch,
                     last_admission_revision: store_metadata.revision,
                     error: None,
                 },
-            ).map_err(|error| error.to_string())?;
-            if !write::remove_pending_file(&tx, collection.id, admitted.entry.id)
-                .map_err(|error| error.to_string())?
-            {
-                return Err(format!(
-                    "file {} pending membership disappeared during admission",
-                    admitted.entry.id.0
-                ));
-            }
+            ));
+            admitted_file_ids.push(admitted.entry.id);
             if collection_metadata.pending_files > 0 {
                 collection_metadata.pending_files -= 1;
             }
@@ -1546,6 +1561,14 @@ impl BatchStoreBuilder<'_> {
                 .processed_files
                 .checked_add(1)
                 .ok_or_else(|| "processed file count overflow".to_string())?;
+        }
+        write::put_build_states_batch(&tx, &build_state_rows)
+            .map_err(|error| error.to_string())?;
+        if write::remove_pending_files_batch(&tx, collection.id, &admitted_file_ids)
+            .map_err(|error| error.to_string())?
+            != admitted_file_ids.len()
+        {
+            return Err("a prepared file pending membership disappeared during admission".into());
         }
         write::put_collection(&tx, &collection_metadata).map_err(|error| error.to_string())?;
         let mut metadata = read::metadata_from_write(&tx).map_err(|error| error.to_string())?;

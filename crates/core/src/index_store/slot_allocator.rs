@@ -118,34 +118,102 @@ pub fn allocate(
     tx: &WriteTransaction,
     metadata: &mut CollectionMetadata,
 ) -> StoreResult<(RecordSlot, u64)> {
+    allocate_many(tx, metadata, 1).map(|mut allocated| {
+        allocated
+            .pop()
+            .expect("one-slot allocation always returns one slot")
+    })
+}
+
+/// Allocate a contiguous admission window while opening the free-list,
+/// high-water and incarnation tables once. Free slots are consumed first in
+/// ascending order, then the unused high-water suffix is advanced atomically.
+pub fn allocate_many(
+    tx: &WriteTransaction,
+    metadata: &mut CollectionMetadata,
+    count: usize,
+) -> StoreResult<Vec<(RecordSlot, u64)>> {
+    if count == 0 {
+        return Ok(Vec::new());
+    }
     let collection = metadata.id;
-    let slot = if let Some(slot) = next_free(tx, collection)? {
-        remove_free(tx, collection, slot)?;
-        slot
-    } else {
-        if metadata.slot_high_water > u32::MAX as u64 {
-            return Err(StoreError::State(format!(
-                "collection {} has exhausted its record slots",
-                collection.0
-            )));
+    let prefix = keys::collection_prefix(collection.0);
+    let successor = super::key_codec::prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    let free = {
+        let table = tx.open_table(tables::FREE_SLOTS).map_err(write::map_table)?;
+        let mut range = table
+            .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+            .map_err(write::map_storage)?;
+        let mut free = Vec::with_capacity(count.min(4096));
+        while free.len() < count {
+            let Some(row) = range.next() else {
+                break;
+            };
+            let (key, _) = row.map_err(write::map_storage)?;
+            let mut cursor = super::key_codec::Cursor::new(key.value());
+            let _collection = cursor.read_u32()?;
+            free.push(RecordSlot(cursor.read_u32()?));
         }
-        let slot = RecordSlot(metadata.slot_high_water as u32);
+        free
+    };
+    if !free.is_empty() {
+        let mut table = tx.open_table(tables::FREE_SLOTS).map_err(write::map_table)?;
+        for slot in &free {
+            let key = keys::free_slot(collection.0, slot.0);
+            table.remove(key.as_slice()).map_err(write::map_storage)?;
+        }
+    }
+    let unused = count - free.len();
+    if unused > 0
+        && metadata.slot_high_water.saturating_add(unused as u64) > u32::MAX as u64 + 1
+    {
+        return Err(StoreError::State(format!(
+            "collection {} has exhausted its record slots",
+            collection.0
+        )));
+    }
+    let mut slots = free;
+    slots.reserve(unused);
+    for _ in 0..unused {
+        slots.push(RecordSlot(metadata.slot_high_water as u32));
         metadata.slot_high_water = metadata
             .slot_high_water
             .checked_add(1)
             .ok_or_else(|| StoreError::State("slot high-water overflow".into()))?;
-        slot
-    };
-    let previous = incarnation(tx, collection, slot)?.unwrap_or(0);
-    let incarnation = previous
-        .checked_add(1)
-        .ok_or_else(|| StoreError::State("slot incarnation overflow".into()))?;
-    set_incarnation(tx, collection, slot, incarnation)?;
+    }
+    let mut incarnations =
+        tx.open_table(tables::SLOT_INCARNATIONS).map_err(write::map_table)?;
+    let mut allocated = Vec::with_capacity(slots.len());
+    for slot in slots {
+        let key = keys::slot_incarnation(collection.0, slot.0);
+        let previous = incarnations
+            .get(key.as_slice())
+            .map_err(write::map_storage)?
+            .map(|value| {
+                let mut cursor = super::key_codec::Cursor::new(value.value());
+                cursor.read_u64()
+            })
+            .transpose()?
+            .unwrap_or(0);
+        let incarnation = previous
+            .checked_add(1)
+            .ok_or_else(|| StoreError::State("slot incarnation overflow".into()))?;
+        let mut encoded = super::key_codec::KeyWriter::with_capacity(8);
+        encoded.push_u64(incarnation);
+        incarnations
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(write::map_storage)?;
+        allocated.push((slot, incarnation));
+    }
     metadata.live_records = metadata
         .live_records
-        .checked_add(1)
+        .checked_add(count as u64)
         .ok_or_else(|| StoreError::State("live record count overflow".into()))?;
-    Ok((slot, incarnation))
+    Ok(allocated)
 }
 
 pub fn release_record(

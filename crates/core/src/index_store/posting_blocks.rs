@@ -209,6 +209,7 @@ pub fn apply_batch(
         tx.open_table(VALUE_BLOCKS).map_err(write::map_table)?,
         tx.open_table(LENGTH_BLOCKS).map_err(write::map_table)?,
     ];
+    let mut directory_deltas = BTreeMap::<(PostingFamily, BindingId, ScalarKey), i64>::new();
     for ((family, binding, key, block), (clears, sets)) in &batch.changes {
         let table = match family {
             PostingFamily::Value => &mut tables[0],
@@ -247,14 +248,14 @@ pub fn apply_batch(
                 .insert(block_key.as_slice(), encoded.as_slice())
                 .map_err(write::map_storage)?;
         }
-        adjust_directory(
-            tx,
-            *family,
-            collection,
-            *binding,
-            key,
-            i64::from(new_cardinality) - i64::from(old_cardinality),
-        )?;
+        *directory_deltas
+            .entry((*family, *binding, key.clone()))
+            .or_default() += i64::from(new_cardinality) - i64::from(old_cardinality);
+    }
+    for ((family, binding, key), delta) in directory_deltas {
+        if delta != 0 {
+            adjust_directory(tx, family, collection, binding, &key, delta)?;
+        }
     }
     Ok(())
 }

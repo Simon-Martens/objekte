@@ -10,7 +10,7 @@
 
 use std::collections::{BTreeMap, HashMap};
 
-use redb::{ReadableTable, WriteTransaction};
+use redb::{ReadableTable, Table, WriteTransaction};
 
 use crate::model::{CollectionId, RecordSlot};
 
@@ -77,6 +77,10 @@ pub fn apply_batch(
     batch: &StateBatch,
 ) -> StoreResult<()> {
     let mut table = tx.open_table(STATE_BLOCKS).map_err(write::map_table)?;
+    let mut statistics = tx
+        .open_table(STATE_STATISTICS)
+        .map_err(write::map_table)?;
+    let mut statistic_deltas = BTreeMap::<(BindingId, StateKind), (i64, i64)>::new();
     for ((binding, state, block), (clears, sets)) in &batch.changes {
         let key = keys::state_block(collection.0, *binding, *state, *block);
         let existing = table
@@ -113,29 +117,49 @@ pub fn apply_batch(
         } else {
             table.remove(key.as_slice()).map_err(write::map_storage)?;
         }
-        drop(table);
+        let delta = statistic_deltas.entry((*binding, *state)).or_default();
+        delta.0 += i64::from(new_cardinality) - i64::from(old_cardinality);
+        delta.1 += i64::from(new_nonempty) - i64::from(old_nonempty);
+    }
+    for ((binding, state), (cardinality_delta, block_delta)) in statistic_deltas {
         adjust_statistics(
-            tx,
+            &mut statistics,
             collection,
-            *binding,
-            *state,
-            i64::from(new_cardinality) - i64::from(old_cardinality),
-            i64::from(new_nonempty) - i64::from(old_nonempty),
+            binding,
+            state,
+            cardinality_delta,
+            block_delta,
         )?;
-        table = tx.open_table(STATE_BLOCKS).map_err(write::map_table)?;
     }
     Ok(())
 }
 
 fn adjust_statistics(
-    tx: &WriteTransaction,
+    table: &mut Table<'_, &'static [u8], &'static [u8]>,
     collection: CollectionId,
     binding: BindingId,
     state: StateKind,
     cardinality_delta: i64,
     block_delta: i64,
 ) -> StoreResult<()> {
-    let existing = read_statistics_tx(tx, collection, binding, state)?;
+    let key = keys::state_statistics(collection.0, binding, state);
+    let existing = table
+        .get(key.as_slice())
+        .map_err(write::map_storage)?
+        .map(|value| {
+            let bytes = value.value();
+            if bytes.len() != 16 {
+                return Err(StoreError::CorruptIndex(
+                    "malformed state statistics row".into(),
+                ));
+            }
+            Ok::<_, StoreError>(StateStatistics {
+                cardinality: u64::from_le_bytes(bytes[..8].try_into().expect("eight bytes")),
+                blocks: u64::from_le_bytes(bytes[8..].try_into().expect("eight bytes")),
+            })
+        })
+        .transpose()?
+        .unwrap_or_default();
     let cardinality = if cardinality_delta >= 0 {
         existing
             .cardinality
@@ -158,11 +182,14 @@ fn adjust_statistics(
                 "state cardinality without blocks".into(),
             ));
         }
-        let key = keys::state_statistics(collection.0, binding, state);
-        let mut table = tx.open_table(STATE_STATISTICS).map_err(write::map_table)?;
         table.remove(key.as_slice()).map_err(write::map_storage)?;
     } else {
-        put_statistics_tx(tx, collection, binding, state, cardinality, blocks)?;
+        let mut value = [0u8; 16];
+        value[..8].copy_from_slice(&cardinality.to_le_bytes());
+        value[8..].copy_from_slice(&blocks.to_le_bytes());
+        table
+            .insert(key.as_slice(), value.as_slice())
+            .map_err(write::map_storage)?;
     }
     Ok(())
 }

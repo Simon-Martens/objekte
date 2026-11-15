@@ -14,7 +14,7 @@
 
 use std::collections::BTreeMap;
 
-use redb::{ReadableTable, WriteTransaction};
+use redb::{ReadableTable, Table, WriteTransaction};
 use roaring::RoaringBitmap;
 
 use crate::model::{CollectionId, RecordSlot};
@@ -78,6 +78,11 @@ pub fn apply_batch(
     batch: &FtsBatch,
 ) -> StoreResult<()> {
     let mut table = tx.open_table(super::tables::FTS_BLOCKS).map_err(write::map_table)?;
+    let mut statistics = tx
+        .open_table(super::tables::FTS_GRAM_STATISTICS)
+        .map_err(write::map_table)?;
+    let mut statistic_deltas =
+        std::collections::BTreeMap::<(BindingId, GramKind, u64), (i64, i64)>::new();
     for ((binding, kind, gram, block), (clears, sets)) in &batch.changes {
         let key = keys::fts_key(collection.0, *binding, *kind, *gram, *block);
         let existing = table
@@ -114,23 +119,28 @@ pub fn apply_batch(
         } else {
             table.remove(key.as_slice()).map_err(write::map_storage)?;
         }
-        drop(table);
+        let delta = statistic_deltas
+            .entry((*binding, *kind, *gram))
+            .or_default();
+        delta.0 += i64::from(new_cardinality) - i64::from(old_cardinality);
+        delta.1 += i64::from(new_nonempty) - i64::from(old_nonempty);
+    }
+    for ((binding, kind, gram), (cardinality_delta, block_delta)) in statistic_deltas {
         adjust_statistics(
-            tx,
+            &mut statistics,
             collection,
-            *binding,
-            *kind,
-            *gram,
-            i64::from(new_cardinality) - i64::from(old_cardinality),
-            i64::from(new_nonempty) - i64::from(old_nonempty),
+            binding,
+            kind,
+            gram,
+            cardinality_delta,
+            block_delta,
         )?;
-        table = tx.open_table(super::tables::FTS_BLOCKS).map_err(write::map_table)?;
     }
     Ok(())
 }
 
 fn adjust_statistics(
-    tx: &WriteTransaction,
+    table: &mut Table<'_, &'static [u8], &'static [u8]>,
     collection: CollectionId,
     binding: BindingId,
     kind: GramKind,
@@ -138,7 +148,15 @@ fn adjust_statistics(
     cardinality_delta: i64,
     block_delta: i64,
 ) -> StoreResult<()> {
-    let existing = write::get_fts_statistics(tx, collection, binding, kind, gram)?;
+    let key = keys::fts_statistics_key(collection.0, binding, kind, gram);
+    let existing = table
+        .get(key.as_slice())
+        .map_err(write::map_storage)?
+        .map(|value| {
+            let mut cursor = super::key_codec::Cursor::new(value.value());
+            Ok::<_, StoreError>((cursor.read_u64()?, cursor.read_u64()?))
+        })
+        .transpose()?;
     let (cardinality, blocks) = existing.unwrap_or((0, 0));
     let cardinality = if cardinality_delta >= 0 {
         cardinality.checked_add(cardinality_delta as u64)
@@ -158,17 +176,14 @@ fn adjust_statistics(
                 "FTS gram has cardinality without blocks".into(),
             ));
         }
-        write::remove_fts_statistics(tx, collection, binding, kind, gram)?;
+        table.remove(key.as_slice()).map_err(write::map_storage)?;
     } else {
-        write::put_fts_statistics(
-            tx,
-            collection,
-            binding,
-            kind,
-            gram,
-            cardinality,
-            blocks,
-        )?;
+        let mut value = super::key_codec::KeyWriter::with_capacity(16);
+        value.push_u64(cardinality);
+        value.push_u64(blocks);
+        table
+            .insert(key.as_slice(), value.as_slice())
+            .map_err(write::map_storage)?;
     }
     Ok(())
 }

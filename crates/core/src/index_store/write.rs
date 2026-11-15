@@ -72,6 +72,22 @@ pub fn put_field(
     Ok(())
 }
 
+pub fn put_fields_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(Vec<String>, super::value_codec::FieldDescriptor)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::FIELDS).map_err(map_table)?;
+    for (path, descriptor) in rows {
+        let key = keys::field(collection.0, path);
+        let encoded = super::value_codec::encode(descriptor)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
+    Ok(())
+}
+
 pub fn get_field(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -115,6 +131,22 @@ pub fn put_field_coverage(
     Ok(())
 }
 
+pub fn put_field_coverages_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(BindingId, super::value_codec::FieldCoverage)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::FIELD_COVERAGE).map_err(map_table)?;
+    for (binding, coverage) in rows {
+        let key = keys::binding(collection.0, *binding);
+        let encoded = super::value_codec::encode(coverage)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
+    Ok(())
+}
+
 pub fn put_sort_definition(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -148,6 +180,21 @@ pub fn put_file(
     table
         .insert(key.as_slice(), encoded.as_slice())
         .map_err(map_storage)?;
+    Ok(())
+}
+
+pub fn put_files_without_paths_batch(
+    tx: &WriteTransaction,
+    rows: &[FileMetadata],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::FILES).map_err(map_table)?;
+    for metadata in rows {
+        let key = keys::file(metadata.entry.id);
+        let encoded = super::value_codec::encode(metadata)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
     Ok(())
 }
 
@@ -218,6 +265,21 @@ pub fn put_build_state(
     Ok(())
 }
 
+pub fn put_build_states_batch(
+    tx: &WriteTransaction,
+    rows: &[(FileId, FileBuildState)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::FILE_BUILD_STATE).map_err(map_table)?;
+    for (file, state) in rows {
+        let key = keys::file(*file);
+        let encoded = super::value_codec::encode(state)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
+    Ok(())
+}
+
 pub fn get_build_state(tx: &WriteTransaction, file: FileId) -> StoreResult<Option<FileBuildState>> {
     let table = tx.open_table(tables::FILE_BUILD_STATE).map_err(map_table)?;
     let key = keys::file(file);
@@ -246,6 +308,20 @@ pub fn remove_pending_file(
     Ok(table.remove(key.as_slice()).map_err(map_storage)?.is_some())
 }
 
+pub fn remove_pending_files_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    files: &[FileId],
+) -> StoreResult<usize> {
+    let mut table = tx.open_table(tables::PENDING_FILES).map_err(map_table)?;
+    let mut removed = 0usize;
+    for file in files {
+        let key = keys::pending_file(collection.0, *file);
+        removed += usize::from(table.remove(key.as_slice()).map_err(map_storage)?.is_some());
+    }
+    Ok(removed)
+}
+
 pub fn put_record(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -258,6 +334,22 @@ pub fn put_record(
     table
         .insert(key.as_slice(), encoded.as_slice())
         .map_err(map_storage)?;
+    Ok(())
+}
+
+pub fn put_records_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(RecordSlot, RecordMetadata)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::RECORDS).map_err(map_table)?;
+    for (slot, record) in rows {
+        let key = keys::record(collection.0, slot.0);
+        let encoded = super::value_codec::encode(record)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
     Ok(())
 }
 
@@ -303,6 +395,34 @@ pub fn put_logical_id(
     Ok(())
 }
 
+pub fn put_logical_ids_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(RecordId, RecordSlot, u64)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::LOGICAL_IDS).map_err(map_table)?;
+    for (id, slot, incarnation) in rows {
+        let key = keys::logical_id(collection.0, &id.0);
+        if table
+            .get(key.as_slice())
+            .map_err(map_storage)?
+            .is_some()
+        {
+            return Err(StoreError::State(format!(
+                "duplicate logical record ID {} in collection {}",
+                id.0, collection.0
+            )));
+        }
+        let mut value = KeyWriter::with_capacity(12);
+        value.push_u32(slot.0);
+        value.push_u64(*incarnation);
+        table
+            .insert(key.as_slice(), value.as_slice())
+            .map_err(map_storage)?;
+    }
+    Ok(())
+}
+
 pub fn remove_logical_id(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -339,6 +459,20 @@ pub fn put_file_record(
     table
         .insert(key.as_slice(), &[][..])
         .map_err(map_storage)?;
+    Ok(())
+}
+
+pub fn put_file_records_batch(
+    tx: &WriteTransaction,
+    rows: &[(FileId, CollectionId, RecordSlot)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::FILE_RECORDS).map_err(map_table)?;
+    for (file, collection, slot) in rows {
+        let key = keys::file_record(*file, collection.0, slot.0);
+        table
+            .insert(key.as_slice(), &[][..])
+            .map_err(map_storage)?;
+    }
     Ok(())
 }
 
@@ -549,6 +683,20 @@ pub fn insert_domain_member(
     Ok(table.insert(key.as_slice(), &[][..]).map_err(map_storage)?.is_none())
 }
 
+pub fn insert_domain_members_batch(
+    tx: &WriteTransaction,
+    rows: &[(CollectionId, DomainKind, RecordSlot)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::DOMAIN_MEMBERS).map_err(map_table)?;
+    for (collection, domain, slot) in rows {
+        let key = keys::domain_member(collection.0, *domain, slot.0);
+        table
+            .insert(key.as_slice(), &[][..])
+            .map_err(map_storage)?;
+    }
+    Ok(())
+}
+
 pub fn remove_domain_member(
     tx: &WriteTransaction,
     collection: CollectionId,
@@ -572,6 +720,22 @@ pub fn put_contributions(
     table
         .insert(key.as_slice(), encoded.as_slice())
         .map_err(map_storage)?;
+    Ok(())
+}
+
+pub fn put_contributions_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(RecordSlot, StoredContributions)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::RECORD_CONTRIBUTIONS).map_err(map_table)?;
+    for (slot, contributions) in rows {
+        let key = keys::record(collection.0, slot.0);
+        let encoded = contribution_codec::encode(contributions)?;
+        table
+            .insert(key.as_slice(), encoded.as_slice())
+            .map_err(map_storage)?;
+    }
     Ok(())
 }
 
@@ -882,6 +1046,21 @@ pub fn put_relation_state(
     table
         .insert(key.as_slice(), &[][..])
         .map_err(map_storage)?;
+    Ok(())
+}
+
+pub fn put_relation_states_batch(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: &[(u32, RelationStateKind, RecordSlot)],
+) -> StoreResult<()> {
+    let mut table = tx.open_table(tables::RELATION_STATES).map_err(map_table)?;
+    for (declaration, state, slot) in rows {
+        let key = keys::relation_state(collection.0, *declaration, *state, slot.0);
+        table
+            .insert(key.as_slice(), &[][..])
+            .map_err(map_storage)?;
+    }
     Ok(())
 }
 

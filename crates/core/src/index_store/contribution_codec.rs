@@ -14,6 +14,7 @@
 //! `ContributionPayload`. Gram lists are not part of this value.
 
 use bincode::Options;
+use serde::Serialize;
 
 use super::value_codec::{
     ContributionPayload, StoredContributions, validate_state_masks,
@@ -29,6 +30,18 @@ const COMPRESSION_MIN_BYTES: usize = 256;
 const MAX_PAYLOAD_BYTES: usize = 256 * 1024 * 1024;
 const SCRATCH_BYTES: usize = 64 * 1024 * 1024;
 
+#[derive(Serialize)]
+struct ContributionPayloadRef<'a> {
+    record: &'a super::value_codec::RecordMetadata,
+    values: &'a [(u32, crate::posting::ScalarKey)],
+    lengths: &'a [(u32, crate::model::Number)],
+    state_masks: &'a [(u32, u16)],
+    coverage: &'a [(u32, super::value_codec::CoverageKind)],
+    domains: &'a [super::value_codec::DomainKind],
+    sorts: &'a [super::value_codec::SortProjection],
+    relations: &'a [super::value_codec::RelationOccurrence],
+}
+
 fn options() -> impl Options {
     bincode::DefaultOptions::new()
         .with_fixint_encoding()
@@ -38,7 +51,16 @@ fn options() -> impl Options {
 
 fn serialized_payload(contributions: &StoredContributions) -> StoreResult<Vec<u8>> {
     validate_state_masks(&contributions.state_masks)?;
-    let payload = ContributionPayload::from_contributions(contributions);
+    let payload = ContributionPayloadRef {
+        record: &contributions.record,
+        values: &contributions.values,
+        lengths: &contributions.lengths,
+        state_masks: &contributions.state_masks,
+        coverage: &contributions.coverage,
+        domains: &contributions.domains,
+        sorts: &contributions.sorts,
+        relations: &contributions.relations,
+    };
     options()
         .serialize(&payload)
         .map_err(|error| StoreError::CorruptIndex(format!("contribution encode failed: {error}")))

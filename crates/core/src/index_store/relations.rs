@@ -54,6 +54,46 @@ pub fn insert_relation_occurrences(
     Ok(())
 }
 
+pub fn insert_relation_occurrences_batch<'a>(
+    tx: &WriteTransaction,
+    collection: CollectionId,
+    rows: impl IntoIterator<Item = (RecordSlot, &'a [RelationOccurrence])>,
+) -> StoreResult<()> {
+    let mut outgoing = tx
+        .open_table(tables::RELATION_OUTGOING)
+        .map_err(write::map_table)?;
+    let mut incoming = tx
+        .open_table(tables::RELATION_INCOMING)
+        .map_err(write::map_table)?;
+    for (slot, occurrences) in rows {
+        for occurrence in occurrences {
+            let key = keys::relation_outgoing(
+                collection.0,
+                occurrence.declaration_ordinal,
+                slot.0,
+                occurrence.occurrence_ordinal,
+            );
+            let value = encode_outgoing(occurrence)?;
+            outgoing
+                .insert(key.as_slice(), value.as_slice())
+                .map_err(write::map_storage)?;
+            let incoming_key = keys::relation_incoming(
+                occurrence.target_collection.0,
+                &occurrence.target_id,
+                collection.0,
+                occurrence.declaration_ordinal,
+                slot.0,
+                occurrence.occurrence_ordinal,
+            );
+            let incoming_value = encode_positions(&occurrence.positions);
+            incoming
+                .insert(incoming_key.as_slice(), incoming_value.as_slice())
+                .map_err(write::map_storage)?;
+        }
+    }
+    Ok(())
+}
+
 pub fn remove_relation_occurrences(
     tx: &WriteTransaction,
     collection: CollectionId,
