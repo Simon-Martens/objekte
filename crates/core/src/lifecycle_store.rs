@@ -201,6 +201,8 @@ pub(crate) fn assemble_loaded_index(
     sources: SourceRegistry,
 ) -> Result<Index, String> {
     let contents = store.load_contents()?;
+    let mut store = store;
+    store.install_loaded(&contents.shards, &contents.catalog);
     let mut repository =
         Repository::empty_for_configuration(root, definitions, options, &sources)?;
     for (number, summary) in contents.global_inference.iter().enumerate() {
@@ -222,7 +224,7 @@ pub(crate) fn assemble_loaded_index(
     )?;
     published.file_versions = FileVersions::initial(published.catalog.allocated_files());
     published.next_segment_ordinal = contents.next_segment_ordinal;
-    for (ordinal, shard, active) in contents.shards {
+    for (ordinal, _store_id, shard, active) in contents.shards {
         published = published
             .with_restored_segment(shard, active, ordinal)
             .map_err(|error| error.to_string())?;

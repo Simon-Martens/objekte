@@ -1,6 +1,6 @@
 //! redb-backed checkpointing and loading for a published index.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
@@ -8,7 +8,9 @@ use redb::{Database, Durability, ReadableDatabase, ReadableTable, WriteTransacti
 use serde::{Deserialize, Serialize};
 
 use crate::index_store_keys as keys;
-use crate::index_store_shard::{read_shard, write_shard};
+use crate::index_store_shard::{
+    delete_shard_prefix, diff_main, read_shard, write_shard,
+};
 use crate::inventory::{FileEntry, FileVersions};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::repository::{CollectionDefinition, GlobalInferenceSummary, Repository, RepositoryOptions};
@@ -23,15 +25,32 @@ pub(crate) struct IndexStore {
     revision: u64,
     next_segment_ordinal: u64,
     next_store_id: u64,
+    immutable: HashMap<u64, StoredShard>,
+    main: HashMap<u64, StoredMain>,
+    catalog: Vec<Option<CatalogSlot>>,
+    rewrite_all: bool,
     #[cfg(test)]
     fail_next_commit: bool,
+}
+
+#[derive(Clone)]
+struct StoredShard {
+    store_id: u64,
+    active: crate::inventory::ActiveRecords,
+}
+
+#[derive(Clone)]
+struct StoredMain {
+    store_id: u64,
+    snapshot: Arc<crate::build::IndexedCollectionSegment>,
+    active: crate::inventory::ActiveRecords,
 }
 
 pub(crate) struct StoreContents {
     pub revision: u64,
     pub next_segment_ordinal: u64,
     pub next_store_id: u64,
-    pub shards: Vec<(u64, crate::build::IndexedCollectionSegment, crate::inventory::ActiveRecords)>,
+    pub shards: Vec<(u64, u64, crate::build::IndexedCollectionSegment, crate::inventory::ActiveRecords)>,
     pub catalog: Vec<Option<CatalogSlot>>,
     pub global_inference: Vec<Option<GlobalInferenceSummary>>,
 }
@@ -107,6 +126,10 @@ impl IndexStore {
             revision,
             next_segment_ordinal,
             next_store_id,
+            immutable: HashMap::new(),
+            main: HashMap::new(),
+            catalog: Vec::new(),
+            rewrite_all: false,
             #[cfg(test)]
             fail_next_commit: false,
         })
@@ -124,6 +147,10 @@ impl IndexStore {
             revision: 0,
             next_segment_ordinal: 1,
             next_store_id: 1,
+            immutable: HashMap::new(),
+            main: HashMap::new(),
+            catalog: Vec::new(),
+            rewrite_all: false,
             fail_next_commit: false,
         }
     }
@@ -222,21 +249,138 @@ impl IndexStore {
                 meta.insert("complete", [0u8].as_slice())
                     .map_err(store_error)?;
             }
-            self.clear_all_rows(&write)?;
+            let full_rewrite = self.rewrite_all
+                || (self.immutable.is_empty() && self.main.is_empty());
+            let mut next_immutable = self.immutable.clone();
+            let mut next_main = self.main.clone();
+            if full_rewrite {
+                self.clear_all_rows(&write)?;
+                next_immutable.clear();
+                next_main.clear();
+            }
+            let mut seen_immutable = HashSet::new();
+            let mut seen_main = HashSet::new();
             let mut next_store_id = self.next_store_id;
             for (number, group) in published.segments.iter().enumerate() {
                 for segment in group.iter() {
-                    let store_id = next_store_id;
-                    next_store_id += 1;
-                    write_shard(
-                        &write,
-                        number as u32,
-                        store_id,
-                        segment.ordinal,
-                        segment.index.as_ref(),
-                        &segment.active,
-                    )?;
-                    report.shards_written += 1;
+                    let shard = segment.index.as_ref();
+                    if shard.lineage != 0 {
+                        seen_main.insert(shard.lineage);
+                        if let Some(stored) = self.main.get(&shard.lineage) {
+                            if !Arc::ptr_eq(&stored.snapshot, &segment.index) {
+                                let diff = diff_main(
+                                    &write,
+                                    number as u32,
+                                    stored.store_id,
+                                    &stored.snapshot,
+                                    shard,
+                                    &stored.active,
+                                    &segment.active,
+                                )?;
+                                report.main_shards_updated += 1;
+                                report.chunks_written += diff.chunks_written;
+                                report.chunks_deleted += diff.chunks_deleted;
+                                report.rows_written += diff.rows_written;
+                                next_main.insert(
+                                    shard.lineage,
+                                    StoredMain {
+                                        store_id: stored.store_id,
+                                        snapshot: Arc::clone(&segment.index),
+                                        active: segment.active.clone(),
+                                    },
+                                );
+                            }
+                        } else {
+                            let store_id = next_store_id;
+                            next_store_id += 1;
+                            write_shard(
+                                &write,
+                                number as u32,
+                                store_id,
+                                segment.ordinal,
+                                shard,
+                                &segment.active,
+                            )?;
+                            report.shards_written += 1;
+                            next_main.insert(
+                                shard.lineage,
+                                StoredMain {
+                                    store_id,
+                                    snapshot: Arc::clone(&segment.index),
+                                    active: segment.active.clone(),
+                                },
+                            );
+                        }
+                    } else {
+                        seen_immutable.insert(segment.ordinal);
+                        match self.immutable.get(&segment.ordinal) {
+                            Some(stored) => {
+                                if !stored.active.same_as(&segment.active) {
+                                    let mut table =
+                                        write.open_table(keys::ACTIVE).map_err(store_error)?;
+                                    let mut bytes = Vec::new();
+                                    segment
+                                        .active
+                                        .bitmap()
+                                        .serialize_into(&mut bytes)
+                                        .map_err(store_error)?;
+                                    table
+                                        .insert(
+                                            keys::prefix(number as u32, stored.store_id)
+                                                .as_slice(),
+                                            bytes.as_slice(),
+                                        )
+                                        .map_err(store_error)?;
+                                    report.rows_written += 1;
+                                    next_immutable.insert(
+                                        segment.ordinal,
+                                        StoredShard {
+                                            store_id: stored.store_id,
+                                            active: segment.active.clone(),
+                                        },
+                                    );
+                                }
+                            }
+                            None => {
+                                let store_id = next_store_id;
+                                next_store_id += 1;
+                                write_shard(
+                                    &write,
+                                    number as u32,
+                                    store_id,
+                                    segment.ordinal,
+                                    shard,
+                                    &segment.active,
+                                )?;
+                                report.shards_written += 1;
+                                next_immutable.insert(
+                                    segment.ordinal,
+                                    StoredShard {
+                                        store_id,
+                                        active: segment.active.clone(),
+                                    },
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            if !full_rewrite {
+                for (ordinal, stored) in &self.immutable {
+                    if !seen_immutable.contains(ordinal) {
+                        for number in 0..published.segments.len() {
+                            delete_shard_prefix(&write, number as u32, stored.store_id)?;
+                        }
+                        report.shards_deleted += 1;
+                    }
+                }
+                for (lineage, stored) in &self.main {
+                    if !seen_main.contains(lineage) {
+                        for number in 0..published.segments.len() {
+                            delete_shard_prefix(&write, number as u32, stored.store_id)?;
+                        }
+                        report.shards_deleted += 1;
+                    }
                 }
             }
             for (number, collection) in published.repository.collections().iter().enumerate() {
@@ -251,13 +395,20 @@ impl IndexStore {
             let slots = published.catalog.snapshot_slots();
             let mut catalog = write.open_table(keys::CATALOG).map_err(store_error)?;
             for (number, slot) in slots.iter().enumerate() {
-                if let Some(slot) = slot {
-                    catalog
-                        .insert(
-                            (number as u32).to_be_bytes().as_slice(),
-                            encode(slot)?.as_slice(),
-                        )
-                        .map_err(store_error)?;
+                let old = self.catalog.get(number).cloned().flatten();
+                if full_rewrite || old.as_ref() != slot.as_ref() {
+                    if let Some(slot) = slot {
+                        catalog
+                            .insert(
+                                (number as u32).to_be_bytes().as_slice(),
+                                encode(slot)?.as_slice(),
+                            )
+                            .map_err(store_error)?;
+                    } else {
+                        catalog
+                            .remove((number as u32).to_be_bytes().as_slice())
+                            .map_err(store_error)?;
+                    }
                 }
             }
             drop(catalog);
@@ -287,12 +438,18 @@ impl IndexStore {
                 meta.insert("complete", [1u8].as_slice())
                     .map_err(store_error)?;
             }
+            if self.path.as_os_str().is_empty() {
+                return Err("index store: empty path".into());
+            }
             #[cfg(test)]
             if self.fail_next_commit {
                 self.fail_next_commit = false;
                 return Err("index store: injected commit failure".into());
             }
             write.commit().map_err(store_error)?;
+            self.immutable = next_immutable;
+            self.main = next_main;
+            self.catalog = slots;
             self.revision = revision;
             self.next_store_id = next_store_id;
             self.next_segment_ordinal = published.next_segment_ordinal;
@@ -303,7 +460,12 @@ impl IndexStore {
                 report.duration = started.elapsed();
                 Ok(report)
             }
-            Err(error) => Err(error),
+            Err(error) => {
+                self.rewrite_all = true;
+                self.immutable.clear();
+                self.main.clear();
+                Err(error)
+            }
         }
     }
 
@@ -336,7 +498,7 @@ impl IndexStore {
                 if shard.role == crate::build::ShardRole::Main {
                     shard.lineage = crate::build::next_lineage();
                 }
-                shards.push((header.ordinal, shard, active));
+                shards.push((header.ordinal, store_id, shard, active));
             }
         }
         let mut catalog = BTreeMap::new();
@@ -389,6 +551,36 @@ impl IndexStore {
             catalog: slots,
             global_inference,
         })
+    }
+
+    pub(crate) fn install_loaded(
+        &mut self,
+        shards: &[(u64, u64, crate::build::IndexedCollectionSegment, crate::inventory::ActiveRecords)],
+        catalog: &[Option<CatalogSlot>],
+    ) {
+        self.immutable.clear();
+        self.main.clear();
+        for (ordinal, store_id, shard, active) in shards {
+            if shard.lineage != 0 {
+                self.main.insert(
+                    shard.lineage,
+                    StoredMain {
+                        store_id: *store_id,
+                        snapshot: Arc::new(shard.clone()),
+                        active: active.clone(),
+                    },
+                );
+            } else {
+                self.immutable.insert(
+                    *ordinal,
+                    StoredShard {
+                        store_id: *store_id,
+                        active: active.clone(),
+                    },
+                );
+            }
+        }
+        self.catalog = catalog.to_vec();
     }
 
     pub(crate) fn revision(&self) -> u64 {

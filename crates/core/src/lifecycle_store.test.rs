@@ -397,3 +397,80 @@ fn source_edits_while_closed_are_picked_up() {
     assert_eq!(count(&second), 20);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn incremental_checkpoint_is_small() {
+    let root = root("incremental");
+    seed(&root);
+    let store = root.join("store.redb");
+    let (index, _) = Index::open_persistent(
+        &root,
+        vec![definition()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    index.checkpoint().unwrap();
+    index.set_fold_trigger_for_tests(1).unwrap();
+    for number in 0..2usize {
+        let path = root.join(format!("data/added-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"added-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    index.checkpoint().unwrap();
+    let path = root.join("data/added-2.jsonl");
+    std::fs::write(&path, b"{\"name\":\"added-2\",\"n\":2}\n").unwrap();
+    index.add_file(&path).unwrap();
+    let report = index.checkpoint().unwrap();
+    assert!(report.shards_written <= 1, "{report:?}");
+    assert_eq!(report.main_shards_updated, 1);
+    drop(index);
+    let (reopened, outcome) = Index::open_persistent(
+        &root,
+        vec![definition()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    assert_eq!(outcome, StoreOpenOutcome::Loaded);
+    assert_eq!(count(&reopened), 23);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn pinned_views_are_unaffected_by_checkpoints() {
+    let root = root("pinned");
+    seed(&root);
+    let store = root.join("store.redb");
+    let (index, _) = Index::open_persistent(
+        &root,
+        vec![definition()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        options(&store),
+    )
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let path = root.join("data/pinned.jsonl");
+    std::fs::write(&path, b"{\"name\":\"pinned\",\"n\":50}\n").unwrap();
+    index.add_file(&path).unwrap();
+    index.checkpoint().unwrap();
+    assert_eq!(count(&index), 21);
+    let query = Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 0,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(pinned.search(&query).unwrap().count, Some(20));
+    std::fs::remove_dir_all(root).unwrap();
+}
