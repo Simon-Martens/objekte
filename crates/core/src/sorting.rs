@@ -719,7 +719,7 @@ impl CompositeSortOrder {
 }
 
 /// Fixed binary identity for one resident composite constituent.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq, serde::Serialize, serde::Deserialize)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,

@@ -246,11 +246,11 @@ impl RelationIndex {
 }
 
 /// One local ID occurrence before target inventories are available.
-#[derive(Clone, Serialize, Deserialize)]
-struct PendingReference {
-    source: RecordSlot,
-    target_id: String,
-    positions: Vec<u32>,
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub(crate) struct PendingReference {
+    pub(crate) source: RecordSlot,
+    pub(crate) target_id: String,
+    pub(crate) positions: Vec<u32>,
 }
 
 /// Construction-only relation state, merged in deterministic batch order.

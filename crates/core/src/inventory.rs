@@ -1030,7 +1030,7 @@ impl ByteRange {
 }
 
 /// Collection record identity, slot, file, and source span.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecordEntry {
     pub slot: RecordSlot,
     pub id: RecordId,
