@@ -12,6 +12,7 @@ path = "src/lib.rs"
 [features]
 default = []
 detailed-profiling = []
+store-feasibility = []
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
@@ -31,3 +32,7 @@ regex = "=1.13.1"
 regex-syntax = "=0.8.11"
 libc = "0.2"
 redb = "=4.6.0"
+
+[[example]]
+name = "bench_index_store"
+required-features = ["store-feasibility"]

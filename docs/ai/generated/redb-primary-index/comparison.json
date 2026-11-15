@@ -1,0 +1,149 @@
+{
+  "task": "redb-primary-index",
+  "campaign": "phase-5-feasibility",
+  "date": "2026-11-15",
+  "baseline_commit": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "integration_branch": "integration/redb-primary-index",
+  "corpus": "/home/simon/source/objekte/examples/musenalm",
+  "environment": {
+    "rustc": "1.99.1 (58cf8f9c3 2026-10-13)",
+    "cargo": "1.99.1 (5f94df478 2026-08-27)",
+    "cpus": 32,
+    "redb": "4.6.0",
+    "backend": "InMemoryBackend",
+    "page_cache_bytes": 67108864
+  },
+  "baseline": {
+    "ascii": {
+      "wall_ns": 992644457,
+      "resident_bytes": 478220288,
+      "peak_resident_bytes": 488243200,
+      "records": 148486,
+      "evidence": "/home/simon/source/objekte-task-redb-primary-index-baseline/bench/results/redb-primary-index/b0/build-ascii.json"
+    },
+    "unicode": {
+      "wall_ns": 1106382957,
+      "resident_bytes": 493887488,
+      "peak_resident_bytes": 504066048,
+      "records": 148486,
+      "evidence": "/home/simon/source/objekte-task-redb-primary-index-baseline/bench/results/redb-primary-index/b0/build-unicode.json"
+    }
+  },
+  "candidate": {
+    "ascii": {
+      "export_ns": 22723887063,
+      "rss_with_native_bytes": 1679839232,
+      "rss_after_native_drop_bytes": 1625092096,
+      "peak_resident_bytes": 1679839232,
+      "value_members": 2814411,
+      "state_members": 14004908,
+      "fts_bits": 56275908,
+      "evidence": "bench/results/redb-primary-index/feasibility/feasibility-Ascii-1625803.json"
+    },
+    "unicode": {
+      "export_ns": 22717316462,
+      "rss_with_native_bytes": 1680596992,
+      "rss_after_native_drop_bytes": 1612783616,
+      "peak_resident_bytes": 1680596992,
+      "value_members": 2814411,
+      "state_members": 14004908,
+      "fts_bits": 58058087,
+      "evidence": "bench/results/redb-primary-index/feasibility/feasibility-Unicode-1626249.json"
+    },
+    "ascii_extended": {
+      "export_ns": 22951914025,
+      "rss_with_native_bytes": 1718910976,
+      "rss_after_native_drop_bytes": 1647833088,
+      "peak_resident_bytes": 1718910976,
+      "relation_occurrences": 228503,
+      "relation_states": 346799,
+      "evidence": "bench/results/redb-primary-index/feasibility/feasibility-Ascii-1627733.json"
+    }
+  },
+  "gates": [
+    {
+      "gate": "store_foundation_tests",
+      "status": "pass",
+      "threshold": "all index_store tests pass",
+      "observed": "58 passed, 0 failed",
+      "evidence": "cargo test -p objekte-search-core --lib index_store"
+    },
+    {
+      "gate": "store_invariant_validation",
+      "status": "pass",
+      "threshold": "no invariant errors on a consistent store",
+      "observed": "validation tests pass; corruption is reported",
+      "evidence": "crates/core/src/index_store/validation.test.rs"
+    },
+    {
+      "gate": "post_build_rss",
+      "status": "fail",
+      "threshold": "candidate <= max(1.15x baseline, baseline + 32 MiB)",
+      "observed": {
+        "ascii_store_only_bytes": 1625092096,
+        "unicode_store_only_bytes": 1612783616,
+        "baseline_bytes": 478220288,
+        "ratio": 3.4
+      },
+      "evidence": "section 5 of feasibility-report.md"
+    },
+    {
+      "gate": "peak_construction_rss",
+      "status": "fail",
+      "threshold": "candidate <= max(1.20x baseline, baseline + 64 MiB)",
+      "observed": {
+        "ascii_peak_bytes": 1679839232,
+        "baseline_peak_bytes": 488243200,
+        "ratio": 3.44
+      },
+      "evidence": "section 5 of feasibility-report.md"
+    },
+    {
+      "gate": "query_aggregate",
+      "status": "unavailable",
+      "threshold": "geometric mean <= 1.10",
+      "reason": "no production query path routed through the store"
+    },
+    {
+      "gate": "individual_query_latency",
+      "status": "unavailable",
+      "threshold": "median <= max(1.20x baseline, baseline + 50us)",
+      "reason": "no end-to-end query implementation; only storage primitives measured"
+    },
+    {
+      "gate": "crud_latency",
+      "status": "unavailable",
+      "threshold": "median <= max(1.20x baseline, baseline + 100us)",
+      "reason": "native comparable operation log not captured"
+    },
+    {
+      "gate": "progressive_query_correctness",
+      "status": "unavailable",
+      "threshold": "complete semantics at every coverage point",
+      "reason": "pending-file evaluator not implemented"
+    },
+    {
+      "gate": "regeneration_time",
+      "status": "unavailable",
+      "threshold": "<= 1.20x matched native rebuild",
+      "reason": "store-level reset tested; no index-level regeneration"
+    },
+    {
+      "gate": "legacy_removal",
+      "status": "fail",
+      "threshold": "no native authoritative index remains",
+      "observed": "production still uses the native index"
+    }
+  ],
+  "dominant_cost": {
+    "table": "state_members",
+    "rows": 14004908,
+    "estimated_bytes": 1000000000,
+    "reason": "one redb key per (collection, binding, state, slot) fact"
+  },
+  "decision_required": [
+    "Amend structured/state representation to compressed per-field blocks",
+    "Accept a larger memory budget (approximately 3.5x native)",
+    "Stop the migration and keep the store foundation only"
+  ]
+}

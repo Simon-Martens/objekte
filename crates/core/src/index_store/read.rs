@@ -345,6 +345,31 @@ pub fn binding_record(
     Ok(None)
 }
 
+pub fn all_bindings(
+    view: &StoreView,
+    collection: CollectionId,
+) -> StoreResult<Vec<super::value_codec::StoredBinding>> {
+    let table = view.read().open_table(tables::BINDINGS).map_err(map_table)?;
+    let prefix = keys::collection_prefix(collection.0);
+    let successor = prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    let mut bindings = Vec::new();
+    for row in table
+        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+        .map_err(map_storage)?
+    {
+        let (_, value) = row.map_err(map_storage)?;
+        bindings.push(value_codec::decode::<super::value_codec::StoredBinding>(
+            row_value(&value),
+            "binding",
+        )?);
+    }
+    Ok(bindings)
+}
+
 pub fn binding_by_identity(
     view: &StoreView,
     collection: CollectionId,
@@ -647,6 +672,46 @@ pub fn gram_statistics(
     };
     let mut cursor = Cursor::new(row_value(&value));
     Ok(Some((cursor.read_u64()?, cursor.read_u64()?)))
+}
+
+pub fn for_each_gram_statistics(
+    view: &StoreView,
+    collection: CollectionId,
+    mut visit: impl FnMut(BindingId, GramKind, u64, u64, u64) -> StoreResult<bool>,
+) -> StoreResult<()> {
+    let table = view
+        .read()
+        .open_table(tables::FTS_GRAM_STATISTICS)
+        .map_err(map_table)?;
+    let prefix = keys::collection_prefix(collection.0);
+    let successor = prefix_successor(&prefix);
+    let upper = successor
+        .as_deref()
+        .map(Bound::Excluded)
+        .unwrap_or(Bound::Unbounded);
+    for row in table
+        .range::<&[u8]>((Bound::Included(prefix.as_slice()), upper))
+        .map_err(map_storage)?
+    {
+        let (key, value) = row.map_err(map_storage)?;
+        let mut cursor = Cursor::new(key.value());
+        let _collection = cursor.read_u32()?;
+        let binding = cursor.read_u32()?;
+        let kind = cursor.read_u8()?;
+        let gram = cursor.read_u64()?;
+        let mut value_cursor = Cursor::new(row_value(&value));
+        let cardinality = value_cursor.read_u64()?;
+        let blocks = value_cursor.read_u64()?;
+        let kind = if kind == super::tables::GRAM_SKIP {
+            super::value_codec::GramKind::Skip
+        } else {
+            super::value_codec::GramKind::Normal
+        };
+        if !visit(binding, kind, gram, cardinality, blocks)? {
+            break;
+        }
+    }
+    Ok(())
 }
 
 pub fn for_each_fts_block(

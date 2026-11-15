@@ -20,6 +20,8 @@ use redb::{Database, ReadTransaction, ReadableDatabase, WriteTransaction};
 pub mod construction;
 pub mod contributions;
 pub mod fts;
+#[cfg(feature = "store-feasibility")]
+pub mod feasibility;
 pub mod key_codec;
 pub(crate) mod keys;
 pub mod mutations;
@@ -205,7 +207,7 @@ impl IndexStore {
         })
     }
 
-    pub(crate) fn begin_write(&self) -> StoreResult<WriteTransaction> {
+    pub fn begin_write(&self) -> StoreResult<WriteTransaction> {
         let _guard = self
             .writer
             .lock()
@@ -213,6 +215,15 @@ impl IndexStore {
         self.database
             .begin_write()
             .map_err(StoreError::database)
+    }
+
+    /// Read the current metadata without holding a long-lived view.
+    pub fn metadata(&self) -> StoreResult<StoreMetadata> {
+        let read = self
+            .database
+            .begin_read()
+            .map_err(StoreError::database)?;
+        read_metadata(&read)
     }
 
     pub(crate) fn database(&self) -> &Arc<Database> {
