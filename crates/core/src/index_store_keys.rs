@@ -59,6 +59,7 @@ pub const BITMAP_RELATION_UNAVAILABLE: u8 = 43;
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub(crate) struct ShardHeader {
     pub ordinal: u64,
+    pub alphabet: crate::workload::BigramAlphabet,
     pub role: u8,
     pub shared: bool,
     pub source_id: String,
@@ -253,6 +254,16 @@ fn number_tag(number: &Number) -> u8 {
         Number::Float(_) => 1,
         Number::ExactDecimal(_) => 2,
     }
+}
+
+pub(crate) fn encode_number_value(number: &Number) -> Vec<u8> {
+    let mut out = Vec::new();
+    encode_number(number, &mut out);
+    out
+}
+
+pub(crate) fn decode_number_value(bytes: &[u8]) -> Option<Number> {
+    decode_number(bytes, &mut 0)
 }
 
 fn encode_number(number: &Number, out: &mut Vec<u8>) {

@@ -70,10 +70,10 @@ pub struct RelationIndex {
     pub target_collection: CollectionId,
     offsets: Vec<u32>,
     edges: Vec<RelationEdge>,
-    present: RoaringBitmap,
-    nulls: RoaringBitmap,
-    empty_arrays: RoaringBitmap,
-    unavailable: RoaringBitmap,
+    pub(crate) present: RoaringBitmap,
+    pub(crate) nulls: RoaringBitmap,
+    pub(crate) empty_arrays: RoaringBitmap,
+    pub(crate) unavailable: RoaringBitmap,
     unresolved_count: u64,
 }
 
@@ -256,13 +256,13 @@ pub(crate) struct PendingReference {
 /// Construction-only relation state, merged in deterministic batch order.
 #[derive(Clone)]
 pub(crate) struct RelationContribution {
-    declaration: RelationDefinition,
-    record_count: u32,
-    references: crate::slot_store::SlotTable<PendingReference>,
-    present: RoaringBitmap,
-    nulls: RoaringBitmap,
-    empty_arrays: RoaringBitmap,
-    unavailable: RoaringBitmap,
+    pub(crate) declaration: RelationDefinition,
+    pub(crate) record_count: u32,
+    pub(crate) references: crate::slot_store::SlotTable<PendingReference>,
+    pub(crate) present: RoaringBitmap,
+    pub(crate) nulls: RoaringBitmap,
+    pub(crate) empty_arrays: RoaringBitmap,
+    pub(crate) unavailable: RoaringBitmap,
 }
 
 impl RelationContribution {

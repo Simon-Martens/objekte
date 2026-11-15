@@ -143,10 +143,7 @@ impl<T: Clone> SlotTable<T> {
     }
 
     pub(crate) fn capacity(&self) -> usize {
-        match self {
-            Self::Building(values) => values.capacity(),
-            Self::Shared(values) => values.len(),
-        }
+        self.len()
     }
 
     pub(crate) fn into_vec(self) -> Vec<T> {
@@ -317,10 +314,7 @@ impl SlotOrder {
     }
 
     pub(crate) fn capacity(&self) -> usize {
-        match self {
-            Self::Building(values) => values.capacity(),
-            Self::Shared(values) => values.len(),
-        }
+        self.len()
     }
 
     pub(crate) fn to_vec(&self) -> Vec<RecordSlot> {
@@ -336,7 +330,6 @@ impl SlotOrder {
         }
     }
 
-    #[cfg(test)]
     pub(crate) fn is_shared(&self) -> bool {
         matches!(self, Self::Shared(_))
     }
@@ -378,10 +371,7 @@ impl<K: Clone + Eq + Hash, V: Clone> SharedMap<K, V> {
     }
 
     pub(crate) fn capacity(&self) -> usize {
-        match self {
-            Self::Building(values) => values.capacity(),
-            Self::Shared(values) => values.len(),
-        }
+        self.len()
     }
 
     pub(crate) fn get<Q>(&self, key: &Q) -> Option<&V>

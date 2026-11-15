@@ -112,6 +112,7 @@ fn store_values_round_trip_through_bincode() {
     });
     round_trip(&ShardHeader {
         ordinal: 3,
+        alphabet: crate::workload::BigramAlphabet::Ascii,
         role: 1,
         shared: true,
         source_id: "source".into(),

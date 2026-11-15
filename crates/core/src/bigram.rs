@@ -282,6 +282,20 @@ impl BigramIndex {
         Self::new(BigramAlphabet::Ascii)
     }
 
+    pub(crate) fn from_parts(
+        alphabet: BigramAlphabet,
+        record_count: u32,
+        normal: std::collections::BTreeMap<u64, RoaringBitmap>,
+        skip: std::collections::BTreeMap<u64, RoaringBitmap>,
+    ) -> Self {
+        Self {
+            alphabet,
+            record_count,
+            normal: GramMap::from_hash_map(normal.into_iter().collect()),
+            skip: GramMap::from_hash_map(skip.into_iter().collect()),
+        }
+    }
+
     pub fn new(alphabet: BigramAlphabet) -> Self {
         Self {
             alphabet,
