@@ -581,6 +581,58 @@ fn packed_reuse_preserves_deleted_and_replaced_visibility() {
 }
 
 #[test]
+fn same_store_save_reuses_mapped_run_and_visibility_objects() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let extra = root.path().join("data/extra.json");
+    std::fs::write(&extra, br#"{"text":"Extra"}"#).unwrap();
+    index.add_file(&extra).unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("data/a.json"),
+        br#"{"text":"Alpha changed"}"#,
+    )
+    .unwrap();
+    let handle = loaded
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.path().join("data/a.json"))
+        .expect("updated file handle");
+    loaded
+        .update_file(handle, &root.path().join("data/a.json"))
+        .unwrap();
+    let report = loaded
+        .save_to(store.path(), SaveOptions::default())
+        .unwrap();
+    assert!(!report.unchanged);
+    assert!(report.objects_reused >= 2);
+    assert!(report.bytes_reused > 0);
+    let reloaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(count(&reloaded, "Alpha changed"), 1);
+    assert_eq!(count(&reloaded, "Beta"), 1);
+    assert_eq!(count(&reloaded, "Extra"), 1);
+}
+
+#[test]
 fn background_save_reports_progress_and_completion() {
     let (root, definition) = fixture();
     let index = Index::build(

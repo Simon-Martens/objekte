@@ -288,8 +288,52 @@ impl<'a> PostingAccess<'a> {
         domain_len: u64,
         visits: &mut u64,
     ) -> Option<(f64, u64)> {
-        self.native()
-            .and_then(|index| index.estimate_exact_with_visits(term, domain_len, visits))
+        if let Some(index) = self.native() {
+            return index.estimate_exact_with_visits(term, domain_len, visits);
+        }
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+        {
+            return None;
+        }
+        if self.covered_records() as u64 != domain_len
+            || term.period.is_some()
+            || term.related.is_some()
+            || term.rhs.is_some()
+            || term.operation.is_some()
+            || term.derived != crate::reference::Derived::None
+            || term.transform != crate::reference::Transform::Identity
+            || term.query_path.has_position
+        {
+            return None;
+        }
+        if term.multi
+            && (term.operator != Operator::Eq || term.quantifier != crate::query::Quantifier::Any)
+        {
+            return None;
+        }
+        let key = ScalarKey::from_value(&term.literal)?;
+        if !self.value_complete() {
+            return None;
+        }
+        *visits = visits.saturating_add(1);
+        let output = match term.operator {
+            Operator::Eq => self.value_cardinality(&key).ok()?,
+            Operator::Ne if !term.multi => {
+                let presence = self.presence().ok()?.len();
+                let nulls = self.nulls().ok()?.len();
+                presence
+                    .saturating_sub(nulls)
+                    .saturating_sub(self.value_cardinality(&key).ok()?)
+            }
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
+                self.range(&key, term.operator).ok()?.len()
+            }
+            _ => return None,
+        };
+        Some((1.0 + output as f64 / 8.0, output))
     }
 
     pub(crate) fn estimate_observed_scalar(
@@ -341,8 +385,10 @@ impl<'a> PostingAccess<'a> {
                     || term.period.is_some()
                     || term.transform != crate::reference::Transform::Identity
                     || term.derived != crate::reference::Derived::None
-                    || term.query_path.has_explicit_array_step
                     || term.query_path.has_position
+                    || (term.multi
+                        && (term.operator != crate::query::Operator::Eq
+                            || term.quantifier != crate::query::Quantifier::Any))
                 {
                     return None;
                 }

@@ -66,17 +66,38 @@ struct CompactionWork {
 
 
 fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
-    let mut files = root.repository.files().files.clone();
-    for file in &mut files {
-        let id = crate::model::FileId(file.id.0);
-        if let Some(current) = root.catalog.entry(id) {
-            file.relative_path = current.relative_path.clone();
-            file.revision = current.revision;
-            file.created_ns = current.created_ns;
-            file.collections = current.collections.clone();
+    let count = root.catalog.allocated_files();
+    let mut files = (0..count)
+        .map(|number| synthetic_file_entry(crate::model::FileId(number as u32)))
+        .collect::<Vec<_>>();
+    for (number, file) in files.iter_mut().enumerate() {
+        let id = crate::model::FileId(number as u32);
+        if let Some(entry) = root
+            .catalog
+            .entry(id)
+            .or_else(|| root.catalog.inactive_entry(id))
+        {
+            *file = entry.clone();
         }
     }
     files
+}
+
+fn synthetic_file_entry(id: crate::model::FileId) -> FileEntry {
+    FileEntry {
+        id,
+        relative_path: crate::inventory::SharedPath::Plain(std::sync::Arc::from("")),
+        content_generation: 1,
+        revision: crate::inventory::SourceRevision {
+            modified_ns: 0,
+            size: 0,
+        },
+        created_ns: None,
+        collections: Vec::new(),
+        status: crate::inventory::FileStatus::Valid,
+        diagnostics: Vec::new(),
+        omitted_diagnostics: 0,
+    }
 }
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {

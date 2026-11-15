@@ -488,7 +488,7 @@ impl<'a> IndexCatalog<'a> {
             logical: &state.logical_records,
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
-            packed: state.packed.as_deref(),
+            packed: state.packed.as_deref().or(collection.packed.as_deref()),
         }
     }
 

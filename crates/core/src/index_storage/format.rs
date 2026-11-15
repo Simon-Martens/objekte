@@ -21,8 +21,9 @@ pub const FORMAT_VERSION: u16 = 2;
 pub const HEADER_LEN: usize = 128;
 /// Fixed section directory entry length.
 pub const SECTION_DESCRIPTOR_LEN: usize = 40;
-/// Objects are checksummed in independently validated 64 KiB regions.
-pub const CHECKSUM_BLOCK_SIZE: u32 = 64 * 1024;
+/// Objects are checksummed in independently validated 8 KiB regions, aligned
+/// with the dictionary page size used by paged readers.
+pub const CHECKSUM_BLOCK_SIZE: u32 = 8 * 1024;
 /// Maximum section count accepted from an object header.
 pub const MAX_SECTIONS: usize = 4_096;
 /// Hard upper bound for one object accepted by this build.

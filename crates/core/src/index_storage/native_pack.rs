@@ -77,10 +77,12 @@ pub fn pack_catalogue(view: &IndexView) -> StorageResult<ObjectInput> {
     builder.add_section(SectionKind::Statistics, sections.statistics)?;
     let object = builder.finish()?;
     let _ = repository;
-    Ok(ObjectInput {
-        kind: ObjectKind::Catalogue,
-        bytes: Arc::from(object.into_bytes()),
-    })
+    let digest = object.sha256();
+    Ok(ObjectInput::resident_with_digest(
+        ObjectKind::Catalogue,
+        Arc::from(object.into_bytes()),
+        digest,
+    ))
 }
 
 fn file_row(
@@ -156,16 +158,18 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
         if slot_count > 0 {
             let input = pack_collection(collection, &active, slot_count, &published.file_versions)?;
             let built = build_segment(input)?;
+            let digest = built.object.sha256();
             runs.push(RunInput {
                 collection: number as u32,
                 ordinal: 0,
                 level: 0,
                 slot_count,
                 active_count: active.len(),
-                object: ObjectInput {
-                    kind: ObjectKind::Segment,
-                    bytes: Arc::from(built.object.into_bytes()),
-                },
+                object: ObjectInput::resident_with_digest(
+                    ObjectKind::Segment,
+                    Arc::from(built.object.into_bytes()),
+                    digest,
+                ),
                 visibility: build_visibility(&active, slot_count)?,
             });
         }
@@ -178,10 +182,9 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
                     level: segment.level,
                     slot_count: packed.stats().record_count,
                     active_count: segment.active.len(),
-                    object: ObjectInput {
-                        kind: ObjectKind::Segment,
-                        bytes: packed.object_bytes()?,
-                    },
+                    object: packed.durable_input(ObjectKind::Segment).unwrap_or(
+                        ObjectInput::resident(ObjectKind::Segment, packed.object_bytes()?),
+                    ),
                     visibility: build_visibility(&active, packed.stats().record_count)?,
                 });
                 continue;
@@ -195,16 +198,18 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
             let built = build_segment(input)?;
             let active = segment.active.bitmap();
             let slot_count = segment.index.records.len() as u32;
+            let digest = built.object.sha256();
             runs.push(RunInput {
                 collection: number as u32,
                 ordinal: segment.ordinal,
                 level: segment.level,
                 slot_count,
                 active_count: segment.active.len(),
-                object: ObjectInput {
-                    kind: ObjectKind::Segment,
-                    bytes: Arc::from(built.object.into_bytes()),
-                },
+                object: ObjectInput::resident_with_digest(
+                    ObjectKind::Segment,
+                    Arc::from(built.object.into_bytes()),
+                    digest,
+                ),
                 visibility: build_visibility(&active, slot_count)?,
             });
         }

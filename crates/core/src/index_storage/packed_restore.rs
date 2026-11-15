@@ -495,7 +495,13 @@ pub(crate) fn segment_from_packed(
         let entry = file_entries
             .get(part.file_id as usize)
             .cloned()
-            .ok_or_else(|| IndexError::InvalidPublication("packed file metadata missing".into()))?;
+            .ok_or_else(|| {
+                IndexError::InvalidPublication(format!(
+                    "packed file metadata missing for {} (have {})",
+                    part.file_id,
+                    file_entries.len()
+                ))
+            })?;
         let file_slot = *file_index.entry(FileId(part.file_id)).or_insert_with(|| {
             files.push(crate::build::SegmentFile {
                 entry: entry.clone(),

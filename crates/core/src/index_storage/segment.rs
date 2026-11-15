@@ -170,6 +170,21 @@ impl FrozenSegment {
         &self.coverage
     }
 
+    /// Describe this mapped object as a durable save source. The bytes remain
+    /// in their existing immutable object; Save can reuse or stream them.
+    pub fn durable_input(&self, kind: ObjectKind) -> Option<super::store::ObjectInput> {
+        let super::backing::Backing::Mapped(object) = &self.backing else {
+            return None;
+        };
+        let name = object.path().file_stem()?.to_str()?;
+        let digest = super::manifest::decode_hex_32(name).ok()?;
+        Some(super::store::ObjectInput::durable(
+            kind,
+            super::manifest::ObjectRef::new(digest, object.len()),
+            object.path().to_owned(),
+        ))
+    }
+
     /// Copy the complete immutable object bytes for content-addressed re-save.
     pub fn object_bytes(&self) -> StorageResult<std::sync::Arc<[u8]>> {
         let bytes = self.backing.read(0, self.backing.len())?;

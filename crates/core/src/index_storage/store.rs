@@ -36,6 +36,61 @@ pub const MANIFEST_FILE: &str = "manifest.json";
 pub struct ObjectInput {
     pub kind: ObjectKind,
     pub bytes: Arc<[u8]>,
+    /// An already durable immutable object. Save can reuse or stream it
+    /// without copying the complete mapped payload into memory.
+    pub durable: Option<(super::manifest::ObjectRef, std::path::PathBuf)>,
+    /// Identity retained from sealing or mapping, when available.
+    pub digest: Option<[u8; 32]>,
+}
+
+
+impl ObjectInput {
+    pub fn resident(kind: ObjectKind, bytes: Arc<[u8]>) -> Self {
+        Self {
+            kind,
+            bytes,
+            durable: None,
+            digest: None,
+        }
+    }
+
+    pub fn resident_with_digest(kind: ObjectKind, bytes: Arc<[u8]>, digest: [u8; 32]) -> Self {
+        Self {
+            kind,
+            bytes,
+            durable: None,
+            digest: Some(digest),
+        }
+    }
+
+    pub fn durable(
+        kind: ObjectKind,
+        reference: super::manifest::ObjectRef,
+        path: std::path::PathBuf,
+    ) -> Self {
+        Self {
+            kind,
+            bytes: Arc::from([]),
+            durable: Some((reference, path)),
+            digest: None,
+        }
+    }
+
+    pub fn length(&self) -> u64 {
+        self.durable
+            .as_ref()
+            .map_or(self.bytes.len() as u64, |(reference, _)| reference.length)
+    }
+
+    pub fn digest(&self) -> StorageResult<[u8; 32]> {
+        if let Some(digest) = self.digest {
+            return Ok(digest);
+        }
+        match &self.durable {
+            Some((reference, _)) => reference.digest(),
+            None => Ok(sha256(&self.bytes)),
+        }
+    }
 }
 
 
@@ -437,10 +492,17 @@ fn open_object(
 }
 
 
+enum PreparedSource {
+    Resident(Arc<[u8]>),
+    Durable(std::path::PathBuf),
+}
+
+
 struct PreparedObject {
     kind: ObjectKind,
     digest: [u8; 32],
-    bytes: Arc<[u8]>,
+    length: u64,
+    source: PreparedSource,
 }
 
 
@@ -518,7 +580,7 @@ pub fn save_with_control(
             });
         }
     }
-    let catalogue_len = plan.catalogue.bytes.len() as u64;
+    let catalogue_len = plan.catalogue.length();
     let mut prepared = Vec::with_capacity(plan.runs.len() + 2);
     prepared.push(prepare_object(plan.catalogue.clone())?);
     if let Some(state) = &plan.state {
@@ -531,7 +593,7 @@ pub fn save_with_control(
     let mut unique: BTreeMap<[u8; 32], PreparedObject> = BTreeMap::new();
     for object in prepared {
         if let Some(existing) = unique.get(&object.digest) {
-            if existing.kind != object.kind || existing.bytes.len() != object.bytes.len() {
+            if existing.kind != object.kind || existing.length != object.length {
                 return Err(StorageError::InvalidArgument(
                     "one SHA-256 digest names incompatible objects".into(),
                 ));
@@ -562,7 +624,7 @@ pub fn save_with_control(
             if let Some(reused) = reused_object(&target, object)? {
                 objects_reused += 1;
                 bytes_reused += reused;
-                object_refs.insert(*digest, ObjectRef::new(*digest, object.bytes.len() as u64));
+                object_refs.insert(*digest, ObjectRef::new(*digest, object.length));
                 objects_completed += 1;
                 report_progress(
                     SavePhase::WritingObjects,
@@ -588,15 +650,15 @@ pub fn save_with_control(
             }
             let metadata =
                 fs::metadata(&target).map_err(|error| StorageError::io(&target, error))?;
-            if metadata.len() != object.bytes.len() as u64 {
+            if metadata.len() != object.length {
                 return Err(StorageError::corrupt_at(
                     &target,
                     "published object length differs from the staged object",
                 ));
             }
             objects_written += 1;
-            bytes_written += object.bytes.len() as u64;
-            object_refs.insert(*digest, ObjectRef::new(*digest, object.bytes.len() as u64));
+            bytes_written += object.length;
+            object_refs.insert(*digest, ObjectRef::new(*digest, object.length));
             objects_completed += 1;
             report_progress(
                 SavePhase::WritingObjects,
@@ -724,27 +786,45 @@ pub fn save_with_control(
 }
 
 fn prepare_object(input: ObjectInput) -> StorageResult<PreparedObject> {
-    if input.bytes.len() < super::format::HEADER_LEN {
+    let length = input.length();
+    if length < super::format::HEADER_LEN as u64 {
         return Err(StorageError::InvalidArgument(
             "object bytes are shorter than a valid header".into(),
         ));
     }
-    let header = ObjectHeader::parse(&input.bytes[..super::format::HEADER_LEN])?;
+    let header = match &input.durable {
+        Some((reference, path)) => {
+            reference.validate()?;
+            if reference.length != length {
+                return Err(StorageError::InvalidArgument(
+                    "durable object reference length differs from its input".into(),
+                ));
+            }
+            let prefix = super::backing::read_header_prefix(path)?;
+            ObjectHeader::parse(&prefix)?
+        }
+        None => ObjectHeader::parse(&input.bytes[..super::format::HEADER_LEN])?,
+    };
     if header.kind != input.kind {
         return Err(StorageError::InvalidArgument(
             "object kind differs from its header".into(),
         ));
     }
-    if header.total_len != input.bytes.len() as u64 {
+    if header.total_len != length {
         return Err(StorageError::InvalidArgument(
             "object length differs from its header".into(),
         ));
     }
-    let digest = sha256(&input.bytes);
+    let digest = input.digest()?;
+    let source = match input.durable {
+        Some((_, path)) => PreparedSource::Durable(path),
+        None => PreparedSource::Resident(input.bytes),
+    };
     Ok(PreparedObject {
         kind: input.kind,
         digest,
-        bytes: input.bytes,
+        length,
+        source,
     })
 }
 
@@ -759,7 +839,7 @@ fn reused_object(path: &Path, object: &PreparedObject) -> StorageResult<Option<u
                     "published object path is not a regular file",
                 ));
             }
-            if metadata.len() != object.bytes.len() as u64 {
+            if metadata.len() != object.length {
                 return Err(StorageError::corrupt_at(
                     path,
                     "existing object length conflicts with its content address",
@@ -767,7 +847,7 @@ fn reused_object(path: &Path, object: &PreparedObject) -> StorageResult<Option<u
             }
             let prefix = super::backing::read_header_prefix(path)?;
             let header = ObjectHeader::parse(&prefix)?;
-            if header.kind != object.kind || header.total_len != metadata.len() {
+            if header.kind != object.kind || header.total_len != object.length {
                 return Err(StorageError::corrupt_at(
                     path,
                     "existing object header conflicts with its content address",
@@ -779,10 +859,38 @@ fn reused_object(path: &Path, object: &PreparedObject) -> StorageResult<Option<u
 }
 
 fn write_object(path: &Path, object: &PreparedObject) -> StorageResult<()> {
+    use sha2::{Digest, Sha256};
     let mut file = fs::File::create(path).map_err(|error| StorageError::io(path, error))?;
-    for chunk in object.bytes.chunks(1024 * 1024) {
-        file.write_all(chunk)
-            .map_err(|error| StorageError::io(path, error))?;
+    match &object.source {
+        PreparedSource::Resident(bytes) => {
+            for chunk in bytes.chunks(1024 * 1024) {
+                file.write_all(chunk)
+                    .map_err(|error| StorageError::io(path, error))?;
+            }
+        }
+        PreparedSource::Durable(source) => {
+            let mut source_file =
+                fs::File::open(source).map_err(|error| StorageError::io(source, error))?;
+            let mut hasher = Sha256::new();
+            let mut buffer = vec![0u8; 1024 * 1024];
+            loop {
+                let read = std::io::Read::read(&mut source_file, &mut buffer)
+                    .map_err(|error| StorageError::io(source, error))?;
+                if read == 0 {
+                    break;
+                }
+                hasher.update(&buffer[..read]);
+                file.write_all(&buffer[..read])
+                    .map_err(|error| StorageError::io(path, error))?;
+            }
+            let digest: [u8; 32] = hasher.finalize().into();
+            if digest != object.digest {
+                return Err(StorageError::corrupt_at(
+                    source,
+                    "durable object bytes do not match their content address",
+                ));
+            }
+        }
     }
     file.sync_all()
         .map_err(|error| StorageError::io(path, error))?;
@@ -796,19 +904,19 @@ fn build_manifest(
     generation: Uuid,
     objects: &BTreeMap<[u8; 32], ObjectRef>,
 ) -> StorageResult<GenerationManifest> {
-    let catalogue_digest = sha256(&plan.catalogue.bytes);
+    let catalogue_digest = plan.catalogue.digest()?;
     let _catalogue = objects
         .get(&catalogue_digest)
         .cloned()
         .ok_or_else(|| StorageError::InvalidManifest("catalogue object was not staged".into()))?;
     let mut runs = Vec::with_capacity(plan.runs.len());
     for run in &plan.runs {
-        let digest = sha256(&run.object.bytes);
+        let digest = run.object.digest()?;
         let object = objects
             .get(&digest)
             .cloned()
             .ok_or_else(|| StorageError::InvalidManifest("run object was not staged".into()))?;
-        let visibility_digest = sha256(&run.visibility.bytes);
+        let visibility_digest = run.visibility.digest()?;
         let visibility = objects.get(&visibility_digest).cloned().ok_or_else(|| {
             StorageError::InvalidManifest("run visibility object was not staged".into())
         })?;
@@ -837,12 +945,12 @@ fn build_manifest(
         collation_version: plan.collation_version.clone(),
         bigram_representation_version: plan.bigram_representation_version.clone(),
         file_id_high_water: plan.file_id_high_water,
-        catalogue: ObjectRef::new(catalogue_digest, plan.catalogue.bytes.len() as u64),
+        catalogue: ObjectRef::new(catalogue_digest, plan.catalogue.length()),
         state: plan
             .state
             .as_ref()
             .map(|state| {
-                let digest = sha256(&state.bytes);
+                let digest = state.digest()?;
                 objects.get(&digest).cloned().ok_or_else(|| {
                     StorageError::InvalidManifest("state object was not staged".into())
                 })

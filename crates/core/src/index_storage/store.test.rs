@@ -104,10 +104,7 @@ fn plan(lineage: Uuid, publication: Uuid, path: &str, record: &str) -> SavePlan 
         collation_version: "test".into(),
         bigram_representation_version: "test".into(),
         file_id_high_water: 1,
-        catalogue: ObjectInput {
-            kind: ObjectKind::Catalogue,
-            bytes: catalogue_object(row(path)),
-        },
+        catalogue: ObjectInput::resident(ObjectKind::Catalogue, catalogue_object(row(path))),
         state: None,
         runs: vec![RunInput {
             collection: 0,
@@ -115,10 +112,7 @@ fn plan(lineage: Uuid, publication: Uuid, path: &str, record: &str) -> SavePlan 
             level: 0,
             slot_count: 1,
             active_count: 1,
-            object: ObjectInput {
-                kind: ObjectKind::Segment,
-                bytes: segment_object(record),
-            },
+            object: ObjectInput::resident(ObjectKind::Segment, segment_object(record)),
             visibility: build_visibility(&RoaringBitmap::from_iter([0]), 1).unwrap(),
         }],
         collections: Vec::new(),

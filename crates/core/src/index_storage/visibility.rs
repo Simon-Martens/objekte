@@ -113,10 +113,12 @@ pub fn build_visibility(active: &RoaringBitmap, slot_count: u32) -> StorageResul
     let mut builder = ObjectBuilder::new(ObjectKind::Visibility);
     builder.add_section(SectionKind::Visibility, section)?;
     let object = builder.finish()?;
-    Ok(ObjectInput {
-        kind: ObjectKind::Visibility,
-        bytes: std::sync::Arc::from(object.into_bytes()),
-    })
+    let digest = object.sha256();
+    Ok(ObjectInput::resident_with_digest(
+        ObjectKind::Visibility,
+        std::sync::Arc::from(object.into_bytes()),
+        digest,
+    ))
 }
 
 
