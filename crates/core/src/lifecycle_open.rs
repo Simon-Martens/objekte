@@ -95,6 +95,7 @@ impl Index {
                 published = published.with_segment(segment)?;
             }
         }
+        crate::lifecycle_compaction::seal_native_segments(&mut published)?;
         let index = Self::from_published(published);
         let full_ms = build_ns / 1_000_000;
         index.update_timings_ms(|timings| {

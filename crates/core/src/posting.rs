@@ -1114,7 +1114,7 @@ impl PostingIndex {
 /// field path selects at most one array from a record root, so its default
 /// universal comparison is also exact. Nested universal comparisons require
 /// a scanner because the posting does not retain every reached length.
-fn length_posting_is_exact(term: &BoundTerm) -> bool {
+pub(crate) fn length_posting_is_exact(term: &BoundTerm) -> bool {
     !term.query_path.has_explicit_array_step
         && (term.quantifier == Quantifier::Any || term.path.segments.len() == 1)
 }

@@ -684,19 +684,22 @@ fn parse_field_directory(
     let count = u32::from_le_bytes(header[4..8].try_into().expect("field count")) as usize;
     offset += 8;
     for _ in 0..count {
-        let head = read_section(backing, descriptor, offset, 12)?;
+        let head = read_section(backing, descriptor, offset, 8)?;
         let ordinal = u32::from_le_bytes(head[..4].try_into().expect("field ordinal"));
         let kind = logical_type_from_codes(head[4], head[5])?;
+        let multi = head[6] != 0;
+        offset += 8;
         let source = match head[7] {
             0 => FieldSource::Declared,
             1 => FieldSource::Observed,
             2 => {
-                let length_bytes = read_section(backing, descriptor, offset + 12, 4)?;
+                let length_bytes = read_section(backing, descriptor, offset, 4)?;
                 let length =
                     u32::from_le_bytes(length_bytes.try_into().expect("binding name length"))
                         as u64;
-                let bytes = read_section(backing, descriptor, offset + 16, length)?;
-                offset += 4 + length;
+                offset += 4;
+                let bytes = read_section(backing, descriptor, offset, length)?;
+                offset += length;
                 FieldSource::Named(
                     std::str::from_utf8(bytes)
                         .map_err(|_| StorageError::corrupt("field binding is not UTF-8"))?
@@ -709,9 +712,10 @@ fn parse_field_directory(
                 )));
             }
         };
-        let multi = head[6] != 0;
-        let segments = u32::from_le_bytes(head[8..12].try_into().expect("path segments")) as usize;
-        offset += 12;
+        let segments_bytes = read_section(backing, descriptor, offset, 4)?;
+        let segments =
+            u32::from_le_bytes(segments_bytes.try_into().expect("path segments")) as usize;
+        offset += 4;
         let mut path = Vec::with_capacity(segments);
         for _ in 0..segments {
             let length_bytes = read_section(backing, descriptor, offset, 4)?;

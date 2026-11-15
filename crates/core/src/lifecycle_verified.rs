@@ -290,6 +290,26 @@ pub(crate) fn preserve_partition_record_slots(
         return None;
     }
     let mut replacements = Vec::with_capacity(old_entry.collections.len());
+    let definitions = view
+        .repository()
+        .collections()
+        .iter()
+        .map(|collection| collection.definition.clone())
+        .collect::<Vec<_>>();
+    let file_entries = if view.repository().files().files.is_empty() {
+        (0..view.0.catalog.allocated_files())
+            .filter_map(|number| {
+                let id = crate::model::FileId(number as u32);
+                view.0
+                    .catalog
+                    .entry(id)
+                    .or_else(|| view.0.catalog.inactive_entry(id))
+                    .cloned()
+            })
+            .collect::<Vec<_>>()
+    } else {
+        view.repository().files().files.clone()
+    };
     for collection in &old_entry.collections {
         let mut ordinals = plan
             .old_shards
@@ -304,11 +324,26 @@ pub(crate) fn preserve_partition_record_slots(
             .segments(*collection)?
             .iter()
             .find(|shard| shard.ordinal == old_ordinal)?;
-        let old_slots = old.index.file_records(file)?;
+        let materialized = old
+            .index
+            .packed
+            .as_ref()
+            .map(|frozen| {
+                crate::index_storage::packed_materialize::materialize_native_segment(
+                    frozen,
+                    collection.0 as usize,
+                    &file_entries,
+                    &definitions,
+                )
+            })
+            .transpose()
+            .ok()?;
+        let old_index = materialized.as_ref().unwrap_or(&old.index);
+        let old_slots = old_index.file_records(file)?;
         if old_slots.len() != 1
-            || old.index.record_count() <= 1
-            || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
-            || old.active.len() as usize != old.index.record_count()
+            || old_index.record_count() <= 1
+            || old_index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
+            || old.active.len() as usize != old_index.record_count()
             || !old.active.contains(old_slots[0])
         {
             return None;
@@ -336,16 +371,15 @@ pub(crate) fn preserve_partition_record_slots(
             || new.active.len() != 1
             || !new.active.contains(RecordSlot(0))
             || new.index.file_records(file)? != [RecordSlot(0)]
-            || old.index.source_id != new.index.source_id
-            || old.index.source_version != new.index.source_version
-            || old.index.record(old_slot)?.id != new.index.record(RecordSlot(0))?.id
-            || old.index.record(old_slot)?.class != new.index.record(RecordSlot(0))?.class
+            || old_index.source_id != new.index.source_id
+            || old_index.source_version != new.index.source_version
+            || old_index.record(old_slot)?.id != new.index.record(RecordSlot(0))?.id
+            || old_index.record(old_slot)?.class != new.index.record(RecordSlot(0))?.class
         {
             return None;
         }
         let active_without_old = old.active.retired(&[old_slot]).ok()?;
-        let compacted = old
-            .index
+        let compacted = match old_index
             .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
                 entry.id != file
                     && next.catalog.entry(entry.id).is_some_and(|current| {
@@ -353,20 +387,33 @@ pub(crate) fn preserve_partition_record_slots(
                             && current.created_ns == entry.created_ns
                             && current.collections.contains(collection)
                     })
-            })
-            .ok()?;
-        let consolidated = crate::build::IndexedCollectionSegment::consolidate(
+            }) {
+            Ok(compacted) => compacted,
+            Err(_) => {
+                return None;
+            }
+        };
+        let consolidated = match crate::build::IndexedCollectionSegment::consolidate(
             &[&compacted.index, &new.index],
             MAX_VERIFIED_SCANNED_RECORDS,
-        )
-        .ok()?;
+        ) {
+            Ok(consolidated) => consolidated,
+            Err(_) => {
+                return None;
+            }
+        };
         let mut remap = vec![old_slot; consolidated.index.record_count()];
         for (original, projected) in compacted.old_to_new.iter().enumerate() {
             if let Some(projected) = projected {
                 remap[projected.0 as usize] = RecordSlot(original as u32);
             }
         }
-        let replacement = consolidated.index.remap_dense(&remap).ok()?;
+        let replacement = match consolidated.index.remap_dense(&remap) {
+            Ok(replacement) => replacement,
+            Err(_) => {
+                return None;
+            }
+        };
         replacements.push((
             *collection,
             old_position,

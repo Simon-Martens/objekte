@@ -2690,5 +2690,6 @@ mod mutation_segment;
 pub(crate) use mutation_segment::PartitionRouting;
 
 pub(crate) use mutation_segment::{
-    CollectionSegment, IndexedCollectionSegment, SegmentAdmission, SegmentFile, SegmentLimits,
+    CollectionSegment, IndexedCollectionSegment, SegmentAccounting, SegmentAdmission, SegmentFile,
+    SegmentLimits,
 };

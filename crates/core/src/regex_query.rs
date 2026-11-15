@@ -144,6 +144,106 @@ impl RegexCondition {
         }
     }
 
+    pub(crate) fn candidates_access(
+        &self,
+        index: &crate::index_storage::access::BigramAccess<'_>,
+    ) -> Option<RoaringBitmap> {
+        match self {
+            Self::Literal(request) => index.candidates_prepared(request),
+            Self::All(parts) => {
+                let mut result: Option<RoaringBitmap> = None;
+                for part in parts {
+                    if let Some(set) = part.candidates_access(index) {
+                        if let Some(result) = &mut result {
+                            *result &= set;
+                        } else {
+                            result = Some(set);
+                        }
+                    }
+                }
+                result
+            }
+            Self::Any(parts) => {
+                let mut result = RoaringBitmap::new();
+                for part in parts {
+                    result |= part.candidates_access(index)?;
+                }
+                Some(result)
+            }
+        }
+    }
+
+    pub(crate) fn candidates_checked_access(
+        &self,
+        index: &crate::index_storage::access::BigramAccess<'_>,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        match self {
+            Self::Literal(request) => Ok(index.candidates_prepared(request)),
+            Self::All(parts) => {
+                let mut result: Option<RoaringBitmap> = None;
+                for part in parts {
+                    if let Some(set) = part.candidates_checked_access(index)? {
+                        if let Some(result) = &mut result {
+                            *result &= set;
+                        } else {
+                            result = Some(set);
+                        }
+                    }
+                }
+                Ok(result)
+            }
+            Self::Any(parts) => {
+                let mut result = RoaringBitmap::new();
+                for part in parts {
+                    let Some(set) = part.candidates_checked_access(index)? else {
+                        return Ok(None);
+                    };
+                    result |= set;
+                }
+                Ok(Some(result))
+            }
+        }
+    }
+
+    pub(crate) fn estimate_access(
+        &self,
+        index: &crate::index_storage::access::BigramAccess<'_>,
+    ) -> Option<(u64, f64)> {
+        match self {
+            Self::Literal(request) => Some((
+                index.estimate_prepared(request)?,
+                request.gram_count(match index.alphabet() {
+                    0 => crate::execution_options::BigramAlphabet::Ascii,
+                    _ => crate::execution_options::BigramAlphabet::Unicode,
+                }) as f64,
+            )),
+            Self::All(parts) => {
+                let mut result: Option<(u64, f64)> = None;
+                for part in parts {
+                    if let Some((count, work)) = part.estimate_access(index) {
+                        if let Some((current, total_work)) = &mut result {
+                            *current = (*current).min(count);
+                            *total_work += work;
+                        } else {
+                            result = Some((count, work));
+                        }
+                    }
+                }
+                result
+            }
+            Self::Any(parts) => {
+                let mut count = 0u64;
+                let mut work = 0.0;
+                for part in parts {
+                    let (branch_count, branch_work) = part.estimate_access(index)?;
+                    count = count.saturating_add(branch_count);
+                    work += branch_work;
+                }
+                Some((count, work))
+            }
+        }
+    }
+
     pub(crate) fn candidates_checked(
         &self,
         index: &BigramIndex,

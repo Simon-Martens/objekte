@@ -614,7 +614,14 @@ pub(crate) fn segment_from_packed(
         relations,
         record_parses: 0,
         failed_parses: 0,
-        accounting: Default::default(),
+        accounting: crate::build::SegmentAccounting {
+            retained_bytes_estimated: usize::try_from(stats.estimated_index_bytes)
+                .unwrap_or(usize::MAX),
+            source_bytes_estimated: stats.source_bytes,
+            max_record_range_len: stats.max_record_range_len,
+            index_family_bytes: usize::try_from(stats.estimated_index_bytes)
+                .unwrap_or(usize::MAX),
+        },
         packed: Some(Arc::clone(frozen)),
     })
 }

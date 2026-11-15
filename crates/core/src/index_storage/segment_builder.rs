@@ -76,6 +76,12 @@ pub fn build_segment(input: SegmentInput) -> StorageResult<BuiltSegment> {
         fallback_count: record_table.fallback_count,
         source_bytes: record_table.source_bytes,
         estimated_index_bytes: input.estimated_index_bytes,
+        max_record_range_len: input
+            .records
+            .iter()
+            .map(|record| record.byte_end.saturating_sub(record.byte_start))
+            .max()
+            .unwrap_or(0),
     };
     let statistics = encode_stats(&stats);
     let mut builder = ObjectBuilder::new(ObjectKind::Segment);

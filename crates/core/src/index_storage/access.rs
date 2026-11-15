@@ -273,6 +273,112 @@ impl<'a> PostingAccess<'a> {
         }
     }
 
+    fn estimate_length(&self, term: &BoundTerm, domain_len: u64) -> Option<u64> {
+        if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
+            return None;
+        }
+        let crate::model::Value::Number(number) = &term.literal else {
+            return None;
+        };
+        let mut total = 0u64;
+        let mut keys = 0u64;
+        self.for_each_length(|length, bitmap| {
+            keys = keys.saturating_add(1);
+            let matches = match term.operator {
+                Operator::Eq => length == number,
+                Operator::Ne => length != number,
+                Operator::Gt => length > number,
+                Operator::Ge => length >= number,
+                Operator::Lt => length < number,
+                Operator::Le => length <= number,
+                _ => return Ok(()),
+            };
+            if matches {
+                total = total.saturating_add(bitmap.len());
+            }
+            Ok(())
+        })
+        .ok()?;
+        let _ = domain_len;
+        Some(total.min(domain_len))
+    }
+
+    fn exact_length(&self, term: &BoundTerm, input: &RoaringBitmap) -> Option<RoaringBitmap> {
+        if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
+            return None;
+        }
+        let crate::model::Value::Number(number) = &term.literal else {
+            return None;
+        };
+        let mut result = RoaringBitmap::new();
+        self.for_each_length(|length, bitmap| {
+            let matches = match term.operator {
+                Operator::Eq => length == number,
+                Operator::Ne => length != number,
+                Operator::Gt => length > number,
+                Operator::Ge => length >= number,
+                Operator::Lt => length < number,
+                Operator::Le => length <= number,
+                _ => false,
+            };
+            if matches {
+                result |= bitmap & input;
+            }
+            Ok(())
+        })
+        .ok()?;
+        Some(result)
+    }
+
+    fn estimate_derived(&self, term: &BoundTerm, domain_len: u64) -> Option<Option<u64>> {
+        if term.derived == crate::reference::Derived::None {
+            return None;
+        }
+        let truth = state_truth(term)?;
+        let output = if term.derived == crate::reference::Derived::Exists {
+            let yes = self
+                .presence()
+                .ok()?
+                .difference_len(&self.empty_selections().ok()?);
+            if truth { yes } else { domain_len.saturating_sub(yes) }
+        } else {
+            let key = derived_structural_key(term.derived, self.multi())?;
+            let value = if term.derived == crate::reference::Derived::Null && !self.multi() {
+                self.nulls().ok()?.len()
+            } else {
+                self.structural(key).ok()?.len()
+            };
+            if truth { value } else { domain_len.saturating_sub(value) }
+        };
+        Some(Some(output))
+    }
+
+    fn exact_derived(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Option<Option<RoaringBitmap>> {
+        if term.derived == crate::reference::Derived::None {
+            return None;
+        }
+        let truth = state_truth(term)?;
+        let value = if term.derived == crate::reference::Derived::Exists {
+            let mut present = input & &self.presence().ok()?;
+            present -= &self.empty_selections().ok()?;
+            present
+        } else {
+            let key = derived_structural_key(term.derived, self.multi())?;
+            if term.derived == crate::reference::Derived::Null && !self.multi() {
+                input & &self.nulls().ok()?
+            } else {
+                input & &self.structural(key).ok()?
+            }
+        };
+        let result = if truth { value } else { input - &value };
+        Some(Some(result))
+    }
+
     pub(crate) fn native(&self) -> Option<&'a PostingIndex> {
         match self {
             Self::Native(index) => Some(index),
@@ -298,6 +404,16 @@ impl<'a> PostingAccess<'a> {
         {
             return None;
         }
+        if term.derived == crate::reference::Derived::Length {
+            let output = self.estimate_length(term, domain_len)?;
+            *visits = visits.saturating_add(1);
+            return Some((1.0 + output as f64 / 8.0, output));
+        }
+        if term.derived != crate::reference::Derived::None {
+            let output = self.estimate_derived(term, domain_len)??;
+            *visits = visits.saturating_add(1);
+            return Some((1.0, output));
+        }
         if self.covered_records() as u64 != domain_len
             || term.period.is_some()
             || term.related.is_some()
@@ -305,7 +421,6 @@ impl<'a> PostingAccess<'a> {
             || term.operation.is_some()
             || term.derived != crate::reference::Derived::None
             || term.transform != crate::reference::Transform::Identity
-            || term.query_path.has_position
         {
             return None;
         }
@@ -378,6 +493,15 @@ impl<'a> PostingAccess<'a> {
         match self {
             Self::Native(index) => index.exact_set_restricted(term, domain, input),
             Self::Packed(_) => {
+                if term.derived == crate::reference::Derived::Length {
+                    return self.exact_length(term, input);
+                }
+                if let Some(matches) = self.exact_derived(term, domain, input) {
+                    return matches;
+                }
+                if !self.values_indexed() {
+                    return None;
+                }
                 if term.operation.is_some()
                     || term.matcher.is_some()
                     || term.rhs.is_some()
@@ -385,10 +509,7 @@ impl<'a> PostingAccess<'a> {
                     || term.period.is_some()
                     || term.transform != crate::reference::Transform::Identity
                     || term.derived != crate::reference::Derived::None
-                    || term.query_path.has_position
-                    || (term.multi
-                        && (term.operator != crate::query::Operator::Eq
-                            || term.quantifier != crate::query::Quantifier::Any))
+                    || (term.multi && term.operator != crate::query::Operator::Eq)
                 {
                     return None;
                 }
@@ -534,6 +655,34 @@ fn collect(view: super::record_set::RecordSetView<'_>) -> StorageResult<RoaringB
     let mut bitmap = RoaringBitmap::new();
     view.union_into(&mut bitmap)?;
     Ok(bitmap)
+}
+
+fn state_truth(term: &BoundTerm) -> Option<bool> {
+    let crate::model::Value::Bool(literal) = term.literal else {
+        return None;
+    };
+    match term.operator {
+        Operator::Eq => Some(literal),
+        Operator::Ne => Some(!literal),
+        _ => None,
+    }
+}
+
+fn derived_structural_key(
+    derived: crate::reference::Derived,
+    multi: bool,
+) -> Option<StructuralKey> {
+    Some(match derived {
+        crate::reference::Derived::None | crate::reference::Derived::Exists => return None,
+        crate::reference::Derived::Null if !multi => return Some(StructuralKey::AnyNull),
+        crate::reference::Derived::Null => StructuralKey::AnyNull,
+        crate::reference::Derived::IsNonEmpty => StructuralKey::NonEmpty,
+        crate::reference::Derived::IsString => StructuralKey::String,
+        crate::reference::Derived::IsNumber => StructuralKey::Number,
+        crate::reference::Derived::IsArray => StructuralKey::Array,
+        crate::reference::Derived::IsObject => StructuralKey::Object,
+        crate::reference::Derived::Length => return None,
+    })
 }
 
 fn structural_code(key: StructuralKey) -> u8 {

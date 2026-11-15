@@ -215,6 +215,13 @@ fn partition_base_with_limits_inner(
     let catalog =
         FileCatalog::restored(Arc::clone(&empty), slots).map_err(IndexError::InvalidPublication)?;
     let mut groups = root.segments.clone();
+    let files = Arc::new(root.repository.files().files.clone());
+    let definitions = root
+        .repository
+        .collections()
+        .iter()
+        .map(|collection| collection.definition.clone())
+        .collect::<Vec<_>>();
     for (number, collection) in root.repository.collections().iter().enumerate() {
         if collection.generation.files.is_empty() {
             continue;
@@ -233,14 +240,38 @@ fn partition_base_with_limits_inner(
             root.next_segment_ordinal = ordinal
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            let slot_count = part.record_count() as u32;
+            let active = (0..slot_count).collect::<roaring::RoaringBitmap>();
+            let input = crate::index_storage::native_pack::pack_segment(
+                &part,
+                &active,
+                &root.file_versions,
+                root.repository.collections(),
+                &catalog,
+            )
+            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            let built = crate::index_storage::segment_builder::build_segment(input)
+                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            let frozen = Arc::new(
+                crate::index_storage::segment::FrozenSegment::from_bytes(
+                    built.object.into_bytes(),
+                )
+                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+            );
+            let index = crate::index_storage::packed_restore::segment_from_packed(
+                &frozen,
+                number,
+                &files,
+                &definitions,
+            )?;
             let active =
-                ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
+                ActiveRecords::all(index.record_count()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
                 ordinal,
                 level: 0,
-                index: Arc::new(part),
+                index: Arc::new(index),
                 active,
-                packed: None,
+                packed: Some(frozen),
             }));
         }
         groups[number] = Arc::new(group);

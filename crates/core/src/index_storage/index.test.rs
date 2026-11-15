@@ -516,6 +516,83 @@ fn loaded_packed_index_compacts_after_add_replace_move_and_delete() {
     assert!(segment.index.records.as_slice().is_none());
 }
 
+fn assert_resident_packed(index: &Index) {
+    let view = index.view().unwrap();
+    for group in &view.0.segments {
+        for segment in group.iter() {
+            assert!(
+                segment.packed.is_some(),
+                "published segment {} has no resident packed backing (records={}, files={}, collection={})",
+                segment.ordinal,
+                segment.index.record_count(),
+                segment.index.file_count(),
+                segment.index.collection.0,
+            );
+            assert!(
+                segment.index.records.as_slice().is_none(),
+                "published segment {} retains a complete native record vector",
+                segment.ordinal
+            );
+            assert!(
+                segment.index.postings.fields.is_empty(),
+                "published segment {} retains a native posting dictionary",
+                segment.ordinal
+            );
+        }
+    }
+    for collection in view.repository().collections() {
+        if collection.generation.records.is_empty() {
+            continue;
+        }
+        assert!(
+            collection.generation.records.as_slice().is_none(),
+            "published base collection retains a native record vector"
+        );
+    }
+}
+
+#[test]
+fn every_published_mutation_family_uses_resident_packed_runs() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    assert_resident_packed(&index);
+
+    let a = root.path().join("data/a.json");
+    std::fs::write(&a, br#"{"text":"Alpha replaced"}"#).unwrap();
+    let handle = index.view().unwrap().file_handle(FileId(0)).unwrap();
+    index.update_file(handle, &a).unwrap();
+    assert_resident_packed(&index);
+
+    let b = root.path().join("data/b.json");
+    let c = root.path().join("data/c.json");
+    std::fs::rename(&b, &c).unwrap();
+    let handle = index.view().unwrap().file_handle(FileId(1)).unwrap();
+    index.move_file(handle, &c).unwrap();
+    assert_resident_packed(&index);
+
+    let d = root.path().join("data/d.json");
+    std::fs::write(&d, br#"{"text":"Gamma"}"#).unwrap();
+    index.add_file(&d).unwrap();
+    assert_resident_packed(&index);
+
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&c)
+        .expect("moved file handle");
+    index.delete_file(handle).unwrap();
+    assert_resident_packed(&index);
+
+    assert_eq!(count(&index, "Alpha replaced"), 1);
+    assert_eq!(count(&index, "Beta"), 0);
+    assert_eq!(count(&index, "Gamma"), 1);
+}
+
 #[test]
 fn packed_reuse_preserves_deleted_and_replaced_visibility() {
     let (root, definition) = fixture();

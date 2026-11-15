@@ -15,7 +15,7 @@ pub const RECORD_ROW_LEN: usize = 48;
 /// Segment statistics magic.
 pub const SEGMENT_STATS_MAGIC: [u8; 4] = *b"OBSS";
 /// Segment statistics version.
-pub const SEGMENT_STATS_VERSION: u16 = 1;
+pub const SEGMENT_STATS_VERSION: u16 = 2;
 /// Fixed encoded width of the segment statistics header.
 pub const SEGMENT_STATS_LEN: usize = 128;
 
@@ -64,6 +64,9 @@ pub struct SegmentStats {
     pub fallback_count: u64,
     pub source_bytes: u64,
     pub estimated_index_bytes: u64,
+    /// Largest encoded record span in this run, retained for bounded read
+    /// scheduling without traversing the record table at Load.
+    pub max_record_range_len: u64,
 }
 
 
@@ -275,6 +278,7 @@ pub fn encode_stats(stats: &SegmentStats) -> Vec<u8> {
     bytes[64..72].copy_from_slice(&stats.estimated_index_bytes.to_le_bytes());
     bytes[72..80].copy_from_slice(&stats.source_id_offset.to_le_bytes());
     bytes[80..84].copy_from_slice(&stats.source_id_len.to_le_bytes());
+    bytes[84..92].copy_from_slice(&stats.max_record_range_len.to_le_bytes());
     bytes
 }
 
@@ -292,7 +296,7 @@ pub fn decode_stats(bytes: &[u8]) -> StorageResult<SegmentStats> {
             "segment statistics version {version}"
         )));
     }
-    if bytes[6..8] != [0, 0] || bytes[84..].iter().any(|byte| *byte != 0) {
+    if bytes[6..8] != [0, 0] || bytes[92..].iter().any(|byte| *byte != 0) {
         return Err(StorageError::corrupt(
             "segment statistics reserved bytes are not zero",
         ));
@@ -314,6 +318,7 @@ pub fn decode_stats(bytes: &[u8]) -> StorageResult<SegmentStats> {
         fallback_count: read_u64(bytes, 48)?,
         source_bytes: read_u64(bytes, 56)?,
         estimated_index_bytes: read_u64(bytes, 64)?,
+        max_record_range_len: read_u64(bytes, 84)?,
     })
 }
 

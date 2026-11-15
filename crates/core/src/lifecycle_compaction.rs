@@ -65,7 +65,7 @@ struct CompactionWork {
 }
 
 
-fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
+pub(crate) fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
     let count = root.catalog.allocated_files();
     let mut files = (0..count)
         .map(|number| synthetic_file_entry(crate::model::FileId(number as u32)))
@@ -81,6 +81,62 @@ fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
         }
     }
     files
+}
+
+pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), IndexError> {
+    let files = Arc::new(current_file_entries(next));
+    let definitions = next
+        .repository
+        .collections()
+        .iter()
+        .map(|collection| collection.definition.clone())
+        .collect::<Vec<_>>();
+    for (number, group) in next.segments.iter_mut().enumerate() {
+        if group.iter().all(|segment| segment.packed.is_some()) {
+            continue;
+        }
+        let mut sealed = Vec::with_capacity(group.len());
+        for segment in group.iter() {
+            if segment.packed.is_some() {
+                sealed.push(Arc::clone(segment));
+                continue;
+            }
+            let active = segment.active.bitmap();
+            let input = crate::index_storage::native_pack::pack_segment(
+                &segment.index,
+                &active,
+                &next.file_versions,
+                next.repository.collections(),
+                &next.catalog,
+            )
+            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            let built = crate::index_storage::segment_builder::build_segment(input)
+                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+            let frozen = Arc::new(
+                crate::index_storage::segment::FrozenSegment::from_bytes(
+                    built.object.into_bytes(),
+                )
+                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+            );
+            let index = crate::index_storage::packed_restore::segment_from_packed(
+                &frozen,
+                number,
+                &files,
+                &definitions,
+            )?;
+            let active = ActiveRecords::from_bitmap(index.record_count(), active)
+                .map_err(IndexError::ResourceLimit)?;
+            sealed.push(Arc::new(PublishedSegment {
+                ordinal: segment.ordinal,
+                level: segment.level,
+                index: Arc::new(index),
+                active,
+                packed: Some(frozen),
+            }));
+        }
+        *group = Arc::new(sealed);
+    }
+    Ok(())
 }
 
 fn synthetic_file_entry(id: crate::model::FileId) -> FileEntry {

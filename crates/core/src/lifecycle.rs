@@ -1421,7 +1421,8 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
-        let published = crate::lifecycle_partition::partition_base(published)?;
+        let mut published = crate::lifecycle_partition::partition_base(published)?;
+        crate::lifecycle_compaction::seal_native_segments(&mut published)?;
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;
@@ -2647,6 +2648,7 @@ impl Index {
         expected: IndexRevision,
         mut next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
+        crate::lifecycle_compaction::seal_native_segments(&mut next)?;
         next.publication_id = Uuid::new_v4();
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);

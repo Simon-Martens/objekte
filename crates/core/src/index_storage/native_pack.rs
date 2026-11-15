@@ -12,8 +12,8 @@ use crate::bigram::BigramIndex;
 use crate::inference::InferenceState;
 use crate::inventory::{FileEntry, FileVersions, RecordEntry};
 use crate::lifecycle::IndexView;
-use crate::model::{FieldPath, RecordSlot};
-use crate::posting::{PostingCollection, PostingIndex, StructuralKey};
+use crate::model::{FieldPath, FileId, RecordSlot};
+use crate::posting::{PostingCollection, PostingIndex, ScalarKey, StructuralKey};
 use crate::relation::{RelationIndex, RelationTarget};
 use crate::repository::{CollectionState, GlobalInferenceSummary};
 use crate::sorting::{SortCollection, SortKey};
@@ -156,7 +156,13 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
         let active = published.active[number].bitmap();
         let slot_count = collection.generation.records.len() as u32;
         if slot_count > 0 {
-            let input = pack_collection(collection, &active, slot_count, &published.file_versions)?;
+            let input = pack_collection(
+                collection,
+                &active,
+                slot_count,
+                &published.file_versions,
+                &published.catalog,
+            )?;
             let built = build_segment(input)?;
             let digest = built.object.sha256();
             runs.push(RunInput {
@@ -194,6 +200,7 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
                 &segment.active.bitmap(),
                 &published.file_versions,
                 repository.collections(),
+                &published.catalog,
             )?;
             let built = build_segment(input)?;
             let active = segment.active.bitmap();
@@ -256,10 +263,21 @@ fn pack_collection(
     active: &RoaringBitmap,
     slot_count: u32,
     versions: &FileVersions,
+    catalog: &crate::lifecycle_catalog::FileCatalog,
 ) -> StorageResult<SegmentInput> {
+    let segment_files = collection
+        .generation
+        .records
+        .as_slice()
+        .unwrap_or(&[])
+        .iter()
+        .filter_map(|record| catalog.entry(record.file).map(|entry| (record.file, entry)))
+        .collect::<std::collections::HashMap<_, _>>();
     let (file_parts, records) = pack_records(
         collection.generation.records.as_slice().unwrap_or(&[]),
         versions,
+        &segment_files,
+        catalog,
     )?;
     let fields = pack_fields(
         &collection.postings,
@@ -308,13 +326,29 @@ pub(crate) fn pack_segment(
     active: &RoaringBitmap,
     versions: &FileVersions,
     collections: &[CollectionState],
+    catalog: &crate::lifecycle_catalog::FileCatalog,
 ) -> StorageResult<SegmentInput> {
-    let (file_parts, records) = pack_records(segment.records.as_slice().unwrap_or(&[]), versions)?;
-    let fields = pack_fields(
+    let segment_files = segment
+        .files
+        .iter()
+        .map(|file| (file.entry.id, &file.entry))
+        .collect::<std::collections::HashMap<_, _>>();
+    let (file_parts, records) = pack_records(
+        segment.records.as_slice().unwrap_or(&[]),
+        versions,
+        &segment_files,
+        catalog,
+    )?;
+    let mut fields = pack_fields(
         &segment.postings,
         segment.inference.as_ref(),
         &segment.custom_postings,
     )?;
+    append_relation_fields(
+        &mut fields,
+        &segment.relations,
+        segment.logical_records.len() as u32,
+    );
     let mut bigrams = vec![
         pack_bigram(&segment.raw, BigramBinding::Raw)?,
         pack_bigram(&segment.fallback_text, BigramBinding::Fallback)?,
@@ -364,6 +398,8 @@ pub(crate) fn pack_segment(
 fn pack_records(
     records: &[RecordEntry],
     versions: &FileVersions,
+    segment_files: &std::collections::HashMap<FileId, &crate::inventory::FileEntry>,
+    catalog: &crate::lifecycle_catalog::FileCatalog,
 ) -> StorageResult<(Vec<FilePartInput>, Vec<RecordInput>)> {
     let mut parts = Vec::new();
     let mut packed = Vec::with_capacity(records.len());
@@ -385,19 +421,44 @@ fn pack_records(
         parts.push(part);
         for slot in start..end {
             let record = &records[slot];
+            let diagnostic_ref = remap_diagnostic_ref(record, segment_files, catalog);
             packed.push(RecordInput {
                 part_ordinal,
                 local_record_id: (slot - start) as u32,
                 byte_start: record.range.start,
                 byte_end: record.range.end,
                 logical_id: record.id.0.to_string(),
-                diagnostic_ref: record.diagnostic_ref.0,
+                diagnostic_ref,
                 record_class: record.class.code(),
             });
         }
         start = end;
     }
     Ok((parts, packed))
+}
+
+fn remap_diagnostic_ref(
+    record: &RecordEntry,
+    segment_files: &std::collections::HashMap<FileId, &crate::inventory::FileEntry>,
+    catalog: &crate::lifecycle_catalog::FileCatalog,
+) -> u32 {
+    let Some(local) = record.diagnostic_ref.stored_index() else {
+        return record.diagnostic_ref.0;
+    };
+    let Some(segment_file) = segment_files.get(&record.file) else {
+        return record.diagnostic_ref.0;
+    };
+    let Some(diagnostic) = segment_file.diagnostics.get(local) else {
+        return record.diagnostic_ref.0;
+    };
+    let Some(global) = catalog.entry(record.file) else {
+        return record.diagnostic_ref.0;
+    };
+    global
+        .diagnostics
+        .iter()
+        .position(|candidate| candidate == diagnostic)
+        .map_or(record.diagnostic_ref.0, |position| (position + 1) as u32)
 }
 
 fn pack_fields(
@@ -527,6 +588,89 @@ fn structural_code(key: StructuralKey) -> u8 {
         StructuralKey::Array => 4,
         StructuralKey::Object => 5,
         StructuralKey::EmptyObject => 6,
+    }
+}
+
+fn append_relation_fields(
+    fields: &mut Vec<FieldInput>,
+    relations: &[crate::relation::RelationContribution],
+    logical_count: u32,
+) {
+    let mut next_ordinal = fields
+        .iter()
+        .map(|field| field.ordinal)
+        .max()
+        .unwrap_or(0)
+        .saturating_add(1);
+    for relation in relations {
+        let path = relation.declaration().path.clone();
+        let multi = matches!(
+            relation.declaration().cardinality,
+            crate::relation::RelationCardinality::Many
+        );
+        let mut values: std::collections::BTreeMap<ScalarKey, std::collections::BTreeSet<u32>> =
+            std::collections::BTreeMap::new();
+        for slot in 0..relation.record_count() {
+            for (target, _) in relation.references_for_source(RecordSlot(slot)) {
+                values
+                    .entry(ScalarKey::Id(target))
+                    .or_default()
+                    .insert(slot);
+            }
+        }
+        let values = values
+            .into_iter()
+            .map(|(key, slots)| (key, slots.into_iter().collect()))
+            .collect::<std::collections::BTreeMap<_, _>>();
+        let presence = bitmap_slots(relation.present());
+        let nulls = bitmap_slots(relation.nulls());
+        let empty_selections = bitmap_slots(relation.empty_arrays());
+        let field = match fields.iter_mut().find(|field| field.path == path) {
+            Some(field) => field,
+            None => {
+                fields.push(FieldInput {
+                    ordinal: next_ordinal,
+                    path,
+                    source: FieldSource::Declared,
+                    complete: true,
+                    kind: if multi {
+                        crate::model::LogicalType::Array(Box::new(crate::model::LogicalType::Id))
+                    } else {
+                        crate::model::LogicalType::Id
+                    },
+                    multi,
+                    presence: Vec::new(),
+                    nulls: Vec::new(),
+                    empty_selections: Vec::new(),
+                    empty_strings: Vec::new(),
+                    structural: std::collections::BTreeMap::new(),
+                    values: std::collections::BTreeMap::new(),
+                    lengths: std::collections::BTreeMap::new(),
+                    values_indexed: true,
+                    value_complete: true,
+                    length_complete: false,
+                    empty_string_complete: false,
+                    covered_records: logical_count,
+                });
+                next_ordinal = next_ordinal.saturating_add(1);
+                fields.last_mut().expect("relation field was appended")
+            }
+        };
+        field.source = FieldSource::Declared;
+        field.kind = if multi {
+            crate::model::LogicalType::Array(Box::new(crate::model::LogicalType::Id))
+        } else {
+            crate::model::LogicalType::Id
+        };
+        field.multi = multi;
+        field.presence = presence;
+        field.nulls = nulls;
+        field.empty_selections = empty_selections;
+        field.values = values;
+        field.values_indexed = true;
+        field.value_complete = true;
+        field.complete = true;
+        field.covered_records = logical_count;
     }
 }
 

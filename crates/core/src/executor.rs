@@ -2568,7 +2568,7 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             may |= if let Some(condition) = self.regex {
-                condition.candidates(probe.index.native_index()?)?
+                condition.candidates_access(&probe.index)?
             } else {
                 probe.index.candidates_prepared(probe.request)?
             };
@@ -2580,11 +2580,7 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             let next = if let Some(condition) = self.regex {
-                let native = probe
-                    .index
-                    .native_index()
-                    .ok_or("packed regex candidates are not available")?;
-                condition.candidates_checked(native)?
+                condition.candidates_checked_access(&probe.index)?
             } else {
                 probe.index.candidates_prepared(probe.request)
             };
