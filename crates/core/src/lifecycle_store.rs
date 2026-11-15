@@ -4,9 +4,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 use crate::index_store::{IndexStore, StoreOpenError};
-use crate::inventory::FileVersions;
-use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::{Index, IndexError};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceRegistry;
 
@@ -62,104 +60,33 @@ impl Index {
         store: StoreOptions,
     ) -> Result<(Index, StoreOpenOutcome), IndexError> {
         let root = root.into();
-        let definitions = crate::repository_configuration::prepare_source_definitions(
-            &root,
-            &definitions,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
-        let configuration = crate::configuration::configuration_hash(
-            &definitions,
-            options,
-            &sources,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
         let path = store
             .path
             .clone()
             .unwrap_or_else(|| root.join(".objekte/.index/index.redb"));
-        match IndexStore::open(&path, store.durable) {
-            Ok(index_store) => match index_store.validate(
-                &configuration,
-                crate::posting_map::POSTING_CHUNK_BITS,
-            ) {
-                Ok(()) => match assemble_loaded_index(
-                    index_store,
-                    root.clone(),
-                    definitions.clone(),
-                    options,
-                    sources.clone(),
-                ) {
-                    Ok(index) => Ok((index, StoreOpenOutcome::Loaded)),
-                    Err(_error) => {
-                        let _ = std::fs::remove_file(&path);
-                        Self::rebuild_with_store(
-                            root,
-                            definitions,
-                            options,
-                            sources,
-                            path,
-                            store.durable,
-                            StoreRebuildReason::Damaged("load failed".into()),
-                        )
-                    }
-                },
-                Err(reason) => {
-                    let _ = std::fs::remove_file(&path);
-                    Self::rebuild_with_store(
-                        root, definitions, options, sources, path, store.durable, reason,
-                    )
-                }
-            },
-            Err(StoreOpenError::Locked(error)) => {
+        match Self::load_from_store(
+            root.clone(),
+            definitions.clone(),
+            options,
+            sources.clone(),
+            store.clone(),
+        )? {
+            crate::lifecycle_sync::StoreLoad::Loaded(index) => {
+                Ok((index, StoreOpenOutcome::Loaded))
+            }
+            crate::lifecycle_sync::StoreLoad::NotLoaded(reason) => {
+                let index = Self::build_with_sources(root, definitions, options, sources)?;
+                index.attach_store(StoreOptions {
+                    path: Some(path),
+                    durable: store.durable,
+                })?;
+                Ok((index, StoreOpenOutcome::Rebuilt(reason)))
+            }
+            crate::lifecycle_sync::StoreLoad::Unavailable(error) => {
                 let index = Self::build_with_sources(root, definitions, options, sources)?;
                 Ok((index, StoreOpenOutcome::WithoutStore(error)))
             }
-            Err(StoreOpenError::Damaged(error)) => {
-                let _ = std::fs::remove_file(&path);
-                Self::rebuild_with_store(
-                    root,
-                    definitions,
-                    options,
-                    sources,
-                    path,
-                    store.durable,
-                    StoreRebuildReason::Damaged(error),
-                )
-            }
         }
-    }
-
-    fn rebuild_with_store(
-        root: PathBuf,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-        sources: SourceRegistry,
-        path: PathBuf,
-        durable: bool,
-        reason: StoreRebuildReason,
-    ) -> Result<(Index, StoreOpenOutcome), IndexError> {
-        let index = Self::build_with_sources(
-            root,
-            definitions,
-            options,
-            sources,
-        )?;
-        let mut store = match IndexStore::open(&path, durable) {
-            Ok(store) => store,
-            Err(StoreOpenError::Damaged(error)) | Err(StoreOpenError::Locked(error)) => {
-                return Ok((index, StoreOpenOutcome::WithoutStore(error)));
-            }
-        };
-        let view = index.view()?;
-        store
-            .checkpoint(&view.0, view.revision().0)
-            .map_err(store_error)?;
-        *index
-            .0
-            .store
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)? = Some(store);
-        Ok((index, StoreOpenOutcome::Rebuilt(reason)))
     }
 
     /// Write everything that changed since the last checkpoint.
@@ -178,9 +105,14 @@ impl Index {
         let store = guard
             .as_mut()
             .ok_or_else(|| IndexError::Io("index store: no store is attached".into()))?;
-        store
+        let report = store
             .checkpoint(&view.0, view.revision().0)
-            .map_err(store_error)
+            .map_err(store_error)?;
+        drop(guard);
+        if let Ok(mut error) = self.0.store_sync_error.lock() {
+            *error = None;
+        }
+        Ok(report)
     }
 
     /// True when this index was opened with a usable store.
@@ -191,52 +123,6 @@ impl Index {
             .map(|store| store.is_some())
             .unwrap_or(false)
     }
-}
-
-pub(crate) fn assemble_loaded_index(
-    store: IndexStore,
-    root: PathBuf,
-    definitions: Vec<CollectionDefinition>,
-    options: RepositoryOptions,
-    sources: SourceRegistry,
-) -> Result<Index, String> {
-    let contents = store.load_contents()?;
-    let mut store = store;
-    store.install_loaded(&contents.shards, &contents.catalog);
-    let mut repository =
-        Repository::empty_for_configuration(root, definitions, options, &sources)?;
-    for (number, summary) in contents.global_inference.iter().enumerate() {
-        if number < repository.collections().len() {
-            repository.set_global_inference(number, summary.clone())?;
-        }
-    }
-    let repository = std::sync::Arc::new(repository);
-    let instance_id = crate::repository::next_repository_instance();
-    let mut published = PublishedIndex::from_repository(
-        instance_id,
-        IndexRevision(contents.revision),
-        std::sync::Arc::clone(&repository),
-    )
-    .map_err(|error| error.to_string())?;
-    published.catalog = FileCatalog::restored(
-        std::sync::Arc::clone(&repository),
-        contents.catalog,
-    )?;
-    published.file_versions = FileVersions::initial(published.catalog.allocated_files());
-    published.next_segment_ordinal = contents.next_segment_ordinal;
-    for (ordinal, _store_id, shard, active) in contents.shards {
-        published = published
-            .with_restored_segment(shard, active, ordinal)
-            .map_err(|error| error.to_string())?;
-    }
-    let index = Index::from_published(published);
-    *index
-        .0
-        .store
-        .lock()
-        .map_err(|_| "index store: lock poisoned".to_string())? = Some(store);
-    index.start_reconcile().map_err(|error| error.to_string())?;
-    Ok(index)
 }
 
 #[cfg(test)]

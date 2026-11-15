@@ -3,6 +3,7 @@
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use std::time::SystemTime;
 
 use redb::{Database, Durability, ReadableDatabase, ReadableTable, WriteTransaction};
 use serde::Serialize;
@@ -28,6 +29,7 @@ pub(crate) struct IndexStore {
     main: HashMap<u64, StoredMain>,
     catalog: Vec<Option<CatalogSlot>>,
     rewrite_all: bool,
+    last_checkpoint: Option<SystemTime>,
     #[cfg(test)]
     fail_next_commit: bool,
 }
@@ -135,6 +137,7 @@ impl IndexStore {
             main: HashMap::new(),
             catalog: Vec::new(),
             rewrite_all: false,
+            last_checkpoint: None,
             #[cfg(test)]
             fail_next_commit: false,
         })
@@ -436,6 +439,7 @@ impl IndexStore {
             self.main = next_main;
             self.catalog = slots;
             self.revision = revision;
+            self.last_checkpoint = Some(SystemTime::now());
             self.next_store_id = next_store_id;
             self.next_segment_ordinal = published.next_segment_ordinal;
             Ok(())
@@ -531,6 +535,14 @@ impl IndexStore {
             catalog: slots,
             global_inference,
         })
+    }
+
+    pub(crate) fn revision(&self) -> u64 {
+        self.revision
+    }
+
+    pub(crate) fn last_checkpoint(&self) -> Option<SystemTime> {
+        self.last_checkpoint
     }
 
     pub(crate) fn install_loaded(&mut self, shards: &[ShardRow], catalog: &[Option<CatalogSlot>]) {

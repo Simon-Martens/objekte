@@ -319,6 +319,7 @@ impl CollectionStats {
 /// }
 /// ```
 pub struct Repository {
+    pub(crate) root: PathBuf,
     pub(crate) files: Arc<FileInventory>,
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
@@ -831,6 +832,11 @@ impl Repository {
             .ok_or_else(|| "collection missing".to_string())?
             .global_inference = summary;
         Ok(())
+    }
+
+    /// Canonical repository root this index was built from.
+    pub fn root(&self) -> &Path {
+        &self.root
     }
 
     pub fn collections(&self) -> &[CollectionState] {
@@ -1860,6 +1866,7 @@ impl Repository {
             profile.query_pool_init_ns = started.elapsed().as_nanos() as u64;
         }
         Ok(Self {
+            root: root.clone(),
             files: Arc::new(files),
             base_fingerprints,
             collections,

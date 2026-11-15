@@ -1396,6 +1396,15 @@ pub(crate) struct IndexInner {
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
     pub(crate) store: Mutex<Option<crate::index_store::IndexStore>>,
+    store_sync_transition: Mutex<()>,
+    pub(crate) store_sync: Mutex<Option<StoreSync>>,
+    pub(crate) store_sync_error: Mutex<Option<String>>,
+}
+
+pub(crate) struct StoreSync {
+    signal: Sender<()>,
+    #[cfg_attr(not(test), allow(dead_code))]
+    worker: JoinHandle<()>,
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
@@ -1717,6 +1726,9 @@ impl Index {
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
             store: Mutex::new(None),
+            store_sync_transition: Mutex::new(()),
+            store_sync: Mutex::new(None),
+            store_sync_error: Mutex::new(None),
         }))
     }
 

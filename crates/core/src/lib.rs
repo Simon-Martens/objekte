@@ -42,6 +42,8 @@ mod index_store_keys;
 mod index_store;
 mod index_store_shard;
 pub mod index_sync;
+pub mod lifecycle_sync;
+pub use lifecycle_sync::{StoreLoad, StoreStatus, DEFAULT_STORE_SYNC_INTERVAL};
 pub mod lifecycle_store;
 pub use lifecycle_store::{CheckpointReport, StoreOpenOutcome, StoreOptions, StoreRebuildReason};
 mod slot_store;
