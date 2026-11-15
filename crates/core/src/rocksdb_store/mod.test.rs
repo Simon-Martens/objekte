@@ -1,5 +1,5 @@
-use std::sync::{Arc, Barrier};
 use std::sync::atomic::Ordering;
+use std::sync::{Arc, Barrier};
 
 use super::*;
 
@@ -33,7 +33,11 @@ fn memory_mode_creates_no_database_files() {
     transaction.put(&key, b"value").expect("put");
     transaction.commit().expect("commit");
     assert_eq!(
-        store.view().expect("view").get(Namespace::Records, &[1]).unwrap(),
+        store
+            .view()
+            .expect("view")
+            .get(Namespace::Records, &[1])
+            .unwrap(),
         Some(b"value".to_vec())
     );
     drop(store);
@@ -52,7 +56,11 @@ fn a_new_memory_environment_does_not_recover_old_data() {
 
     let second = RocksStore::create(config(StoreLocation::Memory)).expect("second");
     assert_eq!(
-        second.view().unwrap().get(Namespace::Records, &[9]).unwrap(),
+        second
+            .view()
+            .unwrap()
+            .get(Namespace::Records, &[9])
+            .unwrap(),
         None
     );
 }
@@ -113,7 +121,10 @@ fn concurrent_transactions_preserve_distinct_bits_in_one_value() {
         worker.join().expect("worker");
     }
     let view = store.view().unwrap();
-    assert_eq!(view.get(Namespace::StateBlocks, &[7]).unwrap(), Some(vec![3]));
+    assert_eq!(
+        view.get(Namespace::StateBlocks, &[7]).unwrap(),
+        Some(vec![3])
+    );
 }
 
 #[test]
@@ -149,14 +160,44 @@ fn namespace_iterator_does_not_cross_logical_namespaces() {
 }
 
 #[test]
+fn unbounded_and_one_sided_iterator_queries_are_namespace_clamped() {
+    let store = RocksStore::create(config(StoreLocation::Memory)).expect("store");
+    let transaction = store.transaction();
+    for (namespace, key) in [
+        (Namespace::Records, b"a".as_slice()),
+        (Namespace::Records, b"b".as_slice()),
+        (Namespace::LogicalIds, b"a".as_slice()),
+    ] {
+        transaction.put(namespace.physical(key), b"x").unwrap();
+    }
+    transaction.commit().unwrap();
+    let view = store.view().unwrap();
+    for (lower, upper) in [
+        (None, None),
+        (None, Some(b"b".as_slice())),
+        (Some(b"a".as_slice()), None),
+    ] {
+        let mut iterator = view.iterator(Namespace::Records, lower, upper).unwrap();
+        iterator.seek_to_first();
+        while iterator.valid() {
+            assert_eq!(
+                super::namespace::namespace_of(iterator.key().unwrap()),
+                Some(Namespace::Records)
+            );
+            iterator.next();
+        }
+        iterator.status().unwrap();
+    }
+}
+
+#[test]
 fn file_mode_flush_reopen_preserves_complete_values() {
     let path = std::env::temp_dir().join(format!(
         "objekte-rocksdb-file-{}-{}",
         std::process::id(),
         super::NEXT_INSTANCE.load(Ordering::Relaxed)
     ));
-    let store =
-        RocksStore::create(config(StoreLocation::File(path.clone()))).expect("file store");
+    let store = RocksStore::create(config(StoreLocation::File(path.clone()))).expect("file store");
     let transaction = store.transaction();
     transaction
         .put(Namespace::Files.physical(&[5]), b"durable")
@@ -166,9 +207,8 @@ fn file_mode_flush_reopen_preserves_complete_values() {
     store.flush_memtable().unwrap();
     drop(store);
 
-    let reopened =
-        RocksStore::reopen_file(path.clone(), config(StoreLocation::File(path.clone())))
-            .expect("reopen");
+    let reopened = RocksStore::reopen_file(path.clone(), config(StoreLocation::File(path.clone())))
+        .expect("reopen");
     assert_eq!(
         reopened
             .view()

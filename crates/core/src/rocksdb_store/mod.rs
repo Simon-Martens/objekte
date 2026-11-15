@@ -432,11 +432,11 @@ impl<'db> StoreView<'db> {
         upper: Option<&[u8]>,
     ) -> StoreResult<DBRawIteratorWithThreadMode<'db, TransactionDB<SingleThreaded>>> {
         let mut options = ReadOptions::default();
-        if let Some(lower) = lower {
-            options.set_iterate_lower_bound(namespace.physical(lower));
-        }
+        options.set_iterate_lower_bound(namespace.physical(lower.unwrap_or_default()));
         if let Some(upper) = upper {
             options.set_iterate_upper_bound(namespace.physical(upper));
+        } else {
+            options.set_iterate_upper_bound([namespace.tag().saturating_add(1)]);
         }
         Ok(self.snapshot.raw_iterator_opt(options))
     }
@@ -446,17 +446,8 @@ impl<'db> StoreView<'db> {
         namespace: Namespace,
         logical_prefix: &[u8],
     ) -> StoreResult<DBRawIteratorWithThreadMode<'db, TransactionDB<SingleThreaded>>> {
-        let lower = namespace.physical(logical_prefix);
-        let upper =
-            key_codec::prefix_successor(logical_prefix).map(|upper| namespace.physical(&upper));
-        let mut options = ReadOptions::default();
-        options.set_iterate_lower_bound(lower);
-        if let Some(upper) = upper {
-            options.set_iterate_upper_bound(upper);
-        } else {
-            options.set_iterate_upper_bound([namespace.tag().saturating_add(1)]);
-        }
-        Ok(self.snapshot.raw_iterator_opt(options))
+        let upper = key_codec::prefix_successor(logical_prefix);
+        self.iterator(namespace, Some(logical_prefix), upper.as_deref())
     }
 }
 
