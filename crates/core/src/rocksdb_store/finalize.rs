@@ -108,6 +108,21 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
         };
         if let Some(identity) = identity {
             structured_bindings.insert((*collection, *binding), identity);
+            coverage_flags.insert(
+                (*collection, *binding),
+                FieldCoverage {
+                    kind: stored.descriptor.kind.clone(),
+                    multi: stored.descriptor.multi,
+                    values_indexed: true,
+                    value_complete: true,
+                    length_complete: true,
+                    empty_string_complete: true,
+                    covered_records: 0,
+                    inference_status: value_codec::INFERENCE_STATUS_NOT_APPLICABLE,
+                    value_cardinality: 0,
+                    length_cardinality: 0,
+                },
+            );
         }
     }
 
@@ -132,7 +147,12 @@ pub(crate) fn finalize(store: &RocksStore) -> StoreResult<FinalizationReport> {
                 "coverage delta key/value mismatch".into(),
             ));
         }
-        coverage_flags.insert((collection, binding), delta.coverage);
+        let aggregate = coverage_flags
+            .entry((collection, binding))
+            .or_insert_with(|| delta.coverage.clone());
+        aggregate.value_complete &= delta.coverage.value_complete;
+        aggregate.length_complete &= delta.coverage.length_complete;
+        aggregate.empty_string_complete &= delta.coverage.empty_string_complete;
         Ok(())
     })?;
     scan_namespace(&view, Namespace::BuildReceipts, |_logical, _bytes| {
