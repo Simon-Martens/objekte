@@ -516,7 +516,7 @@ Completion date: 2026-11-15
 Base commit: `81ba4ce200`  
 Integration branch: `integration/mmap-index-v1`  
 Integration worktree: `/home/simon/source/objekte-integration-mmap-index-v1`  
-Final repair head: `81b1995867`
+Final repair head: `23ae6b0384`
 
 ### Summary
 
@@ -547,6 +547,8 @@ baseline remain unverified.
 - `6d956c70ea` descriptor-only estimates and format version 3.
 - `e4e1ca5d66` packed collection-file index.
 - `81b1995867` collection index completion and corruption regression.
+- `aa2019b28b` desktop file-catalogue paging.
+- `23ae6b0384` desktop and TUI bounded metadata browsing.
 
 The task specification above is preserved unchanged; this report is appended as
 required by the repository completion workflow.

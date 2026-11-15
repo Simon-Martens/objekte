@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `81b1995867`
+Repair head: `23ae6b0384`
 
 ## Result
 
@@ -86,8 +86,9 @@ native posting dictionary.
   access decodes at most one 64-record page. Load allocates zero record cells.
 - Default identity order is read through the packed identity-order section on
   demand instead of collecting a complete slot array at Load.
-- Desktop catalogue startup materializes active file IDs only. Collection and
-  directory filtering reads rows/path prefixes on demand.
+- Desktop and TUI catalogue startup do not materialize complete file lists.
+  Desktop requests 256-file and 256-directory pages and has explicit "load
+  more" continuation; TUI file access resolves one active ID at a time.
 - Added `SectionKind::Directories`, a persisted directory/collection-membership
   index. `catalogue_directory_page` and `catalogue_page` return bounded pages
   without decoding file rows or unrelated directories.
@@ -105,11 +106,6 @@ Regression:
 cargo test -p objekte-search-core load_defers_packed
 test load_defers_packed_record_page_allocation_until_a_row_is_read ... ok
 ```
-
-The desktop sidebar currently requests the complete persisted directory list for
-its tree. The bounded directory-page API is implemented for callers that browse
-incrementally; the sidebar's own incremental continuation is a frontend
-follow-up, not a storage reconstruction path.
 
 ## R5 — durable object reuse: resolved
 
@@ -252,3 +248,5 @@ earlier GUI validation evidence remains under
 - `6d956c70ea` — descriptor-only packed estimates and format version 3.
 - `e4e1ca5d66` — packed collection-file membership index.
 - `81b1995867` — collection index completion and corruption regression.
+- `aa2019b28b` — desktop file-catalogue paging.
+- `23ae6b0384` — desktop and TUI bounded metadata browsing.
