@@ -516,7 +516,7 @@ Completion date: 2026-11-15
 Base commit: `81ba4ce200`  
 Integration branch: `integration/mmap-index-v1`  
 Integration worktree: `/home/simon/source/objekte-integration-mmap-index-v1`  
-Final repair head: `6d956c70ea`
+Final repair head: `81b1995867`
 
 ### Summary
 
@@ -529,7 +529,7 @@ persisted levels, and packed planner/access failures propagate as typed errors.
 
 The implementation reports, commands, and residual limitations are recorded in
 `docs/ai/generated/mmap-index-repair-report.md`. Validation passed
-`cargo test --workspace --locked --offline` with 935 tests, the repository
+`cargo test --workspace --locked --offline` with 936 tests, the repository
 formatting/spacing checks, and `cargo clippy --workspace --all-targets`
 (exit 0, warning-level diagnostics only). Release-mode Musenalm performance
 measurements were run as a quick checkpoint (aggregate ratio 0.424, no query
@@ -545,6 +545,8 @@ baseline remain unverified.
 - `430d54a8c0` packed file ranges, directory index, overlay merge, strict admission.
 - `1575b9c675` deferred visibility and catalogue-page materialization.
 - `6d956c70ea` descriptor-only estimates and format version 3.
+- `e4e1ca5d66` packed collection-file index.
+- `81b1995867` collection index completion and corruption regression.
 
 The task specification above is preserved unchanged; this report is appended as
 required by the repository completion workflow.

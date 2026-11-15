@@ -4,7 +4,7 @@ Date: 2026-11-15
 Branch: `integration/mmap-index-v1`  
 Reviewed commit: `81ba4ce200`  
 Original baseline: `c54486f893`  
-Repair head: `6d956c70ea`
+Repair head: `81b1995867`
 
 ## Result
 
@@ -19,7 +19,7 @@ arenas, or per-record cache cells.
 ## R1 — visibility persistence: resolved
 
 - Added `ObjectKind::Visibility` and `SectionKind::Visibility`; object and
-  manifest format versions are 3.
+  manifest format versions are 4.
 - Every manifest run carries `RunRef.visibility`, a content-addressed packed
   record set bound to that run's slot universe.
 - Save persists the pinned publication's current active mask even when the
@@ -91,6 +91,8 @@ native posting dictionary.
 - Added `SectionKind::Directories`, a persisted directory/collection-membership
   index. `catalogue_directory_page` and `catalogue_page` return bounded pages
   without decoding file rows or unrelated directories.
+- Added `SectionKind::CollectionFiles`, a per-collection active file-ID index.
+  Collection filtering no longer scans file rows.
 - A full mutation overlay is merged into fresh resident packed catalogue
   metadata after 4,096 entries. The merge is explicit in-memory maintenance and
   does not Save or enumerate source files.
@@ -159,6 +161,9 @@ reduced run count, and verifies the complete result set.
   predicates, and bigram candidate/estimate paths return `StorageResult`.
 - Catalogue row and directory-page access has fallible `try_*` entry points;
   corrupt packed catalogue pages surface as operation errors.
+- Load admits immutable object headers and directories without validating
+  unrelated payloads. A corrupted, unread arena is reported only by the
+  operation that reads it (`corrupt_unused_arena_is_reported_only_when_read`).
 - Sorting-column eligibility uses a fallible packed presence/null accessor.
 - `index_catalog` and executor convert storage errors at the planning boundary
   instead of erasing them with `ok()` or empty candidate sets.
@@ -171,8 +176,8 @@ reduced run count, and verifies the complete result set.
 
 ## Updated contracts
 
-- Object format: 3.
-- Manifest format: 3.
+- Object format: 4.
+- Manifest format: 4.
 - Segment statistics: 2 (adds `max_record_range_len` for bounded read
   scheduling).
 - Catalogue section: `ActiveFiles` (25).
@@ -188,14 +193,14 @@ python3 scripts/format-rust-spacing.py
 python3 scripts/format-rust-spacing.py --check   # passed
 cargo clippy --workspace --all-targets --offline  # exit 0, warning-level diagnostics only
 cargo test --workspace --locked --offline
-935 passed; 0 failed
+936 passed; 0 failed
 ```
 
 Core-only suite:
 
 ```text
 cargo test -p objekte-search-core --lib --offline
-606 passed; 0 failed; 15 ignored
+607 passed; 0 failed; 15 ignored
 ```
 
 Desktop suite:
@@ -245,3 +250,5 @@ earlier GUI validation evidence remains under
   overlay merge, and strict run admission.
 - `1575b9c675` — deferred run-visibility and catalogue-page materialization.
 - `6d956c70ea` — descriptor-only packed estimates and format version 3.
+- `e4e1ca5d66` — packed collection-file membership index.
+- `81b1995867` — collection index completion and corruption regression.
