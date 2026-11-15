@@ -436,12 +436,15 @@ pub(crate) struct PublishedIndex {
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
     pub(crate) fold_trigger: usize,
     pub(crate) vacuum_min_dead: usize,
+    pub(crate) fold_trigger_bytes: usize,
     #[cfg(test)]
     pub(crate) fold_failures: usize,
     #[cfg(test)]
     pub(crate) fold_count: usize,
     #[cfg(test)]
     pub(crate) vacuum_count: usize,
+    #[cfg(test)]
+    pub(crate) migration_count: usize,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -503,6 +506,7 @@ pub(crate) struct VacuumStats {
 }
 
 pub(crate) const FOLD_TRIGGER_SHARDS: usize = 8;
+pub(crate) const FOLD_TRIGGER_BYTES: usize = 4 * 1024 * 1024;
 pub(crate) const MAIN_VACUUM_MIN_DEAD: usize = 1_024;
 pub(crate) const FOLD_MAX_RECORDS: usize = 256;
 
@@ -592,12 +596,15 @@ impl PublishedIndex {
             processed_memberships: Vec::new(),
             fold_trigger: FOLD_TRIGGER_SHARDS,
             vacuum_min_dead: MAIN_VACUUM_MIN_DEAD,
+            fold_trigger_bytes: FOLD_TRIGGER_BYTES,
             #[cfg(test)]
             fold_failures: 0,
             #[cfg(test)]
             fold_count: 0,
             #[cfg(test)]
             vacuum_count: 0,
+            #[cfg(test)]
+            migration_count: 0,
         })
     }
 
@@ -770,7 +777,14 @@ impl PublishedIndex {
             })
             .map(|(position, _)| position)
             .collect::<Vec<_>>();
-        if candidates.len() < self.fold_trigger {
+        let candidate_bytes = candidates
+            .iter()
+            .map(|position| group[*position].index.accounting.retained_bytes_estimated)
+            .fold(0usize, usize::saturating_add);
+        if candidates.len() < self.fold_trigger
+            && (self.fold_trigger == usize::MAX
+                || candidate_bytes < self.fold_trigger_bytes)
+        {
             return Ok(());
         }
         candidates.sort_by_key(|position| group[*position].ordinal);
@@ -1025,6 +1039,70 @@ impl PublishedIndex {
                 .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
+                if old.index.role == crate::build::ShardRole::Built
+                    && old.index.files_iter().all(|file| file.records.len() == 1)
+                {
+                    let keep_current = |entry: &crate::inventory::FileEntry| {
+                        self.catalog.entry(entry.id).is_some_and(|current| {
+                            current.revision == entry.revision
+                                && current.created_ns == entry.created_ns
+                                && current.collections.contains(&old.index.collection)
+                        })
+                    };
+                    let compacted = old
+                        .index
+                        .compact_active(&old.active, crate::lifecycle_partition::BASE_PARTITION_RECORDS, keep_current)
+                        .map_err(IndexError::Build)?;
+                    if compacted.index.record_count() == 0 {
+                        group.remove(index);
+                        return Ok(());
+                    }
+                    let main = group.iter().position(|segment| {
+                        segment.index.role == crate::build::ShardRole::Main
+                    });
+                    let mut main_index;
+                    let mut main_active;
+                    let main_position;
+                    if let Some(position) = main {
+                        main_index = (*group[position].index).clone();
+                        main_active = group[position].active.clone();
+                        main_position = position;
+                    } else {
+                        main_index = compacted.index.to_shared();
+                        main_active = compacted.active.clone();
+                        main_position = usize::MAX;
+                    }
+                    if let Ok(appended) = main_index.append(&main_active, &compacted.index) {
+                        main_active = main_active
+                            .with_mapped(&compacted.active, &appended.mapping)
+                            .map_err(IndexError::Build)?;
+                        main_index = appended.index;
+                        let ordinal = self.next_segment_ordinal;
+                        self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                            IndexError::ResourceLimit("segment ordinal overflow".into())
+                        })?;
+                        if main_position != usize::MAX {
+                            group.remove(main_position);
+                        }
+                        let old_position = group
+                            .iter()
+                            .position(|segment| Arc::ptr_eq(segment, &old))
+                            .ok_or_else(|| {
+                                IndexError::InvalidPublication("migration shard missing".into())
+                            })?;
+                        group.remove(old_position);
+                        group.push(Arc::new(PublishedSegment {
+                            ordinal,
+                            index: Arc::new(main_index),
+                            active: main_active,
+                        }));
+                        #[cfg(test)]
+                        {
+                            self.migration_count += 1;
+                        }
+                        return Ok(());
+                    }
+                }
                 let replacements = crate::lifecycle_partition::compact_source_parts(
                     &old.index,
                     &old.active,
@@ -1694,6 +1772,19 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?;
         let mut next = (**guard).clone();
         next.vacuum_min_dead = minimum;
+        *guard = Arc::new(next);
+        Ok(())
+    }
+
+    #[cfg(test)]
+    pub(crate) fn set_fold_trigger_bytes_for_tests(&self, bytes: usize) -> Result<(), IndexError> {
+        let mut guard = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut next = (**guard).clone();
+        next.fold_trigger_bytes = bytes;
         *guard = Arc::new(next);
         Ok(())
     }
@@ -2683,6 +2774,11 @@ impl IndexView {
     #[cfg(test)]
     pub(crate) fn vacuum_count(&self) -> usize {
         self.0.vacuum_count
+    }
+
+    #[cfg(test)]
+    pub(crate) fn migration_count(&self) -> usize {
+        self.0.migration_count
     }
 
     /// Startup observations belonging to this immutable publication.

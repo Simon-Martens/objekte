@@ -2042,7 +2042,7 @@ fn vacuum_marks_dead_file_rows_free() {
         .vacuum(&active, |file| file.id != crate::model::FileId(1))
         .unwrap()
         .unwrap();
-    assert_eq!(vacuumed.file(crate::model::FileId(1)).is_none(), true);
+    assert!(vacuumed.file(crate::model::FileId(1)).is_none());
     assert_eq!(vacuumed.free_file_rows.len(), 1);
     assert!(vacuumed.file(crate::model::FileId(2)).is_some());
 }

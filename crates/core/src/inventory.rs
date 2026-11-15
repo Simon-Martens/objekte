@@ -404,6 +404,7 @@ impl ActiveRecords {
 
     /// `self` followed by `other`, with `other`'s slots shifted by
     /// `self.slot_count()`. Unchanged chunks of `self` stay shared.
+    #[cfg(test)]
     pub(crate) fn concat(&self, other: &Self) -> Result<Self, String> {
         let slot_count = self
             .slot_count

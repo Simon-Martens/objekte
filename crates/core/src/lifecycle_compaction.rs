@@ -414,7 +414,11 @@ impl Index {
                 });
             }
             next.revision = expected.next()?;
-            self.publish_prepared(expected, next)?;
+            match self.publish_prepared(expected, next) {
+                Ok(_) => {}
+                Err(IndexError::RevisionConflict { .. }) => continue,
+                Err(error) => return Err(error),
+            }
             return Ok(VacuumReport {
                 revision: expected.next()?,
                 collections_vacuumed: collections,
@@ -422,6 +426,38 @@ impl Index {
                 memberships_removed: memberships,
                 duration: started.elapsed(),
             });
+        }
+        Err(IndexError::RevisionConflict {
+            expected: self.view()?.revision(),
+            actual: self.view()?.revision(),
+        })
+    }
+}
+
+
+impl Index {
+    /// Fold every foldable mutation shard now.
+    pub fn flush_folds(&self) -> Result<crate::lifecycle::IndexRevision, IndexError> {
+        for _ in 0..3 {
+            let view = self.view()?;
+            let expected = view.revision();
+            let mut next = (*view.0).clone();
+            next.fold_trigger = 1;
+            next.fold_trigger_bytes = 0;
+            let before = next.next_segment_ordinal;
+            for number in 0..next.segments.len() {
+                next.fold_mutation_shards(number)?;
+            }
+            if next.next_segment_ordinal == before {
+                return Ok(expected);
+            }
+            next.revision = expected.next()?;
+            let revision = expected.next()?;
+            match self.publish_prepared(expected, next) {
+                Ok(_) => return Ok(revision),
+                Err(IndexError::RevisionConflict { .. }) => continue,
+                Err(error) => return Err(error),
+            }
         }
         Err(IndexError::RevisionConflict {
             expected: self.view()?.revision(),

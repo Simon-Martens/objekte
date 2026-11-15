@@ -2141,6 +2141,105 @@ fn measure_fold_cost_on_real_fixture() {
         main.map_or(0, |segment| segment.index.record_count()),
         main.map_or(0, |segment| segment.active.len()),
     );
+    drop(view);
+
+    let rss_kb = || {
+        std::fs::read_to_string("/proc/self/statm")
+            .ok()
+            .and_then(|text| {
+                text.split_whitespace()
+                    .nth(1)
+                    .and_then(|pages| pages.parse::<u64>().ok())
+            })
+            .map(|pages| pages * 4)
+            .unwrap_or(0)
+    };
+    let probe = |index: &Index| {
+        let query = count_query();
+        let mut samples = Vec::new();
+        for _ in 0..200 {
+            let started = std::time::Instant::now();
+            index.view().unwrap().search(&query).unwrap();
+            samples.push(started.elapsed().as_secs_f64() * 1_000.0);
+        }
+        samples.sort_by(|a, b| a.partial_cmp(b).unwrap());
+        samples[(samples.len() - 1) * 95 / 100]
+    };
+    let churn_folds_before = index.view().unwrap().fold_count();
+    let churn_vacuums_before = index.view().unwrap().vacuum_count();
+    let churn_migrations_before = index.view().unwrap().migration_count();
+    let failures_before = index.view().unwrap().fold_failures();
+    let cycle = 20_000usize;
+    let mut churn = Vec::with_capacity(cycle);
+    let mut timeline = Vec::new();
+    let rss_start = rss_kb();
+    let probe_start = probe(&index);
+    for step in 0..cycle {
+        let relative = &paths[step % paths.len()];
+        let view = index.view().unwrap();
+        let handle = view.file_handle_for_path(relative).unwrap();
+        let path = root.join(relative);
+        let mut bytes = std::fs::read(&path).unwrap();
+        bytes.push(b'\n');
+        std::fs::write(&path, &bytes).unwrap();
+        let revision =
+            SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let started = std::time::Instant::now();
+        index
+            .update_file_from_bytes(handle, &path, &bytes, revision)
+            .unwrap();
+        churn.push(started.elapsed().as_secs_f64() * 1_000.0);
+        if (step + 1) % 2_000 == 0 {
+            let view = index.view().unwrap();
+            let segments = view.segments(collection).unwrap();
+            let main = segments
+                .iter()
+                .find(|segment| segment.index.role == crate::build::ShardRole::Main);
+            let row = (
+                step + 1,
+                main.map_or(0, |segment| segment.index.record_count()),
+                main.map_or(0, |segment| segment.active.len()),
+                segments.len(),
+                view.fold_count(),
+                view.vacuum_count(),
+                rss_kb(),
+            );
+            eprintln!(
+                "churn_step={} main_records={} main_live={} shards={} folds={} vacuums={} rss_kb={}",
+                row.0, row.1, row.2, row.3, row.4, row.5, row.6
+            );
+            timeline.push(row);
+        }
+    }
+    let rss_end = rss_kb();
+    let probe_end = probe(&index);
+    let (churn_median, churn_p95, churn_max) = stats(churn);
+    let view = index.view().unwrap();
+    eprintln!(
+        "churn_updates={} churn_median_ms={churn_median:.3} churn_p95_ms={churn_p95:.3} churn_max_ms={churn_max:.3}",
+        cycle
+    );
+    eprintln!(
+        "churn_folds={} churn_vacuums={} churn_migrations={} churn_fold_failures={} probe_p95_ms={probe_end:.4} probe_start_p95_ms={probe_start:.4}",
+        view.fold_count() - churn_folds_before,
+        view.vacuum_count() - churn_vacuums_before,
+        view.migration_count() - churn_migrations_before,
+        view.fold_failures() - failures_before,
+    );
+    eprintln!("rss_start_kb={rss_start} rss_end_kb={rss_end}");
+    let last = timeline.last().copied().unwrap_or((0, 0, 0, 0, 0, 0, 0));
+    assert!(
+        last.1 as u64 <= 4 * last.2.max(1),
+        "main slot count {} exceeds four times live {}",
+        last.1,
+        last.2
+    );
+    let growth = if rss_start == 0 {
+        0.0
+    } else {
+        (rss_end as f64 - rss_start as f64) / rss_start as f64 * 100.0
+    };
+    assert!(growth <= 15.0, "RSS grew by {growth:.1}%");
 }
 
 #[test]
@@ -2353,5 +2452,79 @@ fn slot_count_is_bounded_under_steady_updates() {
             );
         }
     }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn byte_trigger_folds_few_mutation_shards() {
+    let root = test_root("byte-fold");
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(8).unwrap();
+    index.set_fold_trigger_bytes_for_tests(1).unwrap();
+    for number in 0..3usize {
+        let path = root.join(format!("data/byte-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    assert!(index.view().unwrap().fold_count() > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn flush_folds_leaves_no_foldable_shard() {
+    let root = test_root("flush-fold");
+    let index = index(&root);
+    for number in 0..3usize {
+        let path = root.join(format!("data/flush-{number}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"name-{number}\",\"n\":{number}}}\n")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    index.flush_folds().unwrap();
+    let mutation = index
+        .view()
+        .unwrap()
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .filter(|segment| segment.index.role == crate::build::ShardRole::Mutation)
+        .count();
+    assert_eq!(mutation, 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn flush_folds_without_work_keeps_the_revision() {
+    let root = test_root("flush-empty");
+    let index = index(&root);
+    let revision = index.view().unwrap().revision();
+    assert_eq!(index.flush_folds().unwrap(), revision);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn retired_partition_survivors_move_to_the_main_shard() {
+    let root = test_root("migration");
+    for number in 0..3_000usize {
+        std::fs::write(
+            root.join(format!("data/mig-{number}.jsonl")),
+            format!("{{\"name\":\"name-{number}\"}}\n"),
+        )
+        .unwrap();
+    }
+    let index = index(&root);
+    index.set_fold_trigger_for_tests(1).unwrap();
+    index.set_vacuum_min_dead_for_tests(usize::MAX).unwrap();
+    for number in 0..600usize {
+        let path = root.join(format!("data/mig-{number}.jsonl"));
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap();
+        std::fs::write(&path, format!("{{\"name\":\"changed-{number}\"}}\n")).unwrap();
+        index.update_file(handle, &path).unwrap();
+    }
+    assert!(index.view().unwrap().migration_count() > 0);
+    assert_eq!(index.view().unwrap().search(&count_query()).unwrap().count, Some(3_000));
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -471,3 +471,139 @@ fn diff_writes_are_proportional_to_the_delta() {
     let (actual, _, _) = read_shard(&read, 0, 1).unwrap();
     assert_shards_equal(&actual, &m2);
 }
+
+#[test]
+fn round_trip_of_a_vacuumed_main_shard() {
+    let base = append_fixture_shard("store-vac", 1, 20);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(main.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(5)])
+        .unwrap();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().unwrap();
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &vacuumed, &active).unwrap();
+        write.commit().unwrap();
+    }
+    let read = db.begin_read().unwrap();
+    let (actual, actual_active, _) = read_shard(&read, 0, 1).unwrap();
+    assert_shards_equal(&actual, &vacuumed);
+    assert_eq!(actual.free_slots, vacuumed.free_slots);
+    assert_eq!(actual.free_file_rows, vacuumed.free_file_rows);
+    assert_eq!(actual.dense_epoch, vacuumed.dense_epoch);
+    assert_eq!(actual_active.bitmap(), active.bitmap());
+    assert_eq!(actual.slot_for_id("id-1"), None);
+}
+
+#[test]
+fn diff_after_vacuum_equals_full_write() {
+    let base = append_fixture_shard("store-diff-vac", 1, 20);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(main.record_count()).unwrap();
+    let retired = [RecordSlot(2), RecordSlot(6), RecordSlot(8)];
+    let active2 = active.retired(&retired).unwrap();
+    let vacuumed = main.vacuum(&active2, |_| true).unwrap().unwrap();
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &main, &active).unwrap();
+        write.commit().unwrap();
+    }
+    {
+        let write = db.begin_write().unwrap();
+        diff_main(&write, 0, 1, &main, &vacuumed, &active, &active2).unwrap();
+        write.commit().unwrap();
+    }
+    let read = db.begin_read().unwrap();
+    let (actual, _, _) = read_shard(&read, 0, 1).unwrap();
+    assert_shards_equal(&actual, &vacuumed);
+    assert_eq!(actual.free_slots, vacuumed.free_slots);
+}
+
+#[test]
+fn diff_after_reuse_equals_full_write() {
+    let base = append_fixture_shard("store-diff-reuse", 1, 20);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(main.record_count()).unwrap();
+    let retired = [RecordSlot(0), RecordSlot(2)];
+    let active2 = active.retired(&retired).unwrap();
+    let vacuumed = main.vacuum(&active2, |_| true).unwrap().unwrap();
+    let delta = append_fixture_shard("store-diff-reuse-delta", 2, 2);
+    let appended = vacuumed.append(&active2, &delta).unwrap();
+    let active3 = active2
+        .with_mapped(&ActiveRecords::all(delta.record_count()).unwrap(), &appended.mapping)
+        .unwrap();
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &vacuumed, &active2).unwrap();
+        write.commit().unwrap();
+    }
+    let report = {
+        let write = db.begin_write().unwrap();
+        let report = diff_main(&write, 0, 1, &vacuumed, &appended.index, &active2, &active3).unwrap();
+        write.commit().unwrap();
+        report
+    };
+    assert!(
+        report.records_written <= delta.record_count() as u64 + 2,
+        "records written {}",
+        report.records_written
+    );
+    let read = db.begin_read().unwrap();
+    let (actual, actual_active, _) = read_shard(&read, 0, 1).unwrap();
+    assert_shards_equal(&actual, &appended.index);
+    assert_eq!(actual_active.bitmap(), active3.bitmap());
+    assert_eq!(actual.reuse_log.len(), 0);
+}
+
+#[test]
+fn stale_rows_of_free_slots_create_no_id_mapping() {
+    let base = append_fixture_shard("stale-ids", 1, 12);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(main.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(2), RecordSlot(5)])
+        .unwrap();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().unwrap();
+    let retired_ids = [2u32, 5]
+        .iter()
+        .map(|slot| main.record(RecordSlot(*slot)).unwrap().id.clone())
+        .collect::<Vec<_>>();
+    let live_id = main.record(RecordSlot(0)).unwrap().id.clone();
+    let delta = append_fixture_shard("stale-ids-delta", 2, 2);
+    let appended = vacuumed.append(&active, &delta).unwrap();
+    let delta_ids = (0..2)
+        .map(|slot| {
+            appended
+                .index
+                .record(appended.mapping.target(slot))
+                .unwrap()
+                .id
+                .clone()
+        })
+        .collect::<Vec<_>>();
+    let active = active
+        .with_mapped(
+            &ActiveRecords::all(delta.record_count()).unwrap(),
+            &appended.mapping,
+        )
+        .unwrap();
+    let db = in_memory_store();
+    {
+        let write = db.begin_write().unwrap();
+        write_shard(&write, 0, 1, 1, &appended.index, &active).unwrap();
+        write.commit().unwrap();
+    }
+    let read = db.begin_read().unwrap();
+    let (actual, _, _) = read_shard(&read, 0, 1).unwrap();
+    assert_eq!(actual.slot_for_id(retired_ids[0].0.as_ref()), None);
+    assert_eq!(actual.slot_for_id(retired_ids[1].0.as_ref()), None);
+    assert_eq!(actual.slot_for_id(live_id.0.as_ref()), Some(RecordSlot(0)));
+    let reused = appended.mapping.reused.to_vec();
+    assert_eq!(reused, vec![RecordSlot(2), RecordSlot(5)]);
+    assert_eq!(actual.slot_for_id(delta_ids[0].0.as_ref()), Some(RecordSlot(2)));
+    assert_eq!(actual.slot_for_id(delta_ids[1].0.as_ref()), Some(RecordSlot(5)));
+}

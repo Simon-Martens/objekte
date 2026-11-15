@@ -251,6 +251,7 @@ pub(crate) fn write_shard(
                 source_version: shard.source_version,
                 record_count: shard.record_count() as u32,
                 file_count: shard.file_count() as u32,
+                dense_epoch: shard.dense_epoch,
                 record_parses: shard.record_parses,
                 failed_parses: shard.failed_parses,
                 has_inference: shard.inference.is_some(),
@@ -370,6 +371,8 @@ pub(crate) fn write_shard(
     for (kind, bitmap) in [
         (keys::BITMAP_LOGICAL_RECORDS, shard.logical_records()),
         (keys::BITMAP_EMPTY_ARRAY_RECORDS, shard.empty_array_records()),
+        (keys::BITMAP_FREE_SLOTS, &shard.free_slots),
+        (keys::BITMAP_FREE_FILE_ROWS, &shard.free_file_rows),
     ] {
         bitmaps
             .insert(
@@ -638,6 +641,10 @@ pub(crate) fn read_shard(
         }
     }
     let bitmaps = bitmap_map(rows(read, keys::BITMAPS, &prefix)?)?;
+    let shard_free_slots = bitmaps
+        .get(&(keys::BITMAP_FREE_SLOTS, Vec::new()))
+        .cloned()
+        .unwrap_or_default();
 
     let mut postings = crate::posting::PostingCollection {
         fields: HashMap::new(),
@@ -832,6 +839,7 @@ pub(crate) fn read_shard(
             collation_version: header.collation_version,
         });
         let mut ascending = (0..record_count)
+            .filter(|slot| !shard_free_slots.contains(*slot as u32))
             .map(|slot| RecordSlot(slot as u32))
             .collect::<Vec<_>>();
         ascending.sort_by(|a, b| {
@@ -843,6 +851,7 @@ pub(crate) fn read_shard(
                 .then_with(|| a.cmp(b))
         });
         let mut descending = (0..record_count)
+            .filter(|slot| !shard_free_slots.contains(*slot as u32))
             .map(|slot| RecordSlot(slot as u32))
             .collect::<Vec<_>>();
         descending.sort_by(|a, b| {
@@ -865,6 +874,7 @@ pub(crate) fn read_shard(
             .map(|field| (&sorting.columns[&field.path], field.descending))
             .collect::<Vec<_>>();
         let mut order = (0..record_count)
+            .filter(|slot| !shard_free_slots.contains(*slot as u32))
             .map(|slot| RecordSlot(slot as u32))
             .collect::<Vec<_>>();
         order.sort_by(|a, b| {
@@ -960,6 +970,9 @@ pub(crate) fn read_shard(
     }
     let mut id_lookup: HashMap<RecordId, RecordSlot> = HashMap::new();
     for record in &records {
+        if shard_free_slots.contains(record.slot.0) {
+            continue;
+        }
         match id_lookup.get(&record.id) {
             Some(existing) if active.contains(*existing) => {}
             _ => {
@@ -967,7 +980,11 @@ pub(crate) fn read_shard(
             }
         }
     }
-    let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+    let mut identity_order = records
+        .iter()
+        .map(|record| record.slot)
+        .filter(|slot| !shard_free_slots.contains(slot.0))
+        .collect::<Vec<_>>();
     identity_order.sort_by(|a, b| {
         records[a.0 as usize]
             .id
@@ -1013,6 +1030,15 @@ pub(crate) fn read_shard(
     };
     shard.record_parses = record_parses;
     shard.failed_parses = failed_parses;
+    shard.dense_epoch = header.dense_epoch;
+    shard.free_slots = bitmaps
+        .get(&(keys::BITMAP_FREE_SLOTS, Vec::new()))
+        .cloned()
+        .unwrap_or_default();
+    shard.free_file_rows = bitmaps
+        .get(&(keys::BITMAP_FREE_FILE_ROWS, Vec::new()))
+        .cloned()
+        .unwrap_or_default();
     if shared {
         shard.freeze_all();
     }
@@ -1059,6 +1085,8 @@ pub(crate) struct DiffReport {
     pub chunks_written: u64,
     pub chunks_deleted: u64,
     pub rows_written: u64,
+    #[cfg(test)]
+    pub records_written: u64,
 }
 
 fn delete_range(
@@ -1294,6 +1322,7 @@ pub(crate) fn diff_main(
                 source_version: new.source_version,
                 record_count: new.record_count() as u32,
                 file_count: new.file_count() as u32,
+                dense_epoch: new.dense_epoch,
                 record_parses: new.record_parses,
                 failed_parses: new.failed_parses,
                 has_inference: new.inference.is_some(),
@@ -1318,6 +1347,24 @@ pub(crate) fn diff_main(
         b"",
         Some(old.empty_array_records()),
         new.empty_array_records(),
+        &mut report,
+    )?;
+    write_bitmap_if_changed(
+        write,
+        &prefix,
+        keys::BITMAP_FREE_SLOTS,
+        b"",
+        Some(&old.free_slots),
+        &new.free_slots,
+        &mut report,
+    )?;
+    write_bitmap_if_changed(
+        write,
+        &prefix,
+        keys::BITMAP_FREE_FILE_ROWS,
+        b"",
+        Some(&old.free_file_rows),
+        &new.free_file_rows,
         &mut report,
     )?;
 
@@ -1572,15 +1619,56 @@ pub(crate) fn diff_main(
     }
     drop(files);
     let mut records = write.open_table(keys::RECORDS).map_err(error)?;
-    for slot in old.record_count()..new.record_count() {
-        let record = new.record(RecordSlot(slot as u32)).ok_or("new record missing")?;
+    if new.dense_epoch != old.dense_epoch {
+        let end = keys::prefix_end(&prefix).unwrap();
         records
-            .insert(
-                keys::records_key(&prefix, slot as u32).as_slice(),
-                encode(record)?.as_slice(),
-            )
+            .retain_in::<&[u8], _>(prefix.as_slice()..end.as_slice(), |_, _| false)
             .map_err(error)?;
-        report.rows_written += 1;
+        for slot in 0..new.record_count() {
+            let record = new.record(RecordSlot(slot as u32)).ok_or("new record missing")?;
+            records
+                .insert(
+                    keys::records_key(&prefix, slot as u32).as_slice(),
+                    encode(record)?.as_slice(),
+                )
+                .map_err(error)?;
+            report.rows_written += 1;
+            #[cfg(test)]
+            {
+                report.records_written += 1;
+            }
+        }
+    } else {
+        for slot in old.record_count()..new.record_count() {
+            let record = new.record(RecordSlot(slot as u32)).ok_or("new record missing")?;
+            records
+                .insert(
+                    keys::records_key(&prefix, slot as u32).as_slice(),
+                    encode(record)?.as_slice(),
+                )
+                .map_err(error)?;
+            report.rows_written += 1;
+            #[cfg(test)]
+            {
+                report.records_written += 1;
+            }
+        }
+        for slot in new.reuse_log.iter() {
+            if slot.0 < old.record_count() as u32 {
+                let record = new.record(*slot).ok_or("reused record missing")?;
+                records
+                    .insert(
+                        keys::records_key(&prefix, slot.0).as_slice(),
+                        encode(record)?.as_slice(),
+                    )
+                    .map_err(error)?;
+                report.rows_written += 1;
+                #[cfg(test)]
+                {
+                    report.records_written += 1;
+                }
+            }
+        }
     }
     drop(records);
 
@@ -1588,11 +1676,28 @@ pub(crate) fn diff_main(
     let mut sort_keys = write.open_table(keys::SORT_KEYS).map_err(error)?;
     for column in new.sorting.columns.values() {
         let column_bytes = encode(&column.path)?;
-        for slot in old.record_count()..new.record_count() {
-            let key = column.key(RecordSlot(slot as u32)).ok_or("new sort key missing")?;
+        let slots: Vec<u32> = if new.dense_epoch != old.dense_epoch {
+            let mut start = prefix.to_vec();
+            keys::push_bytes(&mut start, &column_bytes);
+            let end = keys::prefix_end(&start).unwrap();
+            sort_keys
+                .retain_in::<&[u8], _>(start.as_slice()..end.as_slice(), |_, _| false)
+                .map_err(error)?;
+            (0..new.record_count() as u32).collect()
+        } else {
+            let mut slots = (old.record_count() as u32..new.record_count() as u32).collect::<Vec<_>>();
+            for slot in new.reuse_log.iter() {
+                if slot.0 < old.record_count() as u32 && !slots.contains(&slot.0) {
+                    slots.push(slot.0);
+                }
+            }
+            slots
+        };
+        for slot in slots {
+            let key = column.key(RecordSlot(slot)).ok_or("new sort key missing")?;
             sort_keys
                 .insert(
-                    keys::sort_key_key(&prefix, &column_bytes, slot as u32).as_slice(),
+                    keys::sort_key_key(&prefix, &column_bytes, slot).as_slice(),
                     keys::encode_sort_key(key).as_slice(),
                 )
                 .map_err(error)?;
@@ -1666,19 +1771,38 @@ pub(crate) fn diff_main(
                 &mut report,
             )?;
         }
-        for slot in old.record_count()..new.record_count() {
-            let source = RecordSlot(slot as u32);
+        if new.dense_epoch != old.dense_epoch {
             let mut start = prefix.to_vec();
             keys::push_u32(&mut start, ordinal as u32);
-            keys::push_u32(&mut start, source.0);
             let end = keys::prefix_end(&start).unwrap();
             references
                 .retain_in::<&[u8], _>(start.as_slice()..end.as_slice(), |_, _| false)
                 .map_err(error)?;
+        } else {
+            let mut delete_slots = (old.record_count() as u32..new.record_count() as u32)
+                .collect::<Vec<_>>();
+            for slot in new.reuse_log.iter() {
+                if slot.0 < old.record_count() as u32 {
+                    delete_slots.push(slot.0);
+                }
+            }
+            for slot in delete_slots {
+                let source = RecordSlot(slot);
+                let mut start = prefix.to_vec();
+                keys::push_u32(&mut start, ordinal as u32);
+                keys::push_u32(&mut start, source.0);
+                let end = keys::prefix_end(&start).unwrap();
+                references
+                    .retain_in::<&[u8], _>(start.as_slice()..end.as_slice(), |_, _| false)
+                    .map_err(error)?;
+            }
         }
         let rows = relation.reference_rows().collect::<Vec<_>>();
         for (index, (source, target, positions)) in rows.iter().enumerate() {
-            if source.0 < old.record_count() as u32 {
+            if new.dense_epoch == old.dense_epoch
+                && source.0 < old.record_count() as u32
+                && !new.reuse_log.iter().any(|slot| slot.0 == source.0)
+            {
                 continue;
             }
             references

@@ -204,12 +204,6 @@ impl SlotOrder {
         }
     }
 
-    #[cfg(test)]
-    #[cfg(test)]
-    pub(crate) fn is_empty(&self) -> bool {
-        self.len() == 0
-    }
-
     pub(crate) fn get(&self, index: usize) -> Option<RecordSlot> {
         match self {
             Self::Building(values) => values.get(index).copied(),
@@ -281,10 +275,6 @@ impl SlotOrder {
             Self::Building(values) => values.insert(index, slot),
             Self::Shared(values) => values.insert(index, slot),
         }
-    }
-
-    pub(crate) fn insert(&mut self, index: usize, slot: RecordSlot) {
-        self.insert_at(index, slot);
     }
 
     pub(crate) fn insert_at(&mut self, index: usize, slot: RecordSlot) {

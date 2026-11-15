@@ -119,6 +119,7 @@ fn store_values_round_trip_through_bincode() {
         source_version: 2,
         record_count: 10,
         file_count: 1,
+        dense_epoch: 0,
         record_parses: 11,
         failed_parses: 0,
         has_inference: true,

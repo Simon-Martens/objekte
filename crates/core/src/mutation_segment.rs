@@ -1824,7 +1824,6 @@ impl IndexedCollectionSegment {
             {
                 return Err("sort column representation mismatch".into());
             }
-            target.extend_keys_from(source);
             for s in 0..delta.record_count() {
                 let key = source.key(RecordSlot(s as u32)).unwrap().clone();
                 target.set_or_push_key(mapping.target(s as u32), key);

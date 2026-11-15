@@ -8,7 +8,7 @@ use crate::posting::ScalarKey;
 use crate::sorting::{SortKey, SortOptions};
 use crate::relation::RelationDefinition;
 
-pub const STORE_FORMAT_VERSION: u32 = 1;
+pub const STORE_FORMAT_VERSION: u32 = 2;
 pub const SHARD_PREFIX_LEN: usize = 12;
 
 pub const META: TableDefinition<&str, &[u8]> = TableDefinition::new("meta");
@@ -50,6 +50,8 @@ pub const BITMAP_RELATION_PRESENT: u8 = 40;
 pub const BITMAP_RELATION_NULLS: u8 = 41;
 pub const BITMAP_RELATION_EMPTY_ARRAYS: u8 = 42;
 pub const BITMAP_RELATION_UNAVAILABLE: u8 = 43;
+pub const BITMAP_FREE_SLOTS: u8 = 50;
+pub const BITMAP_FREE_FILE_ROWS: u8 = 51;
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub(crate) struct ShardHeader {
@@ -61,6 +63,7 @@ pub(crate) struct ShardHeader {
     pub source_version: u32,
     pub record_count: u32,
     pub file_count: u32,
+    pub dense_epoch: u64,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub has_inference: bool,
