@@ -144,6 +144,37 @@ impl GramMap {
         }
     }
 
+    pub fn for_each_chunk(
+        &self,
+        mut visit: impl FnMut(u64, crate::posting_map::ChunkId, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match self {
+            Self::Building(entries) => {
+                let ordered = entries
+                    .iter()
+                    .map(|(key, posting)| (*key, posting.clone()))
+                    .collect::<BTreeMap<_, _>>();
+                crate::posting_map::PostingMap::from_btree_map(ordered)
+                    .for_each_chunk(|key, chunk, posting| visit(*key, chunk, posting))?;
+            }
+            Self::Shared(shared) => {
+                shared.for_each_chunk(|key, chunk, posting| visit(*key, chunk, posting))?;
+            }
+        }
+        Ok(())
+    }
+
+    pub fn diff_chunks(
+        &self,
+        older: &Self,
+        visit: impl FnMut(crate::posting_map::ChunkChange<'_, u64>) -> Result<(), String>,
+    ) -> Result<bool, String> {
+        match (self, older) {
+            (Self::Shared(new), Self::Shared(old)) => new.diff_chunks(old, visit),
+            _ => Ok(false),
+        }
+    }
+
     #[cfg(test)]
     pub fn stored_chunk_count(&self) -> usize {
         match self {

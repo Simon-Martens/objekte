@@ -659,6 +659,72 @@ impl<K: Ord + Clone> PostingMap<K> {
 }
 
 
+/// One difference between two shared posting maps, at chunk granularity.
+pub enum ChunkChange<'a, K> {
+    Put(&'a K, ChunkId, &'a RoaringBitmap),
+    Delete(&'a K, ChunkId),
+}
+
+impl<K: Ord + Clone> PostingMap<K> {
+    /// Visit every stored chunk in key order, then chunk order. A key whose
+    /// posting is empty is visited once with chunk 0 and an empty bitmap.
+    pub fn for_each_chunk(
+        &self,
+        mut visit: impl FnMut(&K, ChunkId, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match &self.backing {
+            Backing::Building(entries) => {
+                for (key, posting) in entries {
+                    let parts = split_chunks(posting.clone());
+                    if parts.is_empty() {
+                        visit(key, 0, posting)?;
+                    }
+                    for (chunk, part) in &parts {
+                        visit(key, *chunk, part)?;
+                    }
+                }
+            }
+            Backing::Shared(shared) => {
+                for ((key, chunk), part) in shared.chunks.iter() {
+                    visit(key, *chunk, part)?;
+                }
+            }
+        }
+        Ok(())
+    }
+
+    /// Report what must be written to turn the stored form of `older` into
+    /// the stored form of `self`. Subtrees shared by both maps are skipped,
+    /// so the cost follows the amount of change. Both maps must use the
+    /// shared backing; otherwise nothing is visited and `false` is returned.
+    pub fn diff_chunks(
+        &self,
+        older: &Self,
+        mut visit: impl FnMut(ChunkChange<'_, K>) -> Result<(), String>,
+    ) -> Result<bool, String> {
+        let (Backing::Shared(new), Backing::Shared(old)) = (&self.backing, &older.backing) else {
+            return Ok(false);
+        };
+        for change in old.chunks.diff(&new.chunks) {
+            match change {
+                imbl::ordmap::DiffItem::Add(address, part) => {
+                    visit(ChunkChange::Put(&address.0, address.1, part))?;
+                }
+                imbl::ordmap::DiffItem::Update {
+                    new: (address, part),
+                    ..
+                } => {
+                    visit(ChunkChange::Put(&address.0, address.1, part))?;
+                }
+                imbl::ordmap::DiffItem::Remove(address, _) => {
+                    visit(ChunkChange::Delete(&address.0, address.1))?;
+                }
+            }
+        }
+        Ok(true)
+    }
+}
+
 #[cfg(test)]
 #[path = "posting_map.test.rs"]
 mod tests;

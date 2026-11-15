@@ -287,3 +287,100 @@ fn shared_empty_posting_keeps_its_key() {
     };
     assert_eq!(shared.chunk_count(), 1);
 }
+
+/// Both backings expose the same chunks, and the chunks rebuild the map.
+#[test]
+fn for_each_chunk_agrees_across_backings() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    let mut native: PostingMap<u16> = PostingMap::new();
+    for (key, slot) in [(1u16, 3u32), (1, chunk + 4), (1, 5 * chunk), (2, 9), (7, 2 * chunk + 1)] {
+        native.insert_slot(key, slot);
+    }
+    native.replace(4, RoaringBitmap::new());
+    let mut shared = native.clone();
+    shared.freeze();
+    let collect = |map: &PostingMap<u16>| {
+        let mut seen = Vec::new();
+        map.for_each_chunk(|key, chunk, part| {
+            seen.push((*key, chunk, part.clone()));
+            Ok(())
+        })
+        .unwrap();
+        seen
+    };
+    let from_native = collect(&native);
+    assert_eq!(from_native, collect(&shared));
+    assert_eq!(from_native.len(), 6);
+    let mut rebuilt: BTreeMap<u16, RoaringBitmap> = BTreeMap::new();
+    for (key, _, part) in from_native {
+        *rebuilt.entry(key).or_default() |= part;
+    }
+    assert_eq!(rebuilt, native.to_btree_map());
+}
+
+fn stored_chunks(map: &PostingMap<u16>) -> BTreeMap<(u16, ChunkId), RoaringBitmap> {
+    let mut stored = BTreeMap::new();
+    map.for_each_chunk(|key, chunk, part| {
+        stored.insert((*key, chunk), part.clone());
+        Ok(())
+    })
+    .unwrap();
+    stored
+}
+
+/// Applying the reported changes to the old stored chunks gives the new
+/// stored chunks, and unchanged chunks are not reported.
+#[test]
+fn diff_chunks_reports_exactly_the_changes() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    let mut random = Lcg(77);
+    let mut old: PostingMap<u16> = PostingMap::new();
+    for _ in 0..4_000 {
+        old.insert_slot(random.next(600) as u16, random.next(4 * chunk));
+    }
+    old.freeze();
+    let mut new = old.clone();
+    new.insert_slot(5, 3 * chunk + 17);
+    new.insert_slot(900, 1);
+    new.replace(6, RoaringBitmap::new());
+    new.retain_keys(|key| *key != 7);
+    let mut stored = stored_chunks(&old);
+    let mut puts = 0usize;
+    let mut deletes = 0usize;
+    let compared = new
+        .diff_chunks(&old, |change| {
+            match change {
+                ChunkChange::Put(key, chunk, part) => {
+                    puts += 1;
+                    stored.insert((*key, chunk), part.clone());
+                }
+                ChunkChange::Delete(key, chunk) => {
+                    deletes += 1;
+                    assert!(stored.remove(&(*key, chunk)).is_some());
+                }
+            }
+            Ok(())
+        })
+        .unwrap();
+    assert!(compared);
+    assert_eq!(stored, stored_chunks(&new));
+    assert!(puts <= 3, "{puts} puts");
+    assert!(deletes >= 1);
+    let mut none = 0usize;
+    assert!(new.diff_chunks(&new.clone(), |_| {
+        none += 1;
+        Ok(())
+    })
+    .unwrap());
+    assert_eq!(none, 0);
+}
+
+#[test]
+fn diff_chunks_refuses_native_maps() {
+    let mut native: PostingMap<u16> = PostingMap::new();
+    native.insert_slot(1, 1);
+    let mut shared = native.clone();
+    shared.freeze();
+    assert!(!shared.diff_chunks(&native, |_| Ok(())).unwrap());
+    assert!(!native.diff_chunks(&shared, |_| Ok(())).unwrap());
+}

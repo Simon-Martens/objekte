@@ -282,6 +282,8 @@ pub(crate) enum ShardRole {
     Main,
 }
 
+static NEXT_LINEAGE: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
+
 #[derive(Clone)]
 pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
@@ -305,6 +307,7 @@ pub(crate) struct IndexedCollectionSegment {
     /// resolution; existing `RelationIndex::resolve` needs full collections.
     relations: Vec<RelationContribution>,
     pub(crate) role: ShardRole,
+    pub(crate) lineage: u64,
     pub record_parses: u64,
     pub failed_parses: u64,
     /// Cached deterministic planning estimate and native scheduling bounds.
@@ -745,6 +748,7 @@ impl CollectionSegment {
             sorting,
             relations,
             role: ShardRole::Built,
+            lineage: 0,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
@@ -945,6 +949,7 @@ impl IndexedCollectionSegment {
             sorting: parts.sorting,
             relations: parts.relations,
             role: ShardRole::Built,
+            lineage: 0,
             record_parses: 0,
             failed_parses: 0,
             accounting: SegmentAccounting::default(),
@@ -1612,6 +1617,7 @@ impl IndexedCollectionSegment {
         let mut copy = self.clone();
         copy.freeze_all();
         copy.role = ShardRole::Main;
+        copy.lineage = NEXT_LINEAGE.fetch_add(1, std::sync::atomic::Ordering::Relaxed) + 1;
         copy
     }
 
@@ -2111,6 +2117,7 @@ impl IndexedCollectionSegment {
                 sorting,
                 relations,
                 role: ShardRole::Built,
+                lineage: 0,
                 record_parses,
                 failed_parses,
                 accounting: SegmentAccounting::default(),
@@ -3200,6 +3207,7 @@ impl IndexedCollectionSegment {
             sorting,
             relations,
             role: ShardRole::Built,
+            lineage: 0,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
