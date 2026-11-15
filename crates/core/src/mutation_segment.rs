@@ -331,6 +331,10 @@ pub(crate) struct IndexedCollectionSegment {
     relations: Vec<RelationContribution>,
     pub(crate) role: ShardRole,
     pub(crate) lineage: u64,
+    pub(crate) free_slots: RoaringBitmap,
+    pub(crate) free_file_rows: RoaringBitmap,
+    pub(crate) dense_epoch: u64,
+    pub(crate) reuse_log: crate::slot_store::SlotTable<RecordSlot>,
     pub record_parses: u64,
     pub failed_parses: u64,
     /// Cached deterministic planning estimate and native scheduling bounds.
@@ -772,6 +776,10 @@ impl CollectionSegment {
             relations,
             role: ShardRole::Built,
             lineage: 0,
+            free_slots: RoaringBitmap::new(),
+            free_file_rows: RoaringBitmap::new(),
+            dense_epoch: 0,
+            reuse_log: crate::slot_store::SlotTable::new(),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
@@ -973,6 +981,10 @@ impl IndexedCollectionSegment {
             relations: parts.relations,
             role: ShardRole::Built,
             lineage: 0,
+            free_slots: RoaringBitmap::new(),
+            free_file_rows: RoaringBitmap::new(),
+            dense_epoch: 0,
+            reuse_log: crate::slot_store::SlotTable::new(),
             record_parses: 0,
             failed_parses: 0,
             accounting: SegmentAccounting::default(),
@@ -1083,6 +1095,10 @@ impl IndexedCollectionSegment {
 
     pub(crate) fn record_count(&self) -> usize {
         self.records.len()
+    }
+
+    pub(crate) fn live_slot_count(&self) -> usize {
+        self.record_count() - self.free_slots.len() as usize
     }
 
     pub(crate) fn file_at(&self, position: usize) -> Option<&SegmentFile> {
@@ -1908,6 +1924,103 @@ impl IndexedCollectionSegment {
         Ok(AppendedSegment { index, base })
     }
 
+    /// A copy of this main shard without the retired records. Slots are not
+    /// renumbered. `is_current` says whether a file row is the file's current
+    /// incarnation. Returns `None` when there is nothing to remove.
+    pub(crate) fn vacuum(
+        &self,
+        active: &ActiveRecords,
+        is_current: impl Fn(&crate::inventory::FileEntry) -> bool,
+    ) -> Result<Option<Self>, String> {
+        let mut dead = RoaringBitmap::new();
+        if !self.records.is_empty() {
+            dead.insert_range(0..self.records.len() as u32);
+        }
+        dead -= &active.bitmap();
+        dead -= &self.free_slots;
+        if dead.is_empty() {
+            return Ok(None);
+        }
+        let mut shard = self.clone();
+        for index in shard.postings.fields.values_mut() {
+            index.remove_slots(&dead);
+        }
+        for custom in shard.custom_postings.values_mut() {
+            custom.index.remove_slots(&dead);
+        }
+        shard.raw.remove_slots(&dead);
+        shard.fallback_text.remove_slots(&dead);
+        for index in shard.custom_text.values_mut() {
+            index.remove_slots(&dead);
+        }
+        shard.logical_records -= &dead;
+        shard.empty_array_records -= &dead;
+        let logical_count = shard.logical_records.len() as u32;
+        if let Some(inference) = &mut shard.inference {
+            for index in inference.indexes.values_mut() {
+                index.remove_slots(&dead);
+                index.covered_records = logical_count;
+            }
+            for bitmap in inference.empty_selections.values_mut() {
+                *bitmap -= &dead;
+            }
+            for bitmap in inference.short_string_coverage.values_mut() {
+                *bitmap -= &dead;
+            }
+            refresh_inference_after_vacuum(inference, logical_count);
+        }
+        for index in shard.postings.fields.values_mut() {
+            index.covered_records = logical_count;
+        }
+        for custom in shard.custom_postings.values_mut() {
+            custom.index.covered_records = logical_count;
+        }
+        for relation in &mut shard.relations {
+            relation.remove_sources(&dead);
+        }
+        shard.identity_order.retain(|slot| !dead.contains(slot.0));
+        for column in shard.sorting.columns.values_mut() {
+            column.ascending_mut().retain(|slot| !dead.contains(slot.0));
+            column.descending_mut().retain(|slot| !dead.contains(slot.0));
+        }
+        for composite in &mut shard.sorting.composites {
+            composite.order_mut().retain(|slot| !dead.contains(slot.0));
+        }
+        for slot in dead.iter() {
+            let record = self.record(RecordSlot(slot)).ok_or("vacuum record missing")?;
+            if shard.id_lookup.get(record.id.0.as_ref()) == Some(&RecordSlot(slot)) {
+                shard.id_lookup.remove(record.id.0.as_ref());
+            }
+        }
+        for position in 0..shard.file_count() {
+            let file = shard.file_at(position).ok_or("vacuum file row missing")?;
+            if is_current(&file.entry) {
+                continue;
+            }
+            let has_active = file.records.iter().any(|slot| active.contains(*slot));
+            if has_active {
+                continue;
+            }
+            let id = file.entry.id;
+            let mut entry = file.entry.clone();
+            entry.diagnostics.clear();
+            shard.files.set(
+                position,
+                SegmentFile {
+                    entry,
+                    records: Vec::new(),
+                },
+            );
+            shard.file_index.remove(&id);
+            shard.free_file_rows.insert(position as u32);
+        }
+        shard.free_slots |= dead;
+        shard.dense_epoch = shard.dense_epoch.saturating_add(1);
+        shard.reuse_log = crate::slot_store::SlotTable::new();
+        shard.recompute_accounting();
+        Ok(Some(shard))
+    }
+
     /// Combine already indexed shards without opening or parsing source files.
     /// Shards with overlapping FileIds or logical IDs must first be resolved
     /// by the coordinator's active-version policy. `max_records` bounds this
@@ -2141,6 +2254,10 @@ impl IndexedCollectionSegment {
                 relations,
                 role: ShardRole::Built,
                 lineage: 0,
+                free_slots: RoaringBitmap::new(),
+                free_file_rows: RoaringBitmap::new(),
+                dense_epoch: 0,
+                reuse_log: crate::slot_store::SlotTable::new(),
                 record_parses,
                 failed_parses,
                 accounting: SegmentAccounting::default(),
@@ -3231,6 +3348,10 @@ impl IndexedCollectionSegment {
             relations,
             role: ShardRole::Built,
             lineage: 0,
+            free_slots: RoaringBitmap::new(),
+            free_file_rows: RoaringBitmap::new(),
+            dense_epoch: 0,
+            reuse_log: crate::slot_store::SlotTable::new(),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
@@ -3239,6 +3360,61 @@ impl IndexedCollectionSegment {
         index.recompute_accounting();
         Ok(index)
     }
+}
+
+
+fn refresh_inference_after_vacuum(
+    inference: &mut InferenceState,
+    eligible: u32,
+) {
+    let eligible_u64 = eligible as u64;
+    inference.report.eligible_records = eligible_u64;
+    inference.report.unavailable_records = 0;
+    inference.report.summary_bytes_estimate = 0;
+    inference.report.index_bytes_estimate = 0;
+    for field in &mut inference.report.fields {
+        field.eligible_records = eligible_u64;
+        field.unavailable_records = 0;
+        if let Some(index) = inference.indexes.get(&field.path) {
+            field.index_status = crate::inference::InferenceIndexStatus::Built;
+            field.complete = true;
+            field.present_records = index.presence.len();
+            field.exact_null_records = index.nulls.len();
+            field.empty_selection_records = inference
+                .empty_selections
+                .get(&field.path)
+                .map_or(0, RoaringBitmap::len);
+            field.short_string_covered_records = inference
+                .short_string_coverage
+                .get(&field.path)
+                .map_or(0, RoaringBitmap::len);
+            field.short_string_distinct_values = if field.short_string_covered_records > 0 {
+                index.distinct_values()
+            } else {
+                0
+            };
+        }
+        field.missing_records = eligible_u64.saturating_sub(field.present_records);
+        field.short_string_unresolved_records =
+            eligible_u64.saturating_sub(field.short_string_covered_records);
+        field.retained_bytes_estimate = field
+            .summary_bytes_estimate
+            .saturating_add(field.index_bytes_estimate);
+        inference.report.summary_bytes_estimate = inference
+            .report
+            .summary_bytes_estimate
+            .saturating_add(field.summary_bytes_estimate);
+        inference.report.index_bytes_estimate = inference
+            .report
+            .index_bytes_estimate
+            .saturating_add(field.index_bytes_estimate);
+    }
+    inference.report.retained_bytes_estimate = inference
+        .report
+        .summary_bytes_estimate
+        .saturating_add(inference.report.index_bytes_estimate);
+    inference.report.observed_paths = inference.report.fields.len();
+    inference.report.admitted_paths = inference.indexes.len();
 }
 
 #[cfg(test)]

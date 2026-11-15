@@ -143,6 +143,10 @@ impl StructuralFacts {
         self.postings.stored_chunk_count()
     }
 
+    pub(crate) fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        self.postings.remove_slots(dead)
+    }
+
     pub(crate) fn postings_map(&self) -> &PostingMap<StructuralKey> {
         &self.postings
     }
@@ -294,6 +298,19 @@ impl PostingIndex {
 
     pub(crate) fn retain_values(&mut self, keep: impl FnMut(&ScalarKey) -> bool) {
         self.values.retain_keys(keep);
+    }
+
+    pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        let mut removed = self.values.remove_slots(dead);
+        removed += self.lengths.remove_slots(dead);
+        if let Some(facts) = &mut self.structural {
+            removed += facts.remove_slots(dead);
+        }
+        self.presence -= dead;
+        self.nulls -= dead;
+        self.empty_selections -= dead;
+        self.finish_stats();
+        removed
     }
 
     pub fn clear_postings(&mut self) {

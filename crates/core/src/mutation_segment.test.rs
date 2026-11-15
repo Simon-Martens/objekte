@@ -1862,3 +1862,187 @@ fn append_handles_an_inference_type_conflict() {
         .unwrap();
     assert_shards_equal(&actual.index, &expected.index);
 }
+
+fn assert_no_family_mentions(shard: &IndexedCollectionSegment, slots: &RoaringBitmap) {
+    for index in shard.postings.fields.values() {
+        for (_, posting) in index.value_entries() {
+            assert!(posting.intersection_len(slots) == 0);
+        }
+        for (_, posting) in index.length_entries() {
+            assert!(posting.intersection_len(slots) == 0);
+        }
+        if let Some(facts) = &index.structural {
+            for (_, posting) in facts.entries() {
+                assert!(posting.intersection_len(slots) == 0);
+            }
+        }
+        assert!(index.presence.intersection_len(slots) == 0);
+        assert!(index.nulls.intersection_len(slots) == 0);
+        assert!(index.empty_selections.intersection_len(slots) == 0);
+    }
+    assert!(shard.logical_records().intersection_len(slots) == 0);
+    assert!(shard.empty_array_records().intersection_len(slots) == 0);
+    assert!(shard.identity_order().iter().all(|slot| !slots.contains(slot.0)));
+    for column in shard.sorting.columns.values() {
+        assert!(column.ascending().iter().all(|slot| !slots.contains(slot.0)));
+        assert!(column.descending().iter().all(|slot| !slots.contains(slot.0)));
+    }
+    for composite in &shard.sorting.composites {
+        assert!(composite.order().iter().all(|slot| !slots.contains(slot.0)));
+    }
+    for relation in shard.relations() {
+        assert!(relation.present().intersection_len(slots) == 0);
+        assert!(relation.nulls().intersection_len(slots) == 0);
+        assert!(relation.empty_arrays().intersection_len(slots) == 0);
+        assert!(relation.unavailable().intersection_len(slots) == 0);
+        assert!(relation
+            .reference_rows()
+            .all(|(source, _, _)| !slots.contains(source.0)));
+    }
+    if let Some(inference) = &shard.inference {
+        for index in inference.indexes.values() {
+            for (_, posting) in index.value_entries() {
+                assert!(posting.intersection_len(slots) == 0);
+            }
+            assert!(index.presence.intersection_len(slots) == 0);
+        }
+        for bitmap in inference.empty_selections.values() {
+            assert!(bitmap.intersection_len(slots) == 0);
+        }
+    }
+}
+
+fn assert_shards_equivalent_by_id(
+    actual: &IndexedCollectionSegment,
+    actual_active: &ActiveRecords,
+    expected: &IndexedCollectionSegment,
+    expected_active: &ActiveRecords,
+) {
+    let live_ids = |shard: &IndexedCollectionSegment, active: &ActiveRecords| {
+        (0..shard.record_count())
+            .filter(|slot| active.contains(RecordSlot(*slot as u32)))
+            .map(|slot| shard.record(RecordSlot(slot as u32)).unwrap().id.0.to_string())
+            .collect::<std::collections::BTreeSet<_>>()
+    };
+    assert_eq!(live_ids(actual, actual_active), live_ids(expected, expected_active));
+    for path in actual.postings.fields.keys() {
+        let left = &actual.postings.fields[path];
+        let right = &expected.postings.fields[path];
+        for (key, posting) in left.value_entries() {
+            let ids: std::collections::BTreeSet<_> = posting
+                .iter()
+                .filter(|slot| actual_active.contains(RecordSlot(*slot)))
+                .map(|slot| actual.record(RecordSlot(slot)).unwrap().id.0.to_string())
+                .collect();
+            let other: std::collections::BTreeSet<_> = right
+                .value_entries()
+                .get(&key)
+                .map(|posting| {
+                    posting
+                        .iter()
+                        .filter(|slot| expected_active.contains(RecordSlot(*slot)))
+                        .map(|slot| expected.record(RecordSlot(slot)).unwrap().id.0.to_string())
+                        .collect()
+                })
+                .unwrap_or_default();
+            assert_eq!(ids, other);
+        }
+    }
+    for column in actual.sorting.columns.values() {
+        let expected_ids: Vec<_> = column
+            .ascending()
+            .iter()
+            .filter(|slot| actual_active.contains(*slot))
+            .map(|slot| actual.record(slot).unwrap().id.0.to_string())
+            .collect();
+        let right = &expected.sorting.columns[&column.path];
+        let actual_expected: Vec<_> = right
+            .ascending()
+            .iter()
+            .filter(|slot| expected_active.contains(*slot))
+            .map(|slot| expected.record(slot).unwrap().id.0.to_string())
+            .collect();
+        assert_eq!(expected_ids, actual_expected);
+    }
+}
+
+#[test]
+fn vacuum_matches_compaction_by_id() {
+    let base = append_fixture_shard("vacuum-base", 1, 30);
+    let delta = append_fixture_shard("vacuum-delta", 2, 10);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(base.record_count()).unwrap();
+    let main = main.append(&active, &delta).unwrap().index;
+    let retired = (0..12u32).map(RecordSlot).collect::<Vec<_>>();
+    let active = ActiveRecords::all(main.record_count()).unwrap().retired(&retired).unwrap();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().expect("vacuum");
+    let expected = main.compact_active(&active, usize::MAX, |_| true).unwrap();
+    assert_shards_equivalent_by_id(&vacuumed, &active, &expected.index, &expected.active);
+}
+
+#[test]
+fn vacuum_frees_exactly_the_dead_slots() {
+    let base = append_fixture_shard("vacuum-free", 1, 20);
+    let main = base.to_shared();
+    let retired = [0u32, 3, 7, 19].into_iter().map(RecordSlot).collect::<Vec<_>>();
+    let active = ActiveRecords::all(main.record_count()).unwrap().retired(&retired).unwrap();
+    let vacuumed = main
+        .vacuum(&active, |_| true)
+        .unwrap()
+        .expect("vacuum");
+    let dead = [0u32, 3, 7, 19].into_iter().collect::<RoaringBitmap>();
+    assert_eq!(vacuumed.free_slots, dead);
+    assert_no_family_mentions(&vacuumed, &dead);
+    assert_eq!(vacuumed.live_slot_count(), 16);
+}
+
+#[test]
+fn vacuum_without_dead_slots_returns_none_and_does_not_change_the_original() {
+    let main = append_fixture_shard("vacuum-none", 1, 10).to_shared();
+    let active = ActiveRecords::all(main.record_count()).unwrap();
+    assert!(main.vacuum(&active, |_| true).unwrap().is_none());
+    let retired = [RecordSlot(2), RecordSlot(4)];
+    let active = active.retired(&retired).unwrap();
+    let before = main.clone();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().unwrap();
+    let n = vec!["n".to_owned()];
+    assert_eq!(
+        main.postings.fields[&n].value_entries(),
+        before.postings.fields[&n].value_entries()
+    );
+    let second = vacuumed.vacuum(&active, |_| true).unwrap();
+    assert!(second.is_none());
+}
+
+#[test]
+fn vacuum_drops_empty_keys_and_updates_stats() {
+    let base = append_fixture_shard("vacuum-keys", 1, 6);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(main.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(0)])
+        .unwrap();
+    let vacuumed = main.vacuum(&active, |_| true).unwrap().unwrap();
+    let field = &vacuumed.postings.fields[&vec!["n".to_owned()]];
+    assert!(!field.value_entries().is_empty());
+    assert_eq!(field.distinct_values(), field.value_entries().len());
+    assert_eq!(field.stats.distinct_count, field.distinct_values());
+}
+
+#[test]
+fn vacuum_marks_dead_file_rows_free() {
+    let base = append_fixture_shard("vacuum-files", 1, 4);
+    let delta = append_fixture_shard("vacuum-files-delta", 2, 2);
+    let main = base.to_shared();
+    let active = ActiveRecords::all(base.record_count()).unwrap();
+    let main = main.append(&active, &delta).unwrap().index;
+    let retired = (0..4u32).map(RecordSlot).collect::<Vec<_>>();
+    let active = ActiveRecords::all(main.record_count()).unwrap().retired(&retired).unwrap();
+    let vacuumed = main
+        .vacuum(&active, |file| file.id != crate::model::FileId(1))
+        .unwrap()
+        .unwrap();
+    assert_eq!(vacuumed.file(crate::model::FileId(1)).is_none(), true);
+    assert_eq!(vacuumed.free_file_rows.len(), 1);
+    assert!(vacuumed.file(crate::model::FileId(2)).is_some());
+}

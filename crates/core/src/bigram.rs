@@ -368,6 +368,10 @@ impl BigramIndex {
         self.skip.for_each_sorted(visit)
     }
 
+    pub fn remove_slots(&mut self, dead: &RoaringBitmap) -> u64 {
+        self.normal.remove_slots(dead) + self.skip.remove_slots(dead)
+    }
+
     /// Move both gram maps to the persistent backing.
     pub fn freeze_shared(&mut self) {
         self.normal.freeze();
