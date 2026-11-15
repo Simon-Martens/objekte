@@ -568,7 +568,7 @@ fn files(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         } else {
             Style::new()
         };
-        let path = path_repr::query_path(file.relative_path);
+        let path = path_repr::query_path(&file.relative_path);
         frame.render_widget(
             Paragraph::new(Line::from(vec![
                 Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),

@@ -5,7 +5,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use crate::build::{IndexedCollectionSegment, SegmentFile};
-use crate::inventory::{ActiveRecords, FileEntry};
+use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
@@ -65,24 +65,6 @@ struct CompactionWork {
 }
 
 
-pub(crate) fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
-    let count = root.catalog.allocated_files();
-    let mut files = (0..count)
-        .map(|number| synthetic_file_entry(crate::model::FileId(number as u32)))
-        .collect::<Vec<_>>();
-    for (number, file) in files.iter_mut().enumerate() {
-        let id = crate::model::FileId(number as u32);
-        if let Some(entry) = root
-            .catalog
-            .entry(id)
-            .or_else(|| root.catalog.inactive_entry(id))
-        {
-            *file = entry.as_ref().clone();
-        }
-    }
-    files
-}
-
 pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), IndexError> {
     let definitions = next
         .repository
@@ -112,10 +94,8 @@ pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), Inde
             let built = crate::index_storage::segment_builder::build_segment(input)
                 .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
             let frozen = Arc::new(
-                crate::index_storage::segment::FrozenSegment::from_bytes(
-                    built.object.into_bytes(),
-                )
-                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+                crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
+                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
             );
             let index = crate::index_storage::packed_restore::segment_from_packed(
                 &frozen,
@@ -136,23 +116,6 @@ pub(crate) fn seal_native_segments(next: &mut PublishedIndex) -> Result<(), Inde
         *group = Arc::new(sealed);
     }
     Ok(())
-}
-
-fn synthetic_file_entry(id: crate::model::FileId) -> FileEntry {
-    FileEntry {
-        id,
-        relative_path: crate::inventory::SharedPath::Plain(std::sync::Arc::from("")),
-        content_generation: 1,
-        revision: crate::inventory::SourceRevision {
-            modified_ns: 0,
-            size: 0,
-        },
-        created_ns: None,
-        collections: Vec::new(),
-        status: crate::inventory::FileStatus::Valid,
-        diagnostics: Vec::new(),
-        omitted_diagnostics: 0,
-    }
 }
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
@@ -320,12 +283,13 @@ fn compact_published_with_budget(
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
                 if let Some(frozen) = segment.index.packed.as_ref() {
-                    if let Some(packed) = crate::index_storage::stream_compact::compact_packed_merge(
-                        &[frozen],
-                        &[segment.active.bitmap()],
-                        number as u32,
-                    )
-                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+                    if let Some(packed) =
+                        crate::index_storage::stream_compact::compact_packed_merge(
+                            &[frozen],
+                            &[segment.active.bitmap()],
+                            number as u32,
+                        )
+                        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
                     {
                         let packed = Arc::new(packed);
                         let ordinal = next.next_segment_ordinal;
@@ -704,4 +668,30 @@ fn consolidate_same_level_runs(
         runs.push(merged);
     }
     Ok(())
+}
+
+/// Return one resident packed object for a published native or packed shard.
+pub(crate) fn resident_packed_run(
+    segment: &PublishedSegment,
+    catalog: &FileCatalog,
+    file_versions: &crate::inventory::FileVersions,
+    collections: &[crate::repository::CollectionState],
+) -> Result<Arc<crate::index_storage::segment::FrozenSegment>, IndexError> {
+    if let Some(packed) = &segment.packed {
+        return Ok(Arc::clone(packed));
+    }
+    let input = crate::index_storage::native_pack::pack_segment(
+        &segment.index,
+        &segment.active.bitmap(),
+        file_versions,
+        collections,
+        catalog,
+    )
+    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    let built = crate::index_storage::segment_builder::build_segment(input)
+        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    let frozen =
+        crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
+            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    Ok(Arc::new(frozen))
 }

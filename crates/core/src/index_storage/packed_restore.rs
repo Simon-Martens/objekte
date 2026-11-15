@@ -12,8 +12,8 @@ use crate::build::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::inventory::SourceDiagnostic;
 use crate::inventory::{
-    CollectionGeneration, FileEntry, FileInventory, FileRecordIndex, FileStatus, FileVersion,
-    FileVersions, SharedPath, SourceRevision,
+    CollectionGeneration, FileEntry, FileRecordIndex, FileStatus, FileVersions, SharedPath,
+    SourceRevision,
 };
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, PublishedIndex, PublishedSegment, ReconciliationState,
@@ -157,17 +157,8 @@ pub fn restore_from_store(
         }
     }
     let repository = Arc::new(
-        Repository::from_restored_parts(
-            root,
-            Vec::new(),
-            Vec::new(),
-            base,
-            sources,
-            options,
-            0,
-            0,
-        )
-        .map_err(IndexError::InvalidPublication)?,
+        Repository::from_restored_parts(root, Vec::new(), Vec::new(), base, sources, options, 0, 0)
+            .map_err(IndexError::InvalidPublication)?,
     );
     let catalog = crate::lifecycle_catalog::FileCatalog::from_packed(
         Arc::clone(&repository),
@@ -284,61 +275,10 @@ fn decode_hex(text: &str) -> Result<Vec<u8>, IndexError> {
     Ok(bytes)
 }
 
-fn catalogue_entries(catalogue: &CatalogueView) -> Result<CatalogueEntries, IndexError> {
-    let mut entries = Vec::new();
-    let mut rows = HashMap::new();
-    let mut slots = Vec::new();
-    for id in 0..catalogue.high_water() {
-        let Some(row) = catalogue.file(id).map_err(storage_error)? else {
-            entries.push(tombstone_entry(FileId(id), None));
-            slots.push(None);
-            continue;
-        };
-        if row.tombstone {
-            entries.push(tombstone_entry(FileId(id), Some(&row)));
-            slots.push(None);
-            continue;
-        }
-        let diagnostics = catalogue.diagnostics(&row).map_err(storage_error)?;
-        let entry = file_entry(&row, &diagnostics)?;
-        rows.insert(id, row);
-        slots.push(Some((entry.clone(), None, None)));
-        entries.push(entry);
-    }
-    // Attach fingerprints after the row map is complete.
-    for (index, slot) in slots.iter_mut().enumerate() {
-        if let Some((entry, fingerprint, configuration)) = slot {
-            let row = rows.get(&(index as u32));
-            *fingerprint = row.and_then(|row| row.fingerprint);
-            let _ = (entry, configuration);
-        }
-    }
-    Ok((entries, rows, slots))
-}
-
-fn tombstone_entry(id: FileId, row: Option<&FileRowView>) -> FileEntry {
-    FileEntry {
-        id,
-        relative_path: row
-            .and_then(|row| native_path(&row.native_path).ok())
-            .map(SharedPath::from)
-            .unwrap_or_else(|| SharedPath::from(format!(".__objekte_tombstone/{}", id.0))),
-        content_generation: row.map_or(1, |row| row.content_generation),
-        revision: SourceRevision {
-            modified_ns: row.map_or(0, |row| row.modified_ns),
-            size: row.map_or(0, |row| row.size),
-        },
-        created_ns: row.and_then(|row| row.created_ns),
-        collections: row
-            .map(|row| row.collections.iter().copied().map(CollectionId).collect())
-            .unwrap_or_default(),
-        status: FileStatus::Valid,
-        diagnostics: Vec::new(),
-        omitted_diagnostics: 0,
-    }
-}
-
-pub(crate) fn file_entry(row: &FileRowView, diagnostics: &[DiagnosticView]) -> Result<FileEntry, IndexError> {
+pub(crate) fn file_entry(
+    row: &FileRowView,
+    diagnostics: &[DiagnosticView],
+) -> Result<FileEntry, IndexError> {
     let path = native_path(&row.native_path)?;
     let diagnostics = diagnostics
         .iter()
@@ -417,12 +357,6 @@ fn native_path(bytes: &[u8]) -> Result<PathBuf, IndexError> {
     }
 }
 
-type CatalogueSlot = (FileEntry, Option<[u8; 32]>, Option<[u8; 32]>);
-type CatalogueEntries = (
-    Vec<FileEntry>,
-    HashMap<u32, FileRowView>,
-    Vec<Option<CatalogueSlot>>,
-);
 type PostingFamilies = (
     PostingCollection,
     Option<InferenceState>,
@@ -441,36 +375,6 @@ fn empty_sorting(
     )
     .and_then(|builder| builder.finish_for_records(&[]))
     .map_err(IndexError::Build)
-}
-
-fn packed_file_entries(
-    frozen: &Arc<FrozenSegment>,
-    catalog: &crate::lifecycle_catalog::FileCatalog,
-) -> Result<Vec<FileEntry>, IndexError> {
-    let mut result = Vec::new();
-    let mut seen = std::collections::HashSet::new();
-    for part_number in 0..frozen.stats().file_part_count {
-        let part = frozen
-            .records()
-            .file_part(part_number)
-            .map_err(storage_error)?
-            .ok_or_else(|| IndexError::InvalidPublication("packed file part missing".into()))?;
-        if !seen.insert(part.file_id) {
-            continue;
-        }
-        let file = FileId(part.file_id);
-        let entry = catalog
-            .entry(file)
-            .or_else(|| catalog.inactive_entry(file))
-            .ok_or_else(|| {
-                IndexError::InvalidPublication(format!(
-                    "packed file metadata missing for {}",
-                    part.file_id
-                ))
-            })?;
-        result.push(entry.as_ref().clone());
-    }
-    Ok(result)
 }
 
 pub(crate) fn segment_from_packed(
@@ -587,10 +491,7 @@ pub(crate) fn segment_from_packed(
         source_version: stats.source_version,
         files,
         file_index,
-        records: crate::inventory::RecordStore::packed(
-            Arc::clone(frozen),
-            Arc::new(file_entries),
-        ),
+        records: crate::inventory::RecordStore::packed(Arc::clone(frozen), Arc::new(file_entries)),
         id_lookup: crate::inventory::RecordIdLookup::Packed {
             segment: Arc::clone(frozen),
             len: stats.record_count as usize,
@@ -618,8 +519,7 @@ pub(crate) fn segment_from_packed(
                 .unwrap_or(usize::MAX),
             source_bytes_estimated: stats.source_bytes,
             max_record_range_len: stats.max_record_range_len,
-            index_family_bytes: usize::try_from(stats.estimated_index_bytes)
-                .unwrap_or(usize::MAX),
+            index_family_bytes: usize::try_from(stats.estimated_index_bytes).unwrap_or(usize::MAX),
         },
         packed: Some(Arc::clone(frozen)),
     })

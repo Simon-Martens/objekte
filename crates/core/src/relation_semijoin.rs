@@ -577,8 +577,8 @@ pub(crate) fn fts_witnesses(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
-        let (estimated_targets, lookup) = estimate_fts_candidates(target, &local)?
-            .unwrap_or((target.logical_records.len(), 0.0));
+        let (estimated_targets, lookup) =
+            estimate_fts_candidates(target, &local)?.unwrap_or((target.logical_records.len(), 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
             let index = relation(repo, hop)?;

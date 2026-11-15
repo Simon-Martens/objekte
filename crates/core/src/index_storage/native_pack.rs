@@ -272,11 +272,7 @@ fn pack_collection(
         .as_slice()
         .unwrap_or(&[])
         .iter()
-        .filter_map(|record| {
-            catalog
-                .entry(record.file)
-                .map(|entry| (record.file, entry))
-        })
+        .filter_map(|record| catalog.entry(record.file).map(|entry| (record.file, entry)))
         .collect::<std::collections::HashMap<_, _>>();
     let (file_parts, records) = pack_records(
         collection.generation.records.as_slice().unwrap_or(&[]),

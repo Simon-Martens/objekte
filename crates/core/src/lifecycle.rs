@@ -891,29 +891,72 @@ impl PublishedIndex {
         let Some((left, right)) = cheapest_consolidation_pair(group) else {
             return Ok(());
         };
-        let merged = IndexedCollectionSegment::consolidate(
-            &[&group[left].index, &group[right].index],
-            crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-        )
-        .map_err(IndexError::Build)?;
-        let active = merged
-            .translate_active(&[&group[left].active, &group[right].active])
-            .map_err(IndexError::Build)?;
         let ordinal = self.next_segment_ordinal;
         self.next_segment_ordinal = self
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let merged_index = merged.index;
+        let merged = if group[left].packed.is_some() || group[right].packed.is_some() {
+            let definitions = self
+                .repository
+                .collections()
+                .iter()
+                .map(|collection| collection.definition.clone())
+                .collect::<Vec<_>>();
+            let left_packed = crate::lifecycle_compaction::resident_packed_run(
+                &group[left],
+                &self.catalog,
+                &self.file_versions,
+                self.repository.collections(),
+            )?;
+            let right_packed = crate::lifecycle_compaction::resident_packed_run(
+                &group[right],
+                &self.catalog,
+                &self.file_versions,
+                self.repository.collections(),
+            )?;
+            let packed = crate::index_storage::stream_compact::compact_packed_merge(
+                &[left_packed.as_ref(), right_packed.as_ref()],
+                &[group[left].active.bitmap(), group[right].active.bitmap()],
+                number as u32,
+            )
+            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?
+            .ok_or_else(|| IndexError::InvalidPublication("empty consolidation".into()))?;
+            let packed = Arc::new(packed);
+            let index = crate::index_storage::packed_restore::segment_from_packed(
+                &packed,
+                number,
+                &self.catalog,
+                &definitions,
+            )?;
+            PublishedSegment {
+                ordinal,
+                level: group[left].level.max(group[right].level).saturating_add(1),
+                active: ActiveRecords::all(index.record_count())
+                    .map_err(IndexError::ResourceLimit)?,
+                index: Arc::new(index),
+                packed: Some(packed),
+            }
+        } else {
+            let merged = IndexedCollectionSegment::consolidate(
+                &[&group[left].index, &group[right].index],
+                crate::lifecycle_partition::BASE_PARTITION_RECORDS,
+            )
+            .map_err(IndexError::Build)?;
+            let active = merged
+                .translate_active(&[&group[left].active, &group[right].active])
+                .map_err(IndexError::Build)?;
+            PublishedSegment {
+                ordinal,
+                level: 0,
+                index: Arc::new(merged.index),
+                active,
+                packed: None,
+            }
+        };
         group.remove(right);
         group.remove(left);
-        group.push(Arc::new(PublishedSegment {
-            ordinal,
-            level: 0,
-            index: Arc::new(merged_index),
-            active,
-            packed: None,
-        }));
+        group.push(Arc::new(merged));
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
         }
@@ -2737,6 +2780,19 @@ impl IndexView {
         })
     }
 
+    /// Active file IDs only. This does not decode paths, diagnostics, or rows.
+    pub fn catalogue_ids(&self) -> impl Iterator<Item = FileId> + '_ {
+        self.0.catalog.active_ids()
+    }
+
+    /// File IDs whose query path lies under one directory, without decoding
+    /// unrelated catalogue rows. The packed path dictionary is the fast path.
+    pub fn catalogue_ids_in_directory(&self, directory: &str, limit: usize) -> Vec<FileId> {
+        self.0
+            .catalog
+            .ids_with_prefix(&format!("{directory}/"), limit)
+    }
+
     pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow> + '_ {
         (0..self.0.catalog.allocated_files())
             .filter_map(|number| self.catalogue_row(FileId(number as u32)))
@@ -2950,7 +3006,10 @@ impl IndexView {
     }
 
     /// Paths of active files indexed for one collection in this publication.
-    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = std::path::PathBuf> + '_ {
+    pub fn file_paths_for_collection(
+        &self,
+        name: &str,
+    ) -> impl Iterator<Item = std::path::PathBuf> + '_ {
         let collection_id = self
             .0
             .repository

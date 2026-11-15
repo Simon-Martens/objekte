@@ -141,8 +141,9 @@ impl PostingAccess<'_> {
             output,
             coverage: covered_records,
         };
-        if let Some((work, output)) =
-            index.estimate_exact_with_visits(term, domain.len(), visits).map_err(Self::storage_error)?
+        if let Some((work, output)) = index
+            .estimate_exact_with_visits(term, domain.len(), visits)
+            .map_err(Self::storage_error)?
         {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }

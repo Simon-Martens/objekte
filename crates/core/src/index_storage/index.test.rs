@@ -595,6 +595,39 @@ fn every_published_mutation_family_uses_resident_packed_runs() {
 }
 
 #[test]
+fn load_defers_packed_record_page_allocation_until_a_row_is_read() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let view = loaded.view().unwrap();
+    let segment = view.0.segments[0].first().expect("packed run");
+    assert_eq!(
+        segment.index.records.capacity(),
+        0,
+        "Load allocated packed record page cells"
+    );
+    let _ = segment.index.record(crate::model::RecordSlot(0));
+    assert!(segment.index.records.capacity() > 0);
+    assert!(
+        segment.index.records.materialized_rows() <= 64,
+        "one row access decoded more than one bounded page"
+    );
+}
+
+#[test]
 fn packed_reuse_preserves_deleted_and_replaced_visibility() {
     let (root, definition) = fixture();
     let index = Index::build(

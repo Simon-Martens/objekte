@@ -271,9 +271,7 @@ impl FileVersions {
         })
     }
 
-    pub(crate) fn packed(
-        view: Arc<crate::index_storage::catalogue::CatalogueView>,
-    ) -> Self {
+    pub(crate) fn packed(view: Arc<crate::index_storage::catalogue::CatalogueView>) -> Self {
         let len = view.high_water() as usize;
         Self {
             chunks: Arc::new(Vec::new()),
@@ -1152,11 +1150,13 @@ pub struct RecordStore {
 
 const PACKED_RECORD_PAGE: usize = 64;
 
+type PackedRecordPage = OnceLock<Box<[RecordEntry]>>;
+
 
 struct PackedRecordStore {
     segment: Arc<crate::index_storage::segment::FrozenSegment>,
     files: std::collections::HashMap<FileId, FileEntry>,
-    pages: Vec<OnceLock<Box<[RecordEntry]>>>,
+    pages: OnceLock<Box<[PackedRecordPage]>>,
 }
 
 
@@ -1176,11 +1176,7 @@ impl Clone for RecordStore {
         if let Some(packed) = &self.packed {
             return Self {
                 native: Vec::new(),
-                packed: Some(Arc::new(PackedRecordStore {
-                    segment: Arc::clone(&packed.segment),
-                    files: packed.files.clone(),
-                    pages: packed.pages.clone(),
-                })),
+                packed: Some(Arc::clone(packed)),
             };
         }
         Self {
@@ -1230,18 +1226,14 @@ impl RecordStore {
             packed: Some(Arc::new(PackedRecordStore {
                 segment,
                 files,
-                pages: (0..len.div_ceil(PACKED_RECORD_PAGE))
-                    .map(|_| OnceLock::new())
-                    .collect(),
+                pages: OnceLock::new(),
             })),
         }
     }
 
     pub fn len(&self) -> usize {
         self.packed.as_ref().map_or(self.native.len(), |packed| {
-            packed.pages.len().saturating_mul(PACKED_RECORD_PAGE).min(
-                packed.segment.stats().record_count as usize,
-            )
+            packed.segment.stats().record_count as usize
         })
     }
 
@@ -1251,16 +1243,26 @@ impl RecordStore {
 
     pub fn try_get(&self, index: usize) -> Result<Option<&RecordEntry>, String> {
         if let Some(packed) = &self.packed {
-            let page_index = index / PACKED_RECORD_PAGE;
-            let Some(cell) = packed.pages.get(page_index) else {
+            if index >= packed.segment.stats().record_count as usize {
                 return Ok(None);
-            };
+            }
+            let page_index = index / PACKED_RECORD_PAGE;
+            let cell = packed
+                .pages
+                .get_or_init(|| {
+                    (0..(packed.segment.stats().record_count as usize).div_ceil(PACKED_RECORD_PAGE))
+                        .map(|_| OnceLock::new())
+                        .collect::<Vec<_>>()
+                        .into_boxed_slice()
+                })
+                .get(page_index)
+                .ok_or_else(|| "packed record page is out of bounds".to_string())?;
             if let Some(page) = cell.get() {
                 return Ok(page.get(index % PACKED_RECORD_PAGE));
             }
             let start = page_index * PACKED_RECORD_PAGE;
-            let end = (start + PACKED_RECORD_PAGE)
-                .min(packed.segment.stats().record_count as usize);
+            let end =
+                (start + PACKED_RECORD_PAGE).min(packed.segment.stats().record_count as usize);
             let mut page = Vec::with_capacity(end - start);
             for slot in start..end {
                 page.push(packed_record(packed, slot)?);
@@ -1290,11 +1292,9 @@ impl RecordStore {
 
     pub fn materialized_rows(&self) -> usize {
         self.packed.as_ref().map_or(self.native.len(), |packed| {
-            let decoded = packed
-                .pages
-                .iter()
-                .filter(|cell| cell.get().is_some())
-                .count();
+            let decoded = packed.pages.get().map_or(0, |pages| {
+                pages.iter().filter(|cell| cell.get().is_some()).count()
+            });
             (decoded * PACKED_RECORD_PAGE).min(self.len())
         })
     }
@@ -1304,12 +1304,15 @@ impl RecordStore {
     }
 
     pub fn capacity(&self) -> usize {
-        self.packed.as_ref().map_or(self.native.capacity(), |packed| {
-            packed
-                .pages
-                .len()
-                .saturating_mul(std::mem::size_of::<OnceLock<Box<[RecordEntry]>>>())
-        })
+        self.packed
+            .as_ref()
+            .map_or(self.native.capacity(), |packed| {
+                packed.pages.get().map_or(0, |pages| {
+                    pages
+                        .len()
+                        .saturating_mul(std::mem::size_of::<PackedRecordPage>())
+                })
+            })
     }
 
     #[allow(dead_code)]

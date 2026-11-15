@@ -517,7 +517,8 @@ pub(crate) fn compact_packed_merge(
     if inputs.is_empty() {
         return Ok(None);
     }
-    let logical_records = merge_cover_set(&inputs, |input| input.segment.coverage().logical_records())?;
+    let logical_records =
+        merge_cover_set(&inputs, |input| input.segment.coverage().logical_records())?;
     let empty_arrays = merge_cover_set(&inputs, |input| input.segment.coverage().empty_arrays())?;
     let logical_count = logical_records.len() as u32;
     let (file_parts, records) = merge_records(&inputs, count)?;
@@ -556,11 +557,13 @@ fn bitmap_slots(bitmap: &RoaringBitmap) -> Vec<u32> {
     bitmap.iter().collect()
 }
 
+
 struct MergeInput<'a> {
     segment: &'a FrozenSegment,
     active: RoaringBitmap,
     mapping: Vec<u32>,
 }
+
 
 fn merge_cover_set<'a>(
     inputs: &'a [MergeInput<'a>],
@@ -658,10 +661,10 @@ fn merge_records(
                     }
                     continue;
                 }
-                let row = view.record(slot)?.ok_or_else(|| {
-                    StorageError::corrupt("packed record missing during merge")
-                })?;
-                if let Some(start) = run_start {
+                let row = view
+                    .record(slot)?
+                    .ok_or_else(|| StorageError::corrupt("packed record missing during merge"))?;
+                if run_start.is_some() {
                     let local = run_local + run_len;
                     if row.local_record_id == local && mapped == run_segment + run_len {
                         run_len += 1;
@@ -685,10 +688,7 @@ fn merge_records(
     Ok((parts, records))
 }
 
-fn merge_fields(
-    inputs: &[MergeInput<'_>],
-    logical_count: u32,
-) -> StorageResult<Vec<FieldInput>> {
+fn merge_fields(inputs: &[MergeInput<'_>], logical_count: u32) -> StorageResult<Vec<FieldInput>> {
     let mut merged = std::collections::BTreeMap::<(Vec<String>, u8, String), FieldInput>::new();
     for input in inputs {
         for field in input.segment.postings().fields() {
@@ -729,7 +729,9 @@ fn merge_fields(
             entry.value_complete &= field.value_complete();
             entry.length_complete &= field.length_complete();
             entry.empty_string_complete &= field.empty_string_complete();
-            entry.presence.extend(map_input_set(input, field.presence()?)?);
+            entry
+                .presence
+                .extend(map_input_set(input, field.presence()?)?);
             entry.nulls.extend(map_input_set(input, field.nulls()?)?);
             entry
                 .empty_selections
@@ -760,8 +762,7 @@ fn merge_fields(
                     .extend(map_input_set(input, view)?);
             }
             if let Some(dictionary) = field.lengths() {
-                for body in dictionary
-                    .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
+                for body in dictionary.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
                 {
                     let (key, bytes) = body?;
                     let ScalarKey::Number(length) = decode_scalar_key(&key)? else {
@@ -777,11 +778,7 @@ fn merge_fields(
                         .extend(map_input_set(input, view)?);
                 }
             }
-            let source_logical = input
-                .segment
-                .coverage()
-                .logical_records()?
-                .cardinality() as u32;
+            let source_logical = input.segment.coverage().logical_records()?.cardinality() as u32;
             if field.covered_records() >= source_logical {
                 entry.covered_records = entry.covered_records.saturating_add(logical_count);
             }
@@ -808,12 +805,13 @@ fn merge_fields(
     Ok(result)
 }
 
-
-fn merge_bigrams(
-    inputs: &[MergeInput<'_>],
-    count: u32,
-) -> StorageResult<Vec<BigramInput>> {
-    type Binding = (BigramBinding, BTreeMap<u64, Vec<u32>>, BTreeMap<u64, Vec<u32>>, u8);
+fn merge_bigrams(inputs: &[MergeInput<'_>], count: u32) -> StorageResult<Vec<BigramInput>> {
+    type Binding = (
+        BigramBinding,
+        BTreeMap<u64, Vec<u32>>,
+        BTreeMap<u64, Vec<u32>>,
+        u8,
+    );
     let mut bindings: Vec<Binding> = Vec::new();
     for input in inputs {
         let section = input.segment.bigrams();
@@ -877,8 +875,11 @@ fn merge_bigrams(
 }
 
 fn merge_sorts(inputs: &[MergeInput<'_>], count: u32) -> StorageResult<Vec<SortColumnInput>> {
-    let mut columns: Vec<(Vec<String>, SortColumnInput, BTreeMap<u32, crate::sorting::SortKey>)> =
-        Vec::new();
+    let mut columns: Vec<(
+        Vec<String>,
+        SortColumnInput,
+        BTreeMap<u32, crate::sorting::SortKey>,
+    )> = Vec::new();
     for input in inputs {
         for column in input.segment.sorting().columns() {
             let at = columns
@@ -936,23 +937,17 @@ fn merge_sorts(inputs: &[MergeInput<'_>], count: u32) -> StorageResult<Vec<SortC
             .iter()
             .map(|slot| crate::model::RecordSlot(*slot))
             .collect::<Vec<_>>();
-        column.descending = crate::sorting::descending_order(
-            &ascending_slots,
-            &column.keys,
-            column.options,
-        )
-        .into_iter()
-        .map(|slot| slot.0)
-        .collect();
+        column.descending =
+            crate::sorting::descending_order(&ascending_slots, &column.keys, column.options)
+                .into_iter()
+                .map(|slot| slot.0)
+                .collect();
         result.push(column);
     }
     Ok(result)
 }
 
-fn merge_relations(
-    inputs: &[MergeInput<'_>],
-    count: u32,
-) -> StorageResult<Vec<RelationInput>> {
+fn merge_relations(inputs: &[MergeInput<'_>], count: u32) -> StorageResult<Vec<RelationInput>> {
     let mut merged: Vec<(u32, Vec<String>, RelationInput, Vec<Vec<RelationEdgeInput>>)> =
         Vec::new();
     for input in inputs {
@@ -985,8 +980,14 @@ fn merge_relations(
                     merged.len() - 1
                 });
             let entry = &mut merged[at];
-            entry.2.present.extend(map_input_set(input, relation.present()?)?);
-            entry.2.nulls.extend(map_input_set(input, relation.nulls()?)?);
+            entry
+                .2
+                .present
+                .extend(map_input_set(input, relation.present()?)?);
+            entry
+                .2
+                .nulls
+                .extend(map_input_set(input, relation.nulls()?)?);
             entry
                 .2
                 .empty_arrays

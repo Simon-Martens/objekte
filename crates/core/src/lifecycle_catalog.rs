@@ -86,9 +86,8 @@ impl PackedCatalogue {
         }
         let row = self.view.file(file.0).ok().flatten()?;
         let diagnostics = self.view.diagnostics(&row).ok()?;
-        let entry = Arc::new(
-            crate::index_storage::packed_restore::file_entry(&row, &diagnostics).ok()?,
-        );
+        let entry =
+            Arc::new(crate::index_storage::packed_restore::file_entry(&row, &diagnostics).ok()?);
         if let Ok(mut cache) = self.cache.lock() {
             if cache.len() >= 4096 {
                 cache.clear();
@@ -102,7 +101,20 @@ impl PackedCatalogue {
         if !self.view.is_active(file.0) {
             return None;
         }
-        self.view.file(file.0).ok().flatten().and_then(|row| row.fingerprint)
+        self.view
+            .file(file.0)
+            .ok()
+            .flatten()
+            .and_then(|row| row.fingerprint)
+    }
+
+    fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
+        self.view
+            .paths_with_prefix(prefix.as_bytes(), limit)
+            .unwrap_or_default()
+            .into_iter()
+            .map(FileId)
+            .collect()
     }
 
     fn id_for(&self, path: &Path) -> Option<FileId> {
@@ -144,16 +156,14 @@ impl PackedCatalogue {
     }
 }
 
-fn owned_bound_ref(
-    bound: &std::ops::Bound<Vec<u8>>,
-) -> std::ops::Bound<&[u8]> {
+
+fn owned_bound_ref(bound: &std::ops::Bound<Vec<u8>>) -> std::ops::Bound<&[u8]> {
     match bound {
         std::ops::Bound::Included(value) => std::ops::Bound::Included(value.as_slice()),
         std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(value.as_slice()),
         std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
     }
 }
-
 
 fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
@@ -224,8 +234,13 @@ impl FileCatalog {
         (0..self.len)
             .map(|number| {
                 let id = FileId(number);
-                self.entry(id)
-                    .map(|entry| (entry.as_ref().clone(), self.fingerprint(id), self.configuration(id)))
+                self.entry(id).map(|entry| {
+                    (
+                        entry.as_ref().clone(),
+                        self.fingerprint(id),
+                        self.configuration(id),
+                    )
+                })
             })
             .collect()
     }
@@ -507,6 +522,20 @@ impl FileCatalog {
             .get(&file)
             .map(|changed| changed.configuration)
             .unwrap_or_else(|| self.fingerprint(file).map(|_| self.base_configuration))
+    }
+
+    pub(crate) fn ids_with_prefix(&self, prefix: &str, limit: usize) -> Vec<FileId> {
+        if let Some(packed) = &self.packed_base {
+            return packed.ids_with_prefix(prefix, limit);
+        }
+        self.active_ids()
+            .filter(|id| {
+                self.entry(*id).is_some_and(|entry| {
+                    crate::path_repr::query_path(&entry.relative_path).starts_with(prefix)
+                })
+            })
+            .take(limit)
+            .collect()
     }
 
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {

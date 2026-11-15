@@ -673,6 +673,10 @@ pub struct DirectoryCatalog {
 }
 
 
+/// Maximum file IDs materialized for one sidebar page.
+pub const MAX_VISIBLE_FILE_IDS: usize = 256;
+
+
 /// A pinned catalogue and compact physical-file IDs. Paths remain owned by
 /// the index, even while progress publications arrive.
 #[derive(Clone)]
@@ -689,24 +693,31 @@ impl FileCatalogue {
         collection: Option<&str>,
         directory: Option<&str>,
     ) -> Arc<Vec<FileId>> {
-        let ids = match collection {
-            Some(name) => match self.by_collection.get(name) {
-                Some(ids) => ids,
-                None => return Arc::new(Vec::new()),
-            },
-            None => &self.ids,
-        };
-        let Some(directory) = directory else {
-            return Arc::clone(ids);
-        };
-        let prefix = format!("{directory}/");
-        Arc::new(
-            ids.iter()
+        let candidates = match directory {
+            Some(directory) => self
+                .view
+                .catalogue_ids_in_directory(directory, super::model::MAX_VISIBLE_FILE_IDS),
+            None => self
+                .ids
+                .iter()
                 .copied()
+                .take(super::model::MAX_VISIBLE_FILE_IDS)
+                .collect(),
+        };
+        let Some(name) = collection else {
+            return Arc::new(candidates);
+        };
+        Arc::new(
+            candidates
+                .into_iter()
                 .filter(|id| {
                     self.view.catalogue_row(*id).is_some_and(|row| {
-                        objekte_search_core::path_repr::query_path(row.relative_path)
-                            .starts_with(&prefix)
+                        row.collections.iter().any(|collection| {
+                            self.view
+                                .collection_definitions()
+                                .nth(collection.0 as usize)
+                                .is_some_and(|definition| definition.name == name)
+                        })
                     })
                 })
                 .collect(),

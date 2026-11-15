@@ -270,7 +270,11 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             repo.search_reference(&folded).unwrap().hits
         );
         let bound = bind_fts(folded.fts.as_ref().unwrap(), &definition.schema).unwrap();
-        assert!(fts_candidates(&repo.collections()[0], &bound).unwrap().is_some());
+        assert!(
+            fts_candidates(&repo.collections()[0], &bound)
+                .unwrap()
+                .is_some()
+        );
         let fallback = query(
             "\\{\\\"title\\\":needle",
             None,

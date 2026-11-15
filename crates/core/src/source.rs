@@ -678,6 +678,7 @@ impl<'de> Deserialize<'de> for LogicalBuildValue {
     }
 }
 
+
 fn parse_json_for_build_diagnosed(bytes: &[u8]) -> Result<ExtractedRecord, ReaderDiagnostic> {
     match serde_json::from_slice::<LogicalBuildValue>(bytes) {
         Ok(LogicalBuildValue(value)) => Ok(ExtractedRecord {

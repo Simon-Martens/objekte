@@ -4227,27 +4227,15 @@ fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenComp
 }
 
 fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalogue {
-    let mut ids = Vec::new();
-    let mut by_collection = collections
-        .iter()
-        .map(|name| (name.clone(), Vec::new()))
-        .collect::<std::collections::BTreeMap<_, _>>();
-    for row in view.catalogue_rows() {
-        ids.push(row.id);
-        for collection in row.collections {
-            if let Some(name) = collections.get(collection.0 as usize) {
-                if let Some(files) = by_collection.get_mut(name) {
-                    files.push(row.id);
-                }
-            }
-        }
-    }
+    // IDs come from the packed publication's active bitmap; paths and
+    // diagnostics are decoded only when a filtered page is requested.
+    let ids = view.catalogue_ids().collect::<Vec<_>>();
     FileCatalogue {
         view,
         ids: Arc::new(ids),
-        by_collection: by_collection
-            .into_iter()
-            .map(|(name, files)| (name, Arc::new(files)))
+        by_collection: collections
+            .iter()
+            .map(|name| (name.clone(), Arc::new(Vec::new())))
             .collect(),
     }
 }
@@ -4266,7 +4254,7 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
     DirectoryCatalog { all, by_collection }
 }
 
-fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> {
+fn parent_directories(paths: impl Iterator<Item = std::path::PathBuf>) -> Vec<String> {
     let mut directories = BTreeSet::new();
     for path in paths {
         let mut parent = path.parent();

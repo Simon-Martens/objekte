@@ -273,11 +273,7 @@ impl<'a> PostingAccess<'a> {
         }
     }
 
-    fn estimate_length(
-        &self,
-        term: &BoundTerm,
-        domain_len: u64,
-    ) -> StorageResult<Option<u64>> {
+    fn estimate_length(&self, term: &BoundTerm, domain_len: u64) -> StorageResult<Option<u64>> {
         if !self.length_complete() || !crate::posting::length_posting_is_exact(term) {
             return Ok(None);
         }
@@ -336,11 +332,7 @@ impl<'a> PostingAccess<'a> {
         Ok(Some(result))
     }
 
-    fn estimate_derived(
-        &self,
-        term: &BoundTerm,
-        domain_len: u64,
-    ) -> StorageResult<Option<u64>> {
+    fn estimate_derived(&self, term: &BoundTerm, domain_len: u64) -> StorageResult<Option<u64>> {
         if term.derived == crate::reference::Derived::None {
             return Ok(None);
         }
@@ -348,10 +340,12 @@ impl<'a> PostingAccess<'a> {
             return Ok(None);
         };
         let output = if term.derived == crate::reference::Derived::Exists {
-            let yes = self
-                .presence()?
-                .difference_len(&self.empty_selections()?);
-            if truth { yes } else { domain_len.saturating_sub(yes) }
+            let yes = self.presence()?.difference_len(&self.empty_selections()?);
+            if truth {
+                yes
+            } else {
+                domain_len.saturating_sub(yes)
+            }
         } else {
             let Some(key) = derived_structural_key(term.derived, self.multi()) else {
                 return Ok(None);
@@ -361,7 +355,11 @@ impl<'a> PostingAccess<'a> {
             } else {
                 self.structural(key)?.len()
             };
-            if truth { value } else { domain_len.saturating_sub(value) }
+            if truth {
+                value
+            } else {
+                domain_len.saturating_sub(value)
+            }
         };
         Ok(Some(output))
     }
@@ -668,6 +666,7 @@ impl<'a> PostingAccess<'a> {
     }
 }
 
+
 fn owned_bound_ref(bound: &std::ops::Bound<Vec<u8>>) -> std::ops::Bound<&[u8]> {
     match bound {
         std::ops::Bound::Included(value) => std::ops::Bound::Included(value.as_slice()),
@@ -920,10 +919,7 @@ impl<'a> BigramAccess<'a> {
         Ok(Some(result))
     }
 
-    pub(crate) fn estimate_prepared(
-        &self,
-        request: &BigramRequest,
-    ) -> StorageResult<Option<u64>> {
+    pub(crate) fn estimate_prepared(&self, request: &BigramRequest) -> StorageResult<Option<u64>> {
         let alphabet = match self.alphabet() {
             0 => crate::execution_options::BigramAlphabet::Ascii,
             _ => crate::execution_options::BigramAlphabet::Unicode,

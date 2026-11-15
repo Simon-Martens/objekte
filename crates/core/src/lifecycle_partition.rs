@@ -252,10 +252,8 @@ fn partition_base_with_limits_inner(
             let built = crate::index_storage::segment_builder::build_segment(input)
                 .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
             let frozen = Arc::new(
-                crate::index_storage::segment::FrozenSegment::from_bytes(
-                    built.object.into_bytes(),
-                )
-                .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+                crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
+                    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
             );
             let index = crate::index_storage::packed_restore::segment_from_packed(
                 &frozen,

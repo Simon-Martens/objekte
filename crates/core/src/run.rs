@@ -4551,9 +4551,9 @@ fn search_segmented_impl(
                             return Err("segment scan file ownership mismatch".into());
                         }
                         let resolved = SegmentRecordRef {
-                record,
-                file: std::sync::Arc::clone(&file),
-            };
+                            record,
+                            file: std::sync::Arc::clone(&file),
+                        };
                         let record = resolved.record;
                         counters.record_parses += u64::from(record.class == RecordClass::Logical);
                         counters.residual_evaluations +=

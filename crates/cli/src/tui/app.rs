@@ -564,7 +564,7 @@ impl App {
         self.catalogue_count
     }
 
-    pub(super) fn file_at(&self, index: usize) -> Option<FileCatalogueRow<'_>> {
+    pub(super) fn file_at(&self, index: usize) -> Option<FileCatalogueRow> {
         let id = if let Some(ids) = &self.cached_file_ids {
             *ids.get(index)?
         } else {

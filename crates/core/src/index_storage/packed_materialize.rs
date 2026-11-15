@@ -22,7 +22,6 @@ use crate::posting::{
     StructuralKey,
 };
 use crate::relation::{RelationCardinality, RelationContribution, RelationDefinition};
-use crate::repository::{CollectionState, GlobalInferenceSummary};
 use crate::sorting::{SortCollection, SortColumn};
 
 use super::error::StorageResult;

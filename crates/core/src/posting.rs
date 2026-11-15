@@ -1104,10 +1104,9 @@ impl PostingIndex {
 
             _ => return None,
         })
-
-
     }
 }
+
 
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment

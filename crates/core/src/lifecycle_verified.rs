@@ -379,15 +379,18 @@ pub(crate) fn preserve_partition_record_slots(
             return None;
         }
         let active_without_old = old.active.retired(&[old_slot]).ok()?;
-        let compacted = match old_index
-            .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
+        let compacted = match old_index.compact_active(
+            &active_without_old,
+            MAX_VERIFIED_SCANNED_RECORDS,
+            |entry| {
                 entry.id != file
                     && next.catalog.entry(entry.id).is_some_and(|current| {
                         current.revision == entry.revision
                             && current.created_ns == entry.created_ns
                             && current.collections.contains(collection)
                     })
-            }) {
+            },
+        ) {
             Ok(compacted) => compacted,
             Err(_) => {
                 return None;
