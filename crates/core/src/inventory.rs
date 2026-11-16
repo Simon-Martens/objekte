@@ -628,6 +628,8 @@ pub struct FileInventory {
     /// Ordered root-relative query keys, rebuilt with every restored index.
     #[serde(skip)]
     pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
+    #[serde(skip)]
+    published_paths: Option<crate::lifecycle_catalog::PathDirectory>,
 }
 
 /// Opt-in component accounting for the file table and its path indexes.
@@ -778,6 +780,7 @@ impl FileInventory {
             files: Vec::new(),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            published_paths: None,
         }
     }
 
@@ -794,6 +797,7 @@ impl FileInventory {
             files: entries,
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            published_paths: None,
         };
         inventory.rebuild_lookup()?;
         Ok(inventory)
@@ -938,6 +942,9 @@ impl FileInventory {
     }
 
     pub fn id_for(&self, path: &Path) -> Option<FileId> {
+        if let Some(paths) = &self.published_paths {
+            return paths.id_for(path);
+        }
         self.by_path.get(path).copied()
     }
 
@@ -945,6 +952,11 @@ impl FileInventory {
         &self,
         bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
     ) -> Vec<FileId> {
+        if let Some(paths) = &self.published_paths {
+            return paths
+                .ids_in_bounds_up_to(bounds, usize::MAX)
+                .expect("an index cannot contain usize::MAX paths");
+        }
         if empty_path_bounds(&bounds) {
             return Vec::new();
         }
@@ -961,6 +973,9 @@ impl FileInventory {
         limit: usize,
     ) -> Option<Vec<FileId>> {
         let bounds = relative_path_bounds(operator, literal)?;
+        if let Some(paths) = &self.published_paths {
+            return paths.ids_in_bounds_up_to(bounds, limit);
+        }
         let mut ids = Vec::new();
         for (_, id) in self.relative_paths.range(bounds) {
             if ids.len() == limit {
@@ -969,6 +984,22 @@ impl FileInventory {
             ids.push(*id);
         }
         Some(ids)
+    }
+
+    pub(crate) fn adopt_published_paths(
+        &mut self,
+        paths: crate::lifecycle_catalog::PathDirectory,
+    ) {
+        self.published_paths = Some(paths);
+        self.by_path = HashMap::new();
+        self.relative_paths = BTreeMap::new();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn native_lookup_maps_released(&self) -> bool {
+        self.published_paths.is_some()
+            && self.by_path.capacity() == 0
+            && self.relative_paths.is_empty()
     }
 }
 

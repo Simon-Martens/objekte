@@ -1173,6 +1173,25 @@ where
         Ok(())
     }
 
+    pub(crate) fn for_each_bitmap(
+        &self,
+        mut visit: impl FnMut(&RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match &self.0 {
+            PostingDictionaryState::Builder(values) => {
+                for posting in values.values() {
+                    visit(posting)?;
+                }
+            }
+            PostingDictionaryState::Published(values) => {
+                for posting in values.bitmaps.iter() {
+                    visit(posting)?;
+                }
+            }
+        }
+        Ok(())
+    }
+
     pub(crate) fn iter(&self) -> std::vec::IntoIter<(K::Public, RoaringBitmap)> {
         let mut values = Vec::with_capacity(self.len());
         let mut cursor = self.range(Unbounded, Unbounded, false);
@@ -1223,6 +1242,24 @@ where
         match &self.0 {
             PostingDictionaryState::Builder(_) => 0,
             PostingDictionaryState::Published(values) => values.archive.len(),
+        }
+    }
+
+    pub(crate) fn archive_owner_id(&self) -> Option<usize> {
+        match &self.0 {
+            PostingDictionaryState::Builder(_) => None,
+            PostingDictionaryState::Published(values) => {
+                Some(Arc::as_ptr(&values.archive) as usize)
+            }
+        }
+    }
+
+    pub(crate) fn for_each_archive_owner(
+        &self,
+        visit: &mut impl FnMut(usize, usize),
+    ) {
+        if let PostingDictionaryState::Published(values) = &self.0 {
+            visit(Arc::as_ptr(&values.archive) as usize, values.archive.len());
         }
     }
 
@@ -1603,18 +1640,35 @@ impl PostingIndex {
                 }
             }
         } else {
-            self.values
-                .for_each(|key, slots| {
-                if let ScalarKey::Id(id) = key
-                    && ids.contains(id)
-                {
-                    lists += 1;
-                    members += slots.len();
-                    union |= slots;
+            match &self.values.0 {
+                PostingDictionaryState::Builder(values) => {
+                    for (key, slots) in values {
+                        if let StoredScalarKey::Id(id) = key
+                            && ids.contains(id)
+                        {
+                            lists += 1;
+                            members += slots.len();
+                            union |= slots;
+                        }
+                    }
                 }
-                Ok(())
-                })
-                .expect("validated scalar archive contains valid postings");
+                PostingDictionaryState::Published(values) => {
+                    for entry in values.archive.root().ascending.iter() {
+                        let rkyv::Archived::<StoredScalarKey>::Id(id) = &entry.key else {
+                            continue;
+                        };
+                        if ids.contains(id.as_str()) {
+                            let slots = values
+                                .bitmaps
+                                .get(entry.ordinal.to_native() as usize)
+                                .expect("validated posting ordinal");
+                            lists += 1;
+                            members += slots.len();
+                            union |= slots;
+                        }
+                    }
+                }
+            }
         }
         (union, lists, members)
     }
@@ -2213,13 +2267,13 @@ impl PostingIndex {
     pub fn dictionary_payload_bytes(&self) -> usize {
         let mut total = self.archive_bytes();
         self.values
-            .for_each(|_, bitmap| {
+            .for_each_bitmap(|bitmap| {
                 total = total.saturating_add(bitmap.serialized_size());
                 Ok(())
             })
             .expect("validated scalar posting archive");
         self.lengths
-            .for_each(|_, bitmap| {
+            .for_each_bitmap(|bitmap| {
                 total = total.saturating_add(bitmap.serialized_size());
                 Ok(())
             })
@@ -2227,7 +2281,33 @@ impl PostingIndex {
         if let Some(facts) = &self.structural {
             facts
                 .postings
-                .for_each(|_, bitmap| {
+                .for_each_bitmap(|bitmap| {
+                    total = total.saturating_add(bitmap.serialized_size());
+                    Ok(())
+                })
+                .expect("validated structural posting archive");
+        }
+        total
+    }
+
+    pub(crate) fn dictionary_bitmap_payload_bytes(&self) -> usize {
+        let mut total = 0usize;
+        self.values
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated scalar posting archive");
+        self.lengths
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated number posting archive");
+        if let Some(facts) = &self.structural {
+            facts
+                .postings
+                .for_each_bitmap(|bitmap| {
                     total = total.saturating_add(bitmap.serialized_size());
                     Ok(())
                 })
@@ -2290,6 +2370,28 @@ impl PostingIndex {
                     .as_ref()
                     .map_or(0, |facts| facts.postings.archive_bytes()),
             )
+    }
+
+    pub(crate) fn archive_owner_ids(
+        &self,
+        owners: &mut std::collections::HashSet<usize>,
+    ) {
+        owners.extend(self.values.archive_owner_id());
+        owners.extend(self.lengths.archive_owner_id());
+        if let Some(facts) = &self.structural {
+            owners.extend(facts.postings.archive_owner_id());
+        }
+    }
+
+    pub(crate) fn for_each_archive_owner(
+        &self,
+        visit: &mut impl FnMut(usize, usize),
+    ) {
+        self.values.for_each_archive_owner(visit);
+        self.lengths.for_each_archive_owner(visit);
+        if let Some(facts) = &self.structural {
+            facts.postings.for_each_archive_owner(visit);
+        }
     }
 
     pub(crate) fn distinct_lengths(&self) -> usize {
@@ -2977,6 +3079,24 @@ impl PostingCollection {
             .values()
             .map(PostingIndex::archive_bytes)
             .sum()
+    }
+
+    pub(crate) fn archive_owner_ids(
+        &self,
+        owners: &mut std::collections::HashSet<usize>,
+    ) {
+        for index in self.fields.values() {
+            index.archive_owner_ids(owners);
+        }
+    }
+
+    pub(crate) fn for_each_archive_owner(
+        &self,
+        visit: &mut impl FnMut(usize, usize),
+    ) {
+        for index in self.fields.values() {
+            index.for_each_archive_owner(visit);
+        }
     }
 
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {

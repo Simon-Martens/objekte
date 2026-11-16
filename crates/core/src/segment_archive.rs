@@ -3,12 +3,12 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::ops::Deref;
-use std::path::PathBuf;
 use std::sync::{Arc, OnceLock};
 
 use rkyv::{Archive, Serialize as ArchiveSerialize};
 
 use crate::archive_storage::ValidatedArchive;
+use crate::archived_path::StoredPath;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SharedPath,
     SourceDiagnostic, SourceRevision,
@@ -17,54 +17,8 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::native_segment::SegmentFile;
 use crate::source::DiagnosticCategory;
 
-#[derive(Archive, ArchiveSerialize)]
-struct StoredPath {
-    query: String,
-    #[cfg(unix)]
-    native: Vec<u8>,
-    #[cfg(windows)]
-    native: Vec<u16>,
-}
-
-fn stored_path(path: &SharedPath) -> StoredPath {
-    #[cfg(unix)]
-    {
-        use std::os::unix::ffi::OsStrExt;
-        StoredPath {
-            query: path.query_key().to_string(),
-            native: path.as_path().as_os_str().as_bytes().to_vec(),
-        }
-    }
-    #[cfg(windows)]
-    {
-        use std::os::windows::ffi::OsStrExt;
-        StoredPath {
-            query: path.query_key().to_string(),
-            native: path.as_path().as_os_str().encode_wide().collect(),
-        }
-    }
-}
-
 fn archived_native_path(path: &rkyv::Archived<StoredPath>) -> SharedPath {
-    #[cfg(unix)]
-    {
-        use std::ffi::OsString;
-        use std::os::unix::ffi::OsStringExt;
-        SharedPath::from(PathBuf::from(OsString::from_vec(
-            path.native.as_slice().to_vec(),
-        )))
-    }
-    #[cfg(windows)]
-    {
-        use std::ffi::OsString;
-        use std::os::windows::ffi::OsStringExt;
-        let native = path
-            .native
-            .iter()
-            .map(|unit| unit.to_native())
-            .collect::<Vec<_>>();
-        SharedPath::from(PathBuf::from(OsString::from_wide(&native)))
-    }
+    crate::archived_path::to_shared(path).expect("validated archived path")
 }
 
 fn category_code(category: DiagnosticCategory) -> u8 {
@@ -147,7 +101,7 @@ impl StoredSegmentFile {
     fn from_file(file: &SegmentFile) -> Self {
         Self {
             id: file.entry.id.0,
-            relative_path: stored_path(&file.entry.relative_path),
+            relative_path: StoredPath::from_shared(&file.entry.relative_path),
             modified_ns: file.entry.revision.modified_ns,
             size: file.entry.revision.size,
             created_ns: file.entry.created_ns,
@@ -439,6 +393,9 @@ impl SegmentFiles {
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.metadata_cache_initializations =
                     counters.metadata_cache_initializations.saturating_add(1);
+                counters.file_row_cache_initializations = counters
+                    .file_row_cache_initializations
+                    .saturating_add(1);
             });
             self.archive
                 .root()
@@ -451,6 +408,10 @@ impl SegmentFiles {
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn archive_owner_id(&self) -> usize {
+        Arc::as_ptr(&self.archive) as usize
     }
 
     pub(crate) fn capacity(&self) -> usize {
@@ -485,6 +446,14 @@ impl SegmentFiles {
             .map(|file| FileId(file.id.to_native()))
     }
 
+    pub(crate) fn file_ids(&self) -> impl Iterator<Item = FileId> + '_ {
+        self.archive
+            .root()
+            .files
+            .iter()
+            .map(|file| FileId(file.id.to_native()))
+    }
+
     pub(crate) fn archived_record_slots(
         &self,
         index: usize,
@@ -494,6 +463,166 @@ impl SegmentFiles {
                 .iter()
                 .map(|slot| RecordSlot(slot.to_native()))
         })
+    }
+
+    pub(crate) fn source_bytes(&self) -> u64 {
+        self.archive
+            .root()
+            .files
+            .iter()
+            .map(|file| file.size.to_native())
+            .fold(0u64, u64::saturating_add)
+    }
+
+    pub(crate) fn revision(&self, index: usize) -> Option<SourceRevision> {
+        self.archive.root().files.get(index).map(|file| SourceRevision {
+            modified_ns: file.modified_ns.to_native(),
+            size: file.size.to_native(),
+        })
+    }
+
+    pub(crate) fn created_ns(&self, index: usize) -> Option<Option<i128>> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| file.created_ns.as_ref().map(|value| value.to_native()))
+    }
+
+    pub(crate) fn contains_collection(
+        &self,
+        index: usize,
+        collection: CollectionId,
+    ) -> bool {
+        self.archive.root().files.get(index).is_some_and(|file| {
+            file.collections
+                .iter()
+                .any(|candidate| candidate.to_native() == collection.0)
+        })
+    }
+
+    pub(crate) fn path_matches(&self, index: usize, path: &std::path::Path) -> bool {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .is_some_and(|file| {
+                crate::archived_path::matches_native(&file.relative_path, path)
+            })
+    }
+
+    pub(crate) fn query_path(&self, index: usize) -> Option<&str> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| crate::archived_path::query(&file.relative_path))
+    }
+
+    pub(crate) fn status_code(&self, index: usize) -> Option<u8> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| file.status)
+    }
+
+    pub(crate) fn diagnostic(
+        &self,
+        index: usize,
+        diagnostic: usize,
+    ) -> Option<SourceDiagnostic> {
+        let row = self.archive.root().files.get(index)?;
+        let diagnostic = row.diagnostics.get(diagnostic)?;
+        let decoded = StoredDiagnostic {
+            file: diagnostic.file.to_native(),
+            collection: diagnostic.collection.to_native(),
+            source_id: diagnostic.source_id.as_str().into(),
+            source_version: diagnostic.source_version.to_native(),
+            record: diagnostic.record.as_ref().map(|slot| slot.to_native()),
+            range_start: diagnostic
+                .range_start
+                .as_ref()
+                .map(|value| value.to_native()),
+            range_end: diagnostic
+                .range_end
+                .as_ref()
+                .map(|value| value.to_native()),
+            category: diagnostic.category,
+            code: diagnostic.code.as_str().into(),
+            field_path: diagnostic.field_path.as_ref().map(|path| {
+                path.iter()
+                    .map(|part| part.as_str().to_owned())
+                    .collect()
+            }),
+            byte_offset: diagnostic
+                .byte_offset
+                .as_ref()
+                .map(|value| value.to_native()),
+            line: diagnostic.line.as_ref().map(|value| value.to_native()),
+            column: diagnostic.column.as_ref().map(|value| value.to_native()),
+            message: diagnostic.message.as_str().into(),
+        };
+        let range = match (decoded.range_start, decoded.range_end) {
+            (Some(start), Some(end)) => Some(ByteRange { start, end }),
+            (None, None) => None,
+            _ => return None,
+        };
+        Some(SourceDiagnostic {
+            file: FileId(decoded.file),
+            collection: CollectionId(decoded.collection),
+            source_id: decoded.source_id,
+            source_version: decoded.source_version,
+            record: decoded.record.map(RecordSlot),
+            range,
+            category: category_from_code(decoded.category)?,
+            code: decoded.code,
+            field_path: decoded.field_path,
+            byte_offset: decoded.byte_offset,
+            line: decoded.line,
+            column: decoded.column,
+            message: decoded.message,
+        })
+    }
+
+    pub(crate) fn merge_file_diagnostics(
+        &self,
+        index: usize,
+        target: &mut FileEntry,
+    ) -> Result<(), String> {
+        let file = self
+            .archive
+            .root()
+            .files
+            .get(index)
+            .map(archived_segment_file)
+            .ok_or("segment file row missing")?;
+        target.status = target.status.max(file.entry.status);
+        for diagnostic in file.entry.diagnostics {
+            target.record_diagnostic(diagnostic)?;
+        }
+        target.omitted_diagnostics = target
+            .omitted_diagnostics
+            .saturating_add(file.entry.omitted_diagnostics);
+        Ok(())
+    }
+
+    pub(crate) fn compatibility_cache_bytes(&self) -> usize {
+        let Some(files) = self.cache.get() else {
+            return 0;
+        };
+        files
+            .iter()
+            .map(|file| {
+                std::mem::size_of::<SegmentFile>()
+                    + file.entry.relative_path.as_path().as_os_str().len()
+                    + file.records.capacity() * std::mem::size_of::<RecordSlot>()
+                    + file.entry.collections.capacity()
+                        * std::mem::size_of::<CollectionId>()
+                    + file.entry.diagnostics.capacity()
+                        * std::mem::size_of::<SourceDiagnostic>()
+            })
+            .fold(0usize, usize::saturating_add)
     }
 }
 
@@ -534,6 +663,9 @@ impl RecordRows {
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.metadata_cache_initializations =
                     counters.metadata_cache_initializations.saturating_add(1);
+                counters.record_row_cache_initializations = counters
+                    .record_row_cache_initializations
+                    .saturating_add(1);
             });
             self.archive
                 .root()
@@ -546,6 +678,10 @@ impl RecordRows {
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn archive_owner_id(&self) -> usize {
+        Arc::as_ptr(&self.archive) as usize
     }
 
     pub(crate) fn capacity(&self) -> usize {
@@ -562,6 +698,10 @@ impl RecordRows {
 
     pub(crate) fn get(&self, index: usize) -> Option<&RecordEntry> {
         self.values().get(index)
+    }
+
+    pub(crate) fn record_owned(&self, index: usize) -> Option<RecordEntry> {
+        self.archive.root().records.get(index).map(archived_record)
     }
 
     pub(crate) fn archived(&self, index: usize) -> Option<&rkyv::Archived<StoredRecord>> {
@@ -594,6 +734,33 @@ impl RecordRows {
             .records
             .get(slot.0 as usize)
             .map(|record| record.class)
+    }
+
+    pub(crate) fn max_record_range_len(&self) -> u64 {
+        self.archive
+            .root()
+            .records
+            .iter()
+            .map(|record| {
+                record
+                    .range_end
+                    .to_native()
+                    .saturating_sub(record.range_start.to_native())
+            })
+            .max()
+            .unwrap_or(0)
+    }
+
+    pub(crate) fn compatibility_cache_bytes(&self) -> usize {
+        let Some(records) = self.cache.get() else {
+            return 0;
+        };
+        records
+            .iter()
+            .map(|record| {
+                std::mem::size_of::<RecordEntry>() + record.id.0.len()
+            })
+            .fold(0usize, usize::saturating_add)
     }
 }
 
@@ -768,6 +935,10 @@ impl FileLookup {
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
     }
+
+    pub(crate) fn archive_owner_id(&self) -> usize {
+        Arc::as_ptr(&self.archive) as usize
+    }
 }
 
 #[derive(Archive, ArchiveSerialize)]
@@ -832,6 +1003,10 @@ impl RecordLookup {
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn archive_owner_id(&self) -> usize {
+        Arc::as_ptr(&self.archive) as usize
     }
 }
 

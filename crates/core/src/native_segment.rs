@@ -506,60 +506,24 @@ impl IndexedCollectionSegment {
     pub(crate) fn recompute_accounting(&mut self) {
         let mut retained = self.source_id.len();
         retained = retained
-            .saturating_add(self.files.len() * std::mem::size_of::<SegmentFile>())
-            .saturating_add(self.files.archive_bytes());
-        for file in &self.files {
-            retained = retained
-                .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
-                .saturating_add(file.entry.relative_path.as_path().as_os_str().len())
-                .saturating_add(
-                    file.entry.collections.capacity() * std::mem::size_of::<CollectionId>(),
-                )
-                .saturating_add(
-                    file.entry.diagnostics.capacity()
-                        * std::mem::size_of::<crate::inventory::SourceDiagnostic>(),
-                );
-            for diagnostic in &file.entry.diagnostics {
-                retained = retained
-                    .saturating_add(diagnostic.code.len())
-                    .saturating_add(diagnostic.message.len())
-                    .saturating_add(diagnostic.source_id.len());
-                if let Some(path) = &diagnostic.field_path {
-                    retained = retained.saturating_add(path_bytes(path));
-                }
-            }
-        }
-        retained = retained
-            .saturating_add(
-                self.records.len() * std::mem::size_of::<crate::inventory::RecordEntry>(),
-            )
-            .saturating_add(self.records.archive_bytes())
+            .saturating_add(self.files.archive_bytes())
+            .saturating_add(self.files.compatibility_cache_bytes())
+            .saturating_add(self.records.compatibility_cache_bytes())
             .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
-            .saturating_add(
-                self.file_index
-                    .len()
-                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<usize>()),
-            )
             .saturating_add(self.file_index.archive_bytes())
-            .saturating_add(
-                self.id_lookup
-                    .len()
-                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<RecordSlot>()),
-            )
             .saturating_add(self.id_lookup.archive_bytes());
-        for record in &self.records {
-            retained = retained.saturating_add(record.id.0.len());
-        }
         for (path, index) in &self.postings.fields {
             retained = retained
                 .saturating_add(path_bytes(path))
-                .saturating_add(posting_bytes(index));
+                .saturating_add(posting_bytes(index))
+                .saturating_add(index.archive_bytes());
         }
         for ((path, binding), posting) in &self.custom_postings {
             retained = retained
                 .saturating_add(path_bytes(path))
                 .saturating_add(binding.len())
                 .saturating_add(posting_bytes(&posting.index))
+                .saturating_add(posting.index.archive_bytes())
                 .saturating_add(ACCOUNTING_OVERHEAD);
         }
         retained = retained
@@ -585,17 +549,8 @@ impl IndexedCollectionSegment {
         if let Some(inference) = &self.inference {
             retained = retained.saturating_add(inference_bytes(inference));
         }
-        let source_bytes_estimated = self
-            .files
-            .iter()
-            .map(|file| file.entry.revision.size)
-            .fold(0u64, u64::saturating_add);
-        let max_record_range_len = self
-            .records
-            .iter()
-            .map(|record| record.range.end.saturating_sub(record.range.start))
-            .max()
-            .unwrap_or(0);
+        let source_bytes_estimated = self.files.source_bytes();
+        let max_record_range_len = self.records.max_record_range_len();
         self.accounting = SegmentAccounting {
             retained_bytes_estimated: retained,
             source_bytes_estimated,
@@ -623,25 +578,32 @@ impl IndexedCollectionSegment {
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
-        let mut total = self.files.archive_bytes();
-        total = total.saturating_add(self.file_index.archive_bytes());
-        total = total.saturating_add(self.id_lookup.archive_bytes());
-        total = total.saturating_add(self.postings.archive_bytes());
-        total = total.saturating_add(
-            self.custom_postings
-                .values()
-                .map(|posting| posting.index.archive_bytes())
-                .sum::<usize>(),
-        );
-        if let Some(inference) = &self.inference {
-            total = total.saturating_add(
-                inference
-                    .indexes
-                    .values()
-                    .map(PostingIndex::archive_bytes)
-                    .sum::<usize>(),
-            );
+        let mut owners = std::collections::HashSet::new();
+        let mut total = 0usize;
+        total = total.saturating_add(self.files.archive_bytes());
+        owners.insert(self.files.archive_owner_id());
+        if owners.insert(self.file_index.archive_owner_id()) {
+            total = total.saturating_add(self.file_index.archive_bytes());
         }
+        if owners.insert(self.id_lookup.archive_owner_id()) {
+            total = total.saturating_add(self.id_lookup.archive_bytes());
+        }
+        let mut posting_lengths = std::collections::HashMap::new();
+        let mut record_posting = |owner: usize, length: usize| {
+            posting_lengths.insert(owner, length);
+        };
+        self.postings.for_each_archive_owner(&mut record_posting);
+        for posting in self.custom_postings.values() {
+            posting
+                .index
+                .for_each_archive_owner(&mut record_posting);
+        }
+        if let Some(inference) = &self.inference {
+            for posting in inference.indexes.values() {
+                posting.for_each_archive_owner(&mut record_posting);
+            }
+        }
+        total = total.saturating_add(posting_lengths.values().sum::<usize>());
         total
     }
 
@@ -686,33 +648,16 @@ fn posting_bytes(index: &crate::posting::PostingIndex) -> usize {
     total = total.saturating_add(bitmap_bytes(&index.empty_selections));
     total = total.saturating_add(bitmap_bytes(&index.nulls));
     if let Some(facts) = &index.structural {
-        total = total.saturating_add(facts.postings.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::StructuralKey>(),
-        ));
-        let _ = facts.postings.for_each(|_, bitmap| {
+        let _ = facts.postings.for_each_bitmap(|bitmap| {
             total = total.saturating_add(bitmap_bytes(bitmap));
             Ok(())
         });
     }
-    total =
-        total.saturating_add(index.values.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::ScalarKey>(),
-        ));
-    let _ = index.values.for_each(|key, bitmap| {
+    let _ = index.values.for_each_bitmap(|bitmap| {
         total = total.saturating_add(bitmap_bytes(bitmap));
-        if let crate::posting::ScalarKey::String(value) | crate::posting::ScalarKey::Id(value) = key
-        {
-            total = total.saturating_add(value.len());
-        }
         Ok(())
     });
-    total = total.saturating_add(
-        index
-            .lengths
-            .len()
-            .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<Number>()),
-    );
-    let _ = index.lengths.for_each(|_, bitmap| {
+    let _ = index.lengths.for_each_bitmap(|bitmap| {
         total = total.saturating_add(bitmap_bytes(bitmap));
         Ok(())
     });
@@ -773,7 +718,8 @@ fn inference_bytes(state: &InferenceState) -> usize {
     for (path, index) in &state.indexes {
         total = total
             .saturating_add(path_bytes(path))
-            .saturating_add(posting_bytes(index));
+            .saturating_add(posting_bytes(index))
+            .saturating_add(index.archive_bytes());
     }
     for (path, bitmap) in state
         .empty_selections

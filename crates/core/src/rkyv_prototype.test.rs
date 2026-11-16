@@ -1331,6 +1331,110 @@ fn rkyv_zero_record_and_malformed_files_keep_current_metadata_and_routes() {
 }
 
 #[test]
+fn rkyv_cache_free_build_keeps_native_row_caches_uninitialized() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-cache-free-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"cache free"}"#,
+    )
+    .unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(
+        counters.metadata_cache_initializations, 0,
+        "catalog={}, files={}, records={}",
+        counters.catalog_row_cache_initializations,
+        counters.file_row_cache_initializations,
+        counters.record_row_cache_initializations
+    );
+    for segment in index
+        .view()
+        .unwrap()
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+    {
+        assert!(!segment.index.files.cache_initialized());
+        assert!(!segment.index.records.cache_initialized());
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_inventory_releases_native_path_maps_after_adoption() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-inventory-paths-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"inventory paths"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    assert!(view.repository().files().native_lookup_maps_released());
+    assert_eq!(
+        view.repository()
+            .files()
+            .id_for(std::path::Path::new("data/a.json")),
+        view.file_handle_for_path(std::path::Path::new("data/a.json"))
+            .map(|handle| handle.file_id)
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_compatibility_row_caches_initialize_once_and_are_shared_by_clones() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-compat-cache-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"compatibility"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    let segment = view
+        .segments(crate::model::CollectionId(0))
+        .unwrap()[0]
+        .clone();
+    crate::storage_usage::StorageWorkCounters::reset();
+    assert!(segment.index.files.get(0).is_some());
+    assert!(segment.index.records.get(0).is_some());
+    assert!(segment.index.files.get(0).is_some());
+    assert!(segment.index.records.get(0).is_some());
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.file_row_cache_initializations, 1);
+    assert_eq!(counters.record_row_cache_initializations, 1);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
     for seed in [1u64, 7, 19, 41, 97] {
         let root = std::env::temp_dir().join(format!(

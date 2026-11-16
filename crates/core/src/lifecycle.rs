@@ -515,7 +515,7 @@ fn cheapest_consolidation_pair(
             let right_index = &group[right].index;
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
-                let file_id = left_index.files.get(file_number)?.entry.id;
+                let file_id = left_index.files.file_id(file_number)?;
                 if right_index.file_index.get(file_id).is_some() {
                     overlaps = true;
                     break;
@@ -523,7 +523,7 @@ fn cheapest_consolidation_pair(
             }
             if !overlaps {
                 for &slot in &left_index.identity_order {
-                    let id = left_index.record(slot)?.id.0.as_ref();
+                    let id = left_index.records.record_id(slot)?;
                     if right_index.id_lookup.get(id).is_some() {
                         overlaps = true;
                         break;
@@ -779,13 +779,18 @@ impl PublishedIndex {
     ) -> Result<Self, IndexError> {
         let active = std::mem::take(&mut repository.active);
         let segments = std::mem::take(&mut repository.segments);
-        Self::from_repository_parts(
+        let mut published = Self::from_repository_parts(
             instance_id,
             revision,
             Arc::new(repository),
             active,
             segments,
-        )
+        )?;
+        if let Some(repository) = Arc::get_mut(&mut published.repository) {
+            Arc::make_mut(&mut repository.files)
+                .adopt_published_paths(published.catalog.path_directory());
+        }
+        Ok(published)
     }
 
     pub(crate) fn from_repository(
@@ -962,12 +967,17 @@ impl PublishedIndex {
                 "segment source registration changed".into(),
             ));
         }
-        for file in &index.files {
-            if self.catalog.entry_owned(file.entry.id).is_none_or(|current| {
+        for ordinal in 0..index.file_count() {
+            let Some(file) = index.files.file_id(ordinal) else {
+                return Err(IndexError::InvalidPublication(
+                    "segment file row missing".into(),
+                ));
+            };
+            if self.catalog.entry_owned(file).is_none_or(|current| {
                 !current.collections.contains(&index.collection)
-                    || current.relative_path != file.entry.relative_path
-                    || current.revision != file.entry.revision
-                    || current.created_ns != file.entry.created_ns
+                    || !index.files.path_matches(ordinal, current.relative_path.as_path())
+                    || index.files.revision(ordinal) != Some(current.revision)
+                    || current.created_ns != index.files.created_ns(ordinal).flatten()
             }) {
                 return Err(IndexError::InvalidPublication(
                     "segment file is not active in its collection".into(),
@@ -1001,18 +1011,23 @@ impl PublishedIndex {
             });
         }
         if !self.catalog.construction_complete() {
-            for file in &index.files {
+            for ordinal in 0..index.file_count() {
+                let Some(file) = index.files.file_id(ordinal) else {
+                    return Err(IndexError::InvalidPublication(
+                        "segment file row missing".into(),
+                    ));
+                };
                 let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
                     IndexError::InvalidPublication("processed membership missing".into())
                 })?;
-                if Arc::make_mut(members).insert(file.entry.id.0) {
-                    let catalogue_entry = self.catalog.entry_owned(file.entry.id).ok_or_else(|| {
+                if Arc::make_mut(members).insert(file.0) {
+                    let catalogue_entry = self.catalog.entry_owned(file).ok_or_else(|| {
                         IndexError::InvalidPublication("processed file missing".into())
                     })?;
                     if catalogue_entry.collections.iter().all(|collection| {
                         self.processed_memberships
                             .get(collection.0 as usize)
-                            .is_some_and(|covered| covered.contains(file.entry.id.0))
+                            .is_some_and(|covered| covered.contains(file.0))
                     }) {
                         self.processed_files += 1;
                     }
@@ -1115,24 +1130,28 @@ impl PublishedIndex {
                     let live_files = segment
                         .index
                         .files
-                        .iter()
-                        .filter(|file| {
-                            file.records
-                                .iter()
-                                .any(|slot| segment.active.contains(*slot))
+                        .file_ids()
+                        .enumerate()
+                        .filter(|(ordinal, _)| {
+                            segment
+                                .index
+                                .files
+                                .archived_record_slots(*ordinal)
+                                .is_some_and(|mut slots| {
+                                    slots.any(|slot| segment.active.contains(slot))
+                                })
                         })
                         .count();
                     let existing_files = segment
                         .index
                         .files
-                        .iter()
-                        .map(|file| file.entry.id)
+                        .file_ids()
                         .collect::<std::collections::HashSet<_>>();
                     let new_files = incoming
                         .index
                         .files
-                        .iter()
-                        .filter(|file| !existing_files.contains(&file.entry.id))
+                        .file_ids()
+                        .filter(|file| !existing_files.contains(file))
                         .count();
                     policy
                         .can_grow(
@@ -1313,18 +1332,25 @@ impl PublishedIndex {
             for segment in group.drain(..) {
                 let mut current_file = false;
                 for file_number in 0..segment.index.file_count() {
-                    let file = segment
+                    let file = segment.index.files.file_id(file_number).ok_or_else(|| {
+                        IndexError::InvalidPublication("segment file row missing".into())
+                    })?;
+                    let revision = segment.index.files.revision(file_number).ok_or_else(|| {
+                        IndexError::InvalidPublication("segment file revision missing".into())
+                    })?;
+                    let created_ns = segment
                         .index
                         .files
-                        .get(file_number)
-                        .map(|file| &file.entry)
+                        .created_ns(file_number)
                         .ok_or_else(|| {
-                            IndexError::InvalidPublication("segment file row missing".into())
+                            IndexError::InvalidPublication(
+                                "segment file creation time missing".into(),
+                            )
                         })?;
                     if self.catalog.matches_revision(
-                        file.id,
-                        file.revision,
-                        file.created_ns,
+                        file,
+                        revision,
+                        created_ns,
                         segment.index.collection,
                     ) {
                         current_file = true;
@@ -2012,27 +2038,25 @@ fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: IndexedCollectionSegment,
 ) -> Result<(), IndexError> {
-    for file in &segment.files {
-        if file.entry.status == FileStatus::Valid
-            && file.entry.diagnostics.is_empty()
-            && file.entry.omitted_diagnostics == 0
+    for ordinal in 0..segment.file_count() {
+        let file_id = segment.files.file_id(ordinal).ok_or_else(|| {
+            IndexError::InvalidPublication("segment file row missing".into())
+        })?;
+        let current = next
+            .catalog
+            .entry_owned(file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        let mut merged = current.clone();
+        segment
+            .files
+            .merge_file_diagnostics(ordinal, &mut merged)
+            .map_err(IndexError::InvalidPublication)?;
+        if merged.status == current.status
+            && merged.diagnostics.len() == current.diagnostics.len()
+            && merged.omitted_diagnostics == current.omitted_diagnostics
         {
             continue;
         }
-        let mut merged = next
-            .catalog
-            .entry_owned(file.entry.id)
-            .ok_or(IndexError::UnknownFile)?
-            ;
-        merged.status = merged.status.max(file.entry.status);
-        for diagnostic in &file.entry.diagnostics {
-            merged
-                .record_diagnostic(diagnostic.clone())
-                .map_err(IndexError::InvalidPublication)?;
-        }
-        merged.omitted_diagnostics = merged
-            .omitted_diagnostics
-            .saturating_add(file.entry.omitted_diagnostics);
         next.catalog = next
             .catalog
             .replaced(merged, None, None)
@@ -2161,12 +2185,22 @@ impl Index {
         }
         for group in &mut next.segments {
             for published in Arc::make_mut(group).iter_mut() {
-                let needs_status_refresh = published.index.files.iter().any(|file| {
+                let needs_status_refresh = (0..published.index.file_count()).any(|ordinal| {
+                    let Some(file) = published.index.files.file_id(ordinal) else {
+                        return true;
+                    };
                     repository
                         .files
                         .files
-                        .get(file.entry.id.0 as usize)
-                        .is_some_and(|current| current.status != file.entry.status)
+                        .get(file.0 as usize)
+                        .is_none_or(|current| {
+                            current.status.code()
+                                != published
+                                    .index
+                                    .files
+                                    .status_code(ordinal)
+                                    .unwrap_or(u8::MAX)
+                        })
                 });
                 let decision = repository
                     .collections

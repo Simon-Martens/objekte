@@ -4,6 +4,7 @@
 //! workload execution live in the CLI integration layer.
 
 mod archive_storage;
+mod archived_path;
 pub mod bigram;
 mod build;
 mod byte_size_literal;

@@ -17,6 +17,11 @@ use rkyv::{Archive, Archived, Portable, Serialize, access};
 
 use crate::storage_usage::StorageWorkCounters;
 
+// Fixed experiment policy from the repair specification. The pinned aligned
+// vector supports shrinking before validation, but production shrinking stays
+// disabled unless matched release measurements justify the copy.
+const SHRINK_OVERALLOCATED_ARCHIVES: bool = false;
+
 #[cfg(test)]
 thread_local! {
     static FAIL_NEXT_FREEZE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
@@ -85,8 +90,14 @@ where
         if FAIL_NEXT_FREEZE.with(|fail| fail.replace(false)) {
             return Err("injected archive-finalization failure".into());
         }
-        let bytes = rkyv::to_bytes::<Error>(value)
+        let mut bytes = rkyv::to_bytes::<Error>(value)
             .map_err(|error| format!("archive serialization failed: {error}"))?;
+        if SHRINK_OVERALLOCATED_ARCHIVES
+            && bytes.len() >= 64 * 1024
+            && bytes.capacity().saturating_mul(4) >= bytes.len().saturating_mul(5)
+        {
+            bytes.shrink_to_fit();
+        }
         let _validated = access::<Archived<T>, Error>(&bytes)
             .map_err(|error| format!("archive validation failed: {error}"))?;
         let owner = Arc::new(Self {

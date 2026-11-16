@@ -1109,7 +1109,7 @@ fn segment_metadata_generation(
     for segment in segments {
         let base = u32::try_from(record_count).map_err(|_| "too many segment records")?;
         let segment_count =
-            u32::try_from(segment.index.records.len()).map_err(|_| "too many segment records")?;
+            u32::try_from(segment.index.record_count()).map_err(|_| "too many segment records")?;
         if relations.len() != segment.index.relations.len() {
             return Err("segment relation coverage mismatch".into());
         }
@@ -1131,12 +1131,17 @@ fn segment_metadata_generation(
                     .ok_or("empty-array record slot overflow")?,
             );
         }
-        for segment_file in &segment.index.files {
-            if file_set.insert(segment_file.entry.id) {
-                builder.include_file(segment_file.entry.id)?;
+        for file in segment.index.files.file_ids() {
+            if file_set.insert(file) {
+                builder.include_file(file)?;
             }
         }
-        for record in &segment.index.records {
+        for slot in 0..segment.index.record_count() {
+            let record = segment
+                .index
+                .records
+                .record_owned(slot)
+                .ok_or("segment record row missing")?;
             let file = files
                 .files
                 .get_mut(record.file.0 as usize)
@@ -1157,9 +1162,10 @@ fn segment_metadata_generation(
                     )
                 })?;
             } else {
-                let segment_file = segment
+                let file_row = segment
                     .index
-                    .file(record.file)
+                    .file_index
+                    .get(record.file)
                     .ok_or("fallback segment file missing")?;
                 let Some(local) = record.diagnostic_ref.stored_index() else {
                     builder.add_raw_fallback(
@@ -1171,12 +1177,12 @@ fn segment_metadata_generation(
                     record_count += 1;
                     continue;
                 };
-                let diagnostic = segment_file
-                    .entry
-                    .diagnostics
-                    .get(local)
+                let diagnostic = segment
+                    .index
+                    .files
+                    .diagnostic(file_row, local)
                     .ok_or("fallback diagnostic missing")?
-                    .clone();
+                    ;
                 let existing = file.diagnostics.iter().position(|candidate| {
                     let mut candidate = candidate.clone();
                     candidate.record = None;
@@ -1950,7 +1956,7 @@ impl Repository {
         let mut final_files = (*discovered).clone();
         let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
         for file in &mut final_files.files {
-            if let Some(current) = segment_view.file_entry(file.id) {
+            if let Some(current) = segment_view.file_entry_owned(file.id) {
                 file.status = current.status;
                 file.omitted_diagnostics = current.omitted_diagnostics;
                 for diagnostic in &current.diagnostics {

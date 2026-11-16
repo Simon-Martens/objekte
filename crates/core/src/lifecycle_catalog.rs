@@ -16,6 +16,7 @@ use rkyv::{Archive, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 
 use crate::archive_storage::ValidatedArchive;
+use crate::archived_path::StoredPath;
 use crate::inventory::{
     ByteRange, FileEntry, FileStatus, FileVersion, FileVersions, SharedPath, SourceDiagnostic,
     SourceRevision,
@@ -70,82 +71,6 @@ fn category_from_code(code: u8) -> Option<DiagnosticCategory> {
         5 => DiagnosticCategory::Io,
         _ => return None,
     })
-}
-
-#[derive(Archive, ArchiveSerialize)]
-struct StoredCatalogPath {
-    query: String,
-    #[cfg(unix)]
-    native: Vec<u8>,
-    #[cfg(windows)]
-    native: Vec<u16>,
-}
-
-impl StoredCatalogPath {
-    fn from_path(path: &SharedPath) -> Self {
-        #[cfg(unix)]
-        {
-            use std::os::unix::ffi::OsStrExt;
-            Self {
-                query: path.query_key().to_string(),
-                native: path.as_path().as_os_str().as_bytes().to_vec(),
-            }
-        }
-        #[cfg(windows)]
-        {
-            use std::os::windows::ffi::OsStrExt;
-            Self {
-                query: path.query_key().to_string(),
-                native: path.as_path().as_os_str().encode_wide().collect(),
-            }
-        }
-    }
-
-    fn to_path(&self) -> Result<SharedPath, String> {
-        #[cfg(unix)]
-        {
-            use std::ffi::OsString;
-            use std::os::unix::ffi::OsStringExt;
-            let path = PathBuf::from(OsString::from_vec(self.native.clone()));
-            let shared = SharedPath::from(path);
-            if shared.query_key().as_ref() != self.query {
-                return Err("archived catalog path does not round-trip losslessly".into());
-            }
-            Ok(shared)
-        }
-        #[cfg(windows)]
-        {
-            use std::ffi::OsString;
-            use std::os::windows::ffi::OsStringExt;
-            let path = PathBuf::from(OsString::from_wide(&self.native));
-            let shared = SharedPath::from(path);
-            if shared.query_key().as_ref() != self.query {
-                return Err("archived catalog path does not round-trip losslessly".into());
-            }
-            Ok(shared)
-        }
-    }
-
-    fn from_archived(path: &rkyv::Archived<Self>) -> Self {
-        #[cfg(unix)]
-        {
-            Self {
-                query: path.query.as_str().into(),
-                native: path.native.as_slice().to_vec(),
-            }
-        }
-        #[cfg(windows)]
-        {
-            Self {
-                query: path.query.as_str().into(),
-                native: path
-                    .native
-                    .iter()
-                    .map(|unit| unit.to_native())
-                    .collect(),
-            }
-        }
-    }
 }
 
 #[derive(Archive, ArchiveSerialize)]
@@ -249,7 +174,7 @@ impl StoredCatalogDiagnostic {
 #[derive(Archive, ArchiveSerialize)]
 struct StoredFileRow {
     id: u32,
-    path: StoredCatalogPath,
+    path: StoredPath,
     modified_ns: i128,
     size: u64,
     created_ns: Option<i128>,
@@ -269,7 +194,7 @@ impl StoredFileRow {
     ) -> Self {
         Self {
             id: entry.id.0,
-            path: StoredCatalogPath::from_path(&entry.relative_path),
+            path: StoredPath::from_shared(&entry.relative_path),
             modified_ns: entry.revision.modified_ns,
             size: entry.revision.size,
             created_ns: entry.created_ns,
@@ -299,7 +224,7 @@ impl StoredFileRow {
         };
         let entry = FileEntry {
             id: FileId(self.id),
-            relative_path: self.path.to_path()?,
+            relative_path: self.path.to_shared()?,
             revision: SourceRevision {
                 modified_ns: self.modified_ns,
                 size: self.size,
@@ -326,7 +251,7 @@ impl StoredFileRow {
     fn from_archived(row: &rkyv::Archived<Self>) -> Self {
         Self {
             id: row.id.to_native(),
-            path: StoredCatalogPath::from_archived(&row.path),
+            path: StoredPath::from_archived(&row.path),
             modified_ns: row.modified_ns.to_native(),
             size: row.size.to_native(),
             created_ns: row.created_ns.as_ref().map(|value| value.to_native()),
@@ -373,6 +298,69 @@ struct CatalogPathArchive {
 
 struct CatalogPathShard {
     archive: Arc<ValidatedArchive<CatalogPathArchive>>,
+}
+
+#[derive(Clone)]
+pub(crate) struct PathDirectory {
+    shards: Arc<Vec<Arc<CatalogPathShard>>>,
+}
+
+impl std::fmt::Debug for PathDirectory {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("PathDirectory")
+            .field("shards", &self.shards.len())
+            .finish()
+    }
+}
+
+impl PathDirectory {
+    pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
+        let query = crate::path_repr::query_path(path);
+        self.shards[shard(&query)]
+            .archive
+            .root()
+            .exact
+            .get::<str>(query.as_str())
+            .copied()
+            .map(|id| FileId(id.to_native()))
+    }
+
+    pub(crate) fn ids_in_bounds_up_to(
+        &self,
+        bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        if empty_path_bounds(&bounds) {
+            return Some(Vec::new());
+        }
+        let bounds = string_bounds(&bounds);
+        let mut rows = Vec::new();
+        let mut scanned = 0usize;
+        for path_shard in self.shards.iter() {
+            for (query, id) in path_shard
+                .archive
+                .root()
+                .ordered
+                .range_with(bounds.clone(), |query, archived| {
+                    query.as_str().cmp(archived.as_str())
+                })
+            {
+                if scanned == limit {
+                    return None;
+                }
+                scanned += 1;
+                rows.push((query.as_str(), FileId(id.to_native())));
+            }
+        }
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.path_entries_examined = counters
+                .path_entries_examined
+                .saturating_add(scanned as u64);
+        });
+        rows.sort_by(|left, right| left.0.cmp(right.0).then_with(|| left.1.cmp(&right.1)));
+        Some(rows.into_iter().map(|(_, id)| id).collect())
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -606,6 +594,9 @@ impl CatalogMetadataShard {
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.metadata_cache_initializations =
                     counters.metadata_cache_initializations.saturating_add(1);
+                counters.catalog_row_cache_initializations = counters
+                    .catalog_row_cache_initializations
+                    .saturating_add(1);
             });
             self.archive
                 .root()
@@ -613,7 +604,8 @@ impl CatalogMetadataShard {
                 .iter()
                 .map(|row| {
                     let id = row.id.to_native();
-                    let path = archived_path_to_shared(&row.path).expect("validated archived path");
+                    let path = crate::archived_path::to_shared(&row.path)
+                        .expect("validated archived path");
                     let status = match row.status {
                         0 => FileStatus::Valid,
                         1 => FileStatus::Broken,
@@ -975,7 +967,7 @@ impl FileCatalog {
             .metadata
             .get(file_shard_number(id))?
             .archived_row(id)?;
-        archived_path_matches(&row.path, path).then_some(id)
+        crate::archived_path::matches_native(&row.path, path).then_some(id)
     }
 
     #[cfg(test)]
@@ -1011,35 +1003,13 @@ impl FileCatalog {
         bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
         limit: usize,
     ) -> Option<Vec<FileId>> {
-        if empty_path_bounds(&bounds) {
-            return Some(Vec::new());
+        self.path_directory().ids_in_bounds_up_to(bounds, limit)
+    }
+
+    pub(crate) fn path_directory(&self) -> PathDirectory {
+        PathDirectory {
+            shards: Arc::clone(&self.paths),
         }
-        let bounds = string_bounds(&bounds);
-        let mut rows = Vec::new();
-        let mut scanned = 0usize;
-        for path_shard in self.paths.iter() {
-            for (query, id) in path_shard
-                .archive
-                .root()
-                .ordered
-                .range_with(bounds.clone(), |query, archived| {
-                    query.as_str().cmp(archived.as_str())
-                })
-            {
-                if scanned == limit {
-                    return None;
-                }
-                scanned += 1;
-                rows.push((query.as_str(), FileId(id.to_native())));
-            }
-        }
-        crate::storage_usage::StorageWorkCounters::update(|counters| {
-            counters.path_entries_examined = counters
-                .path_entries_examined
-                .saturating_add(scanned as u64);
-        });
-        rows.sort_by(|left, right| left.0.cmp(right.0).then_with(|| left.1.cmp(&right.1)));
-        Some(rows.into_iter().map(|(_, id)| id).collect())
     }
 
     #[cfg(test)]
@@ -1447,47 +1417,6 @@ impl FileCatalog {
                 )
             })
             .sum()
-    }
-}
-
-fn archived_path_matches(path: &rkyv::Archived<StoredCatalogPath>, native: &Path) -> bool {
-    #[cfg(unix)]
-    {
-        use std::os::unix::ffi::OsStrExt;
-        path.native.as_slice() == native.as_os_str().as_bytes()
-    }
-    #[cfg(windows)]
-    {
-        use std::os::windows::ffi::OsStrExt;
-        path.native.iter().copied().eq(native.as_os_str().encode_wide())
-    }
-}
-
-fn archived_path_to_shared(
-    path: &rkyv::Archived<StoredCatalogPath>,
-) -> Result<SharedPath, String> {
-    #[cfg(unix)]
-    {
-        use std::ffi::OsString;
-        use std::os::unix::ffi::OsStringExt;
-        let shared = SharedPath::from(PathBuf::from(OsString::from_vec(
-            path.native.as_slice().to_vec(),
-        )));
-        if shared.query_key().as_ref() != path.query.as_str() {
-            return Err("archived catalog path does not round-trip losslessly".into());
-        }
-        Ok(shared)
-    }
-    #[cfg(windows)]
-    {
-        use std::ffi::OsString;
-        use std::os::windows::ffi::OsStringExt;
-        let native = path.native.iter().map(|unit| unit.to_native()).collect::<Vec<_>>();
-        let shared = SharedPath::from(PathBuf::from(OsString::from_wide(&native)));
-        if shared.query_key().as_ref() != path.query.as_str() {
-            return Err("archived catalog path does not round-trip losslessly".into());
-        }
-        Ok(shared)
     }
 }
 
