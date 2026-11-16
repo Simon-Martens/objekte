@@ -24,6 +24,20 @@ fn all_query() -> Query {
     }
 }
 
+fn write_large_jsonl(root: &std::path::Path, label: &str) -> usize {
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = String::new();
+    let mut records = 0usize;
+    while source.len() <= 9 * 1024 * 1024 {
+        source.push_str(&format!(
+            "{{\"id\":\"r{records:06}\",\"text\":\"{label} {records}\"}}\n"
+        ));
+        records += 1;
+    }
+    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    records
+}
+
 #[test]
 fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
     let root = std::env::temp_dir().join(format!(
@@ -34,16 +48,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
             .unwrap()
             .as_nanos()
     ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut source = String::new();
-    let mut records = 0usize;
-    while source.len() <= 9 * 1024 * 1024 {
-        source.push_str(&format!(
-            "{{\"id\":\"r{records:06}\",\"text\":\"large framed record {records}\"}}\n"
-        ));
-        records += 1;
-    }
-    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    let records = write_large_jsonl(&root, "large framed record");
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     let task = Index::start_incremental_build(
         &root,
@@ -73,6 +78,266 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn large_file_finalizes_private_segments_before_eof() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-private-segment-before-eof-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let records = write_large_jsonl(&root, "private segment");
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+    let thread_gate = std::sync::Arc::clone(&gate);
+    let worker_root = root.clone();
+    let worker = std::thread::spawn(move || {
+        Repository::build_incremental_with_sources_gated(
+            worker_root,
+            vec![definition],
+            RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(1),
+                segment_policy: crate::native_segment::SegmentPolicy {
+                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                },
+                ..Default::default()
+            },
+            SourceRegistry::builtin(),
+            |index| {
+                catalogue_tx.send(index.clone()).unwrap();
+                Ok(())
+            },
+            |_| Ok(()),
+            || false,
+            thread_gate,
+        )
+    });
+    let catalogue = catalogue_rx.recv().unwrap();
+    gate.wait_for_workers(1);
+    let before_release = catalogue.view().unwrap();
+    assert!(
+        before_release
+            .segments(crate::model::CollectionId(0))
+            .unwrap()
+            .is_empty()
+    );
+    gate.release();
+    let index = worker.join().unwrap().unwrap();
+    let view = index.view().unwrap();
+    let result = view.search(&all_query()).unwrap();
+    assert_eq!(result.count, Some(records));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-private-segment-window-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let records = write_large_jsonl(&root, "bounded private segment");
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    for workers in [1usize, 3] {
+        let publications = std::sync::Arc::new(AtomicUsize::new(0));
+        let callback_publications = std::sync::Arc::clone(&publications);
+        let index = Repository::build_incremental_with_sources(
+            root.clone(),
+            vec![definition.clone()],
+            RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(workers),
+                segment_policy: crate::native_segment::SegmentPolicy {
+                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                },
+                ..Default::default()
+            },
+            SourceRegistry::builtin(),
+            |_| Ok(()),
+            move |_| {
+                callback_publications.fetch_add(1, Ordering::Relaxed);
+                Ok(())
+            },
+            || false,
+        )
+        .unwrap();
+        let repo = index.into_repository().unwrap();
+        let window = workers.saturating_mul(2);
+        assert!(records > window + 3);
+        assert_eq!(repo.collections()[0].generation.records.len(), records);
+        assert_eq!(publications.load(Ordering::Relaxed), 1);
+        assert!(repo.startup().build_peak_segment_jobs <= workers);
+        assert!(repo.startup().build_peak_segment_window <= window);
+        assert!(repo.startup().build_peak_segment_window >= 1);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn late_private_invalidation_and_worker_failure_publish_nothing() {
+    for collection_name in [
+        "__test_invalidate_after_private_finalization__",
+        "__test_private_segment_failure__",
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-private-segment-failure-{}-{collection_name}",
+            std::process::id()
+        ));
+        let _ = std::fs::remove_dir_all(&root);
+        write_large_jsonl(&root, "private failure");
+        let definition =
+            CollectionDefinition::folder(collection_name, "data", SourceFormat::JsonLines);
+        let (catalogue_tx, catalogue_rx) = mpsc::channel();
+        let result = Repository::build_incremental_with_sources(
+            root.clone(),
+            vec![definition],
+            RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(2),
+                segment_policy: crate::native_segment::SegmentPolicy {
+                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                },
+                inference: InferenceConfig {
+                    mode: InferenceMode::AutoIndex,
+                    ..Default::default()
+                },
+                ..Default::default()
+            },
+            SourceRegistry::builtin(),
+            |index| {
+                catalogue_tx.send(index.clone()).unwrap();
+                Ok(())
+            },
+            |_| panic!("failed private group must not publish"),
+            || false,
+        );
+        let error = result
+            .err()
+            .expect("failed private group returned an index");
+        let error = format!("{error:?}");
+        if collection_name == "__test_invalidate_after_private_finalization__" {
+            assert!(error.contains("injected late"), "{error}");
+        } else {
+            assert!(
+                error.contains("injected private segment finalization failure"),
+                "{error}"
+            );
+        }
+        let catalogue = catalogue_rx.recv().unwrap();
+        let report = catalogue
+            .view()
+            .unwrap()
+            .inference_report(collection_name)
+            .cloned();
+        assert!(
+            report.as_ref().is_none_or(|report| {
+                report.eligible_records == 0
+                    && report.observed_paths == 0
+                    && report.admitted_paths == 0
+                    && report.fields.is_empty()
+            }),
+            "{report:?}"
+        );
+        assert!(
+            catalogue
+                .view()
+                .unwrap()
+                .segments(crate::model::CollectionId(0))
+                .unwrap()
+                .is_empty(),
+            "{collection_name}"
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn private_work_cancels_while_outstanding_and_after_validation() {
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    for after_validation in [false, true] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-private-segment-cancel-{}-{after_validation}",
+            std::process::id()
+        ));
+        let _ = std::fs::remove_dir_all(&root);
+        write_large_jsonl(&root, "private cancellation");
+        let collection_name = if after_validation {
+            "__test_cancel_after_validation__"
+        } else {
+            "__test_cancel_while_outstanding__"
+        };
+        let definition =
+            CollectionDefinition::folder(collection_name, "data", SourceFormat::JsonLines);
+        let cancelled = std::sync::Arc::new(AtomicBool::new(false));
+        let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+        let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+        let worker = std::thread::spawn({
+            let root = root.clone();
+            let cancelled = std::sync::Arc::clone(&cancelled);
+            let gate = std::sync::Arc::clone(&gate);
+            move || {
+                Repository::build_incremental_with_sources_gated(
+                    root,
+                    vec![definition],
+                    RepositoryOptions {
+                        build_workers: std::num::NonZeroUsize::new(1),
+                        segment_policy: crate::native_segment::SegmentPolicy {
+                            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                        },
+                        ..Default::default()
+                    },
+                    SourceRegistry::builtin(),
+                    |index| {
+                        catalogue_tx.send(index.clone()).unwrap();
+                        Ok(())
+                    },
+                    |_| panic!("cancelled private group must not publish"),
+                    || cancelled.load(Ordering::Relaxed),
+                    gate,
+                )
+            }
+        });
+        let catalogue = catalogue_rx.recv().unwrap();
+        gate.wait_for_workers(1);
+        gate.release();
+        if after_validation {
+            gate.wait_for_post_validation();
+        } else {
+            gate.wait_for_post_submission();
+        }
+        cancelled.store(true, Ordering::Relaxed);
+        if after_validation {
+            gate.release_after_validation();
+        } else {
+            gate.release_after_submission();
+        }
+        let result = worker.join().unwrap();
+        let error = result.err().expect("cancelled build returned an index");
+        assert!(matches!(error, IndexError::Cancelled), "{error:?}");
+        assert!(
+            catalogue
+                .view()
+                .unwrap()
+                .segments(crate::model::CollectionId(0))
+                .unwrap()
+                .is_empty()
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
 }
 
 #[test]

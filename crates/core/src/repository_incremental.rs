@@ -13,24 +13,34 @@ use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::FileId;
 
 pub(crate) struct SegmentJobGate {
-    state: std::sync::Mutex<(usize, bool)>,
+    state: std::sync::Mutex<SegmentJobGateState>,
     changed: std::sync::Condvar,
+}
+
+#[derive(Default)]
+struct SegmentJobGateState {
+    workers: usize,
+    release_workers: bool,
+    post_submission: usize,
+    release_post_submission: bool,
+    post_validation: usize,
+    release_post_validation: bool,
 }
 
 #[allow(dead_code)]
 impl SegmentJobGate {
     pub(crate) fn new() -> Self {
         Self {
-            state: std::sync::Mutex::new((0, false)),
+            state: std::sync::Mutex::new(SegmentJobGateState::default()),
             changed: std::sync::Condvar::new(),
         }
     }
 
     fn wait(&self) {
         let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.0 += 1;
+        state.workers += 1;
         self.changed.notify_all();
-        while !state.1 {
+        while !state.release_workers {
             state = self
                 .changed
                 .wait(state)
@@ -40,7 +50,7 @@ impl SegmentJobGate {
 
     pub(crate) fn wait_for_workers(&self, count: usize) {
         let mut state = self.state.lock().expect("segment gate lock poisoned");
-        while state.0 < count {
+        while state.workers < count {
             state = self
                 .changed
                 .wait(state)
@@ -50,7 +60,63 @@ impl SegmentJobGate {
 
     pub(crate) fn release(&self) {
         let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.1 = true;
+        state.release_workers = true;
+        self.changed.notify_all();
+    }
+
+    fn wait_after_validation(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.post_validation += 1;
+        self.changed.notify_all();
+        while !state.release_post_validation {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    fn wait_after_submission(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.post_submission += 1;
+        self.changed.notify_all();
+        while !state.release_post_submission {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn wait_for_post_submission(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        while state.post_submission == 0 {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn release_after_submission(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.release_post_submission = true;
+        self.changed.notify_all();
+    }
+
+    pub(crate) fn wait_for_post_validation(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        while state.post_validation == 0 {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn release_after_validation(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.release_post_validation = true;
         self.changed.notify_all();
     }
 }
@@ -203,9 +269,16 @@ struct IndexedSegmentBuild {
     build_ns: u64,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum SegmentBuildDestination {
+    Normal,
+    Private,
+}
+
 struct SegmentBuildMessage {
     collection_index: usize,
     segment_id: u64,
+    destination: SegmentBuildDestination,
     result: Result<IndexedSegmentBuild, String>,
 }
 
@@ -213,6 +286,7 @@ struct SegmentBuildScheduler {
     sender: std::sync::mpsc::Sender<SegmentBuildMessage>,
     receiver: std::sync::mpsc::Receiver<SegmentBuildMessage>,
     buffered: std::collections::BTreeMap<(usize, u64), Result<IndexedSegmentBuild, String>>,
+    private_buffered: std::collections::BTreeMap<u64, (usize, Result<IndexedSegmentBuild, String>)>,
     planned_ids: Vec<Vec<u64>>,
     next_publish: Vec<usize>,
     next_plan_id: u64,
@@ -231,6 +305,7 @@ impl SegmentBuildScheduler {
             sender,
             receiver,
             buffered: std::collections::BTreeMap::new(),
+            private_buffered: std::collections::BTreeMap::new(),
             planned_ids: vec![Vec::new(); collections],
             next_publish: vec![0; collections],
             next_plan_id: 1,
@@ -251,6 +326,7 @@ impl SegmentBuildScheduler {
         options: RepositoryOptions,
         collection_count: usize,
         pool: &Arc<rayon::ThreadPool>,
+        destination: SegmentBuildDestination,
     ) -> Result<(), String> {
         let planned = self
             .planned_ids
@@ -293,20 +369,26 @@ impl SegmentBuildScheduler {
                     .sum(),
                 ..Default::default()
             });
-            let result = segment
-                .into_indexed_profiled(
-                    &definition,
-                    options.bigram_alphabet,
-                    options.inference,
-                    collection_count,
-                    &worker_pool,
-                    profile.as_mut(),
-                )
-                .map(|index| IndexedSegmentBuild {
-                    index,
-                    profile,
-                    build_ns: phase.elapsed().as_nanos() as u64,
-                });
+            let result = if let Some(error) =
+                injected_private_finalization_failure(destination, &definition.name)
+            {
+                Err(error)
+            } else {
+                segment
+                    .into_indexed_profiled(
+                        &definition,
+                        options.bigram_alphabet,
+                        options.inference,
+                        collection_count,
+                        &worker_pool,
+                        profile.as_mut(),
+                    )
+                    .map(|index| IndexedSegmentBuild {
+                        index,
+                        profile,
+                        build_ns: phase.elapsed().as_nanos() as u64,
+                    })
+            };
             debug_assert!(match result.as_ref() {
                 Ok(built) => built.index.collection == collection,
                 Err(_) => true,
@@ -315,31 +397,11 @@ impl SegmentBuildScheduler {
             let _ = sender.send(SegmentBuildMessage {
                 collection_index,
                 segment_id,
+                destination,
                 result,
             });
         });
         Ok(())
-    }
-
-    fn allocate_plan_ids(
-        &mut self,
-        collection_index: usize,
-        count: usize,
-    ) -> Result<Vec<u64>, String> {
-        let planned = self
-            .planned_ids
-            .get_mut(collection_index)
-            .ok_or("segment collection out of bounds")?;
-        let mut ids = Vec::with_capacity(count);
-        for _ in 0..count {
-            ids.push(self.next_plan_id);
-            self.next_plan_id = self
-                .next_plan_id
-                .checked_add(1)
-                .ok_or("segment plan overflow")?;
-            planned.push(ids[ids.len() - 1]);
-        }
-        Ok(ids)
     }
 
     fn mark_plan_published(
@@ -369,10 +431,20 @@ impl SegmentBuildScheduler {
                 }
             }
         };
-        self.buffered.insert(
-            (message.collection_index, message.segment_id),
-            message.result,
-        );
+        match message.destination {
+            SegmentBuildDestination::Normal => {
+                self.buffered.insert(
+                    (message.collection_index, message.segment_id),
+                    message.result,
+                );
+            }
+            SegmentBuildDestination::Private => {
+                self.private_buffered.insert(
+                    message.segment_id,
+                    (message.collection_index, message.result),
+                );
+            }
+        }
         Ok(true)
     }
 
@@ -444,6 +516,109 @@ impl SegmentBuildScheduler {
     }
 }
 
+fn injected_private_finalization_failure(
+    _destination: SegmentBuildDestination,
+    _collection_name: &str,
+) -> Option<String> {
+    #[cfg(test)]
+    if _destination == SegmentBuildDestination::Private
+        && _collection_name == "__test_private_segment_failure__"
+    {
+        return Some("injected private segment finalization failure".into());
+    }
+    None
+}
+
+struct PrivateSegmentGroup {
+    collection_index: usize,
+    indexed: std::collections::BTreeMap<u64, IndexedSegmentBuild>,
+}
+
+impl PrivateSegmentGroup {
+    fn new(collection_index: usize) -> Self {
+        Self {
+            collection_index,
+            indexed: std::collections::BTreeMap::new(),
+        }
+    }
+
+    fn consume_ready(
+        &mut self,
+        scheduler: &mut SegmentBuildScheduler,
+        block: bool,
+    ) -> Result<bool, String> {
+        if scheduler.outstanding == 0 {
+            return Ok(false);
+        }
+        if scheduler.private_buffered.is_empty() {
+            if !block {
+                return Ok(false);
+            }
+            scheduler.receive(true)?;
+        }
+        let completed = std::mem::take(&mut scheduler.private_buffered);
+        let mut first_error = None;
+        for (segment_id, (collection_index, result)) in completed {
+            scheduler.outstanding = scheduler.outstanding.saturating_sub(1);
+            if collection_index != self.collection_index {
+                first_error
+                    .get_or_insert_with(|| "private segment completion changed collection".into());
+                continue;
+            }
+            let built = match result {
+                Ok(built) => built,
+                Err(error) => {
+                    first_error.get_or_insert(error);
+                    continue;
+                }
+            };
+            if built.index.id.get() != segment_id {
+                first_error
+                    .get_or_insert_with(|| "private segment completion identity mismatch".into());
+                continue;
+            }
+            if self.indexed.insert(segment_id, built).is_some() {
+                first_error.get_or_insert_with(|| "duplicate private segment completion".into());
+            }
+        }
+        first_error.map_or(Ok(true), Err)
+    }
+
+    fn drain(&mut self, scheduler: &mut SegmentBuildScheduler) -> Result<(), String> {
+        while scheduler.outstanding != 0 {
+            self.consume_ready(scheduler, true)?;
+        }
+        Ok(())
+    }
+
+    fn discard(mut self, scheduler: &mut SegmentBuildScheduler) -> Result<(), String> {
+        let mut first_error = None;
+        while scheduler.outstanding != 0 {
+            if scheduler.private_buffered.is_empty() {
+                scheduler.receive(true)?;
+            }
+            let completed = std::mem::take(&mut scheduler.private_buffered);
+            for (_, (collection_index, result)) in completed {
+                scheduler.outstanding = scheduler.outstanding.saturating_sub(1);
+                if collection_index != self.collection_index && first_error.is_none() {
+                    first_error = Some("private segment completion changed collection".to_owned());
+                }
+                if let Err(error) = result
+                    && first_error.is_none()
+                {
+                    first_error = Some(error);
+                }
+            }
+        }
+        self.indexed.clear();
+        first_error.map_or(Ok(()), Err)
+    }
+
+    fn into_ordered(self) -> Vec<IndexedSegmentBuild> {
+        self.indexed.into_values().collect()
+    }
+}
+
 fn publish_indexed_segment(
     index: &Index,
     expected: &mut IndexRevision,
@@ -497,70 +672,47 @@ fn publish_private_segment_group(
     scheduler: &mut SegmentBuildScheduler,
     index: &Index,
     expected: &mut IndexRevision,
-    private_segments: Vec<crate::build::CollectionSegment>,
+    mut private_group: PrivateSegmentGroup,
     collection_index: usize,
     pending: &[IncrementalCollection],
-    options: RepositoryOptions,
-    pool: &Arc<rayon::ThreadPool>,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
     publication_ns: &mut u64,
     profile: &mut Option<BuildProfileStats>,
     cancelled: &impl Fn() -> bool,
 ) -> Result<(), IndexError> {
-    if private_segments.is_empty() {
+    private_group.drain(scheduler).map_err(IndexError::Build)?;
+    let mut builds = private_group.into_ordered();
+    let total = builds.len();
+    if total == 0 {
+        scheduler.mark_plan_published(collection_index, 0)?;
         return Ok(());
     }
-    let total = private_segments.len();
-    scheduler.drain(
-        index,
-        expected,
-        pending,
-        on_publication,
-        publication_ns,
-        profile,
-    )?;
-    let collection = pending
+    let _ = pending
         .get(collection_index)
         .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
-    let ids = scheduler
-        .allocate_plan_ids(collection_index, total)
-        .map_err(IndexError::Build)?;
-    let mut jobs = private_segments
-        .into_iter()
-        .zip(ids)
-        .collect::<std::collections::VecDeque<_>>();
-    let mut indexed = Vec::with_capacity(jobs.len());
-    let collection_count = scheduler.next_publish.len();
-    while !jobs.is_empty() {
-        if cancelled() {
-            return Err(IndexError::Cancelled);
-        }
-        let count = scheduler.limit.min(jobs.len());
-        let chunk = jobs.drain(..count).collect::<Vec<_>>();
-        let built = pool.install(|| {
-            use rayon::prelude::*;
-            chunk
-                .into_par_iter()
-                .map(|(mut segment, id)| {
-                    segment.id = SegmentId::new(id);
-                    segment.into_indexed(
-                        &collection.definition,
-                        options.bigram_alphabet,
-                        options.inference,
-                        collection_count,
-                        pool,
-                    )
-                })
-                .collect::<Vec<_>>()
-        });
-        for result in built {
-            indexed.push(result.map_err(IndexError::Build)?);
+    if cancelled() {
+        return Err(IndexError::Cancelled);
+    }
+    let mut index_build_ns = 0u64;
+    for build in &mut builds {
+        index_build_ns = index_build_ns.saturating_add(build.build_ns);
+        if let (Some(profile), Some(segment)) = (profile.as_mut(), build.profile.as_mut()) {
+            segment.index_ns = build.build_ns;
+            profile.segments.push(segment.clone());
         }
     }
-    indexed.sort_by_key(|segment| segment.id);
+    if let Some(profile) = profile.as_mut() {
+        profile.publication_index_ns = profile.publication_index_ns.saturating_add(index_build_ns);
+    }
     let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-    let (revision, phases) =
-        index.publish_initial_segments(*expected, indexed, profile.is_some())?;
+    let (revision, phases) = index.publish_initial_segments(
+        *expected,
+        builds
+            .into_iter()
+            .map(|build| build.index)
+            .collect::<Vec<_>>(),
+        profile.is_some(),
+    )?;
     *expected = revision;
     if let (Some(profile), phases) = (profile.as_mut(), phases) {
         profile.publication_prepare_ns = profile
@@ -617,6 +769,7 @@ fn schedule_segment(
             options,
             pending.len(),
             pool,
+            SegmentBuildDestination::Normal,
         )
         .map_err(IndexError::Build)?;
     while scheduler.receive(false).map_err(IndexError::Build)? {}
@@ -628,6 +781,51 @@ fn schedule_segment(
         publication_ns,
         profile,
     )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn schedule_private_segment(
+    scheduler: &mut SegmentBuildScheduler,
+    private_group: &mut PrivateSegmentGroup,
+    collection_index: usize,
+    segment: crate::build::CollectionSegment,
+    definition: Arc<CollectionDefinition>,
+    options: RepositoryOptions,
+    collection_count: usize,
+    pool: &Arc<rayon::ThreadPool>,
+    cancelled: &impl Fn() -> bool,
+) -> Result<(), IndexError> {
+    #[cfg(test)]
+    let collection_name = definition.name.clone();
+    while scheduler.outstanding >= scheduler.limit {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        private_group
+            .consume_ready(scheduler, true)
+            .map_err(IndexError::Build)?;
+    }
+    scheduler
+        .submit(
+            collection_index,
+            segment,
+            definition,
+            options,
+            collection_count,
+            pool,
+            SegmentBuildDestination::Private,
+        )
+        .map_err(IndexError::Build)?;
+    #[cfg(test)]
+    if collection_name == "__test_cancel_while_outstanding__"
+        && let Some(gate) = &scheduler.gate
+    {
+        gate.wait_after_submission();
+    }
+    private_group
+        .consume_ready(scheduler, false)
+        .map_err(IndexError::Build)?;
+    Ok(())
 }
 
 fn finish_admission_profile(
@@ -1229,8 +1427,18 @@ impl Repository {
                             &cancelled,
                         )?;
                     }
-                    let mut private_segments = Vec::new();
-                    let result = crate::build::process_framed_file_profiled(
+                    scheduler.drain(
+                        &index,
+                        &mut expected,
+                        &pending,
+                        &mut on_publication,
+                        &mut publication_ns,
+                        &mut profile,
+                    )?;
+                    let mut private_group = PrivateSegmentGroup::new(collection_index);
+                    let definition_for_private = Arc::clone(&definition);
+                    let collection_count = pending.len();
+                    let process_result = crate::build::process_framed_file_profiled(
                         &pool,
                         Arc::new(root.clone()),
                         definition,
@@ -1274,7 +1482,18 @@ impl Repository {
                             if let Some(segment) = pending[collection_index]
                                 .admit_large_chunk_profiled(batch, detail.as_mut())?
                             {
-                                private_segments.push(segment);
+                                schedule_private_segment(
+                                    &mut scheduler,
+                                    &mut private_group,
+                                    collection_index,
+                                    segment,
+                                    Arc::clone(&definition_for_private),
+                                    options,
+                                    collection_count,
+                                    &pool,
+                                    &cancelled,
+                                )
+                                .map_err(|error| error.to_string())?;
                             }
                             finish_admission_profile(
                                 &mut profile,
@@ -1283,35 +1502,104 @@ impl Repository {
                                 detail,
                             )
                         },
-                    )
-                    .map_err(|error| {
-                        if cancelled() {
-                            IndexError::Cancelled
-                        } else {
-                            IndexError::Build(error)
+                    );
+                    let result = match process_result {
+                        Ok(result) => result,
+                        Err(error) => {
+                            let drain_error = private_group.discard(&mut scheduler).err();
+                            let error = match drain_error {
+                                Some(drain) => format!("{error}; private segment drain: {drain}"),
+                                None => error,
+                            };
+                            return Err(if cancelled() {
+                                IndexError::Cancelled
+                            } else {
+                                IndexError::Build(error)
+                            });
                         }
-                    })?;
+                    };
+                    #[cfg(test)]
+                    if definition_for_private.name == "__test_cancel_after_validation__"
+                        && let Some(gate) = &scheduler.gate
+                    {
+                        gate.wait_after_validation();
+                    }
+                    #[cfg(test)]
+                    if definition_for_private.name
+                        == "__test_invalidate_after_private_finalization__"
+                    {
+                        let consume_error = private_group.consume_ready(&mut scheduler, true).err();
+                        let finalized = private_group.indexed.len();
+                        let drain_error = private_group.discard(&mut scheduler).err();
+                        if consume_error.is_none() && finalized == 0 {
+                            return Err(IndexError::Build(
+                                "late invalidation test observed no finalized segment".into(),
+                            ));
+                        }
+                        return Err(IndexError::Build(match drain_error {
+                            Some(error) => format!(
+                                "injected late invalidation; private segment drain: {error}"
+                            ),
+                            None => consume_error.unwrap_or_else(|| {
+                                format!(
+                                    "injected late framed-file invalidation after {finalized} finalized segment(s)"
+                                )
+                            }),
+                        }));
+                    }
+                    if cancelled() {
+                        let drain_error = private_group.discard(&mut scheduler).err();
+                        return Err(match drain_error {
+                            Some(error) => IndexError::Build(error),
+                            None => IndexError::Cancelled,
+                        });
+                    }
                     if let Some((file, digest)) = result.file_fingerprint {
                         digest_bindings[file.0 as usize].push((collection, digest));
                     }
                     schedule_stats.absorb(result);
                     if let Some(sealed) = pending[collection_index].take_segment() {
-                        private_segments.push(sealed);
+                        let submit_result = schedule_private_segment(
+                            &mut scheduler,
+                            &mut private_group,
+                            collection_index,
+                            sealed,
+                            Arc::clone(&definition_for_private),
+                            options,
+                            collection_count,
+                            &pool,
+                            &cancelled,
+                        );
+                        if let Err(error) = submit_result {
+                            let drain_error = private_group.discard(&mut scheduler).err();
+                            return Err(match (cancelled(), drain_error) {
+                                (true, _) => IndexError::Cancelled,
+                                (false, Some(drain)) => IndexError::Build(format!(
+                                    "{error}; private segment drain: {drain}"
+                                )),
+                                (false, None) => error,
+                            });
+                        }
                     }
-                    publish_private_segment_group(
+                    let publish_result = publish_private_segment_group(
                         &mut scheduler,
                         &index,
                         &mut expected,
-                        private_segments,
+                        private_group,
                         collection_index,
                         &pending,
-                        options,
-                        &pool,
                         &mut on_publication,
                         &mut publication_ns,
                         &mut profile,
                         &cancelled,
-                    )?;
+                    );
+                    if let Err(error) = publish_result {
+                        return Err(if cancelled() {
+                            IndexError::Cancelled
+                        } else {
+                            error
+                        });
+                    }
                 }
             }
         }
