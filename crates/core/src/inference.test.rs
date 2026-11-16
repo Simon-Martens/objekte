@@ -335,8 +335,8 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
         )],
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
             },
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -352,13 +352,13 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
         },
     )
     .unwrap();
-    assert_eq!(repo.segments[0].len(), 2);
+    assert_eq!(repo.segments[0].len(), 257);
     assert_eq!(
         repo.segments[0]
             .iter()
             .map(|segment| segment.index.records.len())
             .collect::<Vec<_>>(),
-        [512, 1]
+        [vec![2; 256], vec![1]].concat()
     );
     let report = repo.inference_report("data").unwrap();
     let field = report

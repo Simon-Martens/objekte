@@ -255,19 +255,8 @@ fn segment_count(root: &PublishedIndex) -> usize {
     root.segments.iter().map(|group| group.len()).sum()
 }
 
-fn segment_archive_bytes(segment: &IndexedCollectionSegment) -> usize {
-    segment.archive_bytes()
-}
-
 fn publication_archive_bytes(root: &PublishedIndex) -> usize {
-    let mut owners = std::collections::HashSet::new();
-    root.segments
-        .iter()
-        .flat_map(|group| group.iter())
-        .filter(|segment| owners.insert(Arc::as_ptr(&segment.index) as usize))
-        .map(|segment| segment_archive_bytes(&segment.index))
-        .sum::<usize>()
-        .saturating_add(root.catalog.archive_bytes())
+    root.archive_bytes()
 }
 
 fn clean_merge_compatible(
@@ -771,6 +760,7 @@ impl Index {
             } else {
                 0
             };
+            next.rebuild_all_segment_positions();
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }

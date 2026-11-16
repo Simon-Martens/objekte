@@ -130,8 +130,11 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     }
     let maintained = index.view().unwrap();
     assert_eq!(maintained.0.segments[0].len(), 1);
-    assert!(!Arc::ptr_eq(&old, &maintained.0.segments[0][0]));
-    assert_eq!(maintained.0.segments[0][0].index.records.len(), 192);
+    assert!(Arc::ptr_eq(
+        &old.index,
+        &maintained.0.segments[0][0].index
+    ));
+    assert_eq!(maintained.0.segments[0][0].index.records.len(), 256);
     assert_eq!(maintained.0.segments[0][0].active.len(), 192);
     assert_eq!(old.index.records.len(), 256);
     let added = root.join("data/added.json");
@@ -779,8 +782,8 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     assert_eq!(staged.status().live_records, 2);
     assert_eq!(staged.active[0].len(), 0);
     assert_eq!(staged.active[1].len(), 0);
-    assert_eq!(staged.segments[0].len(), prior_segments + 1);
-    assert_eq!(staged.segments[1].len(), prior_segments + 1);
+    assert_eq!(staged.segments[0].len(), prior_segments);
+    assert_eq!(staged.segments[1].len(), prior_segments);
     assert_eq!(
         staged
             .catalog

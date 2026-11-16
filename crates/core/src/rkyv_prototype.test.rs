@@ -1435,10 +1435,199 @@ fn rkyv_compatibility_row_caches_initialize_once_and_are_shared_by_clones() {
 }
 
 #[test]
+fn rkyv_storage_diagnostics_do_not_populate_caches_or_clone_payloads() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-storage-diagnostic-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"diagnostic payload"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let usage = view.storage_usage();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.metadata_cache_initializations, 0);
+    assert!(usage.archive.owners > 0);
+    assert!(usage.archive.serialized_bytes > 0);
+    assert!(usage.archive.allocated_bytes >= usage.archive.serialized_bytes);
+    assert_eq!(usage.file_row_cache_bytes, 0);
+    assert_eq!(usage.record_row_cache_bytes, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_shared_archive_owner_is_counted_once_across_wrappers() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-shared-owner-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"shared owner"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    let single = view.0.storage_usage();
+    let mut duplicated = (*view.0).clone();
+    let group = Arc::make_mut(&mut duplicated.segments[0]);
+    group.push(Arc::clone(&group[0]));
+    let double = duplicated.storage_usage();
+    assert_eq!(double.archive.owners, single.archive.owners);
+    assert_eq!(
+        double.archive.serialized_bytes,
+        single.archive.serialized_bytes
+    );
+    assert_eq!(
+        double.archive.allocated_bytes,
+        single.archive.allocated_bytes
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_repository_and_adopted_index_archive_accounting_match() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-accounting-adopt-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"accounting"}"#,
+    )
+    .unwrap();
+    let repository =
+        Repository::open_with_options(&root, vec![prototype_definition()], prototype_options())
+            .unwrap();
+    let before = repository.storage_usage();
+    let index = Index::from_repository(repository).unwrap();
+    let after = index.storage_usage().unwrap();
+    assert_eq!(after.archive, before.archive);
+    assert_eq!(
+        after.posting_bitmap_payload_bytes,
+        before.posting_bitmap_payload_bytes
+    );
+    assert_eq!(after.bigram_payload_bytes, before.bigram_payload_bytes);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_pinned_view_releases_retired_segment_owner_when_dropped() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-pinned-owner-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/a.json");
+    std::fs::write(&path, br#"{"id":"a","year":1,"title":"pinned old"}"#).unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+    let pinned = index.view().unwrap();
+    let old = Arc::clone(
+        pinned
+            .segments(crate::model::CollectionId(0))
+            .unwrap()
+            .iter()
+            .find(|segment| segment.index.file(handle.file_id).is_some())
+            .unwrap(),
+    );
+    let weak = Arc::downgrade(&old.index);
+    drop(old);
+    std::fs::write(&path, br#"{"id":"a","year":2,"title":"pinned new"}"#).unwrap();
+    index.update_file(handle, &path).unwrap();
+    assert!(weak.upgrade().is_some());
+    drop(pinned);
+    for _ in 0..8 {
+        if weak.upgrade().is_none() {
+            break;
+        }
+        std::thread::yield_now();
+    }
+    assert!(weak.upgrade().is_none(), "retired segment archive remained owned");
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&query(Some("pinned new"), None, 10, 0))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_archive_finalization_failure_publishes_nothing() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-finalization-failure-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let path = root.join("data/fail.json");
+    std::fs::write(&path, br#"{"id":"fail","year":1,"title":"failure"}"#).unwrap();
+    let before = index.view().unwrap().revision();
+    crate::archive_storage::fail_next_freeze();
+    let error = index.add_file(&path).unwrap_err();
+    assert!(error.to_string().contains("injected archive-finalization failure"));
+    let view = index.view().unwrap();
+    assert_eq!(view.revision(), before);
+    assert!(view.file_handle_for_path(&path).is_none());
+    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(0));
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
+    let mut add_seen = false;
+    let mut replace_seen = false;
+    let mut delete_seen = false;
+    let mut bounded_plain_seen = false;
+    let mut bounded_merge_seen = false;
+    let mut full_plain_seen = false;
+    let mut full_merge_seen = false;
     for seed in [1u64, 7, 19, 41, 97] {
+        for (build_workers, verified_cache_bytes) in [
+            (1usize, 0usize),
+            (1, 2 * 1024 * 1024),
+            (3, 0),
+            (3, 2 * 1024 * 1024),
+        ] {
         let root = std::env::temp_dir().join(format!(
-            "objekte-rkyv-seed-{seed}-{}-{}",
+            "objekte-rkyv-seed-{seed}-{build_workers}-{verified_cache_bytes}-{}-{}",
             std::process::id(),
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
@@ -1448,59 +1637,124 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
         std::fs::create_dir_all(root.join("data")).unwrap();
         let mut first = prototype_definition();
         first.name = "first".into();
+        first.format = SourceFormat::JsonLines;
         let mut second = prototype_definition();
         second.name = "second".into();
+        second.format = SourceFormat::JsonLines;
         let definitions = vec![first, second];
         let options = RepositoryOptions {
-            verified_cache_bytes: if seed % 2 == 0 { 2 * 1024 * 1024 } else { 0 },
+            build_workers: std::num::NonZeroUsize::new(build_workers),
+            verified_cache_bytes,
             ..prototype_options()
         };
         let index = Index::build(&root, definitions.clone(), options).unwrap();
-        let mut model = BTreeMap::<std::path::PathBuf, (String, i64)>::new();
+        let mut model = BTreeMap::<std::path::PathBuf, Vec<(String, i64)>>::new();
         let mut files = Vec::<(std::path::PathBuf, crate::lifecycle::FileHandle)>::new();
         let mut random = seed;
         let mut serial = 0usize;
+        let mut file_serial = 0usize;
 
         for operation in 0..100 {
+            let mut operation_description = String::from("compaction");
+            let scheduled = match operation {
+                20 => Some((CompactionMode::Bounded, false)),
+                40 => Some((CompactionMode::Bounded, true)),
+                60 => Some((CompactionMode::Full, false)),
+                80 => Some((CompactionMode::Full, true)),
+                _ => None,
+            };
+            if let Some((mode, merge_small_segments)) = scheduled {
+                operation_description = format!("{mode:?} merge={merge_small_segments}");
+                index
+                    .compact_with_options(CompactionOptions {
+                        mode,
+                        merge_small_segments,
+                    })
+                    .unwrap();
+                match (mode, merge_small_segments) {
+                    (CompactionMode::Bounded, false) => bounded_plain_seen = true,
+                    (CompactionMode::Bounded, true) => bounded_merge_seen = true,
+                    (CompactionMode::Full, false) => full_plain_seen = true,
+                    (CompactionMode::Full, true) => full_merge_seen = true,
+                }
+                assert_sequence_oracle(
+                    &index,
+                    &root,
+                    &definitions,
+                    &options,
+                    &model,
+                    seed,
+                    operation,
+                    &operation_description,
+                );
+                continue;
+            }
             random = random
                 .wrapping_mul(6_364_136_223_846_793_005)
                 .wrapping_add(1_442_695_040_888_963_407);
             let action = random % 100;
-            if files.is_empty() || (action < 45 && files.len() < 8) {
-                let id = format!("s{seed}_{serial}");
-                serial += 1;
+            if files.is_empty() || (action < 45 && files.len() < 24) {
                 let year = (random % 40) as i64;
-                let path = root.join(format!("data/{id}.json"));
-                std::fs::write(
-                    &path,
-                    format!("{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} add\"}}"),
-                )
-                .unwrap();
+                let path = root.join(format!(
+                    "data/file-{seed}-{build_workers}-{file_serial}.jsonl"
+                ));
+                operation_description = format!("add {}", path.display());
+                file_serial += 1;
+                let count = (random as usize % 13).min(12);
+                let mut records = Vec::with_capacity(count);
+                let mut body = String::new();
+                for _ in 0..count {
+                    let id = format!("s{seed}_{serial}");
+                    serial += 1;
+                    let nullable = if random.is_multiple_of(3) {
+                        ",\"maybe\":null".to_owned()
+                    } else {
+                        String::new()
+                    };
+                    body.push_str(&format!(
+                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} add token\",\"tags\":[\"a\",\"b\"]{nullable}}}\n"
+                    ));
+                    records.push((id, year));
+                }
+                std::fs::write(&path, body).unwrap();
                 let handle = index.add_file(&path).unwrap().file;
-                model.insert(path.clone(), (id, year));
+                model.insert(path.clone(), records);
                 files.push((path, handle));
+                add_seen = true;
             } else if action < 75 {
                 let position = (random as usize) % files.len();
-                let id = format!("s{seed}_{serial}");
-                serial += 1;
+                operation_description = format!(
+                    "replace {}",
+                    files[position].0.display()
+                );
                 let year = (random % 40) as i64;
-                std::fs::write(
-                    &files[position].0,
-                    format!("{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} replace\"}}"),
-                )
-                .unwrap();
+                let count = (random as usize % 13).min(12);
+                let mut records = Vec::with_capacity(count);
+                let mut body = String::new();
+                for _ in 0..count {
+                    let id = format!("s{seed}_{serial}");
+                    serial += 1;
+                    body.push_str(&format!(
+                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} replace token\"}}\n"
+                    ));
+                    records.push((id, year));
+                }
+                std::fs::write(&files[position].0, body).unwrap();
                 let handle = index
                     .update_file(files[position].1, &files[position].0)
                     .unwrap()
                     .file;
-                model.insert(files[position].0.clone(), (id, year));
+                model.insert(files[position].0.clone(), records);
                 files[position].1 = handle;
+                replace_seen = true;
             } else if action < 94 {
                 let position = (random as usize) % files.len();
                 let (path, handle) = files.remove(position);
+                operation_description = format!("delete {}", path.display());
                 std::fs::remove_file(&path).unwrap();
                 index.delete_file(handle).unwrap();
                 model.remove(&path);
+                delete_seen = true;
             } else {
                 index
                     .compact_with_options(CompactionOptions {
@@ -1508,9 +1762,19 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
                         merge_small_segments: true,
                     })
                     .unwrap();
+                full_merge_seen = true;
             }
 
-            assert_sequence_oracle(&index, &root, &definitions, &options, &model, seed, operation);
+            assert_sequence_oracle(
+                &index,
+                &root,
+                &definitions,
+                &options,
+                &model,
+                seed,
+                operation,
+                &operation_description,
+            );
         }
         index
             .compact_with_options(CompactionOptions {
@@ -1518,10 +1782,23 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
                 merge_small_segments: true,
             })
             .unwrap();
-        assert_sequence_oracle(&index, &root, &definitions, &options, &model, seed, 100);
+        assert_sequence_oracle(
+            &index,
+            &root,
+            &definitions,
+            &options,
+            &model,
+            seed,
+            100,
+            "final full compaction",
+        );
         index.shutdown().unwrap();
         std::fs::remove_dir_all(root).unwrap();
+        }
     }
+    assert!(add_seen && replace_seen && delete_seen);
+    assert!(bounded_plain_seen && bounded_merge_seen);
+    assert!(full_plain_seen && full_merge_seen);
 }
 
 fn assert_sequence_oracle(
@@ -1529,14 +1806,41 @@ fn assert_sequence_oracle(
     root: &std::path::Path,
     definitions: &[CollectionDefinition],
     options: &RepositoryOptions,
-    model: &BTreeMap<std::path::PathBuf, (String, i64)>,
+    model: &BTreeMap<std::path::PathBuf, Vec<(String, i64)>>,
     seed: u64,
     operation: usize,
+    operation_description: &str,
 ) {
     let view = index.view().unwrap();
+    for collection in 0..2 {
+        let mut seen = std::collections::HashSet::new();
+        for segment in view
+            .segments(crate::model::CollectionId(collection))
+            .unwrap()
+            .iter()
+        {
+            for slot in 0..segment.active.slot_count() {
+                let slot = crate::model::RecordSlot(slot);
+                if !segment.active.contains(slot) {
+                    continue;
+                }
+                let id = segment
+                    .index
+                    .record(slot)
+                    .expect("active record row")
+                    .id
+                    .0
+                    .to_string();
+                assert!(
+                    seen.insert(id.clone()),
+                    "duplicate active logical ID {id} in collection {collection}, seed={seed}, operation={operation} ({operation_description})"
+                );
+            }
+        }
+    }
     let fresh = Index::build(root, definitions.to_vec(), *options).unwrap();
     let fresh_view = fresh.view().unwrap();
-    let mut expected = model.values().collect::<Vec<_>>();
+    let mut expected = model.values().flatten().collect::<Vec<_>>();
     expected.sort_by(|left, right| left.1.cmp(&right.1).then_with(|| left.0.cmp(&right.0)));
     let expected_ids = expected
         .iter()
@@ -1548,13 +1852,49 @@ fn assert_sequence_oracle(
         .map(|(id, _)| id.clone())
         .collect::<Vec<_>>();
     for collection in ["first", "second"] {
-        let sorted = sequence_query(collection, None, 0, 100);
-        let ge = sequence_query(collection, Some("year >= 15"), 0, 100);
+        let sorted = sequence_query(collection, None, 0, 1_000);
+        let ge = sequence_query(collection, Some("year >= 15"), 0, 1_000);
         let (actual, count) = ids(&view, &sorted);
         let (fresh_actual, fresh_count) = ids(&fresh_view, &sorted);
+        let failure_detail = if actual == expected_ids {
+            String::new()
+        } else {
+            let missing = expected_ids
+                .iter()
+                .filter(|id| !actual.contains(id))
+                .map(|id| {
+                    let locations = (0..2)
+                        .flat_map(|number| {
+                            view.segments(crate::model::CollectionId(number))
+                                .unwrap()
+                                .iter()
+                                .filter_map(move |segment| {
+                                    let slot = segment.index.id_lookup.get(id)?;
+                                    Some((
+                                        number,
+                                        crate::native_segment::SegmentId::new(
+                                            segment.id.get(),
+                                        ),
+                                        slot,
+                                        segment.active.contains(slot),
+                                        segment.index.logical_records.contains(slot.0),
+                                        segment
+                                            .index
+                                            .record(slot)
+                                            .map(|record| record.id.0.to_string()),
+                                    ))
+                                })
+                        })
+                        .collect::<Vec<_>>();
+                    format!("{id}:{locations:?}")
+                })
+                .collect::<Vec<_>>()
+                .join(", ");
+            format!(" missing={missing}")
+        };
         assert_eq!(
             actual, expected_ids,
-            "seed={seed} operation={operation} collection={collection}"
+            "seed={seed} operation={operation} ({operation_description}) collection={collection}{failure_detail} model={model:?}"
         );
         assert_eq!(actual, fresh_actual);
         assert_eq!(count, Some(expected_ids.len()));

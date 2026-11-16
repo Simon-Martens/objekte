@@ -231,14 +231,14 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
     let view = index.view().unwrap();
     let partitioned_view = view.clone();
-    // The tiny fixture is one indivisible prepared contribution, so the
-    // configured five-record target is deliberately exceeded by that segment.
+    // The five-file admission limit is authoritative even when the record
+    // target would otherwise admit several files in one segment.
     assert_eq!(
         partitioned_view
             .segments(crate::model::CollectionId(0))
             .unwrap()
             .len(),
-        1
+        5
     );
     for (filter, expected_count) in [
         ("kind ?~ 'Lied'", 8),

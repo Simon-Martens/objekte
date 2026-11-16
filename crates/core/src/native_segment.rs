@@ -14,7 +14,7 @@ use crate::inference::{InferenceObservation, InferenceState};
 use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, Number, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::relation::RelationContribution;
 use crate::segment_archive::{FileLookup, RecordLookup, RecordRows, SegmentFiles};
@@ -577,34 +577,100 @@ impl IndexedCollectionSegment {
         self.files.len()
     }
 
-    pub(crate) fn archive_bytes(&self) -> usize {
-        let mut owners = std::collections::HashSet::new();
-        let mut total = 0usize;
-        total = total.saturating_add(self.files.archive_bytes());
-        owners.insert(self.files.archive_owner_id());
-        if owners.insert(self.file_index.archive_owner_id()) {
-            total = total.saturating_add(self.file_index.archive_bytes());
-        }
-        if owners.insert(self.id_lookup.archive_owner_id()) {
-            total = total.saturating_add(self.id_lookup.archive_bytes());
-        }
-        let mut posting_lengths = std::collections::HashMap::new();
-        let mut record_posting = |owner: usize, length: usize| {
-            posting_lengths.insert(owner, length);
-        };
-        self.postings.for_each_archive_owner(&mut record_posting);
-        for posting in self.custom_postings.values() {
-            posting
-                .index
-                .for_each_archive_owner(&mut record_posting);
-        }
-        if let Some(inference) = &self.inference {
-            for posting in inference.indexes.values() {
-                posting.for_each_archive_owner(&mut record_posting);
+    pub(crate) fn collect_storage_usage(
+        &self,
+        seen: &mut std::collections::HashSet<usize>,
+        usage: &mut crate::storage_usage::StorageUsage,
+    ) {
+        usage.record_archive(
+            seen,
+            self.files.archive_owner_id(),
+            self.files.archive_bytes(),
+            self.files.capacity(),
+        );
+        usage.record_archive(
+            seen,
+            self.file_index.archive_owner_id(),
+            self.file_index.archive_bytes(),
+            self.file_index.capacity(),
+        );
+        usage.record_archive(
+            seen,
+            self.id_lookup.archive_owner_id(),
+            self.id_lookup.archive_bytes(),
+            self.id_lookup.capacity(),
+        );
+        {
+            let mut record_posting = |owner: usize, length: usize, capacity: usize| {
+                usage.record_archive(seen, owner, length, capacity);
+            };
+            self.postings.for_each_archive_owner(&mut record_posting);
+            for custom in self.custom_postings.values() {
+                custom.index.for_each_archive_owner(&mut record_posting);
+            }
+            if let Some(inference) = &self.inference {
+                for index in inference.indexes.values() {
+                    index.for_each_archive_owner(&mut record_posting);
+                }
             }
         }
-        total = total.saturating_add(posting_lengths.values().sum::<usize>());
-        total
+        usage.posting_bitmap_payload_bytes = usage
+            .posting_bitmap_payload_bytes
+            .saturating_add(
+                self.postings
+                    .fields
+                    .values()
+                    .map(PostingIndex::native_bitmap_payload_bytes)
+                    .sum::<usize>() as u64,
+            );
+        for custom in self.custom_postings.values() {
+            usage.posting_bitmap_payload_bytes = usage
+                .posting_bitmap_payload_bytes
+                .saturating_add(custom.index.native_bitmap_payload_bytes() as u64);
+        }
+        if let Some(inference) = &self.inference {
+            for index in inference.indexes.values() {
+                usage.posting_bitmap_payload_bytes = usage
+                    .posting_bitmap_payload_bytes
+                    .saturating_add(index.native_bitmap_payload_bytes() as u64);
+            }
+        }
+        usage.bigram_payload_bytes = usage
+            .bigram_payload_bytes
+            .saturating_add(gram_bytes(&self.raw) as u64)
+            .saturating_add(gram_bytes(&self.fallback_text) as u64)
+            .saturating_add(
+                self.custom_text
+                    .values()
+                    .map(gram_bytes)
+                    .sum::<usize>() as u64,
+            );
+        usage.sorting_payload_bytes = usage
+            .sorting_payload_bytes
+            .saturating_add(sort_bytes(&self.sorting) as u64);
+        usage.relation_payload_bytes = usage
+            .relation_payload_bytes
+            .saturating_add(
+                self.relations
+                    .iter()
+                    .map(RelationContribution::estimated_bytes)
+                    .sum::<usize>() as u64,
+            );
+        usage.active_and_control_metadata_bytes = usage
+            .active_and_control_metadata_bytes
+            .saturating_add(
+                (self.identity_order.capacity() * std::mem::size_of::<RecordSlot>()) as u64,
+            );
+        usage.file_row_cache_bytes = usage
+            .file_row_cache_bytes
+            .saturating_add(self.files.compatibility_cache_bytes() as u64);
+        usage.record_row_cache_bytes = usage
+            .record_row_cache_bytes
+            .saturating_add(self.records.compatibility_cache_bytes() as u64);
+        usage.metadata_cache_initializations = usage
+            .metadata_cache_initializations
+            .saturating_add(self.files.cache_initialized() as u64)
+            .saturating_add(self.records.cache_initialized() as u64);
     }
 
     pub(crate) fn extend_file_slots(
@@ -664,7 +730,7 @@ fn posting_bytes(index: &crate::posting::PostingIndex) -> usize {
     total
 }
 
-fn gram_bytes(index: &BigramIndex) -> usize {
+pub(crate) fn gram_bytes(index: &BigramIndex) -> usize {
     index
         .normal
         .len()
@@ -680,7 +746,7 @@ fn gram_bytes(index: &BigramIndex) -> usize {
         )
 }
 
-fn sort_bytes(sorting: &SortCollection) -> usize {
+pub(crate) fn sort_bytes(sorting: &SortCollection) -> usize {
     let mut total = 0usize;
     for (path, column) in &sorting.columns {
         total = total

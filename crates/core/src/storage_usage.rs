@@ -26,6 +26,38 @@ impl ArchiveUsage {
     }
 }
 
+/// Query-representation storage observed without materializing compatibility
+/// rows or cloning bitmap/key payloads.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize)]
+pub struct StorageUsage {
+    #[serde(flatten)]
+    pub archive: ArchiveUsage,
+    pub posting_bitmap_payload_bytes: u64,
+    pub bigram_payload_bytes: u64,
+    pub sorting_payload_bytes: u64,
+    pub relation_payload_bytes: u64,
+    pub active_and_control_metadata_bytes: u64,
+    pub native_inventory_bytes: u64,
+    pub native_diagnostics_bytes: u64,
+    pub file_row_cache_bytes: u64,
+    pub record_row_cache_bytes: u64,
+    pub metadata_cache_initializations: u64,
+}
+
+impl StorageUsage {
+    pub(crate) fn record_archive(
+        &mut self,
+        seen: &mut std::collections::HashSet<usize>,
+        owner: usize,
+        serialized: usize,
+        capacity: usize,
+    ) {
+        if seen.insert(owner) {
+            self.archive.record(serialized, capacity);
+        }
+    }
+}
+
 /// Narrow work counters used by regressions and optional detailed profiling.
 ///
 /// Producing these counters never takes a process-global lock. In ordinary
@@ -55,6 +87,7 @@ thread_local! {
 }
 
 impl StorageWorkCounters {
+    #[cfg(any(test, feature = "detailed-profiling"))]
     pub(crate) const ZERO: Self = Self {
         metadata_rows_examined: 0,
         path_entries_examined: 0,

@@ -224,6 +224,7 @@ impl SegmentRows {
         Ok(owner)
     }
 
+    #[allow(dead_code)]
     pub(crate) fn files(&self) -> &[SegmentFile] {
         self.files.get_or_init(|| {
             self.archive
@@ -410,28 +411,25 @@ impl SegmentFiles {
         self.archive.len()
     }
 
-    pub(crate) fn archive_owner_id(&self) -> usize {
-        Arc::as_ptr(&self.archive) as usize
-    }
-
     pub(crate) fn capacity(&self) -> usize {
         self.archive.capacity()
+    }
+
+    pub(crate) fn archive_owner_id(&self) -> usize {
+        Arc::as_ptr(&self.archive) as usize
     }
 
     pub(crate) fn len(&self) -> usize {
         self.archive.root().files.len()
     }
 
+    #[allow(dead_code)]
     pub(crate) fn is_empty(&self) -> bool {
         self.archive.root().files.is_empty()
     }
 
     pub(crate) fn get(&self, index: usize) -> Option<&SegmentFile> {
         self.values().get(index)
-    }
-
-    pub(crate) fn archived(&self, index: usize) -> Option<&rkyv::Archived<StoredSegmentFile>> {
-        self.archive.root().files.get(index)
     }
 
     pub(crate) fn cache_initialized(&self) -> bool {
@@ -489,18 +487,6 @@ impl SegmentFiles {
             .map(|file| file.created_ns.as_ref().map(|value| value.to_native()))
     }
 
-    pub(crate) fn contains_collection(
-        &self,
-        index: usize,
-        collection: CollectionId,
-    ) -> bool {
-        self.archive.root().files.get(index).is_some_and(|file| {
-            file.collections
-                .iter()
-                .any(|candidate| candidate.to_native() == collection.0)
-        })
-    }
-
     pub(crate) fn path_matches(&self, index: usize, path: &std::path::Path) -> bool {
         self.archive
             .root()
@@ -509,14 +495,6 @@ impl SegmentFiles {
             .is_some_and(|file| {
                 crate::archived_path::matches_native(&file.relative_path, path)
             })
-    }
-
-    pub(crate) fn query_path(&self, index: usize) -> Option<&str> {
-        self.archive
-            .root()
-            .files
-            .get(index)
-            .map(|file| crate::archived_path::query(&file.relative_path))
     }
 
     pub(crate) fn status_code(&self, index: usize) -> Option<u8> {
@@ -676,22 +654,11 @@ impl RecordRows {
         })
     }
 
-    pub(crate) fn archive_bytes(&self) -> usize {
-        self.archive.len()
-    }
-
-    pub(crate) fn archive_owner_id(&self) -> usize {
-        Arc::as_ptr(&self.archive) as usize
-    }
-
-    pub(crate) fn capacity(&self) -> usize {
-        self.archive.capacity()
-    }
-
     pub(crate) fn len(&self) -> usize {
         self.archive.root().records.len()
     }
 
+    #[allow(dead_code)]
     pub(crate) fn is_empty(&self) -> bool {
         self.archive.root().records.is_empty()
     }
@@ -704,10 +671,6 @@ impl RecordRows {
         self.archive.root().records.get(index).map(archived_record)
     }
 
-    pub(crate) fn archived(&self, index: usize) -> Option<&rkyv::Archived<StoredRecord>> {
-        self.archive.root().records.get(index)
-    }
-
     pub(crate) fn cache_initialized(&self) -> bool {
         self.cache.get().is_some()
     }
@@ -718,22 +681,6 @@ impl RecordRows {
             .records
             .get(slot.0 as usize)
             .map(|record| record.id.as_str())
-    }
-
-    pub(crate) fn record_file(&self, slot: RecordSlot) -> Option<FileId> {
-        self.archive
-            .root()
-            .records
-            .get(slot.0 as usize)
-            .map(|record| FileId(record.file.to_native()))
-    }
-
-    pub(crate) fn record_class_code(&self, slot: RecordSlot) -> Option<u8> {
-        self.archive
-            .root()
-            .records
-            .get(slot.0 as usize)
-            .map(|record| record.class)
     }
 
     pub(crate) fn max_record_range_len(&self) -> u64 {
@@ -936,6 +883,10 @@ impl FileLookup {
         self.archive.len()
     }
 
+    pub(crate) fn capacity(&self) -> usize {
+        self.archive.capacity()
+    }
+
     pub(crate) fn archive_owner_id(&self) -> usize {
         Arc::as_ptr(&self.archive) as usize
     }
@@ -991,18 +942,16 @@ impl RecordLookup {
         }
     }
 
-    pub(crate) fn for_each_entry(&self, mut visit: impl FnMut(&str, RecordSlot)) {
-        for (id, slot) in self.archive.root().values.iter() {
-            visit(id.as_str(), RecordSlot(slot.to_native()));
-        }
-    }
-
     pub(crate) fn len(&self) -> usize {
         self.archive.root().values.len()
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn capacity(&self) -> usize {
+        self.archive.capacity()
     }
 
     pub(crate) fn archive_owner_id(&self) -> usize {

@@ -252,14 +252,24 @@ pub(crate) fn preserve_single_record_slots(
         replacements.push((*collection, old_position, new_position, old_ordinal));
     }
     let mut candidate = next.clone();
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
     for (collection, old_position, new_position, _old_ordinal) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[old_position],
+            &candidate.file_versions,
+        ));
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[new_position],
+            &candidate.file_versions,
+        ));
         let replacement = Arc::clone(&group[new_position]);
         let fresh_ordinal = candidate.next_segment_ordinal;
         candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
         let mut index = (*replacement.index).clone();
         index.id = crate::native_segment::SegmentId::new(fresh_ordinal);
-        group[old_position] = Arc::new(
+        let published = Arc::new(
             PublishedSegment::checked(
                 index.id,
                 Arc::new(index),
@@ -267,8 +277,18 @@ pub(crate) fn preserve_single_record_slots(
             )
             .ok()?,
         );
+        crate::lifecycle::append_segment_ownership(&published, &mut ownership_added);
+        group[old_position] = published;
         group.remove(new_position);
     }
+    candidate
+        .catalog
+        .update_ownership(
+            &candidate.file_versions,
+            &ownership_removed,
+            &ownership_added,
+        )
+        .ok()?;
     candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
@@ -379,18 +399,38 @@ pub(crate) fn preserve_partition_record_slots(
         ));
     }
     let mut candidate = next.clone();
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
     for (collection, old_position, new_position, _old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[old_position],
+            &candidate.file_versions,
+        ));
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[new_position],
+            &candidate.file_versions,
+        ));
         let fresh_ordinal = candidate.next_segment_ordinal;
         candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
         let mut replacement = replacement;
         replacement.id = crate::native_segment::SegmentId::new(fresh_ordinal);
         let active = crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?;
-        group[old_position] = Arc::new(
+        let published = Arc::new(
             PublishedSegment::checked(replacement.id, Arc::new(replacement), active).ok()?,
         );
+        crate::lifecycle::append_segment_ownership(&published, &mut ownership_added);
+        group[old_position] = published;
         group.remove(new_position);
     }
+    candidate
+        .catalog
+        .update_ownership(
+            &candidate.file_versions,
+            &ownership_removed,
+            &ownership_added,
+        )
+        .ok()?;
     candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
@@ -478,6 +518,16 @@ pub(crate) fn remove_verified_old_shards(
             }
         }
     }
+    let routes = crate::lifecycle::initial_ownership_routes(
+        &candidate.repository,
+        &candidate.active,
+        &candidate.segments,
+        candidate.file_versions.len(),
+    );
+    candidate
+        .catalog
+        .replace_all_ownership(&candidate.file_versions, &routes)
+        .map_err(|_| VerifiedFallbackReason::IndexedLayoutChanged)?;
     candidate.rebuild_all_segment_positions();
     Ok(candidate)
 }

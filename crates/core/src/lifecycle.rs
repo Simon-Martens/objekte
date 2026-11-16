@@ -591,7 +591,7 @@ pub(crate) fn initial_ownership_routes(
     routes
 }
 
-fn append_segment_ownership(
+pub(crate) fn append_segment_ownership(
     segment: &PublishedSegment,
     routes: &mut Vec<(FileId, OwnershipRoute)>,
 ) {
@@ -609,7 +609,7 @@ fn append_segment_ownership(
     }));
 }
 
-fn removed_segment_ownership(
+pub(crate) fn removed_segment_ownership(
     segment: &PublishedSegment,
     versions: &FileVersions,
 ) -> Vec<(FileId, FileVersion, OwnershipRoute)> {
@@ -762,14 +762,18 @@ impl PublishedIndex {
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
-        let mut owners = std::collections::HashSet::new();
-        self.segments
-            .iter()
-            .flat_map(|group| group.iter())
-            .filter(|segment| owners.insert(Arc::as_ptr(&segment.index) as usize))
-            .map(|segment| segment.index.archive_bytes())
-            .sum::<usize>()
-            .saturating_add(self.catalog.archive_bytes())
+        self.storage_usage().archive.serialized_bytes as usize
+    }
+
+    pub(crate) fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
+        let mut usage = self.repository.storage_usage();
+        let mut seen = std::collections::HashSet::new();
+        for group in &self.segments {
+            for segment in group.iter() {
+                segment.index.collect_storage_usage(&mut seen, &mut usage);
+            }
+        }
+        usage
     }
 
     pub(crate) fn from_repository_owned(
@@ -1465,7 +1469,7 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let merged_index = merged.index;
+        let mut merged_index = merged.index;
         ownership_removed.extend(removed_segment_ownership(
             &group[left],
             &self.file_versions,
@@ -1477,6 +1481,7 @@ impl PublishedIndex {
         group.remove(right);
         group.remove(left);
         let id = SegmentId::new(ordinal);
+        merged_index.id = id;
         let published = Arc::new(
             PublishedSegment::checked(id, Arc::new(merged_index), active)
                 .map_err(IndexError::InvalidPublication)?,
@@ -1614,7 +1619,7 @@ impl PublishedIndex {
         Ok(retired_records)
     }
 
-    fn remove_obsolete_segments(&mut self) -> Result<(), IndexError> {
+    pub(crate) fn remove_obsolete_segments(&mut self) -> Result<(), IndexError> {
         let mut changed = Vec::new();
         for (number, segments) in self.segments.iter_mut().enumerate() {
             let group = Arc::make_mut(segments);
@@ -2068,7 +2073,11 @@ fn prepare_initial_segment(
 
 impl Index {
     pub fn rkyv_archive_bytes(&self) -> Result<usize, IndexError> {
-        Ok(self.view()?.0.archive_bytes())
+        Ok(self.view()?.storage_usage().archive.serialized_bytes as usize)
+    }
+
+    pub fn storage_usage(&self) -> Result<crate::storage_usage::StorageUsage, IndexError> {
+        Ok(self.view()?.storage_usage())
     }
 
     /// Publish one complete initial work unit. A concurrent lifecycle
@@ -3152,7 +3161,9 @@ impl Index {
                 .map_err(IndexError::InvalidPublication)?;
             next
         };
-        next.remove_obsolete_segments()?;
+        if rebuild_destination {
+            next.remove_obsolete_segments()?;
+        }
         next.revision = view.revision().next()?;
         Ok(next)
     }
@@ -3466,6 +3477,20 @@ impl Index {
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 impl IndexView {
+    pub fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
+        let mut usage = self.0.storage_usage();
+        usage.active_and_control_metadata_bytes = usage
+            .active_and_control_metadata_bytes
+            .saturating_add(
+                self.0
+                    .active
+                    .iter()
+                    .map(|active| active.slot_count() as u64 * 8)
+                    .sum::<u64>(),
+            );
+        usage
+    }
+
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::StartupStats {
         self.repository().startup()

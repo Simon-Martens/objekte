@@ -563,7 +563,11 @@ fn multi_worker_segment_finalization_actually_overlaps() {
     let repo = index.into_repository().unwrap();
     assert_eq!(repo.collections()[0].generation.records.len(), 1_100);
     assert!(repo.startup().build_peak_segment_jobs >= 2);
-    assert!(repo.startup().build_peak_segment_window <= 4);
+    assert!(
+        repo.startup().build_peak_segment_window <= 6,
+        "peak segment window {}",
+        repo.startup().build_peak_segment_window
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

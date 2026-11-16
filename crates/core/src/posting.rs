@@ -533,42 +533,6 @@ impl StoredScalarKey {
         }
     }
 
-    fn from_archived(key: &rkyv::Archived<StoredScalarKey>) -> Self {
-        match key {
-            rkyv::Archived::<StoredScalarKey>::String(value) => Self::String(value.as_str().into()),
-            rkyv::Archived::<StoredScalarKey>::Id(value) => Self::Id(value.as_str().into()),
-            rkyv::Archived::<StoredScalarKey>::Number(value) => {
-                Self::Number(Self::number_from_archived(value))
-            }
-            rkyv::Archived::<StoredScalarKey>::Bool(value) => Self::Bool(bool::from(*value)),
-            rkyv::Archived::<StoredScalarKey>::Date(value) => Self::Date(value.to_native()),
-            rkyv::Archived::<StoredScalarKey>::Datetime {
-                unix_nanos,
-                offset_seconds,
-            } => Self::Datetime {
-                unix_nanos: unix_nanos.to_native(),
-                offset_seconds: offset_seconds.to_native(),
-            },
-            rkyv::Archived::<StoredScalarKey>::Unixtime(value) => Self::Unixtime(value.to_native()),
-        }
-    }
-
-    fn number_from_archived(value: &rkyv::Archived<PostingNumberKey>) -> PostingNumberKey {
-        match value {
-            rkyv::Archived::<PostingNumberKey>::Integer(value) => PostingNumberKey::Integer(value.to_native()),
-            rkyv::Archived::<PostingNumberKey>::Float(value) => PostingNumberKey::Float(value.to_native()),
-            rkyv::Archived::<PostingNumberKey>::ExactDecimal {
-                negative,
-                digits,
-                exponent,
-            } => PostingNumberKey::ExactDecimal {
-                negative: bool::from(*negative),
-                digits: digits.as_str().into(),
-                exponent: exponent.to_native(),
-            },
-        }
-    }
-
 }
 
 fn compare_scalar_to_archived(
@@ -1245,21 +1209,16 @@ where
         }
     }
 
-    pub(crate) fn archive_owner_id(&self) -> Option<usize> {
-        match &self.0 {
-            PostingDictionaryState::Builder(_) => None,
-            PostingDictionaryState::Published(values) => {
-                Some(Arc::as_ptr(&values.archive) as usize)
-            }
-        }
-    }
-
     pub(crate) fn for_each_archive_owner(
         &self,
-        visit: &mut impl FnMut(usize, usize),
+        visit: &mut impl FnMut(usize, usize, usize),
     ) {
         if let PostingDictionaryState::Published(values) = &self.0 {
-            visit(Arc::as_ptr(&values.archive) as usize, values.archive.len());
+            visit(
+                Arc::as_ptr(&values.archive) as usize,
+                values.archive.len(),
+                values.archive.capacity(),
+            );
         }
     }
 
@@ -2316,6 +2275,13 @@ impl PostingIndex {
         total
     }
 
+    pub(crate) fn native_bitmap_payload_bytes(&self) -> usize {
+        self.presence.serialized_size()
+            + self.empty_selections.serialized_size()
+            + self.nulls.serialized_size()
+            + self.dictionary_bitmap_payload_bytes()
+    }
+
     /// Freeze every ordered posting dictionary into checked immutable storage.
     ///
     /// This boundary is called from segment finalization, after all inference
@@ -2372,20 +2338,9 @@ impl PostingIndex {
             )
     }
 
-    pub(crate) fn archive_owner_ids(
-        &self,
-        owners: &mut std::collections::HashSet<usize>,
-    ) {
-        owners.extend(self.values.archive_owner_id());
-        owners.extend(self.lengths.archive_owner_id());
-        if let Some(facts) = &self.structural {
-            owners.extend(facts.postings.archive_owner_id());
-        }
-    }
-
     pub(crate) fn for_each_archive_owner(
         &self,
-        visit: &mut impl FnMut(usize, usize),
+        visit: &mut impl FnMut(usize, usize, usize),
     ) {
         self.values.for_each_archive_owner(visit);
         self.lengths.for_each_archive_owner(visit);
@@ -3074,25 +3029,9 @@ impl PostingCollection {
         self.fields.values().all(PostingIndex::is_archived)
     }
 
-    pub(crate) fn archive_bytes(&self) -> usize {
-        self.fields
-            .values()
-            .map(PostingIndex::archive_bytes)
-            .sum()
-    }
-
-    pub(crate) fn archive_owner_ids(
-        &self,
-        owners: &mut std::collections::HashSet<usize>,
-    ) {
-        for index in self.fields.values() {
-            index.archive_owner_ids(owners);
-        }
-    }
-
     pub(crate) fn for_each_archive_owner(
         &self,
-        visit: &mut impl FnMut(usize, usize),
+        visit: &mut impl FnMut(usize, usize, usize),
     ) {
         for index in self.fields.values() {
             index.for_each_archive_owner(visit);

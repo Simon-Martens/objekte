@@ -18,7 +18,7 @@ use roaring::RoaringBitmap;
 use crate::archive_storage::ValidatedArchive;
 use crate::archived_path::StoredPath;
 use crate::inventory::{
-    ByteRange, FileEntry, FileStatus, FileVersion, FileVersions, SharedPath, SourceDiagnostic,
+    ByteRange, FileEntry, FileStatus, FileVersion, FileVersions, SourceDiagnostic,
     SourceRevision,
     empty_path_bounds, relative_path_bounds,
 };
@@ -1269,10 +1269,6 @@ impl FileCatalog {
         Ok(routes)
     }
 
-    pub(crate) fn has_ownership_routes(&self, file: FileId, version: FileVersion) -> bool {
-        self.ownership_routes(file, version).is_ok_and(|routes| !routes.is_empty())
-    }
-
     pub(crate) fn retire_ownership(
         &mut self,
         file: FileId,
@@ -1309,6 +1305,44 @@ impl FileCatalog {
             build_ownership_shard(std::mem::take(&mut rows))?
         };
         Arc::make_mut(&mut self.ownership)[number] = replacement;
+        Ok(())
+    }
+
+    pub(crate) fn advance_ownership(
+        &mut self,
+        file: FileId,
+        expected: FileVersion,
+        next: FileVersion,
+    ) -> Result<(), String> {
+        let number = file_shard_number(file);
+        let shard = self
+            .ownership
+            .get(number)
+            .ok_or("file ownership shard missing")?;
+        let mut rows = shard
+            .archive
+            .root()
+            .rows
+            .iter()
+            .map(|row| StoredOwnershipRow {
+                file: row.file.to_native(),
+                version: row.version.to_native(),
+                routes: row
+                    .routes
+                    .iter()
+                    .map(|route| stored_ownership_route(archived_ownership_route(route)))
+                    .collect(),
+            })
+            .collect::<Vec<_>>();
+        let row = rows
+            .iter_mut()
+            .find(|row| row.file == file.0)
+            .ok_or("current file ownership row missing")?;
+        if row.version != expected.0 {
+            return Err("file ownership incarnation mismatch".into());
+        }
+        row.version = next.0;
+        Arc::make_mut(&mut self.ownership)[number] = build_ownership_shard(rows)?;
         Ok(())
     }
 
@@ -1352,7 +1386,10 @@ impl FileCatalog {
                     continue;
                 };
                 if row.0 != version.0 {
-                    return Err("file ownership incarnation mismatch".into());
+                    return Err(format!(
+                        "file ownership incarnation mismatch for {}: expected {}, found {}",
+                        file.0, version.0, row.0
+                    ));
                 }
                 row.1.retain(|candidate| candidate != route);
             }
@@ -1394,29 +1431,42 @@ impl FileCatalog {
         Ok(())
     }
 
-    pub(crate) fn archive_bytes(&self) -> usize {
-        let mut seen = HashSet::<usize>::new();
-        self.metadata
-            .iter()
-            .map(|shard| Arc::as_ptr(shard) as usize)
-            .chain(self.paths.iter().map(|shard| Arc::as_ptr(shard) as usize))
-            .filter(|owner| seen.insert(*owner))
-            .map(|owner| {
-                let metadata = self
-                    .metadata
-                    .iter()
-                    .find(|shard| Arc::as_ptr(shard) as usize == owner);
-                metadata.map_or_else(
-                    || {
-                        self.paths
-                            .iter()
-                            .find(|shard| Arc::as_ptr(shard) as usize == owner)
-                            .map_or(0, |shard| shard.archive.len())
-                    },
-                    |shard| shard.archive.len(),
-                )
-            })
-            .sum()
+    pub(crate) fn collect_storage_usage(
+        &self,
+        seen: &mut HashSet<usize>,
+        usage: &mut crate::storage_usage::StorageUsage,
+    ) {
+        for shard in self.metadata.iter() {
+            usage.record_archive(
+                seen,
+                Arc::as_ptr(shard) as usize,
+                shard.archive.len(),
+                shard.archive.capacity(),
+            );
+            if let Some(cache) = shard.cache.get() {
+                usage.file_row_cache_bytes = usage
+                    .file_row_cache_bytes
+                    .saturating_add(cache.len() as u64);
+                usage.metadata_cache_initializations =
+                    usage.metadata_cache_initializations.saturating_add(1);
+            }
+        }
+        for shard in self.paths.iter() {
+            usage.record_archive(
+                seen,
+                Arc::as_ptr(shard) as usize,
+                shard.archive.len(),
+                shard.archive.capacity(),
+            );
+        }
+        for shard in self.ownership.iter() {
+            usage.record_archive(
+                seen,
+                Arc::as_ptr(shard) as usize,
+                shard.archive.len(),
+                shard.archive.capacity(),
+            );
+        }
     }
 }
 

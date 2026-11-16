@@ -741,28 +741,97 @@ impl Repository {
     /// representation. Native Roaring bitmaps, text grams, sort arrays and
     /// relation payloads are intentionally excluded.
     pub fn rkyv_archive_bytes(&self) -> usize {
-        self.collections
-            .iter()
-            .map(|collection| {
-                collection.postings.archive_bytes()
-                    + collection
-                        .custom_postings
+        self.storage_usage().archive.serialized_bytes as usize
+    }
+
+    /// Unique archive capacity, native payload estimates and compatibility
+    /// caches for the representation currently serving queries.
+    pub fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
+        let mut usage = crate::storage_usage::StorageUsage::default();
+        let mut seen = std::collections::HashSet::new();
+        for collection in &self.collections {
+            let mut record_posting = |owner: usize, length: usize, capacity: usize| {
+                usage.record_archive(&mut seen, owner, length, capacity);
+            };
+            collection.postings.for_each_archive_owner(&mut record_posting);
+            for custom in collection.custom_postings.values() {
+                custom.index.for_each_archive_owner(&mut record_posting);
+            }
+            if let Some(inference) = &collection.inference {
+                for index in inference.indexes.values() {
+                    index.for_each_archive_owner(&mut record_posting);
+                }
+            }
+            usage.posting_bitmap_payload_bytes = usage
+                .posting_bitmap_payload_bytes
+                .saturating_add(
+                    collection
+                        .postings
+                        .fields
                         .values()
-                        .map(|posting| posting.index.archive_bytes())
-                        .sum::<usize>()
-                    + collection
-                        .inference
-                        .as_ref()
-                        .map_or(0, |state| {
-                            state
-                                .indexes
-                                .values()
-                                .map(crate::posting::PostingIndex::archive_bytes)
-                                .sum()
-                        })
-            })
-            .sum::<usize>()
-            .saturating_add(self.catalog.archive_bytes())
+                        .map(crate::posting::PostingIndex::native_bitmap_payload_bytes)
+                        .sum::<usize>() as u64,
+                );
+            for custom in collection.custom_postings.values() {
+                usage.posting_bitmap_payload_bytes = usage
+                    .posting_bitmap_payload_bytes
+                    .saturating_add(custom.index.native_bitmap_payload_bytes() as u64);
+            }
+            if let Some(inference) = &collection.inference {
+                for index in inference.indexes.values() {
+                    usage.posting_bitmap_payload_bytes = usage
+                        .posting_bitmap_payload_bytes
+                        .saturating_add(index.native_bitmap_payload_bytes() as u64);
+                }
+            }
+            usage.bigram_payload_bytes = usage
+                .bigram_payload_bytes
+                .saturating_add(crate::native_segment::gram_bytes(&collection.raw) as u64)
+                .saturating_add(
+                    crate::native_segment::gram_bytes(&collection.fallback_text) as u64,
+                )
+                .saturating_add(
+                    collection
+                        .custom_text
+                        .values()
+                        .map(crate::native_segment::gram_bytes)
+                        .sum::<usize>() as u64,
+                );
+            usage.sorting_payload_bytes = usage
+                .sorting_payload_bytes
+                .saturating_add(
+                    crate::native_segment::sort_bytes(&collection.sorting) as u64,
+                );
+            usage.relation_payload_bytes = usage
+                .relation_payload_bytes
+                .saturating_add(
+                    collection
+                        .relations
+                        .iter()
+                        .map(crate::relation::RelationIndex::estimated_heap_bytes)
+                        .sum::<usize>() as u64,
+                );
+            usage.active_and_control_metadata_bytes = usage
+                .active_and_control_metadata_bytes
+                .saturating_add(
+                    (collection.generation.records.capacity()
+                        * std::mem::size_of::<crate::inventory::RecordEntry>()) as u64,
+                )
+                .saturating_add(
+                    (collection.identity_order.capacity()
+                        * std::mem::size_of::<crate::model::RecordSlot>()) as u64,
+                );
+        }
+        for group in &self.segments {
+            for segment in group.iter() {
+                segment.index.collect_storage_usage(&mut seen, &mut usage);
+            }
+        }
+        self.catalog.collect_storage_usage(&mut seen, &mut usage);
+        let (inventory, diagnostics) = self.files.estimated_heap_bytes();
+        usage.native_inventory_bytes = inventory as u64;
+        usage.native_diagnostics_bytes = diagnostics as u64;
+        usage
     }
 
     /// Retrieve one record by its collection-local ID. Locator access uses the

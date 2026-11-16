@@ -21,6 +21,35 @@ fn rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement() {
 }
 
 #[test]
+fn rkyv_statistics_use_dictionary_endpoints() {
+    let field = FieldDefinition {
+        path: vec!["year".into()],
+        kind: LogicalType::Number,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::new(&field);
+    for value in [7, -2, 100, 4, 0] {
+        index.values.insert_public(
+            &ScalarKey::Number(Number::integer(value)),
+            RoaringBitmap::from_iter([value.unsigned_abs() as u32]),
+        );
+    }
+    index.finish_stats();
+    assert_eq!(
+        index.stats.min_key,
+        Some(ScalarKey::Number(Number::integer(-2)))
+    );
+    assert_eq!(
+        index.stats.max_key,
+        Some(ScalarKey::Number(Number::integer(100)))
+    );
+}
+
+#[test]
 fn broad_id_union_matches_individual_lookups() {
     let field = FieldDefinition {
         path: vec!["ref".into()],

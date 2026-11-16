@@ -532,6 +532,15 @@ impl Index {
                 .advanced(handle.file_id)
                 .map_err(IndexError::ResourceLimit)?
                 .0;
+            next.catalog
+                .advance_ownership(
+                    handle.file_id,
+                    handle.version,
+                    next.file_versions
+                        .get(handle.file_id)
+                        .ok_or(IndexError::UnknownFile)?,
+                )
+                .map_err(IndexError::InvalidPublication)?;
             next.revision = view.revision().next()?;
             let file = FileHandle {
                 instance_id: self.instance_id(),
@@ -686,7 +695,7 @@ impl Index {
                 }
                 Err(error) => return Err(error),
             };
-            let (next, strategy, fallback_reason) = match verified {
+            let (mut next, strategy, fallback_reason) = match verified {
                 Some(Ok(plan)) => {
                     if plan.requires_base_compaction() {
                         match compact_verified_base(&next) {
@@ -732,6 +741,9 @@ impl Index {
             } else {
                 strategy
             };
+            if !matches!(strategy, FileMutationStrategy::VerifiedSlotPreserving) {
+                next.remove_obsolete_segments()?;
+            }
             let file = FileHandle {
                 instance_id: self.instance_id(),
                 file_id: handle.file_id,

@@ -17,7 +17,6 @@ pub(crate) enum StoredPath {
         native: Vec<u16>,
     },
 }
-
 impl StoredPath {
     pub(crate) fn from_shared(path: &SharedPath) -> Self {
         #[cfg(unix)]
@@ -110,10 +109,6 @@ pub(crate) fn query(path: &rkyv::Archived<StoredPath>) -> &str {
     }
 }
 
-pub(crate) fn query_owned(path: &rkyv::Archived<StoredPath>) -> String {
-    query(path).to_owned()
-}
-
 pub(crate) fn to_shared(path: &rkyv::Archived<StoredPath>) -> Result<SharedPath, String> {
     let native = match path {
         rkyv::Archived::<StoredPath>::Plain(value) => PathBuf::from(value.as_str()),
@@ -157,15 +152,6 @@ pub(crate) fn matches_native(path: &rkyv::Archived<StoredPath>, native: &Path) -
                 use std::os::windows::ffi::OsStrExt;
                 stored.iter().copied().eq(native.as_os_str().encode_wide())
             }
-        }
-    }
-}
-
-pub(crate) fn native_payload_bytes(path: &rkyv::Archived<StoredPath>) -> usize {
-    match path {
-        rkyv::Archived::<StoredPath>::Plain(value) => value.as_str().len(),
-        rkyv::Archived::<StoredPath>::Escaped { query, native } => {
-            query.as_str().len() + native.len() * std::mem::size_of_val(&native[0])
         }
     }
 }

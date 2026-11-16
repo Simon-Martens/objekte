@@ -61,7 +61,8 @@ fn compacting_native_segments_preserves_text_postings() {
     assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
     index.delete_file(pinned.file_handle_for_path(&remove).unwrap()).unwrap();
     std::fs::remove_file(&remove).unwrap();
-    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    assert_eq!(slot_count(&index.view().unwrap().0), 1);
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 0);
     assert_eq!(index.view().unwrap().search(&literal("bravo needle")).unwrap().count, Some(1));
     assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
     index.shutdown().unwrap();
@@ -123,30 +124,34 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let keep = root.join("data/keep.json");
-    std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
+    for number in 0..6 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!(r#"{{"name":"item {number}"}}"#),
+        )
+        .unwrap();
+    }
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(4).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
             },
             ..Default::default()
         },
     ).unwrap();
-    for number in 0..2 {
-        let path = root.join(format!("data/remove-{number}.json"));
-        std::fs::write(&path, br#"{"name":"remove"}"#).unwrap();
-        let handle = index.add_file(&path).unwrap().file;
+    for number in [0usize, 2] {
+        let path = root.join(format!("data/{number}.json"));
+        let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
         index.delete_file(handle).unwrap();
         std::fs::remove_file(&path).unwrap();
     }
     let old = index.view().unwrap();
-    assert_eq!(slot_count(&old.0), 3);
+    assert_eq!(slot_count(&old.0), 6);
     let budget = CompactionBudget {
-        records: 1,
+        records: 2,
         input_bytes: u64::MAX,
         temporary_bytes: u64::MAX,
         elapsed: Duration::from_secs(60),
@@ -154,14 +159,14 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     let (first, work) = compact_published_with_budget(
         &old.0, old.revision().next().unwrap(), || false, budget,
     ).unwrap();
-    assert_eq!(work.records, 1);
-    assert_eq!(slot_count(&first), 2);
+    assert_eq!(work.records, 2);
+    assert_eq!(slot_count(&first), 5);
     let (second, work) = compact_published_with_budget(
         &first, first.revision.next().unwrap(), || false, budget,
     ).unwrap();
-    assert_eq!(work.records, 1);
-    assert_eq!(slot_count(&second), 1);
-    assert_eq!(old.search(&all()).unwrap().count, Some(1));
+    assert_eq!(work.records, 2);
+    assert_eq!(slot_count(&second), 4);
+    assert_eq!(old.search(&all()).unwrap().count, Some(4));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -331,16 +336,16 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
-    std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
-    std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+    let a = root.join("data/a.jsonl");
+    let b = root.join("data/b.jsonl");
+    std::fs::write(&a, b"{\"name\":\"A1\"}\n{\"name\":\"A2\"}\n").unwrap();
+    std::fs::write(&b, b"{\"name\":\"B1\"}\n{\"name\":\"B2\"}\n").unwrap();
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::Json,
+            SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
     )
@@ -351,14 +356,10 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(no_op.retired_slots_removed, 0);
     let old = index.view().unwrap();
     let a_handle = old.file_handle_for_path(&a).unwrap();
-    let b_handle = old.file_handle_for_path(&b).unwrap();
     index.delete_file(a_handle).unwrap();
-    std::fs::write(&b, br#"{"name":"B2"}"#).unwrap();
-    index.update_file(b_handle, &b).unwrap();
     std::fs::remove_file(&a).unwrap();
-    std::fs::remove_file(&b).unwrap();
     let before = index.view().unwrap().search(&all()).unwrap();
-    assert_eq!(before.count, Some(1));
+    assert_eq!(before.count, Some(2));
     let revision_before = index.view().unwrap().revision();
     let checks = std::cell::Cell::new(0);
     let cancelled = index.compact_with_control(
@@ -371,8 +372,8 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(cancelled.unwrap_err(), IndexError::Cancelled);
     assert_eq!(index.view().unwrap().revision(), revision_before);
     let report = index.compact().unwrap();
-    assert_eq!(report.slots_before, 3);
-    assert_eq!(report.slots_after, 1);
+    assert_eq!(report.slots_before, 4);
+    assert_eq!(report.slots_after, 2);
     assert_eq!(report.retired_slots_removed, 2);
     assert_eq!(report.remaining_retired_slots, 0);
     let after = index.view().unwrap().search(&all()).unwrap();
@@ -381,7 +382,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(after.hits[0].record_id, before.hits[0].record_id);
     assert_eq!(after.hits[0].file_path, before.hits[0].file_path);
     assert_eq!(after.hits[0].generation, report.revision.0);
-    assert_eq!(old.search(&all()).unwrap().count, Some(2));
+    assert_eq!(old.search(&all()).unwrap().count, Some(4));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -425,7 +426,9 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     let file = root.join("data/a.json");
+    let keep = root.join("data/keep.json");
     std::fs::write(&file, br#"{"name":"A"}"#).unwrap();
+    std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder(
@@ -454,8 +457,8 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
         task.progress().unwrap().phase,
         crate::lifecycle::MaintenancePhase::Complete
     );
-    assert_eq!(old.search(&all()).unwrap().count, Some(1));
-    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(0));
+    assert_eq!(old.search(&all()).unwrap().count, Some(2));
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(1));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
