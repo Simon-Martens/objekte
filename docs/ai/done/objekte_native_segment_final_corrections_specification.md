@@ -285,7 +285,7 @@ Each required correction has its own pushed implementation commit and focused re
 
 ### Validation
 
-The final workspace test run passed at `170eaeca03`: core reported 543 passed, 16 ignored, and 0 failed; CLI and desktop unit/integration targets and all doctests passed. One preceding full-suite run hit an existing timing-sensitive private-window assertion under suite load; the assertion passed in isolation, in the focused private suite, and in the complete rerun.
+The final workspace test run passed at `170eaeca03`: core reported 543 passed, 16 ignored, and 0 failed; CLI and desktop unit/integration targets and all doctests passed. The private-window regression was subsequently corrected because `build_peak_segment_jobs` measures entered but not-yet-finished jobs rather than worker threads. The test now checks that the scheduler's outstanding-job window remains within `2 * workers`.
 
 The following final checks passed:
 

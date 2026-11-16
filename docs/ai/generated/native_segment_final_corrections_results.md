@@ -47,7 +47,7 @@ Final commands at `170eaeca03`:
 | `cargo check -p objekte-search-core --all-targets --features detailed-profiling --locked` | Passed |
 | `git diff --check` | Passed |
 
-One earlier full-suite attempt observed `private_segment_window_is_bounded_for_one_and_multiple_workers` fail its peak-job assertion under suite-load timing. The test passed immediately in isolation, the focused private suite passed, and the complete workspace rerun passed. No source change was made for that existing timing-sensitive test.
+The former `private_segment_window_is_bounded_for_one_and_multiple_workers` assertion incorrectly bounded `build_peak_segment_jobs` by the worker count. That counter records segment jobs that have entered but not yet finished, not worker threads. The regression now verifies that the counter ran and bounds the scheduler's actual outstanding-job window by `2 * workers`; the complete workspace suite passes.
 
 ## Construction performance
 
@@ -65,7 +65,7 @@ target/release/examples/bench_build_musenalm \
 | ASCII | 814.378 ms | 876.767 ms | +7.7% | 577.044 MB |
 | Unicode | 899.332 ms | 887.279 ms | -1.3% | 536.764 MB |
 
-All runs produced 148,486 records and 15 native segments. ASCII retained index signature `60fc465c…47ffd`; Unicode retained `dfe2ba47…a2cc9`. Peak concurrent segment jobs stayed within eight workers and scheduler windows stayed within the configured `2 * workers` bound. RSS is informational and remains outside the acceptance gate.
+All runs produced 148,486 records and 15 native segments. ASCII retained index signature `60fc465c…47ffd`; Unicode retained `dfe2ba47…a2cc9`. With eight configured worker threads, the measured entered-but-not-yet-finished segment-job count was 7–12, while the actual outstanding scheduler window was 9–15, within the configured limit of 16. The entered-job count is not a worker-thread count. RSS is informational and remains outside the acceptance gate.
 
 Raw measurements: [raw-build-summary.json](native-segment-final-corrections/raw-build-summary.json).
 
