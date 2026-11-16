@@ -1269,6 +1269,43 @@ impl PostingCollection {
         Ok(())
     }
 
+    pub(crate) fn merge_shifted_in_pool(
+        &mut self,
+        batch: Self,
+        base: u32,
+        pool: &rayon::ThreadPool,
+    ) -> Result<(), String> {
+        if self.fields.len() != batch.fields.len() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        let mut global = std::mem::take(&mut self.fields)
+            .into_iter()
+            .collect::<Vec<_>>();
+        global.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+        let mut incoming = batch.fields;
+        let mut jobs = Vec::with_capacity(global.len());
+        for (path, index) in global {
+            let batch = incoming
+                .remove(&path)
+                .ok_or("posting batch field missing")?;
+            jobs.push((path, index, batch));
+        }
+        if !incoming.is_empty() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        let jobs = pool.install(|| {
+            use rayon::prelude::*;
+            jobs.into_par_iter()
+                .map(|(path, mut index, batch)| {
+                    index.merge_shifted(batch, base)?;
+                    Ok::<_, String>((path, index))
+                })
+                .collect::<Result<Vec<_>, _>>()
+        })?;
+        self.fields = jobs.into_iter().collect();
+        Ok(())
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         for index in self.fields.values() {
             index.validate_domain(allowed)?;

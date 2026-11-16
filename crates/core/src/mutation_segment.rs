@@ -162,7 +162,7 @@ impl SegmentAggregate {
             ..
         } = batch;
         let postings_and_custom = pool.join(
-            || postings.merge_shifted(batch_postings, base),
+            || postings.merge_shifted_in_pool(batch_postings, base, pool),
             || -> Result<(), String> {
                 if custom_postings.len() != batch_custom_postings.len() {
                     return Err("custom posting segment coverage mismatch".into());
