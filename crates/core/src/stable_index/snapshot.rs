@@ -17,6 +17,12 @@ pub const MAX_MANIFEST_BYTES: u64 = 64 * 1024 * 1024;
 static ARMED_FAULT: std::sync::Mutex<Option<(&'static str, String)>> = std::sync::Mutex::new(None);
 
 #[cfg(test)]
+thread_local! {
+    static ARMED_THREAD_FAULT: std::cell::Cell<Option<&'static str>> =
+        const { std::cell::Cell::new(None) };
+}
+
+#[cfg(test)]
 static FAULT_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
 
 #[cfg(test)]
@@ -29,11 +35,32 @@ pub(crate) fn fault_test_lock() -> std::sync::MutexGuard<'static, ()> {
 #[cfg(test)]
 pub(crate) fn arm_fault(point: &'static str, marker: impl Into<String>) {
     *ARMED_FAULT.lock().expect("fault lock") = Some((point, marker.into()));
+    ARMED_THREAD_FAULT.with(|fault| fault.set(Some(point)));
 }
 
 #[cfg(test)]
 pub(crate) fn clear_fault() {
     *ARMED_FAULT.lock().expect("fault lock") = None;
+    ARMED_THREAD_FAULT.with(|fault| fault.set(None));
+}
+
+#[allow(unused_variables)]
+pub(crate) fn inject_thread_fault(point: &'static str) -> Result<(), String> {
+    #[cfg(test)]
+    {
+        let armed = ARMED_THREAD_FAULT.with(|fault| {
+            if fault.get() == Some(point) {
+                fault.set(None);
+                true
+            } else {
+                false
+            }
+        });
+        if armed {
+            return Err(format!("injected fault at {point}"));
+        }
+    }
+    Ok(())
 }
 
 #[allow(unused_variables)]

@@ -482,11 +482,21 @@ fn file_lifecycle_updates_catalogs_and_live_domains() {
         );
     }
 
+    let mut appended_file = file.clone();
+    appended_file.id = prototype.next_file_id().expect("next file");
+    appended_file.relative_path = "data/reappended.jsonl".into();
     let replaced = prototype
-        .replace_file(&path, file, CollectionId(0), file_records)
-        .expect("replace");
+        .append_file(appended_file, CollectionId(0), file_records.clone())
+        .expect("append replacement file");
     assert_eq!(replaced.len(), 2);
-    assert_eq!(prototype.records_for_path(&path).expect("refs").len(), 2);
+    let appended_path = PathBuf::from("data/reappended.jsonl");
+    assert_eq!(
+        prototype
+            .records_for_path(&appended_path)
+            .expect("refs")
+            .len(),
+        2
+    );
     assert_eq!(
         prototype.live_slots(CollectionId(0)).expect("live").len(),
         4
@@ -497,7 +507,13 @@ fn file_lifecycle_updates_catalogs_and_live_domains() {
     prototype.save_snapshot(&generation).expect("save");
     drop(prototype);
     let mut reopened = StablePrototype::open_snapshot(&generation).expect("open");
-    assert_eq!(reopened.records_for_path(&path).expect("refs").len(), 2);
+    assert_eq!(
+        reopened
+            .records_for_path(&appended_path)
+            .expect("refs")
+            .len(),
+        2
+    );
     assert_eq!(reopened.live_slots(CollectionId(0)).expect("live").len(), 4);
     let _ = std::fs::remove_dir_all(&root);
 }
@@ -1463,7 +1479,11 @@ fn prepared_facts_for_file(
     prototype: &StablePrototype,
     state: &crate::repository::CollectionState,
     file_id: FileId,
-) -> (Vec<RecordEntry>, Vec<super::PreparedPostingAdd>) {
+) -> (
+    Vec<RecordEntry>,
+    Vec<super::PreparedPostingAdd>,
+    Vec<(super::ComponentId, super::CoverageDescriptor)>,
+) {
     let records = state
         .generation
         .records
@@ -1732,7 +1752,20 @@ fn prepared_facts_for_file(
             });
         }
     }
-    (records, adds)
+    let mut components = BTreeSet::new();
+    for add in &adds {
+        components.insert(add.component);
+    }
+    let coverage = components
+        .into_iter()
+        .filter_map(|component| {
+            prototype
+                .components
+                .get(&component)
+                .map(|entry| (component, entry.descriptor.coverage.clone()))
+        })
+        .collect();
+    (records, adds, coverage)
 }
 
 #[test]
@@ -1742,7 +1775,7 @@ fn prepared_replacement_preserves_all_indexed_facts() {
     let state = &fixture.repository.collections()[0];
     let file = fixture.repository.files().files[0].clone();
     let path = file.relative_path.to_path_buf();
-    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    let (records, posting_adds, coverage) = prepared_facts_for_file(&prototype, state, file.id);
     let age = super::FieldComponentKey {
         path: vec!["age".into()],
         binding: None,
@@ -1760,7 +1793,7 @@ fn prepared_replacement_preserves_all_indexed_facts() {
                     collection: CollectionId(0),
                     records: records.clone(),
                     posting_adds,
-                    coverage: Vec::new(),
+                    coverage,
                 }],
             },
         )
@@ -1850,7 +1883,7 @@ fn prepared_replacement_changed_facts_match_native_rebuild() {
     let state = &changed.collections()[0];
     let file = fixture.repository.files().files[0].clone();
     let path = file.relative_path.to_path_buf();
-    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    let (records, posting_adds, coverage) = prepared_facts_for_file(&prototype, state, file.id);
     prototype
         .replace_prepared_file(
             &path,
@@ -1860,7 +1893,7 @@ fn prepared_replacement_changed_facts_match_native_rebuild() {
                     collection: CollectionId(0),
                     records,
                     posting_adds,
-                    coverage: Vec::new(),
+                    coverage,
                 }],
             },
         )
@@ -2020,7 +2053,7 @@ fn failure_after_first_change_blocks_queries_and_saves() {
     let state = &fixture.repository.collections()[0];
     let file = fixture.repository.files().files[0].clone();
     let path = file.relative_path.to_path_buf();
-    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    let (records, posting_adds, coverage) = prepared_facts_for_file(&prototype, state, file.id);
     super::snapshot::arm_fault("mutation-after-first-change", "data/a.jsonl");
     let result = prototype.replace_prepared_file(
         &path,
@@ -2030,7 +2063,7 @@ fn failure_after_first_change_blocks_queries_and_saves() {
                 collection: CollectionId(0),
                 records,
                 posting_adds,
-                coverage: Vec::new(),
+                coverage,
             }],
         },
     );
@@ -2210,4 +2243,258 @@ fn configured_composite_sort_matches_native_order() {
     let native = &repository.collections()[0].sorting.composites[0].order;
     assert_eq!(&actual, native);
     let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn prepared_composite_replacement_rebases_nonzero_slots() {
+    let root = temp_root("composite-replacement");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/a.jsonl"),
+        b"{\"name\":\"beta\",\"age\":2}\n{\"name\":\"alpha\",\"age\":1}\n",
+    )
+    .expect("a");
+    std::fs::write(
+        root.join("data/b.jsonl"),
+        b"{\"name\":\"gamma\",\"age\":3}\n",
+    )
+    .expect("b");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    definition
+        .schema
+        .register_field(field(&["age"], LogicalType::Number, false, true))
+        .expect("age");
+    definition.sort_fields = vec![
+        crate::model::FieldPath::parse("age").expect("age"),
+        crate::model::FieldPath::parse("name").expect("name"),
+    ];
+    definition
+        .schema
+        .register_composite_sort(vec![
+            crate::workload::SortField::simple("age", false),
+            crate::workload::SortField::simple("name", true),
+        ])
+        .expect("composite");
+    let repository = Repository::open(&root, vec![definition.clone()]).expect("native");
+    let mut prototype = StablePrototype::from_repository(&repository).expect("prototype");
+    let file = repository.files().files[0].clone();
+    let path = file.relative_path.to_path_buf();
+    std::fs::write(
+        root.join(&path),
+        b"{\"name\":\"delta\",\"age\":9}\n{\"name\":\"alpha\",\"age\":4}\n",
+    )
+    .expect("changed");
+    let metadata = std::fs::metadata(root.join(&path)).expect("metadata");
+    let mut changed_file = file;
+    changed_file.revision =
+        crate::inventory::SourceRevision::from_metadata(&metadata).expect("revision");
+    let change = super::prepare_file_change(
+        &mut prototype,
+        &root,
+        &definition,
+        CollectionId(0),
+        changed_file,
+        crate::workload::BigramAlphabet::Ascii,
+    )
+    .expect("prepare");
+    prototype
+        .replace_prepared_file(&path, change)
+        .expect("replace");
+    let descriptor = prototype
+        .component_descriptors()
+        .find(|descriptor| descriptor.kind == ComponentKind::CompositeSort)
+        .expect("composite")
+        .clone();
+    let key = super::composite_component_key(&descriptor);
+    let actual = prototype
+        .sort_composite_slots(CollectionId(0), &key)
+        .expect("actual");
+    let native = Repository::open(&root, vec![definition]).expect("native changed");
+    let expected = &native.collections()[0].sorting.composites[0].order;
+    let actual_ids = actual
+        .iter()
+        .filter_map(|slot| {
+            prototype
+                .record_by_slot(CollectionId(0), *slot)
+                .ok()
+                .flatten()
+                .map(|record| record.id)
+        })
+        .collect::<Vec<_>>();
+    let expected_ids = expected
+        .iter()
+        .map(|slot| {
+            native.collections()[0].generation.records[slot.0 as usize]
+                .id
+                .clone()
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(actual_ids, expected_ids);
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut reopened = StablePrototype::open_snapshot(&generation).expect("open");
+    let actual = reopened
+        .sort_composite_slots(CollectionId(0), &key)
+        .expect("reopened");
+    let actual_ids = actual
+        .iter()
+        .filter_map(|slot| {
+            reopened
+                .record_by_slot(CollectionId(0), *slot)
+                .ok()
+                .flatten()
+                .map(|record| record.id)
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(actual_ids, expected_ids);
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn invalid_prepared_change_rejects_before_mutation_without_panic() {
+    let fixture = fixture("invalid-prepared");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let state = &fixture.repository.collections()[0];
+    let file = fixture.repository.files().files[0].clone();
+    let path = file.relative_path.to_path_buf();
+    let (records, mut posting_adds, coverage) = prepared_facts_for_file(&prototype, state, file.id);
+    let file_component = prototype.file_catalog_component().expect("file component");
+    for add in &mut posting_adds {
+        add.component = ComponentId(file_component.0);
+    }
+    let change = super::PreparedFileChange {
+        file: file.clone(),
+        collections: vec![super::PreparedCollectionChange {
+            collection: CollectionId(0),
+            records: records.clone(),
+            posting_adds,
+            coverage,
+        }],
+    };
+    assert!(prototype.replace_prepared_file(&path, change).is_err());
+    assert!(prototype.unusable_reason().is_none());
+    assert_eq!(prototype.records_for_path(&path).expect("path").len(), 2);
+
+    let (records, posting_adds, coverage) = prepared_facts_for_file(&prototype, state, file.id);
+    let mut duplicate = super::PreparedFileChange {
+        file,
+        collections: vec![super::PreparedCollectionChange {
+            collection: CollectionId(0),
+            records,
+            posting_adds,
+            coverage,
+        }],
+    };
+    duplicate.collections.push(duplicate.collections[0].clone());
+    assert!(prototype.replace_prepared_file(&path, duplicate).is_err());
+    assert!(prototype.unusable_reason().is_none());
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn replacement_destination_collision_preserves_both_files() {
+    let fixture = fixture("replacement-collision");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let state = &fixture.repository.collections()[0];
+    let source = fixture.repository.files().files[0].clone();
+    let destination = fixture.repository.files().files[1].clone();
+    let (records, posting_adds, coverage) = prepared_facts_for_file(&prototype, state, source.id);
+    let mut change = super::PreparedFileChange {
+        file: source.clone(),
+        collections: vec![super::PreparedCollectionChange {
+            collection: CollectionId(0),
+            records,
+            posting_adds,
+            coverage,
+        }],
+    };
+    change.file.relative_path = destination.relative_path.clone();
+    assert!(
+        prototype
+            .replace_prepared_file(&source.relative_path, change)
+            .is_err()
+    );
+    assert!(prototype.unusable_reason().is_none());
+    assert_eq!(
+        prototype
+            .records_for_path(&source.relative_path)
+            .expect("source")
+            .len(),
+        2
+    );
+    assert_eq!(
+        prototype
+            .records_for_path(&destination.relative_path)
+            .expect("destination")
+            .len(),
+        2
+    );
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn append_delete_and_move_failures_after_first_write_block_use() {
+    let _guard = super::snapshot::fault_test_lock();
+    for operation in ["append", "delete", "move"] {
+        let fixture = fixture(&format!("late-{operation}"));
+        let mut prototype =
+            StablePrototype::from_repository(&fixture.repository).expect("prototype");
+        let file = fixture.repository.files().files[0].clone();
+        match operation {
+            "append" => {
+                let state = &fixture.repository.collections()[0];
+                let (records, posting_adds, coverage) =
+                    prepared_facts_for_file(&prototype, state, file.id);
+                let mut new_file = file.clone();
+                new_file.id = prototype.next_file_id().expect("next");
+                new_file.relative_path = "data/late-append.jsonl".into();
+                for record in &mut records.clone() {
+                    let _ = record;
+                }
+                let mut records = records;
+                for record in &mut records {
+                    record.file = new_file.id;
+                }
+                super::snapshot::arm_fault("mutation-after-first-change", "late-append.jsonl");
+                let result = prototype.append_prepared_file(super::PreparedFileChange {
+                    file: new_file,
+                    collections: vec![super::PreparedCollectionChange {
+                        collection: CollectionId(0),
+                        records,
+                        posting_adds,
+                        coverage,
+                    }],
+                });
+                assert!(result.is_err());
+            }
+            "delete" => {
+                super::snapshot::arm_fault(
+                    "delete-after-first-change",
+                    file.relative_path.to_string_lossy().as_ref(),
+                );
+                assert!(prototype.delete_file_by_path(&file.relative_path).is_err());
+            }
+            "move" => {
+                super::snapshot::arm_fault("move-after-first-change", "data/late-move.jsonl");
+                assert!(
+                    prototype
+                        .move_file(file.id, &PathBuf::from("data/late-move.jsonl"))
+                        .is_err()
+                );
+            }
+            _ => unreachable!(),
+        }
+        super::snapshot::clear_fault();
+        assert!(prototype.unusable_reason().is_some(), "{operation}");
+        assert!(matches!(
+            prototype.file_by_id(file.id),
+            Err(StableIndexError::InvalidState(_))
+        ));
+        let _ = std::fs::remove_dir_all(&fixture.root);
+    }
 }

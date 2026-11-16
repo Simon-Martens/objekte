@@ -899,6 +899,7 @@ fn lifecycle_mode(args: &Args) -> Result<(), String> {
     let root = create_lifecycle_fixture()?;
     let result = (|| -> Result<(), String> {
         let definitions = fixture_definitions();
+        let definitions_for_prepare = definitions.clone();
         let started = Instant::now();
         let (mut prototype, _) = StablePrototype::from_sources_with_timings(
             &root,
@@ -914,40 +915,68 @@ fn lifecycle_mode(args: &Args) -> Result<(), String> {
         let mut storage = Vec::new();
         storage.push(prototype.storage_report(CollectionId(0)));
         let mut replacement_ns = 0u64;
-        for _ in 0..10 {
-            let refs = prototype.records_for_path(&path)?;
-            let mut records = Vec::with_capacity(refs.len());
-            let mut file = None;
-            for reference in refs {
-                if let Some(record) =
-                    prototype.record_by_slot(reference.collection, reference.slot)?
-                {
-                    file = Some(record.file);
-                    records.push(record);
-                }
+        let mut preparation_ns = 0u64;
+        for iteration in 0..10 {
+            if iteration == 5 {
+                write_lifecycle_source(&root, true)?;
             }
-            let file_id = file.ok_or("lifecycle fixture has no file")?;
-            let entry = prototype
+            let refs = prototype.records_for_path(&path)?;
+            let file_id = refs
+                .first()
+                .and_then(|reference| {
+                    prototype
+                        .record_by_slot(reference.collection, reference.slot)
+                        .ok()
+                        .flatten()
+                        .map(|record| record.file)
+                })
+                .ok_or("lifecycle fixture has no file")?;
+            let mut entry = prototype
                 .file_by_id(file_id)?
                 .ok_or("lifecycle file metadata missing")?;
-            let replace_started = Instant::now();
-            prototype.replace_prepared_file(
-                &path,
-                objekte_search_core::stable_index::PreparedFileChange {
-                    file: entry,
-                    collections: vec![
-                        objekte_search_core::stable_index::PreparedCollectionChange {
-                            collection: CollectionId(0),
-                            records,
-                            posting_adds: Vec::new(),
-                            coverage: Vec::new(),
-                        },
-                    ],
-                },
+            let metadata =
+                std::fs::metadata(root.join(&path)).map_err(|error| error.to_string())?;
+            entry.revision =
+                objekte_search_core::inventory::SourceRevision::from_metadata(&metadata)?;
+            let prepare_started = Instant::now();
+            let change = objekte_search_core::stable_index::prepare_file_change(
+                &mut prototype,
+                &root,
+                &definitions_for_prepare[0],
+                CollectionId(0),
+                entry,
+                args.alphabet,
             )?;
+            preparation_ns =
+                preparation_ns.saturating_add(prepare_started.elapsed().as_nanos() as u64);
+            let replace_started = Instant::now();
+            prototype.replace_prepared_file(&path, change)?;
             replacement_ns =
                 replacement_ns.saturating_add(replace_started.elapsed().as_nanos() as u64);
             storage.push(prototype.storage_report(CollectionId(0)));
+        }
+        let native = Repository::open(&root, definitions_for_prepare.clone())?;
+        let age = objekte_search_core::stable_index::FieldComponentKey {
+            path: vec!["age".into()],
+            binding: None,
+            role: objekte_search_core::stable_index::BindingRole::DeclaredField,
+        };
+        let changed_age = objekte_search_core::posting::ScalarKey::Number(
+            objekte_search_core::model::Number::integer(1),
+        );
+        let stable_matches = prototype
+            .typed_posting(CollectionId(0), &age, &changed_age)?
+            .complete()
+            .map_err(|error| error.to_string())?
+            .len();
+        let native_matches = native.collections()[0].postings.fields[&vec!["age".to_string()]]
+            .values
+            .get(&changed_age)
+            .map_or(0, roaring::RoaringBitmap::len);
+        if stable_matches != native_matches {
+            return Err(format!(
+                "lifecycle semantic mismatch: stable {stable_matches}, native {native_matches}"
+            ));
         }
         let generation = root.join("generation");
         let save_started = Instant::now();
@@ -960,7 +989,9 @@ fn lifecycle_mode(args: &Args) -> Result<(), String> {
         let output = json!({
             "fixture_build_ns": build_ns,
             "replacements": 10,
+            "preparation_ns": preparation_ns,
             "replacement_ns": replacement_ns,
+            "semantic_matches": stable_matches,
             "save_ns": save_ns,
             "snapshot_disk_bytes": disk_bytes,
             "storage": storage,
@@ -976,6 +1007,25 @@ fn lifecycle_mode(args: &Args) -> Result<(), String> {
     })();
     let _ = std::fs::remove_dir_all(&root);
     result
+}
+
+fn write_lifecycle_source(root: &std::path::Path, changed: bool) -> Result<(), String> {
+    let path = root.join("data/lifecycle.jsonl");
+    let mut bytes = String::new();
+    for index in 0..200 {
+        let name = if changed {
+            format!("changed-{index:03}")
+        } else {
+            format!("name-{index:03}")
+        };
+        let age = index % 10 + if changed { 1 } else { 0 };
+        bytes.push_str(&format!(
+            "{{\"name\":\"{name}\",\"age\":{age},\"tags\":[\"t{}\",\"t{}\"]}}\n",
+            index % 17,
+            index % 31
+        ));
+    }
+    std::fs::write(path, bytes).map_err(|error| error.to_string())
 }
 
 fn create_lifecycle_fixture() -> Result<PathBuf, String> {

@@ -11,6 +11,7 @@ mod codec;
 mod memory;
 mod mutation;
 mod posting;
+mod prepare;
 mod snapshot;
 mod source_build;
 mod validation;
@@ -39,6 +40,7 @@ pub use codec::{
 };
 pub use memory::{IndexMemory, IndexTree, StoredBytes};
 pub use posting::Restriction;
+pub use prepare::prepare_file_change;
 pub use snapshot::{
     ManifestCollection, ManifestComponent, SnapshotManifest, component_relative_path, read_manifest,
 };
@@ -310,6 +312,7 @@ pub struct StablePrototype {
     pub(crate) build_records: Vec<ComponentBuildRecord>,
     pub(crate) build_stage_ns: BTreeMap<String, u64>,
     next_file_id: Option<u32>,
+    application_started: bool,
 }
 
 impl StablePrototype {
@@ -838,6 +841,7 @@ impl StablePrototype {
             build_records: Vec::new(),
             build_stage_ns: BTreeMap::new(),
             next_file_id: None,
+            application_started: false,
         };
         let mut descriptors = Vec::new();
         for component in &manifest.components {

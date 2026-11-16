@@ -59,6 +59,8 @@ def main():
     baseline_runs = []
     original_runs = []
     candidate_runs = []
+    candidate_memories = []
+    candidate_stages = []
     for sample in range(1, args.samples + 1):
         baseline_path = args.result_dir / f"baseline-{sample}.json"
         candidate_dir = args.result_dir / f"candidate-{sample}"
@@ -116,14 +118,24 @@ def main():
                 candidate_dir,
             ]
         )
-        candidate_runs.append(read_json(candidate_dir / "build.json"))
+        candidate_build = read_json(candidate_dir / "build.json")
+        candidate_runs.append(candidate_build)
+        candidate_memories.append(read_json(candidate_dir / "memory.json"))
+        candidate_stages.append(candidate_build.get("source_build_timings") or {})
+
+    def stats(values):
+        values = [value for value in values if value is not None]
+        if not values:
+            return None
+        return {
+            "median": statistics.median(values),
+            "min": min(values),
+            "max": max(values),
+            "samples": len(values),
+        }
 
     baseline_ns = [run["build_ns"] for run in baseline_runs]
     candidate_ns = [run["total_source_build_ns"] for run in candidate_runs]
-    baseline_memory = baseline_runs[-1]
-    candidate_memory = read_json(
-        args.result_dir / f"candidate-{args.samples}" / "memory.json"
-    )
     original_ns = [run["total_source_build_ns"] for run in original_runs]
     comparison = {
         "task": "ic-stable-index-prototype",
@@ -158,31 +170,45 @@ def main():
             else None
         ),
         "memory": {
-            "native_resident_bytes": baseline_memory.get("resident_bytes"),
-            "native_peak_bytes": baseline_memory.get("peak_resident_bytes"),
-            "candidate_resident_bytes": candidate_memory.get(
-                "readiness_rss_bytes"
-            ),
-            "candidate_peak_bytes": candidate_memory.get("readiness_hwm_bytes"),
-            "candidate_owned_component_payload_bytes": candidate_memory.get(
-                "owned_component_payload_bytes"
-            ),
+            "native_resident_bytes": stats([run.get("resident_bytes") for run in baseline_runs]),
+            "native_peak_bytes": stats([run.get("peak_resident_bytes") for run in baseline_runs]),
+            "candidate_resident_bytes": stats([run.get("readiness_rss_bytes") for run in candidate_memories]),
+            "candidate_peak_bytes": stats([run.get("readiness_hwm_bytes") for run in candidate_memories]),
+            "candidate_owned_component_payload_bytes": stats([
+                run.get("owned_component_payload_bytes") for run in candidate_memories
+            ]),
         },
-        "candidate_stage_ns": candidate_runs[-1].get("source_build_timings"),
-        "candidate_components": candidate_runs[-1].get("components"),
-        "field_job_overlap_pairs": read_json(
-            args.result_dir / f"candidate-{args.samples}" / "components.json"
-        ).get("overlap_pairs"),
+        "candidate_stage_ns": {
+            key: stats([stage.get(key) for stage in candidate_stages])
+            for key in (
+                "discovery_ns",
+                "setup_ns",
+                "extraction_admission_ns",
+                "finalization_ns",
+                "stable_component_ns",
+            )
+        },
+        "candidate_components": stats([run.get("components") for run in candidate_runs]),
+        "field_job_overlap_pairs": stats([
+            read_json(args.result_dir / f"candidate-{sample}" / "components.json").get("overlap_pairs")
+            for sample in range(1, args.samples + 1)
+        ]),
+        "selected_trace": {
+            "sample": args.samples,
+            "note": "component trace is one run, not a median",
+        },
     }
     native_resident = comparison["memory"]["native_resident_bytes"]
     native_peak = comparison["memory"]["native_peak_bytes"]
     if native_resident and comparison["memory"]["candidate_resident_bytes"]:
         comparison["memory"]["resident_ratio"] = (
-            comparison["memory"]["candidate_resident_bytes"] / native_resident
+            comparison["memory"]["candidate_resident_bytes"]["median"]
+            / native_resident["median"]
         )
     if native_peak and comparison["memory"]["candidate_peak_bytes"]:
         comparison["memory"]["peak_ratio"] = (
-            comparison["memory"]["candidate_peak_bytes"] / native_peak
+            comparison["memory"]["candidate_peak_bytes"]["median"]
+            / native_peak["median"]
         )
     comparison["gate"] = {
         "classification": "performance_rejection"

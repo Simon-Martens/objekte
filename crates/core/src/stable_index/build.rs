@@ -11,7 +11,7 @@ use sha2::{Digest, Sha256};
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{FileInventory, RecordClass, RecordEntry};
-use crate::model::{CollectionId, FileId, RecordSlot};
+use crate::model::{CollectionId, RecordSlot};
 use crate::posting::{PostingIndex, StructuralKey};
 use crate::relation::{RelationIndex, RelationTarget};
 use crate::repository::{CollectionState, Repository};
@@ -479,6 +479,7 @@ pub(crate) fn from_collections(
                 .max()
                 .unwrap_or(0),
         ),
+        application_started: false,
     };
     let manifest_collections = collections
         .iter()
@@ -780,10 +781,16 @@ fn prepare_paths(
     files: &FileInventory,
     collections: &[CollectionState],
 ) -> Result<Vec<(PathKey, StoredBytes)>, String> {
-    let mut by_file = BTreeMap::<FileId, Vec<RecordRef>>::new();
+    let mut by_file = vec![Vec::<RecordRef>::new(); files.files.len()];
     for state in collections {
         for record in &state.generation.records {
-            by_file.entry(record.file).or_default().push(RecordRef {
+            let window = by_file.get_mut(record.file.0 as usize).ok_or_else(|| {
+                format!(
+                    "record references file {} which is absent from the inventory",
+                    record.file.0
+                )
+            })?;
+            window.push(RecordRef {
                 collection: state.generation.collection,
                 slot: record.slot,
             });
@@ -791,7 +798,10 @@ fn prepare_paths(
     }
     let mut entries = Vec::with_capacity(files.files.len());
     let mut seen = BTreeSet::new();
-    for file in &files.files {
+    for (index, file) in files.files.iter().enumerate() {
+        if file.id.0 as usize != index {
+            return Err("file inventory IDs are not dense".into());
+        }
         let key = PathKey::from_path(&file.relative_path)?;
         if !seen.insert(key.clone()) {
             return Err(format!(
@@ -799,7 +809,7 @@ fn prepare_paths(
                 file.relative_path.display()
             ));
         }
-        let mut refs = by_file.remove(&file.id).unwrap_or_default();
+        let mut refs = std::mem::take(&mut by_file[index]);
         refs.sort_unstable();
         refs.dedup();
         let value = codec::encode_meta(&PathCatalogEntry {
@@ -807,12 +817,6 @@ fn prepare_paths(
             refs,
         })?;
         entries.push((key, value));
-    }
-    if let Some((file, _)) = by_file.into_iter().next() {
-        return Err(format!(
-            "record references file {} which is absent from the inventory",
-            file.0
-        ));
     }
     Ok(entries)
 }
@@ -934,14 +938,25 @@ fn build_sort(
     if records.len() != column.keys.len() {
         return Err("sort column record coverage mismatch".into());
     }
-    let mut tree = BuildTree::new(ComponentKind::SortAscending);
-    for (slot, key) in column.keys.iter().enumerate() {
+    let mut tree = BuildTree::new(if descending {
+        ComponentKind::SortDescending
+    } else {
+        ComponentKind::SortAscending
+    });
+    let mut order = (0..column.keys.len()).collect::<Vec<_>>();
+    order.sort_by(|left, right| {
+        column.keys[*left]
+            .compare_with(&column.keys[*right], descending, column.options)
+            .then_with(|| records[*left].id.cmp(&records[*right].id))
+            .then_with(|| left.cmp(right))
+    });
+    for slot in order {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot does not fit in u32")?);
         tree.insert(
             ComponentKey::Sort(SortEntryKey {
                 options: column.options,
                 descending,
-                key: key.clone(),
+                key: column.keys[slot.0 as usize].clone(),
                 tie_break_id: records[slot.0 as usize].id.clone(),
                 slot,
             }),
@@ -966,7 +981,21 @@ fn build_composite_sort(
         return Err("composite sort record coverage mismatch".into());
     }
     let mut tree = BuildTree::new(ComponentKind::CompositeSort);
-    for (slot, record) in records.iter().enumerate() {
+    let mut order = (0..records.len()).collect::<Vec<_>>();
+    order.sort_by(|left, right| {
+        for (column, descending) in columns.iter().zip(&descending) {
+            let order =
+                column.keys[*left].compare_with(&column.keys[*right], *descending, column.options);
+            if !order.is_eq() {
+                return order;
+            }
+        }
+        records[*left]
+            .id
+            .cmp(&records[*right].id)
+            .then_with(|| left.cmp(right))
+    });
+    for slot in order {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot overflow")?);
         let parts = columns
             .iter()
@@ -980,7 +1009,7 @@ fn build_composite_sort(
         tree.insert(
             ComponentKey::CompositeSort(codec::CompositeSortEntryKey {
                 parts,
-                tie_break_id: record.id.clone(),
+                tie_break_id: records[slot.0 as usize].id.clone(),
                 slot,
             }),
             StoredBytes::empty(),

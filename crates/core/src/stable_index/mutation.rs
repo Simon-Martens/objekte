@@ -24,14 +24,12 @@ impl StablePrototype {
             .file_catalog_component()
             .ok_or_else(|| StableIndexError::MissingDependency("physical-file catalog".into()))?;
         let tree = self.tree(component)?;
-        let next = tree
-            .iter()
-            .filter_map(|entry| match entry.key() {
-                ComponentKey::FileId(id) => Some(id.saturating_add(1)),
-                _ => None,
-            })
-            .max()
-            .unwrap_or(0);
+        let next = match tree.iter().next_back().map(|entry| entry.key().clone()) {
+            Some(ComponentKey::FileId(id)) => id
+                .checked_add(1)
+                .ok_or_else(|| StableIndexError::InvalidState("FileId space exhausted".into()))?,
+            _ => 0,
+        };
         self.next_file_id = Some(next);
         Ok(FileId(next))
     }
@@ -123,6 +121,21 @@ impl StablePrototype {
         add: &RoaringBitmap,
         remove: &RoaringBitmap,
     ) -> Result<bool, StableIndexError> {
+        let result = self.update_posting_inner(collection, component, key, add, remove);
+        if result.is_err() && self.application_started {
+            self.mark_prototype_invalid("posting mutation failed after application began");
+        }
+        result
+    }
+
+    fn update_posting_inner(
+        &mut self,
+        collection: CollectionId,
+        component: ComponentId,
+        key: ComponentKey,
+        add: &RoaringBitmap,
+        remove: &RoaringBitmap,
+    ) -> Result<bool, StableIndexError> {
         let _ = collection;
         let current = {
             let tree = self.tree(component)?;
@@ -135,6 +148,7 @@ impl StablePrototype {
         let mut updated = current;
         updated |= add;
         updated -= remove;
+        self.application_started = true;
         let tree = self.tree_mut(component)?;
         let removed = if updated.is_empty() {
             tree.remove(&key).is_some()
@@ -148,6 +162,7 @@ impl StablePrototype {
         self.counters.stable_inserts += u64::from(!removed);
         self.counters.stable_removes += u64::from(removed);
         self.touch_component(component);
+        self.application_started = false;
         Ok(!updated.is_empty())
     }
 
@@ -155,7 +170,11 @@ impl StablePrototype {
         &mut self,
         change: super::PreparedFileChange,
     ) -> Result<Vec<RecordSlot>, StableIndexError> {
-        self.apply_prepared_file(change, None)
+        let result = self.apply_prepared_file(change, None);
+        if result.is_err() && self.application_started {
+            self.mark_prototype_invalid("append failed after application began");
+        }
+        result
     }
 
     pub fn replace_prepared_file(
@@ -172,19 +191,22 @@ impl StablePrototype {
         }
         // Preparation is complete before the old file is retired.
         let result = self.apply_prepared_file(change, Some(old_path));
-        if result.is_err() {
+        if result.is_err() && self.application_started {
             self.mark_prototype_invalid("prepared file replacement failed after mutation began");
         }
         result
     }
 
     #[allow(dead_code)]
-    fn append_file(
+    pub(crate) fn append_file(
         &mut self,
         file: FileEntry,
         collection: CollectionId,
-        records: Vec<RecordEntry>,
+        mut records: Vec<RecordEntry>,
     ) -> Result<Vec<RecordSlot>, StableIndexError> {
+        for record in &mut records {
+            record.file = file.id;
+        }
         self.append_prepared_file(super::PreparedFileChange {
             file,
             collections: vec![super::PreparedCollectionChange {
@@ -202,6 +224,7 @@ impl StablePrototype {
         replace_old_path: Option<&std::path::Path>,
     ) -> Result<Vec<RecordSlot>, StableIndexError> {
         self.require_usable()?;
+        self.validate_prepared_change(&change, replace_old_path)?;
         let file = change.file;
         let files_component = self
             .file_catalog_component()
@@ -321,8 +344,10 @@ impl StablePrototype {
             live: true,
             incarnation: 1,
         })?;
+        self.application_started = true;
         if let Some(old_path) = replace_old_path {
             self.delete_file_by_path(old_path)?;
+            self.application_started = true;
         }
         {
             let tree = self.tree_mut(files_component)?;
@@ -393,6 +418,26 @@ impl StablePrototype {
                     )?;
                 }
             }
+            if coverage.is_empty() && count > 0 {
+                for component in self.components.values_mut() {
+                    if component
+                        .descriptor
+                        .collection
+                        .as_ref()
+                        .map(|value| value.id)
+                        != Some(collection)
+                    {
+                        continue;
+                    }
+                    let coverage = &mut component.descriptor.coverage;
+                    coverage.values_indexed = false;
+                    coverage.value_complete = false;
+                    coverage.length_complete = false;
+                    coverage.empty_string_complete = false;
+                    coverage.complete_for_field = false;
+                    coverage.structural_complete = false;
+                }
+            }
             for (component, coverage) in coverage {
                 if let Some(entry) = self.components.get_mut(&component) {
                     entry.descriptor.coverage = coverage;
@@ -415,10 +460,22 @@ impl StablePrototype {
         self.next_file_id = Some(file.id.0.saturating_add(1));
         self.mark_dirty(files_component);
         self.mark_dirty(paths_component);
+        self.application_started = false;
         Ok(all_assigned)
     }
 
     pub fn delete_file_by_path(
+        &mut self,
+        path: &std::path::Path,
+    ) -> Result<Vec<RecordRef>, StableIndexError> {
+        let result = self.delete_file_by_path_inner(path);
+        if result.is_err() && self.application_started {
+            self.mark_prototype_invalid("delete failed after application began");
+        }
+        result
+    }
+
+    fn delete_file_by_path_inner(
         &mut self,
         path: &std::path::Path,
     ) -> Result<Vec<RecordRef>, StableIndexError> {
@@ -441,6 +498,7 @@ impl StablePrototype {
                 .push(reference);
         }
         let mut deleted = Vec::new();
+        self.application_started = true;
         for (collection, references) in by_collection {
             let info = self
                 .collections
@@ -470,6 +528,8 @@ impl StablePrototype {
                     let tree = self.tree_mut(info.records)?;
                     tree.insert(ComponentKey::RecordSlot(reference.slot.0), tombstone);
                 }
+                super::snapshot::inject_thread_fault("delete-after-first-change")
+                    .map_err(StableIndexError::Io)?;
                 identities
                     .entry(record_id)
                     .or_default()
@@ -534,6 +594,7 @@ impl StablePrototype {
             tree.insert(ComponentKey::FileId(file_id.0), value);
             self.mark_dirty(files_component);
         }
+        self.application_started = false;
         Ok(deleted)
     }
 
@@ -565,6 +626,18 @@ impl StablePrototype {
     }
 
     pub fn move_file(
+        &mut self,
+        file: FileId,
+        new_relative_path: &std::path::Path,
+    ) -> Result<(), StableIndexError> {
+        let result = self.move_file_inner(file, new_relative_path);
+        if result.is_err() && self.application_started {
+            self.mark_prototype_invalid("move failed after application began");
+        }
+        result
+    }
+
+    fn move_file_inner(
         &mut self,
         file: FileId,
         new_relative_path: &std::path::Path,
@@ -618,6 +691,7 @@ impl StablePrototype {
                 "destination path already has a mapping".into(),
             ));
         }
+        self.application_started = true;
         {
             let tree = self.tree_mut(paths_component)?;
             tree.remove(&ComponentKey::Path(old_key));
@@ -636,12 +710,149 @@ impl StablePrototype {
             live: catalog.live,
             incarnation: catalog.incarnation.saturating_add(1),
         })?;
+        super::snapshot::inject_thread_fault("move-after-first-change")
+            .map_err(StableIndexError::Io)?;
         {
             let tree = self.tree_mut(files_component)?;
             tree.insert(ComponentKey::FileId(file.0), value);
         }
         self.mark_dirty(paths_component);
         self.mark_dirty(files_component);
+        self.application_started = false;
+        Ok(())
+    }
+
+    fn validate_prepared_change(
+        &mut self,
+        change: &super::PreparedFileChange,
+        replace_old_path: Option<&std::path::Path>,
+    ) -> Result<(), StableIndexError> {
+        let file = &change.file;
+        let expected = self.next_file_id()?.0;
+        if file.id.0 != expected {
+            return Err(StableIndexError::Format(format!(
+                "file ID {} is not the next append-only identity {expected}",
+                file.id.0
+            )));
+        }
+        if self.file_catalog_record(file.id)?.is_some() {
+            return Err(StableIndexError::Format("file ID already exists".into()));
+        }
+        let mut collections = std::collections::BTreeSet::new();
+        for collection in &change.collections {
+            if !collections.insert(collection.collection) {
+                return Err(StableIndexError::Format(
+                    "duplicate collection in prepared file change".into(),
+                ));
+            }
+            if self.collections.get(&collection.collection).is_none() {
+                return Err(StableIndexError::Format("unknown collection".into()));
+            }
+            if !file.collections.contains(&collection.collection) {
+                return Err(StableIndexError::Format(
+                    "prepared file membership does not include its collection".into(),
+                ));
+            }
+            let count = u32::try_from(collection.records.len())
+                .map_err(|_| StableIndexError::Format("too many prepared records".into()))?;
+            if collection
+                .records
+                .iter()
+                .any(|record| record.file != file.id)
+            {
+                return Err(StableIndexError::Format(
+                    "prepared record file ownership mismatch".into(),
+                ));
+            }
+            for add in &collection.posting_adds {
+                let descriptor = self
+                    .components
+                    .get(&add.component)
+                    .ok_or(StableIndexError::MissingComponent(add.component))?
+                    .descriptor
+                    .clone();
+                if descriptor.collection.as_ref().map(|value| value.id)
+                    != Some(collection.collection)
+                {
+                    return Err(StableIndexError::Format(
+                        "prepared fact targets another collection".into(),
+                    ));
+                }
+                if add.key.tag() != expected_key_tag(descriptor.kind) {
+                    return Err(StableIndexError::Format(
+                        "prepared fact key kind does not match component".into(),
+                    ));
+                }
+                if add.slots.max().is_some_and(|slot| slot >= count) {
+                    return Err(StableIndexError::Format(
+                        "prepared posting slot outside record count".into(),
+                    ));
+                }
+                if let ComponentKey::Sort(key) = &add.key {
+                    if key.slot.0 >= count {
+                        return Err(StableIndexError::Format(
+                            "prepared sort slot outside record count".into(),
+                        ));
+                    }
+                }
+                if let ComponentKey::CompositeSort(key) = &add.key {
+                    if key.slot.0 >= count {
+                        return Err(StableIndexError::Format(
+                            "prepared composite slot outside record count".into(),
+                        ));
+                    }
+                }
+                if let ComponentKey::Occurrence(key) = &add.key {
+                    if key.source.0 >= count {
+                        return Err(StableIndexError::Format(
+                            "prepared relation source outside record count".into(),
+                        ));
+                    }
+                }
+                if let Some(value) = &add.value {
+                    if matches!(add.key, ComponentKey::Occurrence(_)) {
+                        let _: super::RelationOccurrenceValue =
+                            codec::decode_meta(value).map_err(StableIndexError::Format)?;
+                    }
+                }
+            }
+            for (component, _) in &collection.coverage {
+                let descriptor = self
+                    .components
+                    .get(component)
+                    .ok_or(StableIndexError::MissingComponent(*component))?;
+                if descriptor
+                    .descriptor
+                    .collection
+                    .as_ref()
+                    .map(|value| value.id)
+                    != Some(collection.collection)
+                {
+                    return Err(StableIndexError::Format(
+                        "prepared coverage targets another collection".into(),
+                    ));
+                }
+            }
+        }
+        let path_key =
+            super::PathKey::from_path(&file.relative_path).map_err(StableIndexError::Format)?;
+        if let Some(old_path) = replace_old_path {
+            let old_key = super::PathKey::from_path(old_path).map_err(StableIndexError::Format)?;
+            let old = self.path_entry(&old_key)?.ok_or_else(|| {
+                StableIndexError::Format("replacement source path is absent".into())
+            })?;
+            if let Some(destination) = self.path_entry(&path_key)? {
+                if destination.file != old.file {
+                    return Err(StableIndexError::Format(
+                        "replacement destination path is occupied".into(),
+                    ));
+                }
+            }
+        } else if self.path_entry(&path_key)?.is_some() {
+            return Err(StableIndexError::Format(
+                "destination path is already occupied".into(),
+            ));
+        }
         Ok(())
     }
 
@@ -750,6 +961,25 @@ impl StablePrototype {
     }
 }
 
+fn expected_key_tag(kind: super::ComponentKind) -> u8 {
+    match kind {
+        super::ComponentKind::Files => 0,
+        super::ComponentKind::Paths => 1,
+        super::ComponentKind::Records => 2,
+        super::ComponentKind::Identities => 3,
+        super::ComponentKind::Domains => 4,
+        super::ComponentKind::Values => 5,
+        super::ComponentKind::Lengths => 6,
+        super::ComponentKind::States => 7,
+        super::ComponentKind::NormalGrams | super::ComponentKind::SkipGrams => 8,
+        super::ComponentKind::SortAscending | super::ComponentKind::SortDescending => 9,
+        super::ComponentKind::RelationOccurrences => 10,
+        super::ComponentKind::RelationTargets => 11,
+        super::ComponentKind::RelationStates => 12,
+        super::ComponentKind::CompositeSort => 13,
+    }
+}
+
 fn shift_component_key(key: ComponentKey, base: u32) -> Result<ComponentKey, StableIndexError> {
     Ok(match key {
         ComponentKey::RecordSlot(slot) => ComponentKey::RecordSlot(
@@ -763,6 +993,13 @@ fn shift_component_key(key: ComponentKey, base: u32) -> Result<ComponentKey, Sta
                 .checked_add(base)
                 .ok_or_else(|| StableIndexError::Format("sort slot overflow".into()))?;
             ComponentKey::Sort(key)
+        }
+        ComponentKey::CompositeSort(mut key) => {
+            key.slot.0 =
+                key.slot.0.checked_add(base).ok_or_else(|| {
+                    StableIndexError::Format("composite sort slot overflow".into())
+                })?;
+            ComponentKey::CompositeSort(key)
         }
         ComponentKey::Occurrence(mut key) => {
             key.source.0 = key
