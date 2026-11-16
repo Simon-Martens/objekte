@@ -1564,7 +1564,11 @@ impl Repository {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::build::file_batches(&state.member_files, &discovered) {
+            for batch in crate::build::file_batches(
+                &state.member_files,
+                &discovered,
+                options.segment_policy.max_files.get(),
+            ) {
                 if batch.len() == 1
                     && (discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
                         || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))

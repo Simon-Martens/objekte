@@ -45,7 +45,11 @@ fn measure_direct_shard_build_from_real_worker_batches() {
             .map(SourceFileInput::from_entry)
             .collect::<Vec<_>>(),
     );
-    let jobs = file_batches(&collection.generation.files, repository.files())
+    let jobs = file_batches(
+        &collection.generation.files,
+        repository.files(),
+        crate::native_segment::SegmentPolicy::default().max_files.get(),
+    )
         .into_iter()
         .map(|files| RepositoryFileJob {
             collection_index: id.0 as usize,
@@ -1889,7 +1893,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         );
     }
     assert_eq!(
-        file_batches(&ids, &inventory)
+        file_batches(&ids, &inventory, 512)
             .iter()
             .map(|batch| batch.len())
             .collect::<Vec<_>>(),
@@ -1913,7 +1917,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         );
     }
     assert_eq!(
-        file_batches(&ids, &large)
+        file_batches(&ids, &large, 512)
             .iter()
             .map(|batch| batch.len())
             .collect::<Vec<_>>(),

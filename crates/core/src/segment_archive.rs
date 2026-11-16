@@ -476,6 +476,25 @@ impl SegmentFiles {
     pub(crate) fn cache_initialized(&self) -> bool {
         self.cache.get().is_some()
     }
+
+    pub(crate) fn file_id(&self, index: usize) -> Option<FileId> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| FileId(file.id.to_native()))
+    }
+
+    pub(crate) fn archived_record_slots(
+        &self,
+        index: usize,
+    ) -> Option<impl Iterator<Item = RecordSlot> + '_> {
+        self.archive.root().files.get(index).map(|file| {
+            file.records
+                .iter()
+                .map(|slot| RecordSlot(slot.to_native()))
+        })
+    }
 }
 
 impl Deref for SegmentFiles {
@@ -551,6 +570,30 @@ impl RecordRows {
 
     pub(crate) fn cache_initialized(&self) -> bool {
         self.cache.get().is_some()
+    }
+
+    pub(crate) fn record_id(&self, slot: RecordSlot) -> Option<&str> {
+        self.archive
+            .root()
+            .records
+            .get(slot.0 as usize)
+            .map(|record| record.id.as_str())
+    }
+
+    pub(crate) fn record_file(&self, slot: RecordSlot) -> Option<FileId> {
+        self.archive
+            .root()
+            .records
+            .get(slot.0 as usize)
+            .map(|record| FileId(record.file.to_native()))
+    }
+
+    pub(crate) fn record_class_code(&self, slot: RecordSlot) -> Option<u8> {
+        self.archive
+            .root()
+            .records
+            .get(slot.0 as usize)
+            .map(|record| record.class)
     }
 }
 

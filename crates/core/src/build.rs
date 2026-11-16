@@ -91,15 +91,17 @@ impl SourceFileInput {
 pub(crate) fn file_batches<'a>(
     files: &'a [FileId],
     inventory: &FileInventory,
+    max_files: usize,
 ) -> Vec<&'a [FileId]> {
-    const MAX_FILES: usize = 512;
+    const MAX_JOB_FILES: usize = 512;
     const MAX_BYTES: u64 = 8 * 1024 * 1024;
+    let max_files = max_files.min(MAX_JOB_FILES).max(1);
     let mut batches = Vec::new();
     let mut start = 0;
     while start < files.len() {
         let mut end = start;
         let mut bytes = 0u64;
-        while end < files.len() && end - start < MAX_FILES {
+        while end < files.len() && end - start < max_files {
             let size = inventory.files[files[end].0 as usize].revision.size;
             if end > start && bytes.saturating_add(size) > MAX_BYTES {
                 break;

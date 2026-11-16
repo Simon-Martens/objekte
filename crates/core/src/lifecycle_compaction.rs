@@ -37,6 +37,9 @@ pub struct CompactionReport {
     pub segments_rewritten: usize,
     pub segments_removed: usize,
     pub segments_merged: usize,
+    pub segments_retained_dirty: usize,
+    pub segments_merge_candidates: usize,
+    pub segments_produced: usize,
     pub archive_bytes_before: usize,
     pub archive_bytes_after: usize,
 }
@@ -78,12 +81,40 @@ struct CompactionWork {
     records: u64,
     input_bytes: u64,
     temporary_bytes: u64,
+    segments_reconstructed: usize,
+    segments_produced: usize,
+    merge_candidates: usize,
 }
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
     u64::try_from(source.accounting.retained_bytes_estimated)
         .unwrap_or(u64::MAX)
         .max(source.accounting.source_bytes_estimated)
+}
+
+fn budget_allows(
+    work: &CompactionWork,
+    budget: CompactionBudget,
+    records: u64,
+    input_bytes: u64,
+    temporary_bytes: u64,
+    started: Instant,
+) -> bool {
+    work.records.saturating_add(records) <= budget.records
+        && work.input_bytes.saturating_add(input_bytes) <= budget.input_bytes
+        && work.temporary_bytes.saturating_add(temporary_bytes) <= budget.temporary_bytes
+        && started.elapsed() < budget.elapsed
+}
+
+fn charge_work(
+    work: &mut CompactionWork,
+    records: u64,
+    input_bytes: u64,
+    temporary_bytes: u64,
+) {
+    work.records = work.records.saturating_add(records);
+    work.input_bytes = work.input_bytes.saturating_add(input_bytes);
+    work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
 }
 
 pub(crate) fn base_as_segment(
@@ -189,13 +220,71 @@ fn publication_archive_bytes(root: &PublishedIndex) -> usize {
         .saturating_add(root.catalog.archive_bytes())
 }
 
-fn merge_small_segments(root: &mut PublishedIndex) -> Result<usize, IndexError> {
+fn clean_merge_compatible(
+    left: &IndexedCollectionSegment,
+    right: &IndexedCollectionSegment,
+    target_records: usize,
+    max_files: usize,
+) -> bool {
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.merge_candidate_probes = counters.merge_candidate_probes.saturating_add(1);
+    });
+    if left.collection != right.collection
+        || left.source_id != right.source_id
+        || left.source_version != right.source_version
+        || left.record_count().saturating_add(right.record_count()) > target_records
+        || left.file_count().saturating_add(right.file_count()) > max_files
+    {
+        return false;
+    }
+    for index in 0..left.file_count() {
+        let Some(file) = left.files.file_id(index) else {
+            return false;
+        };
+        if right.file_index.get(file).is_some() {
+            return false;
+        }
+    }
+    let left_ids = left
+        .identity_order
+        .iter()
+        .filter_map(|slot| left.records.record_id(*slot))
+        .collect::<std::collections::HashSet<_>>();
+    for slot in 0..right.record_count() {
+        let Some(id) = right.records.record_id(crate::model::RecordSlot(slot as u32)) else {
+            return false;
+        };
+        if left_ids.contains(id) {
+            return false;
+        }
+    }
+    true
+}
+
+fn merge_small_segments(
+    root: &mut PublishedIndex,
+    work: &mut CompactionWork,
+    budget: CompactionBudget,
+    started: Instant,
+    cancelled: impl Fn() -> bool,
+) -> Result<usize, IndexError> {
     let mut merged_count = 0usize;
     let target = root.repository.options().segment_policy.target_records.get();
+    let max_files = root.repository.options().segment_policy.max_files.get();
     for number in 0..root.segments.len() {
         loop {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
             let group = &root.segments[number];
-            let mut positions = (0..group.len()).collect::<Vec<_>>();
+            let mut positions = group
+                .iter()
+                .enumerate()
+                .filter_map(|(position, segment)| {
+                    (segment.active.len() == segment.index.record_count() as u64)
+                        .then_some(position)
+                })
+                .collect::<Vec<_>>();
             positions.sort_by(|left, right| {
                 group[*left]
                     .active
@@ -203,6 +292,15 @@ fn merge_small_segments(root: &mut PublishedIndex) -> Result<usize, IndexError> 
                     .cmp(&group[*right].active.len())
                     .then_with(|| group[*left].id.cmp(&group[*right].id))
             });
+            if positions.len() < 2
+                || group[positions[0]]
+                    .active
+                    .len()
+                    .saturating_add(group[positions[1]].active.len())
+                    > target as u64
+            {
+                break;
+            }
             let mut selected = None;
             'pairs: for (left_at, left) in positions.iter().copied().enumerate() {
                 for right in positions.iter().copied().skip(left_at + 1) {
@@ -211,14 +309,14 @@ fn merge_small_segments(root: &mut PublishedIndex) -> Result<usize, IndexError> 
                         .len()
                         .saturating_add(group[right].active.len());
                     if combined > target as u64 {
-                        continue;
+                        break;
                     }
-                    if IndexedCollectionSegment::consolidate(
-                        &[&group[left].index, &group[right].index],
+                    if clean_merge_compatible(
+                        &group[left].index,
+                        &group[right].index,
                         target,
-                    )
-                    .is_ok()
-                    {
+                        max_files,
+                    ) {
                         selected = Some((left, right));
                         break 'pairs;
                     }
@@ -227,11 +325,37 @@ fn merge_small_segments(root: &mut PublishedIndex) -> Result<usize, IndexError> 
             let Some((left, right)) = selected else {
                 break;
             };
+            let records = group[left]
+                .index
+                .record_count()
+                .saturating_add(group[right].index.record_count()) as u64;
+            let input_bytes = source_budget_bytes(&group[left].index)
+                .saturating_add(source_budget_bytes(&group[right].index));
+            let temporary_bytes = input_bytes
+                .saturating_mul(3)
+                .saturating_add(records.saturating_mul(512));
+            if !budget_allows(
+                work,
+                budget,
+                records,
+                input_bytes,
+                temporary_bytes,
+                started,
+            ) {
+                break;
+            }
+            charge_work(work, records, input_bytes, temporary_bytes);
+            work.merge_candidates = work.merge_candidates.saturating_add(1);
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
             let consolidated = IndexedCollectionSegment::consolidate(
                 &[&group[left].index, &group[right].index],
                 target,
             )
             .map_err(IndexError::Build)?;
+            work.segments_reconstructed = work.segments_reconstructed.saturating_add(1);
+            work.segments_produced = work.segments_produced.saturating_add(1);
             let mut index = consolidated.index;
             index.id = crate::native_segment::SegmentId::new(root.next_segment_ordinal);
             root.next_segment_ordinal = root
@@ -299,7 +423,7 @@ fn compact_published_with_budget(
         let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
-        'collections: for (number, group) in old.segments.iter().enumerate() {
+        for (number, group) in old.segments.iter().enumerate() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -310,7 +434,7 @@ fn compact_published_with_budget(
                 continue;
             }
             let mut compacted = Vec::with_capacity(group.len());
-            for (position, segment) in group.iter().enumerate() {
+            for segment in group.iter() {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
@@ -330,20 +454,24 @@ fn compact_published_with_budget(
                             > budget.temporary_bytes
                         || started.elapsed() >= budget.elapsed)
                 {
-                    compacted.extend(group[position..].iter().cloned());
-                    next.segments[number] = Arc::new(compacted);
-                    break 'collections;
+                    compacted.push(Arc::clone(segment));
+                    continue;
                 }
                 work.records = work.records.saturating_add(records);
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
-                for part in compact_source_parts_with_policy(
+                work.segments_reconstructed = work.segments_reconstructed.saturating_add(1);
+                let parts = compact_source_parts_with_policy(
                     &segment.index,
                     &segment.active,
                     &next.catalog,
                     next.repository.options().segment_policy,
                     &cancelled,
-                )? {
+                )?;
+                work.segments_produced = work
+                    .segments_produced
+                    .saturating_add(parts.len());
+                for part in parts {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
                     }
@@ -476,13 +604,6 @@ impl Index {
             let before = slot_count(&view.0);
             let segments_before = segment_count(&view.0);
             let archive_bytes_before = publication_archive_bytes(&view.0);
-            let segments_rewritten = view
-                .0
-                .segments
-                .iter()
-                .flat_map(|group| group.iter())
-                .filter(|segment| segment.active.len() != segment.index.record_count() as u64)
-                .count();
             let old = &view.0;
             let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
                 + old
@@ -510,6 +631,9 @@ impl Index {
                     segments_rewritten: 0,
                     segments_removed: 0,
                     segments_merged: 0,
+                    segments_retained_dirty: 0,
+                    segments_merge_candidates: 0,
+                    segments_produced: 0,
                     archive_bytes_before,
                     archive_bytes_after: archive_bytes_before,
                 });
@@ -523,14 +647,14 @@ impl Index {
                     elapsed: Duration::MAX,
                 },
             };
-            let (mut next, work) = compact_published_with_budget(
+            let (mut next, mut work) = compact_published_with_budget(
                 old,
                 view.revision().next()?,
                 &cancelled,
                 budget,
             )?;
             let segments_merged = if options.merge_small_segments {
-                merge_small_segments(&mut next)?
+                merge_small_segments(&mut next, &mut work, budget, started, &cancelled)?
             } else {
                 0
             };
@@ -540,6 +664,12 @@ impl Index {
             progress(MaintenancePhase::Publishing, attempt);
             let after = slot_count(&next);
             let segments_after = segment_count(&next);
+            let segments_retained_dirty = next
+                .segments
+                .iter()
+                .flat_map(|group| group.iter())
+                .filter(|segment| segment.active.len() != segment.index.record_count() as u64)
+                .count();
             let archive_bytes_after = publication_archive_bytes(&next);
             if after == before && segments_after == segments_before && segments_merged == 0 {
                 return Ok(CompactionReport {
@@ -559,6 +689,9 @@ impl Index {
                     segments_rewritten: 0,
                     segments_removed: 0,
                     segments_merged: 0,
+                    segments_retained_dirty,
+                    segments_merge_candidates: 0,
+                    segments_produced: 0,
                     archive_bytes_before,
                     archive_bytes_after,
                 });
@@ -580,11 +713,14 @@ impl Index {
                         duration: started.elapsed(),
                         segments_before,
                         segments_after,
-                        segments_rewritten,
+                        segments_rewritten: work.segments_reconstructed,
                         segments_removed: segments_before
                             .saturating_sub(segments_after)
                             .saturating_sub(segments_merged),
                         segments_merged,
+                        segments_retained_dirty,
+                        segments_merge_candidates: work.merge_candidates,
+                        segments_produced: work.segments_produced,
                         archive_bytes_before,
                         archive_bytes_after,
                     });

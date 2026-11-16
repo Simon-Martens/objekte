@@ -216,6 +216,113 @@ fn full_merge_respects_max_files_for_clean_segments() {
 }
 
 #[test]
+fn bounded_merge_never_reactivates_retired_slots() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-merge-liveness-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..9 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!(r#"{{"name":"file {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let options = RepositoryOptions {
+        segment_policy: crate::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(8).unwrap(),
+            max_files: std::num::NonZeroUsize::new(8).unwrap(),
+        },
+        ..Default::default()
+    };
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        options,
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    let mut original = (*view.0).clone();
+    let first = Arc::clone(&original.segments[0][0]);
+    let second = Arc::clone(&original.segments[0][1]);
+    assert_eq!(first.index.record_count(), 8);
+    assert_eq!(second.index.record_count(), 1);
+
+    let first_two = ActiveRecords::from_bitmap(8, [0, 1].into_iter().collect()).unwrap();
+    let two = first.index.compact_active(&first_two, 8, |_| true).unwrap().index;
+    let first_six = ActiveRecords::from_bitmap(8, (0..6).collect()).unwrap();
+    let six = first.index.compact_active(&first_six, 8, |_| true).unwrap().index;
+
+    let mut a = two;
+    a.id = crate::native_segment::SegmentId::new(100);
+    let a = PublishedSegment::checked(
+        a.id,
+        Arc::new(a),
+        ActiveRecords::from_bitmap(2, [0].into_iter().collect()).unwrap(),
+    )
+    .unwrap();
+    let mut b = six;
+    b.id = crate::native_segment::SegmentId::new(101);
+    let b = PublishedSegment::checked(
+        b.id,
+        Arc::new(b),
+        ActiveRecords::from_bitmap(6, [0].into_iter().collect()).unwrap(),
+    )
+    .unwrap();
+    let mut c = (*second.index).clone();
+    c.id = crate::native_segment::SegmentId::new(102);
+    let c = PublishedSegment::checked(
+        c.id,
+        Arc::new(c),
+        ActiveRecords::all(1).unwrap(),
+    )
+    .unwrap();
+    original.segments[0] = Arc::new(vec![Arc::new(a), Arc::new(b), Arc::new(c)]);
+    let budget = CompactionBudget {
+        records: 4,
+        input_bytes: u64::MAX,
+        temporary_bytes: u64::MAX,
+        elapsed: Duration::from_secs(60),
+    };
+    let (mut compacted, mut work) = compact_published_with_budget(
+        &original,
+        original.revision.next().unwrap(),
+        || false,
+        budget,
+    )
+    .unwrap();
+    assert_eq!(work.records, 2);
+    merge_small_segments(
+        &mut compacted,
+        &mut work,
+        budget,
+        Instant::now(),
+        || false,
+    )
+    .unwrap();
+    let retired_b = compacted.segments[0]
+        .iter()
+        .find(|segment| segment.index.file_count() == 8 && segment.index.record_count() == 6)
+        .expect("dirty B segment must be retained");
+    assert_eq!(retired_b.active.len(), 1);
+    assert_ne!(retired_b.active.len(), retired_b.index.record_count() as u64);
+    let expected_revision = original.revision;
+    index
+        .publish_prepared(expected_revision, compacted)
+        .unwrap();
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(3));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-{}-{:?}",

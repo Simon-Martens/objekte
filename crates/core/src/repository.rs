@@ -1933,7 +1933,11 @@ impl Repository {
         }
         let mut scheduled = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::build::file_batches(&state.member_files, &files) {
+            for batch in crate::build::file_batches(
+                &state.member_files,
+                &files,
+                options.segment_policy.max_files.get(),
+            ) {
                 if batch.len() == 1
                     && (files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
                         || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))
