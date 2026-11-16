@@ -25,11 +25,11 @@
     "resolved_build_workers": 8,
     "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
     "source_build_timings": {
-      "discovery_ns": 323173993,
-      "extraction_admission_ns": 836575733,
-      "finalization_ns": 443982822,
-      "setup_ns": 1895143,
-      "stable_component_ns": 3237350617
+      "discovery_ns": 330432000,
+      "extraction_admission_ns": 858689263,
+      "finalization_ns": 456897492,
+      "setup_ns": 1752550,
+      "stable_component_ns": 3236897334
     },
     "source_bytes": 193297230,
     "source_bytes_read": 0,
@@ -38,19 +38,19 @@
     "source_reads": 0,
     "source_records": 148486,
     "stage_ns": {
-      "discovery": 323173993,
-      "extraction_admission": 836575733,
-      "finalization": 443982822,
-      "setup": 1895143,
-      "stable_component": 3237350617
+      "discovery": 330432000,
+      "extraction_admission": 858689263,
+      "finalization": 456897492,
+      "setup": 1752550,
+      "stable_component": 3236897334
     },
-    "total_source_build_ns": 4975723670
+    "total_source_build_ns": 5017444222
   },
-  "field_job_overlap_pairs": 5751,
+  "field_job_overlap_pairs": 5840,
   "memory": {
     "owned_component_payload_bytes": 408879104,
-    "readiness_hwm_bytes": 886026240,
-    "readiness_rss_bytes": 784769024
+    "readiness_hwm_bytes": 878342144,
+    "readiness_rss_bytes": 811565056
   },
   "persistence": {}
 }

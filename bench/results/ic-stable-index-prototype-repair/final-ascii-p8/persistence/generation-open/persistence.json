@@ -15,7 +15,7 @@
   "loads": [
     {
       "component": 306,
-      "load_ns": 28666968,
+      "load_ns": 26334325,
       "statistics": {
         "descriptor": {
           "collection": {
@@ -137,12 +137,12 @@
         "kind": 6,
         "memory_capacity": null,
         "memory_len": null,
-        "path": "/tmp/opencode/repair-gen/c000001/i000306-values.icss",
+        "path": "/tmp/opencode/repair-gen3/c000001/i000306-values.icss",
         "payload_len": 27918336,
         "state": "loaded"
       }
     }
   ],
-  "manifest_open_ns": 31497420,
-  "snapshot": "/tmp/opencode/repair-gen"
+  "manifest_open_ns": 30513714,
+  "snapshot": "/tmp/opencode/repair-gen3"
 }

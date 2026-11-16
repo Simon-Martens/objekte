@@ -19,17 +19,17 @@
     "failed_parses": 0,
     "job_execution_ns": 0,
     "peak_active_jobs": 8,
-    "peak_ready_batches": 14,
+    "peak_ready_batches": 15,
     "receive_wait_ns": 0,
     "requested_build_workers": 8,
     "resolved_build_workers": 8,
     "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
     "source_build_timings": {
-      "discovery_ns": 331055131,
-      "extraction_admission_ns": 834464153,
-      "finalization_ns": 456748494,
-      "setup_ns": 2064281,
-      "stable_component_ns": 3230803548
+      "discovery_ns": 323155830,
+      "extraction_admission_ns": 839543534,
+      "finalization_ns": 438581364,
+      "setup_ns": 1777386,
+      "stable_component_ns": 3211231579
     },
     "source_bytes": 193297230,
     "source_bytes_read": 0,
@@ -38,19 +38,19 @@
     "source_reads": 0,
     "source_records": 148486,
     "stage_ns": {
-      "discovery": 331055131,
-      "extraction_admission": 834464153,
-      "finalization": 456748494,
-      "setup": 2064281,
-      "stable_component": 3230803548
+      "discovery": 323155830,
+      "extraction_admission": 839543534,
+      "finalization": 438581364,
+      "setup": 1777386,
+      "stable_component": 3211231579
     },
-    "total_source_build_ns": 4989639724
+    "total_source_build_ns": 4946539575
   },
-  "field_job_overlap_pairs": 7022,
+  "field_job_overlap_pairs": 5565,
   "memory": {
-    "owned_component_payload_bytes": 408748032,
-    "readiness_hwm_bytes": 883376128,
-    "readiness_rss_bytes": 784687104
+    "owned_component_payload_bytes": 408944640,
+    "readiness_hwm_bytes": 882720768,
+    "readiness_rss_bytes": 781672448
   },
   "persistence": {}
 }

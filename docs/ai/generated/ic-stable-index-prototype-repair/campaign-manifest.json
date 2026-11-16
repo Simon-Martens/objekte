@@ -1,0 +1,44 @@
+{
+  "task": "ic-stable-index-prototype-repair",
+  "reviewed_prototype": "530f4037f01bcd38f5027042e54676b543fdd230",
+  "native_baseline": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "repair_commit": "da70c3995a6f08989a7d51f22f33ddc868643c0e",
+  "environment": {
+    "platform": "linux",
+    "cpu": "AMD Ryzen 7 5700G",
+    "logical_cpus": 16,
+    "physical_cores": 8,
+    "affinity": "0-15",
+    "rustc": "1.99.1",
+    "profile": "release"
+  },
+  "executables": {
+    "native": {
+      "path": "/home/simon/source/objekte-baseline-ic-stable-index-prototype/target/release/examples/bench_build_musenalm",
+      "sha256": "1ae9a5f1fd6d643c91645e973f84ba06afce0e87d7d4afbdfb0c4f5af877add8"
+    },
+    "original": {
+      "path": "/home/simon/source/objekte-prototype-original-ic-stable-index-prototype/target/release/examples/bench_ic_stable_index",
+      "sha256": "f1e9d75a6f53d420820194b189cf7df02d90924bcf94e479373e8b78efe9f38e"
+    },
+    "candidate": {
+      "path": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/target/release/examples/bench_ic_stable_index",
+      "sha256": "77e9b34a93ca4a052c4e16fa22b79829c4a65655090b05f1e030bded46bccd82"
+    },
+    "synthetic_native": {
+      "path": "/home/simon/source/objekte-baseline-ic-stable-index-prototype/target/release/examples/bench_ic_stable_fixture",
+      "sha256": "485e688018130e95f546fed9a796333f45c2a3bad0453246351bc9827a6e3b8d"
+    }
+  },
+  "cargo_lock_sha256": "53758386ea26afeae5d005468d6d83a8bc9657d9ee99a6825b6ff5aafeefdd61",
+  "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "corpus": "examples/musenalm",
+  "source_files": 148486,
+  "source_records": 148486,
+  "source_bytes": 193297230,
+  "commands": [
+    "bench/run_ic_stable_index_prototype.py --root examples/musenalm --workers 8 --samples 5 --alphabet ascii",
+    "bench/run_ic_stable_index_prototype.py --root examples/musenalm --workers 8 --samples 3 --alphabet unicode",
+    "cargo test --workspace --features objekte-search-core/ic-stable-prototype"
+  ]
+}

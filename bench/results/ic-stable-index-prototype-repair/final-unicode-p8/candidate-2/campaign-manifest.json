@@ -3,7 +3,7 @@
   "cargo_lock_sha256": "53758386ea26afeae5d005468d6d83a8bc9657d9ee99a6825b6ff5aafeefdd61",
   "construction": "direct",
   "executable": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/target/release/examples/bench_ic_stable_index",
-  "executable_sha256": "09c555290c242a044c0262904fcf3c8d6cdf9a59d09b91b8c8c3c4f8bbf269f1",
+  "executable_sha256": "77e9b34a93ca4a052c4e16fa22b79829c4a65655090b05f1e030bded46bccd82",
   "root": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/examples/musenalm",
   "schema_collections": [
     "agents",

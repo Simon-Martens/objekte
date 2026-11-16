@@ -5,12 +5,12 @@
   "construction_mode": "repository_build",
   "custom_postings": 0,
   "implementation": "native",
-  "peak_resident_bytes": 172658688,
+  "peak_resident_bytes": 173559808,
   "posting_fields": 9,
-  "resident_bytes": 171941888,
+  "resident_bytes": 173559808,
   "sort_columns": 2,
   "source_bytes": 29344566,
   "source_files": 100,
   "source_records": 100000,
-  "total_source_build_ns": 775363897
+  "total_source_build_ns": 763552941
 }

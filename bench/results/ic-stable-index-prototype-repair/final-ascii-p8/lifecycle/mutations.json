@@ -1,5 +1,5 @@
 {
-  "fixture_build_ns": 2964463,
+  "fixture_build_ns": 2860456,
   "path_refs_after_reopen": 200,
   "reopened": {
     "collection": 0,
@@ -9,10 +9,10 @@
     "payload_bytes": 1572864,
     "slot_high_water": 2200
   },
-  "replacement_ns": 22421765,
+  "replacement_ns": 20770029,
   "replacements": 10,
-  "save_ns": 2141587,
-  "snapshot_disk_bytes": 1768222,
+  "save_ns": 2120943,
+  "snapshot_disk_bytes": 1768262,
   "storage": [
     {
       "collection": 0,

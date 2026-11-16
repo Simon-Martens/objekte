@@ -16,13 +16,13 @@
       "collection": 1,
       "component": 306,
       "live_slots": 133948,
-      "load_ns": 167445
+      "load_ns": 149461
     }
   ],
   "first_load": [
     {
       "component": 306,
-      "load_ns": 28169052
+      "load_ns": 26561864
     }
   ],
   "repetitions": 200,
@@ -31,33 +31,33 @@
       "complete": true,
       "component": 306,
       "key": "Number(Integer(30))",
-      "max_ns": 2244,
-      "median_ns": 1673,
+      "max_ns": 7054,
+      "median_ns": 1663,
       "members": 1,
       "min_ns": 1633,
-      "p95_ns": 1713,
+      "p95_ns": 2735,
       "repetitions": 200
     },
     {
       "complete": true,
       "component": 306,
       "key": "Number(Integer(140792))",
-      "max_ns": 8687,
-      "median_ns": 2154,
+      "max_ns": 4719,
+      "median_ns": 2204,
       "members": 1,
-      "min_ns": 2104,
-      "p95_ns": 2224,
+      "min_ns": 2093,
+      "p95_ns": 3697,
       "repetitions": 200
     },
     {
       "complete": true,
       "component": 306,
       "key": "Number(Integer(68549))",
-      "max_ns": 2675,
-      "median_ns": 2195,
+      "max_ns": 9858,
+      "median_ns": 2194,
       "members": 1,
-      "min_ns": 2164,
-      "p95_ns": 2244,
+      "min_ns": 2144,
+      "p95_ns": 2314,
       "repetitions": 200
     }
   ]

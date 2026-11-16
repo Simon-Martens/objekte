@@ -1,0 +1,526 @@
+{
+  "task": "ic-stable-index-prototype-repair",
+  "reviewed_prototype": "530f4037f01bcd38f5027042e54676b543fdd230",
+  "native_baseline": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "repair_commit": "da70c3995a6f08989a7d51f22f33ddc868643c0e",
+  "ascii_p8": {
+    "task": "ic-stable-index-prototype",
+    "workers": 8,
+    "alphabet": "ascii",
+    "samples": 5,
+    "native_build_ns": {
+      "median": 1648602550,
+      "min": 1625935018,
+      "max": 1669083443
+    },
+    "candidate_total_build_ns": {
+      "median": 3224850782,
+      "min": 3153752962,
+      "max": 3384502099
+    },
+    "original_build_ns": {
+      "median": 4964945392,
+      "min": 4943736056,
+      "max": 5017444222
+    },
+    "median_ratio": 1.9561117274748847,
+    "original_ratio": 0.6495239176640676,
+    "improvement_over_original": 0.3504760823359324,
+    "memory": {
+      "native_resident_bytes": 394780672,
+      "native_peak_bytes": 407969792,
+      "candidate_resident_bytes": 760905728,
+      "candidate_peak_bytes": 827994112,
+      "candidate_owned_component_payload_bytes": 407437312,
+      "resident_ratio": 1.9274138324583427,
+      "peak_ratio": 2.0295475994457943
+    },
+    "candidate_stage_ns": {
+      "discovery_ns": 332805388,
+      "extraction_admission_ns": 875537799,
+      "finalization_ns": 304108395,
+      "setup_ns": 1750306,
+      "stable_component_ns": 1576658476
+    },
+    "candidate_components": 1323,
+    "field_job_overlap_pairs": 4045,
+    "gate": {
+      "classification": "performance_rejection",
+      "source_build_target": "<= 1.10x native",
+      "resident_rss_target": "<= 1.40x native",
+      "peak_rss_target": "<= 1.60x native"
+    },
+    "synthetic": {
+      "1": {
+        "native_build_ns": 1589557754,
+        "stable_build_ns": 6213231336,
+        "ratio": 3.908779860539751,
+        "native_resident_bytes": 154689536,
+        "native_peak_bytes": 154689536,
+        "stable_resident_bytes": 331005952,
+        "stable_peak_bytes": 346308608,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 0
+      },
+      "2": {
+        "native_build_ns": 1010113740,
+        "stable_build_ns": 3672441179,
+        "ratio": 3.6356709483033067,
+        "native_resident_bytes": 172974080,
+        "native_peak_bytes": 172974080,
+        "stable_resident_bytes": 340811776,
+        "stable_peak_bytes": 357138432,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 3
+      },
+      "8": {
+        "native_build_ns": 763552941,
+        "stable_build_ns": 1638325899,
+        "ratio": 2.1456611729559167,
+        "native_resident_bytes": 173559808,
+        "native_peak_bytes": 173559808,
+        "stable_resident_bytes": 376258560,
+        "stable_peak_bytes": 392601600,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 112
+      }
+    }
+  },
+  "unicode_p8": {
+    "task": "ic-stable-index-prototype",
+    "workers": 8,
+    "alphabet": "unicode",
+    "samples": 3,
+    "native_build_ns": {
+      "median": 1830266093,
+      "min": 1810883979,
+      "max": 1842510898
+    },
+    "candidate_total_build_ns": {
+      "median": 3568384110,
+      "min": 3361890995,
+      "max": 3610594548
+    },
+    "original_build_ns": {
+      "median": 5154976550,
+      "min": 5109992761,
+      "max": 5191923277
+    },
+    "median_ratio": 1.9496531808394266,
+    "original_ratio": 0.6922212109771867,
+    "improvement_over_original": 0.3077787890228133,
+    "memory": {
+      "native_resident_bytes": 418947072,
+      "native_peak_bytes": 431661056,
+      "candidate_resident_bytes": 781701120,
+      "candidate_peak_bytes": 835186688,
+      "candidate_owned_component_payload_bytes": 411107328,
+      "resident_ratio": 1.8658708277116207,
+      "peak_ratio": 1.9348205644013436
+    },
+    "candidate_stage_ns": {
+      "discovery_ns": 334572906,
+      "extraction_admission_ns": 1035938054,
+      "finalization_ns": 317952081,
+      "setup_ns": 1886783,
+      "stable_component_ns": 1743439938
+    },
+    "candidate_components": 1323,
+    "field_job_overlap_pairs": 4664,
+    "gate": {
+      "classification": "performance_rejection",
+      "source_build_target": "<= 1.10x native",
+      "resident_rss_target": "<= 1.40x native",
+      "peak_rss_target": "<= 1.60x native"
+    }
+  },
+  "scheduling_only": {
+    "original_median_ns": 5004917078,
+    "candidate_median_ns": 3858346176,
+    "improvement": 0.229,
+    "trace": {
+      "available": true,
+      "average_concurrent_jobs": 4.467847414186358,
+      "components": 1323,
+      "idle_capacity_ns": 1218841,
+      "largest_job": {
+        "duration_ns": 1299987230,
+        "entry_count": 133948,
+        "estimated_work": 2143168,
+        "field": "preferred_title",
+        "id": 1318,
+        "kind": 12
+      },
+      "last_completion_by_worker": {
+        "ThreadId(2)": 1132307887,
+        "ThreadId(3)": 750390849,
+        "ThreadId(4)": 1910619551,
+        "ThreadId(5)": 959154478,
+        "ThreadId(6)": 791928557,
+        "ThreadId(7)": 831168668,
+        "ThreadId(8)": 731378781,
+        "ThreadId(9)": 1430749627
+      },
+      "makespan_ns": 1910584746,
+      "sum_job_duration_ns": 8536201117,
+      "workers": 8
+    }
+  },
+  "final_trace": {
+    "available": true,
+    "average_concurrent_jobs": 5.360866808192536,
+    "components": 1323,
+    "idle_capacity_ns": 1532154,
+    "largest_job": {
+      "duration_ns": 1228613102,
+      "entry_count": 133948,
+      "estimated_work": 2143168,
+      "field": "preferred_title",
+      "id": 1318,
+      "kind": 12
+    },
+    "last_completion_by_worker": {
+      "ThreadId(2)": 1421382667,
+      "ThreadId(3)": 451310281,
+      "ThreadId(4)": 1333426736,
+      "ThreadId(5)": 1036821839,
+      "ThreadId(6)": 918616420,
+      "ThreadId(7)": 712773268,
+      "ThreadId(8)": 925932616,
+      "ThreadId(9)": 821195096
+    },
+    "makespan_ns": 1421350987,
+    "sum_job_duration_ns": 7619673329,
+    "workers": 8
+  },
+  "validation": {
+    "components": 1323,
+    "domains": 14,
+    "errors": [],
+    "files": 148486,
+    "gram_keys": 25477,
+    "gram_members": 56275908,
+    "identities": 148486,
+    "posting_keys": 152544,
+    "posting_members": 2814411,
+    "records": 148486,
+    "relation_occurrences": 0,
+    "sort_entries": 566768
+  },
+  "persistence": {
+    "snapshot_save_ns": 232319834,
+    "manifest_open_ns": 30513714,
+    "component_load_ns": 26334325
+  },
+  "primitives": {
+    "counters": {
+      "bitmap_decodes": 604,
+      "bitmap_encodes": 0,
+      "component_inserts_during_load": 0,
+      "component_loads": 2,
+      "component_payload_bytes_read": 28049408,
+      "manifest_opens": 1,
+      "stable_gets": 603,
+      "stable_inserts": 0,
+      "stable_removes": 0,
+      "standalone_files_opened": 0
+    },
+    "first_dependency_load": [
+      {
+        "collection": 1,
+        "component": 306,
+        "live_slots": 133948,
+        "load_ns": 149461
+      }
+    ],
+    "first_load": [
+      {
+        "component": 306,
+        "load_ns": 26561864
+      }
+    ],
+    "repetitions": 200,
+    "resident_primitives": [
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(30))",
+        "max_ns": 7054,
+        "median_ns": 1663,
+        "members": 1,
+        "min_ns": 1633,
+        "p95_ns": 2735,
+        "repetitions": 200
+      },
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(140792))",
+        "max_ns": 4719,
+        "median_ns": 2204,
+        "members": 1,
+        "min_ns": 2093,
+        "p95_ns": 3697,
+        "repetitions": 200
+      },
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(68549))",
+        "max_ns": 9858,
+        "median_ns": 2194,
+        "members": 1,
+        "min_ns": 2144,
+        "p95_ns": 2314,
+        "repetitions": 200
+      }
+    ]
+  },
+  "mutations": {
+    "mutation_ns": 23740100,
+    "save_ns": 23321752,
+    "saved": {
+      "descriptor": {
+        "collection": {
+          "generation": 1,
+          "id": 1,
+          "name": "contents"
+        },
+        "component_revision": 1,
+        "composite": [],
+        "configuration_identity": [
+          103,
+          145,
+          215,
+          15,
+          151,
+          151,
+          153,
+          149,
+          47,
+          237,
+          6,
+          31,
+          202,
+          165,
+          70,
+          133,
+          31,
+          173,
+          141,
+          8,
+          94,
+          60,
+          236,
+          217,
+          217,
+          162,
+          116,
+          21,
+          131,
+          2,
+          6,
+          115
+        ],
+        "coverage": {
+          "complete_for_field": false,
+          "covered_records": 133948,
+          "empty_string_complete": false,
+          "length_complete": false,
+          "structural_complete": true,
+          "value_complete": true,
+          "values_indexed": true
+        },
+        "dependency_ids": [
+          18,
+          4
+        ],
+        "descriptor_version": 2,
+        "detached": true,
+        "field": {
+          "binding": null,
+          "logical_type": "Number",
+          "multi": false,
+          "path": [
+            "musenalm_id"
+          ],
+          "role": "DeclaredField"
+        },
+        "id": 306,
+        "key_bound": "unbounded:scalar",
+        "key_codec_version": 3,
+        "kind": 6,
+        "ordering": null,
+        "origin_path": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/examples/musenalm",
+        "origin_revision": 1,
+        "repository_identity": [
+          180,
+          120,
+          106,
+          76,
+          237,
+          108,
+          50,
+          96,
+          25,
+          247,
+          11,
+          66,
+          116,
+          126,
+          62,
+          5,
+          144,
+          9,
+          135,
+          227,
+          124,
+          174,
+          65,
+          132,
+          106,
+          152,
+          205,
+          115,
+          147,
+          116,
+          169,
+          104
+        ],
+        "schema_fingerprint": null,
+        "slot_high_water": 133948,
+        "slot_namespace": "15c9f95e0628b9736c51199f013b907b9736ceb36a6934ca770e09b7eff94eda",
+        "target_collection": null,
+        "text": null,
+        "value_codec_version": 1
+      },
+      "descriptor_sha256": "298c9b7cc5a617f96cc506cf058c0852d348325f5bb47e622b0d33d9f976af16",
+      "entry_count": 133949,
+      "path": "/tmp/opencode/repair-standalone3/mutated.icss",
+      "payload_len": 27918336,
+      "payload_sha256": "30b40a46e91025cf2a8a57c0046eee73659fdea405d372f4d19bff72e3964d53"
+    }
+  },
+  "lifecycle": {
+    "fixture_build_ns": 2860456,
+    "path_refs_after_reopen": 200,
+    "reopened": {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 2000,
+      "live_records": 200,
+      "payload_bytes": 1572864,
+      "slot_high_water": 2200
+    },
+    "replacement_ns": 20770029,
+    "replacements": 10,
+    "save_ns": 2120943,
+    "snapshot_disk_bytes": 1768262,
+    "storage": [
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 0,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 200
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 200,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 400
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 400,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 600
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 600,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 800
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 800,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1000
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1000,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1200
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1200,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1400
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1400,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1600
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1600,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1800
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1800,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 2000
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 2000,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 2200
+      }
+    ]
+  },
+  "gate": {
+    "classification": "correct repaired prototype with residual performance and memory rejection",
+    "source_build_target": "<= 1.10x native",
+    "ascii_ratio": 1.9561117274748847,
+    "unicode_ratio": 1.9496531808394266,
+    "resident_target": "<= 1.40x native",
+    "ascii_resident_ratio": 1.9274138324583427,
+    "peak_target": "<= 1.60x native",
+    "ascii_peak_ratio": 2.0295475994457943,
+    "correctness": "zero differences in full Musenalm validation",
+    "residual_findings": [
+      "R02 partial",
+      "R03 partial",
+      "R19 native primitive distributions"
+    ]
+  }
+}

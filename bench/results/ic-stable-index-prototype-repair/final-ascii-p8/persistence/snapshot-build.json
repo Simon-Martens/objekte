@@ -24,11 +24,11 @@
   "resolved_build_workers": 8,
   "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
   "source_build_timings": {
-    "discovery_ns": 328631706,
-    "extraction_admission_ns": 818037118,
-    "finalization_ns": 284877531,
-    "setup_ns": 1869054,
-    "stable_component_ns": 1518628621
+    "discovery_ns": 332193686,
+    "extraction_admission_ns": 882115754,
+    "finalization_ns": 316199972,
+    "setup_ns": 1755615,
+    "stable_component_ns": 1517920198
   },
   "source_bytes": 193297230,
   "source_bytes_read": 0,
@@ -37,38 +37,38 @@
   "source_reads": 0,
   "source_records": 148486,
   "stage_ns": {
-    "discovery": 328631706,
-    "extraction_admission": 818037118,
-    "finalization": 284877531,
-    "setup": 1869054,
-    "stable_component": 1518628621
+    "discovery": 332193686,
+    "extraction_admission": 882115754,
+    "finalization": 316199972,
+    "setup": 1755615,
+    "stable_component": 1517920198
   },
-  "total_source_build_ns": 3086597190,
+  "total_source_build_ns": 3185068807,
   "trace": {
     "available": true,
-    "average_concurrent_jobs": 5.540155329463725,
+    "average_concurrent_jobs": 5.554455942680932,
     "components": 1323,
-    "idle_capacity_ns": 2587315,
+    "idle_capacity_ns": 1321930,
     "largest_job": {
-      "duration_ns": 1235283601,
+      "duration_ns": 1233495816,
       "entry_count": 133948,
       "estimated_work": 2143168,
       "field": "preferred_title",
-      "id": 1318,
-      "kind": 12
+      "id": 1310,
+      "kind": 11
     },
     "last_completion_by_worker": {
-      "ThreadId(2)": 1357907633,
-      "ThreadId(3)": 474870486,
-      "ThreadId(4)": 828948063,
-      "ThreadId(5)": 929061490,
-      "ThreadId(6)": 917686193,
-      "ThreadId(7)": 945415348,
-      "ThreadId(8)": 733748274,
-      "ThreadId(9)": 1338090414
+      "ThreadId(2)": 1360041037,
+      "ThreadId(3)": 916947959,
+      "ThreadId(4)": 941143657,
+      "ThreadId(5)": 1359814080,
+      "ThreadId(6)": 694749381,
+      "ThreadId(7)": 537090095,
+      "ThreadId(8)": 801050455,
+      "ThreadId(9)": 944856738
     },
-    "makespan_ns": 1357858290,
-    "sum_job_duration_ns": 7522745842,
+    "makespan_ns": 1360006913,
+    "sum_job_duration_ns": 7554098480,
     "workers": 8
   }
 }
