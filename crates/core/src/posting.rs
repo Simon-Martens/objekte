@@ -1293,16 +1293,19 @@ impl PostingCollection {
         if !incoming.is_empty() {
             return Err("posting batch field coverage mismatch".into());
         }
-        let jobs = pool.install(|| {
-            use rayon::prelude::*;
-            jobs.into_par_iter()
+        let reduce = |jobs: Vec<(Vec<String>, PostingIndex, PostingIndex)>| {
+            jobs.into_iter()
                 .map(|(path, mut index, batch)| {
                     index.merge_shifted(batch, base)?;
                     Ok::<_, String>((path, index))
                 })
                 .collect::<Result<Vec<_>, _>>()
-        })?;
-        self.fields = jobs.into_iter().collect();
+        };
+        let mut first = jobs;
+        let split = first.len().saturating_add(1) / 2;
+        let second = first.split_off(split);
+        let (left, right) = pool.join(|| reduce(first), || reduce(second));
+        self.fields = left?.into_iter().chain(right?).collect();
         Ok(())
     }
 
