@@ -4,13 +4,13 @@ use roaring::RoaringBitmap;
 use std::path::Path;
 
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
+use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::SourceUnavailableKind;
 use crate::model::FileId;
 use crate::source::RecordRangeReader;
 
 const MAX_OPEN_HANDLES: usize = 8;
 const WINDOW_BYTES: u64 = 64 * 1024;
-
 
 /// Diagnose an unavailable search source without comparing it with the
 /// index's saved file metadata or content.
@@ -41,7 +41,6 @@ pub(crate) fn classify_source_read_failure_for_search(
         .unwrap_or(SourceUnavailableKind::Unreadable)
 }
 
-
 struct OpenSource {
     file_id: FileId,
     revision: SourceRevision,
@@ -51,9 +50,16 @@ struct OpenSource {
     last_used: u64,
 }
 
+enum SourceFileTable<'a> {
+    Inventory(&'a FileInventory),
+    Catalog {
+        root: &'a Path,
+        catalog: &'a FileCatalog,
+    },
+}
 
 pub(crate) struct SourceAccessSession<'a> {
-    files: &'a FileInventory,
+    source: SourceFileTable<'a>,
     open: Vec<OpenSource>,
     distinct: RoaringBitmap,
     clock: u64,
@@ -61,18 +67,27 @@ pub(crate) struct SourceAccessSession<'a> {
     record_limit: Option<u64>,
 }
 
-
 pub(crate) struct RangeBatch {
     pub records: Vec<(u32, Vec<u8>)>,
     pub opened: u64,
     pub bytes_read: u64,
 }
 
-
 impl<'a> SourceAccessSession<'a> {
     pub fn new(files: &'a FileInventory) -> Self {
         Self {
-            files,
+            source: SourceFileTable::Inventory(files),
+            open: Vec::new(),
+            distinct: RoaringBitmap::new(),
+            clock: 0,
+            execution: None,
+            record_limit: None,
+        }
+    }
+
+    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a FileCatalog) -> Self {
+        Self {
+            source: SourceFileTable::Catalog { root, catalog },
             open: Vec::new(),
             distinct: RoaringBitmap::new(),
             clock: 0,
@@ -124,17 +139,21 @@ impl<'a> SourceAccessSession<'a> {
             self.open[index].last_used = self.clock;
             return Ok((index, 0));
         }
-        let file = self
-            .files
-            .files
-            .get(file_id.0 as usize)
-            .ok_or("unknown source file")?;
-        let path = self
-            .files
-            .native_path(file_id)
-            .ok_or("missing source path")?;
-        let reader =
-            RecordRangeReader::open_for_search(&path, file.revision, self.execution.as_ref())?;
+        let (path, revision) = match &self.source {
+            SourceFileTable::Inventory(files) => {
+                let file = files
+                    .files
+                    .get(file_id.0 as usize)
+                    .ok_or("unknown source file")?;
+                let path = files.native_path(file_id).ok_or("missing source path")?;
+                (path, file.revision)
+            }
+            SourceFileTable::Catalog { root, catalog } => {
+                let file = catalog.entry(file_id).ok_or("unknown source file")?;
+                (root.join(&file.relative_path), file.revision)
+            }
+        };
+        let reader = RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
         self.distinct.insert(file_id.0);
         if self.open.len() == MAX_OPEN_HANDLES {
             let oldest = self
@@ -148,7 +167,7 @@ impl<'a> SourceAccessSession<'a> {
         }
         self.open.push(OpenSource {
             file_id,
-            revision: file.revision,
+            revision,
             reader,
             window_start: 0,
             window: Vec::new(),
@@ -245,7 +264,6 @@ impl<'a> SourceAccessSession<'a> {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "source_access.test.rs"]

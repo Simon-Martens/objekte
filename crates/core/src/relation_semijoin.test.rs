@@ -872,9 +872,9 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
 }
 
 #[test]
-fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
+fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compaction() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-semijoin-lifecycle-{}-{:?}",
+        "objekte-related-fts-target-lifecycle-{}-{:?}",
         std::process::id(),
         std::thread::current().id(),
     ));
@@ -896,13 +896,14 @@ fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
         &root,
         definitions(),
         RepositoryOptions {
-            verified_cache_bytes: 1 << 20,
+            verified_cache_bytes: 0,
             ..Default::default()
         },
     )
     .unwrap();
-    let request = query("entry.title = 'Needle'");
-    let assert_ids = |expected: &[&str]| {
+    let original_inventory = index.view().unwrap().repository().files.clone();
+    let assert_ids = |expected: &[&str], literal: &str, filter: Option<&str>| {
+        let request = selected_fts(filter, literal, false);
         let view = index.view().unwrap();
         let result = view.search(&request).unwrap();
         assert_eq!(
@@ -913,20 +914,19 @@ fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
                 .collect::<Vec<_>>(),
             expected
         );
+        assert_eq!(result.count, Some(expected.len()));
         assert_eq!(result.hits, view.search_reference(&request).unwrap().hits);
-        let mut payload = request.clone();
-        payload.options.return_mode = ReturnMode::Bytes;
-        let payload = view.search(&payload).unwrap();
-        assert_eq!(
-            payload
-                .hits
+        assert_eq!(result.counters.scanned_records, 0);
+        if !expected.is_empty() {
+            assert!(result.counters.relation_target_reads > 0);
+        }
+        assert!(result.hits.iter().all(|hit| {
+            hit.matched_fields
                 .iter()
-                .map(|hit| hit.record_id.as_str())
-                .collect::<Vec<_>>(),
-            expected
-        );
+                .any(|field| field == "entry.title")
+        }));
     };
-    assert_ids(&["S0"]);
+    assert_ids(&["S0"], "Needle", None);
 
     let target = root.join("targets/T2.json");
     std::fs::write(
@@ -935,10 +935,17 @@ fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
     )
     .unwrap();
     let mut target_handle = index.add_file(&target).unwrap().file;
+    assert!(
+        original_inventory
+            .files
+            .get(target_handle.file_id.0 as usize)
+            .is_none(),
+        "the new target must not exist in the discovery inventory"
+    );
     let source = root.join("sources/S2.json");
     std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
-    let mut source_handle = index.add_file(&source).unwrap().file;
-    assert_ids(&["S0", "S2"]);
+    index.add_file(&source).unwrap();
+    assert_ids(&["S0", "S2"], "Needle", None);
 
     std::fs::write(
         &target,
@@ -946,39 +953,30 @@ fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
     )
     .unwrap();
     target_handle = index.update_file(target_handle, &target).unwrap().file;
-    assert_ids(&["S0"]);
-
-    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
-    source_handle = index.update_file(source_handle, &source).unwrap().file;
-    assert_ids(&["S0"]);
+    assert_ids(&["S0"], "Needle", None);
+    assert_ids(&[], "CompletelyDifferent", None);
 
     std::fs::write(
         &target,
-        r#"{"id":"T2","title":"Needle","related_entry":"T2"}"#,
+        r#"{"id":"T2","title":"CompletelyDifferent","related_entry":"T2"}"#,
     )
     .unwrap();
-    index.update_file(target_handle, &target).unwrap();
-    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
-    let moved_handle = index.update_file(source_handle, &source).unwrap().file;
-    assert_ids(&["S0", "S2"]);
+    target_handle = index.update_file(target_handle, &target).unwrap().file;
+    assert_ids(&[], "Needle", Some("@record.id = 'S2'"));
+    assert_ids(&["S2"], "CompletelyDifferent", None);
 
-    let moved = root.join("sources/moved-S2.json");
-    std::fs::rename(&source, &moved).unwrap();
-    index.update_file(moved_handle, &moved).unwrap();
-    assert_ids(&["S0", "S2"]);
+    let moved = root.join("targets/moved-T2.json");
+    std::fs::rename(&target, &moved).unwrap();
+    target_handle = index.update_file(target_handle, &moved).unwrap().file;
+    assert!(!target.exists());
+    assert_ids(&["S2"], "CompletelyDifferent", Some("@record.id = 'S2'"));
 
-    let moved_handle = index.view().unwrap().file_handle_for_path(&moved).unwrap();
-    index.delete_file(moved_handle).unwrap();
-    assert_ids(&["S0"]);
-    let original_target_handle = index
-        .view()
-        .unwrap()
-        .file_handle_for_path(&root.join("targets/T0.json"))
-        .unwrap();
-    index.delete_file(original_target_handle).unwrap();
-    assert_ids(&[]);
     index.start_compaction().unwrap().wait().unwrap();
-    assert_ids(&[]);
+    assert_ids(&["S2"], "CompletelyDifferent", Some("@record.id = 'S2'"));
+
+    index.delete_file(target_handle).unwrap();
+    assert_ids(&[], "CompletelyDifferent", Some("@record.id = 'S2'"));
+    assert_ids(&["S0"], "Needle", None);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

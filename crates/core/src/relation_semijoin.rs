@@ -863,7 +863,7 @@ fn verify_qualified_targets(
                 .push((address, record.record.range));
         }
     }
-    let mut access = SourceAccessSession::new(&view.repository().files);
+    let mut access = SourceAccessSession::from_catalog(view.repository_root(), view.catalog());
     if let Some(execution) = execution {
         access.configure_target_execution(execution);
     }
