@@ -6436,18 +6436,24 @@ fn try_semijoin_relation_page(
             filter_evidence = fields;
         }
     }
-    let Some(witnesses) = crate::relation_semijoin::fts_witnesses(repo, fts, &input, context)?
+    let Some(witnesses) =
+        crate::relation_semijoin::fts_witnesses(repo, segments, fts, &input, context)?
     else {
         return Ok(None);
     };
     let mut counters = WorkCounters::default();
-    counters.candidates = witnesses.evidence.len() as u64;
+    counters.candidates = witnesses.qualified_evidence.len() as u64;
     counters.add_semijoin(witnesses.work)?;
     let mut selected = Vec::with_capacity(segments[*collection_index].len());
     for published in segments[*collection_index].iter() {
         let mut matches = RoaringBitmap::new();
         for (slot, record) in published.index.records.iter().enumerate() {
-            if witnesses.evidence.contains_key(&record.slot.0) {
+            let address = crate::native_segment::SegmentRecordAddress {
+                collection: published.index.collection,
+                segment: published.id,
+                slot: record.slot,
+            };
+            if witnesses.qualified_evidence.contains_key(&address) {
                 matches.insert(slot as u32);
             }
         }
@@ -6458,7 +6464,12 @@ fn try_semijoin_relation_page(
                     .index
                     .record(RecordSlot(slot))
                     .ok_or("semijoin source evidence record missing")?;
-                if let Some(fields) = witnesses.evidence.get(&record.slot.0) {
+                let address = crate::native_segment::SegmentRecordAddress {
+                    collection: published.index.collection,
+                    segment: published.id,
+                    slot: record.slot,
+                };
+                if let Some(fields) = witnesses.qualified_evidence.get(&address) {
                     evidence.extend(fields.iter().cloned());
                 }
             }
@@ -9849,7 +9860,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if posting_order_eligible(repo, query, None) {
+    if posting_order_eligible(repo, query, None, &repo.segments, &repo.catalog) {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -10054,7 +10065,8 @@ pub(crate) fn search_stream_scoped_with_context_active(
         execution_query.options.count = true;
     }
     let execution_query = &execution_query;
-    let inferred_order = posting_order_eligible(repo, execution_query, None);
+    let inferred_order =
+        posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog);
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
             kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
@@ -10610,6 +10622,7 @@ fn flush_all_batch_if_full(
 fn inferred_order_index<'a>(
     repo: &'a Repository,
     query: &Query,
+    segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
 ) -> Option<(usize, FieldPath, &'a PostingIndex)> {
     if query.options.sort.len() != 1 {
         return None;
@@ -10637,16 +10650,18 @@ fn inferred_order_index<'a>(
     {
         return None;
     }
-    for segment in repo.segments[collection_index].iter() {
+    let mut selected = None;
+    for segment in segments.get(collection_index)?.iter() {
         if segment.active.len() == 0 {
             continue;
         }
         let catalog = crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
-        if let Some(index) = catalog.sortable_scalar(&part.path.segments) {
-            return Some((collection_index, part.path, index));
+        let index = catalog.sortable_scalar(&part.path.segments)?;
+        if selected.is_none() {
+            selected = Some(index);
         }
     }
-    None
+    selected.map(|index| (collection_index, part.path, index))
 }
 
 /// A posting order is useful for an unrestricted page or a filter whose
@@ -10657,8 +10672,10 @@ fn posting_order_eligible(
     repo: &Repository,
     query: &Query,
     bound: Option<&crate::prepared::PreparedQuery>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
 ) -> bool {
-    let Some((collection_index, _, _)) = inferred_order_index(repo, query) else {
+    let Some((collection_index, _, _)) = inferred_order_index(repo, query, segments) else {
         return false;
     };
     if query.fts.is_some() {
@@ -10684,7 +10701,7 @@ fn posting_order_eligible(
     };
     let collection = &repo.collections[collection_index];
     let mut saw_segment = false;
-    for segment in repo.segments[collection_index].iter() {
+    for segment in segments[collection_index].iter() {
         if segment.active.len() == 0 {
             continue;
         }
@@ -10695,7 +10712,7 @@ fn posting_order_eligible(
             &segment.active,
             filter,
             collection,
-            Some(&repo.catalog),
+            Some(catalog),
         ) else {
             return false;
         };
@@ -10710,26 +10727,43 @@ fn inferred_order_column(
     repo: &Repository,
     query: &Query,
     prepared: &crate::prepared::PreparedQuery,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
-    let Some((collection_index, path, index)) = inferred_order_index(repo, query) else {
+    let Some((collection_index, path, _index)) = inferred_order_index(repo, query, segments) else {
         return Ok(None);
     };
     if prepared.collections.len() != 1 || prepared.collections[0].0 != collection_index {
         return Ok(None);
     }
-    let collection = &repo.collections[collection_index];
-    let Some(segment) = repo.segments[collection_index]
+    let live = segments[collection_index]
         .iter()
-        .find(|segment| segment.active.len() != 0)
-    else {
+        .filter(|segment| segment.active.len() != 0)
+        .collect::<Vec<_>>();
+    let [segment] = live.as_slice() else {
         return Ok(None);
     };
-    let mut generation = collection.generation.clone();
-    generation.records = segment.index.records.clone();
+    inferred_order_column_for_segment(repo, collection_index, query, &path, segment, execution)
+        .map(|column| column.map(|column| (collection_index, column)))
+}
+
+fn inferred_order_column_for_segment(
+    repo: &Repository,
+    collection_index: usize,
+    query: &Query,
+    path: &FieldPath,
+    segment: &PublishedSegment,
+    execution: Option<&ExecutionContext>,
+) -> Result<Option<Arc<SortColumn>>, String> {
+    let collection = &repo.collections[collection_index];
+    let segment_index = crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
+    let index = segment_index
+        .sortable_scalar(&path.segments)
+        .ok_or("selected inferred segment lost scalar coverage")?;
     let key = InferredOrderKey::new(
         collection_index,
         collection.generation.generation,
+        segment.id,
         path.clone(),
         &collection.definition.sort_locale,
         collection.definition.sort_options,
@@ -10738,8 +10772,8 @@ fn inferred_order_column(
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
         SortColumn::from_inferred_posting(
             index,
-            &generation,
-            path,
+            &segment.index.records,
+            path.clone(),
             &collection.definition.sort_locale,
             collection.definition.sort_options,
             query.options.sort[0].descending,
@@ -10755,7 +10789,7 @@ fn inferred_order_column(
             ));
         }
     }
-    Ok(column.map(|column| (collection_index, column)))
+    Ok(column)
 }
 
 fn cached_inferred_order(
@@ -10788,14 +10822,15 @@ fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
-    if !posting_order_eligible(repo, query, Some(prepared)) {
+    if !posting_order_eligible(repo, query, Some(prepared), &repo.segments, &repo.catalog) {
         return Ok(None);
     }
     if active.is_some() {
         // A static inferred column may read retired source records while it is built.
         return Ok(None);
     }
-    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared, execution)?
+    let Some((collection_index, column)) =
+        inferred_order_column(repo, query, prepared, &repo.segments, execution)?
     else {
         return Ok(None);
     };
@@ -10865,53 +10900,61 @@ fn try_inferred_segment_order_page(
     {
         return Ok(None);
     }
-    if !posting_order_eligible(repo, query, Some(prepared)) {
+    if !posting_order_eligible(repo, query, Some(prepared), segments, catalog) {
         return Ok(None);
     }
     let (collection_index, filter, _) = &prepared.collections[0];
-    if repo.segments[*collection_index]
-        .iter()
-        .filter(|segment| segment.active.len() != 0)
-        .count()
-        != 1
-    {
-        return Ok(None);
-    }
-    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared, execution)?
-    else {
+    let collection_index = *collection_index;
+    let Some((_, path, _)) = inferred_order_index(repo, query, segments) else {
         return Ok(None);
     };
-    let segment = &segments[collection_index][0];
     let collection = &repo.collections[collection_index];
-    let candidates = if let Some(filter) = filter {
-        if !excludes_raw_fallback(filter) {
-            return Ok(None);
-        }
-        let bounds = segment_filter_bounds_with_catalog(
-            &segment.index,
-            &segment.active,
-            filter,
-            collection,
-            Some(catalog),
-        )?;
-        let logical = &segment.active.bitmap() & &segment.index.logical_records;
-        if (&bounds.may & &logical) != (&bounds.must & &logical) {
-            return Ok(None);
-        }
-        &bounds.must & &logical
-    } else {
-        segment.active.bitmap().clone()
-    };
-    let order = if query.options.sort[0].descending {
-        &column.descending
-    } else {
-        &column.ascending
-    };
-    let _cap = query
+    let cap = query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
+    let mut cursors = Vec::new();
+    let mut candidate_count = 0u64;
+    let mut input_records = 0u64;
+    for segment in segments[collection_index]
+        .iter()
+        .filter(|segment| segment.active.len() != 0)
+    {
+        let Some(column) = inferred_order_column_for_segment(
+            repo,
+            collection_index,
+            query,
+            &path,
+            segment,
+            execution,
+        )?
+        else {
+            return Ok(None);
+        };
+        let candidates = if let Some(filter) = filter {
+            if !excludes_raw_fallback(filter) {
+                return Ok(None);
+            }
+            let bounds = segment_filter_bounds_with_catalog(
+                &segment.index,
+                &segment.active,
+                filter,
+                collection,
+                Some(catalog),
+            )?;
+            let logical = &segment.active.bitmap() & &segment.index.logical_records;
+            if (&bounds.may & &logical) != (&bounds.must & &logical) {
+                return Ok(None);
+            }
+            &bounds.must & &logical
+        } else {
+            segment.active.bitmap().clone()
+        };
+        candidate_count = candidate_count.saturating_add(candidates.len());
+        input_records = input_records.saturating_add(segment.active.len());
+        cursors.push((segment, column, candidates, 0usize));
+    }
     let evidence = if query.options.evidence {
         filter
             .as_ref()
@@ -10920,35 +10963,90 @@ fn try_inferred_segment_order_page(
     } else {
         Vec::new()
     };
-    let mut hits = order
-        .iter()
-        .filter(|slot| candidates.contains(slot.0) && segment.active.contains(**slot))
-        .skip(query.options.offset)
-        .take(query.options.limit)
-        .map(|slot| {
-            let resolved = segment_record_ref(&segment.index, &segment.active, catalog, *slot)?
+    let descending = query.options.sort[0].descending;
+    let mut ranked = Vec::with_capacity(query.options.offset.saturating_add(query.options.limit));
+    let mut rank = 0usize;
+    while rank < cap && rank < candidate_count as usize {
+        for (_, column, candidates, position) in &mut cursors {
+            let order = if descending {
+                &column.descending
+            } else {
+                &column.ascending
+            };
+            while let Some(slot) = order.get(*position) {
+                if candidates.contains(slot.0) {
+                    break;
+                }
+                *position += 1;
+            }
+        }
+        let Some(best) = cursors
+            .iter()
+            .enumerate()
+            .filter_map(|(index, cursor)| {
+                let order = if descending {
+                    &cursor.1.descending
+                } else {
+                    &cursor.1.ascending
+                };
+                order.get(cursor.3).map(|slot| (index, *slot))
+            })
+            .min_by(|(left_index, left_slot), (right_index, right_slot)| {
+                let left = &cursors[*left_index];
+                let right = &cursors[*right_index];
+                let left_record = left
+                    .0
+                    .index
+                    .record(*left_slot)
+                    .expect("inferred cursor record");
+                let right_record = right
+                    .0
+                    .index
+                    .record(*right_slot)
+                    .expect("inferred cursor record");
+                left.1.keys[left_slot.0 as usize]
+                    .compare_with(
+                        &right.1.keys[right_slot.0 as usize],
+                        descending,
+                        left.1.options,
+                    )
+                    .then_with(|| left_record.id.cmp(&right_record.id))
+            })
+        else {
+            break;
+        };
+        cursors[best.0].3 += 1;
+        if rank >= query.options.offset {
+            ranked.push((best.0, best.1));
+        }
+        rank += 1;
+    }
+    let mut page = ranked
+        .into_iter()
+        .map(|(cursor, slot)| {
+            let (segment, _, _, _) = &cursors[cursor];
+            let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
                 .ok_or("inferred ordered segment record retired")?;
-            Ok(segment_locator_hit(
-                collection,
-                resolved,
-                revision,
-                evidence.clone(),
+            Ok((
+                cursor,
+                segment_locator_hit(collection, resolved, revision, evidence.clone()),
             ))
         })
         .collect::<Result<Vec<_>, String>>()?;
     let mut counters = WorkCounters {
-        candidates: candidates.len(),
-        exact_posting_matches: candidates.len(),
-        total_matches: candidates.len(),
+        candidates: candidate_count,
+        exact_posting_matches: candidate_count,
+        total_matches: candidate_count,
         match_count_complete: true,
-        returned_records: hits.len() as u64,
+        returned_records: page.len() as u64,
         ..WorkCounters::default()
     };
     if query.options.return_mode != ReturnMode::Locator {
         let mut selected_files = HashSet::new();
         let mut logical_parses = 0u64;
-        let mut retained = Vec::with_capacity(hits.len());
-        for mut hit in hits {
+        let mut retained = Vec::with_capacity(page.len());
+        for (cursor, mut hit) in page {
+            let segment = cursors[cursor].0;
             let source_bytes = hit.byte_end.saturating_sub(hit.byte_start);
             if let Some(execution) = execution {
                 if source_bytes > execution.limits.source_record_bytes {
@@ -10996,11 +11094,15 @@ fn try_inferred_segment_order_page(
             materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
             retained.push(materialized);
         }
-        hits = retained;
+        page = retained
+            .into_iter()
+            .enumerate()
+            .map(|(index, hit)| (index, hit))
+            .collect();
         counters.files_opened = selected_files.len() as u64;
         counters.distinct_files = selected_files.len() as u64;
         counters.record_parses = logical_parses;
-        counters.returned_records = hits.len() as u64;
+        counters.returned_records = page.len() as u64;
     }
     if counters.source_unavailable_events > 0 {
         counters.match_count_complete = false;
@@ -11018,7 +11120,7 @@ fn try_inferred_segment_order_page(
             fts_covered_target: "none".into(),
             fts_estimated_candidates: None,
             remaining_verification: false,
-            input_records: segment.active.len(),
+            input_records,
             fts_strategy: "absent".into(),
             normalized_sort: query.options.sort.clone(),
             sort_strategy: "inferred_posting_order_page".into(),
@@ -11027,15 +11129,15 @@ fn try_inferred_segment_order_page(
             terms: Vec::new(),
             planning: PlanningCounters::default(),
             bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
-            candidates: candidates.len(),
+            candidates: candidate_count,
             candidates_estimated: false,
             actual: None,
         });
     }
     Ok(Some(SearchResult {
         count: (query.options.count && counters.match_count_complete)
-            .then_some(candidates.len() as usize),
-        hits,
+            .then_some(candidate_count as usize),
+        hits: page.into_iter().map(|(_, hit)| hit).collect(),
         counters,
     }))
 }
@@ -11100,6 +11202,7 @@ fn try_stored_order_page(
                 plan_expr_restricted_with_execution(
                     repo,
                     collection,
+                    &repo.segments,
                     expr,
                     &domain,
                     &domain,
@@ -12100,8 +12203,8 @@ pub(crate) fn explain_with_active(
         && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
-        && posting_order_eligible(repo, query, Some(&prepared))
-        && inferred_order_index(repo, query)
+        && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)
+        && inferred_order_index(repo, query, &repo.segments)
             .is_some_and(|(index, _, _)| prepared.collections[0].0 == index);
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
@@ -12623,6 +12726,7 @@ fn search_impl_with_collector<'a>(
                     plan_expr_restricted_with_execution(
                         repo,
                         collection,
+                        &repo.segments,
                         f,
                         &domain,
                         &input,
@@ -12664,7 +12768,15 @@ fn search_impl_with_collector<'a>(
         });
         let relation_fts = fts
             .as_ref()
-            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &candidates, execution))
+            .map(|fts| {
+                crate::relation_semijoin::fts_witnesses(
+                    repo,
+                    &repo.segments,
+                    fts,
+                    &candidates,
+                    execution,
+                )
+            })
             .transpose()?
             .flatten();
         let relation_fts_strategy =

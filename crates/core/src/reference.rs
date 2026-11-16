@@ -1294,7 +1294,7 @@ fn bind_term(
         }
         if lhs.kind != LogicalType::Unknown
             && rhs.kind != LogicalType::Unknown
-            && lhs.kind != rhs.kind
+            && !comparable_logical_types(&lhs.kind, &rhs.kind)
         {
             return Err(format!(
                 "incompatible field operand types: {:?} and {:?}",
@@ -1935,6 +1935,9 @@ pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: 
     let order = match (lhs, rhs) {
         (Value::String(a), Value::String(b)) => Some(a.cmp(b)),
         (Value::Id(a), Value::Id(b)) => Some(a.cmp(b)),
+        (Value::String(a), Value::Id(b)) | (Value::Id(a), Value::String(b)) => {
+            Some(a.as_str().cmp(b.as_str()))
+        }
         (Value::Number(a), Value::Number(b)) => Some(a.cmp(b)),
         (Value::Bool(a), Value::Bool(b)) => Some(a.cmp(b)),
         (Value::Date(a), Value::Date(b)) => Some(a.cmp(b)),
@@ -1961,6 +1964,14 @@ pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: 
             }
         }
     }
+}
+
+pub(crate) fn comparable_logical_types(left: &LogicalType, right: &LogicalType) -> bool {
+    left == right
+        || matches!(
+            (left, right),
+            (LogicalType::String, LogicalType::Id) | (LogicalType::Id, LogicalType::String)
+        )
 }
 
 fn compare_folded_text(folded: &str, pattern: &str, op: Operator) -> bool {

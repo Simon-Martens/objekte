@@ -185,11 +185,7 @@ impl SegmentAggregate {
             },
             || -> Result<(), String> {
                 append_shifted_bitmap(logical_records, &batch_logical_records, base)?;
-                append_shifted_bitmap(
-                    empty_array_records,
-                    &batch_empty_array_records,
-                    base,
-                )
+                append_shifted_bitmap(empty_array_records, &batch_empty_array_records, base)
             },
         );
         let bigrams = pool.join(
@@ -285,6 +281,11 @@ impl SegmentAdmission {
 
     pub fn file_count(&self) -> usize {
         self.files.len()
+    }
+
+    pub(crate) fn at_capacity(&self) -> bool {
+        self.records.len() >= self.policy.target_records.get()
+            || self.files.len() >= self.policy.max_files.get()
     }
 
     /// False means seal this segment and begin another. A single oversized

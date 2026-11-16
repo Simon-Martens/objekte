@@ -3,6 +3,87 @@ use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
+#[test]
+fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-adopt-reclaim-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/item.json");
+    std::fs::write(&path, br#"{"id":"item","title":"old"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(crate::reference::FieldDefinition {
+            path: vec!["id".into()],
+            kind: crate::model::LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
+    let index = Index::from_repository(repo).unwrap();
+    assert!(weak.upgrade().is_some());
+    let view = index.view().unwrap();
+    let handle = view.file_handle_for_path(&path).unwrap();
+    drop(view);
+    std::fs::write(&path, br#"{"id":"item","title":"new"}"#).unwrap();
+    index.update_file(handle, &path).unwrap();
+    index.compact().unwrap();
+    assert!(
+        weak.upgrade().is_none(),
+        "the adopted initial payload remained owned after replacement"
+    );
+
+    let repo = Repository::open_with_options(&root, vec![definition], RepositoryOptions::default())
+        .unwrap();
+    let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
+    let index = Index::from_repository(repo).unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap();
+    std::fs::write(&path, br#"{"id":"item","title":"newer"}"#).unwrap();
+    index.update_file(handle, &path).unwrap();
+    index.compact().unwrap();
+    assert!(weak.upgrade().is_some());
+    let old = pinned
+        .search(&Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: None,
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        })
+        .unwrap();
+    assert_eq!(old.count, Some(1));
+    drop(pinned);
+    assert!(weak.upgrade().is_none());
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[cfg(feature = "detailed-profiling")]
 #[test]
 fn large_framed_file_admission_has_component_accounting() {

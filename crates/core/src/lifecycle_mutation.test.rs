@@ -57,6 +57,87 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+
+    let root = test_root("inferred-current-snapshot");
+    let first = root.join("data/first.jsonl");
+    let second = root.join("data/second.jsonl");
+    std::fs::write(&first, b"{\"id\":\"a\",\"year\":20}\n").unwrap();
+    std::fs::write(&second, b"{\"id\":\"b\",\"year\":30}\n").unwrap();
+    let mut definition = intrinsic_definition("items");
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["year".into()],
+            kind: LogicalType::Number,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let options = RepositoryOptions {
+        segment_policy: crate::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+        },
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let index = Index::build(&root, vec![definition], options).unwrap();
+    let third = root.join("data/third.jsonl");
+    std::fs::write(&third, b"{\"id\":\"c\",\"year\":10}\n").unwrap();
+    let added = index.add_file(&third).unwrap();
+    let request = |descending: bool, offset: usize, count: bool| Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("year", descending)],
+            limit: 1,
+            offset,
+            count,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for (request, expected) in [
+        (request(false, 0, true), "c"),
+        (request(true, 0, true), "b"),
+        (request(false, 1, true), "a"),
+    ] {
+        let view = index.view().unwrap();
+        let result = view.search(&request).unwrap();
+        let reference = view.search_reference(&request).unwrap();
+        assert_eq!(result.hits, reference.hits);
+        assert_eq!(result.count, reference.count);
+        assert_eq!(result.hits[0].record_id, expected);
+        assert_eq!(result.counters.files_opened, 0);
+        assert_eq!(result.counters.record_parses, 0);
+    }
+
+    let first_handle = index.view().unwrap().file_handle_for_path(&first).unwrap();
+    index.delete_file(first_handle).unwrap();
+    index.delete_file(added.file).unwrap();
+    let request = request(false, 0, true);
+    let view = index.view().unwrap();
+    let result = view.search(&request).unwrap();
+    let reference = view.search_reference(&request).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, reference.count);
+    assert_eq!(result.hits[0].record_id, "b");
+    assert_eq!(result.counters.files_opened, 0);
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn partial_structural_postings_survive_explicit_mutations_and_compaction() {
     let root = test_root("structural-postings");
     let first = root.join("data/first.json");

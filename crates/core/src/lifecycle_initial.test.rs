@@ -25,6 +25,57 @@ fn all_query() -> Query {
 }
 
 #[test]
+fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-large-jsonl-segments-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = String::new();
+    let mut records = 0usize;
+    while source.len() <= 9 * 1024 * 1024 {
+        source.push_str(&format!(
+            "{{\"id\":\"r{records:06}\",\"text\":\"large framed record {records}\"}}\n"
+        ));
+        records += 1;
+    }
+    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let task = Index::start_incremental_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            build_workers: std::num::NonZeroUsize::new(1),
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let index = task.wait_complete().unwrap();
+    let view = index.view().unwrap();
+    let segments = view.segments(crate::model::CollectionId(0)).unwrap();
+    assert!(segments.len() > 2);
+    assert_eq!(
+        segments
+            .iter()
+            .map(|segment| segment.index.records.len())
+            .sum::<usize>(),
+        records
+    );
+    assert_eq!(view.search(&all_query()).unwrap().count, Some(records));
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn multi_worker_segment_finalization_actually_overlaps() {
     let root = std::env::temp_dir().join(format!(
         "objekte-native-segment-overlap-{}-{}",

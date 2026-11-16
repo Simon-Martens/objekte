@@ -6,6 +6,85 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-metadata-dependent-rhs-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("items")).unwrap();
+    std::fs::write(root.join("items/matching.json"), r#"{"id":"items"}"#).unwrap();
+    std::fs::write(root.join("items/other.json"), r#"{"id":"other"}"#).unwrap();
+
+    let mut definition = CollectionDefinition::folder("items", "items", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = crate::repository::Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions::default(),
+    )
+    .unwrap();
+
+    for (filter, expected) in [
+        ("@collection.name = @record.id", vec!["items"]),
+        ("@record.id = @collection.name", vec!["items"]),
+        ("@collection.name != @record.id", vec!["other"]),
+        (
+            "@collection.name = 'items' && @record.id != 'other'",
+            vec!["items"],
+        ),
+        (
+            "@collection.name = 'other' || @record.id = 'other'",
+            vec!["other"],
+        ),
+    ] {
+        let request = Query {
+            collections: vec!["items".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, reference.count, "{filter}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+    }
+
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
@@ -2055,18 +2134,15 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         DirectLookupResult::NotFound
     ));
     query.options.return_mode = ReturnMode::Bytes;
-    let base_only_active = vec![ActiveRecords::all(collection.generation.records.len())
-        .unwrap()
-        .retired(&[crate::model::RecordSlot(0)])
-        .unwrap()];
-    let base_only = search_active_available(
-        &repo,
-        &query,
-        &base_only_active,
-        &catalog,
-        IndexRevision(3),
-    )
-    .unwrap();
+    let base_only_active = vec![
+        ActiveRecords::all(collection.generation.records.len())
+            .unwrap()
+            .retired(&[crate::model::RecordSlot(0)])
+            .unwrap(),
+    ];
+    let base_only =
+        search_active_available(&repo, &query, &base_only_active, &catalog, IndexRevision(3))
+            .unwrap();
     assert_eq!(base_only.count, None);
     assert_eq!(
         base_only.counters.source_diagnostics[0].kind,
@@ -2403,6 +2479,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     let first_key = InferredOrderKey::new(
         0,
         1,
+        crate::native_segment::SegmentId::new(1),
         FieldPath::parse(first_path).unwrap(),
         "de",
         SortOptions::default(),
@@ -2411,6 +2488,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     let second_key = InferredOrderKey::new(
         0,
         1,
+        crate::native_segment::SegmentId::new(1),
         FieldPath::parse(second_path).unwrap(),
         "de",
         SortOptions::default(),
@@ -2607,7 +2685,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     context.cancel_on_check_for_test(3);
     let error = SortColumn::from_inferred_posting(
         index,
-        &generation,
+        &generation.records,
         FieldPath::parse("label").unwrap(),
         &collection.definition.sort_locale,
         collection.definition.sort_options,
@@ -6189,8 +6267,14 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
             evidence: false,
         },
     };
-    assert!(inferred_order_index(&repo, &request).is_some());
-    assert!(!posting_order_eligible(&repo, &request, None));
+    assert!(inferred_order_index(&repo, &request, &repo.segments).is_some());
+    assert!(!posting_order_eligible(
+        &repo,
+        &request,
+        None,
+        &repo.segments,
+        &repo.catalog
+    ));
     let cold = repo.search(&request).unwrap();
     assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);
     assert!(!cold.counters.verified_result_hit);

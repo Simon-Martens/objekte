@@ -1,6 +1,6 @@
 //! Native segment policy, identity, ownership, and borrowed inspection.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fmt;
 use std::num::NonZeroUsize;
 use std::sync::Arc;
@@ -93,15 +93,54 @@ impl SegmentId {
     pub const fn get(self) -> u64 {
         self.0
     }
-
-    pub(crate) const fn for_collection(collection: CollectionId, local: u64) -> Self {
-        Self(((collection.0 as u64) << 32) | local)
-    }
 }
 
 impl fmt::Display for SegmentId {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.0.fmt(formatter)
+    }
+}
+
+/// Address that remains unambiguous after crossing an immutable segment
+/// boundary. Record slots are meaningful only with the collection and segment
+/// components of this value.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub(crate) struct SegmentRecordAddress {
+    pub collection: CollectionId,
+    pub segment: SegmentId,
+    pub slot: RecordSlot,
+}
+
+/// Compact membership spanning segments without merging local slot domains.
+#[derive(Clone, Debug, Default)]
+pub(crate) struct SegmentRecordSet {
+    members: BTreeMap<(CollectionId, SegmentId), RoaringBitmap>,
+}
+
+impl SegmentRecordSet {
+    pub(crate) fn insert(&mut self, address: SegmentRecordAddress) -> bool {
+        self.members
+            .entry((address.collection, address.segment))
+            .or_default()
+            .insert(address.slot.0)
+    }
+
+    pub(crate) fn len(&self) -> u64 {
+        self.members
+            .values()
+            .fold(0u64, |total, slots| total.saturating_add(slots.len()))
+    }
+
+    pub(crate) fn iter(&self) -> impl Iterator<Item = SegmentRecordAddress> + '_ {
+        self.members
+            .iter()
+            .flat_map(|(&(collection, segment), slots)| {
+                slots.iter().map(move |slot| SegmentRecordAddress {
+                    collection,
+                    segment,
+                    slot: RecordSlot(slot),
+                })
+            })
     }
 }
 

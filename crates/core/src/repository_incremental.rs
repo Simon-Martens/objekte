@@ -65,7 +65,6 @@ struct IncrementalCollection {
     logical_records: RoaringBitmap,
     global_inference: Option<InferenceBuilder>,
     options: RepositoryOptions,
-    next_segment_id: u64,
 }
 
 impl IncrementalCollection {
@@ -82,7 +81,7 @@ impl IncrementalCollection {
             id,
             &source,
             options.segment_policy,
-            SegmentId::for_collection(id, 1),
+            SegmentId::new(0),
         );
         Self {
             definition,
@@ -94,7 +93,6 @@ impl IncrementalCollection {
             logical_records: RoaringBitmap::new(),
             global_inference: InferenceBuilder::for_collection(options.inference, collection_count),
             options,
-            next_segment_id: 2,
         }
     }
 
@@ -157,13 +155,25 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<(), String> {
+    ) -> Result<Option<crate::build::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit_batch(&batch)
+        {
+            self.take_segment()
+        } else {
+            None
+        };
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }
-        self.admission.admit_batch_profiled(batch, profile)
+        self.admission.admit_batch_profiled(batch, profile)?;
+        Ok(sealed.or_else(|| {
+            self.admission
+                .at_capacity()
+                .then(|| self.take_segment())
+                .flatten()
+        }))
     }
 
     fn take_segment(&mut self) -> Option<crate::build::CollectionSegment> {
@@ -174,12 +184,8 @@ impl IncrementalCollection {
             self.id,
             &self.source,
             self.options.segment_policy,
-            SegmentId::for_collection(self.id, self.next_segment_id),
+            SegmentId::new(0),
         );
-        self.next_segment_id = self
-            .next_segment_id
-            .checked_add(1)
-            .expect("segment identity overflow");
         Some(std::mem::replace(&mut self.admission, replacement).finish())
     }
 
@@ -226,8 +232,9 @@ struct SegmentBuildScheduler {
     sender: std::sync::mpsc::Sender<SegmentBuildMessage>,
     receiver: std::sync::mpsc::Receiver<SegmentBuildMessage>,
     buffered: std::collections::BTreeMap<(usize, u64), Result<IndexedSegmentBuild, String>>,
-    planned: Vec<u64>,
-    next_publish: Vec<u64>,
+    planned_ids: Vec<Vec<u64>>,
+    next_publish: Vec<usize>,
+    next_plan_id: u64,
     outstanding: usize,
     peak_outstanding: usize,
     limit: usize,
@@ -237,22 +244,15 @@ struct SegmentBuildScheduler {
 }
 
 impl SegmentBuildScheduler {
-    fn new(
-        workers: usize,
-        collections: usize,
-        gate: Option<Arc<SegmentJobGate>>,
-    ) -> Self {
+    fn new(workers: usize, collections: usize, gate: Option<Arc<SegmentJobGate>>) -> Self {
         let (sender, receiver) = std::sync::mpsc::channel();
         Self {
             sender,
             receiver,
             buffered: std::collections::BTreeMap::new(),
-            planned: vec![0; collections],
-            next_publish: (0..collections)
-                .map(|collection| {
-                    SegmentId::for_collection(CollectionId(collection as u32), 1).get()
-                })
-                .collect(),
+            planned_ids: vec![Vec::new(); collections],
+            next_publish: vec![0; collections],
+            next_plan_id: 1,
             outstanding: 0,
             peak_outstanding: 0,
             limit: workers.saturating_mul(2).max(1),
@@ -265,32 +265,29 @@ impl SegmentBuildScheduler {
     fn submit(
         &mut self,
         collection_index: usize,
-        segment: crate::build::CollectionSegment,
+        mut segment: crate::build::CollectionSegment,
         definition: Arc<CollectionDefinition>,
         options: RepositoryOptions,
         collection_count: usize,
         pool: &Arc<rayon::ThreadPool>,
     ) -> Result<(), String> {
         let planned = self
-            .planned
+            .planned_ids
             .get_mut(collection_index)
             .ok_or("segment collection out of bounds")?;
-        let expected = if *planned == 0 {
-            SegmentId::for_collection(CollectionId(collection_index as u32), 1).get()
-        } else {
-            planned.checked_add(1).ok_or("segment plan overflow")?
-        };
-        if segment.id.get() != expected {
-            return Err("segment planning identity mismatch".into());
-        }
-        *planned = expected;
+        let segment_id = self.next_plan_id;
+        self.next_plan_id = self
+            .next_plan_id
+            .checked_add(1)
+            .ok_or("segment plan overflow")?;
+        segment.id = SegmentId::new(segment_id);
+        planned.push(segment_id);
         self.outstanding = self
             .outstanding
             .checked_add(1)
             .ok_or("segment scheduler overflow")?;
         self.peak_outstanding = self.peak_outstanding.max(self.outstanding);
         let collection = segment.collection;
-        let segment_id = segment.id.get();
         let sender = self.sender.clone();
         let profile_build = options.detailed_profiling_enabled();
         let running = Arc::clone(&self.running);
@@ -343,6 +340,42 @@ impl SegmentBuildScheduler {
         Ok(())
     }
 
+    fn allocate_plan_ids(
+        &mut self,
+        collection_index: usize,
+        count: usize,
+    ) -> Result<Vec<u64>, String> {
+        let planned = self
+            .planned_ids
+            .get_mut(collection_index)
+            .ok_or("segment collection out of bounds")?;
+        let mut ids = Vec::with_capacity(count);
+        for _ in 0..count {
+            ids.push(self.next_plan_id);
+            self.next_plan_id = self
+                .next_plan_id
+                .checked_add(1)
+                .ok_or("segment plan overflow")?;
+            planned.push(ids[ids.len() - 1]);
+        }
+        Ok(ids)
+    }
+
+    fn mark_plan_published(
+        &mut self,
+        collection_index: usize,
+        count: usize,
+    ) -> Result<(), IndexError> {
+        let cursor = self
+            .next_publish
+            .get_mut(collection_index)
+            .ok_or_else(|| IndexError::InvalidPublication("segment collection missing".into()))?;
+        *cursor = cursor.checked_add(count).ok_or_else(|| {
+            IndexError::ResourceLimit("segment publication cursor overflow".into())
+        })?;
+        Ok(())
+    }
+
     fn receive(&mut self, block: bool) -> Result<bool, String> {
         let message = if block {
             self.receiver.recv().map_err(|error| error.to_string())?
@@ -373,11 +406,11 @@ impl SegmentBuildScheduler {
     ) -> Result<(), IndexError> {
         for collection_index in 0..self.next_publish.len() {
             loop {
-                let id = self.next_publish[collection_index];
-                let Some(result) = self
-                    .buffered
-                    .remove(&(collection_index, id))
-                else {
+                let position = self.next_publish[collection_index];
+                let Some(&id) = self.planned_ids[collection_index].get(position) else {
+                    break;
+                };
+                let Some(result) = self.buffered.remove(&(collection_index, id)) else {
                     break;
                 };
                 let built = result.map_err(IndexError::Build)?;
@@ -393,9 +426,9 @@ impl SegmentBuildScheduler {
                     profile,
                 )?;
                 self.outstanding = self.outstanding.saturating_sub(1);
-                self.next_publish[collection_index] = id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+                self.next_publish[collection_index] = position.checked_add(1).ok_or_else(|| {
+                    IndexError::ResourceLimit("segment publication cursor overflow".into())
+                })?;
             }
         }
         Ok(())
@@ -479,6 +512,91 @@ fn publish_indexed_segment(
 }
 
 #[allow(clippy::too_many_arguments)]
+fn publish_private_segment_group(
+    scheduler: &mut SegmentBuildScheduler,
+    index: &Index,
+    expected: &mut IndexRevision,
+    private_segments: Vec<crate::build::CollectionSegment>,
+    collection_index: usize,
+    pending: &[IncrementalCollection],
+    options: RepositoryOptions,
+    pool: &Arc<rayon::ThreadPool>,
+    on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+    publication_ns: &mut u64,
+    profile: &mut Option<BuildProfileStats>,
+    cancelled: &impl Fn() -> bool,
+) -> Result<(), IndexError> {
+    if private_segments.is_empty() {
+        return Ok(());
+    }
+    let total = private_segments.len();
+    scheduler.drain(
+        index,
+        expected,
+        pending,
+        on_publication,
+        publication_ns,
+        profile,
+    )?;
+    let collection = pending
+        .get(collection_index)
+        .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
+    let ids = scheduler
+        .allocate_plan_ids(collection_index, total)
+        .map_err(IndexError::Build)?;
+    let mut jobs = private_segments
+        .into_iter()
+        .zip(ids)
+        .collect::<std::collections::VecDeque<_>>();
+    let mut indexed = Vec::with_capacity(jobs.len());
+    let collection_count = scheduler.next_publish.len();
+    while !jobs.is_empty() {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        let count = scheduler.limit.min(jobs.len());
+        let chunk = jobs.drain(..count).collect::<Vec<_>>();
+        let built = pool.install(|| {
+            use rayon::prelude::*;
+            chunk
+                .into_par_iter()
+                .map(|(mut segment, id)| {
+                    segment.id = SegmentId::new(id);
+                    segment.into_indexed(
+                        &collection.definition,
+                        options.bigram_alphabet,
+                        options.inference,
+                        collection_count,
+                        pool,
+                    )
+                })
+                .collect::<Vec<_>>()
+        });
+        for result in built {
+            indexed.push(result.map_err(IndexError::Build)?);
+        }
+    }
+    indexed.sort_by_key(|segment| segment.id);
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let (revision, phases) =
+        index.publish_initial_segments(*expected, indexed, profile.is_some())?;
+    *expected = revision;
+    if let (Some(profile), phases) = (profile.as_mut(), phases) {
+        profile.publication_prepare_ns = profile
+            .publication_prepare_ns
+            .saturating_add(phases.preparation_ns);
+        profile.publication_install_ns = profile
+            .publication_install_ns
+            .saturating_add(phases.install_ns);
+    }
+    scheduler.mark_plan_published(collection_index, total)?;
+    on_publication(index)?;
+    *publication_ns = publication_ns
+        .saturating_add(phase.map_or(0, |started| started.elapsed().as_nanos() as u64));
+    Ok(())
+}
+
+#[allow(clippy::too_many_arguments)]
 fn schedule_segment(
     scheduler: &mut SegmentBuildScheduler,
     index: &Index,
@@ -510,15 +628,16 @@ fn schedule_segment(
     let collection = pending
         .get(collection_index)
         .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
-    scheduler.submit(
-        collection_index,
-        segment,
-        Arc::clone(&collection.definition),
-        options,
-        pending.len(),
-        pool,
-    )
-    .map_err(IndexError::Build)?;
+    scheduler
+        .submit(
+            collection_index,
+            segment,
+            Arc::clone(&collection.definition),
+            options,
+            pending.len(),
+            pool,
+        )
+        .map_err(IndexError::Build)?;
     while scheduler.receive(false).map_err(IndexError::Build)? {}
     scheduler.publish_ready(
         index,
@@ -664,12 +783,8 @@ fn segment_metadata_generation(
                 let reference = crate::inventory::DiagnosticRef(
                     u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
                 );
-                let slot = builder.add_raw_fallback(
-                    file,
-                    record.id.clone(),
-                    record.range,
-                    reference,
-                )?;
+                let slot =
+                    builder.add_raw_fallback(file, record.id.clone(), record.range, reference)?;
                 file.diagnostics[global].record = Some(slot);
             }
             record_count += 1;
@@ -1010,8 +1125,7 @@ impl Repository {
         }
         repository.startup.build_discovery_ns = discovery_ns;
         repository.startup.build_workers = build_workers;
-        let repository = Arc::new(repository);
-        let mut published = PublishedIndex::from_repository(
+        let mut published = PublishedIndex::from_repository_owned(
             next_repository_instance(),
             IndexRevision::INITIAL,
             repository,
@@ -1134,6 +1248,7 @@ impl Repository {
                             &cancelled,
                         )?;
                     }
+                    let mut private_segments = Vec::new();
                     let result = crate::build::process_framed_file_profiled(
                         &pool,
                         Arc::new(root.clone()),
@@ -1175,8 +1290,11 @@ impl Repository {
                             {
                                 detail.coordinator_ns += started.elapsed().as_nanos() as u64;
                             }
-                            pending[collection_index]
-                                .admit_large_chunk_profiled(batch, detail.as_mut())?;
+                            if let Some(segment) = pending[collection_index]
+                                .admit_large_chunk_profiled(batch, detail.as_mut())?
+                            {
+                                private_segments.push(segment);
+                            }
                             finish_admission_profile(
                                 &mut profile,
                                 &pending[collection_index].definition.name,
@@ -1197,21 +1315,22 @@ impl Repository {
                     }
                     schedule_stats.absorb(result);
                     if let Some(sealed) = pending[collection_index].take_segment() {
-                        schedule_segment(
-                            &mut scheduler,
-                            &index,
-                            &mut expected,
-                            &pending,
-                            collection_index,
-                            sealed,
-                            options,
-                            &pool,
-                            &mut on_publication,
-                            &mut publication_ns,
-                            &mut profile,
-                            &cancelled,
-                        )?;
+                        private_segments.push(sealed);
                     }
+                    publish_private_segment_group(
+                        &mut scheduler,
+                        &index,
+                        &mut expected,
+                        private_segments,
+                        collection_index,
+                        &pending,
+                        options,
+                        &pool,
+                        &mut on_publication,
+                        &mut publication_ns,
+                        &mut profile,
+                        &cancelled,
+                    )?;
                 }
             }
         }
@@ -1365,10 +1484,13 @@ impl Repository {
             inference_build.absorb(stats);
         }
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {
-            let source = final_repository.collections[source_index].generation.collection;
+            let source = final_repository.collections[source_index]
+                .generation
+                .collection;
             for contribution in &contributions {
-                let logical_count =
-                    final_repository.collections[source_index].logical_records.len() as u32;
+                let logical_count = final_repository.collections[source_index]
+                    .logical_records
+                    .len() as u32;
                 if let Some(posting) = final_repository.collections[source_index]
                     .postings
                     .fields

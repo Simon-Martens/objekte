@@ -18,6 +18,7 @@ fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
     let first = InferredOrderKey::new(
         0,
         7,
+        crate::native_segment::SegmentId::new(1),
         FieldPath::parse("a").unwrap(),
         "de",
         SortOptions::default(),
@@ -26,6 +27,7 @@ fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
     let second = InferredOrderKey::new(
         0,
         7,
+        crate::native_segment::SegmentId::new(1),
         FieldPath::parse("b").unwrap(),
         "de",
         SortOptions::default(),
@@ -53,6 +55,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
     let base = InferredOrderKey::new(
         0,
         7,
+        crate::native_segment::SegmentId::new(1),
         FieldPath::parse("a").unwrap(),
         "de",
         SortOptions::default(),
@@ -60,12 +63,46 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
     );
     let variants = [
         base.clone(),
-        InferredOrderKey::new(0, 8, base.path.clone(), "de", base.options, false),
-        InferredOrderKey::new(0, 7, base.path.clone(), "fr", base.options, false),
-        InferredOrderKey::new(0, 7, base.path.clone(), "de", base.options, true),
+        InferredOrderKey::new(
+            0,
+            8,
+            crate::native_segment::SegmentId::new(1),
+            base.path.clone(),
+            "de",
+            base.options,
+            false,
+        ),
         InferredOrderKey::new(
             0,
             7,
+            crate::native_segment::SegmentId::new(2),
+            base.path.clone(),
+            "de",
+            base.options,
+            false,
+        ),
+        InferredOrderKey::new(
+            0,
+            7,
+            crate::native_segment::SegmentId::new(1),
+            base.path.clone(),
+            "fr",
+            base.options,
+            false,
+        ),
+        InferredOrderKey::new(
+            0,
+            7,
+            crate::native_segment::SegmentId::new(1),
+            base.path.clone(),
+            "de",
+            base.options,
+            true,
+        ),
+        InferredOrderKey::new(
+            0,
+            7,
+            crate::native_segment::SegmentId::new(1),
             base.path.clone(),
             "de",
             SortOptions {
@@ -74,14 +111,22 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
             },
             false,
         ),
-        InferredOrderKey::new(1, 7, base.path.clone(), "de", base.options, false),
+        InferredOrderKey::new(
+            1,
+            7,
+            crate::native_segment::SegmentId::new(1),
+            base.path.clone(),
+            "de",
+            base.options,
+            false,
+        ),
     ];
     for key in variants {
         cache.insert_if_absent(key, Arc::new(inferred_test_column("a")));
     }
-    assert_eq!(cache.stats().builds, 6);
+    assert_eq!(cache.stats().builds, 7);
     assert_eq!(cache.stats().hits, 0);
-    assert_eq!(cache.stats().entries, 6);
+    assert_eq!(cache.stats().entries, 7);
     cache
         .get(&base)
         .expect("same generation and collation missed");
@@ -350,9 +395,7 @@ fn cross_collection_sort_rejects_different_collation() {
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::{ReturnMode, SortField};
 

@@ -1088,7 +1088,7 @@ fn bind_related_term(
         )?;
         if target.kind != LogicalType::Unknown
             && source.kind != LogicalType::Unknown
-            && target.kind != source.kind
+            && !crate::reference::comparable_logical_types(&target.kind, &source.kind)
         {
             return Err(format!(
                 "incompatible field operand types: {:?} and {:?}",

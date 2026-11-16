@@ -606,10 +606,13 @@ fn segment_metadata_matches(
         return Ok(None);
     };
     let empty = Value::Object(BTreeMap::new());
-    if matches!(
-        term.path.root,
-        PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
-    ) {
+    if term.rhs.is_none()
+        && term.transform == Transform::Identity
+        && matches!(
+            term.path.root,
+            PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
+        )
+    {
         let Some(slot) = domain.iter().next() else {
             return Ok(Some(RoaringBitmap::new()));
         };
@@ -2098,17 +2101,21 @@ fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
 pub(crate) fn plan_expr_restricted(
     repo: &Repository,
     collection: &CollectionState,
+    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
     evidence: bool,
 ) -> Result<Plan, String> {
-    plan_expr_restricted_with_execution(repo, collection, expr, domain, input, evidence, true, None)
+    plan_expr_restricted_with_execution(
+        repo, collection, segments, expr, domain, input, evidence, true, None,
+    )
 }
 
 pub(crate) fn plan_expr_restricted_with_execution(
     repo: &Repository,
     collection: &CollectionState,
+    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2126,6 +2133,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
     let mut plan = plan_expr_restricted_inner(
         repo,
         collection,
+        segments,
         expr,
         domain,
         input,
@@ -2140,6 +2148,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
 fn plan_expr_restricted_inner(
     repo: &Repository,
     collection: &CollectionState,
+    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2164,7 +2173,7 @@ fn plan_expr_restricted_inner(
     if collection.logical_records.len() == collection.generation.records.len() as u64 {
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.relations.is_empty() {
-            crate::relation_semijoin::restrict(repo, expr, input, &mut plan, execution)?;
+            crate::relation_semijoin::restrict(repo, segments, expr, input, &mut plan, execution)?;
         }
         return Ok(plan);
     }
@@ -2202,7 +2211,7 @@ fn plan_expr_restricted_inner(
     }
     logical.candidates = Some(candidates);
     if !collection.relations.is_empty() {
-        crate::relation_semijoin::restrict(repo, expr, input, &mut logical, execution)?;
+        crate::relation_semijoin::restrict(repo, segments, expr, input, &mut logical, execution)?;
     }
     Ok(logical)
 }

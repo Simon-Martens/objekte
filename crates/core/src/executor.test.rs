@@ -1566,7 +1566,7 @@ fn plan_expr(
     expr: &BoundExpr,
     domain: &RoaringBitmap,
 ) -> Result<Plan, String> {
-    plan_expr_restricted(repo, collection, expr, domain, domain, true)
+    plan_expr_restricted(repo, collection, &repo.segments, expr, domain, domain, true)
 }
 
 #[test]

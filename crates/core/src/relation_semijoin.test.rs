@@ -6,9 +6,7 @@ use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::{
     ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, SourceRegistry, TextDerivation,
@@ -17,9 +15,7 @@ use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 use super::{Strategy, candidates_with_strategy};
 
-
 struct CountedJsonReader(Arc<AtomicUsize>);
-
 
 impl SourceReader for CountedJsonReader {
     fn name(&self) -> &'static str {
@@ -62,7 +58,6 @@ impl SourceReader for CountedJsonReader {
         JsonReader.parse_for_query(bytes, projection)
     }
 }
-
 
 #[test]
 fn estimate_only_explain_never_opens_or_parses_related_sources() {
@@ -511,6 +506,161 @@ fn ids(repo: &Repository, request: &Query) -> Vec<String> {
     assert_eq!(found.hits, reference.hits);
     assert_eq!(found.count, reference.count);
     found.hits.into_iter().map(|hit| hit.record_id).collect()
+}
+
+#[test]
+fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-local-slots-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    std::fs::write(
+        root.join("targets/T0.json"),
+        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("targets/T1.json"),
+        r#"{"id":"T1","title":"Other","related_entry":"T0"}"#,
+    )
+    .unwrap();
+    // Ordinary JSON files are extracted in batches of up to 512 files. Put the
+    // colliding records on either side of that boundary so the public policy
+    // genuinely produces two source segments.
+    for number in 0..513 {
+        let id = match number {
+            0 => "S0".to_owned(),
+            512 => "S1".to_owned(),
+            _ => format!("F{number:03}"),
+        };
+        let (target, title) = match number {
+            0 => ("T0", "Needle"),
+            512 => ("T1", "Other"),
+            _ => ("missing", "filler"),
+        };
+        std::fs::write(
+            root.join(format!("sources/{number:03}.json")),
+            format!(r#"{{"id":"{id}","entry":"{target}","title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let source_index = repo
+        .collections()
+        .iter()
+        .position(|collection| collection.definition.name == "sources")
+        .unwrap();
+    let source_segments = &repo.segments[source_index];
+    assert_eq!(source_segments.len(), 2);
+    assert_eq!(source_segments[0].index.records[0].slot.0, 0);
+    assert_eq!(source_segments[1].index.records[0].slot.0, 0);
+
+    let request = query("entry.title = 'Needle'");
+    assert_eq!(ids(&repo, &request), ["S0"]);
+    assert_eq!(repo.search(&request).unwrap().count, Some(1));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-target-local-slots-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    for number in 0..513 {
+        let (id, title) = if number == 512 {
+            ("T512".to_owned(), "Needle")
+        } else {
+            (format!("T{number:03}"), "Other")
+        };
+        std::fs::write(
+            root.join(format!("targets/{number:03}.json")),
+            format!(r#"{{"id":"{id}","title":"{title}","related_entry":"T000"}}"#),
+        )
+        .unwrap();
+    }
+    for number in 0..600 {
+        let (id, target) = if number == 0 {
+            ("S0".to_owned(), "T512")
+        } else {
+            (format!("S{number:03}"), "T000")
+        };
+        std::fs::write(
+            root.join(format!("sources/{number:03}.json")),
+            format!(r#"{{"id":"{id}","entry":"{target}","title":"local"}}"#),
+        )
+        .unwrap();
+    }
+
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let target_index = repo
+        .collections()
+        .iter()
+        .position(|collection| collection.definition.name == "targets")
+        .unwrap();
+    assert_eq!(repo.segments[target_index].len(), 2);
+    assert_eq!(
+        repo.segments[target_index][0].index.records[0]
+            .id
+            .0
+            .as_ref(),
+        "T000"
+    );
+    assert_eq!(repo.segments[target_index][0].index.records[0].slot.0, 0);
+    assert_eq!(
+        repo.segments[target_index][1].index.records[0]
+            .id
+            .0
+            .as_ref(),
+        "T512"
+    );
+    assert_eq!(repo.segments[target_index][1].index.records[0].slot.0, 0);
+
+    let request = query("entry.title = 'Needle'");
+    assert_eq!(ids(&repo, &request), ["S0"]);
+    assert_eq!(repo.search(&request).unwrap().count, Some(1));
+    assert!(
+        repo.explain_analyze(&request).unwrap().1[0]
+            .terms
+            .iter()
+            .any(|choice| {
+                choice.selected.kind == crate::executor::AccessPathKind::RelationTargetFirst
+            })
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 fn next_random(state: &mut u64) -> u64 {

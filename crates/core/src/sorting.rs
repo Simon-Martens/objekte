@@ -143,6 +143,7 @@ pub struct SortColumn {
 pub(crate) struct InferredOrderKey {
     collection: usize,
     generation: u64,
+    segment: crate::native_segment::SegmentId,
     path: FieldPath,
     locale: String,
     collation_version: &'static str,
@@ -154,6 +155,7 @@ impl InferredOrderKey {
     pub(crate) fn new(
         collection: usize,
         generation: u64,
+        segment: crate::native_segment::SegmentId,
         path: FieldPath,
         locale: &str,
         options: SortOptions,
@@ -162,6 +164,7 @@ impl InferredOrderKey {
         Self {
             collection,
             generation,
+            segment,
             path,
             locale: locale.to_owned(),
             collation_version: COLLATION_VERSION,
@@ -342,7 +345,7 @@ impl SortColumn {
     /// strings use ICU keys because UTF-8 order need not equal locale order.
     pub(crate) fn from_inferred_posting(
         index: &PostingIndex,
-        generation: &CollectionGeneration,
+        records: &[RecordEntry],
         path: FieldPath,
         locale: &str,
         options: SortOptions,
@@ -359,7 +362,7 @@ impl SortColumn {
                 .inferred_order_bytes
                 .min(MAX_QUERY_ORDER_BYTES)
         });
-        let count = generation.records.len();
+        let count = records.len();
         let Some(mut estimated_bytes) = count
             .checked_mul(std::mem::size_of::<SortKey>() + 3 * std::mem::size_of::<RecordSlot>())
         else {
@@ -384,8 +387,7 @@ impl SortColumn {
         } else {
             None
         };
-        let mut keys = generation
-            .records
+        let mut keys = records
             .iter()
             .map(|record| {
                 if record.class == RecordClass::RawFallback {
@@ -466,20 +468,16 @@ impl SortColumn {
         }
         let mut order = Vec::with_capacity(count);
         if index.kind == LogicalType::String {
-            order.extend(generation.records.iter().map(|record| record.slot));
+            order.extend(records.iter().map(|record| record.slot));
             order.sort_unstable_by(|a, b| {
                 keys[a.0 as usize]
                     .compare_with(&keys[b.0 as usize], descending, options)
-                    .then_with(|| {
-                        generation.records[a.0 as usize]
-                            .id
-                            .cmp(&generation.records[b.0 as usize].id)
-                    })
+                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
         } else {
             let mut missing = Vec::new();
             let mut nulls = Vec::new();
-            for record in &generation.records {
+            for record in records {
                 match keys[record.slot.0 as usize] {
                     SortKey::Missing | SortKey::Unavailable => missing.push(record.slot),
                     SortKey::Null => nulls.push(record.slot),
@@ -487,9 +485,7 @@ impl SortColumn {
                 }
             }
             let by_id = |a: &RecordSlot, b: &RecordSlot| {
-                generation.records[a.0 as usize]
-                    .id
-                    .cmp(&generation.records[b.0 as usize].id)
+                records[a.0 as usize].id.cmp(&records[b.0 as usize].id)
             };
             missing.sort_unstable_by(by_id);
             nulls.sort_unstable_by(by_id);
@@ -501,11 +497,11 @@ impl SortColumn {
             }
             if descending {
                 for (_, slots) in value_map.iter().rev() {
-                    append_inferred_group(&mut order, slots, generation);
+                    append_inferred_group(&mut order, slots, records);
                 }
             } else {
                 for slots in value_map.values() {
-                    append_inferred_group(&mut order, slots, generation);
+                    append_inferred_group(&mut order, slots, records);
                 }
             }
             if options.nulls == Placement::Last {
@@ -542,14 +538,10 @@ impl SortColumn {
 fn append_inferred_group(
     order: &mut Vec<RecordSlot>,
     slots: &RoaringBitmap,
-    generation: &CollectionGeneration,
+    records: &[RecordEntry],
 ) {
     let mut group = slots.iter().map(RecordSlot).collect::<Vec<_>>();
-    group.sort_unstable_by(|a, b| {
-        generation.records[a.0 as usize]
-            .id
-            .cmp(&generation.records[b.0 as usize].id)
-    });
+    group.sort_unstable_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
     order.extend(group);
 }
 

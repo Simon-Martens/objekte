@@ -533,10 +533,42 @@ fn cheapest_consolidation_pair(
 }
 
 impl PublishedIndex {
+    pub(crate) fn from_repository_owned(
+        instance_id: u64,
+        revision: IndexRevision,
+        mut repository: Repository,
+    ) -> Result<Self, IndexError> {
+        let active = std::mem::take(&mut repository.active);
+        let segments = std::mem::take(&mut repository.segments);
+        Self::from_repository_parts(
+            instance_id,
+            revision,
+            Arc::new(repository),
+            active,
+            segments,
+        )
+    }
+
     pub(crate) fn from_repository(
         instance_id: u64,
         revision: IndexRevision,
         repository: Arc<Repository>,
+    ) -> Result<Self, IndexError> {
+        Self::from_repository_parts(
+            instance_id,
+            revision,
+            Arc::clone(&repository),
+            repository.active.clone(),
+            repository.segments.clone(),
+        )
+    }
+
+    fn from_repository_parts(
+        instance_id: u64,
+        revision: IndexRevision,
+        repository: Arc<Repository>,
+        active: Vec<ActiveRecords>,
+        segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     ) -> Result<Self, IndexError> {
         let definitions = repository
             .collections()
@@ -549,7 +581,6 @@ impl PublishedIndex {
             &repository.sources,
         )
         .map_err(IndexError::IncompatibleConfiguration)?;
-        let active = repository.active.clone();
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = FileCatalog::from_parts(
@@ -558,7 +589,6 @@ impl PublishedIndex {
             configuration_identity,
         );
         let processed_files = catalog.active_files() as usize;
-        let segments = repository.segments.clone();
         let next_segment_ordinal = segments
             .iter()
             .flat_map(|group| group.iter())
@@ -939,30 +969,86 @@ fn index_prepared_file(
     repository: &Repository,
     source: &SourceFileInput,
     collections: Vec<PreparedCollectionBuild>,
+    first_segment_id: u64,
+    policy: crate::native_segment::SegmentPolicy,
 ) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
     let options = repository.options();
     let mut indexed = Vec::with_capacity(collections.len());
+    let mut next_segment_id = first_segment_id;
     for collection in collections {
         let state = repository
             .collections()
             .get(collection.collection.0 as usize)
             .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
-        let mut admission = SegmentAdmission::new(collection.collection, &state.source);
-        admission
-            .admit(source, collection)
-            .map_err(IndexError::Build)?;
-        indexed.push(
-            admission
-                .finish()
-                .into_indexed(
-                    &state.definition,
-                    options.bigram_alphabet,
-                    options.inference,
-                    repository.collections().len(),
-                    &repository.workers,
-                )
-                .map_err(IndexError::Build)?,
+        if collection.collection != state.generation.collection
+            || collection.source_id != state.source.id()
+            || collection.source_version != state.source.version()
+        {
+            return Err(IndexError::Build(
+                "prepared collection binding changed".into(),
+            ));
+        }
+        let mut admission = SegmentAdmission::with_limits_and_id(
+            collection.collection,
+            &state.source,
+            policy,
+            SegmentId::new(next_segment_id),
         );
+        next_segment_id = next_segment_id
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+        let mut finish = |admission: SegmentAdmission| -> Result<(), IndexError> {
+            indexed.push(
+                admission
+                    .finish()
+                    .into_indexed(
+                        &state.definition,
+                        options.bigram_alphabet,
+                        options.inference,
+                        repository.collections().len(),
+                        &repository.workers,
+                    )
+                    .map_err(IndexError::Build)?,
+            );
+            Ok(())
+        };
+        for batch in collection.contributions {
+            if batch.record_count() != 0
+                && admission.file_count() != 0
+                && !admission.can_admit_batch(&batch)
+            {
+                finish(std::mem::replace(
+                    &mut admission,
+                    SegmentAdmission::with_limits_and_id(
+                        collection.collection,
+                        &state.source,
+                        policy,
+                        SegmentId::new(next_segment_id),
+                    ),
+                ))?;
+                next_segment_id = next_segment_id
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            }
+            admission.admit_batch(batch).map_err(IndexError::Build)?;
+            if admission.at_capacity() {
+                finish(std::mem::replace(
+                    &mut admission,
+                    SegmentAdmission::with_limits_and_id(
+                        collection.collection,
+                        &state.source,
+                        policy,
+                        SegmentId::new(next_segment_id),
+                    ),
+                ))?;
+                next_segment_id = next_segment_id
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            }
+        }
+        if admission.file_count() != 0 {
+            finish(admission)?;
+        }
     }
     let memberships = indexed.iter().map(|segment| segment.collection).collect();
     let mut entry = FileEntry {
@@ -1258,6 +1344,40 @@ impl ReconciliationTask {
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
 
+fn prepare_initial_segment(
+    next: &mut PublishedIndex,
+    segment: IndexedCollectionSegment,
+) -> Result<(), IndexError> {
+    for file in &segment.files {
+        if file.entry.status == FileStatus::Valid
+            && file.entry.diagnostics.is_empty()
+            && file.entry.omitted_diagnostics == 0
+        {
+            continue;
+        }
+        let mut merged = next
+            .catalog
+            .entry(file.entry.id)
+            .ok_or(IndexError::UnknownFile)?
+            .clone();
+        merged.status = merged.status.max(file.entry.status);
+        for diagnostic in &file.entry.diagnostics {
+            merged
+                .record_diagnostic(diagnostic.clone())
+                .map_err(IndexError::InvalidPublication)?;
+        }
+        merged.omitted_diagnostics = merged
+            .omitted_diagnostics
+            .saturating_add(file.entry.omitted_diagnostics);
+        next.catalog = next
+            .catalog
+            .replaced(merged, None, None)
+            .map_err(IndexError::InvalidPublication)?;
+    }
+    *next = next.clone().with_segment(segment)?;
+    Ok(())
+}
+
 impl Index {
     /// Publish one complete initial work unit. A concurrent lifecycle
     /// mutation changes the revision and rejects this stale work atomically.
@@ -1281,33 +1401,54 @@ impl Index {
             ));
         }
         let mut next = (*view.0).clone();
-        for file in &segment.files {
-            if file.entry.status == FileStatus::Valid
-                && file.entry.diagnostics.is_empty()
-                && file.entry.omitted_diagnostics == 0
-            {
-                continue;
-            }
-            let mut merged = next
-                .catalog
-                .entry(file.entry.id)
-                .ok_or(IndexError::UnknownFile)?
-                .clone();
-            merged.status = merged.status.max(file.entry.status);
-            for diagnostic in &file.entry.diagnostics {
-                merged
-                    .record_diagnostic(diagnostic.clone())
-                    .map_err(IndexError::InvalidPublication)?;
-            }
-            merged.omitted_diagnostics = merged
-                .omitted_diagnostics
-                .saturating_add(file.entry.omitted_diagnostics);
-            next.catalog = next
-                .catalog
-                .replaced(merged, None, None)
-                .map_err(IndexError::InvalidPublication)?;
+        prepare_initial_segment(&mut next, segment)?;
+        next.revision = expected.next()?;
+        let preparation_ns = prepare_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
+        let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let revision = self.publish_prepared_inner(expected, next)?;
+        let install_ns = install_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
+        Ok((
+            revision,
+            InitialPublicationPhases {
+                preparation_ns,
+                install_ns,
+            },
+        ))
+    }
+
+    /// Install a validated physical-file group as one publication revision.
+    pub(crate) fn publish_initial_segments(
+        &self,
+        expected: IndexRevision,
+        segments: Vec<IndexedCollectionSegment>,
+        profile_phases: bool,
+    ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
+        if segments.is_empty() {
+            return Err(IndexError::InvalidPublication(
+                "initial publication group is empty".into(),
+            ));
         }
-        next = next.with_segment(segment)?;
+        let prepare_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let view = self.view()?;
+        if view.revision() != expected {
+            return Err(IndexError::RevisionConflict {
+                expected,
+                actual: view.revision(),
+            });
+        }
+        if view.initial_construction_complete() {
+            return Err(IndexError::InvalidPublication(
+                "initial construction already completed".into(),
+            ));
+        }
+        let mut next = (*view.0).clone();
+        for segment in segments {
+            prepare_initial_segment(&mut next, segment)?;
+        }
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
             .map(|started| started.elapsed().as_nanos() as u64)
@@ -1406,11 +1547,8 @@ impl Index {
         let inference_enabled =
             repository.options().inference.mode != crate::inference::InferenceMode::Disabled;
         let instance_id = crate::repository::next_repository_instance();
-        let published = PublishedIndex::from_repository(
-            instance_id,
-            IndexRevision::INITIAL,
-            Arc::new(repository),
-        )?;
+        let published =
+            PublishedIndex::from_repository_owned(instance_id, IndexRevision::INITIAL, repository)?;
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;
@@ -2076,8 +2214,13 @@ impl Index {
         }
         let source = prepared.file.source;
         let fingerprint = prepared.file.fingerprint;
-        let (entry, indexed) =
-            index_prepared_file(view.repository(), &source, prepared.file.collections)?;
+        let (entry, indexed) = index_prepared_file(
+            view.repository(),
+            &source,
+            prepared.file.collections,
+            view.0.next_segment_ordinal,
+            view.repository().options().segment_policy,
+        )?;
         let mut next = (*view.0).clone();
         next.catalog = next
             .catalog
@@ -2149,8 +2292,13 @@ impl Index {
         }
         let source = prepared.file.source;
         let fingerprint = prepared.file.fingerprint;
-        let (entry, indexed) =
-            index_prepared_file(view.repository(), &source, prepared.file.collections)?;
+        let (entry, indexed) = index_prepared_file(
+            view.repository(),
+            &source,
+            prepared.file.collections,
+            view.0.next_segment_ordinal,
+            view.repository().options().segment_policy,
+        )?;
         let mut next = (*view.0).clone();
         next.retire_file_records(previous)?;
         next.catalog = next

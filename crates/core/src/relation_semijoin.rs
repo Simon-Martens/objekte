@@ -1,6 +1,7 @@
 //! Bounded exact positive-witness semijoins for forward relation predicates.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
@@ -8,7 +9,9 @@ use crate::executor::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };
 use crate::inventory::RecordClass;
+use crate::lifecycle::PublishedSegment;
 use crate::model::{FileId, RecordSlot};
+use crate::native_segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::query::Quantifier;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
@@ -38,6 +41,7 @@ pub(crate) enum Strategy {
 /// Exact source membership and selected-field evidence for relation FTS.
 pub(crate) struct FtsWitnesses {
     pub evidence: HashMap<u32, HashSet<String>>,
+    pub qualified_evidence: HashMap<SegmentRecordAddress, HashSet<String>>,
     pub work: SemijoinWork,
     pub strategies: Vec<Strategy>,
 }
@@ -175,6 +179,7 @@ fn relation<'a>(
 fn segment_target_candidates(
     repo: &Repository,
     target_index: usize,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     expr: &BoundExpr,
     restricted: Option<&RoaringBitmap>,
     work: &mut SemijoinWork,
@@ -182,7 +187,7 @@ fn segment_target_candidates(
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
     let mut may = RoaringBitmap::new();
-    for published in repo.segments[target_index].iter() {
+    for published in segments[target_index].iter() {
         let mut input = RoaringBitmap::new();
         for (slot, record) in published.index.records.iter().enumerate() {
             if published.active.contains(record.slot)
@@ -208,7 +213,13 @@ fn segment_target_candidates(
                 .index
                 .record(RecordSlot(slot))
                 .ok_or("relation target candidate record missing")?;
-            may.insert(record.slot.0);
+            may.insert(
+                collection
+                    .id_lookup
+                    .get(&record.id)
+                    .ok_or("relation target candidate has no collection route")?
+                    .0,
+            );
         }
     }
     ensure_slots(may.len(), execution)?;
@@ -222,6 +233,7 @@ fn segment_target_candidates(
 fn segment_fts_target_candidates(
     repo: &Repository,
     target_index: usize,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     fts: &BoundFts,
     restricted: Option<&RoaringBitmap>,
     work: &mut SemijoinWork,
@@ -229,12 +241,16 @@ fn segment_fts_target_candidates(
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
     let mut may = RoaringBitmap::new();
-    for published in repo.segments[target_index].iter() {
+    for published in segments[target_index].iter() {
         let mut input = published.active.bitmap();
         if let Some(restricted) = restricted {
             let mut mapped = RoaringBitmap::new();
             for (slot, record) in published.index.records.iter().enumerate() {
-                if restricted.contains(record.slot.0) {
+                if collection
+                    .id_lookup
+                    .get(&record.id)
+                    .is_some_and(|global| restricted.contains(global.0))
+                {
                     mapped.insert(slot as u32);
                 }
             }
@@ -252,7 +268,13 @@ fn segment_fts_target_candidates(
                 .index
                 .record(RecordSlot(slot))
                 .ok_or("relation FTS target candidate record missing")?;
-            may.insert(record.slot.0);
+            may.insert(
+                collection
+                    .id_lookup
+                    .get(&record.id)
+                    .ok_or("relation FTS target candidate has no collection route")?
+                    .0,
+            );
         }
     }
     ensure_slots(may.len(), execution)?;
@@ -274,14 +296,15 @@ fn advance_slots(
 fn segment_expr_estimate(
     repo: &Repository,
     target_index: usize,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     expr: &BoundExpr,
 ) -> Result<Option<(f64, u64)>, String> {
-    if repo.segments[target_index].is_empty() {
+    if segments[target_index].is_empty() {
         return Ok(None);
     }
     let collection = &repo.collections[target_index];
     let mut candidates = 0u64;
-    for published in repo.segments[target_index].iter() {
+    for published in segments[target_index].iter() {
         let bounds = crate::executor::segment_filter_bounds_with_catalog(
             &published.index,
             &published.active,
@@ -297,14 +320,15 @@ fn segment_expr_estimate(
 fn segment_fts_estimate(
     repo: &Repository,
     target_index: usize,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     fts: &BoundFts,
 ) -> Result<Option<(u64, f64)>, String> {
-    if repo.segments[target_index].is_empty() {
+    if segments[target_index].is_empty() {
         return Ok(None);
     }
     let collection = &repo.collections[target_index];
     let mut candidates = 0u64;
-    for published in repo.segments[target_index].iter() {
+    for published in segments[target_index].iter() {
         let may = crate::executor::segment_fts_candidates(&published.index, collection, fts)?
             .unwrap_or_else(|| published.active.bitmap().clone());
         candidates = candidates.saturating_add((&may & published.active.bitmap()).len());
@@ -316,6 +340,7 @@ fn estimate(
     repo: &Repository,
     term: &BoundTerm,
     input_len: u64,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
 ) -> Result<(Strategy, AccessPathEstimate, Vec<AccessPathEstimate>), String> {
     let related = term.related.as_ref().ok_or("missing relation term")?;
     let terminal_index = related.hops.last().ok_or("missing hop")?.to.0 as usize;
@@ -325,7 +350,7 @@ fn estimate(
         .ok_or("missing target collection")?;
     let terminal = BoundExpr::Term((*related.terminal).clone());
     let (lookup, estimated_targets) =
-        if let Some(estimate) = segment_expr_estimate(repo, terminal_index, &terminal)? {
+        if let Some(estimate) = segment_expr_estimate(repo, terminal_index, segments, &terminal)? {
             estimate
         } else {
             estimate_expr(target, &terminal, target.logical_records.len())?
@@ -389,7 +414,7 @@ pub(crate) fn planning_estimate(
     if eligible(repo, term).is_none() {
         return Err("relation term is not semijoin eligible".into());
     }
-    estimate(repo, term, input_len)
+    estimate(repo, term, input_len, &repo.segments)
 }
 
 pub(crate) fn planning_fts_strategies(
@@ -419,11 +444,13 @@ pub(crate) fn planning_fts_strategies(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
-        let (estimated_targets, lookup) = segment_fts_estimate(repo, target_index, &local)?
-            .unwrap_or_else(|| {
-                estimate_fts_candidates(target, &local)
-                    .unwrap_or((target.logical_records.len() as u64, 0.0))
-            });
+        let (estimated_targets, lookup) =
+            segment_fts_estimate(repo, target_index, &repo.segments, &local)?.unwrap_or_else(
+                || {
+                    estimate_fts_candidates(target, &local)
+                        .unwrap_or((target.logical_records.len() as u64, 0.0))
+                },
+            );
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
             let index = relation(repo, hop)?;
@@ -503,6 +530,7 @@ fn reachable_targets(
 fn verified_targets(
     repo: &Repository,
     target_index: usize,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     terminal: &BoundTerm,
     restricted: Option<&RoaringBitmap>,
     work: &mut SemijoinWork,
@@ -523,8 +551,15 @@ fn verified_targets(
         .unwrap_or_else(|| domain.clone());
     ensure_slots(input.len(), execution)?;
     let expr = BoundExpr::Term(terminal.clone());
-    let candidates =
-        segment_target_candidates(repo, target_index, &expr, Some(&input), work, execution)?;
+    let candidates = segment_target_candidates(
+        repo,
+        target_index,
+        segments,
+        &expr,
+        Some(&input),
+        work,
+        execution,
+    )?;
     let matched = verify_target_records(
         repo,
         target_index,
@@ -710,11 +745,12 @@ pub(crate) fn candidates_with_strategy(
     input: &RoaringBitmap,
     strategy: Strategy,
 ) -> Result<(RoaringBitmap, SemijoinWork), String> {
-    candidates_with_strategy_with_execution(repo, term, input, strategy, None)
+    candidates_with_strategy_with_execution(repo, &repo.segments, term, input, strategy, None)
 }
 
 fn candidates_with_strategy_with_execution(
     repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     term: &BoundTerm,
     input: &RoaringBitmap,
     strategy: Strategy,
@@ -732,6 +768,7 @@ fn candidates_with_strategy_with_execution(
     let true_targets = verified_targets(
         repo,
         target_index,
+        segments,
         &term
             .related
             .as_ref()
@@ -753,6 +790,7 @@ fn candidates_with_strategy_with_execution(
 /// evidence cannot be restricted by a relation witness alone.
 pub(crate) fn fts_witnesses(
     repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     fts: &BoundFts,
     input: &RoaringBitmap,
     execution: Option<&ExecutionContext>,
@@ -772,6 +810,7 @@ pub(crate) fn fts_witnesses(
     }
     ensure_slots(input.len(), execution)?;
     let mut evidence = HashMap::<u32, HashSet<String>>::new();
+    let mut qualified_evidence = HashMap::<SegmentRecordAddress, HashSet<String>>::new();
     let mut all_work = SemijoinWork::default();
     let mut strategies = Vec::new();
     for field in &fts.fields {
@@ -782,8 +821,8 @@ pub(crate) fn fts_witnesses(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
-        let (estimated_targets, lookup) = segment_fts_estimate(repo, target_index, &local)?
-            .unwrap_or_else(|| {
+        let (estimated_targets, lookup) =
+            segment_fts_estimate(repo, target_index, segments, &local)?.unwrap_or_else(|| {
                 estimate_fts_candidates(target, &local)
                     .unwrap_or((target.logical_records.len() as u64, 0.0))
             });
@@ -822,6 +861,7 @@ pub(crate) fn fts_witnesses(
         let candidates = segment_fts_target_candidates(
             repo,
             target_index,
+            segments,
             &local,
             restricted.as_ref(),
             &mut work,
@@ -842,9 +882,50 @@ pub(crate) fn fts_witnesses(
         if work.target_reads > 0 {
             work.verified_targets_reused = sources.len().saturating_sub(work.target_reads);
         }
-        for slot in sources.iter() {
+        let mut source_witnesses = SegmentRecordSet::default();
+        for source_slot in sources.iter() {
+            let source_collection = &repo.collections[hops[0].from.0 as usize];
+            let record = source_collection
+                .generation
+                .records
+                .get(source_slot as usize)
+                .ok_or("relation source witness slot missing")?;
+            let mut address = None;
+            for published in segments[hops[0].from.0 as usize].iter() {
+                if let Some(slot) = published.index.id_lookup.get(&record.id).copied()
+                    && published.active.contains(slot)
+                {
+                    if address.is_some() {
+                        return Err("relation source witness has duplicate active address".into());
+                    }
+                    address = Some(SegmentRecordAddress {
+                        collection: source_collection.generation.collection,
+                        segment: published.id,
+                        slot,
+                    });
+                }
+            }
+            let address = address.ok_or("relation source witness has no segment route")?;
+            source_witnesses.insert(address);
+        }
+        ensure_slots(source_witnesses.len(), execution)?;
+        for address in source_witnesses.iter() {
+            let source_collection = &repo.collections[address.collection.0 as usize];
+            let record = segments[address.collection.0 as usize]
+                .iter()
+                .find(|segment| segment.id == address.segment)
+                .and_then(|segment| segment.index.record(address.slot))
+                .ok_or("relation witness address no longer resolves")?;
+            let flat = source_collection
+                .id_lookup
+                .get(&record.id)
+                .ok_or("relation witness has no flat source route")?;
             evidence
-                .entry(slot)
+                .entry(flat.0)
+                .or_default()
+                .insert(field.evidence_path.clone());
+            qualified_evidence
+                .entry(address)
                 .or_default()
                 .insert(field.evidence_path.clone());
         }
@@ -854,6 +935,7 @@ pub(crate) fn fts_witnesses(
     }
     Ok(Some(FtsWitnesses {
         evidence,
+        qualified_evidence,
         work: all_work,
         strategies,
     }))
@@ -864,6 +946,7 @@ pub(crate) fn fts_witnesses(
 /// still require source verification.
 pub(crate) fn restrict(
     repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     expr: &BoundExpr,
     input: &RoaringBitmap,
     plan: &mut Plan,
@@ -879,11 +962,12 @@ pub(crate) fn restrict(
         if eligible(repo, term).is_none() || current.is_empty() {
             continue;
         }
-        let (strategy, selected, alternatives) = estimate(repo, term, current.len())?;
+        let (strategy, selected, alternatives) = estimate(repo, term, current.len(), segments)?;
         let before = current.clone();
         let actual_input = before.len();
-        let (matches, work) =
-            candidates_with_strategy_with_execution(repo, term, &current, strategy, execution)?;
+        let (matches, work) = candidates_with_strategy_with_execution(
+            repo, segments, term, &current, strategy, execution,
+        )?;
         current &= matches;
         plan.semijoin_work.add(work);
         plan.proofs.push(Proof {
