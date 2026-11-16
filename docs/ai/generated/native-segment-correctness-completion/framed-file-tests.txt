@@ -1,0 +1,13 @@
+
+running 9 tests
+test lifecycle_initial::tests::shared_malformed_file_resolves_each_collection_diagnostic ... ok
+test lifecycle_initial::tests::jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids ... ok
+test lifecycle_initial::tests::multi_worker_segment_finalization_actually_overlaps ... ok
+test lifecycle_initial::tests::discovery_and_segments_publish_without_losing_records ... ok
+test lifecycle_initial::tests::private_work_cancels_while_outstanding_and_after_validation ... ok
+test lifecycle_initial::tests::late_private_invalidation_and_worker_failure_publish_nothing ... ok
+test lifecycle_initial::tests::one_large_jsonl_file_can_produce_more_than_the_segment_job_window ... ok
+test lifecycle_initial::tests::large_file_finalizes_private_segments_before_eof ... ok
+test lifecycle_initial::tests::private_segment_window_is_bounded_for_one_and_multiple_workers ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 545 filtered out; finished in 22.15s

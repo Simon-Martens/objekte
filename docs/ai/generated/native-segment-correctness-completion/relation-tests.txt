@@ -1,0 +1,15 @@
+
+running 11 tests
+test relation_semijoin::tests::intermediate_limits_report_errors_instead_of_truncating_membership ... ok
+test relation_semijoin::tests::second_target_in_batch_is_checked_before_source_read ... ok
+test relation_semijoin::tests::qualified_relation_semijoin_survives_file_lifecycle_and_compaction ... ok
+test relation_semijoin::tests::relation_edge_planning_and_target_verification_cancel_mid_work ... ok
+test relation_semijoin::tests::estimate_only_explain_never_opens_or_parses_related_sources ... ok
+test relation_semijoin::tests::relation_planning_limit_has_ordinary_and_stream_resource_class ... ok
+test relation_semijoin::tests::relation_target_match_in_second_segment_is_not_redirected_to_first ... ok
+test relation_semijoin::tests::relation_semijoin_distinguishes_repeated_local_slots_across_segments ... ok
+test relation_semijoin::tests::relation_fts_counts_distinct_local_slots_in_three_segments_once ... ok
+test relation_semijoin::tests::both_physical_strategies_keep_independent_witnesses_and_reuse_targets ... ok
+test relation_semijoin::tests::seeded_array_semijoins_match_an_index_free_expected_enumeration ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 543 filtered out; finished in 0.19s

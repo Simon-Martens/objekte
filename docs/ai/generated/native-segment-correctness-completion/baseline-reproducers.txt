@@ -1,0 +1,120 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling stable_deref_trait v1.2.1
+   Compiling writeable v0.6.4
+   Compiling serde_core v1.0.229
+   Compiling version_check v0.9.5
+   Compiling utf_types v1.0.0
+   Compiling litemap v0.8.3
+   Compiling crossbeam-utils v0.8.23
+   Compiling memchr v2.8.3
+   Compiling crossbeam-epoch v0.9.21
+   Compiling typenum v1.20.1
+   Compiling serde v1.0.229
+   Compiling icu_normalizer_data v2.4.0
+   Compiling crossbeam-deque v0.8.8
+   Compiling icu_locale_fallback_data v2.4.0
+   Compiling rayon-core v1.13.0
+   Compiling zmij v1.0.23
+   Compiling icu_collator_data v2.4.0
+   Compiling regex-syntax v0.8.11
+   Compiling smallvec v1.16.4
+   Compiling libc v0.2.191
+   Compiling serde_json v1.0.154
+   Compiling write16 v1.0.0
+   Compiling cpufeatures v0.2.17
+   Compiling time-core v0.1.9
+   Compiling cfg-if v1.0.5
+   Compiling num-conv v0.2.2
+   Compiling powerfmt v0.2.1
+   Compiling log v0.4.35
+   Compiling itoa v1.0.18
+   Compiling either v1.19.0
+   Compiling bytemuck v1.25.2
+   Compiling byteorder v1.5.0
+   Compiling unicode-casefold v0.2.0
+   Compiling utf8_iter v1.1.0
+   Compiling utf16_iter v1.1.0
+   Compiling generic-array v0.14.7
+   Compiling aho-corasick v1.1.5
+   Compiling bstr v1.13.1
+   Compiling syn v3.0.9
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling rayon v1.12.0
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling regex-automata v0.4.18
+   Compiling deranged v0.5.9
+   Compiling synstructure v0.14.0
+   Compiling zerovec-derive v0.11.7
+   Compiling displaydoc v0.2.7
+   Compiling serde_derive v1.0.229
+   Compiling time v0.3.55
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling regex v1.13.1
+   Compiling globset v0.4.21
+   Compiling zerofrom v0.1.8
+   Compiling yoke v0.8.4
+   Compiling zerovec v0.11.9
+   Compiling zerotrie v0.2.5
+   Compiling tinystr v0.8.5
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.4.0
+   Compiling icu_locale_core v2.4.0
+   Compiling bincode v1.3.3
+   Compiling roaring v0.11.5
+   Compiling icu_provider v2.4.0
+   Compiling icu_properties v2.4.0
+   Compiling icu_locale_fallback v2.4.0
+   Compiling icu_normalizer v2.4.0
+   Compiling icu_collator v2.4.0
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-native-segment-correctness-baseline/crates/core)
+warning: unused import: `RegexOptions`
+ --> crates/core/tests/native_segment_correctness_baseline.rs:6:52
+  |
+6 |     CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter,
+  |                                                    ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/core/tests/native_segment_correctness_baseline.rs:160:9
+    |
+160 |     let mut request = Query {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-search-core` (test "native_segment_correctness_baseline") generated 2 warnings (run `cargo fix --test "native_segment_correctness_baseline" -p objekte-search-core` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.49s
+     Running tests/native_segment_correctness_baseline.rs (target/debug/deps/native_segment_correctness_baseline-b81ad6109c529923)
+
+running 2 tests
+
+thread 'late_path_uses_the_whole_collection_observation_domain' (424142) panicked at crates/core/tests/native_segment_correctness_baseline.rs:157:5:
+assertion `left == right` failed
+  left: 1
+ right: 513
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'repeated_local_slots_keep_related_fts_witnesses_distinct' (424143) panicked at crates/core/tests/native_segment_correctness_baseline.rs:114:5:
+assertion `left == right` failed
+  left: []
+ right: ["S1"]
+test late_path_uses_the_whole_collection_observation_domain ... FAILED
+test repeated_local_slots_keep_related_fts_witnesses_distinct ... FAILED
+
+failures:
+
+failures:
+    late_path_uses_the_whole_collection_observation_domain
+    repeated_local_slots_keep_related_fts_witnesses_distinct
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+error: test failed, to rerun pass `-p objekte-search-core --test native_segment_correctness_baseline`
