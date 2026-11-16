@@ -1,0 +1,42 @@
+Task: native-segment-final-corrections
+Reviewed starting revision: 7e88607d1e3ed929e4ac9693e1f56a064d8ac9b1
+
+F01 reproducer:
+
+    cargo test -p objekte-search-core related_fts_reads_current_target_revisions_across_file_lifecycle_and_compaction --locked -- --nocapture
+
+Reviewed failure:
+
+    thread ... panicked at crates/core/src/relation_semijoin.test.rs:
+    called `Result::unwrap()` on an `Err` value: "unknown source file"
+    test result: FAILED. 0 passed; 1 failed
+
+F02 reproducer:
+
+    cargo test -p objekte-search-core inference::tests --locked -- --nocapture
+
+Reviewed failure excerpts:
+
+    partial_short_values_do_not_override_failed_general_dictionary_admission
+    value_dictionary_complete: true
+
+    short_dictionary_coverage_is_independent_of_segment_order
+    left: (true, true, [Some(512), Some(1)])
+    right: (false, true, [Some(512), Some(1)])
+
+    short_dictionary_coverage_respects_null_missing_and_uncovered_domains
+    left: 1
+    right: 0
+
+    test result: FAILED. 35 passed; 3 failed
+
+F03 reproducer with only the final drain temporarily restored to the reviewed
+early-return behavior:
+
+    cargo test -p objekte-search-core private_final_drain_consumes_worker_error_before_returning --locked -- --nocapture
+
+Reviewed failure:
+
+    thread ... panicked:
+    the build returned before the remaining worker completion drained
+    test result: FAILED. 0 passed; 1 failed

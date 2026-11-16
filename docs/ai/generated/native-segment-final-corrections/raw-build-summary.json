@@ -1,0 +1,64 @@
+{
+  "implementation_revision": "170eaeca03efa4cbc591a43fc3e611dd333b6ad2",
+  "command": "target/release/examples/bench_build_musenalm --root examples/musenalm --alphabet <ascii|unicode> --build-workers 8",
+  "repetitions": 3,
+  "record_count": 148486,
+  "segment_count": 15,
+  "binary_sha256": "28dc7a356919ef256a483fbb7853b84561ed9ab6f472d095850dc8c59a8be8ec",
+  "runs": [
+    {
+      "alphabet": "ascii",
+      "repetition": 1,
+      "build_ns": 908228043,
+      "peak_resident_bytes": 577044480,
+      "peak_concurrent_segment_jobs": 12,
+      "peak_segment_window": 14,
+      "index_signature_sha256": "60fc465c012ede3a5f2342e66710b1e54a2f1332ab721b6b0b03c3f023447ffd"
+    },
+    {
+      "alphabet": "ascii",
+      "repetition": 2,
+      "build_ns": 867624500,
+      "peak_resident_bytes": 542380032,
+      "peak_concurrent_segment_jobs": 9,
+      "peak_segment_window": 10,
+      "index_signature_sha256": "60fc465c012ede3a5f2342e66710b1e54a2f1332ab721b6b0b03c3f023447ffd"
+    },
+    {
+      "alphabet": "ascii",
+      "repetition": 3,
+      "build_ns": 876766904,
+      "peak_resident_bytes": 528203776,
+      "peak_concurrent_segment_jobs": 12,
+      "peak_segment_window": 14,
+      "index_signature_sha256": "60fc465c012ede3a5f2342e66710b1e54a2f1332ab721b6b0b03c3f023447ffd"
+    },
+    {
+      "alphabet": "unicode",
+      "repetition": 1,
+      "build_ns": 887279368,
+      "peak_resident_bytes": 536764416,
+      "peak_concurrent_segment_jobs": 11,
+      "peak_segment_window": 15,
+      "index_signature_sha256": "dfe2ba47d3bcff330736c663b775849fc15f2985f557c9c64c1affdda32a2cc9"
+    },
+    {
+      "alphabet": "unicode",
+      "repetition": 2,
+      "build_ns": 894427526,
+      "peak_resident_bytes": 531488768,
+      "peak_concurrent_segment_jobs": 9,
+      "peak_segment_window": 9,
+      "index_signature_sha256": "dfe2ba47d3bcff330736c663b775849fc15f2985f557c9c64c1affdda32a2cc9"
+    },
+    {
+      "alphabet": "unicode",
+      "repetition": 3,
+      "build_ns": 879306621,
+      "peak_resident_bytes": 530329600,
+      "peak_concurrent_segment_jobs": 7,
+      "peak_segment_window": 10,
+      "index_signature_sha256": "dfe2ba47d3bcff330736c663b775849fc15f2985f557c9c64c1affdda32a2cc9"
+    }
+  ]
+}

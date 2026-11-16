@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Q068",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name ~ \"%Goethe%\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q069",
+    "collection": "agents",
+    "fts": null,
+    "filter": "pseudonyms ~ \"\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q077",
+    "collection": "contents",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"FRÜHLING\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q119",
+    "collection": "contents",
+    "fts": null,
+    "filter": "@file.modified >= \"2026-01-01T00:00:00Z\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

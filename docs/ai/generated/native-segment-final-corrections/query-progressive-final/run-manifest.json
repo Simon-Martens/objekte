@@ -1,0 +1,127 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "dc29ff42cf24b2cc4de67a2297f3c4d676c9034c0b91315465d1fb1136b486f7",
+  "code_revision": "170eaeca03efa4cbc591a43fc3e611dd333b6ad2",
+  "command": [
+    "target/release/examples/bench_musenalm",
+    "--root",
+    "examples/musenalm",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--repetitions",
+    "3",
+    "--query-workers",
+    "4",
+    "--verified-cache-bytes",
+    "0",
+    "--incremental",
+    "--result-dir",
+    "docs/ai/generated/native-segment-final-corrections/query-progressive-final"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "b79783c538f9fb76b284cc1535a36d4c9864d5d4d4728e698704eaea9ef0b5fd",
+  "executable_sha256": "c0cbf96fd8a3c23a74c5895f2a2b574a5cc576643fd9a563519ee5726679b097",
+  "execution_checkout_revision": "170eaeca03efa4cbc591a43fc3e611dd333b6ad2",
+  "extended": false,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 4,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 3,
+  "root": "examples/musenalm",
+  "run_id": "1794858685-170eaeca03",
+  "schema_fingerprint": "a7cff399f67082c6153b1245b24a8a392a50a5dd69563762047b5c15ec944433",
+  "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "d0400f37322dab98d9c3e95df73801458df077e04b080cbf8eba4a472b6a6f0d"
+}
