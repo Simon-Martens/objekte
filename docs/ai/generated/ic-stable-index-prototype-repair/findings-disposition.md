@@ -2,13 +2,14 @@
 
 Task: `ic-stable-index-prototype-repair`  
 Reviewed prototype: `530f4037f01bcd38f5027042e54676b543fdd230`  
-Repair branch: `integration/ic-stable-index-prototype-repair`
+Repair branch: `integration/ic-stable-index-prototype-repair`  
+Final code commit: `956648ae3075a85fbf76d3e4ecab8e349103df84`
 
 | ID | Disposition | Code / evidence |
 | --- | --- | --- |
-| R01 | **Fixed** | `stable_index/build.rs` assigns canonical IDs, computes role-aware work estimates, sorts execution largest-first and runs `into_par_iter().with_max_len(1)`, then restores result order by component ID. Final trace: makespan 1.421 s, 5.36 average concurrent jobs, large catalogs on distinct workers from the first wave. Scheduling-only: original median 5.005 s vs 3.858 s candidate (22.9% better). |
-| R02 | **Partial — residual** | `build.rs::BatchContribution::into_parts` moves files, records, fingerprints, typed/custom fragments, packed bigrams, domains, sort keys and relations. `source_build.rs::admit_parts` consumes these parts and does not clone the batch. However the direct builder still finalizes `CollectionState` indexes and passes a borrowed collection graph into `from_collections`; native index ownership is not consumed by conversion jobs. This is the main residual memory defect. |
-| R03 | **Partial** | `admit_parts` separates metadata admission from index routing and merges posting-field owners in parallel through the shared pool. Custom posting, packed bigram, sort-key and relation owners still merge in the coordinator. No global admission clone or transaction layer was introduced. |
+| R01 | **Fixed** | `stable_index/build.rs` assigns canonical IDs, computes role-aware work estimates, sorts execution largest-first and runs `into_par_iter().with_max_len(1)`, then restores result order by component ID. Final trace: makespan 1.704 s ASCII / 1.635 s Unicode, 4.91 / 5.04 average concurrent jobs, large catalogs on distinct workers from the first wave. Scheduling-only comparison remains: original median 5.005 s vs 3.858 s candidate (22.9% better). |
+| R02 | **Fixed** | `build.rs::BatchContribution::into_parts` moves files, records, fingerprints, typed/custom fragments, packed bigrams, domains, sort keys and relations. `source_build.rs` no longer constructs `CollectionState`: it finalizes into owned `FinalizedCollection` values, resolves relations through target identity lookups, and moves every native owner into `OwnedCollection`. `stable_index/build.rs::from_owned` converts each owner into owned `JobData`; posting maps, gram maps, sort keys and relations are moved into component jobs and dropped when those jobs finish. The borrowed `from_collections` path remains only as a convenience adapter; `CollectionState::from_fresh_parts` was removed. Full Musenalm validation remains exact. Peak RSS fell from 2.03x to 1.91x native (ASCII) and from 1.93x to 1.83x (Unicode) versus the prior report, but remains above the 1.60x target. |
+| R03 | **Fixed** | `source_build.rs` extracts in explicit bounded waves: at most 2P preparation jobs, a 64 MiB estimated preparation target, and one oversized-job exception. Metadata admission runs in deterministic job order, then fragments enter `OwnerWave` lists. `merge_owner_wave` merges posting fields, custom postings, raw/fallback/custom bigrams, sort keys (through `SortBuilder::append_wave_in_pool`) and relation owners in parallel across independent owners. The coordinator no longer merges those families itself. Final ASCII build used 37 waves, zero oversized jobs, with 149 ms aggregate owner-merge time. |
 | R04 | **Fixed** | `sorting.rs::SortBuilder::finish_keys_only` lets the direct path consume collation keys without constructing native ascending/descending vectors. Stable sort components are built from keys and native RecordId tie-breaking. Composite sorts are separate components. |
 | R05 | **Fixed** | `stable_index/memory.rs` now stores a `ComponentTree` enum of typed `BTreeMap`s. `codec.rs` defines fixed-width `FileKey`, `RecordKey`, `StateKey`, `GramKey` and fixed occurrence keys; only path/identity/scalar/number/sort/relation-target keys are unbounded. Key codec revision is 3 and descriptor key bounds are role-specific. |
 | R06 | **Fixed** | Live domains are cached as `Arc<RoaringBitmap>`; `live_domain_shared` returns the shared handle, `live_domain_owned` is the explicit copy API. Typed/gram/sort/relation queries intersect shared domains in place. |
@@ -23,15 +24,20 @@ Repair branch: `integration/ic-stable-index-prototype-repair`
 | R15 | **Fixed** | `write_snapshot_to` returns staged `ComponentFileInfo` values and does not mutate saved paths/dirty flags. Metadata is committed only after rename. Restoration failure installs `Failed`; empty placeholder trees are never exposed. Fault test verifies dirty/path state is unchanged after failure. |
 | R16 | **Fixed (within prototype)** | Descriptors include text alphabet/extractor/normalization/segment identity, composite constituents, target/ordering identity, key bound, coverage, revision, dependencies and detached provenance. Configuration hashing is explicit structured hashing over sorted fields/bindings/relations/sorts/overrides/composites, not Debug strings. Coverage/revision is bumped on mutations. |
 | R17 | **Fixed** | Component ID decoding is checked u64→u32; manifest validation checks unique IDs/paths/logical identities, collections, revisions, live≤high-water, slot namespace, dependency existence, same collection and same namespace. |
-| R18 | **Fixed for measured fields; residual null-policy** | BuildTree observes insert and bitmap-encode calls at their call sites; build records include entry count, memory length, Vec capacity, bitmap encodes, metadata encodes and insert count. Stage timings, source reads/parses, trace and memory counters are recorded. A few unavailable low-level diagnostics are still emitted as zero rather than null. |
-| R19 | **Partial** | Primitive mode preloads component and live domain separately, runs 200 repetitions, consumes results, propagates errors and reports median/p95/min/max. Matched native primitive distributions were not run. |
+| R18 | **Fixed** | BuildTree observes insert and bitmap-encode calls at their call sites; build records include entry count, memory length, Vec capacity, bitmap encodes, metadata encodes and insert count. Normal source batches now aggregate actual source reads/bytes (final ASCII: 148,486 reads / 193,297,230 bytes). Diagnostics that require `detailed-profiling` serialize as null with explicit reasons when it is disabled. Loaded components report live memory length and Vec capacity through the shared `IndexMemory` statistics handle; unloaded components remain null. Regression test added. |
+| R19 | **Fixed** | Added `primitive-plan`, `native-primitives`, and plan-aware stable `primitives` modes. They run matched point, bounded range, length point/range, state, FTS candidate, sort, relation-state and relation-target distributions with 200 repetitions, preloaded component/live domains, median/p95/min/max, consumed results and propagated errors. Final extended-relation Musenalm run: 503 rows, zero result-membership mismatches. Stable/native median-of-medians ratios: point 25.9x, range 3.22x, length point 27.4x, length range 2.31x, state 14.0x, text 2.02x, sort 507x, relation state 24.9x, relation target 13.8x. |
 | R20 | **Fixed** | Prepared replacement tests compare typed/state/sort facts after native rebuild and reopen; composite sorts are implemented with native constituent comparison/directions/ties and tested. Lifecycle reports dead slots and payload growth. Relation prepared facts are supported by the generic prepared update representation and relation components. |
 
-## Residual actions before a full acceptance claim
+## Residual limitations
 
-1. Implement an owned `CollectionState`/component conversion job graph so native
-   indexes are released as each stable component is built (R02).
-2. Move custom-binding, bigram, sort-key and relation owner merges out of the
-   coordinator (R03).
-3. Add matched native primitive distributions (R19).
-4. Emit explicit null plus reason for every unavailable diagnostic counter (R18).
+1. The repaired candidate remains above the resident and peak RSS targets. The
+   owned conversion path releases each component owner as its job completes, but
+   all completed native collections are still finalized before the stable job
+   graph is published. Reducing that overlap further requires a streaming
+   collection-to-component pipeline, not another borrowing fix.
+2. Primitive measurements show the expected cost of decoding independent stable
+   payloads. Point/state/length lookups and configured sort pages remain far
+   slower than resident native maps even after preload.
+3. macOS and Windows execution were unavailable; validation is Linux-only.
+4. Logical deletion retains dead posting memberships; physical compaction remains
+   outside this repair.

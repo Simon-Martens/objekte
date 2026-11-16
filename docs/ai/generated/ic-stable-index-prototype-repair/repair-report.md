@@ -4,76 +4,96 @@ Task: `ic-stable-index-prototype-repair`
 Date: 16 November 2026  
 Reviewed prototype: `530f4037f01bcd38f5027042e54676b543fdd230`  
 Native baseline: `c54486f893a57fac0b1b80ed967ab4f5a5fd26c9`  
+Final code commit: `956648ae3075a85fbf76d3e4ecab8e349103df84`  
 Repair branch: `integration/ic-stable-index-prototype-repair`  
 Repair worktree: `/home/simon/source/objekte-integration-ic-stable-index-prototype-repair`
 
 ## Outcome
 
 **Correct repaired prototype with residual performance and memory rejection.**
-The repair materially improves the original prototype and closes the scheduling,
-mutation, coverage, publication, descriptor and storage-codec findings. Two
-architecture findings are only partially closed: the direct builder still
-finalizes a native `CollectionState` graph before stable conversion, and some
-owner families beyond postings still merge serially. They are recorded
-explicitly in `findings-disposition.md`; this is not a near-parity claim.
+All R01-R20 findings now have a fixed disposition. The final repair removes the
+borrowed native `CollectionState` conversion graph, moves completed native owners
+into independent component jobs, merges every index family outside the metadata
+coordinator in bounded waves, reports unavailable diagnostics honestly, and adds
+matched native/stable primitive distributions.
 
-Measured matched P=8 ASCII campaign:
+Measured matched fresh-process P=8 ASCII campaign:
 
 | Measurement | Native | Original prototype | Repaired candidate |
 | --- | ---: | ---: | ---: |
-| Median source build | 1.649 s | 4.965 s | 3.225 s |
-| Ratio vs native | 1.00x | 3.01x | **1.96x** |
-| Improvement vs original | — | — | **35.0%** |
-| Resident RSS | 394.8 MB | — | 760.9 MB (1.93x native) |
-| Peak RSS | 408.0 MB | — | 828.0 MB (2.03x native) |
-| Stable payload | — | — | 407.4 MB |
+| Median source build | 1.573 s | 4.717 s | 3.174 s |
+| Ratio vs native | 1.00x | 3.00x | **2.02x** |
+| Improvement vs original | — | — | **32.7%** |
+| Resident RSS | 394.3 MB | — | 750.1 MB (1.90x native) |
+| Peak RSS | 407.4 MB | — | 779.6 MB (1.91x native) |
+| Stable payload | — | — | 408.6 MB |
 
-Unicode P=8, three paired samples: native 1.830 s, original 5.155 s, repaired
-3.568 s; **1.95x native**, **30.8% better than original**. Resident/peak RSS
-were 1.87x/1.93x native.
+Unicode P=8, three paired samples: native 1.878 s, original 5.323 s, repaired
+3.661 s; **1.95x native**, **31.2% better than original**. Resident/peak RSS
+were 1.81x/1.83x native.
 
 Scheduling-only isolated comparison (P=8, three paired fresh processes):
 original median 5.005 s, scheduling candidate median 3.858 s; **22.9%**
-improvement. Component makespan fell from 2.956 s in the reviewed trace to
-1.911 s in the scheduling-only trace. Final trace makespan was 1.421 s.
+improvement. Final component traces report 1.704 s ASCII / 1.635 s Unicode
+makespan, 4.91 / 5.04 average concurrent jobs, and large catalogs overlapping on
+different workers.
 
 Synthetic workload (100,000 records, 100,000 distinct keys, 1,000,000 tag
 memberships, 40 components):
 
 | Workers | Native | Repaired | Ratio |
 | ---: | ---: | ---: | ---: |
-| 1 | 1.590 s | 6.213 s | 3.91x |
-| 2 | 1.010 s | 3.672 s | 3.64x |
-| 8 | 0.764 s | 1.638 s | 2.15x |
+| 1 | 1.702 s | 7.426 s | 4.36x |
+| 2 | 1.065 s | 4.197 s | 3.94x |
+| 8 | 0.787 s | 1.685 s | 2.14x |
 
-## Main improvements
+## Final repair changes
 
-- Largest-first, one-component-per-Rayon-task scheduling with deterministic
-  IDs and full trace metrics. Large file/path/record/identity catalogs now run
-  on different workers from the first wave.
-- Role-specific stored key types and separate tree variants: fixed-width
-  u32/u8/u64 keys for file, record, state, gram and occurrence identities;
-  unbounded typed wrappers only where values are genuinely variable. Key codec
-  revision advanced to 3.
-- Direct path avoids native ascending/descending order construction through a
-  keys-only sort finalizer; configured composite sorts now have their own
-  ordered components and native constituent comparison.
-- `BatchContribution::into_parts` consuming decomposition; metadata admission is
-  separate from index owners; posting-field fragments merge in parallel through
-  the shared worker pool.
-- Prepared file-change API with typed/text/state/sort/composite/relation facts,
-  grouped identity/domain updates, cached FileId high water, typed identity
-  policies, full path entries and zero-record path handling.
-- Explicit `Restriction::{NoRestriction, Complete}` coverage contract, shared
-  live-domain cache without bitmap cloning, and unusable-state enforcement.
-- Atomic standalone publication through sibling temporary files; single
-  streaming payload hash; staged generation metadata committed only after
-  rename; component restoration failures enter `Failed` state.
-- Checked component-ID decoding, dependency/identity/collection manifest
-  validation, canonical configuration hashing without Debug formatting,
-  text/alphabet/composite descriptors, component revisions.
-- Observed build counters for inserts and bitmap encodes; memory length and Vec
-  capacity recorded separately.
+- **Owned conversion (R02).** `source_build.rs` no longer creates a
+  `CollectionState` graph. It finalizes owned records, postings, custom postings,
+  packed bigrams, sort keys and relations, resolves relations through target
+  identity lookups, and hands `OwnedCollection` values to
+  `stable_index/build.rs::from_owned`. Component jobs own their maps and drop
+  them after encoding. The borrowed `from_collections` adapter remains only for
+  tests/transfer convenience.
+- **Parallel owner routing and bounded waves (R03).** Extraction is split into
+  waves of at most 2P jobs and a 64 MiB estimated preparation target, with one
+  oversized-job exception. Metadata admission remains deterministic. Posting,
+  custom-posting, raw/fallback/custom bigram, sort-key and relation fragments
+  are merged in parallel across independent owners after each wave. The final
+  ASCII run used 37 waves, zero oversized jobs and 149 ms aggregate owner-merge
+  time.
+- **Truthful diagnostics (R18).** Actual batch source reads and bytes are now
+  aggregated; the final run reports 148,486 reads and 193,297,230 bytes rather
+  than zero. Detailed-only timings serialize as `null` with explicit unavailable
+  reasons when `detailed-profiling` is disabled. Loaded components now report
+  live memory length and Vec capacity through their shared memory statistics;
+  unloaded components report `null`.
+- **Matched primitives (R19).** New plan/native/stable primitive modes measure
+  point, range, length point/range, state, FTS candidates, sort pages and
+  relation state/target operations on the same extended-relation Musenalm
+  snapshot. 503 rows x 200 repetitions were run with preloaded dependencies,
+  consumed results and propagated errors. Result membership matched exactly.
+
+## Primitive distributions
+
+Stable/native median-of-medians, 200 repetitions each:
+
+| Family | Rows | Native | Stable | Ratio |
+| --- | ---: | ---: | ---: | ---: |
+| Point | 119 | 70 ns | 1.81 µs | 25.9x |
+| Bounded range | 40 | 6.87 µs | 22.15 µs | 3.22x |
+| Length point | 43 | 60 ns | 1.64 µs | 27.4x |
+| Length range | 17 | 6.91 µs | 15.97 µs | 2.31x |
+| State | 224 | 50 ns | 701 ns | 14.0x |
+| FTS candidates | 14 | 721 ns | 1.45 µs | 2.02x |
+| Sort page (64) | 16 | 30 ns | 15.22 µs | 507x |
+| Relation state | 24 | 30 ns | 747 ns | 24.9x |
+| Relation target | 6 | 121 ns | 1.66 µs | 13.8x |
+
+Result-membership mismatches: **0 / 503**. The large sort gap includes decoding
+stable sort-key payloads; native returns a prefix of an already resident order
+vector. These measurements do not support a stable primitive-parity claim.
 
 ## Verification
 
@@ -92,12 +112,12 @@ Results:
 
 - workspace check passed;
 - core feature/profiled checks passed;
-- core feature tests passed (45 focused prototype tests);
+- core feature tests passed (46 focused prototype tests);
 - workspace feature tests passed;
-- full workspace tests passed except
-  `backend::open::tests::incremental_catalogue_preserves_non_utf8_file_paths`,
-  which also fails alone on the untouched native baseline in this environment;
-  the full desktop library suite passes when run normally.
+- the workspace test run has one failure,
+  `backend::open::tests::incremental_catalogue_preserves_non_utf8_file_paths`.
+  The same test fails alone in the untouched native baseline worktree at
+  `c54486f893a57fac0b1b80ed967ab4f5a5fd26c9`; all other workspace tests pass.
 
 Full Musenalm direct-build validation passed with zero semantic differences:
 148,486 files/records, 152,544 posting keys, 2,814,411 posting members,
@@ -105,11 +125,9 @@ Full Musenalm direct-build validation passed with zero semantic differences:
 
 ## Persistence and mutation
 
-- Snapshot save: 232 ms for 1,323 components / ~407 MB.
-- Manifest open: 30.5 ms; first 27.9 MB component load: 26.3 ms.
+- Extended-relation snapshot save: 280 ms for 1,341 components.
+- Manifest open in the primitive run: 29.8 ms.
 - Standalone open/save and copied/renamed manifest-free files remain supported.
-- Primitive postings: 1.66-2.20 µs median, 2.31-3.70 µs p95 over 200 repetitions
-  after component and live-domain preload.
 - 65,536-member standalone mutation: 23.7 ms; save 23.3 ms.
 - Ten replacements of a 200-record file: 2,000 dead slots; reopened payload grew
   from 1.18 MB to 1.57 MB, snapshot 1.77 MB. Physical reclamation remains
@@ -117,27 +135,26 @@ Full Musenalm direct-build validation passed with zero semantic differences:
 
 ## Residual limitations
 
-1. **R02 partial.** Batch contributions are consumed and decomposed, but the
-   direct path still finalizes native `CollectionState` indexes and borrows the
-   collection graph during stable construction. That overlap explains the
-   resident/peak RSS rejection. A fully owned conversion job graph remains the
-   next required design step.
-2. **R03 partial.** Posting field owners merge in parallel; custom bindings,
-   packed bigram owners, sort-key owners and relation owners still merge in the
-   coordinator.
-3. **R19 partial.** Candidate primitives now use preload and median/p95
-   distributions, but matched native primitive distributions were not run.
-4. Configured composite sorts are implemented and tested on a synthetic
-   fixture; the Musenalm profile itself has no composite registrations.
-5. macOS/Windows execution was unavailable; only Linux was tested.
-6. Logical deletion retains dead posting memberships; no physical compaction.
+1. Resident RSS is 1.90x ASCII / 1.81x Unicode native and peak RSS is 1.91x /
+   1.83x, above the 1.40x/1.60x targets. All completed native collections are
+   still finalized before the stable job graph is published. A further reduction
+   requires a streaming collection-to-component pipeline.
+2. Stable primitive operations that decode individual payloads remain materially
+   slower than resident native maps; configured sort pages are the largest gap.
+3. Configured composite sorts are implemented and tested on a synthetic fixture;
+   the Musenalm profile itself has no composite registrations.
+4. macOS/Windows execution was unavailable; validation is Linux-only.
+5. Logical deletion retains dead posting memberships; no physical compaction.
 
 ## Evidence layout
 
 - Raw runs: `bench/results/ic-stable-index-prototype-repair/`
-- Scheduling-only trace: `scheduling-only/`
-- Final ASCII campaign: `final-ascii-p8/`
-- Final Unicode campaign: `final-unicode-p8/`
+- Previous scheduling-only trace: `scheduling-only/`
+- Previous final ASCII campaign: `final-ascii-p8/`
+- Previous final Unicode campaign: `final-unicode-p8/`
+- Final owned-owner ASCII campaign: `final-owned-r02-r03-ascii/`
+- Final owned-owner Unicode campaign: `final-owned-r02-r03-unicode/`
+- Final matched primitives: `final-primitives/`
 - Findings: `docs/ai/generated/ic-stable-index-prototype-repair/findings-disposition.md`
 - Campaign identity: `campaign-manifest.json`
 - Comparison: `comparison.json`

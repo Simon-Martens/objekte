@@ -2,7 +2,8 @@
   "task": "ic-stable-index-prototype-repair",
   "reviewed_prototype": "530f4037f01bcd38f5027042e54676b543fdd230",
   "native_baseline": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
-  "repair_commit": "da70c3995a6f08989a7d51f22f33ddc868643c0e",
+  "repair_commit": "956648ae3075a85fbf76d3e4ecab8e349103df84",
+  "repair_branch": "integration/ic-stable-index-prototype-repair",
   "environment": {
     "platform": "linux",
     "cpu": "AMD Ryzen 7 5700G",
@@ -23,11 +24,15 @@
     },
     "candidate": {
       "path": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/target/release/examples/bench_ic_stable_index",
-      "sha256": "77e9b34a93ca4a052c4e16fa22b79829c4a65655090b05f1e030bded46bccd82"
+      "sha256": "ed78902d2c7f2da7d67b9e0c93f484d2d5be34d6e04506a24d1fae4b041727f4"
     },
     "synthetic_native": {
       "path": "/home/simon/source/objekte-baseline-ic-stable-index-prototype/target/release/examples/bench_ic_stable_fixture",
       "sha256": "485e688018130e95f546fed9a796333f45c2a3bad0453246351bc9827a6e3b8d"
+    },
+    "synthetic_candidate": {
+      "path": "/home/simon/source/objekte-integration-ic-stable-index-prototype-repair/target/release/examples/bench_ic_stable_fixture",
+      "sha256": "48ba1c428c018bdb831e62ff1275695853c19d7f62c891aded464c69d92e6ac1"
     }
   },
   "cargo_lock_sha256": "53758386ea26afeae5d005468d6d83a8bc9657d9ee99a6825b6ff5aafeefdd61",
@@ -36,9 +41,39 @@
   "source_files": 148486,
   "source_records": 148486,
   "source_bytes": 193297230,
+  "source_reads": 148486,
+  "source_bytes_read": 193297230,
+  "synthetic": {
+    "root": "/tmp/opencode/icss-synthetic",
+    "records": 100000,
+    "files": 100,
+    "tag_memberships": 1000000
+  },
+  "campaigns": {
+    "ascii": {
+      "samples": 5,
+      "workers": 8,
+      "result": "bench/results/ic-stable-index-prototype-repair/final-owned-r02-r03-ascii"
+    },
+    "unicode": {
+      "samples": 3,
+      "workers": 8,
+      "result": "bench/results/ic-stable-index-prototype-repair/final-owned-r02-r03-unicode"
+    },
+    "primitives": {
+      "repetitions": 200,
+      "rows": 503,
+      "result_mismatches": 0,
+      "result": "bench/results/ic-stable-index-prototype-repair/final-primitives"
+    }
+  },
   "commands": [
     "bench/run_ic_stable_index_prototype.py --root examples/musenalm --workers 8 --samples 5 --alphabet ascii",
     "bench/run_ic_stable_index_prototype.py --root examples/musenalm --workers 8 --samples 3 --alphabet unicode",
+    "bench_ic_stable_index --mode primitive-plan --snapshot-input <extended-relations snapshot>",
+    "bench_ic_stable_index --mode native-primitives --extended-relations --root examples/musenalm --queries <plan> --repetitions 200",
+    "bench_ic_stable_index --mode primitives --snapshot-input <extended-relations snapshot> --queries <plan> --repetitions 200",
     "cargo test --workspace --features objekte-search-core/ic-stable-prototype"
-  ]
+  ],
+  "known_baseline_failure": "objekte-desktop backend::open::tests::incremental_catalogue_preserves_non_utf8_file_paths fails identically at native baseline c54486f8 in this environment"
 }
