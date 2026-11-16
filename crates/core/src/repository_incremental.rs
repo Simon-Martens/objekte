@@ -797,11 +797,15 @@ impl PrivateSegmentGroup {
             if !retain_successes || first_error.is_some() {
                 continue;
             }
-            if self.indexed.contains_key(&segment_id) {
-                first_error.get_or_insert_with(|| "duplicate private segment completion".into());
-                self.indexed.clear();
-            } else {
-                self.indexed.insert(segment_id, built);
+            match self.indexed.entry(segment_id) {
+                std::collections::btree_map::Entry::Vacant(entry) => {
+                    entry.insert(built);
+                }
+                std::collections::btree_map::Entry::Occupied(_) => {
+                    first_error
+                        .get_or_insert_with(|| "duplicate private segment completion".into());
+                    self.indexed.clear();
+                }
             }
         }
     }
