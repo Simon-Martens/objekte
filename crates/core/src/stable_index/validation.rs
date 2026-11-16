@@ -247,6 +247,42 @@ impl StablePrototype {
                 }
             }
 
+            for composite in &state.sorting.composites {
+                let descriptor = self
+                    .components
+                    .values()
+                    .find(|entry| {
+                        entry.descriptor.kind == codec::ComponentKind::CompositeSort
+                            && entry.descriptor.collection.as_ref().map(|value| value.id)
+                                == Some(collection)
+                            && entry.descriptor.composite.len() == composite.fields.len()
+                            && entry
+                                .descriptor
+                                .composite
+                                .iter()
+                                .map(|part| (&part.path, part.descending))
+                                .eq(composite
+                                    .fields
+                                    .iter()
+                                    .map(|part| (&part.path.segments, part.descending)))
+                    })
+                    .map(|entry| entry.descriptor.clone());
+                let Some(descriptor) = descriptor else {
+                    report.error(format!(
+                        "collection {} composite sort is missing",
+                        collection.0
+                    ));
+                    continue;
+                };
+                let key = super::composite_component_key(&descriptor);
+                let actual = self.sort_composite_slots(collection, &key)?;
+                if actual != composite.order {
+                    report.error(format!(
+                        "collection {} composite sort order differs",
+                        collection.0
+                    ));
+                }
+            }
             for relation in &state.relations {
                 self.compare_relation(collection, relation, &mut report)?;
             }

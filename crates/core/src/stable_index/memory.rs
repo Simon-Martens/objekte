@@ -15,8 +15,8 @@ use ic_stable_structures::{BTreeMap, Storable};
 use roaring::RoaringBitmap;
 
 use super::codec::{
-    ComponentKey, ComponentKind, FileKey, GramKey, PathKey, RecordIdentityKey, RecordKey,
-    RelationOccurrenceKey, RelationTargetKey, SortEntryKey, StateKey,
+    ComponentKey, ComponentKind, CompositeSortEntryKey, FileKey, GramKey, PathKey,
+    RecordIdentityKey, RecordKey, RelationOccurrenceKey, RelationTargetKey, SortEntryKey, StateKey,
 };
 use crate::model::Number;
 use crate::posting::ScalarKey;
@@ -94,6 +94,7 @@ pub enum ComponentTree {
     Occurrences(BTreeMap<RelationOccurrenceKey, StoredBytes, IndexMemory>),
     RelationTargets(BTreeMap<RelationTargetKey, StoredBytes, IndexMemory>),
     RelationStates(BTreeMap<StateKey, StoredBytes, IndexMemory>),
+    Composites(BTreeMap<CompositeSortEntryKey, StoredBytes, IndexMemory>),
 }
 
 pub type IndexTree = ComponentTree;
@@ -115,6 +116,7 @@ macro_rules! with_memory {
             ComponentTree::Occurrences($map) => $body,
             ComponentTree::RelationTargets($map) => $body,
             ComponentTree::RelationStates($map) => $body,
+            ComponentTree::Composites($map) => $body,
         }
     };
 }
@@ -147,6 +149,7 @@ impl ComponentTree {
             ComponentKind::RelationOccurrences => Self::Occurrences(BTreeMap::new(memory())),
             ComponentKind::RelationTargets => Self::RelationTargets(BTreeMap::new(memory())),
             ComponentKind::RelationStates => Self::RelationStates(BTreeMap::new(memory())),
+            ComponentKind::CompositeSort => Self::Composites(BTreeMap::new(memory())),
         }
     }
 
@@ -166,6 +169,7 @@ impl ComponentTree {
             Self::Occurrences(_) => Self::new(ComponentKind::RelationOccurrences),
             Self::RelationTargets(_) => Self::new(ComponentKind::RelationTargets),
             Self::RelationStates(_) => Self::new(ComponentKind::RelationStates),
+            Self::Composites(_) => Self::new(ComponentKind::CompositeSort),
         }
     }
 
@@ -185,6 +189,7 @@ impl ComponentTree {
             Self::Occurrences(_) => ComponentKind::RelationOccurrences,
             Self::RelationTargets(_) => ComponentKind::RelationTargets,
             Self::RelationStates(_) => ComponentKind::RelationStates,
+            Self::Composites(_) => ComponentKind::CompositeSort,
         }
     }
 
@@ -218,6 +223,7 @@ impl ComponentTree {
             (Self::RelationStates(map), ComponentKey::RelationState(key)) => {
                 map.insert(StateKey(key), value)
             }
+            (Self::Composites(map), ComponentKey::CompositeSort(key)) => map.insert(key, value),
             (tree, key) => wrong_key(tree.kind(), &key),
         }
     }
@@ -240,6 +246,7 @@ impl ComponentTree {
             (Self::RelationStates(map), ComponentKey::RelationState(key)) => {
                 map.get(&StateKey(*key))
             }
+            (Self::Composites(map), ComponentKey::CompositeSort(key)) => map.get(key),
             (tree, key) => wrong_key(tree.kind(), key),
         }
     }
@@ -262,6 +269,7 @@ impl ComponentTree {
             (Self::RelationStates(map), ComponentKey::RelationState(key)) => {
                 map.remove(&StateKey(*key))
             }
+            (Self::Composites(map), ComponentKey::CompositeSort(key)) => map.remove(key),
             (tree, key) => wrong_key(tree.kind(), key),
         }
     }
@@ -282,6 +290,7 @@ impl ComponentTree {
             Self::Occurrences(map) => ComponentTreeIter::Occurrences(map.iter()),
             Self::RelationTargets(map) => ComponentTreeIter::RelationTargets(map.iter()),
             Self::RelationStates(map) => ComponentTreeIter::RelationStates(map.iter()),
+            Self::Composites(map) => ComponentTreeIter::Composites(map.iter()),
         }
     }
 
@@ -361,6 +370,10 @@ impl ComponentTree {
                     _ => panic!("relation state bound variant"),
                 }))
             }
+            Self::Composites(map) => ComponentTreeIter::Composites(range!(map, |key| match key {
+                ComponentKey::CompositeSort(value) => value,
+                _ => panic!("composite sort bound variant"),
+            })),
         }
     }
 
@@ -410,6 +423,7 @@ pub enum ComponentTreeIter<'a> {
     Occurrences(Iter<'a, RelationOccurrenceKey, StoredBytes, IndexMemory>),
     RelationTargets(Iter<'a, RelationTargetKey, StoredBytes, IndexMemory>),
     RelationStates(Iter<'a, StateKey, StoredBytes, IndexMemory>),
+    Composites(Iter<'a, CompositeSortEntryKey, StoredBytes, IndexMemory>),
 }
 
 impl Iterator for ComponentTreeIter<'_> {
@@ -449,6 +463,11 @@ impl Iterator for ComponentTreeIter<'_> {
             }
             Self::RelationStates(iter) => {
                 next!(iter, |key: StateKey| ComponentKey::RelationState(key.0))
+            }
+            Self::Composites(iter) => {
+                next!(iter, |key: CompositeSortEntryKey| {
+                    ComponentKey::CompositeSort(key)
+                })
             }
         }
     }
@@ -492,6 +511,11 @@ impl DoubleEndedIterator for ComponentTreeIter<'_> {
             Self::RelationStates(iter) => {
                 next_back!(iter, |key: StateKey| ComponentKey::RelationState(key.0))
             }
+            Self::Composites(iter) => {
+                next_back!(iter, |key: CompositeSortEntryKey| {
+                    ComponentKey::CompositeSort(key)
+                })
+            }
         }
     }
 }
@@ -532,6 +556,7 @@ pub fn load_tree(kind: ComponentKind, payload: Vec<u8>) -> Result<ComponentTree,
         ComponentKind::RelationOccurrences => ComponentTree::Occurrences(BTreeMap::load(memory)),
         ComponentKind::RelationTargets => ComponentTree::RelationTargets(BTreeMap::load(memory)),
         ComponentKind::RelationStates => ComponentTree::RelationStates(BTreeMap::load(memory)),
+        ComponentKind::CompositeSort => ComponentTree::Composites(BTreeMap::load(memory)),
     })
 }
 

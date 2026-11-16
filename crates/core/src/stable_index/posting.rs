@@ -430,6 +430,57 @@ impl StablePrototype {
         self.sort_page(collection, key, descending, 0, usize::MAX)
     }
 
+    pub fn composite_component(
+        &self,
+        collection: CollectionId,
+        key: &str,
+    ) -> Option<super::ComponentId> {
+        self.collections
+            .get(&collection)
+            .and_then(|entry| entry.composites.get(key).copied())
+    }
+
+    pub fn sort_composite_page(
+        &mut self,
+        collection: CollectionId,
+        key: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<RecordSlot>, StableIndexError> {
+        let component = self.composite_component(collection, key).ok_or_else(|| {
+            StableIndexError::MissingDependency("configured composite sort".into())
+        })?;
+        let live = self.live_domain_shared(collection)?;
+        let tree = self.tree(component)?;
+        let mut skipped = 0usize;
+        let mut result = Vec::new();
+        for entry in tree.iter() {
+            let ComponentKey::CompositeSort(sort_key) = entry.key() else {
+                continue;
+            };
+            if !live.contains(sort_key.slot.0) {
+                continue;
+            }
+            if skipped < offset {
+                skipped += 1;
+                continue;
+            }
+            result.push(sort_key.slot);
+            if result.len() == limit {
+                break;
+            }
+        }
+        Ok(result)
+    }
+
+    pub fn sort_composite_slots(
+        &mut self,
+        collection: CollectionId,
+        key: &str,
+    ) -> Result<Vec<RecordSlot>, StableIndexError> {
+        self.sort_composite_page(collection, key, 0, usize::MAX)
+    }
+
     pub fn relation_components(
         &self,
         collection: CollectionId,

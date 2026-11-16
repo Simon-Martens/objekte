@@ -113,6 +113,7 @@ pub struct StableCollection {
     pub fields: BTreeMap<FieldComponentKey, FieldComponentIds>,
     pub texts: BTreeMap<TextComponentKey, TextComponentIds>,
     pub sorts: BTreeMap<SortComponentKey, SortComponentIds>,
+    pub composites: BTreeMap<String, ComponentId>,
     pub relations: BTreeMap<RelationComponentKey, RelationComponentIds>,
     live_cache: Option<std::sync::Arc<RoaringBitmap>>,
 }
@@ -147,6 +148,9 @@ pub struct ComponentBuildRecord {
     pub payload_len: u64,
     pub memory_len: u64,
     pub memory_capacity: u64,
+    pub bitmap_encodes: u64,
+    pub metadata_encodes: u64,
+    pub tree_inserts: u64,
     pub duration_ns: u64,
     pub start_offset_ns: u64,
     pub end_offset_ns: u64,
@@ -934,6 +938,7 @@ impl StablePrototype {
                     fields: BTreeMap::new(),
                     texts: BTreeMap::new(),
                     sorts: BTreeMap::new(),
+                    composites: BTreeMap::new(),
                     relations: BTreeMap::new(),
                     live_cache: None,
                 },
@@ -1036,6 +1041,10 @@ impl StablePrototype {
                         ComponentKind::RelationStates => entry.states = *id,
                         _ => unreachable!(),
                     }
+                }
+                ComponentKind::CompositeSort => {
+                    let key = composite_component_key(descriptor);
+                    collection.composites.insert(key, *id);
                 }
                 ComponentKind::Files | ComponentKind::Paths => {}
             }
@@ -1184,6 +1193,7 @@ impl StandaloneIndex {
             ComponentKind::RelationOccurrences => 10,
             ComponentKind::RelationTargets => 11,
             ComponentKind::RelationStates => 12,
+            ComponentKind::CompositeSort => 13,
         };
         if key.tag() != expected {
             return Err(StableIndexError::Unsupported(format!(
@@ -1580,6 +1590,28 @@ pub fn sort_component_key(descriptor: &ComponentDescriptor) -> SortComponentKey 
         |value| format!("{:?}/{:?}", value.locale, value.options),
     );
     SortComponentKey(format!("{collection}/{field}/{ordering}"))
+}
+
+pub fn composite_component_key(descriptor: &ComponentDescriptor) -> String {
+    let collection = descriptor
+        .collection
+        .as_ref()
+        .map_or_else(|| "-".to_string(), |value| format!("{:010}", value.id.0));
+    let parts = descriptor
+        .composite
+        .iter()
+        .map(|part| {
+            format!(
+                "{}/{:?}/{:?}/{}",
+                part.path.join("."),
+                part.locale,
+                part.options,
+                part.descending
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("|");
+    format!("{collection}/{parts}")
 }
 
 pub(crate) fn field_component_key(

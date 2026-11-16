@@ -788,6 +788,31 @@ impl SortBuilder {
         Ok(())
     }
 
+    /// Consume extracted keys without constructing native order vectors.  The
+    /// stable prototype builds its own ordered components from these keys.
+    pub(crate) fn finish_keys_only(
+        self,
+        record_count: usize,
+    ) -> Result<SortCollection, String> {
+        for column in self.columns.values() {
+            if column.keys.len() != record_count {
+                return Err("sort column coverage mismatch".into());
+            }
+        }
+        let composites = self
+            .composites
+            .into_iter()
+            .map(|fields| CompositeSortOrder {
+                fields,
+                order: Vec::new(),
+            })
+            .collect();
+        Ok(SortCollection {
+            columns: self.columns,
+            composites,
+        })
+    }
+
     pub fn finish(self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
         self.finish_for_records(&generation.records)
     }

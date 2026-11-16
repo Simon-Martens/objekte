@@ -405,7 +405,7 @@ pub(crate) fn from_sources(
                 index.validate_domain(&logical_records)?;
             }
         }
-        let sorting = sort_builder.finish(&generation)?;
+        let sorting = sort_builder.finish_keys_only(generation.records.len())?;
         let total_file_bytes = generation
             .files
             .iter()

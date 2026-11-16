@@ -40,6 +40,7 @@ struct Args {
     field: Option<String>,
     value: Option<String>,
     construction: String,
+    repetitions: usize,
 }
 
 impl Default for Args {
@@ -59,6 +60,7 @@ impl Default for Args {
             field: None,
             value: None,
             construction: "direct".into(),
+            repetitions: 200,
         }
     }
 }
@@ -170,6 +172,16 @@ fn parse_args() -> Result<Args, String> {
             }
             "--field" => args.field = Some(arguments.next().ok_or("--field needs a value")?),
             "--value" => args.value = Some(arguments.next().ok_or("--value needs a value")?),
+            "--repetitions" => {
+                args.repetitions = arguments
+                    .next()
+                    .ok_or("--repetitions needs a value")?
+                    .parse::<usize>()
+                    .map_err(|error| error.to_string())?;
+                if args.repetitions == 0 {
+                    return Err("--repetitions must be positive".into());
+                }
+            }
             "--construction" => {
                 let value = arguments.next().ok_or("--construction needs a value")?;
                 if value != "direct" && value != "transfer" {
@@ -689,6 +701,7 @@ fn primitives_mode(args: &Args) -> Result<(), String> {
         args.components.clone()
     };
     let mut first_load = Vec::new();
+    let mut first_dependency_load = Vec::new();
     let mut resident = Vec::new();
     for component in &components {
         let started = Instant::now();
@@ -702,37 +715,66 @@ fn primitives_mode(args: &Args) -> Result<(), String> {
             .ok_or("component descriptor missing")?
             .clone();
         if descriptor.kind == objekte_search_core::stable_index::ComponentKind::Values {
+            let collection = descriptor
+                .collection
+                .as_ref()
+                .ok_or("value component has no collection")?
+                .id;
+            let dependency_started = Instant::now();
+            let live = prototype.live_domain_owned(collection)?;
+            first_dependency_load.push(json!({
+                "component": component.0,
+                "collection": collection.0,
+                "load_ns": dependency_started.elapsed().as_nanos() as u64,
+                "live_slots": live.len(),
+            }));
             let keys = value_keys(&mut prototype, *component)?;
             let samples = select_samples(&keys, args.field.as_deref(), args.value.as_deref());
             let field = descriptor
                 .field
                 .as_ref()
                 .ok_or("value component has no field")?;
-            let collection = descriptor
-                .collection
-                .as_ref()
-                .ok_or("value component has no collection")?
-                .id;
             let key = FieldComponentKey {
                 path: field.path.clone(),
                 binding: field.binding.clone(),
                 role: field.role,
             };
             for sample in samples {
-                let started = Instant::now();
-                let posting = prototype.typed_posting(collection, &key, &sample);
-                let elapsed = started.elapsed().as_nanos() as u64;
-                let (complete, members) = match posting {
+                let (mut complete, mut members) = match prototype
+                    .typed_posting(collection, &key, &sample)
+                {
                     Ok(objekte_search_core::stable_index::Restriction::Complete(bitmap)) => {
                         (true, bitmap.len())
                     }
                     Ok(objekte_search_core::stable_index::Restriction::NoRestriction) => (false, 0),
                     Err(error) => return Err(error.to_string()),
                 };
+                let mut samples_ns = Vec::with_capacity(args.repetitions);
+                for _ in 0..args.repetitions {
+                    let started = Instant::now();
+                    match prototype.typed_posting(collection, &key, &sample) {
+                        Ok(objekte_search_core::stable_index::Restriction::Complete(bitmap)) => {
+                            complete = true;
+                            members = bitmap.len();
+                        }
+                        Ok(objekte_search_core::stable_index::Restriction::NoRestriction) => {
+                            complete = false;
+                        }
+                        Err(error) => return Err(error.to_string()),
+                    }
+                    samples_ns.push(started.elapsed().as_nanos() as u64);
+                }
+                samples_ns.sort_unstable();
+                let median = samples_ns[samples_ns.len() / 2];
+                let p95 = samples_ns[(samples_ns.len() * 95 / 100).min(samples_ns.len() - 1)];
                 resident.push(json!({
                     "component": component.0,
                     "key": format!("{sample:?}"),
-                    "elapsed_ns": elapsed,
+                    "repetitions": args.repetitions,
+                    "median_ns": median,
+                    "p95_ns": p95,
+                    "min_ns": samples_ns.first().copied(),
+                    "max_ns": samples_ns.last().copied(),
                     "complete": complete,
                     "members": members,
                 }));
@@ -741,7 +783,9 @@ fn primitives_mode(args: &Args) -> Result<(), String> {
     }
     let output = json!({
         "first_load": first_load,
+        "first_dependency_load": first_dependency_load,
         "resident_primitives": resident,
+        "repetitions": args.repetitions,
         "counters": prototype.counters(),
     });
     write_result(args.result_dir.as_deref(), "primitives.json", &output)?;

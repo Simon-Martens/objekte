@@ -147,10 +147,11 @@ pub enum ComponentKind {
     RelationOccurrences,
     RelationTargets,
     RelationStates,
+    CompositeSort,
 }
 
 impl ComponentKind {
-    pub const ALL: [Self; 15] = [
+    pub const ALL: [Self; 16] = [
         Self::Files,
         Self::Paths,
         Self::Records,
@@ -166,6 +167,7 @@ impl ComponentKind {
         Self::RelationOccurrences,
         Self::RelationTargets,
         Self::RelationStates,
+        Self::CompositeSort,
     ];
 
     pub fn code(self) -> u32 {
@@ -185,6 +187,7 @@ impl ComponentKind {
             Self::RelationOccurrences => 13,
             Self::RelationTargets => 14,
             Self::RelationStates => 15,
+            Self::CompositeSort => 16,
         }
     }
 
@@ -205,6 +208,7 @@ impl ComponentKind {
             13 => Self::RelationOccurrences,
             14 => Self::RelationTargets,
             15 => Self::RelationStates,
+            16 => Self::CompositeSort,
             _ => return None,
         })
     }
@@ -226,6 +230,7 @@ impl ComponentKind {
             Self::RelationOccurrences => "relation-occurrences",
             Self::RelationTargets => "relation-targets",
             Self::RelationStates => "relation-states",
+            Self::CompositeSort => "composite-sort",
         }
     }
 
@@ -246,6 +251,7 @@ impl ComponentKind {
             Self::RelationOccurrences => "relation-occurrences",
             Self::RelationTargets => "relation-targets",
             Self::RelationStates => "relation-states",
+            Self::CompositeSort => "composite-sort",
         }
     }
 }
@@ -347,6 +353,15 @@ pub struct TextRepresentationDescriptor {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct CompositeOrderingPart {
+    pub path: Vec<String>,
+    pub locale: String,
+    pub collation_version: String,
+    pub options: SortOptions,
+    pub descending: bool,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ComponentDescriptor {
     pub descriptor_version: u32,
     pub id: ComponentId,
@@ -358,6 +373,7 @@ pub struct ComponentDescriptor {
     pub field: Option<FieldIdentity>,
     pub ordering: Option<OrderingDescriptor>,
     pub text: Option<TextRepresentationDescriptor>,
+    pub composite: Vec<CompositeOrderingPart>,
     pub target_collection: Option<CollectionId>,
     pub coverage: CoverageDescriptor,
     pub repository_identity: [u8; 32],
@@ -515,6 +531,71 @@ pub struct RelationOccurrenceKey {
 pub struct RelationTargetKey {
     pub target_collection: CollectionId,
     pub target_id: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CompositePartKey {
+    pub options: SortOptions,
+    pub descending: bool,
+    pub key: SortKey,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CompositeSortEntryKey {
+    pub parts: Vec<CompositePartKey>,
+    pub tie_break_id: RecordId,
+    pub slot: RecordSlot,
+}
+
+impl PartialEq for CompositeSortEntryKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for CompositeSortEntryKey {}
+
+impl PartialOrd for CompositeSortEntryKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for CompositeSortEntryKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        for (left, right) in self.parts.iter().zip(&other.parts) {
+            let order = compare_part(left, right);
+            if !order.is_eq() {
+                return order;
+            }
+        }
+        self.parts
+            .len()
+            .cmp(&other.parts.len())
+            .then_with(|| self.tie_break_id.cmp(&other.tie_break_id))
+            .then_with(|| self.slot.cmp(&other.slot))
+    }
+}
+
+fn compare_part(left: &CompositePartKey, right: &CompositePartKey) -> Ordering {
+    let left_options = (
+        strength_code(left.options.strength),
+        left.options.numeric,
+        placement_code(left.options.nulls),
+        placement_code(left.options.missing),
+        left.descending,
+    );
+    let right_options = (
+        strength_code(right.options.strength),
+        right.options.numeric,
+        placement_code(right.options.nulls),
+        placement_code(right.options.missing),
+        right.descending,
+    );
+    left_options.cmp(&right_options).then_with(|| {
+        left.key
+            .compare_with(&right.key, left.descending, left.options)
+    })
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -712,6 +793,7 @@ bincode_storable!(ScalarKey);
 bincode_storable!(Number);
 bincode_storable!(SortEntryKey);
 bincode_storable!(RelationTargetKey);
+bincode_storable!(CompositeSortEntryKey);
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
 pub enum ComponentKey {
@@ -728,6 +810,7 @@ pub enum ComponentKey {
     Occurrence(RelationOccurrenceKey),
     RelationTarget(RelationTargetKey),
     RelationState(u8),
+    CompositeSort(CompositeSortEntryKey),
 }
 
 impl ComponentKey {
@@ -746,6 +829,7 @@ impl ComponentKey {
             Self::Occurrence(_) => 10,
             Self::RelationTarget(_) => 11,
             Self::RelationState(_) => 12,
+            Self::CompositeSort(_) => 13,
         }
     }
 }

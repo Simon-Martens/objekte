@@ -2162,3 +2162,52 @@ fn failed_snapshot_does_not_commit_dirty_or_saved_metadata() {
     let _ = std::fs::remove_dir_all(&root);
     let _ = std::fs::remove_dir_all(&fixture.root);
 }
+
+#[test]
+fn configured_composite_sort_matches_native_order() {
+    let root = temp_root("composite-sort");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/a.jsonl"),
+        b"{\"name\":\"beta\",\"age\":2}\n{\"name\":\"alpha\",\"age\":1}\n{\"name\":\"beta\",\"age\":1}\n",
+    )
+    .expect("source");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    definition
+        .schema
+        .register_field(field(&["age"], LogicalType::Number, false, true))
+        .expect("age");
+    definition.sort_fields = vec![
+        crate::model::FieldPath::parse("age").expect("age sort"),
+        crate::model::FieldPath::parse("name").expect("name sort"),
+    ];
+    definition
+        .schema
+        .register_composite_sort(vec![
+            crate::workload::SortField::simple("age", false),
+            crate::workload::SortField::simple("name", true),
+        ])
+        .expect("composite");
+    let repository = Repository::open(&root, vec![definition.clone()]).expect("native");
+    let mut prototype = StablePrototype::from_repository(&repository).expect("prototype");
+    let report = prototype
+        .validate_against_repository(&repository)
+        .expect("validation");
+    assert!(report.is_valid(), "{:?}", report.errors);
+    let descriptor = prototype
+        .component_descriptors()
+        .find(|descriptor| descriptor.kind == ComponentKind::CompositeSort)
+        .expect("composite component")
+        .clone();
+    let key = super::composite_component_key(&descriptor);
+    let actual = prototype
+        .sort_composite_slots(CollectionId(0), &key)
+        .expect("composite slots");
+    let native = &repository.collections()[0].sorting.composites[0].order;
+    assert_eq!(&actual, native);
+    let _ = std::fs::remove_dir_all(&root);
+}

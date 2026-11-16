@@ -266,11 +266,58 @@ pub(crate) fn from_collections(
                 root,
             );
         }
-        if !state.sorting.composites.is_empty() {
-            return Err(
-                "configured composite sorts are not implemented by the first stable prototype"
-                    .into(),
+        for composite in &state.sorting.composites {
+            let mut columns = Vec::with_capacity(composite.fields.len());
+            let mut descending = Vec::with_capacity(composite.fields.len());
+            let mut parts = Vec::with_capacity(composite.fields.len());
+            for part in &composite.fields {
+                let column = state
+                    .sorting
+                    .columns
+                    .get(&part.path)
+                    .ok_or_else(|| "composite sort constituent is missing".to_string())?;
+                columns.push(column);
+                descending.push(part.descending);
+                parts.push(codec::CompositeOrderingPart {
+                    path: part.path.segments.clone(),
+                    locale: column.locale.clone(),
+                    collation_version: column.collation_version.clone(),
+                    options: column.options,
+                    descending: part.descending,
+                });
+            }
+            let mut descriptor = descriptor(
+                ComponentKind::CompositeSort,
+                Some(collection.clone()),
+                None,
+                None,
+                None,
+                CoverageDescriptor {
+                    values_indexed: true,
+                    value_complete: true,
+                    length_complete: false,
+                    empty_string_complete: false,
+                    covered_records: state.generation.records.len() as u32,
+                    complete_for_field: true,
+                    structural_complete: true,
+                },
+                &configuration_identity,
+                repository_identity,
+                schema_fingerprint,
+                &slot_namespace,
+                state.generation.records.len() as u32,
+                root,
             );
+            descriptor.composite = parts;
+            drafts.push(Draft {
+                descriptor,
+                data: JobData::CompositeSort {
+                    columns,
+                    descending,
+                    records: &state.generation.records,
+                },
+                estimated_work: 0,
+            });
         }
         for (path, column) in &state.sorting.columns {
             let field = FieldIdentity {
@@ -389,6 +436,9 @@ pub(crate) fn from_collections(
             payload_len: result.payload_len,
             memory_len: result.memory_len,
             memory_capacity: result.memory_capacity,
+            bitmap_encodes: result.bitmap_encodes,
+            metadata_encodes: result.metadata_encodes,
+            tree_inserts: result.tree_inserts,
             duration_ns: result.duration_ns,
             start_offset_ns: result.start_offset_ns,
             end_offset_ns: result.end_offset_ns,
@@ -490,31 +540,15 @@ pub(crate) fn from_collections(
             collection.live_records = state.generation.records.len() as u64;
         }
     }
-    // Every posting component encodes its final bitmap exactly once during
-    // construction.  Metadata catalogs use their own checked encoding.
     prototype.counters.bitmap_encodes = prototype
         .build_records
         .iter()
-        .filter(|record| {
-            matches!(
-                record.kind,
-                ComponentKind::Values
-                    | ComponentKind::Lengths
-                    | ComponentKind::States
-                    | ComponentKind::NormalGrams
-                    | ComponentKind::SkipGrams
-                    | ComponentKind::Identities
-                    | ComponentKind::Domains
-                    | ComponentKind::RelationTargets
-                    | ComponentKind::RelationStates
-            )
-        })
-        .map(|record| record.entry_count)
+        .map(|record| record.bitmap_encodes)
         .sum();
     prototype.counters.stable_inserts = prototype
         .build_records
         .iter()
-        .map(|record| record.entry_count)
+        .map(|record| record.tree_inserts)
         .sum();
     Ok(prototype)
 }
@@ -540,6 +574,9 @@ struct BuildResult {
     payload_len: u64,
     memory_len: u64,
     memory_capacity: u64,
+    bitmap_encodes: u64,
+    metadata_encodes: u64,
+    tree_inserts: u64,
     duration_ns: u64,
     start_offset_ns: u64,
     end_offset_ns: u64,
@@ -563,6 +600,11 @@ enum JobData<'a> {
     NormalGrams(&'a BigramIndex),
     SkipGrams(&'a BigramIndex),
     Sort(&'a SortColumn, bool, &'a [RecordEntry]),
+    CompositeSort {
+        columns: Vec<&'a SortColumn>,
+        descending: Vec<bool>,
+        records: &'a [RecordEntry],
+    },
     RelationOccurrences(&'a RelationIndex),
     RelationTargets(&'a RelationIndex),
     RelationStates(&'a RelationIndex),
@@ -607,6 +649,11 @@ fn estimate_work(data: &JobData<'_>) -> u64 {
             index.skip.len() as u64 + bitmap_work(&index.skip.values().collect::<Vec<_>>())
         }
         JobData::Sort(column, _, _) => (column.keys.len() as u64).saturating_mul(16),
+        JobData::CompositeSort {
+            columns, records, ..
+        } => (columns.len() as u64)
+            .saturating_mul(records.len() as u64)
+            .saturating_mul(16),
         JobData::RelationOccurrences(relation) => relation.edge_count() as u64 * 8,
         JobData::RelationTargets(relation) => relation.edge_count() as u64 * 8,
         JobData::RelationStates(relation) => bitmap_work(&[
@@ -615,6 +662,41 @@ fn estimate_work(data: &JobData<'_>) -> u64 {
             relation.empty_arrays(),
             relation.unavailable(),
         ]),
+    }
+}
+
+struct BuildTree {
+    tree: IndexTree,
+    inserts: u64,
+    bitmap_encodes: u64,
+    metadata_encodes: u64,
+}
+
+impl BuildTree {
+    fn new(kind: ComponentKind) -> Self {
+        Self {
+            tree: memory::new_tree(kind),
+            inserts: 0,
+            bitmap_encodes: 0,
+            metadata_encodes: 0,
+        }
+    }
+
+    fn len(&self) -> u64 {
+        self.tree.len()
+    }
+
+    fn insert(&mut self, key: ComponentKey, value: StoredBytes) -> Option<StoredBytes> {
+        self.inserts = self.inserts.saturating_add(1);
+        self.metadata_encodes = self.metadata_encodes.saturating_add(1);
+        self.tree.insert(key, value)
+    }
+
+    fn insert_bitmap(&mut self, key: ComponentKey, bitmap: &RoaringBitmap) -> Result<(), String> {
+        self.inserts = self.inserts.saturating_add(1);
+        self.bitmap_encodes = self.bitmap_encodes.saturating_add(1);
+        self.tree.insert(key, memory::bitmap_value(bitmap)?);
+        Ok(())
     }
 }
 
@@ -638,12 +720,20 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
         JobData::NormalGrams(index) => build_grams(index, false)?,
         JobData::SkipGrams(index) => build_grams(index, true)?,
         JobData::Sort(column, descending, records) => build_sort(column, descending, records)?,
+        JobData::CompositeSort {
+            columns,
+            descending,
+            records,
+        } => build_composite_sort(columns, descending, records)?,
         JobData::RelationOccurrences(relation) => build_relation_occurrences(relation)?,
         JobData::RelationTargets(relation) => build_relation_targets(relation)?,
         JobData::RelationStates(relation) => build_relation_states(relation)?,
     };
     let entry_count = tree.len();
-    let (payload, memory_len, memory_capacity) = memory::tree_image(tree);
+    let bitmap_encodes = tree.bitmap_encodes;
+    let metadata_encodes = tree.metadata_encodes;
+    let tree_inserts = tree.inserts;
+    let (payload, memory_len, memory_capacity) = memory::tree_image(tree.tree);
     let payload_len = payload.len() as u64;
     let tree = memory::load_tree(draft.descriptor.kind, payload)?;
     let finished = Instant::now();
@@ -654,6 +744,9 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
         payload_len,
         memory_len: memory_len as u64,
         memory_capacity: memory_capacity as u64,
+        bitmap_encodes,
+        metadata_encodes,
+        tree_inserts,
         duration_ns: finished.duration_since(started).as_nanos() as u64,
         start_offset_ns,
         end_offset_ns: finished.duration_since(epoch).as_nanos() as u64,
@@ -662,8 +755,8 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
     })
 }
 
-fn build_files(files: &FileInventory) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::Files);
+fn build_files(files: &FileInventory) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::Files);
     for file in &files.files {
         let value = codec::encode_meta(&FileCatalogRecord {
             entry: file.clone(),
@@ -675,8 +768,8 @@ fn build_files(files: &FileInventory) -> Result<IndexTree, String> {
     Ok(tree)
 }
 
-fn build_prepared_paths(entries: Vec<(PathKey, StoredBytes)>) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::Paths);
+fn build_prepared_paths(entries: Vec<(PathKey, StoredBytes)>) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::Paths);
     for (key, value) in entries {
         tree.insert(ComponentKey::Path(key), value);
     }
@@ -724,8 +817,8 @@ fn prepare_paths(
     Ok(entries)
 }
 
-fn build_records(records: &[RecordEntry]) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::Records);
+fn build_records(records: &[RecordEntry]) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::Records);
     for record in records {
         let value = codec::encode_meta(&RecordCatalogRecord {
             entry: record.clone(),
@@ -737,7 +830,7 @@ fn build_records(records: &[RecordEntry]) -> Result<IndexTree, String> {
     Ok(tree)
 }
 
-fn build_identities(records: &[RecordEntry]) -> Result<IndexTree, String> {
+fn build_identities(records: &[RecordEntry]) -> Result<BuildTree, String> {
     let mut identities = BTreeMap::<String, RoaringBitmap>::new();
     for record in records {
         identities
@@ -745,10 +838,9 @@ fn build_identities(records: &[RecordEntry]) -> Result<IndexTree, String> {
             .or_default()
             .insert(record.slot.0);
     }
-    let mut tree = memory::new_tree(ComponentKind::Identities);
+    let mut tree = BuildTree::new(ComponentKind::Identities);
     for (id, slots) in identities {
-        let value = memory::bitmap_value(&slots)?;
-        tree.insert(ComponentKey::Identity(codec::RecordIdentityKey(id)), value);
+        tree.insert_bitmap(ComponentKey::Identity(codec::RecordIdentityKey(id)), &slots)?;
     }
     Ok(tree)
 }
@@ -757,7 +849,7 @@ fn build_domains(
     records: &[RecordEntry],
     logical: &RoaringBitmap,
     empty_array: &RoaringBitmap,
-) -> Result<IndexTree, String> {
+) -> Result<BuildTree, String> {
     let mut all = RoaringBitmap::new();
     let mut raw_fallback = RoaringBitmap::new();
     for record in records {
@@ -766,7 +858,7 @@ fn build_domains(
             raw_fallback.insert(record.slot.0);
         }
     }
-    let mut tree = memory::new_tree(ComponentKind::Domains);
+    let mut tree = BuildTree::new(ComponentKind::Domains);
     for (key, bitmap) in [
         (codec::DOMAIN_ALL, &all),
         (codec::DOMAIN_LOGICAL, logical),
@@ -774,41 +866,35 @@ fn build_domains(
         (codec::DOMAIN_EMPTY_ARRAY, empty_array),
         (codec::DOMAIN_LIVE, &all),
     ] {
-        tree.insert(ComponentKey::Domain(key), memory::bitmap_value(bitmap)?);
+        tree.insert_bitmap(ComponentKey::Domain(key), bitmap)?;
     }
     Ok(tree)
 }
 
-fn build_values(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::Values);
+fn build_values(index: &PostingIndex) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::Values);
     for (key, posting) in &index.values {
-        tree.insert(
-            ComponentKey::Scalar(key.clone()),
-            memory::bitmap_value(posting)?,
-        );
+        tree.insert_bitmap(ComponentKey::Scalar(key.clone()), posting)?;
     }
     Ok(tree)
 }
 
-fn build_lengths(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::Lengths);
+fn build_lengths(index: &PostingIndex) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::Lengths);
     for (key, posting) in &index.lengths {
-        tree.insert(
-            ComponentKey::Length(key.clone()),
-            memory::bitmap_value(posting)?,
-        );
+        tree.insert_bitmap(ComponentKey::Length(key.clone()), posting)?;
     }
     Ok(tree)
 }
 
-fn build_states(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::States);
+fn build_states(index: &PostingIndex) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::States);
     for (state, posting) in [
         (codec::STATE_PRESENCE, &index.presence),
         (codec::STATE_EMPTY_SELECTION, &index.empty_selections),
         (codec::STATE_LEGACY_NULL, &index.nulls),
     ] {
-        tree.insert(ComponentKey::State(state), memory::bitmap_value(posting)?);
+        tree.insert_bitmap(ComponentKey::State(state), posting)?;
     }
     if let Some(facts) = &index.structural {
         for (key, posting) in &facts.postings {
@@ -821,21 +907,21 @@ fn build_states(index: &PostingIndex) -> Result<IndexTree, String> {
                 StructuralKey::Object => codec::STATE_OBJECT,
                 StructuralKey::EmptyObject => codec::STATE_EMPTY_OBJECT,
             };
-            tree.insert(ComponentKey::State(state), memory::bitmap_value(posting)?);
+            tree.insert_bitmap(ComponentKey::State(state), posting)?;
         }
     }
     Ok(tree)
 }
 
-fn build_grams(index: &BigramIndex, skip: bool) -> Result<IndexTree, String> {
+fn build_grams(index: &BigramIndex, skip: bool) -> Result<BuildTree, String> {
     let source = if skip { &index.skip } else { &index.normal };
-    let mut tree = memory::new_tree(if skip {
+    let mut tree = BuildTree::new(if skip {
         ComponentKind::SkipGrams
     } else {
         ComponentKind::NormalGrams
     });
     for (gram, posting) in source {
-        tree.insert(ComponentKey::Gram(*gram), memory::bitmap_value(posting)?);
+        tree.insert_bitmap(ComponentKey::Gram(*gram), posting)?;
     }
     Ok(tree)
 }
@@ -844,11 +930,11 @@ fn build_sort(
     column: &SortColumn,
     descending: bool,
     records: &[RecordEntry],
-) -> Result<IndexTree, String> {
+) -> Result<BuildTree, String> {
     if records.len() != column.keys.len() {
         return Err("sort column record coverage mismatch".into());
     }
-    let mut tree = memory::new_tree(ComponentKind::SortAscending);
+    let mut tree = BuildTree::new(ComponentKind::SortAscending);
     for (slot, key) in column.keys.iter().enumerate() {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot does not fit in u32")?);
         tree.insert(
@@ -865,8 +951,46 @@ fn build_sort(
     Ok(tree)
 }
 
-fn build_relation_occurrences(relation: &RelationIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::RelationOccurrences);
+fn build_composite_sort(
+    columns: Vec<&SortColumn>,
+    descending: Vec<bool>,
+    records: &[RecordEntry],
+) -> Result<BuildTree, String> {
+    if columns.len() != descending.len() || records.is_empty() {
+        return Ok(BuildTree::new(ComponentKind::CompositeSort));
+    }
+    if columns
+        .iter()
+        .any(|column| column.keys.len() != records.len())
+    {
+        return Err("composite sort record coverage mismatch".into());
+    }
+    let mut tree = BuildTree::new(ComponentKind::CompositeSort);
+    for (slot, record) in records.iter().enumerate() {
+        let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot overflow")?);
+        let parts = columns
+            .iter()
+            .zip(&descending)
+            .map(|(column, descending)| codec::CompositePartKey {
+                options: column.options,
+                descending: *descending,
+                key: column.keys[slot.0 as usize].clone(),
+            })
+            .collect();
+        tree.insert(
+            ComponentKey::CompositeSort(codec::CompositeSortEntryKey {
+                parts,
+                tie_break_id: record.id.clone(),
+                slot,
+            }),
+            StoredBytes::empty(),
+        );
+    }
+    Ok(tree)
+}
+
+fn build_relation_occurrences(relation: &RelationIndex) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::RelationOccurrences);
     for slot in 0..relation_max_slot(relation) {
         let source = RecordSlot(slot);
         let Some(edges) = relation.edges(source) else {
@@ -891,7 +1015,7 @@ fn build_relation_occurrences(relation: &RelationIndex) -> Result<IndexTree, Str
     Ok(tree)
 }
 
-fn build_relation_targets(relation: &RelationIndex) -> Result<IndexTree, String> {
+fn build_relation_targets(relation: &RelationIndex) -> Result<BuildTree, String> {
     let mut targets = BTreeMap::<String, RoaringBitmap>::new();
     for slot in 0..relation_max_slot(relation) {
         let Some(edges) = relation.edges(RecordSlot(slot)) else {
@@ -904,31 +1028,28 @@ fn build_relation_targets(relation: &RelationIndex) -> Result<IndexTree, String>
                 .insert(slot);
         }
     }
-    let mut tree = memory::new_tree(ComponentKind::RelationTargets);
+    let mut tree = BuildTree::new(ComponentKind::RelationTargets);
     for (target_id, sources) in targets {
-        tree.insert(
+        tree.insert_bitmap(
             ComponentKey::RelationTarget(RelationTargetKey {
                 target_collection: relation.target_collection,
                 target_id,
             }),
-            memory::bitmap_value(&sources)?,
-        );
+            &sources,
+        )?;
     }
     Ok(tree)
 }
 
-fn build_relation_states(relation: &RelationIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree(ComponentKind::RelationStates);
+fn build_relation_states(relation: &RelationIndex) -> Result<BuildTree, String> {
+    let mut tree = BuildTree::new(ComponentKind::RelationStates);
     for (state, bitmap) in [
         (codec::RELATION_PRESENT, relation.present()),
         (codec::RELATION_NULLS, relation.nulls()),
         (codec::RELATION_EMPTY_ARRAY, relation.empty_arrays()),
         (codec::RELATION_UNAVAILABLE, relation.unavailable()),
     ] {
-        tree.insert(
-            ComponentKey::RelationState(state),
-            memory::bitmap_value(bitmap)?,
-        );
+        tree.insert_bitmap(ComponentKey::RelationState(state), bitmap)?;
     }
     Ok(tree)
 }
@@ -1323,6 +1444,7 @@ fn descriptor(
         field,
         ordering,
         text: None,
+        composite: Vec::new(),
         target_collection,
         coverage,
         repository_identity,
@@ -1352,6 +1474,7 @@ fn key_bound_for(kind: ComponentKind) -> &'static str {
         ComponentKind::SortAscending | ComponentKind::SortDescending => "unbounded:sort",
         ComponentKind::RelationOccurrences => "fixed:u64",
         ComponentKind::RelationTargets => "unbounded:relation-target",
+        ComponentKind::CompositeSort => "unbounded:composite-sort",
     }
 }
 
