@@ -1,0 +1,96 @@
+{
+  "build": {
+    "admission_ns": null,
+    "available_parallelism": 16,
+    "components": 1341,
+    "construction_mode": "direct_batch_contributions",
+    "counters": {
+      "bitmap_decodes": 0,
+      "bitmap_encodes": 350854,
+      "component_inserts_during_load": 0,
+      "component_loads": 0,
+      "component_payload_bytes_read": 0,
+      "manifest_opens": 0,
+      "stable_gets": 0,
+      "stable_inserts": 1591583,
+      "stable_removes": 0,
+      "standalone_files_opened": 0
+    },
+    "failed_parses": 0,
+    "job_execution_ns": null,
+    "oversized_preparation_jobs": 0,
+    "owner_merge_ns": 167978086,
+    "peak_active_jobs": 8,
+    "peak_ready_batches": 8,
+    "preparation_waves": 37,
+    "receive_wait_ns": null,
+    "requested_build_workers": 8,
+    "resolved_build_workers": 8,
+    "schema_sha256": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+    "source_build_timings": {
+      "discovery_ns": 339977935,
+      "extraction_admission_ns": 1103170021,
+      "finalization_ns": 307939320,
+      "owner_merge_ns": 167978086,
+      "setup_ns": 1738435,
+      "stable_component_ns": 1816896540
+    },
+    "source_bytes": 193297230,
+    "source_bytes_read": 193297230,
+    "source_files": 148486,
+    "source_parses": 148486,
+    "source_reads": 148486,
+    "source_records": 148486,
+    "stage_ns": {
+      "discovery": 339977935,
+      "extraction_admission": 1103170021,
+      "finalization": 307939320,
+      "setup": 1738435,
+      "stable_component": 1816896540
+    },
+    "total_source_build_ns": 3587024930,
+    "trace": {
+      "available": true,
+      "average_concurrent_jobs": 5.40485402517921,
+      "components": 1341,
+      "idle_capacity_ns": 1710742,
+      "largest_job": {
+        "duration_ns": 1283176569,
+        "entry_count": 133948,
+        "estimated_work": 2143168,
+        "field": "preferred_title",
+        "id": 1318,
+        "kind": 12
+      },
+      "last_completion_by_worker": {
+        "ThreadId(2)": 1150463215,
+        "ThreadId(3)": 1515376810,
+        "ThreadId(4)": 1045348455,
+        "ThreadId(5)": 1216952546,
+        "ThreadId(6)": 1672543607,
+        "ThreadId(7)": 1155317085,
+        "ThreadId(8)": 473666341,
+        "ThreadId(9)": 811983545
+      },
+      "makespan_ns": 1672510154,
+      "sum_job_duration_ns": 9039673238,
+      "workers": 8
+    },
+    "unavailable_diagnostics": {
+      "admission_ns": "detailed-profiling feature disabled",
+      "job_execution_ns": "detailed-profiling feature disabled",
+      "receive_wait_ns": "detailed-profiling feature disabled"
+    }
+  },
+  "field_job_overlap_pairs": 2781,
+  "memory": {
+    "owned_component_payload_bytes": 461307904,
+    "readiness_hwm_bytes": 891101184,
+    "readiness_rss_bytes": 860868608
+  },
+  "persistence": {
+    "generation": "/tmp/opencode/final-extended-snapshot2",
+    "manifest_components": 1341,
+    "snapshot_save_ns": 280051515
+  }
+}

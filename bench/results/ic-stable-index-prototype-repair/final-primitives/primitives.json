@@ -1,0 +1,83 @@
+{
+  "task": "ic-stable-index-prototype-repair",
+  "snapshot": "final-extended-snapshot",
+  "alphabet": "ascii",
+  "repetitions": 200,
+  "rows": 503,
+  "result_mismatch_count": 0,
+  "result_mismatches": [],
+  "families": {
+    "point": {
+      "rows": 119,
+      "native_median_of_medians_ns": 70,
+      "stable_median_of_medians_ns": 1813,
+      "median_ratio": 25.9,
+      "stable_p95_max_ns": 13445
+    },
+    "range": {
+      "rows": 40,
+      "native_median_of_medians_ns": 6872.5,
+      "stable_median_of_medians_ns": 22146.0,
+      "median_ratio": 3.2224081484176064,
+      "stable_p95_max_ns": 49631498
+    },
+    "length_point": {
+      "rows": 43,
+      "native_median_of_medians_ns": 60,
+      "stable_median_of_medians_ns": 1643,
+      "median_ratio": 27.383333333333333,
+      "stable_p95_max_ns": 13095
+    },
+    "length_range": {
+      "rows": 17,
+      "native_median_of_medians_ns": 6913,
+      "stable_median_of_medians_ns": 15970,
+      "median_ratio": 2.3101403153478954,
+      "stable_p95_max_ns": 89127
+    },
+    "state": {
+      "rows": 224,
+      "native_median_of_medians_ns": 50.0,
+      "stable_median_of_medians_ns": 701.0,
+      "median_ratio": 14.02,
+      "stable_p95_max_ns": 14648
+    },
+    "text_candidates": {
+      "rows": 14,
+      "native_median_of_medians_ns": 721.0,
+      "stable_median_of_medians_ns": 1453.0,
+      "median_ratio": 2.015256588072122,
+      "stable_p95_max_ns": 230313
+    },
+    "sort": {
+      "rows": 16,
+      "native_median_of_medians_ns": 30.0,
+      "stable_median_of_medians_ns": 15218.5,
+      "median_ratio": 507.28333333333336,
+      "stable_p95_max_ns": 22182
+    },
+    "relation_state": {
+      "rows": 24,
+      "native_median_of_medians_ns": 30.0,
+      "stable_median_of_medians_ns": 746.5,
+      "median_ratio": 24.883333333333333,
+      "stable_p95_max_ns": 9027
+    },
+    "relation_target": {
+      "rows": 6,
+      "native_median_of_medians_ns": 120.5,
+      "stable_median_of_medians_ns": 1663.0,
+      "median_ratio": 13.800829875518673,
+      "stable_p95_max_ns": 2996
+    }
+  },
+  "first_load_components": 189,
+  "first_dependency_loads": 7,
+  "native_build_ns": 1869547571,
+  "stable_manifest_open_ns": 29789649,
+  "raw": {
+    "native": "bench/results/ic-stable-index-prototype-repair/final-primitives/native/primitives.json",
+    "stable": "bench/results/ic-stable-index-prototype-repair/final-primitives/stable/primitives.json",
+    "plan": "bench/results/ic-stable-index-prototype-repair/final-primitives/primitives-plan.json"
+  }
+}

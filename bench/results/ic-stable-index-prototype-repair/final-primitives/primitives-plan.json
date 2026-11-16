@@ -1,0 +1,7017 @@
+{
+  "alphabet": "ascii",
+  "collections": [
+    "agents",
+    "contents",
+    "entries",
+    "items",
+    "pages",
+    "places",
+    "series"
+  ],
+  "point": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 26
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 26
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "@context"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://lobid.org/gnd/context.jsonld"
+      },
+      "stable_component": 28
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://d-nb.info/gnd/4000464-8"
+      },
+      "stable_component": 43
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://d-nb.info/gnd/4018333-6"
+      },
+      "stable_component": 43
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Adel"
+      },
+      "stable_component": 44
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Freiherr"
+      },
+      "stable_component": 44
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "copyrighted"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 52
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "copyrighted"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 52
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "abbr"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "CC BY 2.0"
+      },
+      "stable_component": 56
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "abbr"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "PD"
+      },
+      "stable_component": 56
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "abbr"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "CC BY-SA 3.0"
+      },
+      "stable_component": 56
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "attributionRequired"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 57
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "attributionRequired"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 57
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "stable_component": 58
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://www.gesetze-im-internet.de/urhg/"
+      },
+      "stable_component": 58
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "stable_component": 58
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Creative Commons Attribution 2.0"
+      },
+      "stable_component": 59
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Urheberrechtlich geschützt"
+      },
+      "stable_component": 59
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Creative Commons Attribution-Share Alike 3.0"
+      },
+      "stable_component": 59
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "publisher"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Wikimedia Commons"
+      },
+      "stable_component": 61
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://d-nb.info/standards/vocab/gnd/description-level#1"
+      },
+      "stable_component": 70
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://d-nb.info/standards/vocab/gnd/description-level#z"
+      },
+      "stable_component": 70
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "https://d-nb.info/standards/vocab/gnd/description-level#4"
+      },
+      "stable_component": 70
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Katalogisierungslevel 1"
+      },
+      "stable_component": 71
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Katalogisierungslevel z"
+      },
+      "stable_component": 71
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Katalogisierungslevel 4"
+      },
+      "stable_component": 71
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "009s5q5l5ux57k3"
+      },
+      "stable_component": 287
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "zzvegzlq00oxpd5"
+      },
+      "stable_component": 287
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "idfscx4za8n0e97"
+      },
+      "stable_component": 287
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 289
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Autor:in"
+      },
+      "stable_component": 293
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Zeichner:in"
+      },
+      "stable_component": 293
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Kupferstecher:in"
+      },
+      "stable_component": 293
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 294
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 300
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 301
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "stable_component": 301
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "gpj6tpa1lmk3vpy"
+      },
+      "stable_component": 301
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "00fx8ln651na0e3"
+      },
+      "stable_component": 302
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "zznbgarwn2x1ng5"
+      },
+      "stable_component": 302
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "i0rqmx70ir0h37p"
+      },
+      "stable_component": 302
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 30
+        }
+      },
+      "stable_component": 306
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 140792
+        }
+      },
+      "stable_component": 306
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 68549
+        }
+      },
+      "stable_component": 306
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "1. Arabische Seitenzählung"
+      },
+      "stable_component": 307
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Römische Seitenzählung"
+      },
+      "stable_component": 307
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "4. Arabische Seitenzählung"
+      },
+      "stable_component": 307
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Corrigenda"
+      },
+      "stable_component": 308
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "szen. Darstellung"
+      },
+      "stable_component": 308
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Sammlung"
+      },
+      "stable_component": 308
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "numbering"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 0
+        }
+      },
+      "stable_component": 309
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "numbering"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 33333333333333
+        }
+      },
+      "stable_component": 309
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "numbering"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 174
+        }
+      },
+      "stable_component": 309
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "pseudonym"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 313
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "pseudonym"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 313
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "00fumpslx0ratzd"
+      },
+      "stable_component": 322
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "zz2znzxewgmg2ao"
+      },
+      "stable_component": 322
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "ii78f2x1yo6pd2c"
+      },
+      "stable_component": 322
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 324
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Druck"
+      },
+      "stable_component": 328
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Verlag"
+      },
+      "stable_component": 328
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Herausgeber:in"
+      },
+      "stable_component": 328
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 329
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "carrier_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Band"
+      },
+      "stable_component": 333
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Text"
+      },
+      "stable_component": 334
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "unbewegtes Bild"
+      },
+      "stable_component": 334
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "edit_fielddata",
+          "places",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 338
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 341
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Unknown"
+      },
+      "stable_component": 341
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Seen"
+      },
+      "stable_component": 341
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 343
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "stable_component": 343
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "gpj6tpa1lmk3vpy"
+      },
+      "stable_component": 343
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 347
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 347
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 348
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "90"
+      },
+      "stable_component": 348
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "4b"
+      },
+      "stable_component": 348
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 351
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Review"
+      },
+      "stable_component": 351
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 351
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 388
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 388
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 389
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "90"
+      },
+      "stable_component": 389
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "4b"
+      },
+      "stable_component": 389
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 392
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Review"
+      },
+      "stable_component": 392
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 392
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Original"
+      },
+      "stable_component": 396
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Reproduktion"
+      },
+      "stable_component": 396
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "owner"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 397
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "owner"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Theodor Springmann Stiftung"
+      },
+      "stable_component": 397
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "public"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 398
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 416
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": false
+      },
+      "stable_component": 418
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Bool": true
+      },
+      "stable_component": 418
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 11
+        }
+      },
+      "stable_component": 419
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 228
+        }
+      },
+      "stable_component": 419
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 120
+        }
+      },
+      "stable_component": 419
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Edited"
+      },
+      "stable_component": 427
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Unknown"
+      },
+      "stable_component": 427
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "ToDo"
+      },
+      "stable_component": 427
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 428
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "stable_component": 428
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "gpj6tpa1lmk3vpy"
+      },
+      "stable_component": 428
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "003cm5ns6jcby80"
+      },
+      "stable_component": 429
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "zznbgarwn2x1ng5"
+      },
+      "stable_component": 429
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "iawgted2eno8sjg"
+      },
+      "stable_component": 429
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": ""
+      },
+      "stable_component": 430
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "weitere Jgg nicht ermittelt"
+      },
+      "stable_component": 430
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "String": "Erscheinungsverlauf unklar; keine weiteren Jgg ermittelt"
+      },
+      "stable_component": 430
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 1207
+        }
+      },
+      "stable_component": 431
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 2472
+        }
+      },
+      "stable_component": 431
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Number": {
+          "Integer": 1826
+        }
+      },
+      "stable_component": 431
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries",
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "00l7uoh0w9nzm7g"
+      },
+      "stable_component": 436
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries",
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "zuf8w6zaoupkmge"
+      },
+      "stable_component": 436
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries",
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "key": {
+        "Id": "ir94wxwdezqvhet"
+      },
+      "stable_component": 436
+    }
+  ],
+  "range": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 26
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "https://d-nb.info/gnd/4000464-8"
+      },
+      "upper": {
+        "String": "https://d-nb.info/gnd/4018333-6"
+      },
+      "descending": false,
+      "stable_component": 43
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "broaderTermInstantial",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Adel"
+      },
+      "upper": {
+        "String": "Freiherr"
+      },
+      "descending": false,
+      "stable_component": 44
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "copyrighted"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 52
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "abbr"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "CC BY 2.0"
+      },
+      "upper": {
+        "String": "PD"
+      },
+      "descending": false,
+      "stable_component": 56
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "attributionRequired"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 57
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "upper": {
+        "String": "https://www.gesetze-im-internet.de/urhg/"
+      },
+      "descending": false,
+      "stable_component": 58
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "depiction",
+          "license",
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Creative Commons Attribution 2.0"
+      },
+      "upper": {
+        "String": "Urheberrechtlich geschützt"
+      },
+      "descending": false,
+      "stable_component": 59
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "https://d-nb.info/standards/vocab/gnd/description-level#1"
+      },
+      "upper": {
+        "String": "https://d-nb.info/standards/vocab/gnd/description-level#z"
+      },
+      "descending": false,
+      "stable_component": 70
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "describedBy",
+          "descriptionLevel",
+          "label"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Katalogisierungslevel 1"
+      },
+      "upper": {
+        "String": "Katalogisierungslevel z"
+      },
+      "descending": false,
+      "stable_component": 71
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Id": "009s5q5l5ux57k3"
+      },
+      "upper": {
+        "Id": "zzvegzlq00oxpd5"
+      },
+      "descending": false,
+      "stable_component": 287
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Autor:in"
+      },
+      "upper": {
+        "String": "Zeichner:in"
+      },
+      "descending": false,
+      "stable_component": 293
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "descending": false,
+      "stable_component": 301
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Id": "00fx8ln651na0e3"
+      },
+      "upper": {
+        "Id": "zznbgarwn2x1ng5"
+      },
+      "descending": false,
+      "stable_component": 302
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Number": {
+          "Integer": 30
+        }
+      },
+      "upper": {
+        "Number": {
+          "Integer": 140792
+        }
+      },
+      "descending": false,
+      "stable_component": 306
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "1. Arabische Seitenzählung"
+      },
+      "upper": {
+        "String": "Römische Seitenzählung"
+      },
+      "descending": false,
+      "stable_component": 307
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Corrigenda"
+      },
+      "upper": {
+        "String": "szen. Darstellung"
+      },
+      "descending": false,
+      "stable_component": 308
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "numbering"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Number": {
+          "Integer": 0
+        }
+      },
+      "upper": {
+        "Number": {
+          "Integer": 33333333333333
+        }
+      },
+      "descending": false,
+      "stable_component": 309
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "pseudonym"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 313
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Id": "00fumpslx0ratzd"
+      },
+      "upper": {
+        "Id": "zz2znzxewgmg2ao"
+      },
+      "descending": false,
+      "stable_component": 322
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Druck"
+      },
+      "upper": {
+        "String": "Verlag"
+      },
+      "descending": false,
+      "stable_component": 328
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Text"
+      },
+      "upper": {
+        "String": "unbewegtes Bild"
+      },
+      "descending": false,
+      "stable_component": 334
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Edited"
+      },
+      "upper": {
+        "String": "Unknown"
+      },
+      "descending": false,
+      "stable_component": 341
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "descending": false,
+      "stable_component": 343
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 347
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "90"
+      },
+      "descending": false,
+      "stable_component": 348
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "Review"
+      },
+      "descending": false,
+      "stable_component": 351
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 388
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "90"
+      },
+      "descending": false,
+      "stable_component": 389
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "Review"
+      },
+      "descending": false,
+      "stable_component": 392
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Original"
+      },
+      "upper": {
+        "String": "Reproduktion"
+      },
+      "descending": false,
+      "stable_component": 396
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "owner"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "Theodor Springmann Stiftung"
+      },
+      "descending": false,
+      "stable_component": 397
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Bool": false
+      },
+      "upper": {
+        "Bool": true
+      },
+      "descending": false,
+      "stable_component": 418
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Number": {
+          "Integer": 11
+        }
+      },
+      "upper": {
+        "Number": {
+          "Integer": 228
+        }
+      },
+      "descending": false,
+      "stable_component": 419
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": "Edited"
+      },
+      "upper": {
+        "String": "Unknown"
+      },
+      "descending": false,
+      "stable_component": 427
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "hbwf3kmsfyyeo1u"
+      },
+      "descending": false,
+      "stable_component": 428
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Id": "003cm5ns6jcby80"
+      },
+      "upper": {
+        "Id": "zznbgarwn2x1ng5"
+      },
+      "descending": false,
+      "stable_component": 429
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "String": ""
+      },
+      "upper": {
+        "String": "weitere Jgg nicht ermittelt"
+      },
+      "descending": false,
+      "stable_component": 430
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Number": {
+          "Integer": 1207
+        }
+      },
+      "upper": {
+        "Number": {
+          "Integer": 2472
+        }
+      },
+      "descending": false,
+      "stable_component": 431
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries",
+          "entry"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Id": "00l7uoh0w9nzm7g"
+      },
+      "upper": {
+        "Id": "zuf8w6zaoupkmge"
+      },
+      "descending": false,
+      "stable_component": 436
+    }
+  ],
+  "length_point": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 447
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 447
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "forename"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 448
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "nameAddition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 451
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "personalName"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 452
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "prefix"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 453
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "surname"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 454
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 455
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 10
+      },
+      "stable_component": 455
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "affiliation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 458
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "affiliation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 7
+      },
+      "stable_component": 458
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 704
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 714
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 4
+      },
+      "stable_component": 714
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "language"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 723
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 725
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 725
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 726
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 726
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "scans"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 734
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "scans"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 33
+      },
+      "stable_component": 734
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 749
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 6
+      },
+      "stable_component": 749
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "carrier_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 751
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "carrier_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 751
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 752
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 752
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 773
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 773
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "scans"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 776
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 780
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 4
+      },
+      "stable_component": 780
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "language"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 781
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "language"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 781
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "musenalm_deprecated",
+          "status"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 1
+      },
+      "stable_component": 789
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "musenalm_deprecated",
+          "status"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 789
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 814
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 2
+      },
+      "stable_component": 814
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "scans"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 817
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 847
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 150
+      },
+      "stable_component": 847
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 0
+      },
+      "stable_component": 857
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "length": {
+        "Integer": 13
+      },
+      "stable_component": 857
+    }
+  ],
+  "length_range": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 1
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 447
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 1
+      },
+      "upper": {
+        "Integer": 10
+      },
+      "stable_component": 455
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "affiliation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 1
+      },
+      "upper": {
+        "Integer": 7
+      },
+      "stable_component": 458
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 4
+      },
+      "stable_component": 714
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_pagination"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 1
+      },
+      "stable_component": 725
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "musenalm_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 726
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "scans"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 33
+      },
+      "stable_component": 734
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 6
+      },
+      "stable_component": 749
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "carrier_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 1
+      },
+      "stable_component": 751
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 752
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items",
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 773
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "items"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 4
+      },
+      "stable_component": 780
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "language"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 1
+      },
+      "stable_component": 781
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "musenalm_deprecated",
+          "status"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 1
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 789
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "media"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 2
+      },
+      "stable_component": 814
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 150
+      },
+      "stable_component": 847
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "related_entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "lower": {
+        "Integer": 0
+      },
+      "upper": {
+        "Integer": 13
+      },
+      "stable_component": 857
+    }
+  ],
+  "state": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 860
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 860
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 860
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 860
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "biographical_data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 861
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "biographical_data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 861
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "biographical_data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 861
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "biographical_data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 861
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 862
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 862
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 862
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "corporate_body"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 862
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 863
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 863
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 863
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 863
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "@context"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 864
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "@context"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 864
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "@context"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 864
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "@context"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 864
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 865
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 865
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 865
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "academicDegree"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 865
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "forename"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 866
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "forename"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 866
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "forename"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 866
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "forename"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 866
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 867
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 867
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 867
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [
+          "data",
+          "gnd",
+          "acquaintanceshipOrFriendship",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 867
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1121
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1121
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1121
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1121
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1122
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1122
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1122
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "content_type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 7,
+      "stable_component": 1122
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1123
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1123
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1123
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "agents"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1123
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1124
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1124
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1124
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1124
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1125
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1125
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1125
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1125
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1126
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1126
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1126
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1126
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1127
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1127
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1127
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1127
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1128
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1128
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1128
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [
+          "contributors",
+          "id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1128
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1158
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1158
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1158
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "agent"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1158
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1159
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1159
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1159
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1159
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1160
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1160
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1160
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "conjecture"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1160
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1161
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1161
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1161
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1161
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1162
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1162
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1162
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1162
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "source_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1163
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "source_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1163
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "source_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1163
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "source_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1163
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1164
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1164
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1164
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "type"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1164
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1165
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1165
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1165
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [
+          "agents",
+          "uncertain"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1165
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1223
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1223
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1223
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1223
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1224
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1224
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1224
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "basis"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1224
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1225
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1225
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1225
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "condition"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1225
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1226
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1226
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1226
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1226
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1227
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1227
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1227
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1227
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1228
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1228
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1228
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1228
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1229
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1229
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1229
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1229
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "identifier"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1230
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "identifier"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1230
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "identifier"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1230
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [
+          "identifier"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1230
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1238
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1238
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1238
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1238
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "description"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1239
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "description"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1239
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "description"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1239
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "description"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1239
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "keywords"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1240
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "keywords"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1240
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "keywords"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1240
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data",
+          "keywords"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1240
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1241
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1241
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1241
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "data"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1241
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "key"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1242
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "key"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1242
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "key"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1242
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "key"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1242
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "layout"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1243
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "layout"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1243
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "layout"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1243
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "layout"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1243
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "template"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1244
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "template"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1244
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "template"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1244
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "template"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1244
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "title"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1245
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "title"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1245
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "title"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1245
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [
+          "title"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1245
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1249
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1249
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1249
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1249
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1250
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1250
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1250
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1250
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1251
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1251
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1251
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1251
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1252
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1252
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1252
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1252
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1253
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1253
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1253
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 5,
+      "stable_component": 1253
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1254
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1254
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1254
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "fictional"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1254
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1255
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1255
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1255
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1255
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1256
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1256
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1256
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [
+          "name"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1256
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1260
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1260
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1260
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "annotation"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1260
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1261
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1261
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1261
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "created"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1261
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1262
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1262
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1262
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_comment"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1262
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1263
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1263
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1263
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "edit_state"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1263
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1264
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1264
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1264
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "editor"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1264
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1265
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1265
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1265
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "entries"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1265
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1266
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1266
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1266
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "frequency"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1266
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 0,
+      "stable_component": 1267
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 1,
+      "stable_component": 1267
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 2,
+      "stable_component": 1267
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [
+          "musenalm_id"
+        ],
+        "binding": null,
+        "role": "DeclaredField"
+      },
+      "state": 4,
+      "stable_component": 1267
+    }
+  ],
+  "text": [
+    {
+      "collection": "agents",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1278,
+        1293
+      ]
+    },
+    {
+      "collection": "agents",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1279,
+        1294
+      ]
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1281,
+        1296
+      ]
+    },
+    {
+      "collection": "contents",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1282,
+        1297
+      ]
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1283,
+        1298
+      ]
+    },
+    {
+      "collection": "entries",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1284,
+        1299
+      ]
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1285,
+        1300
+      ]
+    },
+    {
+      "collection": "items",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1286,
+        1301
+      ]
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1287,
+        1302
+      ]
+    },
+    {
+      "collection": "pages",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1288,
+        1303
+      ]
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1289,
+        1304
+      ]
+    },
+    {
+      "collection": "places",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1290,
+        1305
+      ]
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "FallbackText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1291,
+        1306
+      ]
+    },
+    {
+      "collection": "series",
+      "field": {
+        "path": [],
+        "binding": null,
+        "role": "RawText"
+      },
+      "literal": "00fumpslx0ratzd",
+      "stable_components": [
+        1292,
+        1307
+      ]
+    }
+  ],
+  "sort": [
+    {
+      "collection": "agents",
+      "path": [
+        "name"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000000/name/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1308,
+        1316
+      ]
+    },
+    {
+      "collection": "agents",
+      "path": [
+        "name"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000000/name/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1308,
+        1316
+      ]
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "numbering"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000001/numbering/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1309,
+        1317
+      ]
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "numbering"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000001/numbering/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1309,
+        1317
+      ]
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "preferred_title"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000001/preferred_title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1310,
+        1318
+      ]
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "preferred_title"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000001/preferred_title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1310,
+        1318
+      ]
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "preferred_title"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000002/preferred_title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1311,
+        1319
+      ]
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "preferred_title"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000002/preferred_title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1311,
+        1319
+      ]
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "year"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000002/year/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1312,
+        1320
+      ]
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "year"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000002/year/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1312,
+        1320
+      ]
+    },
+    {
+      "collection": "places",
+      "path": [],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000005//DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1313,
+        1321
+      ]
+    },
+    {
+      "collection": "places",
+      "path": [],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000005//DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1313,
+        1321
+      ]
+    },
+    {
+      "collection": "places",
+      "path": [
+        "name"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000005/name/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1314,
+        1322
+      ]
+    },
+    {
+      "collection": "places",
+      "path": [
+        "name"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000005/name/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1314,
+        1322
+      ]
+    },
+    {
+      "collection": "series",
+      "path": [
+        "title"
+      ],
+      "descending": false,
+      "limit": 64,
+      "sort_key": "0000000006/title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1315,
+        1323
+      ]
+    },
+    {
+      "collection": "series",
+      "path": [
+        "title"
+      ],
+      "descending": true,
+      "limit": 64,
+      "sort_key": "0000000006/title/DeclaredField//\"de\"/SortOptions { strength: LocaleDefault, numeric: false, nulls: Last, missing: Last }",
+      "stable_components": [
+        1315,
+        1323
+      ]
+    }
+  ],
+  "relation_state": [
+    {
+      "collection": "contents",
+      "path": [
+        "contributors",
+        "agents"
+      ],
+      "target_collection": "agents",
+      "state": 0,
+      "stable_states": 1336
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "contributors",
+        "agents"
+      ],
+      "target_collection": "agents",
+      "state": 1,
+      "stable_states": 1336
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "contributors",
+        "agents"
+      ],
+      "target_collection": "agents",
+      "state": 2,
+      "stable_states": 1336
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "contributors",
+        "agents"
+      ],
+      "target_collection": "agents",
+      "state": 3,
+      "stable_states": 1336
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 0,
+      "stable_states": 1337
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 1,
+      "stable_states": 1337
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 2,
+      "stable_states": 1337
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 3,
+      "stable_states": 1337
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "agents",
+        "agent"
+      ],
+      "target_collection": "agents",
+      "state": 0,
+      "stable_states": 1338
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "agents",
+        "agent"
+      ],
+      "target_collection": "agents",
+      "state": 1,
+      "stable_states": 1338
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "agents",
+        "agent"
+      ],
+      "target_collection": "agents",
+      "state": 2,
+      "stable_states": 1338
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "agents",
+        "agent"
+      ],
+      "target_collection": "agents",
+      "state": 3,
+      "stable_states": 1338
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "places"
+      ],
+      "target_collection": "places",
+      "state": 0,
+      "stable_states": 1339
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "places"
+      ],
+      "target_collection": "places",
+      "state": 1,
+      "stable_states": 1339
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "places"
+      ],
+      "target_collection": "places",
+      "state": 2,
+      "stable_states": 1339
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "places"
+      ],
+      "target_collection": "places",
+      "state": 3,
+      "stable_states": 1339
+    },
+    {
+      "collection": "series",
+      "path": [
+        "entries"
+      ],
+      "target_collection": "entries",
+      "state": 0,
+      "stable_states": 1340
+    },
+    {
+      "collection": "series",
+      "path": [
+        "entries"
+      ],
+      "target_collection": "entries",
+      "state": 1,
+      "stable_states": 1340
+    },
+    {
+      "collection": "series",
+      "path": [
+        "entries"
+      ],
+      "target_collection": "entries",
+      "state": 2,
+      "stable_states": 1340
+    },
+    {
+      "collection": "series",
+      "path": [
+        "entries"
+      ],
+      "target_collection": "entries",
+      "state": 3,
+      "stable_states": 1340
+    },
+    {
+      "collection": "series",
+      "path": [
+        "related_entries",
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 0,
+      "stable_states": 1341
+    },
+    {
+      "collection": "series",
+      "path": [
+        "related_entries",
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 1,
+      "stable_states": 1341
+    },
+    {
+      "collection": "series",
+      "path": [
+        "related_entries",
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 2,
+      "stable_states": 1341
+    },
+    {
+      "collection": "series",
+      "path": [
+        "related_entries",
+        "entry"
+      ],
+      "target_collection": "entries",
+      "state": 3,
+      "stable_states": 1341
+    }
+  ],
+  "relation_target": [
+    {
+      "collection": "contents",
+      "path": [
+        "contributors",
+        "agents"
+      ],
+      "target_collection": "agents",
+      "target_collection_id": 0,
+      "target_id": "s6vrgm9x7setd1t",
+      "stable_targets": 1330
+    },
+    {
+      "collection": "contents",
+      "path": [
+        "entry"
+      ],
+      "target_collection": "entries",
+      "target_collection_id": 2,
+      "target_id": "5o1jo1lx3kuwmct",
+      "stable_targets": 1331
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "agents",
+        "agent"
+      ],
+      "target_collection": "agents",
+      "target_collection_id": 0,
+      "target_id": "5mdh1jbzijbcmos",
+      "stable_targets": 1332
+    },
+    {
+      "collection": "entries",
+      "path": [
+        "places"
+      ],
+      "target_collection": "places",
+      "target_collection_id": 5,
+      "target_id": "7jcg3b516uoqjor",
+      "stable_targets": 1333
+    },
+    {
+      "collection": "series",
+      "path": [
+        "entries"
+      ],
+      "target_collection": "entries",
+      "target_collection_id": 2,
+      "target_id": "1ksxu4xlir9q16e",
+      "stable_targets": 1334
+    },
+    {
+      "collection": "series",
+      "path": [
+        "related_entries",
+        "entry"
+      ],
+      "target_collection": "entries",
+      "target_collection_id": 2,
+      "target_id": "otngv45eacxmd61",
+      "stable_targets": 1335
+    }
+  ]
+}

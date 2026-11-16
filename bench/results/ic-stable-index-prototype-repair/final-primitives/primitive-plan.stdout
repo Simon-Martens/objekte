@@ -1,0 +1,21 @@
+{
+  "collections": [
+    "agents",
+    "contents",
+    "entries",
+    "items",
+    "pages",
+    "places",
+    "series"
+  ],
+  "length_point": 43,
+  "length_range": 17,
+  "plan": "bench/results/ic-stable-index-prototype-repair/final-primitives/primitives-plan.json",
+  "point": 119,
+  "range": 40,
+  "relation_state": 24,
+  "relation_target": 6,
+  "sort": 16,
+  "state": 224,
+  "text": 14
+}
