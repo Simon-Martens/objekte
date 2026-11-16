@@ -769,7 +769,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
                 .iter()
                 .find(|segment| segment.id == address.segment)
                 .unwrap();
-            segment.index.record(address.slot).unwrap().id.0.as_ref() == "S0"
+            segment.index.record(address.slot).unwrap().id.0.as_str() == "S0"
         }));
         assert!(work.target_candidates >= 1);
     }
@@ -1321,7 +1321,7 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .filter(|record| {
                         expected
                             .iter()
-                            .any(|id| id.as_str() == record.id.0.as_ref())
+                            .any(|id| id.as_str() == record.id.0.as_str())
                     })
                     .map(|record| record.slot.0)
                     .collect::<roaring::RoaringBitmap>();

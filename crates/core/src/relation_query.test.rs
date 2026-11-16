@@ -86,6 +86,12 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         )
         .unwrap(),
     );
+    assert!(
+        repo.collections()
+            .iter()
+            .all(|collection| collection.postings.all_archived()),
+        "relation finalization published a native base posting builder"
+    );
     let mut active = repo
         .collections()
         .iter()

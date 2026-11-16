@@ -2378,6 +2378,7 @@ pub(crate) fn process_file_batches(
     )
 }
 
+#[allow(dead_code)]
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -2462,6 +2463,7 @@ impl AdmissionBreakdown {
 }
 
 impl CollectionAdmission<'_> {
+    #[allow(dead_code)]
     pub(crate) fn admit_profiled(
         &mut self,
         batch: BatchContribution,

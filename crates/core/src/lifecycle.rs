@@ -4,7 +4,7 @@
 //! mutation, reconciliation and persistence are added in later lifecycle
 //! phases; a wrapped static repository does not imply those operations exist.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fmt;
 use std::num::NonZeroUsize;
 use std::path::Path;
@@ -433,6 +433,9 @@ pub(crate) struct PublishedIndex {
     /// True when the prepared mutation reused and rebuilt its smallest
     /// eligible destination segment.
     pub(crate) destination_rebuilt: bool,
+    /// Construction-only duplicate-ID registry. It is released at initial
+    /// completion and never becomes retained publication state.
+    construction_ids: Option<Vec<HashSet<Arc<str>>>>,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -831,11 +834,17 @@ impl PublishedIndex {
         .map_err(IndexError::IncompatibleConfiguration)?;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
-        let mut catalog = FileCatalog::from_parts(
-            Arc::clone(&repository.files),
-            repository.base_fingerprints.clone(),
-            configuration_identity,
-        );
+        let mut catalog = if repository.catalog.allocated_files()
+            == repository.files().files.len()
+        {
+            repository.catalog.clone()
+        } else {
+            FileCatalog::from_parts(
+                Arc::clone(&repository.files),
+                repository.base_fingerprints.clone(),
+                configuration_identity,
+            )
+        };
         catalog
             .replace_all_ownership(
                 &file_versions,
@@ -872,6 +881,7 @@ impl PublishedIndex {
             processed_files,
             processed_memberships: Vec::new(),
             destination_rebuilt: false,
+            construction_ids: None,
         })
     }
 
@@ -881,6 +891,16 @@ impl PublishedIndex {
         self.processed_memberships = (0..self.repository.collections().len())
             .map(|_| Arc::new(RoaringBitmap::new()))
             .collect();
+        self.construction_ids = Some(
+            (0..self.repository.collections().len())
+                .map(|_| HashSet::new())
+                .collect(),
+        );
+    }
+
+    #[cfg(test)]
+    pub(crate) fn construction_registry_released(&self) -> bool {
+        self.construction_ids.is_none()
     }
 
     fn status(&self) -> IndexStatus {
@@ -977,41 +997,101 @@ impl PublishedIndex {
                     "segment file row missing".into(),
                 ));
             };
-            if self.catalog.entry_owned(file).is_none_or(|current| {
-                !current.collections.contains(&index.collection)
-                    || !index.files.path_matches(ordinal, current.relative_path.as_path())
-                    || index.files.revision(ordinal) != Some(current.revision)
-                    || current.created_ns != index.files.created_ns(ordinal).flatten()
-            }) {
+            let path = index
+                .files
+                .archived_path(ordinal)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("segment file path missing".into())
+                })?;
+            let revision = index.files.revision(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file revision missing".into())
+            })?;
+            let created_ns = index
+                .files
+                .created_ns(ordinal)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("segment file creation time missing".into())
+                })?;
+            if !self.catalog.matches_segment_file(
+                file,
+                index.collection,
+                path,
+                revision,
+                created_ns,
+            ) {
                 return Err(IndexError::InvalidPublication(
                     "segment file is not active in its collection".into(),
                 ));
             }
         }
         let mut duplicate = None;
-        index.id_lookup.for_each_id(|id| {
-            if duplicate.is_some() {
-                return;
-            }
-            let existing_duplicate = self.segments[number].iter().any(|segment| {
-                segment
-                    .index
-                    .id_lookup
-                    .get(id)
-                    .is_some_and(|slot| segment.active.contains(slot))
+        let mut incoming_ids = None;
+        if let Some(registry) = &self.construction_ids {
+            let mut ids = HashSet::new();
+            index.id_lookup.for_each_id(|id| {
+                if duplicate.is_some() {
+                    return;
+                }
+                crate::storage_usage::StorageWorkCounters::update(|counters| {
+                    counters.duplicate_id_probes =
+                        counters.duplicate_id_probes.saturating_add(1);
+                });
+                let collection_duplicate = self.active[number].len() != 0
+                    && collection
+                        .id_lookup
+                        .get(id)
+                        .is_some_and(|slot| self.active[number].contains(*slot));
+                if collection_duplicate || registry[number].contains(id) {
+                    duplicate = Some(id.to_owned());
+                } else {
+                    ids.insert(Arc::<str>::from(id));
+                }
             });
-            let collection_duplicate = collection
-                .id_lookup
-                .get(&crate::model::RecordId(id.into()))
-                .is_some_and(|slot| self.active[number].contains(*slot));
-            if collection_duplicate || existing_duplicate {
-                duplicate = Some(id.to_owned());
-            }
-        });
+            incoming_ids = Some(ids);
+        } else {
+            index.id_lookup.for_each_id(|id| {
+                if duplicate.is_some() {
+                    return;
+                }
+                crate::storage_usage::StorageWorkCounters::update(|counters| {
+                    counters.duplicate_id_probes =
+                        counters.duplicate_id_probes.saturating_add(1);
+                });
+                let existing_duplicate = self.segments[number].iter().any(|segment| {
+                    segment
+                        .index
+                        .id_lookup
+                        .get(id)
+                        .is_some_and(|slot| segment.active.contains(slot))
+                });
+                let collection_duplicate = self.active[number].len() != 0
+                    && collection
+                        .id_lookup
+                        .get(id)
+                        .is_some_and(|slot| self.active[number].contains(*slot));
+                if collection_duplicate || existing_duplicate {
+                    duplicate = Some(id.to_owned());
+                }
+            });
+        }
         if let Some(record_id) = duplicate {
             return Err(IndexError::DuplicateRecordId {
                 collection: collection.definition.name.clone(),
                 record_id,
+            });
+        }
+        if let (Some(registry), Some(ids)) =
+            (self.construction_ids.as_mut(), incoming_ids)
+        {
+            let bytes = ids
+                .iter()
+                .map(|id| id.len() + std::mem::size_of::<Arc<str>>())
+                .sum::<usize>();
+            registry[number].extend(ids);
+            crate::storage_usage::StorageWorkCounters::update(|counters| {
+                counters.duplicate_registry_bytes = counters
+                    .duplicate_registry_bytes
+                    .saturating_add(bytes as u64);
             });
         }
         if !self.catalog.construction_complete() {
@@ -1025,10 +1105,14 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("processed membership missing".into())
                 })?;
                 if Arc::make_mut(members).insert(file.0) {
-                    let catalogue_entry = self.catalog.entry_owned(file).ok_or_else(|| {
-                        IndexError::InvalidPublication("processed file missing".into())
-                    })?;
-                    if catalogue_entry.collections.iter().all(|collection| {
+                    let collections = self
+                        .catalog
+                        .collections(file)
+                        .ok_or_else(|| {
+                            IndexError::InvalidPublication("processed file missing".into())
+                        })?
+                        .collect::<Vec<_>>();
+                    if collections.iter().all(|collection| {
                         self.processed_memberships
                             .get(collection.0 as usize)
                             .is_some_and(|covered| covered.contains(file.0))
@@ -2043,31 +2127,74 @@ fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: IndexedCollectionSegment,
 ) -> Result<(), IndexError> {
-    for ordinal in 0..segment.file_count() {
-        let file_id = segment.files.file_id(ordinal).ok_or_else(|| {
-            IndexError::InvalidPublication("segment file row missing".into())
-        })?;
-        let current = next
-            .catalog
-            .entry_owned(file_id)
-            .ok_or(IndexError::UnknownFile)?;
-        let mut merged = current.clone();
-        segment
-            .files
-            .merge_file_diagnostics(ordinal, &mut merged)
-            .map_err(IndexError::InvalidPublication)?;
-        if merged.status == current.status
-            && merged.diagnostics.len() == current.diagnostics.len()
-            && merged.omitted_diagnostics == current.omitted_diagnostics
-        {
-            continue;
-        }
-        next.catalog = next
-            .catalog
-            .replaced(merged, None, None)
-            .map_err(IndexError::InvalidPublication)?;
+    prepare_initial_segments(next, vec![segment])
+}
+
+fn prepare_initial_segments(
+    next: &mut PublishedIndex,
+    segments: Vec<IndexedCollectionSegment>,
+) -> Result<(), IndexError> {
+    merge_initial_segment_metadata(&mut next.catalog, &segments)?;
+    for segment in segments {
+        *next = next.clone().with_segment(segment)?;
     }
-    *next = next.clone().with_segment(segment)?;
+    Ok(())
+}
+
+fn merge_initial_segment_metadata(
+    catalog: &mut FileCatalog,
+    segments: &[IndexedCollectionSegment],
+) -> Result<(), IndexError> {
+    let mut replacements = std::collections::BTreeMap::new();
+    for segment in segments {
+        for ordinal in 0..segment.file_count() {
+            let file_id = segment.files.file_id(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file row missing".into())
+            })?;
+            let segment_status = segment.files.status_code(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file status missing".into())
+            })?;
+            let diagnostic_count = segment.files.diagnostic_count(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file diagnostics missing".into())
+            })?;
+            let omitted = segment.files.omitted_diagnostics(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication(
+                    "segment omitted diagnostic count missing".into(),
+                )
+            })?;
+            let current_status = replacements
+                .get(&file_id)
+                .map(|entry: &FileEntry| entry.status.code())
+                .or_else(|| catalog.status_code(file_id))
+                .ok_or(IndexError::UnknownFile)?;
+            if segment_status <= current_status && diagnostic_count == 0 && omitted == 0 {
+                continue;
+            }
+            if !replacements.contains_key(&file_id) {
+                replacements.insert(
+                    file_id,
+                    catalog.entry_owned(file_id).ok_or(IndexError::UnknownFile)?,
+                );
+            }
+            let current = replacements
+                .get(&file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            let mut merged = current.clone();
+            segment
+                .files
+                .merge_file_diagnostics(ordinal, &mut merged)
+                .map_err(IndexError::InvalidPublication)?;
+            if merged.status != current.status
+                || merged.diagnostics.len() != current.diagnostics.len()
+                || merged.omitted_diagnostics != current.omitted_diagnostics
+            {
+                replacements.insert(file_id, merged);
+            }
+        }
+    }
+    catalog
+        .replace_metadata_entries(replacements.into_values().collect())
+        .map_err(IndexError::InvalidPublication)?;
     Ok(())
 }
 
@@ -2147,9 +2274,7 @@ impl Index {
             ));
         }
         let mut next = (*view.0).clone();
-        for segment in segments {
-            prepare_initial_segment(&mut next, segment)?;
-        }
+        prepare_initial_segments(&mut next, segments)?;
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
             .map(|started| started.elapsed().as_nanos() as u64)
@@ -2173,6 +2298,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         repository: Arc<Repository>,
+        pool: &rayon::ThreadPool,
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if view.revision() != expected {
@@ -2248,34 +2374,40 @@ impl Index {
                     continue;
                 }
                 let mut index = (*published.index).clone();
-                let mut refreshed_files = index.files.to_vec();
-                for file in &mut refreshed_files {
-                    if let Some(current) = repository.files.files.get(file.entry.id.0 as usize) {
-                        file.entry.status = current.status;
-                        file.entry.diagnostics = current.diagnostics.clone();
-                        file.entry.omitted_diagnostics = current.omitted_diagnostics;
+                index.storage_completed = false;
+                if needs_status_refresh {
+                    let mut refreshed_files = index.files.to_vec();
+                    for file in &mut refreshed_files {
+                        if let Some(current) =
+                            repository.files.files.get(file.entry.id.0 as usize)
+                        {
+                            file.entry.status = current.status;
+                            file.entry.diagnostics = current.diagnostics.clone();
+                            file.entry.omitted_diagnostics = current.omitted_diagnostics;
+                        }
                     }
+                    let (files, records) = crate::segment_archive::SegmentRows::freeze(
+                        refreshed_files,
+                        index.records.to_vec(),
+                    )
+                    .map_err(IndexError::InvalidPublication)?
+                    .views();
+                    index.files = files;
+                    index.records = records;
+                    Arc::make_mut(&mut index.sorting)
+                        .refresh_file_status_for_records(&index.records, |file| {
+                            repository
+                                .files
+                                .files
+                                .get(file.0 as usize)
+                                .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
+                                    entry.status.code()
+                                })
+                        });
                 }
-                let (files, records) = crate::segment_archive::SegmentRows::freeze(
-                    refreshed_files,
-                    index.records.to_vec(),
-                )
-                .map_err(IndexError::InvalidPublication)?
-                .views();
-                index.files = files;
-                index.records = records;
-                index
-                    .sorting
-                    .refresh_file_status_for_records(&index.records, |file| {
-                        repository
-                            .files
-                            .files
-                            .get(file.0 as usize)
-                            .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
-                                entry.status.code()
-                            })
-                    });
-                if let Some(decision) = decision {
+                if needs_inference_prune
+                    && let Some(decision) = decision
+                {
                     if let Some(inference) = index.inference.as_mut() {
                         for field in &decision.report.fields {
                             if matches!(
@@ -2301,7 +2433,7 @@ impl Index {
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
                                 if !general_values && !short_values {
                                     posting
-                                        .thaw_storage()
+                                        .thaw_values_storage()
                                         .map_err(IndexError::InvalidPublication)?;
                                     let empty = empty_string_exact.then(|| {
                                         posting.values.remove_public(
@@ -2341,10 +2473,11 @@ impl Index {
             }
         }
         next.catalog
-            .rebase(Arc::clone(&repository))
+            .rebase_in_pool(Arc::clone(&repository), Some(pool))
             .map_err(IndexError::InvalidPublication)?;
         next.catalog.set_construction_complete(true);
         next.processed_memberships.clear();
+        next.construction_ids = None;
         next.repository = repository;
         next.revision = expected.next()?;
         self.publish_prepared(expected, next)

@@ -482,7 +482,7 @@ fn packed_chunk_bases_remain_local_through_non_aligned_admission() {
             assert_eq!(chunk.base, base);
             assert_eq!(chunk.normal.blocks[0].first_slot, 0);
         }
-        let index = global.into_index().unwrap();
+        let index = global.into_index_serial().unwrap();
         let key = match alphabet {
             BigramAlphabet::Ascii => ascii_pair(b'a', b'b').unwrap(),
             BigramAlphabet::Unicode => unicode_pair('a', 'b'),
@@ -513,7 +513,7 @@ fn packed_chunks_reject_overlap_and_release_large_unicode_scratch() {
     assert!(contribution.storage_stats().live_payload_bytes > 0);
     let chunk = &mut contribution.chunks[0];
     chunk.base = 1;
-    assert!(contribution.into_index().is_err());
+    assert!(contribution.into_index_serial().is_err());
 
     let mut builder = BigramBuilder::new(BigramAlphabet::Ascii);
     builder.add_record(RecordSlot(0), ["ab"]).unwrap();
@@ -524,7 +524,7 @@ fn packed_chunks_reject_overlap_and_release_large_unicode_scratch() {
     second.chunks[0].base = 0;
     first.chunks.extend(second.chunks);
     first.record_count = 2;
-    assert!(first.into_index().is_err());
+    assert!(first.into_index_serial().is_err());
 }
 
 #[test]
@@ -682,7 +682,7 @@ fn profile_single_worker_constructors() {
         }
         let contribution = builder.finish_blocks().unwrap();
         let stats = contribution.storage_stats();
-        (contribution.into_index().unwrap(), Some(stats))
+        (contribution.into_index_serial().unwrap(), Some(stats))
     };
     let elapsed_ns = started.elapsed().as_nanos();
     println!(

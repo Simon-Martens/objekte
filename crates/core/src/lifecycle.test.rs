@@ -1424,6 +1424,48 @@ fn status_estimate_reuses_cached_native_accounting() {
 }
 
 #[test]
+fn healthy_initial_publication_uses_borrowed_file_metadata() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-borrowed-initial-publication-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    let segment = view
+        .segments(CollectionId(0))
+        .unwrap()
+        .first()
+        .expect("one completed segment")
+        .index
+        .as_ref()
+        .clone();
+    let mut catalog = view.0.catalog.clone();
+    crate::storage_usage::StorageWorkCounters::reset();
+    super::merge_initial_segment_metadata(&mut catalog, std::slice::from_ref(&segment)).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.native_compatibility_copies, 0);
+    assert_eq!(counters.file_row_cache_initializations, 0);
+    assert_eq!(counters.record_row_cache_initializations, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn native_accounting_grows_with_postings_and_survives_retirement() {
     let root = std::env::temp_dir().join(format!(
         "objekte-native-accounting-{}-{}",

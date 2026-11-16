@@ -685,6 +685,14 @@ pub(crate) struct BigramContribution {
 
 
 impl BigramContribution {
+    pub(crate) fn alphabet(&self) -> BigramAlphabet {
+        self.alphabet
+    }
+
+    pub(crate) fn record_count(&self) -> u32 {
+        self.record_count
+    }
+
     pub fn new(alphabet: BigramAlphabet) -> Self {
         Self {
             alphabet,
@@ -824,8 +832,7 @@ impl BigramContribution {
         })
     }
 
-    #[cfg(test)]
-    fn into_index(self) -> Result<BigramIndex, String> {
+    pub(crate) fn into_index_serial(self) -> Result<BigramIndex, String> {
         let Self {
             alphabet,
             record_count,
@@ -1306,7 +1313,7 @@ impl BigramBuilder {
 
     #[cfg(test)]
     pub fn finish(self) -> Result<BigramIndex, String> {
-        self.finish_blocks()?.into_index()
+        self.finish_blocks()?.into_index_serial()
     }
 }
 

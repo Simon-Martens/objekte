@@ -221,16 +221,17 @@ pub(crate) fn base_as_segment(
         inference_observation: None,
         inference: collection.inference.clone(),
         custom_postings: collection.custom_postings.clone(),
-        raw: collection.raw.clone(),
-        fallback_text: collection.fallback_text.clone(),
+        raw: Arc::new(collection.raw.clone()),
+        fallback_text: Arc::new(collection.fallback_text.clone()),
         custom_text: collection.custom_text.clone(),
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
-        sorting: collection.sorting.clone(),
+        sorting: Arc::new(collection.sorting.clone()),
         relations,
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),
+        storage_completed: false,
     };
     segment.recompute_accounting();
     Ok(segment)

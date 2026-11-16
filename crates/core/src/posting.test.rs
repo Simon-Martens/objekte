@@ -50,6 +50,119 @@ fn rkyv_statistics_use_dictionary_endpoints() {
 }
 
 #[test]
+fn ordered_posting_source_rejects_unordered_duplicate_or_sparse_entries() {
+    let sparse = [OrderedPostingEntry {
+        key: StoredScalarKey::String("a".into()),
+        ordinal: 2,
+    }];
+    assert!(OrderedPostingArchiveSource::checked(&sparse).is_err());
+    let duplicate = [
+        OrderedPostingEntry {
+            key: StoredScalarKey::String("a".into()),
+            ordinal: 0,
+        },
+        OrderedPostingEntry {
+            key: StoredScalarKey::String("a".into()),
+            ordinal: 1,
+        },
+    ];
+    assert!(OrderedPostingArchiveSource::checked(&duplicate).is_err());
+    let unordered = [
+        OrderedPostingEntry {
+            key: StoredScalarKey::String("b".into()),
+            ordinal: 0,
+        },
+        OrderedPostingEntry {
+            key: StoredScalarKey::String("a".into()),
+            ordinal: 1,
+        },
+    ];
+    assert!(OrderedPostingArchiveSource::checked(&unordered).is_err());
+}
+
+#[test]
+fn posting_freeze_serializes_one_owned_ordered_directory() {
+    let mut dictionary = PostingDictionary::<StoredScalarKey>::builder();
+    for (number, key) in ["alpha", "beta", "gamma", "delta"].into_iter().enumerate() {
+        dictionary.insert(
+            StoredScalarKey::String(key.into()),
+            RoaringBitmap::from_iter([number as u32]),
+        );
+    }
+    crate::storage_usage::StorageWorkCounters::reset();
+    let dictionary = dictionary.freeze().unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.temporary_ordinal_trees, 0);
+    assert_eq!(dictionary.len(), 4);
+    assert_eq!(
+        dictionary.first_public(),
+        Some(ScalarKey::String("alpha".into()))
+    );
+    assert_eq!(
+        dictionary.last_public(),
+        Some(ScalarKey::String("gamma".into()))
+    );
+}
+
+#[test]
+#[ignore = "manual reusable-key lookup microbenchmark"]
+fn reusable_lookup_scratch_microbenchmark() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    fn direct(keys: &[&str]) -> std::time::Duration {
+        let started = Instant::now();
+        let mut values = BTreeMap::<StoredScalarKey, RoaringBitmap>::new();
+        for (slot, key) in keys.iter().enumerate() {
+            let key = StoredScalarKey::String((*key).to_owned());
+            values.entry(key).or_default().insert(slot as u32);
+        }
+        black_box(values.len());
+        started.elapsed()
+    }
+
+    fn scratch(keys: &[&str]) -> std::time::Duration {
+        let started = Instant::now();
+        let mut values = BTreeMap::<StoredScalarKey, RoaringBitmap>::new();
+        let mut lookup = StoredScalarKey::String(String::with_capacity(64));
+        for (slot, key) in keys.iter().enumerate() {
+            let StoredScalarKey::String(text) = &mut lookup else {
+                unreachable!()
+            };
+            text.clear();
+            text.push_str(key);
+            if let Some(bitmap) = values.get_mut(&lookup) {
+                bitmap.insert(slot as u32);
+                continue;
+            }
+            let owned = std::mem::replace(
+                &mut lookup,
+                StoredScalarKey::String(String::with_capacity(64)),
+            );
+            values.entry(owned).or_default().insert(slot as u32);
+        }
+        black_box(values.len());
+        started.elapsed()
+    }
+
+    let repeated = vec!["shared-key"; 500_000];
+    let unique = (0..100_000)
+        .map(|index| format!("unique-{index}"))
+        .collect::<Vec<_>>();
+    let unique = unique.iter().map(String::as_str).collect::<Vec<_>>();
+    for (label, keys) in [("repeated", repeated.as_slice()), ("unique", unique.as_slice())] {
+        let direct = direct(keys);
+        let scratch = scratch(keys);
+        eprintln!(
+            "reusable_lookup_scratch {label}: direct={:.3}ms scratch={:.3}ms ratio={:.3}",
+            direct.as_secs_f64() * 1_000.0,
+            scratch.as_secs_f64() * 1_000.0,
+            scratch.as_secs_f64() / direct.as_secs_f64(),
+        );
+    }
+}
+
+#[test]
 fn broad_id_union_matches_individual_lookups() {
     let field = FieldDefinition {
         path: vec!["ref".into()],

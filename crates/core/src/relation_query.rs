@@ -493,7 +493,7 @@ impl<'a> MergedRelationView<'a> {
                 self.segments[index][segment_index]
                     .index
                     .record(address.slot)
-                    .map(|record| record.id.0.as_ref())
+                    .map(|record| record.id.0.as_str())
                     .ok_or("backlink segment slot missing")?
                     .to_string()
             } else {
@@ -1719,7 +1719,7 @@ fn visit_merged_hop(
             }
         }
         HopDirection::Backlink => {
-            let target_id = current.record.id.0.as_ref();
+            let target_id = current.record.id.0.as_str();
             let sources = view.backlink_sources(hop.relation, target_id)?;
             let mut selected = 0usize;
             for (position, source) in sources.into_iter().enumerate() {
@@ -2089,7 +2089,7 @@ fn visit_hop(
                     } else {
                         targets
                             .iter()
-                            .find(|record| record.id.0.as_ref() == id.as_str())
+                            .find(|record| record.id.0.as_str() == id.as_str())
                             .map(|record| record.slot)
                     };
                     if let Some(target_slot) = target_slot {
@@ -2138,7 +2138,7 @@ fn visit_hop(
                     if !references
                         .values
                         .iter()
-                        .any(|(id, _)| id.as_str() == target.id.0.as_ref())
+                        .any(|(id, _)| id.as_str() == target.id.0.as_str())
                     {
                         continue;
                     }

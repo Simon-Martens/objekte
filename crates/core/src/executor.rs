@@ -262,7 +262,7 @@ fn metadata_probe_file() -> FileEntry {
 fn metadata_probe_record() -> RecordEntry {
     RecordEntry {
         slot: RecordSlot(0),
-        id: RecordId(Arc::from("")),
+        id: RecordId(Arc::new(String::new())),
         file: FileId(0),
         range: ByteRange { start: 0, end: 0 },
         revision: SourceRevision {

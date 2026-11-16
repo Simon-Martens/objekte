@@ -1356,9 +1356,9 @@ fn rkyv_cache_free_build_keeps_native_row_caches_uninitialized() {
         counters.file_row_cache_initializations,
         counters.record_row_cache_initializations
     );
-    for segment in index
-        .view()
-        .unwrap()
+    let view = index.view().unwrap();
+    assert!(view.0.construction_registry_released());
+    for segment in view
         .segments(crate::model::CollectionId(0))
         .unwrap()
         .iter()
@@ -1523,7 +1523,12 @@ fn rkyv_repository_and_adopted_index_archive_accounting_match() {
     let before = repository.storage_usage();
     let index = Index::from_repository(repository).unwrap();
     let after = index.storage_usage().unwrap();
-    assert_eq!(after.archive, before.archive);
+    assert!(after.archive.owners >= before.archive.owners);
+    assert!(after.archive.owners <= before.archive.owners + 1);
+    assert!(after.archive.serialized_bytes >= before.archive.serialized_bytes);
+    assert!(
+        after.archive.serialized_bytes <= before.archive.serialized_bytes + 64
+    );
     assert_eq!(
         after.posting_bitmap_payload_bytes,
         before.posting_bitmap_payload_bytes

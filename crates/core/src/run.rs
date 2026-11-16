@@ -256,7 +256,8 @@ impl<'a> ResolvedSort<'a> {
                 return order;
             }
         }
-        (collection_name, record.id.0.as_ref()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
+        (collection_name, record.id.0.as_str())
+            .cmp(&(worst.collection.as_str(), worst.id.as_str()))
     }
 }
 
@@ -2738,7 +2739,7 @@ fn segment_compare_to_rank(
         repo.collections[collection_index].definition.name.as_str(),
         segment
             .record(slot)
-            .map(|record| record.id.0.as_ref())
+            .map(|record| record.id.0.as_str())
             .ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
@@ -6193,7 +6194,7 @@ fn try_direct_relation_page(
             };
             if matched {
                 counters.relation_target_matches += 1;
-                if !target_ids.contains(resolved.record.id.0.as_ref()) {
+                if !target_ids.contains(resolved.record.id.0.as_str()) {
                     let sort_key = if let Some(path) = direct_sort_column.as_deref() {
                         Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
                     } else {
@@ -6220,7 +6221,7 @@ fn try_direct_relation_page(
                         return Ok(None);
                     }
                     if let Some(key) = sort_key {
-                        target_sort_keys.insert(resolved.record.id.0.clone(), key);
+                        target_sort_keys.insert(resolved.record.id.0.as_str().to_owned(), key);
                     }
                     target_ids.insert(resolved.record.id.0.to_string());
                 }

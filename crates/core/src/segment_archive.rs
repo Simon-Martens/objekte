@@ -1,11 +1,14 @@
 //! Archived segment record, file-ownership, and identity lookup storage.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fmt;
 use std::ops::Deref;
 use std::sync::{Arc, OnceLock};
 
-use rkyv::{Archive, Serialize as ArchiveSerialize};
+use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
+use rkyv::place::Place;
+use rkyv::string::{ArchivedString, StringResolver};
+use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 
 use crate::archive_storage::ValidatedArchive;
 use crate::archived_path::StoredPath;
@@ -63,22 +66,22 @@ struct StoredDiagnostic {
 }
 
 impl StoredDiagnostic {
-    fn from_source(diagnostic: &SourceDiagnostic) -> Self {
+    fn from_source(diagnostic: SourceDiagnostic) -> Self {
         Self {
             file: diagnostic.file.0,
             collection: diagnostic.collection.0,
-            source_id: diagnostic.source_id.clone(),
+            source_id: diagnostic.source_id.to_string(),
             source_version: diagnostic.source_version,
             record: diagnostic.record.map(|slot| slot.0),
             range_start: diagnostic.range.map(|range| range.start),
             range_end: diagnostic.range.map(|range| range.end),
             category: category_code(diagnostic.category),
-            code: diagnostic.code.clone(),
-            field_path: diagnostic.field_path.clone(),
+            code: diagnostic.code.to_string(),
+            field_path: diagnostic.field_path,
             byte_offset: diagnostic.byte_offset,
             line: diagnostic.line,
             column: diagnostic.column,
-            message: diagnostic.message.clone(),
+            message: diagnostic.message.to_string(),
         }
     }
 }
@@ -98,28 +101,28 @@ struct StoredSegmentFile {
 }
 
 impl StoredSegmentFile {
-    fn from_file(file: &SegmentFile) -> Self {
+    fn from_file(file: SegmentFile) -> Self {
+        let SegmentFile { entry, records } = file;
+        let relative_path = StoredPath::from_shared(&entry.relative_path);
         Self {
-            id: file.entry.id.0,
-            relative_path: StoredPath::from_shared(&file.entry.relative_path),
-            modified_ns: file.entry.revision.modified_ns,
-            size: file.entry.revision.size,
-            created_ns: file.entry.created_ns,
-            collections: file
-                .entry
+            id: entry.id.0,
+            relative_path,
+            modified_ns: entry.revision.modified_ns,
+            size: entry.revision.size,
+            created_ns: entry.created_ns,
+            collections: entry
                 .collections
                 .iter()
                 .map(|collection| collection.0)
                 .collect(),
-            status: file.entry.status.code(),
-            diagnostics: file
-                .entry
+            status: entry.status.code(),
+            diagnostics: entry
                 .diagnostics
-                .iter()
+                .into_iter()
                 .map(StoredDiagnostic::from_source)
                 .collect(),
-            omitted_diagnostics: file.entry.omitted_diagnostics,
-            records: file.records.iter().map(|slot| slot.0).collect(),
+            omitted_diagnostics: entry.omitted_diagnostics,
+            records: records.into_iter().map(|slot| slot.0).collect(),
         }
     }
 }
@@ -138,10 +141,12 @@ struct StoredRecord {
 }
 
 impl StoredRecord {
-    fn from_record(record: &RecordEntry) -> Self {
+    fn from_record(record: RecordEntry) -> Self {
+        let id = Arc::try_unwrap(record.id.0)
+            .unwrap_or_else(|shared| shared.as_str().to_owned());
         Self {
             slot: record.slot.0,
-            id: record.id.0.to_string(),
+            id,
             file: record.file.0,
             range_start: record.range.start,
             range_end: record.range.end,
@@ -198,11 +203,12 @@ impl SegmentRows {
                 return Err("segment record row is not densely valid".into());
             }
         }
+        let source = SegmentRowsArchive {
+            files: files.into_iter().map(StoredSegmentFile::from_file).collect(),
+            records: records.into_iter().map(StoredRecord::from_record).collect(),
+        };
         let owner = Self {
-            archive: ValidatedArchive::freeze(&SegmentRowsArchive {
-                files: files.iter().map(StoredSegmentFile::from_file).collect(),
-                records: records.iter().map(StoredRecord::from_record).collect(),
-            })?,
+            archive: ValidatedArchive::freeze(&source)?,
             files: Arc::new(OnceLock::new()),
             records: Arc::new(OnceLock::new()),
         };
@@ -334,7 +340,7 @@ impl SegmentRows {
                     };
                     RecordEntry {
                         slot: RecordSlot(record.slot.to_native()),
-                        id: RecordId(record.id.as_str().into()),
+                        id: RecordId(Arc::new(record.id.as_str().to_owned())),
                         file: FileId(record.file.to_native()),
                         range: ByteRange {
                             start: record.range_start.to_native(),
@@ -487,14 +493,15 @@ impl SegmentFiles {
             .map(|file| file.created_ns.as_ref().map(|value| value.to_native()))
     }
 
-    pub(crate) fn path_matches(&self, index: usize, path: &std::path::Path) -> bool {
+    pub(crate) fn archived_path(
+        &self,
+        index: usize,
+    ) -> Option<&rkyv::Archived<crate::archived_path::StoredPath>> {
         self.archive
             .root()
             .files
             .get(index)
-            .is_some_and(|file| {
-                crate::archived_path::matches_native(&file.relative_path, path)
-            })
+            .map(|file| &file.relative_path)
     }
 
     pub(crate) fn status_code(&self, index: usize) -> Option<u8> {
@@ -503,6 +510,22 @@ impl SegmentFiles {
             .files
             .get(index)
             .map(|file| file.status)
+    }
+
+    pub(crate) fn diagnostic_count(&self, index: usize) -> Option<usize> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| file.diagnostics.len())
+    }
+
+    pub(crate) fn omitted_diagnostics(&self, index: usize) -> Option<u32> {
+        self.archive
+            .root()
+            .files
+            .get(index)
+            .map(|file| file.omitted_diagnostics.to_native())
     }
 
     pub(crate) fn diagnostic(
@@ -549,17 +572,17 @@ impl SegmentFiles {
         Some(SourceDiagnostic {
             file: FileId(decoded.file),
             collection: CollectionId(decoded.collection),
-            source_id: decoded.source_id,
+            source_id: decoded.source_id.to_string(),
             source_version: decoded.source_version,
             record: decoded.record.map(RecordSlot),
             range,
             category: category_from_code(decoded.category)?,
-            code: decoded.code,
+            code: decoded.code.to_string(),
             field_path: decoded.field_path,
             byte_offset: decoded.byte_offset,
             line: decoded.line,
             column: decoded.column,
-            message: decoded.message,
+            message: decoded.message.to_string(),
         })
     }
 
@@ -626,6 +649,39 @@ pub(crate) struct RecordRows {
     cache: Arc<OnceLock<Vec<RecordEntry>>>,
 }
 
+pub(crate) struct ArchivedRecordRowRef<'a> {
+    record: &'a rkyv::Archived<StoredRecord>,
+}
+
+impl ArchivedRecordRowRef<'_> {
+    pub(crate) fn id(&self) -> &str {
+        self.record.id.as_str()
+    }
+
+    pub(crate) fn file(&self) -> FileId {
+        FileId(self.record.file.to_native())
+    }
+
+    pub(crate) fn range(&self) -> ByteRange {
+        ByteRange {
+            start: self.record.range_start.to_native(),
+            end: self.record.range_end.to_native(),
+        }
+    }
+
+    pub(crate) fn class(&self) -> RecordClass {
+        match self.record.class {
+            0 => RecordClass::Logical,
+            1 => RecordClass::RawFallback,
+            _ => unreachable!("validated segment record class"),
+        }
+    }
+
+    pub(crate) fn diagnostic_ref(&self) -> DiagnosticRef {
+        DiagnosticRef(self.record.diagnostic_ref.to_native())
+    }
+}
+
 impl Clone for RecordRows {
     fn clone(&self) -> Self {
         Self {
@@ -667,8 +723,15 @@ impl RecordRows {
         self.values().get(index)
     }
 
-    pub(crate) fn record_owned(&self, index: usize) -> Option<RecordEntry> {
-        self.archive.root().records.get(index).map(archived_record)
+    pub(crate) fn archived_record(
+        &self,
+        index: usize,
+    ) -> Option<ArchivedRecordRowRef<'_>> {
+        self.archive
+            .root()
+            .records
+            .get(index)
+            .map(|record| ArchivedRecordRowRef { record })
     }
 
     pub(crate) fn cache_initialized(&self) -> bool {
@@ -797,7 +860,7 @@ fn archived_record(record: &rkyv::Archived<StoredRecord>) -> RecordEntry {
     };
     RecordEntry {
         slot: RecordSlot(record.slot.to_native()),
-        id: RecordId(record.id.as_str().into()),
+            id: RecordId(Arc::new(record.id.as_str().to_owned())),
         file: FileId(record.file.to_native()),
         range: ByteRange {
             start: record.range_start.to_native(),
@@ -894,7 +957,79 @@ impl FileLookup {
 
 #[derive(Archive, ArchiveSerialize)]
 struct RecordLookupArchive {
-    values: HashMap<String, u32>,
+    values: BTreeMap<String, u32>,
+}
+
+struct RecordLookupSource<'a> {
+    entries: &'a [(&'a str, u32)],
+}
+
+#[derive(Clone, Copy)]
+struct RecordLookupKey<'a>(&'a str);
+
+impl Archive for RecordLookupKey<'_> {
+    type Archived = ArchivedString;
+    type Resolver = StringResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedString::resolve_from_str(self.0, resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for RecordLookupKey<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedString::serialize_from_str(self.0, serializer)
+    }
+}
+
+struct RecordLookupSourceResolver {
+    values: BTreeMapResolver,
+}
+
+impl Archive for RecordLookupSource<'_> {
+    type Archived = Archived<RecordLookupArchive>;
+    type Resolver = RecordLookupSourceResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The source resolves the one map field of
+        // `RecordLookupArchive` into its exact generated archived type.
+        unsafe {
+            let root = out.ptr();
+            let values = Place::from_field_unchecked(
+                out,
+                std::ptr::addr_of_mut!((*root).values),
+            );
+            ArchivedBTreeMap::resolve_from_len(
+                self.entries.len(),
+                resolver.values,
+                values,
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for RecordLookupSource<'_>
+where
+    S: rkyv::rancor::Fallible
+        + rkyv::ser::Allocator
+        + rkyv::ser::Writer
+        + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let values = ArchivedBTreeMap::<ArchivedString, Archived<u32>, 5>::
+            serialize_from_ordered_iter::<_, RecordLookupKey<'_>, u32, RecordLookupKey<'_>, u32, S>(
+                self.entries
+                    .iter()
+                    .map(|(id, slot)| (RecordLookupKey(id), *slot)),
+                serializer,
+            )?;
+        Ok(RecordLookupSourceResolver { values })
+    }
 }
 
 /// Archived equality-only logical record-ID to local-slot lookup.
@@ -914,12 +1049,22 @@ impl fmt::Debug for RecordLookup {
 
 impl RecordLookup {
     pub(crate) fn freeze(values: HashMap<RecordId, RecordSlot>) -> Result<Self, String> {
-        let values = values
-            .into_iter()
-            .map(|(id, slot)| (id.0.to_string(), slot.0))
-            .collect();
+        let mut entries = values
+            .iter()
+            .map(|(id, slot)| (id.0.as_str(), slot.0))
+            .collect::<Vec<_>>();
+        entries.sort_unstable_by(|left, right| left.0.cmp(right.0));
+        if entries
+            .windows(2)
+            .any(|window| window[0].0 == window[1].0)
+        {
+            return Err("duplicate segment record ID lookup key".into());
+        }
+        let source = RecordLookupSource {
+            entries: &entries,
+        };
         Ok(Self {
-            archive: ValidatedArchive::freeze(&RecordLookupArchive { values })?,
+            archive: ValidatedArchive::freeze_source(&source)?,
         })
     }
 

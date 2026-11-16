@@ -62,6 +62,7 @@ fn run() -> Result<(), String> {
     let mut build_workers = None;
     let mut segment_records = None;
     let mut schema_manifest_path = None;
+    let mut profile_build = false;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -106,6 +107,7 @@ fn run() -> Result<(), String> {
                     .ok_or("segment-records must be positive")?,
                 );
             }
+            "--profile" => profile_build = true,
             other => return Err(format!("unknown argument {other}")),
         }
     }
@@ -126,6 +128,7 @@ fn run() -> Result<(), String> {
             .map(SegmentPolicy::with_target_records)
             .transpose()?
             .unwrap_or_default(),
+        profile_build,
         ..RepositoryOptions::default()
     };
     let started = Instant::now();
@@ -172,6 +175,7 @@ fn run() -> Result<(), String> {
             "requested_build_workers": build_workers.map(NonZeroUsize::get),
             "segment_policy": options.segment_policy,
             "resolved_build_workers": repo.startup().build_workers,
+            "build_profile": repo.startup().build_profile,
             "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
             "query_workers": query_workers,
             "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,

@@ -148,6 +148,61 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn rebase_reuses_paths_and_ownership_and_rebuilds_only_changed_metadata() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-catalog-rebase-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    let repository = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions::default(),
+        )
+        .unwrap(),
+    );
+    let configuration =
+        FileCatalog::configuration_for(&repository).expect("repository configuration hashes");
+    let inventory = Arc::clone(&repository.files);
+    let mut catalog = FileCatalog::from_parts(
+        inventory,
+        vec![Some([1; 32]); repository.files().files.len()],
+        configuration,
+    );
+    let ownership = Arc::clone(&catalog.ownership);
+    let paths = Arc::clone(&catalog.paths);
+    let metadata_before = Arc::clone(&catalog.metadata);
+    crate::storage_usage::StorageWorkCounters::reset();
+    catalog.rebase_in_pool(Arc::clone(&repository), None).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.path_shards_rebuilt, 0);
+    assert!(counters.metadata_shards_rebuilt > 0);
+    assert!(
+        paths
+            .iter()
+            .zip(catalog.paths.iter())
+            .all(|(before, after)| Arc::ptr_eq(before, after))
+    );
+    assert!(Arc::ptr_eq(&ownership, &catalog.ownership));
+    assert!(
+        metadata_before
+            .iter()
+            .zip(catalog.metadata.iter())
+            .any(|(before, after)| !Arc::ptr_eq(before, after))
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[cfg(unix)]
 #[test]
 fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {

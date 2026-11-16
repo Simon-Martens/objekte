@@ -912,7 +912,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         let target = &repo.collections()[0];
         let relation = repo.relation_index("mentions", &["entry".into()]).unwrap();
         let source_slot = source.id_lookup["link"];
-        let target_slot = target.id_lookup[target_id.as_ref()];
+        let target_slot = target.id_lookup[target_id.as_str()];
         assert_eq!(
             relation.edges(source_slot).unwrap()[0].target,
             RelationTarget::Resolved(target_slot)

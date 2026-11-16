@@ -103,7 +103,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let empty_ids: Vec<_> = collection
                 .empty_array_records
                 .iter()
-                .map(|slot| collection.generation.records[slot as usize].id.0.as_ref())
+                .map(|slot| collection.generation.records[slot as usize].id.0.as_str())
                 .collect();
             assert_eq!(empty_ids, ["c", "d", "e"]);
             assert_eq!(repo.build_parses, 116);

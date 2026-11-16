@@ -590,6 +590,69 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
 }
 
 impl SortCollection {
+    pub(crate) fn configuration_only(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+    ) -> Result<Self, String> {
+        if overrides.keys().any(|path| !paths.contains(path)) {
+            return Err("sort override is not a configured sort field".into());
+        }
+        let mut columns = HashMap::with_capacity(paths.len());
+        for path in paths {
+            let config = overrides.get(path).cloned().unwrap_or_else(|| SortConfig {
+                locale: locale.into(),
+                options: defaults,
+            });
+            let field = schema.field(path)?;
+            if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
+                return Err(format!(
+                    "array/object sort needs explicit reduction: {}",
+                    path.display()
+                ));
+            }
+            if columns
+                .insert(
+                    path.clone(),
+                    SortColumn {
+                        path: path.clone(),
+                        kind: field.kind,
+                        keys: Vec::new(),
+                        ascending: Vec::new(),
+                        descending: Vec::new(),
+                        locale: config.locale,
+                        options: config.options,
+                        collation_version: COLLATION_VERSION.into(),
+                    },
+                )
+                .is_some()
+            {
+                return Err("duplicate sort field".into());
+            }
+        }
+        let mut composites = Vec::new();
+        for fields in &schema.composite_sorts {
+            let parts = fields
+                .iter()
+                .map(simple_composite_part)
+                .collect::<Option<Vec<_>>>();
+            if fields.len() < 2
+                || parts.as_ref().is_none_or(|parts| {
+                    parts.iter().any(|part| !columns.contains_key(&part.path))
+                })
+            {
+                return Err("composite sort requires configured resident scalar fields".into());
+            }
+            composites.push(CompositeSortOrder {
+                fields: parts.expect("validated composite parts"),
+                order: Vec::new(),
+            });
+        }
+        Ok(Self { columns, composites })
+    }
+
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields
             .iter()
@@ -633,6 +696,34 @@ pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'sta
 }
 
 impl SortBuilder {
+    pub(crate) fn with_keys(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+        mut keys: HashMap<FieldPath, Vec<SortKey>>,
+        record_count: usize,
+    ) -> Result<Self, String> {
+        let mut builder = Self::new(paths, schema, locale, defaults, overrides)?;
+        if keys.len() != builder.columns.len() {
+            return Err("sort batch column coverage mismatch".into());
+        }
+        for (path, column) in &mut builder.columns {
+            let values = keys
+                .remove(path)
+                .ok_or("sort batch column missing")?;
+            if values.len() != record_count {
+                return Err("sort batch key coverage mismatch".into());
+            }
+            column.keys = values;
+        }
+        if !keys.is_empty() {
+            return Err("sort batch contains an unexpected column".into());
+        }
+        Ok(builder)
+    }
+
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
         self.columns
             .into_iter()

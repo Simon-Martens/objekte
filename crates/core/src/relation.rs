@@ -216,10 +216,10 @@ impl RelationIndex {
                         if record.slot != *slot {
                             return Err("relation target slot mismatch".into());
                         }
-                        if edge.target_id() != record.id.0.as_ref() {
+                        if edge.target_id() != record.id.0.as_str() {
                             return Err("relation resolved target ID mismatch".into());
                         }
-                        record.id.0.as_ref()
+                        record.id.0.as_str()
                     }
                     RelationTarget::Unresolved(id) => {
                         if edge.target_id() != id.as_str() {

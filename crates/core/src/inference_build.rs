@@ -1262,6 +1262,13 @@ impl InferenceBuilder {
         Some(builder)
     }
 
+    pub(crate) fn promote_first_batch(mut self, collections: usize) -> Self {
+        self.batch = false;
+        self.coordinator_limit =
+            self.config.policy.max_total_bytes / collections.max(1);
+        self
+    }
+
     fn limit(&self) -> usize {
         if self.batch {
             self.batch_limit
@@ -1270,6 +1277,7 @@ impl InferenceBuilder {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn build_stats(&self) -> InferenceBuildStats {
         InferenceBuildStats {
             observed_records: self.observed_records,

@@ -83,9 +83,15 @@ impl<T> ValidatedArchive<T>
 where
     T: Archive,
     T::Archived: Portable + for<'a> CheckBytes<rkyv::api::high::HighValidator<'a, Error>>,
-    T: for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
 {
-    pub(crate) fn freeze(value: &T) -> Result<Arc<Self>, String> {
+    /// Freeze a borrowed serialization source whose archived root is exactly
+    /// the retained root type. The source may borrow temporary ownership
+    /// tables; those references are not retained by the returned archive.
+    pub(crate) fn freeze_source<S>(value: &S) -> Result<Arc<Self>, String>
+    where
+        S: Archive<Archived = Archived<T>>
+            + for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
+    {
         #[cfg(test)]
         if FAIL_NEXT_FREEZE.with(|fail| fail.replace(false)) {
             return Err("injected archive-finalization failure".into());
@@ -100,6 +106,10 @@ where
         }
         let _validated = access::<Archived<T>, Error>(&bytes)
             .map_err(|error| format!("archive validation failed: {error}"))?;
+        StorageWorkCounters::update(|counters| {
+            counters.checked_archive_validations =
+                counters.checked_archive_validations.saturating_add(1);
+        });
         let owner = Arc::new(Self {
             bytes,
             _root: PhantomData,
@@ -111,7 +121,17 @@ where
         });
         Ok(owner)
     }
+}
 
+impl<T> ValidatedArchive<T>
+where
+    T: Archive,
+    T::Archived: Portable + for<'a> CheckBytes<rkyv::api::high::HighValidator<'a, Error>>,
+    T: for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
+{
+    pub(crate) fn freeze(value: &T) -> Result<Arc<Self>, String> {
+        Self::freeze_source(value)
+    }
 }
 
 #[cfg(test)]

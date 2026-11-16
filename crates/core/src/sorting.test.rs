@@ -1,4 +1,34 @@
 use super::*;
+use crate::reference::FieldDefinition;
+
+#[test]
+fn configuration_only_sort_header_has_no_payload_capacity() {
+    let field = FieldDefinition {
+        path: vec!["title".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut schema = Schema::default();
+    schema.register_field(field).unwrap();
+    let configuration = SortCollection::configuration_only(
+        &[FieldPath::parse("title").unwrap()],
+        &schema,
+        "und",
+        SortOptions::default(),
+        &HashMap::new(),
+    )
+    .unwrap();
+    let column = configuration.column("title").unwrap();
+    assert_eq!(column.keys.len(), 0);
+    assert_eq!(column.keys.capacity(), 0);
+    assert_eq!(column.ascending.capacity(), 0);
+    assert_eq!(column.descending.capacity(), 0);
+    assert!(configuration.composites.is_empty());
+}
 
 fn inferred_test_column(path: &str) -> SortColumn {
     SortColumn {
@@ -344,12 +374,12 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let records = &segment.records;
     let g = records
         .iter()
-        .find(|record| record.id.0.as_ref() == "g")
+        .find(|record| record.id.0.as_str() == "g")
         .unwrap()
         .slot;
     let h = records
         .iter()
-        .find(|record| record.id.0.as_ref() == "h")
+        .find(|record| record.id.0.as_str() == "h")
         .unwrap()
         .slot;
     assert_eq!(column.keys[g.0 as usize], column.keys[h.0 as usize]);
