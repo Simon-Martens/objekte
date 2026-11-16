@@ -865,9 +865,25 @@ pub struct FileCatalogRecord {
     pub incarnation: u32,
 }
 
+/// Borrowed serialization view for build jobs that own file entries.
+#[derive(Serialize)]
+pub struct FileCatalogRecordRef<'a> {
+    pub entry: &'a FileEntry,
+    pub live: bool,
+    pub incarnation: u32,
+}
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct RecordCatalogRecord {
     pub entry: RecordEntry,
+    pub live: bool,
+    pub incarnation: u32,
+}
+
+/// Borrowed serialization view for build jobs that own record entries.
+#[derive(Serialize)]
+pub struct RecordCatalogRecordRef<'a> {
+    pub entry: &'a RecordEntry,
     pub live: bool,
     pub incarnation: u32,
 }

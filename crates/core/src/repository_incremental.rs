@@ -17,7 +17,6 @@ const LATER_SEGMENT_RECORDS: usize = 132_000;
 const FIRST_SEGMENT_SOURCE_BYTES: u64 = 128 * 1024 * 1024;
 const LATER_SEGMENT_SOURCE_BYTES: u64 = 160 * 1024 * 1024;
 
-
 struct IncrementalCollection {
     definition: Arc<CollectionDefinition>,
     source: PreparedSource,
@@ -30,7 +29,6 @@ struct IncrementalCollection {
     options: RepositoryOptions,
     collection_count: usize,
 }
-
 
 impl IncrementalCollection {
     fn new(
@@ -197,7 +195,6 @@ impl IncrementalCollection {
     }
 }
 
-
 fn publish_segment(
     index: &Index,
     expected: &mut IndexRevision,
@@ -238,7 +235,8 @@ fn publish_segment(
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().index_ns = ns;
     }
-    let (revision, phases) = index.publish_initial_segment(*expected, indexed, profile.is_some())?;
+    let (revision, phases) =
+        index.publish_initial_segment(*expected, indexed, profile.is_some())?;
     *expected = revision;
     if let Some(profile) = profile.as_mut() {
         profile.publication_prepare_ns = profile
@@ -298,8 +296,6 @@ fn admit_normal(
     digest_bindings: &mut [Vec<(CollectionId, [u8; 32])>],
     build_parses: &mut u64,
     failed_parses: &mut u64,
-    source_reads: &mut u64,
-    source_bytes_read: &mut u64,
     index: &Index,
     expected: &mut IndexRevision,
     options: RepositoryOptions,
@@ -328,8 +324,6 @@ fn admit_normal(
     }
     *build_parses = build_parses.saturating_add(batch.record_parses);
     *failed_parses = failed_parses.saturating_add(batch.failed_parses);
-    *source_reads = source_reads.saturating_add(batch.source_reads);
-    *source_bytes_read = source_bytes_read.saturating_add(batch.source_bytes_read);
     if let Some(profile) = profile.as_mut() {
         profile.work.absorb(&batch.profile);
         profile
@@ -365,7 +359,6 @@ fn admit_normal(
     }
     Ok(())
 }
-
 
 impl Repository {
     #[allow(clippy::too_many_arguments)]
@@ -588,8 +581,6 @@ impl Repository {
         let mut digest_bindings = vec![Vec::new(); discovered.files.len()];
         let mut build_parses = 0u64;
         let mut failed_parses = 0u64;
-        let mut source_reads = 0u64;
-        let mut source_bytes_read = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         let mut publication_ns = 0u64;
         let mut normal = Vec::new();
@@ -623,8 +614,6 @@ impl Repository {
                                     &mut digest_bindings,
                                     &mut build_parses,
                                     &mut failed_parses,
-                                    &mut source_reads,
-                                    &mut source_bytes_read,
                                     &index,
                                     &mut expected,
                                     options,
@@ -755,8 +744,6 @@ impl Repository {
                         &mut digest_bindings,
                         &mut build_parses,
                         &mut failed_parses,
-                        &mut source_reads,
-                        &mut source_bytes_read,
                         &index,
                         &mut expected,
                         options,
@@ -853,9 +840,8 @@ impl Repository {
             build_publication_ns: publication_ns,
             build_finalization_ns: finalization_started.elapsed().as_nanos() as u64,
             build_workers,
-            build_source_reads: source_reads.saturating_add(schedule_stats.source_reads),
-            build_source_bytes_read: source_bytes_read
-                .saturating_add(schedule_stats.source_bytes_read),
+            build_source_reads: schedule_stats.source_reads,
+            build_source_bytes_read: schedule_stats.source_bytes_read,
             peak_build_admitted_bytes: schedule_stats.peak_weight_bytes,
             build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
             build_peak_active_jobs: schedule_stats.peak_active_jobs,

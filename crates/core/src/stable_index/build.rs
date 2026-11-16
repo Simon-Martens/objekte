@@ -1,7 +1,8 @@
 //! Construction of independent component trees from native build results.
 
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 use std::path::Path;
+use std::sync::Arc;
 use std::time::Instant;
 
 use rayon::prelude::*;
@@ -10,18 +11,20 @@ use serde::Serialize;
 use sha2::{Digest, Sha256};
 
 use crate::bigram::BigramIndex;
-use crate::inventory::{FileInventory, RecordClass, RecordEntry};
-use crate::model::{CollectionId, FileId, RecordSlot};
-use crate::posting::{PostingIndex, StructuralKey};
+use crate::inventory::{FileEntry, FileInventory, RecordClass, RecordEntry};
+use crate::model::{CollectionId, FileId, LogicalType, Number, RecordSlot};
+use crate::posting::{
+    CustomPostingIndex, PostingCollection, PostingIndex, ScalarKey, StructuralFacts, StructuralKey,
+};
 use crate::relation::{RelationIndex, RelationTarget};
 use crate::repository::{CollectionState, Repository};
-use crate::sorting::SortColumn;
+use crate::sorting::{SortCollection, SortColumn, SortKey};
 
 use super::StablePrototype;
 use super::codec::{
     self, BindingRole, CollectionIdentity, ComponentDescriptor, ComponentId, ComponentKey,
-    ComponentKind, CoverageDescriptor, FieldIdentity, FileCatalogRecord, OrderingDescriptor,
-    PathCatalogEntry, PathKey, RecordCatalogRecord, RecordRef, RelationOccurrenceKey,
+    ComponentKind, CoverageDescriptor, FieldIdentity, FileCatalogRecordRef, OrderingDescriptor,
+    PathCatalogEntry, PathKey, RecordCatalogRecordRef, RecordRef, RelationOccurrenceKey,
     RelationOccurrenceValue, RelationTargetKey, SortEntryKey,
 };
 use super::memory::{self, IndexTree, StoredBytes};
@@ -51,17 +54,71 @@ pub(crate) fn from_repository(
     )
 }
 
+/// Owned construction state for one collection. The direct source-build path
+/// moves completed native accumulators into these values so conversion jobs can
+/// release each index as soon as its stable bytes have been produced.
+pub(crate) struct OwnedCollection {
+    pub definition: crate::repository::CollectionDefinition,
+    pub id: CollectionId,
+    pub generation: u64,
+    pub records: Arc<Vec<RecordEntry>>,
+    pub logical_records: RoaringBitmap,
+    pub empty_array_records: RoaringBitmap,
+    pub postings: PostingCollection,
+    pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub raw: BigramIndex,
+    pub fallback_text: BigramIndex,
+    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub sorting: SortCollection,
+    pub relations: Vec<RelationIndex>,
+    pub total_file_bytes: u64,
+}
+
+impl OwnedCollection {
+    fn from_state(state: &CollectionState) -> Result<Self, String> {
+        if state.inference.is_some() || state.global_inference.is_some() {
+            return Err("inference is not supported by the stable-index prototype".into());
+        }
+        Ok(Self {
+            definition: state.definition.clone(),
+            id: state.generation.collection,
+            generation: state.generation.generation,
+            records: Arc::new(state.generation.records.clone()),
+            logical_records: state.logical_records.clone(),
+            empty_array_records: state.empty_array_records.clone(),
+            postings: state.postings.clone(),
+            custom_postings: state.custom_postings.clone(),
+            raw: state.raw.clone(),
+            fallback_text: state.fallback_text.clone(),
+            custom_text: state.custom_text.clone(),
+            sorting: state.sorting.clone(),
+            relations: state.relations.clone(),
+            total_file_bytes: state.stats.total_file_bytes,
+        })
+    }
+}
+
 pub(crate) fn from_collections(
     files: &FileInventory,
     collections: &[CollectionState],
     root: &Path,
     pool: &rayon::ThreadPool,
 ) -> Result<StablePrototype, String> {
-    if collections.iter().any(|state| state.inference.is_some()) {
-        return Err("inference is not supported by the stable-index prototype".into());
-    }
-    let configuration_identity = configuration_identity(collections);
-    let repository_identity = repository_identity(files, collections)?;
+    let owned = collections
+        .iter()
+        .map(OwnedCollection::from_state)
+        .collect::<Result<Vec<_>, _>>()?;
+    from_owned(files.clone(), owned, root, pool)
+}
+
+pub(crate) fn from_owned(
+    mut files: FileInventory,
+    collections: Vec<OwnedCollection>,
+    root: &Path,
+    pool: &rayon::ThreadPool,
+) -> Result<StablePrototype, String> {
+    let configuration_identity = configuration_identity(&collections);
+    let repository_identity = repository_identity(&files, &collections)?;
     let slot_namespace = slot_namespace(root, configuration_identity, repository_identity);
     let schema_fingerprint = collections
         .first()
@@ -70,19 +127,37 @@ pub(crate) fn from_collections(
         .iter()
         .map(|state| {
             (
-                state.generation.collection,
+                state.id,
                 CollectionIdentity {
-                    id: state.generation.collection,
+                    id: state.id,
                     name: state.definition.name.clone(),
-                    generation: state.generation.generation,
+                    generation: state.generation,
                 },
             )
         })
         .collect::<BTreeMap<_, _>>();
+    let manifest_collections = collections
+        .iter()
+        .map(|state| ManifestCollection {
+            id: state.id.0,
+            name: state.definition.name.clone(),
+            generation: state.generation,
+            slot_high_water: u32::try_from(state.records.len()).unwrap_or(u32::MAX),
+            live_records: state.records.len() as u64,
+            identity_policy: super::PersistedIdentityPolicy::from(&state.definition.identity),
+        })
+        .collect::<Vec<_>>();
+    let next_file_id = files
+        .files
+        .iter()
+        .map(|file| file.id.0.saturating_add(1))
+        .max()
+        .unwrap_or(0);
+    let paths = prepare_paths(&files, &collections)?;
 
     let mut drafts = Vec::new();
     drafts.push(files_draft(
-        files,
+        std::mem::take(&mut files.files),
         &configuration_identity,
         repository_identity,
         schema_fingerprint,
@@ -90,128 +165,122 @@ pub(crate) fn from_collections(
         root,
     ));
     drafts.push(paths_draft(
-        prepare_paths(files, collections)?,
+        paths,
         &configuration_identity,
         repository_identity,
         schema_fingerprint,
         &slot_namespace,
-        &root,
+        root,
     ));
-    for state in collections {
-        let collection = &collection_identities[&state.generation.collection];
+
+    for collection in collections {
+        let OwnedCollection {
+            definition: _definition,
+            id,
+            generation: _,
+            records,
+            logical_records,
+            empty_array_records,
+            postings,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            sorting,
+            relations,
+            total_file_bytes: _total_file_bytes,
+        } = collection;
+        let collection_identity = collection_identities[&id].clone();
+        let record_count = records.len();
+
         drafts.push(records_draft(
-            state,
-            collection,
+            Arc::clone(&records),
+            record_count,
+            &collection_identity,
             &configuration_identity,
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
-            &root,
+            root,
         ));
         drafts.push(identities_draft(
-            state,
-            collection,
+            Arc::clone(&records),
+            record_count,
+            &collection_identity,
             &configuration_identity,
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
-            &root,
+            root,
         ));
         drafts.push(domains_draft(
-            state,
-            collection,
+            Arc::clone(&records),
+            logical_records,
+            empty_array_records,
+            record_count,
+            &collection_identity,
             &configuration_identity,
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
-            &root,
+            root,
         ));
-        for (path, index) in &state.postings.fields {
+
+        for (path, index) in postings.fields {
+            let PostingIndex {
+                path: index_path,
+                kind,
+                multi,
+                presence,
+                empty_selections,
+                nulls,
+                structural,
+                values,
+                lengths,
+                values_indexed,
+                value_complete,
+                length_complete,
+                empty_string_complete,
+                covered_records,
+                stats: _,
+            } = index;
+            if index_path != path {
+                return Err("posting path identity mismatch".into());
+            }
             let field = FieldIdentity {
                 path: path.clone(),
                 binding: None,
                 role: BindingRole::DeclaredField,
-                logical_type: Some(index.kind.clone()),
-                multi: index.multi,
+                logical_type: Some(kind.clone()),
+                multi,
             };
             let coverage = CoverageDescriptor {
-                values_indexed: index.values_indexed,
-                value_complete: index.value_complete,
-                length_complete: index.length_complete,
-                empty_string_complete: index.empty_string_complete,
-                covered_records: index.covered_records,
-                complete_for_field: index.value_complete
-                    && index.length_complete
-                    && index.empty_string_complete,
-                structural_complete: index.structural.is_some(),
+                values_indexed,
+                value_complete,
+                length_complete,
+                empty_string_complete,
+                covered_records,
+                complete_for_field: value_complete && length_complete && empty_string_complete,
+                structural_complete: structural.is_some(),
             };
-            drafts.push(posting_draft(
-                state,
-                collection,
-                field.clone(),
-                ComponentKind::Values,
-                coverage.clone(),
-                JobData::Values(index),
-                &configuration_identity,
-                repository_identity,
-                schema_fingerprint,
-                &slot_namespace,
-                root,
-            ));
-            drafts.push(posting_draft(
-                state,
-                collection,
-                field.clone(),
-                ComponentKind::Lengths,
-                coverage.clone(),
-                JobData::Lengths(index),
-                &configuration_identity,
-                repository_identity,
-                schema_fingerprint,
-                &slot_namespace,
-                root,
-            ));
-            drafts.push(posting_draft(
-                state,
-                collection,
-                field,
-                ComponentKind::States,
-                coverage,
-                JobData::States(index),
-                &configuration_identity,
-                repository_identity,
-                schema_fingerprint,
-                &slot_namespace,
-                root,
-            ));
-        }
-        for ((path, name), custom) in &state.custom_postings {
-            let field = FieldIdentity {
-                path: path.clone(),
-                binding: Some(name.clone()),
-                role: BindingRole::NamedBinding,
-                logical_type: Some(custom.index.kind.clone()),
-                multi: custom.index.multi,
-            };
-            let coverage = CoverageDescriptor {
-                values_indexed: custom.index.values_indexed,
-                value_complete: custom.index.value_complete,
-                length_complete: custom.index.length_complete,
-                empty_string_complete: custom.index.empty_string_complete,
-                covered_records: custom.index.covered_records,
-                complete_for_field: custom.complete,
-                structural_complete: custom.index.structural.is_some(),
-            };
-            for (kind, data) in [
-                (ComponentKind::Values, JobData::Values(&custom.index)),
-                (ComponentKind::Lengths, JobData::Lengths(&custom.index)),
-                (ComponentKind::States, JobData::States(&custom.index)),
+            for (component_kind, data) in [
+                (ComponentKind::Values, JobData::Values(values)),
+                (ComponentKind::Lengths, JobData::Lengths(lengths)),
+                (
+                    ComponentKind::States,
+                    JobData::States(OwnedStatePostings {
+                        presence,
+                        empty_selections,
+                        nulls,
+                        structural,
+                    }),
+                ),
             ] {
                 drafts.push(posting_draft(
-                    state,
-                    collection,
+                    &collection_identity,
+                    record_count,
                     field.clone(),
-                    kind,
+                    component_kind,
                     coverage.clone(),
                     data,
                     &configuration_identity,
@@ -222,14 +291,85 @@ pub(crate) fn from_collections(
                 ));
             }
         }
+
+        for ((path, name), custom) in custom_postings {
+            let CustomPostingIndex {
+                index:
+                    PostingIndex {
+                        path: index_path,
+                        kind,
+                        multi,
+                        presence,
+                        empty_selections,
+                        nulls,
+                        structural,
+                        values,
+                        lengths,
+                        values_indexed,
+                        value_complete,
+                        length_complete,
+                        empty_string_complete,
+                        covered_records,
+                        stats: _,
+                    },
+                complete,
+            } = custom;
+            if index_path != path {
+                return Err("custom posting path identity mismatch".into());
+            }
+            let field = FieldIdentity {
+                path: path.clone(),
+                binding: Some(name.clone()),
+                role: BindingRole::NamedBinding,
+                logical_type: Some(kind.clone()),
+                multi,
+            };
+            let coverage = CoverageDescriptor {
+                values_indexed,
+                value_complete,
+                length_complete,
+                empty_string_complete,
+                covered_records,
+                complete_for_field: complete,
+                structural_complete: structural.is_some(),
+            };
+            for (component_kind, data) in [
+                (ComponentKind::Values, JobData::Values(values)),
+                (ComponentKind::Lengths, JobData::Lengths(lengths)),
+                (
+                    ComponentKind::States,
+                    JobData::States(OwnedStatePostings {
+                        presence,
+                        empty_selections,
+                        nulls,
+                        structural,
+                    }),
+                ),
+            ] {
+                drafts.push(posting_draft(
+                    &collection_identity,
+                    record_count,
+                    field.clone(),
+                    component_kind,
+                    coverage.clone(),
+                    data,
+                    &configuration_identity,
+                    repository_identity,
+                    schema_fingerprint,
+                    &slot_namespace,
+                    root,
+                ));
+            }
+        }
+
         append_text_drafts(
             &mut drafts,
-            state,
-            collection,
+            &collection_identity,
+            record_count,
             BindingRole::RawText,
             Vec::new(),
             None,
-            &state.raw,
+            raw,
             &configuration_identity,
             repository_identity,
             schema_fingerprint,
@@ -238,26 +378,26 @@ pub(crate) fn from_collections(
         );
         append_text_drafts(
             &mut drafts,
-            state,
-            collection,
+            &collection_identity,
+            record_count,
             BindingRole::FallbackText,
             Vec::new(),
             None,
-            &state.fallback_text,
+            fallback_text,
             &configuration_identity,
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
             root,
         );
-        for ((path, name), index) in &state.custom_text {
+        for ((path, name), index) in custom_text {
             append_text_drafts(
                 &mut drafts,
-                state,
-                collection,
+                &collection_identity,
+                record_count,
                 BindingRole::CustomText,
-                path.clone(),
-                Some(name.clone()),
+                path,
+                Some(name),
                 index,
                 &configuration_identity,
                 repository_identity,
@@ -266,60 +406,18 @@ pub(crate) fn from_collections(
                 root,
             );
         }
-        for composite in &state.sorting.composites {
-            let mut columns = Vec::with_capacity(composite.fields.len());
-            let mut descending = Vec::with_capacity(composite.fields.len());
-            let mut parts = Vec::with_capacity(composite.fields.len());
-            for part in &composite.fields {
-                let column = state
-                    .sorting
-                    .columns
-                    .get(&part.path)
-                    .ok_or_else(|| "composite sort constituent is missing".to_string())?;
-                columns.push(column);
-                descending.push(part.descending);
-                parts.push(codec::CompositeOrderingPart {
-                    path: part.path.segments.clone(),
-                    locale: column.locale.clone(),
-                    collation_version: column.collation_version.clone(),
-                    options: column.options,
-                    descending: part.descending,
-                });
-            }
-            let mut descriptor = descriptor(
-                ComponentKind::CompositeSort,
-                Some(collection.clone()),
-                None,
-                None,
-                None,
-                CoverageDescriptor {
-                    values_indexed: true,
-                    value_complete: true,
-                    length_complete: false,
-                    empty_string_complete: false,
-                    covered_records: state.generation.records.len() as u32,
-                    complete_for_field: true,
-                    structural_complete: true,
-                },
-                &configuration_identity,
-                repository_identity,
-                schema_fingerprint,
-                &slot_namespace,
-                state.generation.records.len() as u32,
-                root,
-            );
-            descriptor.composite = parts;
-            drafts.push(Draft {
-                descriptor,
-                data: JobData::CompositeSort {
-                    columns,
-                    descending,
-                    records: &state.generation.records,
-                },
-                estimated_work: 0,
-            });
-        }
-        for (path, column) in &state.sorting.columns {
+
+        let SortCollection {
+            columns,
+            composites,
+        } = sorting;
+        let mut columns = columns.into_iter().collect::<Vec<_>>();
+        columns.sort_by(|left, right| left.0.display().cmp(&right.0.display()));
+        let columns = columns
+            .into_iter()
+            .map(|(path, column)| (path, OwnedSortColumn::from(column)))
+            .collect::<Vec<_>>();
+        for (path, column) in &columns {
             let field = FieldIdentity {
                 path: path.segments.clone(),
                 binding: None,
@@ -332,10 +430,11 @@ pub(crate) fn from_collections(
                 (ComponentKind::SortDescending, true),
             ] {
                 drafts.push(sort_draft(
-                    collection,
+                    &collection_identity,
+                    record_count,
                     field.clone(),
-                    column,
-                    &state.generation.records,
+                    column.clone(),
+                    Arc::clone(&records),
                     descending,
                     kind,
                     &configuration_identity,
@@ -346,25 +445,78 @@ pub(crate) fn from_collections(
                 ));
             }
         }
-        for relation in &state.relations {
+        for composite in composites {
+            let mut composite_columns = Vec::with_capacity(composite.fields.len());
+            let mut descending = Vec::with_capacity(composite.fields.len());
+            let mut parts = Vec::with_capacity(composite.fields.len());
+            for part in &composite.fields {
+                let (_, column) = columns
+                    .iter()
+                    .find(|(path, _)| path == &part.path)
+                    .ok_or_else(|| "composite sort constituent is missing".to_string())?;
+                composite_columns.push(column.clone());
+                descending.push(part.descending);
+                parts.push(codec::CompositeOrderingPart {
+                    path: part.path.segments.clone(),
+                    locale: column.locale.clone(),
+                    collation_version: column.collation_version.clone(),
+                    options: column.options,
+                    descending: part.descending,
+                });
+            }
+            let mut descriptor = descriptor(
+                ComponentKind::CompositeSort,
+                Some(collection_identity.clone()),
+                None,
+                None,
+                None,
+                CoverageDescriptor {
+                    values_indexed: true,
+                    value_complete: true,
+                    length_complete: false,
+                    empty_string_complete: false,
+                    covered_records: record_count as u32,
+                    complete_for_field: true,
+                    structural_complete: true,
+                },
+                &configuration_identity,
+                repository_identity,
+                schema_fingerprint,
+                &slot_namespace,
+                record_count as u32,
+                root,
+            );
+            descriptor.composite = parts;
+            drafts.push(Draft {
+                descriptor,
+                data: JobData::CompositeSort {
+                    columns: composite_columns,
+                    descending,
+                    records: Arc::clone(&records),
+                },
+                estimated_work: 0,
+            });
+        }
+        for relation in relations {
+            let relation = Arc::new(relation);
             for (kind, data) in [
                 (
                     ComponentKind::RelationOccurrences,
-                    JobData::RelationOccurrences(relation),
+                    JobData::RelationOccurrences(Arc::clone(&relation)),
                 ),
                 (
                     ComponentKind::RelationTargets,
-                    JobData::RelationTargets(relation),
+                    JobData::RelationTargets(Arc::clone(&relation)),
                 ),
                 (
                     ComponentKind::RelationStates,
-                    JobData::RelationStates(relation),
+                    JobData::RelationStates(Arc::clone(&relation)),
                 ),
             ] {
                 drafts.push(relation_draft(
-                    state,
-                    collection,
-                    relation,
+                    &collection_identity,
+                    record_count,
+                    &relation,
                     kind,
                     data,
                     &configuration_identity,
@@ -471,26 +623,8 @@ pub(crate) fn from_collections(
         unusable_reason: None,
         build_records,
         build_stage_ns: BTreeMap::new(),
-        next_file_id: Some(
-            files
-                .files
-                .iter()
-                .map(|file| file.id.0.saturating_add(1))
-                .max()
-                .unwrap_or(0),
-        ),
+        next_file_id: Some(next_file_id),
     };
-    let manifest_collections = collections
-        .iter()
-        .map(|state| ManifestCollection {
-            id: state.generation.collection.0,
-            name: state.definition.name.clone(),
-            generation: state.generation.generation,
-            slot_high_water: u32::try_from(state.generation.records.len()).unwrap_or(u32::MAX),
-            live_records: state.generation.records.len() as u64,
-            identity_policy: super::PersistedIdentityPolicy::from(&state.definition.identity),
-        })
-        .collect::<Vec<_>>();
     let core_components = prototype
         .components
         .values()
@@ -531,13 +665,12 @@ pub(crate) fn from_collections(
     prototype
         .rebuild_collection_index(&manifest_collections, &descriptor_list)
         .map_err(|error| error.to_string())?;
-    for state in collections {
-        if let Some(collection) = prototype.collections.get_mut(&state.generation.collection) {
-            collection.identity_policy =
-                super::PersistedIdentityPolicy::from(&state.definition.identity);
-            collection.slot_high_water =
-                u32::try_from(state.generation.records.len()).unwrap_or(u32::MAX);
-            collection.live_records = state.generation.records.len() as u64;
+    for manifest in &manifest_collections {
+        let collection_id = CollectionId(manifest.id);
+        if let Some(collection) = prototype.collections.get_mut(&collection_id) {
+            collection.identity_policy = manifest.identity_policy.clone();
+            collection.slot_high_water = manifest.slot_high_water;
+            collection.live_records = manifest.live_records;
         }
     }
     prototype.counters.bitmap_encodes = prototype
@@ -561,9 +694,9 @@ fn worker_count(workers: Option<usize>) -> usize {
     })
 }
 
-struct Draft<'a> {
+struct Draft {
     descriptor: ComponentDescriptor,
-    data: JobData<'a>,
+    data: JobData,
     estimated_work: u64,
 }
 
@@ -584,33 +717,65 @@ struct BuildResult {
     estimated_work: u64,
 }
 
-enum JobData<'a> {
-    Files(&'a FileInventory),
-    Paths(Vec<(PathKey, StoredBytes)>),
-    Records(&'a [RecordEntry]),
-    Identities(&'a [RecordEntry]),
-    Domains {
-        records: &'a [RecordEntry],
-        logical: &'a RoaringBitmap,
-        empty_array: &'a RoaringBitmap,
-    },
-    Values(&'a PostingIndex),
-    Lengths(&'a PostingIndex),
-    States(&'a PostingIndex),
-    NormalGrams(&'a BigramIndex),
-    SkipGrams(&'a BigramIndex),
-    Sort(&'a SortColumn, bool, &'a [RecordEntry]),
-    CompositeSort {
-        columns: Vec<&'a SortColumn>,
-        descending: Vec<bool>,
-        records: &'a [RecordEntry],
-    },
-    RelationOccurrences(&'a RelationIndex),
-    RelationTargets(&'a RelationIndex),
-    RelationStates(&'a RelationIndex),
+struct OwnedStatePostings {
+    presence: RoaringBitmap,
+    empty_selections: RoaringBitmap,
+    nulls: RoaringBitmap,
+    structural: Option<StructuralFacts>,
 }
 
-fn estimate_work(data: &JobData<'_>) -> u64 {
+#[derive(Clone)]
+struct OwnedSortColumn {
+    kind: LogicalType,
+    keys: Arc<Vec<SortKey>>,
+    locale: String,
+    options: crate::sorting::SortOptions,
+    collation_version: String,
+}
+
+impl From<SortColumn> for OwnedSortColumn {
+    fn from(column: SortColumn) -> Self {
+        Self {
+            kind: column.kind,
+            keys: Arc::new(column.keys),
+            locale: column.locale,
+            options: column.options,
+            collation_version: column.collation_version,
+        }
+    }
+}
+
+enum JobData {
+    Files(Vec<FileEntry>),
+    Paths(Vec<(PathKey, StoredBytes)>),
+    Records(Arc<Vec<RecordEntry>>),
+    Identities(Arc<Vec<RecordEntry>>),
+    Domains {
+        records: Arc<Vec<RecordEntry>>,
+        logical: RoaringBitmap,
+        empty_array: RoaringBitmap,
+    },
+    Values(BTreeMap<ScalarKey, RoaringBitmap>),
+    Lengths(BTreeMap<Number, RoaringBitmap>),
+    States(OwnedStatePostings),
+    NormalGrams(BTreeMap<u64, RoaringBitmap>),
+    SkipGrams(BTreeMap<u64, RoaringBitmap>),
+    Sort {
+        column: OwnedSortColumn,
+        descending: bool,
+        records: Arc<Vec<RecordEntry>>,
+    },
+    CompositeSort {
+        columns: Vec<OwnedSortColumn>,
+        descending: Vec<bool>,
+        records: Arc<Vec<RecordEntry>>,
+    },
+    RelationOccurrences(Arc<RelationIndex>),
+    RelationTargets(Arc<RelationIndex>),
+    RelationStates(Arc<RelationIndex>),
+}
+
+fn estimate_work(data: &JobData) -> u64 {
     let bitmap_work = |bitmaps: &[&RoaringBitmap]| {
         bitmaps
             .iter()
@@ -618,7 +783,7 @@ fn estimate_work(data: &JobData<'_>) -> u64 {
             .sum::<u64>()
     };
     match data {
-        JobData::Files(files) => files.files.len() as u64 * 8,
+        JobData::Files(files) => files.len() as u64 * 8,
         JobData::Paths(entries) => entries
             .iter()
             .map(|(key, value)| (key.bytes.len() + value.len()) as u64 + 8)
@@ -626,29 +791,28 @@ fn estimate_work(data: &JobData<'_>) -> u64 {
         JobData::Records(records) => records.len() as u64 * 4,
         JobData::Identities(records) => records.len() as u64 * 4,
         JobData::Domains { records, .. } => records.len() as u64 * 8,
-        JobData::Values(index) => {
-            index.values.len() as u64 + bitmap_work(&index.values.values().collect::<Vec<_>>())
+        JobData::Values(postings) => {
+            postings.len() as u64 + bitmap_work(&postings.values().collect::<Vec<_>>())
         }
-        JobData::Lengths(index) => {
-            index.lengths.len() as u64 + bitmap_work(&index.lengths.values().collect::<Vec<_>>())
+        JobData::Lengths(postings) => {
+            postings.len() as u64 + bitmap_work(&postings.values().collect::<Vec<_>>())
         }
-        JobData::States(index) => {
-            let mut work = index.values.len() as u64
-                + index.lengths.len() as u64
-                + bitmap_work(&[&index.presence, &index.empty_selections, &index.nulls]);
-            if let Some(facts) = &index.structural {
+        JobData::States(states) => {
+            let mut work =
+                bitmap_work(&[&states.presence, &states.empty_selections, &states.nulls]);
+            if let Some(facts) = &states.structural {
                 work += facts.postings.len() as u64
                     + bitmap_work(&facts.postings.values().collect::<Vec<_>>());
             }
             work
         }
-        JobData::NormalGrams(index) => {
-            index.normal.len() as u64 + bitmap_work(&index.normal.values().collect::<Vec<_>>())
+        JobData::NormalGrams(postings) => {
+            postings.len() as u64 + bitmap_work(&postings.values().collect::<Vec<_>>())
         }
-        JobData::SkipGrams(index) => {
-            index.skip.len() as u64 + bitmap_work(&index.skip.values().collect::<Vec<_>>())
+        JobData::SkipGrams(postings) => {
+            postings.len() as u64 + bitmap_work(&postings.values().collect::<Vec<_>>())
         }
-        JobData::Sort(column, _, _) => (column.keys.len() as u64).saturating_mul(16),
+        JobData::Sort { column, .. } => (column.keys.len() as u64).saturating_mul(16),
         JobData::CompositeSort {
             columns, records, ..
         } => (columns.len() as u64)
@@ -700,7 +864,7 @@ impl BuildTree {
     }
 }
 
-fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
+fn build_one(draft: Draft, epoch: Instant) -> Result<BuildResult, String> {
     let started = Instant::now();
     let start_offset_ns = started.duration_since(epoch).as_nanos() as u64;
     let worker = format!("{:?}", std::thread::current().id());
@@ -713,21 +877,25 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
             records,
             logical,
             empty_array,
-        } => build_domains(records, logical, empty_array)?,
-        JobData::Values(index) => build_values(index)?,
-        JobData::Lengths(index) => build_lengths(index)?,
-        JobData::States(index) => build_states(index)?,
-        JobData::NormalGrams(index) => build_grams(index, false)?,
-        JobData::SkipGrams(index) => build_grams(index, true)?,
-        JobData::Sort(column, descending, records) => build_sort(column, descending, records)?,
+        } => build_domains(&records, &logical, &empty_array)?,
+        JobData::Values(postings) => build_values(postings)?,
+        JobData::Lengths(postings) => build_lengths(postings)?,
+        JobData::States(states) => build_states(states)?,
+        JobData::NormalGrams(postings) => build_grams(postings, false)?,
+        JobData::SkipGrams(postings) => build_grams(postings, true)?,
+        JobData::Sort {
+            column,
+            descending,
+            records,
+        } => build_sort(&column, descending, &records)?,
         JobData::CompositeSort {
             columns,
             descending,
             records,
-        } => build_composite_sort(columns, descending, records)?,
-        JobData::RelationOccurrences(relation) => build_relation_occurrences(relation)?,
-        JobData::RelationTargets(relation) => build_relation_targets(relation)?,
-        JobData::RelationStates(relation) => build_relation_states(relation)?,
+        } => build_composite_sort(&columns, &descending, &records)?,
+        JobData::RelationOccurrences(relation) => build_relation_occurrences(&relation)?,
+        JobData::RelationTargets(relation) => build_relation_targets(&relation)?,
+        JobData::RelationStates(relation) => build_relation_states(&relation)?,
     };
     let entry_count = tree.len();
     let bitmap_encodes = tree.bitmap_encodes;
@@ -755,11 +923,11 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
     })
 }
 
-fn build_files(files: &FileInventory) -> Result<BuildTree, String> {
+fn build_files(files: Vec<FileEntry>) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(ComponentKind::Files);
-    for file in &files.files {
-        let value = codec::encode_meta(&FileCatalogRecord {
-            entry: file.clone(),
+    for file in files {
+        let value = codec::encode_meta(&FileCatalogRecordRef {
+            entry: &file,
             live: true,
             incarnation: 1,
         })?;
@@ -778,20 +946,36 @@ fn build_prepared_paths(entries: Vec<(PathKey, StoredBytes)>) -> Result<BuildTre
 
 fn prepare_paths(
     files: &FileInventory,
-    collections: &[CollectionState],
+    collections: &[OwnedCollection],
 ) -> Result<Vec<(PathKey, StoredBytes)>, String> {
-    let mut by_file = BTreeMap::<FileId, Vec<RecordRef>>::new();
+    let dense = files
+        .files
+        .iter()
+        .enumerate()
+        .all(|(index, file)| file.id.0 as usize == index);
+    let mut dense_refs = vec![Vec::new(); if dense { files.files.len() } else { 0 }];
+    let mut sparse_refs = BTreeMap::<FileId, Vec<RecordRef>>::new();
     for state in collections {
-        for record in &state.generation.records {
-            by_file.entry(record.file).or_default().push(RecordRef {
-                collection: state.generation.collection,
+        for record in state.records.iter() {
+            let reference = RecordRef {
+                collection: state.id,
                 slot: record.slot,
-            });
+            };
+            if dense {
+                let index =
+                    usize::try_from(record.file.0).map_err(|_| "file ID does not fit in usize")?;
+                dense_refs
+                    .get_mut(index)
+                    .ok_or("record references an absent file ID")?
+                    .push(reference);
+            } else {
+                sparse_refs.entry(record.file).or_default().push(reference);
+            }
         }
     }
     let mut entries = Vec::with_capacity(files.files.len());
     let mut seen = BTreeSet::new();
-    for file in &files.files {
+    for (index, file) in files.files.iter().enumerate() {
         let key = PathKey::from_path(&file.relative_path)?;
         if !seen.insert(key.clone()) {
             return Err(format!(
@@ -799,7 +983,11 @@ fn prepare_paths(
                 file.relative_path.display()
             ));
         }
-        let mut refs = by_file.remove(&file.id).unwrap_or_default();
+        let mut refs = if dense {
+            std::mem::take(&mut dense_refs[index])
+        } else {
+            sparse_refs.remove(&file.id).unwrap_or_default()
+        };
         refs.sort_unstable();
         refs.dedup();
         let value = codec::encode_meta(&PathCatalogEntry {
@@ -808,7 +996,7 @@ fn prepare_paths(
         })?;
         entries.push((key, value));
     }
-    if let Some((file, _)) = by_file.into_iter().next() {
+    if let Some((file, _)) = sparse_refs.into_iter().next() {
         return Err(format!(
             "record references file {} which is absent from the inventory",
             file.0
@@ -817,11 +1005,11 @@ fn prepare_paths(
     Ok(entries)
 }
 
-fn build_records(records: &[RecordEntry]) -> Result<BuildTree, String> {
+fn build_records(records: Arc<Vec<RecordEntry>>) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(ComponentKind::Records);
-    for record in records {
-        let value = codec::encode_meta(&RecordCatalogRecord {
-            entry: record.clone(),
+    for record in records.iter() {
+        let value = codec::encode_meta(&RecordCatalogRecordRef {
+            entry: record,
             live: true,
             incarnation: 1,
         })?;
@@ -830,9 +1018,9 @@ fn build_records(records: &[RecordEntry]) -> Result<BuildTree, String> {
     Ok(tree)
 }
 
-fn build_identities(records: &[RecordEntry]) -> Result<BuildTree, String> {
+fn build_identities(records: Arc<Vec<RecordEntry>>) -> Result<BuildTree, String> {
     let mut identities = BTreeMap::<String, RoaringBitmap>::new();
-    for record in records {
+    for record in records.iter() {
         identities
             .entry(record.id.0.to_string())
             .or_default()
@@ -871,32 +1059,32 @@ fn build_domains(
     Ok(tree)
 }
 
-fn build_values(index: &PostingIndex) -> Result<BuildTree, String> {
+fn build_values(postings: BTreeMap<ScalarKey, RoaringBitmap>) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(ComponentKind::Values);
-    for (key, posting) in &index.values {
-        tree.insert_bitmap(ComponentKey::Scalar(key.clone()), posting)?;
+    for (key, posting) in postings {
+        tree.insert_bitmap(ComponentKey::Scalar(key), &posting)?;
     }
     Ok(tree)
 }
 
-fn build_lengths(index: &PostingIndex) -> Result<BuildTree, String> {
+fn build_lengths(postings: BTreeMap<Number, RoaringBitmap>) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(ComponentKind::Lengths);
-    for (key, posting) in &index.lengths {
-        tree.insert_bitmap(ComponentKey::Length(key.clone()), posting)?;
+    for (key, posting) in postings {
+        tree.insert_bitmap(ComponentKey::Length(key), &posting)?;
     }
     Ok(tree)
 }
 
-fn build_states(index: &PostingIndex) -> Result<BuildTree, String> {
+fn build_states(states: OwnedStatePostings) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(ComponentKind::States);
     for (state, posting) in [
-        (codec::STATE_PRESENCE, &index.presence),
-        (codec::STATE_EMPTY_SELECTION, &index.empty_selections),
-        (codec::STATE_LEGACY_NULL, &index.nulls),
+        (codec::STATE_PRESENCE, &states.presence),
+        (codec::STATE_EMPTY_SELECTION, &states.empty_selections),
+        (codec::STATE_LEGACY_NULL, &states.nulls),
     ] {
         tree.insert_bitmap(ComponentKey::State(state), posting)?;
     }
-    if let Some(facts) = &index.structural {
+    if let Some(facts) = &states.structural {
         for (key, posting) in &facts.postings {
             let state = match key {
                 StructuralKey::AnyNull => codec::STATE_ANY_NULL,
@@ -913,21 +1101,20 @@ fn build_states(index: &PostingIndex) -> Result<BuildTree, String> {
     Ok(tree)
 }
 
-fn build_grams(index: &BigramIndex, skip: bool) -> Result<BuildTree, String> {
-    let source = if skip { &index.skip } else { &index.normal };
+fn build_grams(postings: BTreeMap<u64, RoaringBitmap>, skip: bool) -> Result<BuildTree, String> {
     let mut tree = BuildTree::new(if skip {
         ComponentKind::SkipGrams
     } else {
         ComponentKind::NormalGrams
     });
-    for (gram, posting) in source {
-        tree.insert_bitmap(ComponentKey::Gram(*gram), posting)?;
+    for (gram, posting) in postings {
+        tree.insert_bitmap(ComponentKey::Gram(gram), &posting)?;
     }
     Ok(tree)
 }
 
 fn build_sort(
-    column: &SortColumn,
+    column: &OwnedSortColumn,
     descending: bool,
     records: &[RecordEntry],
 ) -> Result<BuildTree, String> {
@@ -952,8 +1139,8 @@ fn build_sort(
 }
 
 fn build_composite_sort(
-    columns: Vec<&SortColumn>,
-    descending: Vec<bool>,
+    columns: &[OwnedSortColumn],
+    descending: &[bool],
     records: &[RecordEntry],
 ) -> Result<BuildTree, String> {
     if columns.len() != descending.len() || records.is_empty() {
@@ -970,7 +1157,7 @@ fn build_composite_sort(
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot overflow")?);
         let parts = columns
             .iter()
-            .zip(&descending)
+            .zip(descending)
             .map(|(column, descending)| codec::CompositePartKey {
                 options: column.options,
                 descending: *descending,
@@ -1063,14 +1250,14 @@ fn relation_max_slot(relation: &RelationIndex) -> u32 {
 }
 
 #[allow(clippy::too_many_arguments)]
-fn files_draft<'a>(
-    files: &'a FileInventory,
+fn files_draft(
+    files: Vec<FileEntry>,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: descriptor(
             ComponentKind::Files,
@@ -1092,14 +1279,14 @@ fn files_draft<'a>(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn paths_draft<'a>(
+fn paths_draft(
     entries: Vec<(PathKey, StoredBytes)>,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: descriptor(
             ComponentKind::Paths,
@@ -1120,15 +1307,17 @@ fn paths_draft<'a>(
     }
 }
 
-fn records_draft<'a>(
-    state: &'a CollectionState,
+#[allow(clippy::too_many_arguments)]
+fn records_draft(
+    records: Arc<Vec<RecordEntry>>,
+    record_count: usize,
     collection: &CollectionIdentity,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: collection_descriptor(
             ComponentKind::Records,
@@ -1139,22 +1328,24 @@ fn records_draft<'a>(
             schema_fingerprint,
             slot_namespace,
             root,
-            state.generation.records.len(),
+            record_count,
         ),
-        data: JobData::Records(state.generation.records.as_slice()),
+        data: JobData::Records(records),
         estimated_work: 0,
     }
 }
 
-fn identities_draft<'a>(
-    state: &'a CollectionState,
+#[allow(clippy::too_many_arguments)]
+fn identities_draft(
+    records: Arc<Vec<RecordEntry>>,
+    record_count: usize,
     collection: &CollectionIdentity,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: collection_descriptor(
             ComponentKind::Identities,
@@ -1165,22 +1356,26 @@ fn identities_draft<'a>(
             schema_fingerprint,
             slot_namespace,
             root,
-            state.generation.records.len(),
+            record_count,
         ),
-        data: JobData::Identities(state.generation.records.as_slice()),
+        data: JobData::Identities(records),
         estimated_work: 0,
     }
 }
 
-fn domains_draft<'a>(
-    state: &'a CollectionState,
+#[allow(clippy::too_many_arguments)]
+fn domains_draft(
+    records: Arc<Vec<RecordEntry>>,
+    logical: RoaringBitmap,
+    empty_array: RoaringBitmap,
+    record_count: usize,
     collection: &CollectionIdentity,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: collection_descriptor(
             ComponentKind::Domains,
@@ -1191,31 +1386,31 @@ fn domains_draft<'a>(
             schema_fingerprint,
             slot_namespace,
             root,
-            state.generation.records.len(),
+            record_count,
         ),
         data: JobData::Domains {
-            records: state.generation.records.as_slice(),
-            logical: &state.logical_records,
-            empty_array: &state.empty_array_records,
+            records,
+            logical,
+            empty_array,
         },
         estimated_work: 0,
     }
 }
 
 #[allow(clippy::too_many_arguments)]
-fn posting_draft<'a>(
-    state: &CollectionState,
+fn posting_draft(
     collection: &CollectionIdentity,
+    record_count: usize,
     field: FieldIdentity,
     kind: ComponentKind,
     coverage: CoverageDescriptor,
-    data: JobData<'a>,
+    data: JobData,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: descriptor(
             kind,
@@ -1228,7 +1423,7 @@ fn posting_draft<'a>(
             repository_identity,
             schema_fingerprint,
             slot_namespace,
-            state.generation.records.len() as u32,
+            record_count as u32,
             root,
         ),
         data,
@@ -1237,25 +1432,32 @@ fn posting_draft<'a>(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn append_text_drafts<'a>(
-    drafts: &mut Vec<Draft<'a>>,
-    state: &'a CollectionState,
+fn append_text_drafts(
+    drafts: &mut Vec<Draft>,
     collection: &CollectionIdentity,
+    record_count: usize,
     role: BindingRole,
     path: Vec<String>,
     binding: Option<String>,
-    index: &'a BigramIndex,
+    index: BigramIndex,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
 ) {
+    let BigramIndex {
+        alphabet,
+        record_count: index_record_count,
+        normal,
+        skip,
+    } = index;
+    debug_assert_eq!(index_record_count as usize, record_count);
     let field = FieldIdentity {
         path,
         binding,
         role,
-        logical_type: Some(crate::model::LogicalType::String),
+        logical_type: Some(LogicalType::String),
         multi: true,
     };
     let coverage = CoverageDescriptor {
@@ -1263,17 +1465,28 @@ fn append_text_drafts<'a>(
         value_complete: true,
         length_complete: false,
         empty_string_complete: false,
-        covered_records: index.record_count,
+        covered_records: record_count as u32,
         complete_for_field: true,
         structural_complete: true,
     };
-    for (kind, data) in [
-        (ComponentKind::NormalGrams, JobData::NormalGrams(index)),
-        (ComponentKind::SkipGrams, JobData::SkipGrams(index)),
+    for (kind, postings) in [
+        (
+            ComponentKind::NormalGrams,
+            normal.into_iter().collect::<BTreeMap<_, _>>(),
+        ),
+        (
+            ComponentKind::SkipGrams,
+            skip.into_iter().collect::<BTreeMap<_, _>>(),
+        ),
     ] {
+        let data = if kind == ComponentKind::SkipGrams {
+            JobData::SkipGrams(postings)
+        } else {
+            JobData::NormalGrams(postings)
+        };
         let mut draft = posting_draft(
-            state,
             collection,
+            record_count,
             field.clone(),
             kind,
             coverage.clone(),
@@ -1285,7 +1498,7 @@ fn append_text_drafts<'a>(
             root,
         );
         draft.descriptor.text = Some(codec::TextRepresentationDescriptor {
-            alphabet: index.alphabet,
+            alphabet,
             gram_role: if kind == ComponentKind::SkipGrams {
                 1
             } else {
@@ -1301,11 +1514,12 @@ fn append_text_drafts<'a>(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn sort_draft<'a>(
+fn sort_draft(
     collection: &CollectionIdentity,
+    record_count: usize,
     field: FieldIdentity,
-    column: &'a SortColumn,
-    records: &'a [RecordEntry],
+    column: OwnedSortColumn,
+    records: Arc<Vec<RecordEntry>>,
     descending: bool,
     kind: ComponentKind,
     configuration_identity: &[u8; 32],
@@ -1313,7 +1527,7 @@ fn sort_draft<'a>(
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     Draft {
         descriptor: descriptor(
             kind,
@@ -1340,32 +1554,36 @@ fn sort_draft<'a>(
             repository_identity,
             schema_fingerprint,
             slot_namespace,
-            column.keys.len() as u32,
+            record_count as u32,
             root,
         ),
-        data: JobData::Sort(column, descending, records),
+        data: JobData::Sort {
+            column,
+            descending,
+            records,
+        },
         estimated_work: 0,
     }
 }
 
 #[allow(clippy::too_many_arguments)]
-fn relation_draft<'a>(
-    state: &CollectionState,
+fn relation_draft(
     collection: &CollectionIdentity,
-    relation: &'a RelationIndex,
+    record_count: usize,
+    relation: &RelationIndex,
     kind: ComponentKind,
-    data: JobData<'a>,
+    data: JobData,
     configuration_identity: &[u8; 32],
     repository_identity: [u8; 32],
     schema_fingerprint: Option<[u8; 32]>,
     slot_namespace: &str,
     root: &std::path::Path,
-) -> Draft<'a> {
+) -> Draft {
     let field = FieldIdentity {
         path: relation.declaration.path.clone(),
         binding: Some(relation.declaration.target_collection.clone()),
         role: BindingRole::DeclaredField,
-        logical_type: Some(crate::model::LogicalType::Id),
+        logical_type: Some(LogicalType::Id),
         multi: relation.declaration.cardinality == crate::relation::RelationCardinality::Many,
     };
     let mut descriptor = descriptor(
@@ -1379,7 +1597,7 @@ fn relation_draft<'a>(
         repository_identity,
         schema_fingerprint,
         slot_namespace,
-        state.generation.records.len() as u32,
+        record_count as u32,
         root,
     );
     descriptor.target_collection = Some(relation.target_collection);
@@ -1478,7 +1696,7 @@ fn key_bound_for(kind: ComponentKind) -> &'static str {
     }
 }
 
-fn configuration_identity(collections: &[CollectionState]) -> [u8; 32] {
+fn configuration_identity(collections: &[OwnedCollection]) -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(b"objekte-icss-configuration-v2");
     for state in collections {
@@ -1687,7 +1905,7 @@ fn hash_path(hash: &mut Sha256, path: &Path) {
 
 fn repository_identity(
     files: &FileInventory,
-    collections: &[CollectionState],
+    collections: &[OwnedCollection],
 ) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(b"objekte-icss-repository-v1");
@@ -1696,8 +1914,8 @@ fn repository_identity(
     }
     for state in collections {
         hash_text(&mut hash, &state.definition.name);
-        hash_u64(&mut hash, state.generation.generation);
-        for record in &state.generation.records {
+        hash_u64(&mut hash, state.generation);
+        for record in state.records.iter() {
             hash_u64(&mut hash, record.slot.0 as u64);
             hash_text(&mut hash, &record.id.0);
             hash_u64(&mut hash, record.file.0 as u64);

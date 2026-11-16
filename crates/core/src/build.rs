@@ -2388,7 +2388,13 @@ pub(crate) fn process_repository_file_batches_profiled(
             let possible_idle = profile_build
                 && dispatched < jobs.len()
                 && dispatched.saturating_sub(completed) < pool.current_num_threads();
-            let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
+            let outcome = result.and_then(|batch| {
+                stats.source_reads = stats.source_reads.saturating_add(batch.source_reads);
+                stats.source_bytes_read = stats
+                    .source_bytes_read
+                    .saturating_add(batch.source_bytes_read);
+                admit(jobs[next].collection_index, batch)
+            });
             let admission_ns = admission_started.elapsed().as_nanos() as u64;
             stats.admission_ns = stats.admission_ns.saturating_add(admission_ns);
             if possible_idle {

@@ -1005,6 +1005,10 @@ fn direct_source_build_matches_native_semantics() {
     .expect("direct");
     assert_eq!(timings.source_files, 2);
     assert_eq!(timings.source_records, 3);
+    assert_eq!(timings.source_reads, 2);
+    assert!(timings.source_bytes_read > 0);
+    assert!(timings.preparation_waves >= 1);
+    assert!(timings.owner_merge_ns > 0);
     let report = direct
         .validate_against_repository(&repository)
         .expect("validation");
@@ -1344,6 +1348,49 @@ fn worker_counts_do_not_change_descriptors_or_semantics() {
     }
     assert_eq!(signatures[0], signatures[1]);
     assert_eq!(signatures[0], signatures[2]);
+}
+
+#[test]
+fn loaded_component_statistics_report_live_memory_capacity() {
+    let fixture = fixture("loaded-capacity");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let component = prototype
+        .component_descriptors()
+        .find(|descriptor| descriptor.kind == ComponentKind::Values)
+        .map(|descriptor| descriptor.id)
+        .expect("value component");
+    let built = prototype
+        .component_statistics(component)
+        .expect("built statistics");
+    assert!(built.memory_len.is_some_and(|value| value > 0));
+    assert!(
+        built
+            .memory_capacity
+            .zip(built.memory_len)
+            .is_some_and(|(capacity, len)| capacity >= len)
+    );
+    let root = temp_root("loaded-capacity-generation");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut opened = StablePrototype::open_snapshot(&generation).expect("open");
+    let unloaded = opened
+        .component_statistics(component)
+        .expect("unloaded statistics");
+    assert_eq!(unloaded.memory_len, None);
+    assert_eq!(unloaded.memory_capacity, None);
+    opened.load_component(component).expect("load component");
+    let loaded = opened
+        .component_statistics(component)
+        .expect("loaded statistics");
+    assert!(loaded.memory_len.is_some_and(|value| value > 0));
+    assert!(
+        loaded
+            .memory_capacity
+            .zip(loaded.memory_len)
+            .is_some_and(|(capacity, len)| capacity >= len)
+    );
+    let _ = std::fs::remove_dir_all(&root);
 }
 
 #[test]

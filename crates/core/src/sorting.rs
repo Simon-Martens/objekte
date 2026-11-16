@@ -10,6 +10,7 @@ use icu_collator::{
     preferences::CollationNumericOrdering,
 };
 use icu_locale_core::Locale;
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
@@ -659,6 +660,54 @@ impl SortBuilder {
         Ok(())
     }
 
+    /// Merge one bounded extraction wave into every independent sort owner.
+    /// Each owner consumes its fragments in admission order; owners proceed in
+    /// parallel because their key vectors are disjoint.
+    pub(crate) fn append_wave_in_pool(
+        &mut self,
+        mut fragments: HashMap<FieldPath, Vec<(u32, u32, Vec<SortKey>)>>,
+        pool: &rayon::ThreadPool,
+    ) -> Result<(), String> {
+        if fragments.is_empty() {
+            return Ok(());
+        }
+        if self.columns.len() != fragments.len() {
+            return Err("sort wave column coverage mismatch".into());
+        }
+        let mut columns = std::mem::take(&mut self.columns)
+            .into_iter()
+            .collect::<Vec<_>>();
+        let mut locals = columns
+            .iter()
+            .map(|(path, _)| fragments.remove(path))
+            .collect::<Vec<_>>();
+        if !fragments.is_empty() {
+            self.columns = columns.into_iter().collect();
+            return Err("sort wave column missing".into());
+        }
+        let result = pool.install(|| {
+            columns
+                .par_iter_mut()
+                .zip(locals.par_iter_mut())
+                .try_for_each(|((_, column), local)| {
+                    let Some(local) = local.take() else {
+                        return Err("sort wave column missing".into());
+                    };
+                    for (base, batch_count, mut values) in local {
+                        if column.keys.len() != base as usize
+                            || values.len() != batch_count as usize
+                        {
+                            return Err("sort wave key coverage mismatch".into());
+                        }
+                        column.keys.append(&mut values);
+                    }
+                    Ok(())
+                })
+        });
+        self.columns = columns.into_iter().collect();
+        result
+    }
+
     pub fn new(
         paths: &[FieldPath],
         schema: &Schema,
@@ -790,10 +839,7 @@ impl SortBuilder {
 
     /// Consume extracted keys without constructing native order vectors.  The
     /// stable prototype builds its own ordered components from these keys.
-    pub(crate) fn finish_keys_only(
-        self,
-        record_count: usize,
-    ) -> Result<SortCollection, String> {
+    pub(crate) fn finish_keys_only(self, record_count: usize) -> Result<SortCollection, String> {
         for column in self.columns.values() {
             if column.keys.len() != record_count {
                 return Err("sort column coverage mismatch".into());

@@ -7,11 +7,15 @@
 
 use std::borrow::Cow;
 use std::cell::RefCell;
-use std::ops::Bound;
+use std::ops::{Bound, Deref, DerefMut};
+use std::sync::{
+    Arc,
+    atomic::{AtomicUsize, Ordering},
+};
 
 use ic_stable_structures::btreemap::Iter;
 use ic_stable_structures::storable::Bound as StorableBound;
-use ic_stable_structures::{BTreeMap, Storable};
+use ic_stable_structures::{BTreeMap, Memory, Storable};
 use roaring::RoaringBitmap;
 
 use super::codec::{
@@ -21,8 +25,161 @@ use super::codec::{
 use crate::model::Number;
 use crate::posting::ScalarKey;
 
+const WASM_PAGE_SIZE: u64 = 65_536;
+
+/// Shared live statistics for one owned stable-memory allocation.
+#[derive(Default)]
+struct MemoryStats {
+    len: AtomicUsize,
+    capacity: AtomicUsize,
+}
+
 /// The single owned allocation behind one stable structure.
-pub type IndexMemory = RefCell<Vec<u8>>;
+///
+/// The statistics handle stays shared with the owning tree wrapper so callers
+/// can report the current image length and Vec capacity without consuming or
+/// reloading the tree.
+pub struct IndexMemory {
+    bytes: RefCell<Vec<u8>>,
+    stats: Arc<MemoryStats>,
+}
+
+impl IndexMemory {
+    fn empty() -> Self {
+        Self::from_vec(Vec::new())
+    }
+
+    fn from_vec(bytes: Vec<u8>) -> Self {
+        let stats = Arc::new(MemoryStats::default());
+        stats.len.store(bytes.len(), Ordering::Relaxed);
+        stats.capacity.store(bytes.capacity(), Ordering::Relaxed);
+        Self {
+            bytes: RefCell::new(bytes),
+            stats,
+        }
+    }
+
+    fn stats_handle(&self) -> Arc<MemoryStats> {
+        Arc::clone(&self.stats)
+    }
+
+    fn into_inner(self) -> Vec<u8> {
+        self.bytes.into_inner()
+    }
+}
+
+impl Memory for IndexMemory {
+    fn size(&self) -> u64 {
+        self.bytes.borrow().len() as u64 / WASM_PAGE_SIZE
+    }
+
+    fn grow(&self, pages: u64) -> i64 {
+        let size = self.size();
+        let Some(next) = size.checked_add(pages) else {
+            return -1;
+        };
+        if next > i64::MAX as u64 / WASM_PAGE_SIZE {
+            return -1;
+        }
+        {
+            let mut bytes = self.bytes.borrow_mut();
+            bytes.resize((next * WASM_PAGE_SIZE) as usize, 0);
+            self.stats.len.store(bytes.len(), Ordering::Relaxed);
+            self.stats
+                .capacity
+                .store(bytes.capacity(), Ordering::Relaxed);
+        }
+        size as i64
+    }
+
+    fn read(&self, offset: u64, dst: &mut [u8]) {
+        let end = offset
+            .checked_add(dst.len() as u64)
+            .expect("read: out of bounds");
+        if end as usize > self.bytes.borrow().len() {
+            panic!("read: out of bounds");
+        }
+        dst.copy_from_slice(&self.bytes.borrow()[offset as usize..end as usize]);
+    }
+
+    unsafe fn read_unsafe(&self, offset: u64, dst: *mut u8, count: usize) {
+        let end = offset
+            .checked_add(count as u64)
+            .expect("read: out of bounds");
+        if end as usize > self.bytes.borrow().len() {
+            panic!("read: out of bounds");
+        }
+        // SAFETY: the bounds check above and the caller's contract guarantee
+        // that both ranges are valid for `count` bytes.
+        unsafe {
+            std::ptr::copy(
+                self.bytes.borrow().as_ptr().add(offset as usize),
+                dst,
+                count,
+            );
+        }
+    }
+
+    fn write(&self, offset: u64, src: &[u8]) {
+        let end = offset
+            .checked_add(src.len() as u64)
+            .expect("write: out of bounds");
+        if end as usize > self.bytes.borrow().len() {
+            panic!("write: out of bounds");
+        }
+        self.bytes.borrow_mut()[offset as usize..end as usize].copy_from_slice(src);
+    }
+}
+
+/// One role-specific tree plus its independent memory statistics handle.
+pub struct IndexMap<K: Storable + Ord + Clone> {
+    map: BTreeMap<K, StoredBytes, IndexMemory>,
+    stats: Arc<MemoryStats>,
+}
+
+impl<K: Storable + Ord + Clone> IndexMap<K> {
+    fn new() -> Self {
+        let memory = IndexMemory::empty();
+        let stats = memory.stats_handle();
+        Self {
+            map: BTreeMap::new(memory),
+            stats,
+        }
+    }
+
+    fn load(memory: IndexMemory) -> Self {
+        let stats = memory.stats_handle();
+        Self {
+            map: BTreeMap::load(memory),
+            stats,
+        }
+    }
+
+    fn memory_statistics(&self) -> (usize, usize) {
+        (
+            self.stats.len.load(Ordering::Relaxed),
+            self.stats.capacity.load(Ordering::Relaxed),
+        )
+    }
+
+    fn into_memory(self) -> IndexMemory {
+        self.map.into_memory()
+    }
+}
+
+impl<K: Storable + Ord + Clone> Deref for IndexMap<K> {
+    type Target = BTreeMap<K, StoredBytes, IndexMemory>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.map
+    }
+}
+
+impl<K: Storable + Ord + Clone> DerefMut for IndexMap<K> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.map
+    }
+}
 
 /// Stable-memory allocation unit.  The persisted image includes allocator
 /// free space rounded to this unit; it is not an application paging unit.
@@ -80,21 +237,21 @@ impl Storable for StoredBytes {
 
 /// One independently owned stable tree with role-specific key types.
 pub enum ComponentTree {
-    Files(BTreeMap<FileKey, StoredBytes, IndexMemory>),
-    Paths(BTreeMap<PathKey, StoredBytes, IndexMemory>),
-    Records(BTreeMap<RecordKey, StoredBytes, IndexMemory>),
-    Identities(BTreeMap<RecordIdentityKey, StoredBytes, IndexMemory>),
-    Domains(BTreeMap<StateKey, StoredBytes, IndexMemory>),
-    Values(BTreeMap<ScalarKey, StoredBytes, IndexMemory>),
-    Lengths(BTreeMap<Number, StoredBytes, IndexMemory>),
-    States(BTreeMap<StateKey, StoredBytes, IndexMemory>),
-    Normals(BTreeMap<GramKey, StoredBytes, IndexMemory>),
-    Skips(BTreeMap<GramKey, StoredBytes, IndexMemory>),
-    Sorts(BTreeMap<SortEntryKey, StoredBytes, IndexMemory>),
-    Occurrences(BTreeMap<RelationOccurrenceKey, StoredBytes, IndexMemory>),
-    RelationTargets(BTreeMap<RelationTargetKey, StoredBytes, IndexMemory>),
-    RelationStates(BTreeMap<StateKey, StoredBytes, IndexMemory>),
-    Composites(BTreeMap<CompositeSortEntryKey, StoredBytes, IndexMemory>),
+    Files(IndexMap<FileKey>),
+    Paths(IndexMap<PathKey>),
+    Records(IndexMap<RecordKey>),
+    Identities(IndexMap<RecordIdentityKey>),
+    Domains(IndexMap<StateKey>),
+    Values(IndexMap<ScalarKey>),
+    Lengths(IndexMap<Number>),
+    States(IndexMap<StateKey>),
+    Normals(IndexMap<GramKey>),
+    Skips(IndexMap<GramKey>),
+    Sorts(IndexMap<SortEntryKey>),
+    Occurrences(IndexMap<RelationOccurrenceKey>),
+    RelationTargets(IndexMap<RelationTargetKey>),
+    RelationStates(IndexMap<StateKey>),
+    Composites(IndexMap<CompositeSortEntryKey>),
 }
 
 pub type IndexTree = ComponentTree;
@@ -131,25 +288,24 @@ fn wrong_key(kind: ComponentKind, key: &ComponentKey) -> ! {
 
 impl ComponentTree {
     pub fn new(kind: ComponentKind) -> Self {
-        let memory = || RefCell::new(Vec::new());
         match kind {
-            ComponentKind::Files => Self::Files(BTreeMap::new(memory())),
-            ComponentKind::Paths => Self::Paths(BTreeMap::new(memory())),
-            ComponentKind::Records => Self::Records(BTreeMap::new(memory())),
-            ComponentKind::Identities => Self::Identities(BTreeMap::new(memory())),
-            ComponentKind::Domains => Self::Domains(BTreeMap::new(memory())),
-            ComponentKind::Values => Self::Values(BTreeMap::new(memory())),
-            ComponentKind::Lengths => Self::Lengths(BTreeMap::new(memory())),
-            ComponentKind::States => Self::States(BTreeMap::new(memory())),
-            ComponentKind::NormalGrams => Self::Normals(BTreeMap::new(memory())),
-            ComponentKind::SkipGrams => Self::Skips(BTreeMap::new(memory())),
+            ComponentKind::Files => Self::Files(IndexMap::new()),
+            ComponentKind::Paths => Self::Paths(IndexMap::new()),
+            ComponentKind::Records => Self::Records(IndexMap::new()),
+            ComponentKind::Identities => Self::Identities(IndexMap::new()),
+            ComponentKind::Domains => Self::Domains(IndexMap::new()),
+            ComponentKind::Values => Self::Values(IndexMap::new()),
+            ComponentKind::Lengths => Self::Lengths(IndexMap::new()),
+            ComponentKind::States => Self::States(IndexMap::new()),
+            ComponentKind::NormalGrams => Self::Normals(IndexMap::new()),
+            ComponentKind::SkipGrams => Self::Skips(IndexMap::new()),
             ComponentKind::SortAscending | ComponentKind::SortDescending => {
-                Self::Sorts(BTreeMap::new(memory()))
+                Self::Sorts(IndexMap::new())
             }
-            ComponentKind::RelationOccurrences => Self::Occurrences(BTreeMap::new(memory())),
-            ComponentKind::RelationTargets => Self::RelationTargets(BTreeMap::new(memory())),
-            ComponentKind::RelationStates => Self::RelationStates(BTreeMap::new(memory())),
-            ComponentKind::CompositeSort => Self::Composites(BTreeMap::new(memory())),
+            ComponentKind::RelationOccurrences => Self::Occurrences(IndexMap::new()),
+            ComponentKind::RelationTargets => Self::RelationTargets(IndexMap::new()),
+            ComponentKind::RelationStates => Self::RelationStates(IndexMap::new()),
+            ComponentKind::CompositeSort => Self::Composites(IndexMap::new()),
         }
     }
 
@@ -195,6 +351,14 @@ impl ComponentTree {
 
     pub fn len(&self) -> u64 {
         with_memory!(self, map => map.len())
+    }
+
+    /// Current image length and Vec capacity for this loaded tree.
+    pub fn memory_statistics(&self) -> (u64, u64) {
+        with_memory!(self, map => {
+            let (len, capacity) = map.memory_statistics();
+            (len as u64, capacity as u64)
+        })
     }
 
     pub fn is_empty(&self) -> bool {
@@ -530,33 +694,34 @@ pub fn tree_payload(tree: ComponentTree) -> Vec<u8> {
 }
 
 pub fn tree_image(tree: ComponentTree) -> (Vec<u8>, usize, usize) {
-    let memory = tree.into_memory().into_inner();
-    let capacity = memory.capacity();
-    let len = memory.len();
-    (memory, len, capacity)
+    let memory = tree.into_memory();
+    let len = memory.stats.len.load(Ordering::Relaxed);
+    let capacity = memory.stats.capacity.load(Ordering::Relaxed);
+    let bytes = memory.into_inner();
+    (bytes, len, capacity)
 }
 
 pub fn load_tree(kind: ComponentKind, payload: Vec<u8>) -> Result<ComponentTree, String> {
     validate_tree_payload(&payload)?;
-    let memory = RefCell::new(payload);
+    let memory = IndexMemory::from_vec(payload);
     Ok(match kind {
-        ComponentKind::Files => ComponentTree::Files(BTreeMap::load(memory)),
-        ComponentKind::Paths => ComponentTree::Paths(BTreeMap::load(memory)),
-        ComponentKind::Records => ComponentTree::Records(BTreeMap::load(memory)),
-        ComponentKind::Identities => ComponentTree::Identities(BTreeMap::load(memory)),
-        ComponentKind::Domains => ComponentTree::Domains(BTreeMap::load(memory)),
-        ComponentKind::Values => ComponentTree::Values(BTreeMap::load(memory)),
-        ComponentKind::Lengths => ComponentTree::Lengths(BTreeMap::load(memory)),
-        ComponentKind::States => ComponentTree::States(BTreeMap::load(memory)),
-        ComponentKind::NormalGrams => ComponentTree::Normals(BTreeMap::load(memory)),
-        ComponentKind::SkipGrams => ComponentTree::Skips(BTreeMap::load(memory)),
+        ComponentKind::Files => ComponentTree::Files(IndexMap::load(memory)),
+        ComponentKind::Paths => ComponentTree::Paths(IndexMap::load(memory)),
+        ComponentKind::Records => ComponentTree::Records(IndexMap::load(memory)),
+        ComponentKind::Identities => ComponentTree::Identities(IndexMap::load(memory)),
+        ComponentKind::Domains => ComponentTree::Domains(IndexMap::load(memory)),
+        ComponentKind::Values => ComponentTree::Values(IndexMap::load(memory)),
+        ComponentKind::Lengths => ComponentTree::Lengths(IndexMap::load(memory)),
+        ComponentKind::States => ComponentTree::States(IndexMap::load(memory)),
+        ComponentKind::NormalGrams => ComponentTree::Normals(IndexMap::load(memory)),
+        ComponentKind::SkipGrams => ComponentTree::Skips(IndexMap::load(memory)),
         ComponentKind::SortAscending | ComponentKind::SortDescending => {
-            ComponentTree::Sorts(BTreeMap::load(memory))
+            ComponentTree::Sorts(IndexMap::load(memory))
         }
-        ComponentKind::RelationOccurrences => ComponentTree::Occurrences(BTreeMap::load(memory)),
-        ComponentKind::RelationTargets => ComponentTree::RelationTargets(BTreeMap::load(memory)),
-        ComponentKind::RelationStates => ComponentTree::RelationStates(BTreeMap::load(memory)),
-        ComponentKind::CompositeSort => ComponentTree::Composites(BTreeMap::load(memory)),
+        ComponentKind::RelationOccurrences => ComponentTree::Occurrences(IndexMap::load(memory)),
+        ComponentKind::RelationTargets => ComponentTree::RelationTargets(IndexMap::load(memory)),
+        ComponentKind::RelationStates => ComponentTree::RelationStates(IndexMap::load(memory)),
+        ComponentKind::CompositeSort => ComponentTree::Composites(IndexMap::load(memory)),
     })
 }
 

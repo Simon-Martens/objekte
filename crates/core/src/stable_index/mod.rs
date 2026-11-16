@@ -33,7 +33,8 @@ pub use codec::{
     BindingRole, CollectionIdentity, ComponentDescriptor, ComponentId, ComponentKey, ComponentKind,
     CoverageDescriptor, DOMAIN_ALL, DOMAIN_EMPTY_ARRAY, DOMAIN_LIVE, DOMAIN_LOGICAL,
     DOMAIN_RAW_FALLBACK, FieldIdentity, OrderingDescriptor, PathCatalogEntry, PathKey,
-    PersistedIdentityPolicy, RecordRef, RelationOccurrenceValue, STATE_ANY_NULL, STATE_ARRAY,
+    PersistedIdentityPolicy, RELATION_EMPTY_ARRAY, RELATION_NULLS, RELATION_PRESENT,
+    RELATION_UNAVAILABLE, RecordRef, RelationOccurrenceValue, STATE_ANY_NULL, STATE_ARRAY,
     STATE_EMPTY_OBJECT, STATE_EMPTY_SELECTION, STATE_LEGACY_NULL, STATE_NON_EMPTY, STATE_NUMBER,
     STATE_OBJECT, STATE_PRESENCE, STATE_STRING, SortEntryKey,
 };
@@ -345,6 +346,18 @@ impl StablePrototype {
             .components
             .get(&id)
             .ok_or_else(|| format!("component {} is not present", id.0))?;
+        let build_record = self.build_records.iter().find(|record| record.id == id);
+        let (memory_len, memory_capacity) = match &entry.state {
+            ComponentState::Loaded { tree, .. } => {
+                let (len, capacity) = tree.memory_statistics();
+                (Some(len), Some(capacity))
+            }
+            ComponentState::Unloaded { .. } => (
+                build_record.map(|record| record.memory_len),
+                build_record.map(|record| record.memory_capacity),
+            ),
+            ComponentState::Failed(_) => (None, None),
+        };
         Ok(ComponentStatistics {
             id,
             kind: entry.descriptor.kind,
@@ -354,16 +367,8 @@ impl StablePrototype {
                 .saved_info
                 .as_ref()
                 .map(|info| info.envelope.payload_len),
-            memory_len: self
-                .build_records
-                .iter()
-                .find(|record| record.id == id)
-                .map(|record| record.memory_len),
-            memory_capacity: self
-                .build_records
-                .iter()
-                .find(|record| record.id == id)
-                .map(|record| record.memory_capacity),
+            memory_len,
+            memory_capacity,
             descriptor: entry.descriptor.clone(),
             dirty: entry.dirty(),
             path: entry.path(),

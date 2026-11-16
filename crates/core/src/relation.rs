@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
 use crate::inventory::{RecordClass, append_shifted_bitmap};
-use crate::model::{CollectionId, LogicalType, RecordSlot, Value};
+use crate::model::{CollectionId, LogicalType, RecordId, RecordSlot, Value};
 use crate::posting::ScalarKey;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, CollectionState};
@@ -266,6 +266,10 @@ pub(crate) struct RelationContribution {
 }
 
 impl RelationContribution {
+    pub(crate) fn target_collection(&self) -> &str {
+        &self.declaration.target_collection
+    }
+
     /// Deterministic planning estimate for the native relation contribution.
     pub(crate) fn estimated_bytes(&self) -> usize {
         const OVERHEAD: usize = 48;
@@ -283,8 +287,7 @@ impl RelationContribution {
                     .map_or(0, String::len),
             );
         total = total.saturating_add(
-            self.references.capacity()
-                * (std::mem::size_of::<PendingReference>() + OVERHEAD),
+            self.references.capacity() * (std::mem::size_of::<PendingReference>() + OVERHEAD),
         );
         for reference in &self.references {
             total = total
@@ -337,7 +340,6 @@ impl RelationContribution {
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }
-
 
     /// References are appended in source-slot order during admission and
     /// projection, so a selective query can borrow one source's edges without
@@ -412,8 +414,7 @@ impl RelationContribution {
         let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
             let mut projected = RoaringBitmap::new();
             for old in bitmap.iter() {
-                let mapped = resolve(old)
-                    .ok_or("relation projection bitmap out of bounds")?;
+                let mapped = resolve(old).ok_or("relation projection bitmap out of bounds")?;
                 if let Some(slot) = mapped {
                     projected.insert(slot.0);
                 }
@@ -422,8 +423,8 @@ impl RelationContribution {
         };
         let mut references = Vec::new();
         for reference in &self.references {
-            if let Some(source) = resolve(reference.source.0)
-                .ok_or("relation projection source out of bounds")?
+            if let Some(source) =
+                resolve(reference.source.0).ok_or("relation projection source out of bounds")?
             {
                 references.push(PendingReference {
                     source,
@@ -622,6 +623,24 @@ impl RelationContribution {
             .iter()
             .find(|collection| collection.definition.name == self.declaration.target_collection)
             .ok_or("relation target collection missing")?;
+        self.resolve_with_lookup(
+            source,
+            ordinal,
+            target.generation.collection,
+            &target.id_lookup,
+        )
+    }
+
+    /// Resolve a completed contribution against one target collection's
+    /// identity lookup. The owned direct-build path uses this to avoid
+    /// constructing a complete borrowed `CollectionState` graph.
+    pub(crate) fn resolve_with_lookup(
+        self,
+        source: CollectionId,
+        ordinal: u32,
+        target_collection: CollectionId,
+        target_lookup: &HashMap<RecordId, RecordSlot>,
+    ) -> Result<RelationIndex, String> {
         let mut offsets = Vec::with_capacity(self.record_count as usize + 1);
         let mut edges = Vec::with_capacity(self.references.len());
         let mut references = self.references.into_iter().peekable();
@@ -634,7 +653,7 @@ impl RelationContribution {
             {
                 let reference = references.next().unwrap();
                 let target_ref =
-                    if let Some(target_slot) = target.id_lookup.get(reference.target_id.as_str()) {
+                    if let Some(target_slot) = target_lookup.get(reference.target_id.as_str()) {
                         RelationTarget::Resolved(*target_slot)
                     } else {
                         unresolved_count = unresolved_count
@@ -659,7 +678,7 @@ impl RelationContribution {
         Ok(RelationIndex {
             id: RelationId { source, ordinal },
             declaration: self.declaration,
-            target_collection: target.generation.collection,
+            target_collection,
             offsets,
             edges,
             present: self.present,

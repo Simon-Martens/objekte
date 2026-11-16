@@ -27,6 +27,9 @@ def parse_args():
     parser.add_argument("--synthetic-root", type=pathlib.Path)
     parser.add_argument("--baseline-fixture-exe", type=pathlib.Path)
     parser.add_argument("--candidate-fixture-exe", type=pathlib.Path)
+    parser.add_argument("--primitives-snapshot", type=pathlib.Path)
+    parser.add_argument("--primitives-repetitions", type=int, default=200)
+    parser.add_argument("--primitives-extended-relations", action="store_true")
     return parser.parse_args()
 
 
@@ -246,6 +249,131 @@ def main():
                 "field_job_overlap_pairs": stable.get("field_job_overlap_pairs"),
             }
         comparison["synthetic"] = synthetic
+
+    if args.primitives_snapshot:
+        plan_path = args.result_dir / "primitives-plan.json"
+        plan_command = [
+            args.candidate_exe,
+            "--mode",
+            "primitive-plan",
+            "--snapshot-input",
+            args.primitives_snapshot,
+            "--queries-output",
+            plan_path,
+        ]
+        run(plan_command)
+        native_dir = args.result_dir / "primitives-native"
+        stable_dir = args.result_dir / "primitives-stable"
+        native_dir.mkdir(exist_ok=True)
+        stable_dir.mkdir(exist_ok=True)
+        relation_flag = (
+            ["--extended-relations"]
+            if args.primitives_extended_relations
+            else []
+        )
+        run(
+            [
+                args.candidate_exe,
+                "--mode",
+                "native-primitives",
+                *relation_flag,
+                "--root",
+                args.root,
+                "--queries",
+                plan_path,
+                "--alphabet",
+                args.alphabet,
+                "--build-workers",
+                args.workers,
+                "--repetitions",
+                args.primitives_repetitions,
+                "--result-dir",
+                native_dir,
+            ]
+        )
+        run(
+            [
+                args.candidate_exe,
+                "--mode",
+                "primitives",
+                "--snapshot-input",
+                args.primitives_snapshot,
+                "--queries",
+                plan_path,
+                "--alphabet",
+                args.alphabet,
+                "--repetitions",
+                args.primitives_repetitions,
+                "--result-dir",
+                stable_dir,
+            ]
+        )
+        native_primitives = read_json(native_dir / "primitives.json")
+        stable_primitives = read_json(stable_dir / "primitives.json")
+        native_rows = native_primitives["resident_primitives"]
+        stable_rows = stable_primitives["resident_primitives"]
+        mismatches = []
+        for index, (native, stable) in enumerate(zip(native_rows, stable_rows)):
+            if (
+                native["family"] != stable["family"]
+                or native["result_members"] != stable["result_members"]
+            ):
+                mismatches.append(
+                    {
+                        "row": index,
+                        "native_family": native["family"],
+                        "stable_family": stable["family"],
+                        "native_members": native["result_members"],
+                        "stable_members": stable["result_members"],
+                        "query": native.get("query"),
+                    }
+                )
+        families = {}
+        for native, stable in zip(native_rows, stable_rows):
+            family = native["family"]
+            entry = families.setdefault(
+                family,
+                {
+                    "rows": 0,
+                    "native_median_ns": [],
+                    "stable_median_ns": [],
+                    "stable_p95_ns": [],
+                },
+            )
+            entry["rows"] += 1
+            entry["native_median_ns"].append(native["median_ns"])
+            entry["stable_median_ns"].append(stable["median_ns"])
+            entry["stable_p95_ns"].append(stable["p95_ns"])
+        for entry in families.values():
+            native_median = statistics.median(entry.pop("native_median_ns"))
+            stable_median = statistics.median(entry.pop("stable_median_ns"))
+            entry["native_median_of_medians_ns"] = native_median
+            entry["stable_median_of_medians_ns"] = stable_median
+            entry["median_ratio"] = (
+                stable_median / native_median if native_median else None
+            )
+            entry["stable_p95_max_ns"] = max(entry.pop("stable_p95_ns"))
+        primitives = {
+            "task": "ic-stable-index-prototype-repair",
+            "snapshot": str(args.primitives_snapshot),
+            "alphabet": args.alphabet,
+            "repetitions": args.primitives_repetitions,
+            "rows": len(native_rows),
+            "result_mismatch_count": len(mismatches),
+            "result_mismatches": mismatches[:20],
+            "families": families,
+            "native": native_primitives,
+            "stable": stable_primitives,
+        }
+        (args.result_dir / "primitives.json").write_text(
+            json.dumps(primitives, indent=2) + "\n"
+        )
+        comparison["primitives"] = {
+            "rows": len(native_rows),
+            "result_mismatch_count": len(mismatches),
+            "families": families,
+            "output": str(args.result_dir / "primitives.json"),
+        }
 
     (args.result_dir / "comparison.json").write_text(
         json.dumps(comparison, indent=2) + "\n"
