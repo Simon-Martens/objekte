@@ -1,0 +1,83 @@
+{
+  "task": "ic-stable-index-prototype",
+  "workers": 8,
+  "alphabet": "ascii",
+  "samples": 5,
+  "native_build_ns": {
+    "median": 1672703745,
+    "min": 1660731936,
+    "max": 1692719618
+  },
+  "candidate_total_build_ns": {
+    "median": 3208605342,
+    "min": 3100494619,
+    "max": 3326003788
+  },
+  "original_build_ns": {
+    "median": 4986156155,
+    "min": 4975723670,
+    "max": 5092150128
+  },
+  "median_ratio": 1.9182149568272773,
+  "original_ratio": 0.6435027789457589,
+  "improvement_over_original": 0.3564972210542411,
+  "memory": {
+    "native_resident_bytes": 401874944,
+    "native_peak_bytes": 415072256,
+    "candidate_resident_bytes": 776921088,
+    "candidate_peak_bytes": 837107712,
+    "candidate_owned_component_payload_bytes": 407502848,
+    "resident_ratio": 1.9332409238233075,
+    "peak_ratio": 2.0167758743190967
+  },
+  "candidate_stage_ns": {
+    "discovery_ns": 325896343,
+    "extraction_admission_ns": 844784998,
+    "finalization_ns": 289418549,
+    "setup_ns": 1763205,
+    "stable_component_ns": 1729070452
+  },
+  "candidate_components": 1323,
+  "field_job_overlap_pairs": 2524,
+  "gate": {
+    "classification": "performance_rejection",
+    "source_build_target": "<= 1.10x native",
+    "resident_rss_target": "<= 1.40x native",
+    "peak_rss_target": "<= 1.60x native"
+  },
+  "synthetic": {
+    "1": {
+      "native_build_ns": 1599521561,
+      "stable_build_ns": 6448804936,
+      "ratio": 4.031708664163483,
+      "native_resident_bytes": 152588288,
+      "native_peak_bytes": 152588288,
+      "stable_resident_bytes": 328982528,
+      "stable_peak_bytes": 348864512,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 0
+    },
+    "2": {
+      "native_build_ns": 1035841331,
+      "stable_build_ns": 3686816558,
+      "ratio": 3.5592483594381696,
+      "native_resident_bytes": 164724736,
+      "native_peak_bytes": 169156608,
+      "stable_resident_bytes": 340721664,
+      "stable_peak_bytes": 360366080,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 3
+    },
+    "8": {
+      "native_build_ns": 775363897,
+      "stable_build_ns": 1662579911,
+      "ratio": 2.1442575769039194,
+      "native_resident_bytes": 171941888,
+      "native_peak_bytes": 172658688,
+      "stable_resident_bytes": 366370816,
+      "stable_peak_bytes": 382701568,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 109
+    }
+  }
+}

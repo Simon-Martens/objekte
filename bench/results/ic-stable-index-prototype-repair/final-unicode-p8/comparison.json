@@ -1,0 +1,48 @@
+{
+  "task": "ic-stable-index-prototype",
+  "workers": 8,
+  "alphabet": "unicode",
+  "samples": 3,
+  "native_build_ns": {
+    "median": 1844909787,
+    "min": 1831994304,
+    "max": 1845206285
+  },
+  "candidate_total_build_ns": {
+    "median": 3516763183,
+    "min": 3406051430,
+    "max": 3536433767
+  },
+  "original_build_ns": {
+    "median": 5151728194,
+    "min": 5150410326,
+    "max": 5272843648
+  },
+  "median_ratio": 1.9061979115621657,
+  "original_ratio": 0.6826375636618068,
+  "improvement_over_original": 0.31736243633819317,
+  "memory": {
+    "native_resident_bytes": 419835904,
+    "native_peak_bytes": 432766976,
+    "candidate_resident_bytes": 780947456,
+    "candidate_peak_bytes": 841142272,
+    "candidate_owned_component_payload_bytes": 411107328,
+    "resident_ratio": 1.8601254646386793,
+    "peak_ratio": 1.943637843567805
+  },
+  "candidate_stage_ns": {
+    "discovery_ns": 322528500,
+    "extraction_admission_ns": 995115331,
+    "finalization_ns": 311709158,
+    "setup_ns": 1861690,
+    "stable_component_ns": 1639282108
+  },
+  "candidate_components": 1323,
+  "field_job_overlap_pairs": 3699,
+  "gate": {
+    "classification": "performance_rejection",
+    "source_build_target": "<= 1.10x native",
+    "resident_rss_target": "<= 1.40x native",
+    "peak_rss_target": "<= 1.60x native"
+  }
+}

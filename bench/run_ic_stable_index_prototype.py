@@ -19,6 +19,7 @@ def parse_args():
     parser.add_argument("--root", type=pathlib.Path, required=True)
     parser.add_argument("--baseline-exe", type=pathlib.Path, required=True)
     parser.add_argument("--candidate-exe", type=pathlib.Path, required=True)
+    parser.add_argument("--original-exe", type=pathlib.Path)
     parser.add_argument("--result-dir", type=pathlib.Path, required=True)
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--samples", type=int, default=5)
@@ -56,6 +57,7 @@ def main():
     args = parse_args()
     args.result_dir.mkdir(parents=True, exist_ok=True)
     baseline_runs = []
+    original_runs = []
     candidate_runs = []
     for sample in range(1, args.samples + 1):
         baseline_path = args.result_dir / f"baseline-{sample}.json"
@@ -76,6 +78,27 @@ def main():
         )
         baseline_path.write_text(json.dumps(baseline_json, indent=2) + "\n")
         baseline_runs.append(baseline_json)
+        if args.original_exe:
+            original_path = args.result_dir / f"original-{sample}.json"
+            original_json = json.loads(
+                run(
+                    [
+                        args.original_exe,
+                        "--mode",
+                        "source-build",
+                        "--construction",
+                        "direct",
+                        "--root",
+                        args.root,
+                        "--alphabet",
+                        args.alphabet,
+                        "--build-workers",
+                        args.workers,
+                    ]
+                )
+            )
+            original_path.write_text(json.dumps(original_json, indent=2) + "\n")
+            original_runs.append(original_json.get("build", original_json))
         run(
             [
                 args.candidate_exe,
@@ -101,6 +124,7 @@ def main():
     candidate_memory = read_json(
         args.result_dir / f"candidate-{args.samples}" / "memory.json"
     )
+    original_ns = [run["total_source_build_ns"] for run in original_runs]
     comparison = {
         "task": "ic-stable-index-prototype",
         "workers": args.workers,
@@ -116,8 +140,23 @@ def main():
             "min": min(candidate_ns),
             "max": max(candidate_ns),
         },
+        "original_build_ns": {
+            "median": statistics.median(original_ns) if original_ns else None,
+            "min": min(original_ns) if original_ns else None,
+            "max": max(original_ns) if original_ns else None,
+        },
         "median_ratio": statistics.median(candidate_ns)
         / statistics.median(baseline_ns),
+        "original_ratio": (
+            statistics.median(candidate_ns) / statistics.median(original_ns)
+            if original_ns
+            else None
+        ),
+        "improvement_over_original": (
+            1.0 - statistics.median(candidate_ns) / statistics.median(original_ns)
+            if original_ns
+            else None
+        ),
         "memory": {
             "native_resident_bytes": baseline_memory.get("resident_bytes"),
             "native_peak_bytes": baseline_memory.get("peak_resident_bytes"),
