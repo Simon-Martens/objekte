@@ -11,7 +11,7 @@ use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
-use objekte_search_core::model::{LogicalType, Number, RecordSlot};
+use objekte_search_core::model::{CollectionId, LogicalType, Number, RecordSlot};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
@@ -39,6 +39,7 @@ struct Args {
     reference: Option<PathBuf>,
     field: Option<String>,
     value: Option<String>,
+    construction: String,
 }
 
 impl Default for Args {
@@ -57,6 +58,7 @@ impl Default for Args {
             reference: None,
             field: None,
             value: None,
+            construction: "direct".into(),
         }
     }
 }
@@ -94,6 +96,7 @@ fn run() -> Result<(), String> {
         "save-index" => save_index_mode(&args),
         "primitives" => primitives_mode(&args),
         "mutations" => mutations_mode(&args),
+        "lifecycle" => lifecycle_mode(&args),
         other => Err(format!("unknown --mode {other}")),
     }
 }
@@ -167,6 +170,13 @@ fn parse_args() -> Result<Args, String> {
             }
             "--field" => args.field = Some(arguments.next().ok_or("--field needs a value")?),
             "--value" => args.value = Some(arguments.next().ok_or("--value needs a value")?),
+            "--construction" => {
+                let value = arguments.next().ok_or("--construction needs a value")?;
+                if value != "direct" && value != "transfer" {
+                    return Err(format!("unknown construction mode {value}"));
+                }
+                args.construction = value;
+            }
             "--inference" => {
                 return Err("inference is explicitly unsupported by this prototype".into());
             }
@@ -177,6 +187,9 @@ fn parse_args() -> Result<Args, String> {
 }
 
 fn source_build(args: &Args, force_snapshot: bool) -> Result<(), String> {
+    if args.construction == "direct" {
+        return direct_source_build(args, force_snapshot);
+    }
     let root = args.root.clone().ok_or("--root is required")?;
     let (definitions, schemas) = musenalm::load_definitions_with_schemas(&root)?;
     let schema_manifest = musenalm::schema_manifest(&schemas)?;
@@ -284,9 +297,138 @@ fn source_build(args: &Args, force_snapshot: bool) -> Result<(), String> {
         "campaign-manifest.json",
         &json!({
             "alphabet": args.alphabet,
+            "construction": args.construction,
             "schema_sha256": schema_digest,
             "schema_collections": schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
             "executable": std::env::current_exe().ok(),
+            "executable_sha256": executable_digest(),
+            "cargo_lock_sha256": lockfile_digest(),
+            "source_files": repository.files().files.len(),
+            "source_records": source_records,
+            "source_bytes": source_bytes,
+            "root": root,
+        }),
+    )?;
+    println!(
+        "{}",
+        serde_json::to_string_pretty(&json!({
+            "build": build_json,
+            "memory": memory_json,
+            "persistence": persistence,
+            "field_job_overlap_pairs": overlap,
+        }))
+        .map_err(|error| error.to_string())?
+    );
+    Ok(())
+}
+
+fn direct_source_build(args: &Args, force_snapshot: bool) -> Result<(), String> {
+    let root = args.root.clone().ok_or("--root is required")?;
+    let (definitions, schemas) = musenalm::load_definitions_with_schemas(&root)?;
+    let schema_manifest = musenalm::schema_manifest(&schemas)?;
+    let schema_digest = schema_manifest["sha256"]
+        .as_str()
+        .ok_or("schema manifest digest missing")?
+        .to_string();
+    let options = RepositoryOptions {
+        bigram_alphabet: args.alphabet,
+        build_workers: args.build_workers,
+        ..RepositoryOptions::default()
+    };
+    let started = Instant::now();
+    let (mut prototype, timings) =
+        StablePrototype::from_sources_with_timings(&root, definitions, options)?;
+    let total_source_build_ns = started.elapsed().as_nanos() as u64;
+    let readiness_rss = resident_bytes();
+    let readiness_hwm = high_water_bytes();
+    if force_snapshot && args.snapshot_output.is_none() {
+        return Err("snapshot mode requires --snapshot-output".into());
+    }
+    let mut persistence = json!({});
+    if let Some(output) = &args.snapshot_output {
+        let save_started = Instant::now();
+        let generation = prototype.save_snapshot(output)?;
+        let save_ns = save_started.elapsed().as_nanos() as u64;
+        persistence = json!({
+            "generation": generation,
+            "snapshot_save_ns": save_ns,
+            "manifest_components": prototype.manifest().map_or(0, |manifest| manifest.components.len()),
+        });
+    }
+    let descriptors = prototype
+        .component_descriptors()
+        .cloned()
+        .collect::<Vec<_>>();
+    let build_records = prototype.build_records().to_vec();
+    let overlap = field_overlap_pairs(&build_records);
+    let payload_bytes = build_records
+        .iter()
+        .map(|record| record.payload_len)
+        .sum::<u64>();
+    let stage_ns = prototype.build_stage_ns().clone();
+    let build_json = json!({
+        "construction_mode": "direct_batch_contributions",
+        "requested_build_workers": args.build_workers.map(NonZeroUsize::get),
+        "resolved_build_workers": args.build_workers.map(NonZeroUsize::get).unwrap_or_else(|| std::thread::available_parallelism().map_or(1, NonZeroUsize::get)),
+        "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
+        "total_source_build_ns": total_source_build_ns,
+        "stage_ns": stage_ns,
+        "source_files": timings.source_files,
+        "source_records": timings.source_records,
+        "source_bytes": timings.source_bytes,
+        "source_reads": timings.source_reads,
+        "source_bytes_read": timings.source_bytes_read,
+        "source_parses": timings.source_parses,
+        "failed_parses": timings.failed_parses,
+        "peak_active_jobs": timings.peak_active_jobs,
+        "peak_ready_batches": timings.peak_ready_batches,
+        "job_execution_ns": timings.job_execution_ns,
+        "receive_wait_ns": timings.receive_wait_ns,
+        "admission_ns": timings.admission_ns,
+        "source_build_timings": {
+            "discovery_ns": timings.discovery_ns,
+            "setup_ns": timings.setup_ns,
+            "extraction_admission_ns": timings.extraction_admission_ns,
+            "finalization_ns": timings.finalization_ns,
+            "stable_component_ns": timings.stable_component_ns,
+        },
+        "schema_sha256": schema_digest,
+        "counters": prototype.counters(),
+        "components": prototype.component_descriptors().count(),
+    });
+    let components_json = json!({
+        "components": descriptors,
+        "records": build_records,
+        "overlap_pairs": overlap,
+        "field_job_overlap_demonstrated": overlap > 0,
+    });
+    let memory_json = json!({
+        "readiness_rss_bytes": readiness_rss,
+        "readiness_hwm_bytes": readiness_hwm,
+        "owned_component_payload_bytes": payload_bytes,
+    });
+    write_result(args.result_dir.as_deref(), "build.json", &build_json)?;
+    write_result(args.result_dir.as_deref(), "memory.json", &memory_json)?;
+    write_result(
+        args.result_dir.as_deref(),
+        "components.json",
+        &components_json,
+    )?;
+    write_result(args.result_dir.as_deref(), "persistence.json", &persistence)?;
+    write_result(
+        args.result_dir.as_deref(),
+        "campaign-manifest.json",
+        &json!({
+            "alphabet": args.alphabet,
+            "construction": args.construction,
+            "schema_sha256": schema_digest,
+            "schema_collections": schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
+            "executable": std::env::current_exe().ok(),
+            "executable_sha256": executable_digest(),
+            "cargo_lock_sha256": lockfile_digest(),
+            "source_files": timings.source_files,
+            "source_records": timings.source_records,
+            "source_bytes": timings.source_bytes,
             "root": root,
         }),
     )?;
@@ -381,6 +523,11 @@ fn fixture_mode(args: &Args) -> Result<(), String> {
 fn validate_mode(args: &Args) -> Result<(), String> {
     let root = args.root.clone().ok_or("--root is required")?;
     let (definitions, schemas) = musenalm::load_definitions_with_schemas(&root)?;
+    let definitions_for_stable = if args.construction == "direct" {
+        Some(definitions.clone())
+    } else {
+        None
+    };
     let repository = Repository::open_with_options(
         &root,
         definitions,
@@ -390,8 +537,19 @@ fn validate_mode(args: &Args) -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    let mut prototype =
-        StablePrototype::from_repository_with_workers(&repository, worker_budget(args))?;
+    let mut prototype = if let Some(definitions) = definitions_for_stable {
+        StablePrototype::from_sources(
+            &root,
+            definitions,
+            RepositoryOptions {
+                bigram_alphabet: args.alphabet,
+                build_workers: args.build_workers,
+                ..RepositoryOptions::default()
+            },
+        )?
+    } else {
+        StablePrototype::from_repository_with_workers(&repository, worker_budget(args))?
+    };
     let report = prototype.validate_against_repository(&repository)?;
     let output = json!({
         "schema_collections": schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
@@ -666,10 +824,12 @@ fn mutations_mode(args: &Args) -> Result<(), String> {
             "snapshot_save_ns": save_started.elapsed().as_nanos() as u64,
         });
     }
+    let storage = prototype.storage_report(collection);
     let output_json = json!({
         "mutation_ns": started.elapsed().as_nanos() as u64,
         "batches": batches,
         "persistence": persistence,
+        "storage": storage,
         "counters": prototype.counters(),
     });
     write_result(args.result_dir.as_deref(), "mutations.json", &output_json)?;
@@ -678,6 +838,114 @@ fn mutations_mode(args: &Args) -> Result<(), String> {
         serde_json::to_string_pretty(&output_json).map_err(|error| error.to_string())?
     );
     Ok(())
+}
+
+fn lifecycle_mode(args: &Args) -> Result<(), String> {
+    let root = create_lifecycle_fixture()?;
+    let result = (|| -> Result<(), String> {
+        let definitions = fixture_definitions();
+        let started = Instant::now();
+        let (mut prototype, _) = StablePrototype::from_sources_with_timings(
+            &root,
+            definitions,
+            RepositoryOptions {
+                bigram_alphabet: args.alphabet,
+                build_workers: args.build_workers,
+                ..RepositoryOptions::default()
+            },
+        )?;
+        let build_ns = started.elapsed().as_nanos() as u64;
+        let path = std::path::PathBuf::from("data/lifecycle.jsonl");
+        let mut storage = Vec::new();
+        storage.push(prototype.storage_report(CollectionId(0)));
+        let mut replacement_ns = 0u64;
+        for _ in 0..10 {
+            let refs = prototype.records_for_path(&path)?;
+            let mut records = Vec::with_capacity(refs.len());
+            let mut file = None;
+            for reference in refs {
+                if let Some(record) =
+                    prototype.record_by_slot(reference.collection, reference.slot)?
+                {
+                    file = Some(record.file);
+                    records.push(record);
+                }
+            }
+            let file_id = file.ok_or("lifecycle fixture has no file")?;
+            let entry = prototype
+                .file_by_id(file_id)?
+                .ok_or("lifecycle file metadata missing")?;
+            let replace_started = Instant::now();
+            prototype.replace_file(&path, entry, CollectionId(0), records)?;
+            replacement_ns =
+                replacement_ns.saturating_add(replace_started.elapsed().as_nanos() as u64);
+            storage.push(prototype.storage_report(CollectionId(0)));
+        }
+        let generation = root.join("generation");
+        let save_started = Instant::now();
+        prototype.save_snapshot(&generation)?;
+        let save_ns = save_started.elapsed().as_nanos() as u64;
+        let disk_bytes = directory_bytes(&generation)?;
+        drop(prototype);
+        let mut reopened = StablePrototype::open_snapshot(&generation)?;
+        let reopened_report = reopened.storage_report(CollectionId(0));
+        let output = json!({
+            "fixture_build_ns": build_ns,
+            "replacements": 10,
+            "replacement_ns": replacement_ns,
+            "save_ns": save_ns,
+            "snapshot_disk_bytes": disk_bytes,
+            "storage": storage,
+            "reopened": reopened_report,
+            "path_refs_after_reopen": reopened.records_for_path(&path)?.len(),
+        });
+        write_result(args.result_dir.as_deref(), "mutations.json", &output)?;
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&output).map_err(|error| error.to_string())?
+        );
+        Ok(())
+    })();
+    let _ = std::fs::remove_dir_all(&root);
+    result
+}
+
+fn create_lifecycle_fixture() -> Result<PathBuf, String> {
+    let unique = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map_err(|error| error.to_string())?
+        .as_nanos();
+    let root = std::env::temp_dir().join(format!(
+        "objekte-icss-lifecycle-{}-{unique}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).map_err(|error| error.to_string())?;
+    let path = root.join("data/lifecycle.jsonl");
+    let mut bytes = String::new();
+    for index in 0..200 {
+        bytes.push_str(&format!(
+            "{{\"name\":\"name-{index:03}\",\"age\":{},\"tags\":[\"t{}\",\"t{}\"]}}\n",
+            index % 10,
+            index % 17,
+            index % 31
+        ));
+    }
+    std::fs::write(path, bytes).map_err(|error| error.to_string())?;
+    Ok(root)
+}
+
+fn directory_bytes(path: &std::path::Path) -> Result<u64, String> {
+    let mut total = 0u64;
+    for entry in std::fs::read_dir(path).map_err(|error| error.to_string())? {
+        let entry = entry.map_err(|error| error.to_string())?;
+        let metadata = entry.metadata().map_err(|error| error.to_string())?;
+        if metadata.is_dir() {
+            total = total.saturating_add(directory_bytes(&entry.path())?);
+        } else {
+            total = total.saturating_add(metadata.len());
+        }
+    }
+    Ok(total)
 }
 
 fn field_component_key(descriptor: &ComponentDescriptor) -> FieldComponentKey {
@@ -820,6 +1088,17 @@ fn field_overlap_pairs(records: &[objekte_search_core::stable_index::ComponentBu
     pairs
 }
 
+fn lockfile_digest() -> Option<String> {
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../Cargo.lock");
+    digest_file(&path).ok()
+}
+
+fn executable_digest() -> Option<String> {
+    std::env::current_exe()
+        .ok()
+        .and_then(|path| digest_file(&path).ok())
+}
+
 fn write_result(
     directory: Option<&Path>,
     name: &str,
@@ -855,7 +1134,6 @@ fn memory_status(name: &str) -> Option<u64> {
         })
 }
 
-#[allow(dead_code)]
 fn digest_file(path: &Path) -> Result<String, String> {
     let bytes = std::fs::read(path).map_err(|error| error.to_string())?;
     Ok(format!("{:x}", Sha256::digest(bytes)))

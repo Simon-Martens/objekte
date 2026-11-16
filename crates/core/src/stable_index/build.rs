@@ -1,6 +1,7 @@
 //! Construction of independent component trees from native build results.
 
 use std::collections::{BTreeMap, BTreeSet};
+use std::path::Path;
 use std::time::Instant;
 
 use rayon::prelude::*;
@@ -37,16 +38,30 @@ pub(crate) fn from_repository(
     {
         return Err("inference is not supported by the stable-index prototype".into());
     }
-    let configuration_identity = configuration_identity(repository);
-    let repository_identity = repository_identity(repository)?;
-    let slot_namespace = slot_namespace(repository, configuration_identity, repository_identity);
-    let schema_fingerprint = repository
-        .collections()
+    from_collections(
+        repository.files(),
+        repository.collections(),
+        &repository.files().root,
+        workers,
+    )
+}
+
+pub(crate) fn from_collections(
+    files: &FileInventory,
+    collections: &[CollectionState],
+    root: &Path,
+    workers: Option<usize>,
+) -> Result<StablePrototype, String> {
+    if collections.iter().any(|state| state.inference.is_some()) {
+        return Err("inference is not supported by the stable-index prototype".into());
+    }
+    let configuration_identity = configuration_identity(collections);
+    let repository_identity = repository_identity(files, collections)?;
+    let slot_namespace = slot_namespace(root, configuration_identity, repository_identity);
+    let schema_fingerprint = collections
         .first()
         .and_then(|state| state.definition.schema.source_fingerprint());
-    let root = repository.files().root.clone();
-    let collection_identities = repository
-        .collections()
+    let collection_identities = collections
         .iter()
         .map(|state| {
             (
@@ -62,22 +77,22 @@ pub(crate) fn from_repository(
 
     let mut drafts = Vec::new();
     drafts.push(files_draft(
-        repository.files(),
+        files,
         &configuration_identity,
         repository_identity,
         schema_fingerprint,
         &slot_namespace,
-        &root,
+        root,
     ));
     drafts.push(paths_draft(
-        prepare_paths(repository)?,
+        prepare_paths(files, collections)?,
         &configuration_identity,
         repository_identity,
         schema_fingerprint,
         &slot_namespace,
         &root,
     ));
-    for state in repository.collections() {
+    for state in collections {
         let collection = &collection_identities[&state.generation.collection];
         drafts.push(records_draft(
             state,
@@ -135,7 +150,7 @@ pub(crate) fn from_repository(
                 repository_identity,
                 schema_fingerprint,
                 &slot_namespace,
-                &root,
+                root,
             ));
             drafts.push(posting_draft(
                 state,
@@ -148,7 +163,7 @@ pub(crate) fn from_repository(
                 repository_identity,
                 schema_fingerprint,
                 &slot_namespace,
-                &root,
+                root,
             ));
             drafts.push(posting_draft(
                 state,
@@ -161,7 +176,7 @@ pub(crate) fn from_repository(
                 repository_identity,
                 schema_fingerprint,
                 &slot_namespace,
-                &root,
+                root,
             ));
         }
         for ((path, name), custom) in &state.custom_postings {
@@ -196,7 +211,7 @@ pub(crate) fn from_repository(
                     repository_identity,
                     schema_fingerprint,
                     &slot_namespace,
-                    &root,
+                    root,
                 ));
             }
         }
@@ -212,7 +227,7 @@ pub(crate) fn from_repository(
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
-            &root,
+            root,
         );
         append_text_drafts(
             &mut drafts,
@@ -226,7 +241,7 @@ pub(crate) fn from_repository(
             repository_identity,
             schema_fingerprint,
             &slot_namespace,
-            &root,
+            root,
         );
         for ((path, name), index) in &state.custom_text {
             append_text_drafts(
@@ -241,7 +256,7 @@ pub(crate) fn from_repository(
                 repository_identity,
                 schema_fingerprint,
                 &slot_namespace,
-                &root,
+                root,
             );
         }
         if !state.sorting.composites.is_empty() {
@@ -266,13 +281,14 @@ pub(crate) fn from_repository(
                     collection,
                     field.clone(),
                     column,
+                    &state.generation.records,
                     descending,
                     kind,
                     &configuration_identity,
                     repository_identity,
                     schema_fingerprint,
                     &slot_namespace,
-                    &root,
+                    root,
                 ));
             }
         }
@@ -301,7 +317,7 @@ pub(crate) fn from_repository(
                     repository_identity,
                     schema_fingerprint,
                     &slot_namespace,
-                    &root,
+                    root,
                 ));
             }
         }
@@ -383,9 +399,9 @@ pub(crate) fn from_repository(
         counters: super::PrototypeCounters::default(),
         usable: true,
         build_records,
+        build_stage_ns: BTreeMap::new(),
     };
-    let manifest_collections = repository
-        .collections()
+    let manifest_collections = collections
         .iter()
         .map(|state| ManifestCollection {
             id: state.generation.collection.0,
@@ -396,10 +412,47 @@ pub(crate) fn from_repository(
             identity_policy: format!("{:?}", state.definition.identity),
         })
         .collect::<Vec<_>>();
+    let core_components = prototype
+        .components
+        .values()
+        .filter_map(|entry| {
+            let collection = entry.descriptor.collection.as_ref()?.id;
+            Some((collection, entry.descriptor.kind, entry.descriptor.id))
+        })
+        .fold(
+            BTreeMap::<CollectionId, BTreeMap<ComponentKind, ComponentId>>::new(),
+            |mut map, (collection, kind, id)| {
+                map.entry(collection).or_default().insert(kind, id);
+                map
+            },
+        );
+    for entry in prototype.components.values_mut() {
+        let Some(collection) = entry.descriptor.collection.as_ref().map(|value| value.id) else {
+            continue;
+        };
+        let Some(core) = core_components.get(&collection) else {
+            continue;
+        };
+        let mut dependencies = Vec::new();
+        if entry.descriptor.kind != ComponentKind::Domains {
+            if let Some(domains) = core.get(&ComponentKind::Domains) {
+                dependencies.push(*domains);
+            }
+        }
+        if !matches!(
+            entry.descriptor.kind,
+            ComponentKind::Records | ComponentKind::Identities | ComponentKind::Domains
+        ) {
+            if let Some(records) = core.get(&ComponentKind::Records) {
+                dependencies.push(*records);
+            }
+        }
+        entry.descriptor.dependency_ids = dependencies;
+    }
     prototype
         .rebuild_collection_index(&manifest_collections, &descriptor_list)
         .map_err(|error| error.to_string())?;
-    for state in repository.collections() {
+    for state in collections {
         if let Some(collection) = prototype.collections.get_mut(&state.generation.collection) {
             collection.identity_policy = format!("{:?}", state.definition.identity);
             collection.slot_high_water =
@@ -475,7 +528,7 @@ enum JobData<'a> {
     States(&'a PostingIndex),
     NormalGrams(&'a BigramIndex),
     SkipGrams(&'a BigramIndex),
-    Sort(&'a SortColumn, bool),
+    Sort(&'a SortColumn, bool, &'a [RecordEntry]),
     RelationOccurrences(&'a RelationIndex),
     RelationTargets(&'a RelationIndex),
     RelationStates(&'a RelationIndex),
@@ -500,7 +553,7 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
         JobData::States(index) => build_states(index)?,
         JobData::NormalGrams(index) => build_grams(index, false)?,
         JobData::SkipGrams(index) => build_grams(index, true)?,
-        JobData::Sort(column, descending) => build_sort(column, descending)?,
+        JobData::Sort(column, descending, records) => build_sort(column, descending, records)?,
         JobData::RelationOccurrences(relation) => build_relation_occurrences(relation)?,
         JobData::RelationTargets(relation) => build_relation_targets(relation)?,
         JobData::RelationStates(relation) => build_relation_states(relation)?,
@@ -543,9 +596,12 @@ fn build_prepared_paths(entries: Vec<(PathKey, StoredBytes)>) -> Result<IndexTre
     Ok(tree)
 }
 
-fn prepare_paths(repository: &Repository) -> Result<Vec<(PathKey, StoredBytes)>, String> {
+fn prepare_paths(
+    files: &FileInventory,
+    collections: &[CollectionState],
+) -> Result<Vec<(PathKey, StoredBytes)>, String> {
     let mut by_file = BTreeMap::<FileId, Vec<RecordRef>>::new();
-    for state in repository.collections() {
+    for state in collections {
         for record in &state.generation.records {
             by_file.entry(record.file).or_default().push(RecordRef {
                 collection: state.generation.collection,
@@ -553,9 +609,9 @@ fn prepare_paths(repository: &Repository) -> Result<Vec<(PathKey, StoredBytes)>,
             });
         }
     }
-    let mut entries = Vec::with_capacity(repository.files().files.len());
+    let mut entries = Vec::with_capacity(files.files.len());
     let mut seen = BTreeSet::new();
-    for file in &repository.files().files {
+    for file in &files.files {
         let key = PathKey::from_path(&file.relative_path)?;
         if !seen.insert(key.clone()) {
             return Err(format!(
@@ -693,7 +749,14 @@ fn build_grams(index: &BigramIndex, skip: bool) -> Result<IndexTree, String> {
     Ok(tree)
 }
 
-fn build_sort(column: &SortColumn, descending: bool) -> Result<IndexTree, String> {
+fn build_sort(
+    column: &SortColumn,
+    descending: bool,
+    records: &[RecordEntry],
+) -> Result<IndexTree, String> {
+    if records.len() != column.keys.len() {
+        return Err("sort column record coverage mismatch".into());
+    }
     let mut tree = memory::new_tree();
     for (slot, key) in column.keys.iter().enumerate() {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot does not fit in u32")?);
@@ -702,6 +765,7 @@ fn build_sort(column: &SortColumn, descending: bool) -> Result<IndexTree, String
                 options: column.options,
                 descending,
                 key: key.clone(),
+                tie_break_id: records[slot.0 as usize].id.clone(),
                 slot,
             }),
             StoredBytes::empty(),
@@ -1009,6 +1073,7 @@ fn sort_draft<'a>(
     collection: &CollectionIdentity,
     field: FieldIdentity,
     column: &'a SortColumn,
+    records: &'a [RecordEntry],
     descending: bool,
     kind: ComponentKind,
     configuration_identity: &[u8; 32],
@@ -1045,7 +1110,7 @@ fn sort_draft<'a>(
             column.keys.len() as u32,
             root,
         ),
-        data: JobData::Sort(column, descending),
+        data: JobData::Sort(column, descending, records),
     }
 }
 
@@ -1136,7 +1201,7 @@ fn descriptor(
         kind,
         key_codec_version: codec::KEY_CODEC_VERSION,
         value_codec_version: codec::VALUE_CODEC_VERSION,
-        key_bound: "unbounded:component-key-v1".into(),
+        key_bound: "unbounded:component-key-v2".into(),
         collection,
         field,
         ordering,
@@ -1154,10 +1219,10 @@ fn descriptor(
     }
 }
 
-fn configuration_identity(repository: &Repository) -> [u8; 32] {
+fn configuration_identity(collections: &[CollectionState]) -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(b"objekte-icss-configuration-v1");
-    for state in repository.collections() {
+    for state in collections {
         let definition = &state.definition;
         hash_field(&mut hash, &definition.name);
         hash_field(&mut hash, &definition.source_path);
@@ -1199,13 +1264,16 @@ fn configuration_identity(repository: &Repository) -> [u8; 32] {
     hash.finalize().into()
 }
 
-fn repository_identity(repository: &Repository) -> Result<[u8; 32], String> {
+fn repository_identity(
+    files: &FileInventory,
+    collections: &[CollectionState],
+) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(b"objekte-icss-repository-v1");
-    for file in &repository.files().files {
+    for file in &files.files {
         hash_serde(&mut hash, file)?;
     }
-    for state in repository.collections() {
+    for state in collections {
         hash_field(&mut hash, &state.definition.name);
         hash_field(&mut hash, &state.generation.generation);
         for record in &state.generation.records {
@@ -1221,7 +1289,7 @@ fn repository_identity(repository: &Repository) -> Result<[u8; 32], String> {
 }
 
 fn slot_namespace(
-    repository: &Repository,
+    root: &Path,
     configuration_identity: [u8; 32],
     repository_identity: [u8; 32],
 ) -> String {
@@ -1229,7 +1297,7 @@ fn slot_namespace(
     hash.update(b"objekte-icss-slot-namespace-v1");
     hash.update(configuration_identity);
     hash.update(repository_identity);
-    if let Some(root) = repository.files().root.to_str() {
+    if let Some(root) = root.to_str() {
         hash_field(&mut hash, &root);
     }
     codec::hex_digest(&hash.finalize().into())

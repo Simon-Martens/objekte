@@ -1,0 +1,47 @@
+{
+  "admission_ns": 0,
+  "available_parallelism": 16,
+  "components": 1323,
+  "construction_mode": "direct_batch_contributions",
+  "counters": {
+    "bitmap_decodes": 0,
+    "bitmap_encodes": 329218,
+    "component_inserts_during_load": 0,
+    "component_loads": 0,
+    "component_payload_bytes_read": 0,
+    "manifest_opens": 0,
+    "stable_gets": 0,
+    "stable_inserts": 1341444,
+    "stable_removes": 0,
+    "standalone_files_opened": 0
+  },
+  "failed_parses": 0,
+  "job_execution_ns": 0,
+  "peak_active_jobs": 8,
+  "peak_ready_batches": 14,
+  "receive_wait_ns": 0,
+  "requested_build_workers": 8,
+  "resolved_build_workers": 8,
+  "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_build_timings": {
+    "discovery_ns": 327348276,
+    "extraction_admission_ns": 859291695,
+    "finalization_ns": 451921971,
+    "setup_ns": 1478898,
+    "stable_component_ns": 3178618466
+  },
+  "source_bytes": 193297230,
+  "source_bytes_read": 0,
+  "source_files": 148486,
+  "source_parses": 148486,
+  "source_reads": 0,
+  "source_records": 148486,
+  "stage_ns": {
+    "discovery": 327348276,
+    "extraction_admission": 859291695,
+    "finalization": 451921971,
+    "setup": 1478898,
+    "stable_component": 3178618466
+  },
+  "total_source_build_ns": 4958699030
+}

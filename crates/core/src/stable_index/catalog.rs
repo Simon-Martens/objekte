@@ -29,7 +29,9 @@ impl StablePrototype {
             ));
         };
         let tree = self.tree(component)?;
-        let Some(value) = tree.get(&codec::file_id_key(file)) else {
+        let value = tree.get(&codec::file_id_key(file));
+        self.counters.stable_gets += 1;
+        let Some(value) = value else {
             return Ok(None);
         };
         codec::decode_meta(&value)
@@ -48,7 +50,9 @@ impl StablePrototype {
             .ok_or_else(|| StableIndexError::Format("unknown collection".into()))?
             .records;
         let tree = self.tree(record_component)?;
-        let Some(value) = tree.get(&codec::record_slot_key(slot)) else {
+        let value = tree.get(&codec::record_slot_key(slot));
+        self.counters.stable_gets += 1;
+        let Some(value) = value else {
             return Ok(None);
         };
         codec::decode_meta(&value)
@@ -96,7 +100,9 @@ impl StablePrototype {
             ));
         };
         let tree = self.tree(component)?;
-        let Some(value) = tree.get(&ComponentKey::Path(key.clone())) else {
+        let value = tree.get(&ComponentKey::Path(key.clone()));
+        self.counters.stable_gets += 1;
+        let Some(value) = value else {
             return Ok(Vec::new());
         };
         let entry: PathCatalogEntry =
@@ -129,7 +135,9 @@ impl StablePrototype {
             .ok_or_else(|| StableIndexError::Format("unknown collection".into()))?
             .identities;
         let tree = self.tree(identity_component)?;
-        let Some(value) = tree.get(&codec::identity_key(id)) else {
+        let value = tree.get(&codec::identity_key(id));
+        self.counters.stable_gets += 1;
+        let Some(value) = value else {
             return Ok(Vec::new());
         };
         let slots = super::memory::decode_bitmap(&value)?;

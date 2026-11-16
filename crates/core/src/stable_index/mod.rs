@@ -12,6 +12,7 @@ mod memory;
 mod mutation;
 mod posting;
 mod snapshot;
+mod source_build;
 mod validation;
 
 use std::collections::BTreeMap;
@@ -19,6 +20,7 @@ use std::fs::File;
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
@@ -38,6 +40,7 @@ pub use memory::{IndexMemory, IndexTree, StoredBytes};
 pub use snapshot::{
     ManifestCollection, ManifestComponent, SnapshotManifest, component_relative_path, read_manifest,
 };
+pub use source_build::SourceBuildTimings;
 pub use validation::ValidationReport;
 
 const TREE_HEADER_BYTES: usize = codec::TREE_HEADER_BYTES;
@@ -144,6 +147,16 @@ pub struct ComponentBuildRecord {
     pub start_offset_ns: u64,
     pub end_offset_ns: u64,
     pub worker: String,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct StorageReport {
+    pub collection: CollectionId,
+    pub slot_high_water: u32,
+    pub live_records: u64,
+    pub dead_slots: u64,
+    pub components: usize,
+    pub payload_bytes: u64,
 }
 
 #[derive(Clone, Debug, Serialize)]
@@ -259,6 +272,7 @@ pub struct StablePrototype {
     pub(crate) counters: PrototypeCounters,
     pub(crate) usable: bool,
     pub(crate) build_records: Vec<ComponentBuildRecord>,
+    pub(crate) build_stage_ns: BTreeMap<String, u64>,
 }
 
 impl StablePrototype {
@@ -317,6 +331,59 @@ impl StablePrototype {
         &self.build_records
     }
 
+    pub fn build_stage_ns(&self) -> &BTreeMap<String, u64> {
+        &self.build_stage_ns
+    }
+
+    pub fn from_sources(
+        root: impl Into<std::path::PathBuf>,
+        definitions: Vec<crate::repository::CollectionDefinition>,
+        options: crate::repository::RepositoryOptions,
+    ) -> Result<Self, String> {
+        source_build::from_sources(root.into(), definitions, options)
+            .map(|(prototype, _timings)| prototype)
+    }
+
+    pub fn from_sources_with_timings(
+        root: impl Into<std::path::PathBuf>,
+        definitions: Vec<crate::repository::CollectionDefinition>,
+        options: crate::repository::RepositoryOptions,
+    ) -> Result<(Self, SourceBuildTimings), String> {
+        source_build::from_sources(root.into(), definitions, options)
+    }
+
+    pub fn storage_report(&self, collection: CollectionId) -> Option<StorageReport> {
+        let info = self.collections.get(&collection)?;
+        let mut components = 0usize;
+        let mut payload_bytes = 0u64;
+        for entry in self.components.values() {
+            if entry.descriptor.collection.as_ref().map(|value| value.id) != Some(collection) {
+                continue;
+            }
+            components += 1;
+            if let Some(info) = &entry.saved_info {
+                payload_bytes = payload_bytes.saturating_add(info.envelope.payload_len);
+            } else if let ComponentState::Unloaded { info, .. } = &entry.state {
+                payload_bytes = payload_bytes.saturating_add(info.envelope.payload_len);
+            } else {
+                payload_bytes = payload_bytes.saturating_add(
+                    self.build_records
+                        .iter()
+                        .find(|record| record.id == entry.descriptor.id)
+                        .map_or(0, |record| record.payload_len),
+                );
+            }
+        }
+        Some(StorageReport {
+            collection,
+            slot_high_water: info.slot_high_water,
+            live_records: info.live_records,
+            dead_slots: u64::from(info.slot_high_water).saturating_sub(info.live_records),
+            components,
+            payload_bytes,
+        })
+    }
+
     pub fn generation_path(&self) -> Option<&Path> {
         self.generation.as_deref()
     }
@@ -336,26 +403,39 @@ impl StablePrototype {
             ComponentState::Unloaded { path, info } => {
                 let path = path.clone();
                 let info = info.clone();
-                let file = codec::read_component_file(&path).map_err(StableIndexError::Format)?;
-                if file.info.envelope != info.envelope {
-                    return Err(StableIndexError::Format(
-                        "component file changed after the manifest was opened".into(),
-                    ));
+                let loaded =
+                    (|| -> Result<(IndexTree, codec::ComponentFileInfo), StableIndexError> {
+                        let file =
+                            codec::read_component_file(&path).map_err(StableIndexError::Format)?;
+                        if file.info.envelope != info.envelope {
+                            return Err(StableIndexError::Format(
+                                "component file changed after the manifest was opened".into(),
+                            ));
+                        }
+                        let tree = load_tree_catching(file.payload)?;
+                        if tree.len() != info.envelope.entry_count {
+                            return Err(StableIndexError::Format(format!(
+                                "component {} entry count {} does not match the manifest count {}",
+                                id.0,
+                                tree.len(),
+                                info.envelope.entry_count
+                            )));
+                        }
+                        Ok((tree, file.info))
+                    })();
+                match loaded {
+                    Ok((tree, info)) => {
+                        self.counters.component_loads += 1;
+                        self.counters.component_payload_bytes_read += info.envelope.payload_len;
+                        entry.state = ComponentState::Loaded { tree, dirty: false };
+                        entry.saved_info = Some(info);
+                        Ok(())
+                    }
+                    Err(error) => {
+                        entry.state = ComponentState::Failed(error.to_string());
+                        Err(error)
+                    }
                 }
-                let tree = load_tree_catching(file.payload)?;
-                if tree.len() != info.envelope.entry_count {
-                    return Err(StableIndexError::Format(format!(
-                        "component {} entry count {} does not match the manifest count {}",
-                        id.0,
-                        tree.len(),
-                        info.envelope.entry_count
-                    )));
-                }
-                self.counters.component_loads += 1;
-                self.counters.component_payload_bytes_read += info.envelope.payload_len;
-                entry.state = ComponentState::Loaded { tree, dirty: false };
-                entry.saved_info = Some(file.info);
-                Ok(())
             }
         }
     }
@@ -426,7 +506,11 @@ impl StablePrototype {
         let result = self.write_snapshot_to(&staging);
         match result {
             Ok(manifest) => {
+                snapshot::inject_fault("snapshot-before-sync", Some(&staging))
+                    .map_err(StableIndexError::Io)?;
                 snapshot::sync_directory(&staging).map_err(StableIndexError::Io)?;
+                snapshot::inject_fault("snapshot-before-rename", Some(destination))
+                    .map_err(StableIndexError::Io)?;
                 std::fs::rename(&staging, destination).map_err(|error| {
                     StableIndexError::Io(format!(
                         "publish generation {}: {error}",
@@ -454,82 +538,77 @@ impl StablePrototype {
     ) -> Result<SnapshotManifest, StableIndexError> {
         let mut components = Vec::with_capacity(self.components.len());
         let ids = self.components.keys().copied().collect::<Vec<_>>();
-        for id in ids {
-            let entry = self.components.get_mut(&id).expect("component ID");
-            let descriptor = entry.descriptor.clone();
-            let relative = component_relative_path(&descriptor);
-            let output = directory.join(&relative);
-            if let Some(parent) = output.parent() {
-                std::fs::create_dir_all(parent).map_err(|error| {
-                    StableIndexError::Io(format!(
-                        "create component directory {}: {error}",
-                        parent.display()
-                    ))
-                })?;
+        let io_workers = std::thread::available_parallelism()
+            .map(|value| value.get().min(4))
+            .unwrap_or(1);
+        let io_pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(io_workers)
+            .thread_name(|index| format!("objekte-icss-snapshot-{index}"))
+            .build()
+            .map_err(|error| StableIndexError::Io(error.to_string()))?;
+        let mut offset = 0usize;
+        while offset < ids.len() {
+            let end = (offset + io_workers).min(ids.len());
+            let chunk = &ids[offset..end];
+            let mut jobs = Vec::with_capacity(chunk.len());
+            for id in chunk {
+                let prepared = {
+                    let entry = self.components.get_mut(id).expect("component ID");
+                    prepare_snapshot_write(entry, directory)
+                };
+                match prepared {
+                    Ok(job) => jobs.push(job),
+                    Err(error) => {
+                        restore_chunk_payloads(&mut self.components, chunk, jobs);
+                        return Err(StableIndexError::InvalidState(error));
+                    }
+                }
             }
-            let info = match &mut entry.state {
-                ComponentState::Loaded { tree, dirty } => {
-                    if *dirty {
-                        let payload = std::mem::replace(tree, memory::new_tree());
-                        let payload = memory::tree_payload(payload);
-                        let write_result =
-                            codec::write_component_file(&output, &descriptor, &payload, {
-                                // The count is read from the tree header only
-                                // after restoration; this placeholder is
-                                // replaced below.
-                                0
-                            });
-                        let restored = load_tree_catching(payload)?;
-                        *tree = restored;
-                        let mut info = write_result.map_err(StableIndexError::Io)?;
-                        info.envelope.entry_count = tree.len();
-                        *dirty = false;
-                        // Rewriting the envelope with the exact count keeps
-                        // the on-disk count and payload in one verified file.
-                        rewrite_envelope_entry_count(&output, &mut info, tree.len())
-                            .map_err(StableIndexError::Io)?;
-                        info
-                    } else {
-                        // Use the same memory-image extraction path even for
-                        // a clean component; this avoids a second clone.
-                        let payload = std::mem::replace(tree, memory::new_tree());
-                        let payload = memory::tree_payload(payload);
-                        let entry_count = tree_header_entry_count(&payload);
-                        let payload_len = payload.len();
-                        let write_result = codec::write_component_file(
-                            &output,
-                            &descriptor,
-                            &payload,
-                            entry_count,
-                        );
-                        let restored = load_tree_catching(payload)?;
-                        *tree = restored;
-                        let info = write_result.map_err(StableIndexError::Io)?;
-                        if info.envelope.payload_len != payload_len as u64 {
-                            return Err(StableIndexError::Format(
-                                "component payload length changed during save".into(),
-                            ));
+            let results = io_pool.install(|| {
+                jobs.into_par_iter()
+                    .map(SnapshotWriteJob::run)
+                    .collect::<Vec<_>>()
+            });
+            let mut first_error = None;
+            let mut infos = Vec::with_capacity(results.len());
+            for (id, (result, payload)) in chunk.iter().copied().zip(results) {
+                if let Some(payload) = payload {
+                    let entry = self.components.get_mut(&id).expect("component ID");
+                    if let ComponentState::Loaded { tree, .. } = &mut entry.state {
+                        match load_tree_catching(payload) {
+                            Ok(restored) => *tree = restored,
+                            Err(error) => {
+                                entry.state =
+                                    ComponentState::Failed(format!("restore after save: {error}"));
+                                first_error.get_or_insert(StableIndexError::InvalidState(format!(
+                                    "component {} could not be restored",
+                                    id.0
+                                )));
+                                continue;
+                            }
                         }
-                        info
                     }
                 }
-                ComponentState::Unloaded { path, info } => {
-                    if *path == output {
-                        info.clone()
-                    } else {
-                        copy_component_file_verified(path, &output, info)
-                            .map_err(StableIndexError::Io)?
+                match result {
+                    Ok(info) => infos.push((id, info)),
+                    Err(error) => {
+                        first_error.get_or_insert(StableIndexError::Io(error));
                     }
                 }
-                ComponentState::Failed(error) => {
-                    return Err(StableIndexError::InvalidState(format!(
-                        "component {} failed and cannot be saved: {error}",
-                        id.0
-                    )));
+            }
+            if let Some(error) = first_error {
+                return Err(error);
+            }
+            for (id, info) in infos {
+                let entry = self.components.get_mut(&id).expect("component ID");
+                let relative = component_relative_path(&entry.descriptor);
+                entry.saved_info = Some(info.clone());
+                if let ComponentState::Loaded { dirty, .. } = &mut entry.state {
+                    *dirty = false;
                 }
-            };
-            entry.saved_info = Some(info.clone());
-            components.push(manifest_component(&descriptor, &relative, &info)?);
+                components.push(manifest_component(&entry.descriptor, &relative, &info)?);
+            }
+            offset = end;
         }
         let collection_headers = self
             .collections
@@ -660,6 +739,7 @@ impl StablePrototype {
             },
             usable: true,
             build_records: Vec::new(),
+            build_stage_ns: BTreeMap::new(),
         };
         let mut descriptors = Vec::new();
         for component in &manifest.components {
@@ -1146,6 +1226,101 @@ fn save_index_info(
     }
 }
 
+fn prepare_snapshot_write(
+    entry: &mut ComponentEntry,
+    directory: &Path,
+) -> Result<SnapshotWriteJob, String> {
+    let descriptor = entry.descriptor.clone();
+    let relative = component_relative_path(&descriptor);
+    let output = directory.join(&relative);
+    if let Some(parent) = output.parent() {
+        std::fs::create_dir_all(parent)
+            .map_err(|error| format!("create component directory {}: {error}", parent.display()))?;
+    }
+    match &mut entry.state {
+        ComponentState::Loaded { tree, .. } => {
+            let payload = std::mem::replace(tree, memory::new_tree());
+            let payload = memory::tree_payload(payload);
+            let entry_count = tree_header_entry_count(&payload);
+            Ok(SnapshotWriteJob::Loaded {
+                output,
+                descriptor,
+                payload,
+                entry_count,
+            })
+        }
+        ComponentState::Unloaded { path, info } => Ok(SnapshotWriteJob::Copy {
+            source: path.clone(),
+            destination: output,
+            expected: info.clone(),
+        }),
+        ComponentState::Failed(error) => Err(format!(
+            "component {} failed and cannot be saved: {error}",
+            descriptor.id.0
+        )),
+    }
+}
+
+enum SnapshotWriteJob {
+    Loaded {
+        output: PathBuf,
+        descriptor: ComponentDescriptor,
+        payload: Vec<u8>,
+        entry_count: u64,
+    },
+    Copy {
+        source: PathBuf,
+        destination: PathBuf,
+        expected: codec::ComponentFileInfo,
+    },
+}
+
+impl SnapshotWriteJob {
+    fn run(self) -> (Result<codec::ComponentFileInfo, String>, Option<Vec<u8>>) {
+        match self {
+            Self::Loaded {
+                output,
+                descriptor,
+                payload,
+                entry_count,
+            } => {
+                let result =
+                    codec::write_component_file(&output, &descriptor, &payload, entry_count);
+                (result, Some(payload))
+            }
+            Self::Copy {
+                source,
+                destination,
+                expected,
+            } => (
+                copy_component_file_verified(&source, &destination, &expected),
+                None,
+            ),
+        }
+    }
+}
+
+fn restore_chunk_payloads(
+    components: &mut BTreeMap<ComponentId, ComponentEntry>,
+    chunk: &[ComponentId],
+    jobs: Vec<SnapshotWriteJob>,
+) {
+    for (id, job) in chunk.iter().copied().zip(jobs) {
+        let payload = match job {
+            SnapshotWriteJob::Loaded { payload, .. } => payload,
+            SnapshotWriteJob::Copy { .. } => continue,
+        };
+        let entry = components.get_mut(&id).expect("component ID");
+        if let ComponentState::Loaded { tree, .. } = &mut entry.state {
+            if let Ok(restored) = load_tree_catching(payload) {
+                *tree = restored;
+            } else {
+                entry.state = ComponentState::Failed("restore after aborted snapshot chunk".into());
+            }
+        }
+    }
+}
+
 fn manifest_component(
     descriptor: &ComponentDescriptor,
     relative: &str,
@@ -1169,27 +1344,6 @@ fn tree_header_entry_count(payload: &[u8]) -> u64 {
     } else {
         0
     }
-}
-
-fn rewrite_envelope_entry_count(
-    path: &Path,
-    info: &mut codec::ComponentFileInfo,
-    entry_count: u64,
-) -> Result<(), String> {
-    let mut envelope = info.envelope.clone();
-    envelope.entry_count = entry_count;
-    let mut file = File::options()
-        .write(true)
-        .open(path)
-        .map_err(|error| format!("reopen component {}: {error}", path.display()))?;
-    file.write_all(&envelope.encode())
-        .map_err(|error| format!("rewrite entry count: {error}"))?;
-    file.flush()
-        .map_err(|error| format!("flush entry count: {error}"))?;
-    file.sync_all()
-        .map_err(|error| format!("sync entry count: {error}"))?;
-    info.envelope = envelope;
-    Ok(())
 }
 
 fn copy_component_file_verified(

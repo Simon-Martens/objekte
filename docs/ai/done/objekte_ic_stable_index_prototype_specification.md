@@ -902,112 +902,106 @@ Integration worktree: `/home/simon/source/objekte-integration-ic-stable-index-pr
 
 ### Result
 
-Implemented the feature-gated independent stable-index prototype and measured a
-clear construction-latency rejection. The matched P=8 Musenalm source-build
-median was 4.617 s versus 1.637 s native (2.82x). The independent component
-construction stage alone was 3.001 s (1.83x native), so removing the temporary
-native upstream build would not by itself reach the 1.10x parity target.
-Resident and peak RSS were effectively at parity (approximately 0.99x).
-
-This is a performance rejection, not a near-parity result. No production
-migration, default-backend change or master merge is implied.
+Completed the feature-gated prototype and its evidence campaign. The measured
+decision is a **performance rejection**: the complete direct source build is
+2.92x native on the matched Musenalm P=8 run, and resident/peak memory are
+1.92x/2.14x native. Correctness, independent files, manifest-free standalone
+opening, lazy generation loading, mutation, fault handling and parallelism were
+validated. No production migration, default-backend change or master merge is
+implied.
 
 ### Implemented changes
 
 - Optional dependency `ic-stable-structures = "=0.7.2"` behind the disabled-by-
   default `ic-stable-prototype` feature.
-- `crates/core/src/stable_index/` with owned `RefCell<Vec<u8>>` memories,
-  independent component trees, checked codecs, catalogs, posting families,
-  sort/relation components, explicit snapshots, standalone files, lazy loading,
-  mutation primitives, file lifecycle and independent validation.
-- Self-contained 128-byte component envelope with embedded bounded descriptor,
-  descriptor/payload SHA-256, entry count, pinned crate/parser/layout identity
-  and V2 tree-layout rejection.
-- Generation manifest, staging/rename publication, sync, explicit component
-  loading with `BTreeMap::load`, stream-copy of unchanged unloaded components,
-  and old-generation preservation.
-- Feature-gated benchmark example `crates/core/examples/bench_ic_stable_index.rs`
-  with source-build, snapshot, fixture, validate, open, open-index, save-index,
-  primitives and mutations modes.
-- Generated evidence under
-  `docs/ai/generated/ic-stable-index-prototype/`.
+- Independent owned memory and files for every catalog, field/binding posting,
+  text gram column, configured sort and relation family.
+- Direct source build from native discovery and batch contributions; no
+  production `Repository` is constructed by the benchmark path. Accumulation
+  still uses master's exact native posting/bigram/sort/relation structures.
+- Self-contained 128-byte component envelope, bounded descriptor, descriptor
+  and payload SHA-256, entry count, pinned crate/parser/layout identity, and V2
+  tree layout rejection.
+- Manifest generations, lazy `BTreeMap::load`, unchanged-unloaded stream copy,
+  bounded parallel component publication, staging/rename, sync and old-generation
+  preservation.
+- Standalone save/open/save-as, checked component-key kinds, raw mutation and
+  explicit missing-dependency errors for repository-semantic standalone use.
+- Known-key posting mutation, file append/delete/replace/move, live-domain
+  tombstoning and dead-slot/payload growth reporting.
+- Descriptor dependency identities, explicit failed-component state, build
+  component traces, worker/overlap evidence and source/stage counters.
+- Deterministic component descriptor ordering and IDs; native record-ID
+  tie-breaking for equal configured sort keys.
+- Feature-gated benchmark and synthetic-fixture executables.
 
 Production CLI, desktop and default native backend behavior are unchanged.
 
 ### Verification
 
-Commands run in the integration worktree:
+All required commands passed in the integration worktree:
 
-- `cargo check --workspace --all-targets` — passed.
-- `cargo test --workspace` — core/CLI passed; one unrelated desktop test
-  (`controller::runtime::tests::export_uses_current_valid_draft_before_debounce_runs`)
-  failed once with an empty-JSON EOF, passed alone, and passed in the later full
-  workspace feature run.
+- `cargo check --workspace --all-targets`
+- `cargo test --workspace`
 - `cargo check -p objekte-search-core --all-targets --features ic-stable-prototype`
-  — passed.
-- `cargo test -p objekte-search-core --features ic-stable-prototype` — passed,
-  including 26 focused stable-index tests.
+- `cargo test -p objekte-search-core --features ic-stable-prototype`
 - `cargo check -p objekte-search-core --all-targets --features ic-stable-prototype,detailed-profiling`
-  — passed.
 - `cargo test --workspace --features objekte-search-core/ic-stable-prototype`
-  — passed.
+
+35 focused prototype tests cover the required semantic, lifecycle, persistence,
+corruption, fault-injection, worker-determinism, source-free and direct-build
+cases. Full Musenalm direct-build validation passed with zero errors.
 
 ### Benchmark evidence
 
-Full command lines, environment, ranges, memory, persistence, primitive and
-mutation measurements are in
-`docs/ai/generated/ic-stable-index-prototype/prototype-report.md` and
-`comparison.json`. Corpus: ASCII Musenalm, 148,486 records, 193,297,230 source
-bytes, schema digest
-`38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9`.
-Baseline executable was built from a pristine checkout at the pinned base.
+See `docs/ai/generated/ic-stable-index-prototype/prototype-report.md`,
+`comparison.json` and raw JSON under
+`bench/results/ic-stable-index-prototype/ascii-p8-direct/`.
 
-Exploratory totals: P=1 16.539 s vs 6.157 s; P=2 7.575 s vs 3.828 s; P=8
-4.617 s vs 1.637 s. Five alternating P=8 samples gave candidate median 4.617 s
-(range 4.556-4.658) and native median 1.637 s (range 1.600-1.682). Component
-trace showed 1,323 independent component jobs and 7,145 overlapping field-job
-pairs on different workers.
+Required synthetic fixture: 100 files / 100,000 records / 100,000 distinct
+keys / 1,000,000 tag memberships / 40 components. P8 stable 1.769 s versus
+native 0.762 s (2.32x); validation passed.
 
-Snapshot save was approximately 0.54 s for 1,323 components / 403 MB; manifest
-open was 27 ms; a 27.9 MB component loaded in 27 ms; standalone open/save of the
-same component was approximately 28/36 ms. A 65,536-member bitmap mutation plus
-save took approximately 36 ms each. The prototype loaded by `BTreeMap::load`
-reported zero component insertion calls.
+Musenalm P8 median over five alternating samples: stable 4.959 s versus native
+1.699 s (2.92x). Resident RSS 763.2 MB versus 397.7 MB (1.92x); peak RSS
+880.0 MB versus 410.6 MB (2.14x). The stable component stage alone took 3.179 s.
+P1/P2/P8 exploratory ratios were 2.31x/2.10x/2.92x.
 
-The extended Unicode/performance campaign was skipped after the construction
-rejection, as permitted by the stopping rule. Small semantic, persistence,
-failure and mutation cases for every implemented family were still run.
+Parallel snapshot publication took 0.326 s for 1,323 components / ~409 MB;
+manifest open 27 ms; first 27.9 MB component load 26.7 ms; standalone
+open/save about 28/66 ms. Lifecycle testing produced 2,000 dead slots after ten
+replacements of a 200-record file, with payload growth from 1.18 MB to 1.57 MB.
+
+The extended Unicode performance campaign was skipped after the clear
+construction rejection, as permitted by the stopping rule. Platform execution
+was Linux only.
 
 ### Implementation commits
 
 - `fd4570479170` — independent memory images, explicit snapshots, catalogs,
   semantic codecs, construction, reads, mutation and focused tests.
-- `ab7d06ad9c97` — additional lifecycle/snapshot/mutation validation and
-  generated evidence.
+- `ab7d06ad9c97` — lifecycle/snapshot/mutation validation and initial evidence.
+- `0e9f33a98ad6` — initial completed task report.
+- A later commit completes direct batch construction, synthetic/fault evidence,
+  corrected memory measurements and this report.
 
-A final commit records this completed task document and report.
+### Remaining limitations
 
-### Deviations and remaining limitations
-
-1. The benchmark builds the native `Repository` first and transfers completed
-   native indexes into independent stable components. A direct
-   batch-contribution-to-stable-only path is not implemented; build output is
-   labelled `native_build_then_independent_component_transfer`. The
-   component-transfer stage alone already exceeds the parity gate.
-2. Configured composite sorts are rejected explicitly. The Musenalm profile
-   used for measurement has none.
-3. File deletion retires live slots logically. Posting memberships and dead
-   slots are not physically reclaimed; compaction is deferred.
-4. Mutation/snapshot operations require exclusive prototype access; live MVCC
-   and concurrent readers during mutation are not provided.
-5. Only Linux was executed. Windows and macOS host compile/smoke coverage was
-   unavailable; path keys are platform tagged.
-6. The historical donor admission path was not copied, and no redb/RocksDB
-   mechanism is present in the new modules.
+1. Configured composite sorts are rejected explicitly; the selected Musenalm and
+   synthetic profiles contain none.
+2. Memory fails the gate because native accumulators remain alive while stable
+   images are constructed. Streaming per-family ownership transfer is the next
+   design experiment.
+3. File deletion is logical; dead slots and old posting bytes are not physically
+   reclaimed. Compaction is deferred.
+4. Mutation and snapshots require exclusive prototype access; no live MVCC.
+5. Only Linux was executed. Windows/macOS host coverage was unavailable; path
+   keys are platform tagged.
+6. FTS primitives expose candidates; a verified FTS adapter and general
+   Repository API parity are outside this prototype.
 
 ### Cleanup
 
-No subordinate worktrees were created. The integration worktree and branch are
-retained for review. The baseline worktree at the pinned base is retained for
-reproducing the comparison. Temporary task memory is removed after this report
-is committed and pushed.
+No subordinate worktrees were created. The integration branch/worktree and the
+pinned baseline worktree are retained for review and reproduction. Temporary
+task memory was removed after the completed report was committed and pushed.

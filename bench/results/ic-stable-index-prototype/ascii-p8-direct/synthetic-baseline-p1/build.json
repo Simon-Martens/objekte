@@ -1,0 +1,16 @@
+{
+  "available_parallelism": 16,
+  "bigram_columns": 2,
+  "build_workers": 1,
+  "construction_mode": "repository_build",
+  "custom_postings": 0,
+  "implementation": "native",
+  "peak_resident_bytes": 154726400,
+  "posting_fields": 9,
+  "resident_bytes": 154726400,
+  "sort_columns": 2,
+  "source_bytes": 29344566,
+  "source_files": 100,
+  "source_records": 100000,
+  "total_source_build_ns": 1599116310
+}

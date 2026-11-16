@@ -169,6 +169,70 @@ pub struct CollectionState {
     pub relations: Vec<RelationIndex>,
 }
 
+impl CollectionState {
+    /// Publish the completed parts of a feature-gated prototype build without
+    /// constructing the production query cache around them.
+    #[cfg(feature = "ic-stable-prototype")]
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn from_fresh_parts(
+        definition: CollectionDefinition,
+        source: PreparedSource,
+        generation: CollectionGeneration,
+        postings: PostingCollection,
+        custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+        raw: BigramIndex,
+        fallback_text: BigramIndex,
+        logical_records: RoaringBitmap,
+        empty_array_records: RoaringBitmap,
+        custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+        sorting: SortCollection,
+        total_file_bytes: u64,
+    ) -> Self {
+        let id_lookup = generation
+            .records
+            .iter()
+            .map(|record| (record.id.clone(), record.slot))
+            .collect::<HashMap<_, _>>();
+        let mut identity_order = generation
+            .records
+            .iter()
+            .map(|record| record.slot)
+            .collect::<Vec<_>>();
+        identity_order.sort_by(|left, right| {
+            generation.records[left.0 as usize]
+                .id
+                .cmp(&generation.records[right.0 as usize].id)
+        });
+        let stats = CollectionStats {
+            file_count: generation.files.len(),
+            record_count: generation.records.len(),
+            total_file_bytes,
+        };
+        let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
+        Self {
+            definition,
+            source,
+            generation,
+            postings,
+            inference: None,
+            global_inference: None,
+            custom_postings,
+            raw,
+            fallback_text,
+            logical_records,
+            empty_array_records,
+            custom_text,
+            text_bindings,
+            sorting,
+            index_family_bytes: 0,
+            id_lookup,
+            identity_order,
+            stats,
+            relations: Vec::new(),
+        }
+    }
+}
+
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.

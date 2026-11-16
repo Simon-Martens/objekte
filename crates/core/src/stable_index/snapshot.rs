@@ -13,6 +13,37 @@ pub const MANIFEST_NAME: &str = "manifest.json";
 pub const MANIFEST_FORMAT_VERSION: u32 = 1;
 pub const MAX_MANIFEST_BYTES: u64 = 64 * 1024 * 1024;
 
+#[cfg(test)]
+static ARMED_FAULT: std::sync::Mutex<Option<(&'static str, String)>> = std::sync::Mutex::new(None);
+
+#[cfg(test)]
+pub(crate) fn arm_fault(point: &'static str, marker: impl Into<String>) {
+    *ARMED_FAULT.lock().expect("fault lock") = Some((point, marker.into()));
+}
+
+#[cfg(test)]
+pub(crate) fn clear_fault() {
+    *ARMED_FAULT.lock().expect("fault lock") = None;
+}
+
+#[allow(unused_variables)]
+pub(crate) fn inject_fault(point: &'static str, path: Option<&Path>) -> Result<(), String> {
+    #[cfg(test)]
+    {
+        let mut fault = ARMED_FAULT.lock().expect("fault lock");
+        let matches_path = match (fault.as_ref(), path) {
+            (Some((_, marker)), Some(path)) => path.to_string_lossy().contains(marker),
+            (Some(_), None) => false,
+            (None, _) => false,
+        };
+        if matches_path && fault.as_ref().is_some_and(|(armed, _)| *armed == point) {
+            *fault = None;
+            return Err(format!("injected fault at {point}"));
+        }
+    }
+    Ok(())
+}
+
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ManifestCollection {
     pub id: u32,
@@ -179,6 +210,7 @@ pub fn component_relative_path(descriptor: &ComponentDescriptor) -> String {
 }
 
 pub fn write_manifest(directory: &Path, manifest: &SnapshotManifest) -> Result<PathBuf, String> {
+    inject_fault("snapshot-before-manifest", Some(directory))?;
     manifest.validate()?;
     let path = directory.join(MANIFEST_NAME);
     let bytes =

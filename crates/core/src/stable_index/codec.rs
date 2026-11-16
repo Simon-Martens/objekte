@@ -19,7 +19,7 @@ use super::memory::StoredBytes;
 
 pub const FORMAT_MAGIC: &[u8; 8] = b"OBJICSS2";
 pub const OUTER_FORMAT_VERSION: u32 = 2;
-pub const KEY_CODEC_VERSION: u32 = 1;
+pub const KEY_CODEC_VERSION: u32 = 2;
 pub const VALUE_CODEC_VERSION: u32 = 1;
 pub const DESCRIPTOR_FORMAT_VERSION: u32 = 1;
 pub const DESCRIPTOR_ENCODING_VERSION: u32 = 1;
@@ -482,6 +482,8 @@ pub struct SortEntryKey {
     pub options: SortOptions,
     pub descending: bool,
     pub key: SortKey,
+    /// Native configured sorts break equal-key groups by logical record ID.
+    pub tie_break_id: RecordId,
     pub slot: RecordSlot,
 }
 
@@ -541,6 +543,7 @@ impl Ord for SortEntryKey {
                 self.key
                     .compare_with(&other.key, self.descending, self.options)
             })
+            .then_with(|| self.tie_break_id.cmp(&other.tie_break_id))
             .then_with(|| self.slot.cmp(&other.slot))
     }
 }
@@ -821,6 +824,7 @@ pub fn write_component_file(
         descriptor_len,
         descriptor_encoding_version: DESCRIPTOR_ENCODING_VERSION,
     };
+    super::snapshot::inject_fault("component-before-open", Some(path))?;
     let mut file = File::options()
         .write(true)
         .create_new(true)
@@ -828,6 +832,7 @@ pub fn write_component_file(
         .map_err(|error| format!("create {}: {error}", path.display()))?;
     file.write_all(&[0u8; ENVELOPE_BYTES])
         .map_err(|error| format!("write placeholder envelope: {error}"))?;
+    super::snapshot::inject_fault("component-after-open", Some(path))?;
     file.write_all(&descriptor_bytes)
         .map_err(|error| format!("write descriptor: {error}"))?;
     let mut hasher = Sha256::new();
@@ -836,6 +841,7 @@ pub fn write_component_file(
         file.write_all(chunk)
             .map_err(|error| format!("write payload: {error}"))?;
     }
+    super::snapshot::inject_fault("component-after-payload", Some(path))?;
     let written: [u8; 32] = hasher.finalize().into();
     if written != payload_digest {
         return Err("payload changed while it was being written".into());
@@ -846,6 +852,7 @@ pub fn write_component_file(
         .map_err(|error| format!("rewrite envelope: {error}"))?;
     file.flush()
         .map_err(|error| format!("flush component file: {error}"))?;
+    super::snapshot::inject_fault("component-before-sync", Some(path))?;
     file.sync_all()
         .map_err(|error| format!("sync component file: {error}"))?;
     let file_len = ENVELOPE_BYTES as u64 + descriptor_bytes.len() as u64 + payload.len() as u64;
@@ -989,12 +996,14 @@ mod tests {
             options,
             descending: false,
             key: SortKey::Missing,
+            tie_break_id: RecordId("a".into()),
             slot: RecordSlot(1),
         };
         let b = SortEntryKey {
             options,
             descending: false,
             key: SortKey::Unavailable,
+            tie_break_id: RecordId("a".into()),
             slot: RecordSlot(1),
         };
         assert_eq!(a, b);

@@ -27,8 +27,10 @@ The implementation reuses master types directly rather than copying donor backen
 - `crate::inventory::{FileEntry, FileInventory, RecordEntry}` and
   `crate::model::{CollectionId, FileId, RecordSlot, RecordId}` for identity and
   metadata semantics.
-- `crate::repository::{Repository, CollectionState}` as the native oracle and
-  current construction source.
+- `crate::repository::{Repository, CollectionState}` as the native oracle;
+- `crate::discovery`, `crate::build` batch extraction and
+  `CollectionAdmission` accumulation for the direct source-build path, without
+  constructing a production `Repository` in the benchmark.
 
 No donor admission coordinator, transaction layer, write receipt, database
 environment, namespace dispatcher, reverse-gram subsystem or database key layout

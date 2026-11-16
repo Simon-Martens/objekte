@@ -428,6 +428,7 @@ fn sort_order_and_path_identity_use_native_semantics() {
             options: sort_descriptor.ordering.as_ref().expect("ordering").options,
             descending: false,
             key: crate::sorting::SortKey::Missing,
+            tie_break_id: RecordId(format!("{slot}").into()),
             slot: RecordSlot(slot),
         })
     };
@@ -437,6 +438,7 @@ fn sort_order_and_path_identity_use_native_semantics() {
             options: sort_descriptor.ordering.as_ref().unwrap().options,
             descending: false,
             key: crate::sorting::SortKey::Unavailable,
+            tie_break_id: RecordId("2".into()),
             slot: RecordSlot(2),
         })
         .tag()
@@ -943,4 +945,490 @@ fn move_updates_catalog_and_path_lookup_for_generated_identity() {
         new_path
     );
     let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn direct_source_build_matches_native_semantics() {
+    let root = temp_root("direct");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/a.jsonl"),
+        b"{\"name\":\"alpha\",\"age\":1,\"tags\":[\"x\",\"y\"]}\n{\"name\":\"beta\",\"age\":2,\"tags\":[\"x\"]}\n",
+    )
+    .expect("a");
+    std::fs::write(
+        root.join("data/b.jsonl"),
+        b"{\"name\":\"alpha\",\"age\":10,\"tags\":[]}\n",
+    )
+    .expect("b");
+    let definitions = vec![{
+        let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+        definition
+            .schema
+            .register_field(field(&["name"], LogicalType::String, false, true))
+            .expect("name");
+        definition
+            .schema
+            .register_field(field(&["age"], LogicalType::Number, false, true))
+            .expect("age");
+        definition
+            .schema
+            .register_field(field(
+                &["tags"],
+                LogicalType::Array(Box::new(LogicalType::String)),
+                true,
+                true,
+            ))
+            .expect("tags");
+        definition.sort_fields = vec![crate::model::FieldPath::parse("age").expect("sort")];
+        definition
+    }];
+    let repository = Repository::open(&root, definitions.clone()).expect("native");
+    let (mut direct, timings) = StablePrototype::from_sources_with_timings(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+    )
+    .expect("direct");
+    assert_eq!(timings.source_files, 2);
+    assert_eq!(timings.source_records, 3);
+    let report = direct
+        .validate_against_repository(&repository)
+        .expect("validation");
+    assert!(report.is_valid(), "{:?}", report.errors);
+    assert!(!direct.build_stage_ns().is_empty());
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn injected_snapshot_failures_preserve_usable_ram_and_previous_generation() {
+    let fixture = fixture("faults");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let root = temp_root("faults-generations");
+    let previous = root.join("previous");
+    prototype.save_snapshot(&previous).expect("previous");
+    let previous_manifest = std::fs::read(previous.join("manifest.json")).expect("manifest");
+    for (index, point) in [
+        "component-before-open",
+        "component-after-open",
+        "component-after-payload",
+        "component-before-sync",
+        "snapshot-before-manifest",
+        "snapshot-before-sync",
+        "snapshot-before-rename",
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        let destination = root.join(format!("failed-{index}"));
+        super::snapshot::arm_fault(point, format!("failed-{index}"));
+        let error = prototype
+            .save_snapshot(&destination)
+            .expect_err("fault must fail the save");
+        assert!(error.to_string().contains("injected fault at"), "{error}");
+        super::snapshot::clear_fault();
+        assert!(!destination.exists());
+        assert!(
+            prototype
+                .file_by_id(FileId(0))
+                .expect("ram remains usable")
+                .is_some()
+        );
+        assert_eq!(
+            std::fs::read(previous.join("manifest.json")).expect("manifest"),
+            previous_manifest
+        );
+        let recovered = root.join(format!("recovered-{index}"));
+        prototype
+            .save_snapshot(&recovered)
+            .expect("retry after fault");
+        assert!(recovered.join("manifest.json").is_file());
+    }
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn malformed_manifest_missing_member_and_swapped_component_fail_explicitly() {
+    let fixture = fixture("manifest-corruption");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let root = temp_root("manifest-corruption-generations");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    let manifest_path = generation.join("manifest.json");
+    let original = std::fs::read(&manifest_path).expect("manifest");
+
+    std::fs::write(&manifest_path, b"{not json").expect("malformed");
+    assert!(StablePrototype::open_snapshot(&generation).is_err());
+    std::fs::write(&manifest_path, &original).expect("restore");
+
+    let manifest: serde_json::Value = serde_json::from_slice(&original).expect("json");
+    let first_path = manifest["components"][0]["path"]
+        .as_str()
+        .expect("path")
+        .to_string();
+    let member = generation.join(&first_path);
+    let saved = std::fs::read(&member).expect("member");
+    std::fs::remove_file(&member).expect("remove member");
+    assert!(StablePrototype::open_snapshot(&generation).is_err());
+    std::fs::write(&member, &saved).expect("restore member");
+
+    let second_path = manifest["components"][1]["path"]
+        .as_str()
+        .expect("path")
+        .to_string();
+    let second = std::fs::read(generation.join(&second_path)).expect("second");
+    std::fs::write(&member, &second).expect("swap component");
+    assert!(StablePrototype::open_snapshot(&generation).is_err());
+    std::fs::write(&member, &saved).expect("restore member");
+    assert!(StablePrototype::open_snapshot(&generation).is_ok());
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn exact_numbers_null_states_and_custom_text_match_native() {
+    let root = temp_root("semantic-families");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/numbers.jsonl"),
+        br#"{"n":-5}
+{"n":-1}
+{"n":0}
+{"n":1}
+{"n":10}
+{"n":1000000000000000000000000000000}
+{"n":0.000000000000000000000000000001}
+{"n":1.5}
+{}
+{"n":null}
+{"arr":[]}
+{"arr":[null]}
+{"arr":["a"]}
+{"arr":["b","c"]}
+"#,
+    )
+    .expect("numbers");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["n"], LogicalType::Number, false, true))
+        .expect("n");
+    definition
+        .schema
+        .register_field(field(
+            &["arr"],
+            LogicalType::Array(Box::new(LogicalType::String)),
+            true,
+            true,
+        ))
+        .expect("arr");
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    definition
+        .schema
+        .register_custom(
+            vec!["name".into()],
+            crate::reference::CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: crate::reference::Transform::CaseFold,
+            },
+        )
+        .expect("custom");
+    let repository = Repository::open(&root, vec![definition.clone()]).expect("native");
+    let (mut direct, _) = StablePrototype::from_sources_with_timings(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+    )
+    .expect("direct");
+    let report = direct
+        .validate_against_repository(&repository)
+        .expect("validation");
+    assert!(report.is_valid(), "{:?}", report.errors);
+
+    let n = super::FieldComponentKey {
+        path: vec!["n".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    let arr = super::FieldComponentKey {
+        path: vec!["arr".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    assert_eq!(
+        direct
+            .state_posting(CollectionId(0), &n, super::STATE_PRESENCE)
+            .expect("n presence")
+            .len(),
+        9
+    );
+    assert_eq!(
+        direct
+            .state_posting(CollectionId(0), &n, super::STATE_LEGACY_NULL)
+            .expect("n null")
+            .len(),
+        1
+    );
+    assert_eq!(
+        direct
+            .state_posting(CollectionId(0), &arr, super::STATE_PRESENCE)
+            .expect("arr presence")
+            .len(),
+        4
+    );
+    assert_eq!(
+        direct
+            .state_posting(CollectionId(0), &arr, super::STATE_ARRAY)
+            .expect("arr arrays")
+            .len(),
+        4
+    );
+    let negative = direct
+        .typed_range_slots(
+            CollectionId(0),
+            &n,
+            std::ops::Bound::Unbounded,
+            std::ops::Bound::Excluded(ScalarKey::Number(Number::integer(0))),
+            false,
+        )
+        .expect("negative range");
+    assert_eq!(negative.len(), 2);
+    let custom = direct
+        .component_descriptors()
+        .find(|descriptor| {
+            descriptor.kind == ComponentKind::NormalGrams
+                && descriptor.field.as_ref().is_some_and(|field| {
+                    field.path == vec!["name".to_string()]
+                        && field.binding.as_deref() == Some("folded")
+                })
+        })
+        .expect("custom text component");
+    assert!(custom.field.as_ref().expect("field").role == super::BindingRole::CustomText);
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn malformed_jsonl_raw_fallback_is_indexed_as_unavailable_state() {
+    let root = temp_root("raw-fallback");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/mixed.jsonl"),
+        b"{\"name\":\"ok\"}\n{broken}\n{\"name\":\"also-ok\"}\n",
+    )
+    .expect("mixed");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    let repository = Repository::open(&root, vec![definition.clone()]).expect("native");
+    let (mut direct, _) = StablePrototype::from_sources_with_timings(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+    )
+    .expect("direct");
+    let report = direct
+        .validate_against_repository(&repository)
+        .expect("validation");
+    assert!(report.is_valid(), "{:?}", report.errors);
+    let raw = direct
+        .domain_posting(CollectionId(0), super::DOMAIN_RAW_FALLBACK)
+        .expect("raw domain");
+    assert_eq!(raw.len(), 1);
+    let slot = RecordSlot(raw.iter().next().expect("raw slot"));
+    let record = direct
+        .record_by_slot(CollectionId(0), slot)
+        .expect("record")
+        .expect("live raw fallback");
+    assert_eq!(record.class, crate::inventory::RecordClass::RawFallback);
+    assert_ne!(record.diagnostic_ref, crate::inventory::DiagnosticRef(0));
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn unicode_alphabet_direct_build_matches_native() {
+    let root = temp_root("unicode");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(
+        root.join("data/unicode.jsonl"),
+        "{\"name\":\"Ärger\",\"text\":\"Straße ÄÖÜ ß\"}\n{\"name\":\"arger\",\"text\":\"STRASSE ärger\"}\n"
+            .as_bytes(),
+    )
+    .expect("unicode");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    definition
+        .schema
+        .register_field(field(&["text"], LogicalType::String, false, true))
+        .expect("text");
+    let options = RepositoryOptions {
+        bigram_alphabet: crate::workload::BigramAlphabet::Unicode,
+        ..RepositoryOptions::default()
+    };
+    let repository =
+        Repository::open_with_options(&root, vec![definition.clone()], options.clone())
+            .expect("native");
+    let (mut direct, _) =
+        StablePrototype::from_sources_with_timings(&root, vec![definition], options)
+            .expect("direct");
+    let report = direct
+        .validate_against_repository(&repository)
+        .expect("validation");
+    assert!(report.is_valid(), "{:?}", report.errors);
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn worker_counts_do_not_change_descriptors_or_semantics() {
+    let fixture = fixture("worker-determinism");
+    let definitions = vec![fixture.repository.collections()[0].definition.clone()];
+    let mut signatures = Vec::new();
+    for workers in [1usize, 2, 4] {
+        let (mut prototype, _) = StablePrototype::from_sources_with_timings(
+            &fixture.root,
+            definitions.clone(),
+            RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(workers),
+                ..RepositoryOptions::default()
+            },
+        )
+        .expect("direct");
+        let report = prototype
+            .validate_against_repository(&fixture.repository)
+            .expect("validation");
+        assert!(report.is_valid(), "{workers}: {:?}", report.errors);
+        let mut descriptors = prototype
+            .component_descriptors()
+            .map(|descriptor| {
+                (
+                    descriptor.id,
+                    descriptor.kind,
+                    descriptor.sort_key(),
+                    descriptor.coverage.clone(),
+                )
+            })
+            .collect::<Vec<_>>();
+        descriptors.sort_by_key(|entry| entry.0);
+        signatures.push(descriptors);
+    }
+    assert_eq!(signatures[0], signatures[1]);
+    assert_eq!(signatures[0], signatures[2]);
+}
+
+#[test]
+fn all_component_load_uses_no_insertion_calls() {
+    let fixture = fixture("all-component-load");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let root = temp_root("all-component-load-generation");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut opened = StablePrototype::open_snapshot(&generation).expect("open");
+    let ids = opened
+        .component_descriptors()
+        .map(|descriptor| descriptor.id)
+        .collect::<Vec<_>>();
+    for id in &ids {
+        opened.load_component(*id).expect("load component");
+    }
+    assert_eq!(opened.counters().component_inserts_during_load, 0);
+    assert_eq!(opened.counters().component_loads, ids.len() as u64);
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn snapshot_catalogs_and_postings_work_without_source_files() {
+    let fixture = fixture("source-free");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let root = temp_root("source-free-generation");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    for file in &fixture.repository.files().files {
+        let _ = std::fs::remove_file(fixture.root.join(&file.relative_path));
+    }
+    let mut opened = StablePrototype::open_snapshot(&generation).expect("open");
+    assert!(opened.file_by_id(FileId(0)).expect("file").is_some());
+    let path = fixture.repository.files().files[0].relative_path.clone();
+    assert_eq!(opened.records_for_path(&path).expect("refs").len(), 2);
+    let age = super::FieldComponentKey {
+        path: vec!["age".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    assert_eq!(
+        opened
+            .typed_posting(
+                CollectionId(0),
+                &age,
+                &ScalarKey::Number(Number::integer(1))
+            )
+            .expect("posting")
+            .len(),
+        2
+    );
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn component_descriptors_record_catalog_dependencies() {
+    let fixture = fixture("dependencies");
+    let prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let domains = prototype
+        .component_descriptors()
+        .find(|descriptor| {
+            descriptor.kind == ComponentKind::Domains
+                && descriptor.collection.as_ref().map(|value| value.id) == Some(CollectionId(0))
+        })
+        .expect("domains")
+        .id;
+    let records = prototype
+        .component_descriptors()
+        .find(|descriptor| {
+            descriptor.kind == ComponentKind::Records
+                && descriptor.collection.as_ref().map(|value| value.id) == Some(CollectionId(0))
+        })
+        .expect("records")
+        .id;
+    let value = prototype
+        .component_descriptors()
+        .find(|descriptor| {
+            descriptor.kind == ComponentKind::Values
+                && descriptor.collection.as_ref().map(|value| value.id) == Some(CollectionId(0))
+        })
+        .expect("values");
+    assert!(value.dependency_ids.contains(&domains));
+    assert!(value.dependency_ids.contains(&records));
+    let domains_descriptor = prototype
+        .component_descriptor(domains)
+        .expect("domains descriptor");
+    assert!(domains_descriptor.dependency_ids.is_empty());
+}
+
+#[test]
+fn text_candidates_use_native_gram_preparation() {
+    let fixture = fixture("text-candidates");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let key = super::TextComponentKey {
+        path: Vec::new(),
+        binding: None,
+        role: super::BindingRole::RawText,
+    };
+    let candidates = prototype
+        .text_candidates(
+            CollectionId(0),
+            &key,
+            "alpha",
+            crate::workload::BigramAlphabet::Ascii,
+        )
+        .expect("candidates");
+    let candidates = candidates.expect("literal has usable grams");
+    assert!(!candidates.is_empty());
+    assert!(candidates.is_subset(&prototype.live_slots(CollectionId(0)).expect("live")));
 }

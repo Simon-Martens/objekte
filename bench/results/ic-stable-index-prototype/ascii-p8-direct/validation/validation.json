@@ -1,0 +1,25 @@
+{
+  "schema_collections": [
+    "agents",
+    "contents",
+    "entries",
+    "items",
+    "pages",
+    "places",
+    "series"
+  ],
+  "validation": {
+    "components": 1323,
+    "domains": 14,
+    "errors": [],
+    "files": 148486,
+    "gram_keys": 25477,
+    "gram_members": 56275908,
+    "identities": 148486,
+    "posting_keys": 152544,
+    "posting_members": 2814411,
+    "records": 148486,
+    "relation_occurrences": 0,
+    "sort_entries": 566768
+  }
+}

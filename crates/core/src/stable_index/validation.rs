@@ -254,7 +254,7 @@ impl StablePrototype {
         Ok(report)
     }
 
-    fn domain_posting(
+    pub(crate) fn domain_posting(
         &mut self,
         collection: CollectionId,
         domain: u8,

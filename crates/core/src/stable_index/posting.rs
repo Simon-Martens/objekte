@@ -34,7 +34,9 @@ impl StablePrototype {
         key: ComponentKey,
     ) -> Result<Option<RoaringBitmap>, StableIndexError> {
         let tree = self.tree(component)?;
-        let Some(value) = tree.get(&key) else {
+        let value = tree.get(&key);
+        self.counters.stable_gets += 1;
+        let Some(value) = value else {
             return Ok(None);
         };
         self.counters.bitmap_decodes += 1;
@@ -266,6 +268,45 @@ impl StablePrototype {
         }
         self.counters.bitmap_decodes += decodes;
         Ok(candidates.map(|posting| posting & live))
+    }
+
+    /// Prepare a literal with master's existing bigram folding and intersect
+    /// both normal and skip gram columns. `None` means no gram restriction is
+    /// available, not an empty result.
+    pub fn text_candidates(
+        &mut self,
+        collection: CollectionId,
+        key: &TextComponentKey,
+        literal: &str,
+        alphabet: crate::workload::BigramAlphabet,
+    ) -> Result<Option<RoaringBitmap>, StableIndexError> {
+        let request = crate::bigram::BigramRequest::new(literal);
+        let skip_grams = request
+            .grams(alphabet)
+            .iter()
+            .filter(|(skip, _)| *skip)
+            .map(|(_, key)| *key)
+            .collect::<Vec<_>>();
+        let normal_grams = request
+            .grams(alphabet)
+            .iter()
+            .filter(|(skip, _)| !*skip)
+            .map(|(_, key)| *key)
+            .collect::<Vec<_>>();
+        let mut candidates: Option<RoaringBitmap> = None;
+        if !normal_grams.is_empty() {
+            candidates = self.gram_candidates(collection, key, &normal_grams, false)?;
+        }
+        if !skip_grams.is_empty() {
+            let skip = self.gram_candidates(collection, key, &skip_grams, true)?;
+            candidates = Some(match (candidates, skip) {
+                (Some(current), Some(skip)) => current & skip,
+                (Some(current), None) => current,
+                (None, Some(skip)) => skip,
+                (None, None) => return Ok(None),
+            });
+        }
+        Ok(candidates)
     }
 
     pub fn sort_components(

@@ -1,0 +1,142 @@
+{
+  "components": 1323,
+  "counters": {
+    "bitmap_decodes": 0,
+    "bitmap_encodes": 0,
+    "component_inserts_during_load": 0,
+    "component_loads": 1,
+    "component_payload_bytes_read": 27918336,
+    "manifest_opens": 1,
+    "stable_gets": 0,
+    "stable_inserts": 0,
+    "stable_removes": 0,
+    "standalone_files_opened": 0
+  },
+  "loads": [
+    {
+      "component": 306,
+      "load_ns": 26691980,
+      "statistics": {
+        "descriptor": {
+          "collection": {
+            "generation": 1,
+            "id": 1,
+            "name": "contents"
+          },
+          "configuration_identity": [
+            143,
+            156,
+            88,
+            193,
+            11,
+            116,
+            233,
+            8,
+            236,
+            144,
+            106,
+            178,
+            81,
+            74,
+            149,
+            239,
+            232,
+            190,
+            96,
+            242,
+            250,
+            160,
+            96,
+            47,
+            200,
+            202,
+            78,
+            3,
+            101,
+            196,
+            44,
+            9
+          ],
+          "coverage": {
+            "complete_for_field": false,
+            "covered_records": 133948,
+            "empty_string_complete": false,
+            "length_complete": false,
+            "value_complete": true,
+            "values_indexed": true
+          },
+          "dependency_ids": [
+            18,
+            4
+          ],
+          "descriptor_version": 1,
+          "detached": false,
+          "field": {
+            "binding": null,
+            "logical_type": "Number",
+            "multi": false,
+            "path": [
+              "musenalm_id"
+            ],
+            "role": "DeclaredField"
+          },
+          "id": 306,
+          "key_bound": "unbounded:component-key-v2",
+          "key_codec_version": 2,
+          "kind": 6,
+          "ordering": null,
+          "origin_path": "/home/simon/source/objekte-integration-ic-stable-index-prototype/examples/musenalm",
+          "origin_revision": 1,
+          "repository_identity": [
+            100,
+            25,
+            170,
+            123,
+            166,
+            83,
+            52,
+            21,
+            164,
+            50,
+            151,
+            35,
+            116,
+            55,
+            86,
+            12,
+            154,
+            88,
+            170,
+            118,
+            208,
+            29,
+            133,
+            78,
+            115,
+            206,
+            1,
+            243,
+            196,
+            148,
+            215,
+            183
+          ],
+          "schema_fingerprint": null,
+          "slot_high_water": 133948,
+          "slot_namespace": "b7ee828103aed9799a25eb877a1795a023f8ec5262470f0d4a448f9a8eadb717",
+          "target_collection": null,
+          "value_codec_version": 1
+        },
+        "dirty": false,
+        "entry_count": 133948,
+        "id": 306,
+        "kind": 6,
+        "path": "/tmp/opencode/icss-final2-gen/c000001/i000306-values.icss",
+        "payload_len": 27918336,
+        "state": "loaded"
+      }
+    }
+  ],
+  "manifest_open_ns": 27171321,
+  "snapshot": "/tmp/opencode/icss-final2-gen"
+}

@@ -1,0 +1,40 @@
+{
+  "counters": {
+    "bitmap_decodes": 4,
+    "bitmap_encodes": 0,
+    "component_inserts_during_load": 0,
+    "component_loads": 2,
+    "component_payload_bytes_read": 28049408,
+    "manifest_opens": 1,
+    "stable_gets": 3,
+    "stable_inserts": 0,
+    "stable_removes": 0,
+    "standalone_files_opened": 0
+  },
+  "first_load": [
+    {
+      "component": 306,
+      "load_ns": 25938174
+    }
+  ],
+  "resident_primitives": [
+    {
+      "component": 306,
+      "elapsed_ns": 160502,
+      "key": "Number(Integer(30))",
+      "members": 1
+    },
+    {
+      "component": 306,
+      "elapsed_ns": 4909,
+      "key": "Number(Integer(140792))",
+      "members": 1
+    },
+    {
+      "component": 306,
+      "elapsed_ns": 5099,
+      "key": "Number(Integer(68549))",
+      "members": 1
+    }
+  ]
+}

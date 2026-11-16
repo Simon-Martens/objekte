@@ -1,0 +1,21 @@
+{
+  "alphabet": "ascii",
+  "cargo_lock_sha256": "53758386ea26afeae5d005468d6d83a8bc9657d9ee99a6825b6ff5aafeefdd61",
+  "construction": "direct",
+  "executable": "/home/simon/source/objekte-integration-ic-stable-index-prototype/target/release/examples/bench_ic_stable_index",
+  "executable_sha256": "b096f281471d0df2e47da829e5c439440b86310a681370565dfff45d0912e3a3",
+  "root": "/home/simon/source/objekte-integration-ic-stable-index-prototype/examples/musenalm",
+  "schema_collections": [
+    "agents",
+    "contents",
+    "entries",
+    "items",
+    "pages",
+    "places",
+    "series"
+  ],
+  "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_bytes": 193297230,
+  "source_files": 148486,
+  "source_records": 148486
+}
