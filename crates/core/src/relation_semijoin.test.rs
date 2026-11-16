@@ -575,6 +575,73 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
     let request = query("entry.title = 'Needle'");
     assert_eq!(ids(&repo, &request), ["S0"]);
     assert_eq!(repo.search(&request).unwrap().count, Some(1));
+    let fts = selected_fts(None, "Needle", false);
+    assert_eq!(ids(&repo, &fts), ["S0"]);
+    let fts = repo.search(&fts).unwrap();
+    assert_eq!(fts.count, Some(1));
+    assert_eq!(fts.hits[0].matched_fields, ["entry.title"]);
+    assert_eq!(fts.counters.scanned_records, 0);
+    let stream_request = selected_fts(None, "Needle", false);
+    let mut streamed = Vec::new();
+    let stream = repo
+        .search_stream(
+            &stream_request,
+            crate::streaming::StreamOptions {
+                mode: crate::streaming::StreamMode::PageReplacements,
+                ..Default::default()
+            },
+            &crate::streaming::CancellationToken::new(),
+            &mut |event| {
+                if let crate::streaming::StreamEvent::PageReplacement { rows, .. } = event {
+                    streamed.extend(rows.iter().map(|row| row.record_id.clone()));
+                }
+                Ok(crate::streaming::StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let crate::streaming::StreamOutcome::Complete(summary) = stream else {
+        panic!("selected relation stream did not complete");
+    };
+    assert_eq!(summary.count, Some(1));
+    assert!(summary.counters.files_opened <= 1);
+    assert!(summary.counters.relation_target_reads <= 1);
+    assert_eq!(streamed, ["S0"]);
+    repo.configure_verified_cache(0).unwrap();
+    let mut uncached = Vec::new();
+    let outcome = repo
+        .search_stream(
+            &stream_request,
+            crate::streaming::StreamOptions {
+                mode: crate::streaming::StreamMode::PageReplacements,
+                ..Default::default()
+            },
+            &crate::streaming::CancellationToken::new(),
+            &mut |event| {
+                if let crate::streaming::StreamEvent::PageReplacement { rows, .. } = event {
+                    uncached.extend(rows.iter().map(|row| row.record_id.clone()));
+                }
+                Ok(crate::streaming::StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let crate::streaming::StreamOutcome::Complete(summary) = outcome else {
+        panic!("uncached relation stream did not complete");
+    };
+    assert_eq!(summary.count, Some(1));
+    assert_eq!(uncached, ["S0"]);
+    let filtered = selected_fts(Some("@record.id = 'S1'"), "Needle", false);
+    assert!(ids(&repo, &filtered).is_empty());
+    let filtered = selected_fts(Some("@record.id = 'S1'"), "Other", false);
+    assert_eq!(ids(&repo, &filtered), ["S1"]);
+    let filtered = repo.search(&filtered).unwrap();
+    assert_eq!(filtered.count, Some(1));
+    assert!(
+        filtered.hits[0]
+            .matched_fields
+            .iter()
+            .any(|field| field == "entry.title")
+    );
+    assert_eq!(filtered.counters.scanned_records, 0);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -660,6 +727,259 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
                 choice.selected.kind == crate::executor::AccessPathKind::RelationTargetFirst
             })
     );
+    let source_index = repo
+        .collections()
+        .iter()
+        .position(|collection| collection.definition.name == "sources")
+        .unwrap();
+    let bound = crate::relation_query::bind_filter_with_relations(
+        &repo,
+        source_index,
+        request.filter.as_ref().unwrap(),
+        &mut HashMap::new(),
+    )
+    .unwrap();
+    let BoundExpr::Term(term) = bound else {
+        panic!("expected structured relation term");
+    };
+    let view = crate::relation_query::MergedRelationView::new(
+        &repo,
+        &repo.active,
+        &repo.segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    let mut input = crate::native_segment::SegmentRecordSet::default();
+    for published in repo.segments[source_index].iter() {
+        for slot in published.active.bitmap().iter() {
+            input.insert(crate::native_segment::SegmentRecordAddress {
+                collection: published.index.collection,
+                segment: published.id,
+                slot: crate::model::RecordSlot(slot),
+            });
+        }
+    }
+    for strategy in [Strategy::TargetFirst, Strategy::SourceRestricted] {
+        let (matches, work) =
+            super::qualified_candidates_with_strategy(&view, &term, &input, strategy, None)
+                .unwrap();
+        assert_eq!(matches.len(), 1, "{strategy:?}");
+        assert!(matches.iter().any(|address| {
+            let segment = repo.segments[address.collection.0 as usize]
+                .iter()
+                .find(|segment| segment.id == address.segment)
+                .unwrap();
+            segment.index.record(address.slot).unwrap().id.0.as_ref() == "S0"
+        }));
+        assert!(work.target_candidates >= 1);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-three-segments-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    std::fs::write(
+        root.join("targets/T0.json"),
+        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+    )
+    .unwrap();
+    let matching = std::collections::HashMap::from([
+        (0usize, "S0"),
+        (1, "S1"),
+        (512, "S2"),
+        (513, "S3"),
+        (1_024, "S4"),
+    ]);
+    for number in 0..1_025usize {
+        let id = matching
+            .get(&number)
+            .map_or_else(|| format!("F{number:04}"), |id| (*id).to_owned());
+        let entry = if matching.contains_key(&number) {
+            "T0"
+        } else {
+            "missing"
+        };
+        std::fs::write(
+            root.join(format!("sources/{number:04}.json")),
+            format!(r#"{{"id":"{id}","entry":"{entry}","title":"local"}}"#),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let source_index = repo
+        .collections()
+        .iter()
+        .position(|collection| collection.definition.name == "sources")
+        .unwrap();
+    let source_segments = &repo.segments[source_index];
+    assert_eq!(source_segments.len(), 3);
+    assert_eq!(
+        source_segments
+            .iter()
+            .map(|segment| segment.index.records.len())
+            .collect::<Vec<_>>(),
+        [512, 512, 1]
+    );
+    for segment in &source_segments[..2] {
+        assert_eq!(segment.index.records[0].slot.0, 0);
+        assert_eq!(segment.index.records[1].slot.0, 1);
+    }
+    assert_eq!(
+        source_segments
+            .iter()
+            .map(|segment| segment.id)
+            .collect::<HashSet<_>>()
+            .len(),
+        3
+    );
+    for request in [
+        query("entry.title = 'Needle'"),
+        selected_fts(None, "Needle", false),
+    ] {
+        assert_eq!(ids(&repo, &request), ["S0", "S1", "S2", "S3", "S4"]);
+        let result = repo.search(&request).unwrap();
+        assert_eq!(result.count, Some(5));
+        assert_eq!(result.counters.scanned_records, 0);
+        assert!(result.hits.iter().all(|hit| {
+            hit.record_id != "S0"
+                || hit
+                    .matched_fields
+                    .iter()
+                    .any(|field| field == "entry.title")
+        }));
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn qualified_relation_semijoin_survives_file_lifecycle_and_compaction() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-lifecycle-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    std::fs::write(
+        root.join("targets/T0.json"),
+        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("sources/S0.json"),
+        r#"{"id":"S0","entry":"T0","title":"local"}"#,
+    )
+    .unwrap();
+    let index = crate::lifecycle::Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            verified_cache_bytes: 1 << 20,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = query("entry.title = 'Needle'");
+    let assert_ids = |expected: &[&str]| {
+        let view = index.view().unwrap();
+        let result = view.search(&request).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected
+        );
+        assert_eq!(result.hits, view.search_reference(&request).unwrap().hits);
+        let mut payload = request.clone();
+        payload.options.return_mode = ReturnMode::Bytes;
+        let payload = view.search(&payload).unwrap();
+        assert_eq!(
+            payload
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected
+        );
+    };
+    assert_ids(&["S0"]);
+
+    let target = root.join("targets/T2.json");
+    std::fs::write(
+        &target,
+        r#"{"id":"T2","title":"Needle","related_entry":"T2"}"#,
+    )
+    .unwrap();
+    let mut target_handle = index.add_file(&target).unwrap().file;
+    let source = root.join("sources/S2.json");
+    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
+    let mut source_handle = index.add_file(&source).unwrap().file;
+    assert_ids(&["S0", "S2"]);
+
+    std::fs::write(
+        &target,
+        r#"{"id":"T2","title":"Other","related_entry":"T2"}"#,
+    )
+    .unwrap();
+    target_handle = index.update_file(target_handle, &target).unwrap().file;
+    assert_ids(&["S0"]);
+
+    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
+    source_handle = index.update_file(source_handle, &source).unwrap().file;
+    assert_ids(&["S0"]);
+
+    std::fs::write(
+        &target,
+        r#"{"id":"T2","title":"Needle","related_entry":"T2"}"#,
+    )
+    .unwrap();
+    index.update_file(target_handle, &target).unwrap();
+    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
+    let moved_handle = index.update_file(source_handle, &source).unwrap().file;
+    assert_ids(&["S0", "S2"]);
+
+    let moved = root.join("sources/moved-S2.json");
+    std::fs::rename(&source, &moved).unwrap();
+    index.update_file(moved_handle, &moved).unwrap();
+    assert_ids(&["S0", "S2"]);
+
+    let moved_handle = index.view().unwrap().file_handle_for_path(&moved).unwrap();
+    index.delete_file(moved_handle).unwrap();
+    assert_ids(&["S0"]);
+    let original_target_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.join("targets/T0.json"))
+        .unwrap();
+    index.delete_file(original_target_handle).unwrap();
+    assert_ids(&[]);
+    index.start_compaction().unwrap().wait().unwrap();
+    assert_ids(&[]);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -841,6 +1161,11 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         let selective_work = repo.search(&selective).unwrap().counters;
         assert!(selective_work.relation_target_reads <= 1);
         assert!(selective_work.relation_edge_visits <= 1);
+        let selective_fts = selected_fts(Some("title = 'rare'"), "H", false);
+        assert_eq!(ids(&repo, &selective_fts), ["S00"]);
+        let selective_fts = repo.search(&selective_fts).unwrap();
+        assert_eq!(selective_fts.counters.relation_edge_visits, 1);
+        assert_eq!(selective_fts.counters.scanned_records, 0);
 
         let multi = query("entry.related_entry.title ?= 'Festival'");
         assert_eq!(

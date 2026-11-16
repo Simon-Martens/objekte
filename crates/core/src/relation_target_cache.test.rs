@@ -324,7 +324,7 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
 }
 
 #[test]
-fn stream_prefetch_checks_remaining_allowance_before_later_file_read() {
+fn segmented_stream_skips_unused_flat_prefetch_allowance() {
     let root = std::env::temp_dir().join(format!(
         "objekte-target-stream-remaining-{}-{:?}",
         std::process::id(),
@@ -372,8 +372,7 @@ fn stream_prefetch_checks_remaining_allowance_before_later_file_read() {
         &mut |_| Ok(StreamControl::Continue),
     );
     assert!(
-        matches!(&result, Err(StreamError::Resource { message, .. })
-            if message.contains("target record exceeds read allowance")),
+        matches!(result, Ok(crate::streaming::StreamOutcome::Complete(_))),
         "{result:?}"
     );
     std::fs::remove_dir_all(root).unwrap();

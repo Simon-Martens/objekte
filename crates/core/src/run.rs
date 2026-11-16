@@ -6439,7 +6439,8 @@ fn try_semijoin_relation_page(
         return Ok(None);
     }
     let collection = &repo.collections[*collection_index];
-    let mut input = RoaringBitmap::new();
+    let mut input = crate::native_segment::SegmentRecordSet::default();
+    let source_collection = collection.generation.collection;
     let mut filter_evidence = Vec::new();
     for published in segments[*collection_index].iter() {
         let may = if let Some(filter) = filter {
@@ -6459,13 +6460,7 @@ fn try_semijoin_relation_page(
             published.active.bitmap().clone()
         };
         let may = &may & &published.index.logical_records;
-        for slot in may.iter() {
-            let record = published
-                .index
-                .record(RecordSlot(slot))
-                .ok_or("semijoin source candidate record missing")?;
-            input.insert(record.slot.0);
-        }
+        input.insert_local(source_collection, published.id, may);
         if query.options.evidence
             && filter.is_some()
             && filter_evidence.is_empty()
@@ -6474,13 +6469,17 @@ fn try_semijoin_relation_page(
             filter_evidence = fields;
         }
     }
+    let view =
+        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
     let Some(witnesses) =
-        crate::relation_semijoin::fts_witnesses(repo, segments, fts, &input, context)?
+        crate::relation_semijoin::qualified_fts_witnesses(&view, fts, &input, context)?
     else {
         return Ok(None);
     };
-    let mut counters = WorkCounters::default();
-    counters.candidates = witnesses.qualified_evidence.len() as u64;
+    let mut counters = WorkCounters {
+        candidates: witnesses.qualified_evidence.len() as u64,
+        ..Default::default()
+    };
     counters.add_semijoin(witnesses.work)?;
     let mut selected = Vec::with_capacity(segments[*collection_index].len());
     for published in segments[*collection_index].iter() {
@@ -6491,7 +6490,7 @@ fn try_semijoin_relation_page(
                 segment: published.id,
                 slot: record.slot,
             };
-            if witnesses.qualified_evidence.contains_key(&address) {
+            if input.contains(address) && witnesses.qualified_evidence.contains_key(&address) {
                 matches.insert(slot as u32);
             }
         }
@@ -9443,33 +9442,6 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 counters: result.counters,
                 progress: delivery.progress,
             })));
-        }
-    }
-    for (collection_index, filter, _) in &prepared.collections {
-        let Some(filter) = filter
-            .as_ref()
-            .filter(|filter| crate::relation_target_cache::has_source_dependent(filter))
-        else {
-            continue;
-        };
-        let mut candidates = base_active[*collection_index].bitmap().clone();
-        for published in segments[*collection_index].iter() {
-            for record in &published.index.records {
-                if published.active.contains(record.slot) {
-                    candidates.insert(record.slot.0);
-                }
-            }
-        }
-        if let Err(message) = crate::relation_target_cache::prepare_stream(
-            repo,
-            *collection_index,
-            filter,
-            &candidates,
-            &cancellation,
-            delivery.max_buffered_bytes() / 4,
-            Some(context),
-        ) {
-            return segmented_stream_error(&mut delivery, context, message);
         }
     }
     let relation_scope = prepared.collections.iter().any(|(_, filter, fts)| {

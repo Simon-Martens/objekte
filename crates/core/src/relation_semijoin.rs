@@ -10,7 +10,7 @@ use crate::executor::{
 };
 use crate::inventory::RecordClass;
 use crate::lifecycle::PublishedSegment;
-use crate::model::{FileId, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::native_segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::query::Quantifier;
 use crate::reference::{
@@ -18,7 +18,7 @@ use crate::reference::{
     same_bound_term,
 };
 use crate::relation::{RelationCardinality, RelationTarget};
-use crate::relation_query::{BoundRelationHop, HopDirection};
+use crate::relation_query::{BoundRelationHop, HopDirection, MergedRelationView, positions_match};
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextSegment};
 use crate::source_access::SourceAccessSession;
@@ -697,6 +697,429 @@ fn verify_target_records(
     Ok(matched)
 }
 
+fn qualified_reachable_targets(
+    view: &MergedRelationView<'_>,
+    hops: &[BoundRelationHop],
+    input: &SegmentRecordSet,
+    work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
+) -> Result<SegmentRecordSet, String> {
+    ensure_slots(input.len(), execution)?;
+    let mut current = input.clone();
+    for hop in hops {
+        let mut next = SegmentRecordSet::default();
+        for address in current.iter() {
+            if address.collection != hop.from {
+                return Err("relation hop source collection mismatch".into());
+            }
+            if let Some(execution) = execution {
+                execution.check_string()?;
+            }
+            let view_address = view.view_address(address)?;
+            let (references, _, _, _, unavailable) =
+                view.forward_edges(view_address, hop.relation.ordinal as usize)?;
+            if unavailable {
+                continue;
+            }
+            for (target_id, positions) in references {
+                if !positions_match(&hop.selectors, positions) {
+                    continue;
+                }
+                visit_edge(work, execution)?;
+                if let Some(target) = view.resolve_id(hop.to, target_id)?
+                    && let Some(target) = view.native_address(target)?
+                {
+                    next.insert(target);
+                }
+            }
+        }
+        ensure_slots(next.len(), execution)?;
+        if next.is_empty() {
+            return Ok(next);
+        }
+        current = next;
+    }
+    Ok(current)
+}
+
+fn qualified_expression_candidates(
+    view: &MergedRelationView<'_>,
+    target: CollectionId,
+    expr: &BoundExpr,
+    restricted: Option<&SegmentRecordSet>,
+    work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
+) -> Result<SegmentRecordSet, String> {
+    let repo = view.repository();
+    let collection = &repo.collections[target.0 as usize];
+    let mut candidates = SegmentRecordSet::default();
+    for segment in view.segments(target)? {
+        let active = segment.active.bitmap();
+        let input = if let Some(restricted) = restricted {
+            let Some(local) = restricted.local(target, segment.id) else {
+                continue;
+            };
+            local
+        } else {
+            &active
+        };
+        let domain = &active & &segment.index.logical_records;
+        let input = input & &domain;
+        if input.is_empty() {
+            continue;
+        }
+        let bounds = crate::executor::segment_filter_bounds_with_catalog(
+            &segment.index,
+            &segment.active,
+            expr,
+            collection,
+            Some(view.catalog()),
+        )?;
+        advance_slots(work, execution, input.len())?;
+        for slot in (&bounds.may & &input).iter() {
+            candidates.insert(SegmentRecordAddress {
+                collection: target,
+                segment: segment.id,
+                slot: RecordSlot(slot),
+            });
+        }
+    }
+    ensure_slots(candidates.len(), execution)?;
+    work.target_candidates = work
+        .target_candidates
+        .checked_add(candidates.len())
+        .ok_or("relation target candidate count overflow")?;
+    Ok(candidates)
+}
+
+fn qualified_fts_candidates(
+    view: &MergedRelationView<'_>,
+    target: CollectionId,
+    fts: &BoundFts,
+    restricted: Option<&SegmentRecordSet>,
+    work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
+) -> Result<SegmentRecordSet, String> {
+    let repo = view.repository();
+    let collection = &repo.collections[target.0 as usize];
+    let mut candidates = SegmentRecordSet::default();
+    for segment in view.segments(target)? {
+        let mut input = segment.active.bitmap();
+        if let Some(restricted) = restricted {
+            let Some(local) = restricted.local(target, segment.id) else {
+                continue;
+            };
+            input &= local;
+        }
+        input &= &segment.index.logical_records;
+        if input.is_empty() {
+            continue;
+        }
+        advance_slots(work, execution, input.len())?;
+        let may = crate::executor::segment_fts_candidates(&segment.index, collection, fts)?
+            .unwrap_or_else(|| segment.active.bitmap());
+        let mut local = SegmentRecordSet::default();
+        for slot in (&may & &input).iter() {
+            local.insert(SegmentRecordAddress {
+                collection: target,
+                segment: segment.id,
+                slot: RecordSlot(slot),
+            });
+        }
+        candidates.union(&local);
+    }
+    ensure_slots(candidates.len(), execution)?;
+    work.target_candidates = work
+        .target_candidates
+        .checked_add(candidates.len())
+        .ok_or("relation target candidate count overflow")?;
+    Ok(candidates)
+}
+
+fn verify_qualified_targets(
+    view: &MergedRelationView<'_>,
+    candidates: &SegmentRecordSet,
+    first_field: Option<&str>,
+    collect_text: bool,
+    work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
+    evaluate: &mut impl FnMut(&RecordContext<'_>, &[TextSegment]) -> Result<bool, String>,
+) -> Result<SegmentRecordSet, String> {
+    if let Some(execution) = execution {
+        execution.check_slots(candidates.len())?;
+    }
+    let mut grouped = BTreeMap::<
+        (crate::model::CollectionId, FileId),
+        Vec<(SegmentRecordAddress, crate::inventory::ByteRange)>,
+    >::new();
+    for address in candidates.iter() {
+        let Some(record) = view.record(view.view_address(address)?)? else {
+            continue;
+        };
+        if record.record.class != RecordClass::RawFallback {
+            grouped
+                .entry((address.collection, record.record.file))
+                .or_default()
+                .push((address, record.record.range));
+        }
+    }
+    let mut access = SourceAccessSession::new(&view.repository().files);
+    if let Some(execution) = execution {
+        access.configure_target_execution(execution);
+    }
+    let mut matched = SegmentRecordSet::default();
+    let mut projection = ScanProjection::full(collect_text);
+    if let Some(first) = first_field {
+        projection.top_level = Some(HashSet::from([first.to_owned()]));
+    }
+    for ((collection, file_id), ranges) in grouped {
+        let mut start = 0;
+        while start < ranges.len() {
+            if let Some(execution) = execution {
+                execution.check_string()?;
+            }
+            let first_bytes = ranges[start].1.len();
+            if let Some(execution) = execution
+                && first_bytes > execution.limits.target_record_bytes
+            {
+                return Err(execution.fail(
+                    ExecutionErrorKind::Resource,
+                    "relation target record exceeds source read allowance",
+                ));
+            }
+            if first_bytes > MAX_TARGET_RECORD_BYTES {
+                return Err(format!(
+                    "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
+                ));
+            }
+            let mut end = start + 1;
+            let mut batch_bytes = first_bytes;
+            while end < ranges.len() && end - start < 128 {
+                let next_bytes = ranges[end].1.len();
+                if batch_bytes.saturating_add(next_bytes) > TARGET_BATCH_BYTES {
+                    break;
+                }
+                if let Some(execution) = execution
+                    && next_bytes > execution.limits.target_record_bytes
+                {
+                    return Err(execution.fail(
+                        ExecutionErrorKind::Resource,
+                        "relation target record exceeds source read allowance",
+                    ));
+                }
+                if next_bytes > MAX_TARGET_RECORD_BYTES {
+                    return Err(format!(
+                        "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
+                    ));
+                }
+                batch_bytes += next_bytes;
+                end += 1;
+            }
+            let chunk = ranges[start..end]
+                .iter()
+                .enumerate()
+                .map(|(offset, (_, range))| ((start + offset) as u32, *range))
+                .collect::<Vec<_>>();
+            start = end;
+            if let Some(execution) = execution {
+                execution.charge_reads(chunk.len() as u64)?;
+                execution.charge_bytes(batch_bytes)?;
+            }
+            let batch = access.read(file_id, &chunk)?;
+            work.target_file_opens += batch.opened;
+            work.target_bytes_read += batch.bytes_read;
+            for (local_index, bytes) in batch.records {
+                let (address, _) = ranges[local_index as usize];
+                let Some(resolved) = view.record(view.view_address(address)?)? else {
+                    continue;
+                };
+                let prepared = crate::record_preparation::prepare_query_record_with_execution(
+                    resolved.record.class,
+                    &resolved.collection.source,
+                    &resolved.collection.definition.schema,
+                    &bytes,
+                    &projection,
+                    false,
+                    execution,
+                )?;
+                let ctx = RecordContext {
+                    value: &prepared.value,
+                    source_bytes: Some(&bytes),
+                    record: resolved.record,
+                    file: resolved.file,
+                    collection_name: &resolved.collection.definition.name,
+                    repository_root: &view.repository().files.root,
+                };
+                work.target_reads += 1;
+                if evaluate(&ctx, &prepared.text)? {
+                    matched.insert(address);
+                }
+            }
+        }
+        let _ = collection;
+    }
+    Ok(matched)
+}
+
+fn qualified_reverse_sources(
+    view: &MergedRelationView<'_>,
+    hops: &[BoundRelationHop],
+    terminals: &SegmentRecordSet,
+    input: &SegmentRecordSet,
+    work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
+) -> Result<SegmentRecordSet, String> {
+    let mut current = terminals.clone();
+    for hop in hops.iter().rev() {
+        let mut next = SegmentRecordSet::default();
+        for address in current.iter() {
+            if address.collection != hop.to {
+                return Err("relation reverse-hop collection mismatch".into());
+            }
+            let Some(record) = view.record(view.view_address(address)?)? else {
+                continue;
+            };
+            let sources = view.backlink_sources(hop.relation, &record.record.id.0)?;
+            work.reverse_members_visited = work
+                .reverse_members_visited
+                .saturating_add(sources.len() as u64);
+            for source in sources {
+                if let Some(source) = view.native_address(source)? {
+                    next.insert(source);
+                }
+            }
+            work.reverse_postings_visited = work.reverse_postings_visited.saturating_add(1);
+            ensure_slots(next.len(), execution)?;
+        }
+        current = next;
+    }
+    current.intersect(input);
+    Ok(current)
+}
+
+pub(crate) fn qualified_candidates_with_strategy(
+    view: &MergedRelationView<'_>,
+    term: &BoundTerm,
+    input: &SegmentRecordSet,
+    strategy: Strategy,
+    execution: Option<&ExecutionContext>,
+) -> Result<(SegmentRecordSet, SemijoinWork), String> {
+    let repo = view.repository();
+    let hops = eligible(repo, term).ok_or("relation term is not semijoin eligible")?;
+    ensure_slots(input.len(), execution)?;
+    let target = hops.last().ok_or("missing relation hop")?.to;
+    let mut work = SemijoinWork::default();
+    let restricted = (strategy == Strategy::SourceRestricted)
+        .then(|| qualified_reachable_targets(view, hops, input, &mut work, execution))
+        .transpose()?;
+    let terminal = &term
+        .related
+        .as_ref()
+        .ok_or("missing related term")?
+        .terminal;
+    let candidates = qualified_expression_candidates(
+        view,
+        target,
+        &BoundExpr::Term((**terminal).clone()),
+        restricted.as_ref(),
+        &mut work,
+        execution,
+    )?;
+    let matched = verify_qualified_targets(
+        view,
+        &candidates,
+        if terminal.rhs.is_some() {
+            None
+        } else {
+            terminal.path.segments.first().map(String::as_str)
+        },
+        false,
+        &mut work,
+        execution,
+        &mut |ctx, _| eval_term(terminal, ctx),
+    )?;
+    work.target_matches = work.target_matches.saturating_add(matched.len());
+    let sources = qualified_reverse_sources(view, hops, &matched, input, &mut work, execution)?;
+    Ok((sources, work))
+}
+
+pub(crate) fn qualified_fts_witnesses(
+    view: &MergedRelationView<'_>,
+    fts: &BoundFts,
+    input: &SegmentRecordSet,
+    execution: Option<&ExecutionContext>,
+) -> Result<Option<FtsWitnesses>, String> {
+    if fts.fields.is_empty()
+        || fts.fields.iter().any(|field| {
+            field.related.as_ref().is_none_or(|hops| {
+                hops.is_empty()
+                    || hops.iter().any(|hop| {
+                        hop.direction != HopDirection::Forward
+                            || hop.selectors.iter().any(Option::is_some)
+                    })
+            })
+        })
+    {
+        return Ok(None);
+    }
+    ensure_slots(input.len(), execution)?;
+    let mut evidence = HashMap::new();
+    let mut all_work = SemijoinWork::default();
+    let mut strategies = Vec::new();
+    for field in &fts.fields {
+        let hops = field.related.as_ref().ok_or("relation FTS hop missing")?;
+        let target = hops.last().ok_or("relation FTS hop missing")?.to;
+        let target_state = &view.repository().collections[target.0 as usize];
+        let mut local = fts.clone();
+        let mut local_field = field.clone();
+        local_field.related = None;
+        local.fields = vec![local_field];
+        let strategy = if input.len().saturating_mul(4) >= target_state.logical_records.len() {
+            Strategy::TargetFirst
+        } else {
+            Strategy::SourceRestricted
+        };
+        let mut work = SemijoinWork::default();
+        let restricted = (strategy == Strategy::SourceRestricted)
+            .then(|| qualified_reachable_targets(view, hops, input, &mut work, execution))
+            .transpose()?;
+        let candidates = qualified_fts_candidates(
+            view,
+            target,
+            &local,
+            restricted.as_ref(),
+            &mut work,
+            execution,
+        )?;
+        let matched = verify_qualified_targets(
+            view,
+            &candidates,
+            field.path.segments.first().map(String::as_str),
+            true,
+            &mut work,
+            execution,
+            &mut |ctx, segments| eval_bound_fts_membership(&local, segments, ctx),
+        )?;
+        work.target_matches = work.target_matches.saturating_add(matched.len());
+        let sources = qualified_reverse_sources(view, hops, &matched, input, &mut work, execution)?;
+        for address in sources.iter() {
+            evidence
+                .entry(address)
+                .or_insert_with(HashSet::new)
+                .insert(field.evidence_path.clone());
+        }
+        all_work.add(work);
+        strategies.push(strategy);
+    }
+    ensure_slots(evidence.len() as u64, execution)?;
+    Ok(Some(FtsWitnesses {
+        evidence: HashMap::new(),
+        qualified_evidence: evidence,
+        work: all_work,
+        strategies,
+    }))
+}
+
 fn reverse_sources(
     repo: &Repository,
     hops: &[BoundRelationHop],
@@ -945,6 +1368,108 @@ pub(crate) fn fts_witnesses(
 /// Each result is an exact positive witness, but a remaining expression may
 /// still require source verification.
 pub(crate) fn restrict(
+    repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    expr: &BoundExpr,
+    input: &RoaringBitmap,
+    plan: &mut Plan,
+    execution: Option<&ExecutionContext>,
+) -> Result<(), String> {
+    let mut terms = Vec::new();
+    positive_terms(expr, &mut terms);
+    let Some(source_collection) = terms.iter().find_map(|term| {
+        term.related
+            .as_ref()
+            .and_then(|related| related.hops.first())
+            .map(|hop| hop.from)
+    }) else {
+        return Ok(());
+    };
+    let empty_active = (0..repo.collections.len())
+        .map(|_| crate::inventory::ActiveRecords::all(0))
+        .collect::<Result<Vec<_>, _>>()?;
+    let view = MergedRelationView::new(repo, &empty_active, segments, &repo.catalog)?;
+    let mut current = plan.candidates.take().unwrap_or_else(|| input.clone());
+    let mut native_input = SegmentRecordSet::default();
+    for slot in current.iter() {
+        match view.native_address_for_flat_slot(source_collection, RecordSlot(slot))? {
+            Some(address) => {
+                native_input.insert(address);
+            }
+            None if !repo.collections[source_collection.0 as usize]
+                .logical_records
+                .contains(slot) =>
+            {
+                continue;
+            }
+            None => {
+                plan.candidates = Some(current);
+                return restrict_flat(repo, segments, expr, input, plan, execution);
+            }
+        }
+    }
+    for term in terms {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+        }
+        if eligible(repo, term).is_none() || current.is_empty() {
+            continue;
+        }
+        let (strategy, selected, alternatives) =
+            estimate(repo, term, native_input.len(), segments)?;
+        let before = current.clone();
+        let actual_input = before.len();
+        let (native_matches, work) =
+            qualified_candidates_with_strategy(&view, term, &native_input, strategy, execution)?;
+        let mut matches = RoaringBitmap::new();
+        for address in native_matches.iter() {
+            let Some(record) = view.record(view.view_address(address)?)? else {
+                continue;
+            };
+            let Some(slot) = repo.collections[address.collection.0 as usize]
+                .id_lookup
+                .get(&record.record.id)
+            else {
+                continue;
+            };
+            matches.insert(slot.0);
+        }
+        current &= &matches;
+        native_input.intersect(&native_matches);
+        plan.semijoin_work.add(work);
+        plan.proofs.push(Proof {
+            term: term.clone(),
+            input: before,
+            matches: current.clone(),
+        });
+        if let Some(choice) = plan
+            .choices
+            .iter_mut()
+            .find(|choice| choice.span == term.span && choice.field == term.query_path.display)
+        {
+            choice.selected = selected;
+            choice.alternatives = alternatives;
+            choice.actual_input = actual_input;
+            choice.actual_output = Some(current.len());
+            choice.reason = format!(
+                "exact positive relation witness through {} forward hop(s); {} target candidates, {} target reads, {} reverse postings",
+                term.related.as_ref().unwrap().hops.len(),
+                work.target_candidates,
+                work.target_reads,
+                work.reverse_postings_visited,
+            );
+            choice.residual_verification = false;
+        }
+    }
+    if current.is_empty() || all_terms_proven(expr, &plan.proofs, &current) {
+        plan.exact = true;
+        plan.proven_hits = current.clone();
+    }
+    plan.candidates = Some(current);
+    Ok(())
+}
+
+fn restrict_flat(
     repo: &Repository,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     expr: &BoundExpr,

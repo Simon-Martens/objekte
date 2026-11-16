@@ -9,6 +9,7 @@ use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
+use crate::native_segment::{SegmentId, SegmentRecordAddress};
 use crate::posting::ScalarKey;
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
@@ -75,6 +76,7 @@ pub(crate) struct MergedRelationView<'a> {
     base_active: &'a [ActiveRecords],
     segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &'a FileCatalog,
+    segment_positions: Arc<HashMap<(CollectionId, SegmentId), usize>>,
     source_errors: RefCell<SourceAvailabilityLog>,
     // Source-dependent comparisons often revisit one target for many source
     // records. Keep only small decoded targets for this query publication.
@@ -90,6 +92,7 @@ impl<'a> MergedRelationView<'a> {
             base_active: self.base_active,
             segments: self.segments,
             catalog: self.catalog,
+            segment_positions: Arc::clone(&self.segment_positions),
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
             target_values: self.target_values.clone(),
         }
@@ -131,6 +134,24 @@ impl<'a> MergedRelationView<'a> {
 
     pub(crate) fn repository_root(&self) -> &std::path::Path {
         &self.repo.files.root
+    }
+
+    pub(crate) fn repository(&self) -> &'a Repository {
+        self.repo
+    }
+
+    pub(crate) fn catalog(&self) -> &'a FileCatalog {
+        self.catalog
+    }
+
+    pub(crate) fn segments(
+        &self,
+        collection: CollectionId,
+    ) -> Result<&'a [Arc<PublishedSegment>], String> {
+        self.segments
+            .get(collection.0 as usize)
+            .map(|segments| segments.as_slice())
+            .ok_or_else(|| "merged segment collection missing".into())
     }
 
     pub(crate) fn segment_ordinal(&self, address: MergedRecordSlot) -> Option<u64> {
@@ -179,14 +200,95 @@ impl<'a> MergedRelationView<'a> {
                 }
             }
         }
+        let mut segment_positions = HashMap::new();
+        for (collection_index, shards) in segments.iter().enumerate() {
+            for (position, segment) in shards.iter().enumerate() {
+                let collection = CollectionId(collection_index as u32);
+                if segment_positions
+                    .insert((collection, segment.id), position)
+                    .is_some()
+                {
+                    return Err("duplicate segment identity in merged relation view".into());
+                }
+            }
+        }
         Ok(Self {
             repo,
             base_active,
             segments,
             catalog,
+            segment_positions: Arc::new(segment_positions),
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
             target_values: Arc::new((0..16).map(|_| Mutex::new((HashMap::new(), 0))).collect()),
         })
+    }
+
+    pub(crate) fn view_address(
+        &self,
+        address: SegmentRecordAddress,
+    ) -> Result<MergedRecordSlot, String> {
+        let position = *self
+            .segment_positions
+            .get(&(address.collection, address.segment))
+            .ok_or("native segment address is outside the pinned view")?;
+        let published = self.segments[address.collection.0 as usize]
+            .get(position)
+            .ok_or("native segment position is outside the pinned view")?;
+        if !published.active.contains(address.slot)
+            || published.index.record(address.slot).is_none()
+        {
+            return Err("native segment address is not active in the pinned view".into());
+        }
+        Ok(MergedRecordSlot {
+            collection: address.collection,
+            segment: Some(position),
+            slot: address.slot,
+        })
+    }
+
+    pub(crate) fn native_address(
+        &self,
+        address: MergedRecordSlot,
+    ) -> Result<Option<SegmentRecordAddress>, String> {
+        let Some(position) = address.segment else {
+            return Ok(None);
+        };
+        let published = self.segments[address.collection.0 as usize]
+            .get(position)
+            .ok_or("merged segment position is outside the pinned view")?;
+        if !published.active.contains(address.slot)
+            || published.index.record(address.slot).is_none()
+        {
+            return Err("merged segment address is not active in the pinned view".into());
+        }
+        Ok(Some(SegmentRecordAddress {
+            collection: address.collection,
+            segment: published.id,
+            slot: address.slot,
+        }))
+    }
+
+    pub(crate) fn native_address_for_flat_slot(
+        &self,
+        collection: CollectionId,
+        slot: RecordSlot,
+    ) -> Result<Option<SegmentRecordAddress>, String> {
+        let state = self
+            .repo
+            .collections
+            .get(collection.0 as usize)
+            .ok_or("flat address collection missing")?;
+        let record = state
+            .generation
+            .records
+            .get(slot.0 as usize)
+            .ok_or("flat address slot missing")?;
+        self.resolve_id(collection, &record.id.0)?
+            .map(|address| {
+                self.native_address(address)?
+                    .ok_or_else(|| "flat address resolved to a legacy base".to_string())
+            })
+            .transpose()
     }
 
     pub(crate) fn record(
@@ -2298,7 +2400,7 @@ fn logical_references(value: &Value, path: &[String]) -> Result<LogicalReference
     })
 }
 
-fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {
+pub(crate) fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {
     selectors.len() <= positions.len()
         && selectors
             .iter()
