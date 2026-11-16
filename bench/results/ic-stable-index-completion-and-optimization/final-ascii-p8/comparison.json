@@ -1,0 +1,147 @@
+{
+  "task": "ic-stable-index-prototype",
+  "workers": 8,
+  "alphabet": "ascii",
+  "samples": 5,
+  "native_build_ns": {
+    "median": 1594674589,
+    "min": 1578712993,
+    "max": 1621510074
+  },
+  "candidate_total_build_ns": {
+    "median": 3030608556,
+    "min": 3023520530,
+    "max": 3274451617
+  },
+  "original_build_ns": {
+    "median": 3027012600,
+    "min": 2984296762,
+    "max": 3197220295
+  },
+  "median_ratio": 1.9004557901060277,
+  "original_ratio": 1.0011879554118803,
+  "improvement_over_original": -0.001187955411880326,
+  "memory": {
+    "native_resident_bytes": {
+      "median": 400515072,
+      "min": 392859648,
+      "max": 401682432,
+      "samples": 5
+    },
+    "native_peak_bytes": {
+      "median": 413724672,
+      "min": 405983232,
+      "max": 414961664,
+      "samples": 5
+    },
+    "candidate_resident_bytes": {
+      "median": 772444160,
+      "min": 752320512,
+      "max": 784969728,
+      "samples": 5
+    },
+    "candidate_peak_bytes": {
+      "median": 841187328,
+      "min": 827965440,
+      "max": 854056960,
+      "samples": 5
+    },
+    "candidate_owned_component_payload_bytes": {
+      "median": 407502848,
+      "min": 407437312,
+      "max": 407568384,
+      "samples": 5
+    },
+    "resident_ratio": 1.9286269456546195,
+    "peak_ratio": 2.033205619412516
+  },
+  "candidate_stage_ns": {
+    "discovery_ns": {
+      "median": 329131329,
+      "min": 323512113,
+      "max": 330791899,
+      "samples": 5
+    },
+    "setup_ns": {
+      "median": 1474250,
+      "min": 1457869,
+      "max": 1582984,
+      "samples": 5
+    },
+    "extraction_admission_ns": {
+      "median": 814373068,
+      "min": 798684916,
+      "max": 824297254,
+      "samples": 5
+    },
+    "finalization_ns": {
+      "median": 286119073,
+      "min": 280756078,
+      "max": 288215853,
+      "samples": 5
+    },
+    "stable_component_ns": {
+      "median": 1483827774,
+      "min": 1455988233,
+      "max": 1710333984,
+      "samples": 5
+    }
+  },
+  "candidate_components": {
+    "median": 1323,
+    "min": 1323,
+    "max": 1323,
+    "samples": 5
+  },
+  "field_job_overlap_pairs": {
+    "median": 3800,
+    "min": 2681,
+    "max": 5449,
+    "samples": 5
+  },
+  "selected_trace": {
+    "sample": 5,
+    "note": "component trace is one run, not a median"
+  },
+  "gate": {
+    "classification": "performance_rejection",
+    "source_build_target": "<= 1.10x native",
+    "resident_rss_target": "<= 1.40x native",
+    "peak_rss_target": "<= 1.60x native"
+  },
+  "synthetic": {
+    "1": {
+      "native_build_ns": 1520629242,
+      "stable_build_ns": 6282019747,
+      "ratio": 4.131197515797871,
+      "native_resident_bytes": 151998464,
+      "native_peak_bytes": 151998464,
+      "stable_resident_bytes": 336093184,
+      "stable_peak_bytes": 348237824,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 0
+    },
+    "2": {
+      "native_build_ns": 978388610,
+      "stable_build_ns": 3687737405,
+      "ratio": 3.7691949469853294,
+      "native_resident_bytes": 168652800,
+      "native_peak_bytes": 168759296,
+      "stable_resident_bytes": 345104384,
+      "stable_peak_bytes": 361693184,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 3
+    },
+    "8": {
+      "native_build_ns": 734942004,
+      "stable_build_ns": 1502065567,
+      "ratio": 2.0437878891461483,
+      "native_resident_bytes": 173174784,
+      "native_peak_bytes": 173174784,
+      "stable_resident_bytes": 374345728,
+      "stable_peak_bytes": 393695232,
+      "stable_components": 40,
+      "field_job_overlap_pairs": 141
+    }
+  }
+}

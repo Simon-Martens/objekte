@@ -1,0 +1,74 @@
+{
+  "admission_ns": 0,
+  "available_parallelism": 16,
+  "components": 1323,
+  "construction_mode": "direct_batch_contributions",
+  "counters": {
+    "bitmap_decodes": 0,
+    "bitmap_encodes": 329218,
+    "component_inserts_during_load": 0,
+    "component_loads": 0,
+    "component_payload_bytes_read": 0,
+    "manifest_opens": 0,
+    "stable_gets": 0,
+    "stable_inserts": 1341444,
+    "stable_removes": 0,
+    "standalone_files_opened": 0
+  },
+  "failed_parses": 0,
+  "job_execution_ns": 0,
+  "peak_active_jobs": 8,
+  "peak_ready_batches": 15,
+  "receive_wait_ns": 0,
+  "requested_build_workers": 8,
+  "resolved_build_workers": 8,
+  "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_build_timings": {
+    "discovery_ns": 325369972,
+    "extraction_admission_ns": 798168782,
+    "finalization_ns": 281197752,
+    "setup_ns": 1517190,
+    "stable_component_ns": 1596678455
+  },
+  "source_bytes": 193297230,
+  "source_bytes_read": 0,
+  "source_files": 148486,
+  "source_parses": 148486,
+  "source_reads": 0,
+  "source_records": 148486,
+  "stage_ns": {
+    "discovery": 325369972,
+    "extraction_admission": 798168782,
+    "finalization": 281197752,
+    "setup": 1517190,
+    "stable_component": 1596678455
+  },
+  "total_source_build_ns": 3130019591,
+  "trace": {
+    "available": true,
+    "average_concurrent_jobs": 5.351593658482615,
+    "components": 1323,
+    "idle_capacity_ns": 2623465,
+    "largest_job": {
+      "duration_ns": 1335837509,
+      "entry_count": 133948,
+      "estimated_work": 2143168,
+      "field": "preferred_title",
+      "id": 1318,
+      "kind": 12
+    },
+    "last_completion_by_worker": {
+      "ThreadId(2)": 1447990060,
+      "ThreadId(3)": 968561685,
+      "ThreadId(4)": 875787552,
+      "ThreadId(5)": 981648582,
+      "ThreadId(6)": 689547054,
+      "ThreadId(7)": 490303548,
+      "ThreadId(8)": 914521955,
+      "ThreadId(9)": 1462822156
+    },
+    "makespan_ns": 1462773314,
+    "sum_job_duration_ns": 7828168391,
+    "workers": 8
+  }
+}

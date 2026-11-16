@@ -1,0 +1,83 @@
+{
+  "build": {
+    "admission_ns": 0,
+    "available_parallelism": 16,
+    "components": 1323,
+    "construction_mode": "direct_batch_contributions",
+    "counters": {
+      "bitmap_decodes": 0,
+      "bitmap_encodes": 341650,
+      "component_inserts_during_load": 0,
+      "component_loads": 0,
+      "component_payload_bytes_read": 0,
+      "manifest_opens": 0,
+      "stable_gets": 0,
+      "stable_inserts": 1353876,
+      "stable_removes": 0,
+      "standalone_files_opened": 0
+    },
+    "failed_parses": 0,
+    "job_execution_ns": 0,
+    "peak_active_jobs": 8,
+    "peak_ready_batches": 14,
+    "receive_wait_ns": 0,
+    "requested_build_workers": 8,
+    "resolved_build_workers": 8,
+    "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+    "source_build_timings": {
+      "discovery_ns": 327851475,
+      "extraction_admission_ns": 975333480,
+      "finalization_ns": 306318512,
+      "setup_ns": 1477647,
+      "stable_component_ns": 1651408413
+    },
+    "source_bytes": 193297230,
+    "source_bytes_read": 0,
+    "source_files": 148486,
+    "source_parses": 148486,
+    "source_reads": 0,
+    "source_records": 148486,
+    "stage_ns": {
+      "discovery": 327851475,
+      "extraction_admission": 975333480,
+      "finalization": 306318512,
+      "setup": 1477647,
+      "stable_component": 1651408413
+    },
+    "total_source_build_ns": 3392771581,
+    "trace": {
+      "available": true,
+      "average_concurrent_jobs": 4.774540253709215,
+      "components": 1323,
+      "idle_capacity_ns": 3696584,
+      "largest_job": {
+        "duration_ns": 1156265332,
+        "entry_count": 133948,
+        "estimated_work": 2143168,
+        "field": "preferred_title",
+        "id": 1310,
+        "kind": 11
+      },
+      "last_completion_by_worker": {
+        "ThreadId(2)": 1339648539,
+        "ThreadId(3)": 829115315,
+        "ThreadId(4)": 572707990,
+        "ThreadId(5)": 910349868,
+        "ThreadId(6)": 1496919800,
+        "ThreadId(7)": 567637324,
+        "ThreadId(8)": 669503146,
+        "ThreadId(9)": 765032454
+      },
+      "makespan_ns": 1496884453,
+      "sum_job_duration_ns": 7146935076,
+      "workers": 8
+    }
+  },
+  "field_job_overlap_pairs": 3314,
+  "memory": {
+    "owned_component_payload_bytes": 411041792,
+    "readiness_hwm_bytes": 833097728,
+    "readiness_rss_bytes": 757448704
+  },
+  "persistence": {}
+}

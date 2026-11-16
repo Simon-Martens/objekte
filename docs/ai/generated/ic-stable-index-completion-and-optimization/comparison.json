@@ -1,0 +1,491 @@
+{
+  "task": "ic-stable-index-completion-and-optimization",
+  "classification": "incomplete implementation: R02, R03 and matched native R19 distributions remaining",
+  "reviewed_repair": "1022768be3d625be7acec28da38defd831b85fe1",
+  "native_baseline": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "head": "210dc9d4bb1509e356ff6a36a6d0b0bb5de14bc6",
+  "ascii_p8": {
+    "task": "ic-stable-index-prototype",
+    "workers": 8,
+    "alphabet": "ascii",
+    "samples": 5,
+    "native_build_ns": {
+      "median": 1594674589,
+      "min": 1578712993,
+      "max": 1621510074
+    },
+    "candidate_total_build_ns": {
+      "median": 3030608556,
+      "min": 3023520530,
+      "max": 3274451617
+    },
+    "original_build_ns": {
+      "median": 3027012600,
+      "min": 2984296762,
+      "max": 3197220295
+    },
+    "median_ratio": 1.9004557901060277,
+    "original_ratio": 1.0011879554118803,
+    "improvement_over_original": -0.001187955411880326,
+    "memory": {
+      "native_resident_bytes": {
+        "median": 400515072,
+        "min": 392859648,
+        "max": 401682432,
+        "samples": 5
+      },
+      "native_peak_bytes": {
+        "median": 413724672,
+        "min": 405983232,
+        "max": 414961664,
+        "samples": 5
+      },
+      "candidate_resident_bytes": {
+        "median": 772444160,
+        "min": 752320512,
+        "max": 784969728,
+        "samples": 5
+      },
+      "candidate_peak_bytes": {
+        "median": 841187328,
+        "min": 827965440,
+        "max": 854056960,
+        "samples": 5
+      },
+      "candidate_owned_component_payload_bytes": {
+        "median": 407502848,
+        "min": 407437312,
+        "max": 407568384,
+        "samples": 5
+      },
+      "resident_ratio": 1.9286269456546195,
+      "peak_ratio": 2.033205619412516
+    },
+    "candidate_stage_ns": {
+      "discovery_ns": {
+        "median": 329131329,
+        "min": 323512113,
+        "max": 330791899,
+        "samples": 5
+      },
+      "setup_ns": {
+        "median": 1474250,
+        "min": 1457869,
+        "max": 1582984,
+        "samples": 5
+      },
+      "extraction_admission_ns": {
+        "median": 814373068,
+        "min": 798684916,
+        "max": 824297254,
+        "samples": 5
+      },
+      "finalization_ns": {
+        "median": 286119073,
+        "min": 280756078,
+        "max": 288215853,
+        "samples": 5
+      },
+      "stable_component_ns": {
+        "median": 1483827774,
+        "min": 1455988233,
+        "max": 1710333984,
+        "samples": 5
+      }
+    },
+    "candidate_components": {
+      "median": 1323,
+      "min": 1323,
+      "max": 1323,
+      "samples": 5
+    },
+    "field_job_overlap_pairs": {
+      "median": 3800,
+      "min": 2681,
+      "max": 5449,
+      "samples": 5
+    },
+    "selected_trace": {
+      "sample": 5,
+      "note": "component trace is one run, not a median"
+    },
+    "gate": {
+      "classification": "performance_rejection",
+      "source_build_target": "<= 1.10x native",
+      "resident_rss_target": "<= 1.40x native",
+      "peak_rss_target": "<= 1.60x native"
+    },
+    "synthetic": {
+      "1": {
+        "native_build_ns": 1520629242,
+        "stable_build_ns": 6282019747,
+        "ratio": 4.131197515797871,
+        "native_resident_bytes": 151998464,
+        "native_peak_bytes": 151998464,
+        "stable_resident_bytes": 336093184,
+        "stable_peak_bytes": 348237824,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 0
+      },
+      "2": {
+        "native_build_ns": 978388610,
+        "stable_build_ns": 3687737405,
+        "ratio": 3.7691949469853294,
+        "native_resident_bytes": 168652800,
+        "native_peak_bytes": 168759296,
+        "stable_resident_bytes": 345104384,
+        "stable_peak_bytes": 361693184,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 3
+      },
+      "8": {
+        "native_build_ns": 734942004,
+        "stable_build_ns": 1502065567,
+        "ratio": 2.0437878891461483,
+        "native_resident_bytes": 173174784,
+        "native_peak_bytes": 173174784,
+        "stable_resident_bytes": 374345728,
+        "stable_peak_bytes": 393695232,
+        "stable_components": 40,
+        "field_job_overlap_pairs": 141
+      }
+    }
+  },
+  "unicode_p8": {
+    "task": "ic-stable-index-prototype",
+    "workers": 8,
+    "alphabet": "unicode",
+    "samples": 3,
+    "native_build_ns": {
+      "median": 1750891830,
+      "min": 1721034607,
+      "max": 1763499746
+    },
+    "candidate_total_build_ns": {
+      "median": 3261237051,
+      "min": 3235974181,
+      "max": 3482116852
+    },
+    "original_build_ns": {
+      "median": 3392882821,
+      "min": 3392771581,
+      "max": 3401127138
+    },
+    "median_ratio": 1.862614808705801,
+    "original_ratio": 0.9611994351277952,
+    "improvement_over_original": 0.038800564872204846,
+    "memory": {
+      "native_resident_bytes": {
+        "median": 417746944,
+        "min": 417345536,
+        "max": 420913152,
+        "samples": 3
+      },
+      "native_peak_bytes": {
+        "median": 430604288,
+        "min": 430542848,
+        "max": 433786880,
+        "samples": 3
+      },
+      "candidate_resident_bytes": {
+        "median": 771477504,
+        "min": 750497792,
+        "max": 777183232,
+        "samples": 3
+      },
+      "candidate_peak_bytes": {
+        "median": 840192000,
+        "min": 826044416,
+        "max": 845979648,
+        "samples": 3
+      },
+      "candidate_owned_component_payload_bytes": {
+        "median": 410976256,
+        "min": 410976256,
+        "max": 411041792,
+        "samples": 3
+      },
+      "resident_ratio": 1.846757983704125,
+      "peak_ratio": 1.951192831595769
+    },
+    "candidate_stage_ns": {
+      "discovery_ns": {
+        "median": 327460460,
+        "min": 325529944,
+        "max": 329378454,
+        "samples": 3
+      },
+      "setup_ns": {
+        "median": 1460785,
+        "min": 1452439,
+        "max": 1461856,
+        "samples": 3
+      },
+      "extraction_admission_ns": {
+        "median": 978517362,
+        "min": 967741237,
+        "max": 980705202,
+        "samples": 3
+      },
+      "finalization_ns": {
+        "median": 299207062,
+        "min": 298909192,
+        "max": 301290746,
+        "samples": 3
+      },
+      "stable_component_ns": {
+        "median": 1524691594,
+        "min": 1510046411,
+        "max": 1741936536,
+        "samples": 3
+      }
+    },
+    "candidate_components": {
+      "median": 1323,
+      "min": 1323,
+      "max": 1323,
+      "samples": 3
+    },
+    "field_job_overlap_pairs": {
+      "median": 4955,
+      "min": 3703,
+      "max": 5523,
+      "samples": 3
+    },
+    "selected_trace": {
+      "sample": 3,
+      "note": "component trace is one run, not a median"
+    },
+    "gate": {
+      "classification": "performance_rejection",
+      "source_build_target": "<= 1.10x native",
+      "resident_rss_target": "<= 1.40x native",
+      "peak_rss_target": "<= 1.60x native"
+    }
+  },
+  "validation": {
+    "components": 1323,
+    "domains": 14,
+    "errors": [],
+    "files": 148486,
+    "gram_keys": 25477,
+    "gram_members": 56275908,
+    "identities": 148486,
+    "posting_keys": 152544,
+    "posting_members": 2814411,
+    "records": 148486,
+    "relation_occurrences": 0,
+    "sort_entries": 566768
+  },
+  "persistence": {
+    "snapshot_save_ns": 222826638,
+    "manifest_open_ns": 29410412,
+    "component_load_ns": 24789872
+  },
+  "primitives": {
+    "counters": {
+      "bitmap_decodes": 604,
+      "bitmap_encodes": 0,
+      "component_inserts_during_load": 0,
+      "component_loads": 2,
+      "component_payload_bytes_read": 28049408,
+      "manifest_opens": 1,
+      "stable_gets": 603,
+      "stable_inserts": 0,
+      "stable_removes": 0,
+      "standalone_files_opened": 0
+    },
+    "first_dependency_load": [
+      {
+        "collection": 1,
+        "component": 306,
+        "live_slots": 133948,
+        "load_ns": 178776
+      }
+    ],
+    "first_load": [
+      {
+        "component": 306,
+        "load_ns": 26876382
+      }
+    ],
+    "repetitions": 200,
+    "resident_primitives": [
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(30))",
+        "max_ns": 8966,
+        "median_ns": 1683,
+        "members": 1,
+        "min_ns": 1613,
+        "p95_ns": 1753,
+        "repetitions": 200
+      },
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(140792))",
+        "max_ns": 3487,
+        "median_ns": 2164,
+        "members": 1,
+        "min_ns": 2054,
+        "p95_ns": 2264,
+        "repetitions": 200
+      },
+      {
+        "complete": true,
+        "component": 306,
+        "key": "Number(Integer(68549))",
+        "max_ns": 6632,
+        "median_ns": 2164,
+        "members": 1,
+        "min_ns": 2084,
+        "p95_ns": 2244,
+        "repetitions": 200
+      }
+    ]
+  },
+  "lifecycle": {
+    "fixture_build_ns": 3039390,
+    "path_refs_after_reopen": 200,
+    "preparation_ns": 6535428,
+    "reopened": {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 2000,
+      "live_records": 200,
+      "payload_bytes": 2424832,
+      "slot_high_water": 2200
+    },
+    "replacement_ns": 50881370,
+    "replacements": 10,
+    "save_ns": 2102590,
+    "semantic_matches": 20,
+    "snapshot_disk_bytes": 2620299,
+    "storage": [
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 0,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 200
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 200,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 400
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 400,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 600
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 600,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 800
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 800,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1000
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1000,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1200
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1200,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1400
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1400,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1600
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1600,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 1800
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 1800,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 2000
+      },
+      {
+        "collection": 0,
+        "components": 18,
+        "dead_slots": 2000,
+        "live_records": 200,
+        "payload_bytes": 1179648,
+        "slot_high_water": 2200
+      }
+    ]
+  },
+  "experiments": {
+    "o01": {
+      "status": "rejected",
+      "current_median_ns": 3100288593,
+      "candidate_median_ns": 3144232424,
+      "delta": -0.0141741098
+    },
+    "o02": {
+      "status": "inconclusive/reverted",
+      "three_pair_delta": 0.0233371048,
+      "combined_delta": -0.0204202362
+    },
+    "o03": {
+      "status": "rejected",
+      "normal_median_ns": 2976538252,
+      "shrink_median_ns": 3033900504,
+      "hwm_normal_bytes": 829984768,
+      "hwm_shrink_bytes": 822181888
+    },
+    "o04": {
+      "status": "not_run",
+      "reason": "no profile evidence"
+    }
+  },
+  "gate": {
+    "source_build_target": "<= 1.10x native",
+    "ascii_ratio": 1.9004557901060277,
+    "unicode_ratio": 1.862614808705801,
+    "resident_target": "<= 1.40x native",
+    "ascii_resident_ratio": 1.9286269456546195,
+    "peak_target": "<= 1.60x native",
+    "ascii_peak_ratio": 2.033205619412516,
+    "correctness": "zero semantic differences in full Musenalm validation"
+  }
+}

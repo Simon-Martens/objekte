@@ -342,7 +342,6 @@ impl RelationContribution {
     /// References are appended in source-slot order during admission and
     /// projection, so a selective query can borrow one source's edges without
     /// constructing a query-wide forward map.
-    #[cfg(test)]
     pub(crate) fn references(&self) -> impl Iterator<Item = (RecordSlot, &str, &[u32])> {
         self.references.iter().map(|reference| {
             (

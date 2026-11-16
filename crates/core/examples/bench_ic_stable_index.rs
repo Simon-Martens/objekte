@@ -41,6 +41,7 @@ struct Args {
     value: Option<String>,
     construction: String,
     repetitions: usize,
+    shrink_components: bool,
 }
 
 impl Default for Args {
@@ -61,6 +62,7 @@ impl Default for Args {
             value: None,
             construction: "direct".into(),
             repetitions: 200,
+            shrink_components: false,
         }
     }
 }
@@ -172,6 +174,7 @@ fn parse_args() -> Result<Args, String> {
             }
             "--field" => args.field = Some(arguments.next().ok_or("--field needs a value")?),
             "--value" => args.value = Some(arguments.next().ok_or("--value needs a value")?),
+            "--shrink-components" => args.shrink_components = true,
             "--repetitions" => {
                 args.repetitions = arguments
                     .next()
@@ -348,8 +351,12 @@ fn direct_source_build(args: &Args, force_snapshot: bool) -> Result<(), String> 
         ..RepositoryOptions::default()
     };
     let started = Instant::now();
-    let (mut prototype, timings) =
-        StablePrototype::from_sources_with_timings(&root, definitions, options)?;
+    let (mut prototype, timings) = StablePrototype::from_sources_with_timings_tuning(
+        &root,
+        definitions,
+        options,
+        args.shrink_components,
+    )?;
     let total_source_build_ns = started.elapsed().as_nanos() as u64;
     let readiness_rss = resident_bytes();
     let readiness_hwm = high_water_bytes();

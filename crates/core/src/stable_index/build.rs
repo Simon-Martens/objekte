@@ -11,7 +11,7 @@ use sha2::{Digest, Sha256};
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{FileInventory, RecordClass, RecordEntry};
-use crate::model::{CollectionId, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::posting::{PostingIndex, StructuralKey};
 use crate::relation::{RelationIndex, RelationTarget};
 use crate::repository::{CollectionState, Repository};
@@ -48,6 +48,7 @@ pub(crate) fn from_repository(
         repository.collections(),
         &repository.files().root,
         &pool,
+        false,
     )
 }
 
@@ -56,6 +57,7 @@ pub(crate) fn from_collections(
     collections: &[CollectionState],
     root: &Path,
     pool: &rayon::ThreadPool,
+    shrink_components: bool,
 ) -> Result<StablePrototype, String> {
     if collections.iter().any(|state| state.inference.is_some()) {
         return Err("inference is not supported by the stable-index prototype".into());
@@ -413,7 +415,7 @@ pub(crate) fn from_collections(
         execution
             .into_par_iter()
             .with_max_len(1)
-            .map(|draft| build_one(draft, build_epoch))
+            .map(|draft| build_one(draft, build_epoch, shrink_components))
             .collect::<Result<Vec<_>, String>>()
     })?;
     results.sort_by_key(|result| result.descriptor.id);
@@ -701,7 +703,11 @@ impl BuildTree {
     }
 }
 
-fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
+fn build_one(
+    draft: Draft<'_>,
+    epoch: Instant,
+    shrink_components: bool,
+) -> Result<BuildResult, String> {
     let started = Instant::now();
     let start_offset_ns = started.duration_since(epoch).as_nanos() as u64;
     let worker = format!("{:?}", std::thread::current().id());
@@ -734,7 +740,11 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
     let bitmap_encodes = tree.bitmap_encodes;
     let metadata_encodes = tree.metadata_encodes;
     let tree_inserts = tree.inserts;
-    let (payload, memory_len, memory_capacity) = memory::tree_image(tree.tree);
+    let (mut payload, memory_len, mut memory_capacity) = memory::tree_image(tree.tree);
+    if shrink_components {
+        payload.shrink_to_fit();
+        memory_capacity = payload.capacity();
+    }
     let payload_len = payload.len() as u64;
     let tree = memory::load_tree(draft.descriptor.kind, payload)?;
     let finished = Instant::now();
@@ -781,16 +791,10 @@ fn prepare_paths(
     files: &FileInventory,
     collections: &[CollectionState],
 ) -> Result<Vec<(PathKey, StoredBytes)>, String> {
-    let mut by_file = vec![Vec::<RecordRef>::new(); files.files.len()];
+    let mut by_file = BTreeMap::<FileId, Vec<RecordRef>>::new();
     for state in collections {
         for record in &state.generation.records {
-            let window = by_file.get_mut(record.file.0 as usize).ok_or_else(|| {
-                format!(
-                    "record references file {} which is absent from the inventory",
-                    record.file.0
-                )
-            })?;
-            window.push(RecordRef {
+            by_file.entry(record.file).or_default().push(RecordRef {
                 collection: state.generation.collection,
                 slot: record.slot,
             });
@@ -798,10 +802,7 @@ fn prepare_paths(
     }
     let mut entries = Vec::with_capacity(files.files.len());
     let mut seen = BTreeSet::new();
-    for (index, file) in files.files.iter().enumerate() {
-        if file.id.0 as usize != index {
-            return Err("file inventory IDs are not dense".into());
-        }
+    for file in &files.files {
         let key = PathKey::from_path(&file.relative_path)?;
         if !seen.insert(key.clone()) {
             return Err(format!(
@@ -809,7 +810,7 @@ fn prepare_paths(
                 file.relative_path.display()
             ));
         }
-        let mut refs = std::mem::take(&mut by_file[index]);
+        let mut refs = by_file.remove(&file.id).unwrap_or_default();
         refs.sort_unstable();
         refs.dedup();
         let value = codec::encode_meta(&PathCatalogEntry {
@@ -817,6 +818,12 @@ fn prepare_paths(
             refs,
         })?;
         entries.push((key, value));
+    }
+    if let Some((file, _)) = by_file.into_iter().next() {
+        return Err(format!(
+            "record references file {} which is absent from the inventory",
+            file.0
+        ));
     }
     Ok(entries)
 }
@@ -943,20 +950,13 @@ fn build_sort(
     } else {
         ComponentKind::SortAscending
     });
-    let mut order = (0..column.keys.len()).collect::<Vec<_>>();
-    order.sort_by(|left, right| {
-        column.keys[*left]
-            .compare_with(&column.keys[*right], descending, column.options)
-            .then_with(|| records[*left].id.cmp(&records[*right].id))
-            .then_with(|| left.cmp(right))
-    });
-    for slot in order {
+    for (slot, key) in column.keys.iter().enumerate() {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot does not fit in u32")?);
         tree.insert(
             ComponentKey::Sort(SortEntryKey {
                 options: column.options,
                 descending,
-                key: column.keys[slot.0 as usize].clone(),
+                key: key.clone(),
                 tie_break_id: records[slot.0 as usize].id.clone(),
                 slot,
             }),
@@ -981,21 +981,7 @@ fn build_composite_sort(
         return Err("composite sort record coverage mismatch".into());
     }
     let mut tree = BuildTree::new(ComponentKind::CompositeSort);
-    let mut order = (0..records.len()).collect::<Vec<_>>();
-    order.sort_by(|left, right| {
-        for (column, descending) in columns.iter().zip(&descending) {
-            let order =
-                column.keys[*left].compare_with(&column.keys[*right], *descending, column.options);
-            if !order.is_eq() {
-                return order;
-            }
-        }
-        records[*left]
-            .id
-            .cmp(&records[*right].id)
-            .then_with(|| left.cmp(right))
-    });
-    for slot in order {
+    for (slot, record) in records.iter().enumerate() {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot overflow")?);
         let parts = columns
             .iter()
@@ -1009,7 +995,7 @@ fn build_composite_sort(
         tree.insert(
             ComponentKey::CompositeSort(codec::CompositeSortEntryKey {
                 parts,
-                tie_break_id: records[slot.0 as usize].id.clone(),
+                tie_break_id: record.id.clone(),
                 slot,
             }),
             StoredBytes::empty(),

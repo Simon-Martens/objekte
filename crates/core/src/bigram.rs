@@ -824,8 +824,7 @@ impl BigramContribution {
         })
     }
 
-    #[cfg(test)]
-    fn into_index(self) -> Result<BigramIndex, String> {
+    pub(crate) fn into_index(self) -> Result<BigramIndex, String> {
         let Self {
             alphabet,
             record_count,

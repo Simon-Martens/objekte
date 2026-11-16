@@ -1,0 +1,112 @@
+{
+  "task": "ic-stable-index-prototype",
+  "workers": 8,
+  "alphabet": "unicode",
+  "samples": 3,
+  "native_build_ns": {
+    "median": 1750891830,
+    "min": 1721034607,
+    "max": 1763499746
+  },
+  "candidate_total_build_ns": {
+    "median": 3261237051,
+    "min": 3235974181,
+    "max": 3482116852
+  },
+  "original_build_ns": {
+    "median": 3392882821,
+    "min": 3392771581,
+    "max": 3401127138
+  },
+  "median_ratio": 1.862614808705801,
+  "original_ratio": 0.9611994351277952,
+  "improvement_over_original": 0.038800564872204846,
+  "memory": {
+    "native_resident_bytes": {
+      "median": 417746944,
+      "min": 417345536,
+      "max": 420913152,
+      "samples": 3
+    },
+    "native_peak_bytes": {
+      "median": 430604288,
+      "min": 430542848,
+      "max": 433786880,
+      "samples": 3
+    },
+    "candidate_resident_bytes": {
+      "median": 771477504,
+      "min": 750497792,
+      "max": 777183232,
+      "samples": 3
+    },
+    "candidate_peak_bytes": {
+      "median": 840192000,
+      "min": 826044416,
+      "max": 845979648,
+      "samples": 3
+    },
+    "candidate_owned_component_payload_bytes": {
+      "median": 410976256,
+      "min": 410976256,
+      "max": 411041792,
+      "samples": 3
+    },
+    "resident_ratio": 1.846757983704125,
+    "peak_ratio": 1.951192831595769
+  },
+  "candidate_stage_ns": {
+    "discovery_ns": {
+      "median": 327460460,
+      "min": 325529944,
+      "max": 329378454,
+      "samples": 3
+    },
+    "setup_ns": {
+      "median": 1460785,
+      "min": 1452439,
+      "max": 1461856,
+      "samples": 3
+    },
+    "extraction_admission_ns": {
+      "median": 978517362,
+      "min": 967741237,
+      "max": 980705202,
+      "samples": 3
+    },
+    "finalization_ns": {
+      "median": 299207062,
+      "min": 298909192,
+      "max": 301290746,
+      "samples": 3
+    },
+    "stable_component_ns": {
+      "median": 1524691594,
+      "min": 1510046411,
+      "max": 1741936536,
+      "samples": 3
+    }
+  },
+  "candidate_components": {
+    "median": 1323,
+    "min": 1323,
+    "max": 1323,
+    "samples": 3
+  },
+  "field_job_overlap_pairs": {
+    "median": 4955,
+    "min": 3703,
+    "max": 5523,
+    "samples": 3
+  },
+  "selected_trace": {
+    "sample": 3,
+    "note": "component trace is one run, not a median"
+  },
+  "gate": {
+    "classification": "performance_rejection",
+    "source_build_target": "<= 1.10x native",
+    "resident_rss_target": "<= 1.40x native",
+    "peak_rss_target": "<= 1.60x native"
+  }
+}

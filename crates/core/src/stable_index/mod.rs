@@ -402,6 +402,15 @@ impl StablePrototype {
         source_build::from_sources(root.into(), definitions, options)
     }
 
+    pub fn from_sources_with_timings_tuning(
+        root: impl Into<std::path::PathBuf>,
+        definitions: Vec<crate::repository::CollectionDefinition>,
+        options: crate::repository::RepositoryOptions,
+        shrink_components: bool,
+    ) -> Result<(Self, SourceBuildTimings), String> {
+        source_build::from_sources_tuned(root.into(), definitions, options, shrink_components)
+    }
+
     pub fn storage_report(&self, collection: CollectionId) -> Option<StorageReport> {
         let info = self.collections.get(&collection)?;
         let mut components = 0usize;

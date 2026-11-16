@@ -1,0 +1,108 @@
+{
+  "fixture_build_ns": 3039390,
+  "path_refs_after_reopen": 200,
+  "preparation_ns": 6535428,
+  "reopened": {
+    "collection": 0,
+    "components": 18,
+    "dead_slots": 2000,
+    "live_records": 200,
+    "payload_bytes": 2424832,
+    "slot_high_water": 2200
+  },
+  "replacement_ns": 50881370,
+  "replacements": 10,
+  "save_ns": 2102590,
+  "semantic_matches": 20,
+  "snapshot_disk_bytes": 2620299,
+  "storage": [
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 0,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 200
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 200,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 400
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 400,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 600
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 600,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 800
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 800,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 1000
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 1000,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 1200
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 1200,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 1400
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 1400,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 1600
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 1600,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 1800
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 1800,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 2000
+    },
+    {
+      "collection": 0,
+      "components": 18,
+      "dead_slots": 2000,
+      "live_records": 200,
+      "payload_bytes": 1179648,
+      "slot_high_water": 2200
+    }
+  ]
+}

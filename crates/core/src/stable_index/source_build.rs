@@ -91,6 +91,15 @@ pub(crate) fn from_sources(
     definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
 ) -> Result<(StablePrototype, SourceBuildTimings), String> {
+    from_sources_tuned(root, definitions, options, false)
+}
+
+pub(crate) fn from_sources_tuned(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    shrink_components: bool,
+) -> Result<(StablePrototype, SourceBuildTimings), String> {
     if options.inference.mode != InferenceMode::Disabled {
         return Err("inference is explicitly unsupported by the stable-index prototype".into());
     }
@@ -435,7 +444,8 @@ pub(crate) fn from_sources(
         .sum();
 
     let stable_started = Instant::now();
-    let mut prototype = super::build::from_collections(&files, &collections, &root, &pool)?;
+    let mut prototype =
+        super::build::from_collections(&files, &collections, &root, &pool, shrink_components)?;
     timings.stable_component_ns = stable_started.elapsed().as_nanos() as u64;
     prototype.build_stage_ns = std::collections::BTreeMap::from([
         ("discovery".into(), timings.discovery_ns),

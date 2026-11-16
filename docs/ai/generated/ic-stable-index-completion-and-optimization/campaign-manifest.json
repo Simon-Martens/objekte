@@ -1,0 +1,40 @@
+{
+  "task": "ic-stable-index-completion-and-optimization",
+  "head": "210dc9d4bb1509e356ff6a36a6d0b0bb5de14bc6",
+  "reviewed_repair": "1022768be3d625be7acec28da38defd831b85fe1",
+  "native_baseline": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "environment": {
+    "platform": "linux",
+    "cpu": "AMD Ryzen 7 5700G",
+    "logical_cpus": 16,
+    "physical_cores": 8,
+    "affinity": "0-15",
+    "rustc": "1.99.1",
+    "profile": "release"
+  },
+  "executables": {
+    "native": {
+      "sha256": "1ae9a5f1fd6d643c91645e973f84ba06afce0e87d7d4afbdfb0c4f5af877add8"
+    },
+    "current_repair": {
+      "sha256": "fdc5f8b6e7edc29ffaf070f9c3f03bc3f902312e421a450209ed80456c8a6262"
+    },
+    "candidate": {
+      "sha256": "e60fea598eed1eb3eb1c403b77168e53c56691b9798fb9493c7c9c92afa831a6"
+    },
+    "synthetic_native": {
+      "sha256": "1ae9a5f1fd6d643c91645e973f84ba06afce0e87d7d4afbdfb0c4f5af877add8"
+    }
+  },
+  "cargo_lock_sha256": "53758386ea26afeae5d005468d6d83a8bc9657d9ee99a6825b6ff5aafeefdd61",
+  "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "corpus": "examples/musenalm",
+  "source_files": 148486,
+  "source_records": 148486,
+  "source_bytes": 193297230,
+  "commands": [
+    "bench/run_ic_stable_index_prototype.py ... --samples 5 --alphabet ascii",
+    "bench/run_ic_stable_index_prototype.py ... --samples 3 --alphabet unicode",
+    "cargo test --workspace --features objekte-search-core/ic-stable-prototype"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "counters": {
+    "bitmap_decodes": 604,
+    "bitmap_encodes": 0,
+    "component_inserts_during_load": 0,
+    "component_loads": 2,
+    "component_payload_bytes_read": 28049408,
+    "manifest_opens": 1,
+    "stable_gets": 603,
+    "stable_inserts": 0,
+    "stable_removes": 0,
+    "standalone_files_opened": 0
+  },
+  "first_dependency_load": [
+    {
+      "collection": 1,
+      "component": 306,
+      "live_slots": 133948,
+      "load_ns": 178776
+    }
+  ],
+  "first_load": [
+    {
+      "component": 306,
+      "load_ns": 26876382
+    }
+  ],
+  "repetitions": 200,
+  "resident_primitives": [
+    {
+      "complete": true,
+      "component": 306,
+      "key": "Number(Integer(30))",
+      "max_ns": 8966,
+      "median_ns": 1683,
+      "members": 1,
+      "min_ns": 1613,
+      "p95_ns": 1753,
+      "repetitions": 200
+    },
+    {
+      "complete": true,
+      "component": 306,
+      "key": "Number(Integer(140792))",
+      "max_ns": 3487,
+      "median_ns": 2164,
+      "members": 1,
+      "min_ns": 2054,
+      "p95_ns": 2264,
+      "repetitions": 200
+    },
+    {
+      "complete": true,
+      "component": 306,
+      "key": "Number(Integer(68549))",
+      "max_ns": 6632,
+      "median_ns": 2164,
+      "members": 1,
+      "min_ns": 2084,
+      "p95_ns": 2244,
+      "repetitions": 200
+    }
+  ]
+}
