@@ -1102,7 +1102,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .appended(index.files[0].entry.clone(), None, None)
         .unwrap();
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
-        ordinal: 1,
+        id: crate::native_segment::SegmentId::new(1),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
     })])];

@@ -125,7 +125,7 @@ impl<'a> MergedRelationView<'a> {
     pub(crate) fn segment_ordinal(&self, address: MergedRecordSlot) -> Option<u64> {
         address
             .segment
-            .map(|index| self.segments[address.collection.0 as usize][index].ordinal)
+            .map(|index| self.segments[address.collection.0 as usize][index].id.get())
     }
 
     pub(crate) fn relation_cardinality(
@@ -200,10 +200,14 @@ impl<'a> MergedRelationView<'a> {
                 .record(address.slot)
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
-                .file_index.get(&record.file).copied()
+                .file_index
+                .get(&record.file)
+                .copied()
                 .ok_or("merged segment file missing")?;
             let file = segment
-                .files.get(file_index).map(|file| file.entry.revision)
+                .files
+                .get(file_index)
+                .map(|file| file.entry.revision)
                 .ok_or("merged segment file missing")?;
             (record, file)
         } else {
@@ -227,9 +231,7 @@ impl<'a> MergedRelationView<'a> {
             .catalog
             .entry(record.file)
             .ok_or("active merged record file is retired")?;
-        if file.revision != original_revision
-            || !file.collections.contains(&address.collection)
-        {
+        if file.revision != original_revision || !file.collections.contains(&address.collection) {
             return Err("active merged record file changed without retirement".into());
         }
         Ok(Some(MergedRecord {
@@ -378,12 +380,15 @@ impl<'a> MergedRelationView<'a> {
             let id = if let Some(segment_index) = address.segment {
                 self.segments[index][segment_index]
                     .index
-                    .record(address.slot).map(|record| record.id.0.as_ref())
+                    .record(address.slot)
+                    .map(|record| record.id.0.as_ref())
                     .ok_or("backlink segment slot missing")?
                     .to_string()
             } else {
                 collection.generation.records[address.slot.0 as usize]
-                    .id.0.to_string()
+                    .id
+                    .0
+                    .to_string()
             };
             keyed.push((id, address));
         }

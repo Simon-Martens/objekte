@@ -300,7 +300,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     }
     let active = vec![ActiveRecords::all(state.generation.records.len()).unwrap()];
     let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
-        ordinal: 1,
+        id: crate::native_segment::SegmentId::new(1),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
     })])];
@@ -851,7 +851,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                     .contains("continuation scope")
             );
             use crate::lifecycle::Index;
-                let restored = Index::build_with_sources(
+            let restored = Index::build_with_sources(
                 &root,
                 vec![definition.clone()],
                 options,

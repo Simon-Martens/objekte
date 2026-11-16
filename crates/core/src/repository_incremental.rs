@@ -6,17 +6,11 @@ use super::*;
 
 use crate::build::{
     AdmissionBreakdown, BatchContribution, IndexedCollectionSegment, RepositoryFileJob,
-    SegmentAdmission, SegmentLimits, SourceFileInput,
+    SegmentAdmission, SegmentId, SourceFileInput,
 };
 use crate::inventory::append_shifted_bitmap;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::FileId;
-
-const FIRST_SEGMENT_RECORDS: usize = crate::lifecycle_partition::BASE_PARTITION_RECORDS;
-const LATER_SEGMENT_RECORDS: usize = 132_000;
-const FIRST_SEGMENT_SOURCE_BYTES: u64 = 128 * 1024 * 1024;
-const LATER_SEGMENT_SOURCE_BYTES: u64 = 160 * 1024 * 1024;
-
 
 struct IncrementalCollection {
     definition: Arc<CollectionDefinition>,
@@ -29,8 +23,8 @@ struct IncrementalCollection {
     global_inference: Option<InferenceBuilder>,
     options: RepositoryOptions,
     collection_count: usize,
+    next_segment_id: u64,
 }
-
 
 impl IncrementalCollection {
     fn new(
@@ -40,33 +34,17 @@ impl IncrementalCollection {
         member_files: Vec<FileId>,
         options: RepositoryOptions,
         collection_count: usize,
-        early: bool,
     ) -> Self {
         let definition = Arc::new(definition);
         let admission = SegmentAdmission::with_limits_eager(
             id,
             &source,
-            SegmentLimits {
-                files: if early {
-                    FIRST_SEGMENT_RECORDS
-                } else {
-                    LATER_SEGMENT_RECORDS
-                },
-                records: if early {
-                    FIRST_SEGMENT_RECORDS
-                } else {
-                    LATER_SEGMENT_RECORDS
-                },
-                source_bytes: if early {
-                    FIRST_SEGMENT_SOURCE_BYTES
-                } else {
-                    LATER_SEGMENT_SOURCE_BYTES
-                },
-            },
+            options.segment_policy,
             Arc::clone(&definition),
             options.bigram_alphabet,
             options.inference,
             collection_count,
+            SegmentId::new(1),
         );
         Self {
             definition,
@@ -79,6 +57,7 @@ impl IncrementalCollection {
             global_inference: InferenceBuilder::for_collection(options.inference, collection_count),
             options,
             collection_count,
+            next_segment_id: 2,
         }
     }
 
@@ -157,16 +136,17 @@ impl IncrementalCollection {
         let replacement = SegmentAdmission::with_limits_eager(
             self.id,
             &self.source,
-            SegmentLimits {
-                files: LATER_SEGMENT_RECORDS,
-                records: LATER_SEGMENT_RECORDS,
-                source_bytes: LATER_SEGMENT_SOURCE_BYTES,
-            },
+            self.options.segment_policy,
             Arc::clone(&self.definition),
             self.options.bigram_alphabet,
             self.options.inference,
             self.collection_count,
+            SegmentId::new(self.next_segment_id),
         );
+        self.next_segment_id = self
+            .next_segment_id
+            .checked_add(1)
+            .expect("segment identity overflow");
         Some(std::mem::replace(&mut self.admission, replacement).finish())
     }
 
@@ -196,7 +176,6 @@ impl IncrementalCollection {
         Ok((state, stats))
     }
 }
-
 
 fn publish_segment(
     index: &Index,
@@ -238,7 +217,8 @@ fn publish_segment(
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().index_ns = ns;
     }
-    let (revision, phases) = index.publish_initial_segment(*expected, indexed, profile.is_some())?;
+    let (revision, phases) =
+        index.publish_initial_segment(*expected, indexed, profile.is_some())?;
     *expected = revision;
     if let Some(profile) = profile.as_mut() {
         profile.publication_prepare_ns = profile
@@ -365,7 +345,6 @@ fn admit_normal(
     }
     Ok(())
 }
-
 
 impl Repository {
     #[allow(clippy::too_many_arguments)]
@@ -499,10 +478,6 @@ impl Repository {
                 .collect::<Vec<_>>(),
         );
         let collection_count = selected.len();
-        let early_collection = selected
-            .iter()
-            .max_by_key(|(_, _, _, members)| members.len())
-            .map(|(_, id, _, _)| *id);
         let mut pending = selected
             .into_iter()
             .map(|(definition, id, source, members)| {
@@ -513,7 +488,6 @@ impl Repository {
                     members,
                     options,
                     collection_count,
-                    Some(id) == early_collection,
                 )
             })
             .collect::<Vec<_>>();

@@ -70,6 +70,10 @@ fn discovery_and_segments_publish_without_losing_records() {
                 vec![definition],
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(4),
+                    segment_policy: crate::native_segment::SegmentPolicy {
+                        target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
+                        max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
+                    },
                     inference: InferenceConfig {
                         mode: InferenceMode::AutoIndex,
                         ..Default::default()

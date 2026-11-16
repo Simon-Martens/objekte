@@ -849,7 +849,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .unwrap();
     assert_eq!(old_shard.index.records.len(), 3);
     let old_slot = old_shard.index.file_records(handle.file_id).unwrap()[0];
-    let old_ordinal = old_shard.ordinal;
+    let old_ordinal = old_shard.id.get();
     std::fs::write(&middle, b"{\"id\":\"middle\",\"name\":\"after!\"}\n").unwrap();
     let result = restored
         .update_file_with_options(
@@ -872,7 +872,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .iter()
         .find(|shard| shard.index.file(handle.file_id).is_some())
         .unwrap();
-    assert_eq!(new_shard.ordinal, old_ordinal);
+    assert_eq!(new_shard.id.get(), old_ordinal);
     assert_eq!(
         new_shard.index.file_records(handle.file_id).unwrap(),
         [old_slot]
@@ -987,7 +987,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
-    let old_ordinal = pinned.segments(CollectionId(0)).unwrap()[0].ordinal;
+    let old_ordinal = pinned.segments(CollectionId(0)).unwrap()[0].id.get();
 
     let new = b"{\"id\":\"same\",\"name\":\"new\"}\n";
     std::fs::write(&path, new).unwrap();
@@ -1018,11 +1018,13 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
         1
     );
     assert_eq!(
-        index.view().unwrap().segments(CollectionId(0)).unwrap()[0].ordinal,
+        index.view().unwrap().segments(CollectionId(0)).unwrap()[0]
+            .id
+            .get(),
         old_ordinal
     );
     assert_eq!(
-        pinned.segments(CollectionId(0)).unwrap()[0].ordinal,
+        pinned.segments(CollectionId(0)).unwrap()[0].id.get(),
         old_ordinal
     );
     assert_eq!(pinned.segments(CollectionId(0)).unwrap()[0].active.len(), 1);
@@ -1567,7 +1569,9 @@ fn incompatible_one_record_class_uses_verified_physical_removal() {
     let old = b"{\"name\":\"valid\"}\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
-    let old_ordinal = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].ordinal;
+    let old_ordinal = index.view().unwrap().segments(CollectionId(0)).unwrap()[0]
+        .id
+        .get();
     std::fs::write(&path, b"{broken}\n").unwrap();
     let updated = index
         .update_file_with_options(
@@ -1586,7 +1590,7 @@ fn incompatible_one_record_class_uses_verified_physical_removal() {
     assert_eq!(updated.fallback_reason, None);
     let current = index.view().unwrap();
     assert_ne!(
-        current.segments(CollectionId(0)).unwrap()[0].ordinal,
+        current.segments(CollectionId(0)).unwrap()[0].id.get(),
         old_ordinal
     );
     assert_eq!(index.status().unwrap().live_records, 1);
@@ -1608,7 +1612,7 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let ordinals = [CollectionId(0), CollectionId(1)]
-        .map(|collection| pinned.segments(collection).unwrap()[0].ordinal);
+        .map(|collection| pinned.segments(collection).unwrap()[0].id.get());
     std::fs::write(&path, b"{\"id\":\"same\",\"name\":\"new value\"}\n").unwrap();
     let updated = index
         .update_file_with_options(
@@ -1630,9 +1634,9 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     for (collection, ordinal) in [CollectionId(0), CollectionId(1)].into_iter().zip(ordinals) {
         let shards = current.segments(collection).unwrap();
         assert_eq!(shards.len(), 1);
-        assert_eq!(shards[0].ordinal, ordinal);
+        assert_eq!(shards[0].id.get(), ordinal);
         assert_eq!(shards[0].index.records[0].slot, RecordSlot(0));
-        assert_eq!(pinned.segments(collection).unwrap()[0].ordinal, ordinal);
+        assert_eq!(pinned.segments(collection).unwrap()[0].id.get(), ordinal);
     }
     assert_eq!(index.status().unwrap().live_records, 2);
     std::fs::remove_dir_all(root).unwrap();

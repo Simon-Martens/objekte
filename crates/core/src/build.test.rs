@@ -63,10 +63,9 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         SegmentAdmission::with_limits(
             id,
             &source,
-            mutation_segment::SegmentLimits {
-                files: 2_048,
-                records: 2_048,
-                source_bytes: 64 * 1024 * 1024,
+            crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
             },
         )
     };
@@ -378,9 +377,7 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
     };
     use sha2::Digest;
 
-
     struct ShiftedReader;
-
 
     impl SourceReader for ShiftedReader {
         fn name(&self) -> &'static str {
@@ -418,7 +415,6 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
             })
         }
     }
-
 
     let root = std::env::temp_dir().join(format!(
         "objekte-supplied-shifted-{}-{}",
@@ -933,7 +929,6 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
 
     use crate::source::{SourceReader, SourceRegistry};
 
-
     struct DelayedReader {
         active: AtomicUsize,
         peak: AtomicUsize,
@@ -943,7 +938,6 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         first_failed: AtomicBool,
         parsed: AtomicUsize,
     }
-
 
     impl SourceReader for DelayedReader {
         fn name(&self) -> &'static str {
@@ -1002,7 +996,6 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
             })
         }
     }
-
 
     let root = std::env::temp_dir().join(format!(
         "objekte-build-overlap-{}-{}",
@@ -1140,13 +1133,11 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         return;
     }
 
-
     struct CrossReader {
         active: AtomicUsize,
         peak: AtomicUsize,
         second_started: AtomicBool,
     }
-
 
     impl SourceReader for CrossReader {
         fn name(&self) -> &'static str {
@@ -1188,7 +1179,6 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
             })
         }
     }
-
 
     let root = std::env::temp_dir().join(format!(
         "objekte-build-cross-{}-{}",
@@ -1253,14 +1243,12 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
 
     use crate::source::{SourceReader, SourceRegistry};
 
-
     struct TwoRanges {
         wait: bool,
         active: AtomicUsize,
         peak: AtomicUsize,
         second_started: AtomicBool,
     }
-
 
     impl SourceReader for TwoRanges {
         fn name(&self) -> &'static str {
@@ -1320,7 +1308,6 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
             })
         }
     }
-
 
     let root = std::env::temp_dir().join(format!(
         "objekte-build-framed-{}-{}",
@@ -1435,11 +1422,9 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         SourceRegistry, TextDerivation,
     };
 
-
     // Keep a reader on the pre-existing whole-buffer route for an independent
     // build-path comparison against the built-in bounded JSONL route.
     struct WholeJsonLines;
-
 
     impl SourceReader for WholeJsonLines {
         fn name(&self) -> &'static str {
@@ -1478,7 +1463,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             JsonLinesReader.parse_for_query(bytes, projection)
         }
     }
-
 
     let root = std::env::temp_dir().join(format!(
         "objekte-build-oversized-jsonl-{}-{}",
@@ -1739,12 +1723,10 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
     use crate::inference::{InferenceMode, InferencePolicy};
     use crate::source::{BoundedJsonLines, SourceRegistry};
 
-
     struct FailingRead {
         bytes: std::io::Cursor<Vec<u8>>,
         limit: u64,
     }
-
 
     impl Read for FailingRead {
         fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
@@ -1757,7 +1739,6 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
             self.bytes.read(&mut output[..count])
         }
     }
-
 
     let bytes = b"{}\n".repeat(513);
     let root = std::env::temp_dir().join(format!(

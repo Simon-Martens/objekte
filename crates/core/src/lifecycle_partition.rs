@@ -72,7 +72,9 @@ fn compact_source_parts_with_limits(
         Ok(())
     };
     for file_index in 0..source.file_count() {
-        let file = source.files.get(file_index)
+        let file = source
+            .files
+            .get(file_index)
             .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
         if cancelled() {
             return Err(IndexError::Cancelled);
@@ -144,7 +146,10 @@ fn compact_source_parts_with_limits(
         .project_inference_for_partitions(&routing, &domain_projections)
         .map_err(IndexError::Build)?;
     let mut parts = Vec::with_capacity(selections.len());
-    for (((((((files, _selected), projection), bigrams), relations), sorting), domains), inference) in selections
+    for (
+        ((((((files, _selected), projection), bigrams), relations), sorting), domains),
+        inference,
+    ) in selections
         .into_iter()
         .zip(projections)
         .zip(bigram_projections)
@@ -231,7 +236,7 @@ fn partition_base_with_limits_inner(
             let active =
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
-                ordinal,
+                id: crate::native_segment::SegmentId::new(ordinal),
                 index: Arc::new(part),
                 active,
             }));

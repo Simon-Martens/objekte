@@ -12,7 +12,6 @@ use crate::model::{CollectionId, FileId, RecordSlot};
 
 const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;
 
-
 /// Old segment ordinals are captured before staging. Staging may consolidate
 /// them, so removal scans the affected collections again in the private root.
 pub(crate) struct VerifiedPlan {
@@ -20,13 +19,11 @@ pub(crate) struct VerifiedPlan {
     has_active_base: bool,
 }
 
-
 impl VerifiedPlan {
     pub(crate) fn requires_base_compaction(&self) -> bool {
         self.has_active_base
     }
 }
-
 
 pub(crate) fn verify_old_content(
     view: &IndexView,
@@ -121,7 +118,7 @@ pub(crate) fn verify_old_content(
             let Some(slots) = shard.index.file_records(handle.file_id) else {
                 continue;
             };
-            old_shards.push((*collection_id, shard.ordinal));
+            old_shards.push((*collection_id, shard.id.get()));
             for slot in slots.iter() {
                 if shard.active.contains(*slot) {
                     let record = shard
@@ -169,7 +166,7 @@ pub(crate) fn verify_old_content(
     for (collection, ordinal) in &old_shards {
         let shard = view
             .segments(*collection)
-            .and_then(|shards| shards.iter().find(|shard| shard.ordinal == *ordinal))
+            .and_then(|shards| shards.iter().find(|shard| shard.id.get() == *ordinal))
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
         scanned = scanned.saturating_add(shard.index.record_count());
         if scanned > MAX_VERIFIED_SCANNED_RECORDS {
@@ -214,7 +211,7 @@ pub(crate) fn preserve_single_record_slots(
         let old = view
             .segments(*collection)?
             .iter()
-            .find(|shard| shard.ordinal == old_ordinal)?;
+            .find(|shard| shard.id.get() == old_ordinal)?;
         if old.index.file_count() != 1
             || old.index.record_count() != 1
             || old.active.len() != 1
@@ -226,7 +223,7 @@ pub(crate) fn preserve_single_record_slots(
         let group = next.segments.get(collection.0 as usize)?;
         let old_position = group
             .iter()
-            .position(|shard| shard.ordinal == old_ordinal)?;
+            .position(|shard| shard.id.get() == old_ordinal)?;
         if group[old_position].active.len() != 0 {
             return None;
         }
@@ -234,7 +231,7 @@ pub(crate) fn preserve_single_record_slots(
             .iter()
             .enumerate()
             .filter(|(_, shard)| shard.index.file(file).is_some())
-            .max_by_key(|(_, shard)| shard.ordinal)?
+            .max_by_key(|(_, shard)| shard.id)?
             .0;
         if new_position == old_position {
             return None;
@@ -259,7 +256,7 @@ pub(crate) fn preserve_single_record_slots(
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         let replacement = Arc::clone(&group[new_position]);
         group[old_position] = Arc::new(PublishedSegment {
-            ordinal: old_ordinal,
+            id: crate::native_segment::SegmentId::new(old_ordinal),
             index: Arc::clone(&replacement.index),
             active: replacement.active.clone(),
         });
@@ -300,7 +297,7 @@ pub(crate) fn preserve_partition_record_slots(
         let old = view
             .segments(*collection)?
             .iter()
-            .find(|shard| shard.ordinal == old_ordinal)?;
+            .find(|shard| shard.id.get() == old_ordinal)?;
         let old_slots = old.index.file_records(file)?;
         if old_slots.len() != 1
             || old.index.record_count() <= 1
@@ -314,7 +311,7 @@ pub(crate) fn preserve_partition_record_slots(
         let group = next.segments.get(collection.0 as usize)?;
         let old_position = group
             .iter()
-            .position(|shard| shard.ordinal == old_ordinal)?;
+            .position(|shard| shard.id.get() == old_ordinal)?;
         if group[old_position].active.contains(old_slot) {
             return None;
         }
@@ -322,7 +319,7 @@ pub(crate) fn preserve_partition_record_slots(
             .iter()
             .enumerate()
             .filter(|(_, shard)| shard.index.file(file).is_some())
-            .max_by_key(|(_, shard)| shard.ordinal)?
+            .max_by_key(|(_, shard)| shard.id)?
             .0;
         if new_position == old_position {
             return None;
@@ -376,7 +373,7 @@ pub(crate) fn preserve_partition_record_slots(
     for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         group[old_position] = Arc::new(PublishedSegment {
-            ordinal: old_ordinal,
+            id: crate::native_segment::SegmentId::new(old_ordinal),
             active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
             index: Arc::new(replacement),
         });
@@ -418,13 +415,13 @@ pub(crate) fn remove_verified_old_shards(
                 group
                     .iter()
                     .filter(|shard| shard.index.file(replaced_file).is_some())
-                    .map(|shard| shard.ordinal)
+                    .map(|shard| shard.id.get())
                     .max()
             });
         let mut position = 0;
         while position < group.len() {
             let shard = &group[position];
-            if Some(shard.ordinal) == replacement_ordinal
+            if Some(shard.id.get()) == replacement_ordinal
                 || shard.index.file(replaced_file).is_none()
             {
                 position += 1;
@@ -456,7 +453,7 @@ pub(crate) fn remove_verified_old_shards(
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
                 group[position] = Arc::new(PublishedSegment {
-                    ordinal: candidate.next_segment_ordinal,
+                    id: crate::native_segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: Arc::new(compacted.index),
                     active: compacted.active,
                 });

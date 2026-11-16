@@ -34,6 +34,7 @@ mod lifecycle_verified;
 mod materialization;
 pub mod measurement;
 pub mod model;
+pub mod native_segment;
 pub mod parameters;
 pub mod path_repr;
 pub mod posting;

@@ -129,10 +129,9 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let mut limited = SegmentAdmission::with_limits(
         CollectionId(0),
         &source,
-        SegmentLimits {
-            files: 1,
-            records: 16_384,
-            source_bytes: 64 * 1024 * 1024,
+        crate::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(16_384).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
         },
     );
     for (id, name, bytes) in [
@@ -835,29 +834,57 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     let routing = PartitionRouting::new(&all, &masks).unwrap();
     let scattered = all.project_sorting_for_partitions(&routing).unwrap();
     let domains = all.project_domains_for_partitions(&routing).unwrap();
-    let scattered_inference = all.project_inference_for_partitions(&routing, &domains).unwrap();
+    let scattered_inference = all
+        .project_inference_for_partitions(&routing, &domains)
+        .unwrap();
     for (part, sorting) in scattered.iter().enumerate() {
-        let slot_map = SlotMap::Partition { routing: &routing, part };
-        assert_eq!(domains[part].logical, project_bitmap(&all.logical_records, &slot_map).unwrap());
-        assert_eq!(domains[part].empty_array, project_bitmap(&all.empty_array_records, &slot_map).unwrap());
-        let records = routing.selected[part].iter().enumerate().map(|(new, &old)| {
-            let mut record = all.records[old as usize].clone();
-            record.slot = RecordSlot(new as u32);
-            record
-        }).collect::<Vec<_>>();
+        let slot_map = SlotMap::Partition {
+            routing: &routing,
+            part,
+        };
+        assert_eq!(
+            domains[part].logical,
+            project_bitmap(&all.logical_records, &slot_map).unwrap()
+        );
+        assert_eq!(
+            domains[part].empty_array,
+            project_bitmap(&all.empty_array_records, &slot_map).unwrap()
+        );
+        let records = routing.selected[part]
+            .iter()
+            .enumerate()
+            .map(|(new, &old)| {
+                let mut record = all.records[old as usize].clone();
+                record.slot = RecordSlot(new as u32);
+                record
+            })
+            .collect::<Vec<_>>();
         let reference_inference = project_inference(
-            &all.inference, &slot_map, &domains[part].logical,
-            records.len(), slot_map.bounds().unwrap(),
-        ).unwrap();
+            &all.inference,
+            &slot_map,
+            &domains[part].logical,
+            records.len(),
+            slot_map.bounds().unwrap(),
+        )
+        .unwrap();
         let actual_inference = scattered_inference[part].as_ref().unwrap();
         let expected_inference = reference_inference.as_ref().unwrap();
         assert_eq!(
             serde_json::to_value(&actual_inference.report).unwrap(),
             serde_json::to_value(&expected_inference.report).unwrap(),
         );
-        assert_eq!(actual_inference.empty_selections, expected_inference.empty_selections);
-        assert_eq!(actual_inference.short_string_coverage, expected_inference.short_string_coverage);
-        assert_eq!(actual_inference.indexes.len(), expected_inference.indexes.len());
+        assert_eq!(
+            actual_inference.empty_selections,
+            expected_inference.empty_selections
+        );
+        assert_eq!(
+            actual_inference.short_string_coverage,
+            expected_inference.short_string_coverage
+        );
+        assert_eq!(
+            actual_inference.indexes.len(),
+            expected_inference.indexes.len()
+        );
         for (path, actual) in &actual_inference.indexes {
             let expected = &expected_inference.indexes[path];
             assert_eq!(actual.presence, expected.presence);
@@ -865,14 +892,12 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             assert_eq!(actual.nulls, expected.nulls);
             assert_eq!(actual.values, expected.values);
             assert_eq!(actual.lengths, expected.lengths);
-            assert_eq!(actual.structural.as_ref().map(|facts| &facts.postings),
-                expected.structural.as_ref().map(|facts| &facts.postings));
+            assert_eq!(
+                actual.structural.as_ref().map(|facts| &facts.postings),
+                expected.structural.as_ref().map(|facts| &facts.postings)
+            );
         }
-        let reference = project_sorting(
-            &all.sorting,
-            &slot_map,
-            &records,
-        ).unwrap();
+        let reference = project_sorting(&all.sorting, &slot_map, &records).unwrap();
         for (path, column) in &sorting.columns {
             let expected = &reference.columns[path];
             assert_eq!(column.ascending, expected.ascending);

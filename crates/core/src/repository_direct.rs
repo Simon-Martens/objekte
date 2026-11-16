@@ -12,13 +12,11 @@ use crate::inventory::append_shifted_bitmap;
 use crate::model::FileId;
 use crate::source::SourceFormat;
 
-
 pub(crate) struct DirectBuild {
     pub(crate) repository: Repository,
     pub(crate) catalog_slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
     pub(crate) segments: Vec<Vec<IndexedCollectionSegment>>,
 }
-
 
 struct DirectCollection {
     definition: Arc<CollectionDefinition>,
@@ -30,8 +28,9 @@ struct DirectCollection {
     logical_records: RoaringBitmap,
     admission: SegmentAdmission,
     sealed: Vec<crate::build::CollectionSegment>,
+    policy: crate::native_segment::SegmentPolicy,
+    next_segment_id: u64,
 }
-
 
 impl DirectCollection {
     fn new(
@@ -43,15 +42,7 @@ impl DirectCollection {
         options: RepositoryOptions,
         collection_count: usize,
     ) -> Self {
-        let admission = SegmentAdmission::with_limits(
-            id,
-            &source,
-            crate::build::SegmentLimits {
-                files: crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-                records: crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-                source_bytes: 64 * 1024 * 1024,
-            },
-        );
+        let admission = SegmentAdmission::with_limits(id, &source, options.segment_policy);
         let builder = CollectionBuilder::new(id, definition.name.clone(), 1, inventory_files);
         Self {
             definition: Arc::new(definition),
@@ -63,6 +54,8 @@ impl DirectCollection {
             logical_records: RoaringBitmap::new(),
             admission,
             sealed: Vec::new(),
+            policy: options.segment_policy,
+            next_segment_id: 2,
         }
     }
 
@@ -149,15 +142,16 @@ impl DirectCollection {
 
     fn admit_segment(&mut self, batch: BatchContribution) -> Result<(), String> {
         if !self.admission.can_admit_batch(&batch) {
-            let replacement = SegmentAdmission::with_limits(
+            let replacement = SegmentAdmission::with_limits_and_id(
                 self.id,
                 &self.source,
-                crate::build::SegmentLimits {
-                    files: crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-                    records: crate::lifecycle_partition::BASE_PARTITION_RECORDS,
-                    source_bytes: 64 * 1024 * 1024,
-                },
+                self.policy,
+                crate::native_segment::SegmentId::new(self.next_segment_id),
             );
+            self.next_segment_id = self
+                .next_segment_id
+                .checked_add(1)
+                .ok_or("segment identity overflow")?;
             self.sealed
                 .push(std::mem::replace(&mut self.admission, replacement).finish());
         }
@@ -221,7 +215,6 @@ impl DirectCollection {
         Ok((summary, segments, inference_build))
     }
 }
-
 
 impl Repository {
     pub(crate) fn build_direct_json(
@@ -345,7 +338,8 @@ impl Repository {
         let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
         let base_fingerprints = finish_fresh_fingerprints(&files, digest_bindings)?;
         files.validate_diagnostics()?;
-        let configuration = crate::configuration::configuration_hash(&definitions, options, &sources)?;
+        let configuration =
+            crate::configuration::configuration_hash(&definitions, options, &sources)?;
         let catalog_slots = files
             .files
             .iter()

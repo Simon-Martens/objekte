@@ -42,7 +42,6 @@ pub(crate) fn next_repository_instance() -> u64 {
     NEXT_REPOSITORY_INSTANCE.fetch_add(1, Ordering::Relaxed)
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
@@ -51,7 +50,6 @@ pub enum IdentityPolicy {
     Generated,
     Intrinsic(Vec<String>),
 }
-
 
 pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
     if let Value::Array(array) = value {
@@ -85,7 +83,6 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     )
 }
 
-
 /// Caller-supplied source, schema, identity, and sort configuration.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
@@ -100,7 +97,6 @@ pub struct CollectionDefinition {
     pub sort_options: SortOptions,
     pub sort_overrides: HashMap<FieldPath, SortConfig>,
 }
-
 
 impl CollectionDefinition {
     /// Define a recursive folder collection with no declared fields or typed indexes.
@@ -137,14 +133,12 @@ impl CollectionDefinition {
     }
 }
 
-
 /// Published generation and indexes for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct GlobalInferenceSummary {
     pub(crate) report: InferenceReport,
     pub(crate) diagnostics: Vec<InferencePathDiagnostic>,
 }
-
 
 pub struct CollectionState {
     pub definition: CollectionDefinition,
@@ -169,7 +163,6 @@ pub struct CollectionState {
     pub relations: Vec<RelationIndex>,
 }
 
-
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
 struct PendingCollection {
@@ -191,7 +184,6 @@ struct PendingCollection {
     relations: Vec<RelationContribution>,
 }
 
-
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -202,7 +194,6 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
-
 
 impl PendingCollection {
     fn bigram_storage_stats(&self) -> BigramConstructionStats {
@@ -237,7 +228,6 @@ impl PendingCollection {
         .admit_profiled(batch, profile)
     }
 }
-
 
 fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstructionStats {
     let mut stats = BigramConstructionStats::default();
@@ -277,7 +267,6 @@ pub(crate) fn canonical_custom_text_key(
     (path.to_vec(), canonical.to_owned())
 }
 
-
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
@@ -285,7 +274,6 @@ pub struct CollectionStats {
     pub record_count: usize,
     pub total_file_bytes: u64,
 }
-
 
 impl CollectionStats {
     pub fn mean_record_bytes(self) -> f64 {
@@ -304,7 +292,6 @@ impl CollectionStats {
         }
     }
 }
-
 
 /// Resident owner of file inventory, collections, workers, and caches.
 ///
@@ -335,7 +322,6 @@ pub struct Repository {
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
-
 
 fn finish_fresh_fingerprints(
     files: &FileInventory,
@@ -375,7 +361,6 @@ fn finish_fresh_fingerprints(
         .collect()
 }
 
-
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
@@ -408,7 +393,6 @@ pub struct StartupStats {
     /// Opt-in fresh-build timeline and sampled worker attribution.
     pub build_profile: Option<BuildProfileStats>,
 }
-
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
@@ -454,7 +438,6 @@ pub struct BuildProfileStats {
     pub work: crate::build::BuildWorkProfile,
 }
 
-
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct IncrementalSegmentProfile {
     pub collection: String,
@@ -473,7 +456,6 @@ pub struct IncrementalSegmentProfile {
     pub inference_finish_ns: u64,
     pub identity_order_ns: u64,
 }
-
 
 /// Opt-in construction capacity samples. Capacity bytes are lower bounds:
 /// hash control bytes, allocator rounding, active workers and channel-held
@@ -517,7 +499,6 @@ pub struct BuildContributionStorageProfile {
     pub max_worker_scratch_after_flush_capacity_bytes: usize,
     pub max_pending_peak_capacity_bytes: usize,
 }
-
 
 impl BuildContributionStorageProfile {
     fn observe(&mut self, global: BigramConstructionStats, batch: BigramConstructionStats) {
@@ -587,13 +568,11 @@ impl BuildContributionStorageProfile {
     }
 }
 
-
 struct PreparedDiscoveredFile {
     relative: PathBuf,
     revision: SourceRevision,
     created_ns: Option<i128>,
 }
-
 
 fn prepare_discovered_file(root: &Path, path: PathBuf) -> Result<PreparedDiscoveredFile, String> {
     let relative = path
@@ -655,7 +634,6 @@ fn build_profile_rss_bytes() -> u64 {
         .saturating_mul(1024)
 }
 
-
 /// Index alphabet, verified cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
@@ -664,12 +642,13 @@ pub struct RepositoryOptions {
     pub query_workers: usize,
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
+    /// Shared soft record/file boundary for all native segment producers.
+    pub segment_policy: crate::native_segment::SegmentPolicy,
     pub inference: InferenceConfig,
     /// Request detailed instrumentation in a build compiled with the
     /// `detailed-profiling` feature. Ignored by ordinary builds.
     pub profile_build: bool,
 }
-
 
 impl Default for RepositoryOptions {
     fn default() -> Self {
@@ -679,12 +658,12 @@ impl Default for RepositoryOptions {
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
+            segment_policy: crate::native_segment::SegmentPolicy::default(),
             inference: InferenceConfig::default(),
             profile_build: false,
         }
     }
 }
-
 
 impl RepositoryOptions {
     /// A compile-time false result removes detailed profiling from normal
@@ -702,7 +681,6 @@ impl RepositoryOptions {
         }
     }
 }
-
 
 /// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
@@ -724,14 +702,12 @@ pub struct SearchHit {
     pub payload: Option<Payload>,
 }
 
-
 #[derive(Clone, Debug, PartialEq)]
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
     LogicalUnavailable { diagnostic_ref: DiagnosticRef },
 }
-
 
 /// Requested exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
@@ -740,7 +716,6 @@ pub struct SearchResult {
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
-
 
 impl Repository {
     /// Retrieve one record by its collection-local ID. Locator access uses the
@@ -1206,8 +1181,12 @@ impl Repository {
         sources: SourceRegistry,
     ) -> Result<Self, String> {
         options.inference.validate()?;
+        options.segment_policy.validate()?;
         crate::relation::validate_definitions(&definitions)?;
-        let root = root.into().canonicalize().map_err(|error| error.to_string())?;
+        let root = root
+            .into()
+            .canonicalize()
+            .map_err(|error| error.to_string())?;
         let started = Instant::now();
         let mut repository = Self::build_fresh(root, definitions, options, &sources, true)?;
         repository.startup.build_ns = started.elapsed().as_nanos() as u64;
@@ -2205,7 +2184,6 @@ impl Repository {
         self.search_reference(&bound)
     }
 }
-
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
     crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())

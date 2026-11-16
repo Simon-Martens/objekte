@@ -27,6 +27,8 @@ use crate::lifecycle_catalog::FileCatalog;
 #[cfg(test)]
 use crate::model::RecordSlot;
 use crate::model::{CollectionId, FileId, Value};
+pub(crate) use crate::native_segment::PublishedSegment;
+use crate::native_segment::SegmentId;
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult};
 use crate::streaming::{
@@ -405,14 +407,6 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
-/// One indexed delta shard and its independently retired local slots.
-#[derive(Clone)]
-pub(crate) struct PublishedSegment {
-    pub(crate) ordinal: u64,
-    pub(crate) index: Arc<IndexedCollectionSegment>,
-    pub(crate) active: ActiveRecords,
-}
-
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
 #[derive(Clone)]
@@ -639,7 +633,10 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(mut self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
+    pub(crate) fn with_segment(
+        mut self,
+        mut index: IndexedCollectionSegment,
+    ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
@@ -717,8 +714,9 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        index.id = SegmentId::new(ordinal);
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
-            ordinal,
+            id: SegmentId::new(ordinal),
             index: Arc::new(index),
             active,
         }));
@@ -759,7 +757,9 @@ impl PublishedIndex {
                 for file_number in 0..segment.index.file_count() {
                     let file = segment
                         .index
-                        .files.get(file_number).map(|file| &file.entry)
+                        .files
+                        .get(file_number)
+                        .map(|file| &file.entry)
                         .ok_or_else(|| {
                             IndexError::InvalidPublication("segment file row missing".into())
                         })?;
@@ -811,7 +811,7 @@ impl PublishedIndex {
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
-                            ordinal,
+                            id: SegmentId::new(ordinal),
                             index: Arc::new(part),
                             active,
                         }),
@@ -859,7 +859,7 @@ impl PublishedIndex {
         group.remove(right);
         group.remove(left);
         group.push(Arc::new(PublishedSegment {
-            ordinal,
+            id: SegmentId::new(ordinal),
             index: Arc::new(merged_index),
             active,
         }));
@@ -2497,7 +2497,7 @@ impl IndexView {
                 )];
                 parts.extend(self.0.segments[number].iter().map(|segment| {
                     (
-                        segment.ordinal,
+                        segment.id.get(),
                         index_family_estimate(
                             &segment.index.raw,
                             &segment.index.fallback_text,

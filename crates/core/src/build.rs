@@ -44,14 +44,12 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
-
 #[derive(Clone)]
 pub(crate) struct BatchFile {
     pub(crate) entry: FileEntry,
     pub(crate) records: Range<usize>,
     pub(crate) first_range: bool,
 }
-
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
 /// statuses and diagnostics stay in the coordinator-owned inventory.
@@ -62,7 +60,6 @@ pub(crate) struct SourceFileInput {
     pub(crate) revision: SourceRevision,
     pub(crate) created_ns: Option<i128>,
 }
-
 
 impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
@@ -87,7 +84,6 @@ impl SourceFileInput {
         }
     }
 }
-
 
 /// Bound each job by both file count and discovered source bytes. A single
 /// oversized source is admitted alone; its framing contract may need that
@@ -120,7 +116,6 @@ pub(crate) fn file_batches<'a>(
     batches
 }
 
-
 /// All expensive per-record projection is complete before this crosses the
 /// worker/coordinator boundary. Slots remain local until ordered admission.
 pub(crate) struct BatchContribution {
@@ -145,7 +140,6 @@ pub(crate) struct BatchContribution {
     pub(crate) source_bytes_read: u64,
     pub(crate) profile: BuildWorkProfile,
 }
-
 
 /// Optional sampled work attribution. The source fields cover every 64th
 /// physical file; component fields cover up to one in 64 records of those
@@ -180,7 +174,6 @@ pub struct BuildWorkProfile {
     pub input_buffer_batch_end_capacity_bytes: u64,
 }
 
-
 impl BuildWorkProfile {
     pub(crate) fn absorb(&mut self, other: &Self) {
         self.sampled_files += other.sampled_files;
@@ -214,7 +207,6 @@ impl BuildWorkProfile {
     }
 }
 
-
 /// The collection-wide identity and diagnostic observations needed while
 /// local index families move directly into bounded fresh-build shards.
 pub(crate) struct BatchMetadata {
@@ -223,7 +215,6 @@ pub(crate) struct BatchMetadata {
     pub(crate) inference: Option<InferenceBuilder>,
     pub(crate) logical_records: RoaringBitmap,
 }
-
 
 impl BatchContribution {
     pub(crate) fn bigram_storage_stats(&self) -> BigramConstructionStats {
@@ -262,20 +253,10 @@ impl BatchContribution {
         self.files.iter().filter(|file| file.first_range).count()
     }
 
-    pub(crate) fn new_file_bytes(&self) -> u64 {
-        self.files
-            .iter()
-            .filter(|file| file.first_range)
-            .fold(0u64, |total, file| {
-                total.saturating_add(file.entry.revision.size)
-            })
-    }
-
     pub(crate) fn record_count(&self) -> usize {
         self.records.len()
     }
 }
-
 
 struct BatchBuilder<'a> {
     root: &'a Path,
@@ -299,7 +280,6 @@ struct BatchBuilder<'a> {
     profile_record_index: usize,
     profile: BuildWorkProfile,
 }
-
 
 impl<'a> BatchBuilder<'a> {
     fn new(
@@ -746,7 +726,6 @@ impl<'a> BatchBuilder<'a> {
     }
 }
 
-
 pub(crate) fn process_batch(
     root: &Path,
     definition: &CollectionDefinition,
@@ -873,7 +852,6 @@ fn process_batch_profiled(
     Ok(batch)
 }
 
-
 /// A file's eligible collection bindings, resolved by discovery before I/O.
 /// Preparation performs no publication and never changes source files.
 #[derive(Clone, Copy)]
@@ -883,14 +861,12 @@ pub(crate) struct FilePreparationBinding<'a> {
     pub source: &'a PreparedSource,
 }
 
-
 pub(crate) struct PreparedCollectionBuild {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
     pub contributions: Vec<BatchContribution>,
 }
-
 
 /// Private, complete per-file work. The coordinator must still validate the
 /// file version, identities, and configuration before publishing any part.
@@ -900,7 +876,6 @@ pub(crate) struct PreparedFileBuild {
     pub fingerprint: Option<[u8; 32]>,
     pub collections: Vec<PreparedCollectionBuild>,
 }
-
 
 impl PreparedFileBuild {
     pub(crate) fn record_count(&self) -> u64 {
@@ -933,7 +908,6 @@ impl PreparedFileBuild {
     }
 }
 
-
 /// Failure while preparing a complete replacement supplied by the caller.
 /// A registered reader that cannot frame supplied bytes must be handled by
 /// the path-based preparation route before publication.
@@ -944,20 +918,17 @@ pub(crate) enum BytesPreparationError {
     Build(String),
 }
 
-
 impl From<String> for BytesPreparationError {
     fn from(error: String) -> Self {
         Self::Build(error)
     }
 }
 
-
 struct HashingReader<'a, R> {
     inner: R,
     digest: Option<&'a mut Sha256>,
     bytes_read: &'a mut u64,
 }
-
 
 impl<R: Read> Read for HashingReader<'_, R> {
     fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
@@ -969,7 +940,6 @@ impl<R: Read> Read for HashingReader<'_, R> {
         Ok(count)
     }
 }
-
 
 fn source_revision_at(path: &Path) -> Result<SourceRevision, String> {
     SourceRevision::from_metadata(
@@ -1788,14 +1758,12 @@ fn process_bounded_json_lines_file(
     Ok(stats)
 }
 
-
 #[derive(Clone, Copy)]
 struct BoundedBuildLimits {
     chunk_bytes: usize,
     ranges: usize,
     admitted_bytes: u64,
 }
-
 
 impl Default for BoundedBuildLimits {
     fn default() -> Self {
@@ -1806,7 +1774,6 @@ impl Default for BoundedBuildLimits {
         }
     }
 }
-
 
 fn process_bounded_json_lines_reader<R: BufRead + Send>(
     pool: &ThreadPool,
@@ -2032,7 +1999,6 @@ fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
     current == 0 || (weight <= limit && current.saturating_add(weight) <= limit)
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct BuildScheduleStats {
     /// Digest of the one large file scheduled by this call, if readable.
@@ -2062,7 +2028,6 @@ pub(crate) struct BuildScheduleStats {
     pub admission_schedule: AdmissionScheduleProfile,
 }
 
-
 /// Opt-in aggregate intervals. Job intervals overlap across workers and are
 /// not additive wall time; receive-call time includes channel processing.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
@@ -2078,7 +2043,6 @@ pub struct AdmissionScheduleProfile {
     pub prefetched_later_collection_jobs: u64,
 }
 
-
 impl AdmissionScheduleProfile {
     fn absorb(&mut self, other: Self) {
         self.dispatch_to_worker_start_ns += other.dispatch_to_worker_start_ns;
@@ -2092,7 +2056,6 @@ impl AdmissionScheduleProfile {
         self.prefetched_later_collection_jobs += other.prefetched_later_collection_jobs;
     }
 }
-
 
 impl BuildScheduleStats {
     pub fn absorb(&mut self, other: Self) {
@@ -2122,7 +2085,6 @@ impl BuildScheduleStats {
     }
 }
 
-
 #[derive(Default)]
 struct JobCounters {
     active: AtomicUsize,
@@ -2133,7 +2095,6 @@ struct JobCounters {
     #[cfg(feature = "detailed-profiling")]
     execution_ns: AtomicU64,
 }
-
 
 impl JobCounters {
     fn run<T>(&self, job: impl FnOnce() -> T) -> T {
@@ -2164,7 +2125,6 @@ impl JobCounters {
     }
 }
 
-
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
@@ -2175,7 +2135,6 @@ pub(crate) struct RepositoryFileJob {
     pub source: PreparedSource,
     pub files: Vec<FileId>,
 }
-
 
 pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
@@ -2440,7 +2399,6 @@ pub(crate) fn process_file_batches(
     )
 }
 
-
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -2455,7 +2413,6 @@ pub(crate) struct CollectionAdmission<'a> {
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
 }
-
 
 /// Optional aggregate timing of the ordered merge. Values from separate
 /// batches are summed; `remainder_ns` includes timer and drop boundaries.
@@ -2484,7 +2441,6 @@ pub struct AdmissionBreakdown {
     pub sorting_ns: u64,
     pub remainder_ns: u64,
 }
-
 
 impl AdmissionBreakdown {
     pub(crate) fn absorb(&mut self, other: Self) {
@@ -2525,7 +2481,6 @@ impl AdmissionBreakdown {
             + self.sorting_ns
     }
 }
-
 
 impl CollectionAdmission<'_> {
     pub(crate) fn admit_profiled(
@@ -2679,15 +2634,15 @@ impl CollectionAdmission<'_> {
     }
 }
 
-
 #[cfg(test)]
 #[path = "build.test.rs"]
 mod tests;
 
 #[path = "mutation_segment.rs"]
 mod mutation_segment;
+pub(crate) use crate::native_segment::{
+    IndexedCollectionSegment, SegmentFile, SegmentId,
+};
 pub(crate) use mutation_segment::PartitionRouting;
 
-pub(crate) use mutation_segment::{
-    CollectionSegment, IndexedCollectionSegment, SegmentAdmission, SegmentFile, SegmentLimits,
-};
+pub(crate) use mutation_segment::{CollectionSegment, SegmentAdmission};
