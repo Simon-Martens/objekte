@@ -1,0 +1,74 @@
+[
+  {
+    "path": "native-direct",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1399169679
+  },
+  {
+    "path": "native-direct",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1316191974
+  },
+  {
+    "path": "prototype-direct",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1423405027
+  },
+  {
+    "path": "prototype-direct",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1408683425
+  },
+  {
+    "path": "final-direct",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1471068238
+  },
+  {
+    "path": "final-direct",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1432640985
+  },
+  {
+    "path": "native-progressive",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1348540879
+  },
+  {
+    "path": "native-progressive",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1330669911
+  },
+  {
+    "path": "prototype-progressive",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1344762570
+  },
+  {
+    "path": "prototype-progressive",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1376234916
+  },
+  {
+    "path": "final-progressive",
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1407578827
+  },
+  {
+    "path": "final-progressive",
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1363471451
+  }
+]

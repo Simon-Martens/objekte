@@ -1,0 +1,26 @@
+[
+  {
+    "left": "native-direct",
+    "right": "final-direct",
+    "cases": 150,
+    "mismatches": 0
+  },
+  {
+    "left": "prototype-direct",
+    "right": "final-direct",
+    "cases": 150,
+    "mismatches": 0
+  },
+  {
+    "left": "native-progressive",
+    "right": "final-progressive",
+    "cases": 150,
+    "mismatches": 0
+  },
+  {
+    "left": "prototype-progressive",
+    "right": "final-progressive",
+    "cases": 150,
+    "mismatches": 0
+  }
+]

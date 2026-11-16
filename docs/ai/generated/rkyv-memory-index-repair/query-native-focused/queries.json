@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Q001",
+    "collection": "*",
+    "fts": "Almanach",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q027",
+    "collection": "contents",
+    "fts": "1808",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q043",
+    "collection": "agents",
+    "fts": null,
+    "filter": "musenalm_id >= 1000",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q119",
+    "collection": "contents",
+    "fts": null,
+    "filter": "@file.modified >= \"2026-01-01T00:00:00Z\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

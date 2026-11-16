@@ -255,6 +255,7 @@ fn run() -> Result<(), String> {
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
+            let storage_usage = view.storage_usage();
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
                 for row in view.catalogue_rows() {
@@ -277,7 +278,8 @@ fn run() -> Result<(), String> {
                 "inventory_heap_bytes":view.estimated_inventory_bytes(),
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
-                "rkyv_archive_bytes": index.rkyv_archive_bytes().map_err(|error| error.to_string())?,
+                "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
+                "storage_usage": storage_usage,
                 "segment_families":view.index_family_breakdown(),
             }));
             if registrations.is_empty() {
@@ -302,6 +304,7 @@ fn run() -> Result<(), String> {
             )?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup().build_ns;
+            let storage_usage = repo.storage_usage();
             if corpus_hash.is_empty() {
                 corpus_hash = fingerprint_inventory(&repo);
             }
@@ -362,7 +365,8 @@ fn run() -> Result<(), String> {
                 "inventory_heap_bytes": inventory_heap_bytes, "diagnostic_heap_bytes": diagnostic_heap_bytes,
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
                 "estimated_index_bytes": estimated_index_bytes,
-                "rkyv_archive_bytes": repo.rkyv_archive_bytes(),
+                "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
+                "storage_usage": storage_usage,
                 "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
                 "relation_count": relations.len(),
                 "relation_edges": relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),

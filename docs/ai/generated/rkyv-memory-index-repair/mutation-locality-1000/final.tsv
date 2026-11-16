@@ -1,0 +1,15 @@
+phase	ms	rss_kb	hwm_kb	revision	files	records	detail
+build	15.742	16208	16208	1	1000	1000	archive_bytes=963056	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32192	bigram_bytes=68874	synthetic=true
+verified_original_update	7.037	18944	18944	2	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69818	sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	7.121	20652	20652	3	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	6.207	21152	21152	4	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.830	21708	21708	5	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.862	21900	21900	6	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	7.088	21912	21912	7	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	7.142	21460	21460	8	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.801	21652	21652	9	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	8.677	21940	21940	10	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.563	21956	21956	11	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69822	sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	5.694	21960	21960	12	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69896	sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+count	0.038	22328	22328	12	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69896	count=1000
+compact	0.025	22328	22328	12	1000	1000	archive_bytes=963120	archive_capacity=1561216	archive_owners=664	bitmap_bytes=32208	bigram_bytes=69896	removed=0

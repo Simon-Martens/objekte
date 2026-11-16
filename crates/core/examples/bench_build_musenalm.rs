@@ -131,6 +131,7 @@ fn run() -> Result<(), String> {
     let started = Instant::now();
     let repo = Repository::open_with_options(&root, definitions, options)?;
     let wall_ns = started.elapsed().as_nanos();
+    let storage_usage = repo.storage_usage();
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
     let registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect::<Vec<_>>();
     let segment_summaries = repo.segment_summaries();
@@ -188,6 +189,8 @@ fn run() -> Result<(), String> {
             "build_parses": repo.build_parses(),
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
+            "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
+            "storage_usage": storage_usage,
             "diagnostic_heap_bytes": diagnostic_heap_bytes,
             "index_stores": index_stores,
             "distinct_gram_keys": distinct_gram_keys,

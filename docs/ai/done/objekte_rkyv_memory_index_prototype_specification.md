@@ -1054,3 +1054,21 @@ This remains an in-memory prototype:
 
 No correctness item was deferred to memory optimization. The branch is ready for
 review and merge without being described as a performance-approved replacement.
+
+## Repair correction note (2026-11-16)
+
+The repair review supersedes several conclusions above without changing the
+historical measurements:
+
+- the direct-path `rkyv_archive_bytes` value omitted segment archives and must
+  not be compared with the progressive-path total as a representation-size
+  result;
+- the segment metadata caches described as lazy were populated eagerly by
+  `SegmentRows::freeze` in this revision;
+- the prototype did not contain the ownership directory described above, so
+  per-file invalidation still scanned segment payloads;
+- bounded merging could reactivate retired slots and did not enforce the file
+  limit correctly;
+- consequently, “correctness-complete” and “ready for review and merge” were
+  premature. The repair branch and its completion report are the authoritative
+  status for this prototype.

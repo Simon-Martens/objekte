@@ -1,0 +1,66 @@
+[
+  {
+    "case": "Q001",
+    "alphabet": "ascii",
+    "native_ns": 13106449,
+    "final_ns": 14354911,
+    "ratio": 1.0952555493864127,
+    "delta_ms": 1.248462
+  },
+  {
+    "case": "Q001",
+    "alphabet": "unicode",
+    "native_ns": 13511249,
+    "final_ns": 14630332,
+    "ratio": 1.0828260214877248,
+    "delta_ms": 1.119083
+  },
+  {
+    "case": "Q027",
+    "alphabet": "ascii",
+    "native_ns": 1356569,
+    "final_ns": 1475343,
+    "ratio": 1.0875547060267483,
+    "delta_ms": 0.118774
+  },
+  {
+    "case": "Q027",
+    "alphabet": "unicode",
+    "native_ns": 1324912,
+    "final_ns": 1413011,
+    "ratio": 1.06649422754115,
+    "delta_ms": 0.088099
+  },
+  {
+    "case": "Q043",
+    "alphabet": "ascii",
+    "native_ns": 5890040,
+    "final_ns": 5770456,
+    "ratio": 0.9796972516315678,
+    "delta_ms": -0.119584
+  },
+  {
+    "case": "Q043",
+    "alphabet": "unicode",
+    "native_ns": 5776644,
+    "final_ns": 5733120,
+    "ratio": 0.9924655215034889,
+    "delta_ms": -0.043524
+  },
+  {
+    "case": "Q119",
+    "alphabet": "ascii",
+    "native_ns": 4540429,
+    "final_ns": 4792943,
+    "ratio": 1.0556145685793126,
+    "delta_ms": 0.252514
+  },
+  {
+    "case": "Q119",
+    "alphabet": "unicode",
+    "native_ns": 4713380,
+    "final_ns": 4886926,
+    "ratio": 1.0368198617552584,
+    "delta_ms": 0.173546
+  }
+]
