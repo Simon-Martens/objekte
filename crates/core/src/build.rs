@@ -221,12 +221,6 @@ impl BatchContribution {
         &self.file_fingerprints
     }
 
-    /// Initial publication needs collection-wide inference decisions. Keep
-    /// this copy separately measurable from coordinator bookkeeping.
-    pub(crate) fn inference_copy(&self) -> Option<InferenceBuilder> {
-        self.inference.clone()
-    }
-
     pub(crate) fn logical_records(&self) -> &RoaringBitmap {
         &self.logical_records
     }

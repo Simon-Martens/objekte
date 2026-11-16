@@ -62,8 +62,8 @@ struct IncrementalCollection {
     member_files: Vec<FileId>,
     admission: SegmentAdmission,
     records: u32,
+    observed_batches: u64,
     logical_records: RoaringBitmap,
-    global_inference: Option<InferenceBuilder>,
     options: RepositoryOptions,
 }
 
@@ -74,7 +74,7 @@ impl IncrementalCollection {
         id: CollectionId,
         member_files: Vec<FileId>,
         options: RepositoryOptions,
-        collection_count: usize,
+        _collection_count: usize,
     ) -> Self {
         let definition = Arc::new(definition);
         let admission = SegmentAdmission::with_limits_and_id(
@@ -90,8 +90,8 @@ impl IncrementalCollection {
             member_files,
             admission,
             records: 0,
+            observed_batches: 0,
             logical_records: RoaringBitmap::new(),
-            global_inference: InferenceBuilder::for_collection(options.inference, collection_count),
             options,
         }
     }
@@ -101,25 +101,15 @@ impl IncrementalCollection {
         batch: &BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
-        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         let base = self.records;
         let count = u32::try_from(batch.record_count()).map_err(|_| "too many batch records")?;
         self.records = base
             .checked_add(count)
             .ok_or("collection record slot overflow")?;
-        if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
-            profile.coordinator_ns += started.elapsed().as_nanos() as u64;
-        }
-        let inference_started = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let inference = batch.inference_copy();
-        match (self.global_inference.as_mut(), inference) {
-            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
-            (None, None) => {}
-            _ => return Err("collection inference mode changed during build".into()),
-        }
-        if let (Some(started), Some(profile)) = (inference_started, profile.as_mut()) {
-            profile.inference_observation_ns += started.elapsed().as_nanos() as u64;
-        }
+        self.observed_batches = self
+            .observed_batches
+            .checked_add(1)
+            .ok_or("inference batch count overflow")?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         append_shifted_bitmap(&mut self.logical_records, batch.logical_records(), base)?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
@@ -192,27 +182,18 @@ impl IncrementalCollection {
     fn finish_summary(
         &mut self,
     ) -> Result<(Option<GlobalInferenceSummary>, InferenceBuildStats), String> {
-        let mut stats = InferenceBuildStats::default();
-        let state = self
-            .global_inference
-            .take()
-            .map(|builder| {
-                stats = builder.build_stats();
-                let started = crate::detailed_timer::DetailedInstant::now();
-                let state = builder.finish(
-                    &self.logical_records,
-                    self.records as usize,
-                    &self.definition.schema,
-                )?;
-                stats.finish_ns = started.elapsed().as_nanos() as u64;
-                let diagnostics = state.path_diagnostics();
-                Ok::<_, String>(GlobalInferenceSummary {
-                    report: state.report,
-                    diagnostics,
-                })
-            })
-            .transpose()?;
-        Ok((state, stats))
+        Ok((
+            None,
+            if self.options.inference.mode == crate::inference::InferenceMode::Disabled {
+                InferenceBuildStats::default()
+            } else {
+                InferenceBuildStats {
+                    observed_records: self.records as u64,
+                    merged_batches: self.observed_batches,
+                    ..Default::default()
+                }
+            },
+        ))
     }
 }
 
@@ -1491,8 +1472,14 @@ impl Repository {
                 }
             }
             pending_relations.push(relations);
-            let (summary, stats) = state.finish_summary().map_err(IndexError::Build)?;
-            collection.global_inference = summary;
+            let (_, stats) = state.finish_summary().map_err(IndexError::Build)?;
+            collection.global_inference = crate::inference::build::aggregate_segment_inference(
+                options.inference,
+                &collection.definition.schema,
+                segments,
+                &collection.definition.name,
+            )
+            .map_err(IndexError::Build)?;
             inference_build.absorb(stats);
         }
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {

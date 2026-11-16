@@ -435,7 +435,7 @@ impl InferenceState {
 }
 
 #[path = "inference_build.rs"]
-mod build;
+pub(crate) mod build;
 pub(crate) use build::InferenceBuilder;
 
 #[cfg(test)]

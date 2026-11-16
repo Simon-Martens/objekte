@@ -12,8 +12,9 @@ use crate::posting::{PostingIndex, PostingStats, ScalarKey, StructuralFacts, Str
 use crate::reference::Schema;
 
 use super::{
-    InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
-    InferenceReport, InferenceState, InferredFieldReport, ObservedStep, typed_path,
+    InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
+    InferencePathDiagnostic, InferencePolicy, InferenceReport, InferenceState, InferredFieldReport,
+    ObservedStep, typed_path,
 };
 
 /// Segment-local builders retain bounded candidates. Collection-wide policy is
@@ -24,6 +25,350 @@ pub(crate) fn candidate_config(mut config: InferenceConfig) -> InferenceConfig {
     config.policy.min_nonblank_records = 1;
     config.policy.minimum_repeated_percent = 0;
     config
+}
+
+pub(crate) fn aggregate_segment_inference(
+    config: InferenceConfig,
+    schema: &Schema,
+    segments: &[Arc<crate::lifecycle::PublishedSegment>],
+    collection_name: &str,
+) -> Result<Option<crate::repository::GlobalInferenceSummary>, String> {
+    if config.mode == InferenceMode::Disabled {
+        return Ok(None);
+    }
+    let total_records = segments
+        .iter()
+        .map(|segment| segment.index.record_count())
+        .sum::<usize>();
+    let logical_records = segments
+        .iter()
+        .map(|segment| segment.index.logical_records.len())
+        .sum::<u64>();
+    let unavailable_records = total_records.saturating_sub(logical_records as usize) as u64;
+    let mut paths = BTreeMap::<Vec<String>, AggregatedField>::new();
+    let mut complete = true;
+    for segment in segments {
+        let eligible = segment.index.logical_records.len();
+        let Some(inference) = &segment.index.inference else {
+            complete = false;
+            continue;
+        };
+        complete &= inference.report.complete;
+        let reports = inference
+            .report
+            .fields
+            .iter()
+            .map(|field| (field.path.clone(), field))
+            .collect::<HashMap<_, _>>();
+        for (path, field) in &reports {
+            paths
+                .entry(path.clone())
+                .or_insert_with(|| AggregatedField::new(path.clone(), eligible))
+                .add(field);
+        }
+        for (path, aggregated) in &mut paths {
+            if !reports.contains_key(path) {
+                aggregated.missing_records = aggregated.missing_records.saturating_add(eligible);
+                aggregated.eligible_records = aggregated.eligible_records.saturating_add(eligible);
+            }
+        }
+        for (path, index) in &inference.indexes {
+            paths
+                .get_mut(path)
+                .ok_or("inference posting has no report path")?
+                .indexes
+                .push(index);
+        }
+    }
+    let mut fields = Vec::with_capacity(paths.len());
+    for (path, aggregate) in paths {
+        let declared = schema.fields.get(&path);
+        let scalar_kind = if aggregate.kinds.len() == 1 {
+            aggregate.kinds.first().cloned()
+        } else {
+            None
+        };
+        let mixed_shape = (aggregate.scalar_records != 0 && aggregate.array_records != 0)
+            || (aggregate.direct_records != 0 && aggregate.through_array_records != 0)
+            || aggregate.object_records != 0;
+        let distinct_strings = aggregate
+            .indexes
+            .iter()
+            .flat_map(|index| index.values.keys())
+            .filter_map(|key| match key {
+                ScalarKey::String(value) if !value.trim().is_empty() => Some(value.as_str()),
+                _ => None,
+            })
+            .collect::<HashSet<_>>()
+            .len();
+        let string_admissible = scalar_kind.as_ref() != Some(&LogicalType::String)
+            || (aggregate.nonblank_occurrences >= config.policy.min_nonblank_occurrences
+                && aggregate.nonblank_records >= config.policy.min_nonblank_records
+                && distinct_strings <= config.policy.max_distinct_nonblank_strings
+                && distinct_strings <= (aggregate.nonblank_occurrences / 10).max(4) as usize
+                && aggregate
+                    .nonblank_occurrences
+                    .saturating_sub(distinct_strings as u64)
+                    .saturating_mul(100)
+                    >= aggregate.nonblank_occurrences
+                        * config.policy.minimum_repeated_percent as u64);
+        let (status, reason) = if !complete || !aggregate.complete {
+            (
+                InferenceIndexStatus::Incomplete,
+                "observation budget exceeded",
+            )
+        } else if config.mode == InferenceMode::ReportOnly {
+            (InferenceIndexStatus::NotRequested, "report-only mode")
+        } else if declared
+            .is_some_and(|field| field.indexed || matches!(field.kind, LogicalType::Array(_)))
+        {
+            (
+                InferenceIndexStatus::Redundant,
+                "declared posting already exists",
+            )
+        } else if schema.is_auto_index_prohibited(&path) {
+            (
+                InferenceIndexStatus::ExplicitOptOut,
+                "declared field disabled indexing",
+            )
+        } else if aggregate.budget_exceeded {
+            (
+                InferenceIndexStatus::BudgetExceeded,
+                "provisional values exceeded a bound",
+            )
+        } else if mixed_shape || scalar_kind.is_none() {
+            (
+                InferenceIndexStatus::Incompatible,
+                "mixed or unknown observed shape/kind",
+            )
+        } else if !matches!(
+            scalar_kind,
+            Some(LogicalType::Bool | LogicalType::Number | LogicalType::String)
+        ) {
+            (
+                InferenceIndexStatus::Incompatible,
+                "kind is not an inferred posting target",
+            )
+        } else if aggregate.short_string_distinct_values > 0 {
+            (
+                InferenceIndexStatus::Built,
+                "ordered short-string postings with residual coverage",
+            )
+        } else if !string_admissible {
+            (
+                InferenceIndexStatus::BelowThreshold,
+                "string repetition threshold not met",
+            )
+        } else {
+            (
+                InferenceIndexStatus::Built,
+                "complete compatible logical coverage",
+            )
+        };
+        let index_bytes_estimate = aggregate.index_bytes_estimate;
+        let summary_bytes_estimate = 256usize.saturating_add(
+            path.iter().map(String::len).sum::<usize>().saturating_add(
+                usize::try_from(aggregate.present_records)
+                    .unwrap_or(usize::MAX)
+                    .saturating_div(8),
+            ),
+        );
+        let integer_only = aggregate
+            .kinds
+            .contains(&LogicalType::Number)
+            .then_some(!aggregate.fractional_number);
+        fields.push(InferredFieldReport {
+            path,
+            observed_kinds: aggregate.kinds,
+            scalar_records: aggregate.scalar_records,
+            array_records: aggregate.array_records,
+            object_records: aggregate.object_records,
+            array_nesting: aggregate.array_nesting,
+            integer_only,
+            eligible_records: aggregate.eligible_records,
+            unavailable_records,
+            present_records: aggregate.present_records,
+            missing_records: aggregate
+                .eligible_records
+                .saturating_sub(aggregate.present_records.min(aggregate.eligible_records)),
+            null_occurrence_records: aggregate.null_occurrence_records,
+            exact_null_records: aggregate.exact_null_records,
+            empty_array_records: aggregate.empty_array_records,
+            empty_selection_records: aggregate.empty_selection_records,
+            value_occurrences: aggregate.value_occurrences,
+            nonblank_occurrences: aggregate.nonblank_occurrences,
+            nonblank_records: aggregate.nonblank_records,
+            distinct_nonblank_strings: (scalar_kind.as_ref() == Some(&LogicalType::String))
+                .then_some(distinct_strings),
+            short_string_observed_occurrences: aggregate.short_string_observed_occurrences,
+            short_string_distinct_values: aggregate.short_string_distinct_values,
+            short_string_covered_records: aggregate.short_string_covered_records,
+            short_string_unresolved_records: aggregate
+                .eligible_records
+                .saturating_sub(aggregate.short_string_covered_records),
+            index_status: status,
+            reason: reason.into(),
+            complete: complete && aggregate.complete,
+            summary_bytes_estimate,
+            index_bytes_estimate,
+            retained_bytes_estimate: summary_bytes_estimate.saturating_add(index_bytes_estimate),
+        });
+    }
+    fields.sort_by(|left, right| left.path.cmp(&right.path));
+    let report = InferenceReport {
+        mode: config.mode,
+        policy: config.policy,
+        eligible_records: logical_records,
+        unavailable_records,
+        omitted_paths: 0,
+        complete,
+        observed_paths: fields.len(),
+        admitted_paths: fields
+            .iter()
+            .filter(|field| field.index_status == InferenceIndexStatus::Built)
+            .count(),
+        dropped_paths: fields
+            .iter()
+            .filter(|field| {
+                matches!(
+                    field.index_status,
+                    InferenceIndexStatus::Incompatible
+                        | InferenceIndexStatus::Incomplete
+                        | InferenceIndexStatus::BudgetExceeded
+                        | InferenceIndexStatus::BelowThreshold
+                )
+            })
+            .count(),
+        summary_bytes_estimate: fields
+            .iter()
+            .map(|field| field.summary_bytes_estimate)
+            .sum(),
+        index_bytes_estimate: fields.iter().map(|field| field.index_bytes_estimate).sum(),
+        retained_bytes_estimate: fields
+            .iter()
+            .map(|field| field.retained_bytes_estimate)
+            .sum(),
+        fields,
+    };
+    let diagnostics = report
+        .fields
+        .iter()
+        .map(|field| InferencePathDiagnostic {
+            path: field.path.clone(),
+            index_status: field.index_status,
+            reason: field.reason.clone(),
+            observed_kinds: field.observed_kinds.clone(),
+            kind: None,
+            multi: None,
+            value_keys: None,
+            length_keys: None,
+            covered_records: None,
+            present_records: field.present_records,
+            short_string_covered_records: field.short_string_covered_records,
+            short_string_unresolved_records: field.short_string_unresolved_records,
+        })
+        .collect();
+    let _ = collection_name;
+    Ok(Some(crate::repository::GlobalInferenceSummary {
+        report,
+        diagnostics,
+    }))
+}
+
+#[derive(Default)]
+struct AggregatedField<'a> {
+    eligible_records: u64,
+    missing_records: u64,
+    kinds: Vec<LogicalType>,
+    array_nesting: u8,
+    fractional_number: bool,
+    complete: bool,
+    present_records: u64,
+    null_occurrence_records: u64,
+    exact_null_records: u64,
+    empty_array_records: u64,
+    empty_selection_records: u64,
+    value_occurrences: u64,
+    nonblank_occurrences: u64,
+    nonblank_records: u64,
+    scalar_records: u64,
+    array_records: u64,
+    object_records: u64,
+    through_array_records: u64,
+    direct_records: u64,
+    short_string_observed_occurrences: u64,
+    short_string_distinct_values: usize,
+    short_string_covered_records: u64,
+    budget_exceeded: bool,
+    index_bytes_estimate: usize,
+    indexes: Vec<&'a PostingIndex>,
+}
+
+impl<'a> AggregatedField<'a> {
+    fn new(_path: Vec<String>, _segment_eligible: u64) -> Self {
+        Self {
+            complete: true,
+            ..Default::default()
+        }
+    }
+
+    fn add(&mut self, field: &InferredFieldReport) {
+        self.eligible_records = self.eligible_records.saturating_add(field.eligible_records);
+        self.missing_records = self.missing_records.saturating_add(field.missing_records);
+        for kind in &field.observed_kinds {
+            if !self.kinds.contains(kind) {
+                self.kinds.push(kind.clone());
+            }
+        }
+        self.array_nesting = self.array_nesting.max(field.array_nesting);
+        self.fractional_number |= field.integer_only == Some(false);
+        self.complete &= field.complete;
+        self.budget_exceeded |= matches!(
+            field.index_status,
+            InferenceIndexStatus::BudgetExceeded | InferenceIndexStatus::Incomplete
+        );
+        self.present_records = self.present_records.saturating_add(field.present_records);
+        self.null_occurrence_records = self
+            .null_occurrence_records
+            .saturating_add(field.null_occurrence_records);
+        self.exact_null_records = self
+            .exact_null_records
+            .saturating_add(field.exact_null_records);
+        self.empty_array_records = self
+            .empty_array_records
+            .saturating_add(field.empty_array_records);
+        self.empty_selection_records = self
+            .empty_selection_records
+            .saturating_add(field.empty_selection_records);
+        self.value_occurrences = self
+            .value_occurrences
+            .saturating_add(field.value_occurrences);
+        self.nonblank_occurrences = self
+            .nonblank_occurrences
+            .saturating_add(field.nonblank_occurrences);
+        self.nonblank_records = self.nonblank_records.saturating_add(field.nonblank_records);
+        self.scalar_records = self
+            .scalar_records
+            .saturating_add(field.scalar_records as u64);
+        self.array_records = self
+            .array_records
+            .saturating_add(field.array_records as u64);
+        self.object_records = self
+            .object_records
+            .saturating_add(field.object_records as u64);
+        self.short_string_observed_occurrences = self
+            .short_string_observed_occurrences
+            .saturating_add(field.short_string_observed_occurrences);
+        self.short_string_distinct_values = self
+            .short_string_distinct_values
+            .max(field.short_string_distinct_values);
+        self.short_string_covered_records = self
+            .short_string_covered_records
+            .saturating_add(field.short_string_covered_records);
+        self.index_bytes_estimate = self
+            .index_bytes_estimate
+            .saturating_add(field.index_bytes_estimate);
+    }
 }
 
 /// Observations retained for one path while construction batches are admitted.

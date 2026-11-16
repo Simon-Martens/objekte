@@ -1557,6 +1557,12 @@ impl Index {
                                 inference.short_string_coverage.remove(&field.path);
                                 continue;
                             }
+                            if !matches!(
+                                field.index_status,
+                                crate::inference::InferenceIndexStatus::BelowThreshold
+                            ) {
+                                continue;
+                            }
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
                                 posting.values.clear();
                                 posting.values_indexed = false;
