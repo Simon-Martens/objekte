@@ -59,6 +59,8 @@ pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod source_scan;
+#[cfg(feature = "ic-stable-prototype")]
+pub mod stable_index;
 pub mod streaming;
 mod structural;
 pub mod temporal_query;

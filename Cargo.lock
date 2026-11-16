@@ -3623,6 +3623,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "ic-stable-structures"
+version = "0.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ee3372ddc0cf2a747fc26ce2d075a240ed6bfab151e63bc70109e8967f7ce6f"
+dependencies = [
+ "ic_principal",
+]
+
+[[package]]
+name = "ic_principal"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0c2732829022822ec69021c336d23b32a053e07abdd08553c71407d6e2d1675d"
+
+[[package]]
 name = "icu_collator"
 version = "2.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5223,6 +5238,7 @@ version = "0.1.0"
 dependencies = [
  "bincode",
  "globset",
+ "ic-stable-structures",
  "icu_collator",
  "icu_locale_core",
  "libc",

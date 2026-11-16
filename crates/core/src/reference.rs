@@ -273,6 +273,11 @@ impl Schema {
         &self.fields
     }
 
+    #[cfg(feature = "ic-stable-prototype")]
+    pub(crate) fn source_fingerprint(&self) -> Option<[u8; 32]> {
+        self.source_fingerprint
+    }
+
     pub fn custom_bindings(&self) -> &HashMap<(Vec<String>, String), CustomBinding> {
         &self.custom
     }
