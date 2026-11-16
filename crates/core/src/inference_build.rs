@@ -81,6 +81,7 @@ pub(crate) fn aggregate_segment_inference(
         }
     }
     let mut fields = Vec::with_capacity(paths.len());
+    let mut diagnostics = Vec::with_capacity(paths.len());
     for (path, aggregate) in paths {
         let declared = schema.fields.get(&path);
         let scalar_kind = if aggregate.kinds.len() == 1 {
@@ -177,6 +178,39 @@ pub(crate) fn aggregate_segment_inference(
             .kinds
             .contains(&LogicalType::Number)
             .then_some(!aggregate.fractional_number);
+        diagnostics.push(InferencePathDiagnostic {
+            path: path.clone(),
+            index_status: status,
+            reason: reason.into(),
+            observed_kinds: aggregate.kinds.clone(),
+            kind: aggregate.indexes.first().map(|index| index.kind.clone()),
+            multi: aggregate.indexes.first().map(|index| index.multi),
+            value_keys: Some(
+                aggregate
+                    .indexes
+                    .iter()
+                    .map(|index| index.distinct_values())
+                    .sum(),
+            ),
+            length_keys: Some(
+                aggregate
+                    .indexes
+                    .iter()
+                    .map(|index| index.distinct_lengths())
+                    .sum(),
+            ),
+            covered_records: Some(
+                aggregate
+                    .indexes
+                    .first()
+                    .map_or(0, |index| index.covered_records),
+            ),
+            present_records: aggregate.present_records,
+            short_string_covered_records: aggregate.short_string_covered_records,
+            short_string_unresolved_records: aggregate
+                .eligible_records
+                .saturating_sub(aggregate.short_string_covered_records),
+        });
         fields.push(InferredFieldReport {
             path,
             observed_kinds: aggregate.kinds,
@@ -250,24 +284,6 @@ pub(crate) fn aggregate_segment_inference(
             .sum(),
         fields,
     };
-    let diagnostics = report
-        .fields
-        .iter()
-        .map(|field| InferencePathDiagnostic {
-            path: field.path.clone(),
-            index_status: field.index_status,
-            reason: field.reason.clone(),
-            observed_kinds: field.observed_kinds.clone(),
-            kind: None,
-            multi: None,
-            value_keys: None,
-            length_keys: None,
-            covered_records: None,
-            present_records: field.present_records,
-            short_string_covered_records: field.short_string_covered_records,
-            short_string_unresolved_records: field.short_string_unresolved_records,
-        })
-        .collect();
     let _ = collection_name;
     Ok(Some(crate::repository::GlobalInferenceSummary {
         report,
