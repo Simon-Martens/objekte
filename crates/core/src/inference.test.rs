@@ -22,6 +22,61 @@ fn temporary_root(tag: &str) -> std::path::PathBuf {
     std::env::temp_dir().join(format!("objekte-inference-{tag}-{}", std::process::id()))
 }
 
+fn write_json_documents(
+    root: &std::path::Path,
+    documents: impl IntoIterator<Item = serde_json::Value>,
+) {
+    let _ = std::fs::remove_dir_all(root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (number, document) in documents.into_iter().enumerate() {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            document.to_string(),
+        )
+        .unwrap();
+    }
+}
+
+fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u64) -> Repository {
+    Repository::open_with_options(
+        root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    max_string_bytes: 64,
+                    short_string_max_utf8_bytes: 4,
+                    min_nonblank_occurrences,
+                    min_nonblank_records: min_nonblank_occurrences,
+                    minimum_repeated_percent: 0,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap()
+}
+
+fn category_records(short_index: usize) -> Vec<serde_json::Value> {
+    (0..513)
+        .map(|number| {
+            serde_json::json!({
+                "category": if number == short_index { "b" } else { "category_alpha" }
+            })
+        })
+        .collect()
+}
+
 fn query(filter: &str) -> Query {
     Query {
         collections: vec!["data".into()],
@@ -57,6 +112,197 @@ fn documented_inference_defaults_match_the_exported_policy() {
         .max_build_jobs(32),
         16
     );
+}
+
+#[test]
+fn partial_short_values_do_not_override_failed_general_dictionary_admission() {
+    let root = temporary_root("mixed-short-general-rejection");
+    write_json_documents(&root, category_records(512));
+    let repo = open_category_repository(&root, 514);
+    let path: Vec<String> = vec!["category".into()];
+    assert_eq!(repo.segments[0].len(), 2);
+    assert_eq!(
+        repo.segments[0]
+            .iter()
+            .map(|segment| segment.index.records.len())
+            .collect::<Vec<_>>(),
+        [512, 1]
+    );
+    let report = repo
+        .inference_report("data")
+        .unwrap()
+        .fields
+        .iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert_eq!(report.index_status, InferenceIndexStatus::Built);
+    assert!(report.reason.contains("short-string"), "{report:?}");
+    let diagnostic = repo
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(!diagnostic.value_dictionary_complete, "{diagnostic:?}");
+    assert!(diagnostic.short_string_candidates, "{diagnostic:?}");
+    assert!(repo.segments[0].iter().any(|segment| {
+        segment.index.inference.as_ref().is_some_and(|state| {
+            state
+                .short_string_coverage
+                .get(&path)
+                .is_some_and(|covered| !covered.is_empty())
+                && state.indexes.get(&path).is_some_and(|index| {
+                    index
+                        .values
+                        .contains_key(&crate::posting::ScalarKey::String("b".into()))
+                })
+        })
+    }));
+    for segment in repo.segments[0].iter() {
+        assert!(!segment.index.inference.as_ref().unwrap().indexes[&path].value_complete);
+    }
+
+    for (filter, expected) in [("category = 'category_alpha'", 512), ("category = 'b'", 1)] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let result = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(result.hits, reference.hits, "{filter}");
+        assert_eq!(result.count, Some(expected), "{filter}");
+    }
+    let mut long = query("category = 'category_alpha'");
+    long.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&long).unwrap();
+    assert!(result.counters.record_parses > 0);
+    assert!(repo.explain(&long).unwrap()[0].remaining_verification);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn short_dictionary_coverage_is_independent_of_segment_order() {
+    let mut outcomes = Vec::new();
+    for short_index in [0, 512] {
+        let root = temporary_root(&format!("short-order-{short_index}"));
+        write_json_documents(&root, category_records(short_index));
+        let repo = open_category_repository(&root, 514);
+        let path: Vec<String> = vec!["category".into()];
+        let diagnostic = repo
+            .inference_index_diagnostics("data")
+            .unwrap()
+            .into_iter()
+            .find(|field| field.path == path)
+            .unwrap();
+        let mut counts = Vec::new();
+        for filter in ["category = 'category_alpha'", "category = 'b'"] {
+            let mut request = query(filter);
+            request.options.return_mode = ReturnMode::Locator;
+            let result = repo.search(&request).unwrap();
+            let reference = repo.search_reference(&request).unwrap();
+            assert_eq!(result.hits, reference.hits, "{short_index}: {filter}");
+            counts.push(result.count);
+        }
+        outcomes.push((
+            diagnostic.value_dictionary_complete,
+            diagnostic.short_string_candidates,
+            counts,
+        ));
+        std::fs::remove_dir_all(root).unwrap();
+    }
+    assert_eq!(outcomes[0], outcomes[1]);
+    assert_eq!(outcomes[0], (false, true, vec![Some(512), Some(1)]));
+}
+
+#[test]
+fn complete_short_and_general_dictionaries_remain_exact_positive_controls() {
+    let short_root = temporary_root("all-short-positive");
+    write_json_documents(
+        &short_root,
+        (0..513).map(|_| serde_json::json!({"category": "b"})),
+    );
+    let short = open_category_repository(&short_root, 514);
+    let path: Vec<String> = vec!["category".into()];
+    let short_diagnostic = short
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(short_diagnostic.value_dictionary_complete);
+    assert!(short_diagnostic.short_string_candidates);
+    for segment in short.segments[0].iter() {
+        assert!(segment.index.inference.as_ref().unwrap().indexes[&path].value_complete);
+    }
+    let mut request = query("category = 'b'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = short.search(&request).unwrap();
+    assert_eq!(result.count, Some(513));
+    assert_eq!(result.counters.record_parses, 0);
+
+    let general_root = temporary_root("general-admission-positive");
+    write_json_documents(&general_root, category_records(512));
+    let general = open_category_repository(&general_root, 512);
+    let general_diagnostic = general
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(general_diagnostic.value_dictionary_complete);
+    let mut request = query("category = 'category_alpha'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = general.search(&request).unwrap();
+    assert_eq!(result.count, Some(512));
+    assert_eq!(result.counters.record_parses, 0);
+    std::fs::remove_dir_all(short_root).unwrap();
+    std::fs::remove_dir_all(general_root).unwrap();
+}
+
+#[test]
+fn short_dictionary_coverage_respects_null_missing_and_uncovered_domains() {
+    let exact_root = temporary_root("short-null-missing");
+    let mut exact = vec![serde_json::json!({"category": "b"}); 510];
+    exact.push(serde_json::json!({"category": null}));
+    exact.push(serde_json::json!({"other": true}));
+    exact.push(serde_json::json!({"category": "b"}));
+    write_json_documents(&exact_root, exact);
+    let repo = open_category_repository(&exact_root, 514);
+    let path: Vec<String> = vec!["category".into()];
+    let diagnostic = repo
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(diagnostic.value_dictionary_complete, "{diagnostic:?}");
+    let mut request = query("category = 'b'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&request).unwrap();
+    assert_eq!(result.count, Some(511));
+    assert_eq!(result.counters.record_parses, 0);
+
+    let partial_root = temporary_root("short-null-long");
+    let mut partial = vec![serde_json::json!({"category": "b"}); 510];
+    partial.push(serde_json::json!({"category": null}));
+    partial.push(serde_json::json!({"category": "category_alpha"}));
+    partial.push(serde_json::json!({"category": "b"}));
+    write_json_documents(&partial_root, partial);
+    let partial = open_category_repository(&partial_root, 514);
+    let diagnostic = partial
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(!diagnostic.value_dictionary_complete, "{diagnostic:?}");
+    let mut request = query("category = 'category_alpha'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = partial.search(&request).unwrap();
+    let reference = partial.search_reference(&request).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, Some(1));
+    assert!(result.counters.record_parses > 0);
+    std::fs::remove_dir_all(exact_root).unwrap();
+    std::fs::remove_dir_all(partial_root).unwrap();
 }
 
 #[test]

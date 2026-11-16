@@ -59,6 +59,17 @@ struct FieldAdmissionDecision {
     has_short_values: bool,
 }
 
+fn short_dictionary_covers_required_domain(
+    retained_short_postings: bool,
+    present: &RoaringBitmap,
+    exact_null: &RoaringBitmap,
+    short_seen: &RoaringBitmap,
+    short_uncovered: &RoaringBitmap,
+) -> bool {
+    let required = present - exact_null;
+    required.is_empty() || (retained_short_postings && short_seen - short_uncovered == required)
+}
+
 /// One policy decision for both a single-domain builder and collection-wide
 /// observations. Candidate construction supplies the facts; this function is
 /// the sole place that interprets semantic thresholds and admission order.
@@ -271,6 +282,7 @@ pub(crate) fn aggregate_segment_inference(
                     empty.len(),
                     "inference empty selection count overflow",
                 )?;
+                aggregate.short_domains_complete &= empty.is_empty();
             }
             if let Some(inference) = &segment.index.inference
                 && let Some(index) = inference.indexes.get(&path)
@@ -367,11 +379,11 @@ pub(crate) fn aggregate_segment_inference(
                 && (aggregate.values_present || aggregate.short_values_present)
                 && decision.scalar_kind.is_some()
                 && !decision.mixed_shape
-                && (decision.string_admissible || aggregate.short_values_present)
+                && (decision.string_admissible || aggregate.short_dictionary_complete())
                 && !aggregate.indexes.is_empty()
                 && aggregate.indexes.iter().all(|index| index.value_complete),
             short_string_candidates: decision.status == InferenceIndexStatus::Built
-                && aggregate.short_values_present
+                && aggregate.short_postings_present
                 && short_string_covered_records != 0,
             empty_string_exact: aggregate.empty_string_exact
                 && decision.scalar_kind == Some(LogicalType::String)
@@ -517,6 +529,8 @@ struct AggregatedField<'a> {
     short_string_covered_records: u64,
     short_seen_records: u64,
     short_values_present: bool,
+    short_postings_present: bool,
+    short_domains_complete: bool,
     short_dropped: bool,
     short_summary_truncated: bool,
     lengths_complete: bool,
@@ -543,6 +557,7 @@ impl<'a> AggregatedField<'a> {
             values_present: true,
             distinct_nonblank: Some(HashSet::new()),
             short_distinct: Some(HashSet::new()),
+            short_domains_complete: true,
             structural_facts: true,
             empty_string_exact: true,
             array_length_complete: true,
@@ -585,6 +600,14 @@ impl<'a> AggregatedField<'a> {
                 .as_ref()
                 .is_some_and(|values| !values.is_empty());
         self.short_values_present |= has_short_values;
+        self.short_postings_present |= field.observation_short_values_present;
+        self.short_domains_complete &= short_dictionary_covers_required_domain(
+            field.observation_short_values_present,
+            &field.present,
+            &field.exact_null,
+            &field.short_seen,
+            &field.short_uncovered,
+        );
         add_count(
             &mut self.present_records,
             field.present.len(),
@@ -720,6 +743,10 @@ impl<'a> AggregatedField<'a> {
         self.short_distinct
             .as_ref()
             .map_or(self.short_distinct_lower_bound, HashSet::len)
+    }
+
+    fn short_dictionary_complete(&self) -> bool {
+        self.short_postings_present && self.short_domains_complete
     }
 }
 
@@ -1672,8 +1699,13 @@ impl InferenceBuilder {
                 0
             };
             if status == InferenceIndexStatus::Built {
-                let all_short =
-                    has_short_values && short_covered == (&field.present - &field.exact_null);
+                let all_short = short_dictionary_covers_required_domain(
+                    has_short_values,
+                    &field.present,
+                    &field.exact_null,
+                    &field.short_seen,
+                    &field.short_uncovered,
+                );
                 let value_complete = !mixed_shape
                     && scalar_kind.is_some()
                     && ((!field.dropped
