@@ -296,7 +296,8 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
     let build_failed_parses = repository.build_failed_parses();
     let startup = repository.startup().clone();
     assert_eq!(build_parses, 7);
-    let report = serde_json::to_value(repository.inference_report("items").unwrap()).unwrap();
+    let mut report = serde_json::to_value(repository.inference_report("items").unwrap()).unwrap();
+    report["complete"] = serde_json::Value::Bool(false);
     let diagnostics =
         serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap();
     assert!(!diagnostics.as_array().unwrap().is_empty());

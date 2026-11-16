@@ -66,11 +66,19 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let records = 513usize;
     for number in 0..records {
-        std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            r#"{"bucket":7}"#,
-        )
-        .unwrap();
+        let body = if number == 0 {
+            r#"{"category":"category_alpha","items":[],"shape":"direct","maybe":[null,"mixed"],"code":"A"}"#
+                .to_owned()
+        } else if number + 1 == records {
+            r#"{"category":"category_alpha","items":[{"name":"alpha"}],"shape":[1],"only_late":true,"code":"A"}"#
+                .to_owned()
+        } else {
+            format!(
+                r#"{{"category":"category_alpha","code":"{}"}}"#,
+                if number.is_multiple_of(2) { "A" } else { "B" }
+            )
+        };
+        std::fs::write(root.join(format!("data/{number:03}.json")), body).unwrap();
     }
     let repo = Repository::open_with_options(
         &root,
@@ -90,6 +98,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
                     min_nonblank_occurrences: records as u64,
                     min_nonblank_records: records as u64,
                     minimum_repeated_percent: 0,
+                    short_string_max_utf8_bytes: 4,
                     ..Default::default()
                 },
             },
@@ -98,11 +107,78 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     )
     .unwrap();
     assert_eq!(repo.segments[0].len(), 2);
-    let field = repo.inference_report("data").unwrap().fields[0].clone();
+    assert_eq!(
+        repo.segments[0]
+            .iter()
+            .map(|segment| segment.index.records.len())
+            .collect::<Vec<_>>(),
+        [512, 1]
+    );
+    let report = repo.inference_report("data").unwrap();
+    let field = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["category"])
+        .unwrap()
+        .clone();
     assert_eq!(field.index_status, InferenceIndexStatus::Built);
     assert_eq!(field.present_records, records as u64);
+    let late = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["only_late"])
+        .unwrap();
+    assert_eq!(late.eligible_records, records as u64);
+    assert_eq!(late.present_records, 1);
+    assert_eq!(late.missing_records, (records - 1) as u64);
+    let nested = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["items", "name"])
+        .unwrap();
+    assert_eq!(nested.eligible_records, records as u64);
+    assert_eq!(nested.present_records, 2);
+    assert_eq!(nested.missing_records, (records - 2) as u64);
+    assert_eq!(nested.empty_selection_records, 1);
+    let shape = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["shape"])
+        .unwrap();
+    assert_eq!(shape.scalar_records, 1);
+    assert_eq!(shape.array_records, 1);
+    let maybe = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["maybe"])
+        .unwrap();
+    assert_eq!(maybe.null_occurrence_records, 1);
+    assert_eq!(maybe.exact_null_records, 0);
+    assert_eq!(maybe.nonblank_records, 1);
+    let code = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["code"])
+        .unwrap();
+    assert_eq!(code.short_string_distinct_values, 2);
+    assert_eq!(code.short_string_covered_records, records as u64);
+    let segment_index = &repo.segments[0]
+        .iter()
+        .find(|segment| segment.index.inference.is_some())
+        .unwrap()
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .indexes[&vec!["category".into()]];
+    assert!(segment_index.value_complete);
+    assert!(
+        segment_index
+            .values
+            .contains_key(&crate::posting::ScalarKey::String("category_alpha".into()))
+    );
 
-    let mut request = query("bucket = 7");
+    let mut request = query("category = 'category_alpha'");
     request.options.return_mode = ReturnMode::Locator;
     let result = repo.search(&request).unwrap();
     assert_eq!(result.count, Some(records));
@@ -114,6 +190,421 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             .iter()
             .any(|term| { term.selected.kind == AccessPathKind::Posting && term.selected.exact })
     );
+
+    let diagnostics = repo.inference_index_diagnostics("data").unwrap();
+    let shape = diagnostics
+        .iter()
+        .find(|field| field.path == ["shape"])
+        .unwrap();
+    assert!(shape.array_length_complete);
+    assert!(!shape.value_dictionary_complete);
+    let code = diagnostics
+        .iter()
+        .find(|field| field.path == ["code"])
+        .unwrap();
+    assert!(code.short_string_candidates);
+
+    let report_only = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::ReportOnly,
+                policy: InferencePolicy {
+                    min_nonblank_occurrences: records as u64,
+                    min_nonblank_records: records as u64,
+                    minimum_repeated_percent: 0,
+                    short_string_max_utf8_bytes: 4,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let report_only_report = report_only.inference_report("data").unwrap();
+    assert!(
+        report_only_report
+            .fields
+            .iter()
+            .all(|field| field.index_status == InferenceIndexStatus::NotRequested)
+    );
+    assert_eq!(
+        report_only_report
+            .fields
+            .iter()
+            .find(|field| field.path == ["items", "name"])
+            .unwrap()
+            .present_records,
+        2
+    );
+    assert!(report_only.segments[0].iter().all(|segment| {
+        segment
+            .index
+            .inference
+            .as_ref()
+            .is_none_or(|inference| inference.indexes.is_empty())
+    }));
+    let rejected = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    min_nonblank_occurrences: records as u64 + 1,
+                    min_nonblank_records: records as u64 + 1,
+                    minimum_repeated_percent: 0,
+                    short_string_max_utf8_bytes: 4,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let rejected_diagnostic = rejected
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert!(!rejected_diagnostic.value_dictionary_complete);
+    let rejected_result = rejected.search(&request).unwrap();
+    let rejected_reference = rejected.search_reference(&request).unwrap();
+    assert_eq!(rejected_result.hits, rejected_reference.hits);
+    assert!(rejected_result.counters.files_opened > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments() {
+    let root = temporary_root("global-distinct-rejection");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let records = 1_024usize;
+    for number in 0..records {
+        let value = format!("category_global_{:02}", number % 65);
+        std::fs::write(
+            root.join(format!("data/{number:04}.json")),
+            serde_json::json!({ "category": value }).to_string(),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    short_string_max_utf8_bytes: 4,
+                    max_distinct_nonblank_strings: 64,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(repo.segments[0].len(), 2);
+    let field = repo.inference_report("data").unwrap().fields[0].clone();
+    assert_eq!(field.index_status, InferenceIndexStatus::Built);
+    assert_eq!(field.distinct_nonblank_strings, None);
+    assert!(field.distinct_nonblank_strings_truncated);
+    let diagnostic = repo
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert!(!diagnostic.value_dictionary_complete);
+    assert!(diagnostic.empty_string_exact);
+    assert!(diagnostic.structural_facts);
+    for segment in repo.segments[0].iter() {
+        let posting = &segment.index.inference.as_ref().unwrap().indexes[&vec!["category".into()]];
+        assert!(!posting.value_complete);
+        assert!(posting.values.is_empty());
+        assert!(!posting.presence.is_empty());
+    }
+    let mut request = query("category = 'category_global_00'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&request).unwrap();
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, reference.count);
+
+    let accepted = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    short_string_max_utf8_bytes: 4,
+                    max_distinct_nonblank_strings: 65,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let accepted_field = accepted
+        .inference_report("data")
+        .unwrap()
+        .fields
+        .iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert_eq!(accepted_field.distinct_nonblank_strings, Some(65));
+    assert!(!accepted_field.distinct_nonblank_strings_truncated);
+    let accepted_diagnostic = accepted
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert!(accepted_diagnostic.value_dictionary_complete);
+    let accepted_result = accepted.search(&request).unwrap();
+    assert_eq!(accepted_result.counters.record_parses, 0);
+    assert_eq!(
+        accepted_result.hits,
+        accepted.search_reference(&request).unwrap().hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn repeated_percent_boundary_is_inclusive_and_exact() {
+    let root = temporary_root("global-repeat-boundary");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..10 {
+        let value = if number < 7 { "long-a" } else { "long-b" };
+        std::fs::write(
+            root.join(format!("data/{number:02}.json")),
+            format!(r#"{{"category":"{value}"}}"#),
+        )
+        .unwrap();
+    }
+    let open = |minimum_repeated_percent| {
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions {
+                inference: InferenceConfig {
+                    mode: InferenceMode::AutoIndex,
+                    policy: InferencePolicy {
+                        min_nonblank_occurrences: 10,
+                        min_nonblank_records: 10,
+                        minimum_repeated_percent,
+                        short_string_max_utf8_bytes: 1,
+                        ..Default::default()
+                    },
+                },
+                ..Default::default()
+            },
+        )
+        .unwrap()
+    };
+    let accepted = open(80);
+    let accepted_diagnostic = accepted
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert!(accepted_diagnostic.value_dictionary_complete);
+    let rejected = open(81);
+    let rejected_diagnostic = rejected
+        .inference_index_diagnostics("data")
+        .unwrap()
+        .into_iter()
+        .find(|field| field.path == ["category"])
+        .unwrap();
+    assert!(!rejected_diagnostic.value_dictionary_complete);
+    let mut request = query("category = 'long-a'");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = rejected.search(&request).unwrap();
+    let reference = rejected.search_reference(&request).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, Some(7));
+    assert!(result.counters.files_opened > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_observation_overflow_uses_residual_scanning() {
+    let root = temporary_root("segmented-observation-overflow");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..513usize {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!(
+                r#"{{"flag":{},"payload":"{}-{number}"}}"#,
+                number.is_multiple_of(2),
+                "x".repeat(64)
+            ),
+        )
+        .unwrap();
+    }
+    let policy = InferencePolicy {
+        max_batch_bytes: 1_024,
+        max_total_bytes: 2_048,
+        max_repository_bytes: 4_096,
+        ..Default::default()
+    };
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy,
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let report = repo.inference_report("data").unwrap();
+    assert!(!report.complete);
+    assert!(
+        report.fields.is_empty()
+            || report.fields.iter().any(|field| {
+                field.index_status == InferenceIndexStatus::Incomplete
+                    || field.index_status == InferenceIndexStatus::BudgetExceeded
+            })
+    );
+    assert!(repo.segments[0].iter().all(|segment| {
+        segment
+            .index
+            .inference
+            .as_ref()
+            .is_none_or(|inference| inference.indexes.is_empty())
+    }));
+    let mut request = query("flag = true");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&request).unwrap();
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, Some(257));
+    assert!(result.counters.files_opened > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mutation_keeps_query_parity_with_construction_generation_observations() {
+    let root = temporary_root("mutation-stale-report");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let initial = root.join("data/initial.jsonl");
+    let mut initial_source = String::new();
+    for number in 0..24usize {
+        initial_source.push_str(&format!(
+            "{{\"id\":\"i{number}\",\"flag\":{},\"category\":\"alpha\"}}\n",
+            number.is_multiple_of(2)
+        ));
+    }
+    std::fs::write(&initial, initial_source).unwrap();
+    let index = crate::lifecycle::Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    assert!(view.inference_report("data").unwrap().complete);
+    let mut request = query("flag = true");
+    request.options.return_mode = ReturnMode::Locator;
+    let before = view.search(&request).unwrap();
+    assert_eq!(before.count, Some(12));
+    assert_eq!(before.counters.files_opened, 0);
+    drop(view);
+
+    let added = root.join("data/added.jsonl");
+    let mut added_source = String::new();
+    for number in 0..24 {
+        added_source.push_str(&format!(
+            "{{\"id\":\"a{number}\",\"flag\":true,\"category\":\"beta\"}}\n"
+        ));
+    }
+    std::fs::write(&added, added_source).unwrap();
+    let added = index.add_file(&added).unwrap();
+    let view = index.view().unwrap();
+    let after_add = view.search(&request).unwrap();
+    let reference = view.search_reference(&request).unwrap();
+    assert_eq!(after_add.hits, reference.hits);
+    assert_eq!(after_add.count, Some(36));
+    drop(view);
+
+    index.delete_file(added.file).unwrap();
+    let view = index.view().unwrap();
+    let after_delete = view.search(&request).unwrap();
+    let reference = view.search_reference(&request).unwrap();
+    assert_eq!(after_delete.hits, reference.hits);
+    assert_eq!(after_delete.count, Some(12));
+    drop(view);
+    let task = index.start_compaction().unwrap();
+    task.wait().unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(
+        view.search(&request).unwrap().hits,
+        view.search_reference(&request).unwrap().hits
+    );
+    drop(view);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

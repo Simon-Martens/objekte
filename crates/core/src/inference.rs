@@ -165,8 +165,12 @@ pub struct InferredFieldReport {
     pub nonblank_occurrences: u64,
     pub nonblank_records: u64,
     pub distinct_nonblank_strings: Option<usize>,
+    #[serde(default)]
+    pub distinct_nonblank_strings_truncated: bool,
     pub short_string_observed_occurrences: u64,
     pub short_string_distinct_values: usize,
+    #[serde(default)]
+    pub short_string_distinct_values_truncated: bool,
     pub short_string_covered_records: u64,
     pub short_string_unresolved_records: u64,
     pub index_status: InferenceIndexStatus,
@@ -247,6 +251,16 @@ pub struct InferencePathDiagnostic {
     pub length_keys: Option<usize>,
     pub covered_records: Option<u32>,
     pub present_records: u64,
+    #[serde(default)]
+    pub value_dictionary_complete: bool,
+    #[serde(default)]
+    pub short_string_candidates: bool,
+    #[serde(default)]
+    pub empty_string_exact: bool,
+    #[serde(default)]
+    pub array_length_complete: bool,
+    #[serde(default)]
+    pub structural_facts: bool,
     pub short_string_covered_records: u64,
     pub short_string_unresolved_records: u64,
 }
@@ -281,6 +295,11 @@ impl InferenceState {
                     length_keys: posting.map(PostingIndex::distinct_lengths),
                     covered_records: posting.map(|index| index.covered_records),
                     present_records: field.present_records,
+                    value_dictionary_complete: posting.is_some_and(|index| index.value_complete),
+                    short_string_candidates: self.short_string_coverage.contains_key(&field.path),
+                    empty_string_exact: posting.is_some_and(|index| index.empty_string_complete),
+                    array_length_complete: posting.is_some_and(|index| index.length_complete),
+                    structural_facts: posting.is_some_and(|index| index.structural.is_some()),
                     short_string_covered_records: field.short_string_covered_records,
                     short_string_unresolved_records: field.short_string_unresolved_records,
                 }
@@ -436,7 +455,7 @@ impl InferenceState {
 
 #[path = "inference_build.rs"]
 pub(crate) mod build;
-pub(crate) use build::InferenceBuilder;
+pub(crate) use build::{InferenceBuilder, InferenceObservation};
 
 #[cfg(test)]
 #[path = "inference.test.rs"]

@@ -899,7 +899,11 @@ impl Repository {
         self.options
     }
 
-    /// Completed observations for a collection; absent when inference was disabled.
+    /// Completed construction-generation observations for a collection.
+    ///
+    /// File mutations keep this report tied to the construction generation
+    /// whose segments produced it; compaction or rebuild paths mark it
+    /// incomplete until a new collection decision is available.
     pub fn inference_report(&self, collection: &str) -> Option<&InferenceReport> {
         self.collections
             .iter()
@@ -1681,6 +1685,9 @@ impl Repository {
                         diagnostics: state.path_diagnostics(),
                     })
             });
+            if let Some(summary) = target.global_inference.as_mut() {
+                summary.report.complete = false;
+            }
         }
         empty.build_parses = self.build_parses;
         empty.build_failed_parses = self.build_failed_parses;

@@ -1506,16 +1506,30 @@ impl Index {
                     .and_then(|collection| collection.global_inference.as_ref());
                 let needs_inference_prune = decision.is_some_and(|decision| {
                     published.index.inference.as_ref().is_some_and(|state| {
-                        state.indexes.keys().any(|path| {
-                            decision
+                        state.indexes.iter().any(|(path, index)| {
+                            let field = decision
                                 .report
                                 .fields
                                 .iter()
-                                .find(|field| field.path == *path)
-                                .is_none_or(|field| {
-                                    field.index_status
-                                        != crate::inference::InferenceIndexStatus::Built
-                                })
+                                .find(|field| field.path == *path);
+                            if field.is_none_or(|field| {
+                                field.index_status != crate::inference::InferenceIndexStatus::Built
+                            }) {
+                                return true;
+                            }
+                            let diagnostic = decision
+                                .diagnostics
+                                .iter()
+                                .find(|diagnostic| diagnostic.path == *path);
+                            index.value_complete
+                                && !diagnostic
+                                    .is_some_and(|diagnostic| diagnostic.value_dictionary_complete)
+                                || index.length_complete
+                                    && !diagnostic
+                                        .is_some_and(|diagnostic| diagnostic.array_length_complete)
+                                || index.empty_string_complete
+                                    && !diagnostic
+                                        .is_some_and(|diagnostic| diagnostic.empty_string_exact)
                         })
                     })
                 });
@@ -1544,9 +1558,6 @@ impl Index {
                 if let Some(decision) = decision {
                     if let Some(inference) = index.inference.as_mut() {
                         for field in &decision.report.fields {
-                            if field.index_status == crate::inference::InferenceIndexStatus::Built {
-                                continue;
-                            }
                             if matches!(
                                 field.index_status,
                                 crate::inference::InferenceIndexStatus::Redundant
@@ -1557,18 +1568,40 @@ impl Index {
                                 inference.short_string_coverage.remove(&field.path);
                                 continue;
                             }
-                            if !matches!(
-                                field.index_status,
-                                crate::inference::InferenceIndexStatus::BelowThreshold
-                            ) {
-                                continue;
-                            }
+                            let diagnostics = decision
+                                .diagnostics
+                                .iter()
+                                .find(|diagnostic| diagnostic.path == field.path);
+                            let general_values = diagnostics
+                                .is_some_and(|diagnostic| diagnostic.value_dictionary_complete);
+                            let short_values = diagnostics
+                                .is_some_and(|diagnostic| diagnostic.short_string_candidates);
+                            let empty_string_exact =
+                                diagnostics.is_some_and(|diagnostic| diagnostic.empty_string_exact);
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
-                                posting.values.clear();
-                                posting.values_indexed = false;
-                                posting.value_complete = false;
+                                if !general_values && !short_values {
+                                    let empty = empty_string_exact.then(|| {
+                                        posting.values.remove(&crate::posting::ScalarKey::String(
+                                            String::new(),
+                                        ))
+                                    });
+                                    posting.values.clear();
+                                    if let Some(Some(slots)) = empty {
+                                        posting.values.insert(
+                                            crate::posting::ScalarKey::String(String::new()),
+                                            slots,
+                                        );
+                                    }
+                                    posting.values_indexed = empty_string_exact;
+                                }
+                                posting.value_complete = general_values;
+                                posting.length_complete = diagnostics
+                                    .is_some_and(|diagnostic| diagnostic.array_length_complete);
+                                posting.empty_string_complete = empty_string_exact;
                             }
-                            inference.short_string_coverage.remove(&field.path);
+                            if !short_values {
+                                inference.short_string_coverage.remove(&field.path);
+                            }
                         }
                     }
                 }

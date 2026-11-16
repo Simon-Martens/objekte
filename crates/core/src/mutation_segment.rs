@@ -606,6 +606,9 @@ impl CollectionSegment {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let inference_observation = inference
+            .as_ref()
+            .map(crate::inference::InferenceBuilder::observation);
         let inference = inference
             .map(|builder| {
                 builder.finish_candidates(&logical_records, record_count, &definition.schema)
@@ -639,6 +642,7 @@ impl CollectionSegment {
             id_lookup: self.id_lookup,
             identity_order,
             postings,
+            inference_observation,
             inference,
             custom_postings,
             raw,
@@ -1261,6 +1265,7 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings,
+            inference_observation: None,
             inference,
             custom_postings,
             raw,
@@ -2484,6 +2489,7 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings,
+            inference_observation: None,
             inference,
             custom_postings,
             raw,

@@ -109,6 +109,7 @@ pub(crate) fn base_as_segment(
         id_lookup: collection.id_lookup.clone(),
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),
+        inference_observation: None,
         inference: collection.inference.clone(),
         custom_postings: collection.custom_postings.clone(),
         raw: collection.raw.clone(),
