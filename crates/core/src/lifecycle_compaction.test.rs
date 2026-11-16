@@ -49,7 +49,13 @@ fn compacting_native_segments_preserves_text_postings() {
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
     ).unwrap();
     let pinned = index.view().unwrap();
     assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
@@ -76,7 +82,13 @@ fn compaction_reuses_unaffected_native_segment() {
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
     ).unwrap();
     let removed = root.join("data/removed.json");
     let kept = root.join("data/kept.json");
@@ -116,7 +128,13 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
     ).unwrap();
     for number in 0..2 {
         let path = root.join(format!("data/remove-{number}.json"));
@@ -321,22 +339,27 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     index.compact().unwrap();
     let b_handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
     std::fs::write(&b, br#"{"name":"bb"}"#).unwrap();
-    index.update_file(b_handle, &b).unwrap();
+    let update = index.update_file(b_handle, &b).unwrap();
+    assert_eq!(
+        update.strategy,
+        crate::lifecycle_mutation::FileMutationStrategy::RebuildSmallestSegment
+    );
     let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
-    assert!(dense.active.len() < dense.index.records.len() as u64);
+    assert_eq!(dense.active.len(), dense.index.records.len() as u64);
     for number in 0..70 {
         let path = root.join(format!("data/new-{number}.json"));
         std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
         index.add_file(&path).unwrap();
     }
     let current = index.view().unwrap();
-    assert!(
-        current
-            .segments(CollectionId(0))
-            .unwrap()
-            .iter()
-            .any(|segment| Arc::ptr_eq(segment, &dense))
-    );
+    // The new mutation policy intentionally rebuilds the live-lightest
+    // destination rather than invoking the old multi-pass coalescing path.
+    assert!(!current
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .any(|segment| Arc::ptr_eq(segment, &dense)));
+    assert_eq!(slot_count(&current.0), 72);
     assert_eq!(current.search(&all()).unwrap().count, Some(72));
     assert_eq!(current.search(&literal("new-69")).unwrap().count, Some(1));
     index.shutdown().unwrap();

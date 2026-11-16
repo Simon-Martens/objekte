@@ -2,7 +2,9 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
+use crate::inventory::ActiveRecords;
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
+use crate::native_segment::PublishedSegment;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
@@ -26,23 +28,56 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/initial.json"), br#"{"name":"initial"}"#).unwrap();
+    std::fs::write(
+        root.join("data/initial.jsonl"),
+        b"{\"name\":\"initial-0\"}\n{\"name\":\"initial-1\"}\n{\"name\":\"initial-2\"}\n{\"name\":\"initial-3\"}\n",
+    )
+    .unwrap();
+    for number in 0..2 {
+        std::fs::write(
+            root.join(format!("data/new-{number}.jsonl")),
+            format!("{{\"name\":\"new-{number}\"}}\n"),
+        )
+        .unwrap();
+    }
     let index = Index::build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::Json,
+            SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
     )
     .unwrap();
-    for number in 0..2 {
-        let path = root.join(format!("data/new-{number}.json"));
-        std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
-        index.add_file(&path).unwrap();
+    let view = index.view().unwrap();
+    let source = view.segments(CollectionId(0)).unwrap()[0].clone();
+    let parts = crate::lifecycle_partition::compact_source_parts_with_policy(
+        &source.index,
+        &source.active,
+        &view.0.catalog,
+        crate::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(4).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+        },
+        || false,
+    )
+    .unwrap();
+    let mut staged = (*view.0).clone();
+    let mut group = Vec::new();
+    for part in parts {
+        let id = crate::native_segment::SegmentId::new(staged.next_segment_ordinal);
+        staged.next_segment_ordinal += 1;
+        let active = ActiveRecords::all(part.record_count()).unwrap();
+        let mut part = part;
+        part.id = id;
+        group.push(Arc::new(PublishedSegment {
+            id,
+            index: Arc::new(part),
+            active,
+        }));
     }
-    let mut staged = (*index.view().unwrap().0).clone();
+    staged.segments[0] = Arc::new(group);
     assert_eq!(staged.segments[0].len(), 3);
     for segment in staged.segments[0].iter() {
         assert!(segment.index.accounting.retained_bytes_estimated > 0);
@@ -103,11 +138,12 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     std::fs::write(&added, br#"{"name":"new item"}"#).unwrap();
     index.add_file(&added).unwrap();
     let current = index.view().unwrap();
-    assert!(
-        current.0.segments[0]
-            .iter()
-            .any(|segment| segment.index.records.len() == 192)
-    );
+    let rebuilt = current.0.segments[0]
+        .iter()
+        .find(|segment| segment.index.records.len() == 193)
+        .expect("smallest destination should absorb the added file");
+    assert_eq!(rebuilt.active.len(), 193);
+    assert!(!Arc::ptr_eq(&maintained.0.segments[0][0], rebuilt));
     assert_eq!(current.0.status().live_records, 193);
     assert_eq!(maintained.0.status().live_records, 192);
     assert_eq!(pinned.0.status().live_records, 256);
@@ -696,8 +732,8 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     let staged = index.stage_prepared_add(prepared).unwrap();
     assert_eq!(staged.status().indexed_files, 2);
     assert_eq!(staged.status().live_records, 6);
-    assert_eq!(staged.segments[0].len(), prior_segments + 1);
-    assert_eq!(staged.segments[1].len(), prior_segments + 1);
+    assert_eq!(staged.segments[0].len(), prior_segments);
+    assert_eq!(staged.segments[1].len(), prior_segments);
     assert_eq!(staged.segments[0].last().unwrap().id.get(), next_ordinal);
     assert_eq!(
         staged.segments[1].last().unwrap().id.get(),
@@ -1227,7 +1263,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
             .position(|segment| segment.index.id_lookup.contains_key(record_id))
             .unwrap();
         let segment = Arc::make_mut(&mut group[segment]);
-        let slot = segment.index.id_lookup[record_id];
+        let slot = segment.index.id_lookup.get(record_id).unwrap();
         segment.active = segment.active.retired(&[slot]).unwrap();
     }
     index.publish_prepared(old.revision(), next).unwrap();
@@ -1437,6 +1473,21 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     index.add_file(&root.join("data/c.json")).unwrap();
     let after = total(&index.view().unwrap());
     assert!(after > before);
+    let retained_before = index
+        .view()
+        .unwrap()
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| {
+            segment
+                .index
+                .files
+                .iter()
+                .any(|file| file.entry.relative_path.as_path() == std::path::Path::new("data/a.json"))
+        })
+        .unwrap()
+        .clone();
 
     let handle = index
         .view()
@@ -1449,17 +1500,17 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         .segments(CollectionId(0))
         .unwrap()
         .iter()
-        .find(|segment| segment.id == first.id)
+        .find(|segment| segment.id == retained_before.id)
         .expect("retired shard missing");
     assert_eq!(
         retained.index.accounting.retained_bytes_estimated,
-        first.index.accounting.retained_bytes_estimated
+        retained_before.index.accounting.retained_bytes_estimated
     );
     assert_eq!(
         retained.index.accounting.index_family_bytes,
-        first.index.accounting.index_family_bytes
+        retained_before.index.accounting.index_family_bytes
     );
-    assert!(retained.active.len() < first.active.len());
+    assert!(retained.active.len() < retained_before.active.len());
     index.compact().unwrap();
     let compacted = index.view().unwrap();
     let compacted_total = total(&compacted);

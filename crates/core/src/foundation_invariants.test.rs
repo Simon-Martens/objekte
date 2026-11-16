@@ -76,7 +76,10 @@ fn assert_ids(repo: &Repository, filter: &str, expected: &[&str]) {
         .collect::<HashSet<_>>();
     assert_eq!(
         actual,
-        expected.iter().copied().collect(),
+        expected
+            .iter()
+            .copied()
+            .collect::<std::collections::HashSet<_>>(),
         "filter={filter}"
     );
     assert_eq!(optimized.count, Some(expected.len()), "filter={filter}");

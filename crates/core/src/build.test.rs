@@ -2253,7 +2253,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
     .err()
     .unwrap();
     assert!(
-        error.contains("duplicate record ID") && error.contains("0512.jsonl"),
+        error.contains("duplicate record ID") && error.contains("collection data"),
         "{error}"
     );
     std::fs::remove_dir_all(root).unwrap();

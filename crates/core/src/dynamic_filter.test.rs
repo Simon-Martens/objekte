@@ -141,7 +141,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                                 if let Some(slot) = segment
                                     .index
                                     .id_lookup
-                                    .get(&crate::model::RecordId(id.into()))
+                                    .get(id)
                                 {
                                     assert!(
                                         candidates.contains(slot.0),

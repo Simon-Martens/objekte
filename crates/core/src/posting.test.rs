@@ -1,6 +1,26 @@
 use super::*;
 
 #[test]
+fn rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement() {
+    let archive = crate::archive_storage::ValidatedArchive::freeze(&OrderedPostingArchive {
+        postings: BTreeMap::from([(StoredScalarKey::String("tree".into()), 0)]),
+        ascending: vec![OrderedPostingEntry {
+            key: StoredScalarKey::String("reverse".into()),
+            ordinal: 0,
+        }],
+    })
+    .unwrap();
+    let dictionary = PublishedPostingDictionary {
+        archive,
+        bitmaps: Arc::new(vec![RoaringBitmap::from_iter([1])]),
+    };
+    assert_eq!(
+        validate_published_dictionary(&dictionary),
+        Err("archived reverse entry is absent from the tree".into())
+    );
+}
+
+#[test]
 fn broad_id_union_matches_individual_lookups() {
     let field = FieldDefinition {
         path: vec!["ref".into()],
@@ -13,8 +33,8 @@ fn broad_id_union_matches_individual_lookups() {
     };
     let mut index = PostingIndex::new(&field);
     for id in 0..100 {
-        index.values.insert(
-            ScalarKey::Id(format!("id-{id:03}")),
+        index.values.insert_public(
+            &ScalarKey::Id(format!("id-{id:03}")),
             RoaringBitmap::from_iter([id, id + 100]),
         );
     }
@@ -499,6 +519,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
         );
     }
     values.insert(ScalarKey::Bool(false), RoaringBitmap::from_iter([20_001]));
+    let values = PostingDictionary::from_public(values);
     let key = ScalarKey::Number(Number::integer(9_990));
     let (upper, visits) = scalar_range_postings(&values, &key, Operator::Gt, None);
     assert_eq!(visits, 9);
@@ -541,6 +562,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
     let lengths = (0..10_000)
         .map(|n| (Number::integer(n), RoaringBitmap::from_iter([n as u32])))
         .collect::<BTreeMap<_, _>>();
+    let lengths: PostingDictionary<PostingNumberKey> = PostingDictionary::from_public(lengths);
     let (long, visits) = range_postings(&lengths, &Number::integer(9_990), Operator::Gt, None);
     assert_eq!(visits, 9);
     assert_eq!(

@@ -62,7 +62,13 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         original.id_for(std::path::Path::new("data/a.json")),
         Some(FileId(0))
     );
-    assert!(Arc::ptr_eq(&changed.base_files, &original.base_files));
+    let changed_path_owners = changed
+        .paths
+        .iter()
+        .zip(original.paths.iter())
+        .filter(|(changed, original)| !Arc::ptr_eq(changed, original))
+        .count();
+    assert!((1..=2).contains(&changed_path_owners));
 
     let retired = changed.retired(FileId(1)).unwrap();
     assert_eq!(retired.active_files(), 1);
@@ -103,7 +109,6 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let restored = FileCatalog::restored(Arc::clone(&repository), slots.clone()).unwrap();
     assert_eq!(restored.allocated_files(), 3);
     assert_eq!(restored.active_files(), 2);
-    assert!(Arc::ptr_eq(&restored.base_files, &repository.files));
     assert_eq!(restored.id_for(std::path::Path::new("data/a.json")), None);
     assert_eq!(restored.id_for(std::path::Path::new("data/b.json")), None);
     assert_eq!(
@@ -124,13 +129,11 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
 
     let unchanged = original.snapshot_slots();
     let baseline = FileCatalog::restored(Arc::clone(&repository), unchanged).unwrap();
-    assert!(baseline.changed.iter().all(|bucket| bucket.is_empty()));
-    assert!(
-        baseline
-            .changed_paths
-            .iter()
-            .all(|bucket| bucket.is_empty())
-    );
+    for id in original.active_ids() {
+        assert_eq!(baseline.entry(id), original.entry(id));
+        assert_eq!(baseline.fingerprint(id), original.fingerprint(id));
+        assert_eq!(baseline.configuration(id), original.configuration(id));
+    }
 
     let mut duplicate_path = slots.clone();
     duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.json".into();
@@ -143,4 +146,42 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(FileCatalog::restored(Arc::clone(&repository), invalid_membership).is_err());
     assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
+    use std::ffi::OsString;
+    use std::os::unix::ffi::OsStringExt;
+
+    let root = std::env::temp_dir().join("objekte-rkyv-non-utf8-catalog");
+    let mut inventory = crate::inventory::FileInventory::new(root.clone());
+    let native = std::path::PathBuf::from(OsString::from_vec(
+        b"data/non-utf8-\xff.json".to_vec(),
+    ));
+    let id = inventory
+        .add(
+            native.clone(),
+            crate::inventory::SourceRevision {
+                modified_ns: 1,
+                size: 2,
+            },
+            None,
+            CollectionId(0),
+        )
+        .unwrap();
+    let catalog = FileCatalog::from_parts(
+        std::sync::Arc::new(inventory),
+        vec![Some([9; 32])],
+        [4; 32],
+    );
+    assert_eq!(catalog.id_for(&native), Some(id));
+    assert_eq!(catalog.fingerprint(id), Some([9; 32]));
+    assert_eq!(catalog.configuration(id), Some([4; 32]));
+    let query = crate::path_repr::query_path(&native);
+    assert_eq!(
+        catalog.relative_path_ids(Operator::Eq, &query),
+        Some(vec![id])
+    );
+    assert_ne!(query, "data/non-utf8-\u{fffd}.json");
 }

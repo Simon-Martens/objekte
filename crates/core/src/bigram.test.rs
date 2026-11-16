@@ -90,9 +90,14 @@ fn direct_folded_grams_keep_byte_scalar_and_segment_boundaries() {
             ascii_pair(b'a', b'b').unwrap(),
             ascii_pair(b'b', b'c').unwrap()
         ]
-        .into()
+        .into_iter().collect::<std::collections::HashSet<_>>()
     );
-    assert_eq!(skip, [ascii_pair(b'a', b'c').unwrap()].into());
+    assert_eq!(
+        skip,
+        [ascii_pair(b'a', b'c').unwrap()]
+            .into_iter()
+            .collect::<std::collections::HashSet<_>>()
+    );
 
     let (normal, skip) = collect(&["a\nb"], BigramAlphabet::Ascii);
     assert!(normal.is_empty());
