@@ -1,0 +1,112 @@
+{
+  "task": "ic-stable-index-prototype",
+  "base_commit": "c54486f893a57fac0b1b80ed967ab4f5a5fd26c9",
+  "environment": {
+    "platform": "linux",
+    "cpu": "AMD Ryzen 7 5700G",
+    "logical_cpus": 16,
+    "physical_cores": 8,
+    "affinity": "0-15",
+    "profile": "release",
+    "corpus": "examples/musenalm",
+    "alphabet": "ascii",
+    "source_files": 148486,
+    "source_records": 148486,
+    "source_bytes": 193297230,
+    "schema_sha256": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+  },
+  "exploratory": [
+    {
+      "workers": 1,
+      "native_build_ns": 6156751313,
+      "candidate_total_ns": 16538518696,
+      "ratio": 2.686
+    },
+    {
+      "workers": 2,
+      "native_build_ns": 3828003328,
+      "candidate_total_ns": 7574560544,
+      "ratio": 1.979
+    },
+    {
+      "workers": 8,
+      "native_build_ns": 1637301888,
+      "candidate_total_ns": 4616832009,
+      "ratio": 2.820
+    }
+  ],
+  "matched_p8": {
+    "samples": 5,
+    "native_build_ns": {
+      "median": 1637301888,
+      "min": 1600374513,
+      "max": 1681552381
+    },
+    "candidate_total_ns": {
+      "median": 4616832009,
+      "min": 4556226917,
+      "max": 4658134297
+    },
+    "candidate_component_conversion_ns": {
+      "median": 3000706671,
+      "min": 2967272706,
+      "max": 3016277096
+    },
+    "median_ratio": 2.819780544,
+    "conversion_only_ratio": 1.833
+  },
+  "memory_p8": {
+    "native_resident_bytes": 397258752,
+    "native_peak_bytes": 410255360,
+    "candidate_resident_bytes": 393867264,
+    "candidate_peak_bytes": 407244800,
+    "candidate_owned_component_payload_bytes": 402980864,
+    "resident_ratio": 0.991,
+    "peak_ratio": 0.993
+  },
+  "persistence": {
+    "snapshot_save_ns": 541117451,
+    "manifest_open_ns": 27239758,
+    "component_load_27_9_mb_ns": 27089817,
+    "standalone_open_index_ns": 28365913,
+    "standalone_save_as_ns": 35760041,
+    "snapshot_components": 1323,
+    "snapshot_payload_bytes": 402784256
+  },
+  "primitives": {
+    "component": 306,
+    "component_payload_bytes": 27918336,
+    "first_load_ns": 52238051,
+    "resident_lookup_ns": [275658, 6823, 4849],
+    "resident_lookup_members": [1, 1, 1]
+  },
+  "mutations": {
+    "standalone_component_payload_bytes": 27918336,
+    "mutation_ns": 36129524,
+    "save_ns": 35760041,
+    "reopen_entry_count_delta": 1,
+    "detached": true
+  },
+  "components": {
+    "count": 1323,
+    "field_job_overlap_pairs": 7145,
+    "overlap_demonstrated": true
+  },
+  "gate": {
+    "classification": "performance_rejection",
+    "source_build_target": "<= 1.10x native",
+    "measured_total_ratio": 2.82,
+    "conversion_only_ratio": 1.83,
+    "resident_rss_target": "<= 1.40x native",
+    "measured_resident_ratio": 0.99,
+    "peak_rss_target": "<= 1.60x native",
+    "measured_peak_ratio": 0.99,
+    "correctness": "equal in implemented prototype validation"
+  },
+  "missing_or_skipped": [
+    "extended Unicode campaign skipped after clear construction rejection",
+    "Windows and macOS host execution unavailable",
+    "direct batch-contribution-to-stable construction not implemented; reported as a deviation",
+    "configured composite sorts rejected explicitly"
+  ]
+}

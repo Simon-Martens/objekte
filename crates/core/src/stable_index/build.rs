@@ -393,6 +393,7 @@ pub(crate) fn from_repository(
             generation: state.generation.generation,
             slot_high_water: u32::try_from(state.generation.records.len()).unwrap_or(u32::MAX),
             live_records: state.generation.records.len() as u64,
+            identity_policy: format!("{:?}", state.definition.identity),
         })
         .collect::<Vec<_>>();
     prototype

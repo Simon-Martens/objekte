@@ -909,3 +909,38 @@ fn non_utf8_paths_round_trip_through_component_keys() {
     let decoded: ComponentKey = bincode::deserialize(&bytes).expect("deserialize");
     assert_eq!(decoded, ComponentKey::Path(key));
 }
+
+#[test]
+fn move_updates_catalog_and_path_lookup_for_generated_identity() {
+    let fixture = fixture("move");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let old_path = fixture.repository.files().files[1].relative_path.clone();
+    let file = fixture.repository.files().files[1].id;
+    let new_path = PathBuf::from("data/nested/renamed-c.jsonl");
+    prototype.move_file(file, &new_path).expect("move");
+    assert!(
+        prototype
+            .records_for_path(&old_path)
+            .expect("old")
+            .is_empty()
+    );
+    let refs = prototype.records_for_path(&new_path).expect("new");
+    assert_eq!(refs.len(), 2);
+    let entry = prototype.file_by_id(file).expect("file").expect("present");
+    assert_eq!(entry.relative_path, new_path);
+    let root = temp_root("move-generation");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut reopened = StablePrototype::open_snapshot(&generation).expect("open");
+    assert_eq!(reopened.records_for_path(&new_path).expect("refs").len(), 2);
+    assert_eq!(
+        reopened
+            .file_by_id(file)
+            .expect("file")
+            .expect("present")
+            .relative_path,
+        new_path
+    );
+    let _ = std::fs::remove_dir_all(&root);
+}

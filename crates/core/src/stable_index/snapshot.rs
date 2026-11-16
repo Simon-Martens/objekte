@@ -20,6 +20,8 @@ pub struct ManifestCollection {
     pub generation: u64,
     pub slot_high_water: u32,
     pub live_records: u64,
+    #[serde(default)]
+    pub identity_policy: String,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]

@@ -554,6 +554,11 @@ impl StablePrototype {
                     .collections
                     .get(&id)
                     .map_or(0, |collection| collection.live_records),
+                identity_policy: self
+                    .collections
+                    .get(&id)
+                    .map(|collection| collection.identity_policy.clone())
+                    .unwrap_or_default(),
             });
         }
         let manifest = SnapshotManifest::new(
@@ -748,7 +753,7 @@ impl StablePrototype {
                     generation: collection.generation,
                     slot_high_water: collection.slot_high_water,
                     live_records: collection.live_records,
-                    identity_policy: String::new(),
+                    identity_policy: collection.identity_policy.clone(),
                     records: ComponentId(u32::MAX),
                     identities: ComponentId(u32::MAX),
                     domains: ComponentId(u32::MAX),
