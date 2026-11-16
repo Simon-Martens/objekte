@@ -244,11 +244,13 @@ fn partition_base_with_limits_inner(
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active =
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
-            group.push(Arc::new(PublishedSegment {
-                id: crate::native_segment::SegmentId::new(ordinal),
-                index: Arc::new(part),
-                active,
-            }));
+            let id = crate::native_segment::SegmentId::new(ordinal);
+            let mut part = part;
+            part.id = id;
+            group.push(Arc::new(
+                PublishedSegment::checked(id, Arc::new(part), active)
+                    .map_err(IndexError::InvalidPublication)?,
+            ));
         }
         groups[number] = Arc::new(group);
     }

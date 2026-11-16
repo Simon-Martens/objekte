@@ -252,14 +252,21 @@ pub(crate) fn preserve_single_record_slots(
         replacements.push((*collection, old_position, new_position, old_ordinal));
     }
     let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal) in replacements {
+    for (collection, old_position, new_position, _old_ordinal) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         let replacement = Arc::clone(&group[new_position]);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
-            index: Arc::clone(&replacement.index),
-            active: replacement.active.clone(),
-        });
+        let fresh_ordinal = candidate.next_segment_ordinal;
+        candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
+        let mut index = (*replacement.index).clone();
+        index.id = crate::native_segment::SegmentId::new(fresh_ordinal);
+        group[old_position] = Arc::new(
+            PublishedSegment::checked(
+                index.id,
+                Arc::new(index),
+                replacement.active.clone(),
+            )
+            .ok()?,
+        );
         group.remove(new_position);
     }
     Some(candidate)
@@ -370,13 +377,16 @@ pub(crate) fn preserve_partition_record_slots(
         ));
     }
     let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
+    for (collection, old_position, new_position, _old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
-            active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
-            index: Arc::new(replacement),
-        });
+        let fresh_ordinal = candidate.next_segment_ordinal;
+        candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
+        let mut replacement = replacement;
+        replacement.id = crate::native_segment::SegmentId::new(fresh_ordinal);
+        let active = crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?;
+        group[old_position] = Arc::new(
+            PublishedSegment::checked(replacement.id, Arc::new(replacement), active).ok()?,
+        );
         group.remove(new_position);
     }
     Some(candidate)
@@ -452,11 +462,13 @@ pub(crate) fn remove_verified_old_shards(
                     .next_segment_ordinal
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
-                group[position] = Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(candidate.next_segment_ordinal),
-                    index: Arc::new(compacted.index),
-                    active: compacted.active,
-                });
+                let id = crate::native_segment::SegmentId::new(candidate.next_segment_ordinal);
+                let mut index = compacted.index;
+                index.id = id;
+                group[position] = Arc::new(
+                    PublishedSegment::checked(id, Arc::new(index), compacted.active)
+                        .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?,
+                );
                 candidate.next_segment_ordinal = ordinal;
                 position += 1;
             }

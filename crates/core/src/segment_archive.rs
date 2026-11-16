@@ -267,8 +267,6 @@ impl SegmentRows {
                 return Err("segment record references a missing file row".into());
             }
         }
-        owner.files();
-        owner.records();
         Ok(owner)
     }
 
@@ -437,13 +435,46 @@ impl Clone for SegmentFiles {
 
 impl SegmentFiles {
     fn values(&self) -> &[SegmentFile] {
-        self.cache
-            .get()
-            .expect("segment file compatibility cache initialized at freeze")
+        self.cache.get_or_init(|| {
+            crate::storage_usage::StorageWorkCounters::update(|counters| {
+                counters.metadata_cache_initializations =
+                    counters.metadata_cache_initializations.saturating_add(1);
+            });
+            self.archive
+                .root()
+                .files
+                .iter()
+                .map(archived_segment_file)
+                .collect()
+        })
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn capacity(&self) -> usize {
+        self.archive.capacity()
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        self.archive.root().files.len()
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.archive.root().files.is_empty()
+    }
+
+    pub(crate) fn get(&self, index: usize) -> Option<&SegmentFile> {
+        self.values().get(index)
+    }
+
+    pub(crate) fn archived(&self, index: usize) -> Option<&rkyv::Archived<StoredSegmentFile>> {
+        self.archive.root().files.get(index)
+    }
+
+    pub(crate) fn cache_initialized(&self) -> bool {
+        self.cache.get().is_some()
     }
 }
 
@@ -480,13 +511,147 @@ impl Clone for RecordRows {
 
 impl RecordRows {
     fn values(&self) -> &[RecordEntry] {
-        self.cache
-            .get()
-            .expect("segment record compatibility cache initialized at freeze")
+        self.cache.get_or_init(|| {
+            crate::storage_usage::StorageWorkCounters::update(|counters| {
+                counters.metadata_cache_initializations =
+                    counters.metadata_cache_initializations.saturating_add(1);
+            });
+            self.archive
+                .root()
+                .records
+                .iter()
+                .map(archived_record)
+                .collect()
+        })
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
+    }
+
+    pub(crate) fn capacity(&self) -> usize {
+        self.archive.capacity()
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        self.archive.root().records.len()
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.archive.root().records.is_empty()
+    }
+
+    pub(crate) fn get(&self, index: usize) -> Option<&RecordEntry> {
+        self.values().get(index)
+    }
+
+    pub(crate) fn archived(&self, index: usize) -> Option<&rkyv::Archived<StoredRecord>> {
+        self.archive.root().records.get(index)
+    }
+
+    pub(crate) fn cache_initialized(&self) -> bool {
+        self.cache.get().is_some()
+    }
+}
+
+fn archived_segment_file(file: &rkyv::Archived<StoredSegmentFile>) -> SegmentFile {
+    let status = match file.status {
+        0 => FileStatus::Valid,
+        1 => FileStatus::Broken,
+        2 => FileStatus::Unreadable,
+        _ => unreachable!("validated segment file status"),
+    };
+    SegmentFile {
+        entry: FileEntry {
+            id: FileId(file.id.to_native()),
+            relative_path: archived_native_path(&file.relative_path),
+            revision: SourceRevision {
+                modified_ns: file.modified_ns.to_native(),
+                size: file.size.to_native(),
+            },
+            created_ns: file.created_ns.as_ref().map(|value| value.to_native()),
+            collections: file
+                .collections
+                .iter()
+                .map(|collection| CollectionId(collection.to_native()))
+                .collect(),
+            status,
+            diagnostics: file
+                .diagnostics
+                .iter()
+                .map(|diagnostic| {
+                    let range = match (
+                        diagnostic.range_start.as_ref(),
+                        diagnostic.range_end.as_ref(),
+                    ) {
+                        (Some(start), Some(end)) => Some(ByteRange {
+                            start: start.to_native(),
+                            end: end.to_native(),
+                        }),
+                        (None, None) => None,
+                        _ => unreachable!("validated segment diagnostic range"),
+                    };
+                    SourceDiagnostic {
+                        file: FileId(diagnostic.file.to_native()),
+                        collection: CollectionId(diagnostic.collection.to_native()),
+                        source_id: diagnostic.source_id.as_str().into(),
+                        source_version: diagnostic.source_version.to_native(),
+                        record: diagnostic
+                            .record
+                            .as_ref()
+                            .map(|slot| RecordSlot(slot.to_native())),
+                        range,
+                        category: category_from_code(diagnostic.category)
+                            .expect("validated segment diagnostic category"),
+                        code: diagnostic.code.as_str().into(),
+                        field_path: diagnostic.field_path.as_ref().map(|path| {
+                            path.iter()
+                                .map(|part| part.as_str().to_owned())
+                                .collect()
+                        }),
+                        byte_offset: diagnostic
+                            .byte_offset
+                            .as_ref()
+                            .map(|value| value.to_native()),
+                        line: diagnostic.line.as_ref().map(|value| value.to_native()),
+                        column: diagnostic
+                            .column
+                            .as_ref()
+                            .map(|value| value.to_native()),
+                        message: diagnostic.message.as_str().into(),
+                    }
+                })
+                .collect(),
+            omitted_diagnostics: file.omitted_diagnostics.to_native(),
+        },
+        records: file
+            .records
+            .iter()
+            .map(|slot| RecordSlot(slot.to_native()))
+            .collect(),
+    }
+}
+
+fn archived_record(record: &rkyv::Archived<StoredRecord>) -> RecordEntry {
+    let class = match record.class {
+        0 => RecordClass::Logical,
+        1 => RecordClass::RawFallback,
+        _ => unreachable!("validated segment record class"),
+    };
+    RecordEntry {
+        slot: RecordSlot(record.slot.to_native()),
+        id: RecordId(record.id.as_str().into()),
+        file: FileId(record.file.to_native()),
+        range: ByteRange {
+            start: record.range_start.to_native(),
+            end: record.range_end.to_native(),
+        },
+        revision: SourceRevision {
+            modified_ns: record.modified_ns.to_native(),
+            size: record.size.to_native(),
+        },
+        class,
+        diagnostic_ref: DiagnosticRef(record.diagnostic_ref.to_native()),
     }
 }
 
@@ -612,6 +777,12 @@ impl RecordLookup {
         }
     }
 
+    pub(crate) fn for_each_entry(&self, mut visit: impl FnMut(&str, RecordSlot)) {
+        for (id, slot) in self.archive.root().values.iter() {
+            visit(id.as_str(), RecordSlot(slot.to_native()));
+        }
+    }
+
     pub(crate) fn len(&self) -> usize {
         self.archive.root().values.len()
     }
@@ -619,6 +790,61 @@ impl RecordLookup {
     pub(crate) fn archive_bytes(&self) -> usize {
         self.archive.len()
     }
+}
+
+pub(crate) fn validate_segment_components(
+    files: &SegmentFiles,
+    records: &RecordRows,
+    file_index: &FileLookup,
+    id_lookup: &RecordLookup,
+    collection: CollectionId,
+) -> Result<(), String> {
+    if !Arc::ptr_eq(&files.archive, &records.archive) {
+        return Err("segment file and record rows do not share one archive owner".into());
+    }
+    let root = files.archive.root();
+    if file_index.len() != root.files.len() {
+        return Err("segment file lookup coverage mismatch".into());
+    }
+    let mut file_ids = std::collections::HashSet::with_capacity(root.files.len());
+    for (ordinal, file) in root.files.iter().enumerate() {
+        let id = FileId(file.id.to_native());
+        if !file_ids.insert(id)
+            || file_index.get(id) != Some(ordinal)
+            || !file
+                .collections
+                .iter()
+                .any(|candidate| candidate.to_native() == collection.0)
+        {
+            return Err("segment file row or lookup is inconsistent".into());
+        }
+        for slot in file.records.iter() {
+            let slot = slot.to_native() as usize;
+            let record = root
+                .records
+                .get(slot)
+                .ok_or("segment file owns an out-of-bounds record slot")?;
+            if record.file.to_native() != file.id.to_native() {
+                return Err("segment file and record ownership disagree".into());
+            }
+        }
+    }
+    if root.records.len() != id_lookup.len() {
+        return Err("segment record lookup coverage mismatch".into());
+    }
+    let mut ids = std::collections::HashSet::with_capacity(root.records.len());
+    for (slot, record) in root.records.iter().enumerate() {
+        if record.slot.to_native() as usize != slot
+            || record.range_start.to_native() > record.range_end.to_native()
+            || record.range_end.to_native() > record.size.to_native()
+            || !file_ids.contains(&FileId(record.file.to_native()))
+            || !ids.insert(record.id.as_str())
+            || id_lookup.get(record.id.as_str()) != Some(RecordSlot(slot as u32))
+        {
+            return Err("segment record row or identity lookup is inconsistent".into());
+        }
+    }
+    Ok(())
 }
 
 impl PartialEq for RecordLookup {

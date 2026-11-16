@@ -16,7 +16,7 @@ fn rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement() {
     };
     assert_eq!(
         validate_published_dictionary(&dictionary),
-        Err("archived reverse entry is absent from the tree".into())
+        Err("archived posting reverse directory disagrees with the tree".into())
     );
 }
 

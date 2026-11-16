@@ -267,6 +267,37 @@ pub(crate) struct PublishedSegment {
     pub active: ActiveRecords,
 }
 
+impl PublishedSegment {
+    pub(crate) fn checked(
+        id: SegmentId,
+        index: Arc<IndexedCollectionSegment>,
+        active: ActiveRecords,
+    ) -> Result<Self, String> {
+        if id != index.id {
+            return Err("published segment descriptor and payload IDs disagree".into());
+        }
+        if active.slot_count() as usize != index.record_count() {
+            return Err("published segment liveness domain is inconsistent".into());
+        }
+        if !index.postings.all_archived() {
+            return Err("published segment retained a native posting dictionary".into());
+        }
+        if !index
+            .custom_postings
+            .values()
+            .all(|custom| custom.index.is_archived())
+        {
+            return Err("published segment retained a native custom dictionary".into());
+        }
+        if index.inference.as_ref().is_some_and(|inference| {
+            !inference.indexes.values().all(PostingIndex::is_archived)
+        }) {
+            return Err("published segment retained a native inferred dictionary".into());
+        }
+        Ok(Self { id, index, active })
+    }
+}
+
 /// One payload and liveness pair at its native segment boundary.
 #[derive(Clone, Copy)]
 pub(crate) struct SegmentReadView<'a> {
@@ -310,6 +341,74 @@ pub struct NativeComponentDescriptor<'a> {
 }
 
 impl IndexedCollectionSegment {
+    /// One completed-storage boundary for every ordinary and maintenance
+    /// producer. Existing archives are shared rather than serialized again.
+    pub(crate) fn seal_completed_storage(mut self) -> Result<Self, String> {
+        self.postings.finish_stats();
+        for custom in self.custom_postings.values_mut() {
+            custom.index.finish_stats();
+        }
+        if let Some(inference) = &mut self.inference {
+            for index in inference.indexes.values_mut() {
+                index.finish_stats();
+            }
+        }
+        self.postings.freeze_storage()?;
+        for custom in self.custom_postings.values_mut() {
+            custom.index.freeze_storage()?;
+        }
+        if let Some(inference) = &mut self.inference {
+            for index in inference.indexes.values_mut() {
+                index.freeze_storage()?;
+            }
+        }
+        let logical_count = self.logical_records.len() as usize;
+        self.postings
+            .validate_eligible(self.record_count(), logical_count)?;
+        if logical_count != self.record_count() {
+            self.postings.validate_domain(&self.logical_records)?;
+        }
+        for custom in self.custom_postings.values() {
+            custom
+                .index
+                .validate_eligible(self.record_count(), logical_count)?;
+            if logical_count != self.record_count() {
+                custom.index.validate_domain(&self.logical_records)?;
+            }
+        }
+        if let Some(inference) = &self.inference {
+            for index in inference.indexes.values() {
+                index.validate_eligible(self.record_count(), logical_count)?;
+                if logical_count != self.record_count() {
+                    index.validate_domain(&self.logical_records)?;
+                }
+            }
+        }
+        crate::segment_archive::validate_segment_components(
+            &self.files,
+            &self.records,
+            &self.file_index,
+            &self.id_lookup,
+            self.collection,
+        )?;
+        if !self.has_archived_storage() {
+            return Err("completed segment retained a native query dictionary".into());
+        }
+        self.recompute_accounting();
+        Ok(self)
+    }
+
+    pub(crate) fn has_archived_storage(&self) -> bool {
+        self.postings.all_archived()
+            && self
+                .custom_postings
+                .values()
+                .all(|custom| custom.index.is_archived())
+            && self.inference.as_ref().is_none_or(|inference| {
+                inference.indexes.values().all(PostingIndex::is_archived)
+            })
+    }
+
     pub(crate) fn read_view<'a>(published: &'a PublishedSegment) -> SegmentReadView<'a> {
         SegmentReadView {
             id: published.id,

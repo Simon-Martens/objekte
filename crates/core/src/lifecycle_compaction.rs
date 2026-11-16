@@ -240,11 +240,10 @@ fn merge_small_segments(root: &mut PublishedIndex) -> Result<usize, IndexError> 
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active =
                 ActiveRecords::all(index.record_count()).map_err(IndexError::ResourceLimit)?;
-            let replacement = Arc::new(PublishedSegment {
-                id: index.id,
-                index: Arc::new(index),
-                active,
-            });
+            let replacement = Arc::new(
+                PublishedSegment::checked(index.id, Arc::new(index), active)
+                    .map_err(IndexError::InvalidPublication)?,
+            );
             let group = Arc::make_mut(&mut root.segments[number]);
             let (first, second) = if left < right {
                 (left, right)
@@ -354,11 +353,13 @@ fn compact_published_with_budget(
                     })?;
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
-                    compacted.push(Arc::new(PublishedSegment {
-                        id: crate::native_segment::SegmentId::new(ordinal),
-                        index: Arc::new(part),
-                        active,
-                    }));
+                    let id = crate::native_segment::SegmentId::new(ordinal);
+                    let mut part = part;
+                    part.id = id;
+                    compacted.push(Arc::new(
+                        PublishedSegment::checked(id, Arc::new(part), active)
+                            .map_err(IndexError::InvalidPublication)?,
+                    ));
                 }
             }
             next.segments[number] = Arc::new(compacted);
@@ -407,11 +408,13 @@ fn compact_published_with_budget(
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
                 let active =
                     ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
-                replacements.push(Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(ordinal),
-                    index: Arc::new(part),
-                    active,
-                }));
+                let id = crate::native_segment::SegmentId::new(ordinal);
+                let mut part = part;
+                part.id = id;
+                replacements.push(Arc::new(
+                    PublishedSegment::checked(id, Arc::new(part), active)
+                        .map_err(IndexError::InvalidPublication)?,
+                ));
             }
             Ok(replacements)
         };

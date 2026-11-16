@@ -661,7 +661,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.segment_rows_archive_freeze_ns += started.elapsed().as_nanos() as u64;
         }
-        let mut index = IndexedCollectionSegment {
+        let index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
             source_id: self.source_id,
@@ -686,8 +686,7 @@ impl CollectionSegment {
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
         };
-        index.recompute_accounting();
-        Ok(index)
+        index.seal_completed_storage()
     }
 }
 
@@ -1293,7 +1292,7 @@ impl IndexedCollectionSegment {
             crate::segment_archive::SegmentRows::freeze(files, records)?.views();
         let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
         let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
-        let mut index = IndexedCollectionSegment {
+        let index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
             source_id: first.source_id.clone(),
@@ -1318,8 +1317,10 @@ impl IndexedCollectionSegment {
             failed_parses,
             accounting: SegmentAccounting::default(),
         };
-        index.recompute_accounting();
-        Ok(ConsolidatedSegment { index, offsets })
+        Ok(ConsolidatedSegment {
+            index: index.seal_completed_storage()?,
+            offsets,
+        })
     }
 }
 
@@ -2516,7 +2517,7 @@ impl IndexedCollectionSegment {
             crate::segment_archive::SegmentRows::freeze(files, records)?.views();
         let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
         let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
-        let mut index = IndexedCollectionSegment {
+        let index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
             source_id: self.source_id.clone(),
@@ -2541,8 +2542,7 @@ impl IndexedCollectionSegment {
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
         };
-        index.recompute_accounting();
-        Ok(index)
+        index.seal_completed_storage()
     }
 }
 

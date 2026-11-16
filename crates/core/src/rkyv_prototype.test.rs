@@ -437,6 +437,43 @@ fn rkyv_repository_and_lifecycle_defaults_publish_archived_components() {
 }
 
 #[test]
+fn rkyv_native_builder_is_rejected_at_publication_boundary() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-publication-boundary-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"boundary"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    let revision = view.revision();
+    let published = &view.segments(crate::model::CollectionId(0)).unwrap()[0];
+    let mut native = (*published.index).clone();
+    native.postings.thaw_storage().unwrap();
+    let error = match crate::native_segment::PublishedSegment::checked(
+        published.id,
+        Arc::new(native),
+        published.active.clone(),
+    ) {
+        Ok(_) => panic!("native builder unexpectedly remained publishable"),
+        Err(error) => error,
+    };
+    assert!(error.contains("native posting dictionary"));
+    assert_eq!(index.view().unwrap().revision(), revision);
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     let root = std::env::temp_dir().join(format!(
         "objekte-rkyv-lifecycle-{}-{}",

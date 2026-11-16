@@ -800,11 +800,9 @@ impl PublishedIndex {
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
         index.id = segment_id;
-        Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
-            id: segment_id,
-            index: Arc::new(index),
-            active,
-        }));
+        let published = PublishedSegment::checked(segment_id, Arc::new(index), active)
+            .map_err(IndexError::InvalidPublication)?;
+        Arc::make_mut(&mut self.segments[number]).push(Arc::new(published));
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
         }
@@ -950,11 +948,10 @@ impl PublishedIndex {
             consolidated.id = segment_id;
             let active =
                 ActiveRecords::all(consolidated.record_count()).map_err(IndexError::ResourceLimit)?;
-            let replacement = Arc::new(PublishedSegment {
-                id: segment_id,
-                index: Arc::new(consolidated),
-                active,
-            });
+            let replacement = Arc::new(
+                PublishedSegment::checked(segment_id, Arc::new(consolidated), active)
+                    .map_err(IndexError::InvalidPublication)?,
+            );
             let group = Arc::make_mut(&mut self.segments[number]);
             group.remove(candidate_position);
             group.pop();
@@ -1050,13 +1047,13 @@ impl PublishedIndex {
                     })?;
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
+                    let id = SegmentId::new(ordinal);
                     group.insert(
                         index + offset,
-                        Arc::new(PublishedSegment {
-                            id: SegmentId::new(ordinal),
-                            index: Arc::new(part),
-                            active,
-                        }),
+                        Arc::new(
+                            PublishedSegment::checked(id, Arc::new(part), active)
+                                .map_err(IndexError::InvalidPublication)?,
+                        ),
                     );
                 }
                 return Ok(());
@@ -1098,11 +1095,11 @@ impl PublishedIndex {
         let merged_index = merged.index;
         group.remove(right);
         group.remove(left);
-        group.push(Arc::new(PublishedSegment {
-            id: SegmentId::new(ordinal),
-            index: Arc::new(merged_index),
-            active,
-        }));
+        let id = SegmentId::new(ordinal);
+        group.push(Arc::new(
+            PublishedSegment::checked(id, Arc::new(merged_index), active)
+                .map_err(IndexError::InvalidPublication)?,
+        ));
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
         }
@@ -1813,11 +1810,16 @@ impl Index {
                         }
                     }
                 }
-                *published = Arc::new(PublishedSegment {
-                    id: published.id,
-                    index: Arc::new(index),
-                    active: published.active.clone(),
-                });
+                let index = index
+                    .seal_completed_storage()
+                    .map_err(IndexError::InvalidPublication)?;
+                let replacement = PublishedSegment::checked(
+                    published.id,
+                    Arc::new(index),
+                    published.active.clone(),
+                )
+                .map_err(IndexError::InvalidPublication)?;
+                *published = Arc::new(replacement);
             }
         }
         next.catalog

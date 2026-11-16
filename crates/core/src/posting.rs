@@ -656,8 +656,7 @@ impl PostingDictionaryKey for StoredScalarKey {
     }
 
     fn public_from_archived(value: &Self::Archived) -> Self::Public {
-        let stored = StoredScalarKey::from_archived(value);
-        stored.to_scalar()
+        scalar_from_archived(value)
     }
 }
 
@@ -682,7 +681,50 @@ impl PostingDictionaryKey for PostingNumberKey {
     }
 
     fn public_from_archived(value: &Self::Archived) -> Self::Public {
-        StoredScalarKey::number_from_archived(value).to_number()
+        number_from_archived(value)
+    }
+}
+
+fn scalar_from_archived(key: &rkyv::Archived<StoredScalarKey>) -> ScalarKey {
+    match key {
+        rkyv::Archived::<StoredScalarKey>::String(value) => {
+            ScalarKey::String(value.as_str().into())
+        }
+        rkyv::Archived::<StoredScalarKey>::Id(value) => ScalarKey::Id(value.as_str().into()),
+        rkyv::Archived::<StoredScalarKey>::Number(value) => ScalarKey::Number(number_from_archived(value)),
+        rkyv::Archived::<StoredScalarKey>::Bool(value) => ScalarKey::Bool(bool::from(*value)),
+        rkyv::Archived::<StoredScalarKey>::Date(value) => ScalarKey::Date(
+            Date::from_julian_day(value.to_native()).expect("validated stored Julian day"),
+        ),
+        rkyv::Archived::<StoredScalarKey>::Datetime {
+            unix_nanos,
+            offset_seconds,
+        } => {
+            let utc = OffsetDateTime::from_unix_timestamp_nanos(unix_nanos.to_native())
+                .expect("validated stored UTC instant");
+            let offset = time::UtcOffset::from_whole_seconds(offset_seconds.to_native())
+                .expect("validated stored UTC offset");
+            ScalarKey::Datetime(utc.to_offset(offset))
+        }
+        rkyv::Archived::<StoredScalarKey>::Unixtime(value) => {
+            ScalarKey::Unixtime(value.to_native())
+        }
+    }
+}
+
+fn number_from_archived(value: &rkyv::Archived<PostingNumberKey>) -> Number {
+    match value {
+        rkyv::Archived::<PostingNumberKey>::Integer(value) => Number::Integer(value.to_native()),
+        rkyv::Archived::<PostingNumberKey>::Float(value) => Number::Float(value.to_native()),
+        rkyv::Archived::<PostingNumberKey>::ExactDecimal {
+            negative,
+            digits,
+            exponent,
+        } => Number::ExactDecimal(crate::decimal::ExactDecimal {
+            negative: bool::from(*negative),
+            digits: digits.as_str().into(),
+            exponent: exponent.to_native(),
+        }),
     }
 }
 
@@ -995,9 +1037,36 @@ where
         }
     }
 
-    #[cfg(test)]
     pub(crate) fn is_archived(&self) -> bool {
         matches!(self.0, PostingDictionaryState::Published(_))
+    }
+
+    fn first_public(&self) -> Option<K::Public> {
+        match &self.0 {
+            PostingDictionaryState::Builder(values) => {
+                values.keys().next().map(K::public_from_stored)
+            }
+            PostingDictionaryState::Published(values) => values
+                .archive
+                .root()
+                .ascending
+                .first()
+                .map(|entry| K::public_from_archived(&entry.key)),
+        }
+    }
+
+    fn last_public(&self) -> Option<K::Public> {
+        match &self.0 {
+            PostingDictionaryState::Builder(values) => {
+                values.keys().next_back().map(K::public_from_stored)
+            }
+            PostingDictionaryState::Published(values) => values
+                .archive
+                .root()
+                .ascending
+                .last()
+                .map(|entry| K::public_from_archived(&entry.key)),
+        }
     }
 
     pub(crate) fn len(&self) -> usize {
@@ -1304,6 +1373,7 @@ where
     {
         return Err("archived posting dictionary length mismatch".into());
     }
+    let mut tree = root.postings.iter();
     let mut previous: Option<&K::Archived> = None;
     for (position, entry) in root.ascending.iter().enumerate() {
         if entry.ordinal.to_native() as usize != position {
@@ -1312,18 +1382,18 @@ where
         if previous.is_some_and(|previous| previous >= &entry.key) {
             return Err("archived posting dictionary is not strictly ordered".into());
         }
-        let tree_ordinal = root
-            .postings
-            .get(&entry.key)
+        let (tree_key, tree_ordinal) = tree
+            .next()
             .ok_or("archived reverse entry is absent from the tree")?;
-        if tree_ordinal.to_native() as usize != position
+        if tree_key != &entry.key
+            || tree_ordinal.to_native() as usize != position
             || dictionary.bitmaps[position].is_empty()
         {
             return Err("archived posting reverse directory disagrees with the tree".into());
         }
         previous = Some(&entry.key);
     }
-    if root.postings.iter().count() != root.ascending.len() {
+    if tree.next().is_some() {
         return Err("archived posting tree traversal length mismatch".into());
     }
     Ok(())
@@ -1921,23 +1991,12 @@ impl PostingIndex {
     }
 
     pub fn finish_stats(&mut self) {
-        let mut min_key = None;
-        let mut max_key = None;
-        self.values
-            .for_each(|key, _| {
-                if min_key.is_none() {
-                    min_key = Some(key.clone());
-                }
-                max_key = Some(key.clone());
-                Ok(())
-            })
-            .expect("posting builder cannot contain invalid archive ordinals");
         self.stats = PostingStats {
             present_count: self.presence.len(),
             null_count: self.nulls.len(),
             distinct_count: self.values.len(),
-            min_key,
-            max_key,
+            min_key: self.values.first_public(),
+            max_key: self.values.last_public(),
         };
     }
 
@@ -2213,7 +2272,6 @@ impl PostingIndex {
         Ok(())
     }
 
-    #[cfg(test)]
     pub(crate) fn is_archived(&self) -> bool {
         self.values.is_archived()
             && self.lengths.is_archived()
@@ -2910,7 +2968,6 @@ impl PostingCollection {
         Ok(())
     }
 
-    #[cfg(test)]
     pub(crate) fn all_archived(&self) -> bool {
         self.fields.values().all(PostingIndex::is_archived)
     }
