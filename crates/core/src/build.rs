@@ -95,7 +95,7 @@ pub(crate) fn file_batches<'a>(
 ) -> Vec<&'a [FileId]> {
     const MAX_JOB_FILES: usize = 512;
     const MAX_BYTES: u64 = 8 * 1024 * 1024;
-    let max_files = max_files.min(MAX_JOB_FILES).max(1);
+    let max_files = max_files.clamp(1, MAX_JOB_FILES);
     let mut batches = Vec::new();
     let mut start = 0;
     while start < files.len() {

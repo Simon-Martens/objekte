@@ -118,11 +118,13 @@ impl StorageWorkCounters {
     }
 
     #[cfg(any(test, feature = "detailed-profiling"))]
+    #[allow(dead_code)]
     pub(crate) fn snapshot() -> Self {
         STORAGE_WORK.with(std::cell::Cell::get)
     }
 
     #[cfg(any(test, feature = "detailed-profiling"))]
+    #[allow(dead_code)]
     pub(crate) fn reset() {
         STORAGE_WORK.with(|counters| counters.set(Self::ZERO));
     }

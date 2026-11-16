@@ -1801,6 +1801,7 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
     assert!(full_plain_seen && full_merge_seen);
 }
 
+#[allow(clippy::too_many_arguments)]
 fn assert_sequence_oracle(
     index: &Index,
     root: &std::path::Path,

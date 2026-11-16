@@ -872,12 +872,14 @@ impl FileCatalog {
         }
         let configuration = Self::configuration_for(&base)?;
         let complete = self.construction_complete;
+        let ownership = Arc::clone(&self.ownership);
         *self = Self::from_parts(
             Arc::clone(&base.files),
             base.base_fingerprints.clone(),
             configuration,
         );
         self.construction_complete = complete;
+        self.ownership = ownership;
         Ok(())
     }
 

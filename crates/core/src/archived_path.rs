@@ -22,10 +22,10 @@ impl StoredPath {
         #[cfg(unix)]
         {
             use std::os::unix::ffi::OsStrExt;
-            if let Some(native) = path.as_path().to_str() {
-                if path.query_key().as_ref() == native {
-                    return Self::Plain(native.to_owned());
-                }
+            if let Some(native) = path.as_path().to_str()
+                && path.query_key().as_ref() == native
+            {
+                return Self::Plain(native.to_owned());
             }
             Self::Escaped {
                 query: path.query_key().to_string(),
@@ -35,10 +35,10 @@ impl StoredPath {
         #[cfg(windows)]
         {
             use std::os::windows::ffi::OsStrExt;
-            if let Some(native) = path.as_path().to_str() {
-                if path.query_key().as_ref() == native {
-                    return Self::Plain(native.to_owned());
-                }
+            if let Some(native) = path.as_path().to_str()
+                && path.query_key().as_ref() == native
+            {
+                return Self::Plain(native.to_owned());
             }
             Self::Escaped {
                 query: path.query_key().to_string(),
