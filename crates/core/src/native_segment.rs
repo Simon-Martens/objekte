@@ -11,6 +11,8 @@ use serde::{Deserialize, Serialize};
 use crate::bigram::BigramIndex;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, RecordEntry};
+use crate::lifecycle::IndexRevision;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationContribution;
@@ -159,6 +161,16 @@ pub(crate) struct SegmentReadView<'a> {
     pub collection: CollectionId,
     pub index: &'a IndexedCollectionSegment,
     pub active: &'a ActiveRecords,
+}
+
+/// Borrowed view of the metadata, liveness, and segment payloads that belong
+/// to one publication. Repository and lifecycle reads expose the same shape.
+#[derive(Clone, Copy)]
+pub(crate) struct NativeSnapshotRef<'a> {
+    pub active: &'a [ActiveRecords],
+    pub segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
+    pub catalog: &'a FileCatalog,
+    pub revision: IndexRevision,
 }
 
 /// Component kind exposed by borrowed inspection and future persistence

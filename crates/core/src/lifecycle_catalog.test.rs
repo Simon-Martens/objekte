@@ -62,7 +62,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         original.id_for(std::path::Path::new("data/a.json")),
         Some(FileId(0))
     );
-    assert!(Arc::ptr_eq(&changed.base, &original.base));
+    assert!(Arc::ptr_eq(&changed.base_files, &original.base_files));
 
     let retired = changed.retired(FileId(1)).unwrap();
     assert_eq!(retired.active_files(), 1);
@@ -103,7 +103,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let restored = FileCatalog::restored(Arc::clone(&repository), slots.clone()).unwrap();
     assert_eq!(restored.allocated_files(), 3);
     assert_eq!(restored.active_files(), 2);
-    assert!(Arc::ptr_eq(&restored.base, &repository));
+    assert!(Arc::ptr_eq(&restored.base_files, &repository.files));
     assert_eq!(restored.id_for(std::path::Path::new("data/a.json")), None);
     assert_eq!(restored.id_for(std::path::Path::new("data/b.json")), None);
     assert_eq!(

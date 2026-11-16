@@ -23,6 +23,8 @@ use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory,
     FileStatus, RecordClass, SourceRevision,
 };
+use crate::lifecycle::{IndexRevision, PublishedSegment};
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
@@ -312,6 +314,10 @@ pub struct Repository {
     /// complete bytes, so verified maintenance must fall back.
     pub(crate) base_fingerprints: Vec<Option<[u8; 32]>>,
     pub(crate) collections: Vec<CollectionState>,
+    pub(crate) active: Vec<ActiveRecords>,
+    pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub(crate) catalog: FileCatalog,
+    pub(crate) revision: IndexRevision,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
     pub(crate) build_failed_parses: u64,
@@ -907,6 +913,26 @@ impl Repository {
         &self.startup
     }
 
+    pub(crate) fn native_snapshot(&self) -> crate::native_segment::NativeSnapshotRef<'_> {
+        crate::native_segment::NativeSnapshotRef {
+            active: &self.active,
+            segments: &self.segments,
+            catalog: &self.catalog,
+            revision: self.revision,
+        }
+    }
+
+    pub(crate) fn segment_read_views(
+        &self,
+        collection: CollectionId,
+    ) -> impl Iterator<Item = crate::native_segment::SegmentReadView<'_>> {
+        self.segments
+            .get(collection.0 as usize)
+            .into_iter()
+            .flat_map(|segments| segments.iter())
+            .map(|segment| crate::native_segment::IndexedCollectionSegment::read_view(segment))
+    }
+
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
         if count == 0 || count > 256 {
             return Err("query_workers must be between 1 and 256".into());
@@ -1231,6 +1257,8 @@ impl Repository {
         sources: &SourceRegistry,
         discover_sources: bool,
     ) -> Result<Self, String> {
+        let configuration_identity =
+            crate::configuration::configuration_hash(&definitions, options, sources)?;
         let mut profile = options
             .detailed_profiling_enabled()
             .then(BuildProfileStats::default);
@@ -1818,10 +1846,25 @@ impl Repository {
         if let (Some(started), Some(profile)) = (query_pool_started, profile.as_mut()) {
             profile.query_pool_init_ns = started.elapsed().as_nanos() as u64;
         }
+        let files = Arc::new(files);
+        let catalog = FileCatalog::from_parts(
+            Arc::clone(&files),
+            base_fingerprints.clone(),
+            configuration_identity,
+        );
+        let active = collections
+            .iter()
+            .map(|collection| ActiveRecords::all(collection.generation.records.len()))
+            .collect::<Result<Vec<_>, _>>()?;
+        let segments = vec![Arc::new(Vec::new()); collections.len()];
         Ok(Self {
-            files: Arc::new(files),
+            files,
             base_fingerprints,
             collections,
+            active,
+            segments,
+            catalog,
+            revision: IndexRevision::INITIAL,
             sources: sources.clone(),
             build_parses,
             build_failed_parses,

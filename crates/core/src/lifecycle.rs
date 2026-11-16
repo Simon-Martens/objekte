@@ -548,18 +548,24 @@ impl PublishedIndex {
             &repository.sources,
         )
         .map_err(IndexError::IncompatibleConfiguration)?;
-        let active = repository
-            .collections()
-            .iter()
-            .map(|collection| ActiveRecords::all(collection.generation.records.len()))
-            .collect::<Result<Vec<_>, _>>()
-            .map_err(IndexError::ResourceLimit)?;
+        let active = repository.active.clone();
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
-        let catalog = FileCatalog::from_repository(Arc::clone(&repository))
-            .map_err(IndexError::ResourceLimit)?;
+        let catalog = FileCatalog::from_parts(
+            Arc::clone(&repository.files),
+            repository.base_fingerprints.clone(),
+            configuration_identity,
+        );
         let processed_files = catalog.active_files() as usize;
-        let segments = vec![Arc::new(Vec::new()); active.len()];
+        let segments = repository.segments.clone();
+        let next_segment_ordinal = segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .map(|segment| segment.id.get())
+            .max()
+            .unwrap_or(0)
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
         Ok(Self {
             instance_id,
             revision,
@@ -567,7 +573,7 @@ impl PublishedIndex {
             configuration_identity,
             active,
             segments,
-            next_segment_ordinal: 1,
+            next_segment_ordinal,
             last_size_maintenance_revision: 0,
             catalog,
             file_versions,
@@ -1353,7 +1359,19 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
-        let published = crate::lifecycle_partition::partition_base(published)?;
+        // Temporary flat-base adapter for the construction migration. Native
+        // segmented repositories take the adoption path above directly.
+        let published = if published.segments.iter().all(|group| group.is_empty())
+            && published
+                .repository
+                .collections()
+                .iter()
+                .any(|collection| !collection.generation.records.is_empty())
+        {
+            crate::lifecycle_partition::partition_base(published)?
+        } else {
+            published
+        };
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;

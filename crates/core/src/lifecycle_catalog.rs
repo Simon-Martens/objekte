@@ -36,7 +36,8 @@ struct ChangedFile {
 /// path map, metadata and liveness after a new root is published.
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
-    base: Arc<Repository>,
+    base_files: Arc<crate::inventory::FileInventory>,
+    base_fingerprints: Arc<Vec<Option<[u8; 32]>>>,
     /// A fresh build can expose its discovered paths before every member is
     /// indexed. Pinned views retain this value across later publications.
     construction_complete: bool,
@@ -182,7 +183,8 @@ impl FileCatalog {
             active.insert(id.0);
         }
         Ok(Self {
-            base,
+            base_files: Arc::clone(&base.files),
+            base_fingerprints: Arc::new(base.base_fingerprints.clone()),
             construction_complete: true,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
@@ -193,13 +195,27 @@ impl FileCatalog {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn from_repository(base: Arc<Repository>) -> Result<Self, String> {
         let base_configuration = Self::configuration_for(&base)?;
-        let len = u32::try_from(base.files().files.len()).map_err(|_| "too many indexed files")?;
+        Ok(Self::from_parts(
+            Arc::clone(&base.files),
+            base.base_fingerprints.clone(),
+            base_configuration,
+        ))
+    }
+
+    pub(crate) fn from_parts(
+        files: Arc<crate::inventory::FileInventory>,
+        fingerprints: Vec<Option<[u8; 32]>>,
+        base_configuration: [u8; 32],
+    ) -> Self {
+        let len = u32::try_from(files.files.len()).expect("file inventory length checked at build");
         let mut active = RoaringBitmap::new();
         active.insert_range(0..len);
-        Ok(Self {
-            base,
+        Self {
+            base_files: files,
+            base_fingerprints: Arc::new(fingerprints),
             construction_complete: true,
             base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
@@ -207,7 +223,7 @@ impl FileCatalog {
             changed_relative_paths: Arc::new(BTreeMap::new()),
             active: Arc::new(active),
             len,
-        })
+        }
     }
 
     pub(crate) fn allocated_files(&self) -> usize {
@@ -219,7 +235,7 @@ impl FileCatalog {
     }
 
     pub(crate) fn repository_root(&self) -> &Path {
-        &self.base.files().root
+        &self.base_files.root
     }
 
     pub(crate) fn set_construction_complete(&mut self, complete: bool) {
@@ -229,7 +245,7 @@ impl FileCatalog {
     /// Rebind an otherwise unchanged discovered inventory to final metadata
     /// (global inference and captured fingerprints) without copying paths.
     pub(crate) fn rebase(&mut self, base: Arc<Repository>) -> Result<(), String> {
-        if !Arc::ptr_eq(&self.base.files, &base.files)
+        if !Arc::ptr_eq(&self.base_files, &base.files)
             || Self::configuration_for(&base)? != self.base_configuration
         {
             return Err("catalog rebase changed discovered files or configuration".into());
@@ -246,7 +262,8 @@ impl FileCatalog {
                 }
             }
         }
-        self.base = base;
+        self.base_files = Arc::clone(&base.files);
+        self.base_fingerprints = Arc::new(base.base_fingerprints.clone());
         Ok(())
     }
 
@@ -265,7 +282,7 @@ impl FileCatalog {
         self.changed[shard(&file)]
             .get(&file)
             .map(|changed| changed.entry.as_ref())
-            .or_else(|| self.base.files().files.get(file.0 as usize))
+            .or_else(|| self.base_files.files.get(file.0 as usize))
     }
 
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -276,8 +293,7 @@ impl FileCatalog {
             .get(&file)
             .map(|changed| changed.fingerprint)
             .unwrap_or_else(|| {
-                self.base
-                    .base_fingerprints
+                self.base_fingerprints
                     .get(file.0 as usize)
                     .copied()
                     .flatten()
@@ -298,15 +314,14 @@ impl FileCatalog {
         let id = self.changed_paths[shard(&path)]
             .get(path)
             .copied()
-            .or_else(|| self.base.files().id_for(path))?;
+            .or_else(|| self.base_files.id_for(path))?;
         if !self.is_active(id) {
             return None;
         }
         if let Some(changed) = self.changed[shard(&id)].get(&id) {
             return (changed.entry.relative_path.as_path() == path).then_some(id);
         }
-        self.base
-            .files()
+        self.base_files
             .files
             .get(id.0 as usize)
             .filter(|entry| entry.relative_path.as_path() == path)
@@ -354,15 +369,14 @@ impl FileCatalog {
         let (mut ids, mut scanned) = {
             let mut ids = Vec::new();
             let mut scanned = 0usize;
-            for (_, id) in self.base.files().relative_paths.range(bounds.clone()) {
+            for (_, id) in self.base_files.relative_paths.range(bounds.clone()) {
                 if scanned == limit {
                     return None;
                 }
                 scanned += 1;
                 if self.is_active(*id)
                     && self.changed[shard(id)].get(id).is_none_or(|changed| {
-                        self.base
-                            .files()
+                        self.base_files
                             .files
                             .get(id.0 as usize)
                             .is_some_and(|baseline| {
@@ -515,8 +529,7 @@ impl FileCatalog {
         let ordered = Arc::make_mut(&mut next.changed_relative_paths);
         ordered.remove(&(old_path.query_key(), id));
         let matches_base = next
-            .base
-            .files()
+            .base_files
             .files
             .get(id.0 as usize)
             .is_some_and(|baseline| baseline.relative_path == new_path);
