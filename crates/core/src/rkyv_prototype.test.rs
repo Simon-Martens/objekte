@@ -96,6 +96,7 @@ fn ids(view: &IndexView, request: &Query) -> (Vec<String>, Option<usize>) {
 }
 
 fn assert_published_dictionaries_archived(view: &IndexView) {
+    view.0.validate_ownership().unwrap();
     for collection in view.repository().collections() {
         assert!(
             collection.postings.all_archived(),
@@ -820,6 +821,511 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
         &owner,
         &pinned.segments(crate::model::CollectionId(0)).unwrap()[0]
     ));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_repeated_single_file_updates_keep_one_live_segment() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-repeat-update-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/only.json");
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    std::fs::write(
+        &path,
+        br#"{"id":"only","year":0,"title":"revision 0"}"#,
+    )
+    .unwrap();
+    let mut handle = index.add_file(&path).unwrap().file;
+    for revision in 1..=1_000 {
+        std::fs::write(
+            &path,
+            format!(
+                "{{\"id\":\"only\",\"year\":{revision},\"title\":\"revision {revision}\"}}"
+            ),
+        )
+        .unwrap();
+        handle = index.update_file(handle, &path).unwrap().file;
+        let view = index.view().unwrap();
+        assert_eq!(
+            view.segments(crate::model::CollectionId(0))
+                .unwrap()
+                .iter()
+                .filter(|segment| {
+                    segment
+                        .index
+                        .file(handle.file_id)
+                        .is_some_and(|_| segment.active.len() > 0)
+                })
+                .count(),
+            1,
+            "update {revision} retained obsolete live-segment descriptors"
+        );
+        assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(1));
+        view.0.validate_ownership().unwrap();
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_delete_all_records_removes_payload_without_reusing_file_id() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-delete-all-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let first = root.join("data/first.json");
+    let replacement = root.join("data/replacement.json");
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    std::fs::write(
+        &first,
+        br#"{"id":"first","year":1,"title":"delete all"}"#,
+    )
+    .unwrap();
+    let old = index.add_file(&first).unwrap().file;
+    std::fs::remove_file(&first).unwrap();
+    index.delete_file(old).unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(0));
+    assert!(
+        view.segments(crate::model::CollectionId(0))
+            .unwrap()
+            .iter()
+            .all(|segment| segment.index.file(old.file_id).is_none())
+    );
+    view.0.validate_ownership().unwrap();
+    drop(view);
+    std::fs::write(
+        &replacement,
+        br#"{"id":"second","year":2,"title":"new identity"}"#,
+    )
+    .unwrap();
+    let next = index.add_file(&replacement).unwrap().file;
+    assert_ne!(next.file_id, old.file_id);
+    assert!(next.file_id.0 > old.file_id.0);
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&query(Some("new identity"), None, 10, 0))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_same_path_update_rebuilds_one_metadata_and_ownership_shard() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-path-locality-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/same.json");
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    std::fs::write(
+        &path,
+        br#"{"id":"same","year":1,"title":"first content"}"#,
+    )
+    .unwrap();
+    let handle = index.add_file(&path).unwrap().file;
+    crate::storage_usage::StorageWorkCounters::reset();
+    std::fs::write(
+        &path,
+        br#"{"id":"same","year":2,"title":"second content"}"#,
+    )
+    .unwrap();
+    index.update_file(handle, &path).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.path_shards_rebuilt, 0);
+    assert_eq!(counters.metadata_shards_rebuilt, 1);
+    assert_eq!(counters.ownership_shards_rebuilt, 1);
+    assert!(counters.metadata_rows_examined <= 1_024);
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&query(Some("second content"), None, 10, 0))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_rename_rebuilds_only_each_affected_path_bucket_once() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-rename-locality-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let original = root.join("data/original.json");
+    std::fs::write(
+        &original,
+        br#"{"id":"rename","year":1,"title":"rename locality"}"#,
+    )
+    .unwrap();
+    let handle = index.add_file(&original).unwrap().file;
+    let source_bucket = crate::lifecycle_catalog::shard(
+        &crate::path_repr::query_path(std::path::Path::new("data/original.json")),
+    );
+    let mut same_bucket = None;
+    let mut other_bucket = None;
+    for number in 0..10_000 {
+        let relative = format!("data/move-{number}.json");
+        let bucket = crate::lifecycle_catalog::shard(
+            &crate::path_repr::query_path(std::path::Path::new(&relative)),
+        );
+        if bucket == source_bucket && same_bucket.is_none() {
+            same_bucket = Some(root.join(relative));
+        } else if bucket != source_bucket && other_bucket.is_none() {
+            other_bucket = Some(root.join(relative));
+        }
+        if same_bucket.is_some() && other_bucket.is_some() {
+            break;
+        }
+    }
+    let same_bucket = same_bucket.unwrap();
+    std::fs::rename(&original, &same_bucket).unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let handle = index.move_file(handle, &same_bucket).unwrap().file;
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.path_shards_rebuilt, 1);
+    assert!(counters.path_entries_examined <= 1_024);
+    assert_eq!(counters.metadata_shards_rebuilt, 1);
+
+    let other_bucket = other_bucket.unwrap();
+    std::fs::rename(&same_bucket, &other_bucket).unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    index.move_file(handle, &other_bucket).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.path_shards_rebuilt, 2);
+    assert!(counters.path_entries_examined <= 2_048);
+    assert_eq!(counters.metadata_shards_rebuilt, 1);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_large_catalog_update_examines_only_the_affected_metadata_shard() {
+    let mut files = crate::inventory::FileInventory::new(std::path::PathBuf::from("/synthetic"));
+    let revision = crate::inventory::SourceRevision {
+        modified_ns: 1,
+        size: 2,
+    };
+    for number in 0..100_000 {
+        files
+            .add(
+                std::path::PathBuf::from(format!("data/file-{number:06}.json")),
+                revision,
+                None,
+                crate::model::CollectionId(0),
+            )
+            .unwrap();
+    }
+    let catalog = crate::lifecycle_catalog::FileCatalog::from_parts(
+        Arc::new(files),
+        vec![None; 100_000],
+        [0; 32],
+    );
+    let file = crate::model::FileId(54_321);
+    let mut entry = catalog.entry_owned(file).unwrap();
+    entry.revision.modified_ns = 3;
+    crate::storage_usage::StorageWorkCounters::reset();
+    let _updated = catalog.replaced(entry, None, None).unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.metadata_shards_rebuilt, 1);
+    assert_eq!(counters.path_shards_rebuilt, 0);
+    assert!(
+        counters.metadata_rows_examined <= 1_024,
+        "examined {} rows for one 1,024-ID shard",
+        counters.metadata_rows_examined
+    );
+}
+
+#[test]
+fn rkyv_one_file_routes_invalidation_across_three_segments_and_two_collections() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-routed-delete-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut first = prototype_definition();
+    first.format = SourceFormat::JsonLines;
+    first.name = "first".into();
+    let mut second = prototype_definition();
+    second.format = SourceFormat::JsonLines;
+    second.name = "second".into();
+    let options = RepositoryOptions {
+        segment_policy: crate::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(2).unwrap(),
+            max_files: std::num::NonZeroUsize::new(2).unwrap(),
+        },
+        ..Default::default()
+    };
+    let index = Index::build(&root, vec![first, second], options).unwrap();
+    let path = root.join("data/multi.jsonl");
+    let body = (0..9)
+        .map(|number| {
+            format!(
+                "{{\"id\":\"r{number}\",\"year\":{number},\"title\":\"routed file\"}}\n"
+            )
+        })
+        .collect::<String>();
+    std::fs::write(&path, body).unwrap();
+    let handle = index.add_file(&path).unwrap().file;
+    let view = index.view().unwrap();
+    let mut routed_segments = std::collections::BTreeSet::new();
+    for collection in 0..2 {
+        for segment in view
+            .segments(crate::model::CollectionId(collection))
+            .unwrap()
+            .iter()
+        {
+            if segment.index.file(handle.file_id).is_some() {
+                routed_segments.insert((collection, segment.id));
+            }
+        }
+    }
+    assert!(routed_segments.len() >= 6);
+    assert_eq!(view.file_record_count(handle.file_id), Some(18));
+    view.0.validate_ownership().unwrap();
+    drop(view);
+    std::fs::remove_file(&path).unwrap();
+    index.delete_file(handle).unwrap();
+    let view = index.view().unwrap();
+    for collection in 0..2 {
+        assert_eq!(
+            view.search(&sequence_query(
+                if collection == 0 { "first" } else { "second" },
+                None,
+                0,
+                10
+            ))
+            .unwrap()
+            .count,
+            Some(0)
+        );
+        assert!(view.segments(crate::model::CollectionId(collection)).unwrap().iter().all(
+            |segment| segment.index.file(handle.file_id).is_none()
+        ));
+    }
+    view.0.validate_ownership().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_relocated_survivor_uses_rewritten_ownership_route() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-relocated-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let survivor = root.join("data/survivor.jsonl");
+    let main = root.join("data/main.jsonl");
+    let mut definition = prototype_definition();
+    definition.format = SourceFormat::JsonLines;
+    let index = Index::build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    std::fs::write(
+        &survivor,
+        b"{\"id\":\"survivor\",\"year\":1,\"title\":\"survivor old\"}\n",
+    )
+    .unwrap();
+    std::fs::write(
+        &main,
+        b"{\"id\":\"main-a\",\"year\":2,\"title\":\"main old\"}\n{\"id\":\"main-b\",\"year\":3,\"title\":\"main old\"}\n",
+    )
+    .unwrap();
+    let survivor_handle = index.add_file(&survivor).unwrap().file;
+    let main_handle = index.add_file(&main).unwrap().file;
+    let old_route = index
+        .view()
+        .unwrap()
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| segment.index.file(survivor_handle.file_id).is_some())
+        .unwrap()
+        .id;
+    std::fs::write(
+        &main,
+        b"{\"id\":\"main-a\",\"year\":22,\"title\":\"main changed\"}\n",
+    )
+    .unwrap();
+    index.update_file(main_handle, &main).unwrap();
+    let view = index.view().unwrap();
+    let new_route = view
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| segment.index.file(survivor_handle.file_id).is_some())
+        .unwrap()
+        .id;
+    assert_ne!(new_route, old_route);
+    view.0.validate_ownership().unwrap();
+    drop(view);
+    std::fs::write(
+        &survivor,
+        b"{\"id\":\"survivor\",\"year\":11,\"title\":\"survivor updated\"}\n",
+    )
+    .unwrap();
+    let survivor_handle = index
+        .update_file(survivor_handle, &survivor)
+        .unwrap()
+        .file;
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&query(Some("survivor updated"), None, 10, 0))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    index.delete_file(survivor_handle).unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(
+        view.search(&query(Some("survivor updated"), None, 10, 0))
+            .unwrap()
+            .count,
+        Some(0)
+    );
+    view.0.validate_ownership().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_mutation_strategy_and_segment_ids_are_transaction_specific() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-strategy-flags-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let first = root.join("data/first.json");
+    let second = root.join("data/second.json");
+    let third = root.join("data/third.json");
+    std::fs::write(&first, br#"{"id":"first","year":1,"title":"one"}"#).unwrap();
+    let first_result = index.add_file(&first).unwrap();
+    assert_eq!(
+        first_result.strategy,
+        crate::lifecycle_mutation::FileMutationStrategy::AppendReplacement
+    );
+    std::fs::write(&second, br#"{"id":"second","year":2,"title":"two"}"#).unwrap();
+    let second_result = index.add_file(&second).unwrap();
+    assert_eq!(
+        second_result.strategy,
+        crate::lifecycle_mutation::FileMutationStrategy::RebuildSmallestSegment
+    );
+    std::fs::write(&third, br#"{"id":"third","year":3,"title":"three"}"#).unwrap();
+    let third_result = index.add_file(&third).unwrap();
+    assert_eq!(
+        third_result.strategy,
+        crate::lifecycle_mutation::FileMutationStrategy::AppendReplacement
+    );
+    let view = index.view().unwrap();
+    for group in &view.0.segments {
+        for segment in group.iter() {
+            assert_eq!(segment.id, segment.index.id);
+        }
+    }
+    view.0.validate_ownership().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rkyv_zero_record_and_malformed_files_keep_current_metadata_and_routes() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-empty-broken-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut definition = prototype_definition();
+    definition.format = SourceFormat::JsonLines;
+    let index = Index::build(&root, vec![definition], prototype_options()).unwrap();
+    let empty = root.join("data/empty.jsonl");
+    let broken = root.join("data/broken.jsonl");
+    std::fs::write(&empty, b"").unwrap();
+    std::fs::write(&broken, b"{not-json\n").unwrap();
+    let empty_handle = index.add_file(&empty).unwrap().file;
+    let broken_handle = index.add_file(&broken).unwrap().file;
+    let view = index.view().unwrap();
+    assert_eq!(view.file_record_count(empty_handle.file_id), Some(0));
+    assert_eq!(view.file_record_count(broken_handle.file_id), Some(1));
+    let empty_entry = view.file_entry_owned(empty_handle.file_id).unwrap();
+    let broken_entry = view.file_entry_owned(broken_handle.file_id).unwrap();
+    assert_eq!(empty_entry.relative_path.as_path(), std::path::Path::new("data/empty.jsonl"));
+    assert_eq!(broken_entry.relative_path.as_path(), std::path::Path::new("data/broken.jsonl"));
+    assert!(!broken_entry.diagnostics.is_empty());
+    assert_ne!(broken_entry.status, crate::inventory::FileStatus::Valid);
+    view.0.validate_ownership().unwrap();
+    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(1));
+    drop(view);
+    index.delete_file(empty_handle).unwrap();
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .segments(crate::model::CollectionId(0))
+            .unwrap()
+            .iter()
+            .all(|segment| segment.index.file(empty_handle.file_id).is_none())
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -1936,7 +1936,7 @@ impl Repository {
             for batch in crate::build::file_batches(
                 &state.member_files,
                 &files,
-                options.segment_policy.max_files.get(),
+                512,
             ) {
                 if batch.len() == 1
                     && (files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024

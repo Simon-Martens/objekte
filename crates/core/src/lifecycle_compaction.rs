@@ -9,7 +9,7 @@ use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle_catalog::{FileCatalog, OwnershipRoute};
 use crate::lifecycle_partition::compact_source_parts_with_policy;
 use crate::repository::CollectionState;
 
@@ -115,6 +115,56 @@ fn charge_work(
     work.records = work.records.saturating_add(records);
     work.input_bytes = work.input_bytes.saturating_add(input_bytes);
     work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
+}
+
+fn removed_ownership_routes(
+    index: &IndexedCollectionSegment,
+    segment: crate::native_segment::SegmentId,
+    versions: &crate::inventory::FileVersions,
+) -> Vec<(crate::model::FileId, crate::inventory::FileVersion, OwnershipRoute)> {
+    (0..index.file_count())
+        .filter_map(|ordinal| {
+            let file = index.files.file_id(ordinal)?;
+            let version = versions.get(file)?;
+            Some((
+                file,
+                version,
+                OwnershipRoute {
+                    collection: index.collection,
+                    segment,
+                    file_row_ordinal: ordinal as u32,
+                },
+            ))
+        })
+        .collect()
+}
+
+fn added_ownership_routes(
+    segment: &PublishedSegment,
+) -> Vec<(crate::model::FileId, OwnershipRoute)> {
+    (0..segment.index.file_count())
+        .filter_map(|ordinal| {
+            let file = segment.index.files.file_id(ordinal)?;
+            Some((
+                file,
+                OwnershipRoute {
+                    collection: segment.index.collection,
+                    segment: segment.id,
+                    file_row_ordinal: ordinal as u32,
+                },
+            ))
+        })
+        .collect()
+}
+
+fn commit_compaction_ownership(
+    root: &mut PublishedIndex,
+    removed: &[(crate::model::FileId, crate::inventory::FileVersion, OwnershipRoute)],
+    added: &[(crate::model::FileId, OwnershipRoute)],
+) -> Result<(), IndexError> {
+    root.catalog
+        .update_ownership(&root.file_versions, removed, added)
+        .map_err(IndexError::InvalidPublication)
 }
 
 pub(crate) fn base_as_segment(
@@ -368,6 +418,20 @@ fn merge_small_segments(
                 PublishedSegment::checked(index.id, Arc::new(index), active)
                     .map_err(IndexError::InvalidPublication)?,
             );
+            let mut removed = removed_ownership_routes(
+                &group[left].index,
+                group[left].id,
+                &root.file_versions,
+            );
+            removed.extend(removed_ownership_routes(
+                &group[right].index,
+                group[right].id,
+                &root.file_versions,
+            ));
+            let added = added_ownership_routes(&replacement);
+            root.catalog
+                .update_ownership(&root.file_versions, &removed, &added)
+                .map_err(IndexError::InvalidPublication)?;
             let group = Arc::make_mut(&mut root.segments[number]);
             let (first, second) = if left < right {
                 (left, right)
@@ -415,6 +479,8 @@ fn compact_published_with_budget(
     if cancelled() {
         return Err(IndexError::Cancelled);
     }
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
     // After the initial base has been partitioned, every contribution lives
     // in an immutable shard. Keep the existing catalog and unaffected shard
     // groups instead of rebuilding an empty repository for every collection.
@@ -461,6 +527,11 @@ fn compact_published_with_budget(
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
                 work.segments_reconstructed = work.segments_reconstructed.saturating_add(1);
+                ownership_removed.extend(removed_ownership_routes(
+                    &segment.index,
+                    segment.id,
+                    &next.file_versions,
+                ));
                 let parts = compact_source_parts_with_policy(
                     &segment.index,
                     &segment.active,
@@ -484,14 +555,22 @@ fn compact_published_with_budget(
                     let id = crate::native_segment::SegmentId::new(ordinal);
                     let mut part = part;
                     part.id = id;
-                    compacted.push(Arc::new(
+                    let published = Arc::new(
                         PublishedSegment::checked(id, Arc::new(part), active)
                             .map_err(IndexError::InvalidPublication)?,
-                    ));
+                    );
+                    ownership_added.extend(added_ownership_routes(&published));
+                    compacted.push(published);
                 }
             }
             next.segments[number] = Arc::new(compacted);
         }
+        commit_compaction_ownership(
+            &mut next,
+            &ownership_removed,
+            &ownership_added,
+        )?;
+        next.rebuild_all_segment_positions();
         return Ok((next, work));
     }
     let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
@@ -547,19 +626,53 @@ fn compact_published_with_budget(
             Ok(replacements)
         };
         if old.active[number].slot_count() != 0 {
-            let base = base_as_segment(collection, old.repository.files())?;
-            compacted.extend(compact_source(&base, &old.active[number])?);
+            let mut base = base_as_segment(collection, old.repository.files())?;
+            base.id = crate::native_segment::SegmentId::new(0);
+            ownership_removed.extend(removed_ownership_routes(
+                &base,
+                base.id,
+                &next.file_versions,
+            ));
+            let replacements = compact_source(&base, &old.active[number])?;
+            ownership_added.extend(
+                replacements
+                    .iter()
+                    .flat_map(|segment| added_ownership_routes(segment)),
+            );
+            compacted.extend(replacements);
         }
         for segment in old.segments[number].iter() {
             if segment.active.len() == segment.index.record_count() as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
-                compacted.extend(compact_source(&segment.index, &segment.active)?);
+                ownership_removed.extend(removed_ownership_routes(
+                    &segment.index,
+                    segment.id,
+                    &next.file_versions,
+                ));
+                let replacements =
+                    compact_source(&segment.index, &segment.active)?;
+                ownership_added.extend(
+                    replacements
+                        .iter()
+                        .flat_map(|segment| added_ownership_routes(segment)),
+                );
+                compacted.extend(replacements);
             }
         }
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
     }
+    let all_routes = crate::lifecycle::initial_ownership_routes(
+        &next.repository,
+        &next.active,
+        &next.segments,
+        next.file_versions.len(),
+    );
+    next.catalog
+        .replace_all_ownership(&next.file_versions, &all_routes)
+        .map_err(IndexError::InvalidPublication)?;
+    next.rebuild_all_segment_positions();
     Ok((next, CompactionWork::default()))
 }
 

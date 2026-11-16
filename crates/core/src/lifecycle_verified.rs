@@ -31,7 +31,7 @@ pub(crate) fn verify_old_content(
     old_bytes: &[u8],
 ) -> Result<VerifiedPlan, VerifiedFallbackReason> {
     let old = view
-        .file_entry(handle.file_id)
+        .file_entry_owned(handle.file_id)
         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
     let fingerprint = view
         .file_fingerprint(handle.file_id)
@@ -192,8 +192,8 @@ pub(crate) fn preserve_single_record_slots(
     if plan.has_active_base {
         return None;
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
+    let old_entry = view.file_entry_owned(file)?;
+    let new_entry = next.catalog.entry_owned(file)?;
     if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
         return None;
     }
@@ -269,6 +269,7 @@ pub(crate) fn preserve_single_record_slots(
         );
         group.remove(new_position);
     }
+    candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
 
@@ -285,8 +286,8 @@ pub(crate) fn preserve_partition_record_slots(
     if plan.has_active_base {
         return None;
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
+    let old_entry = view.file_entry_owned(file)?;
+    let new_entry = next.catalog.entry_owned(file)?;
     if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
         return None;
     }
@@ -349,11 +350,12 @@ pub(crate) fn preserve_partition_record_slots(
             .index
             .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
                 entry.id != file
-                    && next.catalog.entry(entry.id).is_some_and(|current| {
-                        current.revision == entry.revision
-                            && current.created_ns == entry.created_ns
-                            && current.collections.contains(collection)
-                    })
+                    && next.catalog.matches_revision(
+                        entry.id,
+                        entry.revision,
+                        entry.created_ns,
+                        *collection,
+                    )
             })
             .ok()?;
         let consolidated = crate::build::IndexedCollectionSegment::consolidate(
@@ -389,6 +391,7 @@ pub(crate) fn preserve_partition_record_slots(
         );
         group.remove(new_position);
     }
+    candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
 
@@ -448,11 +451,12 @@ pub(crate) fn remove_verified_old_shards(
                 .index
                 .compact_active(&shard.active, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
                     entry.id != replaced_file
-                        && catalog.entry(entry.id).is_some_and(|current| {
-                            current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&collection)
-                        })
+                        && catalog.matches_revision(
+                            entry.id,
+                            entry.revision,
+                            entry.created_ns,
+                            collection,
+                        )
                 })
                 .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?;
             if compacted.index.record_count() == 0 {
@@ -474,5 +478,6 @@ pub(crate) fn remove_verified_old_shards(
             }
         }
     }
+    candidate.rebuild_all_segment_positions();
     Ok(candidate)
 }

@@ -320,7 +320,7 @@ fn segment_file_path_matches(
             .get(index)
             .map(|file| file.entry.id)
             .ok_or("segment file row missing")?;
-        let Some(entry) = catalog.entry(id) else {
+        let Some(entry) = catalog.entry_owned(id) else {
             continue;
         };
         let path = crate::path_repr::query_path(&entry.relative_path);

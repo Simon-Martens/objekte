@@ -389,7 +389,10 @@ impl ActiveRecords {
         let mut live_count = self.live_count;
         for slot in slots {
             if slot.0 >= self.slot_count {
-                return Err("record slot out of bounds".into());
+                return Err(format!(
+                    "record slot {} out of bounds for domain {}",
+                    slot.0, self.slot_count
+                ));
             }
             let chunk = Arc::make_mut(&mut chunks[(slot.0 / ACTIVE_SLOT_CHUNK) as usize]);
             if chunk.remove(slot.0 % ACTIVE_SLOT_CHUNK) {

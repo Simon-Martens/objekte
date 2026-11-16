@@ -10,18 +10,20 @@ use std::ops::Bound;
 use std::path::{Path, PathBuf};
 #[cfg(test)]
 use std::path::PathBuf as TestPathBuf;
-use std::sync::{Arc, OnceLock};
+use std::sync::{Arc, LazyLock, OnceLock};
 
 use rkyv::{Archive, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 
 use crate::archive_storage::ValidatedArchive;
 use crate::inventory::{
-    ByteRange, FileEntry, FileStatus, SharedPath, SourceDiagnostic, SourceRevision,
+    ByteRange, FileEntry, FileStatus, FileVersion, FileVersions, SharedPath, SourceDiagnostic,
+    SourceRevision,
     empty_path_bounds, relative_path_bounds,
 };
 use crate::lifecycle_scan::FileStamp;
 use crate::model::{CollectionId, FileId, RecordSlot};
+use crate::native_segment::SegmentId;
 use crate::query::Operator;
 use crate::repository::Repository;
 use crate::source::DiagnosticCategory;
@@ -29,7 +31,7 @@ use crate::source::DiagnosticCategory;
 const SHARDS: usize = 1024;
 const FILE_SHARD_WIDTH: u32 = 1024;
 
-fn shard<T: Hash>(value: &T) -> usize {
+pub(crate) fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
     value.hash(&mut hasher);
     (hasher.finish() as usize) % SHARDS
@@ -123,6 +125,27 @@ impl StoredCatalogPath {
             Ok(shared)
         }
     }
+
+    fn from_archived(path: &rkyv::Archived<Self>) -> Self {
+        #[cfg(unix)]
+        {
+            Self {
+                query: path.query.as_str().into(),
+                native: path.native.as_slice().to_vec(),
+            }
+        }
+        #[cfg(windows)]
+        {
+            Self {
+                query: path.query.as_str().into(),
+                native: path
+                    .native
+                    .iter()
+                    .map(|unit| unit.to_native())
+                    .collect(),
+            }
+        }
+    }
 }
 
 #[derive(Archive, ArchiveSerialize)]
@@ -185,6 +208,41 @@ impl StoredCatalogDiagnostic {
             column: self.column,
             message: self.message.clone(),
         })
+    }
+
+    fn from_archived(diagnostic: &rkyv::Archived<Self>) -> Self {
+        Self {
+            file: diagnostic.file.to_native(),
+            collection: diagnostic.collection.to_native(),
+            source_id: diagnostic.source_id.as_str().into(),
+            source_version: diagnostic.source_version.to_native(),
+            record: diagnostic.record.as_ref().map(|slot| slot.to_native()),
+            range_start: diagnostic
+                .range_start
+                .as_ref()
+                .map(|value| value.to_native()),
+            range_end: diagnostic
+                .range_end
+                .as_ref()
+                .map(|value| value.to_native()),
+            category: diagnostic.category,
+            code: diagnostic.code.as_str().into(),
+            field_path: diagnostic.field_path.as_ref().map(|path| {
+                path.iter()
+                    .map(|part| part.as_str().to_owned())
+                    .collect()
+            }),
+            byte_offset: diagnostic
+                .byte_offset
+                .as_ref()
+                .map(|value| value.to_native()),
+            line: diagnostic.line.as_ref().map(|value| value.to_native()),
+            column: diagnostic
+                .column
+                .as_ref()
+                .map(|value| value.to_native()),
+            message: diagnostic.message.as_str().into(),
+        }
     }
 }
 
@@ -264,6 +322,36 @@ impl StoredFileRow {
         validate_entry(&entry, self.id as usize)?;
         Ok(entry)
     }
+
+    fn from_archived(row: &rkyv::Archived<Self>) -> Self {
+        Self {
+            id: row.id.to_native(),
+            path: StoredCatalogPath::from_archived(&row.path),
+            modified_ns: row.modified_ns.to_native(),
+            size: row.size.to_native(),
+            created_ns: row.created_ns.as_ref().map(|value| value.to_native()),
+            collections: row
+                .collections
+                .iter()
+                .map(|collection| collection.to_native())
+                .collect(),
+            status: row.status,
+            diagnostics: row
+                .diagnostics
+                .iter()
+                .map(StoredCatalogDiagnostic::from_archived)
+                .collect(),
+            omitted_diagnostics: row.omitted_diagnostics.to_native(),
+            fingerprint: row
+                .fingerprint
+                .as_ref()
+                .map(|bytes| bytes.as_slice().to_vec()),
+            configuration: row
+                .configuration
+                .as_ref()
+                .map(|bytes| bytes.as_slice().to_vec()),
+        }
+    }
 }
 
 #[derive(Archive, ArchiveSerialize)]
@@ -287,6 +375,37 @@ struct CatalogPathShard {
     archive: Arc<ValidatedArchive<CatalogPathArchive>>,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub(crate) struct OwnershipRoute {
+    pub collection: CollectionId,
+    pub segment: SegmentId,
+    pub file_row_ordinal: u32,
+}
+
+#[derive(Archive, ArchiveSerialize)]
+struct StoredOwnershipRoute {
+    collection: u32,
+    segment: u64,
+    file_row_ordinal: u32,
+}
+
+#[derive(Archive, ArchiveSerialize)]
+struct StoredOwnershipRow {
+    file: u32,
+    version: u64,
+    routes: Vec<StoredOwnershipRoute>,
+}
+
+#[derive(Archive, ArchiveSerialize)]
+struct OwnershipArchive {
+    lookup: HashMap<u32, u32>,
+    rows: Vec<StoredOwnershipRow>,
+}
+
+struct OwnershipShard {
+    archive: Arc<ValidatedArchive<OwnershipArchive>>,
+}
+
 /// One published view's active file table. Previous views retain their own
 /// archived shards and liveness bitmap after a new root is published.
 #[derive(Clone)]
@@ -295,6 +414,7 @@ pub(crate) struct FileCatalog {
     construction_complete: bool,
     metadata: Arc<Vec<Arc<CatalogMetadataShard>>>,
     paths: Arc<Vec<Arc<CatalogPathShard>>>,
+    ownership: Arc<Vec<Arc<OwnershipShard>>>,
     active: Arc<RoaringBitmap>,
     len: u32,
 }
@@ -323,6 +443,9 @@ fn validate_entry(entry: &FileEntry, expected_id: usize) -> Result<(), String> {
 fn build_metadata_shard(
     rows: impl IntoIterator<Item = StoredFileRow>,
 ) -> Result<Arc<CatalogMetadataShard>, String> {
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.metadata_shards_rebuilt = counters.metadata_shards_rebuilt.saturating_add(1);
+    });
     let mut rows = rows.into_iter().collect::<Vec<_>>();
     rows.sort_by_key(|row| row.id);
     let mut id_lookup = HashMap::with_capacity(rows.len());
@@ -356,11 +479,10 @@ fn build_metadata_shard(
     Ok(shard)
 }
 
-fn empty_metadata_shard() -> Arc<CatalogMetadataShard> {
+static EMPTY_METADATA_SHARD: LazyLock<Arc<CatalogMetadataShard>> = LazyLock::new(|| {
     build_metadata_shard(std::iter::empty()).expect("empty catalog shard serializes")
-}
-
-fn empty_path_shard() -> Arc<CatalogPathShard> {
+});
+static EMPTY_PATH_SHARD: LazyLock<Arc<CatalogPathShard>> = LazyLock::new(|| {
     Arc::new(CatalogPathShard {
         archive: ValidatedArchive::freeze(&CatalogPathArchive {
             exact: HashMap::new(),
@@ -368,11 +490,29 @@ fn empty_path_shard() -> Arc<CatalogPathShard> {
         })
         .expect("empty path shard serializes"),
     })
+});
+static EMPTY_OWNERSHIP_SHARD: LazyLock<Arc<OwnershipShard>> = LazyLock::new(|| {
+    build_ownership_shard(std::iter::empty()).expect("empty ownership shard serializes")
+});
+
+fn empty_metadata_shard() -> Arc<CatalogMetadataShard> {
+    Arc::clone(&EMPTY_METADATA_SHARD)
+}
+
+fn empty_path_shard() -> Arc<CatalogPathShard> {
+    Arc::clone(&EMPTY_PATH_SHARD)
+}
+
+fn empty_ownership_shard() -> Arc<OwnershipShard> {
+    Arc::clone(&EMPTY_OWNERSHIP_SHARD)
 }
 
 fn build_path_shard(
     entries: impl IntoIterator<Item = (String, FileId)>,
 ) -> Result<Arc<CatalogPathShard>, String> {
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.path_shards_rebuilt = counters.path_shards_rebuilt.saturating_add(1);
+    });
     let mut exact = HashMap::new();
     let mut ordered = BTreeMap::new();
     for (query, id) in entries {
@@ -384,6 +524,67 @@ fn build_path_shard(
     Ok(Arc::new(CatalogPathShard {
         archive: ValidatedArchive::freeze(&CatalogPathArchive { exact, ordered })?,
     }))
+}
+
+fn build_ownership_shard(
+    rows: impl IntoIterator<Item = StoredOwnershipRow>,
+) -> Result<Arc<OwnershipShard>, String> {
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.ownership_shards_rebuilt =
+            counters.ownership_shards_rebuilt.saturating_add(1);
+    });
+    let mut rows = rows.into_iter().collect::<Vec<_>>();
+    rows.sort_by_key(|row| row.file);
+    let mut lookup = HashMap::with_capacity(rows.len());
+    for (ordinal, row) in rows.iter_mut().enumerate() {
+        if row.routes.is_empty() {
+            return Err("ownership row has no active route".into());
+        }
+        row.routes.sort_by_key(|route| {
+            (route.collection, route.segment, route.file_row_ordinal)
+        });
+        row.routes.dedup_by_key(|route| {
+            (route.collection, route.segment, route.file_row_ordinal)
+        });
+        if lookup
+            .insert(
+                row.file,
+                u32::try_from(ordinal).map_err(|_| "ownership shard overflow")?,
+            )
+            .is_some()
+        {
+            return Err("duplicate ownership file row".into());
+        }
+    }
+    Ok(Arc::new(OwnershipShard {
+        archive: ValidatedArchive::freeze(&OwnershipArchive { lookup, rows })?,
+    }))
+}
+
+impl OwnershipShard {
+    fn row(&self, file: FileId) -> Option<&rkyv::Archived<StoredOwnershipRow>> {
+        let key = rkyv::rend::u32_le::from_native(file.0);
+        let ordinal = self.archive.root().lookup.get(&key)?.to_native() as usize;
+        self.archive.root().rows.get(ordinal)
+    }
+}
+
+fn archived_ownership_route(
+    route: &rkyv::Archived<StoredOwnershipRoute>,
+) -> OwnershipRoute {
+    OwnershipRoute {
+        collection: CollectionId(route.collection.to_native()),
+        segment: SegmentId::new(route.segment.to_native()),
+        file_row_ordinal: route.file_row_ordinal.to_native(),
+    }
+}
+
+fn stored_ownership_route(route: OwnershipRoute) -> StoredOwnershipRoute {
+    StoredOwnershipRoute {
+        collection: route.collection.0,
+        segment: route.segment.get(),
+        file_row_ordinal: route.file_row_ordinal,
+    }
 }
 
 impl CatalogMetadataShard {
@@ -402,6 +603,10 @@ impl CatalogMetadataShard {
 
     fn entries(&self) -> &[FileEntry] {
         self.cache.get_or_init(|| {
+            crate::storage_usage::StorageWorkCounters::update(|counters| {
+                counters.metadata_cache_initializations =
+                    counters.metadata_cache_initializations.saturating_add(1);
+            });
             self.archive
                 .root()
                 .rows
@@ -563,6 +768,11 @@ impl FileCatalog {
             construction_complete: true,
             metadata: Arc::new(metadata),
             paths: Arc::new(paths),
+            ownership: Arc::new(
+                (0..=file_shard_number(FileId(len.saturating_sub(1))))
+                    .map(|_| empty_ownership_shard())
+                    .collect(),
+            ),
             active: Arc::new(active),
             len,
         }
@@ -637,6 +847,11 @@ impl FileCatalog {
             construction_complete: true,
             metadata: Arc::new(metadata),
             paths: Arc::new(paths),
+            ownership: Arc::new(
+                (0..=file_shard_number(FileId(len.saturating_sub(1))))
+                    .map(|_| empty_ownership_shard())
+                    .collect(),
+            ),
             active: Arc::new(active),
             len,
         };
@@ -688,6 +903,42 @@ impl FileCatalog {
         let shard = self.metadata.get(file_shard_number(file))?;
         let ordinal = shard.row_ordinal(file)?;
         shard.entries().get(ordinal)
+    }
+
+    pub(crate) fn entry_owned(&self, file: FileId) -> Option<FileEntry> {
+        let shard = self.metadata.get(file_shard_number(file))?;
+        let row = shard.archived_row(file)?;
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.metadata_rows_examined =
+                counters.metadata_rows_examined.saturating_add(1);
+        });
+        StoredFileRow::from_archived(row).to_entry().ok()
+    }
+
+    pub(crate) fn matches_revision(
+        &self,
+        file: FileId,
+        revision: SourceRevision,
+        created_ns: Option<i128>,
+        collection: CollectionId,
+    ) -> bool {
+        let Some(shard) = self.metadata.get(file_shard_number(file)) else {
+            return false;
+        };
+        let Some(row) = shard.archived_row(file) else {
+            return false;
+        };
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.metadata_rows_examined =
+                counters.metadata_rows_examined.saturating_add(1);
+        });
+        row.modified_ns.to_native() == revision.modified_ns
+            && row.size.to_native() == revision.size
+            && row.created_ns.as_ref().map(|value| value.to_native()) == created_ns
+            && row
+                .collections
+                .iter()
+                .any(|candidate| candidate.to_native() == collection.0)
     }
 
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -779,10 +1030,15 @@ impl FileCatalog {
                     return None;
                 }
                 scanned += 1;
-                rows.push((query.as_str().to_owned(), FileId(id.to_native())));
+                rows.push((query.as_str(), FileId(id.to_native())));
             }
         }
-        rows.sort_by(|left, right| left.0.cmp(&right.0).then_with(|| left.1.cmp(&right.1)));
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.path_entries_examined = counters
+                .path_entries_examined
+                .saturating_add(scanned as u64);
+        });
+        rows.sort_by(|left, right| left.0.cmp(right.0).then_with(|| left.1.cmp(&right.1)));
         Some(rows.into_iter().map(|(_, id)| id).collect())
     }
 
@@ -877,10 +1133,14 @@ impl FileCatalog {
             entry.id,
             Some(StoredFileRow::from_entry(&entry, fingerprint, configuration)),
         )?;
-        next.rebuild_path_buckets(
-            &[old.relative_path.query_key(), entry.relative_path.query_key()],
-            &[(&old, false), (&entry, true)],
-        )?;
+        let old_query = old.relative_path.query_key();
+        let new_query = entry.relative_path.query_key();
+        if old_query != new_query {
+            next.rebuild_path_buckets(
+                &[old_query, new_query],
+                &[(&old, false), (&entry, true)],
+            )?;
+        }
         Ok(next)
     }
 
@@ -899,36 +1159,24 @@ impl FileCatalog {
         self.ensure_metadata_shard(file_shard_number(file));
         let number = file_shard_number(file);
         let current = &self.metadata[number];
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.metadata_rows_examined = counters
+                .metadata_rows_examined
+                .saturating_add(current.archive.root().rows.len() as u64);
+        });
         let mut rows = current
-            .entries()
+            .archive
+            .root()
+            .rows
             .iter()
-            .filter(|entry| entry.id != file)
-            .map(|entry| {
-                let row = current
-                    .archived_row(entry.id)
-                    .expect("cached metadata entry has archived row");
-                let fingerprint = row
-                    .fingerprint
-                    .as_ref()
-                    .and_then(|bytes| bytes.as_slice().try_into().ok());
-                let configuration = row
-                    .configuration
-                    .as_ref()
-                    .and_then(|bytes| bytes.as_slice().try_into().ok());
-                (entry.clone(), fingerprint, configuration)
-            })
+            .filter(|row| row.id.to_native() != file.0)
+            .map(StoredFileRow::from_archived)
             .collect::<Vec<_>>();
         if let Some(row) = replacement {
-            let old_fingerprint = row.fingerprint.as_deref().and_then(|bytes| bytes.try_into().ok());
-            let old_configuration =
-                row.configuration.as_deref().and_then(|bytes| bytes.try_into().ok());
-            let entry = row.to_entry()?;
-            rows.push((entry, old_fingerprint, old_configuration));
+            row.to_entry()?;
+            rows.push(row);
         }
-        let replacement_rows = rows.iter().map(|(entry, fingerprint, configuration)| {
-            StoredFileRow::from_entry(entry, *fingerprint, *configuration)
-        });
-        let shard = build_metadata_shard(replacement_rows)?;
+        let shard = build_metadata_shard(rows)?;
         Arc::make_mut(&mut self.metadata)[number] = shard;
         Ok(())
     }
@@ -943,14 +1191,23 @@ impl FileCatalog {
             .map(|key| shard(key))
             .collect::<BTreeSet<_>>();
         for bucket in buckets.iter().copied() {
-            let mut entries = BTreeMap::new();
-            for metadata_shard in self.metadata.iter() {
-                for entry in metadata_shard.entries() {
-                    if shard(&entry.relative_path.query_key()) == bucket {
-                        entries.insert(entry.id, entry.relative_path.query_key().to_string());
-                    }
-                }
-            }
+            let mut entries = self.paths[bucket]
+                .archive
+                .root()
+                .ordered
+                .iter()
+                .map(|(query, id)| {
+                    (
+                        FileId(id.to_native()),
+                        query.as_str().to_owned(),
+                    )
+                })
+                .collect::<BTreeMap<_, _>>();
+            crate::storage_usage::StorageWorkCounters::update(|counters| {
+                counters.path_entries_examined = counters
+                    .path_entries_examined
+                    .saturating_add(entries.len() as u64);
+            });
             for (entry, add) in changes {
                 let query = entry.relative_path.query_key();
                 if shard(&query) != bucket {
@@ -959,11 +1216,210 @@ impl FileCatalog {
                 if *add {
                     entries.insert(entry.id, query.to_string());
                 } else {
-                    entries.remove(&entry.id);
+                    if entries
+                        .get(&entry.id)
+                        .is_some_and(|current| current == query.as_ref())
+                    {
+                        entries.remove(&entry.id);
+                    }
                 }
             }
             let rebuilt = build_path_shard(entries.into_iter().map(|(id, query)| (query, id)))?;
             Arc::make_mut(&mut self.paths)[bucket] = rebuilt;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn replace_all_ownership(
+        &mut self,
+        versions: &FileVersions,
+        routes: &[Vec<OwnershipRoute>],
+    ) -> Result<(), String> {
+        if routes.len() != versions.len() {
+            return Err("ownership route table length mismatch".into());
+        }
+        let shard_count = file_shard_number(
+            FileId(versions.len().saturating_sub(1) as u32),
+        ) + 1;
+        let mut grouped = (0..shard_count)
+            .map(|_| Vec::<StoredOwnershipRow>::new())
+            .collect::<Vec<_>>();
+        for (number, routes) in routes.iter().enumerate() {
+            if routes.is_empty() {
+                continue;
+            }
+            let file = FileId(
+                u32::try_from(number).map_err(|_| "too many ownership files")?,
+            );
+            let version = versions
+                .get(file)
+                .ok_or("ownership file version missing")?;
+            grouped[file_shard_number(file)].push(StoredOwnershipRow {
+                file: file.0,
+                version: version.0,
+                routes: routes.iter().copied().map(stored_ownership_route).collect(),
+            });
+        }
+        let ownership = grouped
+            .into_iter()
+            .map(|rows| {
+                if rows.is_empty() {
+                    Ok(empty_ownership_shard())
+                } else {
+                    build_ownership_shard(rows)
+                }
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        self.ownership = Arc::new(ownership);
+        Ok(())
+    }
+
+    pub(crate) fn ownership_routes(
+        &self,
+        file: FileId,
+        version: FileVersion,
+    ) -> Result<Vec<OwnershipRoute>, String> {
+        let row = self
+            .ownership
+            .get(file_shard_number(file))
+            .and_then(|shard| shard.row(file))
+            .ok_or("current file ownership row missing")?;
+        if row.version.to_native() != version.0 {
+            return Err("file ownership incarnation mismatch".into());
+        }
+        let routes = row
+            .routes
+            .iter()
+            .map(archived_ownership_route)
+            .collect::<Vec<_>>();
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.ownership_routes_examined =
+                counters.ownership_routes_examined.saturating_add(routes.len() as u64);
+        });
+        Ok(routes)
+    }
+
+    pub(crate) fn has_ownership_routes(&self, file: FileId, version: FileVersion) -> bool {
+        self.ownership_routes(file, version).is_ok_and(|routes| !routes.is_empty())
+    }
+
+    pub(crate) fn retire_ownership(
+        &mut self,
+        file: FileId,
+        version: FileVersion,
+    ) -> Result<(), String> {
+        let number = file_shard_number(file);
+        let shard = self
+            .ownership
+            .get(number)
+            .ok_or("file ownership shard missing")?;
+        let row = shard.row(file).ok_or("current file ownership row missing")?;
+        if row.version.to_native() != version.0 {
+            return Err("file ownership incarnation mismatch".into());
+        }
+        let mut rows = shard
+            .archive
+            .root()
+            .rows
+            .iter()
+            .filter(|row| row.file.to_native() != file.0)
+            .map(|row| StoredOwnershipRow {
+                file: row.file.to_native(),
+                version: row.version.to_native(),
+                routes: row
+                    .routes
+                    .iter()
+                    .map(|route| stored_ownership_route(archived_ownership_route(route)))
+                    .collect(),
+            })
+            .collect::<Vec<_>>();
+        let replacement = if rows.is_empty() {
+            empty_ownership_shard()
+        } else {
+            build_ownership_shard(std::mem::take(&mut rows))?
+        };
+        Arc::make_mut(&mut self.ownership)[number] = replacement;
+        Ok(())
+    }
+
+    pub(crate) fn update_ownership(
+        &mut self,
+        versions: &FileVersions,
+        removed: &[(FileId, FileVersion, OwnershipRoute)],
+        added: &[(FileId, OwnershipRoute)],
+    ) -> Result<(), String> {
+        let mut touched = BTreeSet::new();
+        touched.extend(removed.iter().map(|(file, _, _)| file_shard_number(*file)));
+        touched.extend(added.iter().map(|(file, _)| file_shard_number(*file)));
+        for number in touched {
+            let current = self
+                .ownership
+                .get(number)
+                .ok_or("ownership shard missing")?;
+            let mut rows = current
+                .archive
+                .root()
+                .rows
+                .iter()
+                .map(|row| {
+                    (
+                        row.file.to_native(),
+                        (
+                        row.version.to_native(),
+                        row.routes
+                            .iter()
+                            .map(archived_ownership_route)
+                            .collect::<Vec<_>>(),
+                        ),
+                    )
+                })
+                .collect::<BTreeMap<_, _>>();
+            for (file, version, route) in removed {
+                if file_shard_number(*file) != number {
+                    continue;
+                }
+                let Some(row) = rows.get_mut(&file.0) else {
+                    continue;
+                };
+                if row.0 != version.0 {
+                    return Err("file ownership incarnation mismatch".into());
+                }
+                row.1.retain(|candidate| candidate != route);
+            }
+            for (file, route) in added {
+                if file_shard_number(*file) != number {
+                    continue;
+                }
+                let version = versions
+                    .get(*file)
+                    .ok_or("updated ownership file version missing")?;
+                let row = rows.entry(file.0).or_insert_with(|| {
+                    (version.0, Vec::new())
+                });
+                if row.0 != version.0 {
+                    return Err("new ownership route has stale file version".into());
+                }
+                if !row.1.contains(route) {
+                    row.1.push(*route);
+                }
+            }
+            let replacement = if rows.values().all(|(_, routes)| routes.is_empty()) {
+                empty_ownership_shard()
+            } else {
+                build_ownership_shard(rows.into_iter().filter_map(
+                    |(file, (version, routes))| {
+                        (!routes.is_empty()).then(|| StoredOwnershipRow {
+                            file,
+                            version,
+                            routes: routes
+                                .into_iter()
+                                .map(stored_ownership_route)
+                                .collect(),
+                        })
+                    },
+                ))?
+            };
+            Arc::make_mut(&mut self.ownership)[number] = replacement;
         }
         Ok(())
     }

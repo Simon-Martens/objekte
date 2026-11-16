@@ -291,7 +291,7 @@ fn prepare_replacement_bytes(
         });
     }
     let previous = view
-        .file_entry(handle.file_id)
+        .file_entry_owned(handle.file_id)
         .ok_or(IndexError::UnknownFile)?;
     let relative = relative_path(&view, path)?;
     if view
@@ -490,7 +490,7 @@ impl Index {
                 });
             }
             let old = view
-                .file_entry(handle.file_id)
+                .file_entry_owned(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let relative = relative_path(&view, destination)?;
             if relative.as_path() == old.relative_path.as_path() {
@@ -502,7 +502,7 @@ impl Index {
             {
                 return Err(IndexError::DestinationExists);
             }
-            if !path_independent_memberships(&view, old, &relative)? {
+            if !path_independent_memberships(&view, &old, &relative)? {
                 return Ok(None);
             }
             let Some(fingerprint) = view.file_fingerprint(handle.file_id) else {
@@ -625,7 +625,7 @@ impl Index {
                 continue;
             }
             let previous = view
-                .file_entry(handle.file_id)
+                .file_entry_owned(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let retired_records = view
                 .file_record_count(handle.file_id)

@@ -77,13 +77,12 @@ fn compact_source_parts_with_limits(
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
-        let Some(current) = catalog.entry(file.entry.id) else {
-            continue;
-        };
-        if current.revision != file.entry.revision
-            || current.created_ns != file.entry.created_ns
-            || !current.collections.contains(&source.collection)
-        {
+        if !catalog.matches_revision(
+            file.entry.id,
+            file.entry.revision,
+            file.entry.created_ns,
+            source.collection,
+        ) {
             continue;
         }
         let owned = file
@@ -174,7 +173,7 @@ fn compact_source_parts_with_limits(
             .map_err(IndexError::Build)?;
         let mut refreshed_files = compacted.files.to_vec();
         for file in &mut refreshed_files {
-            if let Some(current) = catalog.entry(file.entry.id) {
+            if let Some(current) = catalog.entry_owned(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
@@ -262,6 +261,7 @@ fn partition_base_with_limits_inner(
         .map(|_| ActiveRecords::all(0).map_err(IndexError::ResourceLimit))
         .collect::<Result<Vec<_>, _>>()?;
     root.segments = groups;
+    root.rebuild_all_segment_positions();
     Ok(root)
 }
 
