@@ -60,6 +60,64 @@ fn documented_inference_defaults_match_the_exported_policy() {
 }
 
 #[test]
+fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
+    let root = temporary_root("global-threshold-segments");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let records = 513usize;
+    for number in 0..records {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            r#"{"bucket":7}"#,
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    min_nonblank_occurrences: records as u64,
+                    min_nonblank_records: records as u64,
+                    minimum_repeated_percent: 0,
+                    ..Default::default()
+                },
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(repo.segments[0].len(), 2);
+    let field = repo.inference_report("data").unwrap().fields[0].clone();
+    assert_eq!(field.index_status, InferenceIndexStatus::Built);
+    assert_eq!(field.present_records, records as u64);
+
+    let mut request = query("bucket = 7");
+    request.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&request).unwrap();
+    assert_eq!(result.count, Some(records));
+    assert_eq!(result.counters.files_opened, 0);
+    assert_eq!(result.counters.record_parses, 0);
+    assert!(
+        repo.explain(&request).unwrap()[0]
+            .terms
+            .iter()
+            .any(|term| { term.selected.kind == AccessPathKind::Posting && term.selected.exact })
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn auto_index_retains_structural_facts_after_value_admission_fails() {
     let root = temporary_root("structural-facts");
     let _ = std::fs::remove_dir_all(&root);
@@ -973,14 +1031,27 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         assert_eq!(stats.observed_records, 513);
         assert_eq!(stats.merged_batches, 2);
         assert_eq!(stats.retained_manual_summary_bytes, 0);
-        let indexes = &repo.segments[0][0].index.inference.as_ref().unwrap().indexes;
+        let indexes = &repo.segments[0][0]
+            .index
+            .inference
+            .as_ref()
+            .unwrap()
+            .indexes;
         assert_eq!(indexes.len(), 1);
         let index = &indexes[&vec!["kind".into()]];
         outcomes.push((
             serde_json::to_value(report).unwrap(),
             index.presence.clone(),
-            index.values.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
-            index.lengths.iter().map(|(key, slots)| (key.clone(), slots.clone())).collect::<Vec<_>>(),
+            index
+                .values
+                .iter()
+                .map(|(key, slots)| (key.clone(), slots.clone()))
+                .collect::<Vec<_>>(),
+            index
+                .lengths
+                .iter()
+                .map(|(key, slots)| (key.clone(), slots.clone()))
+                .collect::<Vec<_>>(),
         ));
     }
     assert_eq!(outcomes[0], outcomes[1]);
@@ -1038,9 +1109,11 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             assert_eq!(repo.build_parses(), 24);
             assert_eq!(repo.build_failed_parses(), 1);
             if mode == InferenceMode::Disabled {
-                assert!(repo.segments[0]
-                    .iter()
-                    .all(|segment| segment.index.inference.is_none()));
+                assert!(
+                    repo.segments[0]
+                        .iter()
+                        .all(|segment| segment.index.inference.is_none())
+                );
                 assert_eq!(repo.startup().inference_build.observed_records, 0);
                 assert_eq!(repo.startup().inference_build.merged_batches, 0);
             } else {

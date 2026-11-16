@@ -4095,8 +4095,30 @@ fn exact_or_branch_members(
         return Ok(0);
     };
     let collection = &repo.collections[collection_index];
-    let mut members = RoaringBitmap::new();
+    let mut members = crate::native_segment::SegmentRecordSet::default();
     for part in parts {
+        if let BoundExpr::Term(term) = part
+            && term.path.root == PathRoot::Metadata(crate::model::MetadataField::RecordClass)
+            && term.operator == Operator::Eq
+            && let Value::Number(expected) = &term.literal
+        {
+            for published in segments[collection_index].iter() {
+                for slot in published.active.bitmap().iter() {
+                    let record = published
+                        .index
+                        .record(RecordSlot(slot))
+                        .ok_or("exact record-class branch slot missing")?;
+                    if crate::model::Number::integer(record.class.code() as i128) == *expected {
+                        members.insert(crate::native_segment::SegmentRecordAddress {
+                            collection: published.index.collection,
+                            segment: published.id,
+                            slot: record.slot,
+                        });
+                    }
+                }
+            }
+            continue;
+        }
         if let BoundExpr::Term(term) = part
             && term.path.root == PathRoot::Data
             && !collection
@@ -4116,7 +4138,7 @@ fn exact_or_branch_members(
         ) {
             continue;
         }
-        let mut branch = RoaringBitmap::new();
+        let mut branch = crate::native_segment::SegmentRecordSet::default();
         let mut exact = true;
         for published in segments[collection_index].iter() {
             let bounds =
@@ -4134,11 +4156,17 @@ fn exact_or_branch_members(
                     .index
                     .record(RecordSlot(slot))
                     .ok_or("exact OR branch slot missing")?;
-                branch.insert(record.slot.0);
+                branch.insert(crate::native_segment::SegmentRecordAddress {
+                    collection: published.index.collection,
+                    segment: published.id,
+                    slot: record.slot,
+                });
             }
         }
         if exact {
-            members |= branch;
+            for address in branch.iter() {
+                members.insert(address);
+            }
         }
     }
     Ok(members.len())
@@ -4293,6 +4321,20 @@ fn try_lifecycle_ordered_page(
         count = None;
         counters.match_count_complete = false;
     }
+    let exact_or_members =
+        prepared
+            .collections
+            .iter()
+            .try_fold(0u64, |total, (collection_index, filter, _)| {
+                filter
+                    .as_ref()
+                    .map(|filter| {
+                        exact_or_branch_members(repo, segments, *collection_index, filter)
+                    })
+                    .transpose()
+                    .map(|members| total.saturating_add(members.unwrap_or(0)))
+            })?;
+    counters.exact_posting_matches = counters.exact_posting_matches.max(exact_or_members);
     counters.returned_records = hits.len() as u64;
     Ok(Some(SearchResult {
         count,
@@ -5291,10 +5333,6 @@ fn search_segmented_impl(
             .saturating_add(selected_files.len() as u64);
     }
     counters.total_matches = total;
-    if counters.record_parses > 0 && counters.files_opened == 0 {
-        counters.files_opened = 1;
-        counters.distinct_files = counters.distinct_files.max(1);
-    }
     if exact_or_members > 0 {
         counters.exact_posting_matches = exact_or_members;
         if query.options.evidence {

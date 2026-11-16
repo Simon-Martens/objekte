@@ -334,19 +334,6 @@ fn hash_field(hash: &mut Sha256, value: &[u8]) {
     hash.update(value);
 }
 
-fn contains_record_class_term(expr: &crate::query::FilterExpr) -> bool {
-    match expr {
-        crate::query::FilterExpr::Term(term) => {
-            term.path.field.root
-                == crate::model::PathRoot::Metadata(crate::model::MetadataField::RecordClass)
-        }
-        crate::query::FilterExpr::And(parts) | crate::query::FilterExpr::Or(parts) => {
-            parts.iter().any(contains_record_class_term)
-        }
-        crate::query::FilterExpr::Not(inner) => contains_record_class_term(inner),
-    }
-}
-
 fn finish_fresh_fingerprints(
     files: &FileInventory,
     mut bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
@@ -1187,10 +1174,6 @@ impl Repository {
         for hit in &mut result.hits {
             self.stamp_native_hit(hit);
         }
-        if result.counters.record_parses > 0 && result.counters.files_opened == 0 {
-            result.counters.files_opened = 1;
-            result.counters.distinct_files = result.counters.distinct_files.max(1);
-        }
         result
     }
 
@@ -1204,18 +1187,6 @@ impl Repository {
         {
             result.count = None;
             result.counters.match_count_complete = false;
-        }
-        if result.counters.exact_posting_matches == 0
-            && query
-                .filter
-                .as_ref()
-                .is_some_and(contains_record_class_term)
-        {
-            result.counters.exact_posting_matches = result
-                .hits
-                .iter()
-                .filter(|hit| hit.record_class == crate::inventory::RecordClass::RawFallback)
-                .count() as u64;
         }
         self.stamp_native_result(result)
     }

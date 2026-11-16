@@ -16,6 +16,15 @@ use super::{
     InferenceReport, InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
+/// Segment-local builders retain bounded candidates. Collection-wide policy is
+/// applied once after all observations are known, so a per-segment occurrence
+/// threshold must not discard a field that qualifies globally.
+pub(crate) fn candidate_config(mut config: InferenceConfig) -> InferenceConfig {
+    config.policy.min_nonblank_occurrences = 1;
+    config.policy.min_nonblank_records = 1;
+    config.policy.minimum_repeated_percent = 0;
+    config
+}
 
 /// Observations retained for one path while construction batches are admitted.
 #[derive(Clone)]
@@ -64,7 +73,6 @@ struct FieldState {
     #[cfg(test)]
     key_builds: usize,
 }
-
 
 impl FieldState {
     fn new(path: Vec<String>, mode: InferenceMode) -> Self {
@@ -445,7 +453,6 @@ impl FieldState {
     }
 }
 
-
 /// One batch or coordinator's bounded construction-only observation state.
 #[derive(Clone)]
 pub(crate) struct InferenceBuilder {
@@ -471,14 +478,12 @@ pub(crate) struct InferenceBuilder {
     coordinator_limit: usize,
 }
 
-
 /// Reused traversal state for one already parsed logical record.
 struct VisitState {
     slot: RecordSlot,
     path: Vec<ObservedStep>,
     contributions: usize,
 }
-
 
 impl InferenceBuilder {
     pub(crate) fn new(config: InferenceConfig, batch: bool) -> Option<Self> {
@@ -1254,8 +1259,20 @@ impl InferenceBuilder {
             short_string_coverage,
         })
     }
-}
 
+    pub(crate) fn finish_candidates(
+        mut self,
+        logical: &RoaringBitmap,
+        record_count: usize,
+        schema: &Schema,
+    ) -> Result<InferenceState, String> {
+        let published_config = self.config;
+        self.config = candidate_config(self.config);
+        let mut state = self.finish(logical, record_count, schema)?;
+        state.report.policy = published_config.policy;
+        Ok(state)
+    }
+}
 
 #[cfg(test)]
 #[path = "inference_build.test.rs"]

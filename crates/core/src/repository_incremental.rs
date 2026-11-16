@@ -326,10 +326,10 @@ impl SegmentBuildScheduler {
                     profile,
                     build_ns: phase.elapsed().as_nanos() as u64,
                 });
-            debug_assert_eq!(
-                result.as_ref().map(|built| built.index.collection).ok(),
-                Some(collection)
-            );
+            debug_assert!(match result.as_ref() {
+                Ok(built) => built.index.collection == collection,
+                Err(_) => true,
+            });
             running.fetch_sub(1, Ordering::Relaxed);
             let _ = sender.send(SegmentBuildMessage {
                 collection_index,
@@ -1477,6 +1477,18 @@ impl Repository {
                 // their source segments and are never addressed through this
                 // compatibility header.
                 collection.sorting = first.index.sorting.clone();
+                for column in collection.sorting.columns.values_mut() {
+                    column.keys.clear();
+                    column.keys.shrink_to_fit();
+                    column.ascending.clear();
+                    column.ascending.shrink_to_fit();
+                    column.descending.clear();
+                    column.descending.shrink_to_fit();
+                }
+                for composite in &mut collection.sorting.composites {
+                    composite.order.clear();
+                    composite.order.shrink_to_fit();
+                }
             }
             pending_relations.push(relations);
             let (summary, stats) = state.finish_summary().map_err(IndexError::Build)?;

@@ -339,8 +339,9 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         configured.iter().position(|id| id == "g").unwrap()
             < configured.iter().position(|id| id == "h").unwrap()
     );
-    let column = rebuilt.collections()[0].sorting.column("name").unwrap();
-    let records = &rebuilt.collections()[0].generation.records;
+    let segment = &rebuilt.segments[0][0].index;
+    let column = segment.sorting.column("name").unwrap();
+    let records = &segment.records;
     let g = records
         .iter()
         .find(|record| record.id.0.as_ref() == "g")

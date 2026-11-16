@@ -234,6 +234,7 @@ impl SegmentAggregate {
 pub(crate) type SegmentLimits = SegmentPolicy;
 
 impl SegmentAdmission {
+    #[cfg(test)]
     pub fn new(collection: CollectionId, source: &PreparedSource) -> Self {
         Self::with_limits_and_id(
             collection,
@@ -290,6 +291,7 @@ impl SegmentAdmission {
 
     /// False means seal this segment and begin another. A single oversized
     /// file is admitted alone; preparation already owns its index output.
+    #[cfg(test)]
     pub fn can_admit(&self, _source: &SourceFileInput, prepared: &PreparedCollectionBuild) -> bool {
         if self.files.is_empty() {
             return true;
@@ -321,6 +323,7 @@ impl SegmentAdmission {
 
     /// Consume one prepared collection membership. The caller retains other
     /// memberships of the same physical file for their respective segments.
+    #[cfg(test)]
     pub fn admit(
         &mut self,
         source: &SourceFileInput,
@@ -604,7 +607,9 @@ impl CollectionSegment {
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let inference = inference
-            .map(|builder| builder.finish(&logical_records, record_count, &definition.schema))
+            .map(|builder| {
+                builder.finish_candidates(&logical_records, record_count, &definition.schema)
+            })
             .transpose()?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_finish_ns = started.elapsed().as_nanos() as u64;

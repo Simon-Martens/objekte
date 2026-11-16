@@ -1500,7 +1500,26 @@ impl Index {
                         .get(file.entry.id.0 as usize)
                         .is_some_and(|current| current.status != file.entry.status)
                 });
-                if !needs_status_refresh {
+                let decision = repository
+                    .collections
+                    .get(published.index.collection.0 as usize)
+                    .and_then(|collection| collection.global_inference.as_ref());
+                let needs_inference_prune = decision.is_some_and(|decision| {
+                    published.index.inference.as_ref().is_some_and(|state| {
+                        state.indexes.keys().any(|path| {
+                            decision
+                                .report
+                                .fields
+                                .iter()
+                                .find(|field| field.path == *path)
+                                .is_none_or(|field| {
+                                    field.index_status
+                                        != crate::inference::InferenceIndexStatus::Built
+                                })
+                        })
+                    })
+                });
+                if !needs_status_refresh && !needs_inference_prune {
                     continue;
                 }
                 let mut index = (*published.index).clone();
@@ -1522,6 +1541,31 @@ impl Index {
                                 entry.status.code()
                             })
                     });
+                if let Some(decision) = decision {
+                    if let Some(inference) = index.inference.as_mut() {
+                        for field in &decision.report.fields {
+                            if field.index_status == crate::inference::InferenceIndexStatus::Built {
+                                continue;
+                            }
+                            if matches!(
+                                field.index_status,
+                                crate::inference::InferenceIndexStatus::Redundant
+                                    | crate::inference::InferenceIndexStatus::ExplicitOptOut
+                            ) {
+                                inference.indexes.remove(&field.path);
+                                inference.empty_selections.remove(&field.path);
+                                inference.short_string_coverage.remove(&field.path);
+                                continue;
+                            }
+                            if let Some(posting) = inference.indexes.get_mut(&field.path) {
+                                posting.values.clear();
+                                posting.values_indexed = false;
+                                posting.value_complete = false;
+                            }
+                            inference.short_string_coverage.remove(&field.path);
+                        }
+                    }
+                }
                 *published = Arc::new(PublishedSegment {
                     id: published.id,
                     index: Arc::new(index),
