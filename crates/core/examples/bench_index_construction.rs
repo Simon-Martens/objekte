@@ -600,7 +600,10 @@ fn probe_storage_operations(repo: &Repository) -> Result<serde_json::Value, Stri
         Ok(())
     })?;
     let id_lookup_ns = median_probe_ns(100_000, || {
-        let found = collection.id_lookup.get(id).ok_or("ID lookup missed")?;
+        let found = collection
+            .id_lookup
+            .get(id.as_str())
+            .ok_or("ID lookup missed")?;
         std::hint::black_box(found);
         Ok(())
     })?;

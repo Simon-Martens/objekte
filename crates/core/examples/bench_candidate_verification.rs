@@ -255,7 +255,7 @@ fn in_memory(
     };
     let record = RecordEntry {
         slot: RecordSlot(0),
-        id: RecordId("record".into()),
+        id: RecordId(std::sync::Arc::new("record".into())),
         file: FileId(0),
         range: ByteRange { start: 0, end: 0 },
         revision: file.revision,

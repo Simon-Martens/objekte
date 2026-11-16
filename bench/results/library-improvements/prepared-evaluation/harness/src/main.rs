@@ -168,7 +168,7 @@ fn direct_rows() -> Vec<serde_json::Value> {
     };
     let record = RecordEntry {
         slot: RecordSlot(0),
-        id: RecordId("direct".into()),
+        id: RecordId(std::sync::Arc::new("direct".into())),
         file: FileId(0),
         range: ByteRange { start: 0, end: 1 },
         revision,
