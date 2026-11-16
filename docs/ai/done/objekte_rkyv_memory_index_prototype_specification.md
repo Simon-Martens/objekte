@@ -798,6 +798,7 @@ These links document the external APIs and the reviewed code. They do not replac
 - Base commit: `2e18871c0bcfb9cf9335d9e73525c64f91c960cf`
 - Integration branch: `integration/rkyv-memory-index-prototype`
 - Integration worktree: `/home/simon/source/objekte-integration-rkyv-memory-index-prototype`
+- Cleanup: the detached baseline worktree was removed after benchmark evidence was committed; the main checkout and integration worktree remain.
 - Implementation commit: `4761b8a716` (`feat(core): add archived index storage and file mutations`)
 - Validation/test commit: `6b7a839c63` (`test(core): validate archived index lifecycle against fresh builds`)
 - Final tested code commit before this report: `6b7a839c63f37ba166c88f047496f5c7a3e051b9`
