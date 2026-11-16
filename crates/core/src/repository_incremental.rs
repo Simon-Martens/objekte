@@ -15,6 +15,10 @@ use crate::model::FileId;
 pub(crate) struct SegmentJobGate {
     state: std::sync::Mutex<SegmentJobGateState>,
     changed: std::sync::Condvar,
+    #[cfg(test)]
+    private_drain: std::sync::Mutex<PrivateDrainTestState>,
+    #[cfg(test)]
+    private_drain_changed: std::sync::Condvar,
 }
 
 #[derive(Default)]
@@ -27,12 +31,30 @@ struct SegmentJobGateState {
     release_post_validation: bool,
 }
 
+#[cfg(test)]
+#[derive(Default)]
+struct PrivateDrainTestState {
+    next_job: usize,
+    failing_job: Option<usize>,
+    blocked: std::collections::HashSet<usize>,
+    arrived: std::collections::HashSet<usize>,
+    released: std::collections::HashSet<usize>,
+    completions: usize,
+    errors: usize,
+    final_drain_entries: usize,
+    final_outstanding: Option<usize>,
+}
+
 #[allow(dead_code)]
 impl SegmentJobGate {
     pub(crate) fn new() -> Self {
         Self {
             state: std::sync::Mutex::new(SegmentJobGateState::default()),
             changed: std::sync::Condvar::new(),
+            #[cfg(test)]
+            private_drain: std::sync::Mutex::new(PrivateDrainTestState::default()),
+            #[cfg(test)]
+            private_drain_changed: std::sync::Condvar::new(),
         }
     }
 
@@ -118,6 +140,161 @@ impl SegmentJobGate {
         let mut state = self.state.lock().expect("segment gate lock poisoned");
         state.release_post_validation = true;
         self.changed.notify_all();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn configure_private_final_drain_failure(
+        &self,
+        failing_job: usize,
+        blocked_jobs: impl IntoIterator<Item = usize>,
+    ) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.failing_job = Some(failing_job);
+        state.blocked = blocked_jobs.into_iter().collect();
+        state.released.clear();
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    fn allocate_private_job(&self) -> usize {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        let job = state.next_job;
+        state.next_job += 1;
+        job
+    }
+
+    #[cfg(test)]
+    fn wait_before_private_completion(&self, job: usize) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.arrived.insert(job);
+        self.private_drain_changed.notify_all();
+        while state.blocked.contains(&job) && !state.released.contains(&job) {
+            state = self
+                .private_drain_changed
+                .wait(state)
+                .expect("private drain gate lock poisoned");
+        }
+    }
+
+    #[cfg(test)]
+    fn private_job_fails(&self, job: usize) -> bool {
+        self.private_drain
+            .lock()
+            .expect("private drain gate lock poisoned")
+            .failing_job
+            == Some(job)
+    }
+
+    #[cfg(test)]
+    fn record_private_completion(&self, error: bool) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.completions += 1;
+        state.errors += usize::from(error);
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    fn record_private_final_drain(&self) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.final_drain_entries += 1;
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    fn record_private_drain_complete(&self, outstanding: usize) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.final_outstanding = Some(outstanding);
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn release_private_job(&self, job: usize) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        state.released.insert(job);
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn release_all_private_jobs(&self) {
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        let blocked = state.blocked.clone();
+        state.released.extend(blocked);
+        self.private_drain_changed.notify_all();
+    }
+
+    #[cfg(test)]
+    pub(crate) fn wait_for_private_job(&self, job: usize, timeout: std::time::Duration) -> bool {
+        self.wait_for_private_state(timeout, |state| state.arrived.contains(&job))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn wait_for_private_final_drain(&self, timeout: std::time::Duration) -> bool {
+        self.wait_for_private_state(timeout, |state| state.final_drain_entries != 0)
+    }
+
+    #[cfg(test)]
+    pub(crate) fn wait_for_private_error(&self, timeout: std::time::Duration) -> bool {
+        self.wait_for_private_state(timeout, |state| state.errors != 0)
+    }
+
+    #[cfg(test)]
+    fn wait_for_private_state(
+        &self,
+        timeout: std::time::Duration,
+        ready: impl Fn(&PrivateDrainTestState) -> bool,
+    ) -> bool {
+        let started = std::time::Instant::now();
+        let mut state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        while !ready(&state) {
+            let Some(remaining) = timeout.checked_sub(started.elapsed()) else {
+                return false;
+            };
+            let (next, timed_out) = self
+                .private_drain_changed
+                .wait_timeout(state, remaining)
+                .expect("private drain gate lock poisoned");
+            state = next;
+            if timed_out.timed_out() && !ready(&state) {
+                return false;
+            }
+        }
+        true
+    }
+
+    #[cfg(test)]
+    pub(crate) fn private_drain_snapshot(&self) -> (usize, usize, Option<usize>) {
+        let state = self
+            .private_drain
+            .lock()
+            .expect("private drain gate lock poisoned");
+        (state.completions, state.errors, state.final_outstanding)
     }
 }
 
@@ -337,6 +514,10 @@ impl SegmentBuildScheduler {
             .next_plan_id
             .checked_add(1)
             .ok_or("segment plan overflow")?;
+        #[cfg(test)]
+        let private_job = (destination == SegmentBuildDestination::Private)
+            .then(|| self.gate.as_ref().map(|gate| gate.allocate_private_job()))
+            .flatten();
         segment.id = SegmentId::new(segment_id);
         planned.push(segment_id);
         self.outstanding = self
@@ -354,7 +535,7 @@ impl SegmentBuildScheduler {
         pool.spawn(move || {
             let active = running.fetch_add(1, Ordering::Relaxed) + 1;
             peak_running.fetch_max(active, Ordering::Relaxed);
-            if let Some(gate) = gate {
+            if let Some(gate) = gate.as_ref() {
                 gate.wait();
             }
             let phase = crate::detailed_timer::DetailedInstant::now();
@@ -369,7 +550,8 @@ impl SegmentBuildScheduler {
                     .sum(),
                 ..Default::default()
             });
-            let result = if let Some(error) =
+            #[allow(unused_mut)]
+            let mut result = if let Some(error) =
                 injected_private_finalization_failure(destination, &definition.name)
             {
                 Err(error)
@@ -389,6 +571,13 @@ impl SegmentBuildScheduler {
                         build_ns: phase.elapsed().as_nanos() as u64,
                     })
             };
+            #[cfg(test)]
+            if let (Some(gate), Some(private_job)) = (gate.as_ref(), private_job) {
+                gate.wait_before_private_completion(private_job);
+                if gate.private_job_fails(private_job) {
+                    result = Err("injected final-drain private segment failure".into());
+                }
+            }
             debug_assert!(match result.as_ref() {
                 Ok(built) => built.index.collection == collection,
                 Err(_) => true,
@@ -547,71 +736,106 @@ impl PrivateSegmentGroup {
         scheduler: &mut SegmentBuildScheduler,
         block: bool,
     ) -> Result<bool, String> {
+        if !Self::receive_ready(scheduler, block)? {
+            return Ok(false);
+        }
+        let mut first_error = None;
+        self.process_ready(scheduler, true, &mut first_error);
+        first_error.map_or(Ok(true), Err)
+    }
+
+    /// Receiving and processing are separate so a worker's `Err` can be
+    /// retained while all normally submitted completions are still drained. A
+    /// channel failure remains terminal and is returned directly.
+    fn receive_ready(scheduler: &mut SegmentBuildScheduler, block: bool) -> Result<bool, String> {
         if scheduler.outstanding == 0 {
             return Ok(false);
         }
-        if scheduler.private_buffered.is_empty() {
-            if !block {
-                return Ok(false);
+        while scheduler.private_buffered.is_empty() {
+            if !scheduler.receive(block)? || !block {
+                return Ok(!scheduler.private_buffered.is_empty());
             }
-            scheduler.receive(true)?;
         }
+        Ok(true)
+    }
+
+    fn process_ready(
+        &mut self,
+        scheduler: &mut SegmentBuildScheduler,
+        retain_successes: bool,
+        first_error: &mut Option<String>,
+    ) {
         let completed = std::mem::take(&mut scheduler.private_buffered);
-        let mut first_error = None;
         for (segment_id, (collection_index, result)) in completed {
             scheduler.outstanding = scheduler.outstanding.saturating_sub(1);
+            #[cfg(test)]
+            let worker_error = result.is_err();
+            #[cfg(test)]
+            if let Some(gate) = scheduler.gate.as_ref() {
+                gate.record_private_completion(worker_error);
+            }
             if collection_index != self.collection_index {
                 first_error
                     .get_or_insert_with(|| "private segment completion changed collection".into());
+                self.indexed.clear();
                 continue;
             }
             let built = match result {
                 Ok(built) => built,
                 Err(error) => {
                     first_error.get_or_insert(error);
+                    self.indexed.clear();
                     continue;
                 }
             };
             if built.index.id.get() != segment_id {
                 first_error
                     .get_or_insert_with(|| "private segment completion identity mismatch".into());
+                self.indexed.clear();
                 continue;
             }
-            if self.indexed.insert(segment_id, built).is_some() {
+            if !retain_successes || first_error.is_some() {
+                continue;
+            }
+            if self.indexed.contains_key(&segment_id) {
                 first_error.get_or_insert_with(|| "duplicate private segment completion".into());
+                self.indexed.clear();
+            } else {
+                self.indexed.insert(segment_id, built);
             }
         }
-        first_error.map_or(Ok(true), Err)
     }
 
     fn drain(&mut self, scheduler: &mut SegmentBuildScheduler) -> Result<(), String> {
+        self.drain_completions(scheduler, true)
+    }
+
+    fn drain_completions(
+        &mut self,
+        scheduler: &mut SegmentBuildScheduler,
+        retain_successes: bool,
+    ) -> Result<(), String> {
+        let mut first_error = None;
         while scheduler.outstanding != 0 {
-            self.consume_ready(scheduler, true)?;
+            if !Self::receive_ready(scheduler, true)? {
+                return Err("private segment completion accounting stalled".into());
+            }
+            self.process_ready(scheduler, retain_successes, &mut first_error);
         }
-        Ok(())
+        #[cfg(test)]
+        if let Some(gate) = scheduler.gate.as_ref() {
+            gate.record_private_drain_complete(scheduler.outstanding);
+        }
+        if first_error.is_some() {
+            self.indexed.clear();
+        }
+        first_error.map_or(Ok(()), Err)
     }
 
     fn discard(mut self, scheduler: &mut SegmentBuildScheduler) -> Result<(), String> {
-        let mut first_error = None;
-        while scheduler.outstanding != 0 {
-            if scheduler.private_buffered.is_empty() {
-                scheduler.receive(true)?;
-            }
-            let completed = std::mem::take(&mut scheduler.private_buffered);
-            for (_, (collection_index, result)) in completed {
-                scheduler.outstanding = scheduler.outstanding.saturating_sub(1);
-                if collection_index != self.collection_index && first_error.is_none() {
-                    first_error = Some("private segment completion changed collection".to_owned());
-                }
-                if let Err(error) = result
-                    && first_error.is_none()
-                {
-                    first_error = Some(error);
-                }
-            }
-        }
+        let result = self.drain_completions(scheduler, false);
         self.indexed.clear();
-        first_error.map_or(Ok(()), Err)
+        result
     }
 
     fn into_ordered(self) -> Vec<IndexedSegmentBuild> {
@@ -680,6 +904,10 @@ fn publish_private_segment_group(
     profile: &mut Option<BuildProfileStats>,
     cancelled: &impl Fn() -> bool,
 ) -> Result<(), IndexError> {
+    #[cfg(test)]
+    if let Some(gate) = scheduler.gate.as_ref() {
+        gate.record_private_final_drain();
+    }
     private_group.drain(scheduler).map_err(IndexError::Build)?;
     let mut builds = private_group.into_ordered();
     let total = builds.len();

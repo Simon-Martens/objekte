@@ -38,6 +38,20 @@ fn write_large_jsonl(root: &std::path::Path, label: &str) -> usize {
     records
 }
 
+fn write_large_relation_jsonl(root: &std::path::Path) -> usize {
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = String::new();
+    let mut records = 0usize;
+    while source.len() <= 9 * 1024 * 1024 {
+        source.push_str(&format!(
+            "{{\"id\":\"r{records:06}\",\"entry\":\"r{records:06}\",\"text\":\"final drain {records}\"}}\n"
+        ));
+        records += 1;
+    }
+    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    records
+}
+
 #[test]
 fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
     let root = std::env::temp_dir().join(format!(
@@ -261,6 +275,163 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
         );
         std::fs::remove_dir_all(root).unwrap();
     }
+}
+
+#[test]
+fn private_final_drain_consumes_worker_error_before_returning() {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    struct ReleasePrivateJobs(std::sync::Arc<crate::repository::SegmentJobGate>);
+    impl Drop for ReleasePrivateJobs {
+        fn drop(&mut self) {
+            self.0.release_all_private_jobs();
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-private-final-drain-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let records = write_large_relation_jsonl(&root);
+    assert!(records > 2);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["entry".into()],
+            kind: LogicalType::Id,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_relation(crate::relation::RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "data".into(),
+            cardinality: crate::relation::RelationCardinality::One,
+            reverse_alias: Some("sources".into()),
+        })
+        .unwrap();
+    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    gate.configure_private_final_drain_failure(0, [0, 1]);
+    gate.release();
+    let _guard = ReleasePrivateJobs(std::sync::Arc::clone(&gate));
+    let (result_tx, result_rx) = mpsc::sync_channel(1);
+    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+    let publications = std::sync::Arc::new(AtomicUsize::new(0));
+    let worker = std::thread::spawn({
+        let root = root.clone();
+        let gate = std::sync::Arc::clone(&gate);
+        let publications = std::sync::Arc::clone(&publications);
+        move || {
+            let result = Repository::build_incremental_with_sources_gated(
+                root,
+                vec![definition],
+                RepositoryOptions {
+                    build_workers: std::num::NonZeroUsize::new(4),
+                    segment_policy: crate::native_segment::SegmentPolicy {
+                        target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                        max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                    },
+                    inference: InferenceConfig {
+                        mode: InferenceMode::AutoIndex,
+                        ..Default::default()
+                    },
+                    ..Default::default()
+                },
+                SourceRegistry::builtin(),
+                |index| {
+                    catalogue_tx.send(index.clone()).unwrap();
+                    Ok(())
+                },
+                move |_| {
+                    publications.fetch_add(1, Ordering::Relaxed);
+                    Ok(())
+                },
+                || false,
+                gate,
+            );
+            result_tx.send(result).unwrap();
+        }
+    });
+    let catalogue = catalogue_rx.recv().unwrap();
+    let timeout = std::time::Duration::from_secs(10);
+    assert!(gate.wait_for_private_job(0, timeout));
+    assert!(gate.wait_for_private_job(1, timeout));
+    assert!(gate.wait_for_private_final_drain(timeout));
+
+    gate.release_private_job(0);
+    assert!(gate.wait_for_private_error(timeout));
+    assert!(
+        matches!(
+            result_rx.recv_timeout(std::time::Duration::from_millis(200)),
+            Err(mpsc::RecvTimeoutError::Timeout)
+        ),
+        "the build returned before the remaining worker completion drained"
+    );
+
+    gate.release_private_job(1);
+    let result = result_rx
+        .recv_timeout(timeout)
+        .expect("build did not finish after draining private completions");
+    let error = match result {
+        Ok(_) => panic!("failed private group published an index"),
+        Err(error) => error,
+    };
+    let error = format!("{error:?}");
+    assert!(
+        error.contains("injected final-drain private segment failure"),
+        "{error}"
+    );
+    worker.join().unwrap();
+    assert_eq!(publications.load(Ordering::Relaxed), 0);
+    let (completions, errors, outstanding) = gate.private_drain_snapshot();
+    assert_eq!(errors, 1);
+    assert!(completions >= 2, "{completions}");
+    assert_eq!(outstanding, Some(0));
+
+    let view = catalogue.view().unwrap();
+    let available = view.search_available(&all_query()).unwrap();
+    assert!(available.result.hits.is_empty());
+    assert_eq!(available.result.count, None);
+    assert!(
+        view.segments(crate::model::CollectionId(0))
+            .unwrap()
+            .is_empty()
+    );
+    assert_eq!(
+        view.repository().collections()[0].generation.records.len(),
+        0
+    );
+    assert!(
+        view.repository().collections()[0]
+            .relations
+            .iter()
+            .all(|relation| {
+                relation.edge_count() == 0
+                    && relation.present().is_empty()
+                    && relation.unresolved_count() == 0
+            })
+    );
+    let report = view.inference_report("data").cloned();
+    assert!(
+        report.as_ref().is_none_or(|report| {
+            report.eligible_records == 0
+                && report.observed_paths == 0
+                && report.admitted_paths == 0
+                && report.fields.is_empty()
+        }),
+        "{report:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
