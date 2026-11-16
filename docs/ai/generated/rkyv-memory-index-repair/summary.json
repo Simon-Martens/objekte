@@ -2,7 +2,7 @@
   "revisions": {
     "native": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
     "prototype": "241247ec0f83aed50debd295d174d1d4e96f51c9",
-    "repaired_tested": "45a81a85be4a6a49e8117f2f45175045a6d00f4e"
+    "repaired_tested": "45a81a85be5f8a122a3272ce3369ef2ed81632d8"
   },
   "benchmark_reduction": "User-authorized smaller benchmark: repaired Unicode construction has one sample; query matrices use one revision-correct sample; focused thresholds use three repetitions.",
   "construction": [

@@ -1,0 +1,11 @@
+{
+  "samples": 3,
+  "median_wall_ms": 1243.380551,
+  "median_build_ns": 1243364444,
+  "median_end_rss_bytes": 711544832,
+  "median_peak_rss_bytes": 778395648,
+  "archive_serialized_bytes": 139259072,
+  "archive_capacity_bytes": 153269400,
+  "archive_slack_bytes": 14010328,
+  "decision": "disabled: capacity improved by 25.3%, but build median increased by 5.4%, above the 3% limit"
+}
