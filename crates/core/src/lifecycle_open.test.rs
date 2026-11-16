@@ -151,15 +151,16 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
     .unwrap();
     assert_eq!(index.status().unwrap().indexed_files, 3);
     assert_eq!(index.status().unwrap().live_records, 6);
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .repository()
-            .collections()
-            .iter()
-            .all(|state| { state.generation.records.is_empty() })
-    );
+    let view = index.view().unwrap();
+    assert!(view.repository().collections().iter().all(|state| {
+        state.generation.records.len()
+            == view
+                .segments(state.generation.collection)
+                .unwrap()
+                .iter()
+                .map(|segment| segment.index.records.len())
+                .sum::<usize>()
+    }));
     assert_eq!(
         index.view().unwrap().repository().build_parses(),
         static_repo.build_parses()

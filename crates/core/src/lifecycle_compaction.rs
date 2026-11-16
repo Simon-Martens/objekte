@@ -10,7 +10,7 @@ use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::lifecycle_partition::compact_source_parts;
+use crate::lifecycle_partition::compact_source_parts_with_policy;
 use crate::repository::CollectionState;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until
@@ -131,8 +131,8 @@ fn slot_count(root: &PublishedIndex) -> u64 {
         .collections()
         .iter()
         .enumerate()
-        .map(|(number, collection)| {
-            collection.generation.records.len() as u64
+        .map(|(number, _collection)| {
+            root.active[number].slot_count() as u64
                 + root.segments[number]
                     .iter()
                     .map(|segment| segment.index.record_count() as u64)
@@ -176,12 +176,7 @@ fn compact_published_with_budget(
     // After the initial base has been partitioned, every contribution lives
     // in an immutable shard. Keep the existing catalog and unaffected shard
     // groups instead of rebuilding an empty repository for every collection.
-    if old
-        .repository
-        .collections()
-        .iter()
-        .all(|collection| collection.generation.files.is_empty())
-    {
+    if old.active.iter().all(|active| active.slot_count() == 0) {
         let started = Instant::now();
         let mut work = CompactionWork::default();
         let mut next = old.clone();
@@ -224,10 +219,11 @@ fn compact_published_with_budget(
                 work.records = work.records.saturating_add(records);
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
-                for part in compact_source_parts(
+                for part in compact_source_parts_with_policy(
                     &segment.index,
                     &segment.active,
                     &next.catalog,
+                    next.repository.options().segment_policy,
                     &cancelled,
                 )? {
                     if cancelled() {
@@ -276,7 +272,13 @@ fn compact_published_with_budget(
                 return Err(IndexError::Cancelled);
             }
             let mut replacements = Vec::new();
-            for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
+            for part in compact_source_parts_with_policy(
+                source,
+                active,
+                &next.catalog,
+                next.repository.options().segment_policy,
+                &cancelled,
+            )? {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
@@ -294,7 +296,7 @@ fn compact_published_with_budget(
             }
             Ok(replacements)
         };
-        if !collection.generation.records.is_empty() {
+        if old.active[number].slot_count() != 0 {
             let base = base_as_segment(collection, old.repository.files())?;
             compacted.extend(compact_source(&base, &old.active[number])?);
         }

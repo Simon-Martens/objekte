@@ -894,26 +894,32 @@ impl SortCollection {
         generation: &CollectionGeneration,
         inventory: &FileInventory,
     ) {
+        self.refresh_file_status_for_records(&generation.records, |file| {
+            inventory.files[file.0 as usize].status.code()
+        });
+    }
+
+    /// Finalize status-dependent orders from a segment's local file table.
+    pub(crate) fn refresh_file_status_for_records(
+        &mut self,
+        records: &[RecordEntry],
+        status: impl Fn(crate::model::FileId) -> u8,
+    ) {
         let mut refreshed = false;
         for column in self.columns.values_mut() {
             if column.path.root != PathRoot::Metadata(MetadataField::FileStatus) {
                 continue;
             }
             refreshed = true;
-            for record in &generation.records {
-                let status = inventory.files[record.file.0 as usize].status.code();
+            for record in records {
                 column.keys[record.slot.0 as usize] =
-                    SortKey::Number(Number::integer(status as i128));
+                    SortKey::Number(Number::integer(status(record.file) as i128));
             }
-            column.ascending = generation.records.iter().map(|r| r.slot).collect();
+            column.ascending = records.iter().map(|r| r.slot).collect();
             column.ascending.sort_by(|a, b| {
                 column.keys[a.0 as usize]
                     .compare_with(&column.keys[b.0 as usize], false, column.options)
-                    .then_with(|| {
-                        generation.records[a.0 as usize]
-                            .id
-                            .cmp(&generation.records[b.0 as usize].id)
-                    })
+                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
@@ -932,11 +938,8 @@ impl SortCollection {
                     .map(|field| (&self.columns[&field.path], field.descending))
                     .collect::<Vec<_>>();
                 composite.order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b).then_with(|| {
-                        generation.records[a.0 as usize]
-                            .id
-                            .cmp(&generation.records[b.0 as usize].id)
-                    })
+                    compare_composite(&columns, *a, *b)
+                        .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
                 });
             }
         }

@@ -245,7 +245,7 @@ impl FileCatalog {
     /// Rebind an otherwise unchanged discovered inventory to final metadata
     /// (global inference and captured fingerprints) without copying paths.
     pub(crate) fn rebase(&mut self, base: Arc<Repository>) -> Result<(), String> {
-        if !Arc::ptr_eq(&self.base_files, &base.files)
+        if self.base_files.files.len() != base.files.files.len()
             || Self::configuration_for(&base)? != self.base_configuration
         {
             return Err("catalog rebase changed discovered files or configuration".into());

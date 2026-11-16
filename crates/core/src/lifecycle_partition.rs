@@ -3,39 +3,37 @@
 //! views continue to own their previous representation.
 
 use std::collections::HashSet;
+#[cfg(test)]
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
 use crate::build::{IndexedCollectionSegment, PartitionRouting};
 use crate::inventory::ActiveRecords;
-use crate::lifecycle::{IndexError, PublishedIndex, PublishedSegment};
+use crate::lifecycle::IndexError;
+#[cfg(test)]
+use crate::lifecycle::{PublishedIndex, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
+#[cfg(test)]
 use crate::lifecycle_compaction::base_as_segment;
 use crate::model::FileId;
 
+#[cfg(test)]
 pub(crate) const BASE_PARTITION_RECORDS: usize = 2_048;
-const BASE_PARTITION_FILES: usize = 2_048;
 
-pub(crate) fn partition_base(root: PublishedIndex) -> Result<PublishedIndex, IndexError> {
-    partition_base_with_limits(root, BASE_PARTITION_RECORDS, BASE_PARTITION_FILES)
-}
-
-/// Split one old shard into active-only parts without opening source files.
-/// A multi-record file may own slots in several parts; each part remains a
-/// complete, independently queryable contribution container.
-pub(crate) fn compact_source_parts(
+pub(crate) fn compact_source_parts_with_policy(
     source: &IndexedCollectionSegment,
     active: &ActiveRecords,
     catalog: &FileCatalog,
+    policy: crate::native_segment::SegmentPolicy,
     cancelled: impl FnMut() -> bool,
 ) -> Result<Vec<IndexedCollectionSegment>, IndexError> {
     compact_source_parts_with_limits(
         source,
         active,
         catalog,
-        BASE_PARTITION_RECORDS,
-        BASE_PARTITION_FILES,
+        policy.target_records.get(),
+        policy.max_files.get(),
         cancelled,
     )
 }
@@ -184,6 +182,7 @@ fn compact_source_parts_with_limits(
     Ok(parts)
 }
 
+#[cfg(test)]
 pub(crate) fn partition_base_with_limits(
     root: PublishedIndex,
     max_records: usize,
@@ -192,6 +191,7 @@ pub(crate) fn partition_base_with_limits(
     partition_base_with_limits_inner(root, max_records, max_files)
 }
 
+#[cfg(test)]
 fn partition_base_with_limits_inner(
     mut root: PublishedIndex,
     max_records: usize,

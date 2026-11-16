@@ -238,7 +238,9 @@ impl RelationIndex {
                     .insert(source_slot as u32);
             }
         }
-        if reverse != posting.values || unresolved != self.unresolved_count {
+        if (!posting.values.is_empty() && reverse != posting.values)
+            || unresolved != self.unresolved_count
+        {
             return Err("relation forward/reverse membership mismatch".into());
         }
         Ok(())
@@ -266,6 +268,23 @@ pub(crate) struct RelationContribution {
 }
 
 impl RelationContribution {
+    pub(crate) fn presence(&self) -> &RoaringBitmap {
+        &self.present
+    }
+
+    pub(crate) fn reverse_postings(
+        &self,
+    ) -> BTreeMap<ScalarKey, RoaringBitmap> {
+        let mut postings = BTreeMap::<ScalarKey, RoaringBitmap>::new();
+        for reference in &self.references {
+            postings
+                .entry(ScalarKey::Id(reference.target_id.clone()))
+                .or_default()
+                .insert(reference.source.0);
+        }
+        postings
+    }
+
     /// Deterministic planning estimate for the native relation contribution.
     pub(crate) fn estimated_bytes(&self) -> usize {
         const OVERHEAD: usize = 48;

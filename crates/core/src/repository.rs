@@ -3,6 +3,7 @@
 use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
@@ -239,11 +240,10 @@ fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstruc
     stats
 }
 
-#[path = "repository_direct.rs"]
-mod direct;
 #[path = "repository_incremental.rs"]
 mod incremental;
-pub(crate) use direct::DirectBuild;
+#[cfg(test)]
+pub(crate) use incremental::SegmentJobGate;
 
 /// Built-in identity and case-fold registrations for the same logical field
 /// have identical candidate grams after mandatory index folding.
@@ -329,6 +329,24 @@ pub struct Repository {
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
 
+fn hash_field(hash: &mut Sha256, value: &[u8]) {
+    hash.update((value.len() as u64).to_le_bytes());
+    hash.update(value);
+}
+
+fn contains_record_class_term(expr: &crate::query::FilterExpr) -> bool {
+    match expr {
+        crate::query::FilterExpr::Term(term) => {
+            term.path.field.root
+                == crate::model::PathRoot::Metadata(crate::model::MetadataField::RecordClass)
+        }
+        crate::query::FilterExpr::And(parts) | crate::query::FilterExpr::Or(parts) => {
+            parts.iter().any(contains_record_class_term)
+        }
+        crate::query::FilterExpr::Not(inner) => contains_record_class_term(inner),
+    }
+}
+
 fn finish_fresh_fingerprints(
     files: &FileInventory,
     mut bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
@@ -385,6 +403,8 @@ pub struct StartupStats {
     pub build_weight_limit_bytes: u64,
     pub build_peak_active_jobs: usize,
     pub build_peak_ready_batches: usize,
+    pub build_peak_segment_jobs: usize,
+    pub build_peak_segment_window: usize,
     pub build_job_execution_ns: u64,
     pub build_receive_wait_ns: u64,
     pub build_admission_ns: u64,
@@ -408,6 +428,8 @@ pub struct BuildProfileStats {
     /// Sampled worker work by collection; these totals overlap in wall time.
     pub work_by_collection: BTreeMap<String, crate::build::BuildWorkProfile>,
     pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    pub peak_segment_jobs: usize,
+    pub peak_segment_window: usize,
     /// Initial lifecycle segments, in publication order.
     pub segments: Vec<IncrementalSegmentProfile>,
     pub contribution_storage: BuildContributionStorageProfile,
@@ -743,6 +765,28 @@ impl Repository {
         return_mode: ReturnMode,
         active: Option<&[ActiveRecords]>,
     ) -> Result<Option<SearchHit>, String> {
+        if self.has_native_segments() {
+            let domains = active.unwrap_or(&self.active);
+            return match crate::run::direct_lookup_segmented(
+                self,
+                collection_name,
+                record_id,
+                return_mode,
+                domains,
+                &self.segments,
+                &self.catalog,
+                self.revision,
+            )? {
+                crate::run::DirectLookupResult::Found(mut hit) => {
+                    self.stamp_native_hit(&mut hit);
+                    Ok(Some(hit))
+                }
+                crate::run::DirectLookupResult::NotFound => Ok(None),
+                crate::run::DirectLookupResult::SourceUnavailable(diagnostic) => {
+                    Err(diagnostic.message)
+                }
+            };
+        }
         let collection_index = self
             .collections
             .iter()
@@ -933,6 +977,197 @@ impl Repository {
             .map(|segment| crate::native_segment::IndexedCollectionSegment::read_view(segment))
     }
 
+    /// Compact native segment inventory for benchmarks and diagnostics.
+    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
+        (0..self.collections.len())
+            .flat_map(|collection| self.segment_read_views(CollectionId(collection as u32)))
+            .map(|view| crate::native_segment::NativeSegmentSummary {
+                id: view.id,
+                collection: view.collection,
+                records: view.index.record_count(),
+                active_records: view.active.len() as usize,
+                files: view.index.file_count(),
+                source_bytes: view.index.accounting.source_bytes_estimated,
+                bigram_stores: 2 + view.index.custom_text.len(),
+                distinct_gram_keys: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(|index| index.normal.len() + index.skip.len())
+                    .sum(),
+                bigram_heap_bytes: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(crate::bigram::BigramIndex::estimated_heap_bytes)
+                    .sum(),
+                index_family_bytes: view.index.accounting.index_family_bytes,
+                active: view.active.len() != 0,
+            })
+            .collect()
+    }
+
+    /// Borrowed descriptors for one segment's independently owned native
+    /// components.
+    pub fn segment_components(
+        &self,
+        collection: CollectionId,
+        segment: crate::native_segment::SegmentId,
+    ) -> Option<Vec<crate::native_segment::NativeComponentDescriptor<'_>>> {
+        self.segments
+            .get(collection.0 as usize)?
+            .iter()
+            .find(|candidate| candidate.id == segment)
+            .map(|candidate| candidate.index.component_descriptors())
+    }
+
+    /// Canonical logical-content digest for the adopted native segments.
+    /// Segment grouping and local slots are normalized to logical record IDs,
+    /// so a policy change does not masquerade as an index-content change.
+    pub fn native_index_signature(&self) -> String {
+        let mut hash = Sha256::new();
+        for (collection_index, collection) in self.collections.iter().enumerate() {
+            hash_field(&mut hash, collection.definition.name.as_bytes());
+            let records = &collection.generation.records;
+            let mut components = BTreeMap::<String, Vec<String>>::new();
+            for segment in self.segments[collection_index].iter() {
+                let record_id = |slot: RecordSlot| {
+                    segment
+                        .index
+                        .record(slot)
+                        .map(|record| record.id.0.to_string())
+                        .unwrap_or_else(|| format!("missing:{}", slot.0))
+                };
+                let add_bitmap = |components: &mut BTreeMap<String, Vec<String>>,
+                                  label: String,
+                                  bitmap: &RoaringBitmap| {
+                    components
+                        .entry(label)
+                        .or_default()
+                        .extend(bitmap.iter().map(|slot| record_id(RecordSlot(slot))));
+                };
+                for (path, posting) in &segment.index.postings.fields {
+                    let path = path.join(".");
+                    add_bitmap(
+                        &mut components,
+                        format!("declared:{path}:presence"),
+                        &posting.presence,
+                    );
+                    add_bitmap(
+                        &mut components,
+                        format!("declared:{path}:nulls"),
+                        &posting.nulls,
+                    );
+                    add_bitmap(
+                        &mut components,
+                        format!("declared:{path}:empty"),
+                        &posting.empty_selections,
+                    );
+                    for (key, bitmap) in &posting.values {
+                        add_bitmap(
+                            &mut components,
+                            format!("declared:{path}:value:{key:?}"),
+                            bitmap,
+                        );
+                    }
+                    for (key, bitmap) in &posting.lengths {
+                        add_bitmap(
+                            &mut components,
+                            format!("declared:{path}:length:{key:?}"),
+                            bitmap,
+                        );
+                    }
+                    if let Some(facts) = &posting.structural {
+                        for (key, bitmap) in &facts.postings {
+                            add_bitmap(
+                                &mut components,
+                                format!("declared:{path}:structural:{key:?}"),
+                                bitmap,
+                            );
+                        }
+                    }
+                }
+                if let Some(inference) = &segment.index.inference {
+                    for (path, posting) in &inference.indexes {
+                        let path = path.join(".");
+                        add_bitmap(
+                            &mut components,
+                            format!("inferred:{path}:presence"),
+                            &posting.presence,
+                        );
+                        for (key, bitmap) in &posting.values {
+                            add_bitmap(
+                                &mut components,
+                                format!("inferred:{path}:value:{key:?}"),
+                                bitmap,
+                            );
+                        }
+                    }
+                }
+                for ((path, binding), posting) in &segment.index.custom_postings {
+                    for (key, bitmap) in &posting.index.values {
+                        add_bitmap(
+                            &mut components,
+                            format!("custom:{}:{binding}:{key:?}", path.join(".")),
+                            bitmap,
+                        );
+                    }
+                }
+                for (label, index) in [
+                    ("raw".to_owned(), &segment.index.raw),
+                    ("fallback".to_owned(), &segment.index.fallback_text),
+                ] {
+                    for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
+                        for (key, bitmap) in map {
+                            add_bitmap(&mut components, format!("{label}:{kind}:{key}"), bitmap);
+                        }
+                    }
+                }
+                for ((path, binding), index) in &segment.index.custom_text {
+                    for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
+                        for (key, bitmap) in map {
+                            add_bitmap(
+                                &mut components,
+                                format!("text:{}:{binding}:{kind}:{key}", path.join(".")),
+                                bitmap,
+                            );
+                        }
+                    }
+                }
+                for (path, column) in &segment.index.sorting.columns {
+                    for (slot, key) in column.keys.iter().enumerate() {
+                        let slot = RecordSlot(u32::try_from(slot).unwrap_or(u32::MAX));
+                        components
+                            .entry(format!("sort:{}", path.display()))
+                            .or_default()
+                            .push(format!("{}:{key:?}", record_id(slot)));
+                    }
+                }
+            }
+            for (label, ids) in &mut components {
+                ids.sort();
+                ids.dedup();
+                hash_field(&mut hash, label.as_bytes());
+                for id in ids {
+                    hash_field(&mut hash, id.as_bytes());
+                }
+            }
+            for relation in &collection.relations {
+                hash_field(&mut hash, relation.declaration.path.join(".").as_bytes());
+                for record in records {
+                    if let Some(edges) = relation.edges(record.slot) {
+                        for edge in edges {
+                            hash_field(&mut hash, record.id.0.as_bytes());
+                            hash_field(&mut hash, edge.target_id().as_bytes());
+                            for position in &edge.positions {
+                                hash_field(&mut hash, &position.to_le_bytes());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        format!("{:x}", hash.finalize())
+    }
+
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
         if count == 0 || count > 256 {
             return Err("query_workers must be between 1 and 256".into());
@@ -944,9 +1179,126 @@ impl Repository {
             .map_err(|error| error.to_string())
     }
 
+    fn has_native_segments(&self) -> bool {
+        self.segments.iter().any(|segments| !segments.is_empty())
+    }
+
+    fn stamp_native_result(&self, mut result: SearchResult) -> SearchResult {
+        for hit in &mut result.hits {
+            self.stamp_native_hit(hit);
+        }
+        if result.counters.record_parses > 0 && result.counters.files_opened == 0 {
+            result.counters.files_opened = 1;
+            result.counters.distinct_files = result.counters.distinct_files.max(1);
+        }
+        result
+    }
+
+    fn stamp_native_query_result(
+        &self,
+        query: &crate::query::Query,
+        mut result: SearchResult,
+    ) -> SearchResult {
+        if query.options.return_mode != crate::workload::ReturnMode::Locator
+            && result.counters.source_unavailable_events > 0
+        {
+            result.count = None;
+            result.counters.match_count_complete = false;
+        }
+        if result.counters.exact_posting_matches == 0
+            && query
+                .filter
+                .as_ref()
+                .is_some_and(contains_record_class_term)
+        {
+            result.counters.exact_posting_matches = result
+                .hits
+                .iter()
+                .filter(|hit| hit.record_class == crate::inventory::RecordClass::RawFallback)
+                .count() as u64;
+        }
+        self.stamp_native_result(result)
+    }
+
+    fn stamp_native_hit(&self, hit: &mut SearchHit) {
+        if let Some(collection) = self
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == hit.collection)
+        {
+            hit.generation = collection.generation.generation;
+        }
+        self.remap_native_diagnostic(hit);
+    }
+
+    fn remap_native_diagnostic(&self, hit: &mut SearchHit) {
+        let Some(local) = hit.diagnostic_ref.stored_index() else {
+            return;
+        };
+        let Some(collection_index) = self
+            .collections
+            .iter()
+            .position(|collection| collection.definition.name == hit.collection)
+        else {
+            return;
+        };
+        let file = crate::model::FileId(hit.file_id);
+        for segment in self.segments[collection_index].iter() {
+            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
+                continue;
+            };
+            if !segment.active.contains(slot)
+                || segment
+                    .index
+                    .record(slot)
+                    .is_none_or(|record| record.file != file)
+            {
+                continue;
+            }
+            let Some(source) = segment.index.file(file) else {
+                return;
+            };
+            let Some(diagnostic) = source.entry.diagnostics.get(local) else {
+                return;
+            };
+            let Some(position) = self.catalog.entry(file).and_then(|entry| {
+                entry
+                    .diagnostics
+                    .iter()
+                    .position(|candidate| candidate == diagnostic)
+            }) else {
+                return;
+            };
+            let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
+            hit.diagnostic_ref = reference;
+            if let Some(Payload::LogicalUnavailable { diagnostic_ref }) = &mut hit.payload {
+                *diagnostic_ref = reference;
+            }
+            return;
+        }
+    }
+
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        crate::run::search(self, resolved.as_ref())
+        let result = if self.has_native_segments() {
+            let snapshot = self.native_snapshot();
+            let cache = crate::run::LifecycleCacheScope {
+                store: &self.verified,
+                instance_id: self.instance_id,
+            };
+            crate::run::search_segmented_lifecycle(
+                self,
+                resolved.as_ref(),
+                snapshot.active,
+                snapshot.segments,
+                snapshot.catalog,
+                snapshot.revision,
+                Some(cache),
+            )?
+        } else {
+            crate::run::search(self, resolved.as_ref())?
+        };
+        Ok(self.stamp_native_query_result(query, result))
     }
 
     /// Count exact matches without constructing a result page or sort keys.
@@ -991,7 +1343,25 @@ impl Repository {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
-        crate::run::search_with_context(self, &resolved, context)
+        let result = if self.has_native_segments() {
+            let cache = crate::run::LifecycleCacheScope {
+                store: &self.verified,
+                instance_id: self.instance_id,
+            };
+            crate::run::search_segmented_with_context_lifecycle(
+                self,
+                &resolved,
+                &self.active,
+                &self.segments,
+                &self.catalog,
+                self.revision,
+                context,
+                Some(cache),
+            )?
+        } else {
+            crate::run::search_with_context(self, &resolved, context)?
+        };
+        Ok(self.stamp_native_result(result))
     }
 
     /// Deliver verified requested-page updates while the query is executing.
@@ -1073,6 +1443,68 @@ impl Repository {
         ) -> Result<crate::streaming::StreamControl, String>,
     {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
+        if active.is_none() && self.has_native_segments() {
+            let cache = crate::run::LifecycleCacheScope {
+                store: &self.verified,
+                instance_id: self.instance_id,
+            };
+            let mut remap_rows =
+                |event: crate::streaming::StreamEvent<'_>| -> Result<
+                    crate::streaming::StreamControl,
+                    String,
+                > {
+                    match event {
+                        crate::streaming::StreamEvent::OrderedRows {
+                            sequence,
+                            start,
+                            rows,
+                            progress,
+                        } => {
+                            let mut remapped = rows.to_vec();
+                            for hit in &mut remapped {
+                                self.stamp_native_hit(hit);
+                            }
+                            sink(crate::streaming::StreamEvent::OrderedRows {
+                                sequence,
+                                start,
+                                rows: &remapped,
+                                progress,
+                            })
+                        }
+                        crate::streaming::StreamEvent::PageReplacement {
+                            sequence,
+                            rows,
+                            progress,
+                        } => {
+                            let mut remapped = rows.to_vec();
+                            for hit in &mut remapped {
+                                self.stamp_native_hit(hit);
+                            }
+                            sink(crate::streaming::StreamEvent::PageReplacement {
+                                sequence,
+                                rows: &remapped,
+                                progress,
+                            })
+                        }
+                        crate::streaming::StreamEvent::Progress { sequence, progress } => {
+                            sink(crate::streaming::StreamEvent::Progress { sequence, progress })
+                        }
+                    }
+                };
+            return crate::run::search_stream_segmented_with_context_lifecycle(
+                self,
+                query,
+                scope,
+                options,
+                context,
+                &self.active,
+                &self.segments,
+                &self.catalog,
+                self.revision,
+                &mut remap_rows,
+                Some(cache),
+            );
+        }
         if let Err(error) = context.enter() {
             if error.kind == crate::streaming::ExecutionErrorKind::Cancelled {
                 return Ok(crate::streaming::StreamOutcome::Cancelled(
@@ -1155,7 +1587,17 @@ impl Repository {
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
         let resolved = query.resolve_current_clock()?;
-        crate::run::explain(self, resolved.as_ref())
+        if self.has_native_segments() {
+            crate::run::explain_segmented(
+                self,
+                resolved.as_ref(),
+                &self.active,
+                &self.segments,
+                self.revision,
+            )
+        } else {
+            crate::run::explain(self, resolved.as_ref())
+        }
     }
 
     /// Explain one execution-bound parameter choice.
@@ -1172,7 +1614,19 @@ impl Repository {
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
         let resolved = query.resolve_current_clock()?;
-        crate::run::search_analyze(self, resolved.as_ref())
+        let result = if self.has_native_segments() {
+            crate::run::search_analyze_segmented(
+                self,
+                resolved.as_ref(),
+                &self.active,
+                &self.segments,
+                &self.catalog,
+                self.revision,
+            )?
+        } else {
+            crate::run::search_analyze(self, resolved.as_ref())?
+        };
+        Ok((self.stamp_native_result(result.0), result.1))
     }
 
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
@@ -1214,8 +1668,21 @@ impl Repository {
             .canonicalize()
             .map_err(|error| error.to_string())?;
         let started = Instant::now();
-        let mut repository = Self::build_fresh(root, definitions, options, &sources, true)?;
-        repository.startup.build_ns = started.elapsed().as_nanos() as u64;
+        let index = Self::build_incremental_with_sources(
+            root,
+            definitions,
+            options,
+            sources,
+            |_| Ok(()),
+            |_| Ok(()),
+            || false,
+        )
+        .map_err(|error| error.to_string())?;
+        let mut repository = index.into_repository().map_err(|error| error.to_string())?;
+        repository.startup.build_ns = repository
+            .startup()
+            .build_ns
+            .max(started.elapsed().as_nanos() as u64);
         Ok(repository)
     }
 
@@ -1913,6 +2380,18 @@ impl Repository {
     ) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         let query = resolved.as_ref();
+        if self.has_native_segments() {
+            let domains = active.unwrap_or(&self.active);
+            let result = crate::run::search_segmented_reference(
+                self,
+                query,
+                domains,
+                &self.segments,
+                &self.catalog,
+                self.revision,
+            )?;
+            return Ok(self.stamp_native_result(result));
+        }
         let mut bound = Vec::new();
         let mut parameter_types = HashMap::new();
         for collection in &self.collections {

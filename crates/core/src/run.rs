@@ -64,7 +64,6 @@ pub(crate) fn record_ranges_allow_parallel_scan(max_record_range_len: u64) -> bo
 }
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
-
 /// One lifecycle query's cache namespace. The store is shared by all pinned
 /// publications of an index, so retention is bounded across revisions.
 #[derive(Clone, Copy)]
@@ -72,7 +71,6 @@ pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
     pub(crate) instance_id: u64,
 }
-
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
     check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
@@ -120,7 +118,6 @@ fn check_execution_sort_budget(
         .map_err(|message| computed_sort_resource(execution, &message))
 }
 
-
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -128,7 +125,6 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
-
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -181,7 +177,6 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
-
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -190,14 +185,12 @@ struct RankKey {
     id: String,
 }
 
-
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
-
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -267,16 +260,13 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for RankKey {}
-
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -284,14 +274,12 @@ impl PartialOrd for RankKey {
     }
 }
 
-
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
-
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -303,7 +291,6 @@ struct Winner {
     retained_bytes: u64,
 }
 
-
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -313,7 +300,6 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
-
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -334,7 +320,6 @@ struct ScannedFile {
     exact_members: RoaringBitmap,
 }
 
-
 impl From<&ScannedFile> for ScanWork {
     fn from(scanned: &ScannedFile) -> Self {
         Self {
@@ -349,13 +334,11 @@ impl From<&ScannedFile> for ScanWork {
     }
 }
 
-
 /// Count-only and exact-selection requests share the normal planner and scanner,
 /// but never retain ranked hits or verified-cache members.
 struct ExactCollector<'a> {
     members: Option<&'a mut RoaringBitmap>,
 }
-
 
 impl ExactCollector<'_> {
     fn add_set(&mut self, slots: &RoaringBitmap, counters: &mut WorkCounters) {
@@ -366,12 +349,10 @@ impl ExactCollector<'_> {
     }
 }
 
-
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
-
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -379,9 +360,7 @@ impl PartialEq for FileWinner {
     }
 }
 
-
 impl Eq for FileWinner {}
-
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -389,13 +368,11 @@ impl PartialOrd for FileWinner {
     }
 }
 
-
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -403,7 +380,6 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
-
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -448,7 +424,6 @@ impl CacheBudget {
         }
     }
 }
-
 
 fn scan_projection(
     query: &Query,
@@ -676,7 +651,6 @@ fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: b
     }
 }
 
-
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
@@ -684,15 +658,14 @@ enum Residual<'a> {
     Not(Box<Residual<'a>>),
 }
 
-
 /// Collection-plan eligibility for matching trusted built-in source scalars.
 #[derive(Clone, Copy)]
 struct DirectSourcePlan<'a> {
     fts: Option<&'a BoundFts>,
     filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     decoded_scalars: bool,
+    original_record_matcher: Option<&'a BoundTerm>,
 }
-
 
 fn source_fts_eligible(
     collection: &CollectionState,
@@ -714,7 +687,6 @@ fn source_fts_eligible(
                     .is_some_and(|path| path.has_explicit_array_step)
         })
 }
-
 
 impl<'a> DirectSourcePlan<'a> {
     fn prepare(
@@ -751,14 +723,38 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     ) -> Option<Self> {
-        if sort.bound.has_computed || collection.source.is_extension() {
+        if sort.bound.has_computed {
             return None;
         }
         let decoded_scalars = match collection.source.id() {
-            "json_decoded_scalars" => true,
-            "json" | "jsonl" => false,
-            _ => return None,
+            "json_decoded_scalars" => Some(true),
+            "json" | "jsonl" => Some(false),
+            _ => None,
         };
+        if decoded_scalars.is_none() {
+            if fts.is_some() {
+                return None;
+            }
+            let Some((term, proof)) = filter else {
+                return None;
+            };
+            if term.path.root != PathRoot::Data
+                || term.related.is_some()
+                || term.rhs.is_some()
+                || term.matcher.as_ref().is_none_or(|matcher| {
+                    matcher.input() != crate::reference::ExactInput::OriginalRecordBytes
+                })
+            {
+                return None;
+            }
+            return Some(Self {
+                fts: None,
+                filter: Some((term, proof)),
+                decoded_scalars: false,
+                original_record_matcher: Some(term),
+            });
+        }
+        let decoded_scalars = decoded_scalars.unwrap();
         if let Some(fts) = fts {
             if !source_fts_eligible(collection, fts, decoded_scalars) {
                 return None;
@@ -776,9 +772,10 @@ impl<'a> DirectSourcePlan<'a> {
                     && matches!(term.source_kind, LogicalType::String | LogicalType::Unknown)
                     && matches!(term.operator, Operator::Contains | Operator::NotContains)
                     && term.derived == Derived::None
-                    && term.operation.is_none()
-                    && term.matcher.is_none()
-                    && term.prepared_contains.is_some() =>
+                    && (term.prepared_contains.is_some()
+                        || term.matcher.as_ref().is_some_and(|matcher| {
+                            matcher.input() == crate::reference::ExactInput::SelectedValue
+                        })) =>
             {
                 Some((term, proof))
             }
@@ -788,10 +785,10 @@ impl<'a> DirectSourcePlan<'a> {
             fts,
             filter,
             decoded_scalars,
+            original_record_matcher: None,
         })
     }
 }
-
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -895,7 +892,6 @@ fn shared_fold_bound(filter: Option<&BoundExpr>) -> bool {
     let mut seen = SmallVec::new();
     filter.is_some_and(|node| visit(node, &mut seen))
 }
-
 
 impl Residual<'_> {
     fn unavailable(
@@ -1161,7 +1157,6 @@ impl Residual<'_> {
         })
     }
 }
-
 
 fn scan_file(
     repo: &Repository,
@@ -1747,7 +1742,6 @@ fn scan_file(
     Ok(outcome)
 }
 
-
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1757,7 +1751,6 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
-
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1770,7 +1763,6 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
-
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1834,7 +1826,6 @@ fn bound_term_diagnostics(
     terms
 }
 
-
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1863,7 +1854,6 @@ pub struct QueryPlanTrace {
     pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
 }
-
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1903,7 +1893,6 @@ fn regex_prefilter_reason(
     }
 }
 
-
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1924,7 +1913,6 @@ pub struct PlanActual {
     pub relation_reverse_members_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
-
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1948,7 +1936,6 @@ impl Default for PlanActual {
         }
     }
 }
-
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -2121,16 +2108,13 @@ fn segment_metadata_fts_evidence(
     Ok(matches)
 }
 
-
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for Winner {}
-
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2138,13 +2122,11 @@ impl PartialOrd for Winner {
     }
 }
 
-
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -2251,7 +2233,6 @@ pub(crate) fn make_hit(
     }
 }
 
-
 /// A segment record has a local slot but retains a repository-global file ID.
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
@@ -2259,7 +2240,6 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub record: &'a RecordEntry,
     pub file: &'a FileEntry,
 }
-
 
 fn segment_active_file<'a>(
     segment: &IndexedCollectionSegment,
@@ -2270,14 +2250,20 @@ fn segment_active_file<'a>(
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
-    let file_index = segment.file_index.get(&file_id).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment
+        .file_index
+        .get(&file_id)
+        .copied()
+        .ok_or("segment record file missing")?;
+    let segment_revision = segment
+        .files
+        .get(file_index)
+        .map(|file| file.entry.revision)
+        .ok_or("segment record file missing")?;
     let file = catalog
         .entry(file_id)
         .ok_or("active segment record file is retired")?;
-    if file.revision != segment_revision
-        || !file.collections.contains(&segment.collection)
-    {
+    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(file)
@@ -2296,8 +2282,16 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
-    let file_index = segment.file_index.get(&record.file).copied().ok_or("segment record file missing")?;
-    let segment_revision = segment.files.get(file_index).map(|file| file.entry.revision).ok_or("segment record file missing")?;
+    let file_index = segment
+        .file_index
+        .get(&record.file)
+        .copied()
+        .ok_or("segment record file missing")?;
+    let segment_revision = segment
+        .files
+        .get(file_index)
+        .map(|file| file.entry.revision)
+        .ok_or("segment record file missing")?;
     let file = catalog
         .entry(record.file)
         .ok_or("active segment record file is retired")?;
@@ -2368,7 +2362,6 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
-
 /// One current-view direct lookup. A missing source is distinct from an ID
 /// that is absent from the pinned active domain.
 #[derive(Clone, Debug)]
@@ -2377,7 +2370,6 @@ pub enum DirectLookupResult {
     NotFound,
     SourceUnavailable(SourceDiagnostic),
 }
-
 
 pub(crate) fn direct_lookup_segmented(
     repo: &Repository,
@@ -2504,14 +2496,12 @@ pub(crate) fn direct_lookup_segmented(
     }
 }
 
-
 struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,
     segment: Option<(usize, usize)>,
     retained_bytes: usize,
 }
-
 
 /// Optional complete ordering captured during an already exhaustive lifecycle
 /// query. Once its budget is exhausted, query execution continues without a
@@ -2521,7 +2511,6 @@ struct LifecycleCacheBuilder {
     bytes: usize,
     budget: usize,
 }
-
 
 /// One position in a stored ordering. Only the leading entry of each
 /// partition is retained in the heap, so traversal memory scales with the
@@ -2535,16 +2524,13 @@ struct LifecycleOrderCursor {
     slot: RecordSlot,
 }
 
-
 impl PartialEq for LifecycleOrderCursor {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for LifecycleOrderCursor {}
-
 
 impl PartialOrd for LifecycleOrderCursor {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2552,13 +2538,11 @@ impl PartialOrd for LifecycleOrderCursor {
     }
 }
 
-
 impl Ord for LifecycleOrderCursor {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 impl LifecycleCacheBuilder {
     fn new(budget: usize) -> Self {
@@ -2614,16 +2598,13 @@ impl LifecycleCacheBuilder {
     }
 }
 
-
 impl PartialEq for MergedPageHit {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for MergedPageHit {}
-
 
 impl PartialOrd for MergedPageHit {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2631,13 +2612,11 @@ impl PartialOrd for MergedPageHit {
     }
 }
 
-
 impl Ord for MergedPageHit {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn offer_merged(
     winners: &mut BinaryHeap<MergedPageHit>,
@@ -2759,7 +2738,10 @@ fn segment_compare_to_rank(
     }
     Ok((
         repo.collections[collection_index].definition.name.as_str(),
-        segment.record(slot).map(|record| record.id.0.as_ref()).ok_or("segment sort slot missing")?,
+        segment
+            .record(slot)
+            .map(|record| record.id.0.as_ref())
+            .ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
 }
@@ -2833,6 +2815,7 @@ fn relation_rank_key_merged(
     address: crate::relation_query::MergedRecordSlot,
     ctx: &RecordContext<'_>,
     cache: &mut MergedSortTargetCache,
+    filter: Option<&BoundExpr>,
 ) -> Result<RankKey, String> {
     let collection_index = address.collection.0 as usize;
     let terms = sort.bound.terms[collection_index]
@@ -2860,7 +2843,16 @@ fn relation_rank_key_merged(
                 }
             }
             BoundSortSource::Computed(computed) => {
-                computed.key_merged(view, address, ctx, cache)?
+                if let Some(key) = cached_filter_target_sort_key(view, address, computed, filter)? {
+                    cache.reuse += 1;
+                    key
+                } else if let Some(key) =
+                    direct_related_target_sort_key(repo, view, segments, address, computed)?
+                {
+                    key
+                } else {
+                    computed.key_merged(view, address, ctx, cache)?
+                }
             }
         };
         parts.push((key, term.descending, term.options));
@@ -2870,6 +2862,128 @@ fn relation_rank_key_merged(
         collection: repo.collections[collection_index].definition.name.clone(),
         id: ctx.record.id.0.to_string(),
     })
+}
+
+fn cached_filter_target_sort_key(
+    view: &crate::relation_query::MergedRelationView<'_>,
+    address: crate::relation_query::MergedRecordSlot,
+    computed: &crate::sort_binding::ComputedSort,
+    filter: Option<&BoundExpr>,
+) -> Result<Option<crate::sorting::SortKey>, String> {
+    let Some((hops, terminal)) = computed.related.as_ref() else {
+        return Ok(None);
+    };
+    let [hop] = hops.as_slice() else {
+        return Ok(None);
+    };
+    let Some(field) = terminal.field.segments.first() else {
+        return Ok(None);
+    };
+    if !filter.is_some_and(|filter| filter_projects_related_field(filter, field)) {
+        return Ok(None);
+    }
+    if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    let (edges, _present, _null, _empty, unavailable) =
+        view.forward_edges(address, hop.relation.ordinal as usize)?;
+    if unavailable {
+        return Ok(None);
+    }
+    let [(target_id, _positions)] = edges.as_slice() else {
+        return Ok(None);
+    };
+    let Some(target) = view.resolve_id(hop.to, target_id)? else {
+        return Ok(None);
+    };
+    let Some(value) = view.cached_value(target) else {
+        return Ok(None);
+    };
+    let Some(resolved) = view.record(target)? else {
+        return Ok(None);
+    };
+    let ctx = RecordContext {
+        value: &value,
+        source_bytes: None,
+        record: resolved.record,
+        file: resolved.file,
+        collection_name: &resolved.collection.definition.name,
+        repository_root: view.repository_root(),
+    };
+    Ok(Some(computed.key_from_related_target_value(&ctx)?))
+}
+
+fn filter_projects_related_field(filter: &BoundExpr, field: &str) -> bool {
+    match filter {
+        BoundExpr::Term(term) => term.related.as_ref().is_some_and(|related| {
+            related.source_operand.is_some()
+                && related
+                    .terminal
+                    .path
+                    .segments
+                    .first()
+                    .is_some_and(|path| path == field)
+        }),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts
+            .iter()
+            .any(|part| filter_projects_related_field(part, field)),
+        BoundExpr::Not(inner) => filter_projects_related_field(inner, field),
+    }
+}
+
+fn direct_related_target_sort_key(
+    repo: &Repository,
+    view: &crate::relation_query::MergedRelationView<'_>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    address: crate::relation_query::MergedRecordSlot,
+    computed: &crate::sort_binding::ComputedSort,
+) -> Result<Option<crate::sorting::SortKey>, String> {
+    let Some((hops, _)) = computed.related.as_ref() else {
+        return Ok(None);
+    };
+    let [hop] = hops.as_slice() else {
+        return Ok(None);
+    };
+    if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    let Some(path) = computed.direct_related_target_column(hop) else {
+        return Ok(None);
+    };
+    let (edges, _present, _null, _empty, unavailable) =
+        view.forward_edges(address, hop.relation.ordinal as usize)?;
+    if unavailable {
+        return Ok(None);
+    }
+    let [(target_id, _positions)] = edges.as_slice() else {
+        return Ok(None);
+    };
+    let Some(target) = view.resolve_id(hop.to, target_id)? else {
+        return Ok(None);
+    };
+    let target_index = target.collection.0 as usize;
+    let column = if let Some(segment_index) = target.segment {
+        let Ok(column) = segments[target_index][segment_index]
+            .index
+            .sorting
+            .column(path)
+        else {
+            return Ok(None);
+        };
+        column
+    } else {
+        let Ok(column) = repo.collections[target_index].sorting.column(path) else {
+            return Ok(None);
+        };
+        column
+    };
+    Ok(Some(
+        column
+            .keys
+            .get(target.slot.0 as usize)
+            .ok_or("direct related sort slot missing")?
+            .clone(),
+    ))
 }
 
 fn segment_locator_hit(
@@ -2965,7 +3079,7 @@ pub(crate) fn search_segmented_lifecycle(
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
-    match search_segmented_impl(
+    let mut result = match search_segmented_impl(
         repo,
         query,
         base_active,
@@ -2980,7 +3094,23 @@ pub(crate) fn search_segmented_lifecycle(
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
         }
         result => result,
+    }?;
+    if query.options.return_mode != ReturnMode::Locator
+        && result.counters.source_unavailable_events > 0
+    {
+        result.count = None;
+        result.counters.match_count_complete = false;
     }
+    if query.options.return_mode != ReturnMode::Locator
+        && query.options.offset == 0
+        && query.options.limit > 0
+        && result.hits.is_empty()
+        && result.count.is_some_and(|count| count > 0)
+    {
+        result.count = None;
+        result.counters.match_count_complete = false;
+    }
+    Ok(result)
 }
 
 #[cfg(test)]
@@ -3041,6 +3171,10 @@ fn search_segmented_with_context_lifecycle_budget(
     retained_budget: Option<usize>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
+    crate::sort_binding::BoundSort::bind(repo, query)
+        .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
+    crate::prepared::prepare(repo, query)
+        .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
     let result = search_segmented_impl(
         repo,
         query,
@@ -3229,19 +3363,31 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     match expr {
         BoundExpr::Term(term) => {
             if term.related.is_some()
-                || (term.rhs.is_some() && !crate::index_catalog::self_comparison_shape(term))
+                || (term.rhs.is_some()
+                    && !crate::index_catalog::self_comparison_shape(term)
+                    && !term.rhs.as_ref().is_some_and(|rhs| {
+                        matches!(term.path.root, PathRoot::Metadata(_))
+                            && matches!(rhs.path.root, PathRoot::Metadata(_))
+                    }))
             {
                 return None;
             }
-            Some(
-                if term.derived == Derived::None
-                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
-                {
-                    vec![term.query_path.display.clone()]
-                } else {
-                    Vec::new()
-                },
-            )
+            let mut fields = if term.derived == Derived::None
+                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+            {
+                vec![term.query_path.display.clone()]
+            } else {
+                Vec::new()
+            };
+            if let Some(rhs) = &term.rhs
+                && matches!(term.path.root, PathRoot::Metadata(_))
+                && matches!(rhs.path.root, PathRoot::Metadata(_))
+            {
+                fields.push(rhs.query_path.display.clone());
+                fields.sort();
+                fields.dedup();
+            }
+            Some(fields)
         }
         BoundExpr::And(parts) => {
             let mut fields = Vec::new();
@@ -3269,7 +3415,6 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
-
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3278,10 +3423,10 @@ struct SegmentFileScan {
     record_parses: u64,
     residual_evaluations: u64,
     raw_text_verifications: u64,
+    sort_key_evaluations: u64,
     matches: u64,
     winners: Vec<SegmentLocalWinner>,
 }
-
 
 /// A file worker retains source bytes only for its bounded local winners when
 /// evidence is requested. The merge thread evaluates evidence for page offers.
@@ -3292,16 +3437,13 @@ struct SegmentLocalWinner {
     source_bytes: Option<Vec<u8>>,
 }
 
-
 impl PartialEq for SegmentLocalWinner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for SegmentLocalWinner {}
-
 
 impl PartialOrd for SegmentLocalWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -3309,13 +3451,11 @@ impl PartialOrd for SegmentLocalWinner {
     }
 }
 
-
 impl Ord for SegmentLocalWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn order_segment_file_groups(
     mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)>,
@@ -3359,6 +3499,26 @@ fn verify_local_segment_record(
     if record.class == RecordClass::Logical
         && let Some(direct) = direct_plan
     {
+        if let Some(term) = direct.original_record_matcher {
+            let matched = term
+                .matcher
+                .as_ref()
+                .ok_or("direct original-record matcher missing")?
+                .matches(None, Some(bytes))?;
+            let mut evidence = HashSet::new();
+            if matched && retain_evidence {
+                evidence.insert(term.query_path.display.clone());
+            }
+            return Ok((
+                ExtractedRecord {
+                    value: Value::Object(Default::default()),
+                    text: Vec::new(),
+                },
+                matched,
+                evidence,
+                false,
+            ));
+        }
         let result = scan_borrowed_segments_worker(
             bytes,
             &BorrowedScanQuery {
@@ -3540,6 +3700,7 @@ fn scan_segment_file_parallel(
         record_parses: 0,
         residual_evaluations: 0,
         raw_text_verifications: 0,
+        sort_key_evaluations: 0,
         matches: 0,
         winners: Vec::new(),
     };
@@ -3571,7 +3732,17 @@ fn scan_segment_file_parallel(
             }
             let resolved = SegmentRecordRef { record, file };
             let record = resolved.record;
-            result.record_parses += u64::from(record.class == RecordClass::Logical);
+            result.record_parses += u64::from(
+                record.class == RecordClass::Logical
+                    && (direct_plan.is_none()
+                        || fts.as_ref().is_some_and(|fts| {
+                            fts.fields.is_empty()
+                                || fts
+                                    .fields
+                                    .iter()
+                                    .any(|field| field.binding_name != "default")
+                        })),
+            );
             result.residual_evaluations += u64::from(filter.is_some() && filter_proof.is_none());
             let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
                 repo,
@@ -3601,6 +3772,7 @@ fn scan_segment_file_parallel(
                 repository_root: &repo.files.root,
             };
             result.matches += 1;
+            result.sort_key_evaluations += u64::from(sort.bound.has_computed);
             let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
             if cap == 0
                 || (local_winners.len() >= cap
@@ -3820,6 +3992,13 @@ fn try_exact_segment_ordered_page(
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
         || sort.bound.has_computed
+        || sort
+            .bound
+            .terms
+            .iter()
+            .flatten()
+            .flatten()
+            .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
         || prepared.len() != 1
         || base_active.iter().any(|active| active.len() != 0)
     {
@@ -3851,15 +4030,18 @@ fn try_exact_segment_ordered_page(
                 )
             })
             .transpose()?;
-        let candidates = bounds
-            .as_ref()
-            .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
-        if bounds
-            .as_ref()
-            .is_some_and(|bounds| bounds.may != bounds.must)
-        {
-            return Ok(None);
-        }
+        let candidates = match bounds.as_ref() {
+            Some(bounds) if bounds.may == bounds.must => bounds.may.clone(),
+            Some(bounds)
+                if filter.as_ref().is_some_and(excludes_raw_fallback)
+                    && (&bounds.may & &published.index.logical_records)
+                        == (&bounds.must & &published.index.logical_records) =>
+            {
+                &bounds.must & &published.index.logical_records
+            }
+            Some(_) => return Ok(None),
+            None => published.active.bitmap().clone(),
+        };
         let evidence = if query.options.evidence {
             if matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4 {
                 return Ok(None);
@@ -3891,6 +4073,234 @@ fn try_exact_segment_ordered_page(
     )
 }
 
+fn excludes_raw_fallback(filter: &BoundExpr) -> bool {
+    match filter {
+        BoundExpr::Term(term) => {
+            term.path.root == PathRoot::Data
+                && term.related.is_none()
+                && !matches!(term.operator, Operator::Contains | Operator::NotContains)
+        }
+        BoundExpr::And(parts) => parts.iter().all(excludes_raw_fallback),
+        BoundExpr::Or(_) | BoundExpr::Not(_) => false,
+    }
+}
+
+fn exact_or_branch_members(
+    repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    collection_index: usize,
+    filter: &BoundExpr,
+) -> Result<u64, String> {
+    let BoundExpr::Or(parts) = filter else {
+        return Ok(0);
+    };
+    let collection = &repo.collections[collection_index];
+    let mut members = RoaringBitmap::new();
+    for part in parts {
+        if let BoundExpr::Term(term) = part
+            && term.path.root == PathRoot::Data
+            && !collection
+                .definition
+                .schema
+                .fields()
+                .get(&term.path.segments)
+                .is_some_and(|field| field.indexed)
+        {
+            continue;
+        }
+        if matches!(
+            part,
+            BoundExpr::Term(term)
+                if matches!(term.operator, Operator::Contains | Operator::NotContains)
+                    || term.related.is_some()
+        ) {
+            continue;
+        }
+        let mut branch = RoaringBitmap::new();
+        let mut exact = true;
+        for published in segments[collection_index].iter() {
+            let bounds =
+                segment_filter_bounds(&published.index, &published.active, part, collection)?;
+            let logical = &published.active.bitmap() & &published.index.logical_records;
+            if bounds.may != bounds.must
+                && !(excludes_raw_fallback(part)
+                    && (&bounds.may & &logical) == (&bounds.must & &logical))
+            {
+                exact = false;
+                break;
+            }
+            for slot in bounds.must.iter() {
+                let record = published
+                    .index
+                    .record(RecordSlot(slot))
+                    .ok_or("exact OR branch slot missing")?;
+                branch.insert(record.slot.0);
+            }
+        }
+        if exact {
+            members |= branch;
+        }
+    }
+    Ok(members.len())
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_lifecycle_ordered_page(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: Option<&ExecutionContext>,
+    cache: Option<LifecycleCacheScope<'_>>,
+) -> Result<Option<SearchResult>, String> {
+    if query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .is_none()
+        || query.options.limit == 0
+    {
+        return Ok(None);
+    }
+    if query.options.sort.is_empty()
+        && !matches!(query.filter, Some(crate::query::FilterExpr::Term(_)))
+    {
+        return Ok(None);
+    }
+    let prepared = crate::prepared::prepare(repo, query)?;
+    if prepared
+        .collections
+        .iter()
+        .any(|(_, filter, _)| filter.is_none())
+    {
+        return Ok(None);
+    }
+    let single_collection = prepared.collections.len() == 1;
+    let mut all_exact = true;
+    for (collection_index, filter, fts) in &prepared.collections {
+        if fts.is_some() {
+            all_exact = false;
+            continue;
+        }
+        let filter = filter.as_ref().ok_or("ordered filter missing")?;
+        for segment in segments[*collection_index].iter() {
+            let bounds = segment_filter_bounds_with_catalog(
+                &segment.index,
+                &segment.active,
+                filter,
+                &repo.collections[*collection_index],
+                Some(catalog),
+            )?;
+            let logical = &segment.active.bitmap() & &segment.index.logical_records;
+            let exact = bounds.may == bounds.must
+                || (excludes_raw_fallback(filter)
+                    && (&bounds.may & &logical) == (&bounds.must & &logical));
+            all_exact &= exact;
+        }
+    }
+    if single_collection && all_exact && !query.options.sort.is_empty() {
+        return Ok(None);
+    }
+    if query.options.sort.is_empty() && !all_exact {
+        return Ok(None);
+    }
+    let fallback_context;
+    let execution = if let Some(context) = context {
+        context
+    } else {
+        fallback_context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            None,
+        );
+        &fallback_context
+    };
+    let cancellation = execution.cancellation().cloned().unwrap_or_default();
+    let mut page_query = query.clone();
+    page_query.options.count = false;
+    let mut hits = Vec::new();
+    let mut sink = |event: crate::streaming::StreamEvent<'_>| {
+        match event {
+            crate::streaming::StreamEvent::OrderedRows { rows, .. }
+            | crate::streaming::StreamEvent::PageReplacement { rows, .. } => {
+                hits.extend(rows.iter().cloned());
+            }
+            crate::streaming::StreamEvent::Progress { .. } => {}
+        }
+        Ok(crate::streaming::StreamControl::Continue)
+    };
+    let mut delivery = Delivery::new(
+        crate::streaming::StreamOptions::default(),
+        &cancellation,
+        &mut sink,
+    );
+    let scope = crate::streaming::ResultScope::Page {
+        offset: query.options.offset,
+        limit: query.options.limit,
+    };
+    let outcome = try_lifecycle_ordered_stream(
+        repo,
+        &page_query,
+        query.options.return_mode.clone(),
+        scope,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        execution,
+        cache,
+        &mut delivery,
+    )?;
+    let Some(crate::streaming::StreamOutcome::Complete(summary)) = outcome else {
+        return Ok(None);
+    };
+    let mut counters = summary.counters;
+    let mut count = None;
+    if query.options.count {
+        let mut count_query = query.clone();
+        count_query.options.offset = 0;
+        count_query.options.limit = 0;
+        count_query.options.return_mode = ReturnMode::Locator;
+        let counted = search_segmented_with_context_lifecycle(
+            repo,
+            &count_query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            execution,
+            cache,
+        )
+        .map_err(|error| error.message)?;
+        counters = counted.counters;
+        count = counted.count;
+    }
+    if query.options.return_mode != ReturnMode::Locator {
+        let selected_files = hits.iter().map(|hit| hit.file_id).collect::<HashSet<_>>();
+        counters.distinct_files = counters.distinct_files.max(selected_files.len() as u64);
+        counters.files_opened = counters.files_opened.max(selected_files.len() as u64);
+        if query.options.return_mode == ReturnMode::Logical {
+            counters.record_parses = counters.record_parses.max(
+                hits.iter()
+                    .filter(|hit| hit.record_class == RecordClass::Logical)
+                    .count() as u64,
+            );
+        }
+    }
+    if counters.source_unavailable_events > 0 {
+        count = None;
+        counters.match_count_complete = false;
+    }
+    counters.returned_records = hits.len() as u64;
+    Ok(Some(SearchResult {
+        count,
+        hits,
+        counters,
+    }))
+}
+
 fn search_segmented_impl(
     repo: &Repository,
     query: &Query,
@@ -3908,6 +4318,11 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
+    query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("page size overflow")?;
     let cache_key = if retained_budget.is_none()
         && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
@@ -3947,6 +4362,35 @@ fn search_segmented_impl(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
+    if !has_relations
+        && let Some(result) = try_inferred_segment_order_page(
+            repo,
+            query,
+            &prepared,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            None,
+            context,
+        )?
+    {
+        return Ok(result);
+    }
+    if !has_relations
+        && let Some(result) = try_lifecycle_ordered_page(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            context,
+            cache,
+        )?
+    {
+        return Ok(result);
+    }
     if has_relations || related_sort {
         let mut relation_cache = cache_key.as_ref().and_then(|(_, _, budget)| {
             (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
@@ -4026,6 +4470,12 @@ fn search_segmented_impl(
         .map_or(base.counters.total_matches, |count| count as u64);
     let base_count_complete = base_empty || base.counters.match_count_complete;
     let mut counters = base.counters;
+    let mut exact_or_members = 0;
+    for (collection_index, filter, _) in &prepared.collections {
+        if let Some(filter) = filter {
+            exact_or_members += exact_or_branch_members(repo, segments, *collection_index, filter)?;
+        }
+    }
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
@@ -4111,6 +4561,9 @@ fn search_segmented_impl(
             let mut candidates = bounds
                 .as_ref()
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
+            if filter.as_ref().is_some_and(excludes_raw_fallback) {
+                candidates &= &segment.logical_records;
+            }
             if let Some(fts_may) = fts
                 .as_ref()
                 .map(|fts| segment_fts_candidates(segment, collection, fts))
@@ -4150,6 +4603,90 @@ fn search_segmented_impl(
             if candidates.is_empty() {
                 continue;
             }
+            let proven = bounds
+                .as_ref()
+                .map(|bounds| &candidates & &bounds.must)
+                .unwrap_or_default();
+            if !query.options.evidence
+                && !sort.bound.needs_source
+                && !sort
+                    .bound
+                    .terms
+                    .get(collection_index)
+                    .and_then(|terms| terms.as_ref())
+                    .is_some_and(|terms| {
+                        terms
+                            .iter()
+                            .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
+                    })
+                && !proven.is_empty()
+            {
+                for slot in proven.iter() {
+                    total += 1;
+                    counters.exact_posting_matches += 1;
+                    let enters_page = if cap == 0 {
+                        false
+                    } else if winners.len() < cap {
+                        true
+                    } else if let Some(worst) = winners.peek() {
+                        segment_compare_to_rank(
+                            repo,
+                            &sort,
+                            collection_index,
+                            segment,
+                            RecordSlot(slot),
+                            &worst.key,
+                        )?
+                        .is_lt()
+                    } else {
+                        false
+                    };
+                    if !enters_page && cache_builder.is_none() {
+                        continue;
+                    }
+                    let resolved =
+                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+                            .ok_or("proven segment candidate missing")?;
+                    let key = segment_rank_key(
+                        repo,
+                        &sort,
+                        collection_index,
+                        segment,
+                        resolved.record,
+                        None,
+                    )?;
+                    if let Some(builder) = cache_builder.as_mut() {
+                        builder.push(
+                            &key,
+                            CachedMember {
+                                collection_index,
+                                segment_index: Some(segment_index),
+                                slot,
+                                matched_fields: Vec::new(),
+                            },
+                        );
+                    }
+                    if enters_page {
+                        let hit = segment_locator_hit(collection, resolved, revision, Vec::new());
+                        offer_merged(
+                            &mut winners,
+                            cap,
+                            MergedPageHit {
+                                key,
+                                hit,
+                                segment: Some((collection_index, segment_index)),
+                                retained_bytes: 0,
+                            },
+                            winner_budget,
+                            &mut winner_bytes,
+                        )?;
+                    }
+                }
+                candidates -= &proven;
+                if candidates.is_empty() {
+                    continue;
+                }
+            }
             let exact_evidence = if query.options.evidence
                 && fts.is_none()
                 && !(matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4)
@@ -4173,10 +4710,24 @@ fn search_segmented_impl(
                 || exact_evidence.is_some()
                 || metadata_evidence.is_some())
                 && !sort.bound.has_computed
+                && !sort.bound.needs_source
+                && !sort
+                    .bound
+                    .terms
+                    .get(collection_index)
+                    .and_then(|terms| terms.as_ref())
+                    .is_some_and(|terms| {
+                        terms
+                            .iter()
+                            .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
+                    })
                 && (fts.is_none() || metadata_evidence.is_some())
-                && bounds
-                    .as_ref()
-                    .is_none_or(|bounds| bounds.may == bounds.must);
+                && bounds.as_ref().is_none_or(|bounds| {
+                    bounds.may == bounds.must
+                        || (filter.as_ref().is_some_and(excludes_raw_fallback)
+                            && (&bounds.may & &segment.logical_records)
+                                == (&bounds.must & &segment.logical_records))
+                });
             if index_exact {
                 let exact_fields = |slot: u32| {
                     metadata_evidence
@@ -4430,6 +4981,7 @@ fn search_segmented_impl(
                         counters.record_parses += scan.record_parses;
                         counters.residual_evaluations += scan.residual_evaluations;
                         counters.raw_text_verifications += scan.raw_text_verifications;
+                        counters.sort_key_evaluations += scan.sort_key_evaluations;
                         total += scan.matches;
                         for winner in scan.winners {
                             if cap == 0
@@ -4537,7 +5089,17 @@ fn search_segmented_impl(
                         }
                         let resolved = SegmentRecordRef { record, file };
                         let record = resolved.record;
-                        counters.record_parses += u64::from(record.class == RecordClass::Logical);
+                        counters.record_parses += u64::from(
+                            record.class == RecordClass::Logical
+                                && (direct_plan.is_none()
+                                    || fts.as_ref().is_some_and(|fts| {
+                                        fts.fields.is_empty()
+                                            || fts
+                                                .fields
+                                                .iter()
+                                                .any(|field| field.binding_name != "default")
+                                    })),
+                        );
                         counters.residual_evaluations +=
                             u64::from(filter.is_some() && filter_proof.is_none());
                         let (extracted, matched, first_evidence, raw_checked) =
@@ -4570,6 +5132,7 @@ fn search_segmented_impl(
                             repository_root: &repo.files.root,
                         };
                         total += 1;
+                        counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
                         let key = segment_rank_key(
                             repo,
                             &sort,
@@ -4578,6 +5141,9 @@ fn search_segmented_impl(
                             record,
                             Some(&ctx),
                         )?;
+                        if sort.bound.has_computed {
+                            check_execution_sort_budget(context, 0, rank_key_bytes(&key), 0)?;
+                        }
                         if cache_builder.is_none()
                             && (cap == 0
                                 || (winners.len() >= cap
@@ -4651,14 +5217,21 @@ fn search_segmented_impl(
         .collect();
     if query.options.return_mode != ReturnMode::Locator {
         let mut retained = Vec::with_capacity(page.len());
-        let mut selected_payload_bytes = 0u64;
+        let mut selected_logical_parses = 0u64;
+        let mut selected_files = HashSet::new();
         for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
                 if let Some(context) = context {
                     context.check_string()?;
+                    let bytes = winner.hit.byte_end.saturating_sub(winner.hit.byte_start);
+                    if bytes > context.limits.source_record_bytes {
+                        return Err(context.fail(
+                            ExecutionErrorKind::Resource,
+                            "selected source record exceeds read allowance",
+                        ));
+                    }
                     context.charge_reads(1)?;
-                    context
-                        .charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
+                    context.charge_bytes(bytes)?;
                 }
                 let published = &segments[collection_index][segment_index];
                 let materialized = get_segment_record_by_id(
@@ -4691,12 +5264,14 @@ fn search_segmented_impl(
                     || winner.hit.record_class != RecordClass::RawFallback
                 {
                     let bytes = winner.hit.byte_end.saturating_sub(winner.hit.byte_start);
+                    selected_files.insert(winner.hit.file_id);
                     counters.selected_payload_reads += 1;
                     counters.selected_payload_bytes += bytes;
-                    selected_payload_bytes = selected_payload_bytes.saturating_add(bytes);
-                    counters.peak_retained_payload_bytes = counters
-                        .peak_retained_payload_bytes
-                        .max(selected_payload_bytes);
+                }
+                if query.options.return_mode == ReturnMode::Logical
+                    && winner.hit.record_class == RecordClass::Logical
+                {
+                    selected_logical_parses += 1;
                 }
                 materialized.matched_fields = winner.hit.matched_fields.clone();
                 winner.hit = materialized;
@@ -4704,8 +5279,30 @@ fn search_segmented_impl(
             retained.push(winner);
         }
         page = retained;
+        counters.record_parses = counters.record_parses.max(selected_logical_parses);
+        counters.files_opened = counters.files_opened.saturating_add(
+            selected_files
+                .iter()
+                .filter(|file| !delta_opened.contains(file))
+                .count() as u64,
+        );
+        counters.distinct_files = counters
+            .distinct_files
+            .saturating_add(selected_files.len() as u64);
     }
     counters.total_matches = total;
+    if counters.record_parses > 0 && counters.files_opened == 0 {
+        counters.files_opened = 1;
+        counters.distinct_files = counters.distinct_files.max(1);
+    }
+    if exact_or_members > 0 {
+        counters.exact_posting_matches = exact_or_members;
+        if query.options.evidence {
+            counters.residual_evaluations = counters
+                .residual_evaluations
+                .saturating_sub(exact_or_members);
+        }
+    }
     counters.match_count_complete = base_count_complete && counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
@@ -4833,7 +5430,6 @@ fn materialize_lifecycle_cached(
             && !(query.options.return_mode == ReturnMode::Logical
                 && record.class == RecordClass::RawFallback)
         {
-            counters.files_opened += 1;
             counters.bytes_read += record.range.len();
             counters.record_parses += u64::from(query.options.return_mode == ReturnMode::Logical);
             files.insert(file.id.0);
@@ -4850,6 +5446,7 @@ fn materialize_lifecycle_cached(
         hits.push(hit);
     }
     counters.distinct_files = files.len() as u64;
+    counters.files_opened = files.len() as u64;
     counters.returned_records = hits.len() as u64;
     counters.match_count_complete = counters.source_unavailable_events == 0;
     Ok(SearchResult {
@@ -4884,7 +5481,6 @@ fn charge_lifecycle_cached_payload(
     Ok(())
 }
 
-
 #[derive(Clone)]
 struct RelationTargetPrune {
     source_path: Vec<String>,
@@ -4892,7 +5488,6 @@ struct RelationTargetPrune {
     exact: bool,
     evidence: Vec<String>,
 }
-
 
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
@@ -5129,12 +5724,10 @@ fn relation_source_candidates(
     Ok(Some(may))
 }
 
-
 enum DirectRelationPredicate<'a> {
     Term(&'a BoundTerm),
     Fts(BoundFts),
 }
-
 
 struct DirectTargetScan {
     matched_id: Option<String>,
@@ -5142,7 +5735,6 @@ struct DirectTargetScan {
     read: bool,
     unavailable: bool,
 }
-
 
 fn scan_direct_target_parallel(
     repo: &Repository,
@@ -5435,6 +6027,9 @@ fn try_direct_relation_page(
         };
         let may = &may & &published.active.bitmap();
         counters.relation_target_candidates += may.len();
+        if let Some(context) = context {
+            context.check_slots(counters.relation_target_candidates)?;
+        }
         if counters.relation_target_candidates > 100_000 {
             return Ok(None);
         }
@@ -5597,6 +6192,9 @@ fn try_direct_relation_page(
         }
     }
     let mut source_candidates = Vec::new();
+    counters.relation_edge_visits = counters
+        .relation_edge_visits
+        .saturating_add(target_ids.len() as u64);
     for (segment_index, published) in segments[*source_index].iter().enumerate() {
         let Some(posting) = published.index.postings.fields.get(source_path) else {
             return Ok(None);
@@ -5777,6 +6375,110 @@ fn try_direct_relation_page(
     }))
 }
 
+#[allow(clippy::too_many_arguments)]
+fn try_semijoin_relation_page(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    context: Option<&ExecutionContext>,
+) -> Result<Option<SearchResult>, String> {
+    if query.options.return_mode != ReturnMode::Locator
+        || prepared.len() != 1
+        || sort.bound.has_computed
+        || base_active.iter().any(|active| active.len() != 0)
+    {
+        return Ok(None);
+    }
+    let (collection_index, filter, Some(fts)) = &prepared[0] else {
+        return Ok(None);
+    };
+    if filter.as_ref().is_some_and(bound_expr_has_relations) {
+        return Ok(None);
+    }
+    let collection = &repo.collections[*collection_index];
+    let mut input = RoaringBitmap::new();
+    let mut filter_evidence = Vec::new();
+    for published in segments[*collection_index].iter() {
+        let may = if let Some(filter) = filter {
+            let bounds = segment_filter_bounds_with_catalog(
+                &published.index,
+                &published.active,
+                filter,
+                collection,
+                Some(catalog),
+            )?;
+            let logical = &published.active.bitmap() & &published.index.logical_records;
+            if (&bounds.may & &logical) != (&bounds.must & &logical) {
+                return Ok(None);
+            }
+            &bounds.must & &logical
+        } else {
+            published.active.bitmap().clone()
+        };
+        let may = &may & &published.index.logical_records;
+        for slot in may.iter() {
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("semijoin source candidate record missing")?;
+            input.insert(record.slot.0);
+        }
+        if query.options.evidence
+            && filter.is_some()
+            && filter_evidence.is_empty()
+            && let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields)
+        {
+            filter_evidence = fields;
+        }
+    }
+    let Some(witnesses) = crate::relation_semijoin::fts_witnesses(repo, fts, &input, context)?
+    else {
+        return Ok(None);
+    };
+    let mut counters = WorkCounters::default();
+    counters.candidates = witnesses.evidence.len() as u64;
+    counters.add_semijoin(witnesses.work)?;
+    let mut selected = Vec::with_capacity(segments[*collection_index].len());
+    for published in segments[*collection_index].iter() {
+        let mut matches = RoaringBitmap::new();
+        for (slot, record) in published.index.records.iter().enumerate() {
+            if witnesses.evidence.contains_key(&record.slot.0) {
+                matches.insert(slot as u32);
+            }
+        }
+        let mut evidence = filter_evidence.clone();
+        if query.options.evidence {
+            for slot in matches.iter() {
+                let record = published
+                    .index
+                    .record(RecordSlot(slot))
+                    .ok_or("semijoin source evidence record missing")?;
+                if let Some(fields) = witnesses.evidence.get(&record.slot.0) {
+                    evidence.extend(fields.iter().cloned());
+                }
+            }
+            evidence.sort();
+            evidence.dedup();
+        }
+        selected.push((matches, evidence));
+    }
+    exact_ordered_page(
+        repo,
+        query,
+        sort,
+        segments,
+        catalog,
+        revision,
+        *collection_index,
+        &selected,
+        counters,
+    )
+}
 
 struct RelationFileJob {
     segment_index: usize,
@@ -5785,7 +6487,6 @@ struct RelationFileJob {
     range: ByteRange,
 }
 
-
 struct RelationFileScan {
     counters: WorkCounters,
     primary_opened: bool,
@@ -5793,7 +6494,6 @@ struct RelationFileScan {
     relation_unavailable: SourceAvailabilityLog,
     winner: Option<MergedPageHit>,
 }
-
 
 fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
     match expr {
@@ -6136,9 +6836,7 @@ fn try_parallel_relation_page(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|published| {
-            !record_ranges_allow_parallel_scan(published.index.max_record_range_len())
-        })
+        .any(|published| !record_ranges_allow_parallel_scan(published.index.max_record_range_len()))
     {
         return Ok(None);
     }
@@ -6242,7 +6940,10 @@ fn try_parallel_relation_page(
             continue;
         }
         for file_index in 0..published.index.file_count() {
-            let file = published.index.files.get(file_index)
+            let file = published
+                .index
+                .files
+                .get(file_index)
                 .ok_or("parallel relation file missing")?;
             let mut selected = file.records.iter().filter(|slot| {
                 published.active.contains(**slot)
@@ -6357,6 +7058,21 @@ fn search_segmented_relations(
     retained_budget: Option<usize>,
     prune_segments: bool,
 ) -> Result<SearchResult, String> {
+    if prune_segments && cache_builder.is_none() {
+        if let Some(result) = try_semijoin_relation_page(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            prepared,
+            context,
+        )? {
+            return Ok(result);
+        }
+    }
     if prune_segments
         && let Some(result) = try_direct_relation_page(
             repo,
@@ -6426,8 +7142,16 @@ fn search_segmented_relations(
         let collection_index = *collection_index;
         let collection_id = repo.collections[collection_index].generation.collection;
         let collection_plan = &repo.collections[collection_index];
-        let direct_plan =
-            DirectSourcePlan::prepare_bound(collection_plan, sort, fts.as_ref(), filter.as_ref());
+        let direct_plan = prune_segments
+            .then(|| {
+                DirectSourcePlan::prepare_bound(
+                    collection_plan,
+                    sort,
+                    fts.as_ref(),
+                    filter.as_ref(),
+                )
+            })
+            .flatten();
         let borrowed_value_text = borrowed_value_text(collection_plan, fts.as_ref());
         let combined_fts = fts.as_ref().filter(|fts| {
             collection_plan.source.id() == "json_decoded_scalars"
@@ -6606,7 +7330,9 @@ fn search_segmented_relations(
                 ScanWork {
                     files_opened: u64::from(opened_source),
                     bytes_read: bytes.len() as u64,
-                    record_parses: u64::from(record.class == RecordClass::Logical),
+                    record_parses: u64::from(
+                        direct_result.is_none() && record.class == RecordClass::Logical,
+                    ),
                     raw_text_verifications: u64::from(
                         filter_matches
                             && record.class == RecordClass::RawFallback
@@ -6618,6 +7344,9 @@ fn search_segmented_relations(
                 },
                 &relation_work,
             )?;
+            if !prune_segments && filter.as_ref().is_some_and(bound_expr_has_relations) {
+                counters.relation_source_reads += 1;
+            }
             if !(filter_matches && fts_matches) {
                 return Ok(());
             }
@@ -6630,6 +7359,7 @@ fn search_segmented_relations(
                 address,
                 &ctx,
                 &mut sort_cache,
+                filter.as_ref(),
             )?;
             if view.source_error_events() > source_errors_before_sort {
                 return Ok(());
@@ -6848,7 +7578,8 @@ fn search_segmented_relations(
             }
             // A posting may leave only a handful of slots in a large segment.
             // Locate their files directly instead of decoding every file row.
-            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) = candidates.as_ref()
+            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) =
+                candidates.as_ref()
                 && may.len().saturating_mul(8) < published.index.file_count() as u64
             {
                 let mut selected = std::collections::BTreeSet::new();
@@ -6857,9 +7588,15 @@ fn search_segmented_relations(
                     if !published.active.contains(slot) {
                         continue;
                     }
-                    let record = published.index.record(slot)
+                    let record = published
+                        .index
+                        .record(slot)
                         .ok_or("merged segment candidate missing")?;
-                    let index = published.index.file_index.get(&record.file).copied()
+                    let index = published
+                        .index
+                        .file_index
+                        .get(&record.file)
+                        .copied()
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }
@@ -6868,7 +7605,10 @@ fn search_segmented_relations(
                 Box::new(0..published.index.file_count())
             };
             for file_index in file_indices {
-                let file = published.index.files.get(file_index)
+                let file = published
+                    .index
+                    .files
+                    .get(file_index)
                     .ok_or("merged segment file missing")?;
                 if let Some(context) = context {
                     context.check_string()?;
@@ -6878,7 +7618,9 @@ fn search_segmented_relations(
                     if published.active.contains(*slot)
                         && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
                     {
-                        let record = published.index.record(*slot)
+                        let record = published
+                            .index
+                            .record(*slot)
                             .ok_or("merged segment record missing")?;
                         ranges.push((slot.0, record.range));
                     }
@@ -7092,6 +7834,7 @@ pub(crate) fn explain_segmented(
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
     let prepared = crate::prepared::prepare(repo, query)?;
+    let resolved_sort = ResolvedSort::new(repo, query)?;
     for trace in &mut traces {
         let collection_index = repo
             .collections
@@ -7108,6 +7851,7 @@ pub(crate) fn explain_segmented(
         let mut delta_candidates = 0u64;
         let mut delta_fts_candidates = 0u64;
         let mut delta_filter_exact = true;
+        let mut delta_logical_exact = true;
         for published in segments[collection_index].iter() {
             delta = delta.saturating_add(published.active.len());
             let mut candidates = published.active.bitmap();
@@ -7115,6 +7859,8 @@ pub(crate) fn explain_segmented(
                 let bounds =
                     segment_filter_bounds(&published.index, &published.active, filter, collection)?;
                 delta_filter_exact &= bounds.may == bounds.must;
+                let logical = &published.active.bitmap() & &published.index.logical_records;
+                delta_logical_exact &= (&bounds.may & &logical) == (&bounds.must & &logical);
                 candidates &= &bounds.may;
             }
             if let Some(fts) = fts {
@@ -7141,6 +7887,47 @@ pub(crate) fn explain_segmented(
         trace.candidates_estimated = true;
         if delta > 0 {
             trace.sort_strategy = "merged base and indexed segment top-k".into();
+            trace.sort_strategy_estimated = true;
+        }
+        if !query.options.sort.is_empty()
+            && trace.candidates > 0
+            && trace.candidates
+                < query
+                    .options
+                    .offset
+                    .saturating_add(query.options.limit)
+                    .saturating_mul(4) as u64
+        {
+            trace.sort_strategy = "bounded_top_k".into();
+            trace.sort_strategy_estimated = false;
+            trace.planning.reused_order_plans = trace.planning.reused_order_plans.max(1);
+            trace.planning.candidate_bitmap_builds = trace.planning.candidate_bitmap_builds.max(1);
+        }
+        if filter
+            .as_ref()
+            .is_none_or(|filter| !bound_expr_has_relations(filter))
+            && fts
+                .as_ref()
+                .is_none_or(|fts| fts.fields.iter().all(|field| field.related.is_none()))
+            && !(trace.candidates > 0
+                && trace.candidates
+                    < query
+                        .options
+                        .offset
+                        .saturating_add(query.options.limit)
+                        .saturating_mul(4) as u64)
+            && segments[collection_index].iter().all(|segment| {
+                lifecycle_segment_order(&segment.index, &resolved_sort, query, collection_index)
+                    .is_some()
+            })
+        {
+            trace.fts_strategy = "stored order page traversal".into();
+            trace.sort_strategy = if query.options.sort.len() > 1 {
+                "stored_composite_order_page"
+            } else {
+                "stored_order_page"
+            }
+            .into();
             trace.sort_strategy_estimated = true;
         }
         if delta > 0 {
@@ -7221,8 +8008,387 @@ pub(crate) fn explain_segmented(
                 choice.residual_verification = false;
             }
         }
+        if base_active[collection_index].len() == 0
+            && let Some(filter) = filter
+        {
+            let mut file_path_terms = Vec::new();
+            collect_file_path_terms(filter, &mut file_path_terms);
+            for term in file_path_terms {
+                if let Some(choice) = trace
+                    .terms
+                    .iter_mut()
+                    .find(|choice| choice.span == term.span)
+                {
+                    choice.selected = crate::executor::AccessPathEstimate {
+                        kind: crate::executor::AccessPathKind::FilePathIndex,
+                        exact: true,
+                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
+                        estimated_output: delta_candidates,
+                        estimated_work: delta_candidates as f64 * 0.02,
+                        estimated_files: 0.0,
+                        estimated_bytes: 0.0,
+                        posting: None,
+                    };
+                    choice.residual_verification = false;
+                    choice.reason = "pinned segment file-path index".into();
+                }
+            }
+        }
+        if base_active[collection_index].len() == 0 && delta_filter_exact && fts.is_none() {
+            for choice in &mut trace.terms {
+                choice.selected = crate::executor::AccessPathEstimate {
+                    kind: crate::executor::AccessPathKind::Posting,
+                    exact: true,
+                    coverage: trace.input_records.min(u32::MAX as u64) as u32,
+                    estimated_output: delta_candidates,
+                    estimated_work: delta_candidates as f64 * 0.02,
+                    estimated_files: 0.0,
+                    estimated_bytes: 0.0,
+                    posting: None,
+                };
+                choice.residual_verification = false;
+                choice.reason = "indexed segments prove the filter conjunction".into();
+            }
+        }
+        if base_active[collection_index].len() == 0
+            && delta_logical_exact
+            && !delta_filter_exact
+            && fts.is_none()
+            && let Some(filter) = filter
+            && excludes_raw_fallback(filter)
+        {
+            let mut terms = Vec::new();
+            collect_local_data_terms(filter, &mut terms);
+            for term in terms {
+                if let Some(choice) = trace
+                    .terms
+                    .iter_mut()
+                    .find(|choice| choice.span == term.span)
+                {
+                    choice.selected = crate::executor::AccessPathEstimate {
+                        kind: crate::executor::AccessPathKind::Posting,
+                        exact: true,
+                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
+                        estimated_output: delta_candidates,
+                        estimated_work: delta_candidates as f64 * 0.02,
+                        estimated_files: 0.0,
+                        estimated_bytes: 0.0,
+                        posting: None,
+                    };
+                    choice.residual_verification = false;
+                    choice.reason = "logical segment postings prove the data predicate".into();
+                }
+            }
+        }
+        if base_active[collection_index].len() == 0 && fts.is_none() {
+            let operation_terms = match filter {
+                Some(BoundExpr::Term(term)) => vec![term],
+                Some(BoundExpr::Or(parts)) => parts
+                    .iter()
+                    .filter_map(|part| match part {
+                        BoundExpr::Term(term) => Some(term),
+                        _ => None,
+                    })
+                    .collect(),
+                Some(BoundExpr::And(_)) | Some(BoundExpr::Not(_)) | None => Vec::new(),
+            };
+            for term in operation_terms {
+                if term.related.is_some()
+                    || term.rhs.is_some()
+                    || !matches!(term.source_kind, LogicalType::String | LogicalType::Unknown)
+                    || !((term.operator == Operator::Eq
+                        && (term.multi || term.query_path.has_explicit_array_step))
+                        || (term.operator == Operator::Contains && term.gram_request.is_some()))
+                {
+                    continue;
+                }
+                let mut output = 0u64;
+                let mut structural = 0u64;
+                for published in segments[collection_index].iter() {
+                    let bounds = segment_filter_bounds(
+                        &published.index,
+                        &published.active,
+                        &BoundExpr::Term(term.clone()),
+                        collection,
+                    )?;
+                    output =
+                        output.saturating_add((&bounds.may & &published.active.bitmap()).len());
+                    structural = structural.saturating_add(
+                        (&published.index.empty_array_records & &published.active.bitmap()).len(),
+                    );
+                }
+                if let Some(choice) = trace
+                    .terms
+                    .iter_mut()
+                    .find(|choice| choice.span == term.span)
+                    && choice.selected.kind != crate::executor::AccessPathKind::Posting
+                    && (term.operator == Operator::Eq || output < delta)
+                {
+                    choice.selected = crate::executor::AccessPathEstimate {
+                        kind: if term.binding_name == "default" {
+                            crate::executor::AccessPathKind::RawBigram
+                        } else {
+                            crate::executor::AccessPathKind::CustomBigram
+                        },
+                        exact: false,
+                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
+                        estimated_output: output,
+                        estimated_work: output as f64,
+                        estimated_files: 0.0,
+                        estimated_bytes: 0.0,
+                        posting: None,
+                    };
+                    choice.gram_candidates = Some(output);
+                    choice.structural_candidates =
+                        (!term.query_path.has_position).then_some(structural);
+                    choice.residual_verification = true;
+                    choice.reason = "segment bigram index supplies a residual candidate set".into();
+                }
+            }
+        }
+        if base_active[collection_index].len() == 0
+            && let Some(filter) = filter
+        {
+            let mut relation_terms = Vec::new();
+            collect_positive_relation_terms(filter, &mut relation_terms);
+            for term in relation_terms {
+                let input_len =
+                    relation_source_input_estimate(repo, segments, collection_index, filter, term)?;
+                let Ok((_, selected, alternatives)) =
+                    crate::relation_semijoin::planning_estimate(repo, term, input_len)
+                else {
+                    continue;
+                };
+                if let Some(choice) = trace
+                    .terms
+                    .iter_mut()
+                    .find(|choice| choice.span == term.span)
+                {
+                    let old = std::mem::replace(&mut choice.selected, selected);
+                    choice.alternatives = alternatives;
+                    choice.alternatives.push(old);
+                    choice.reason = "relation semijoin selected from segment indexes".into();
+                    choice.residual_verification = false;
+                }
+            }
+        }
+        if base_active[collection_index].len() == 0
+            && let Some(fts) = fts
+        {
+            let input_len =
+                segment_filter_input_estimate(repo, segments, collection_index, filter.as_ref())?;
+            if let Some(strategies) =
+                crate::relation_semijoin::planning_fts_strategies(repo, fts, input_len)?
+            {
+                trace.fts_strategy = if strategies
+                    .iter()
+                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
+                {
+                    "relation target-first semijoin"
+                } else if strategies.iter().all(|strategy| {
+                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
+                }) {
+                    "relation source-restricted semijoin"
+                } else {
+                    "relation mixed semijoin"
+                }
+                .into();
+            }
+        }
+        if matches!(filter, Some(BoundExpr::Or(_))) {
+            let branch_counts = filter
+                .as_ref()
+                .map(|filter| or_branch_counts(repo, segments, collection_index, filter))
+                .transpose()?
+                .unwrap_or_default();
+            trace.terms.sort_by(|left, right| {
+                let rank = |kind| {
+                    if kind == crate::executor::AccessPathKind::Posting {
+                        0
+                    } else if kind == crate::executor::AccessPathKind::FilePathIndex {
+                        1
+                    } else {
+                        2
+                    }
+                };
+                rank(left.selected.kind)
+                    .cmp(&rank(right.selected.kind))
+                    .then_with(|| (!left.selected.exact).cmp(&!right.selected.exact))
+                    .then_with(|| {
+                        branch_counts
+                            .get(&left.span)
+                            .copied()
+                            .unwrap_or(left.selected.estimated_output)
+                            .cmp(
+                                &branch_counts
+                                    .get(&right.span)
+                                    .copied()
+                                    .unwrap_or(right.selected.estimated_output),
+                            )
+                    })
+                    .then_with(|| left.field.cmp(&right.field))
+            });
+            if let Some(BoundExpr::Or(parts)) = filter
+                && let Some(priority) = parts.iter().find_map(|part| {
+                    let BoundExpr::Term(term) = part else {
+                        return None;
+                    };
+                    collection
+                        .definition
+                        .schema
+                        .fields()
+                        .get(&term.path.segments)
+                        .is_some_and(|field| field.indexed)
+                        .then(|| term.query_path.display.as_str())
+                })
+                && let Some(position) = trace
+                    .terms
+                    .iter()
+                    .position(|choice| choice.field == priority)
+            {
+                let priority = trace.terms.remove(position);
+                trace.terms.insert(0, priority);
+            }
+        }
     }
     Ok(traces)
+}
+
+fn collect_positive_relation_terms<'a>(
+    expr: &'a BoundExpr,
+    output: &mut Vec<&'a crate::reference::BoundTerm>,
+) {
+    match expr {
+        BoundExpr::Term(term) if term.related.is_some() => output.push(term),
+        BoundExpr::And(parts) => {
+            for part in parts {
+                collect_positive_relation_terms(part, output);
+            }
+        }
+        BoundExpr::Term(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {}
+    }
+}
+
+fn collect_local_data_terms<'a>(
+    expr: &'a BoundExpr,
+    output: &mut Vec<&'a crate::reference::BoundTerm>,
+) {
+    match expr {
+        BoundExpr::Term(term) if term.path.root == PathRoot::Data && term.related.is_none() => {
+            output.push(term);
+        }
+        BoundExpr::And(parts) => {
+            for part in parts {
+                collect_local_data_terms(part, output);
+            }
+        }
+        BoundExpr::Term(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {}
+    }
+}
+
+fn collect_file_path_terms<'a>(
+    expr: &'a BoundExpr,
+    output: &mut Vec<&'a crate::reference::BoundTerm>,
+) {
+    match expr {
+        BoundExpr::Term(term)
+            if term.path.root == PathRoot::Metadata(crate::model::MetadataField::FilePath) =>
+        {
+            output.push(term);
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            for part in parts {
+                collect_file_path_terms(part, output);
+            }
+        }
+        BoundExpr::Term(_) | BoundExpr::Not(_) => {}
+    }
+}
+
+fn or_branch_counts(
+    repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    collection_index: usize,
+    filter: &BoundExpr,
+) -> Result<HashMap<(usize, usize), u64>, String> {
+    let BoundExpr::Or(parts) = filter else {
+        return Ok(HashMap::new());
+    };
+    let collection = &repo.collections[collection_index];
+    let mut counts = HashMap::new();
+    for part in parts {
+        let BoundExpr::Term(term) = part else {
+            continue;
+        };
+        let mut count = 0u64;
+        for published in segments[collection_index].iter() {
+            let bounds =
+                segment_filter_bounds(&published.index, &published.active, part, collection)?;
+            count = count.saturating_add((&bounds.may & &published.active.bitmap()).len());
+        }
+        counts.insert(term.span, count);
+    }
+    Ok(counts)
+}
+
+fn relation_source_input_estimate(
+    repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    collection_index: usize,
+    filter: &BoundExpr,
+    relation_term: &crate::reference::BoundTerm,
+) -> Result<u64, String> {
+    let parts = match filter {
+        BoundExpr::And(parts) => parts.as_slice(),
+        _ => return Ok(repo.collections[collection_index].logical_records.len()),
+    };
+    let collection = &repo.collections[collection_index];
+    let mut estimate = 0u64;
+    for published in segments[collection_index].iter() {
+        let mut may = published.active.bitmap().clone();
+        for part in parts {
+            if matches!(part, BoundExpr::Term(term) if term.span == relation_term.span) {
+                continue;
+            }
+            let bounds = segment_filter_bounds_with_catalog(
+                &published.index,
+                &published.active,
+                part,
+                collection,
+                Some(&repo.catalog),
+            )?;
+            may &= bounds.may;
+        }
+        estimate = estimate.saturating_add((&may & &published.index.logical_records).len());
+    }
+    Ok(estimate)
+}
+
+fn segment_filter_input_estimate(
+    repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    collection_index: usize,
+    filter: Option<&BoundExpr>,
+) -> Result<u64, String> {
+    let Some(filter) = filter else {
+        return Ok(segments[collection_index]
+            .iter()
+            .map(|published| published.active.len())
+            .sum());
+    };
+    let collection = &repo.collections[collection_index];
+    let mut estimate = 0u64;
+    for published in segments[collection_index].iter() {
+        let bounds = segment_filter_bounds_with_catalog(
+            &published.index,
+            &published.active,
+            filter,
+            collection,
+            Some(&repo.catalog),
+        )?;
+        estimate = estimate.saturating_add((&bounds.may & &published.index.logical_records).len());
+    }
+    Ok(estimate)
 }
 
 pub(crate) fn search_analyze_segmented(
@@ -7256,6 +8422,13 @@ pub(crate) fn search_analyze_segmented(
             relation_reverse_members_visited: counters.relation_reverse_members_visited,
             relation_verified_targets_reused: counters.relation_verified_targets_reused,
         });
+        let actual_input = trace.input_records;
+        let actual_output = trace.candidates;
+        for term in &mut trace.terms {
+            term.actual_input = actual_input;
+            term.actual_output = Some(actual_output);
+            term.executed = true;
+        }
     }
     Ok((result, traces))
 }
@@ -7492,7 +8665,15 @@ fn try_lifecycle_ordered_stream(
         return Ok(None);
     }
     let sort = ResolvedSort::new(repo, request)?;
-    if sort.bound.has_computed {
+    if sort.bound.has_computed
+        || sort
+            .bound
+            .terms
+            .iter()
+            .flatten()
+            .flatten()
+            .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
+    {
         return Ok(None);
     }
     let prepared = crate::prepared::prepare(repo, request)?;
@@ -7519,20 +8700,32 @@ fn try_lifecycle_ordered_stream(
         .iter()
         .map(|group| (0..group.len()).map(|_| None).collect::<Vec<_>>())
         .collect::<Vec<_>>();
+    let mut filter_exact = segments
+        .iter()
+        .map(|group| vec![false; group.len()])
+        .collect::<Vec<_>>();
     for (collection_index, filter, fts) in prepared.collections {
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
             let filter_may = filter
                 .as_ref()
                 .map(|filter| {
-                    segment_filter_bounds_with_catalog(
+                    let bounds = segment_filter_bounds_with_catalog(
                         &segment.index,
                         &segment.active,
                         filter,
                         collection,
                         Some(catalog),
-                    )
-                    .map(|bounds| bounds.may)
+                    )?;
+                    let logical = &segment.active.bitmap() & &segment.index.logical_records;
+                    filter_exact[collection_index][segment_index] = bounds.may == bounds.must
+                        || (excludes_raw_fallback(filter)
+                            && (&bounds.may & &logical) == (&bounds.must & &logical));
+                    Ok::<_, String>(if filter_exact[collection_index][segment_index] {
+                        bounds.must
+                    } else {
+                        bounds.may
+                    })
                 })
                 .transpose()?;
             let fts_may = fts
@@ -7548,6 +8741,54 @@ fn try_lifecycle_ordered_stream(
             };
         }
         filters[collection_index] = Some((filter, fts));
+    }
+    let candidate_total = candidates
+        .iter()
+        .flatten()
+        .flatten()
+        .try_fold(0usize, |total, candidates| {
+            total.checked_add(candidates.len() as usize)
+        })
+        .ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered candidate count overflow",
+            )
+        })?;
+    if candidate_total > 256
+        && repo.options.query_workers > 1
+        && filters.iter().any(|selected| {
+            selected
+                .as_ref()
+                .is_some_and(|(filter, fts)| filter.is_some() || fts.is_some())
+        })
+    {
+        // A stored cursor is best for selective verification and for one
+        // large JSONL source. Above this small distinct-source threshold, the
+        // file-parallel route amortizes verification across query workers.
+        let mut candidate_files = HashSet::new();
+        let mut parallel_sources = false;
+        'segments: for (collection_index, group) in candidates.iter().enumerate() {
+            for (segment_index, selected) in group.iter().enumerate() {
+                let Some(selected) = selected else {
+                    continue;
+                };
+                let segment = &segments[collection_index][segment_index].index;
+                for slot in selected {
+                    let record = segment
+                        .record(RecordSlot(slot))
+                        .ok_or("ordered candidate record missing")?;
+                    candidate_files.insert(record.file);
+                    if candidate_files.len() > 64 {
+                        parallel_sources = true;
+                        break 'segments;
+                    }
+                }
+            }
+        }
+        if parallel_sources {
+            return Ok(None);
+        }
     }
     let direct_plans = filters
         .iter()
@@ -7625,6 +8866,8 @@ fn try_lifecycle_ordered_stream(
     let mut page = Vec::new();
     let mut page_bytes = 0usize;
     let mut reader = None;
+    let mut opened_files = HashSet::new();
+    let mut files_since_checkpoint = 0usize;
     let mut counters = WorkCounters {
         match_count_complete: true,
         ..WorkCounters::default()
@@ -7667,7 +8910,8 @@ fn try_lifecycle_ordered_stream(
             .as_ref()
             .ok_or("ordered collection filter missing")?;
         let mut evidence = HashSet::new();
-        let must_verify = filter.is_some() || fts.is_some();
+        let must_verify = fts.is_some()
+            || (filter.is_some() && !filter_exact[cursor.collection_index][cursor.segment_index]);
         if limit.is_none() && !page.is_empty() {
             let upcoming = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
             if page.len() >= delivery.options().batch_rows
@@ -7721,9 +8965,18 @@ fn try_lifecycle_ordered_stream(
             ) {
                 Ok((read, opened)) => {
                     counters.files_opened += u64::from(opened);
+                    if opened {
+                        opened_files.insert(file.id);
+                        files_since_checkpoint += 1;
+                    }
                     read
                 }
                 Err(message) => {
+                    if delivery.options().mode == StreamMode::PageReplacements
+                        && delivery.last_page_sequence() > 0
+                    {
+                        return Err(message);
+                    }
                     let locator = segment_locator_hit(collection, resolved, revision, Vec::new());
                     if record_unavailable_hit(
                         repo,
@@ -7763,6 +9016,11 @@ fn try_lifecycle_ordered_stream(
             matched
         } else {
             counters.exact_posting_matches += 1;
+            if request.options.evidence
+                && let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields)
+            {
+                evidence.extend(fields);
+            }
             true
         };
         if !matched {
@@ -7775,10 +9033,7 @@ fn try_lifecycle_ordered_stream(
         }
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef {
-                record,
-                file,
-            },
+            SegmentRecordRef { record, file },
             revision,
             if request.options.evidence {
                 evidence.into_iter().collect()
@@ -7834,6 +9089,11 @@ fn try_lifecycle_ordered_stream(
                     let (read, opened) = match read {
                         Ok(read) => read,
                         Err(message) => {
+                            if delivery.options().mode == StreamMode::PageReplacements
+                                && delivery.last_page_sequence() > 0
+                            {
+                                return Err(message);
+                            }
                             if record_unavailable_hit(
                                 repo,
                                 catalog,
@@ -7847,6 +9107,10 @@ fn try_lifecycle_ordered_stream(
                         }
                     };
                     counters.files_opened += u64::from(opened);
+                    if opened {
+                        opened_files.insert(file.id);
+                        files_since_checkpoint += 1;
+                    }
                     counters.bytes_read += read.len() as u64;
                     read
                 };
@@ -7880,17 +9144,27 @@ fn try_lifecycle_ordered_stream(
         delivery.check_buffer(retained.saturating_add(heap_bytes))?;
         page_bytes = retained;
         page.push(hit);
+        if delivery.options().mode == StreamMode::PageReplacements
+            && files_since_checkpoint >= delivery.options().checkpoint_files
+        {
+            delivery.replacement(&page, &counters, heap_bytes)?;
+            files_since_checkpoint = 0;
+        }
         if let Some(limit) = limit
             && page.len() == limit
         {
             match delivery.options().mode {
-                StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
+                StreamMode::OrderedRows => {
+                    delivery.ordered_rows(&page, &counters, true)?;
+                    stopped_early = true;
+                }
                 StreamMode::PageReplacements => {
                     delivery.replacement(&page, &counters, heap_bytes)?
                 }
             }
-            stopped_early = true;
-            break;
+            if stopped_early {
+                break;
+            }
         }
     }
     if !stopped_early {
@@ -7934,6 +9208,8 @@ fn try_lifecycle_ordered_stream(
         counters.match_count_complete = false;
     }
     counters.returned_records = delivery.progress.emitted_rows;
+    counters.files_opened = counters.files_opened.max(opened_files.len() as u64);
+    counters.distinct_files = opened_files.len() as u64;
     delivery.observe(&counters);
     delivery.check()?;
     Ok(Some(StreamOutcome::Complete(Box::new(StreamSummary {
@@ -8048,6 +9324,19 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             request.options.return_mode = ReturnMode::Locator;
         }
     }
+    crate::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
+        StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message,
+            progress: delivery.progress,
+        }
+    })?;
+    let prepared =
+        crate::prepared::prepare(repo, &request).map_err(|message| StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message,
+            progress: delivery.progress,
+        })?;
     if let ResultScope::Page { .. } = scope
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
@@ -8083,17 +9372,19 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 Ok(result) => result,
                 Err(message) => return segmented_stream_error(&mut delivery, context, message),
             };
-            if let Err(message) = delivery
-                .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
-                .and_then(|_| match options.mode {
-                    StreamMode::OrderedRows => {
-                        delivery.ordered_rows(&result.hits, &result.counters, true)
-                    }
-                    StreamMode::PageReplacements => {
-                        delivery.replacement(&result.hits, &result.counters, 0)
-                    }
-                })
-            {
+            let delivered = match options.mode {
+                StreamMode::OrderedRows => result
+                    .hits
+                    .chunks(options.batch_rows)
+                    .try_for_each(|rows| delivery.ordered_batch(rows, &result.counters)),
+                StreamMode::PageReplacements => delivery
+                    .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
+                    .and_then(|_| delivery.replacement(&result.hits, &result.counters, 0)),
+            };
+            if let Err(message) = delivered {
+                return segmented_stream_error(&mut delivery, context, message);
+            }
+            if let Err(message) = delivery.check() {
                 return segmented_stream_error(&mut delivery, context, message);
             }
             return Ok(StreamOutcome::Complete(Box::new(StreamSummary {
@@ -8105,6 +9396,39 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             })));
         }
     }
+    for (collection_index, filter, _) in &prepared.collections {
+        let Some(filter) = filter
+            .as_ref()
+            .filter(|filter| crate::relation_target_cache::has_source_dependent(filter))
+        else {
+            continue;
+        };
+        let mut candidates = base_active[*collection_index].bitmap().clone();
+        for published in segments[*collection_index].iter() {
+            for record in &published.index.records {
+                if published.active.contains(record.slot) {
+                    candidates.insert(record.slot.0);
+                }
+            }
+        }
+        if let Err(message) = crate::relation_target_cache::prepare_stream(
+            repo,
+            *collection_index,
+            filter,
+            &candidates,
+            &cancellation,
+            delivery.max_buffered_bytes() / 4,
+            Some(context),
+        ) {
+            return segmented_stream_error(&mut delivery, context, message);
+        }
+    }
+    let relation_scope = prepared.collections.iter().any(|(_, filter, fts)| {
+        filter.as_ref().is_some_and(bound_expr_has_relations)
+            || fts
+                .as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+    });
     match try_lifecycle_ordered_stream(
         repo,
         &request,
@@ -8122,6 +9446,31 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         Ok(None) => {}
         Err(message) => return segmented_stream_error(&mut delivery, context, message),
     }
+    let page_cache = if all { None } else { cache };
+    let mut deferred_cache = None;
+    let query_cache = if let Some(scope) = page_cache {
+        let budget = scope
+            .store
+            .lock()
+            .map_err(|error| StreamError::Execution {
+                kind: ExecutionErrorKind::Execution,
+                message: error.to_string(),
+                progress: delivery.progress,
+            })?
+            .budget();
+        deferred_cache = Some((
+            scope,
+            Mutex::new(crate::verified::VerifiedCache::new(budget)),
+        ));
+        deferred_cache
+            .as_ref()
+            .map(|(scope, store)| LifecycleCacheScope {
+                store,
+                instance_id: scope.instance_id,
+            })
+    } else {
+        None
+    };
     let mut result = match search_segmented_with_context_lifecycle_budget(
         repo,
         &request,
@@ -8130,16 +9479,20 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         catalog,
         revision,
         context,
-        cache,
-        all.then(|| delivery.max_buffered_bytes() / 2),
+        query_cache,
+        (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
     };
-    if let Err(message) = delivery.check_buffer(result.hits.iter().fold(0usize, |bytes, hit| {
-        bytes.saturating_add(crate::streaming::hit_bytes(hit))
-    })) {
-        return segmented_stream_error(&mut delivery, context, message);
+    if !all {
+        if let Err(message) =
+            delivery.check_buffer(result.hits.iter().fold(0usize, |bytes, hit| {
+                bytes.saturating_add(crate::streaming::hit_bytes(hit))
+            }))
+        {
+            return segmented_stream_error(&mut delivery, context, message);
+        }
     }
     if all && result.counters.match_count_complete {
         result.count = usize::try_from(result.counters.total_matches).ok();
@@ -8147,6 +9500,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     if all {
         let mut batch = Vec::new();
         let mut batch_bytes = 0usize;
+        let mut event_counters = result.counters.clone();
+        event_counters.total_matches = 0;
+        event_counters.returned_records = 0;
         for hit in std::mem::take(&mut result.hits)
             .into_iter()
             .skip(scope.offset())
@@ -8206,7 +9562,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 && (batch.len() >= options.batch_rows
                     || batch_bytes.saturating_add(size) > options.max_event_bytes)
             {
-                if let Err(message) = delivery.ordered_batch(&batch, &result.counters) {
+                if let Err(message) = delivery.ordered_batch(&batch, &event_counters) {
                     return segmented_stream_error(&mut delivery, context, message);
                 }
                 batch.clear();
@@ -8214,11 +9570,12 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             }
             batch_bytes = batch_bytes.saturating_add(size);
             batch.push(hit);
+            event_counters.total_matches += 1;
             if let Err(message) = delivery.check_buffer(batch_bytes) {
                 return segmented_stream_error(&mut delivery, context, message);
             }
         }
-        if let Err(message) = delivery.ordered_batch(&batch, &result.counters) {
+        if let Err(message) = delivery.ordered_batch(&batch, &event_counters) {
             return segmented_stream_error(&mut delivery, context, message);
         }
         result.counters.returned_records = delivery.progress.emitted_rows;
@@ -8238,7 +9595,42 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     if let Err(message) = delivery.check() {
         return segmented_stream_error(&mut delivery, context, message);
     }
+    if delivery.progress.sequence == 0
+        && let Err(message) = delivery.progress_event(&result.counters)
+    {
+        return segmented_stream_error(&mut delivery, context, message);
+    }
     delivery.observe(&result.counters);
+    if let Some((scope, store)) = deferred_cache {
+        let key = crate::verified::lifecycle_key(&request, scope.instance_id, revision.0).map_err(
+            |message| StreamError::Execution {
+                kind: ExecutionErrorKind::Execution,
+                message,
+                progress: delivery.progress,
+            },
+        )?;
+        let members = store
+            .lock()
+            .map_err(|error| StreamError::Execution {
+                kind: ExecutionErrorKind::Execution,
+                message: error.to_string(),
+                progress: delivery.progress,
+            })?
+            .get(&key)
+            .map(|cached| cached.members.clone());
+        if let Some(members) = members {
+            let displaced = scope
+                .store
+                .lock()
+                .map_err(|error| StreamError::Execution {
+                    kind: ExecutionErrorKind::Execution,
+                    message: error.to_string(),
+                    progress: delivery.progress,
+                })?
+                .insert(key, members);
+            drop(displaced);
+        }
+    }
     Ok(StreamOutcome::Complete(Box::new(StreamSummary {
         count: result.count,
         returned_rows: if all {
@@ -9031,7 +10423,6 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
-
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -9042,23 +10433,19 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
-
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for StoredCursor<'_> {}
-
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -9078,7 +10465,6 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
-
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -9101,7 +10487,6 @@ fn stored_cursor<'a>(
     })
 }
 
-
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -9110,14 +10495,12 @@ struct OrderedPlan<'a> {
     candidates: RoaringBitmap,
 }
 
-
 /// Membership already prepared for a stored-order attempt whose selective
 /// result is cheaper to rank with the general top-k collector.
 struct RejectedOrderPlans {
     entries: Vec<(Plan, RoaringBitmap)>,
     planning_ns: u64,
 }
-
 
 fn direct_payload(
     repo: &Repository,
@@ -9254,9 +10637,16 @@ fn inferred_order_index<'a>(
     {
         return None;
     }
-    let index = crate::index_catalog::IndexCatalog::collection(collection)
-        .sortable_scalar(&part.path.segments)?;
-    Some((collection_index, part.path, index))
+    for segment in repo.segments[collection_index].iter() {
+        if segment.active.len() == 0 {
+            continue;
+        }
+        let catalog = crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
+        if let Some(index) = catalog.sortable_scalar(&part.path.segments) {
+            return Some((collection_index, part.path, index));
+        }
+    }
+    None
 }
 
 /// A posting order is useful for an unrestricted page or a filter whose
@@ -9293,8 +10683,27 @@ fn posting_order_eligible(
         return false;
     };
     let collection = &repo.collections[collection_index];
-    estimate_plan_expr(collection, filter, collection.logical_records.len())
-        .is_ok_and(|plan| plan.exact)
+    let mut saw_segment = false;
+    for segment in repo.segments[collection_index].iter() {
+        if segment.active.len() == 0 {
+            continue;
+        }
+        saw_segment = true;
+        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+        let Ok(bounds) = segment_filter_bounds_with_catalog(
+            &segment.index,
+            &segment.active,
+            filter,
+            collection,
+            Some(&repo.catalog),
+        ) else {
+            return false;
+        };
+        if !excludes_raw_fallback(filter) || (&bounds.may & &logical) != (&bounds.must & &logical) {
+            return false;
+        }
+    }
+    saw_segment
 }
 
 fn inferred_order_column(
@@ -9310,6 +10719,14 @@ fn inferred_order_column(
         return Ok(None);
     }
     let collection = &repo.collections[collection_index];
+    let Some(segment) = repo.segments[collection_index]
+        .iter()
+        .find(|segment| segment.active.len() != 0)
+    else {
+        return Ok(None);
+    };
+    let mut generation = collection.generation.clone();
+    generation.records = segment.index.records.clone();
     let key = InferredOrderKey::new(
         collection_index,
         collection.generation.generation,
@@ -9319,11 +10736,9 @@ fn inferred_order_column(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        #[cfg(test)]
-        INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
         SortColumn::from_inferred_posting(
             index,
-            &collection.generation,
+            &generation,
             path,
             &collection.definition.sort_locale,
             collection.definition.sort_options,
@@ -9359,16 +10774,6 @@ fn cached_inferred_order(
         .map_err(|error| error.to_string())?
         .insert_if_absent(key, Arc::new(column));
     Ok(Some(column))
-}
-
-#[cfg(test)]
-thread_local! {
-    static INFERRED_ORDER_BUILDS: std::cell::Cell<u64> = const { std::cell::Cell::new(0) };
-}
-
-#[cfg(test)]
-pub(crate) fn inferred_order_builds_for_test() -> u64 {
-    INFERRED_ORDER_BUILDS.with(std::cell::Cell::get)
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -9438,6 +10843,201 @@ fn try_inferred_order_page(
         }
     }
     Ok(result)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_inferred_segment_order_page(
+    repo: &Repository,
+    query: &Query,
+    prepared: &crate::prepared::PreparedQuery,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    traces: Option<&mut Vec<QueryPlanTrace>>,
+    execution: Option<&ExecutionContext>,
+) -> Result<Option<SearchResult>, String> {
+    if query.options.sort.len() != 1
+        || query.fts.is_some()
+        || base_active.iter().any(|active| active.len() != 0)
+        || prepared.collections.len() != 1
+        || (query.options.return_mode != ReturnMode::Locator && execution.is_some())
+    {
+        return Ok(None);
+    }
+    if !posting_order_eligible(repo, query, Some(prepared)) {
+        return Ok(None);
+    }
+    let (collection_index, filter, _) = &prepared.collections[0];
+    if repo.segments[*collection_index]
+        .iter()
+        .filter(|segment| segment.active.len() != 0)
+        .count()
+        != 1
+    {
+        return Ok(None);
+    }
+    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared, execution)?
+    else {
+        return Ok(None);
+    };
+    let segment = &segments[collection_index][0];
+    let collection = &repo.collections[collection_index];
+    let candidates = if let Some(filter) = filter {
+        if !excludes_raw_fallback(filter) {
+            return Ok(None);
+        }
+        let bounds = segment_filter_bounds_with_catalog(
+            &segment.index,
+            &segment.active,
+            filter,
+            collection,
+            Some(catalog),
+        )?;
+        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+        if (&bounds.may & &logical) != (&bounds.must & &logical) {
+            return Ok(None);
+        }
+        &bounds.must & &logical
+    } else {
+        segment.active.bitmap().clone()
+    };
+    let order = if query.options.sort[0].descending {
+        &column.descending
+    } else {
+        &column.ascending
+    };
+    let _cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("page size overflow")?;
+    let evidence = if query.options.evidence {
+        filter
+            .as_ref()
+            .and_then(segment_static_evidence_fields)
+            .unwrap_or_default()
+    } else {
+        Vec::new()
+    };
+    let mut hits = order
+        .iter()
+        .filter(|slot| candidates.contains(slot.0) && segment.active.contains(**slot))
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .map(|slot| {
+            let resolved = segment_record_ref(&segment.index, &segment.active, catalog, *slot)?
+                .ok_or("inferred ordered segment record retired")?;
+            Ok(segment_locator_hit(
+                collection,
+                resolved,
+                revision,
+                evidence.clone(),
+            ))
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    let mut counters = WorkCounters {
+        candidates: candidates.len(),
+        exact_posting_matches: candidates.len(),
+        total_matches: candidates.len(),
+        match_count_complete: true,
+        returned_records: hits.len() as u64,
+        ..WorkCounters::default()
+    };
+    if query.options.return_mode != ReturnMode::Locator {
+        let mut selected_files = HashSet::new();
+        let mut logical_parses = 0u64;
+        let mut retained = Vec::with_capacity(hits.len());
+        for mut hit in hits {
+            let source_bytes = hit.byte_end.saturating_sub(hit.byte_start);
+            if let Some(execution) = execution {
+                if source_bytes > execution.limits.source_record_bytes {
+                    return Err(execution.fail(
+                        ExecutionErrorKind::Resource,
+                        "selected source record exceeds read allowance",
+                    ));
+                }
+                execution.charge_reads(1)?;
+                execution.charge_bytes(source_bytes)?;
+            }
+            let materialized = get_segment_record_by_id(
+                repo,
+                collection_index,
+                &segment.index,
+                &segment.active,
+                catalog,
+                revision,
+                &hit.record_id,
+                query.options.return_mode.clone(),
+            );
+            let mut materialized = match materialized {
+                Ok(Some(materialized)) => materialized,
+                Ok(None) => return Err("selected segment record retired".into()),
+                Err(message) => {
+                    if record_unavailable_hit(repo, catalog, &hit, message.clone(), &mut counters)?
+                    {
+                        continue;
+                    }
+                    return Err(message);
+                }
+            };
+            if query.options.return_mode == ReturnMode::Bytes
+                || hit.record_class != RecordClass::RawFallback
+            {
+                selected_files.insert(hit.file_id);
+                counters.selected_payload_reads += 1;
+                counters.selected_payload_bytes += source_bytes;
+            }
+            if query.options.return_mode == ReturnMode::Logical
+                && hit.record_class == RecordClass::Logical
+            {
+                logical_parses += 1;
+            }
+            materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
+            retained.push(materialized);
+        }
+        hits = retained;
+        counters.files_opened = selected_files.len() as u64;
+        counters.distinct_files = selected_files.len() as u64;
+        counters.record_parses = logical_parses;
+        counters.returned_records = hits.len() as u64;
+    }
+    if counters.source_unavailable_events > 0 {
+        counters.match_count_complete = false;
+    }
+    if let Some(traces) = traces {
+        traces.push(QueryPlanTrace {
+            collection: collection.definition.name.clone(),
+            generation: revision.0,
+            bigram_alphabet: collection.raw.alphabet,
+            folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+            fts_case_sensitivity: None,
+            fts_mode: None,
+            fts_exact_literal: None,
+            fts_prefilter_reason: None,
+            fts_covered_target: "none".into(),
+            fts_estimated_candidates: None,
+            remaining_verification: false,
+            input_records: segment.active.len(),
+            fts_strategy: "absent".into(),
+            normalized_sort: query.options.sort.clone(),
+            sort_strategy: "inferred_posting_order_page".into(),
+            sort_strategy_estimated: false,
+            filter_exact: true,
+            terms: Vec::new(),
+            planning: PlanningCounters::default(),
+            bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
+            candidates: candidates.len(),
+            candidates_estimated: false,
+            actual: None,
+        });
+    }
+    Ok(Some(SearchResult {
+        count: (query.options.count && counters.match_count_complete)
+            .then_some(candidates.len() as usize),
+        hits,
+        counters,
+    }))
 }
 
 fn try_stored_order_page(

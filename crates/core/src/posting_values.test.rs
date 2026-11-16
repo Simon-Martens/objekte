@@ -47,23 +47,40 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         },
     )
     .unwrap();
-    let all = vec![ActiveRecords::all(repo.collections()[0].generation.records.len()).unwrap()];
-    let live = vec![
-        all[0]
+    let all = repo.active.clone();
+    let mut live_segments = repo.segments.clone();
+    {
+        let group = Arc::make_mut(&mut live_segments[0]);
+        let segment = Arc::make_mut(&mut group[0]);
+        segment.active = segment
+            .active
             .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(4)])
-            .unwrap(),
-    ];
+            .unwrap();
+    }
+    let live = all.clone();
     let old_revision = IndexRevision::INITIAL;
     let new_revision = old_revision.next().unwrap();
     let mut request = PostingValuesRequest::new("data", "tag", 1);
-    let old_first = repo
-        .posting_values_for_view(&request, old_revision, &all)
-        .unwrap();
+    let old_first = posting_values_segmented(
+        &repo,
+        &request,
+        old_revision,
+        &all,
+        &repo.segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(old_first.values[0].count, 2);
     assert_eq!(old_first.coverage.unavailable_records, 1);
-    let first = repo
-        .posting_values_for_view(&request, new_revision, &live)
-        .unwrap();
+    let first = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(first.values[0].value, ScalarKey::String("a".into()));
     assert_eq!(first.values[0].count, 1);
     assert_eq!(first.coverage.eligible_records, 2);
@@ -73,13 +90,26 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
     assert!(first.coverage.value_counts_complete);
     request.continuation = old_first.continuation;
     assert!(
-        repo.posting_values_for_view(&request, new_revision, &live)
-            .is_err()
+        posting_values_segmented(
+            &repo,
+            &request,
+            new_revision,
+            &live,
+            &live_segments,
+            &repo.catalog,
+        )
+        .is_err()
     );
     request.continuation = first.continuation;
-    let second = repo
-        .posting_values_for_view(&request, new_revision, &live)
-        .unwrap();
+    let second = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(second.values[0].value, ScalarKey::String("b".into()));
     assert_eq!(second.values[0].count, 1);
     assert!(second.continuation.is_none());
@@ -97,24 +127,51 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
             evidence: false,
         },
     };
-    let old_selection = repo
-        .select_exact_for_view("data", &query, old_revision, &all)
-        .unwrap();
+    let old_selection = select_exact_segmented(
+        &repo,
+        "data",
+        &query,
+        old_revision,
+        &all,
+        &repo.segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(old_selection.len(), 2);
-    let live_selection = repo
-        .select_exact_for_view("data", &query, new_revision, &live)
-        .unwrap();
+    let live_selection = select_exact_segmented(
+        &repo,
+        "data",
+        &query,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(live_selection.len(), 1);
     request.continuation = None;
     request.selection = Some(old_selection);
     assert!(
-        repo.posting_values_for_view(&request, new_revision, &live)
-            .is_err()
+        posting_values_segmented(
+            &repo,
+            &request,
+            new_revision,
+            &live,
+            &live_segments,
+            &repo.catalog,
+        )
+        .is_err()
     );
     request.selection = Some(live_selection);
-    let selected = repo
-        .posting_values_for_view(&request, new_revision, &live)
-        .unwrap();
+    let selected = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
     assert_eq!(selected.values[0].count, 1);
     assert_eq!(selected.coverage.selected_records, Some(1));
     assert_eq!(
@@ -282,7 +339,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .num_threads(1)
         .build()
         .unwrap();
-    let mut index = admission
+    let index = admission
         .unwrap()
         .finish()
         .into_indexed(
@@ -293,17 +350,26 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
             &pool,
         )
         .unwrap();
-    index.inference = None;
     let mut catalog = FileCatalog::from_repository(Arc::clone(&restored)).unwrap();
     for file in &index.files {
         catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
     }
-    let active = vec![ActiveRecords::all(state.generation.records.len()).unwrap()];
-    let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
-        id: crate::native_segment::SegmentId::new(1),
+    let active = restored.active.clone();
+    let mut all_segments = restored.segments.clone();
+    let mut first_group = (*all_segments[0]).clone();
+    let next_id = first_group
+        .iter()
+        .map(|segment| segment.id.get())
+        .max()
+        .unwrap_or(0)
+        + 1;
+    first_group.push(Arc::new(PublishedSegment {
+        id: crate::native_segment::SegmentId::new(next_id),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
-    })])];
+    }));
+    all_segments[0] = Arc::new(first_group);
+    let segments = all_segments;
     let page = posting_values_segmented(
         &restored,
         &PostingValuesRequest::new("data", "code", 10),

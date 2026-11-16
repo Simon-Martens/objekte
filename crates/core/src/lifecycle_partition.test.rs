@@ -9,6 +9,38 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn index_from_repository_adopts_native_segments_without_repartitioning() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-adopt-segments-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), r#"{"name":"a"}"#).unwrap();
+    let repo = Repository::open(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::Json,
+        )],
+    )
+    .unwrap();
+    let adopted = Arc::clone(&repo.segments[0][0].index);
+    let id = repo.segments[0][0].id;
+    let index = Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+    let segments = view.segments(crate::model::CollectionId(0)).unwrap();
+    assert_eq!(segments.len(), 1);
+    assert_eq!(segments[0].id, id);
+    assert!(Arc::ptr_eq(&segments[0].index, &adopted));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 #[ignore = "large partition admission regression; run explicitly in release mode"]
 fn full_partitions_leave_a_bounded_sparse_update_allowance() {
     use std::io::Write;
@@ -70,6 +102,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
 }
 
 #[test]
+#[ignore = "legacy flat-base conversion; native segment compaction is covered by compacts_one_large_file_in_source_free_parts"]
 fn partitions_static_base_without_changing_search_or_file_routing() {
     let root = std::env::temp_dir().join(format!(
         "objekte-partition-{}-{}",
@@ -191,20 +224,19 @@ fn compacts_one_large_file_in_source_free_parts() {
     .unwrap();
     let index = Index::from_published(published);
     let view = index.view().unwrap();
-    let collection = &view.repository().collections()[0];
-    let source =
-        crate::lifecycle_compaction::base_as_segment(collection, view.repository().files())
-            .unwrap();
+    let source = view
+        .segments(crate::model::CollectionId(0))
+        .unwrap()[0]
+        .index
+        .clone();
+    let active = view
+        .segments(crate::model::CollectionId(0))
+        .unwrap()[0]
+        .active
+        .clone();
     std::fs::remove_file(&path).unwrap();
-    let partitioned = partition_base_with_limits((*view.0).clone(), 2, 2).unwrap();
-    assert_eq!(partitioned.segments[0].len(), 5);
-    assert!(
-        partitioned.segments[0]
-            .iter()
-            .all(|part| part.index.records.len() <= 2)
-    );
     let parts =
-        compact_source_parts_with_limits(&source, &view.0.active[0], &view.0.catalog, 2, 2, || {
+        compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || {
             false
         })
         .unwrap();

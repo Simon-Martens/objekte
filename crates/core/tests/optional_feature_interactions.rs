@@ -179,6 +179,10 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
                 .collect::<Vec<_>>(),
             expected
         );
+        // The stream may populate verified membership for repeated page
+        // delivery. Reset it so the following counters measure a cold search.
+        repo.configure_verified_cache(0).unwrap();
+        repo.configure_verified_cache(1024 * 1024).unwrap();
         let collected = repo.search_with_parameters(&request, &parameters).unwrap();
         assert_eq!(collected.count, Some(24));
         assert_eq!(ids(&collected), expected);

@@ -24,8 +24,6 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
-#[cfg(test)]
-use crate::model::RecordSlot;
 use crate::model::{CollectionId, FileId, Value};
 pub(crate) use crate::native_segment::PublishedSegment;
 use crate::native_segment::SegmentId;
@@ -491,7 +489,10 @@ pub(crate) fn index_family_estimate(
     }
 }
 
-fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
+fn cheapest_consolidation_pair(
+    group: &[Arc<PublishedSegment>],
+    target_records: usize,
+) -> Option<(usize, usize)> {
     let mut sized = group
         .iter()
         .enumerate()
@@ -500,7 +501,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
     sized.sort_unstable();
     for (position, &(left_size, left)) in sized.iter().enumerate() {
         for &(right_size, right) in &sized[position + 1..] {
-            if left_size + right_size > crate::lifecycle_partition::BASE_PARTITION_RECORDS {
+            if left_size + right_size > target_records {
                 break;
             }
             let left_index = &group[left].index;
@@ -715,17 +716,29 @@ impl PublishedIndex {
             }
         }
         let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
-        let ordinal = self.next_segment_ordinal;
-        self.next_segment_ordinal = self
-            .next_segment_ordinal
-            .checked_add(1)
-            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        index.id = SegmentId::new(ordinal);
+        let mut segment_id = index.id;
+        if segment_id.get() == 1
+            || self.segments[number]
+                .iter()
+                .any(|segment| segment.id == segment_id)
+        {
+            segment_id = SegmentId::new(self.next_segment_ordinal);
+        }
+        self.next_segment_ordinal = self.next_segment_ordinal.max(
+            segment_id
+                .get()
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
+        );
+        index.id = segment_id;
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
-            id: SegmentId::new(ordinal),
+            id: segment_id,
             index: Arc::new(index),
             active,
         }));
+        if self.next_segment_ordinal == 0 {
+            self.next_segment_ordinal = 1;
+        }
         Ok(self)
     }
 
@@ -746,11 +759,11 @@ impl PublishedIndex {
         sparse_byte_limit: usize,
         size_cooldown: u64,
     ) -> Result<(), IndexError> {
+        let policy = self.repository.options().segment_policy;
+        let target_records = policy.target_records.get();
         let full_partitions = self.segments[number]
             .iter()
-            .filter(|segment| {
-                segment.index.record_count() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
-            })
+            .filter(|segment| segment.index.record_count() >= target_records)
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
         let count_triggered = self.segments[number].len() >= admission_limit;
@@ -793,17 +806,18 @@ impl PublishedIndex {
                     let total = segment.index.record_count();
                     let removed = total.saturating_sub(segment.active.len() as usize);
                     (total >= MIN_RETIREMENT_SLOTS
-                        && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                        && total <= target_records
                         && removed.saturating_mul(4) >= total)
                         .then_some((removed, index))
                 })
                 .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
-                let replacements = crate::lifecycle_partition::compact_source_parts(
+                let replacements = crate::lifecycle_partition::compact_source_parts_with_policy(
                     &old.index,
                     &old.active,
                     &self.catalog,
+                    policy,
                     || false,
                 )?;
                 group.remove(index);
@@ -830,9 +844,7 @@ impl PublishedIndex {
         // allocator count; it only orders when size-triggered maintenance runs.
         let sparse_bytes = group
             .iter()
-            .filter(|segment| {
-                segment.index.record_count() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
-            })
+            .filter(|segment| segment.index.record_count() < target_records)
             .map(|segment| segment.index.accounting.retained_bytes_estimated)
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
@@ -845,12 +857,12 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group) else {
+        let Some((left, right)) = cheapest_consolidation_pair(group, target_records) else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(
             &[&group[left].index, &group[right].index],
-            crate::lifecycle_partition::BASE_PARTITION_RECORDS,
+            target_records,
         )
         .map_err(IndexError::Build)?;
         let active = merged
@@ -889,7 +901,9 @@ impl PublishedIndex {
                 .active
                 .get_mut(collection_id.0 as usize)
                 .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
-            if let Some(slots) = collection.generation.file_records.records_for(file.id) {
+            if active.slot_count() != 0
+                && let Some(slots) = collection.generation.file_records.records_for(file.id)
+            {
                 retired_records +=
                     slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
                 *active = active
@@ -1336,6 +1350,44 @@ impl Index {
                 "initial construction has unprocessed files".into(),
             ));
         }
+        for group in &mut next.segments {
+            for published in Arc::make_mut(group).iter_mut() {
+                let needs_status_refresh = published.index.files.iter().any(|file| {
+                    repository
+                        .files
+                        .files
+                        .get(file.entry.id.0 as usize)
+                        .is_some_and(|current| current.status != file.entry.status)
+                });
+                if !needs_status_refresh {
+                    continue;
+                }
+                let mut index = (*published.index).clone();
+                for file in &mut index.files {
+                    if let Some(current) = repository.files.files.get(file.entry.id.0 as usize) {
+                        file.entry.status = current.status;
+                        file.entry.diagnostics = current.diagnostics.clone();
+                        file.entry.omitted_diagnostics = current.omitted_diagnostics;
+                    }
+                }
+                index
+                    .sorting
+                    .refresh_file_status_for_records(&index.records, |file| {
+                        repository
+                            .files
+                            .files
+                            .get(file.0 as usize)
+                            .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
+                                entry.status.code()
+                            })
+                    });
+                *published = Arc::new(PublishedSegment {
+                    id: published.id,
+                    index: Arc::new(index),
+                    active: published.active.clone(),
+                });
+            }
+        }
         next.catalog
             .rebase(Arc::clone(&repository))
             .map_err(IndexError::InvalidPublication)?;
@@ -1359,19 +1411,6 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
-        // Temporary flat-base adapter for the construction migration. Native
-        // segmented repositories take the adoption path above directly.
-        let published = if published.segments.iter().all(|group| group.is_empty())
-            && published
-                .repository
-                .collections()
-                .iter()
-                .any(|collection| !collection.generation.records.is_empty())
-        {
-            crate::lifecycle_partition::partition_base(published)?
-        } else {
-            published
-        };
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;
@@ -1385,6 +1424,27 @@ impl Index {
             })?;
         }
         Ok(index)
+    }
+
+    /// Consume a completed blocking build and retain its adopted native
+    /// segments as the Repository's primary payload.
+    pub(crate) fn into_repository(self) -> Result<Repository, IndexError> {
+        let inner = Arc::try_unwrap(self.0)
+            .map_err(|_| IndexError::InvalidPublication("index has other owners".into()))?;
+        let published = inner.published.into_inner().map_err(|_| {
+            IndexError::InvalidPublication("index publication lock poisoned".into())
+        })?;
+        let published = Arc::try_unwrap(published).map_err(|_| {
+            IndexError::InvalidPublication("published index has other owners".into())
+        })?;
+        let mut repository = Arc::try_unwrap(published.repository).map_err(|_| {
+            IndexError::InvalidPublication("repository snapshot has other owners".into())
+        })?;
+        repository.active = published.active;
+        repository.segments = published.segments;
+        repository.catalog = published.catalog;
+        repository.revision = published.revision;
+        Ok(repository)
     }
 
     pub(crate) fn from_published(published: PublishedIndex) -> Self {
@@ -2764,22 +2824,6 @@ impl IndexView {
             }
         }
         Some(count)
-    }
-
-    #[cfg(test)]
-    pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
-        self.0
-            .active
-            .get(collection.0 as usize)
-            .is_some_and(|active| active.contains(slot))
-    }
-
-    #[cfg(test)]
-    pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
-        self.0
-            .active
-            .get(collection.0 as usize)
-            .map(ActiveRecords::bitmap)
     }
 
     pub(crate) fn segments(&self, collection: CollectionId) -> Option<&[Arc<PublishedSegment>]> {

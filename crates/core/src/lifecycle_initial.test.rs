@@ -25,6 +25,59 @@ fn all_query() -> Query {
 }
 
 #[test]
+fn multi_worker_segment_finalization_actually_overlaps() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-native-segment-overlap-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..1_100 {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!(r#"{{"id":"{number}","text":"segment overlap needle {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let worker = std::thread::spawn({
+        let root = root.clone();
+        let gate = std::sync::Arc::clone(&gate);
+        move || {
+            Repository::build_incremental_with_sources_gated(
+                root,
+                vec![definition],
+                RepositoryOptions {
+                    build_workers: std::num::NonZeroUsize::new(3),
+                    segment_policy: crate::native_segment::SegmentPolicy {
+                        target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                        max_files: std::num::NonZeroUsize::new(2).unwrap(),
+                    },
+                    ..Default::default()
+                },
+                SourceRegistry::builtin(),
+                |_| Ok(()),
+                |_| Ok(()),
+                || false,
+                gate,
+            )
+        }
+    });
+    gate.wait_for_workers(2);
+    gate.release();
+    let index = worker.join().unwrap().unwrap();
+    let repo = index.into_repository().unwrap();
+    assert_eq!(repo.collections()[0].generation.records.len(), 1_100);
+    assert!(repo.startup().build_peak_segment_jobs >= 2);
+    assert!(repo.startup().build_peak_segment_window <= 4);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn discovery_and_segments_publish_without_losing_records() {
     let root = std::env::temp_dir().join(format!(
         "objekte-initial-publish-{}-{}",

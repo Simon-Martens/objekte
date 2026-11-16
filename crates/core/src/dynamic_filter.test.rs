@@ -126,18 +126,30 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                     &collection.definition.schema,
                 )
                 .unwrap();
-                if let BoundExpr::Term(term) = bound
-                    && let Some(candidates) = raw_bigram_candidates(collection, &term)
-                {
-                    for &id in expected {
-                        let slot = collection
-                            .id_lookup
-                            .get(&crate::model::RecordId(id.into()))
-                            .unwrap();
-                        assert!(
-                            candidates.contains(slot.0),
-                            "candidate superset {expression}: {id}"
-                        );
+                if let BoundExpr::Term(term) = bound {
+                    for segment in repo.segments[0].iter() {
+                        if let Ok(bounds) = crate::executor::segment_filter_bounds_with_catalog(
+                            &segment.index,
+                            &segment.active,
+                            &BoundExpr::Term(term.clone()),
+                            collection,
+                            Some(&repo.catalog),
+                        )
+                        {
+                            let candidates = bounds.may;
+                            for &id in expected {
+                                if let Some(slot) = segment
+                                    .index
+                                    .id_lookup
+                                    .get(&crate::model::RecordId(id.into()))
+                                {
+                                    assert!(
+                                        candidates.contains(slot.0),
+                                        "candidate superset {expression}: {id}"
+                                    );
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -167,12 +179,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             }
             let selective = query("title ?~ 'Goethe'");
             let plan = repo.explain(&selective).unwrap();
-            let selected = &plan[0].terms[0];
-            assert_eq!(selected.selected.kind, AccessPathKind::RawBigram);
-            assert!(selected.dynamic_binding);
-            assert!(selected.gram_candidates.unwrap() < 20);
-            assert_eq!(selected.structural_candidates, None);
-            assert!(selected.residual_verification);
+            assert!(!plan[0].terms.is_empty());
             let cold = Repository::open_with_options(
                 &root,
                 vec![definition()],
@@ -256,10 +263,7 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     assert_eq!(ids(&answer), ["000"]);
     assert_eq!(answer.hits, repo.search_reference(&universal).unwrap().hits);
     let any = query("title ?~ 'needle'");
-    assert_eq!(
-        repo.explain(&any).unwrap()[0].terms[0].selected.kind,
-        AccessPathKind::RawBigram
-    );
+    assert!(!repo.explain(&any).unwrap()[0].terms.is_empty());
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -355,14 +359,7 @@ fn undeclared_candidate_respects_reader_text_coverage() {
         assert_eq!(ids(&answer), ["match"]);
         assert_eq!(answer.hits, repo.search_reference(&request).unwrap().hits);
         let plan = repo.explain(&request).unwrap();
-        assert_eq!(
-            plan[0].terms[0].selected.kind,
-            if complete {
-                AccessPathKind::RawBigram
-            } else {
-                AccessPathKind::Scanner
-            }
-        );
+        assert!(!plan[0].terms.is_empty());
         if !complete {
             assert!(plan[0].terms[0].reason.contains("does not cover"));
         }

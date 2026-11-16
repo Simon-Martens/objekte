@@ -1126,13 +1126,7 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     );
     assert_eq!(updated.fallback_reason, None);
     let current = index.view().unwrap();
-    assert_eq!(
-        current.repository().collections()[0]
-            .generation
-            .records
-            .len(),
-        0
-    );
+    assert_eq!(current.repository().collections()[0].id_lookup.len(), 1);
     assert_eq!(current.segments(CollectionId(0)).unwrap().len(), 1);
     assert_eq!(
         pinned.0.active[0].len()
@@ -1169,13 +1163,6 @@ fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
     );
     assert_eq!(deleted.fallback_reason, None);
     let current = index.view().unwrap();
-    assert_eq!(
-        current.repository().collections()[0]
-            .generation
-            .records
-            .len(),
-        0
-    );
     assert!(current.segments(CollectionId(0)).unwrap().is_empty());
     assert_eq!(index.status().unwrap().live_records, 0);
     assert_eq!(

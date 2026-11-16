@@ -78,7 +78,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     // The compatibility facade retains configuration without pinning the old
     // indexed generation after a publication.
     assert_eq!(adapter.files().root, root);
-    assert!(adapter.files().files.is_empty());
+    assert_eq!(adapter.files().files.len(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
 

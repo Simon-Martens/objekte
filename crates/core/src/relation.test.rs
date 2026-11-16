@@ -465,13 +465,13 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
     };
     REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let built = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
+    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 12);
     assert_eq!(built.build_parses(), 8);
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
     REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let restored = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
+    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 12);
     assert_eq!(restored.build_parses(), 8);
     check(&restored);
     assert_eq!(

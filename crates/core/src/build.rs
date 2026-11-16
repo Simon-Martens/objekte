@@ -207,15 +207,6 @@ impl BuildWorkProfile {
     }
 }
 
-/// The collection-wide identity and diagnostic observations needed while
-/// local index families move directly into bounded fresh-build shards.
-pub(crate) struct BatchMetadata {
-    pub(crate) files: Vec<BatchFile>,
-    pub(crate) records: Vec<RecordEntry>,
-    pub(crate) inference: Option<InferenceBuilder>,
-    pub(crate) logical_records: RoaringBitmap,
-}
-
 impl BatchContribution {
     pub(crate) fn bigram_storage_stats(&self) -> BigramConstructionStats {
         let mut stats = self.raw.storage_stats();
@@ -228,15 +219,6 @@ impl BatchContribution {
 
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
-    }
-
-    pub(crate) fn metadata_copy(&self) -> BatchMetadata {
-        BatchMetadata {
-            files: self.files.clone(),
-            records: self.records.clone(),
-            inference: self.inference.clone(),
-            logical_records: self.logical_records.clone(),
-        }
     }
 
     /// Initial publication needs collection-wide inference decisions. Keep
@@ -2136,6 +2118,7 @@ pub(crate) struct RepositoryFileJob {
     pub files: Vec<FileId>,
 }
 
+#[cfg(test)]
 pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -2640,9 +2623,7 @@ mod tests;
 
 #[path = "mutation_segment.rs"]
 mod mutation_segment;
-pub(crate) use crate::native_segment::{
-    IndexedCollectionSegment, SegmentFile, SegmentId,
-};
+pub(crate) use crate::native_segment::{IndexedCollectionSegment, SegmentFile, SegmentId};
 pub(crate) use mutation_segment::PartitionRouting;
 
 pub(crate) use mutation_segment::{CollectionSegment, SegmentAdmission};

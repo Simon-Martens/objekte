@@ -250,6 +250,7 @@ impl FileVersions {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn initial(len: usize) -> Self {
         Self::filled(len, FileVersion::INITIAL)
     }

@@ -14,7 +14,9 @@ use crate::inventory::{
     SharedPath, SourceRevision, relative_path_bounds,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value};
+use crate::model::{
+    FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
+};
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
@@ -26,7 +28,6 @@ use serde::Serialize;
 
 const MAX_INDEXED_PATH_SCAN: usize = 8192;
 
-
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
@@ -34,7 +35,6 @@ pub(crate) struct SegmentCandidateBounds {
     pub may: RoaringBitmap,
     pub must: RoaringBitmap,
 }
-
 
 impl SegmentCandidateBounds {
     fn unknown(domain: &RoaringBitmap) -> Self {
@@ -44,7 +44,6 @@ impl SegmentCandidateBounds {
         }
     }
 }
-
 
 pub(crate) fn segment_filter_bounds(
     segment: &IndexedCollectionSegment,
@@ -248,7 +247,10 @@ fn metadata_probe_file() -> FileEntry {
     FileEntry {
         id: FileId(0),
         relative_path: SharedPath::from(""),
-        revision: SourceRevision { modified_ns: 0, size: 0 },
+        revision: SourceRevision {
+            modified_ns: 0,
+            size: 0,
+        },
         created_ns: None,
         collections: Vec::new(),
         status: FileStatus::Valid,
@@ -263,7 +265,10 @@ fn metadata_probe_record() -> RecordEntry {
         id: RecordId(Arc::from("")),
         file: FileId(0),
         range: ByteRange { start: 0, end: 0 },
-        revision: SourceRevision { modified_ns: 0, size: 0 },
+        revision: SourceRevision {
+            modified_ns: 0,
+            size: 0,
+        },
         class: RecordClass::Logical,
         diagnostic_ref: DiagnosticRef(0),
     }
@@ -287,7 +292,11 @@ fn segment_file_size_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
+        let revision = segment
+            .files
+            .get(index)
+            .map(|file| file.entry.revision)
+            .ok_or("segment file row missing")?;
         let order = Number::integer(revision.size as i128).cmp(literal);
         if order_matches(order, term.operator) {
             extend_segment_file_slots(segment, index, &mut matches)?;
@@ -306,7 +315,11 @@ fn segment_file_path_matches(
 ) -> Result<RoaringBitmap, String> {
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let id = segment.files.get(index).map(|file| file.entry.id).ok_or("segment file row missing")?;
+        let id = segment
+            .files
+            .get(index)
+            .map(|file| file.entry.id)
+            .ok_or("segment file row missing")?;
         let Some(entry) = catalog.entry(id) else {
             continue;
         };
@@ -340,8 +353,10 @@ fn segment_file_modified_matches(
         && term.derived == Derived::None
         && term.period.is_none()
         && term.matcher.is_none()
-        && matches!(term.operator, Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
-    {
+        && matches!(
+            term.operator,
+            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+        ) {
         match &term.literal {
             Value::Datetime(value) => Some(value.unix_timestamp_nanos()),
             _ => None,
@@ -351,10 +366,20 @@ fn segment_file_modified_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        if segment.files.get(index).map(|file| file.records.len()).ok_or("segment file row missing")? == 0 {
+        if segment
+            .files
+            .get(index)
+            .map(|file| file.records.len())
+            .ok_or("segment file row missing")?
+            == 0
+        {
             continue;
         }
-        file.revision = segment.files.get(index).map(|file| file.entry.revision).ok_or("segment file row missing")?;
+        file.revision = segment
+            .files
+            .get(index)
+            .map(|file| file.entry.revision)
+            .ok_or("segment file row missing")?;
         let selected = if let Some(literal) = direct_literal {
             let modified = file.revision.modified_ns;
             time::OffsetDateTime::from_unix_timestamp_nanos(modified)
@@ -404,7 +429,10 @@ fn segment_record_range_matches(
     let mut record = metadata_probe_record();
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        record.range = segment.record(RecordSlot(slot)).map(|record| record.range).ok_or("segment record row missing")?;
+        record.range = segment
+            .record(RecordSlot(slot))
+            .map(|record| record.range)
+            .ok_or("segment record row missing")?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
@@ -523,6 +551,17 @@ fn segment_positional_eq_candidates(
     {
         return Ok(None);
     }
+    if term
+        .query_path
+        .steps
+        .iter()
+        .filter(|step| matches!(step, crate::query_path::PathStep::ArrayIndex(_)))
+        .take(2)
+        .count()
+        > 1
+    {
+        return Ok(None);
+    }
     // A match at a particular array position must also occur in the
     // unpositioned value posting. Position still requires source verification.
     let Some(index) = segment.postings.fields.get(&term.path.segments) else {
@@ -554,13 +593,18 @@ fn segment_metadata_matches(
         return Ok(None);
     };
     if term.related.is_some()
-        || term.rhs.is_some()
+        || term
+            .rhs
+            .as_ref()
+            .is_some_and(|rhs| !matches!(rhs.path.root, PathRoot::Metadata(_)))
         || term.matcher.is_some()
         || term.operation.is_some()
     {
         return Ok(None);
     }
-    let Some(catalog) = catalog else { return Ok(None); };
+    let Some(catalog) = catalog else {
+        return Ok(None);
+    };
     let empty = Value::Object(BTreeMap::new());
     if matches!(
         term.path.root,
@@ -569,8 +613,12 @@ fn segment_metadata_matches(
         let Some(slot) = domain.iter().next() else {
             return Ok(Some(RoaringBitmap::new()));
         };
-        let record = segment.record(crate::model::RecordSlot(slot)).ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else { return Ok(None); };
+        let record = segment
+            .record(crate::model::RecordSlot(slot))
+            .ok_or("segment record row missing")?;
+        let Some(file) = catalog.entry(record.file) else {
+            return Ok(None);
+        };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
@@ -587,8 +635,12 @@ fn segment_metadata_matches(
     }
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        let record = segment.record(crate::model::RecordSlot(slot)).ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else { return Ok(None); };
+        let record = segment
+            .record(crate::model::RecordSlot(slot))
+            .ok_or("segment record row missing")?;
+        let Some(file) = catalog.entry(record.file) else {
+            return Ok(None);
+        };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
@@ -627,7 +679,12 @@ fn segment_expr_bounds(
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if term.related.is_some()
-                || (term.rhs.is_some() && !self_comparison_shape(term))
+                || (term.rhs.is_some()
+                    && !self_comparison_shape(term)
+                    && !term.rhs.as_ref().is_some_and(|rhs| {
+                        matches!(term.path.root, PathRoot::Metadata(_))
+                            && matches!(rhs.path.root, PathRoot::Metadata(_))
+                    }))
                 || (term.query_path.has_explicit_array_step
                     && term.derived.state_predicate().is_none()
                     && !self_comparison_shape(term))
@@ -685,7 +742,8 @@ fn segment_expr_bounds(
                     must: matches,
                 });
             }
-            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)? {
+            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)?
+            {
                 return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
@@ -848,7 +906,6 @@ fn segment_expr_bounds(
     })
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum AccessPathKind {
@@ -863,7 +920,6 @@ pub enum AccessPathKind {
     Scanner,
 }
 
-
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -877,7 +933,6 @@ pub struct AccessPathEstimate {
     #[serde(skip)]
     pub(crate) posting: Option<(PostingId, PostingOperation, u32)>,
 }
-
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -901,7 +956,6 @@ pub struct TermChoice {
     pub executed: bool,
 }
 
-
 /// Work done to choose and execute access paths for one filter expression.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
 pub struct PlanningCounters {
@@ -912,14 +966,12 @@ pub struct PlanningCounters {
     pub reused_order_plans: u64,
 }
 
-
 #[derive(Default)]
 struct PlanContext {
     paths: HashMap<usize, Vec<AccessPathEstimate>>,
     counters: PlanningCounters,
     diagnostics: bool,
 }
-
 
 impl PlanContext {
     fn paths(
@@ -944,7 +996,6 @@ impl PlanContext {
         Ok(paths)
     }
 }
-
 
 fn rescore_paths(
     collection: &CollectionState,
@@ -1032,7 +1083,6 @@ fn skipped_choices(
     Ok(())
 }
 
-
 /// Known true and false fallback slots; all other slots are unavailable.
 struct FallbackTruth {
     yes: RoaringBitmap,
@@ -1040,7 +1090,6 @@ struct FallbackTruth {
     proofs: Vec<Proof>,
     choices: Vec<TermChoice>,
 }
-
 
 fn fallback_truth(
     repo: &Repository,
@@ -1183,14 +1232,12 @@ fn fallback_truth(
     })
 }
 
-
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
-
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -1202,7 +1249,6 @@ pub(crate) struct Plan {
     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
     pub planning: PlanningCounters,
 }
-
 
 /// A whole-record raw index is a field superset only when its source reader
 /// supplies every logical string and the indexed representation is identity.
@@ -1727,7 +1773,6 @@ pub(crate) fn estimate_expr(
     estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
 }
 
-
 /// An estimate-only physical decision. It has no candidate membership or
 /// exact proof and is safe to use for non-analyzing EXPLAIN.
 pub(crate) struct EstimatedPlan {
@@ -1737,14 +1782,12 @@ pub(crate) struct EstimatedPlan {
     pub planning: PlanningCounters,
 }
 
-
 struct EstimatedNode {
     candidates: u64,
     exact: bool,
     work: f64,
     choices: Vec<TermChoice>,
 }
-
 
 pub(crate) fn estimate_plan_expr(
     collection: &CollectionState,
@@ -2051,6 +2094,7 @@ fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn plan_expr_restricted(
     repo: &Repository,
     collection: &CollectionState,
@@ -2406,7 +2450,6 @@ fn plan_logical_expr(
                     (Some(mut union), Some(set)) => {
                         union |= set;
 
-
                         Some(union)
                     }
                     _ => None,
@@ -2475,7 +2518,6 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
         .candidates_prepared(term.gram_request.as_ref()?)
 }
 
-
 /// A prepared text access is a set of borrowed candidate providers. The same
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
@@ -2484,14 +2526,12 @@ struct TextProbe<'a, 'b> {
     request: &'b crate::bigram::BigramRequest,
 }
 
-
 struct PreparedFtsAccess<'a, 'b> {
     probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
     regex: Option<&'b crate::regex_query::RegexCondition>,
     literal_work: f64,
     max_count: u64,
 }
-
 
 impl PreparedFtsAccess<'_, '_> {
     fn estimate(&self) -> Option<(u64, f64)> {
@@ -2537,7 +2577,6 @@ impl PreparedFtsAccess<'_, '_> {
         Ok(Some(may))
     }
 }
-
 
 fn prepare_fts_accesses<'a, 'b>(
     indexes: &IndexCatalog<'a>,

@@ -99,6 +99,17 @@ impl<'a> MergedRelationView<'a> {
         self.source_errors.borrow().events()
     }
 
+    pub(crate) fn cached_value(&self, address: MergedRecordSlot) -> Option<Arc<Value>> {
+        let shard = (address.slot.0 as usize
+            ^ address.segment.unwrap_or(0).wrapping_mul(131)
+            ^ (address.collection.0 as usize).wrapping_mul(17))
+            % self.target_values.len();
+        self.target_values[shard]
+            .lock()
+            .ok()
+            .and_then(|cache| cache.0.get(&address).cloned())
+    }
+
     pub(crate) fn take_source_errors(&self) -> SourceAvailabilityLog {
         std::mem::take(&mut *self.source_errors.borrow_mut())
     }

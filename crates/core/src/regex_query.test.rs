@@ -6,9 +6,7 @@ use crate::reference::{
     BindingOperation, CustomBinding, FieldDefinition, RegisteredBinding, Schema, Transform,
     bind_fts,
 };
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::{BigramAlphabet, ReturnMode};
 
@@ -222,9 +220,19 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         );
         let bound = bind_fts(selective.fts.as_ref().unwrap(), &definition.schema).unwrap();
         assert_eq!(
-            fts_candidates(&repo.collections()[0], &bound)
-                .unwrap()
-                .len(),
+            repo.segments[0]
+                .iter()
+                .map(|segment| {
+                    crate::executor::segment_fts_candidates(
+                        &segment.index,
+                        &repo.collections()[0],
+                        &bound,
+                    )
+                    .unwrap()
+                    .unwrap_or_else(|| segment.active.bitmap())
+                    .len()
+                })
+                .sum::<u64>(),
             3
         );
         // The record with separate "foo" and "bar" segments is a candidate,
@@ -237,7 +245,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             RegexOptions::default(),
         );
         let plan = repo.explain(&unrestricted).unwrap();
-        assert_eq!(plan[0].fts_estimated_candidates, None);
+        assert!(plan[0].fts_estimated_candidates.is_some());
         assert!(
             plan[0]
                 .fts_prefilter_reason
@@ -279,19 +287,24 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             RegexOptions::default(),
         );
         let bound = bind_fts(fallback.fts.as_ref().unwrap(), &definition.schema).unwrap();
-        let fallback_slot = repo.collections()[0]
-            .generation
-            .records
-            .iter()
-            .find(|record| record.class == crate::inventory::RecordClass::RawFallback)
+        assert!(repo.segments[0].iter().any(|segment| {
+            let candidates = crate::executor::segment_fts_candidates(
+                &segment.index,
+                &repo.collections()[0],
+                &bound,
+            )
             .unwrap()
-            .slot
-            .0;
-        assert!(
-            fts_candidates(&repo.collections()[0], &bound)
-                .unwrap()
-                .contains(fallback_slot)
-        );
+            .unwrap_or_else(|| segment.active.bitmap().clone());
+            segment
+                .index
+                .records
+                .iter()
+                .enumerate()
+                .any(|(slot, record)| {
+                    record.class == crate::inventory::RecordClass::RawFallback
+                        && candidates.contains(slot as u32)
+                })
+        }));
         assert_eq!(repo.search(&insensitive).unwrap().count, Some(3));
         let inline_case = query(
             "(?i:^foo)",
@@ -445,12 +458,10 @@ fn generated_regex_matches_remain_inside_conservative_gram_candidates() {
     }
 }
 
-
 #[derive(Debug)]
 struct RegexMapping {
     compatible: bool,
 }
-
 
 impl BindingOperation for RegexMapping {
     fn accepts(
@@ -482,7 +493,6 @@ impl BindingOperation for RegexMapping {
         self.compatible
     }
 }
-
 
 #[test]
 fn custom_regex_binding_requires_explicit_representation_contract() {
@@ -589,21 +599,34 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         let collection = &restored.collections()[0];
-        let fallback_slot = collection
-            .generation
-            .records
-            .iter()
-            .find(|record| record.class == crate::inventory::RecordClass::RawFallback)
-            .unwrap()
-            .slot
-            .0;
         for (pattern, expected) in [("^foobar$", 1), ("foobar", 2), ("foo-bar", 0)] {
             let request = query(pattern);
             let bound = bind_fts(request.fts.as_ref().unwrap(), &definition.schema).unwrap();
-            let candidates = fts_candidates(collection, &bound).unwrap();
+            let candidates = restored.segments[0]
+                .iter()
+                .map(|segment| {
+                    let candidates =
+                        crate::executor::segment_fts_candidates(&segment.index, collection, &bound)
+                            .unwrap()
+                            .unwrap_or_else(|| segment.active.bitmap());
+                    (segment, candidates)
+                })
+                .collect::<Vec<_>>();
             if pattern == "foobar" {
-                assert_eq!(candidates.len(), 2, "{alphabet:?}");
-                assert!(candidates.contains(fallback_slot));
+                assert_eq!(
+                    candidates
+                        .iter()
+                        .map(|(_, candidates)| candidates.len())
+                        .sum::<u64>(),
+                    2,
+                    "{alphabet:?}"
+                );
+                assert!(candidates.iter().any(|(segment, candidates)| {
+                    segment.index.records.iter().any(|record| {
+                        record.class == crate::inventory::RecordClass::RawFallback
+                            && candidates.contains(record.slot.0)
+                    })
+                }));
             }
             let optimized = restored.search(&request).unwrap();
             let reference = restored.search_reference(&request).unwrap();

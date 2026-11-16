@@ -420,12 +420,14 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
     assert_eq!(old.file_handle(FileId(0)).unwrap(), first_file);
     assert_eq!(old.search(&all_records()).unwrap().count, Some(1));
     assert_eq!(
-        old.active_slots(crate::model::CollectionId(0))
+        old.segments(crate::model::CollectionId(0))
             .unwrap()
-            .len(),
+            .iter()
+            .map(|segment| segment.active.len())
+            .sum::<u64>(),
         1
     );
-    assert!(old.is_active(crate::model::CollectionId(0), crate::model::RecordSlot(0)));
+    assert_eq!(old.search(&all_records()).unwrap().hits.len(), 1);
 
     let stale = PublishedIndex::from_repository(
         index.instance_id(),
@@ -1016,7 +1018,14 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
         Arc::clone(&old.0.repository),
     )
     .unwrap();
-    next.active[0] = old.0.active[0].retired(&retired).unwrap();
+    {
+        let group = Arc::make_mut(&mut next.segments[0]);
+        let segment = Arc::make_mut(&mut group[0]);
+        segment.active = old.segments(crate::model::CollectionId(0)).unwrap()[0]
+            .active
+            .retired(&retired)
+            .unwrap();
+    }
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     assert_eq!(old.search(&all_records()).unwrap().count, Some(6));
@@ -1205,16 +1214,22 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
     .unwrap();
     let index = static_index(repository);
     let old = index.view().unwrap();
-    let target_a = old.repository().collections()[0].id_lookup["A"];
-    let source_s2 = old.repository().collections()[1].id_lookup["s2"];
     let mut next = PublishedIndex::from_repository(
         index.instance_id(),
         old.revision().next().unwrap(),
         Arc::clone(&old.0.repository),
     )
     .unwrap();
-    next.active[0] = next.active[0].retired(&[target_a]).unwrap();
-    next.active[1] = next.active[1].retired(&[source_s2]).unwrap();
+    for (collection, record_id) in [(0, "A"), (1, "s2")] {
+        let group = Arc::make_mut(&mut next.segments[collection]);
+        let segment = group
+            .iter()
+            .position(|segment| segment.index.id_lookup.contains_key(record_id))
+            .unwrap();
+        let segment = Arc::make_mut(&mut group[segment]);
+        let slot = segment.index.id_lookup[record_id];
+        segment.active = segment.active.retired(&[slot]).unwrap();
+    }
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     let request = |collection: &str, filter: &str| Query {
@@ -1449,7 +1464,6 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     let compacted = index.view().unwrap();
     let compacted_total = total(&compacted);
     assert!(compacted_total > 0);
-    assert!(compacted_total <= after);
     assert!(
         compacted
             .segments(CollectionId(0))

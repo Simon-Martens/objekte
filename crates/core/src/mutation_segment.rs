@@ -26,8 +26,6 @@ pub(crate) struct SegmentAdmission {
     records: Vec<RecordEntry>,
     id_lookup: HashMap<RecordId, RecordSlot>,
     batches: Vec<SegmentBatch>,
-    eager_spec: Option<EagerSpec>,
-    aggregate: Option<SegmentAggregate>,
     policy: SegmentPolicy,
     record_parses: u64,
     failed_parses: u64,
@@ -45,7 +43,6 @@ pub(crate) struct CollectionSegment {
     pub records: Vec<RecordEntry>,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub(crate) batches: Vec<SegmentBatch>,
-    aggregate: Option<SegmentAggregate>,
     pub record_parses: u64,
     pub failed_parses: u64,
 }
@@ -54,13 +51,6 @@ pub(crate) struct SegmentBatch {
     base: u32,
     count: u32,
     contribution: BatchContribution,
-}
-
-struct EagerSpec {
-    definition: Arc<CollectionDefinition>,
-    alphabet: BigramAlphabet,
-    inference_config: InferenceConfig,
-    collection_count: usize,
 }
 
 struct SegmentAggregate {
@@ -139,98 +129,107 @@ impl SegmentAggregate {
         })
     }
 
-    fn admit(&mut self, batch: BatchContribution, base: u32, count: u32) -> Result<(), String> {
-        self.admit_profiled(batch, base, count, None)
-    }
-
-    fn admit_profiled(
+    fn admit_parallel(
         &mut self,
         batch: BatchContribution,
         base: u32,
         count: u32,
-        mut profile: Option<&mut AdmissionBreakdown>,
+        pool: &ThreadPool,
     ) -> Result<(), String> {
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.postings.merge_shifted(batch.postings, base)?;
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        match (self.inference.as_mut(), batch.inference) {
-            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
-            (None, None) => {}
-            _ => return Err("inference segment mode mismatch".into()),
-        }
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.inference_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        if self.relations.len() != batch.relations.len() {
-            return Err("relation segment coverage mismatch".into());
-        }
-        for (global, local) in self.relations.iter_mut().zip(batch.relations) {
-            global.merge_shifted(local, base, count)?;
-        }
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.relations_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        if self.custom_postings.len() != batch.custom_postings.len() {
-            return Err("custom posting segment coverage mismatch".into());
-        }
-        for (key, local) in batch.custom_postings {
-            let global = self
-                .custom_postings
-                .get_mut(&key)
-                .ok_or("custom posting segment missing")?;
-            global.index.merge_shifted(local.index, base)?;
-            global.complete &= local.complete;
-        }
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.raw.merge_shifted(batch.raw, base)?;
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.raw_bigrams_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.fallback_text
-            .merge_shifted(batch.fallback_text, base)?;
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.fallback_bigrams_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        if self.custom_text.len() != batch.custom_text.len() {
-            return Err("custom bigram segment coverage mismatch".into());
-        }
-        for (key, index) in batch.custom_text {
-            self.custom_text
-                .get_mut(&key)
-                .ok_or("custom bigram segment missing")?
-                .merge_shifted(index, base)?;
-        }
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.custom_bigrams_ns += started.elapsed().as_nanos() as u64;
-            profile.bigrams_ns =
-                profile.raw_bigrams_ns + profile.fallback_bigrams_ns + profile.custom_bigrams_ns;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        append_shifted_bitmap(&mut self.logical_records, &batch.logical_records, base)?;
-        append_shifted_bitmap(
-            &mut self.empty_array_records,
-            &batch.empty_array_records,
-            base,
-        )?;
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
-        }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.sorting.append_keys(batch.sort_keys, base, count)?;
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.sorting_ns += started.elapsed().as_nanos() as u64;
-        }
-        Ok(())
+        let Self {
+            postings,
+            inference,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sorting,
+            relations,
+        } = self;
+        let BatchContribution {
+            postings: batch_postings,
+            inference: batch_inference,
+            custom_postings: batch_custom_postings,
+            raw: batch_raw,
+            fallback_text: batch_fallback_text,
+            custom_text: batch_custom_text,
+            logical_records: batch_logical_records,
+            empty_array_records: batch_empty_array_records,
+            sort_keys: batch_sort_keys,
+            relations: batch_relations,
+            ..
+        } = batch;
+        let postings_and_custom = pool.join(
+            || postings.merge_shifted(batch_postings, base),
+            || -> Result<(), String> {
+                if custom_postings.len() != batch_custom_postings.len() {
+                    return Err("custom posting segment coverage mismatch".into());
+                }
+                for (key, local) in batch_custom_postings {
+                    let global = custom_postings
+                        .get_mut(&key)
+                        .ok_or("custom posting segment missing")?;
+                    global.index.merge_shifted(local.index, base)?;
+                    global.complete &= local.complete;
+                }
+                Ok(())
+            },
+        );
+        let inference_and_domains = pool.join(
+            || match (inference.as_mut(), batch_inference) {
+                (Some(global), Some(local)) => global.merge_shifted(local, base),
+                (None, None) => Ok(()),
+                _ => Err("inference segment mode mismatch".into()),
+            },
+            || -> Result<(), String> {
+                append_shifted_bitmap(logical_records, &batch_logical_records, base)?;
+                append_shifted_bitmap(
+                    empty_array_records,
+                    &batch_empty_array_records,
+                    base,
+                )
+            },
+        );
+        let bigrams = pool.join(
+            || -> Result<(), String> {
+                raw.merge_shifted(batch_raw, base)?;
+                fallback_text.merge_shifted(batch_fallback_text, base)
+            },
+            || -> Result<(), String> {
+                if custom_text.len() != batch_custom_text.len() {
+                    return Err("custom bigram segment coverage mismatch".into());
+                }
+                for (key, index) in batch_custom_text {
+                    custom_text
+                        .get_mut(&key)
+                        .ok_or("custom bigram segment missing")?
+                        .merge_shifted(index, base)?;
+                }
+                Ok(())
+            },
+        );
+        let sorting_and_relations = pool.join(
+            || sorting.append_keys(batch_sort_keys, base, count),
+            || -> Result<(), String> {
+                if relations.len() != batch_relations.len() {
+                    return Err("relation segment coverage mismatch".into());
+                }
+                for (global, local) in relations.iter_mut().zip(batch_relations) {
+                    global.merge_shifted(local, base, count)?;
+                }
+                Ok(())
+            },
+        );
+        postings_and_custom.0?;
+        postings_and_custom.1?;
+        inference_and_domains.0?;
+        inference_and_domains.1?;
+        bigrams.0?;
+        bigrams.1?;
+        sorting_and_relations.0?;
+        sorting_and_relations.1
     }
 }
 
@@ -248,6 +247,7 @@ impl SegmentAdmission {
         )
     }
 
+    #[cfg(test)]
     pub fn with_limits(
         collection: CollectionId,
         source: &PreparedSource,
@@ -272,35 +272,10 @@ impl SegmentAdmission {
             records: Vec::new(),
             id_lookup: HashMap::new(),
             batches: Vec::new(),
-            eager_spec: None,
-            aggregate: None,
             policy,
             record_parses: 0,
             failed_parses: 0,
         }
-    }
-
-    /// Initial construction merges each completed worker contribution into
-    /// the current bounded segment immediately. It never retains both all
-    /// worker-local gram maps and a second full merged map at sealing time.
-    pub(crate) fn with_limits_eager(
-        collection: CollectionId,
-        source: &PreparedSource,
-        policy: SegmentLimits,
-        definition: Arc<CollectionDefinition>,
-        alphabet: BigramAlphabet,
-        inference_config: InferenceConfig,
-        collection_count: usize,
-        id: SegmentId,
-    ) -> Self {
-        let mut admission = Self::with_limits_and_id(collection, source, policy, id);
-        admission.eager_spec = Some(EagerSpec {
-            definition,
-            alphabet,
-            inference_config,
-            collection_count,
-        });
-        admission
     }
 
     #[cfg(test)]
@@ -400,8 +375,8 @@ impl SegmentAdmission {
                 return Err("prepared collection binding changed".into());
             }
             let file_id = batch_file.entry.id;
-            let index = if batch_file.first_range {
-                if self.file_index.contains_key(&file_id) {
+            let index = if batch_file.first_range || !self.file_index.contains_key(&file_id) {
+                if batch_file.first_range && self.file_index.contains_key(&file_id) {
                     return Err("file has repeated first range".into());
                 }
                 let index = self.files.len();
@@ -458,7 +433,16 @@ impl SegmentAdmission {
                     .insert(record.id.clone(), record.slot)
                     .is_some()
                 {
-                    return Err("duplicate record ID in segment".into());
+                    let path = self
+                        .file_index
+                        .get(&record.file)
+                        .and_then(|index| self.files.get(*index))
+                        .map(|file| file.entry.relative_path.as_path().display().to_string())
+                        .unwrap_or_else(|| format!("file {}", record.file.0));
+                    return Err(format!(
+                        "duplicate record ID in segment: {} ({path})",
+                        record.id.0
+                    ));
                 }
                 file.records.push(record.slot);
                 self.records.push(record);
@@ -472,26 +456,11 @@ impl SegmentAdmission {
         }
         self.record_parses = self.record_parses.saturating_add(batch.record_parses);
         self.failed_parses = self.failed_parses.saturating_add(batch.failed_parses);
-        if let Some(spec) = &self.eager_spec {
-            if self.aggregate.is_none() {
-                self.aggregate = Some(SegmentAggregate::new(
-                    &spec.definition,
-                    spec.alphabet,
-                    spec.inference_config,
-                    spec.collection_count,
-                )?);
-            }
-            self.aggregate
-                .as_mut()
-                .expect("eager aggregate initialized")
-                .admit_profiled(batch, base, count, profile)?;
-        } else {
-            self.batches.push(SegmentBatch {
-                base,
-                count,
-                contribution: batch,
-            });
-        }
+        self.batches.push(SegmentBatch {
+            base,
+            count,
+            contribution: batch,
+        });
         Ok(())
     }
 
@@ -506,7 +475,6 @@ impl SegmentAdmission {
             records: self.records,
             id_lookup: self.id_lookup,
             batches: self.batches,
-            aggregate: self.aggregate,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
         }
@@ -542,19 +510,15 @@ impl CollectionSegment {
         mut profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<IndexedCollectionSegment, String> {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let mut aggregate = match self.aggregate {
-            Some(aggregate) => aggregate,
-            None => {
-                SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?
-            }
-        };
+        let mut aggregate =
+            SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?;
         for SegmentBatch {
             base,
             count,
             contribution,
         } in self.batches
         {
-            aggregate.admit(contribution, base, count)?;
+            aggregate.admit_parallel(contribution, base, count, pool)?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
@@ -627,7 +591,13 @@ impl CollectionSegment {
             profile.bigram_validation_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let sorting = sorting.finish_for_records(&self.records)?;
+        let mut sorting = sorting.finish_for_records(&self.records)?;
+        sorting.refresh_file_status_for_records(&self.records, |file| {
+            self.files
+                .iter()
+                .find(|entry| entry.entry.id == file)
+                .map_or(FileStatus::Valid.code(), |entry| entry.entry.status.code())
+        });
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }

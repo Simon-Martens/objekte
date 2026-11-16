@@ -12,6 +12,49 @@ use crate::inventory::append_shifted_bitmap;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::FileId;
 
+pub(crate) struct SegmentJobGate {
+    state: std::sync::Mutex<(usize, bool)>,
+    changed: std::sync::Condvar,
+}
+
+#[allow(dead_code)]
+impl SegmentJobGate {
+    pub(crate) fn new() -> Self {
+        Self {
+            state: std::sync::Mutex::new((0, false)),
+            changed: std::sync::Condvar::new(),
+        }
+    }
+
+    fn wait(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.0 += 1;
+        self.changed.notify_all();
+        while !state.1 {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn wait_for_workers(&self, count: usize) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        while state.0 < count {
+            state = self
+                .changed
+                .wait(state)
+                .expect("segment gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn release(&self) {
+        let mut state = self.state.lock().expect("segment gate lock poisoned");
+        state.1 = true;
+        self.changed.notify_all();
+    }
+}
+
 struct IncrementalCollection {
     definition: Arc<CollectionDefinition>,
     source: PreparedSource,
@@ -22,7 +65,6 @@ struct IncrementalCollection {
     logical_records: RoaringBitmap,
     global_inference: Option<InferenceBuilder>,
     options: RepositoryOptions,
-    collection_count: usize,
     next_segment_id: u64,
 }
 
@@ -36,15 +78,11 @@ impl IncrementalCollection {
         collection_count: usize,
     ) -> Self {
         let definition = Arc::new(definition);
-        let admission = SegmentAdmission::with_limits_eager(
+        let admission = SegmentAdmission::with_limits_and_id(
             id,
             &source,
             options.segment_policy,
-            Arc::clone(&definition),
-            options.bigram_alphabet,
-            options.inference,
-            collection_count,
-            SegmentId::new(1),
+            SegmentId::for_collection(id, 1),
         );
         Self {
             definition,
@@ -56,7 +94,6 @@ impl IncrementalCollection {
             logical_records: RoaringBitmap::new(),
             global_inference: InferenceBuilder::for_collection(options.inference, collection_count),
             options,
-            collection_count,
             next_segment_id: 2,
         }
     }
@@ -133,15 +170,11 @@ impl IncrementalCollection {
         if self.admission.file_count() == 0 {
             return None;
         }
-        let replacement = SegmentAdmission::with_limits_eager(
+        let replacement = SegmentAdmission::with_limits_and_id(
             self.id,
             &self.source,
             self.options.segment_policy,
-            Arc::clone(&self.definition),
-            self.options.bigram_alphabet,
-            self.options.inference,
-            self.collection_count,
-            SegmentId::new(self.next_segment_id),
+            SegmentId::for_collection(self.id, self.next_segment_id),
         );
         self.next_segment_id = self
             .next_segment_id
@@ -177,46 +210,246 @@ impl IncrementalCollection {
     }
 }
 
-fn publish_segment(
+struct IndexedSegmentBuild {
+    index: IndexedCollectionSegment,
+    profile: Option<IncrementalSegmentProfile>,
+    build_ns: u64,
+}
+
+struct SegmentBuildMessage {
+    collection_index: usize,
+    segment_id: u64,
+    result: Result<IndexedSegmentBuild, String>,
+}
+
+struct SegmentBuildScheduler {
+    sender: std::sync::mpsc::Sender<SegmentBuildMessage>,
+    receiver: std::sync::mpsc::Receiver<SegmentBuildMessage>,
+    buffered: std::collections::BTreeMap<(usize, u64), Result<IndexedSegmentBuild, String>>,
+    planned: Vec<u64>,
+    next_publish: Vec<u64>,
+    outstanding: usize,
+    peak_outstanding: usize,
+    limit: usize,
+    running: Arc<AtomicUsize>,
+    peak_running: Arc<AtomicUsize>,
+    gate: Option<Arc<SegmentJobGate>>,
+}
+
+impl SegmentBuildScheduler {
+    fn new(
+        workers: usize,
+        collections: usize,
+        gate: Option<Arc<SegmentJobGate>>,
+    ) -> Self {
+        let (sender, receiver) = std::sync::mpsc::channel();
+        Self {
+            sender,
+            receiver,
+            buffered: std::collections::BTreeMap::new(),
+            planned: vec![0; collections],
+            next_publish: (0..collections)
+                .map(|collection| {
+                    SegmentId::for_collection(CollectionId(collection as u32), 1).get()
+                })
+                .collect(),
+            outstanding: 0,
+            peak_outstanding: 0,
+            limit: workers.saturating_mul(2).max(1),
+            running: Arc::new(AtomicUsize::new(0)),
+            peak_running: Arc::new(AtomicUsize::new(0)),
+            gate,
+        }
+    }
+
+    fn submit(
+        &mut self,
+        collection_index: usize,
+        segment: crate::build::CollectionSegment,
+        definition: Arc<CollectionDefinition>,
+        options: RepositoryOptions,
+        collection_count: usize,
+        pool: &Arc<rayon::ThreadPool>,
+    ) -> Result<(), String> {
+        let planned = self
+            .planned
+            .get_mut(collection_index)
+            .ok_or("segment collection out of bounds")?;
+        let expected = if *planned == 0 {
+            SegmentId::for_collection(CollectionId(collection_index as u32), 1).get()
+        } else {
+            planned.checked_add(1).ok_or("segment plan overflow")?
+        };
+        if segment.id.get() != expected {
+            return Err("segment planning identity mismatch".into());
+        }
+        *planned = expected;
+        self.outstanding = self
+            .outstanding
+            .checked_add(1)
+            .ok_or("segment scheduler overflow")?;
+        self.peak_outstanding = self.peak_outstanding.max(self.outstanding);
+        let collection = segment.collection;
+        let segment_id = segment.id.get();
+        let sender = self.sender.clone();
+        let profile_build = options.detailed_profiling_enabled();
+        let running = Arc::clone(&self.running);
+        let peak_running = Arc::clone(&self.peak_running);
+        let gate = self.gate.clone();
+        let worker_pool = Arc::clone(pool);
+        pool.spawn(move || {
+            let active = running.fetch_add(1, Ordering::Relaxed) + 1;
+            peak_running.fetch_max(active, Ordering::Relaxed);
+            if let Some(gate) = gate {
+                gate.wait();
+            }
+            let phase = crate::detailed_timer::DetailedInstant::now();
+            let mut profile = profile_build.then(|| IncrementalSegmentProfile {
+                collection: definition.name.clone(),
+                files: segment.files.len(),
+                records: segment.records.len(),
+                source_bytes: segment
+                    .files
+                    .iter()
+                    .map(|file| file.entry.revision.size)
+                    .sum(),
+                ..Default::default()
+            });
+            let result = segment
+                .into_indexed_profiled(
+                    &definition,
+                    options.bigram_alphabet,
+                    options.inference,
+                    collection_count,
+                    &worker_pool,
+                    profile.as_mut(),
+                )
+                .map(|index| IndexedSegmentBuild {
+                    index,
+                    profile,
+                    build_ns: phase.elapsed().as_nanos() as u64,
+                });
+            debug_assert_eq!(
+                result.as_ref().map(|built| built.index.collection).ok(),
+                Some(collection)
+            );
+            running.fetch_sub(1, Ordering::Relaxed);
+            let _ = sender.send(SegmentBuildMessage {
+                collection_index,
+                segment_id,
+                result,
+            });
+        });
+        Ok(())
+    }
+
+    fn receive(&mut self, block: bool) -> Result<bool, String> {
+        let message = if block {
+            self.receiver.recv().map_err(|error| error.to_string())?
+        } else {
+            match self.receiver.try_recv() {
+                Ok(message) => message,
+                Err(std::sync::mpsc::TryRecvError::Empty) => return Ok(false),
+                Err(std::sync::mpsc::TryRecvError::Disconnected) => {
+                    return Err("segment build channel disconnected".into());
+                }
+            }
+        };
+        self.buffered.insert(
+            (message.collection_index, message.segment_id),
+            message.result,
+        );
+        Ok(true)
+    }
+
+    fn publish_ready(
+        &mut self,
+        index: &Index,
+        expected: &mut IndexRevision,
+        pending: &[IncrementalCollection],
+        on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+        publication_ns: &mut u64,
+        profile: &mut Option<BuildProfileStats>,
+    ) -> Result<(), IndexError> {
+        for collection_index in 0..self.next_publish.len() {
+            loop {
+                let id = self.next_publish[collection_index];
+                let Some(result) = self
+                    .buffered
+                    .remove(&(collection_index, id))
+                else {
+                    break;
+                };
+                let built = result.map_err(IndexError::Build)?;
+                publish_indexed_segment(
+                    index,
+                    expected,
+                    built,
+                    pending
+                        .get(collection_index)
+                        .ok_or_else(|| IndexError::Build("segment collection missing".into()))?,
+                    on_publication,
+                    publication_ns,
+                    profile,
+                )?;
+                self.outstanding = self.outstanding.saturating_sub(1);
+                self.next_publish[collection_index] = id
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            }
+        }
+        Ok(())
+    }
+
+    fn drain(
+        &mut self,
+        index: &Index,
+        expected: &mut IndexRevision,
+        pending: &[IncrementalCollection],
+        on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+        publication_ns: &mut u64,
+        profile: &mut Option<BuildProfileStats>,
+    ) -> Result<(), IndexError> {
+        while self.outstanding != 0 {
+            self.receive(true).map_err(IndexError::Build)?;
+            self.publish_ready(
+                index,
+                expected,
+                pending,
+                on_publication,
+                publication_ns,
+                profile,
+            )?;
+            if self.buffered.len() > self.limit {
+                return Err(IndexError::ResourceLimit(
+                    "segment completion window exceeded".into(),
+                ));
+            }
+        }
+        Ok(())
+    }
+}
+
+fn publish_indexed_segment(
     index: &Index,
     expected: &mut IndexRevision,
-    segment: crate::build::CollectionSegment,
+    built: IndexedSegmentBuild,
     collection: &IncrementalCollection,
-    options: RepositoryOptions,
-    collection_count: usize,
-    pool: &rayon::ThreadPool,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
     publication_ns: &mut u64,
     profile: &mut Option<BuildProfileStats>,
 ) -> Result<(), IndexError> {
     let started = crate::detailed_timer::DetailedInstant::now();
-    let mut segment_profile = profile.as_ref().map(|_| IncrementalSegmentProfile {
-        collection: collection.definition.name.clone(),
-        files: segment.files.len(),
-        records: segment.records.len(),
-        source_bytes: segment
-            .files
-            .iter()
-            .map(|file| file.entry.revision.size)
-            .sum(),
-        ..Default::default()
-    });
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-    let indexed: IndexedCollectionSegment = segment
-        .into_indexed_profiled(
-            &collection.definition,
-            options.bigram_alphabet,
-            options.inference,
-            collection_count,
-            pool,
-            segment_profile.as_mut(),
-        )
-        .map_err(IndexError::Build)?;
-    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-        let ns = started.elapsed().as_nanos() as u64;
-        profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
-        segment_profile.as_mut().unwrap().index_ns = ns;
+    let IndexedSegmentBuild {
+        index: indexed,
+        profile: mut segment_profile,
+        build_ns,
+    } = built;
+    if let (Some(profile), Some(segment)) = (profile.as_mut(), segment_profile.as_mut()) {
+        profile.publication_index_ns = profile.publication_index_ns.saturating_add(build_ns);
+        segment.index_ns = build_ns;
     }
+    let _ = collection;
     let (revision, phases) =
         index.publish_initial_segment(*expected, indexed, profile.is_some())?;
     *expected = revision;
@@ -245,6 +478,58 @@ fn publish_segment(
     Ok(())
 }
 
+#[allow(clippy::too_many_arguments)]
+fn schedule_segment(
+    scheduler: &mut SegmentBuildScheduler,
+    index: &Index,
+    expected: &mut IndexRevision,
+    pending: &[IncrementalCollection],
+    collection_index: usize,
+    segment: crate::build::CollectionSegment,
+    options: RepositoryOptions,
+    pool: &Arc<rayon::ThreadPool>,
+    on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+    publication_ns: &mut u64,
+    profile: &mut Option<BuildProfileStats>,
+    cancelled: &impl Fn() -> bool,
+) -> Result<(), IndexError> {
+    while scheduler.outstanding >= scheduler.limit {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        scheduler.receive(true).map_err(IndexError::Build)?;
+        scheduler.publish_ready(
+            index,
+            expected,
+            pending,
+            on_publication,
+            publication_ns,
+            profile,
+        )?;
+    }
+    let collection = pending
+        .get(collection_index)
+        .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
+    scheduler.submit(
+        collection_index,
+        segment,
+        Arc::clone(&collection.definition),
+        options,
+        pending.len(),
+        pool,
+    )
+    .map_err(IndexError::Build)?;
+    while scheduler.receive(false).map_err(IndexError::Build)? {}
+    scheduler.publish_ready(
+        index,
+        expected,
+        pending,
+        on_publication,
+        publication_ns,
+        profile,
+    )
+}
+
 fn finish_admission_profile(
     profile: &mut Option<BuildProfileStats>,
     collection: &str,
@@ -270,6 +555,165 @@ fn finish_admission_profile(
     Ok(())
 }
 
+struct SegmentMetadata {
+    generation: CollectionGeneration,
+    id_lookup: HashMap<RecordId, RecordSlot>,
+    identity_order: Vec<RecordSlot>,
+    stats: CollectionStats,
+    logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
+}
+
+fn segment_metadata_generation(
+    collection: CollectionId,
+    name: &str,
+    segments: &[Arc<crate::native_segment::PublishedSegment>],
+    files: &mut FileInventory,
+    relations: &mut [RelationContribution],
+) -> Result<SegmentMetadata, String> {
+    let mut builder = CollectionBuilder::new(collection, name.to_owned(), 1, files.files.len());
+    let mut file_set = HashSet::new();
+    let mut record_count = 0usize;
+    let mut logical_records = RoaringBitmap::new();
+    let mut empty_array_records = RoaringBitmap::new();
+    for segment in segments {
+        let base = u32::try_from(record_count).map_err(|_| "too many segment records")?;
+        let segment_count =
+            u32::try_from(segment.index.records.len()).map_err(|_| "too many segment records")?;
+        if relations.len() != segment.index.relations.len() {
+            return Err("segment relation coverage mismatch".into());
+        }
+        for (global, local) in relations
+            .iter_mut()
+            .zip(segment.index.relations.iter().cloned())
+        {
+            global.merge_shifted(local, base, segment_count)?;
+        }
+        for slot in &segment.index.logical_records {
+            logical_records.insert(
+                base.checked_add(slot)
+                    .ok_or("logical record slot overflow")?,
+            );
+        }
+        for slot in &segment.index.empty_array_records {
+            empty_array_records.insert(
+                base.checked_add(slot)
+                    .ok_or("empty-array record slot overflow")?,
+            );
+        }
+        for segment_file in &segment.index.files {
+            if file_set.insert(segment_file.entry.id) {
+                builder.include_file(segment_file.entry.id)?;
+            }
+        }
+        for record in &segment.index.records {
+            let file = files
+                .files
+                .get_mut(record.file.0 as usize)
+                .ok_or("segment metadata file missing")?;
+            if record.class == RecordClass::Logical {
+                builder.add_record(
+                    file,
+                    record.id.clone(),
+                    record.range.start,
+                    record.range.end,
+                )?;
+            } else {
+                let segment_file = segment
+                    .index
+                    .file(record.file)
+                    .ok_or("fallback segment file missing")?;
+                let Some(local) = record.diagnostic_ref.stored_index() else {
+                    builder.add_raw_fallback(
+                        file,
+                        record.id.clone(),
+                        record.range,
+                        record.diagnostic_ref,
+                    )?;
+                    record_count += 1;
+                    continue;
+                };
+                let diagnostic = segment_file
+                    .entry
+                    .diagnostics
+                    .get(local)
+                    .ok_or("fallback diagnostic missing")?
+                    .clone();
+                let existing = file.diagnostics.iter().position(|candidate| {
+                    let mut candidate = candidate.clone();
+                    candidate.record = None;
+                    let mut diagnostic = diagnostic.clone();
+                    diagnostic.record = None;
+                    candidate == diagnostic
+                });
+                if existing.is_none() && file.omitted_diagnostics != 0 {
+                    builder.add_raw_fallback(
+                        file,
+                        record.id.clone(),
+                        record.range,
+                        crate::inventory::DiagnosticRef(u32::MAX),
+                    )?;
+                    record_count += 1;
+                    continue;
+                }
+                let global = existing.unwrap_or_else(|| {
+                    let index = file.diagnostics.len();
+                    file.diagnostics.push(diagnostic);
+                    index
+                });
+                let reference = crate::inventory::DiagnosticRef(
+                    u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
+                );
+                let slot = builder.add_raw_fallback(
+                    file,
+                    record.id.clone(),
+                    record.range,
+                    reference,
+                )?;
+                file.diagnostics[global].record = Some(slot);
+            }
+            record_count += 1;
+        }
+    }
+    let generation = builder.finish(files)?;
+    let id_lookup = generation
+        .records
+        .iter()
+        .map(|record| (record.id.clone(), record.slot))
+        .collect::<HashMap<_, _>>();
+    let mut identity_order = generation
+        .records
+        .iter()
+        .map(|record| record.slot)
+        .collect::<Vec<_>>();
+    identity_order.sort_by(|left, right| {
+        generation.records[left.0 as usize]
+            .id
+            .cmp(&generation.records[right.0 as usize].id)
+    });
+    let stats = CollectionStats {
+        file_count: file_set.len(),
+        record_count,
+        total_file_bytes: file_set
+            .iter()
+            .map(|file| {
+                files
+                    .files
+                    .get(file.0 as usize)
+                    .map_or(0, |entry| entry.revision.size)
+            })
+            .sum(),
+    };
+    Ok(SegmentMetadata {
+        generation,
+        id_lookup,
+        identity_order,
+        stats,
+        logical_records,
+        empty_array_records,
+    })
+}
+
 #[allow(clippy::too_many_arguments)]
 fn admit_normal(
     collection_index: usize,
@@ -282,8 +726,9 @@ fn admit_normal(
     source_bytes_read: &mut u64,
     index: &Index,
     expected: &mut IndexRevision,
+    scheduler: &mut SegmentBuildScheduler,
     options: RepositoryOptions,
-    pool: &rayon::ThreadPool,
+    pool: &Arc<rayon::ThreadPool>,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
     publication_ns: &mut u64,
     profile: &mut Option<BuildProfileStats>,
@@ -329,17 +774,19 @@ fn admit_normal(
         detail,
     )?;
     if let Some(sealed) = sealed {
-        publish_segment(
+        schedule_segment(
+            scheduler,
             index,
             expected,
+            pending,
+            collection_index,
             sealed,
-            &pending[collection_index],
             options,
-            pending.len(),
             pool,
             on_publication,
             publication_ns,
             profile,
+            cancelled,
         )
         .map_err(|error| error.to_string())?;
     }
@@ -354,8 +801,55 @@ impl Repository {
         options: RepositoryOptions,
         sources: SourceRegistry,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
+        on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
+        cancelled: impl Fn() -> bool,
+    ) -> Result<Index, IndexError> {
+        Self::build_incremental_with_sources_inner(
+            root,
+            definitions,
+            options,
+            sources,
+            on_catalogue,
+            on_publication,
+            cancelled,
+            None,
+        )
+    }
+
+    #[cfg(test)]
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn build_incremental_with_sources_gated(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+        on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
+        on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
+        cancelled: impl Fn() -> bool,
+        gate: Arc<SegmentJobGate>,
+    ) -> Result<Index, IndexError> {
+        Self::build_incremental_with_sources_inner(
+            root,
+            definitions,
+            options,
+            sources,
+            on_catalogue,
+            on_publication,
+            cancelled,
+            Some(gate),
+        )
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn build_incremental_with_sources_inner(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+        on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         mut on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
         cancelled: impl Fn() -> bool,
+        gate: Option<Arc<SegmentJobGate>>,
     ) -> Result<Index, IndexError> {
         let started = Instant::now();
         let mut profile = options
@@ -370,11 +864,13 @@ impl Repository {
             std::thread::available_parallelism().ok(),
         )
         .map_err(IndexError::Build)?;
-        let pool = rayon::ThreadPoolBuilder::new()
-            .num_threads(build_workers)
-            .thread_name(|number| format!("objekte-build-{number}"))
-            .build()
-            .map_err(|error| IndexError::Build(error.to_string()))?;
+        let pool = Arc::new(
+            rayon::ThreadPoolBuilder::new()
+                .num_threads(build_workers)
+                .thread_name(|number| format!("objekte-build-{number}"))
+                .build()
+                .map_err(|error| IndexError::Build(error.to_string()))?,
+        );
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.pool_init_ns = started.elapsed().as_nanos() as u64;
         }
@@ -530,6 +1026,8 @@ impl Repository {
             return Err(IndexError::Cancelled);
         }
         let mut expected = IndexRevision::INITIAL;
+        let mut scheduler =
+            SegmentBuildScheduler::new(pool.current_num_threads(), pending.len(), gate);
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
@@ -601,6 +1099,7 @@ impl Repository {
                                     &mut source_bytes_read,
                                     &index,
                                     &mut expected,
+                                    &mut scheduler,
                                     options,
                                     &pool,
                                     &mut on_publication,
@@ -620,17 +1119,19 @@ impl Repository {
                         normal.clear();
                     }
                     if let Some(sealed) = pending[collection_index].take_segment() {
-                        publish_segment(
+                        schedule_segment(
+                            &mut scheduler,
                             &index,
                             &mut expected,
+                            &pending,
+                            collection_index,
                             sealed,
-                            &pending[collection_index],
                             options,
-                            pending.len(),
                             &pool,
                             &mut on_publication,
                             &mut publication_ns,
                             &mut profile,
+                            &cancelled,
                         )?;
                     }
                     let result = crate::build::process_framed_file_profiled(
@@ -696,17 +1197,19 @@ impl Repository {
                     }
                     schedule_stats.absorb(result);
                     if let Some(sealed) = pending[collection_index].take_segment() {
-                        publish_segment(
+                        schedule_segment(
+                            &mut scheduler,
                             &index,
                             &mut expected,
+                            &pending,
+                            collection_index,
                             sealed,
-                            &pending[collection_index],
                             options,
-                            pending.len(),
                             &pool,
                             &mut on_publication,
                             &mut publication_ns,
                             &mut profile,
+                            &cancelled,
                         )?;
                     }
                 }
@@ -733,6 +1236,7 @@ impl Repository {
                         &mut source_bytes_read,
                         &index,
                         &mut expected,
+                        &mut scheduler,
                         options,
                         &pool,
                         &mut on_publication,
@@ -762,19 +1266,35 @@ impl Repository {
                 return Err(IndexError::Cancelled);
             }
             if let Some(sealed) = pending[number].take_segment() {
-                publish_segment(
+                schedule_segment(
+                    &mut scheduler,
                     &index,
                     &mut expected,
+                    &pending,
+                    number,
                     sealed,
-                    &pending[number],
                     options,
-                    pending.len(),
                     &pool,
                     &mut on_publication,
                     &mut publication_ns,
                     &mut profile,
+                    &cancelled,
                 )?;
             }
+        }
+        scheduler.drain(
+            &index,
+            &mut expected,
+            &pending,
+            &mut on_publication,
+            &mut publication_ns,
+            &mut profile,
+        )?;
+        let peak_segment_jobs = scheduler.peak_running.load(Ordering::Relaxed);
+        let peak_segment_window = scheduler.peak_outstanding;
+        if let Some(profile) = profile.as_mut() {
+            profile.peak_segment_jobs = peak_segment_jobs;
+            profile.peak_segment_window = peak_segment_window;
         }
         if let (Some(started), Some(profile)) = (flush_started, profile.as_mut()) {
             profile.final_segment_flush_ns = started.elapsed().as_nanos() as u64;
@@ -789,33 +1309,94 @@ impl Repository {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut final_repository = Self::build_fresh(root, definitions, options, &sources, false)
             .map_err(IndexError::Build)?;
-        final_repository.files = Arc::clone(&discovered);
         final_repository.base_fingerprints = base_fingerprints;
         final_repository.build_parses = build_parses;
         final_repository.build_failed_parses = failed_parses;
         let mut inference_build = InferenceBuildStats::default();
+        let segment_view = index.view()?;
+        let mut final_files = (*discovered).clone();
+        let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
+        for file in &mut final_files.files {
+            if let Some(current) = segment_view.file_entry(file.id) {
+                file.status = current.status;
+                file.omitted_diagnostics = current.omitted_diagnostics;
+                for diagnostic in &current.diagnostics {
+                    if !file.diagnostics.iter().any(|candidate| {
+                        let mut candidate = candidate.clone();
+                        candidate.record = None;
+                        let mut diagnostic = diagnostic.clone();
+                        diagnostic.record = None;
+                        candidate == diagnostic
+                    }) {
+                        file.diagnostics.push(diagnostic.clone());
+                    }
+                }
+            }
+        }
         for (collection, state) in final_repository.collections.iter_mut().zip(&mut pending) {
-            collection.generation = CollectionBuilder::new(
+            let segments = segment_view
+                .segments(state.id)
+                .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
+            let mut relations = RelationContribution::for_schema(&state.definition.schema);
+            let metadata = segment_metadata_generation(
                 state.id,
-                state.definition.name.clone(),
-                1,
-                discovered.files.len(),
+                &state.definition.name,
+                segments,
+                &mut final_files,
+                &mut relations,
             )
-            .finish(&discovered)
             .map_err(IndexError::Build)?;
+            collection.generation = metadata.generation;
+            collection.id_lookup = metadata.id_lookup;
+            collection.identity_order = metadata.identity_order;
+            collection.stats = metadata.stats;
+            collection.logical_records = metadata.logical_records;
+            collection.empty_array_records = metadata.empty_array_records;
+            if let Some(first) = segments.first() {
+                // Sort bindings need locale/options/direction metadata before
+                // segment-local columns can be selected. Keys remain owned by
+                // their source segments and are never addressed through this
+                // compatibility header.
+                collection.sorting = first.index.sorting.clone();
+            }
+            pending_relations.push(relations);
             let (summary, stats) = state.finish_summary().map_err(IndexError::Build)?;
             collection.global_inference = summary;
-            // These statistics describe the immutable base generation. The
-            // completed initial build lives in lifecycle segments, which are
-            // accounted for separately by the published view. Snapshot
-            // validation recomputes this base-only summary.
-            collection.stats = CollectionStats {
-                file_count: 0,
-                record_count: 0,
-                total_file_bytes: 0,
-            };
             inference_build.absorb(stats);
         }
+        for (source_index, contributions) in pending_relations.into_iter().enumerate() {
+            let source = final_repository.collections[source_index].generation.collection;
+            for contribution in &contributions {
+                let logical_count =
+                    final_repository.collections[source_index].logical_records.len() as u32;
+                if let Some(posting) = final_repository.collections[source_index]
+                    .postings
+                    .fields
+                    .get_mut(&contribution.declaration().path)
+                {
+                    posting.presence = contribution.presence().clone();
+                    posting.values = contribution.reverse_postings();
+                    posting.value_complete = true;
+                    posting.covered_records = logical_count;
+                }
+            }
+            let indexes = contributions
+                .into_iter()
+                .enumerate()
+                .map(|(ordinal, contribution)| {
+                    contribution.resolve(
+                        source,
+                        u32::try_from(ordinal).map_err(|_| "too many relations")?,
+                        &final_repository.collections,
+                    )
+                })
+                .collect::<Result<Vec<_>, _>>()
+                .map_err(IndexError::Build)?;
+            final_repository.collections[source_index].relations = indexes;
+        }
+        crate::relation::validate_indexes(&final_repository.collections)
+            .map_err(IndexError::Build)?;
+        final_repository.files = Arc::new(final_files);
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.finalize_generation_ns = started.elapsed().as_nanos() as u64;
             profile.finalization_rss_bytes = build_profile_rss_bytes();
@@ -834,6 +1415,8 @@ impl Repository {
             build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
             build_peak_active_jobs: schedule_stats.peak_active_jobs,
             build_peak_ready_batches: schedule_stats.peak_ready_batches,
+            build_peak_segment_jobs: peak_segment_jobs,
+            build_peak_segment_window: peak_segment_window,
             build_job_execution_ns: schedule_stats.job_execution_ns,
             build_receive_wait_ns: schedule_stats.receive_wait_ns,
             build_admission_ns: schedule_stats.admission_ns,

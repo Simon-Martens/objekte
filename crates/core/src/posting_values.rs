@@ -345,13 +345,20 @@ fn scan_inferred_segment(
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
     for file_index in 0..segment.index.file_count() {
-        let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+        let file = segment
+            .index
+            .files
+            .get(file_index)
+            .ok_or("segment file row missing")?;
         let ranges = file
             .records
             .iter()
             .filter(|slot| segment.active.contains(**slot))
             .map(|slot| {
-                let record = segment.index.record(*slot).ok_or("segment record row missing")?;
+                let record = segment
+                    .index
+                    .record(*slot)
+                    .ok_or("segment record row missing")?;
                 Ok((record.class == RecordClass::Logical).then_some((slot.0, record.range)))
             })
             .collect::<Result<Vec<_>, String>>()?
@@ -521,6 +528,7 @@ pub(crate) fn select_exact_segmented(
     if !query.collections.is_empty() && !query.collections.iter().any(|name| name == collection) {
         return Err("selection query excludes requested collection".into());
     }
+    crate::sort_binding::BoundSort::bind(repo, query)?;
     let mut request = query.resolve_current_clock()?.into_owned();
     request.collections = vec![collection.to_owned()];
     request.options.count = true;
@@ -535,6 +543,54 @@ pub(crate) fn select_exact_segmented(
             |total, segment| total.checked_add(segment.active.len() as usize),
         )
         .ok_or("selection domain too large")?;
+    if request.fts.is_none() && base_active[collection_index].len() == 0 {
+        let prepared = crate::prepared::prepare(repo, &request)?;
+        let filter = prepared
+            .collections
+            .iter()
+            .find(|(index, _, _)| *index == collection_index)
+            .and_then(|(_, filter, _)| filter.as_ref());
+        let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
+        let mut exact = true;
+        for (segment_index, segment) in segments[collection_index].iter().enumerate() {
+            let members = if let Some(filter) = filter {
+                match crate::executor::segment_filter_bounds_with_catalog(
+                    &segment.index,
+                    &segment.active,
+                    filter,
+                    state,
+                    Some(catalog),
+                ) {
+                    Ok(bounds) if bounds.may == bounds.must => bounds.must,
+                    Ok(bounds)
+                        if filter_excludes_raw_fallback(filter)
+                            && (&bounds.may & &segment.index.logical_records)
+                                == (&bounds.must & &segment.index.logical_records) =>
+                    {
+                        &bounds.must & &segment.index.logical_records
+                    }
+                    _ => {
+                        exact = false;
+                        break;
+                    }
+                }
+            } else {
+                segment.active.bitmap()
+            };
+            segment_members[segment_index] = members;
+        }
+        if exact {
+            return Ok(ExactSelection(Arc::new(SelectionData {
+                id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
+                instance_id: repo.instance_id,
+                collection_index,
+                generation: state.generation.generation,
+                revision: Some(revision),
+                members: RoaringBitmap::new(),
+                segment_members,
+            })));
+        }
+    }
     let result =
         crate::run::search_segmented(repo, &request, base_active, segments, catalog, revision)?;
     if result.count != Some(result.hits.len()) {
@@ -577,6 +633,23 @@ pub(crate) fn select_exact_segmented(
     })))
 }
 
+fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
+    match expr {
+        crate::reference::BoundExpr::Term(term) => {
+            term.path.root == crate::model::PathRoot::Data
+                && term.related.is_none()
+                && !matches!(
+                    term.operator,
+                    crate::query::Operator::Contains | crate::query::Operator::NotContains
+                )
+        }
+        crate::reference::BoundExpr::And(parts) => {
+            parts.iter().all(filter_excludes_raw_fallback)
+        }
+        crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
+    }
+}
+
 pub(crate) fn posting_values_segmented(
     repo: &Repository,
     request: &PostingValuesRequest,
@@ -598,8 +671,51 @@ pub(crate) fn posting_values_segmented(
         return Err("posting value page limit exceeds maximum".into());
     }
     let path = FieldPath::parse(&request.field)?;
-    let base = resolve(collection, request, &path)?;
-    if base.index.covered_records as u64 != collection.logical_records.len() {
+    let metadata = resolve(collection, request, &path);
+    let base = match metadata {
+        Ok(metadata)
+            if base_active[collection_index].len() != 0
+                || metadata.index.covered_records as u64 == collection.logical_records.len() =>
+        {
+            metadata
+        }
+        result if base_active[collection_index].len() == 0 => {
+            let segment = segments[collection_index]
+                .iter()
+                .find(|segment| segment.active.len() != 0)
+                .ok_or("posting value collection has no admitted segment")?;
+            let requested_binding = request
+                .binding
+                .as_deref()
+                .or_else(|| {
+                    collection
+                        .definition
+                        .schema
+                        .defaults
+                        .get(&path.segments)
+                        .map(String::as_str)
+                })
+                .unwrap_or("default");
+            if requested_binding == "default"
+                && let Some(inference) = &segment.index.inference
+                && inference.indexes.contains_key(&path.segments)
+            {
+                resolve_segment(
+                    collection,
+                    &segment.index,
+                    &path,
+                    "inferred",
+                    inference.report.policy.version,
+                )?
+            } else {
+                result?
+            }
+        }
+        result => result?,
+    };
+    if base.index.covered_records as u64 != collection.logical_records.len()
+        && base_active[collection_index].len() != 0
+    {
         return Err("incomplete posting logical coverage".into());
     }
     let binding = base.binding.clone();
@@ -613,7 +729,9 @@ pub(crate) fn posting_values_segmented(
         let missing = binding == "inferred"
             && segment.active.len() > 0
             && resolve_segment(collection, &segment.index, &path, &binding, binding_version)
-                .map_or(true, |posting| posting.index.kind != base.index.kind);
+                .map_or(true, |posting| {
+                    posting.index.kind != base.index.kind || !posting.index.value_complete
+                });
         fallbacks.push(if missing {
             Some(scan_inferred_segment(
                 repo,
@@ -652,7 +770,11 @@ pub(crate) fn posting_values_segmented(
             continue;
         }
         for file_index in 0..segment.index.file_count() {
-            let file = segment.index.files.get(file_index).ok_or("segment file row missing")?;
+            let file = segment
+                .index
+                .files
+                .get(file_index)
+                .ok_or("segment file row missing")?;
             if file
                 .records
                 .iter()
@@ -888,6 +1010,17 @@ pub(crate) fn posting_values_segmented(
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
+        if self.segments.iter().any(|segments| !segments.is_empty()) {
+            return select_exact_segmented(
+                self,
+                collection,
+                query,
+                self.revision,
+                &self.active,
+                &self.segments,
+                &self.catalog,
+            );
+        }
         self.select_exact_with_active(collection, query, None, None)
     }
 
@@ -940,6 +1073,16 @@ impl Repository {
         &self,
         request: &PostingValuesRequest,
     ) -> Result<PostingValuesPage, String> {
+        if self.segments.iter().any(|segments| !segments.is_empty()) {
+            return posting_values_segmented(
+                self,
+                request,
+                self.revision,
+                &self.active,
+                &self.segments,
+                &self.catalog,
+            );
+        }
         self.posting_values_with_active(request, None, None)
     }
 

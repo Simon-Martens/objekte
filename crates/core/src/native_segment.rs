@@ -93,6 +93,10 @@ impl SegmentId {
     pub const fn get(self) -> u64 {
         self.0
     }
+
+    pub(crate) const fn for_collection(collection: CollectionId, local: u64) -> Self {
+        Self(((collection.0 as u64) << 32) | local)
+    }
 }
 
 impl fmt::Display for SegmentId {
@@ -118,7 +122,24 @@ pub(crate) struct SegmentAccounting {
     pub index_family_bytes: usize,
 }
 
+/// Public read-only summary of one native segment for diagnostics.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
+pub struct NativeSegmentSummary {
+    pub id: SegmentId,
+    pub collection: CollectionId,
+    pub records: usize,
+    pub active_records: usize,
+    pub files: usize,
+    pub source_bytes: u64,
+    pub bigram_stores: usize,
+    pub distinct_gram_keys: usize,
+    pub bigram_heap_bytes: usize,
+    pub index_family_bytes: usize,
+    pub active: bool,
+}
+
 /// Complete native search payload owned by one immutable segment.
+#[derive(Clone)]
 pub(crate) struct IndexedCollectionSegment {
     pub id: SegmentId,
     pub collection: CollectionId,
@@ -176,7 +197,7 @@ pub(crate) struct NativeSnapshotRef<'a> {
 /// Component kind exposed by borrowed inspection and future persistence
 /// boundaries. The payload remains a concrete native field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum NativeComponentKind {
+pub enum NativeComponentKind {
     DeclaredPosting,
     InferredPosting,
     CustomPosting,
@@ -188,7 +209,7 @@ pub(crate) enum NativeComponentKind {
 }
 
 /// A small borrowed descriptor. It does not clone a posting or bitmap.
-pub(crate) struct NativeComponentDescriptor<'a> {
+pub struct NativeComponentDescriptor<'a> {
     pub collection: CollectionId,
     pub segment: SegmentId,
     pub kind: NativeComponentKind,
@@ -206,7 +227,7 @@ impl IndexedCollectionSegment {
         }
     }
 
-    pub(crate) fn component_descriptors(&self) -> Vec<NativeComponentDescriptor<'_>> {
+    pub fn component_descriptors(&self) -> Vec<NativeComponentDescriptor<'_>> {
         let mut descriptors = Vec::with_capacity(
             self.postings.fields.len()
                 + self

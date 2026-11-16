@@ -24,7 +24,6 @@ use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
 use crate::temporal_query::TemporalBounds;
 
-
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]
 pub struct FieldDefinition {
@@ -39,13 +38,11 @@ pub struct FieldDefinition {
     pub element_nullable: Vec<bool>,
 }
 
-
 #[derive(Clone, Debug, Default)]
 struct ValidationNode {
     field: Option<FieldDefinition>,
     children: HashMap<String, ValidationNode>,
 }
-
 
 impl ValidationNode {
     fn requires_presence(&self) -> bool {
@@ -56,13 +53,11 @@ impl ValidationNode {
     }
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Transform {
     Identity,
     CaseFold,
 }
-
 
 /// Named field transformation used by indexing and scanning.
 #[derive(Clone, Debug)]
@@ -72,14 +67,12 @@ pub struct CustomBinding {
     pub transform: Transform,
 }
 
-
 /// Input required by one prepared exact field predicate.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ExactInput {
     SelectedValue,
     OriginalRecordBytes,
 }
-
 
 /// Query-scoped exact evaluator prepared by a registered binding. A byte
 /// evaluator owns missing-field and array semantics for its whole record;
@@ -105,7 +98,6 @@ pub trait PreparedFilterMatcher: Send + Sync + std::fmt::Debug {
     }
 }
 
-
 /// Query-scoped literal substring evaluator over one reader-owned segment.
 pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
     /// Estimated bytes owned by this prepared matcher, excluding its Arc.
@@ -119,7 +111,6 @@ pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
         false
     }
 }
-
 
 /// One prepared named operation shared by FILTER, FTS, indexes, and scanners.
 /// Implementations work at value or record boundaries, never per character.
@@ -192,7 +183,6 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     }
 }
 
-
 /// Stable named binding and semantic/configuration version.
 #[derive(Clone, Debug)]
 pub struct RegisteredBinding {
@@ -200,7 +190,6 @@ pub struct RegisteredBinding {
     pub version: u32,
     pub operation: Arc<dyn BindingOperation>,
 }
-
 
 /// In-memory field definitions and custom query bindings.
 #[derive(Clone, Debug, Default)]
@@ -221,7 +210,6 @@ pub struct Schema {
     validation: ValidationNode,
     indexed_value_paths: ValidationNode,
 }
-
 
 impl Schema {
     /// Include the exact selected schema bytes in snapshot compatibility.
@@ -499,7 +487,6 @@ impl Schema {
     }
 }
 
-
 fn converted_kind(kind: &LogicalType) -> bool {
     match kind {
         LogicalType::Id | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime => true,
@@ -698,7 +685,6 @@ fn metadata_type(field: MetadataField) -> LogicalType {
     }
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Derived {
     None,
@@ -735,7 +721,6 @@ pub(crate) enum PreparedContains {
     Wildcards(Vec<Finder<'static>>),
 }
 
-
 #[cfg(test)]
 thread_local! {
     static PREPARED_CONTAINS_BUILDS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
@@ -759,7 +744,6 @@ fn split_contains_wildcards(pattern: &str) -> (bool, Vec<String>) {
     pieces.push(current);
     (wildcard, pieces)
 }
-
 
 impl PreparedContains {
     pub(crate) fn new(pattern: &str) -> Self {
@@ -803,7 +787,6 @@ impl PreparedContains {
     }
 }
 
-
 /// Typed predicate with its resolved path, literal, and binding.
 #[derive(Clone, Debug)]
 pub struct BoundTerm {
@@ -831,7 +814,6 @@ pub struct BoundTerm {
     pub span: (usize, usize),
 }
 
-
 /// Prepared right-hand field for one dynamic scalar comparison.
 #[derive(Clone, Debug)]
 pub struct BoundFieldOperand {
@@ -843,7 +825,6 @@ pub struct BoundFieldOperand {
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub multi: bool,
 }
-
 
 /// Compare the exact semantics of two predicates within one collection plan.
 /// Source spans and gram requests locate/accelerate a predicate; neither is
@@ -905,7 +886,6 @@ pub(crate) fn same_bound_term(a: &BoundTerm, b: &BoundTerm) -> bool {
         && same_related
 }
 
-
 #[derive(Debug)]
 struct MappedFilterMatcher {
     operation: Arc<dyn BindingOperation>,
@@ -913,7 +893,6 @@ struct MappedFilterMatcher {
     operator: Operator,
     text_equivalent: bool,
 }
-
 
 impl PreparedFilterMatcher for MappedFilterMatcher {
     fn retained_bytes(&self) -> usize {
@@ -937,7 +916,6 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
         self.text_equivalent
     }
 }
-
 
 const MAX_FOLD_SCRATCH_CAPACITY: usize = 256 * 1024;
 const MAX_SHARED_FOLDS: usize = 64;
@@ -970,13 +948,11 @@ thread_local! {
     static FOLD_VALUE_REUSES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
-
 /// Keep exceptional folding capacity until all segments of one record have
 /// consumed it. Unwrapped callers retain the previous per-segment bound.
 pub(crate) struct FoldRecordGuard {
     sharing: bool,
 }
-
 
 impl FoldRecordGuard {
     pub(crate) fn new() -> Self {
@@ -991,7 +967,6 @@ impl FoldRecordGuard {
         Self { sharing }
     }
 }
-
 
 impl Drop for FoldRecordGuard {
     fn drop(&mut self) {
@@ -1022,7 +997,6 @@ impl Drop for FoldRecordGuard {
         });
     }
 }
-
 
 fn trim_fold_scratch() {
     FOLD_SCRATCH.with(|scratch| {
@@ -1131,14 +1105,12 @@ pub(crate) fn fold_candidate_transforms() -> usize {
     FOLD_CANDIDATE_TRANSFORMS.with(std::cell::Cell::get)
 }
 
-
 #[derive(Debug)]
 struct MappedTextMatcher {
     operation: Arc<dyn BindingOperation>,
     finder: Finder<'static>,
     case_sensitivity: CaseSensitivity,
 }
-
 
 impl MappedTextMatcher {
     fn new(
@@ -1154,7 +1126,6 @@ impl MappedTextMatcher {
         }
     }
 }
-
 
 impl PreparedTextMatcher for MappedTextMatcher {
     fn retained_bytes(&self) -> usize {
@@ -1176,7 +1147,6 @@ impl PreparedTextMatcher for MappedTextMatcher {
     }
 }
 
-
 /// Regex over a selected registered text representation, one segment at a time.
 #[derive(Debug)]
 struct RegexTextMatcher {
@@ -1184,7 +1154,6 @@ struct RegexTextMatcher {
     transform: Transform,
     operation: Option<Arc<dyn BindingOperation>>,
 }
-
 
 impl PreparedTextMatcher for RegexTextMatcher {
     fn retained_bytes(&self) -> usize {
@@ -1211,7 +1180,6 @@ impl PreparedTextMatcher for RegexTextMatcher {
     }
 }
 
-
 #[derive(Clone, Debug)]
 pub enum BoundExpr {
     Term(BoundTerm),
@@ -1219,7 +1187,6 @@ pub enum BoundExpr {
     Or(Vec<BoundExpr>),
     Not(Box<BoundExpr>),
 }
-
 
 pub fn bind_filter(expr: &FilterExpr, schema: &Schema) -> Result<BoundExpr, String> {
     bind_filter_with_parameters(expr, schema, &mut HashMap::new())
@@ -1801,7 +1768,6 @@ fn prepare_literal(
     })
 }
 
-
 /// Record data and inventory metadata available during evaluation.
 pub struct RecordContext<'a> {
     pub value: &'a Value,
@@ -1811,7 +1777,6 @@ pub struct RecordContext<'a> {
     pub collection_name: &'a str,
     pub repository_root: &'a Path,
 }
-
 
 pub(crate) fn metadata_value(
     field: MetadataField,
@@ -2739,7 +2704,6 @@ pub fn eval_fts(
     matched
 }
 
-
 /// One selected FTS target with its literal prepared for the bound operation.
 #[derive(Clone, Debug)]
 pub struct BoundFtsField {
@@ -2756,7 +2720,6 @@ pub struct BoundFtsField {
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub matcher: Option<Arc<dyn PreparedTextMatcher>>,
 }
-
 
 /// Collection-specific FTS bindings, including the configured raw target.
 #[derive(Clone, Debug)]
@@ -2776,7 +2739,6 @@ pub struct BoundFts {
     pub(crate) fallback_regex: Option<CompiledRegex>,
     pub fields: Vec<BoundFtsField>,
 }
-
 
 fn logical_type_retained_heap_bytes(kind: &LogicalType) -> usize {
     match kind {
@@ -3384,6 +3346,10 @@ pub(crate) fn match_borrowed_source_filter(term: &BoundTerm, text: &str) -> bool
 }
 
 fn match_borrowed_source_filter_folded(term: &BoundTerm, text: &str, folded: Option<&str>) -> bool {
+    if let Some(matcher) = &term.matcher {
+        let value = Value::String(text.to_owned());
+        return matcher.matches(Some(&value), None).unwrap_or(false);
+    }
     let Some(prepared) = &term.prepared_contains else {
         return false;
     };

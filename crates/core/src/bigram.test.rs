@@ -609,15 +609,16 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
         )
         .unwrap();
         let collection = &repo.collections()[0];
+        let built = &repo.segments[0][0].index;
         assert_eq!(collection.generation.records.len(), 4);
         let expected_raw = independent_index(&raw_records, alphabet, 0);
         let expected_fallback = independent_index(&fallback_records, alphabet, 0);
-        assert_eq!(collection.raw.normal, expected_raw.normal);
-        assert_eq!(collection.raw.skip, expected_raw.skip);
-        assert_eq!(collection.fallback_text.normal, expected_fallback.normal);
-        assert_eq!(collection.fallback_text.skip, expected_fallback.skip);
-        assert_eq!(collection.custom_text.len(), 1);
-        let custom = collection.custom_text.values().next().unwrap();
+        assert_eq!(built.raw.normal, expected_raw.normal);
+        assert_eq!(built.raw.skip, expected_raw.skip);
+        assert_eq!(built.fallback_text.normal, expected_fallback.normal);
+        assert_eq!(built.fallback_text.skip, expected_fallback.skip);
+        assert_eq!(built.custom_text.len(), 1);
+        let custom = built.custom_text.values().next().unwrap();
         assert_eq!(custom.normal, expected_raw.normal);
         assert_eq!(custom.skip, expected_raw.skip);
     }
