@@ -1234,7 +1234,7 @@ impl Repository {
                         }
                     }
                 }
-                for ((path, binding), index) in &segment.index.custom_text {
+                for ((path, binding), index) in segment.index.custom_text.iter() {
                     for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
                         for (key, bitmap) in map {
                             add_bitmap(

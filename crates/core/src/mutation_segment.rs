@@ -755,7 +755,7 @@ impl CollectionSegment {
             custom_postings,
             raw: Arc::new(raw),
             fallback_text: Arc::new(fallback_text),
-            custom_text,
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),
@@ -1186,7 +1186,7 @@ impl IndexedCollectionSegment {
         }
         let mut raw = (*first.raw).clone();
         let mut fallback_text = (*first.fallback_text).clone();
-        let mut custom_text = first.custom_text.clone();
+        let mut custom_text = (*first.custom_text).clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
         let mut sorting = (*first.sorting).clone();
@@ -1262,7 +1262,7 @@ impl IndexedCollectionSegment {
                 if custom_text.len() != shard.custom_text.len() {
                     return Err("custom bigram segment coverage mismatch".into());
                 }
-                for (key, source) in &shard.custom_text {
+                for (key, source) in shard.custom_text.iter() {
                     merge_bigram_index(
                         custom_text
                             .get_mut(key)
@@ -1378,7 +1378,7 @@ impl IndexedCollectionSegment {
             custom_postings,
             raw: Arc::new(raw),
             fallback_text: Arc::new(fallback_text),
-            custom_text,
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),
@@ -2177,7 +2177,7 @@ impl IndexedCollectionSegment {
         let mut custom = (0..routing.selected.len())
             .map(|_| HashMap::with_capacity(self.custom_text.len()))
             .collect::<Vec<_>>();
-        for (key, index) in &self.custom_text {
+        for (key, index) in self.custom_text.iter() {
             for (destination, projected) in scatter_bigram_partitions(index, routing)?
                 .into_iter()
                 .enumerate()
@@ -2600,7 +2600,7 @@ impl IndexedCollectionSegment {
             custom_postings,
             raw: Arc::new(raw),
             fallback_text: Arc::new(fallback_text),
-            custom_text,
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),

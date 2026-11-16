@@ -248,7 +248,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: Arc<BigramIndex>,
     pub fallback_text: Arc<BigramIndex>,
-    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub custom_text: Arc<HashMap<(Vec<String>, String), BigramIndex>>,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
     pub sorting: Arc<SortCollection>,
@@ -636,7 +636,7 @@ impl IndexedCollectionSegment {
         retained = retained
             .saturating_add(gram_bytes(&self.raw))
             .saturating_add(gram_bytes(&self.fallback_text));
-        for ((path, binding), index) in &self.custom_text {
+        for ((path, binding), index) in self.custom_text.iter() {
             retained = retained
                 .saturating_add(path_bytes(path))
                 .saturating_add(binding.len())

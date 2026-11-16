@@ -223,7 +223,7 @@ pub(crate) fn base_as_segment(
         custom_postings: collection.custom_postings.clone(),
         raw: Arc::new(collection.raw.clone()),
         fallback_text: Arc::new(collection.fallback_text.clone()),
-        custom_text: collection.custom_text.clone(),
+        custom_text: Arc::new(collection.custom_text.clone()),
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
         sorting: Arc::new(collection.sorting.clone()),
