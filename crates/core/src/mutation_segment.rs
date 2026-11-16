@@ -609,13 +609,35 @@ impl CollectionSegment {
         let inference_observation = inference
             .as_ref()
             .map(crate::inference::InferenceBuilder::observation);
-        let inference = inference
+        let mut inference = inference
             .map(|builder| {
                 builder.finish_candidates(&logical_records, record_count, &definition.schema)
             })
             .transpose()?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_finish_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        postings.freeze_storage()?;
+        for custom in custom_postings.values_mut() {
+            custom.index.freeze_storage()?;
+        }
+        if let Some(inference) = &mut inference {
+            for index in inference.indexes.values_mut() {
+                index.freeze_storage()?;
+            }
+        }
+        postings.validate_eligible(record_count, logical_count)?;
+        for custom in custom_postings.values() {
+            custom.index.validate_eligible(record_count, logical_count)?;
+        }
+        if let Some(inference) = &inference {
+            for index in inference.indexes.values() {
+                index.validate_eligible(record_count, logical_count)?;
+            }
+        }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.postings_archive_freeze_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut identity_order = self
@@ -631,15 +653,23 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let (files, records) =
+            crate::segment_archive::SegmentRows::freeze(self.files, self.records)?.views();
+        let file_index = crate::segment_archive::FileLookup::freeze(self.file_index)?;
+        let id_lookup = crate::segment_archive::RecordLookup::freeze(self.id_lookup)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.segment_rows_archive_freeze_ns += started.elapsed().as_nanos() as u64;
+        }
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
             source_id: self.source_id,
             source_version: self.source_version,
-            files: self.files,
-            file_index: self.file_index,
-            records: self.records,
-            id_lookup: self.id_lookup,
+            files,
+            file_index,
+            records,
+            id_lookup,
             identity_order,
             postings,
             inference_observation,
@@ -924,6 +954,7 @@ fn consolidate_inference(
                 continue;
             }
             let mut index = initial.clone();
+            index.thaw_storage()?;
             index.presence.clear();
             index.empty_selections.clear();
             index.nulls.clear();
@@ -1065,7 +1096,11 @@ impl IndexedCollectionSegment {
         let mut records = Vec::with_capacity(total_records);
         let mut id_lookup = HashMap::new();
         let mut postings = first.postings.clone();
+        postings.thaw_storage()?;
         let mut custom_postings = first.custom_postings.clone();
+        for posting in custom_postings.values_mut() {
+            posting.index.thaw_storage()?;
+        }
         let mut raw = first.raw.clone();
         let mut fallback_text = first.fallback_text.clone();
         let mut custom_text = first.custom_text.clone();
@@ -1254,6 +1289,10 @@ impl IndexedCollectionSegment {
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
+        let (files, records) =
+            crate::segment_archive::SegmentRows::freeze(files, records)?.views();
+        let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
+        let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
         let mut index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
@@ -1310,27 +1349,13 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
             .structural
             .as_ref()
             .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
+        values: crate::posting::PostingDictionary::builder(),
+        lengths: crate::posting::PostingDictionary::builder(),
         value_complete: source.value_complete,
         length_complete: source.length_complete,
         empty_string_complete: source.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
-    }
-}
-
-fn scatter_posting_key<K: Ord + Clone>(
-    target: &mut std::collections::BTreeMap<K, RoaringBitmap>,
-    key: &K,
-    slot: u32,
-) {
-    if let Some(bitmap) = target.get_mut(key) {
-        bitmap.insert(slot);
-    } else {
-        let mut bitmap = RoaringBitmap::new();
-        bitmap.insert(slot);
-        target.insert(key.clone(), bitmap);
     }
 }
 
@@ -1371,7 +1396,7 @@ fn scatter_posting_partitions(
         }
     }
     if let Some(facts) = &index.structural {
-        for (key, bitmap) in &facts.postings {
+        facts.postings.for_each(|key, bitmap| {
             for old in bitmap.iter() {
                 if let Some((part, slot)) = posting_destination(routing, old)? {
                     parts[part]
@@ -1384,12 +1409,17 @@ fn scatter_posting_partitions(
                         .insert(slot.0);
                 }
             }
-        }
+            Ok(())
+        })?;
     }
     index.for_each_value(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].values, key, slot.0);
+                parts[part]
+                    .values
+                    .entry(crate::posting::StoredScalarKey::from_scalar(key))
+                    .or_default()
+                    .insert(slot.0);
             }
         }
         Ok(())
@@ -1397,7 +1427,11 @@ fn scatter_posting_partitions(
     index.for_each_length(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].lengths, key, slot.0);
+                parts[part]
+                    .lengths
+                    .entry(crate::posting::PostingNumberKey::from_number(key))
+                    .or_default()
+                    .insert(slot.0);
             }
         }
         Ok(())
@@ -1600,8 +1634,8 @@ fn project_posting(
             .structural
             .as_ref()
             .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
+        values: crate::posting::PostingDictionary::builder(),
+        lengths: crate::posting::PostingDictionary::builder(),
         value_complete: index.value_complete,
         length_complete: index.length_complete,
         empty_string_complete: index.empty_string_complete,
@@ -1611,24 +1645,25 @@ fn project_posting(
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.values.insert(key.clone(), kept);
+            projected.values.insert_public(key, kept);
         }
         Ok(())
     })?;
     index.for_each_length(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.lengths.insert(key.clone(), kept);
+            projected.lengths.insert_public(key, kept);
         }
         Ok(())
     })?;
     if let (Some(source), Some(target)) = (&index.structural, &mut projected.structural) {
-        for (key, bitmap) in &source.postings {
+        source.postings.for_each(|key, bitmap| {
             let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
             if !kept.is_empty() {
-                target.postings.insert(*key, kept);
+                target.postings.insert_public(key, kept);
             }
-        }
+            Ok(())
+        })?;
     }
     projected.covered_records = logical_count;
     projected.finish_stats();
@@ -2246,8 +2281,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|id| {
                 self.file_index
-                    .get(id)
-                    .copied()
+                    .get(*id)
                     .ok_or_else(|| "partition file missing".to_owned())
             })
             .collect::<Result<Vec<_>, _>>()?;
@@ -2478,6 +2512,10 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
+        let (files, records) =
+            crate::segment_archive::SegmentRows::freeze(files, records)?.views();
+        let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
+        let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,

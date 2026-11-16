@@ -608,7 +608,7 @@ pub(crate) fn select_exact_segmented(
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref()).copied()
+            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref())
                 && segment.active.contains(slot)
             {
                 if found {

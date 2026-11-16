@@ -238,9 +238,19 @@ impl RelationIndex {
                     .insert(source_slot as u32);
             }
         }
-        if (!posting.values.is_empty() && reverse != posting.values)
-            || unresolved != self.unresolved_count
-        {
+        let reverse_mismatch = if !posting.values.is_empty() && reverse.len() != posting.values.len() {
+            true
+        } else {
+            let mut mismatch = false;
+            posting.values
+                .for_each(|key, bitmap| {
+                    mismatch |= reverse.get(key) != Some(bitmap);
+                    Ok(())
+                })
+                .map_err(|error| error.to_string())?;
+            mismatch
+        };
+        if reverse_mismatch || unresolved != self.unresolved_count {
             return Err("relation forward/reverse membership mismatch".into());
         }
         Ok(())

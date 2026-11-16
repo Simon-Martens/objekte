@@ -314,8 +314,7 @@ impl<'a> MergedRelationView<'a> {
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
                 .file_index
-                .get(&record.file)
-                .copied()
+                .get(record.file)
                 .ok_or("merged segment file missing")?;
             let file = segment
                 .files
@@ -376,7 +375,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.id_lookup.get(id)
                 && published.active.contains(slot)
             {
                 if found.is_some() {

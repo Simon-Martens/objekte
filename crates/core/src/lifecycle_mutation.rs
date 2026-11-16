@@ -51,6 +51,9 @@ pub enum FileMutationKind {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FileMutationStrategy {
     AppendReplacement,
+    /// One existing destination segment per affected collection was rebuilt
+    /// from its live archived contributions plus the incoming file.
+    RebuildSmallestSegment,
     /// The destination's raw digest and source revision matched the indexed
     /// file; only its catalog route and file version changed.
     ContentPreservingMove,
@@ -393,6 +396,11 @@ impl Index {
                         IndexError::InvalidPublication("new file version missing".into()),
                     )?,
                 };
+            let strategy = if next.destination_rebuilt {
+                FileMutationStrategy::RebuildSmallestSegment
+            } else {
+                FileMutationStrategy::AppendReplacement
+            };
             match self.publish_prepared(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {
@@ -403,7 +411,7 @@ impl Index {
                         indexed_records,
                         affected_collections,
                         kind: FileMutationKind::Added,
-                        strategy: FileMutationStrategy::AppendReplacement,
+                        strategy,
                         fallback_reason: None,
                     });
                 }
@@ -665,7 +673,12 @@ impl Index {
                 }),
             };
             let expected = prepared.expected_revision;
-            let next = match self.stage_prepared_replace(prepared) {
+            let next = match match options.strategy {
+                UpdateStrategy::AppendReplacement => self.stage_prepared_replace(prepared),
+                UpdateStrategy::PreferVerified => {
+                    self.stage_prepared_replace_append_only(prepared)
+                }
+            } {
                 Ok(next) => next,
                 Err(error @ IndexError::RevisionConflict { .. }) => {
                     conflict = Some(error);
@@ -711,6 +724,13 @@ impl Index {
                 }
                 Some(Err(reason)) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
                 None => (next, FileMutationStrategy::AppendReplacement, None),
+            };
+            let strategy = if matches!(strategy, FileMutationStrategy::AppendReplacement)
+                && next.destination_rebuilt
+            {
+                FileMutationStrategy::RebuildSmallestSegment
+            } else {
+                strategy
             };
             let file = FileHandle {
                 instance_id: self.instance_id(),

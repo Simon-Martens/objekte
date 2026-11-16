@@ -484,21 +484,23 @@ fn add_count(target: &mut u64, value: u64, message: &'static str) -> Result<(), 
 }
 
 fn index_byte_estimate(index: &PostingIndex) -> usize {
-    index
-        .values
-        .iter()
-        .map(|(key, slots)| {
-            128 + match key {
-                ScalarKey::String(text) => text.len(),
-                _ => 0,
-            } + slots.serialized_size()
-        })
-        .sum::<usize>()
-        + index
-            .lengths
-            .values()
-            .map(|slots| 64 + slots.serialized_size())
-            .sum::<usize>()
+    let mut total = 0usize;
+    let _ = index.values.for_each(|key, slots| {
+        total = total.saturating_add(
+            128
+                + match key {
+                    ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
+                    _ => 0,
+                }
+                + slots.serialized_size(),
+        );
+        Ok(())
+    });
+    let _ = index.lengths.for_each(|_, slots| {
+        total = total.saturating_add(64 + slots.serialized_size());
+        Ok(())
+    });
+    total
         + index
             .structural
             .as_ref()
@@ -1756,8 +1758,10 @@ impl InferenceBuilder {
                     empty_selections: std::mem::take(&mut field.empty_only),
                     nulls: field.exact_null.clone(),
                     structural: Some(StructuralFacts::default()),
-                    values,
-                    lengths: field.lengths.take().unwrap_or_default(),
+                    values: crate::posting::PostingDictionary::from_public(values),
+                    lengths: crate::posting::PostingDictionary::from_public(
+                        field.lengths.take().unwrap_or_default(),
+                    ),
                     values_indexed: true,
                     value_complete,
                     length_complete,
@@ -1799,21 +1803,26 @@ impl InferenceBuilder {
                 index.finish_stats();
                 index.validate_eligible(record_count, logical.len() as usize)?;
                 index.validate_domain(logical)?;
-                index_bytes = index
+                index_bytes = 0;
+                index
                     .values
-                    .iter()
-                    .map(|(key, slots)| {
-                        128 + match key {
-                            ScalarKey::String(text) => text.len(),
-                            _ => 0,
-                        } + slots.serialized_size()
+                    .for_each(|key, slots| {
+                        index_bytes += 128
+                            + match key {
+                                ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
+                                _ => 0,
+                            }
+                            + slots.serialized_size();
+                        Ok(())
                     })
-                    .sum::<usize>()
-                    + index
-                        .lengths
-                        .values()
-                        .map(|slots| 64 + slots.serialized_size())
-                        .sum::<usize>();
+                    .expect("posting builder iteration");
+                index
+                    .lengths
+                    .for_each(|_, slots| {
+                        index_bytes += 64 + slots.serialized_size();
+                        Ok(())
+                    })
+                    .expect("length builder iteration");
                 index_bytes += index
                     .structural
                     .as_ref()

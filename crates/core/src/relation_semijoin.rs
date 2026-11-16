@@ -1315,7 +1315,7 @@ pub(crate) fn fts_witnesses(
                 .ok_or("relation source witness slot missing")?;
             let mut address = None;
             for published in segments[hops[0].from.0 as usize].iter() {
-                if let Some(slot) = published.index.id_lookup.get(&record.id).copied()
+                if let Some(slot) = published.index.id_lookup.get(record.id.0.as_ref())
                     && published.active.contains(slot)
                 {
                     if address.is_some() {

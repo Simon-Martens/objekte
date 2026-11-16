@@ -1192,7 +1192,12 @@ impl CollectionBuilder {
         if range.start == range.end {
             return Err("record range must be nonempty".into());
         }
-        self.ids.insert(id.clone())?;
+        self.ids.insert(id.clone()).map_err(|error| {
+            format!(
+                "{error} ({})",
+                file.relative_path.as_path().display()
+            )
+        })?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,
@@ -1224,7 +1229,12 @@ impl CollectionBuilder {
         {
             return Err("invalid fallback range".into());
         }
-        self.ids.insert(id.clone())?;
+        self.ids.insert(id.clone()).map_err(|error| {
+            format!(
+                "{error} ({})",
+                file.relative_path.as_path().display()
+            )
+        })?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,

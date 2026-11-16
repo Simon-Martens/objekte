@@ -228,21 +228,7 @@ fn run() -> Result<(), String> {
                     .fields
                     .values()
                     .map(|p| {
-                        p.values
-                            .values()
-                            .map(|bitmap| bitmap.serialized_size() as usize)
-                            .sum::<usize>()
-                            + p.lengths
-                                .values()
-                                .map(|bitmap| bitmap.serialized_size() as usize)
-                                .sum::<usize>()
-                            + p.structural.as_ref().map_or(0, |facts| {
-                                facts
-                                    .postings
-                                    .values()
-                                    .map(|bitmap| bitmap.serialized_size())
-                                    .sum::<usize>()
-                            })
+                        p.dictionary_payload_bytes()
                             + if p.empty_selections.is_empty() {
                                 0
                             } else {

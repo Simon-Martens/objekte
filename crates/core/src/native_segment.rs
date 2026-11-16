@@ -15,8 +15,9 @@ use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
-use crate::posting::{CustomPostingIndex, PostingCollection};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::relation::RelationContribution;
+use crate::segment_archive::{FileLookup, RecordLookup, RecordRows, SegmentFiles};
 use crate::sorting::SortCollection;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
@@ -235,10 +236,10 @@ pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
-    pub files: Vec<SegmentFile>,
-    pub file_index: HashMap<FileId, usize>,
-    pub records: Vec<RecordEntry>,
-    pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
+    pub files: SegmentFiles,
+    pub file_index: FileLookup,
+    pub records: RecordRows,
+    pub id_lookup: RecordLookup,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
     pub(crate) inference_observation: Option<InferenceObservation>,
@@ -405,8 +406,9 @@ impl IndexedCollectionSegment {
     /// metadata rewrite. Arc-reused segments do not repeat this traversal.
     pub(crate) fn recompute_accounting(&mut self) {
         let mut retained = self.source_id.len();
-        retained =
-            retained.saturating_add(self.files.capacity() * std::mem::size_of::<SegmentFile>());
+        retained = retained
+            .saturating_add(self.files.len() * std::mem::size_of::<SegmentFile>())
+            .saturating_add(self.files.archive_bytes());
         for file in &self.files {
             retained = retained
                 .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
@@ -430,19 +432,22 @@ impl IndexedCollectionSegment {
         }
         retained = retained
             .saturating_add(
-                self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>(),
+                self.records.len() * std::mem::size_of::<crate::inventory::RecordEntry>(),
             )
+            .saturating_add(self.records.archive_bytes())
             .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(
                 self.file_index
-                    .capacity()
+                    .len()
                     .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<usize>()),
             )
+            .saturating_add(self.file_index.archive_bytes())
             .saturating_add(
                 self.id_lookup
-                    .capacity()
+                    .len()
                     .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<RecordSlot>()),
-            );
+            )
+            .saturating_add(self.id_lookup.archive_bytes());
         for record in &self.records {
             retained = retained.saturating_add(record.id.0.len());
         }
@@ -518,6 +523,29 @@ impl IndexedCollectionSegment {
         self.files.len()
     }
 
+    pub(crate) fn archive_bytes(&self) -> usize {
+        let mut total = self.files.archive_bytes();
+        total = total.saturating_add(self.file_index.archive_bytes());
+        total = total.saturating_add(self.id_lookup.archive_bytes());
+        total = total.saturating_add(self.postings.archive_bytes());
+        total = total.saturating_add(
+            self.custom_postings
+                .values()
+                .map(|posting| posting.index.archive_bytes())
+                .sum::<usize>(),
+        );
+        if let Some(inference) = &self.inference {
+            total = total.saturating_add(
+                inference
+                    .indexes
+                    .values()
+                    .map(PostingIndex::archive_bytes)
+                    .sum::<usize>(),
+            );
+        }
+        total
+    }
+
     pub(crate) fn extend_file_slots(
         &self,
         index: usize,
@@ -529,7 +557,7 @@ impl IndexedCollectionSegment {
     }
 
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
-        self.files.get(*self.file_index.get(&id)?)
+        self.files.get(self.file_index.get(id)?)
     }
 
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
@@ -562,26 +590,34 @@ fn posting_bytes(index: &crate::posting::PostingIndex) -> usize {
         total = total.saturating_add(facts.postings.len().saturating_mul(
             ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::StructuralKey>(),
         ));
-        total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
+        let _ = facts.postings.for_each(|_, bitmap| {
+            total = total.saturating_add(bitmap_bytes(bitmap));
+            Ok(())
+        });
     }
     total =
         total.saturating_add(index.values.len().saturating_mul(
             ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::ScalarKey>(),
         ));
-    for (key, bitmap) in &index.values {
+    let _ = index.values.for_each(|key, bitmap| {
         total = total.saturating_add(bitmap_bytes(bitmap));
         if let crate::posting::ScalarKey::String(value) | crate::posting::ScalarKey::Id(value) = key
         {
             total = total.saturating_add(value.len());
         }
-    }
+        Ok(())
+    });
     total = total.saturating_add(
         index
             .lengths
             .len()
             .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<Number>()),
     );
-    total.saturating_add(index.lengths.values().map(bitmap_bytes).sum::<usize>())
+    let _ = index.lengths.for_each(|_, bitmap| {
+        total = total.saturating_add(bitmap_bytes(bitmap));
+        Ok(())
+    });
+    total
 }
 
 fn gram_bytes(index: &BigramIndex) -> usize {

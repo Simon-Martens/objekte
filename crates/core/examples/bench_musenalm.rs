@@ -277,6 +277,7 @@ fn run() -> Result<(), String> {
                 "inventory_heap_bytes":view.estimated_inventory_bytes(),
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
+                "rkyv_archive_bytes": index.rkyv_archive_bytes().map_err(|error| error.to_string())?,
                 "segment_families":view.index_family_breakdown(),
             }));
             if registrations.is_empty() {
@@ -318,16 +319,7 @@ fn run() -> Result<(), String> {
                         + c.postings
                             .fields
                             .values()
-                            .map(|p| {
-                                p.values
-                                    .values()
-                                    .map(|s| s.serialized_size() as usize)
-                                    .sum::<usize>()
-                                    + p.lengths
-                                        .values()
-                                        .map(|s| s.serialized_size() as usize)
-                                        .sum::<usize>()
-                            })
+                            .map(objekte_search_core::posting::PostingIndex::dictionary_payload_bytes)
                             .sum::<usize>()
                         + c.sorting
                             .columns
@@ -370,6 +362,7 @@ fn run() -> Result<(), String> {
                 "inventory_heap_bytes": inventory_heap_bytes, "diagnostic_heap_bytes": diagnostic_heap_bytes,
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
                 "estimated_index_bytes": estimated_index_bytes,
+                "rkyv_archive_bytes": repo.rkyv_archive_bytes(),
                 "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
                 "relation_count": relations.len(),
                 "relation_edges": relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),
@@ -641,24 +634,26 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             report.push_str(&format!(
-                "- {}: open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB.\n",
+                "- {}: open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
                 result["alphabet"],
                 result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
                 result["build_parses"],
                 result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["rkyv_archive_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             ));
             continue;
         }
         report.push_str(&format!(
-            "- {}: build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB.\n",
+            "- {}: build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            result["rkyv_archive_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
         ));
     }
     report.push_str("\nTiming includes COUNT and requested page/payload. Diagnostic plans are captured outside primary samples.\n");
@@ -685,24 +680,26 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             println!(
-                "build {}: open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}",
+                "build {}: open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
                 result["alphabet"],
                 result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
                 result["build_parses"],
                 result["resident_bytes"],
                 result["peak_resident_bytes"],
                 result["estimated_index_bytes"],
+                result["rkyv_archive_bytes"],
             );
             continue;
         }
         println!(
-            "build {}: {:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}",
+            "build {}: {:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"],
             result["peak_resident_bytes"],
             result["estimated_index_bytes"],
+            result["rkyv_archive_bytes"],
         );
     }
     println!("reports: {}", result_dir.display());

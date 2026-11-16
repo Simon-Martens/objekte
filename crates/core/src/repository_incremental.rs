@@ -1147,7 +1147,15 @@ fn segment_metadata_generation(
                     record.id.clone(),
                     record.range.start,
                     record.range.end,
-                )?;
+                )
+                .map_err(|error| {
+                    format!(
+                        "{}:{}..{}: {error}",
+                        file.relative_path.as_path().display(),
+                        record.range.start,
+                        record.range.end,
+                    )
+                })?;
             } else {
                 let segment_file = segment
                     .index
@@ -1558,7 +1566,8 @@ impl Repository {
         for (collection_index, state) in pending.iter().enumerate() {
             for batch in crate::build::file_batches(&state.member_files, &discovered) {
                 if batch.len() == 1
-                    && discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                    && (discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                        || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))
                 {
                     jobs.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -2016,7 +2025,9 @@ impl Repository {
                     .get_mut(&contribution.declaration().path)
                 {
                     posting.presence = contribution.presence().clone();
-                    posting.values = contribution.reverse_postings();
+                    posting.values = crate::posting::PostingDictionary::from_public(
+                        contribution.reverse_postings(),
+                    );
                     posting.value_complete = true;
                     posting.covered_records = logical_count;
                 }

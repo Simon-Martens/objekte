@@ -24,6 +24,9 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
+pub use crate::lifecycle_compaction::{
+    CompactionMode, CompactionOptions, CompactionReport,
+};
 use crate::model::{CollectionId, FileId, Value};
 pub(crate) use crate::native_segment::PublishedSegment;
 use crate::native_segment::SegmentId;
@@ -426,6 +429,9 @@ pub(crate) struct PublishedIndex {
     /// Only populated during an initial build. One bitmap per collection
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
+    /// True when the prepared mutation reused and rebuilt its smallest
+    /// eligible destination segment.
+    pub(crate) destination_rebuilt: bool,
 }
 
 /// Native retained-memory estimate for one published contribution. It counts
@@ -451,16 +457,16 @@ pub(crate) fn index_family_estimate(
             .fields
             .values()
             .map(|posting| {
-                posting
-                    .values
-                    .values()
-                    .map(|bitmap| bitmap.serialized_size() as usize)
-                    .sum::<usize>()
-                    + posting
-                        .lengths
-                        .values()
-                        .map(|bitmap| bitmap.serialized_size() as usize)
-                        .sum::<usize>()
+                let mut total = posting.values.archive_bytes();
+                let _ = posting.values.for_each(|_, bitmap| {
+                    total = total.saturating_add(bitmap.serialized_size() as usize);
+                    Ok(())
+                });
+                let _ = posting.lengths.for_each(|_, bitmap| {
+                    total = total.saturating_add(bitmap.serialized_size() as usize);
+                    Ok(())
+                });
+                total
                     + posting
                         .structural
                         .as_ref()
@@ -509,7 +515,7 @@ fn cheapest_consolidation_pair(
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
                 let file_id = left_index.files.get(file_number)?.entry.id;
-                if right_index.file_index.get(&file_id).copied().is_some() {
+                if right_index.file_index.get(file_id).is_some() {
                     overlaps = true;
                     break;
                 }
@@ -517,7 +523,7 @@ fn cheapest_consolidation_pair(
             if !overlaps {
                 for &slot in &left_index.identity_order {
                     let id = left_index.record(slot)?.id.0.as_ref();
-                    if right_index.id_lookup.get(id).copied().is_some() {
+                    if right_index.id_lookup.get(id).is_some() {
                         overlaps = true;
                         break;
                     }
@@ -533,6 +539,17 @@ fn cheapest_consolidation_pair(
 }
 
 impl PublishedIndex {
+    pub(crate) fn archive_bytes(&self) -> usize {
+        let mut owners = std::collections::HashSet::new();
+        self.segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .filter(|segment| owners.insert(Arc::as_ptr(&segment.index) as usize))
+            .map(|segment| segment.index.archive_bytes())
+            .sum::<usize>()
+            .saturating_add(self.catalog.archive_bytes())
+    }
+
     pub(crate) fn from_repository_owned(
         instance_id: u64,
         revision: IndexRevision,
@@ -611,6 +628,7 @@ impl PublishedIndex {
             reconciliation: ReconciliationState::NotStarted,
             processed_files,
             processed_memberships: Vec::new(),
+            destination_rebuilt: false,
         })
     }
 
@@ -671,8 +689,23 @@ impl PublishedIndex {
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
     pub(crate) fn with_segment(
+        self,
+        index: IndexedCollectionSegment,
+    ) -> Result<Self, IndexError> {
+        self.with_segment_mode(index, true)
+    }
+
+    fn with_segment_uncoalesced(
+        self,
+        index: IndexedCollectionSegment,
+    ) -> Result<Self, IndexError> {
+        self.with_segment_mode(index, false)
+    }
+
+    fn with_segment_mode(
         mut self,
         mut index: IndexedCollectionSegment,
+        coalesce: bool,
     ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
@@ -680,7 +713,9 @@ impl PublishedIndex {
                 "segment collection missing".into(),
             ));
         }
-        self.make_room_for_segment(number)?;
+        if coalesce {
+            self.make_room_for_segment(number)?;
+        }
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
@@ -704,27 +739,31 @@ impl PublishedIndex {
                 ));
             }
         }
-        for (id, _) in &index.id_lookup {
-            let existing_duplicate =
-                self.segments[number]
-                    .iter()
-                    .try_fold(false, |found, segment| {
-                        let slot = segment.index.id_lookup.get(id.0.as_ref()).copied();
-                        Ok::<_, IndexError>(
-                            found || slot.is_some_and(|slot| segment.active.contains(slot)),
-                        )
-                    })?;
-            if collection
-                .id_lookup
-                .get(id)
-                .is_some_and(|slot| self.active[number].contains(*slot))
-                || existing_duplicate
-            {
-                return Err(IndexError::DuplicateRecordId {
-                    collection: collection.definition.name.clone(),
-                    record_id: id.0.to_string(),
-                });
+        let mut duplicate = None;
+        index.id_lookup.for_each_id(|id| {
+            if duplicate.is_some() {
+                return;
             }
+            let existing_duplicate = self.segments[number].iter().any(|segment| {
+                segment
+                    .index
+                    .id_lookup
+                    .get(id)
+                    .is_some_and(|slot| segment.active.contains(slot))
+            });
+            let collection_duplicate = collection
+                .id_lookup
+                .get(&crate::model::RecordId(id.into()))
+                .is_some_and(|slot| self.active[number].contains(*slot));
+            if collection_duplicate || existing_duplicate {
+                duplicate = Some(id.to_owned());
+            }
+        });
+        if let Some(record_id) = duplicate {
+            return Err(IndexError::DuplicateRecordId {
+                collection: collection.definition.name.clone(),
+                record_id,
+            });
         }
         if !self.catalog.construction_complete() {
             for file in &index.files {
@@ -768,6 +807,159 @@ impl PublishedIndex {
         }));
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
+        }
+        Ok(self)
+    }
+
+    /// Place newly prepared file contributions. For each affected collection
+    /// at most one existing destination is rebuilt: the live-lightest segment
+    /// that can hold the first incoming shard under the configured policy.
+    pub(crate) fn place_mutation_segments(
+        mut self,
+        indexed: Vec<IndexedCollectionSegment>,
+    ) -> Result<Self, IndexError> {
+        let mut attempted = std::collections::HashSet::new();
+        let mut pending = std::collections::VecDeque::from(indexed);
+        while let Some(incoming) = pending.pop_front() {
+            let number = incoming.collection.0 as usize;
+            let policy = self.repository.options().segment_policy;
+            if incoming.record_count() > policy.target_records.get() {
+                let active = ActiveRecords::all(incoming.record_count())
+                    .map_err(IndexError::ResourceLimit)?;
+                let split = crate::lifecycle_partition::compact_source_parts_with_policy(
+                    &incoming,
+                    &active,
+                    &self.catalog,
+                    policy,
+                    || false,
+                )?;
+                if split.len() > 1 {
+                    pending.extend(split);
+                    continue;
+                }
+            }
+            self = self.with_segment_uncoalesced(incoming)?;
+            if !attempted.insert(number) {
+                continue;
+            }
+            let group = &self.segments[number];
+            let Some(incoming) = group.last() else {
+                continue;
+            };
+            let candidate = group[..group.len().saturating_sub(1)]
+                .iter()
+                .enumerate()
+                .filter_map(|(position, segment)| {
+                    let live_records = segment.active.len() as usize;
+                    if live_records == 0 {
+                        return None;
+                    }
+                    let live_files = segment
+                        .index
+                        .files
+                        .iter()
+                        .filter(|file| {
+                            file.records
+                                .iter()
+                                .any(|slot| segment.active.contains(*slot))
+                        })
+                        .count();
+                    let existing_files = segment
+                        .index
+                        .files
+                        .iter()
+                        .map(|file| file.entry.id)
+                        .collect::<std::collections::HashSet<_>>();
+                    let new_files = incoming
+                        .index
+                        .files
+                        .iter()
+                        .filter(|file| !existing_files.contains(&file.entry.id))
+                        .count();
+                    policy
+                        .can_grow(
+                            live_records,
+                            live_files,
+                            incoming.index.record_count(),
+                            new_files,
+                        )
+                        .then_some((live_records, segment.id, position))
+                })
+                .min();
+            let Some((_, _, candidate_position)) = candidate else {
+                continue;
+            };
+            let candidate = &group[candidate_position];
+            let mut parts = crate::lifecycle_partition::compact_source_parts_with_policy(
+                &candidate.index,
+                &candidate.active,
+                &self.catalog,
+                policy,
+                || false,
+            )?;
+            let incoming_file_ids = incoming
+                .index
+                .files
+                .iter()
+                .map(|file| file.entry.id)
+                .collect::<std::collections::HashSet<_>>();
+            let projected_overlap = parts
+                .first()
+                .is_some_and(|part| {
+                    part.files
+                        .iter()
+                        .any(|file| incoming_file_ids.contains(&file.entry.id))
+                });
+            if projected_overlap {
+                let part = parts
+                    .first_mut()
+                    .ok_or_else(|| IndexError::Build("empty projection".into()))?;
+                if part
+                    .records
+                    .iter()
+                    .any(|record| incoming_file_ids.contains(&record.file))
+                {
+                    continue;
+                }
+                let files = part
+                    .files
+                    .iter()
+                    .filter(|file| !incoming_file_ids.contains(&file.entry.id))
+                    .cloned()
+                    .collect::<Vec<_>>();
+                let (files, records) =
+                    crate::segment_archive::SegmentRows::freeze(files, part.records.to_vec())
+                        .map_err(IndexError::Build)?
+                        .views();
+                part.files = files;
+                part.records = records;
+            }
+            let [projected] = parts.as_slice() else {
+                continue;
+            };
+            let consolidated = IndexedCollectionSegment::consolidate(
+                &[projected, &incoming.index],
+                policy.target_records.get(),
+            )
+            .map_err(IndexError::Build)?;
+            if consolidated.index.record_count() > policy.target_records.get() {
+                continue;
+            }
+            let mut consolidated = consolidated.index;
+            let segment_id = incoming.id;
+            consolidated.id = segment_id;
+            let active =
+                ActiveRecords::all(consolidated.record_count()).map_err(IndexError::ResourceLimit)?;
+            let replacement = Arc::new(PublishedSegment {
+                id: segment_id,
+                index: Arc::new(consolidated),
+                active,
+            });
+            let group = Arc::make_mut(&mut self.segments[number]);
+            group.remove(candidate_position);
+            group.pop();
+            group.insert(candidate_position, replacement);
+            self.destination_rebuilt = true;
         }
         Ok(self)
     }
@@ -1379,6 +1571,10 @@ fn prepare_initial_segment(
 }
 
 impl Index {
+    pub fn rkyv_archive_bytes(&self) -> Result<usize, IndexError> {
+        Ok(self.view()?.0.archive_bytes())
+    }
+
     /// Publish one complete initial work unit. A concurrent lifecycle
     /// mutation changes the revision and rejects this stale work atomically.
     pub(crate) fn publish_initial_segment(
@@ -1537,13 +1733,22 @@ impl Index {
                     continue;
                 }
                 let mut index = (*published.index).clone();
-                for file in &mut index.files {
+                let mut refreshed_files = index.files.to_vec();
+                for file in &mut refreshed_files {
                     if let Some(current) = repository.files.files.get(file.entry.id.0 as usize) {
                         file.entry.status = current.status;
                         file.entry.diagnostics = current.diagnostics.clone();
                         file.entry.omitted_diagnostics = current.omitted_diagnostics;
                     }
                 }
+                let (files, records) = crate::segment_archive::SegmentRows::freeze(
+                    refreshed_files,
+                    index.records.to_vec(),
+                )
+                .map_err(IndexError::InvalidPublication)?
+                .views();
+                index.files = files;
+                index.records = records;
                 index
                     .sorting
                     .refresh_file_status_for_records(&index.records, |file| {
@@ -1580,15 +1785,18 @@ impl Index {
                                 diagnostics.is_some_and(|diagnostic| diagnostic.empty_string_exact);
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
                                 if !general_values && !short_values {
+                                    posting
+                                        .thaw_storage()
+                                        .map_err(IndexError::InvalidPublication)?;
                                     let empty = empty_string_exact.then(|| {
-                                        posting.values.remove(&crate::posting::ScalarKey::String(
-                                            String::new(),
-                                        ))
+                                        posting.values.remove_public(
+                                            &crate::posting::ScalarKey::String(String::new()),
+                                        )
                                     });
                                     posting.values.clear();
                                     if let Some(Some(slots)) = empty {
-                                        posting.values.insert(
-                                            crate::posting::ScalarKey::String(String::new()),
+                                        posting.values.insert_public(
+                                            &crate::posting::ScalarKey::String(String::new()),
                                             slots,
                                         );
                                     }
@@ -2313,9 +2521,7 @@ impl Index {
             .file_versions
             .appended()
             .map_err(IndexError::ResourceLimit)?;
-        for segment in indexed {
-            next = next.with_segment(segment)?;
-        }
+        next = next.place_mutation_segments(indexed)?;
         next.revision = view.revision().next()?;
         Ok(next)
     }
@@ -2326,6 +2532,21 @@ impl Index {
     pub(crate) fn stage_prepared_replace(
         &self,
         prepared: PreparedReplacement,
+    ) -> Result<PublishedIndex, IndexError> {
+        self.stage_prepared_replace_mode(prepared, true)
+    }
+
+    pub(crate) fn stage_prepared_replace_append_only(
+        &self,
+        prepared: PreparedReplacement,
+    ) -> Result<PublishedIndex, IndexError> {
+        self.stage_prepared_replace_mode(prepared, false)
+    }
+
+    fn stage_prepared_replace_mode(
+        &self,
+        prepared: PreparedReplacement,
+        rebuild_destination: bool,
     ) -> Result<PublishedIndex, IndexError> {
         let view = self.view()?;
         if prepared.expected_handle.instance_id != self.instance_id() {
@@ -2393,14 +2614,15 @@ impl Index {
             .advanced(file_id)
             .map_err(IndexError::ResourceLimit)?
             .0;
-        for segment in indexed {
-            next = next.with_segment(segment)?;
-        }
-        // A replacement may remove a collection contribution without adding
-        // a new shard there. Recheck its retired ratio after the catalog swap.
-        for collection in &previous.collections {
-            next.make_room_for_segment(collection.0 as usize)?;
-        }
+        next = if rebuild_destination {
+            next.place_mutation_segments(indexed)?
+        } else {
+            let mut next = next;
+            for segment in indexed {
+                next = next.with_segment_uncoalesced(segment)?;
+            }
+            next
+        };
         next.revision = view.revision().next()?;
         Ok(next)
     }
@@ -2887,7 +3109,7 @@ impl IndexView {
         };
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
+            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()) else {
                 continue;
             };
             if !segment.active.contains(slot)

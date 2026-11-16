@@ -2252,8 +2252,7 @@ fn segment_active_file<'a>(
     }
     let file_index = segment
         .file_index
-        .get(&file_id)
-        .copied()
+        .get(file_id)
         .ok_or("segment record file missing")?;
     let segment_revision = segment
         .files
@@ -2284,8 +2283,7 @@ pub(crate) fn segment_record_ref<'a>(
     let record = segment.record(slot).ok_or("segment record slot missing")?;
     let file_index = segment
         .file_index
-        .get(&record.file)
-        .copied()
+        .get(record.file)
         .ok_or("segment record file missing")?;
     let segment_revision = segment
         .files
@@ -2322,7 +2320,7 @@ pub(crate) fn get_segment_record_by_id(
     if segment.collection != collection.generation.collection {
         return Err("segment collection mismatch".into());
     }
-    let Some(slot) = segment.id_lookup.get(record_id).copied() else {
+    let Some(slot) = segment.id_lookup.get(record_id) else {
         return Ok(None);
     };
     let Some(resolved) = segment_record_ref(segment, active, catalog, slot)? else {
@@ -2394,7 +2392,7 @@ pub(crate) fn direct_lookup_segmented(
         .filter(|slot| base_active[collection_index].contains(*slot));
     let mut selected_segment = None;
     for (index, segment) in segments[collection_index].iter().enumerate() {
-        if let Some(slot) = segment.index.id_lookup.get(record_id).copied()
+        if let Some(slot) = segment.index.id_lookup.get(record_id)
             && segment.active.contains(slot)
         {
             if base.is_some() || selected_segment.is_some() {
@@ -7643,8 +7641,7 @@ fn search_segmented_relations(
                     let index = published
                         .index
                         .file_index
-                        .get(&record.file)
-                        .copied()
+                         .get(record.file)
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }

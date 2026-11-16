@@ -172,11 +172,20 @@ fn compact_source_parts_with_limits(
                 inference,
             )
             .map_err(IndexError::Build)?;
-        for file in &mut compacted.files {
+        let mut refreshed_files = compacted.files.to_vec();
+        for file in &mut refreshed_files {
             if let Some(current) = catalog.entry(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
+        let (files, records) = crate::segment_archive::SegmentRows::freeze(
+            refreshed_files,
+            compacted.records.to_vec(),
+        )
+        .map_err(IndexError::Build)?
+        .views();
+        compacted.files = files;
+        compacted.records = records;
         parts.push(compacted);
     }
     Ok(parts)

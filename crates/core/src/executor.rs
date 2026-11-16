@@ -700,7 +700,7 @@ fn segment_expr_bounds(
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.id_lookup.get(id.as_str()).copied()
+                if let Some(slot) = segment.id_lookup.get(id.as_str())
                     && domain.contains(slot.0)
                 {
                     matches.insert(slot.0);

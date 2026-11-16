@@ -77,8 +77,8 @@ fn run() -> Result<(), String> {
             .map(|(path, index)| {
                 json!({
                     "path": path,
-                    "keys": index.values.len(),
-                    "memberships": index.values.values().map(|slots| slots.len()).sum::<u64>(),
+                    "keys": index.distinct_values(),
+                    "memberships": index.value_membership_count(),
                     "covered_records": index.covered_records,
                 })
             })

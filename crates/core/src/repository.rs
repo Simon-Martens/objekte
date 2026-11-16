@@ -440,6 +440,8 @@ pub struct BuildProfileStats {
     pub finalize_validation_ns: u64,
     pub finalize_sort_ns: u64,
     pub finalize_inference_ns: u64,
+    pub postings_archive_freeze_ns: u64,
+    pub segment_rows_archive_freeze_ns: u64,
     pub finalize_identity_ns: u64,
     pub relations_ns: u64,
     pub final_checks_ns: u64,
@@ -465,6 +467,8 @@ pub struct IncrementalSegmentProfile {
     pub callback_ns: u64,
     pub aggregate_merge_ns: u64,
     pub postings_finish_validation_ns: u64,
+    pub postings_archive_freeze_ns: u64,
+    pub segment_rows_archive_freeze_ns: u64,
     pub bigram_finish_ns: u64,
     pub bigram_validation_ns: u64,
     pub sorting_finish_ns: u64,
@@ -733,6 +737,34 @@ pub struct SearchResult {
 }
 
 impl Repository {
+    /// Exact checked archive bytes owned by the current repository query
+    /// representation. Native Roaring bitmaps, text grams, sort arrays and
+    /// relation payloads are intentionally excluded.
+    pub fn rkyv_archive_bytes(&self) -> usize {
+        self.collections
+            .iter()
+            .map(|collection| {
+                collection.postings.archive_bytes()
+                    + collection
+                        .custom_postings
+                        .values()
+                        .map(|posting| posting.index.archive_bytes())
+                        .sum::<usize>()
+                    + collection
+                        .inference
+                        .as_ref()
+                        .map_or(0, |state| {
+                            state
+                                .indexes
+                                .values()
+                                .map(crate::posting::PostingIndex::archive_bytes)
+                                .sum()
+                        })
+            })
+            .sum::<usize>()
+            .saturating_add(self.catalog.archive_bytes())
+    }
+
     /// Retrieve one record by its collection-local ID. Locator access uses the
     /// published generation only; payload access verifies the source revision
     /// with the same reader and decoding path used by search results.
@@ -1052,28 +1084,31 @@ impl Repository {
                         format!("declared:{path}:empty"),
                         &posting.empty_selections,
                     );
-                    for (key, bitmap) in &posting.values {
+                    let _ = posting.values.for_each(|key, bitmap| {
                         add_bitmap(
                             &mut components,
                             format!("declared:{path}:value:{key:?}"),
                             bitmap,
                         );
-                    }
-                    for (key, bitmap) in &posting.lengths {
+                        Ok(())
+                    });
+                    let _ = posting.lengths.for_each(|key, bitmap| {
                         add_bitmap(
                             &mut components,
                             format!("declared:{path}:length:{key:?}"),
                             bitmap,
                         );
-                    }
+                        Ok(())
+                    });
                     if let Some(facts) = &posting.structural {
-                        for (key, bitmap) in &facts.postings {
+                        let _ = facts.postings.for_each(|key, bitmap| {
                             add_bitmap(
                                 &mut components,
                                 format!("declared:{path}:structural:{key:?}"),
                                 bitmap,
                             );
-                        }
+                            Ok(())
+                        });
                     }
                 }
                 if let Some(inference) = &segment.index.inference {
@@ -1084,23 +1119,25 @@ impl Repository {
                             format!("inferred:{path}:presence"),
                             &posting.presence,
                         );
-                        for (key, bitmap) in &posting.values {
+                        let _ = posting.values.for_each(|key, bitmap| {
                             add_bitmap(
                                 &mut components,
                                 format!("inferred:{path}:value:{key:?}"),
                                 bitmap,
                             );
-                        }
+                            Ok(())
+                        });
                     }
                 }
                 for ((path, binding), posting) in &segment.index.custom_postings {
-                    for (key, bitmap) in &posting.index.values {
+                    let _ = posting.index.values.for_each(|key, bitmap| {
                         add_bitmap(
                             &mut components,
                             format!("custom:{}:{binding}:{key:?}", path.join(".")),
                             bitmap,
                         );
-                    }
+                        Ok(())
+                    });
                 }
                 for (label, index) in [
                     ("raw".to_owned(), &segment.index.raw),
@@ -1219,7 +1256,7 @@ impl Repository {
         };
         let file = crate::model::FileId(hit.file_id);
         for segment in self.segments[collection_index].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
+            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()) else {
                 continue;
             };
             if !segment.active.contains(slot)
@@ -1898,7 +1935,8 @@ impl Repository {
         for (collection_index, state) in pending.iter().enumerate() {
             for batch in crate::build::file_batches(&state.member_files, &files) {
                 if batch.len() == 1
-                    && files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                    && (files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                        || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))
                 {
                     scheduled.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -2270,6 +2308,25 @@ impl Repository {
             collection.relations = indexes;
         }
         crate::relation::validate_indexes(&collections)?;
+        let archive_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        for collection in &mut collections {
+            collection.postings.freeze_storage()?;
+            for custom in collection.custom_postings.values_mut() {
+                custom.index.freeze_storage()?;
+            }
+            if let Some(inference) = &mut collection.inference {
+                for index in inference.indexes.values_mut() {
+                    index.freeze_storage()?;
+                }
+            }
+            collection.postings.validate_eligible(
+                collection.generation.records.len(),
+                collection.logical_records.len() as usize,
+            )?;
+        }
+        if let (Some(started), Some(profile)) = (archive_started, profile.as_mut()) {
+            profile.postings_archive_freeze_ns += started.elapsed().as_nanos() as u64;
+        }
         if let (Some(started), Some(profile)) = (relations_started, profile.as_mut()) {
             profile.relations_ns = started.elapsed().as_nanos() as u64;
         }
