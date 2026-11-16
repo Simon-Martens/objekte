@@ -1,9 +1,10 @@
 //! Focused unit tests for the independent stable-index prototype.
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 use std::time::{SystemTime, UNIX_EPOCH};
 
+use crate::inventory::RecordEntry;
 use crate::model::{CollectionId, FileId, LogicalType, Number, RecordId, RecordSlot};
 use crate::posting::ScalarKey;
 use crate::reference::FieldDefinition;
@@ -129,7 +130,9 @@ fn native_repository_builds_independent_components_and_validates_exactly() {
             &age,
             &ScalarKey::Number(Number::integer(1)),
         )
-        .expect("one");
+        .expect("one")
+        .complete()
+        .expect("complete one");
     assert_eq!(one.len(), 2);
     let range = prototype
         .typed_range_slots(
@@ -139,7 +142,9 @@ fn native_repository_builds_independent_components_and_validates_exactly() {
             std::ops::Bound::Excluded(ScalarKey::Number(Number::integer(10))),
             false,
         )
-        .expect("range");
+        .expect("range")
+        .complete()
+        .expect("complete range");
     assert_eq!(range.len(), 3);
 
     let path = fixture.repository.files().files[0].relative_path.clone();
@@ -687,7 +692,9 @@ fn generation_reopen_supports_known_key_mutation_and_second_save() {
     let by_one = ScalarKey::Number(Number::integer(1));
     let before = reopened
         .typed_posting(CollectionId(0), &field, &by_one)
-        .expect("before");
+        .expect("before")
+        .complete()
+        .expect("complete before");
     let live = reopened.live_slots(CollectionId(0)).expect("live");
     let candidate = (&live - &before)
         .iter()
@@ -705,7 +712,9 @@ fn generation_reopen_supports_known_key_mutation_and_second_save() {
         .expect("add");
     let after = reopened
         .typed_posting(CollectionId(0), &field, &by_one)
-        .expect("after");
+        .expect("after")
+        .complete()
+        .expect("complete after");
     assert_eq!(after.len(), before.len() + 1);
     reopened
         .update_typed_posting(
@@ -724,6 +733,8 @@ fn generation_reopen_supports_known_key_mutation_and_second_save() {
         second_open
             .typed_posting(CollectionId(0), &field, &by_one)
             .expect("posting")
+            .complete()
+            .expect("complete posting")
             .len(),
         before.len()
     );
@@ -733,6 +744,8 @@ fn generation_reopen_supports_known_key_mutation_and_second_save() {
         first_open
             .typed_posting(CollectionId(0), &field, &by_one)
             .expect("first posting")
+            .complete()
+            .expect("complete first posting")
             .len(),
         before.len()
     );
@@ -1002,6 +1015,7 @@ fn direct_source_build_matches_native_semantics() {
 
 #[test]
 fn injected_snapshot_failures_preserve_usable_ram_and_previous_generation() {
+    let _fault_guard = super::snapshot::fault_test_lock();
     let fixture = fixture("faults");
     let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
     let root = temp_root("faults-generations");
@@ -1162,6 +1176,8 @@ fn exact_numbers_null_states_and_custom_text_match_native() {
         direct
             .state_posting(CollectionId(0), &n, super::STATE_PRESENCE)
             .expect("n presence")
+            .complete()
+            .expect("complete n presence")
             .len(),
         9
     );
@@ -1169,6 +1185,8 @@ fn exact_numbers_null_states_and_custom_text_match_native() {
         direct
             .state_posting(CollectionId(0), &n, super::STATE_LEGACY_NULL)
             .expect("n null")
+            .complete()
+            .expect("complete n null")
             .len(),
         1
     );
@@ -1176,6 +1194,8 @@ fn exact_numbers_null_states_and_custom_text_match_native() {
         direct
             .state_posting(CollectionId(0), &arr, super::STATE_PRESENCE)
             .expect("arr presence")
+            .complete()
+            .expect("complete arr presence")
             .len(),
         4
     );
@@ -1183,6 +1203,8 @@ fn exact_numbers_null_states_and_custom_text_match_native() {
         direct
             .state_posting(CollectionId(0), &arr, super::STATE_ARRAY)
             .expect("arr arrays")
+            .complete()
+            .expect("complete arr arrays")
             .len(),
         4
     );
@@ -1194,7 +1216,9 @@ fn exact_numbers_null_states_and_custom_text_match_native() {
             std::ops::Bound::Excluded(ScalarKey::Number(Number::integer(0))),
             false,
         )
-        .expect("negative range");
+        .expect("negative range")
+        .complete()
+        .expect("complete negative range");
     assert_eq!(negative.len(), 2);
     let custom = direct
         .component_descriptors()
@@ -1370,6 +1394,8 @@ fn snapshot_catalogs_and_postings_work_without_source_files() {
                 &ScalarKey::Number(Number::integer(1))
             )
             .expect("posting")
+            .complete()
+            .expect("complete posting")
             .len(),
         2
     );
@@ -1431,4 +1457,708 @@ fn text_candidates_use_native_gram_preparation() {
     let candidates = candidates.expect("literal has usable grams");
     assert!(!candidates.is_empty());
     assert!(candidates.is_subset(&prototype.live_slots(CollectionId(0)).expect("live")));
+}
+
+fn prepared_facts_for_file(
+    prototype: &StablePrototype,
+    state: &crate::repository::CollectionState,
+    file_id: FileId,
+) -> (Vec<RecordEntry>, Vec<super::PreparedPostingAdd>) {
+    let records = state
+        .generation
+        .records
+        .iter()
+        .filter(|record| record.file == file_id)
+        .cloned()
+        .collect::<Vec<_>>();
+    let old_slots = RoaringBitmap::from_iter(records.iter().map(|record| record.slot.0));
+    let local = records
+        .iter()
+        .enumerate()
+        .map(|(index, record)| (record.slot.0, index as u32))
+        .collect::<BTreeMap<_, _>>();
+    let localize = |bitmap: &RoaringBitmap| {
+        RoaringBitmap::from_iter((bitmap & &old_slots).iter().map(|slot| local[&slot]))
+    };
+    let mut adds = Vec::new();
+    let collection = state.generation.collection;
+    let mut add = |component, key, bitmap: &RoaringBitmap| {
+        let slots = localize(bitmap);
+        if !slots.is_empty() {
+            adds.push(super::PreparedPostingAdd {
+                component,
+                key,
+                slots,
+                value: None,
+            });
+        }
+    };
+    for (path, index) in &state.postings.fields {
+        let key = super::FieldComponentKey {
+            path: path.clone(),
+            binding: None,
+            role: super::BindingRole::DeclaredField,
+        };
+        let ids = prototype
+            .field_components(collection, &key)
+            .expect("field components");
+        if let Some(component) = ids.values {
+            for (value, bitmap) in &index.values {
+                add(
+                    component,
+                    super::ComponentKey::Scalar(value.clone()),
+                    bitmap,
+                );
+            }
+        }
+        if let Some(component) = ids.lengths {
+            for (value, bitmap) in &index.lengths {
+                add(
+                    component,
+                    super::ComponentKey::Length(value.clone()),
+                    bitmap,
+                );
+            }
+        }
+        if let Some(component) = ids.states {
+            add(
+                component,
+                super::ComponentKey::State(super::STATE_PRESENCE),
+                &index.presence,
+            );
+            add(
+                component,
+                super::ComponentKey::State(super::STATE_EMPTY_SELECTION),
+                &index.empty_selections,
+            );
+            add(
+                component,
+                super::ComponentKey::State(super::STATE_LEGACY_NULL),
+                &index.nulls,
+            );
+            if let Some(facts) = &index.structural {
+                for (key, bitmap) in &facts.postings {
+                    let state_code = match key {
+                        crate::posting::StructuralKey::AnyNull => super::STATE_ANY_NULL,
+                        crate::posting::StructuralKey::NonEmpty => super::STATE_NON_EMPTY,
+                        crate::posting::StructuralKey::String => super::STATE_STRING,
+                        crate::posting::StructuralKey::Number => super::STATE_NUMBER,
+                        crate::posting::StructuralKey::Array => super::STATE_ARRAY,
+                        crate::posting::StructuralKey::Object => super::STATE_OBJECT,
+                        crate::posting::StructuralKey::EmptyObject => super::STATE_EMPTY_OBJECT,
+                    };
+                    add(component, super::ComponentKey::State(state_code), bitmap);
+                }
+            }
+        }
+    }
+    for ((path, name), custom) in &state.custom_postings {
+        let key = super::FieldComponentKey {
+            path: path.clone(),
+            binding: Some(name.clone()),
+            role: super::BindingRole::NamedBinding,
+        };
+        let ids = prototype
+            .field_components(collection, &key)
+            .expect("custom field components");
+        if let Some(component) = ids.values {
+            for (value, bitmap) in &custom.index.values {
+                add(
+                    component,
+                    super::ComponentKey::Scalar(value.clone()),
+                    bitmap,
+                );
+            }
+        }
+    }
+    for (key, index) in [
+        (
+            super::TextComponentKey {
+                path: Vec::new(),
+                binding: None,
+                role: super::BindingRole::RawText,
+            },
+            &state.raw,
+        ),
+        (
+            super::TextComponentKey {
+                path: Vec::new(),
+                binding: None,
+                role: super::BindingRole::FallbackText,
+            },
+            &state.fallback_text,
+        ),
+    ] {
+        let ids = prototype
+            .text_components(collection, &key)
+            .expect("text components");
+        if let Some(component) = ids.normal {
+            for (gram, bitmap) in &index.normal {
+                add(component, super::ComponentKey::Gram(*gram), bitmap);
+            }
+        }
+        if let Some(component) = ids.skip {
+            for (gram, bitmap) in &index.skip {
+                add(component, super::ComponentKey::Gram(*gram), bitmap);
+            }
+        }
+    }
+    for ((path, name), index) in &state.custom_text {
+        let key = super::TextComponentKey {
+            path: path.clone(),
+            binding: Some(name.clone()),
+            role: super::BindingRole::CustomText,
+        };
+        if let Some(ids) = prototype.text_components(collection, &key) {
+            if let Some(component) = ids.normal {
+                for (gram, bitmap) in &index.normal {
+                    add(component, super::ComponentKey::Gram(*gram), bitmap);
+                }
+            }
+            if let Some(component) = ids.skip {
+                for (gram, bitmap) in &index.skip {
+                    add(component, super::ComponentKey::Gram(*gram), bitmap);
+                }
+            }
+        }
+    }
+    for relation in &state.relations {
+        let key = super::RelationComponentKey {
+            path: relation.declaration.path.clone(),
+            target_collection: relation.declaration.target_collection.clone(),
+        };
+        let Some(ids) = prototype.relation_components(collection, &key) else {
+            continue;
+        };
+        let mut targets = BTreeMap::<String, RoaringBitmap>::new();
+        for record in &records {
+            let source = record.slot;
+            let Some(edges) = relation.edges(source) else {
+                continue;
+            };
+            let local_slot = local[&source.0];
+            for (ordinal, edge) in edges.iter().enumerate() {
+                let value = codec::encode_meta(&super::RelationOccurrenceValue {
+                    target_collection: Some(relation.target_collection),
+                    target_id: edge.target_id().to_owned(),
+                    positions: edge.positions.clone(),
+                    target_resolved: matches!(
+                        edge.target,
+                        crate::relation::RelationTarget::Resolved(_)
+                    ),
+                })
+                .expect("relation occurrence metadata");
+                adds.push(super::PreparedPostingAdd {
+                    component: ids.occurrences,
+                    key: super::ComponentKey::Occurrence(super::codec::RelationOccurrenceKey {
+                        source: RecordSlot(local_slot),
+                        ordinal: ordinal as u32,
+                    }),
+                    slots: RoaringBitmap::new(),
+                    value: Some(value),
+                });
+                targets
+                    .entry(edge.target_id().to_owned())
+                    .or_default()
+                    .insert(local_slot);
+            }
+        }
+        for (target_id, sources) in targets {
+            adds.push(super::PreparedPostingAdd {
+                component: ids.targets,
+                key: super::ComponentKey::RelationTarget(super::codec::RelationTargetKey {
+                    target_collection: relation.target_collection,
+                    target_id,
+                }),
+                slots: sources,
+                value: None,
+            });
+        }
+        for (state_code, bitmap) in [
+            (super::codec::RELATION_PRESENT, relation.present()),
+            (super::codec::RELATION_NULLS, relation.nulls()),
+            (super::codec::RELATION_EMPTY_ARRAY, relation.empty_arrays()),
+            (super::codec::RELATION_UNAVAILABLE, relation.unavailable()),
+        ] {
+            adds.push(super::PreparedPostingAdd {
+                component: ids.states,
+                key: super::ComponentKey::RelationState(state_code),
+                slots: localize(bitmap),
+                value: None,
+            });
+        }
+    }
+    for descriptor in prototype.components.values() {
+        let Some(collection_identity) = descriptor.descriptor.collection.as_ref() else {
+            continue;
+        };
+        if collection_identity.id != collection
+            || !matches!(
+                descriptor.descriptor.kind,
+                super::ComponentKind::SortAscending | super::ComponentKind::SortDescending
+            )
+        {
+            continue;
+        }
+        let Some(field) = descriptor.descriptor.field.as_ref() else {
+            continue;
+        };
+        let Some(ordering) = descriptor.descriptor.ordering.as_ref() else {
+            continue;
+        };
+        let Some(column) = state
+            .sorting
+            .columns
+            .iter()
+            .find(|(path, _)| path.segments == field.path)
+            .map(|(_, column)| column)
+        else {
+            continue;
+        };
+        let descending = descriptor.descriptor.kind == super::ComponentKind::SortDescending;
+        let component = descriptor.descriptor.id;
+        for (index, record) in records.iter().enumerate() {
+            adds.push(super::PreparedPostingAdd {
+                component,
+                key: super::ComponentKey::Sort(SortEntryKey {
+                    options: ordering.options,
+                    descending,
+                    key: column.keys[record.slot.0 as usize].clone(),
+                    tie_break_id: record.id.clone(),
+                    slot: RecordSlot(index as u32),
+                }),
+                slots: RoaringBitmap::new(),
+                value: Some(StoredBytes::empty()),
+            });
+        }
+    }
+    (records, adds)
+}
+
+#[test]
+fn prepared_replacement_preserves_all_indexed_facts() {
+    let fixture = fixture("prepared-replacement");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let state = &fixture.repository.collections()[0];
+    let file = fixture.repository.files().files[0].clone();
+    let path = file.relative_path.to_path_buf();
+    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    let age = super::FieldComponentKey {
+        path: vec!["age".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    let before_identity = prototype
+        .records_for_identity(CollectionId(0), &records[0].id)
+        .expect("identity before");
+    prototype
+        .replace_prepared_file(
+            &path,
+            super::PreparedFileChange {
+                file,
+                collections: vec![super::PreparedCollectionChange {
+                    collection: CollectionId(0),
+                    records: records.clone(),
+                    posting_adds,
+                    coverage: Vec::new(),
+                }],
+            },
+        )
+        .expect("prepared replacement");
+    let one = prototype
+        .typed_posting(
+            CollectionId(0),
+            &age,
+            &ScalarKey::Number(Number::integer(1)),
+        )
+        .expect("typed")
+        .complete()
+        .expect("complete typed");
+    assert_eq!(one.len(), 2);
+    let after_identity = prototype
+        .records_for_identity(CollectionId(0), &records[0].id)
+        .expect("identity after");
+    assert_ne!(before_identity, after_identity);
+    assert_eq!(after_identity.len(), 1);
+    assert_eq!(prototype.records_for_path(&path).expect("path").len(), 2);
+    let sort_descriptor = prototype
+        .component_descriptors()
+        .find(|descriptor| descriptor.kind == ComponentKind::SortAscending)
+        .expect("sort")
+        .clone();
+    let sort_key = super::sort_component_key(&sort_descriptor);
+    let sorted = prototype
+        .sort_slots(CollectionId(0), &sort_key, false)
+        .expect("sorted");
+    let ids = sorted
+        .iter()
+        .filter_map(|slot| {
+            prototype
+                .record_by_slot(CollectionId(0), *slot)
+                .ok()
+                .flatten()
+                .map(|record| record.id)
+        })
+        .collect::<Vec<_>>();
+    let mut expected = state
+        .sorting
+        .columns
+        .values()
+        .next()
+        .expect("native sort")
+        .ascending
+        .iter()
+        .map(|slot| state.generation.records[slot.0 as usize].id.clone())
+        .collect::<Vec<_>>();
+    expected.sort_by(|left, right| left.0.len().cmp(&right.0.len()).then(left.cmp(right)));
+    let mut actual = ids.clone();
+    actual.sort_by(|left, right| left.0.len().cmp(&right.0.len()).then(left.cmp(right)));
+    assert_eq!(actual, expected);
+    let root = temp_root("prepared-replacement-gen");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut reopened = StablePrototype::open_snapshot(&generation).expect("open");
+    assert_eq!(
+        reopened
+            .typed_posting(
+                CollectionId(0),
+                &age,
+                &ScalarKey::Number(Number::integer(1))
+            )
+            .expect("typed")
+            .complete()
+            .expect("complete")
+            .len(),
+        2
+    );
+    let _ = std::fs::remove_dir_all(&root);
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn prepared_replacement_changed_facts_match_native_rebuild() {
+    let fixture = fixture("prepared-changed");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let definitions = vec![fixture.repository.collections()[0].definition.clone()];
+    std::fs::write(
+        fixture.root.join("data/a.jsonl"),
+        b"{\"name\":\"omega\",\"age\":77,\"tags\":[\"q\",\"r\",\"s\"]}\n{\"name\":\"beta\",\"age\":2,\"tags\":[]}\n",
+    )
+    .expect("changed source");
+    let changed = Repository::open(&fixture.root, definitions.clone()).expect("native rebuild");
+    let state = &changed.collections()[0];
+    let file = fixture.repository.files().files[0].clone();
+    let path = file.relative_path.to_path_buf();
+    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    prototype
+        .replace_prepared_file(
+            &path,
+            super::PreparedFileChange {
+                file,
+                collections: vec![super::PreparedCollectionChange {
+                    collection: CollectionId(0),
+                    records,
+                    posting_adds,
+                    coverage: Vec::new(),
+                }],
+            },
+        )
+        .expect("prepared replacement");
+    let age = super::FieldComponentKey {
+        path: vec!["age".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    let native_age = state.postings.fields[&vec!["age".to_string()]]
+        .values
+        .get(&ScalarKey::Number(Number::integer(77)))
+        .expect("native age")
+        .len();
+    assert_eq!(
+        prototype
+            .typed_posting(
+                CollectionId(0),
+                &age,
+                &ScalarKey::Number(Number::integer(77))
+            )
+            .expect("stable age")
+            .complete()
+            .expect("complete age")
+            .len(),
+        native_age as u64
+    );
+    let text_key = super::TextComponentKey {
+        path: Vec::new(),
+        binding: None,
+        role: super::BindingRole::RawText,
+    };
+    let candidates = prototype
+        .text_candidates(
+            CollectionId(0),
+            &text_key,
+            "omega",
+            crate::workload::BigramAlphabet::Ascii,
+        )
+        .expect("candidates")
+        .expect("grams");
+    assert!(!candidates.is_empty());
+    let record_ids = |prototype: &mut StablePrototype| {
+        let descriptor = prototype
+            .component_descriptors()
+            .find(|descriptor| descriptor.kind == ComponentKind::SortAscending)
+            .expect("sort")
+            .clone();
+        let key = super::sort_component_key(&descriptor);
+        prototype
+            .sort_slots(CollectionId(0), &key, false)
+            .expect("sort slots")
+            .into_iter()
+            .filter_map(|slot| {
+                prototype
+                    .record_by_slot(CollectionId(0), slot)
+                    .ok()
+                    .flatten()
+                    .map(|record| record.id)
+            })
+            .collect::<Vec<_>>()
+    };
+    let actual = record_ids(&mut prototype);
+    let mut expected = state
+        .sorting
+        .columns
+        .values()
+        .next()
+        .expect("native sort")
+        .ascending
+        .iter()
+        .map(|slot| state.generation.records[slot.0 as usize].id.clone())
+        .collect::<Vec<_>>();
+    assert_eq!(actual.len(), expected.len());
+    expected.sort_by(|left, right| left.0.len().cmp(&right.0.len()).then(left.cmp(right)));
+    let mut actual_sorted = actual.clone();
+    actual_sorted.sort_by(|left, right| left.0.len().cmp(&right.0.len()).then(left.cmp(right)));
+    assert_eq!(actual_sorted, expected);
+    let root = temp_root("prepared-changed-gen");
+    let generation = root.join("gen");
+    prototype.save_snapshot(&generation).expect("save");
+    drop(prototype);
+    let mut reopened = StablePrototype::open_snapshot(&generation).expect("open");
+    assert_eq!(
+        reopened
+            .typed_posting(
+                CollectionId(0),
+                &age,
+                &ScalarKey::Number(Number::integer(77))
+            )
+            .expect("typed")
+            .complete()
+            .expect("complete")
+            .len(),
+        native_age as u64
+    );
+    let _ = std::fs::remove_dir_all(&root);
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn coverage_contract_distinguishes_no_restriction_from_complete_empty() {
+    let root = temp_root("coverage-contract");
+    std::fs::create_dir_all(root.join("data")).expect("data");
+    std::fs::write(root.join("data/a.jsonl"), b"{\"name\":\"alpha\"}\n").expect("source");
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(field(&["name"], LogicalType::String, false, true))
+        .expect("name");
+    definition
+        .schema
+        .register_field(field(&["note"], LogicalType::String, false, false))
+        .expect("note");
+    let repository = Repository::open(&root, vec![definition]).expect("native");
+    let mut prototype = StablePrototype::from_repository(&repository).expect("prototype");
+    let name = super::FieldComponentKey {
+        path: vec!["name".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    let note = super::FieldComponentKey {
+        path: vec!["note".into()],
+        binding: None,
+        role: super::BindingRole::DeclaredField,
+    };
+    assert!(matches!(
+        prototype
+            .typed_posting(
+                CollectionId(0),
+                &name,
+                &ScalarKey::String("absent".into())
+            )
+            .expect("complete lookup"),
+        super::Restriction::Complete(ref bitmap) if bitmap.is_empty()
+    ));
+    assert!(matches!(
+        prototype
+            .typed_posting(CollectionId(0), &note, &ScalarKey::String("absent".into()))
+            .expect("incomplete lookup"),
+        super::Restriction::NoRestriction
+    ));
+    assert!(matches!(
+        prototype
+            .length_posting(CollectionId(0), &name, &Number::integer(5))
+            .expect("length lookup"),
+        super::Restriction::NoRestriction
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn failure_after_first_change_blocks_queries_and_saves() {
+    let _fault_guard = super::snapshot::fault_test_lock();
+    let fixture = fixture("mutation-failure");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let state = &fixture.repository.collections()[0];
+    let file = fixture.repository.files().files[0].clone();
+    let path = file.relative_path.to_path_buf();
+    let (records, posting_adds) = prepared_facts_for_file(&prototype, state, file.id);
+    super::snapshot::arm_fault("mutation-after-first-change", "data/a.jsonl");
+    let result = prototype.replace_prepared_file(
+        &path,
+        super::PreparedFileChange {
+            file,
+            collections: vec![super::PreparedCollectionChange {
+                collection: CollectionId(0),
+                records,
+                posting_adds,
+                coverage: Vec::new(),
+            }],
+        },
+    );
+    super::snapshot::clear_fault();
+    assert!(result.is_err());
+    assert!(prototype.unusable_reason().is_some());
+    assert!(matches!(
+        prototype.file_by_id(FileId(0)),
+        Err(StableIndexError::InvalidState(_))
+    ));
+    let generation = temp_root("mutation-failure-gen").join("gen");
+    assert!(prototype.save_snapshot(&generation).is_err());
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn zero_record_paths_delete_and_collide_correctly() {
+    let fixture = fixture("zero-record");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let mut file = fixture.repository.files().files[0].clone();
+    file.id = prototype.next_file_id().expect("next file");
+    file.relative_path = "data/empty.jsonl".into();
+    file.collections = vec![CollectionId(0)];
+    let empty_path = PathBuf::from("data/empty.jsonl");
+    prototype
+        .append_prepared_file(super::PreparedFileChange {
+            file,
+            collections: vec![super::PreparedCollectionChange {
+                collection: CollectionId(0),
+                records: Vec::new(),
+                posting_adds: Vec::new(),
+                coverage: Vec::new(),
+            }],
+        })
+        .expect("append empty file");
+    let entry = prototype
+        .path_entry(&PathKey::from_path(&empty_path).expect("key"))
+        .expect("path entry")
+        .expect("present");
+    assert!(entry.refs.is_empty());
+    let existing_path = fixture.repository.files().files[1].relative_path.clone();
+    assert!(
+        prototype
+            .move_file(fixture.repository.files().files[1].id, &empty_path)
+            .is_err()
+    );
+    assert!(
+        prototype
+            .move_file(fixture.repository.files().files[1].id, &existing_path)
+            .is_ok()
+    );
+    let deleted = prototype
+        .delete_file_by_path(&empty_path)
+        .expect("delete empty");
+    assert!(deleted.is_empty());
+    assert!(
+        prototype
+            .path_entry(&PathKey::from_path(&empty_path).expect("key"))
+            .expect("lookup")
+            .is_none()
+    );
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn atomic_standalone_failure_preserves_ram_and_previous_files() {
+    let _fault_guard = super::snapshot::fault_test_lock();
+    let fixture = fixture("atomic-standalone");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let age = age_component(&prototype);
+    let root = temp_root("atomic-standalone-files");
+    let first = root.join("values.icss");
+    let info = prototype.save_index(age, &first).expect("save first");
+    assert!(first.is_file());
+    let second = root.join("failed.icss");
+    super::snapshot::arm_fault("standalone-before-rename", "failed.icss");
+    assert!(prototype.save_index(age, &second).is_err());
+    super::snapshot::clear_fault();
+    assert!(!second.exists());
+    assert!(first.is_file());
+    assert_eq!(
+        prototype
+            .component_statistics(age)
+            .expect("statistics")
+            .entry_count,
+        info.entry_count
+    );
+    prototype.save_index(age, &second).expect("retry");
+    assert!(second.is_file());
+    let mut standalone = StablePrototype::open_index(&first).expect("open standalone");
+    let failed = root.join("failed-save-as.icss");
+    super::snapshot::arm_fault("standalone-before-rename", "failed-save-as.icss");
+    assert!(standalone.save_as(&failed).is_err());
+    super::snapshot::clear_fault();
+    assert!(!failed.exists());
+    standalone.save_as(&failed).expect("retry save as");
+    assert!(failed.is_file());
+    let _ = std::fs::remove_dir_all(&root);
+    let _ = std::fs::remove_dir_all(&fixture.root);
+}
+
+#[test]
+fn failed_snapshot_does_not_commit_dirty_or_saved_metadata() {
+    let _fault_guard = super::snapshot::fault_test_lock();
+    let fixture = fixture("snapshot-metadata");
+    let mut prototype = StablePrototype::from_repository(&fixture.repository).expect("prototype");
+    let age = age_component(&prototype);
+    let before = prototype.component_statistics(age).expect("before");
+    assert!(before.dirty);
+    let root = temp_root("snapshot-metadata-gen");
+    let generation = root.join("gen");
+    super::snapshot::arm_fault(
+        "snapshot-before-rename",
+        generation.to_string_lossy().to_string(),
+    );
+    assert!(prototype.save_snapshot(&generation).is_err());
+    super::snapshot::clear_fault();
+    let after = prototype.component_statistics(age).expect("after");
+    assert!(after.dirty);
+    assert!(after.path.is_none());
+    assert!(!generation.exists());
+    prototype.save_snapshot(&generation).expect("retry");
+    assert!(
+        !prototype
+            .component_statistics(age)
+            .expect("committed")
+            .dirty
+    );
+    let _ = std::fs::remove_dir_all(&root);
+    let _ = std::fs::remove_dir_all(&fixture.root);
 }

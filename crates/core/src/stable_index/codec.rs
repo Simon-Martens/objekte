@@ -1,5 +1,6 @@
 //! Versioned encodings, component identities and self-contained file envelopes.
 
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::fs::File;
 use std::io::{Read, Seek, SeekFrom, Write};
@@ -19,9 +20,9 @@ use super::memory::StoredBytes;
 
 pub const FORMAT_MAGIC: &[u8; 8] = b"OBJICSS2";
 pub const OUTER_FORMAT_VERSION: u32 = 2;
-pub const KEY_CODEC_VERSION: u32 = 2;
+pub const KEY_CODEC_VERSION: u32 = 3;
 pub const VALUE_CODEC_VERSION: u32 = 1;
-pub const DESCRIPTOR_FORMAT_VERSION: u32 = 1;
+pub const DESCRIPTOR_FORMAT_VERSION: u32 = 2;
 pub const DESCRIPTOR_ENCODING_VERSION: u32 = 1;
 pub const MAX_DESCRIPTOR_BYTES: usize = 1024 * 1024;
 pub const ENVELOPE_BYTES: usize = 128;
@@ -278,6 +279,26 @@ pub enum BindingRole {
     RepositoryMetadata,
 }
 
+#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub enum PersistedIdentityPolicy {
+    #[default]
+    Filename,
+    RelativePath,
+    Generated,
+    Intrinsic(Vec<String>),
+}
+
+impl From<&crate::repository::IdentityPolicy> for PersistedIdentityPolicy {
+    fn from(value: &crate::repository::IdentityPolicy) -> Self {
+        match value {
+            crate::repository::IdentityPolicy::Filename => Self::Filename,
+            crate::repository::IdentityPolicy::RelativePath => Self::RelativePath,
+            crate::repository::IdentityPolicy::Generated => Self::Generated,
+            crate::repository::IdentityPolicy::Intrinsic(fields) => Self::Intrinsic(fields.clone()),
+        }
+    }
+}
+
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct CollectionIdentity {
     pub id: CollectionId,
@@ -311,6 +332,18 @@ pub struct CoverageDescriptor {
     pub empty_string_complete: bool,
     pub covered_records: u32,
     pub complete_for_field: bool,
+    #[serde(default)]
+    pub structural_complete: bool,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct TextRepresentationDescriptor {
+    pub alphabet: crate::workload::BigramAlphabet,
+    pub gram_role: u8,
+    pub extractor: String,
+    pub extractor_version: u32,
+    pub normalization: String,
+    pub segment_identity: String,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -324,6 +357,7 @@ pub struct ComponentDescriptor {
     pub collection: Option<CollectionIdentity>,
     pub field: Option<FieldIdentity>,
     pub ordering: Option<OrderingDescriptor>,
+    pub text: Option<TextRepresentationDescriptor>,
     pub target_collection: Option<CollectionId>,
     pub coverage: CoverageDescriptor,
     pub repository_identity: [u8; 32],
@@ -335,6 +369,12 @@ pub struct ComponentDescriptor {
     pub origin_path: Option<PathBuf>,
     pub dependency_ids: Vec<ComponentId>,
     pub detached: bool,
+    #[serde(default = "default_component_revision")]
+    pub component_revision: u64,
+}
+
+fn default_component_revision() -> u64 {
+    1
 }
 
 impl ComponentDescriptor {
@@ -548,6 +588,131 @@ impl Ord for SortEntryKey {
     }
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
+pub struct FileKey(pub u32);
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
+pub struct RecordKey(pub u32);
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
+pub struct StateKey(pub u8);
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
+pub struct GramKey(pub u64);
+
+macro_rules! fixed_storable {
+    ($type:ty, $size:expr, $to:expr, $from:expr) => {
+        impl ic_stable_structures::Storable for $type {
+            fn to_bytes(&self) -> Cow<'_, [u8]> {
+                Cow::Owned($to(*self))
+            }
+
+            fn into_bytes(self) -> Vec<u8> {
+                $to(self)
+            }
+
+            fn from_bytes(bytes: Cow<[u8]>) -> Self {
+                assert_eq!(bytes.len(), $size, "fixed-width key length");
+                $from(&bytes)
+            }
+
+            const BOUND: ic_stable_structures::storable::Bound =
+                ic_stable_structures::storable::Bound::Bounded {
+                    max_size: $size as u32,
+                    is_fixed_size: true,
+                };
+        }
+    };
+}
+
+fixed_storable!(
+    FileKey,
+    4,
+    |key: FileKey| key.0.to_le_bytes().to_vec(),
+    |bytes: &[u8]| FileKey(u32::from_le_bytes(bytes.try_into().expect("file key")))
+);
+fixed_storable!(
+    RecordKey,
+    4,
+    |key: RecordKey| key.0.to_le_bytes().to_vec(),
+    |bytes: &[u8]| RecordKey(u32::from_le_bytes(bytes.try_into().expect("record key")))
+);
+fixed_storable!(
+    StateKey,
+    1,
+    |key: StateKey| vec![key.0],
+    |bytes: &[u8]| StateKey(bytes[0])
+);
+fixed_storable!(
+    GramKey,
+    8,
+    |key: GramKey| key.0.to_le_bytes().to_vec(),
+    |bytes: &[u8]| GramKey(u64::from_le_bytes(bytes.try_into().expect("gram key")))
+);
+
+impl ic_stable_structures::Storable for RelationOccurrenceKey {
+    fn to_bytes(&self) -> Cow<'_, [u8]> {
+        let mut bytes = Vec::with_capacity(8);
+        bytes.extend_from_slice(&self.source.0.to_le_bytes());
+        bytes.extend_from_slice(&self.ordinal.to_le_bytes());
+        Cow::Owned(bytes)
+    }
+
+    fn into_bytes(self) -> Vec<u8> {
+        self.to_bytes().into_owned()
+    }
+
+    fn from_bytes(bytes: Cow<[u8]>) -> Self {
+        assert_eq!(bytes.len(), 8, "relation occurrence key length");
+        Self {
+            source: RecordSlot(u32::from_le_bytes(bytes[0..4].try_into().expect("source"))),
+            ordinal: u32::from_le_bytes(bytes[4..8].try_into().expect("ordinal")),
+        }
+    }
+
+    const BOUND: ic_stable_structures::storable::Bound =
+        ic_stable_structures::storable::Bound::Bounded {
+            max_size: 8,
+            is_fixed_size: true,
+        };
+}
+
+macro_rules! bincode_storable {
+    ($type:ty) => {
+        impl ic_stable_structures::Storable for $type {
+            fn to_bytes(&self) -> Cow<'_, [u8]> {
+                Cow::Owned(
+                    bincode_options()
+                        .serialize(self)
+                        .expect("stored key serialization"),
+                )
+            }
+
+            fn into_bytes(self) -> Vec<u8> {
+                bincode_options()
+                    .serialize(&self)
+                    .expect("stored key serialization")
+            }
+
+            fn from_bytes(bytes: Cow<[u8]>) -> Self {
+                bincode_options()
+                    .deserialize(bytes.as_ref())
+                    .expect("stored key decoded from a verified snapshot")
+            }
+
+            const BOUND: ic_stable_structures::storable::Bound =
+                ic_stable_structures::storable::Bound::Unbounded;
+        }
+    };
+}
+
+bincode_storable!(PathKey);
+bincode_storable!(RecordIdentityKey);
+bincode_storable!(ScalarKey);
+bincode_storable!(Number);
+bincode_storable!(SortEntryKey);
+bincode_storable!(RelationTargetKey);
+
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
 pub enum ComponentKey {
     FileId(u32),
@@ -704,10 +869,12 @@ impl Envelope {
         descriptor_digest.copy_from_slice(&bytes[24..56]);
         let mut payload_digest = [0u8; 32];
         payload_digest.copy_from_slice(&bytes[88..120]);
+        let component_id = u32::try_from(u64_at(bytes, 16)?)
+            .map_err(|_| "component ID does not fit in u32".to_string())?;
         let envelope = Self {
             outer_version,
             kind,
-            component_id: ComponentId(u64_at(bytes, 16)? as u32),
+            component_id: ComponentId(component_id),
             descriptor_digest,
             key_codec_version: u32_at(bytes, 56)?,
             value_codec_version: u32_at(bytes, 60)?,
@@ -805,25 +972,7 @@ pub fn write_component_file(
     let descriptor_bytes = encode_descriptor(descriptor)?;
     let descriptor_len =
         u32::try_from(descriptor_bytes.len()).map_err(|_| "descriptor length overflow")?;
-    let payload_digest = digest(payload);
     let descriptor_digest = digest(&descriptor_bytes);
-    let envelope = Envelope {
-        outer_version: OUTER_FORMAT_VERSION,
-        kind: descriptor.kind,
-        component_id: descriptor.id,
-        descriptor_digest,
-        key_codec_version: descriptor.key_codec_version,
-        value_codec_version: descriptor.value_codec_version,
-        crate_major: STABLE_CRATE_MAJOR,
-        crate_minor: STABLE_CRATE_MINOR,
-        crate_patch: STABLE_CRATE_PATCH,
-        tree_layout_version: ACCEPTED_TREE_LAYOUT_VERSION,
-        payload_len: payload.len() as u64,
-        entry_count,
-        payload_digest,
-        descriptor_len,
-        descriptor_encoding_version: DESCRIPTOR_ENCODING_VERSION,
-    };
     super::snapshot::inject_fault("component-before-open", Some(path))?;
     let mut file = File::options()
         .write(true)
@@ -842,10 +991,24 @@ pub fn write_component_file(
             .map_err(|error| format!("write payload: {error}"))?;
     }
     super::snapshot::inject_fault("component-after-payload", Some(path))?;
-    let written: [u8; 32] = hasher.finalize().into();
-    if written != payload_digest {
-        return Err("payload changed while it was being written".into());
-    }
+    let payload_digest: [u8; 32] = hasher.finalize().into();
+    let envelope = Envelope {
+        outer_version: OUTER_FORMAT_VERSION,
+        kind: descriptor.kind,
+        component_id: descriptor.id,
+        descriptor_digest,
+        key_codec_version: descriptor.key_codec_version,
+        value_codec_version: descriptor.value_codec_version,
+        crate_major: STABLE_CRATE_MAJOR,
+        crate_minor: STABLE_CRATE_MINOR,
+        crate_patch: STABLE_CRATE_PATCH,
+        tree_layout_version: ACCEPTED_TREE_LAYOUT_VERSION,
+        payload_len: payload.len() as u64,
+        entry_count,
+        payload_digest,
+        descriptor_len,
+        descriptor_encoding_version: DESCRIPTOR_ENCODING_VERSION,
+    };
     file.seek(SeekFrom::Start(0))
         .map_err(|error| format!("seek envelope: {error}"))?;
     file.write_all(&envelope.encode())
@@ -863,6 +1026,56 @@ pub fn write_component_file(
         descriptor_bytes,
         file_len,
     })
+}
+
+static PUBLICATION_COUNTER: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
+
+pub fn sibling_temporary_path(destination: &Path) -> Result<PathBuf, String> {
+    let parent = destination
+        .parent()
+        .ok_or("component destination has no parent")?;
+    let name = destination
+        .file_name()
+        .ok_or("component destination has no file name")?;
+    let ordinal = PUBLICATION_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    Ok(parent.join(format!(
+        ".{}.tmp-{}-{ordinal}",
+        name.to_string_lossy(),
+        std::process::id()
+    )))
+}
+
+pub fn publish_component_file(
+    destination: &Path,
+    descriptor: &ComponentDescriptor,
+    payload: &[u8],
+    entry_count: u64,
+) -> Result<ComponentFileInfo, String> {
+    if destination.exists() {
+        return Err(format!(
+            "destination {} already exists",
+            destination.display()
+        ));
+    }
+    let temporary = sibling_temporary_path(destination)?;
+    let result = write_component_file(&temporary, descriptor, payload, entry_count);
+    let mut info = match result {
+        Ok(info) => info,
+        Err(error) => {
+            let _ = std::fs::remove_file(&temporary);
+            return Err(error);
+        }
+    };
+    super::snapshot::inject_fault("standalone-before-rename", Some(destination))?;
+    if let Err(error) = std::fs::rename(&temporary, destination) {
+        let _ = std::fs::remove_file(&temporary);
+        return Err(format!("publish {}: {error}", destination.display()));
+    }
+    info.path = destination.to_path_buf();
+    if let Some(parent) = destination.parent() {
+        super::snapshot::sync_directory(parent)?;
+    }
+    Ok(info)
 }
 
 pub fn read_component_header(path: &Path) -> Result<ComponentFileInfo, String> {

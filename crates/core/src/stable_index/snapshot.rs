@@ -10,11 +10,21 @@ use serde::{Deserialize, Serialize};
 use super::codec::{ComponentDescriptor, ComponentId, ComponentKind, FORMAT_MAGIC, hex_digest};
 
 pub const MANIFEST_NAME: &str = "manifest.json";
-pub const MANIFEST_FORMAT_VERSION: u32 = 1;
+pub const MANIFEST_FORMAT_VERSION: u32 = 2;
 pub const MAX_MANIFEST_BYTES: u64 = 64 * 1024 * 1024;
 
 #[cfg(test)]
 static ARMED_FAULT: std::sync::Mutex<Option<(&'static str, String)>> = std::sync::Mutex::new(None);
+
+#[cfg(test)]
+static FAULT_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+#[cfg(test)]
+pub(crate) fn fault_test_lock() -> std::sync::MutexGuard<'static, ()> {
+    FAULT_TEST_LOCK
+        .lock()
+        .unwrap_or_else(|poison| poison.into_inner())
+}
 
 #[cfg(test)]
 pub(crate) fn arm_fault(point: &'static str, marker: impl Into<String>) {
@@ -51,8 +61,12 @@ pub struct ManifestCollection {
     pub generation: u64,
     pub slot_high_water: u32,
     pub live_records: u64,
-    #[serde(default)]
-    pub identity_policy: String,
+    #[serde(default = "default_identity_policy")]
+    pub identity_policy: crate::stable_index::PersistedIdentityPolicy,
+}
+
+fn default_identity_policy() -> crate::stable_index::PersistedIdentityPolicy {
+    crate::stable_index::PersistedIdentityPolicy::Generated
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -136,10 +150,17 @@ impl SnapshotManifest {
         }
         let mut component_ids = BTreeSet::new();
         let mut paths = BTreeSet::new();
+        let mut identities = BTreeSet::new();
         for component in &self.components {
             component.validate_descriptor()?;
             if !component_ids.insert(component.id.0) {
                 return Err(format!("duplicate component ID {}", component.id.0));
+            }
+            if !identities.insert(component.descriptor.identity_key()) {
+                return Err(format!(
+                    "duplicate logical component identity {}",
+                    component.descriptor.identity_key()
+                ));
             }
             if !paths.insert(component.path.clone()) {
                 return Err(format!("duplicate component path {}", component.path));
@@ -151,11 +172,51 @@ impl SnapshotManifest {
                     component.id.0
                 ));
             }
+            if component.descriptor.component_revision == 0 {
+                return Err(format!("component {} has a zero revision", component.id.0));
+            }
+        }
+        for component in &self.components {
+            for dependency in &component.descriptor.dependency_ids {
+                if dependency == &component.id {
+                    return Err(format!("component {} depends on itself", component.id.0));
+                }
+                let target = self.component(*dependency).ok_or_else(|| {
+                    format!(
+                        "component {} depends on missing component {}",
+                        component.id.0, dependency.0
+                    )
+                })?;
+                if target.descriptor.slot_namespace != component.descriptor.slot_namespace {
+                    return Err(format!(
+                        "component {} dependency {} has another slot namespace",
+                        component.id.0, dependency.0
+                    ));
+                }
+                if component
+                    .descriptor
+                    .collection
+                    .as_ref()
+                    .map(|value| value.id)
+                    != target.descriptor.collection.as_ref().map(|value| value.id)
+                {
+                    return Err(format!(
+                        "component {} dependency {} targets another collection",
+                        component.id.0, dependency.0
+                    ));
+                }
+            }
         }
         let mut collection_ids = BTreeSet::new();
         for collection in &self.collections {
             if !collection_ids.insert(collection.id) {
                 return Err(format!("duplicate collection ID {}", collection.id));
+            }
+            if collection.live_records > u64::from(collection.slot_high_water) {
+                return Err(format!(
+                    "collection {} live count exceeds slot high water",
+                    collection.id
+                ));
             }
         }
         Ok(())
@@ -270,6 +331,12 @@ pub fn sync_directory(directory: &Path) -> Result<(), String> {
         // through std::fs.  The files themselves are still synced.
     }
     Ok(())
+}
+
+static STAGING_COUNTER: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
+
+pub fn next_staging_ordinal() -> u64 {
+    STAGING_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
 }
 
 pub fn staging_directory(destination: &Path, ordinal: u64) -> Result<PathBuf, String> {

@@ -90,10 +90,10 @@ impl StablePrototype {
         Ok(entry.refs)
     }
 
-    pub fn records_for_path_key(
+    pub fn path_entry(
         &mut self,
         key: &PathKey,
-    ) -> Result<Vec<RecordRef>, StableIndexError> {
+    ) -> Result<Option<PathCatalogEntry>, StableIndexError> {
         let Some(component) = self.path_catalog_component() else {
             return Err(StableIndexError::MissingDependency(
                 "path lookup catalog".into(),
@@ -102,12 +102,18 @@ impl StablePrototype {
         let tree = self.tree(component)?;
         let value = tree.get(&ComponentKey::Path(key.clone()));
         self.counters.stable_gets += 1;
-        let Some(value) = value else {
-            return Ok(Vec::new());
-        };
-        let entry: PathCatalogEntry =
-            codec::decode_meta(&value).map_err(StableIndexError::Format)?;
-        Ok(entry.refs)
+        value
+            .map(|value| codec::decode_meta(&value).map_err(StableIndexError::Format))
+            .transpose()
+    }
+
+    pub fn records_for_path_key(
+        &mut self,
+        key: &PathKey,
+    ) -> Result<Vec<RecordRef>, StableIndexError> {
+        Ok(self
+            .path_entry(key)?
+            .map_or_else(Vec::new, |entry| entry.refs))
     }
 
     pub fn identities_for_path(
@@ -182,7 +188,7 @@ impl StablePrototype {
         &mut self,
         collection: CollectionId,
     ) -> Result<RoaringBitmap, StableIndexError> {
-        self.live_domain(collection)
+        self.live_domain_owned(collection)
     }
 
     pub(crate) fn filter_live(
@@ -190,7 +196,7 @@ impl StablePrototype {
         collection: CollectionId,
         slots: &RoaringBitmap,
     ) -> Result<Vec<RecordSlot>, StableIndexError> {
-        let live = self.live_domain(collection)?;
-        Ok((slots & &live).iter().map(RecordSlot).collect::<Vec<_>>())
+        let live = self.live_domain_shared(collection)?;
+        Ok((slots & &*live).iter().map(RecordSlot).collect::<Vec<_>>())
     }
 }

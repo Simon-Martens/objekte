@@ -722,11 +722,19 @@ fn primitives_mode(args: &Args) -> Result<(), String> {
                 let started = Instant::now();
                 let posting = prototype.typed_posting(collection, &key, &sample);
                 let elapsed = started.elapsed().as_nanos() as u64;
+                let (complete, members) = match posting {
+                    Ok(objekte_search_core::stable_index::Restriction::Complete(bitmap)) => {
+                        (true, bitmap.len())
+                    }
+                    Ok(objekte_search_core::stable_index::Restriction::NoRestriction) => (false, 0),
+                    Err(error) => return Err(error.to_string()),
+                };
                 resident.push(json!({
                     "component": component.0,
                     "key": format!("{sample:?}"),
                     "elapsed_ns": elapsed,
-                    "members": posting.map(|bitmap| bitmap.len()).unwrap_or(0),
+                    "complete": complete,
+                    "members": members,
                 }));
             }
         }
@@ -879,7 +887,20 @@ fn lifecycle_mode(args: &Args) -> Result<(), String> {
                 .file_by_id(file_id)?
                 .ok_or("lifecycle file metadata missing")?;
             let replace_started = Instant::now();
-            prototype.replace_file(&path, entry, CollectionId(0), records)?;
+            prototype.replace_prepared_file(
+                &path,
+                objekte_search_core::stable_index::PreparedFileChange {
+                    file: entry,
+                    collections: vec![
+                        objekte_search_core::stable_index::PreparedCollectionChange {
+                            collection: CollectionId(0),
+                            records,
+                            posting_adds: Vec::new(),
+                            coverage: Vec::new(),
+                        },
+                    ],
+                },
+            )?;
             replacement_ns =
                 replacement_ns.saturating_add(replace_started.elapsed().as_nanos() as u64);
             storage.push(prototype.storage_report(CollectionId(0)));
@@ -1069,20 +1090,31 @@ fn trace_metrics(
     if records.is_empty() {
         return json!({"available": false, "reason": "no component records"});
     }
-    let start = records.iter().map(|record| record.start_offset_ns).min().unwrap_or(0);
-    let end = records.iter().map(|record| record.end_offset_ns).max().unwrap_or(0);
+    let start = records
+        .iter()
+        .map(|record| record.start_offset_ns)
+        .min()
+        .unwrap_or(0);
+    let end = records
+        .iter()
+        .map(|record| record.end_offset_ns)
+        .max()
+        .unwrap_or(0);
     let makespan_ns = end.saturating_sub(start);
     let sum_job_ns = records.iter().map(|record| record.duration_ns).sum::<u64>();
-    let largest = records.iter().max_by_key(|record| record.duration_ns).map(|record| {
-        json!({
-            "id": record.id.0,
-            "kind": record.kind,
-            "field": record.field,
-            "duration_ns": record.duration_ns,
-            "entry_count": record.entry_count,
-            "estimated_work": record.estimated_work,
-        })
-    });
+    let largest = records
+        .iter()
+        .max_by_key(|record| record.duration_ns)
+        .map(|record| {
+            json!({
+                "id": record.id.0,
+                "kind": record.kind,
+                "field": record.field,
+                "duration_ns": record.duration_ns,
+                "entry_count": record.entry_count,
+                "estimated_work": record.estimated_work,
+            })
+        });
     let mut last_by_worker = std::collections::BTreeMap::<String, u64>::new();
     for record in records {
         last_by_worker
@@ -1106,12 +1138,10 @@ fn trace_metrics(
         let instant = events[index].0;
         let elapsed = instant.saturating_sub(previous);
         if active < workers as i64 && started < records.len() {
-            idle_capacity_ns = idle_capacity_ns.saturating_add(
-                elapsed.saturating_mul((workers as i64 - active).max(0) as u64),
-            );
+            idle_capacity_ns = idle_capacity_ns
+                .saturating_add(elapsed.saturating_mul((workers as i64 - active).max(0) as u64));
         }
-        active_sum_ns =
-            active_sum_ns.saturating_add(elapsed.saturating_mul(active.max(0) as u64));
+        active_sum_ns = active_sum_ns.saturating_add(elapsed.saturating_mul(active.max(0) as u64));
         while index < events.len() && events[index].0 == instant {
             if events[index].1 > 0 {
                 active += 1;

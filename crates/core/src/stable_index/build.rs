@@ -143,6 +143,7 @@ pub(crate) fn from_collections(
                 complete_for_field: index.value_complete
                     && index.length_complete
                     && index.empty_string_complete,
+                structural_complete: index.structural.is_some(),
             };
             drafts.push(posting_draft(
                 state,
@@ -199,6 +200,7 @@ pub(crate) fn from_collections(
                 empty_string_complete: custom.index.empty_string_complete,
                 covered_records: custom.index.covered_records,
                 complete_for_field: custom.complete,
+                structural_complete: custom.index.structural.is_some(),
             };
             for (kind, data) in [
                 (ComponentKind::Values, JobData::Values(&custom.index)),
@@ -385,6 +387,8 @@ pub(crate) fn from_collections(
                 .map(|field| field.path.join(".")),
             entry_count: result.entry_count,
             payload_len: result.payload_len,
+            memory_len: result.memory_len,
+            memory_capacity: result.memory_capacity,
             duration_ns: result.duration_ns,
             start_offset_ns: result.start_offset_ns,
             end_offset_ns: result.end_offset_ns,
@@ -414,8 +418,17 @@ pub(crate) fn from_collections(
         manifest: None,
         counters: super::PrototypeCounters::default(),
         usable: true,
+        unusable_reason: None,
         build_records,
         build_stage_ns: BTreeMap::new(),
+        next_file_id: Some(
+            files
+                .files
+                .iter()
+                .map(|file| file.id.0.saturating_add(1))
+                .max()
+                .unwrap_or(0),
+        ),
     };
     let manifest_collections = collections
         .iter()
@@ -425,7 +438,7 @@ pub(crate) fn from_collections(
             generation: state.generation.generation,
             slot_high_water: u32::try_from(state.generation.records.len()).unwrap_or(u32::MAX),
             live_records: state.generation.records.len() as u64,
-            identity_policy: format!("{:?}", state.definition.identity),
+            identity_policy: super::PersistedIdentityPolicy::from(&state.definition.identity),
         })
         .collect::<Vec<_>>();
     let core_components = prototype
@@ -470,7 +483,8 @@ pub(crate) fn from_collections(
         .map_err(|error| error.to_string())?;
     for state in collections {
         if let Some(collection) = prototype.collections.get_mut(&state.generation.collection) {
-            collection.identity_policy = format!("{:?}", state.definition.identity);
+            collection.identity_policy =
+                super::PersistedIdentityPolicy::from(&state.definition.identity);
             collection.slot_high_water =
                 u32::try_from(state.generation.records.len()).unwrap_or(u32::MAX);
             collection.live_records = state.generation.records.len() as u64;
@@ -524,6 +538,8 @@ struct BuildResult {
     tree: IndexTree,
     entry_count: u64,
     payload_len: u64,
+    memory_len: u64,
+    memory_capacity: u64,
     duration_ns: u64,
     start_offset_ns: u64,
     end_offset_ns: u64,
@@ -593,14 +609,12 @@ fn estimate_work(data: &JobData<'_>) -> u64 {
         JobData::Sort(column, _, _) => (column.keys.len() as u64).saturating_mul(16),
         JobData::RelationOccurrences(relation) => relation.edge_count() as u64 * 8,
         JobData::RelationTargets(relation) => relation.edge_count() as u64 * 8,
-        JobData::RelationStates(relation) => {
-            bitmap_work(&[
-                relation.present(),
-                relation.nulls(),
-                relation.empty_arrays(),
-                relation.unavailable(),
-            ])
-        }
+        JobData::RelationStates(relation) => bitmap_work(&[
+            relation.present(),
+            relation.nulls(),
+            relation.empty_arrays(),
+            relation.unavailable(),
+        ]),
     }
 }
 
@@ -629,15 +643,17 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
         JobData::RelationStates(relation) => build_relation_states(relation)?,
     };
     let entry_count = tree.len();
-    let payload = memory::tree_payload(tree);
+    let (payload, memory_len, memory_capacity) = memory::tree_image(tree);
     let payload_len = payload.len() as u64;
-    let tree = memory::load_tree(payload)?;
+    let tree = memory::load_tree(draft.descriptor.kind, payload)?;
     let finished = Instant::now();
     Ok(BuildResult {
         descriptor: draft.descriptor,
         tree,
         entry_count,
         payload_len,
+        memory_len: memory_len as u64,
+        memory_capacity: memory_capacity as u64,
         duration_ns: finished.duration_since(started).as_nanos() as u64,
         start_offset_ns,
         end_offset_ns: finished.duration_since(epoch).as_nanos() as u64,
@@ -647,7 +663,7 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
 }
 
 fn build_files(files: &FileInventory) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Files);
     for file in &files.files {
         let value = codec::encode_meta(&FileCatalogRecord {
             entry: file.clone(),
@@ -660,7 +676,7 @@ fn build_files(files: &FileInventory) -> Result<IndexTree, String> {
 }
 
 fn build_prepared_paths(entries: Vec<(PathKey, StoredBytes)>) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Paths);
     for (key, value) in entries {
         tree.insert(ComponentKey::Path(key), value);
     }
@@ -709,7 +725,7 @@ fn prepare_paths(
 }
 
 fn build_records(records: &[RecordEntry]) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Records);
     for record in records {
         let value = codec::encode_meta(&RecordCatalogRecord {
             entry: record.clone(),
@@ -729,7 +745,7 @@ fn build_identities(records: &[RecordEntry]) -> Result<IndexTree, String> {
             .or_default()
             .insert(record.slot.0);
     }
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Identities);
     for (id, slots) in identities {
         let value = memory::bitmap_value(&slots)?;
         tree.insert(ComponentKey::Identity(codec::RecordIdentityKey(id)), value);
@@ -750,7 +766,7 @@ fn build_domains(
             raw_fallback.insert(record.slot.0);
         }
     }
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Domains);
     for (key, bitmap) in [
         (codec::DOMAIN_ALL, &all),
         (codec::DOMAIN_LOGICAL, logical),
@@ -764,7 +780,7 @@ fn build_domains(
 }
 
 fn build_values(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Values);
     for (key, posting) in &index.values {
         tree.insert(
             ComponentKey::Scalar(key.clone()),
@@ -775,7 +791,7 @@ fn build_values(index: &PostingIndex) -> Result<IndexTree, String> {
 }
 
 fn build_lengths(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::Lengths);
     for (key, posting) in &index.lengths {
         tree.insert(
             ComponentKey::Length(key.clone()),
@@ -786,7 +802,7 @@ fn build_lengths(index: &PostingIndex) -> Result<IndexTree, String> {
 }
 
 fn build_states(index: &PostingIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::States);
     for (state, posting) in [
         (codec::STATE_PRESENCE, &index.presence),
         (codec::STATE_EMPTY_SELECTION, &index.empty_selections),
@@ -813,7 +829,11 @@ fn build_states(index: &PostingIndex) -> Result<IndexTree, String> {
 
 fn build_grams(index: &BigramIndex, skip: bool) -> Result<IndexTree, String> {
     let source = if skip { &index.skip } else { &index.normal };
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(if skip {
+        ComponentKind::SkipGrams
+    } else {
+        ComponentKind::NormalGrams
+    });
     for (gram, posting) in source {
         tree.insert(ComponentKey::Gram(*gram), memory::bitmap_value(posting)?);
     }
@@ -828,7 +848,7 @@ fn build_sort(
     if records.len() != column.keys.len() {
         return Err("sort column record coverage mismatch".into());
     }
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::SortAscending);
     for (slot, key) in column.keys.iter().enumerate() {
         let slot = RecordSlot(u32::try_from(slot).map_err(|_| "sort slot does not fit in u32")?);
         tree.insert(
@@ -846,7 +866,7 @@ fn build_sort(
 }
 
 fn build_relation_occurrences(relation: &RelationIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::RelationOccurrences);
     for slot in 0..relation_max_slot(relation) {
         let source = RecordSlot(slot);
         let Some(edges) = relation.edges(source) else {
@@ -884,7 +904,7 @@ fn build_relation_targets(relation: &RelationIndex) -> Result<IndexTree, String>
                 .insert(slot);
         }
     }
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::RelationTargets);
     for (target_id, sources) in targets {
         tree.insert(
             ComponentKey::RelationTarget(RelationTargetKey {
@@ -898,7 +918,7 @@ fn build_relation_targets(relation: &RelationIndex) -> Result<IndexTree, String>
 }
 
 fn build_relation_states(relation: &RelationIndex) -> Result<IndexTree, String> {
-    let mut tree = memory::new_tree();
+    let mut tree = memory::new_tree(ComponentKind::RelationStates);
     for (state, bitmap) in [
         (codec::RELATION_PRESENT, relation.present()),
         (codec::RELATION_NULLS, relation.nulls()),
@@ -1124,12 +1144,13 @@ fn append_text_drafts<'a>(
         empty_string_complete: false,
         covered_records: index.record_count,
         complete_for_field: true,
+        structural_complete: true,
     };
     for (kind, data) in [
         (ComponentKind::NormalGrams, JobData::NormalGrams(index)),
         (ComponentKind::SkipGrams, JobData::SkipGrams(index)),
     ] {
-        drafts.push(posting_draft(
+        let mut draft = posting_draft(
             state,
             collection,
             field.clone(),
@@ -1141,7 +1162,20 @@ fn append_text_drafts<'a>(
             schema_fingerprint,
             slot_namespace,
             root,
-        ));
+        );
+        draft.descriptor.text = Some(codec::TextRepresentationDescriptor {
+            alphabet: index.alphabet,
+            gram_role: if kind == ComponentKind::SkipGrams {
+                1
+            } else {
+                0
+            },
+            extractor: "objekte-text".into(),
+            extractor_version: crate::bigram::BIGRAM_VERSION,
+            normalization: crate::bigram::FOLDED_REPRESENTATION.into(),
+            segment_identity: "reader-segments-v1".into(),
+        });
+        drafts.push(draft);
     }
 }
 
@@ -1179,6 +1213,7 @@ fn sort_draft<'a>(
                 empty_string_complete: false,
                 covered_records: column.keys.len() as u32,
                 complete_for_field: true,
+                structural_complete: true,
             },
             configuration_identity,
             repository_identity,
@@ -1283,10 +1318,11 @@ fn descriptor(
         kind,
         key_codec_version: codec::KEY_CODEC_VERSION,
         value_codec_version: codec::VALUE_CODEC_VERSION,
-        key_bound: "unbounded:component-key-v2".into(),
+        key_bound: key_bound_for(kind).into(),
         collection,
         field,
         ordering,
+        text: None,
         target_collection,
         coverage,
         repository_identity,
@@ -1298,27 +1334,96 @@ fn descriptor(
         origin_path: Some(root.to_path_buf()),
         dependency_ids: Vec::new(),
         detached: false,
+        component_revision: 1,
+    }
+}
+
+fn key_bound_for(kind: ComponentKind) -> &'static str {
+    match kind {
+        ComponentKind::Files | ComponentKind::Records => "fixed:u32",
+        ComponentKind::Paths => "unbounded:path",
+        ComponentKind::Identities => "unbounded:identity",
+        ComponentKind::Domains | ComponentKind::States | ComponentKind::RelationStates => {
+            "fixed:u8"
+        }
+        ComponentKind::Values => "unbounded:scalar",
+        ComponentKind::Lengths => "unbounded:number",
+        ComponentKind::NormalGrams | ComponentKind::SkipGrams => "fixed:u64",
+        ComponentKind::SortAscending | ComponentKind::SortDescending => "unbounded:sort",
+        ComponentKind::RelationOccurrences => "fixed:u64",
+        ComponentKind::RelationTargets => "unbounded:relation-target",
     }
 }
 
 fn configuration_identity(collections: &[CollectionState]) -> [u8; 32] {
     let mut hash = Sha256::new();
-    hash.update(b"objekte-icss-configuration-v1");
+    hash.update(b"objekte-icss-configuration-v2");
     for state in collections {
         let definition = &state.definition;
-        hash_field(&mut hash, &definition.name);
-        hash_field(&mut hash, &definition.source_path);
-        hash_field(&mut hash, &format!("{:?}", definition.format));
-        hash_field(&mut hash, &format!("{:?}", definition.identity));
-        hash_field(&mut hash, &format!("{:?}", definition.discovery));
-        hash_field(&mut hash, &definition.sort_locale);
-        hash_field(&mut hash, &format!("{:?}", definition.sort_options));
+        hash_text(&mut hash, &definition.name);
+        hash_path(&mut hash, &definition.source_path);
+        hash_text(&mut hash, definition.format.id());
+        match &definition.identity {
+            crate::repository::IdentityPolicy::Filename => hash_u64(&mut hash, 1),
+            crate::repository::IdentityPolicy::RelativePath => hash_u64(&mut hash, 2),
+            crate::repository::IdentityPolicy::Generated => hash_u64(&mut hash, 3),
+            crate::repository::IdentityPolicy::Intrinsic(fields) => {
+                hash_u64(&mut hash, 4);
+                hash_strings(&mut hash, fields);
+            }
+        }
+        hash_u64(&mut hash, u64::from(definition.discovery.recursive));
+        hash_u64(&mut hash, u64::from(definition.discovery.hidden));
+        hash_u64(
+            &mut hash,
+            match definition.discovery.symlinks {
+                crate::discovery::SymlinkPolicy::Skip => 0,
+                crate::discovery::SymlinkPolicy::FollowWithinRoot => 1,
+            },
+        );
+        let mut include = definition.discovery.include.clone();
+        include.sort();
+        hash_strings(&mut hash, &include);
+        let mut exclude = definition.discovery.exclude.clone();
+        exclude.sort();
+        hash_strings(&mut hash, &exclude);
+        let mut excluded_files = definition
+            .discovery
+            .exclude_files
+            .iter()
+            .map(|path| super::PathKey::from_path(path).map(|key| key.bytes))
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap_or_default();
+        excluded_files.sort();
+        for path in excluded_files {
+            hash_bytes(&mut hash, &path);
+        }
+        let mut excluded_dirs = definition
+            .discovery
+            .exclude_directories
+            .iter()
+            .map(|path| super::PathKey::from_path(path).map(|key| key.bytes))
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap_or_default();
+        excluded_dirs.sort();
+        for path in excluded_dirs {
+            hash_bytes(&mut hash, &path);
+        }
+        hash_text(&mut hash, &definition.sort_locale);
+        hash_sort_options(&mut hash, definition.sort_options);
         let mut fields = definition.schema.fields().iter().collect::<Vec<_>>();
         fields.sort_by(|left, right| left.0.cmp(right.0));
         for (path, field) in fields {
-            hash_field(&mut hash, path);
-            hash_field(&mut hash, &format!("{:?}", field.kind));
-            hash_field(&mut hash, &format!("{field:?}"));
+            hash_strings(&mut hash, path);
+            hash_serde(&mut hash, &field.kind).expect("field kind serialization");
+            hash_u64(&mut hash, u64::from(field.required));
+            hash_u64(&mut hash, u64::from(field.nullable));
+            hash_u64(&mut hash, u64::from(field.indexed));
+            hash_u64(&mut hash, u64::from(field.multi));
+            hash_u64(&mut hash, field.element_nullable.len() as u64);
+            for nullable in &field.element_nullable {
+                hash_u64(&mut hash, u64::from(*nullable));
+            }
         }
         let mut custom = definition
             .schema
@@ -1327,23 +1432,134 @@ fn configuration_identity(collections: &[CollectionState]) -> [u8; 32] {
             .collect::<Vec<_>>();
         custom.sort_by(|left, right| left.0.cmp(right.0));
         for (key, binding) in custom {
-            hash_field(&mut hash, key);
-            hash_field(&mut hash, &format!("{:?}", binding));
+            hash_strings(&mut hash, &key.0);
+            hash_text(&mut hash, &key.1);
+            hash_text(&mut hash, &binding.name);
+            hash_u64(&mut hash, binding.version as u64);
+            hash_u64(
+                &mut hash,
+                match binding.transform {
+                    crate::reference::Transform::Identity => 0,
+                    crate::reference::Transform::CaseFold => 1,
+                },
+            );
+        }
+        let mut operations = definition.schema.operations.iter().collect::<Vec<_>>();
+        operations.sort_by(|left, right| left.0.cmp(right.0));
+        for (key, binding) in operations {
+            hash_strings(&mut hash, &key.0);
+            hash_text(&mut hash, &key.1);
+            hash_text(&mut hash, &binding.name);
+            hash_u64(&mut hash, binding.version as u64);
         }
         let mut relations = definition.schema.relations().iter().collect::<Vec<_>>();
         relations.sort_by(|left, right| left.0.cmp(right.0));
         for (path, relation) in relations {
-            hash_field(&mut hash, path);
-            hash_field(&mut hash, &format!("{relation:?}"));
+            hash_strings(&mut hash, path);
+            hash_text(&mut hash, &relation.target_collection);
+            hash_u64(
+                &mut hash,
+                match relation.cardinality {
+                    crate::relation::RelationCardinality::One => 1,
+                    crate::relation::RelationCardinality::Many => 2,
+                },
+            );
+            hash_opt_text(&mut hash, relation.reverse_alias.as_deref());
         }
-        let mut sorts = definition.sort_fields.iter().collect::<Vec<_>>();
-        sorts.sort_by_key(|path| path.display());
+        let mut sorts = definition.sort_fields.clone();
+        sorts.sort_by_key(|sort| sort.display());
         for sort in sorts {
-            hash_field(&mut hash, &sort.display());
+            hash_serde(&mut hash, &sort).expect("sort field serialization");
         }
-        hash_field(&mut hash, &format!("{:?}", state.raw.alphabet));
+        let mut overrides = definition.sort_overrides.iter().collect::<Vec<_>>();
+        overrides.sort_by_key(|(path, _)| path.display());
+        for (path, config) in overrides {
+            hash_serde(&mut hash, path).expect("sort path serialization");
+            hash_text(&mut hash, &config.locale);
+            hash_sort_options(&mut hash, config.options);
+        }
+        for composite in &definition.schema.composite_sorts {
+            hash_u64(&mut hash, composite.len() as u64);
+            for field in composite {
+                hash_serde(&mut hash, field).expect("composite sort serialization");
+            }
+        }
+        if let Some(fingerprint) = definition.schema.source_fingerprint() {
+            hash_bytes(&mut hash, &fingerprint);
+        }
+        hash_u64(&mut hash, collection_alphabet_code(state.raw.alphabet));
     }
     hash.finalize().into()
+}
+
+fn collection_alphabet_code(alphabet: crate::workload::BigramAlphabet) -> u64 {
+    match alphabet {
+        crate::workload::BigramAlphabet::Ascii => 0,
+        crate::workload::BigramAlphabet::Unicode => 1,
+    }
+}
+
+fn hash_sort_options(hash: &mut Sha256, options: crate::sorting::SortOptions) {
+    let strength = match options.strength {
+        crate::sorting::CollationStrength::LocaleDefault => 0,
+        crate::sorting::CollationStrength::Primary => 1,
+        crate::sorting::CollationStrength::Secondary => 2,
+        crate::sorting::CollationStrength::Tertiary => 3,
+        crate::sorting::CollationStrength::Quaternary => 4,
+        crate::sorting::CollationStrength::Identical => 5,
+    };
+    let nulls = match options.nulls {
+        crate::sorting::Placement::First => 0,
+        crate::sorting::Placement::Last => 1,
+    };
+    let missing = match options.missing {
+        crate::sorting::Placement::First => 0,
+        crate::sorting::Placement::Last => 1,
+    };
+    hash_u64(hash, strength);
+    hash_u64(hash, u64::from(options.numeric));
+    hash_u64(hash, nulls);
+    hash_u64(hash, missing);
+}
+
+fn hash_u64(hash: &mut Sha256, value: u64) {
+    hash.update(value.to_le_bytes());
+}
+
+fn hash_text(hash: &mut Sha256, value: &str) {
+    hash_bytes(hash, value.as_bytes());
+}
+
+fn hash_opt_text(hash: &mut Sha256, value: Option<&str>) {
+    match value {
+        Some(value) => {
+            hash_u64(hash, 1);
+            hash_text(hash, value);
+        }
+        None => hash_u64(hash, 0),
+    }
+}
+
+fn hash_strings(hash: &mut Sha256, values: &[String]) {
+    hash_u64(hash, values.len() as u64);
+    for value in values {
+        hash_text(hash, value);
+    }
+}
+
+fn hash_bytes(hash: &mut Sha256, value: &[u8]) {
+    hash_u64(hash, value.len() as u64);
+    hash.update(value);
+}
+
+fn hash_path(hash: &mut Sha256, path: &Path) {
+    match super::PathKey::from_path(path) {
+        Ok(key) => {
+            hash_u64(hash, key.platform as u64);
+            hash_bytes(hash, &key.bytes);
+        }
+        Err(_) => hash_bytes(hash, path.to_string_lossy().as_bytes()),
+    }
 }
 
 fn repository_identity(
@@ -1356,15 +1572,15 @@ fn repository_identity(
         hash_serde(&mut hash, file)?;
     }
     for state in collections {
-        hash_field(&mut hash, &state.definition.name);
-        hash_field(&mut hash, &state.generation.generation);
+        hash_text(&mut hash, &state.definition.name);
+        hash_u64(&mut hash, state.generation.generation);
         for record in &state.generation.records {
-            hash_field(&mut hash, &record.slot.0);
-            hash_field(&mut hash, &record.id.0.to_string());
-            hash_field(&mut hash, &record.file.0);
-            hash_field(&mut hash, &record.range.start);
-            hash_field(&mut hash, &record.range.end);
-            hash_field(&mut hash, &format!("{:?}", record.class));
+            hash_u64(&mut hash, record.slot.0 as u64);
+            hash_text(&mut hash, &record.id.0);
+            hash_u64(&mut hash, record.file.0 as u64);
+            hash_u64(&mut hash, record.range.start);
+            hash_u64(&mut hash, record.range.end);
+            hash_u64(&mut hash, record.class.code() as u64);
         }
     }
     Ok(hash.finalize().into())
@@ -1379,16 +1595,8 @@ fn slot_namespace(
     hash.update(b"objekte-icss-slot-namespace-v1");
     hash.update(configuration_identity);
     hash.update(repository_identity);
-    if let Some(root) = root.to_str() {
-        hash_field(&mut hash, &root);
-    }
+    hash_path(&mut hash, root);
     codec::hex_digest(&hash.finalize().into())
-}
-
-fn hash_field<T: std::fmt::Debug>(hash: &mut Sha256, value: &T) {
-    let text = format!("{value:?}");
-    hash.update((text.len() as u64).to_le_bytes());
-    hash.update(text.as_bytes());
 }
 
 fn hash_serde<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> {

@@ -17,7 +17,32 @@ use super::{
     StablePrototype, TextComponentKey,
 };
 
+#[derive(Clone, Debug)]
+pub enum Restriction {
+    NoRestriction,
+    Complete(RoaringBitmap),
+}
+
+impl Restriction {
+    pub fn complete(self) -> Result<RoaringBitmap, StableIndexError> {
+        match self {
+            Self::Complete(bitmap) => Ok(bitmap),
+            Self::NoRestriction => Err(StableIndexError::Unsupported(
+                "the selected index cannot prove a complete result".into(),
+            )),
+        }
+    }
+}
+
 impl StablePrototype {
+    fn component_coverage(
+        &self,
+        component: super::ComponentId,
+    ) -> Option<&super::CoverageDescriptor> {
+        self.components
+            .get(&component)
+            .map(|entry| &entry.descriptor.coverage)
+    }
     pub fn field_components(
         &self,
         collection: CollectionId,
@@ -58,16 +83,22 @@ impl StablePrototype {
         collection: CollectionId,
         field: &FieldComponentKey,
         value: &ScalarKey,
-    ) -> Result<RoaringBitmap, StableIndexError> {
+    ) -> Result<Restriction, StableIndexError> {
         let component = self
             .field_components(collection, field)
             .and_then(|entry| entry.values)
             .ok_or_else(|| StableIndexError::MissingDependency("typed value index".into()))?;
+        let coverage = self.component_coverage(component).cloned().ok_or_else(|| {
+            StableIndexError::MissingDependency("typed value coverage descriptor".into())
+        })?;
+        if !coverage.values_indexed || !coverage.value_complete {
+            return Ok(Restriction::NoRestriction);
+        }
         let posting = self
             .posting_value(component, ComponentKey::Scalar(value.clone()))?
             .unwrap_or_default();
-        let live = self.live_domain(collection)?;
-        Ok(posting & live)
+        let live = self.live_domain_shared(collection)?;
+        Ok(Restriction::Complete(posting & &*live))
     }
 
     pub fn visit_typed_range(
@@ -83,7 +114,7 @@ impl StablePrototype {
             .field_components(collection, field)
             .and_then(|entry| entry.values)
             .ok_or_else(|| StableIndexError::MissingDependency("typed value index".into()))?;
-        let live = self.live_domain(collection)?;
+        let live = self.live_domain_shared(collection)?;
         let lower = map_scalar_bound(lower);
         let upper = map_scalar_bound(upper);
         let tree = self.tree(component)?;
@@ -96,7 +127,7 @@ impl StablePrototype {
                 let posting = super::memory::decode_bitmap(&entry.value())
                     .map_err(StableIndexError::Format)?;
                 decodes += 1;
-                let posting = posting & &live;
+                let posting = posting & &*live;
                 if !posting.is_empty() {
                     visit(key.clone(), posting).map_err(StableIndexError::Format)?;
                 }
@@ -109,7 +140,7 @@ impl StablePrototype {
                 let posting = super::memory::decode_bitmap(&entry.value())
                     .map_err(StableIndexError::Format)?;
                 decodes += 1;
-                let posting = posting & &live;
+                let posting = posting & &*live;
                 if !posting.is_empty() {
                     visit(key.clone(), posting).map_err(StableIndexError::Format)?;
                 }
@@ -126,13 +157,23 @@ impl StablePrototype {
         lower: std::ops::Bound<ScalarKey>,
         upper: std::ops::Bound<ScalarKey>,
         descending: bool,
-    ) -> Result<RoaringBitmap, StableIndexError> {
+    ) -> Result<Restriction, StableIndexError> {
+        let component = self
+            .field_components(collection, field)
+            .and_then(|entry| entry.values)
+            .ok_or_else(|| StableIndexError::MissingDependency("typed value index".into()))?;
+        let coverage = self.component_coverage(component).cloned().ok_or_else(|| {
+            StableIndexError::MissingDependency("typed value coverage descriptor".into())
+        })?;
+        if !coverage.values_indexed || !coverage.value_complete {
+            return Ok(Restriction::NoRestriction);
+        }
         let mut result = RoaringBitmap::new();
         self.visit_typed_range(collection, field, lower, upper, descending, |_, posting| {
             result |= posting;
             Ok(())
         })?;
-        Ok(result)
+        Ok(Restriction::Complete(result))
     }
 
     pub fn length_posting(
@@ -140,16 +181,22 @@ impl StablePrototype {
         collection: CollectionId,
         field: &FieldComponentKey,
         length: &crate::model::Number,
-    ) -> Result<RoaringBitmap, StableIndexError> {
+    ) -> Result<Restriction, StableIndexError> {
         let component = self
             .field_components(collection, field)
             .and_then(|entry| entry.lengths)
             .ok_or_else(|| StableIndexError::MissingDependency("length index".into()))?;
+        let coverage = self.component_coverage(component).cloned().ok_or_else(|| {
+            StableIndexError::MissingDependency("length coverage descriptor".into())
+        })?;
+        if !coverage.length_complete {
+            return Ok(Restriction::NoRestriction);
+        }
         let posting = self
             .posting_value(component, ComponentKey::Length(length.clone()))?
             .unwrap_or_default();
-        let live = self.live_domain(collection)?;
-        Ok(posting & live)
+        let live = self.live_domain_shared(collection)?;
+        Ok(Restriction::Complete(posting & &*live))
     }
 
     pub fn visit_length_range(
@@ -164,7 +211,7 @@ impl StablePrototype {
             .field_components(collection, field)
             .and_then(|entry| entry.lengths)
             .ok_or_else(|| StableIndexError::MissingDependency("length index".into()))?;
-        let live = self.live_domain(collection)?;
+        let live = self.live_domain_shared(collection)?;
         let lower = map_length_bound(lower);
         let upper = map_length_bound(upper);
         let tree = self.tree(component)?;
@@ -176,7 +223,7 @@ impl StablePrototype {
             let posting =
                 super::memory::decode_bitmap(&entry.value()).map_err(StableIndexError::Format)?;
             decodes += 1;
-            let posting = posting & &live;
+            let posting = posting & &*live;
             if !posting.is_empty() {
                 visit(length.clone(), posting).map_err(StableIndexError::Format)?;
             }
@@ -190,16 +237,22 @@ impl StablePrototype {
         collection: CollectionId,
         field: &FieldComponentKey,
         state: u8,
-    ) -> Result<RoaringBitmap, StableIndexError> {
+    ) -> Result<Restriction, StableIndexError> {
         let component = self
             .field_components(collection, field)
             .and_then(|entry| entry.states)
             .ok_or_else(|| StableIndexError::MissingDependency("state index".into()))?;
+        let coverage = self.component_coverage(component).cloned().ok_or_else(|| {
+            StableIndexError::MissingDependency("state coverage descriptor".into())
+        })?;
+        if !coverage.structural_complete {
+            return Ok(Restriction::NoRestriction);
+        }
         let posting = self
             .posting_value(component, ComponentKey::State(state))?
             .unwrap_or_default();
-        let live = self.live_domain(collection)?;
-        Ok(posting & live)
+        let live = self.live_domain_shared(collection)?;
+        Ok(Restriction::Complete(posting & &*live))
     }
 
     pub fn text_components(
@@ -236,7 +289,16 @@ impl StablePrototype {
         }
         let entry = self
             .text_components(collection, key)
+            .ok_or_else(|| StableIndexError::MissingDependency("text gram index".into()))?
+            .clone();
+        let check_component = if skip { entry.skip } else { entry.normal }
             .ok_or_else(|| StableIndexError::MissingDependency("text gram index".into()))?;
+        if !self
+            .component_coverage(check_component)
+            .is_some_and(|coverage| coverage.complete_for_field)
+        {
+            return Ok(None);
+        }
         let component = if skip {
             entry
                 .skip
@@ -246,7 +308,7 @@ impl StablePrototype {
                 .normal
                 .ok_or_else(|| StableIndexError::MissingDependency("normal-gram index".into()))?
         };
-        let live = self.live_domain(collection)?;
+        let live = self.live_domain_shared(collection)?;
         let tree = self.tree(component)?;
         let mut candidates: Option<RoaringBitmap> = None;
         let mut decodes = 0u64;
@@ -267,7 +329,7 @@ impl StablePrototype {
             }
         }
         self.counters.bitmap_decodes += decodes;
-        Ok(candidates.map(|posting| posting & live))
+        Ok(candidates.map(|posting| posting & &*live))
     }
 
     /// Prepare a literal with master's existing bigram folding and intersect
@@ -336,7 +398,7 @@ impl StablePrototype {
         } else {
             sort.ascending
         };
-        let live = self.live_domain(collection)?;
+        let live = self.live_domain_shared(collection)?;
         let tree = self.tree(component)?;
         let mut skipped = 0usize;
         let mut result = Vec::new();
@@ -417,8 +479,8 @@ impl StablePrototype {
         let posting = self
             .posting_value(relation.states, ComponentKey::RelationState(state))?
             .unwrap_or_default();
-        let live = self.live_domain(collection)?;
-        Ok(posting & live)
+        let live = self.live_domain_shared(collection)?;
+        Ok(posting & &*live)
     }
 
     pub fn relation_present(
@@ -471,8 +533,8 @@ impl StablePrototype {
         let posting = self
             .posting_value(relation.targets, ComponentKey::RelationTarget(target_key))?
             .unwrap_or_default();
-        let live = self.live_domain(collection)?;
-        Ok(posting & live)
+        let live = self.live_domain_shared(collection)?;
+        Ok(posting & &*live)
     }
 
     /// Sorted distinct gram keys in one text component, used by diagnostics
