@@ -366,6 +366,7 @@ fn direct_source_build(args: &Args, force_snapshot: bool) -> Result<(), String> 
         .map(|record| record.payload_len)
         .sum::<u64>();
     let stage_ns = prototype.build_stage_ns().clone();
+    let trace = trace_metrics(&build_records, worker_budget(args));
     let build_json = json!({
         "construction_mode": "direct_batch_contributions",
         "requested_build_workers": args.build_workers.map(NonZeroUsize::get),
@@ -395,12 +396,14 @@ fn direct_source_build(args: &Args, force_snapshot: bool) -> Result<(), String> 
         "schema_sha256": schema_digest,
         "counters": prototype.counters(),
         "components": prototype.component_descriptors().count(),
+        "trace": trace,
     });
     let components_json = json!({
         "components": descriptors,
         "records": build_records,
         "overlap_pairs": overlap,
         "field_job_overlap_demonstrated": overlap > 0,
+        "trace": trace,
     });
     let memory_json = json!({
         "readiness_rss_bytes": readiness_rss,
@@ -1057,6 +1060,80 @@ fn fixture_definitions() -> Vec<CollectionDefinition> {
     definition.sort_fields =
         vec![objekte_search_core::model::FieldPath::parse("age").expect("sort")];
     vec![definition]
+}
+
+fn trace_metrics(
+    records: &[objekte_search_core::stable_index::ComponentBuildRecord],
+    workers: usize,
+) -> serde_json::Value {
+    if records.is_empty() {
+        return json!({"available": false, "reason": "no component records"});
+    }
+    let start = records.iter().map(|record| record.start_offset_ns).min().unwrap_or(0);
+    let end = records.iter().map(|record| record.end_offset_ns).max().unwrap_or(0);
+    let makespan_ns = end.saturating_sub(start);
+    let sum_job_ns = records.iter().map(|record| record.duration_ns).sum::<u64>();
+    let largest = records.iter().max_by_key(|record| record.duration_ns).map(|record| {
+        json!({
+            "id": record.id.0,
+            "kind": record.kind,
+            "field": record.field,
+            "duration_ns": record.duration_ns,
+            "entry_count": record.entry_count,
+            "estimated_work": record.estimated_work,
+        })
+    });
+    let mut last_by_worker = std::collections::BTreeMap::<String, u64>::new();
+    for record in records {
+        last_by_worker
+            .entry(record.worker.clone())
+            .and_modify(|value| *value = (*value).max(record.end_offset_ns))
+            .or_insert(record.end_offset_ns);
+    }
+    let mut events = Vec::with_capacity(records.len() * 2);
+    for record in records {
+        events.push((record.start_offset_ns, 1i64));
+        events.push((record.end_offset_ns, -1i64));
+    }
+    events.sort_unstable();
+    let mut active = 0i64;
+    let mut started = 0usize;
+    let mut previous = start;
+    let mut idle_capacity_ns = 0u64;
+    let mut active_sum_ns = 0u64;
+    let mut index = 0usize;
+    while index < events.len() {
+        let instant = events[index].0;
+        let elapsed = instant.saturating_sub(previous);
+        if active < workers as i64 && started < records.len() {
+            idle_capacity_ns = idle_capacity_ns.saturating_add(
+                elapsed.saturating_mul((workers as i64 - active).max(0) as u64),
+            );
+        }
+        active_sum_ns =
+            active_sum_ns.saturating_add(elapsed.saturating_mul(active.max(0) as u64));
+        while index < events.len() && events[index].0 == instant {
+            if events[index].1 > 0 {
+                active += 1;
+                started += 1;
+            } else {
+                active -= 1;
+            }
+            index += 1;
+        }
+        previous = instant;
+    }
+    json!({
+        "available": true,
+        "workers": workers,
+        "makespan_ns": makespan_ns,
+        "sum_job_duration_ns": sum_job_ns,
+        "average_concurrent_jobs": if makespan_ns == 0 { 0.0 } else { active_sum_ns as f64 / makespan_ns as f64 },
+        "idle_capacity_ns": idle_capacity_ns,
+        "largest_job": largest,
+        "last_completion_by_worker": last_by_worker,
+        "components": records.len(),
+    })
 }
 
 fn field_overlap_pairs(records: &[objekte_search_core::stable_index::ComponentBuildRecord]) -> u64 {

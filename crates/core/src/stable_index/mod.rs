@@ -147,6 +147,7 @@ pub struct ComponentBuildRecord {
     pub start_offset_ns: u64,
     pub end_offset_ns: u64,
     pub worker: String,
+    pub estimated_work: u64,
 }
 
 #[derive(Clone, Debug, Serialize)]

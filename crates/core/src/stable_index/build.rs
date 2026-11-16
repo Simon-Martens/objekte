@@ -38,11 +38,16 @@ pub(crate) fn from_repository(
     {
         return Err("inference is not supported by the stable-index prototype".into());
     }
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(worker_count(workers))
+        .thread_name(|index| format!("objekte-icss-build-{index}"))
+        .build()
+        .map_err(|error| error.to_string())?;
     from_collections(
         repository.files(),
         repository.collections(),
         &repository.files().root,
-        workers,
+        &pool,
     )
 }
 
@@ -50,7 +55,7 @@ pub(crate) fn from_collections(
     files: &FileInventory,
     collections: &[CollectionState],
     root: &Path,
-    workers: Option<usize>,
+    pool: &rayon::ThreadPool,
 ) -> Result<StablePrototype, String> {
     if collections.iter().any(|state| state.inference.is_some()) {
         return Err("inference is not supported by the stable-index prototype".into());
@@ -341,18 +346,28 @@ pub(crate) fn from_collections(
             ComponentId(u32::try_from(ordinal + 1).map_err(|_| "too many stable components")?);
     }
 
-    let pool = rayon::ThreadPoolBuilder::new()
-        .num_threads(worker_count(workers))
-        .thread_name(|index| format!("objekte-icss-build-{index}"))
-        .build()
-        .map_err(|error| error.to_string())?;
+    for draft in &mut drafts {
+        draft.estimated_work = estimate_work(&draft.data);
+    }
+    // IDs stay canonical. Execution is largest-first, with one component per
+    // Rayon task so an indexed iterator cannot leave all catalogs in one
+    // sequential partition before the small jobs.
+    let mut execution = drafts.into_iter().collect::<Vec<_>>();
+    execution.sort_by(|left, right| {
+        right
+            .estimated_work
+            .cmp(&left.estimated_work)
+            .then_with(|| left.descriptor.id.cmp(&right.descriptor.id))
+    });
     let build_epoch = Instant::now();
-    let results = pool.install(|| {
-        drafts
+    let mut results = pool.install(|| {
+        execution
             .into_par_iter()
+            .with_max_len(1)
             .map(|draft| build_one(draft, build_epoch))
             .collect::<Result<Vec<_>, String>>()
     })?;
+    results.sort_by_key(|result| result.descriptor.id);
 
     let mut components = BTreeMap::new();
     let mut descriptor_list = Vec::with_capacity(results.len());
@@ -374,6 +389,7 @@ pub(crate) fn from_collections(
             start_offset_ns: result.start_offset_ns,
             end_offset_ns: result.end_offset_ns,
             worker: result.worker,
+            estimated_work: result.estimated_work,
         });
         components.insert(
             result.descriptor.id,
@@ -500,6 +516,7 @@ fn worker_count(workers: Option<usize>) -> usize {
 struct Draft<'a> {
     descriptor: ComponentDescriptor,
     data: JobData<'a>,
+    estimated_work: u64,
 }
 
 struct BuildResult {
@@ -511,6 +528,7 @@ struct BuildResult {
     start_offset_ns: u64,
     end_offset_ns: u64,
     worker: String,
+    estimated_work: u64,
 }
 
 enum JobData<'a> {
@@ -532,6 +550,58 @@ enum JobData<'a> {
     RelationOccurrences(&'a RelationIndex),
     RelationTargets(&'a RelationIndex),
     RelationStates(&'a RelationIndex),
+}
+
+fn estimate_work(data: &JobData<'_>) -> u64 {
+    let bitmap_work = |bitmaps: &[&RoaringBitmap]| {
+        bitmaps
+            .iter()
+            .map(|bitmap| bitmap.len().saturating_mul(8).saturating_add(4))
+            .sum::<u64>()
+    };
+    match data {
+        JobData::Files(files) => files.files.len() as u64 * 8,
+        JobData::Paths(entries) => entries
+            .iter()
+            .map(|(key, value)| (key.bytes.len() + value.len()) as u64 + 8)
+            .sum(),
+        JobData::Records(records) => records.len() as u64 * 4,
+        JobData::Identities(records) => records.len() as u64 * 4,
+        JobData::Domains { records, .. } => records.len() as u64 * 8,
+        JobData::Values(index) => {
+            index.values.len() as u64 + bitmap_work(&index.values.values().collect::<Vec<_>>())
+        }
+        JobData::Lengths(index) => {
+            index.lengths.len() as u64 + bitmap_work(&index.lengths.values().collect::<Vec<_>>())
+        }
+        JobData::States(index) => {
+            let mut work = index.values.len() as u64
+                + index.lengths.len() as u64
+                + bitmap_work(&[&index.presence, &index.empty_selections, &index.nulls]);
+            if let Some(facts) = &index.structural {
+                work += facts.postings.len() as u64
+                    + bitmap_work(&facts.postings.values().collect::<Vec<_>>());
+            }
+            work
+        }
+        JobData::NormalGrams(index) => {
+            index.normal.len() as u64 + bitmap_work(&index.normal.values().collect::<Vec<_>>())
+        }
+        JobData::SkipGrams(index) => {
+            index.skip.len() as u64 + bitmap_work(&index.skip.values().collect::<Vec<_>>())
+        }
+        JobData::Sort(column, _, _) => (column.keys.len() as u64).saturating_mul(16),
+        JobData::RelationOccurrences(relation) => relation.edge_count() as u64 * 8,
+        JobData::RelationTargets(relation) => relation.edge_count() as u64 * 8,
+        JobData::RelationStates(relation) => {
+            bitmap_work(&[
+                relation.present(),
+                relation.nulls(),
+                relation.empty_arrays(),
+                relation.unavailable(),
+            ])
+        }
+    }
 }
 
 fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
@@ -572,6 +642,7 @@ fn build_one(draft: Draft<'_>, epoch: Instant) -> Result<BuildResult, String> {
         start_offset_ns,
         end_offset_ns: finished.duration_since(epoch).as_nanos() as u64,
         worker,
+        estimated_work: draft.estimated_work,
     })
 }
 
@@ -875,6 +946,7 @@ fn files_draft<'a>(
             root,
         ),
         data: JobData::Files(files),
+        estimated_work: 0,
     }
 }
 
@@ -903,6 +975,7 @@ fn paths_draft<'a>(
             root,
         ),
         data: JobData::Paths(entries),
+        estimated_work: 0,
     }
 }
 
@@ -928,6 +1001,7 @@ fn records_draft<'a>(
             state.generation.records.len(),
         ),
         data: JobData::Records(state.generation.records.as_slice()),
+        estimated_work: 0,
     }
 }
 
@@ -953,6 +1027,7 @@ fn identities_draft<'a>(
             state.generation.records.len(),
         ),
         data: JobData::Identities(state.generation.records.as_slice()),
+        estimated_work: 0,
     }
 }
 
@@ -982,6 +1057,7 @@ fn domains_draft<'a>(
             logical: &state.logical_records,
             empty_array: &state.empty_array_records,
         },
+        estimated_work: 0,
     }
 }
 
@@ -1015,6 +1091,7 @@ fn posting_draft<'a>(
             root,
         ),
         data,
+        estimated_work: 0,
     }
 }
 
@@ -1111,6 +1188,7 @@ fn sort_draft<'a>(
             root,
         ),
         data: JobData::Sort(column, descending, records),
+        estimated_work: 0,
     }
 }
 
@@ -1149,7 +1227,11 @@ fn relation_draft<'a>(
         root,
     );
     descriptor.target_collection = Some(relation.target_collection);
-    Draft { descriptor, data }
+    Draft {
+        descriptor,
+        data,
+        estimated_work: 0,
+    }
 }
 
 #[allow(clippy::too_many_arguments)]

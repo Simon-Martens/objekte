@@ -6,7 +6,6 @@
 //! native accumulators.
 
 use std::collections::HashMap;
-use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::Instant;
@@ -449,12 +448,7 @@ pub(crate) fn from_sources(
         .sum();
 
     let stable_started = Instant::now();
-    let mut prototype = super::build::from_collections(
-        &files,
-        &collections,
-        &root,
-        options.build_workers.map(NonZeroUsize::get),
-    )?;
+    let mut prototype = super::build::from_collections(&files, &collections, &root, &pool)?;
     timings.stable_component_ns = stable_started.elapsed().as_nanos() as u64;
     prototype.build_stage_ns = std::collections::BTreeMap::from([
         ("discovery".into(), timings.discovery_ns),
