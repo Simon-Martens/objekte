@@ -167,6 +167,55 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
 }
 
 #[test]
+fn full_merge_respects_max_files_for_clean_segments() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-merge-file-limit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..5 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!(r#"{{"name":"file {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(8).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let before = segment_count(&index.view().unwrap().0);
+    assert!(before >= 2, "segments before merge: {before}");
+    index
+        .compact_with_options(CompactionOptions {
+            mode: CompactionMode::Full,
+            merge_small_segments: true,
+        })
+        .unwrap();
+    let after = segment_count(&index.view().unwrap().0);
+    assert_eq!(
+        after, before,
+        "clean merges must not produce segments above max_files"
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-{}-{:?}",

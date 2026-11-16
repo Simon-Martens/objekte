@@ -95,6 +95,57 @@ fn ids(view: &IndexView, request: &Query) -> (Vec<String>, Option<usize>) {
     )
 }
 
+fn assert_published_dictionaries_archived(view: &IndexView) {
+    for collection in view.repository().collections() {
+        assert!(
+            collection.postings.all_archived(),
+            "base posting dictionary reverted to a native builder"
+        );
+        for custom in collection.custom_postings.values() {
+            assert!(
+                custom.index.is_archived(),
+                "base custom posting dictionary reverted to a native builder"
+            );
+        }
+        if let Some(inference) = &collection.inference {
+            assert!(
+                inference.indexes.values().all(|index| index.is_archived()),
+                "base inferred posting dictionary reverted to a native builder"
+            );
+        }
+    }
+    for collection in 0..view
+        .repository()
+        .collections()
+        .len()
+    {
+        for segment in view
+            .segments(crate::model::CollectionId(collection as u32))
+            .unwrap()
+            .iter()
+        {
+            assert!(
+                segment.index.postings.all_archived(),
+                "published segment posting dictionary reverted to a native builder"
+            );
+            assert!(
+                segment
+                    .index
+                    .custom_postings
+                    .values()
+                    .all(|custom| custom.index.is_archived()),
+                "published custom posting dictionary reverted to a native builder"
+            );
+            if let Some(inference) = &segment.index.inference {
+                assert!(
+                    inference.indexes.values().all(|index| index.is_archived()),
+                    "published inferred posting dictionary reverted to a native builder"
+                );
+            }
+        }
+    }
+}
+
 #[allow(clippy::too_many_arguments)]
 fn assert_fixture_queries(
     index: &Index,
@@ -374,17 +425,7 @@ fn rkyv_repository_and_lifecycle_defaults_publish_archived_components() {
     )
     .unwrap();
     let view = index.view().unwrap();
-    assert!(view.repository().collections()[0].postings.all_archived());
-    assert!(!view.segments(crate::model::CollectionId(0)).unwrap().is_empty());
-    for segment in view.segments(crate::model::CollectionId(0)).unwrap().iter() {
-        assert!(segment.index.postings.all_archived());
-        for custom in segment.index.custom_postings.values() {
-            assert!(custom.index.is_archived());
-        }
-        if let Some(inference) = &segment.index.inference {
-            assert!(inference.indexes.values().all(|index| index.is_archived()));
-        }
-    }
+    assert_published_dictionaries_archived(&view);
     assert_eq!(
         view.file_handle_for_path(std::path::Path::new("data/a.json"))
             .unwrap()
@@ -464,6 +505,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     )
     .unwrap();
     b_handle = index.update_file(b_handle, &b).unwrap().file;
+    assert_published_dictionaries_archived(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -478,6 +520,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     let a_handle = index.view().unwrap().file_handle_for_path(&a).unwrap();
     std::fs::remove_file(&a).unwrap();
     index.delete_file(a_handle).unwrap();
+    assert_published_dictionaries_archived(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -508,6 +551,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
             merge_small_segments: true,
         })
         .unwrap();
+    assert_published_dictionaries_archived(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -525,6 +569,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     )
     .unwrap();
     let _c_handle = index.update_file(c_handle, &c).unwrap().file;
+    assert_published_dictionaries_archived(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -560,6 +605,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
             merge_small_segments: true,
         })
         .unwrap();
+    assert_published_dictionaries_archived(&index.view().unwrap());
     assert_fixture_queries(
         &index, &root, &definitions, &[], &[], &[], &[], &[],
     );

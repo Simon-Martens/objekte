@@ -15,6 +15,18 @@ use rkyv::ser::allocator::ArenaHandle;
 use rkyv::util::AlignedVec;
 use rkyv::{Archive, Archived, Portable, Serialize, access};
 
+use crate::storage_usage::StorageWorkCounters;
+
+#[cfg(test)]
+thread_local! {
+    static FAIL_NEXT_FREEZE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+}
+
+#[cfg(test)]
+pub(crate) fn fail_next_freeze() {
+    FAIL_NEXT_FREEZE.with(|fail| fail.set(true));
+}
+
 /// A serialized and checked archive whose aligned allocation is immutable.
 pub(crate) struct ValidatedArchive<T>
 where
@@ -56,6 +68,10 @@ where
     pub(crate) fn len(&self) -> usize {
         self.bytes.len()
     }
+
+    pub(crate) fn capacity(&self) -> usize {
+        self.bytes.capacity()
+    }
 }
 
 impl<T> ValidatedArchive<T>
@@ -65,14 +81,24 @@ where
     T: for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
 {
     pub(crate) fn freeze(value: &T) -> Result<Arc<Self>, String> {
+        #[cfg(test)]
+        if FAIL_NEXT_FREEZE.with(|fail| fail.replace(false)) {
+            return Err("injected archive-finalization failure".into());
+        }
         let bytes = rkyv::to_bytes::<Error>(value)
             .map_err(|error| format!("archive serialization failed: {error}"))?;
         let _validated = access::<Archived<T>, Error>(&bytes)
             .map_err(|error| format!("archive validation failed: {error}"))?;
-        Ok(Arc::new(Self {
+        let owner = Arc::new(Self {
             bytes,
             _root: PhantomData,
-        }))
+        });
+        StorageWorkCounters::update(|counters| {
+            counters.archive_bytes_generated = counters
+                .archive_bytes_generated
+                .saturating_add(owner.len() as u64);
+        });
+        Ok(owner)
     }
 
 }
@@ -121,6 +147,7 @@ mod tests {
             shared.root() as *const _,
             owner.root() as *const _
         ));
+        assert!(owner.capacity() >= owner.len());
     }
 
     #[test]
