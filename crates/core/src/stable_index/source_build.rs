@@ -15,9 +15,11 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::BigramContribution;
 use crate::discovery::discover;
-use crate::inference::{InferenceBuilder, InferenceConfig, InferenceMode};
-use crate::inventory::{CollectionBuilder, FileInventory, SourceRevision};
-use crate::model::CollectionId;
+use crate::inference::{InferenceConfig, InferenceMode};
+use crate::inventory::{
+    CollectionBuilder, DiagnosticRef, FileInventory, RecordClass, SourceRevision,
+};
+use crate::model::{CollectionId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::relation::RelationContribution;
 use crate::repository::{
@@ -263,25 +265,10 @@ pub(crate) fn from_sources(
     let mut failed_parses = 0u64;
     let mut admit =
         |collection_index: usize, batch: crate::build::BatchContribution| -> Result<(), String> {
-            source_parses = source_parses.saturating_add(batch.record_parses);
-            failed_parses = failed_parses.saturating_add(batch.failed_parses);
-            let state = &mut pending[collection_index];
-            let mut inference: Option<InferenceBuilder> = None;
-            crate::build::CollectionAdmission {
-                inventory: &mut files,
-                builder: &mut state.builder,
-                postings: &mut state.postings,
-                inference: &mut inference,
-                custom_postings: &mut state.custom_postings,
-                raw: &mut state.raw,
-                fallback_text: &mut state.fallback_text,
-                custom_text: &mut state.custom_text,
-                logical_records: &mut state.logical_records,
-                empty_array_records: &mut state.empty_array_records,
-                sorting: &mut state.sort_builder,
-                relations: &mut state.relations,
-            }
-            .admit_profiled(batch, None)
+            let parts = batch.into_parts();
+            source_parses = source_parses.saturating_add(parts.record_parses);
+            failed_parses = failed_parses.saturating_add(parts.failed_parses);
+            admit_parts(&mut pending[collection_index], &mut files, parts, &pool)
         };
     for job in scheduled {
         match job {
@@ -461,6 +448,157 @@ pub(crate) fn from_sources(
         ("stable_component".into(), timings.stable_component_ns),
     ]);
     Ok((prototype, timings))
+}
+
+fn admit_parts(
+    state: &mut PendingStable,
+    inventory: &mut FileInventory,
+    parts: crate::build::ContributionParts,
+    pool: &rayon::ThreadPool,
+) -> Result<(), String> {
+    if parts.inference.is_some() {
+        return Err("inference is unsupported by the stable prototype".into());
+    }
+    let base = state.builder.next_slot()?.0;
+    let count = u32::try_from(parts.records.len()).map_err(|_| "too many batch records")?;
+    base.checked_add(count).ok_or("record slot overflow")?;
+    let mut records = parts.records.into_iter();
+    for batch_file in parts.files {
+        let file_id = batch_file.entry.id;
+        let path = inventory.root.join(&batch_file.entry.relative_path);
+        if batch_file.first_range {
+            state.builder.include_file(file_id)?;
+        } else if !state.builder.contains_file(file_id) {
+            return Err("later record range precedes first file range".into());
+        }
+        let mut diagnostic_refs = Vec::with_capacity(batch_file.entry.diagnostics.len());
+        for mut diagnostic in batch_file.entry.diagnostics {
+            if let Some(local_slot) = diagnostic.record {
+                diagnostic.record = Some(RecordSlot(
+                    base.checked_add(local_slot.0)
+                        .ok_or("diagnostic record slot overflow")?,
+                ));
+            }
+            diagnostic_refs.push(inventory.record_diagnostic(file_id, diagnostic)?);
+        }
+        let file = &mut inventory.files[file_id.0 as usize];
+        file.status = file.status.max(batch_file.entry.status);
+        file.omitted_diagnostics = file
+            .omitted_diagnostics
+            .saturating_add(batch_file.entry.omitted_diagnostics);
+        for expected_slot in batch_file.records {
+            let local = records.next().ok_or("batch record range out of bounds")?;
+            if local.slot.0 as usize != expected_slot {
+                return Err("batch record order mismatch".into());
+            }
+            if local.file != file_id {
+                return Err("batch record file ownership mismatch".into());
+            }
+            let actual = if local.class == RecordClass::Logical {
+                state
+                    .builder
+                    .add_record(file, local.id, local.range.start, local.range.end)
+                    .map_err(|error| {
+                        format!(
+                            "{}:{}..{}: {error}",
+                            path.display(),
+                            local.range.start,
+                            local.range.end,
+                        )
+                    })?
+            } else {
+                let reference = match local.diagnostic_ref.stored_index() {
+                    Some(index) => *diagnostic_refs
+                        .get(index)
+                        .ok_or("batch diagnostic reference out of bounds")?,
+                    None => DiagnosticRef(u32::MAX),
+                };
+                state
+                    .builder
+                    .add_raw_fallback(file, local.id, local.range, reference)?
+            };
+            if actual.0 != base + local.slot.0 {
+                return Err("batch record slot mapping mismatch".into());
+            }
+        }
+    }
+    if records.next().is_some() {
+        return Err("unadmitted batch records".into());
+    }
+    if state.builder.next_slot()?.0 != base + count {
+        return Err("incomplete batch record admission".into());
+    }
+
+    let mut owners = std::mem::take(&mut state.postings.fields)
+        .into_iter()
+        .collect::<Vec<_>>();
+    let mut local_map = parts.postings.fields;
+    let mut locals = owners
+        .iter()
+        .map(|(path, _)| local_map.remove(path))
+        .collect::<Vec<Option<PostingIndex>>>();
+    if !local_map.is_empty() {
+        return Err("posting batch field coverage mismatch".into());
+    }
+    pool.install(|| {
+        owners
+            .par_iter_mut()
+            .zip(locals.par_iter_mut())
+            .try_for_each(|((_, owner), local)| {
+                if let Some(local) = local.take() {
+                    owner.merge_shifted(local, base)
+                } else {
+                    Err("posting batch field missing".into())
+                }
+            })
+    })?;
+    state.postings.fields = owners.into_iter().collect();
+
+    if state.custom_postings.len() != parts.custom_postings.len() {
+        return Err("custom posting batch coverage mismatch".into());
+    }
+    for (key, local) in parts.custom_postings {
+        let global = state
+            .custom_postings
+            .get_mut(&key)
+            .ok_or("custom posting batch missing")?;
+        global.index.merge_shifted(local.index, base)?;
+        global.complete &= local.complete;
+    }
+    state.raw.merge_shifted(parts.raw, base)?;
+    state
+        .fallback_text
+        .merge_shifted(parts.fallback_text, base)?;
+    if state.custom_text.len() != parts.custom_text.len() {
+        return Err("custom bigram batch coverage mismatch".into());
+    }
+    for (key, local) in parts.custom_text {
+        state
+            .custom_text
+            .get_mut(&key)
+            .ok_or("custom bigram batch missing")?
+            .merge_shifted(local, base)?;
+    }
+    crate::inventory::append_shifted_bitmap(
+        &mut state.logical_records,
+        &parts.logical_records,
+        base,
+    )?;
+    crate::inventory::append_shifted_bitmap(
+        &mut state.empty_array_records,
+        &parts.empty_array_records,
+        base,
+    )?;
+    state
+        .sort_builder
+        .append_keys(parts.sort_keys, base, count)?;
+    if state.relations.len() != parts.relations.len() {
+        return Err("relation batch coverage mismatch".into());
+    }
+    for (global, local) in state.relations.iter_mut().zip(parts.relations) {
+        global.merge_shifted(local, base, count)?;
+    }
+    Ok(())
 }
 
 fn prepare_discovered_file(root: &Path, path: PathBuf) -> Result<PreparedFile, String> {
