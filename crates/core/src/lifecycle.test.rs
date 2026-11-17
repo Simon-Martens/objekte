@@ -625,6 +625,32 @@ fn completed_drain_outcome_survives_resume_before_waiter_returns() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn quiescence_commits_coordinator_state_before_followers_resume() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-quiesce-commit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Arc::new(Index::from_repository(fixture_repository(&root)).unwrap());
+    let completion_gate = index.install_close_completion_gate();
+    let leader = Arc::clone(&index);
+    let leader = std::thread::spawn(move || leader.quiesce());
+    completion_gate.wait_for_arrival();
+
+    let follower = Arc::clone(&index);
+    let follower = std::thread::spawn(move || follower.quiesce());
+    assert_eq!(follower.join().unwrap(), Ok(None));
+    index.resume_after_quiesce().unwrap();
+    completion_gate.release();
+    assert_eq!(leader.join().unwrap(), Ok(None));
+
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn reconciliation_preparation_cannot_deadlock_quiesce(replace: bool) {
     let root = std::env::temp_dir().join(format!(
         "objekte-reconcile-quiesce-{replace}-{}-{:?}",

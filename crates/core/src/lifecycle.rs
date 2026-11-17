@@ -1930,6 +1930,8 @@ struct IndexInner {
     #[cfg(test)]
     close_selection_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
     #[cfg(test)]
+    close_completion_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
+    #[cfg(test)]
     close_outcome_overrides: Mutex<Vec<Result<Option<ReconciliationReport>, IndexError>>>,
     #[cfg(test)]
     close_drain_calls: AtomicUsize,
@@ -2652,6 +2654,8 @@ impl Index {
             #[cfg(test)]
             close_selection_gate: Mutex::new(None),
             #[cfg(test)]
+            close_completion_gate: Mutex::new(None),
+            #[cfg(test)]
             close_outcome_overrides: Mutex::new(Vec::new()),
             #[cfg(test)]
             close_drain_calls: AtomicUsize::new(0),
@@ -3153,18 +3157,23 @@ impl Index {
         let outcome = self.perform_quiesce();
         #[cfg(test)]
         let outcome = self.override_close_outcome(outcome);
-        operation.complete(outcome.clone());
         let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
         match &close.state {
             CloseState::Draining(current) if Arc::ptr_eq(current, &operation) => {
-                close.state = CloseState::Quiesced(operation);
+                close.state = CloseState::Quiesced(Arc::clone(&operation));
+                operation.complete(outcome.clone());
             }
             _ => {
-                return Err(IndexError::InvalidPublication(
+                let error = IndexError::InvalidPublication(
                     "quiescence coordinator changed while draining".into(),
-                ));
+                );
+                operation.complete(Err(error.clone()));
+                return Err(error);
             }
         }
+        drop(close);
+        #[cfg(test)]
+        self.pause_close_completion_if_requested();
         outcome
     }
 
@@ -3232,6 +3241,17 @@ impl Index {
     }
 
     #[cfg(test)]
+    pub(crate) fn install_close_completion_gate(&self) -> Arc<ReconciliationPreparationTestGate> {
+        let gate = Arc::new(ReconciliationPreparationTestGate::new());
+        *self
+            .0
+            .close_completion_gate
+            .lock()
+            .expect("close completion gate lock poisoned") = Some(Arc::clone(&gate));
+        gate
+    }
+
+    #[cfg(test)]
     pub(crate) fn enqueue_close_outcomes(
         &self,
         outcomes: impl IntoIterator<Item = Result<Option<ReconciliationReport>, IndexError>>,
@@ -3287,6 +3307,19 @@ impl Index {
             .lock()
             .expect("close selection gate lock poisoned")
             .clone();
+        if let Some(gate) = gate {
+            gate.pause();
+        }
+    }
+
+    #[cfg(test)]
+    fn pause_close_completion_if_requested(&self) {
+        let gate = self
+            .0
+            .close_completion_gate
+            .lock()
+            .expect("close completion gate lock poisoned")
+            .take();
         if let Some(gate) = gate {
             gate.pause();
         }
@@ -5056,5 +5089,7 @@ pub use archive_operation::{ArchiveOptions, ArchiveReport, ArchiveRepresentation
 #[cfg(test)]
 pub(crate) use archive_operation::{
     clear_test_archive_fault_control, clear_test_archive_gate, clear_test_archive_job_gate,
-    install_test_archive_fault_control, install_test_archive_gate, install_test_archive_job_gate,
+    clear_test_archive_segment_mismatch, install_test_archive_fault_control,
+    install_test_archive_gate, install_test_archive_job_gate,
+    install_test_archive_segment_mismatch,
 };
