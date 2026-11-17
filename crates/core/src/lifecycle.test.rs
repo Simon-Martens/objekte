@@ -552,6 +552,79 @@ fn quiescence_rejects_prepared_publications_until_close_is_cancelled() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn quiescence_waiters_retain_drain_a_across_resume_and_drain_b() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-quiesce-generation-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Arc::new(Index::from_repository(fixture_repository(&root)).unwrap());
+
+    let drain_gate = index.install_close_drain_gate();
+    let selection_gate = index.install_close_selection_gate();
+    let drain_a_error = IndexError::InvalidPublication("drain A failed".into());
+    index.enqueue_close_outcomes([Err(drain_a_error.clone()), Ok(None)]);
+
+    let leader = Arc::clone(&index);
+    let leader = std::thread::spawn(move || leader.quiesce());
+    drain_gate.wait_for_arrival();
+
+    let mut waiters = Vec::new();
+    for _ in 0..2 {
+        let waiter = Arc::clone(&index);
+        waiters.push(std::thread::spawn(move || waiter.quiesce()));
+    }
+    selection_gate.wait_for_arrivals(2);
+
+    drain_gate.release();
+    assert_eq!(leader.join().unwrap(), Err(drain_a_error.clone()));
+    assert_eq!(index.close_drain_call_count(), 1);
+
+    index.resume_after_quiesce().unwrap();
+    assert_eq!(index.quiesce(), Ok(None));
+    assert_eq!(index.close_drain_call_count(), 2);
+
+    selection_gate.release();
+    for waiter in waiters {
+        assert_eq!(waiter.join().unwrap(), Err(drain_a_error.clone()));
+    }
+    assert_eq!(index.close_drain_call_count(), 2);
+
+    index.resume_after_quiesce().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn completed_drain_outcome_survives_resume_before_waiter_returns() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-quiesce-completed-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Arc::new(Index::from_repository(fixture_repository(&root)).unwrap());
+
+    index.quiesce().unwrap();
+    assert_eq!(index.close_drain_call_count(), 1);
+    let selection_gate = index.install_close_selection_gate();
+    let waiter = Arc::clone(&index);
+    let waiter = std::thread::spawn(move || waiter.quiesce());
+    selection_gate.wait_for_arrival();
+
+    index.resume_after_quiesce().unwrap();
+    selection_gate.release();
+    assert_eq!(waiter.join().unwrap(), Ok(None));
+    assert_eq!(index.close_drain_call_count(), 1);
+
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn reconciliation_preparation_cannot_deadlock_quiesce(replace: bool) {
     let root = std::env::temp_dir().join(format!(
         "objekte-reconcile-quiesce-{replace}-{}-{:?}",

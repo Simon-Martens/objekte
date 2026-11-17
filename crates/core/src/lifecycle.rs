@@ -8,6 +8,8 @@ use std::collections::{HashMap, HashSet};
 use std::fmt;
 use std::num::NonZeroUsize;
 use std::path::Path;
+#[cfg(test)]
+use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
@@ -1912,7 +1914,6 @@ struct IndexInner {
     /// Coordinates the single drain owner and all concurrent close/resume
     /// callers. Its mutex is never held while workers are joined.
     close: Mutex<CloseCoordination>,
-    close_changed: Condvar,
     /// One aggregate budget for all pinned publications of this index.
     verified_cache: Mutex<crate::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
@@ -1923,18 +1924,64 @@ struct IndexInner {
     periodic: Mutex<Option<PeriodicReconciliation>>,
     #[cfg(test)]
     reconciliation_preparation_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
+    #[cfg(test)]
+    close_drain_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
+    #[cfg(test)]
+    close_selection_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
+    #[cfg(test)]
+    close_outcome_overrides: Mutex<Vec<Result<Option<ReconciliationReport>, IndexError>>>,
+    #[cfg(test)]
+    close_drain_calls: AtomicUsize,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum CloseState {
     Running,
-    Draining,
-    Quiesced,
+    Draining(Arc<CloseOperation>),
+    Quiesced(Arc<CloseOperation>),
 }
 
 struct CloseCoordination {
     state: CloseState,
-    outcome: Option<Result<Option<ReconciliationReport>, IndexError>>,
+}
+
+struct CloseOperation {
+    state: Mutex<CloseOperationState>,
+    completed: Condvar,
+}
+
+enum CloseOperationState {
+    Draining,
+    Completed(Result<Option<ReconciliationReport>, IndexError>),
+}
+
+impl CloseOperation {
+    fn new() -> Self {
+        Self {
+            state: Mutex::new(CloseOperationState::Draining),
+            completed: Condvar::new(),
+        }
+    }
+
+    fn complete(&self, outcome: Result<Option<ReconciliationReport>, IndexError>) {
+        let mut state = self.state.lock().expect("close operation lock poisoned");
+        *state = CloseOperationState::Completed(outcome);
+        self.completed.notify_all();
+    }
+
+    fn wait(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let mut state = self.state.lock().map_err(|_| IndexError::LockPoisoned)?;
+        loop {
+            match &*state {
+                CloseOperationState::Draining => {
+                    state = self
+                        .completed
+                        .wait(state)
+                        .map_err(|_| IndexError::LockPoisoned)?;
+                }
+                CloseOperationState::Completed(outcome) => return outcome.clone(),
+            }
+        }
+    }
 }
 
 #[cfg(test)]
@@ -1946,7 +1993,7 @@ pub(crate) struct ReconciliationPreparationTestGate {
 #[cfg(test)]
 #[derive(Default)]
 struct ReconciliationPreparationGateState {
-    arrived: bool,
+    arrived: usize,
     released: bool,
 }
 
@@ -1960,8 +2007,12 @@ impl ReconciliationPreparationTestGate {
     }
 
     pub(crate) fn wait_for_arrival(&self) {
+        self.wait_for_arrivals(1);
+    }
+
+    pub(crate) fn wait_for_arrivals(&self, expected: usize) {
         let mut state = self.state.lock().expect("reconciliation gate poisoned");
-        while !state.arrived {
+        while state.arrived < expected {
             state = self
                 .changed
                 .wait(state)
@@ -1977,7 +2028,7 @@ impl ReconciliationPreparationTestGate {
 
     fn pause(&self) {
         let mut state = self.state.lock().expect("reconciliation gate poisoned");
-        state.arrived = true;
+        state.arrived += 1;
         self.changed.notify_all();
         while !state.released {
             state = self
@@ -2582,9 +2633,7 @@ impl Index {
             quiescing: AtomicBool::new(false),
             close: Mutex::new(CloseCoordination {
                 state: CloseState::Running,
-                outcome: None,
             }),
-            close_changed: Condvar::new(),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
@@ -2597,6 +2646,14 @@ impl Index {
             periodic: Mutex::new(None),
             #[cfg(test)]
             reconciliation_preparation_gate: Mutex::new(None),
+            #[cfg(test)]
+            close_drain_gate: Mutex::new(None),
+            #[cfg(test)]
+            close_selection_gate: Mutex::new(None),
+            #[cfg(test)]
+            close_outcome_overrides: Mutex::new(Vec::new()),
+            #[cfg(test)]
+            close_drain_calls: AtomicUsize::new(0),
         }))
     }
 
@@ -3067,72 +3124,67 @@ impl Index {
     /// currently owned mutation worker. The resulting view is stable for a
     /// caller that is closing the index.
     pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
-        let owns_drain = {
+        let (operation, owns_drain) = {
+            let _published = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
             let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
-            loop {
-                match close.state {
-                    CloseState::Running => {
-                        close.state = CloseState::Draining;
-                        self.0.quiescing.store(true, Ordering::Release);
-                        break true;
-                    }
-                    CloseState::Draining => {
-                        close = self
-                            .0
-                            .close_changed
-                            .wait(close)
-                            .map_err(|_| IndexError::LockPoisoned)?;
-                    }
-                    CloseState::Quiesced => {
-                        break false;
-                    }
+            match &close.state {
+                CloseState::Running => {
+                    let operation = Arc::new(CloseOperation::new());
+                    close.state = CloseState::Draining(Arc::clone(&operation));
+                    self.0.quiescing.store(true, Ordering::Release);
+                    (operation, true)
+                }
+                CloseState::Draining(operation) | CloseState::Quiesced(operation) => {
+                    (Arc::clone(operation), false)
                 }
             }
         };
         if !owns_drain {
-            return self.closed_outcome();
+            #[cfg(test)]
+            self.pause_close_selection_if_requested();
+            return operation.wait();
         }
 
         let outcome = self.perform_quiesce();
+        #[cfg(test)]
+        let outcome = self.override_close_outcome(outcome);
+        operation.complete(outcome.clone());
         let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
-        close.state = CloseState::Quiesced;
-        close.outcome = Some(outcome.clone());
-        self.0.close_changed.notify_all();
+        match &close.state {
+            CloseState::Draining(current) if Arc::ptr_eq(current, &operation) => {
+                close.state = CloseState::Quiesced(operation);
+            }
+            _ => {
+                return Err(IndexError::InvalidPublication(
+                    "quiescence coordinator changed while draining".into(),
+                ));
+            }
+        }
         outcome
     }
 
     /// Reopen publication after a cancelled close. Callers restore only the
     /// explicit recurring policies they held before quiescing.
     pub fn resume_after_quiesce(&self) -> Result<(), IndexError> {
+        let _published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
         let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
-        match close.state {
+        match &close.state {
             CloseState::Running => Ok(()),
-            CloseState::Draining => Err(IndexError::Cancelled),
-            CloseState::Quiesced => {
-                let _published = self
-                    .0
-                    .published
-                    .write()
-                    .map_err(|_| IndexError::LockPoisoned)?;
+            CloseState::Draining(_) => Err(IndexError::Cancelled),
+            CloseState::Quiesced(_) => {
                 close.state = CloseState::Running;
-                close.outcome = None;
                 self.0.quiescing.store(false, Ordering::Release);
-                self.0.close_changed.notify_all();
                 Ok(())
             }
         }
-    }
-
-    fn closed_outcome(&self) -> Result<Option<ReconciliationReport>, IndexError> {
-        let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
-        while close.state != CloseState::Quiesced {
-            close = self
-                .0
-                .close_changed
-                .wait(close)
-                .map_err(|_| IndexError::LockPoisoned)?;
-        }
-        close.outcome.clone().unwrap_or(Ok(None))
     }
 
     #[cfg(test)]
@@ -3140,7 +3192,7 @@ impl Index {
         self.0
             .close
             .lock()
-            .is_ok_and(|close| close.state == CloseState::Draining)
+            .is_ok_and(|close| matches!(close.state, CloseState::Draining(_)))
     }
 
     #[cfg(test)]
@@ -3156,7 +3208,95 @@ impl Index {
         gate
     }
 
+    #[cfg(test)]
+    pub(crate) fn install_close_drain_gate(&self) -> Arc<ReconciliationPreparationTestGate> {
+        let gate = Arc::new(ReconciliationPreparationTestGate::new());
+        *self
+            .0
+            .close_drain_gate
+            .lock()
+            .expect("close drain gate lock poisoned") = Some(Arc::clone(&gate));
+        gate
+    }
+
+    #[cfg(test)]
+    pub(crate) fn install_close_selection_gate(&self) -> Arc<ReconciliationPreparationTestGate> {
+        let gate = Arc::new(ReconciliationPreparationTestGate::new());
+        *self
+            .0
+            .close_selection_gate
+            .lock()
+            .expect("close selection gate lock poisoned") = Some(Arc::clone(&gate));
+        gate
+    }
+
+    #[cfg(test)]
+    pub(crate) fn enqueue_close_outcomes(
+        &self,
+        outcomes: impl IntoIterator<Item = Result<Option<ReconciliationReport>, IndexError>>,
+    ) {
+        self.0
+            .close_outcome_overrides
+            .lock()
+            .expect("close outcome overrides lock poisoned")
+            .extend(outcomes);
+    }
+
+    #[cfg(test)]
+    pub(crate) fn close_drain_call_count(&self) -> usize {
+        self.0.close_drain_calls.load(Ordering::Acquire)
+    }
+
+    #[cfg(test)]
+    fn override_close_outcome(
+        &self,
+        outcome: Result<Option<ReconciliationReport>, IndexError>,
+    ) -> Result<Option<ReconciliationReport>, IndexError> {
+        let mut overrides = self
+            .0
+            .close_outcome_overrides
+            .lock()
+            .expect("close outcome overrides lock poisoned");
+        let override_outcome = if overrides.is_empty() {
+            None
+        } else {
+            Some(overrides.remove(0))
+        };
+        override_outcome.unwrap_or(outcome)
+    }
+
+    #[cfg(test)]
+    fn pause_close_drain_if_requested(&self) {
+        let gate = self
+            .0
+            .close_drain_gate
+            .lock()
+            .expect("close drain gate lock poisoned")
+            .take();
+        if let Some(gate) = gate {
+            gate.pause();
+        }
+    }
+
+    #[cfg(test)]
+    fn pause_close_selection_if_requested(&self) {
+        let gate = self
+            .0
+            .close_selection_gate
+            .lock()
+            .expect("close selection gate lock poisoned")
+            .clone();
+        if let Some(gate) = gate {
+            gate.pause();
+        }
+    }
+
     fn perform_quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        #[cfg(test)]
+        {
+            self.0.close_drain_calls.fetch_add(1, Ordering::AcqRel);
+            self.pause_close_drain_if_requested();
+        }
         // Drain every publisher/archive already admitted before releasing the
         // exclusive permit. Workers prepare outside this gate, so it must not
         // remain held while they are cancelled or joined.
