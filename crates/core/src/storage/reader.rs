@@ -212,6 +212,7 @@ fn open_snapshot(
         lineage_identity: current.lineage_identity,
         manifest_digest: current.manifest_digest,
         manifest_length: current.manifest_length,
+        limits,
         index_reads: AtomicU64::new(1),
         index_bytes: AtomicU64::new(bytes.len() as u64),
     });
@@ -544,6 +545,18 @@ fn read_checked_object(
     length: u64,
     kind: u16,
 ) -> Result<Vec<u8>, String> {
+    let limit = match kind {
+        POSTING_PAYLOAD_OBJECT_KIND | BIGRAM_PAYLOAD_OBJECT_KIND | SORT_PAYLOAD_OBJECT_KIND => {
+            session.limits().lazy_dictionary_body_bytes
+        }
+        _ => session.limits().eager_catalog_body_bytes,
+    };
+    if length > limit {
+        return Err(format!(
+            "storage object {} requires {length} bytes, limit is {limit}",
+            format::hex(&digest)
+        ));
+    }
     let cache_key = (digest, length, u32::from(kind));
     if let Some(bytes) = session.cache().get(&cache_key) {
         return Ok(bytes.as_ref().to_vec());

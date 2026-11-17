@@ -8,7 +8,7 @@ use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::{
-    AuditOptions, StorageOpenOptions, StorageWriteOptions, audit, prune,
+    AuditOptions, StorageOpenOptions, StorageReadLimits, StorageWriteOptions, audit, prune,
 };
 use objekte_search_core::workload::{ReturnMode, SortField};
 
@@ -565,6 +565,41 @@ fn corrupt_current_and_missing_lazy_objects_have_distinct_outcomes() {
         .search(&request)
         .expect_err("a missing selected payload must fail the query");
     assert!(error.contains("No such file") || error.contains("cannot find"));
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lazy_payload_read_limits_fail_at_selection_not_open() {
+    let root = fixture_root("limits");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions {
+            limits: StorageReadLimits {
+                lazy_dictionary_body_bytes: 1,
+                ..StorageReadLimits::default()
+            },
+            ..StorageOpenOptions::default()
+        },
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    let error = reopened
+        .view()
+        .unwrap()
+        .search(&request)
+        .expect_err("an oversized selected frame must fail");
+    assert!(error.contains("limit is 1"), "{error}");
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

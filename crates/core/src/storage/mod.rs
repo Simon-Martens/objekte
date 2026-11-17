@@ -296,6 +296,7 @@ pub(crate) struct StorageSession {
     lineage_identity: [u8; 16],
     manifest_digest: [u8; 32],
     manifest_length: u64,
+    limits: StorageReadLimits,
     index_reads: std::sync::atomic::AtomicU64,
     index_bytes: std::sync::atomic::AtomicU64,
 }
@@ -334,6 +335,10 @@ impl StorageSession {
 
     pub(crate) fn manifest_token(&self) -> ([u8; 32], u64) {
         (self.manifest_digest, self.manifest_length)
+    }
+
+    pub(crate) fn limits(&self) -> StorageReadLimits {
+        self.limits
     }
 }
 
