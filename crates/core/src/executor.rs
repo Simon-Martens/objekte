@@ -230,6 +230,7 @@ fn segment_text_candidates(
     let Some(request) = term.gram_request.as_ref() else {
         return Ok(None);
     };
+    index.ensure_storage_loaded()?;
     Ok(index.candidates_prepared(request))
 }
 
@@ -564,6 +565,7 @@ fn segment_positional_eq_candidates(
     let Some(index) = segment.postings.fields.get(&term.path.segments) else {
         return Ok(None);
     };
+    index.ensure_storage_loaded()?;
     Ok(index.exact_set_restricted(term, &segment.logical_records, logical_active))
 }
 
@@ -1342,6 +1344,7 @@ fn empty_selection_preservation(term: &BoundTerm) -> bool {
 
 fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
     let request = term.gram_request.as_ref()?;
+    collection.raw.ensure_storage_loaded().ok()?;
     let mut grams = collection.raw.candidates_prepared(request)?;
     if empty_selection_preservation(term) {
         // The universal comparison may be true on a present empty array with
@@ -1494,17 +1497,21 @@ fn term_set(
         return Ok(Some(result));
     }
     if term.operation.is_some() {
-        Ok(collection
+        let posting = collection
             .custom_postings
             .get(&(term.path.segments.clone(), term.binding_name.clone()))
-            .filter(|posting| posting.complete)
-            .and_then(|posting| posting.index.exact_set(term, domain)))
+            .filter(|posting| posting.complete);
+        if let Some(posting) = posting {
+            posting.index.ensure_storage_loaded()?;
+            return Ok(posting.index.exact_set(term, domain));
+        }
+        Ok(None)
     } else {
-        Ok(collection
-            .postings
-            .fields
-            .get(&term.path.segments)
-            .and_then(|index| index.exact_set(term, domain)))
+        let Some(index) = collection.postings.fields.get(&term.path.segments) else {
+            return Ok(None);
+        };
+        index.ensure_storage_loaded()?;
+        Ok(index.exact_set(term, domain))
     }
 }
 
@@ -2581,8 +2588,9 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     if literal.contains(['%', '\\']) {
         return None;
     }
-    custom_text_index(collection, &term.path.segments, &term.binding_name)?
-        .candidates_prepared(term.gram_request.as_ref()?)
+    let index = custom_text_index(collection, &term.path.segments, &term.binding_name)?;
+    index.ensure_storage_loaded().ok()?;
+    index.candidates_prepared(term.gram_request.as_ref()?)
 }
 
 /// A prepared text access is a set of borrowed candidate providers. The same
@@ -2741,7 +2749,7 @@ pub(crate) fn fts_candidates(
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
     let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
+    let prepared = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -2749,8 +2757,11 @@ pub(crate) fn fts_candidates(
         collection.logical_records.len() != collection.generation.records.len() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?
-    .candidates()
+    )?;
+    for probe in &prepared.probes {
+        probe.index.ensure_storage_loaded().ok()?;
+    }
+    prepared.candidates()
 }
 
 pub(crate) fn estimate_fts_candidates(

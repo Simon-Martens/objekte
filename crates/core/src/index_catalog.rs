@@ -282,6 +282,7 @@ impl PostingAccess<'_> {
         operation: PostingOperation,
     ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.index;
+        index.ensure_storage_loaded()?;
         match operation {
             PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),
             PostingOperation::SelfComparePresence => Ok(Some(input & &index.presence)),

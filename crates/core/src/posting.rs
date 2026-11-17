@@ -9,7 +9,7 @@ use std::sync::{Arc, OnceLock};
 use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
 use rkyv::place::Place;
 use rkyv::vec::{ArchivedVec, VecResolver};
-use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
+use rkyv::{Archive, Archived, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
@@ -21,6 +21,10 @@ use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
+
+pub(crate) trait PostingIndexLoader: fmt::Debug + Send + Sync {
+    fn load_posting_index(&self) -> Result<PostingIndexSnapshot, String>;
+}
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
@@ -37,7 +41,7 @@ pub enum ScalarKey {
 ///
 /// The stored variants retain the original numeric representation while the
 /// comparison implementation preserves `Number`'s cross-representation order.
-#[derive(Clone, Debug, Archive, ArchiveSerialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Archive, ArchiveSerialize, ArchiveDeserialize, Serialize, Deserialize)]
 pub(crate) enum PostingNumberKey {
     Integer(i128),
     Float(f64),
@@ -49,7 +53,7 @@ pub(crate) enum PostingNumberKey {
 }
 
 /// Native key stored in completed scalar posting archives.
-#[derive(Clone, Debug, Archive, ArchiveSerialize)]
+#[derive(Clone, Debug, Archive, ArchiveSerialize, ArchiveDeserialize)]
 pub(crate) enum StoredScalarKey {
     String(String),
     Id(String),
@@ -1910,6 +1914,9 @@ pub struct PostingIndex {
     pub empty_string_complete: bool,
     pub covered_records: u32,
     pub stats: PostingStats,
+    pub(crate) has_structural: bool,
+    pub(crate) storage: Option<Arc<dyn PostingIndexLoader>>,
+    pub(crate) loaded: Arc<OnceLock<Box<PostingIndex>>>,
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
@@ -1923,6 +1930,7 @@ pub struct PostingIndex {
     PartialOrd,
     Archive,
     ArchiveSerialize,
+    ArchiveDeserialize,
     Serialize,
     Deserialize,
 )]
@@ -2068,6 +2076,210 @@ pub(crate) struct PostingIndexSnapshot {
     pub distinct_count: usize,
     pub min_key: Option<ScalarKey>,
     pub max_key: Option<ScalarKey>,
+    pub has_structural: bool,
+    #[serde(default)]
+    pub payload: Option<StoredPostingPayloadRef>,
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct PostingArchivePayload {
+    path: Vec<String>,
+    kind: String,
+    multi: bool,
+    presence: Vec<u8>,
+    empty_selections: Vec<u8>,
+    nulls: Vec<u8>,
+    structural: Option<Vec<(StructuralKey, Vec<u8>)>>,
+    values: Vec<(StoredScalarKey, Vec<u8>)>,
+    lengths: Vec<(PostingNumberKey, Vec<u8>)>,
+    values_indexed: bool,
+    value_complete: bool,
+    length_complete: bool,
+    empty_string_complete: bool,
+    covered_records: u32,
+    present_count: u64,
+    null_count: u64,
+    distinct_count: u64,
+    min_key: Option<StoredScalarKey>,
+    max_key: Option<StoredScalarKey>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredPostingPayloadRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+fn encode_logical_type(kind: &LogicalType) -> String {
+    match kind {
+        LogicalType::Unknown => "unknown".into(),
+        LogicalType::String => "string".into(),
+        LogicalType::Id => "id".into(),
+        LogicalType::Number => "number".into(),
+        LogicalType::Bool => "bool".into(),
+        LogicalType::Date => "date".into(),
+        LogicalType::Datetime => "datetime".into(),
+        LogicalType::Unixtime => "unixtime".into(),
+        LogicalType::Object => "object".into(),
+        LogicalType::Array(inner) => format!("array:{}", encode_logical_type(inner)),
+    }
+}
+
+fn decode_logical_type(encoded: &str) -> Result<LogicalType, String> {
+    Ok(match encoded {
+        "unknown" => LogicalType::Unknown,
+        "string" => LogicalType::String,
+        "id" => LogicalType::Id,
+        "number" => LogicalType::Number,
+        "bool" => LogicalType::Bool,
+        "date" => LogicalType::Date,
+        "datetime" => LogicalType::Datetime,
+        "unixtime" => LogicalType::Unixtime,
+        "object" => LogicalType::Object,
+        array if array.starts_with("array:") => {
+            LogicalType::Array(Box::new(decode_logical_type(&array[6..])?))
+        }
+        other => return Err(format!("unknown stored logical type {other}")),
+    })
+}
+
+fn encode_bitmap(bitmap: &RoaringBitmap) -> Result<Vec<u8>, String> {
+    let mut bytes = Vec::with_capacity(bitmap.serialized_size());
+    bitmap
+        .serialize_into(&mut bytes)
+        .map_err(|error| format!("bitmap serialization failed: {error}"))?;
+    Ok(bytes)
+}
+
+fn decode_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
+    let mut cursor = std::io::Cursor::new(bytes);
+    let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
+        .map_err(|error| format!("bitmap decode failed: {error}"))?;
+    if cursor.position() != bytes.len() as u64 {
+        return Err("bitmap payload has trailing bytes".into());
+    }
+    Ok(bitmap)
+}
+
+impl PostingIndexSnapshot {
+    pub(crate) fn archive_payload(&self) -> Result<PostingArchivePayload, String> {
+        let structural = self
+            .structural
+            .as_ref()
+            .map(|postings| {
+                postings
+                    .iter()
+                    .map(|(key, bitmap)| Ok((*key, encode_bitmap(bitmap)?)))
+                    .collect::<Result<_, String>>()
+            })
+            .transpose()?;
+        let values = self
+            .values
+            .iter()
+            .map(|(key, bitmap)| {
+                Ok((
+                    StoredScalarKey::stored_from_public(key),
+                    encode_bitmap(bitmap)?,
+                ))
+            })
+            .collect::<Result<_, String>>()?;
+        let lengths = self
+            .lengths
+            .iter()
+            .map(|(key, bitmap)| {
+                Ok((
+                    PostingNumberKey::from_number_owned(key.clone()),
+                    encode_bitmap(bitmap)?,
+                ))
+            })
+            .collect::<Result<_, String>>()?;
+        Ok(PostingArchivePayload {
+            path: self.path.clone(),
+            kind: encode_logical_type(&self.kind),
+            multi: self.multi,
+            presence: encode_bitmap(&self.presence)?,
+            empty_selections: encode_bitmap(&self.empty_selections)?,
+            nulls: encode_bitmap(&self.nulls)?,
+            structural,
+            values,
+            lengths,
+            values_indexed: self.values_indexed,
+            value_complete: self.value_complete,
+            length_complete: self.length_complete,
+            empty_string_complete: self.empty_string_complete,
+            covered_records: self.covered_records,
+            present_count: self.present_count,
+            null_count: self.null_count,
+            distinct_count: self.distinct_count as u64,
+            min_key: self
+                .min_key
+                .as_ref()
+                .map(StoredScalarKey::stored_from_public),
+            max_key: self
+                .max_key
+                .as_ref()
+                .map(StoredScalarKey::stored_from_public),
+        })
+    }
+
+    pub(crate) fn from_archive_payload(payload: PostingArchivePayload) -> Result<Self, String> {
+        let has_structural = payload.structural.is_some();
+        let structural = payload
+            .structural
+            .map(|postings| {
+                postings
+                    .into_iter()
+                    .map(|(key, bitmap)| Ok((key, decode_bitmap(&bitmap)?)))
+                    .collect::<Result<_, String>>()
+            })
+            .transpose()?;
+        let values = payload
+            .values
+            .into_iter()
+            .map(|(key, bitmap)| {
+                Ok((StoredScalarKey::public_from_stored(&key), decode_bitmap(&bitmap)?))
+            })
+            .collect::<Result<_, String>>()?;
+        let lengths = payload
+            .lengths
+            .into_iter()
+            .map(|(key, bitmap)| {
+                Ok((
+                    PostingNumberKey::public_from_stored(&key),
+                    decode_bitmap(&bitmap)?,
+                ))
+            })
+            .collect::<Result<_, String>>()?;
+        Ok(Self {
+            path: payload.path,
+            kind: decode_logical_type(&payload.kind)?,
+            multi: payload.multi,
+            presence: decode_bitmap(&payload.presence)?,
+            empty_selections: decode_bitmap(&payload.empty_selections)?,
+            nulls: decode_bitmap(&payload.nulls)?,
+            structural,
+            values,
+            lengths,
+            values_indexed: payload.values_indexed,
+            value_complete: payload.value_complete,
+            length_complete: payload.length_complete,
+            empty_string_complete: payload.empty_string_complete,
+            covered_records: payload.covered_records,
+            present_count: payload.present_count,
+            null_count: payload.null_count,
+            distinct_count: payload.distinct_count as usize,
+            min_key: payload
+                .min_key
+                .as_ref()
+                .map(StoredScalarKey::public_from_stored),
+            max_key: payload
+                .max_key
+                .as_ref()
+                .map(StoredScalarKey::public_from_stored),
+            has_structural,
+            payload: None,
+        })
+    }
 }
 
 /// Borrowed ordered traversal over one scalar posting dictionary.
@@ -2113,10 +2325,13 @@ impl PostingIndex {
             distinct_count: self.stats.distinct_count,
             min_key: self.stats.min_key.clone(),
             max_key: self.stats.max_key.clone(),
+            has_structural: self.has_structural,
+            payload: None,
         })
     }
 
     pub(crate) fn from_storage_snapshot(snapshot: PostingIndexSnapshot) -> Result<Self, String> {
+        let has_structural = snapshot.has_structural || snapshot.structural.is_some();
         let structural = snapshot
             .structural
             .map(|postings| {
@@ -2147,12 +2362,51 @@ impl PostingIndex {
                 min_key: snapshot.min_key,
                 max_key: snapshot.max_key,
             },
+            has_structural,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         };
         index.validate_domain(
             &(0..index.covered_records)
                 .collect::<RoaringBitmap>(),
         )?;
         Ok(index)
+    }
+
+    pub(crate) fn from_stored_metadata(
+        snapshot: PostingIndexSnapshot,
+        loader: Arc<dyn PostingIndexLoader>,
+    ) -> Result<Self, String> {
+        let mut index = Self::from_storage_snapshot(snapshot)?;
+        index.storage = Some(loader);
+        Ok(index)
+    }
+
+    pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.storage.is_none() || self.loaded.get().is_some() {
+            return Ok(());
+        }
+        let snapshot = self
+            .storage
+            .as_ref()
+            .expect("stored posting index")
+            .load_posting_index()?;
+        let loaded = Self::from_storage_snapshot(snapshot)?;
+        if self.loaded.set(Box::new(loaded)).is_err() {
+            return Err("stored posting index was concurrently initialized".into());
+        }
+        Ok(())
+    }
+
+    pub(crate) fn is_stored(&self) -> bool {
+        self.storage.is_some()
+    }
+
+    fn payload(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
     }
 
     fn configuration_matches(&self, field: &FieldDefinition, schema: &Schema) -> bool {
@@ -2166,7 +2420,7 @@ impl PostingIndex {
             && self.value_complete == field.indexed
             && self.length_complete == auto_length
             && self.empty_string_complete == auto_empty
-            && self.structural.is_some()
+            && self.has_structural
     }
 
     /// Borrow the ordered value keys of this posting index. Completed indexes
@@ -2177,34 +2431,35 @@ impl PostingIndex {
         upper: std::ops::Bound<ScalarKey>,
         descending: bool,
     ) -> PostingValueCursor<'_> {
-        self.values.range(lower, upper, descending)
+        self.payload().values.range(lower, upper, descending)
     }
 
     pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> u64 {
-        self.values.get(key).map_or(0, RoaringBitmap::len)
+        self.payload().values.get(key).map_or(0, RoaringBitmap::len)
     }
 
     pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<&RoaringBitmap> {
-        self.values.get(key)
+        self.payload().values.get(key)
     }
 
     /// A broad direct relation can match thousands of target IDs. Scan each
     /// ordered source dictionary once when that costs less than thousands of
     /// independent seeks and repeated key decoding.
     pub(crate) fn union_id_postings(&self, ids: &HashSet<String>) -> (RoaringBitmap, u64, u64) {
+        let this = self.payload();
         let mut union = RoaringBitmap::new();
         let mut lists = 0u64;
         let mut members = 0u64;
-        if ids.len().saturating_mul(8) < self.values.len() {
+        if ids.len().saturating_mul(8) < this.values.len() {
             for id in ids {
-                if let Some(slots) = self.values.get(&ScalarKey::Id(id.clone())) {
+                if let Some(slots) = this.values.get(&ScalarKey::Id(id.clone())) {
                     lists += 1;
                     members += slots.len();
                     union |= slots;
                 }
             }
         } else {
-            match &self.values.0 {
+            match &this.values.0 {
                 PostingDictionaryState::Builder(builder) => {
                     for (key, ordinal) in &builder.values {
                         if let StoredScalarKey::Id(id) = key
@@ -2264,21 +2519,24 @@ impl PostingIndex {
         key: &ScalarKey,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        self.values.get(key).map(|bitmap| input & bitmap)
+        self.payload()
+            .values
+            .get(key)
+            .map(|bitmap| input & bitmap)
     }
 
     pub(crate) fn for_each_value(
         &self,
         visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        self.values.for_each(visit)
+        self.payload().values.for_each(visit)
     }
 
     pub(crate) fn for_each_length(
         &self,
         visit: impl FnMut(&Number, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        self.lengths.for_each(visit)
+        self.payload().lengths.for_each(visit)
     }
 
     pub(crate) fn union_scalar_range(
@@ -2287,13 +2545,14 @@ impl PostingIndex {
         operator: Operator,
         input: Option<&RoaringBitmap>,
     ) -> RoaringBitmap {
-        scalar_range_postings(&self.values, key, operator, input).0
+        scalar_range_postings(&self.payload().values, key, operator, input).0
     }
 
     fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
+        let this = self.payload();
         let key = match derived {
             Derived::Exists => return None,
-            Derived::Null if !self.multi => return Some(Some(&self.nulls)),
+            Derived::Null if !this.multi => return Some(Some(&this.nulls)),
             Derived::Null => StructuralKey::AnyNull,
             Derived::IsNonEmpty => StructuralKey::NonEmpty,
             Derived::IsString => StructuralKey::String,
@@ -2302,7 +2561,7 @@ impl PostingIndex {
             Derived::IsObject => StructuralKey::Object,
             Derived::None | Derived::Length => return None,
         };
-        Some(self.structural.as_ref()?.postings.get(&key))
+        Some(this.structural.as_ref()?.postings.get(&key))
     }
 
     fn state_truth(term: &BoundTerm) -> Option<bool> {
@@ -2324,10 +2583,11 @@ impl PostingIndex {
         domain_len: u64,
         visits: &mut u64,
     ) -> Option<(f64, u64)> {
+        let this = self.payload();
         if self.covered_records as u64 != domain_len {
             return None;
         }
-        let equal = || self.values.get(key).map(RoaringBitmap::len).unwrap_or(0);
+        let equal = || this.values.get(key).map(RoaringBitmap::len).unwrap_or(0);
         match operator {
             Operator::Eq => {
                 *visits += 1;
@@ -2341,7 +2601,7 @@ impl PostingIndex {
                 ))
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                let keys = scalar_range_key_probe(&self.values, key, operator, 33);
+                let keys = scalar_range_key_probe(&this.values, key, operator, 33);
                 *visits += keys as u64;
                 let count = if keys <= 32 {
                     keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
@@ -2368,26 +2628,27 @@ impl PostingIndex {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
+        let this = self.payload();
         if !self.value_complete || self.multi || self.covered_records as u64 != domain.len() {
             return None;
         }
         match operator {
             Operator::Eq => Some(
-                self.values
+                this.values
                     .get(key)
                     .map(|slots| input & slots)
                     .unwrap_or_default(),
             ),
             Operator::Ne => {
-                let mut result = input & &self.presence;
-                result -= &self.nulls;
-                if let Some(equal) = self.values.get(key) {
+                let mut result = input & &this.presence;
+                result -= &this.nulls;
+                if let Some(equal) = this.values.get(key) {
                     result -= equal;
                 }
                 Some(result)
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                Some(scalar_range_postings(&self.values, key, operator, Some(input)).0)
+                Some(scalar_range_postings(&this.values, key, operator, Some(input)).0)
             }
             _ => None,
         }
@@ -2479,6 +2740,7 @@ impl PostingIndex {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
+        let this = self.payload();
         if term
             .matcher
             .as_ref()
@@ -2493,22 +2755,22 @@ impl PostingIndex {
             if !self.value_complete {
                 return None;
             }
-            return self.temporal_postings(term, Some(input));
+            return this.temporal_postings(term, Some(input));
         }
         if term.derived == Derived::Exists {
             let truth = Self::state_truth(term)?;
-            if self.empty_selections.is_empty() {
+            if this.empty_selections.is_empty() {
                 return Some(if truth {
-                    input & &self.presence
+                    input & &this.presence
                 } else {
-                    input - &self.presence
+                    input - &this.presence
                 });
             }
-            let mut present = input & &self.presence;
-            present -= &self.empty_selections;
+            let mut present = input & &this.presence;
+            present -= &this.empty_selections;
             return Some(if truth { present } else { input - &present });
         }
-        if let Some(source) = self.state_source(term.derived) {
+        if let Some(source) = this.state_source(term.derived) {
             return Some(match (Self::state_truth(term)?, source) {
                 (true, Some(slots)) => input & slots,
                 (false, Some(slots)) => input - slots,
@@ -2526,7 +2788,7 @@ impl PostingIndex {
                     return None;
                 };
                 return Some(
-                    self.lengths
+                    this.lengths
                         .get(number)
                         .map(|set| input & set)
                         .unwrap_or_default(),
@@ -2537,14 +2799,14 @@ impl PostingIndex {
                     return None;
                 };
                 let restriction = (input.len() < domain.len()).then_some(input);
-                return Some(range_postings(&self.lengths, number, term.operator, restriction).0);
+                return Some(range_postings(&this.lengths, number, term.operator, restriction).0);
             }
             Derived::Length if term.operator == Operator::Ne => {
                 let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 let mut result = RoaringBitmap::new();
-                self.lengths
+                this.lengths
                     .for_each(|key, slots| {
                         if key != number {
                             result |= input & slots;
@@ -2561,8 +2823,8 @@ impl PostingIndex {
                     return None;
                 }
                 return match term.operator {
-                    Operator::Eq => Some(input & &self.nulls),
-                    Operator::Ne => Some(&(input & &self.presence) - &self.nulls),
+                    Operator::Eq => Some(input & &this.nulls),
+                    Operator::Ne => Some(&(input & &this.presence) - &this.nulls),
                     _ => None,
                 };
             }
@@ -2570,21 +2832,21 @@ impl PostingIndex {
                 if term.transform == Transform::Identity
                     && (!term.multi || term.quantifier == Quantifier::Any)
                     && term.operator == Operator::Eq
-                    && self.scalar_equality_complete(term) =>
+                    && this.scalar_equality_complete(term) =>
             {
                 let key = ScalarKey::from_value(&term.literal)?;
-                self.values.get(&key)
+                this.values.get(&key)
             }
             Derived::None
                 if term.transform == Transform::Identity
                     && !term.multi
-                    && self.value_complete
+                    && this.value_complete
                     && is_range(term.operator) =>
             {
                 let key = ScalarKey::from_value(&term.literal)?;
                 let restriction = (input.len() < domain.len()).then_some(input);
                 return Some(
-                    scalar_range_postings(&self.values, &key, term.operator, restriction).0,
+                    scalar_range_postings(&this.values, &key, term.operator, restriction).0,
                 );
             }
             _ => None,
@@ -2592,7 +2854,7 @@ impl PostingIndex {
         if let Some(set) = borrowed {
             return Some(input & set);
         }
-        self.exact_set(term, domain).map(|set| &set & input)
+        this.exact_set(term, domain).map(|set| &set & input)
     }
 
     pub fn new(field: &FieldDefinition) -> Self {
@@ -2612,6 +2874,9 @@ impl PostingIndex {
             empty_string_complete: field.kind == LogicalType::String && !field.multi,
             covered_records: 0,
             stats: PostingStats::default(),
+            has_structural: false,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         }
     }
 
@@ -2620,6 +2885,7 @@ impl PostingIndex {
         index.values_indexed = field.indexed;
         index.value_complete = field.indexed;
         index.structural = Some(StructuralFacts::default());
+        index.has_structural = true;
         index
     }
 
@@ -3071,6 +3337,12 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
+        if self.is_stored() && self.loaded.get().is_none() {
+            *visits += 1;
+            let estimate = domain_len / self.stats.distinct_count.max(1) as u64;
+            return Some((1.0 + self.stats.distinct_count as f64 / 8.0, estimate));
+        }
+        let this = self.payload();
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
@@ -3078,7 +3350,7 @@ impl PostingIndex {
             if term.multi || term.transform != Transform::Identity {
                 return None;
             }
-            let keys = self.temporal_key_probe(term, 33)?;
+            let keys = this.temporal_key_probe(term, 33)?;
             *visits += keys as u64;
             let count = if keys <= 32 {
                 keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
@@ -3089,7 +3361,7 @@ impl PostingIndex {
         }
         if term.derived == Derived::Exists {
             *visits += 1;
-            let yes = self
+            let yes = this
                 .presence
                 .len()
                 .saturating_sub(self.empty_selections.len());
@@ -3102,7 +3374,7 @@ impl PostingIndex {
                 },
             ));
         }
-        if let Some(source) = self.state_source(term.derived) {
+        if let Some(source) = this.state_source(term.derived) {
             *visits += 1;
             let yes = source.map_or(0, RoaringBitmap::len);
             return Some((
@@ -3124,16 +3396,16 @@ impl PostingIndex {
                     return None;
                 };
                 let range_keys = is_range(term.operator)
-                    .then(|| range_key_probe(&self.lengths, number, term.operator, 33));
+                    .then(|| range_key_probe(&this.lengths, number, term.operator, 33));
                 *visits += range_keys.unwrap_or(1) as u64;
                 let count = if term.operator == Operator::Eq {
-                    self.lengths
+                    this.lengths
                         .get(number)
                         .map(RoaringBitmap::len)
                         .unwrap_or(0)
                 } else if let Some(keys) = range_keys {
                     if keys <= 32 {
-                        keys as u64 * domain_len / self.lengths.len().max(1) as u64
+                        keys as u64 * domain_len / this.lengths.len().max(1) as u64
                     } else {
                         domain_len / 4
                     }
@@ -3144,12 +3416,12 @@ impl PostingIndex {
                     if keys <= 32 {
                         keys as f64
                     } else {
-                        self.lengths.len() as f64
+                        this.lengths.len() as f64
                     }
                 } else if term.operator == Operator::Eq {
                     0.0
                 } else {
-                    self.lengths.len() as f64
+                    this.lengths.len() as f64
                 };
                 return Some((1.0 + work, count));
             }
@@ -3176,7 +3448,7 @@ impl PostingIndex {
             return None;
         }
         let key = ScalarKey::from_value(&term.literal)?;
-        if term.operator == Operator::Eq && !self.scalar_equality_complete(term) {
+        if term.operator == Operator::Eq && !this.scalar_equality_complete(term) {
             return None;
         }
         if term.operator != Operator::Eq && !self.value_complete {
@@ -3187,7 +3459,7 @@ impl PostingIndex {
                 *visits += 1;
                 Some((
                     1.0,
-                    self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                    this.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
                 ))
             }
             Operator::Ne if !term.multi => {
@@ -3196,11 +3468,11 @@ impl PostingIndex {
                     2.0,
                     self.stats.present_count
                         - self.stats.null_count
-                        - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                        - this.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
                 ))
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                let keys = scalar_range_key_probe(&self.values, &key, term.operator, 33);
+                let keys = scalar_range_key_probe(&this.values, &key, term.operator, 33);
                 *visits += keys as u64;
                 let estimate = if keys <= 32 {
                     keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
@@ -3221,6 +3493,8 @@ impl PostingIndex {
     /// An exact answer over this index's complete record domain, or `None`
     /// when quantification/transformation needs independent verification.
     pub fn exact_set(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<RoaringBitmap> {
+        self.ensure_storage_loaded().ok()?;
+        let this = self.payload();
         if term
             .matcher
             .as_ref()
@@ -3235,22 +3509,22 @@ impl PostingIndex {
             if !self.value_complete {
                 return None;
             }
-            return self.temporal_postings(term, None);
+            return this.temporal_postings(term, None);
         }
         if term.derived == Derived::Exists {
             let truth = Self::state_truth(term)?;
-            if self.empty_selections.is_empty() {
+            if this.empty_selections.is_empty() {
                 return Some(if truth {
-                    self.presence.clone()
+                    this.presence.clone()
                 } else {
-                    domain - &self.presence
+                    domain - &this.presence
                 });
             }
-            let mut present = self.presence.clone();
-            present -= &self.empty_selections;
+            let mut present = this.presence.clone();
+            present -= &this.empty_selections;
             return Some(if truth { present } else { domain - &present });
         }
-        if let Some(source) = self.state_source(term.derived) {
+        if let Some(source) = this.state_source(term.derived) {
             return Some(match (Self::state_truth(term)?, source) {
                 (true, Some(slots)) => slots.clone(),
                 (false, Some(slots)) => domain - slots,
@@ -3268,10 +3542,10 @@ impl PostingIndex {
                     return None;
                 };
                 return match term.operator {
-                    Operator::Eq => Some(self.lengths.get(number).cloned().unwrap_or_default()),
+                    Operator::Eq => Some(this.lengths.get(number).cloned().unwrap_or_default()),
                     Operator::Ne => {
                         let mut result = RoaringBitmap::new();
-                        self.lengths
+                        this.lengths
                             .for_each(|key, slots| {
                                 if key != number {
                                     result |= slots;
@@ -3281,7 +3555,7 @@ impl PostingIndex {
                             .expect("validated number archive");
                         Some(result)
                     }
-                    op if is_range(op) => Some(range_postings(&self.lengths, &number, op, None).0),
+                    op if is_range(op) => Some(range_postings(&this.lengths, &number, op, None).0),
                     _ => None,
                 };
             }
@@ -3297,8 +3571,8 @@ impl PostingIndex {
                 return None;
             }
             return Some(match term.operator {
-                Operator::Eq => self.nulls.clone(),
-                Operator::Ne => &self.presence - &self.nulls,
+                Operator::Eq => this.nulls.clone(),
+                Operator::Ne => &this.presence - &this.nulls,
                 _ => return None,
             });
         }
@@ -3306,7 +3580,7 @@ impl PostingIndex {
             return None;
         }
         let key = ScalarKey::from_value(&term.literal)?;
-        if term.operator == Operator::Eq && !self.scalar_equality_complete(term) {
+        if term.operator == Operator::Eq && !this.scalar_equality_complete(term) {
             return None;
         }
         if term.operator != Operator::Eq && !self.value_complete {
@@ -3319,13 +3593,13 @@ impl PostingIndex {
             return None;
         }
         match term.operator {
-            Operator::Eq => Some(self.values.get(&key).cloned().unwrap_or_default()),
+            Operator::Eq => Some(this.values.get(&key).cloned().unwrap_or_default()),
             Operator::Ne if !term.multi => Some(
-                &(&self.presence - &self.nulls)
-                    - &self.values.get(&key).cloned().unwrap_or_default(),
+                &(&this.presence - &this.nulls)
+                    - &this.values.get(&key).cloned().unwrap_or_default(),
             ),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                Some(scalar_range_postings(&self.values, &key, term.operator, None).0)
+                Some(scalar_range_postings(&this.values, &key, term.operator, None).0)
             }
             _ => None,
         }
@@ -3336,6 +3610,7 @@ impl PostingIndex {
         term: &BoundTerm,
         input: Option<&RoaringBitmap>,
     ) -> Option<RoaringBitmap> {
+        let this = self.payload();
         if term.multi || term.transform != Transform::Identity || term.derived != Derived::None {
             return None;
         }
@@ -3348,10 +3623,10 @@ impl PostingIndex {
         }
         let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
         let ascending = |lower: std::ops::Bound<ScalarKey>, upper: std::ops::Bound<ScalarKey>| {
-            self.values.range(lower, upper, false)
+            this.values.range(lower, upper, false)
         };
         let descending = |lower: std::ops::Bound<ScalarKey>, upper: std::ops::Bound<ScalarKey>| {
-            self.values.range(lower, upper, true)
+            this.values.range(lower, upper, true)
         };
         Some(match term.operator {
             Operator::Eq => {

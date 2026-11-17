@@ -183,6 +183,11 @@ where
     pub(crate) fn capacity(&self) -> usize {
         self.bytes.capacity()
     }
+
+    pub(crate) fn bytes(&self) -> &[u8] {
+        &self.bytes
+    }
+
 }
 
 impl<T> ValidatedArchive<T>
@@ -190,6 +195,19 @@ where
     T: Archive,
     T::Archived: Portable + for<'a> CheckBytes<rkyv::api::high::HighValidator<'a, Error>>,
 {
+    pub(crate) fn checked_from_aligned(bytes: AlignedVec) -> Result<Arc<Self>, String> {
+        access::<Archived<T>, Error>(&bytes)
+            .map_err(|error| format!("archive validation failed: {error}"))?;
+        StorageWorkCounters::update(|counters| {
+            counters.checked_archive_validations =
+                counters.checked_archive_validations.saturating_add(1);
+        });
+        Ok(Arc::new(Self {
+            bytes,
+            _root: PhantomData,
+        }))
+    }
+
     /// Freeze a borrowed serialization source whose archived root is exactly
     /// the retained root type. The source may borrow temporary ownership
     /// tables; those references are not retained by the returned archive.
@@ -259,12 +277,7 @@ where
     pub(crate) fn checked_from_bytes(bytes: Vec<u8>) -> Result<Arc<Self>, String> {
         let mut aligned = AlignedVec::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        access::<Archived<T>, Error>(&aligned)
-            .map_err(|error| format!("archive validation failed: {error}"))?;
-        Ok(Arc::new(Self {
-            bytes: aligned,
-            _root: PhantomData,
-        }))
+        Self::checked_from_aligned(aligned)
     }
 }
 

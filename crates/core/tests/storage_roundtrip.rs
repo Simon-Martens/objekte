@@ -1,5 +1,7 @@
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::query::{Query, QueryOptions};
+use objekte_search_core::model::LogicalType;
+use objekte_search_core::query::{Query, QueryOptions, parse_filter};
+use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::{StorageOpenOptions, StorageWriteOptions};
@@ -30,11 +32,22 @@ fn fixture_root(label: &str) -> std::path::PathBuf {
 }
 
 fn definitions() -> Vec<CollectionDefinition> {
-    vec![CollectionDefinition::folder(
-        "items",
-        "data",
-        SourceFormat::Json,
-    )]
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    for (name, kind) in [("id", LogicalType::Id), ("title", LogicalType::String)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    vec![definition]
 }
 
 fn all_records() -> Query {
@@ -91,6 +104,43 @@ fn explicit_save_reopens_a_complete_searchable_snapshot() {
             .map(|hit| hit.record_id)
             .collect::<Vec<_>>()
     );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
+    let root = fixture_root("lazy");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    assert_eq!(cold.index_reads, 1);
+
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    let result = reopened.view().unwrap().search(&request).unwrap();
+    assert_eq!(result.count, Some(1));
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.index_reads > cold.index_reads);
+
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

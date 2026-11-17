@@ -15,6 +15,8 @@ use crate::storage::{StorageError, StorageWriteOptions, StorageWriteReport, form
 
 const METADATA_OBJECT_KIND: u16 = 1;
 const PAYLOAD_OBJECT_KIND: u16 = 2;
+const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
+const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 
 fn bincode_options() -> impl bincode::Options {
     bincode::DefaultOptions::new()
@@ -98,10 +100,20 @@ fn write_parts(
     let generation = current
         .map_or(1, |generation| generation.saturating_add(1));
     let encode_started = Instant::now();
-    let snapshot = snapshot_from_parts(parts, generation)?;
+    let mut external_objects = Vec::new();
+    let mut snapshot = snapshot_from_parts(parts, generation)?;
+    externalize_posting_payloads(&mut snapshot, &mut external_objects)?;
+    snapshot.stored_objects.extend(
+        external_objects
+            .iter()
+            .map(|(digest, bytes)| model::StoredObjectDescriptor {
+                kind: POSTING_PAYLOAD_OBJECT_KIND as u32,
+                digest: *digest,
+                length: bytes.len() as u64,
+            }),
+    );
     let payload = format::envelope(PAYLOAD_OBJECT_KIND, &[]);
     let payload_digest = format::sha256(&payload);
-    let mut snapshot = snapshot;
     snapshot
         .stored_objects
         .push(model::StoredObjectDescriptor::new(
@@ -122,8 +134,15 @@ fn write_parts(
         .map_err(|error| StorageError::Io(error.to_string()))?;
     fs::create_dir_all(&staging)
         .map_err(|error| StorageError::Io(error.to_string()))?;
+    let mut objects_new = 0usize;
     write_object(&staging, &objects, payload_digest, &payload)?;
+    objects_new += 1;
+    for (digest, bytes) in &external_objects {
+        write_object(&staging, &objects, *digest, bytes)?;
+        objects_new += 1;
+    }
     write_object(&staging, &objects, metadata_digest, &metadata)?;
+    objects_new += 1;
     sync_directory(&objects)?;
     let write_ns = write_started.elapsed().as_nanos() as u64;
 
@@ -144,10 +163,18 @@ fn write_parts(
         logical_revision: IndexRevision(snapshot.logical_revision),
         unchanged: false,
         archive_report,
-        objects_new: 2,
+        objects_new,
         objects_reused: 0,
-        bytes_serialized: (metadata.len() + payload.len()) as u64,
-        bytes_written: (metadata.len() + payload.len()) as u64,
+        bytes_serialized: (metadata.len() + payload.len()) as u64
+            + external_objects
+                .iter()
+                .map(|(_, bytes)| bytes.len() as u64)
+                .sum::<u64>(),
+        bytes_written: (metadata.len() + payload.len()) as u64
+            + external_objects
+                .iter()
+                .map(|(_, bytes)| bytes.len() as u64)
+                .sum::<u64>(),
         sync_calls: 3,
         archive_ns,
         encode_ns,
@@ -156,6 +183,103 @@ fn write_parts(
         total_ns: started.elapsed().as_nanos() as u64,
         manifest_digest: metadata_digest,
     })
+}
+
+fn externalize_posting_payloads(
+    snapshot: &mut model::StorageSnapshot,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    for collection in &mut snapshot.collections {
+        externalize_posting_collection(&mut collection.postings, objects)?;
+        externalize_bigram(&mut collection.raw, objects)?;
+        externalize_bigram(&mut collection.fallback_text, objects)?;
+        for bigram in collection.custom_text.values_mut() {
+            externalize_bigram(bigram, objects)?;
+        }
+        if let Some(inference) = &mut collection.inference {
+            for posting in inference.indexes.values_mut() {
+                externalize_posting(posting, objects)?;
+            }
+        }
+        for custom in collection.custom_postings.values_mut() {
+            externalize_posting(&mut custom.index, objects)?;
+        }
+    }
+    for group in &mut snapshot.segments {
+        for published in group {
+            let segment = &mut published.segment;
+            externalize_posting_collection(&mut segment.postings, objects)?;
+            externalize_bigram(&mut segment.raw, objects)?;
+            externalize_bigram(&mut segment.fallback_text, objects)?;
+            for bigram in segment.custom_text.values_mut() {
+                externalize_bigram(bigram, objects)?;
+            }
+            if let Some(inference) = &mut segment.inference {
+                for posting in inference.indexes.values_mut() {
+                    externalize_posting(posting, objects)?;
+                }
+            }
+            for custom in segment.custom_postings.values_mut() {
+                externalize_posting(&mut custom.index, objects)?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn externalize_bigram(
+    bigram: &mut crate::bigram::BigramIndex,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    let payload = bigram
+        .archive_payload()
+        .map_err(StorageError::UnsupportedComponent)?;
+    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let object = format::envelope(BIGRAM_PAYLOAD_OBJECT_KIND, &body);
+    let digest = format::sha256(&object);
+    let length = object.len() as u64;
+    objects.push((digest, object));
+    bigram.normal.clear();
+    bigram.skip.clear();
+    bigram.payload = Some(crate::bigram::StoredBigramPayloadRef { digest, length });
+    Ok(())
+}
+
+fn externalize_posting_collection(
+    collection: &mut crate::posting::PostingCollectionSnapshot,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    for posting in collection.fields.values_mut() {
+        externalize_posting(posting, objects)?;
+    }
+    Ok(())
+}
+
+fn externalize_posting(
+    posting: &mut crate::posting::PostingIndexSnapshot,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    if posting.values.is_empty()
+        && posting.lengths.is_empty()
+        && posting.structural.is_none()
+    {
+        return Ok(());
+    }
+    let payload = posting
+        .archive_payload()
+        .map_err(StorageError::UnsupportedComponent)?;
+    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let object = format::envelope(POSTING_PAYLOAD_OBJECT_KIND, &body);
+    let digest = format::sha256(&object);
+    let length = object.len() as u64;
+    objects.push((digest, object));
+    posting.structural = None;
+    posting.values.clear();
+    posting.lengths.clear();
+    posting.payload = Some(crate::posting::StoredPostingPayloadRef { digest, length });
+    Ok(())
 }
 
 fn snapshot_from_parts(
@@ -503,6 +627,3 @@ fn stable_lineage(configuration: &[u8; 32], root: &str) -> [u8; 16] {
     digest[..16].try_into().expect("fixed lineage length")
 }
 
-pub(crate) fn trim_cache() -> Result<format::CacheTrimReport, IndexError> {
-    Ok(format::CacheTrimReport::default())
-}

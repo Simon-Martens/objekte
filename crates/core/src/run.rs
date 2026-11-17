@@ -5854,6 +5854,7 @@ fn relation_source_candidates(
     let Some(posting) = published.index.postings.fields.get(&plan.source_path) else {
         return Ok(None);
     };
+    posting.ensure_storage_loaded()?;
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
@@ -6343,6 +6344,7 @@ fn try_direct_relation_page(
         let Some(posting) = published.index.postings.fields.get(source_path) else {
             return Ok(None);
         };
+        posting.ensure_storage_loaded()?;
         let (mut may, lists, members) = posting.union_id_postings(&target_ids);
         counters.relation_reverse_postings_visited += lists;
         counters.relation_reverse_members_visited += members;

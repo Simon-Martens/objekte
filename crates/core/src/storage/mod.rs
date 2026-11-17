@@ -214,7 +214,7 @@ impl Index {
     }
 
     pub fn trim_storage_cache(&self) -> Result<CacheTrimReport, IndexError> {
-        writer::trim_cache()
+        reader::index_trim_cache(self)
     }
 }
 
@@ -267,7 +267,7 @@ impl Repository {
     }
 
     pub fn trim_storage_cache(&self) -> Result<CacheTrimReport, IndexError> {
-        writer::trim_cache()
+        reader::repository_trim_cache(self)
     }
 }
 

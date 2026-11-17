@@ -1,12 +1,12 @@
 //! Conservative record-level bigram candidates over separate text segments.
 
 use std::collections::{HashMap, HashSet};
-#[cfg(feature = "detailed-profiling")]
-use std::sync::OnceLock;
+use std::sync::{Arc, OnceLock};
 use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
+use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
 use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
@@ -266,14 +266,102 @@ pub struct BigramIndex {
     pub record_count: u32,
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
+    #[serde(default)]
+    pub(crate) payload: Option<StoredBigramPayloadRef>,
+    #[serde(skip)]
+    pub(crate) storage: Option<Arc<dyn BigramIndexLoader>>,
+    #[serde(skip)]
+    pub(crate) loaded: Arc<OnceLock<Box<BigramIndex>>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredBigramPayloadRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+pub(crate) trait BigramIndexLoader: std::fmt::Debug + Send + Sync {
+    fn load_bigram_index(&self) -> Result<BigramIndex, String>;
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct BigramArchivePayload {
+    alphabet: u8,
+    record_count: u32,
+    normal: Vec<(u64, Vec<u8>)>,
+    skip: Vec<(u64, Vec<u8>)>,
+}
+
+fn encode_bitmap(bitmap: &RoaringBitmap) -> Result<Vec<u8>, String> {
+    let mut bytes = Vec::with_capacity(bitmap.serialized_size());
+    bitmap
+        .serialize_into(&mut bytes)
+        .map_err(|error| format!("bigram bitmap serialization failed: {error}"))?;
+    Ok(bytes)
+}
+
+fn decode_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
+    let mut cursor = std::io::Cursor::new(bytes);
+    let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
+        .map_err(|error| format!("bigram bitmap decode failed: {error}"))?;
+    if cursor.position() != bytes.len() as u64 {
+        return Err("bigram bitmap payload has trailing bytes".into());
+    }
+    Ok(bitmap)
 }
 
 impl BigramIndex {
+    pub(crate) fn archive_payload(&self) -> Result<BigramArchivePayload, String> {
+        Ok(BigramArchivePayload {
+            alphabet: match self.alphabet {
+                BigramAlphabet::Ascii => 0,
+                BigramAlphabet::Unicode => 1,
+            },
+            record_count: self.record_count,
+            normal: self
+                .normal
+                .iter()
+                .map(|(key, bitmap)| Ok((*key, encode_bitmap(bitmap)?)))
+                .collect::<Result<_, String>>()?,
+            skip: self
+                .skip
+                .iter()
+                .map(|(key, bitmap)| Ok((*key, encode_bitmap(bitmap)?)))
+                .collect::<Result<_, String>>()?,
+        })
+    }
+
+    pub(crate) fn from_archive_payload(payload: BigramArchivePayload) -> Result<Self, String> {
+        let alphabet = match payload.alphabet {
+            0 => BigramAlphabet::Ascii,
+            1 => BigramAlphabet::Unicode,
+            value => return Err(format!("unknown bigram alphabet code {value}")),
+        };
+        Ok(Self {
+            alphabet,
+            record_count: payload.record_count,
+            normal: payload
+                .normal
+                .into_iter()
+                .map(|(key, bitmap)| Ok((key, decode_bitmap(&bitmap)?)))
+                .collect::<Result<_, String>>()?,
+            skip: payload
+                .skip
+                .into_iter()
+                .map(|(key, bitmap)| Ok((key, decode_bitmap(&bitmap)?)))
+                .collect::<Result<_, String>>()?,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
+        })
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
-        if self
+        let this = self.payload();
+        if this
             .normal
             .values()
-            .chain(self.skip.values())
+            .chain(this.skip.values())
             .any(|slots| !slots.is_subset(allowed))
         {
             return Err("bigram posting outside eligible domain".into());
@@ -291,17 +379,50 @@ impl BigramIndex {
             record_count: 0,
             normal: HashMap::new(),
             skip: HashMap::new(),
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         }
+    }
+
+    pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.storage.is_none() || self.loaded.get().is_some() {
+            return Ok(());
+        }
+        let mut loaded = self
+            .storage
+            .as_ref()
+            .expect("stored bigram index")
+            .load_bigram_index()?;
+        loaded.payload = None;
+        loaded.storage = None;
+        loaded.loaded = Arc::new(OnceLock::new());
+        if self.loaded.set(Box::new(loaded)).is_err() {
+            return Err("stored bigram index was concurrently initialized".into());
+        }
+        Ok(())
+    }
+
+    pub(crate) fn is_stored(&self) -> bool {
+        self.storage.is_some()
+    }
+
+    fn payload(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
     }
 
     pub(crate) fn for_each_normal(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        let mut keys = self.normal.keys().collect::<Vec<_>>();
+        let this = self.payload();
+        let mut keys = this.normal.keys().collect::<Vec<_>>();
         keys.sort_unstable();
         for key in keys {
-            visit(key, &self.normal[key])?;
+            visit(key, &this.normal[key])?;
         }
         Ok(())
     }
@@ -310,10 +431,11 @@ impl BigramIndex {
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        let mut keys = self.skip.keys().collect::<Vec<_>>();
+        let this = self.payload();
+        let mut keys = this.skip.keys().collect::<Vec<_>>();
         keys.sort_unstable();
         for key in keys {
-            visit(key, &self.skip[key])?;
+            visit(key, &this.skip[key])?;
         }
         Ok(())
     }
@@ -385,16 +507,20 @@ impl BigramIndex {
     }
 
     pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
-        let grams = request.grams(self.alphabet);
+        let this = self.payload();
+        if this.record_count == 0 {
+            return None;
+        }
+        let grams = request.grams(this.alphabet);
         if grams.is_empty() {
             return None;
         }
         let mut columns = Vec::new();
         for &(skip, key) in grams {
             let column = if skip {
-                self.skip.get(&key)
+                this.skip.get(&key)
             } else {
-                self.normal.get(&key)
+                this.normal.get(&key)
             };
             let Some(column) = column else {
                 return Some(RoaringBitmap::new());
@@ -417,6 +543,12 @@ impl BigramIndex {
     }
 
     pub(crate) fn estimate_prepared(&self, request: &BigramRequest) -> Option<u64> {
+        if self.is_stored() && self.loaded.get().is_none() {
+            return (self.record_count != 0).then_some(u64::from(self.record_count));
+        }
+        if self.record_count == 0 {
+            return None;
+        }
         request
             .grams(self.alphabet)
             .iter()
@@ -829,6 +961,9 @@ impl BigramContribution {
             record_count,
             normal: normal?,
             skip: skip?,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         })
     }
 
@@ -846,6 +981,9 @@ impl BigramContribution {
             record_count,
             normal: convert_blocks(normal)?,
             skip: convert_blocks(skip)?,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         })
     }
 }

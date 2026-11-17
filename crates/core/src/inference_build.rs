@@ -1775,6 +1775,9 @@ impl InferenceBuilder {
                     empty_string_complete,
                     covered_records: self.eligible,
                     stats: PostingStats::default(),
+                    has_structural: true,
+                    storage: None,
+                    loaded: Arc::new(std::sync::OnceLock::new()),
                 };
                 let facts = index.structural.as_mut().unwrap();
                 for (key, slots) in [

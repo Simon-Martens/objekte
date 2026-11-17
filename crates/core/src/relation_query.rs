@@ -471,6 +471,7 @@ impl<'a> MergedRelationView<'a> {
                 .fields
                 .get(&relation_contribution.declaration().path)
             {
+                field.ensure_storage_loaded()?;
                 let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))
                 else {
                     continue;

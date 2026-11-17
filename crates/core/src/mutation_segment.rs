@@ -1421,6 +1421,9 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         empty_string_complete: source.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
+        has_structural: source.has_structural,
+        storage: None,
+        loaded: Arc::new(std::sync::OnceLock::new()),
     }
 }
 
@@ -1703,6 +1706,9 @@ fn project_posting(
         empty_string_complete: index.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
+        has_structural: index.has_structural,
+        storage: None,
+        loaded: Arc::new(std::sync::OnceLock::new()),
     };
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;

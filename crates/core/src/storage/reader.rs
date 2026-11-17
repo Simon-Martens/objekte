@@ -8,12 +8,18 @@ use std::sync::atomic::AtomicU64;
 use bincode::Options;
 use serde::Serialize;
 
+use crate::bigram::{
+    BigramArchivePayload, BigramIndex, BigramIndexLoader, StoredBigramPayloadRef,
+};
 use crate::inventory::{ActiveRecords, FileVersions};
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, IndexStorageParts, PublishedSegment,
 };
 use crate::native_segment::IndexedCollectionSegment;
-use crate::posting::{CustomPostingIndex, PostingCollection};
+use crate::posting::{
+    CustomPostingIndex, PostingArchivePayload, PostingCollection, PostingIndex, PostingIndexLoader,
+    PostingIndexSnapshot, StoredPostingPayloadRef,
+};
 use crate::repository::{CollectionState, Repository};
 use crate::segment_archive::{FileLookup, RecordLookup, SegmentRows};
 use crate::storage::format::{self, StorageError};
@@ -277,20 +283,15 @@ fn rebuild_repository(
             definition: definition.clone(),
             source,
             generation: stored.generation.clone(),
-            postings: PostingCollection::from_storage_snapshot(stored.postings.clone())
-                .map_err(|message| StorageError::Corrupt {
-                    identity: "posting collection".into(),
-                    message,
-                })?,
+            postings: posting_collection_from_storage(
+                stored.postings.clone(),
+                Arc::clone(&session),
+            )?,
             inference: stored
                 .inference
                 .clone()
-                .map(crate::inference::InferenceState::from_storage_snapshot)
-                .transpose()
-                .map_err(|message| StorageError::Corrupt {
-                    identity: "inference state".into(),
-                    message,
-                })?,
+                .map(|snapshot| inference_from_storage(snapshot, Arc::clone(&session)))
+                .transpose()?,
             global_inference: stored.global_inference.clone(),
             custom_postings: stored
                 .custom_postings
@@ -299,20 +300,37 @@ fn rebuild_repository(
                     Ok((
                         key.clone(),
                         CustomPostingIndex {
-                            index: crate::posting::PostingIndex::from_storage_snapshot(
+                            index: posting_from_storage(
                                 custom.index.clone(),
-                            )
-                            .map_err(StorageError::UnsupportedComponent)?,
+                                Arc::clone(&session),
+                            )?,
                             complete: custom.complete,
                         },
                     ))
                 })
                 .collect::<Result<_, StorageError>>()?,
-            raw: Arc::new(stored.raw.clone()),
-            fallback_text: Arc::new(stored.fallback_text.clone()),
+            raw: Arc::new(bigram_from_storage(
+                stored.raw.clone(),
+                Arc::clone(&session),
+            )?),
+            fallback_text: Arc::new(bigram_from_storage(
+                stored.fallback_text.clone(),
+                Arc::clone(&session),
+            )?),
             logical_records: stored.logical_records.clone(),
             empty_array_records: stored.empty_array_records.clone(),
-            custom_text: Arc::new(stored.custom_text.iter().map(|(k, v)| (k.clone(), v.clone())).collect()),
+            custom_text: Arc::new(
+                stored
+                    .custom_text
+                    .iter()
+                    .map(|(key, bigram)| {
+                        Ok((
+                            key.clone(),
+                            bigram_from_storage(bigram.clone(), Arc::clone(&session))?,
+                        ))
+                    })
+                    .collect::<Result<_, StorageError>>()?,
+            ),
             text_bindings: crate::index_catalog::TextBindingCatalog::new(&definition.schema),
             sorting: Arc::new(stored.sorting.clone()),
             index_family_bytes: 0,
@@ -344,7 +362,7 @@ fn rebuild_repository(
     for (collection_number, group) in snapshot.segments.iter().enumerate() {
         let mut stored_group = Vec::with_capacity(group.len());
         for published in group {
-            let index = rebuild_segment(&published.segment)?;
+            let index = rebuild_segment(&published.segment, Arc::clone(&session))?;
             let active = ActiveRecords::from_bitmap(
                 index.record_count(),
                 published.active.clone(),
@@ -394,7 +412,177 @@ fn rebuild_repository(
     Ok((repository, base_active, groups, catalog, versions))
 }
 
-fn rebuild_segment(snapshot: &model::SegmentSnapshot) -> Result<IndexedCollectionSegment, StorageError> {
+const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
+const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
+
+struct StoredPostingLoader {
+    session: SharedStorageSession,
+    reference: StoredPostingPayloadRef,
+}
+
+impl std::fmt::Debug for StoredPostingLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredPostingLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .field("length", &self.reference.length)
+            .finish()
+    }
+}
+
+impl PostingIndexLoader for StoredPostingLoader {
+    fn load_posting_index(&self) -> Result<PostingIndexSnapshot, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            POSTING_PAYLOAD_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let payload = rkyv::from_bytes::<PostingArchivePayload, rkyv::rancor::Error>(&aligned)
+            .map_err(|error| format!("posting payload decode failed: {error}"))?;
+        PostingIndexSnapshot::from_archive_payload(payload)
+    }
+}
+
+struct StoredBigramLoader {
+    session: SharedStorageSession,
+    reference: StoredBigramPayloadRef,
+}
+
+impl std::fmt::Debug for StoredBigramLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredBigramLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .field("length", &self.reference.length)
+            .finish()
+    }
+}
+
+impl BigramIndexLoader for StoredBigramLoader {
+    fn load_bigram_index(&self) -> Result<BigramIndex, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            BIGRAM_PAYLOAD_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let payload = rkyv::from_bytes::<BigramArchivePayload, rkyv::rancor::Error>(&aligned)
+            .map_err(|error| format!("bigram payload decode failed: {error}"))?;
+        BigramIndex::from_archive_payload(payload)
+    }
+}
+
+fn read_checked_object(
+    session: &StorageSession,
+    digest: [u8; 32],
+    length: u64,
+    kind: u16,
+) -> Result<Vec<u8>, String> {
+    let cache_key = (digest, length, u32::from(kind));
+    if let Some(bytes) = session.cache().get(&cache_key) {
+        return Ok(bytes.as_ref().to_vec());
+    }
+    session.cache().record_miss();
+    let path = session
+        .directory()
+        .join("objects")
+        .join(format::hex(&digest));
+    let bytes = fs::read(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+    session
+        .index_reads
+        .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
+    session
+        .index_bytes
+        .fetch_add(bytes.len() as u64, std::sync::atomic::Ordering::AcqRel);
+    if bytes.len() as u64 != length {
+        return Err(format!(
+            "object {} length mismatch: expected {length}, got {}",
+            format::hex(&digest),
+            bytes.len()
+        ));
+    }
+    if format::sha256(&bytes) != digest {
+        return Err(format!("object {} checksum mismatch", format::hex(&digest)));
+    }
+    let body = format::checked_body(&bytes, kind)
+        .map_err(|error| error.to_string())?
+        .to_vec();
+    session.cache().insert(cache_key, Arc::from(body.clone()));
+    Ok(body)
+}
+
+fn posting_from_storage(
+    snapshot: PostingIndexSnapshot,
+    session: SharedStorageSession,
+) -> Result<PostingIndex, StorageError> {
+    match snapshot.payload {
+        Some(reference) => PostingIndex::from_stored_metadata(
+            snapshot,
+            Arc::new(StoredPostingLoader { session, reference }),
+        )
+        .map_err(|message| StorageError::Corrupt {
+            identity: "stored posting metadata".into(),
+            message,
+        }),
+        None => PostingIndex::from_storage_snapshot(snapshot).map_err(|message| {
+            StorageError::Corrupt {
+                identity: "posting metadata".into(),
+                message,
+            }
+        }),
+    }
+}
+
+fn bigram_from_storage(
+    mut snapshot: BigramIndex,
+    session: SharedStorageSession,
+) -> Result<BigramIndex, StorageError> {
+    if let Some(reference) = snapshot.payload {
+        snapshot.storage = Some(Arc::new(StoredBigramLoader { session, reference }));
+    }
+    Ok(snapshot)
+}
+
+fn posting_collection_from_storage(
+    snapshot: crate::posting::PostingCollectionSnapshot,
+    session: SharedStorageSession,
+) -> Result<PostingCollection, StorageError> {
+    Ok(PostingCollection {
+        fields: snapshot
+            .fields
+            .into_iter()
+            .map(|(path, posting)| Ok((path, posting_from_storage(posting, Arc::clone(&session))?)))
+            .collect::<Result<_, StorageError>>()?,
+    })
+}
+
+fn inference_from_storage(
+    snapshot: crate::inference::InferenceStateSnapshot,
+    session: SharedStorageSession,
+) -> Result<crate::inference::InferenceState, StorageError> {
+    Ok(crate::inference::InferenceState {
+        report: snapshot.report,
+        indexes: snapshot
+            .indexes
+            .into_iter()
+            .map(|(path, posting)| {
+                Ok((path, posting_from_storage(posting, Arc::clone(&session))?))
+            })
+            .collect::<Result<_, StorageError>>()?,
+        empty_selections: snapshot.empty_selections.into_iter().collect(),
+        short_string_coverage: snapshot.short_string_coverage.into_iter().collect(),
+    })
+}
+
+fn rebuild_segment(
+    snapshot: &model::SegmentSnapshot,
+    session: SharedStorageSession,
+) -> Result<IndexedCollectionSegment, StorageError> {
     let files = snapshot
         .files
         .iter()
@@ -429,10 +617,7 @@ fn rebuild_segment(snapshot: &model::SegmentSnapshot) -> Result<IndexedCollectio
             Ok((
                 key.clone(),
                 CustomPostingIndex {
-                    index: crate::posting::PostingIndex::from_storage_snapshot(
-                        custom.index.clone(),
-                    )
-                    .map_err(StorageError::UnsupportedComponent)?,
+                    index: posting_from_storage(custom.index.clone(), Arc::clone(&session))?,
                     complete: custom.complete,
                 },
             ))
@@ -448,30 +633,36 @@ fn rebuild_segment(snapshot: &model::SegmentSnapshot) -> Result<IndexedCollectio
         records,
         id_lookup,
         identity_order: Arc::new(snapshot.identity_order.clone()),
-        postings: PostingCollection::from_storage_snapshot(snapshot.postings.clone())
-            .map_err(|message| StorageError::Corrupt {
-                identity: format!("segment {} postings", snapshot.id),
-                message,
-            })?,
+        postings: posting_collection_from_storage(
+            snapshot.postings.clone(),
+            Arc::clone(&session),
+        )?,
         inference_observation: snapshot.inference_observation.clone(),
         inference: snapshot
             .inference
             .clone()
-            .map(crate::inference::InferenceState::from_storage_snapshot)
-            .transpose()
-            .map_err(|message| StorageError::Corrupt {
-                identity: format!("segment {} inference", snapshot.id),
-                message,
-            })?,
+            .map(|inference| inference_from_storage(inference, Arc::clone(&session)))
+            .transpose()?,
         custom_postings,
-        raw: Arc::new(snapshot.raw.clone()),
-        fallback_text: Arc::new(snapshot.fallback_text.clone()),
+        raw: Arc::new(bigram_from_storage(
+            snapshot.raw.clone(),
+            Arc::clone(&session),
+        )?),
+        fallback_text: Arc::new(bigram_from_storage(
+            snapshot.fallback_text.clone(),
+            Arc::clone(&session),
+        )?),
         custom_text: Arc::new(
             snapshot
                 .custom_text
                 .iter()
-                .map(|(key, index)| (key.clone(), index.clone()))
-                .collect(),
+                .map(|(key, index)| {
+                    Ok((
+                        key.clone(),
+                        bigram_from_storage(index.clone(), Arc::clone(&session))?,
+                    ))
+                })
+                .collect::<Result<_, StorageError>>()?,
         ),
         logical_records: snapshot.logical_records.clone(),
         empty_array_records: snapshot.empty_array_records.clone(),
@@ -576,6 +767,17 @@ pub(crate) fn index_status(index: &Index) -> Result<StorageStatus, IndexError> {
 
 pub(crate) fn repository_status(repository: &Repository) -> Result<StorageStatus, IndexError> {
     status_for(repository)
+}
+
+pub(crate) fn index_trim_cache(index: &Index) -> Result<format::CacheTrimReport, IndexError> {
+    let view = index.view()?;
+    Ok(session_for(view.repository())?.cache().trim())
+}
+
+pub(crate) fn repository_trim_cache(
+    repository: &Repository,
+) -> Result<format::CacheTrimReport, IndexError> {
+    Ok(session_for(repository)?.cache().trim())
 }
 
 pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, StorageError> {
