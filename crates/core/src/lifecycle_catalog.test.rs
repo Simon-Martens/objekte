@@ -1,10 +1,55 @@
 use std::sync::Arc;
 
-use super::FileCatalog;
+use super::{BorrowedCatalogRow, FileCatalog, StoredFileRow, file_shard_number};
+use crate::archive_storage::ValidatedArchive;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
+
+#[test]
+fn borrowed_catalog_row_matches_owned_adapter_oracle() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-catalog-row-adapter-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/über-ファイル.json"), b"{}").unwrap();
+    let repository = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions::default(),
+        )
+        .unwrap(),
+    );
+    let catalog = FileCatalog::from_repository(repository).unwrap();
+    let shard = &catalog.metadata[file_shard_number(FileId(0))];
+    let row = shard.native_row(FileId(0)).unwrap();
+    let borrowed =
+        ValidatedArchive::<StoredFileRow>::freeze_source(&BorrowedCatalogRow(row)).unwrap();
+    let owned = ValidatedArchive::<StoredFileRow>::freeze_source(&StoredFileRow::from_entry(
+        &row.entry,
+        row.fingerprint,
+        row.configuration,
+    ))
+    .unwrap();
+    assert_eq!(
+        StoredFileRow::from_archived(borrowed.root())
+            .to_entry()
+            .unwrap(),
+        StoredFileRow::from_archived(owned.root())
+            .to_entry()
+            .unwrap()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {

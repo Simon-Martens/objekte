@@ -24,7 +24,7 @@ use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 
 use crate::archive_storage::ValidatedArchive;
-use crate::archived_path::StoredPath;
+use crate::archived_path::{BorrowedStoredPath, BorrowedStoredPathResolver, StoredPath};
 use crate::inventory::{
     ByteRange, FileEntry, FileInventory, FileStatus, FileVersion, FileVersions, SourceDiagnostic,
     SourceRevision, empty_path_bounds, relative_path_bounds,
@@ -99,6 +99,7 @@ struct StoredCatalogDiagnostic {
 }
 
 impl StoredCatalogDiagnostic {
+    #[cfg(test)]
     fn from_diagnostic(diagnostic: &SourceDiagnostic) -> Self {
         Self {
             file: diagnostic.file.0,
@@ -187,6 +188,7 @@ struct StoredFileRow {
 }
 
 impl StoredFileRow {
+    #[cfg(test)]
     fn from_entry(
         entry: &FileEntry,
         fingerprint: Option<[u8; 32]>,
@@ -564,7 +566,7 @@ where
 #[allow(dead_code)]
 struct BorrowedCatalogRowResolver {
     id: <u32 as Archive>::Resolver,
-    path: <StoredPath as Archive>::Resolver,
+    path: BorrowedStoredPathResolver,
     modified_ns: <i128 as Archive>::Resolver,
     size: <u64 as Archive>::Resolver,
     created_ns: Option<<i128 as Archive>::Resolver>,
@@ -590,7 +592,7 @@ impl Archive for BorrowedCatalogRow<'_> {
                 resolver.id,
                 Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
             );
-            let path = StoredPath::from_shared(&self.0.entry.relative_path);
+            let path = BorrowedStoredPath(&self.0.entry.relative_path);
             Archive::resolve(
                 &path,
                 resolver.path,
@@ -658,22 +660,51 @@ where
     S::Error: rkyv::rancor::Source,
 {
     fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
-        let stored =
-            StoredFileRow::from_entry(&self.0.entry, self.0.fingerprint, self.0.configuration);
-        let resolver: <StoredFileRow as Archive>::Resolver =
-            ArchiveSerialize::serialize(&stored, serializer)?;
         Ok(BorrowedCatalogRowResolver {
-            id: resolver.id,
-            path: resolver.path,
-            modified_ns: resolver.modified_ns,
-            size: resolver.size,
-            created_ns: resolver.created_ns,
-            collections: resolver.collections,
-            status: resolver.status,
-            diagnostics: resolver.diagnostics,
-            omitted_diagnostics: resolver.omitted_diagnostics,
-            fingerprint: resolver.fingerprint,
-            configuration: resolver.configuration,
+            id: ArchiveSerialize::serialize(&self.0.entry.id.0, serializer)?,
+            path: ArchiveSerialize::serialize(
+                &BorrowedStoredPath(&self.0.entry.relative_path),
+                serializer,
+            )?,
+            modified_ns: ArchiveSerialize::serialize(
+                &self.0.entry.revision.modified_ns,
+                serializer,
+            )?,
+            size: ArchiveSerialize::serialize(&self.0.entry.revision.size, serializer)?,
+            created_ns: ArchiveSerialize::serialize(&self.0.entry.created_ns, serializer)?,
+            collections: ArchivedVec::serialize_from_iter(
+                self.0
+                    .entry
+                    .collections
+                    .iter()
+                    .map(|collection| collection.0),
+                serializer,
+            )?,
+            status: ArchiveSerialize::serialize(&self.0.entry.status.code(), serializer)?,
+            diagnostics: ArchivedVec::serialize_from_iter(
+                self.0
+                    .entry
+                    .diagnostics
+                    .iter()
+                    .map(BorrowedCatalogDiagnostic),
+                serializer,
+            )?,
+            omitted_diagnostics: ArchiveSerialize::serialize(
+                &self.0.entry.omitted_diagnostics,
+                serializer,
+            )?,
+            fingerprint: self
+                .0
+                .fingerprint
+                .as_ref()
+                .map(|bytes| ArchivedVec::serialize_from_slice(bytes.as_slice(), serializer))
+                .transpose()?,
+            configuration: self
+                .0
+                .configuration
+                .as_ref()
+                .map(|bytes| ArchivedVec::serialize_from_slice(bytes.as_slice(), serializer))
+                .transpose()?,
         })
     }
 }

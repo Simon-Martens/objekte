@@ -12,7 +12,7 @@ use rkyv::vec::VecResolver;
 use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 
 use crate::archive_storage::ValidatedArchive;
-use crate::archived_path::StoredPath;
+use crate::archived_path::{BorrowedStoredPath, BorrowedStoredPathResolver, StoredPath};
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SharedPath,
     SourceDiagnostic, SourceRevision,
@@ -379,7 +379,7 @@ struct BorrowedSegmentFile<'a>(&'a SegmentFile);
 
 struct BorrowedSegmentFileResolver {
     id: <u32 as Archive>::Resolver,
-    relative_path: <StoredPath as Archive>::Resolver,
+    relative_path: BorrowedStoredPathResolver,
     modified_ns: <i128 as Archive>::Resolver,
     size: <u64 as Archive>::Resolver,
     created_ns: Option<<i128 as Archive>::Resolver>,
@@ -404,7 +404,7 @@ impl Archive for BorrowedSegmentFile<'_> {
                 resolver.id,
                 Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
             );
-            let path = StoredPath::from_shared(&self.0.entry.relative_path);
+            let path = BorrowedStoredPath(&self.0.entry.relative_path);
             Archive::resolve(
                 &path,
                 resolver.relative_path,
@@ -465,10 +465,12 @@ where
     S::Error: rkyv::rancor::Source,
 {
     fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
-        let path = StoredPath::from_shared(&self.0.entry.relative_path);
         Ok(BorrowedSegmentFileResolver {
             id: ArchiveSerialize::serialize(&self.0.entry.id.0, serializer)?,
-            relative_path: ArchiveSerialize::serialize(&path, serializer)?,
+            relative_path: ArchiveSerialize::serialize(
+                &BorrowedStoredPath(&self.0.entry.relative_path),
+                serializer,
+            )?,
             modified_ns: ArchiveSerialize::serialize(
                 &self.0.entry.revision.modified_ns,
                 serializer,
