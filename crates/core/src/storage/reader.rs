@@ -1065,10 +1065,15 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
         .map_err(|error| StorageError::Io(error.to_string()))?
     {
         let entry = entry.map_err(|error| StorageError::Io(error.to_string()))?;
-        if !entry.path().is_file() {
+        let metadata = fs::symlink_metadata(entry.path())
+            .map_err(|error| StorageError::Io(error.to_string()))?;
+        if !metadata.file_type().is_file() {
             continue;
         }
         let name = entry.file_name().to_string_lossy().into_owned();
+        if !is_owned_object_name(&name) {
+            continue;
+        }
         if !keep.contains(&name) {
             let length = entry.metadata().map(|metadata| metadata.len()).unwrap_or(0);
             fs::remove_file(entry.path()).map_err(|error| StorageError::Io(error.to_string()))?;
@@ -1085,6 +1090,15 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
         removed_bytes,
         preserved_objects: keep.len(),
     })
+}
+
+fn is_owned_object_name(name: &str) -> bool {
+    let Some((digest, suffix)) = name.rsplit_once('.') else {
+        return false;
+    };
+    digest.len() == 64
+        && digest.bytes().all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase())
+        && matches!(suffix, "meta" | "pack")
 }
 
 fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {

@@ -314,8 +314,13 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     let mut bytes = std::fs::read(&posting_object).unwrap();
     bytes.truncate(bytes.len() - 1);
     std::fs::write(&posting_object, bytes).unwrap();
-    let orphan = root.join("storage/objects/orphan.owned");
+    let orphan = root.join(format!(
+        "storage/objects/{}.pack",
+        "a".repeat(64)
+    ));
     std::fs::write(&orphan, b"unreferenced").unwrap();
+    let unrelated = root.join("storage/objects/README");
+    std::fs::write(&unrelated, b"not owned by the backend").unwrap();
 
     let reopened = Index::open_storage(
         &root,
@@ -342,6 +347,7 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     let removed = prune(&root.join("storage")).unwrap();
     assert!(removed.removed_objects >= 1);
     assert!(!orphan.exists());
+    assert!(unrelated.exists());
     std::fs::remove_dir_all(root).unwrap();
 }
 
