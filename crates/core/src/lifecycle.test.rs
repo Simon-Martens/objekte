@@ -130,10 +130,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     }
     let maintained = index.view().unwrap();
     assert_eq!(maintained.0.segments[0].len(), 1);
-    assert!(Arc::ptr_eq(
-        &old.index,
-        &maintained.0.segments[0][0].index
-    ));
+    assert!(Arc::ptr_eq(&old.index, &maintained.0.segments[0][0].index));
     assert_eq!(maintained.0.segments[0][0].index.records.len(), 256);
     assert_eq!(maintained.0.segments[0][0].active.len(), 192);
     assert_eq!(old.index.records.len(), 256);
@@ -553,6 +550,66 @@ fn quiescence_rejects_prepared_publications_until_close_is_cancelled() {
         Some(2)
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+fn reconciliation_preparation_cannot_deadlock_quiesce(replace: bool) {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-reconcile-quiesce-{replace}-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Arc::new(Index::from_repository(fixture_repository(&root)).unwrap());
+    let initial_revision = index.view().unwrap().revision();
+    if replace {
+        std::fs::write(root.join("data/a.json"), br#"{"name":"replacement"}"#).unwrap();
+    } else {
+        std::fs::write(root.join("data/b.json"), br#"{"name":"B"}"#).unwrap();
+    }
+    let gate = index.install_reconciliation_preparation_gate();
+    let task = index.start_reconcile().unwrap();
+    gate.wait_for_arrival();
+
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let closing = Arc::clone(&index);
+    let close = std::thread::spawn(move || {
+        sender.send(closing.quiesce()).unwrap();
+    });
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while !index.close_state_is_draining() {
+        assert!(Instant::now() < deadline, "quiesce did not enter Draining");
+        std::thread::yield_now();
+    }
+    assert_eq!(index.resume_after_quiesce(), Err(IndexError::Cancelled));
+    gate.release();
+
+    let outcome = receiver
+        .recv_timeout(Duration::from_secs(5))
+        .expect("quiesce deadlocked behind reconciliation preparation");
+    close.join().unwrap();
+    outcome.unwrap();
+    assert!(task.wait().unwrap().cancelled);
+    assert_eq!(index.view().unwrap().revision(), initial_revision);
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(1)
+    );
+    index.resume_after_quiesce().unwrap();
+    assert_eq!(index.view().unwrap().revision(), initial_revision);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn reconciliation_add_preparation_cannot_deadlock_quiesce() {
+    reconciliation_preparation_cannot_deadlock_quiesce(false);
+}
+
+#[test]
+fn reconciliation_replace_preparation_cannot_deadlock_quiesce() {
+    reconciliation_preparation_cannot_deadlock_quiesce(true);
 }
 
 #[test]
@@ -1525,11 +1582,9 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         .unwrap()
         .iter()
         .find(|segment| {
-            segment
-                .index
-                .files
-                .iter()
-                .any(|file| file.entry.relative_path.as_path() == std::path::Path::new("data/a.json"))
+            segment.index.files.iter().any(|file| {
+                file.entry.relative_path.as_path() == std::path::Path::new("data/a.json")
+            })
         })
         .unwrap()
         .clone();

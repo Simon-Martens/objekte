@@ -2098,6 +2098,71 @@ fn repository_archive_failure_is_atomic_and_retryable() {
 }
 
 #[test]
+fn archive_delete_archive_converts_the_current_catalog_without_resurrecting_records() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-archive-catalog-delete-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"keep alpha"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("data/b.json"),
+        br#"{"id":"b","year":20,"title":"remove beta"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    index.archive().unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.join("data/b.json"))
+        .unwrap();
+    index.delete_file(handle).unwrap();
+
+    let before = index.archive_status().unwrap();
+    assert_eq!(
+        before.representation,
+        crate::lifecycle::ArchiveRepresentation::Mixed
+    );
+    assert!(before.native_components > 0);
+    let before_owners = index.storage_usage().unwrap().archive.owners;
+    let report = index.archive().unwrap();
+    assert!(report.converted_components > 0);
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert!(index.storage_usage().unwrap().archive.owners >= before_owners);
+    let view = index.view().unwrap();
+    assert_eq!(ids(&view, &query(None, None, 10, 0)).0, ["a"]);
+    assert!(
+        ids(&view, &query(Some("remove beta"), None, 10, 0))
+            .0
+            .is_empty()
+    );
+    assert_eq!(ids(&view, &query(Some("keep alpha"), None, 10, 0)).0, ["a"]);
+    drop(view);
+
+    let generation = index.archive_status().unwrap().representation_generation;
+    let noop = index.archive().unwrap();
+    assert_eq!(noop.converted_components, 0);
+    assert_eq!(
+        index.archive_status().unwrap().representation_generation,
+        generation
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn queries_and_quiesce_coordinate_with_a_paused_archive() {
     let root = std::env::temp_dir().join(format!(
         "objekte-paused-archive-{}-{}",

@@ -402,6 +402,14 @@ impl Repository {
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut counts = self.storage_representation_counts_without_catalog();
+        let catalog = self.catalog.storage_representation_counts();
+        counts.0 += catalog.0;
+        counts.1 += catalog.1;
+        counts
+    }
+
+    pub(crate) fn storage_representation_counts_without_catalog(&self) -> (usize, usize) {
         let mut counts = self
             .collections
             .iter()
@@ -409,9 +417,6 @@ impl Repository {
             .fold((0, 0), |(native, archived), (add_native, add_archived)| {
                 (native + add_native, archived + add_archived)
             });
-        let catalog = self.catalog.storage_representation_counts();
-        counts.0 += catalog.0;
-        counts.1 += catalog.1;
         for segment in self.segments.iter().flat_map(|group| group.iter()) {
             let segment = segment.index.storage_representation_counts();
             counts.0 += segment.0;
@@ -849,9 +854,18 @@ impl Repository {
     pub fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
         let mut usage = crate::storage_usage::StorageUsage::default();
         let mut seen = std::collections::HashSet::new();
+        self.collect_storage_usage(&mut seen, &mut usage);
+        usage
+    }
+
+    pub(crate) fn collect_storage_usage(
+        &self,
+        seen: &mut std::collections::HashSet<usize>,
+        usage: &mut crate::storage_usage::StorageUsage,
+    ) {
         for collection in &self.collections {
             let mut record_posting = |owner: usize, length: usize, capacity: usize| {
-                usage.record_archive(&mut seen, owner, length, capacity);
+                usage.record_archive(seen, owner, length, capacity);
             };
             collection
                 .postings
@@ -920,14 +934,13 @@ impl Repository {
         }
         for group in &self.segments {
             for segment in group.iter() {
-                segment.index.collect_storage_usage(&mut seen, &mut usage);
+                segment.index.collect_storage_usage(seen, usage);
             }
         }
-        self.catalog.collect_storage_usage(&mut seen, &mut usage);
+        self.catalog.collect_storage_usage(seen, usage);
         let (inventory, diagnostics) = self.files.estimated_heap_bytes();
         usage.native_inventory_bytes = inventory as u64;
         usage.native_diagnostics_bytes = diagnostics as u64;
-        usage
     }
 
     /// Retrieve one record by its collection-local ID. Locator access uses the

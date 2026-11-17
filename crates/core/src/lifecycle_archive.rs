@@ -357,22 +357,32 @@ impl Index {
             .repository
             .archive_candidate()
             .map_err(IndexError::InvalidPublication)?;
+        let catalogs_aliased = source
+            .repository
+            .catalog
+            .has_same_storage_owners(&source.catalog);
         let _ = take_construction_timing();
         repository
             .archive_collection_storage()
             .map_err(IndexError::InvalidPublication)?;
-        let base_timing = take_construction_timing();
-        let mut serializer_ns = base_timing.serializer_ns;
-        let mut validation_ns = base_timing.validation_ns;
-        candidate
+        repository
             .catalog
             .archive_storage()
             .map_err(IndexError::InvalidPublication)?;
+        let base_timing = take_construction_timing();
+        let mut serializer_ns = base_timing.serializer_ns;
+        let mut validation_ns = base_timing.validation_ns;
+        if catalogs_aliased {
+            candidate.catalog = repository.catalog.clone();
+        } else {
+            candidate
+                .catalog
+                .archive_storage()
+                .map_err(IndexError::InvalidPublication)?;
+        }
         let catalog_timing = take_construction_timing();
         serializer_ns = serializer_ns.saturating_add(catalog_timing.serializer_ns);
         validation_ns = validation_ns.saturating_add(catalog_timing.validation_ns);
-        repository.catalog = candidate.catalog.clone();
-        candidate.catalog = repository.catalog.clone();
         candidate.repository = Arc::new(repository);
 
         let converted_segments = AtomicUsize::new(0);
@@ -396,9 +406,10 @@ impl Index {
             .ok_or(IndexError::RevisionOverflow)?;
         let after_counts = candidate.storage_representation_counts();
         if after_counts.0 != 0 {
-            return Err(IndexError::InvalidPublication(
-                "archive candidate retained native eligible components".into(),
-            ));
+            return Err(IndexError::InvalidPublication(format!(
+                "archive candidate retained {} native eligible components",
+                after_counts.0
+            )));
         }
         let preparation_ns = preparation_started.elapsed().as_nanos() as u64;
 

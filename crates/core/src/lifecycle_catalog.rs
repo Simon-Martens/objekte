@@ -1193,6 +1193,31 @@ fn string_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> (Bound<String>,
 }
 
 impl FileCatalog {
+    /// Whether two catalog wrappers still reference exactly the same shard
+    /// owners. This is used by archive planning to avoid converting the base
+    /// and current catalog twice when lifecycle mutations have not separated
+    /// them yet.
+    pub(crate) fn has_same_storage_owners(&self, other: &Self) -> bool {
+        self.metadata.len() == other.metadata.len()
+            && self.paths.len() == other.paths.len()
+            && self.ownership.len() == other.ownership.len()
+            && self
+                .metadata
+                .iter()
+                .zip(other.metadata.iter())
+                .all(|(left, right)| Arc::ptr_eq(left, right))
+            && self
+                .paths
+                .iter()
+                .zip(other.paths.iter())
+                .all(|(left, right)| Arc::ptr_eq(left, right))
+            && self
+                .ownership
+                .iter()
+                .zip(other.ownership.iter())
+                .all(|(left, right)| Arc::ptr_eq(left, right))
+    }
+
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
         let definitions = base
             .collections()

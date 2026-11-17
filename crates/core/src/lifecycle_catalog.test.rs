@@ -183,7 +183,9 @@ fn rebase_reuses_paths_and_ownership_and_rebuilds_only_changed_metadata() {
     let paths = Arc::clone(&catalog.paths);
     let metadata_before = Arc::clone(&catalog.metadata);
     crate::storage_usage::StorageWorkCounters::reset();
-    catalog.rebase_in_pool(Arc::clone(&repository), None).unwrap();
+    catalog
+        .rebase_in_pool(Arc::clone(&repository), None)
+        .unwrap();
     let counters = crate::storage_usage::StorageWorkCounters::snapshot();
     assert_eq!(counters.path_shards_rebuilt, 0);
     assert!(counters.metadata_shards_rebuilt > 0);
@@ -211,9 +213,7 @@ fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
 
     let root = std::env::temp_dir().join("objekte-rkyv-non-utf8-catalog");
     let mut inventory = crate::inventory::FileInventory::new(root.clone());
-    let native = std::path::PathBuf::from(OsString::from_vec(
-        b"data/non-utf8-\xff.json".to_vec(),
-    ));
+    let native = std::path::PathBuf::from(OsString::from_vec(b"data/non-utf8-\xff.json".to_vec()));
     let id = inventory
         .add(
             native.clone(),
@@ -225,11 +225,8 @@ fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
             CollectionId(0),
         )
         .unwrap();
-    let catalog = FileCatalog::from_parts(
-        std::sync::Arc::new(inventory),
-        vec![Some([9; 32])],
-        [4; 32],
-    );
+    let catalog =
+        FileCatalog::from_parts(std::sync::Arc::new(inventory), vec![Some([9; 32])], [4; 32]);
     assert_eq!(catalog.id_for(&native), Some(id));
     assert_eq!(catalog.fingerprint(id), Some([9; 32]));
     assert_eq!(catalog.configuration(id), Some([4; 32]));

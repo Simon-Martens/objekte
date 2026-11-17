@@ -631,7 +631,21 @@ pub(crate) fn removed_segment_ownership(
 
 impl PublishedIndex {
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
-        let mut counts = self.repository.storage_representation_counts();
+        let mut counts = self
+            .repository
+            .storage_representation_counts_without_catalog();
+        let base_catalog = self.repository.catalog.storage_representation_counts();
+        counts.0 += base_catalog.0;
+        counts.1 += base_catalog.1;
+        if !self
+            .repository
+            .catalog
+            .has_same_storage_owners(&self.catalog)
+        {
+            let current_catalog = self.catalog.storage_representation_counts();
+            counts.0 += current_catalog.0;
+            counts.1 += current_catalog.1;
+        }
         for segment in self.segments.iter().flat_map(|group| group.iter()) {
             let (native, archived) = segment.index.storage_representation_counts();
             counts.0 += native;
@@ -763,8 +777,16 @@ impl PublishedIndex {
     }
 
     pub(crate) fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
-        let mut usage = self.repository.storage_usage();
+        let mut usage = crate::storage_usage::StorageUsage::default();
         let mut seen = std::collections::HashSet::new();
+        self.repository.collect_storage_usage(&mut seen, &mut usage);
+        if !self
+            .repository
+            .catalog
+            .has_same_storage_owners(&self.catalog)
+        {
+            self.catalog.collect_storage_usage(&mut seen, &mut usage);
+        }
         for group in &self.segments {
             for segment in group.iter() {
                 segment.index.collect_storage_usage(&mut seen, &mut usage);
@@ -1887,6 +1909,10 @@ struct IndexInner {
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
     quiescing: AtomicBool,
+    /// Coordinates the single drain owner and all concurrent close/resume
+    /// callers. Its mutex is never held while workers are joined.
+    close: Mutex<CloseCoordination>,
+    close_changed: Condvar,
     /// One aggregate budget for all pinned publications of this index.
     verified_cache: Mutex<crate::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
@@ -1895,6 +1921,71 @@ struct IndexInner {
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
+    #[cfg(test)]
+    reconciliation_preparation_gate: Mutex<Option<Arc<ReconciliationPreparationTestGate>>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum CloseState {
+    Running,
+    Draining,
+    Quiesced,
+}
+
+struct CloseCoordination {
+    state: CloseState,
+    outcome: Option<Result<Option<ReconciliationReport>, IndexError>>,
+}
+
+#[cfg(test)]
+pub(crate) struct ReconciliationPreparationTestGate {
+    state: Mutex<ReconciliationPreparationGateState>,
+    changed: Condvar,
+}
+
+#[cfg(test)]
+#[derive(Default)]
+struct ReconciliationPreparationGateState {
+    arrived: bool,
+    released: bool,
+}
+
+#[cfg(test)]
+impl ReconciliationPreparationTestGate {
+    pub(crate) fn new() -> Self {
+        Self {
+            state: Mutex::new(ReconciliationPreparationGateState::default()),
+            changed: Condvar::new(),
+        }
+    }
+
+    pub(crate) fn wait_for_arrival(&self) {
+        let mut state = self.state.lock().expect("reconciliation gate poisoned");
+        while !state.arrived {
+            state = self
+                .changed
+                .wait(state)
+                .expect("reconciliation gate poisoned");
+        }
+    }
+
+    pub(crate) fn release(&self) {
+        let mut state = self.state.lock().expect("reconciliation gate poisoned");
+        state.released = true;
+        self.changed.notify_all();
+    }
+
+    fn pause(&self) {
+        let mut state = self.state.lock().expect("reconciliation gate poisoned");
+        state.arrived = true;
+        self.changed.notify_all();
+        while !state.released {
+            state = self
+                .changed
+                .wait(state)
+                .expect("reconciliation gate poisoned");
+        }
+    }
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
@@ -2489,6 +2580,11 @@ impl Index {
             timings: Mutex::new(IndexTimingsMs::default()),
             transition: RwLock::new(()),
             quiescing: AtomicBool::new(false),
+            close: Mutex::new(CloseCoordination {
+                state: CloseState::Running,
+                outcome: None,
+            }),
+            close_changed: Condvar::new(),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
@@ -2499,6 +2595,8 @@ impl Index {
             maintenance_operation: Mutex::new(None),
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
+            #[cfg(test)]
+            reconciliation_preparation_gate: Mutex::new(None),
         }))
     }
 
@@ -2969,19 +3067,107 @@ impl Index {
     /// currently owned mutation worker. The resulting view is stable for a
     /// caller that is closing the index.
     pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
-        {
-            let _published = self
+        let owns_drain = {
+            let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
+            loop {
+                match close.state {
+                    CloseState::Running => {
+                        close.state = CloseState::Draining;
+                        self.0.quiescing.store(true, Ordering::Release);
+                        break true;
+                    }
+                    CloseState::Draining => {
+                        close = self
+                            .0
+                            .close_changed
+                            .wait(close)
+                            .map_err(|_| IndexError::LockPoisoned)?;
+                    }
+                    CloseState::Quiesced => {
+                        break false;
+                    }
+                }
+            }
+        };
+        if !owns_drain {
+            return self.closed_outcome();
+        }
+
+        let outcome = self.perform_quiesce();
+        let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
+        close.state = CloseState::Quiesced;
+        close.outcome = Some(outcome.clone());
+        self.0.close_changed.notify_all();
+        outcome
+    }
+
+    /// Reopen publication after a cancelled close. Callers restore only the
+    /// explicit recurring policies they held before quiescing.
+    pub fn resume_after_quiesce(&self) -> Result<(), IndexError> {
+        let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
+        match close.state {
+            CloseState::Running => Ok(()),
+            CloseState::Draining => Err(IndexError::Cancelled),
+            CloseState::Quiesced => {
+                let _published = self
+                    .0
+                    .published
+                    .write()
+                    .map_err(|_| IndexError::LockPoisoned)?;
+                close.state = CloseState::Running;
+                close.outcome = None;
+                self.0.quiescing.store(false, Ordering::Release);
+                self.0.close_changed.notify_all();
+                Ok(())
+            }
+        }
+    }
+
+    fn closed_outcome(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let mut close = self.0.close.lock().map_err(|_| IndexError::LockPoisoned)?;
+        while close.state != CloseState::Quiesced {
+            close = self
                 .0
-                .published
+                .close_changed
+                .wait(close)
+                .map_err(|_| IndexError::LockPoisoned)?;
+        }
+        close.outcome.clone().unwrap_or(Ok(None))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn close_state_is_draining(&self) -> bool {
+        self.0
+            .close
+            .lock()
+            .is_ok_and(|close| close.state == CloseState::Draining)
+    }
+
+    #[cfg(test)]
+    pub(crate) fn install_reconciliation_preparation_gate(
+        &self,
+    ) -> Arc<ReconciliationPreparationTestGate> {
+        let gate = Arc::new(ReconciliationPreparationTestGate::new());
+        *self
+            .0
+            .reconciliation_preparation_gate
+            .lock()
+            .expect("reconciliation preparation gate lock poisoned") = Some(Arc::clone(&gate));
+        gate
+    }
+
+    fn perform_quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        // Drain every publisher/archive already admitted before releasing the
+        // exclusive permit. Workers prepare outside this gate, so it must not
+        // remain held while they are cancelled or joined.
+        {
+            let _drained_transition = self
+                .0
+                .transition
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)?;
-            self.0.quiescing.store(true, Ordering::Release);
         }
-        let _drained_transition = self
-            .0
-            .transition
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
+
         self.stop_periodic_reconciliation()?;
         let operation = self
             .0
@@ -3012,23 +3198,34 @@ impl Index {
                 task.cancel();
                 task.wait()
             })
-            .transpose()?;
+            .transpose();
         if let Some(error) = operation_error {
             return Err(error);
         }
-        Ok(reconciliation)
+        reconciliation
     }
 
-    /// Reopen publication after a cancelled close. Callers restore only the
-    /// explicit recurring policies they held before quiescing.
-    pub fn resume_after_quiesce(&self) -> Result<(), IndexError> {
-        let _published = self
-            .0
-            .published
-            .write()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        self.0.quiescing.store(false, Ordering::Release);
-        Ok(())
+    fn pause_reconciliation_preparation_if_requested(&self) {
+        #[cfg(test)]
+        {
+            let gate = self
+                .0
+                .reconciliation_preparation_gate
+                .lock()
+                .expect("reconciliation preparation gate lock poisoned")
+                .take();
+            if let Some(gate) = gate {
+                gate.pause();
+            }
+        }
+    }
+
+    fn ensure_not_quiescing(&self) -> Result<(), IndexError> {
+        if self.0.quiescing.load(Ordering::Acquire) {
+            Err(IndexError::Cancelled)
+        } else {
+            Ok(())
+        }
     }
 
     /// Stop the lifecycle service without writing a cache.
@@ -3406,11 +3603,13 @@ impl Index {
                     ));
                 }
                 let expected = prepared.expected_revision;
+                self.pause_reconciliation_preparation_if_requested();
                 let _transition = self
                     .0
                     .transition
                     .read()
                     .map_err(|_| IndexError::LockPoisoned)?;
+                self.ensure_not_quiescing()?;
                 let next = self.stage_prepared_add(prepared)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
@@ -3425,11 +3624,13 @@ impl Index {
                     ));
                 }
                 let expected = prepared.expected_revision;
+                self.pause_reconciliation_preparation_if_requested();
                 let _transition = self
                     .0
                     .transition
                     .read()
                     .map_err(|_| IndexError::LockPoisoned)?;
+                self.ensure_not_quiescing()?;
                 let next = self.stage_prepared_replace(prepared)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
