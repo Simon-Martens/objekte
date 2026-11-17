@@ -2859,6 +2859,14 @@ fn queries_and_quiesce_coordinate_with_a_paused_archive() {
     let generation = index.archive_status().unwrap().representation_generation;
     let quiesce_index = Arc::clone(&index);
     let quiesce = std::thread::spawn(move || quiesce_index.quiesce());
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    while !index.close_state_is_draining() {
+        assert!(
+            std::time::Instant::now() < deadline,
+            "quiescence did not enter Draining"
+        );
+        std::thread::yield_now();
+    }
     gate.release();
     assert_eq!(
         archive.join().unwrap(),

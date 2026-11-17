@@ -271,7 +271,10 @@ fn run() -> Result<(), String> {
         )>();
         let record_table_slots = repo.collections().iter().map(|c| c.generation.records.capacity()).sum::<usize>();
         let record_table_bytes = record_table_slots * record_entry_size;
-        let id_payload_bytes = repo.collections().iter().flat_map(|c| &c.generation.records)
+        let id_payload_bytes = repo
+            .collections()
+            .iter()
+            .flat_map(|c| c.generation.records.iter())
             .map(|r| r.id.0.len() + 2 * std::mem::size_of::<usize>()).sum::<usize>();
         let identity_lookup_slots = repo.collections().iter().map(|c| c.id_lookup.capacity()).sum::<usize>();
         let identity_lookup_bytes = identity_lookup_slots * lookup_pair_size;

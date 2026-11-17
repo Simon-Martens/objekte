@@ -568,7 +568,7 @@ fn complete_run<W: Write>(
     let base_fallback: usize = repo
         .collections()
         .iter()
-        .flat_map(|item| &item.generation.records)
+        .flat_map(|item| item.generation.records.iter())
         .filter(|record| record.class == RecordClass::RawFallback)
         .count();
     let automatic_index_paths = if args.diagnostic {
