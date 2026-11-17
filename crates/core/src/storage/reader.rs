@@ -854,6 +854,7 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     if options.worker_limit.get() == 0 {
         return Err(StorageError::limit("audit worker limit must be nonzero"));
     }
+    let _readers = open_shared_lock(&directory.join("readers.lock"))?;
     let current = read_current(directory)?;
     let snapshot = read_snapshot(directory)?;
     let mut errors = Vec::new();

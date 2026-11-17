@@ -4,7 +4,9 @@ use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::storage::{StorageOpenOptions, StorageWriteOptions};
+use objekte_search_core::storage::{
+    AuditOptions, StorageOpenOptions, StorageWriteOptions, audit, prune,
+};
 use objekte_search_core::workload::{ReturnMode, SortField};
 
 fn fixture_root(label: &str) -> std::path::PathBuf {
@@ -277,5 +279,65 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
         Some(2)
     );
     reopened_again.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+fn object_with_kind(directory: &std::path::Path, kind: u16) -> std::path::PathBuf {
+    std::fs::read_dir(directory.join("objects"))
+        .unwrap()
+        .map(|entry| entry.unwrap().path())
+        .find(|path| {
+            let bytes = std::fs::read(path).unwrap();
+            bytes.len() >= 12 && u16::from_le_bytes(bytes[10..12].try_into().unwrap()) == kind
+        })
+        .unwrap()
+}
+
+#[test]
+fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
+    let root = fixture_root("audit");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let posting_object = object_with_kind(&root.join("storage"), 3);
+    let mut bytes = std::fs::read(&posting_object).unwrap();
+    bytes.truncate(bytes.len() - 1);
+    std::fs::write(&posting_object, bytes).unwrap();
+    let orphan = root.join("storage/objects/orphan.owned");
+    std::fs::write(&orphan, b"unreferenced").unwrap();
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    assert!(reopened.view().unwrap().search(&request).is_err());
+
+    let audit_report = audit(
+        &root.join("storage"),
+        AuditOptions::default(),
+    )
+    .unwrap();
+    assert!(!audit_report.errors.is_empty());
+    assert!(prune(&root.join("storage")).is_err());
+    reopened.shutdown().unwrap();
+    drop(reopened);
+
+    let removed = prune(&root.join("storage")).unwrap();
+    assert!(removed.removed_objects >= 1);
+    assert!(!orphan.exists());
     std::fs::remove_dir_all(root).unwrap();
 }

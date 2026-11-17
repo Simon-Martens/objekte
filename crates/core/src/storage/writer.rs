@@ -203,7 +203,11 @@ fn write_parts(
         external_objects
             .iter()
             .map(|(digest, bytes)| model::StoredObjectDescriptor {
-                kind: POSTING_PAYLOAD_OBJECT_KIND as u32,
+                kind: u16::from_le_bytes(
+                    bytes[10..12]
+                        .try_into()
+                        .expect("generated object envelope contains a kind"),
+                ) as u32,
                 digest: *digest,
                 length: bytes.len() as u64,
             }),
