@@ -3055,7 +3055,7 @@ fn completion_callback_can_reenter_save_after_lock_release() {
     let first = index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
-    let mut callback = || index.archive_to(root.join("storage"), StorageWriteOptions::default());
+    let callback = || index.archive_to(root.join("storage"), StorageWriteOptions::default());
     let second = callback().unwrap();
     assert_eq!(second.generation, first.generation);
     assert!(second.unchanged);
@@ -3117,3 +3117,4 @@ fn cancelled_cold_query_does_not_poison_later_lazy_access() {
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+

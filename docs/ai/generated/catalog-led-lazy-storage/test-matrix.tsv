@@ -43,7 +43,7 @@ S41	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacemen
 S42	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Decoded leaf keys include the owning pack digest plus offset, preventing ordinal reuse across rebuilt components.
 S43	pass	storage_roundtrip::pack_handle_cache_stays_bounded_while_selected_columns_load	Seventy selected column frames leave at most 64 cached descriptors; active reads retain Arc handles across eviction.
 S44	pass	storage_roundtrip::queries_continue_during_a_real_mutated_save	Four barrier-started readers complete against the pinned root while a real mutated save publishes a new generation.
-S45	pending	none	Completion callbacks re-entering save are tested outside the storage matrix only.
+S45	pass	storage_roundtrip::completion_callback_can_reenter_save_after_lock_release	A completion callback re-enters unchanged save immediately after publication and observes no held transition or writer lock.
 S46	pass	storage_roundtrip::native_build_and_memory_archive_do_not_touch_storage_files	Native and memory-archive paths have no StoreSession or lazy disk resolver to enter.
 S47	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Add after reopen publishes and persists the new records.
 S48	pass	storage_roundtrip::multi_segment_file_replacement_retires_every_old_record_after_reopen	A one-record-per-segment JSONL replacement retires all old versions and preserves only new records across save/reopen.
