@@ -251,6 +251,11 @@ pub(crate) fn hex(bytes: &[u8]) -> String {
     text
 }
 
+pub(crate) fn object_file_name(digest: &[u8; 32], kind: u16) -> String {
+    let suffix = if kind == 1 { "meta" } else { "pack" };
+    format!("{}.{}", hex(digest), suffix)
+}
+
 pub(crate) fn envelope(kind: u16, body: &[u8]) -> Vec<u8> {
     let mut output = Vec::with_capacity(ENVELOPE_LEN + body.len());
     output.extend_from_slice(&OBJECT_MAGIC);

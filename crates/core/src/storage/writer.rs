@@ -690,7 +690,12 @@ fn write_object(
     file.write_all(bytes)
         .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let final_path = objects.join(format::hex(&digest));
+    let kind = u16::from_le_bytes(
+        bytes[10..12]
+            .try_into()
+            .expect("storage object has a fixed envelope kind"),
+    );
+    let final_path = objects.join(format::object_file_name(&digest, kind));
     if final_path.exists() {
         let existing = fs::read(&final_path).map_err(|error| StorageError::Io(error.to_string()))?;
         if existing != bytes {
@@ -792,7 +797,7 @@ fn read_prior_snapshot(
     };
     let path = directory
         .join("objects")
-        .join(format::hex(&current.manifest_digest));
+        .join(format::object_file_name(&current.manifest_digest, METADATA_OBJECT_KIND));
     let bytes = fs::read(&path).map_err(|error| StorageError::Io(error.to_string()))?;
     if bytes.len() as u64 != current.manifest_length
         || format::sha256(&bytes) != current.manifest_digest

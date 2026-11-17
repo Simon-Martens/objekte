@@ -160,7 +160,10 @@ fn open_snapshot(
     }
     let object_path = directory
         .join("objects")
-        .join(format::hex(&current.manifest_digest));
+        .join(format::object_file_name(
+            &current.manifest_digest,
+            METADATA_OBJECT_KIND,
+        ));
     let bytes = fs::read(&object_path).map_err(|error| match error.kind() {
         std::io::ErrorKind::NotFound => StorageError::MissingObject(current.manifest_digest),
         _ => StorageError::Io(error.to_string()),
@@ -434,6 +437,7 @@ fn rebuild_repository(
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
+const METADATA_OBJECT_KIND: u16 = 1;
 
 fn bincode_options() -> impl bincode::Options {
     bincode::DefaultOptions::new()
@@ -548,7 +552,7 @@ fn read_checked_object(
     let path = session
         .directory()
         .join("objects")
-        .join(format::hex(&digest));
+        .join(format::object_file_name(&digest, kind));
     let bytes = fs::read(&path).map_err(|error| format!("{}: {error}", path.display()))?;
     session
         .index_reads
@@ -860,7 +864,12 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     let mut errors = Vec::new();
     let mut bytes = 0u64;
     for object in &snapshot.stored_objects {
-        let path = directory.join("objects").join(format::hex(&object.digest));
+        let path = directory
+            .join("objects")
+            .join(format::object_file_name(
+                &object.digest,
+                u16::try_from(object.kind).unwrap_or(u16::MAX),
+            ));
         match fs::read(&path) {
             Ok(data) if data.len() as u64 == object.length && format::sha256(&data) == object.digest => {
                 bytes = bytes.saturating_add(data.len() as u64);
@@ -885,8 +894,16 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
     let keep = snapshot
         .stored_objects
         .iter()
-        .map(|object| format::hex(&object.digest))
-        .chain(std::iter::once(format::hex(&current.manifest_digest)))
+        .map(|object| {
+            format::object_file_name(
+                &object.digest,
+                u16::try_from(object.kind).unwrap_or(u16::MAX),
+            )
+        })
+        .chain(std::iter::once(format::object_file_name(
+            &current.manifest_digest,
+            METADATA_OBJECT_KIND,
+        )))
         .collect::<std::collections::HashSet<_>>();
     let mut removed_objects = 0usize;
     let mut removed_bytes = 0u64;
@@ -934,7 +951,14 @@ fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
 
 fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageError> {
     let current = read_current(directory)?;
-    let bytes = fs::read(directory.join("objects").join(format::hex(&current.manifest_digest)))
+    let bytes = fs::read(
+        directory
+            .join("objects")
+            .join(format::object_file_name(
+                &current.manifest_digest,
+                METADATA_OBJECT_KIND,
+            )),
+    )
         .map_err(|error| match error.kind() {
             std::io::ErrorKind::NotFound => StorageError::MissingObject(current.manifest_digest),
             _ => StorageError::Io(error.to_string()),
