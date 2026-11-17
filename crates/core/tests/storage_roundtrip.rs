@@ -962,6 +962,7 @@ fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
             .count,
         Some(1)
     );
+    let after_replacement = reopened.storage_status().unwrap();
 
     let destination = root.join("data/renamed.json");
     std::fs::rename(&original, &destination).unwrap();
@@ -971,6 +972,11 @@ fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
         .file_handle_for_path(&original)
         .unwrap();
     reopened.move_file(moved_handle, &destination).unwrap();
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        after_replacement.index_reads,
+        "a metadata-only move must not open additional index payloads"
+    );
     reopened
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();

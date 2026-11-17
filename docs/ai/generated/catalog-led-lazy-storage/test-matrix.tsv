@@ -49,7 +49,7 @@ S47	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_ge
 S48	pass	storage_roundtrip::multi_segment_file_replacement_retires_every_old_record_after_reopen	A one-record-per-segment JSONL replacement retires all old versions and preserves only new records across save/reopen.
 S49	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Deleted files disappear from file catalog, filter, FTS and sorted queries while surviving sources remain searchable.
 S50	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Deletion-only save leaves payload packs untouched.
-S51	partial	storage_roundtrip::replace_and_move_after_reopen_persist_correct_identity_and_content	Move identity and content round-trip is covered; affected-component scope is pending.
+S51	pass	storage_roundtrip::replace_and_move_after_reopen_persist_correct_identity_and_content	Replacement and metadata-only move preserve identity/content, and move performs no additional lazy index-payload reads.
 S52	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Cold source-free compaction is covered for the fixture.
 S53	pending	none	Mixed native/archived/cold compaction and old-view results need a matrix.
 S54	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Four save/reopen checkpoints preserve reuse and semantic identity across mutation cycles.
