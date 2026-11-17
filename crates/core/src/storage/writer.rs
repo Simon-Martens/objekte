@@ -18,6 +18,7 @@ const PAYLOAD_OBJECT_KIND: u16 = 2;
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
+const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 
 #[derive(Clone, Copy, Debug)]
 struct CurrentRecord {
@@ -220,8 +221,31 @@ fn write_parts(
             PAYLOAD_OBJECT_KIND as u32,
             &payload,
         ));
-    let metadata_body = bincode_options()
+    let snapshot_body = bincode_options()
         .serialize(&snapshot)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let metadata_chunks = snapshot_body
+        .chunks(model::METADATA_CHUNK_BYTES)
+        .map(|chunk| {
+            let object = format::envelope(METADATA_CHUNK_OBJECT_KIND, chunk);
+            let digest = format::sha256(&object);
+            let length = object.len() as u64;
+            (
+                digest,
+                object,
+                model::StoredMetadataChunk { digest, length },
+            )
+        })
+        .collect::<Vec<_>>();
+    let metadata_manifest = model::MetadataManifest {
+        schema_version: model::SNAPSHOT_SCHEMA_VERSION,
+        total_length: snapshot_body.len() as u64,
+        chunks: metadata_chunks
+            .iter()
+            .map(|(_, _, descriptor)| descriptor.clone())
+            .collect(),
+    };
+    let metadata_body = rkyv::to_bytes::<rkyv::rancor::Error>(&metadata_manifest)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let metadata = format::envelope(METADATA_OBJECT_KIND, &metadata_body);
     let metadata_digest = format::sha256(&metadata);
@@ -238,6 +262,10 @@ fn write_parts(
     write_object(&staging, &objects, payload_digest, &payload)?;
     objects_new += 1;
     for (digest, bytes) in &external_objects {
+        write_object(&staging, &objects, *digest, bytes)?;
+        objects_new += 1;
+    }
+    for (digest, bytes, _) in &metadata_chunks {
         write_object(&staging, &objects, *digest, bytes)?;
         objects_new += 1;
     }
@@ -285,11 +313,19 @@ fn write_parts(
             + external_objects
                 .iter()
                 .map(|(_, bytes)| bytes.len() as u64)
+                .sum::<u64>()
+            + metadata_chunks
+                .iter()
+                .map(|(_, bytes, _)| bytes.len() as u64)
                 .sum::<u64>(),
         bytes_written: (metadata.len() + payload.len()) as u64
             + external_objects
                 .iter()
                 .map(|(_, bytes)| bytes.len() as u64)
+                .sum::<u64>()
+            + metadata_chunks
+                .iter()
+                .map(|(_, bytes, _)| bytes.len() as u64)
                 .sum::<u64>(),
         sync_calls: 3,
         archive_ns,
@@ -793,25 +829,10 @@ fn read_prior_snapshot(
     directory: &Path,
     current: Option<CurrentRecord>,
 ) -> Result<Option<model::StorageSnapshot>, StorageError> {
-    let Some(current) = current else {
+    if current.is_none() {
         return Ok(None);
-    };
-    let path = directory
-        .join("objects")
-        .join(format::object_file_name(&current.manifest_digest, METADATA_OBJECT_KIND));
-    let bytes = fs::read(&path).map_err(|error| StorageError::Io(error.to_string()))?;
-    if bytes.len() as u64 != current.manifest_length
-        || format::sha256(&bytes) != current.manifest_digest
-    {
-        return Err(StorageError::corrupt(
-            format::hex(&current.manifest_digest),
-            "prior manifest length or digest mismatch",
-        ));
     }
-    bincode_options()
-        .deserialize(format::checked_body(&bytes, METADATA_OBJECT_KIND)?)
-        .map(Some)
-        .map_err(|error| StorageError::InvalidFormat(error.to_string()))
+    crate::storage::reader::read_snapshot(directory).map(Some)
 }
 
 fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {

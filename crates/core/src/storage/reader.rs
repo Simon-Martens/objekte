@@ -176,10 +176,7 @@ fn open_snapshot(
             "manifest length or digest mismatch",
         ));
     }
-    let body = format::checked_body(&bytes, 1)?;
-    let snapshot: model::StorageSnapshot = bincode_options()
-        .deserialize(body)
-        .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
+    let (snapshot, _) = read_metadata_snapshot(&bytes, directory, limits)?;
     model::validate_snapshot(&snapshot).map_err(StorageError::InvalidFormat)?;
     if !snapshot.complete {
         return Err(StorageError::IncompleteBuild);
@@ -439,6 +436,7 @@ const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_OBJECT_KIND: u16 = 1;
+const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 
 fn bincode_options() -> impl bincode::Options {
     bincode::DefaultOptions::new()
@@ -815,6 +813,82 @@ fn read_current(directory: &Path) -> Result<CurrentToken, StorageError> {
     })
 }
 
+fn read_metadata_snapshot(
+    manifest_object: &[u8],
+    directory: &Path,
+    limits: crate::storage::StorageReadLimits,
+) -> Result<(model::StorageSnapshot, model::MetadataManifest), StorageError> {
+    let body = format::checked_body(manifest_object, METADATA_OBJECT_KIND)?;
+    let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(body.len());
+    aligned.extend_from_slice(body);
+    let manifest =
+        rkyv::from_bytes::<model::MetadataManifest, rkyv::rancor::Error>(&aligned)
+            .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
+    if manifest.schema_version != model::SNAPSHOT_SCHEMA_VERSION {
+        return Err(StorageError::IncompatibleConfiguration(
+            "metadata manifest schema version differs".into(),
+        ));
+    }
+    if manifest.total_length > limits.total_eager_catalog_bytes {
+        return Err(StorageError::LimitExceeded {
+            limit: limits.total_eager_catalog_bytes,
+            requested: manifest.total_length,
+        });
+    }
+    let mut body = Vec::with_capacity(usize::try_from(manifest.total_length).map_err(|_| {
+        StorageError::LimitExceeded {
+            limit: limits.total_eager_catalog_bytes,
+            requested: manifest.total_length,
+        }
+    })?);
+    for chunk in &manifest.chunks {
+        if chunk.length > limits.eager_catalog_body_bytes {
+            return Err(StorageError::LimitExceeded {
+                limit: limits.eager_catalog_body_bytes,
+                requested: chunk.length,
+            });
+        }
+        let path = directory
+            .join("objects")
+            .join(format::object_file_name(
+                &chunk.digest,
+                METADATA_CHUNK_OBJECT_KIND,
+            ));
+        let bytes = fs::read(&path).map_err(|error| match error.kind() {
+            std::io::ErrorKind::NotFound => StorageError::MissingObject(chunk.digest),
+            _ => StorageError::Io(error.to_string()),
+        })?;
+        if bytes.len() as u64 != chunk.length || format::sha256(&bytes) != chunk.digest {
+            return Err(StorageError::corrupt(
+                format::hex(&chunk.digest),
+                "metadata chunk length or digest mismatch",
+            ));
+        }
+        let chunk_body = format::checked_body(&bytes, METADATA_CHUNK_OBJECT_KIND)?;
+        let next_length = body.len().checked_add(chunk_body.len()).ok_or(
+            StorageError::LimitExceeded {
+                limit: limits.total_eager_catalog_bytes,
+                requested: u64::MAX,
+            },
+        )?;
+        if next_length as u64 > manifest.total_length {
+            return Err(StorageError::InvalidFormat(
+                "metadata chunks exceed the declared body length".into(),
+            ));
+        }
+        body.extend_from_slice(chunk_body);
+    }
+    if body.len() as u64 != manifest.total_length {
+        return Err(StorageError::InvalidFormat(
+            "metadata chunks do not cover the declared body length".into(),
+        ));
+    }
+    let snapshot = bincode_options()
+        .deserialize(&body)
+        .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
+    Ok((snapshot, manifest))
+}
+
 fn session_for(repository: &Repository) -> Result<&StorageSession, IndexError> {
     repository
         .storage
@@ -874,26 +948,45 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     let _readers = open_shared_lock(&directory.join("readers.lock"))?;
     let current = read_current(directory)?;
     let snapshot = read_snapshot(directory)?;
+    let manifest_path = directory
+        .join("objects")
+        .join(format::object_file_name(
+            &current.manifest_digest,
+            METADATA_OBJECT_KIND,
+        ));
+    let manifest_bytes = fs::read(&manifest_path)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let (_, metadata_manifest) = read_metadata_snapshot(
+        &manifest_bytes,
+        directory,
+        crate::storage::StorageReadLimits::default(),
+    )?;
     let mut errors = Vec::new();
     let mut bytes = 0u64;
-    for object in &snapshot.stored_objects {
+    let mut objects = snapshot
+        .stored_objects
+        .iter()
+        .map(|object| (object.digest, object.length, u16::try_from(object.kind).unwrap_or(u16::MAX)))
+        .collect::<Vec<_>>();
+    objects.push((current.manifest_digest, current.manifest_length, METADATA_OBJECT_KIND));
+    objects.extend(metadata_manifest.chunks.iter().map(|chunk| {
+        (chunk.digest, chunk.length, METADATA_CHUNK_OBJECT_KIND)
+    }));
+    for (digest, length, kind) in &objects {
         let path = directory
             .join("objects")
-            .join(format::object_file_name(
-                &object.digest,
-                u16::try_from(object.kind).unwrap_or(u16::MAX),
-            ));
+            .join(format::object_file_name(digest, *kind));
         match fs::read(&path) {
-            Ok(data) if data.len() as u64 == object.length && format::sha256(&data) == object.digest => {
+            Ok(data) if data.len() as u64 == *length && format::sha256(&data) == *digest => {
                 bytes = bytes.saturating_add(data.len() as u64);
             }
-            Ok(_) => errors.push(format!("object {} failed verification", format::hex(&object.digest))),
-            Err(error) => errors.push(format!("object {}: {error}", format::hex(&object.digest))),
+            Ok(_) => errors.push(format!("object {} failed verification", format::hex(digest))),
+            Err(error) => errors.push(format!("object {}: {error}", format::hex(digest))),
         }
     }
     Ok(AuditReport {
         generation: current.generation,
-        objects: snapshot.stored_objects.len(),
+        objects: objects.len(),
         bytes,
         errors,
     })
@@ -904,6 +997,19 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
     let writer = open_exclusive_lock(&directory.join("writer.lock"))?;
     let current = read_current(directory)?;
     let snapshot = read_snapshot(directory)?;
+    let manifest_path = directory
+        .join("objects")
+        .join(format::object_file_name(
+            &current.manifest_digest,
+            METADATA_OBJECT_KIND,
+        ));
+    let manifest_bytes = fs::read(&manifest_path)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let (_, metadata_manifest) = read_metadata_snapshot(
+        &manifest_bytes,
+        directory,
+        crate::storage::StorageReadLimits::default(),
+    )?;
     let keep = snapshot
         .stored_objects
         .iter()
@@ -917,6 +1023,9 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
             &current.manifest_digest,
             METADATA_OBJECT_KIND,
         )))
+        .chain(metadata_manifest.chunks.iter().map(|chunk| {
+            format::object_file_name(&chunk.digest, METADATA_CHUNK_OBJECT_KIND)
+        }))
         .collect::<std::collections::HashSet<_>>();
     let mut removed_objects = 0usize;
     let mut removed_bytes = 0u64;
@@ -962,7 +1071,7 @@ fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
     Ok(file)
 }
 
-fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageError> {
+pub(crate) fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageError> {
     let current = read_current(directory)?;
     let bytes = fs::read(
         directory
@@ -981,10 +1090,12 @@ fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageErro
     {
         return Err(StorageError::InvalidFormat("manifest verification failed".into()));
     }
-    let body = format::checked_body(&bytes, 1)?;
-    bincode_options()
-        .deserialize(body)
-        .map_err(|error| StorageError::InvalidFormat(error.to_string()))
+    read_metadata_snapshot(
+        &bytes,
+        directory,
+        crate::storage::StorageReadLimits::default(),
+    )
+    .map(|(snapshot, _)| snapshot)
 }
 
 fn sync_directory(directory: &Path) -> Result<(), StorageError> {

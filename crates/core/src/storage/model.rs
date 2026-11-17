@@ -2,6 +2,9 @@ use std::collections::BTreeMap;
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
+use rkyv::{
+    Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize,
+};
 use serde::{Deserialize, Serialize};
 
 use crate::bigram::BigramIndex;
@@ -18,6 +21,20 @@ use crate::sorting::SortCollection;
 use crate::storage::format::sha256;
 
 pub(crate) const SNAPSHOT_SCHEMA_VERSION: u32 = 1;
+pub(crate) const METADATA_CHUNK_BYTES: usize = 8 * 1024 * 1024;
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct MetadataManifest {
+    pub schema_version: u32,
+    pub total_length: u64,
+    pub chunks: Vec<StoredMetadataChunk>,
+}
+
+#[derive(Clone, Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct StoredMetadataChunk {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct StoredCatalogSlot {
