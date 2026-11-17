@@ -1803,7 +1803,7 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
         std::fs::write(&state_path, body).unwrap();
     };
     write_state(&state);
-    let movable_path = root.join("data/movable.json");
+    let movable_path = root.join("data/movable.jsonl");
     std::fs::write(&movable_path, br#"{"id":"movable","title":"Move token"}"#).unwrap();
 
     let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
@@ -1822,14 +1822,20 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
     let view = reopened.view().unwrap();
     let mut movable_path = view
         .file_paths()
-        .find(|path| path.ends_with("movable.json"))
-        .map(std::path::Path::to_path_buf)
+        .find(|path| path.ends_with("movable.jsonl"))
+        .map(|path| {
+            if path.is_absolute() {
+                path.to_path_buf()
+            } else {
+                root.join(path)
+            }
+        })
         .unwrap();
     let mut movable_handle = view.file_handle_for_path(&movable_path).unwrap();
     drop(view);
 
     for step in 0..32 {
-        let add_path = root.join(format!("data/add-{step}.json"));
+        let add_path = root.join(format!("data/add-{step}.jsonl"));
         std::fs::write(
             &add_path,
             format!(r#"{{"id":"add-{step}","title":"Added {step} token"}}"#),
@@ -1846,10 +1852,10 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
             .unwrap();
         reopened.update_file(state_handle, &state_path).unwrap();
 
-        let next_movable = if movable_path.ends_with("movable.json") {
-            root.join("data/moved.json")
+        let next_movable = if movable_path.ends_with("movable.jsonl") {
+            root.join("data/moved.jsonl")
         } else {
-            root.join("data/movable.json")
+            root.join("data/movable.jsonl")
         };
         std::fs::rename(&movable_path, &next_movable).unwrap();
         movable_handle = reopened
@@ -1859,6 +1865,7 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
         movable_path = next_movable;
 
         reopened.delete_file(added.file).unwrap();
+        std::fs::remove_file(&add_path).unwrap();
 
         if (step + 1) % 8 == 0 {
             reopened
@@ -1879,10 +1886,16 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
                 .file_paths()
                 .find(|path| {
                     path.file_name().is_some_and(|name| {
-                        matches!(name.to_str(), Some("movable.json" | "moved.json"))
+                        matches!(name.to_str(), Some("movable.jsonl" | "moved.jsonl"))
                     })
                 })
-                .map(std::path::Path::to_path_buf)
+                .map(|path| {
+                    if path.is_absolute() {
+                        path.to_path_buf()
+                    } else {
+                        root.join(path)
+                    }
+                })
                 .unwrap();
             movable_handle = view.file_handle_for_path(&movable_path).unwrap();
             drop(view);
@@ -1910,6 +1923,40 @@ fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
             );
         }
     }
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn first_save_after_delete_preserves_a_dense_file_domain() {
+    let root = fixture_root("first-save-delete");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let path = root.join("data/c.json");
+    std::fs::write(&path, br#"{"id":"c","title":"Gamma token"}"#).unwrap();
+    let added = index.add_file(&path).unwrap();
+    index.delete_file(added.file).unwrap();
+    std::fs::remove_file(path).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
+    );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

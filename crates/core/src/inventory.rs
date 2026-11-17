@@ -861,9 +861,16 @@ impl FileInventory {
         root: PathBuf,
         entries: Arc<Vec<FileEntry>>,
     ) -> Result<Self, String> {
+        let mut entries = Arc::try_unwrap(entries).unwrap_or_else(|entries| (*entries).clone());
+        for entry in &mut entries {
+            if entry.status == FileStatus::Valid {
+                entry.diagnostics.clear();
+                entry.omitted_diagnostics = 0;
+            }
+        }
         let mut inventory = Self {
             root,
-            files: entries,
+            files: Arc::new(entries),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
             published_paths: None,
@@ -982,14 +989,20 @@ impl FileInventory {
         self.by_path.reserve(self.files.len());
         self.relative_paths.clear();
         for (slot, file) in self.files.iter().enumerate() {
-            if !valid_relative_path(&file.relative_path)
-                || file.id.0 as usize != slot
-                || self
-                    .by_path
-                    .insert(file.relative_path.clone(), file.id)
-                    .is_some()
-            {
-                return Err("invalid restored file inventory".into());
+            if !valid_relative_path(&file.relative_path) || file.id.0 as usize != slot {
+                return Err(format!(
+                    "invalid restored file inventory at slot {slot}: id {} path {}",
+                    file.id.0,
+                    file.relative_path.display()
+                ));
+            }
+            if let Some(previous) = self.by_path.insert(file.relative_path.clone(), file.id) {
+                return Err(format!(
+                    "invalid restored file inventory: path {} belongs to files {} and {}",
+                    file.relative_path.display(),
+                    previous.0,
+                    file.id.0
+                ));
             }
             if self
                 .relative_paths

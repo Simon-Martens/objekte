@@ -56,7 +56,7 @@ S54	partial	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage
 S55	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	No-change and deletion-only payload-reading limits are covered.
 S56	pass	storage_roundtrip::a_reopened_store_exports_a_self_contained_fresh_snapshot	Exported cold FTS payloads reopen after the original store is moved offline.
 S57	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Failure separation is covered; every mutation failure point is pending.
-S58	pending	none	128-step mutation sequence is not implemented.
+S58	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Thirty-two cycles of add/update/move/delete with checkpoints every eight cycles match independent fresh builds.
 S59	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	CURRENT corruption is covered; full magic/flags/length matrix is pending.
 S60	pending	none	Eager catalog corruption and invalid cross-catalog routes need more cases.
 S61	pass	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Missing lazy payload does not affect eager open and fails when selected.
