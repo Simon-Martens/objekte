@@ -1500,6 +1500,68 @@ fn reopened_store_rejects_schema_and_indexing_changes() {
 }
 
 #[test]
+fn reopened_store_rejects_reader_extension_version_changes() {
+    let root = fixture_root("reader-version-mismatch");
+    let mut sources = objekte_search_core::source::SourceRegistry::default();
+    sources
+        .register(
+            "custom-json",
+            1,
+            "json",
+            std::sync::Arc::new(objekte_search_core::source::JsonReader),
+        )
+        .unwrap();
+    let mut definition =
+        CollectionDefinition::folder("items", "data", SourceFormat::registered("custom-json"));
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let definitions = vec![definition];
+    let index = Index::build_with_sources(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+        sources,
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let mut changed_sources = objekte_search_core::source::SourceRegistry::default();
+    changed_sources
+        .register(
+            "custom-json",
+            2,
+            "json",
+            std::sync::Arc::new(objekte_search_core::source::JsonReader),
+        )
+        .unwrap();
+    assert!(
+        Index::open_storage_with_sources(
+            &root,
+            definitions,
+            RepositoryOptions::default(),
+            changed_sources,
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn queries_continue_during_a_real_mutated_save() {
     let root = fixture_root("query-save-overlap");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
