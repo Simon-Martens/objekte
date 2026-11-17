@@ -525,7 +525,11 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
             }
             return Ok(roaring::RoaringBitmap::new());
         }
-        let cache_key = (reference.digest, reference.offset, POSTING_LEAF_KIND);
+        let cache_key = (
+            self.pack.reference.digest,
+            reference.offset,
+            POSTING_LEAF_KIND,
+        );
         if let Some(bitmap) = self
             .pack
             .session
@@ -721,7 +725,7 @@ impl BigramLeafLoader for StoredBigramLeafAccess {
                 continue;
             }
             let cache_key = (
-                reference.digest,
+                self.pack.reference.digest,
                 reference.offset,
                 u32::from(BIGRAM_LEAF_KIND),
             );
@@ -800,7 +804,7 @@ impl BigramLeafLoader for StoredBigramLeafAccess {
                 let bitmap = Arc::new(bitmap);
                 self.pack.session.cache().insert_decoded(
                     (
-                        reference.digest,
+                        self.pack.reference.digest,
                         reference.offset,
                         u32::from(BIGRAM_LEAF_KIND),
                     ),
@@ -1487,6 +1491,7 @@ fn session_for(repository: &Repository) -> Result<&StorageSession, IndexError> {
 
 fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
     let session = session_for(repository)?;
+    let usage = repository.storage_usage();
     let (store_identity, lineage_identity) = session.identities();
     let snapshot =
         read_snapshot(session.directory()).map_err(crate::storage::storage_to_index_error)?;
@@ -1515,6 +1520,9 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         eager_index_descriptors: snapshot.counters.eager_index_descriptors as usize,
         eager_leaf_rows: snapshot.counters.eager_leaf_rows as usize,
         open_pack_handles: session.open_pack_handle_count(),
+        compatibility_file_row_bytes: usage.file_row_cache_bytes,
+        compatibility_record_row_bytes: usage.record_row_cache_bytes,
+        metadata_cache_initializations: usage.metadata_cache_initializations,
         stored_objects: snapshot
             .stored_objects
             .len()
