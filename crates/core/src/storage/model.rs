@@ -14,7 +14,7 @@ use crate::repository::{CollectionStats, GlobalInferenceSummary};
 use crate::sorting::SortCollection;
 use crate::storage::format::sha256;
 
-pub(crate) const SNAPSHOT_SCHEMA_VERSION: u32 = 1;
+pub(crate) const SNAPSHOT_SCHEMA_VERSION: u32 = 2;
 pub(crate) const METADATA_CHUNK_BYTES: usize = 8 * 1024 * 1024;
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]

@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::fs::{self, File, OpenOptions};
+use std::io::Read;
 use std::os::fd::AsRawFd;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -7,7 +8,10 @@ use std::sync::atomic::AtomicU64;
 
 use serde::Serialize;
 
-use crate::bigram::{BigramArchivePayload, BigramIndex, BigramIndexLoader, StoredBigramPayloadRef};
+use crate::bigram::{
+    BigramIndex, BigramIndexLoader, BigramLeafLoader, StoredBigramDictionary, StoredBigramLeafRef,
+    StoredBigramPayloadRef,
+};
 use crate::inventory::{ActiveRecords, FileVersions};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexStorageParts, PublishedSegment};
 use crate::native_segment::IndexedCollectionSegment;
@@ -426,6 +430,7 @@ const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_OBJECT_KIND: u16 = 1;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
+const BIGRAM_LEAF_KIND: u16 = 7;
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -477,22 +482,274 @@ impl std::fmt::Debug for StoredBigramLoader {
 
 impl BigramIndexLoader for StoredBigramLoader {
     fn load_bigram_index(&self) -> Result<BigramIndex, String> {
-        let bytes = read_checked_object(
-            &self.session,
-            self.reference.digest,
-            self.reference.length,
+        let pack = StoredBigramPack::open(
+            Arc::clone(&self.session),
+            self.reference,
             BIGRAM_PAYLOAD_OBJECT_KIND,
         )?;
+        let bytes = pack.read_range(
+            self.reference.dictionary_offset,
+            self.reference.dictionary_length,
+            self.reference.dictionary_digest,
+        )?;
+        if bytes.len() as u64 > self.session.limits().lazy_dictionary_body_bytes {
+            return Err(format!(
+                "bigram dictionary requires {} bytes, limit is {}",
+                bytes.len(),
+                self.session.limits().lazy_dictionary_body_bytes
+            ));
+        }
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
-        aligned.extend_from_slice(&bytes);
-        let owner =
-            crate::archive_storage::ValidatedArchive::<BigramArchivePayload>::checked_from_aligned(
-                aligned,
-            )
-            .map_err(|error| format!("bigram payload validation failed: {error}"))?;
-        let payload = rkyv::deserialize::<BigramArchivePayload, rkyv::rancor::Error>(owner.root())
-            .map_err(|error| format!("bigram payload decode failed: {error}"))?;
-        BigramIndex::from_archive_payload(payload)
+        aligned.extend_from_slice(bytes.as_ref());
+        let owner = crate::archive_storage::ValidatedArchive::<StoredBigramDictionary>::checked_from_aligned(
+            aligned,
+        )
+        .map_err(|error| format!("bigram dictionary validation failed: {error}"))?;
+        let payload =
+            rkyv::deserialize::<StoredBigramDictionary, rkyv::rancor::Error>(owner.root())
+                .map_err(|error| format!("bigram payload decode failed: {error}"))?;
+        BigramIndex::from_stored_dictionary(
+            payload,
+            Arc::new(StoredBigramLeafAccess {
+                pack: Arc::new(pack),
+            }),
+        )
+    }
+}
+
+struct StoredBigramLeafAccess {
+    pack: Arc<StoredBigramPack>,
+}
+
+impl std::fmt::Debug for StoredBigramLeafAccess {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredBigramLeafAccess")
+            .field("digest", &format::hex(&self.pack.reference.digest))
+            .finish()
+    }
+}
+
+impl BigramLeafLoader for StoredBigramLeafAccess {
+    fn load_bigram_leaf(
+        &self,
+        reference: &StoredBigramLeafRef,
+    ) -> Result<roaring::RoaringBitmap, String> {
+        Ok(self
+            .load_bigram_leaves(&[*reference])?
+            .pop()
+            .expect("one stored bigram leaf was requested")
+            .as_ref()
+            .clone())
+    }
+
+    fn load_bigram_leaves(
+        &self,
+        references: &[StoredBigramLeafRef],
+    ) -> Result<Vec<Arc<roaring::RoaringBitmap>>, String> {
+        let mut decoded = vec![None; references.len()];
+        let mut missing = Vec::new();
+        for (index, reference) in references.iter().enumerate() {
+            let cache_key = (
+                reference.digest,
+                reference.offset,
+                u32::from(BIGRAM_LEAF_KIND),
+            );
+            decoded[index] = self
+                .pack
+                .session
+                .cache()
+                .get_decoded::<roaring::RoaringBitmap>(&cache_key);
+            if decoded[index].is_none() {
+                self.validate_bigram_leaf_reference(reference)?;
+                missing.push(index);
+            }
+        }
+        if missing.is_empty() {
+            return Ok(decoded
+                .into_iter()
+                .map(|bitmap| bitmap.expect("cached bigram leaf"))
+                .collect());
+        }
+        self.pack
+            .session
+            .cache()
+            .record_miss_by(missing.len() as u64);
+        missing.sort_by_key(|index| references[*index].offset);
+        let mut start = 0usize;
+        while start < missing.len() {
+            let first = references[missing[start]];
+            let mut group_end = start + 1;
+            let mut span_end = first
+                .offset
+                .checked_add(first.length)
+                .ok_or("stored bigram leaf range overflow")?;
+            while let Some(&index) = missing.get(group_end) {
+                let reference = references[index];
+                let next_end = reference
+                    .offset
+                    .checked_add(reference.length)
+                    .ok_or("stored bigram leaf range overflow")?;
+                let span = next_end
+                    .checked_sub(first.offset)
+                    .ok_or("stored bigram leaf span underflow")?;
+                let gap = reference.offset.saturating_sub(span_end);
+                if span > self.pack.session.limits().coalesced_read_span_bytes
+                    || gap > self.pack.session.limits().coalesced_read_gap_bytes
+                {
+                    break;
+                }
+                span_end = span_end.max(next_end);
+                group_end += 1;
+            }
+            let span_length = span_end
+                .checked_sub(first.offset)
+                .ok_or("stored bigram leaf span underflow")?;
+            let span = self.pack.read_span(first.offset, span_length)?;
+            for &index in &missing[start..group_end] {
+                let reference = references[index];
+                let relative = usize::try_from(reference.offset - first.offset)
+                    .map_err(|_| "stored bigram leaf offset is too large")?;
+                let length = usize::try_from(reference.length)
+                    .map_err(|_| "stored bigram leaf length is too large")?;
+                let end = relative
+                    .checked_add(length)
+                    .ok_or("stored bigram leaf range overflow")?;
+                let bytes = span
+                    .get(relative..end)
+                    .ok_or("stored bigram leaf is outside its coalesced span")?;
+                if format::sha256(bytes) != reference.digest {
+                    return Err("stored bigram leaf checksum mismatch".into());
+                }
+                let mut cursor = std::io::Cursor::new(bytes);
+                let bitmap = roaring::RoaringBitmap::deserialize_from(&mut cursor)
+                    .map_err(|error| format!("bigram leaf decode failed: {error}"))?;
+                if cursor.position() != reference.length {
+                    return Err("bigram leaf has trailing bytes".into());
+                }
+                let bitmap = Arc::new(bitmap);
+                self.pack.session.cache().insert_decoded(
+                    (
+                        reference.digest,
+                        reference.offset,
+                        u32::from(BIGRAM_LEAF_KIND),
+                    ),
+                    Arc::clone(&bitmap),
+                    reference.decoded_bytes_estimate,
+                );
+                decoded[index] = Some(bitmap);
+            }
+            start = group_end;
+        }
+        Ok(decoded
+            .into_iter()
+            .map(|bitmap| bitmap.expect("requested bigram leaf was decoded"))
+            .collect())
+    }
+}
+
+impl StoredBigramLeafAccess {
+    fn validate_bigram_leaf_reference(
+        &self,
+        reference: &StoredBigramLeafRef,
+    ) -> Result<(), String> {
+        if reference.length > self.pack.session.limits().serialized_leaf_bytes {
+            return Err(format!(
+                "bigram leaf requires {} bytes, limit is {}",
+                reference.length,
+                self.pack.session.limits().serialized_leaf_bytes
+            ));
+        }
+        if reference.decoded_bytes_estimate > self.pack.session.limits().decoded_leaf_bytes {
+            return Err(format!(
+                "decoded bigram leaf requires {} bytes, limit is {}",
+                reference.decoded_bytes_estimate,
+                self.pack.session.limits().decoded_leaf_bytes
+            ));
+        }
+        Ok(())
+    }
+}
+
+struct StoredBigramPack {
+    session: SharedStorageSession,
+    reference: StoredBigramPayloadRef,
+    file: File,
+}
+
+impl StoredBigramPack {
+    fn open(
+        session: SharedStorageSession,
+        reference: StoredBigramPayloadRef,
+        kind: u16,
+    ) -> Result<Self, String> {
+        let path = session
+            .directory()
+            .join("objects")
+            .join(format::object_file_name(&reference.digest, kind));
+        let mut file = File::open(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+        let file_length = file
+            .metadata()
+            .map_err(|error| format!("{}: {error}", path.display()))?
+            .len();
+        if file_length != reference.length {
+            return Err(format!(
+                "stored bigram pack {} length mismatch: expected {}, got {file_length}",
+                format::hex(&reference.digest),
+                reference.length
+            ));
+        }
+        let mut envelope = [0u8; format::ENVELOPE_LEN];
+        file.read_exact(&mut envelope)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        format::checked_body(&envelope, kind).map_err(|error| error.to_string())?;
+        session
+            .index_reads
+            .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
+        session.index_bytes.fetch_add(
+            format::ENVELOPE_LEN as u64,
+            std::sync::atomic::Ordering::AcqRel,
+        );
+        Ok(Self {
+            session,
+            reference,
+            file,
+        })
+    }
+
+    fn read_range(
+        &self,
+        offset: u64,
+        length: u64,
+        expected_digest: [u8; 32],
+    ) -> Result<Arc<[u8]>, String> {
+        let bytes = self.read_span(offset, length)?;
+        if format::sha256(&bytes) != expected_digest {
+            return Err("stored bigram body checksum mismatch".into());
+        }
+        Ok(bytes)
+    }
+
+    fn read_span(&self, offset: u64, length: u64) -> Result<Arc<[u8]>, String> {
+        let end = offset
+            .checked_add(length)
+            .ok_or("stored bigram range overflow")?;
+        if offset < format::ENVELOPE_LEN as u64 || length == 0 || end > self.reference.length {
+            return Err("stored bigram range is outside its pack".into());
+        }
+        let capacity = usize::try_from(length).map_err(|_| "stored bigram range is too large")?;
+        let mut bytes = vec![0u8; capacity];
+        use std::os::unix::fs::FileExt;
+        self.file
+            .read_exact_at(&mut bytes, offset)
+            .map_err(|error| format!("stored bigram pack read failed: {error}"))?;
+        self.session
+            .index_reads
+            .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
+        self.session
+            .index_bytes
+            .fetch_add(length, std::sync::atomic::Ordering::AcqRel);
+        Ok(Arc::from(bytes))
     }
 }
 

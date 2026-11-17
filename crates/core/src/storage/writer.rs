@@ -163,6 +163,15 @@ fn write_parts(
         .map_or_else(random_identity, |binding| Ok(binding.store_identity))?;
     let encode_started = Instant::now();
     let mut external_objects = Vec::new();
+    let source_storage = parts.repository.storage.as_ref().map(|session| {
+        (
+            session.directory().to_path_buf(),
+            crate::storage::reader::read_snapshot(session.directory()),
+        )
+    });
+    if let Some((source_directory, source_snapshot)) = source_storage {
+        copy_referenced_objects(&source_directory, &source_snapshot?, &mut external_objects)?;
+    }
     let mut snapshot = snapshot_from_parts(parts, generation)?;
     if let Some(prior) = read_prior_snapshot(directory, current)? {
         let mut entries = prior
@@ -204,6 +213,10 @@ fn write_parts(
                 length: bytes.len() as u64,
             }
         }));
+    let mut seen_objects = std::collections::HashSet::new();
+    snapshot
+        .stored_objects
+        .retain(|object| seen_objects.insert(object.digest));
     let payload = format::envelope(PAYLOAD_OBJECT_KIND, &[]);
     let payload_digest = format::sha256(&payload);
     snapshot
@@ -252,18 +265,43 @@ fn write_parts(
     fs::create_dir_all(&objects).map_err(|error| StorageError::Io(error.to_string()))?;
     fs::create_dir_all(&staging).map_err(|error| StorageError::Io(error.to_string()))?;
     let mut objects_new = 0usize;
-    write_object(&staging, &objects, payload_digest, &payload)?;
-    objects_new += 1;
+    let mut objects_reused = 0usize;
+    record_object_write(
+        &staging,
+        &objects,
+        payload_digest,
+        &payload,
+        &mut objects_new,
+        &mut objects_reused,
+    )?;
     for (digest, bytes) in &external_objects {
-        write_object(&staging, &objects, *digest, bytes)?;
-        objects_new += 1;
+        record_object_write(
+            &staging,
+            &objects,
+            *digest,
+            bytes,
+            &mut objects_new,
+            &mut objects_reused,
+        )?;
     }
     for (digest, bytes, _) in &metadata_chunks {
-        write_object(&staging, &objects, *digest, bytes)?;
-        objects_new += 1;
+        record_object_write(
+            &staging,
+            &objects,
+            *digest,
+            bytes,
+            &mut objects_new,
+            &mut objects_reused,
+        )?;
     }
-    write_object(&staging, &objects, metadata_digest, &metadata)?;
-    objects_new += 1;
+    record_object_write(
+        &staging,
+        &objects,
+        metadata_digest,
+        &metadata,
+        &mut objects_new,
+        &mut objects_reused,
+    )?;
     sync_directory(&objects)?;
     let write_ns = write_started.elapsed().as_nanos() as u64;
 
@@ -298,7 +336,7 @@ fn write_parts(
         unchanged: false,
         archive_report,
         objects_new,
-        objects_reused: 0,
+        objects_reused,
         bytes_serialized: (metadata.len() + payload.len()) as u64
             + external_objects
                 .iter()
@@ -400,19 +438,75 @@ fn externalize_bigram(
     bigram: &mut crate::bigram::BigramIndex,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
 ) -> Result<(), StorageError> {
-    let payload = bigram
-        .archive_payload()
-        .map_err(StorageError::UnsupportedComponent)?;
-    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+    if bigram.payload.is_some() && bigram.normal.is_empty() && bigram.skip.is_empty() {
+        return Ok(());
+    }
+    let mut pack = format::envelope(BIGRAM_PAYLOAD_OBJECT_KIND, &[]);
+    let mut normal = bigram
+        .normal
+        .iter()
+        .map(|(key, bitmap)| Ok((*key, append_bigram_leaf(&mut pack, bitmap)?)))
+        .collect::<Result<Vec<_>, StorageError>>()?;
+    normal.sort_by_key(|(key, _)| *key);
+    let mut skip = bigram
+        .skip
+        .iter()
+        .map(|(key, bitmap)| Ok((*key, append_bigram_leaf(&mut pack, bitmap)?)))
+        .collect::<Result<Vec<_>, StorageError>>()?;
+    skip.sort_by_key(|(key, _)| *key);
+    align_object(&mut pack);
+    let dictionary_offset = pack.len() as u64;
+    let dictionary = crate::bigram::StoredBigramDictionary {
+        alphabet: match bigram.alphabet {
+            crate::workload::BigramAlphabet::Ascii => 0,
+            crate::workload::BigramAlphabet::Unicode => 1,
+        },
+        record_count: bigram.record_count,
+        normal,
+        skip,
+    };
+    let dictionary_body = rkyv::to_bytes::<rkyv::rancor::Error>(&dictionary)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let object = format::envelope(BIGRAM_PAYLOAD_OBJECT_KIND, &body);
-    let digest = format::sha256(&object);
-    let length = object.len() as u64;
-    objects.push((digest, object));
+    pack.extend_from_slice(&dictionary_body);
+    let digest = format::sha256(&pack);
+    let length = pack.len() as u64;
+    objects.push((digest, pack));
     bigram.normal.clear();
     bigram.skip.clear();
-    bigram.payload = Some(crate::bigram::StoredBigramPayloadRef { digest, length });
+    bigram.payload = Some(crate::bigram::StoredBigramPayloadRef {
+        digest,
+        length,
+        dictionary_offset,
+        dictionary_length: dictionary_body.len() as u64,
+        dictionary_digest: format::sha256(&dictionary_body),
+    });
     Ok(())
+}
+
+fn append_bigram_leaf(
+    pack: &mut Vec<u8>,
+    bitmap: &roaring::RoaringBitmap,
+) -> Result<crate::bigram::StoredBigramLeafRef, StorageError> {
+    align_object(pack);
+    let offset = pack.len() as u64;
+    let start = pack.len();
+    bitmap
+        .serialize_into(&mut *pack)
+        .map_err(|error| StorageError::Io(format!("bigram leaf serialization: {error}")))?;
+    let bytes = &pack[start..];
+    Ok(crate::bigram::StoredBigramLeafRef {
+        offset,
+        length: bytes.len() as u64,
+        cardinality: bitmap.len(),
+        decoded_bytes_estimate: u64::try_from(bitmap.serialized_size())
+            .map_err(|_| StorageError::Io("bigram leaf size overflow".into()))?,
+        digest: format::sha256(bytes),
+    })
+}
+
+fn align_object(bytes: &mut Vec<u8>) {
+    let aligned = (bytes.len() + 15) & !15;
+    bytes.resize(aligned, 0);
 }
 
 fn externalize_posting_collection(
@@ -809,12 +903,58 @@ fn ensure_directory(directory: &Path) -> Result<(), StorageError> {
     fs::create_dir(directory).map_err(|error| StorageError::Io(error.to_string()))
 }
 
+fn copy_referenced_objects(
+    source_directory: &Path,
+    snapshot: &model::StorageSnapshot,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    for descriptor in &snapshot.stored_objects {
+        let kind = u16::try_from(descriptor.kind).map_err(|_| {
+            StorageError::InvalidFormat(format!(
+                "stored object kind {} does not fit the format",
+                descriptor.kind
+            ))
+        })?;
+        let path = source_directory
+            .join("objects")
+            .join(format::object_file_name(&descriptor.digest, kind));
+        let bytes = fs::read(&path).map_err(|error| match error.kind() {
+            std::io::ErrorKind::NotFound => StorageError::MissingObject(descriptor.digest),
+            _ => StorageError::Io(format!("{}: {error}", path.display())),
+        })?;
+        if bytes.len() as u64 != descriptor.length || format::sha256(&bytes) != descriptor.digest {
+            return Err(StorageError::corrupt(
+                format::hex(&descriptor.digest),
+                "referenced payload object length or digest mismatch during export",
+            ));
+        }
+        objects.push((descriptor.digest, bytes));
+    }
+    Ok(())
+}
+
+fn record_object_write(
+    staging: &Path,
+    objects: &Path,
+    digest: [u8; 32],
+    bytes: &[u8],
+    objects_new: &mut usize,
+    objects_reused: &mut usize,
+) -> Result<(), StorageError> {
+    if write_object(staging, objects, digest, bytes)? {
+        *objects_new = (*objects_new).saturating_add(1);
+    } else {
+        *objects_reused = (*objects_reused).saturating_add(1);
+    }
+    Ok(())
+}
+
 fn write_object(
     staging: &Path,
     objects: &Path,
     digest: [u8; 32],
     bytes: &[u8],
-) -> Result<(), StorageError> {
+) -> Result<bool, StorageError> {
     let staging_path = staging.join(format!("{}.tmp", format::hex(&digest)));
     let mut file = OpenOptions::new()
         .create_new(true)
@@ -840,14 +980,15 @@ fn write_object(
             });
         }
         fs::remove_file(&staging_path).map_err(|error| StorageError::Io(error.to_string()))?;
-        return Ok(());
+        return Ok(false);
     }
     fs::hard_link(&staging_path, &final_path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     fs::remove_file(&staging_path).map_err(|error| StorageError::Io(error.to_string()))?;
     File::open(&final_path)
         .and_then(|file| file.sync_all())
-        .map_err(|error| StorageError::Io(error.to_string()))
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    Ok(true)
 }
 
 fn make_current(

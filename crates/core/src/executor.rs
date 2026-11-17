@@ -2626,18 +2626,6 @@ impl PreparedFtsAccess<'_, '_> {
         Some((count.min(self.max_count), work))
     }
 
-    fn candidates(&self) -> Option<RoaringBitmap> {
-        let mut may = RoaringBitmap::new();
-        for probe in &self.probes {
-            may |= if let Some(condition) = self.regex {
-                condition.candidates(probe.index)?
-            } else {
-                probe.index.candidates_prepared(probe.request)?
-            };
-        }
-        Some(may)
-    }
-
     fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
@@ -2763,9 +2751,9 @@ fn prepare_fts_accesses<'a, 'b>(
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     let indexes = IndexCatalog::collection(collection);
-    let prepared = prepare_fts_accesses(
+    let Some(prepared) = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -2773,11 +2761,10 @@ pub(crate) fn fts_candidates(
         collection.logical_records.len() != collection.generation.records.len() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?;
-    for probe in &prepared.probes {
-        probe.index.ensure_storage_loaded().ok()?;
-    }
-    prepared.candidates()
+    ) else {
+        return Ok(None);
+    };
+    prepared.candidates_checked()
 }
 
 pub(crate) fn estimate_fts_candidates(
@@ -2794,9 +2781,7 @@ pub(crate) fn estimate_fts_candidates(
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
     )?;
-    prepared
-        .estimate()
-        .filter(|(count, _)| *count != 0)
+    prepared.estimate().filter(|(count, _)| *count != 0)
 }
 
 #[cfg(test)]

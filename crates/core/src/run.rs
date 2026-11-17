@@ -11388,7 +11388,12 @@ fn try_stored_order_page(
             });
         let mut candidates = plan.candidates.take().unwrap_or_else(|| domain.clone());
         candidates &= &domain;
-        if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
+        if let Some(fts_candidates) = fts
+            .as_ref()
+            .map(|fts| fts_candidates(collection, fts))
+            .transpose()?
+            .flatten()
+        {
             candidates &= fts_candidates;
         }
         candidate_total += candidates.len();
@@ -12880,7 +12885,7 @@ fn search_impl_with_collector<'a>(
             };
             if text_first {
                 if let Some(fts) = &fts {
-                    if let Some(text) = fts_candidates(collection, fts) {
+                    if let Some(text) = fts_candidates(collection, fts)? {
                         input &= text;
                     }
                 }
@@ -12914,7 +12919,7 @@ fn search_impl_with_collector<'a>(
             if !text_first {
                 if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
                     if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
-                        if let Some(text_candidates) = fts_candidates(collection, fts) {
+                        if let Some(text_candidates) = fts_candidates(collection, fts)? {
                             candidates &= text_candidates;
                         }
                     }

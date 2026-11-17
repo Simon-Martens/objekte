@@ -638,6 +638,18 @@ fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
             .count,
         Some(2)
     );
+    let mut fts = all_records();
+    fts.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    assert_eq!(
+        exported.view().unwrap().search(&fts).unwrap().count,
+        Some(2)
+    );
     exported.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -796,7 +808,10 @@ fn full_text_payload_reopens_lazily_and_preserves_results() {
     assert!(warm.index_reads > cold.index_reads);
     assert!(warm.cache.loaded_families > 0);
     reopened.view().unwrap().search(&request).unwrap();
-    assert_eq!(reopened.storage_status().unwrap().index_reads, warm.index_reads);
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        warm.index_reads
+    );
     assert_eq!(
         restored
             .hits
@@ -808,6 +823,45 @@ fn full_text_payload_reopens_lazily_and_preserves_results() {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>()
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn missing_stored_fts_gram_skips_all_leaf_reads() {
+    let root = fixture_root("fts-missing-gram");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let mut request = all_records();
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "tokenzz".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    let result = reopened.view().unwrap().search(&request).unwrap();
+    let warm = reopened.storage_status().unwrap();
+
+    assert_eq!(result.count, Some(0));
+    assert!(warm.index_reads > cold.index_reads);
+    assert!(
+        warm.cache.resident_bytes < 16 * 1024,
+        "a missing gram must not load stored sibling leaves: {:?}",
+        warm.cache
     );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

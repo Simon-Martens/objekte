@@ -5,8 +5,8 @@ use std::sync::{Arc, OnceLock};
 use std::time::Instant;
 
 use rayon::ThreadPool;
-use roaring::RoaringBitmap;
 use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
+use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
@@ -80,7 +80,6 @@ fn for_each_gram(
     }
 }
 
-
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
 trait FoldedSink {
@@ -88,13 +87,11 @@ trait FoldedSink {
     fn scalar(&mut self, scalar: char);
 }
 
-
 struct AsciiGramSink<E> {
     previous: Option<u8>,
     before_previous: Option<u8>,
     emit: E,
 }
-
 
 impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
     fn push(&mut self, byte: u8) {
@@ -109,7 +106,6 @@ impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
     }
 }
 
-
 impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
     fn ascii(&mut self, byte: u8) {
         self.push(byte);
@@ -123,13 +119,11 @@ impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
     }
 }
 
-
 struct UnicodeGramSink<E> {
     previous: Option<char>,
     before_previous: Option<char>,
     emit: E,
 }
-
 
 impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
     fn push(&mut self, scalar: char) {
@@ -144,7 +138,6 @@ impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
     }
 }
 
-
 impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
     fn ascii(&mut self, byte: u8) {
         self.push(char::from(byte));
@@ -154,7 +147,6 @@ impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
         self.push(scalar);
     }
 }
-
 
 #[inline]
 fn lower_ascii(byte: u8) -> u8 {
@@ -210,7 +202,6 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
     }
 }
 
-
 /// Both alphabets' necessary grams for one already prepared representation.
 /// Exact matching never reads these keys as a literal.
 #[derive(Clone, Debug)]
@@ -218,7 +209,6 @@ pub(crate) struct BigramRequest {
     ascii: Vec<(bool, u64)>,
     unicode: Vec<(bool, u64)>,
 }
-
 
 impl BigramRequest {
     pub fn from_folded(folded: &str) -> Self {
@@ -258,7 +248,6 @@ impl BigramRequest {
     }
 }
 
-
 /// Record-level bigram postings for one text binding.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BigramIndex {
@@ -274,18 +263,49 @@ pub struct BigramIndex {
     pub(crate) loaded: Arc<OnceLock<Box<BigramIndex>>>,
     #[serde(skip)]
     pub(crate) load_lock: Arc<std::sync::Mutex<()>>,
+    #[serde(skip)]
+    pub(crate) leaf_directory: HashMap<(bool, u64), StoredBigramLeafRef>,
+    #[serde(skip)]
+    pub(crate) leaf_loader: Option<Arc<dyn BigramLeafLoader>>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub(crate) struct StoredBigramPayloadRef {
     pub digest: [u8; 32],
     pub length: u64,
+    pub dictionary_offset: u64,
+    pub dictionary_length: u64,
+    pub dictionary_digest: [u8; 32],
 }
 
 pub(crate) trait BigramIndexLoader: std::fmt::Debug + Send + Sync {
     fn load_bigram_index(&self) -> Result<BigramIndex, String>;
 }
 
+pub(crate) trait BigramLeafLoader: std::fmt::Debug + Send + Sync {
+    fn load_bigram_leaf(&self, reference: &StoredBigramLeafRef) -> Result<RoaringBitmap, String>;
+
+    fn load_bigram_leaves(
+        &self,
+        references: &[StoredBigramLeafRef],
+    ) -> Result<Vec<Arc<RoaringBitmap>>, String> {
+        references
+            .iter()
+            .map(|reference| self.load_bigram_leaf(reference).map(Arc::new))
+            .collect()
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct StoredBigramLeafRef {
+    pub offset: u64,
+    pub length: u64,
+    pub cardinality: u64,
+    pub decoded_bytes_estimate: u64,
+    pub digest: [u8; 32],
+}
+
+#[cfg(test)]
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
 pub(crate) struct BigramArchivePayload {
     alphabet: u8,
@@ -294,6 +314,15 @@ pub(crate) struct BigramArchivePayload {
     skip: Vec<(u64, Vec<u8>)>,
 }
 
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct StoredBigramDictionary {
+    pub alphabet: u8,
+    pub record_count: u32,
+    pub normal: Vec<(u64, StoredBigramLeafRef)>,
+    pub skip: Vec<(u64, StoredBigramLeafRef)>,
+}
+
+#[cfg(test)]
 fn encode_bitmap(bitmap: &RoaringBitmap) -> Result<Vec<u8>, String> {
     let mut bytes = Vec::with_capacity(bitmap.serialized_size());
     bitmap
@@ -302,6 +331,7 @@ fn encode_bitmap(bitmap: &RoaringBitmap) -> Result<Vec<u8>, String> {
     Ok(bytes)
 }
 
+#[cfg(test)]
 fn decode_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
     let mut cursor = std::io::Cursor::new(bytes);
     let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
@@ -313,6 +343,7 @@ fn decode_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
 }
 
 impl BigramIndex {
+    #[cfg(test)]
     pub(crate) fn archive_payload(&self) -> Result<BigramArchivePayload, String> {
         Ok(BigramArchivePayload {
             alphabet: match self.alphabet {
@@ -333,6 +364,7 @@ impl BigramIndex {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn from_archive_payload(payload: BigramArchivePayload) -> Result<Self, String> {
         let alphabet = match payload.alphabet {
             0 => BigramAlphabet::Ascii,
@@ -356,11 +388,64 @@ impl BigramIndex {
             storage: None,
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
+            leaf_directory: HashMap::new(),
+            leaf_loader: None,
+        })
+    }
+
+    pub(crate) fn from_stored_dictionary(
+        payload: StoredBigramDictionary,
+        leaf_loader: Arc<dyn BigramLeafLoader>,
+    ) -> Result<Self, String> {
+        let alphabet = match payload.alphabet {
+            0 => BigramAlphabet::Ascii,
+            1 => BigramAlphabet::Unicode,
+            value => return Err(format!("unknown bigram alphabet code {value}")),
+        };
+        let mut leaf_directory = HashMap::with_capacity(payload.normal.len() + payload.skip.len());
+        let mut previous_key = None;
+        for (key, reference) in payload.normal {
+            if previous_key.is_some_and(|previous| key <= previous)
+                || leaf_directory.insert((false, key), reference).is_some()
+            {
+                return Err("stored bigram normal dictionary is not strictly ordered".into());
+            }
+            previous_key = Some(key);
+        }
+        previous_key = None;
+        for (key, reference) in payload.skip {
+            if previous_key.is_some_and(|previous| key <= previous)
+                || leaf_directory.insert((true, key), reference).is_some()
+            {
+                return Err("stored bigram skip dictionary is not strictly ordered".into());
+            }
+            previous_key = Some(key);
+        }
+        Ok(Self {
+            alphabet,
+            record_count: payload.record_count,
+            normal: HashMap::new(),
+            skip: HashMap::new(),
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
+            leaf_directory,
+            leaf_loader: Some(leaf_loader),
         })
     }
 
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         let this = self.payload();
+        if this.leaf_loader.is_some() {
+            for &(skip, key) in this.leaf_directory.keys() {
+                let slots = this.load_stored_leaf(skip, key)?;
+                if !slots.is_subset(allowed) {
+                    return Err("bigram posting outside eligible domain".into());
+                }
+            }
+            return Ok(());
+        }
         if this
             .normal
             .values()
@@ -386,6 +471,8 @@ impl BigramIndex {
             storage: None,
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
+            leaf_directory: HashMap::new(),
+            leaf_loader: None,
         }
     }
 
@@ -430,6 +517,19 @@ impl BigramIndex {
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
         let this = self.payload();
+        if this.leaf_loader.is_some() {
+            let mut keys = this
+                .leaf_directory
+                .keys()
+                .filter_map(|(skip, key)| (!*skip).then_some(*key))
+                .collect::<Vec<_>>();
+            keys.sort_unstable();
+            for key in keys {
+                let bitmap = this.load_stored_leaf(false, key)?;
+                visit(&key, &bitmap)?;
+            }
+            return Ok(());
+        }
         let mut keys = this.normal.keys().collect::<Vec<_>>();
         keys.sort_unstable();
         for key in keys {
@@ -443,6 +543,19 @@ impl BigramIndex {
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
         let this = self.payload();
+        if this.leaf_loader.is_some() {
+            let mut keys = this
+                .leaf_directory
+                .keys()
+                .filter_map(|(skip, key)| (*skip).then_some(*key))
+                .collect::<Vec<_>>();
+            keys.sort_unstable();
+            for key in keys {
+                let bitmap = this.load_stored_leaf(true, key)?;
+                visit(&key, &bitmap)?;
+            }
+            return Ok(());
+        }
         let mut keys = this.skip.keys().collect::<Vec<_>>();
         keys.sort_unstable();
         for key in keys {
@@ -518,13 +631,49 @@ impl BigramIndex {
     }
 
     pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
+        self.candidates_prepared_checked(request).ok().flatten()
+    }
+
+    pub(crate) fn candidates_prepared_checked(
+        &self,
+        request: &BigramRequest,
+    ) -> Result<Option<RoaringBitmap>, String> {
         let this = self.payload();
         if self.is_stored() && this.record_count == 0 {
-            return None;
+            return Ok(None);
         }
         let grams = request.grams(this.alphabet);
         if grams.is_empty() {
-            return None;
+            return Ok(None);
+        }
+        if this.leaf_loader.is_some() {
+            let mut leaves = Vec::with_capacity(grams.len());
+            for &(skip, key) in grams {
+                let Some(reference) = this.leaf_directory.get(&(skip, key)) else {
+                    return Ok(Some(RoaringBitmap::new()));
+                };
+                leaves.push((skip, key, *reference));
+            }
+            leaves.sort_by_key(|(_, _, reference)| reference.cardinality);
+            let references = leaves
+                .iter()
+                .map(|(_, _, reference)| *reference)
+                .collect::<Vec<_>>();
+            let bitmaps = this.load_stored_leaves_checked(&references)?;
+            let mut result: Option<RoaringBitmap> = None;
+            for bitmap in bitmaps {
+                result = Some(match result {
+                    Some(mut current) => {
+                        current &= bitmap.as_ref();
+                        if current.is_empty() {
+                            return Ok(Some(current));
+                        }
+                        current
+                    }
+                    None => bitmap.as_ref().clone(),
+                });
+            }
+            return Ok(result);
         }
         let mut columns = Vec::new();
         for &(skip, key) in grams {
@@ -534,19 +683,22 @@ impl BigramIndex {
                 this.normal.get(&key)
             };
             let Some(column) = column else {
-                return Some(RoaringBitmap::new());
+                return Ok(Some(RoaringBitmap::new()));
             };
             columns.push(column);
         }
         columns.sort_by_key(|column| column.len());
-        let mut result = (*columns.first()?).clone();
+        let Some(first) = columns.first() else {
+            return Ok(None);
+        };
+        let mut result = (*first).clone();
         for column in columns.into_iter().skip(1) {
             result &= column;
             if result.is_empty() {
                 break;
             }
         }
-        Some(result)
+        Ok(Some(result))
     }
 
     pub fn estimate_min_cardinality(&self, literal: &str) -> Option<u64> {
@@ -559,6 +711,18 @@ impl BigramIndex {
         }
         if self.is_stored() && self.record_count == 0 {
             return None;
+        }
+        if self.payload().leaf_loader.is_some() {
+            let this = self.payload();
+            return request
+                .grams(this.alphabet)
+                .iter()
+                .map(|&(skip, key)| {
+                    this.leaf_directory
+                        .get(&(skip, key))
+                        .map_or(0, |reference| reference.cardinality)
+                })
+                .min();
         }
         request
             .grams(self.alphabet)
@@ -579,6 +743,12 @@ impl BigramIndex {
         if self.record_count as usize != record_count {
             return Err("bigram coverage mismatch".into());
         }
+        if self.payload().leaf_loader.is_some() {
+            for &(skip, key) in self.payload().leaf_directory.keys() {
+                self.payload().load_stored_leaf(skip, key)?;
+            }
+            return Ok(());
+        }
         if self
             .normal
             .values()
@@ -597,8 +767,56 @@ impl BigramIndex {
             .map(|set| set.serialized_size() as usize + 48)
             .sum()
     }
-}
 
+    fn load_stored_leaf(&self, skip: bool, key: u64) -> Result<RoaringBitmap, String> {
+        let reference = self
+            .leaf_directory
+            .get(&(skip, key))
+            .copied()
+            .ok_or("stored bigram leaf reference missing")?;
+        self.load_stored_leaf_checked(skip, key, &reference)
+    }
+
+    fn load_stored_leaf_checked(
+        &self,
+        _skip: bool,
+        _key: u64,
+        reference: &StoredBigramLeafRef,
+    ) -> Result<RoaringBitmap, String> {
+        Ok(self
+            .load_stored_leaves_checked(&[*reference])?
+            .pop()
+            .expect("one stored bigram leaf was requested")
+            .as_ref()
+            .clone())
+    }
+
+    fn load_stored_leaves_checked(
+        &self,
+        references: &[StoredBigramLeafRef],
+    ) -> Result<Vec<Arc<RoaringBitmap>>, String> {
+        let loader = self
+            .leaf_loader
+            .as_ref()
+            .ok_or("stored bigram leaf loader missing")?;
+        let bitmaps = loader.load_bigram_leaves(references)?;
+        if bitmaps.len() != references.len() {
+            return Err("stored bigram leaf loader returned the wrong leaf count".into());
+        }
+        for (bitmap, reference) in bitmaps.iter().zip(references) {
+            if bitmap.len() != reference.cardinality {
+                return Err("stored bigram leaf cardinality mismatch".into());
+            }
+            if bitmap
+                .max()
+                .is_some_and(|slot| slot >= self.record_count)
+            {
+                return Err("stored bigram leaf contains a slot outside its domain".into());
+            }
+        }
+        Ok(bitmaps)
+    }
+}
 
 fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
@@ -611,20 +829,17 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
-
 #[derive(Clone, Copy, Debug)]
 struct GramBlock {
     first_slot: u32,
     bits: u64,
 }
 
-
 #[derive(Clone, Copy, Debug)]
 struct PendingBlock {
     key: u64,
     block: GramBlock,
 }
-
 
 #[derive(Clone, Copy, Debug)]
 struct ColumnSpan {
@@ -633,13 +848,11 @@ struct ColumnSpan {
     len: u32,
 }
 
-
 #[derive(Default)]
 struct PackedColumns {
     spans: Vec<ColumnSpan>,
     blocks: Vec<GramBlock>,
 }
-
 
 struct PackedChunk {
     /// Positions in both payloads remain local to this chunk until conversion.
@@ -648,7 +861,6 @@ struct PackedChunk {
     normal: PackedColumns,
     skip: PackedColumns,
 }
-
 
 pub(crate) fn storage_diagnostic_enabled() -> bool {
     #[cfg(not(feature = "detailed-profiling"))]
@@ -666,7 +878,6 @@ pub(crate) fn storage_diagnostic_enabled() -> bool {
 fn diagnostic_elapsed_ns(started: Option<Instant>) -> u64 {
     started.map_or(0, |started| started.elapsed().as_nanos() as u64)
 }
-
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub(crate) struct BigramConstructionStats {
@@ -706,7 +917,6 @@ pub(crate) struct BigramConstructionStats {
     pub validation_ns: u64,
     pub admission_merge_ns: u64,
 }
-
 
 impl BigramConstructionStats {
     pub fn absorb(&mut self, other: Self) {
@@ -776,7 +986,6 @@ impl BigramConstructionStats {
     }
 }
 
-
 #[derive(Default)]
 struct BigramWorkCounters {
     gram_set_lookups: u64,
@@ -789,7 +998,6 @@ struct BigramWorkCounters {
     validation_ns: u64,
     admission_merge_ns: u64,
 }
-
 
 impl BigramWorkCounters {
     fn absorb(&mut self, other: Self) {
@@ -809,7 +1017,6 @@ impl BigramWorkCounters {
     }
 }
 
-
 /// Construction-only grams. Each admitted batch owns contiguous per-column
 /// word spans and one global base; admission never rebases individual words.
 pub(crate) struct BigramContribution {
@@ -825,7 +1032,6 @@ pub(crate) struct BigramContribution {
     pending_peak_capacity_bytes: usize,
     work: Option<Box<BigramWorkCounters>>,
 }
-
 
 impl BigramContribution {
     pub(crate) fn alphabet(&self) -> BigramAlphabet {
@@ -976,6 +1182,8 @@ impl BigramContribution {
             storage: None,
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
+            leaf_directory: HashMap::new(),
+            leaf_loader: None,
         })
     }
 
@@ -997,10 +1205,11 @@ impl BigramContribution {
             storage: None,
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
+            leaf_directory: HashMap::new(),
+            leaf_loader: None,
         })
     }
 }
-
 
 fn validate_columns(columns: &PackedColumns, count: u32) -> Result<(), String> {
     let mut next_start = 0usize;
@@ -1107,12 +1316,10 @@ fn pack_columns(
     Ok(packed)
 }
 
-
 struct BasedColumns {
     base: u32,
     columns: PackedColumns,
 }
-
 
 fn split_chunks(chunks: Vec<PackedChunk>) -> (Vec<BasedColumns>, Vec<BasedColumns>) {
     let mut normal = Vec::with_capacity(chunks.len());
@@ -1157,7 +1364,6 @@ fn convert_blocks(chunks: Vec<BasedColumns>) -> Result<HashMap<u64, RoaringBitma
     Ok(result)
 }
 
-
 /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
 /// domain; Unicode keeps only keys touched by the current chunk.
 enum GramWords {
@@ -1167,7 +1373,6 @@ enum GramWords {
     },
     Unicode(HashMap<u64, u64>),
 }
-
 
 impl GramWords {
     fn new(alphabet: BigramAlphabet) -> Self {
@@ -1264,7 +1469,6 @@ impl GramWords {
     }
 }
 
-
 /// Construction-only state; completed indexes retain the existing format.
 /// The builder can start at any final slot and publishes each touched gram
 /// once per chunk, with record bits mapped to final slots at publication.
@@ -1276,7 +1480,6 @@ pub(crate) struct BigramBuilder {
     chunk_len: u32,
     storage_diagnostic: bool,
 }
-
 
 impl BigramBuilder {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -1467,7 +1670,6 @@ impl BigramBuilder {
         self.finish_blocks()?.into_index_serial()
     }
 }
-
 
 #[cfg(test)]
 #[path = "bigram.test.rs"]

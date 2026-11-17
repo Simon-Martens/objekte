@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::fmt;
+use std::any::Any;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
 
@@ -114,10 +115,30 @@ pub struct CacheTrimReport {
     pub retained_pinned_bytes: u64,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub(crate) struct CacheEntry {
-    pub bytes: Arc<[u8]>,
+    pub value: CacheValue,
     pub serialized_bytes: u64,
+}
+
+#[derive(Clone)]
+pub(crate) enum CacheValue {
+    Serialized(Arc<[u8]>),
+    Decoded(Arc<dyn Any + Send + Sync>),
+}
+
+impl fmt::Debug for CacheEntry {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let kind = match self.value {
+            CacheValue::Serialized(_) => "serialized",
+            CacheValue::Decoded(_) => "decoded",
+        };
+        formatter
+            .debug_struct("CacheEntry")
+            .field("kind", &kind)
+            .field("serialized_bytes", &self.serialized_bytes)
+            .finish()
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -152,16 +173,47 @@ impl StorageCache {
 
     pub(crate) fn get(&self, key: &CacheKey) -> Option<Arc<[u8]>> {
         let entry = self.entries.lock().ok()?.get(key).cloned()?;
+        let CacheValue::Serialized(bytes) = entry.value else {
+            return None;
+        };
         self.stats.hits.fetch_add(1, Ordering::Relaxed);
-        Some(entry.bytes)
+        Some(bytes)
+    }
+
+    pub(crate) fn get_decoded<T>(&self, key: &CacheKey) -> Option<Arc<T>>
+    where
+        T: Any + Send + Sync,
+    {
+        let entry = self.entries.lock().ok()?.get(key).cloned()?;
+        let CacheValue::Decoded(value) = entry.value else {
+            return None;
+        };
+        let value = value.downcast::<T>().ok()?;
+        self.stats.hits.fetch_add(1, Ordering::Relaxed);
+        Some(value)
     }
 
     pub(crate) fn record_miss(&self) {
         self.stats.misses.fetch_add(1, Ordering::Relaxed);
     }
 
+    pub(crate) fn record_miss_by(&self, count: u64) {
+        self.stats.misses.fetch_add(count, Ordering::Relaxed);
+    }
+
     pub(crate) fn insert(&self, key: CacheKey, bytes: Arc<[u8]>) {
         let length = bytes.len() as u64;
+        self.insert_value(key, CacheValue::Serialized(bytes), length);
+    }
+
+    pub(crate) fn insert_decoded<T>(&self, key: CacheKey, value: Arc<T>, bytes: u64)
+    where
+        T: Any + Send + Sync,
+    {
+        self.insert_value(key, CacheValue::Decoded(value), bytes);
+    }
+
+    fn insert_value(&self, key: CacheKey, value: CacheValue, length: u64) {
         if let CachePolicy::Budget { resident_bytes } = self.policy
             && length > resident_bytes.get()
         {
@@ -196,7 +248,7 @@ impl StorageCache {
         let replaced = entries.insert(
             key,
             CacheEntry {
-                bytes,
+                value,
                 serialized_bytes: length,
             },
         );
