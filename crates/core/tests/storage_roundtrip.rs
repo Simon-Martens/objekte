@@ -370,8 +370,17 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     .unwrap();
     let cold = reopened.storage_status().unwrap();
     assert_eq!(cold.index_reads, 2);
+    assert_eq!(cold.source_reads, 0);
+    assert_eq!(cold.source_parses, 0);
     assert_eq!(cold.compatibility_file_row_bytes, 0);
     assert_eq!(cold.compatibility_record_row_bytes, 0);
+    assert!(
+        reopened
+            .view()
+            .unwrap()
+            .file_handle_for_path(&root.join("data/a.json"))
+            .is_some()
+    );
 
     let mut request = all_records();
     request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
@@ -1925,6 +1934,79 @@ fn relation_payload_loads_only_for_a_relation_query_after_reopen() {
             .collect::<Vec<_>>(),
         ["m1"]
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn relation_forward_backlink_and_related_sort_matrix_survives_reopen() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-storage-relation-matrix-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("entries")).unwrap();
+    std::fs::create_dir_all(root.join("mentions")).unwrap();
+    std::fs::create_dir_all(root.join("storage")).unwrap();
+    std::fs::write(root.join("entries/a.json"), br#"{"id":"A","title":"Hymn"}"#).unwrap();
+    std::fs::write(
+        root.join("entries/b.json"),
+        br#"{"id":"B","title":"Festival"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m1.json"),
+        br#"{"id":"m1","title":"One","entry":"A"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        br#"{"id":"m2","title":"Two","entry":"B"}"#,
+    )
+    .unwrap();
+    let definitions = relation_definitions();
+    let mut queries = Vec::new();
+    for (collection, filter) in [
+        ("mentions", "entry.title = 'Hymn'"),
+        ("mentions", "entry = 'B'"),
+        ("entries", "mentions.title = 'One'"),
+    ] {
+        let mut request = all_records();
+        request.collections = vec![collection.into()];
+        request.filter = Some(parse_filter(filter).unwrap());
+        queries.push(request);
+    }
+    let mut related_sort = all_records();
+    related_sort.collections = vec!["mentions".into()];
+    related_sort.options.sort = vec![SortField::simple("entry.title", false)];
+    queries.push(related_sort);
+
+    let mut native =
+        Repository::open_with_options(&root, definitions.clone(), RepositoryOptions::default())
+            .unwrap();
+    let expected = queries
+        .iter()
+        .map(|query| native.search(query).unwrap())
+        .collect::<Vec<_>>();
+    native
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(native);
+    let reopened = Repository::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    for (query, expected) in queries.iter().zip(expected) {
+        let actual = reopened.search(query).unwrap();
+        assert_eq!(actual.count, expected.count, "{query:?}");
+        assert_eq!(actual.hits, expected.hits, "{query:?}");
+    }
     std::fs::remove_dir_all(root).unwrap();
 }
 

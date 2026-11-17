@@ -3,8 +3,8 @@ S01	pass	storage_roundtrip::native_build_and_memory_archive_do_not_touch_storage
 S02	pass	storage_roundtrip::native_build_and_memory_archive_do_not_touch_storage_files	Explicit in-memory archive creates no files and preserves result identity.
 S03	partial	storage_roundtrip::explicit_save_reopens_a_complete_searchable_snapshot	Eager rows restore and search, but the snapshot is still serialized JSON chunks.
 S04	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Open counters show lazy payloads untouched; an explicit eager leaf catalog is still absent.
-S05	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Source-free restore is covered; a dedicated open source-I/O prohibition counter is pending.
-S06	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Metadata lookup and status are covered without payloads.
+S05	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Eager open reports zero source reads and parses; source-free compaction reinforces the same boundary.
+S06	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Exact file-path lookup and index-capability inspection succeed immediately after eager open without payload reads.
 S07	pass	storage_roundtrip::explain_does_not_read_selected_lazy_payloads	EXPLAIN remains successful after every selected lazy posting/FTS/sort/relation payload is corrupted.
 S08	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	An equality filter loads the field dictionary and one selected posting leaf; unrelated fields and sort/FTS payloads remain cold.
 S09	pass	storage_roundtrip::presence_and_null_queries_do_not_open_value_or_text_payloads	Presence and scalar-null queries use eager state masks with no lazy payload reads.
@@ -24,7 +24,7 @@ S22	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storag
 S23	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Null, missing, empty-array and multi-value predicates match native state after reopen.
 S24	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Large and sub-ULP decimal equality/ranges and descending sort retain exact values.
 S25	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Tie, missing/null placement, both directions and an explicit composite order match native state.
-S26	partial	storage_roundtrip::relation_payload_loads_only_for_a_relation_query_after_reopen	Base relation payload is lazy and round-trips; full relation oracle matrix after reopen is pending.
+S26	pass	storage_roundtrip::relation_forward_backlink_and_related_sort_matrix_survives_reopen	Forward relations, exact target IDs, backlinks and related sorting match native results after lazy reopen.
 S27	pass	storage_roundtrip::normal_skip_and_raw_fallback_fts_match_after_reopen	Normal/skip grams, ASCII/Unicode folding and malformed raw fallback preserve hit identity after reopen.
 S28	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its store lease and performs a first lazy FTS load after root replacement.
 S29	pending	none	Reclamation of converted native key maps is not allocator-verified.
