@@ -1,0 +1,3 @@
+alphabet	sample	elapsed_ns	index_reads	index_bytes	file_rows	record_rows	index_descriptors	leaf_rows	rss_bytes	peak_rss_bytes
+ascii	0	1292858011	39	367452992	148486	148486	1256	238150	1665699840	2013229056
+ascii	1	1402072473	39	367452992	148486	148486	1256	238150	1785200640	2181570560

@@ -6,87 +6,119 @@ Task: `catalog-led-lazy-storage`
 
 Integration branch: `integration/catalog-led-lazy-storage`
 
-Implementation revision covered by this report:
-
-`38cb8e808f`
+Final implementation revision: `ee52c8239c56fbe82b7c67a0e9b368dc4d9b8d8d`
 
 Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 
+Worktree: `/home/simon/source/objekte-integration-catalog-led-lazy-storage`
+
 ## Verdicts
 
-| Area | Verdict | Evidence |
+| Area | Verdict | Evidence and boundary |
 | --- | --- | --- |
-| Correctness | Pass for the exercised round trips | Native and reopened search, mutation, compaction, relation, FTS, sort and empty-index tests pass. |
-| Eagerness/laziness | Partial | Eager open performs no selected payload reads and `EXPLAIN` is payload-independent. FTS, posting values/state, and configured sort columns use independent lazy units. |
-| Durability | Partial | Dependencies are synchronized before `CURRENT`, uncertain root sync is classified, and interrupted staging is pruned. Deterministic fault injection and process-abort barriers are not implemented. |
-| Lifecycle/mutations | Pass for the exercised cases | Add, delete, replace, move, multi-generation save and source-free compaction pass. The required 128-step model matrix is not implemented. |
-| Native construction | Pass structurally | Native build and memory-only archive create no storage files and serialize no storage payload. No new release construction comparison was run after this repair. |
-| Warm-query overhead | Pass in the bounded smoke benchmark | Stored FTS executes through the indexed planner; repeated Q001 and Q119 produced no additional index reads. |
-| Cold-query latency | Partial | Selected FTS leaves load lazily and coalesce. Other posting leaves remain field-coarse and sort payloads remain collection-coarse. |
-| Memory | Partial | Cache trim/reload and shared decoded FTS leaves are covered. Full ownership/pinning, eviction and allocator accounting are incomplete. |
-| Disk amplification | Partial | Deletion-only saves leave payload packs untouched and fresh-store export is self-contained. Object-size and fragmentation matrices are incomplete. |
+| Correctness | Pass for implemented behavior | Native, reopened, resident-archived, mixed, mutation, compaction, relation, FTS and sort semantic comparisons pass. The full workspace suite passes. |
+| Eagerness/laziness | Partial | Eager open has zero lazy payload/source reads. Posting, FTS, sort and base relation payloads are selected lazily. Presence/null state remains eager, segment-local relation metadata is coarse, and snapshot decode still uses JSON inside checked rkyv frames. |
+| Durability | Pass for the supported prototype environment | Dependency ordering, file/directory synchronization, failure stages, `CommitUncertain`, two-writer fencing and child-process abort barriers are tested on local Linux. No physical power-loss claim is made. |
+| Lifecycle/mutations | Pass for exercised cases | Add, replace, delete, move, multi-generation save/reopen, mixed native/cold state, source-free full compaction and a deterministic 128-step sequence pass. |
+| Native construction | Pass structurally | Native build and memory-only archive create no storage files and perform no implicit storage serialization. A full paired P/S construction benchmark was not run. |
+| Warm-query overhead | Partial | The final smoke run adds no index reads after warm-up for Q001/Q119. The complete 150-query/warm-native comparison matrix was not run. |
+| Cold-query latency | Pass in the bounded smoke | Q001 first selected storage query was 14.36 ms and Q119 was 6.97 ms after a 1.29 s search-ready open. This is not a full cold-query matrix. |
+| Memory | Measured limitation | Eager open reached approximately 1.79 GiB RSS and 2.18 GiB peak in the smoke run. The 64-byte payload-budget test proves eviction/reload behavior, but eager metadata dominates this corpus. |
+| Disk amplification | Measured, partial | The smoke snapshot used 516.66 MB referenced storage: 85.00 MB metadata and 431.66 MB payload packs. Deletion-only and unchanged-object reuse pass; the full object-amplification matrix was not run. |
 
-## Implemented repairs
+## Implementation
 
-- Stored FTS dictionaries are separated from normal/skip Roaring leaves. A missing
-  gram returns an empty candidate set without reading sibling leaves.
-- Stored posting dictionaries contain dense key ordinals and independently addressed
-  value, length and structural leaves. An equality filter loads one selected posting
-  leaf, and concurrent first access shares both the dictionary and leaf load.
-- Selected posting/FTS/sort/relation I/O failures propagate through query execution
-  rather than being interpreted as an absent index.
-- `EXPLAIN` remains metadata-only after every selected lazy payload is corrupted.
-- Unsorted queries and sort binding do not force lazy sort payload loads.
-- Reopened stores retain all referenced immutable packs across resaves and exports.
-- Same-store deletion-only saves avoid reading or rewriting unchanged payload packs.
-- Destination bindings are tracked per explicit storage directory, so exporting a
-  copy does not discard the original store binding.
-- Staging names are create-new and retry-safe; offline prune removes only recognized
-  interrupted staging files and leaves unrelated files untouched.
-- Existing writer locks and positioned reads use portable standard-library APIs.
-- Relations have a checked lazy payload path and selected relation queries load it.
-- Eager open remains source-free and payload-free, while selected reads are bounded
-  by the configured concurrent-read permit.
-- Empty completed snapshots, source-root incompatibility, corrupt-current pruning,
-  native no-storage behavior and in-memory archive behavior have explicit tests.
+The storage backend now implements:
+
+- Explicit `archive_to`, `open_storage`, status, cache trim, audit and prune APIs
+  without changing ordinary native build or memory-only archive behavior.
+- A fixed-envelope object store with content-addressed metadata/payload objects,
+  `CURRENT`, writer/readers locks, durable `CURRENT` replacement and commit-uncertain
+  classification.
+- Separate checked rkyv file, record, index and leaf catalogs validated before a
+  searchable root is published. The leaf catalog records pack identity, range,
+  cardinality, decoded-size estimate and SHA-256 for independent Roaring leaves.
+- Per-field, inferred and custom posting dictionaries with independently selected
+  value, length and structural Roaring leaves.
+- Per-binding normal/skip FTS dictionaries with independent gram leaves, bounded
+  coalescing, cardinality ordering, early empty-intersection termination and checked
+  decode.
+- Independent sort key/order frames per configured column and composite order.
+- Lazy base relation payload loading with source-free relation/backlink round trips.
+- Query-level cache pins, race-safe trim enforcement, post-unpin budget enforcement,
+  weak stored-leaf ownership, oversize bypass, decoded cache accounting and a bounded
+  64-entry pack-handle cache.
+- Source-free reopen and compaction, mutation persistence, unchanged-object reuse,
+  deletion-only payload reuse, cold export and offline whole-object pruning.
+- Deterministic fault injection for object write/sync/install and `CURRENT`
+  write/sync/rename, a sync trace and a child-process abort barrier.
+
+The component-by-component classification is in
+`component-coverage.md`. S01-S80 evidence is in `test-matrix.tsv`.
 
 ## Validation
 
-Commands completed in the integration worktree:
+Commands completed at the final code revision:
 
 ```sh
+cargo fmt --all -- --check
 cargo check --workspace --all-targets
-cargo test -p objekte-search-core
 cargo test --workspace
 cargo test --release -p objekte-search-core --test storage_roundtrip
 ```
 
-Results:
+Outcomes:
 
+- Formatting: passed.
 - Workspace all-target check: passed.
-- Core: 601 unit tests passed, 17 ignored; all core integration and doc tests passed.
-- Workspace: all CLI, desktop, core, integration, process and doc tests passed.
-- Release storage round trips: 27 passed.
+- Workspace tests: passed. Core: 617 passed, 17 ignored. CLI, desktop, integration,
+  process and doc tests also passed.
+- Release storage round trips: 59 passed.
+- The cache-pin unit test and the finite-budget posting-leaf reload test passed.
+- An initial workspace run hit one timing-sensitive archive-cancellation test under
+  full parallel load. The test passed immediately in isolation and in the final full
+  workspace rerun; no functional failure remained.
 
-The bounded Musenalm smoke evidence is recorded in
-`storage-smoke-benchmark.md`. It is not a substitute for the complete 150-query,
-worker, mutation, cache-budget and memory matrices required by the specification.
+## Benchmark evidence
 
-## Remaining acceptance work
+The authorized final smoke command and all raw samples are recorded in
+`storage-smoke-benchmark.md`. Summary files are committed beside the raw TSV samples.
 
-The prototype is not ready to be represented as full specification completion.
-`test-matrix.tsv` currently records 45 passing, 15 partial and 20 pending rows.
-The principal remaining gaps are:
+Key results:
 
-- replace the JSON snapshot body with independently archived eager catalog/map
-  schemas and persisted shard reuse;
-- split segment-local relation contributions into independently loaded payloads;
-- add the complete lease/pinning, permanent-failure, cancellation and file-handle
-  cache model;
-- add deterministic `StorageIo` fault injection, process-abort transaction barriers
-  and sync trace tests;
-- run the required full construction, save, open, query, mutation, compaction,
-  cache-budget, memory and object-size matrices from raw samples.
+- Completed native build: 805.91 ms.
+- Explicit memory-only archive: 314.55 ms.
+- First synchronized save: 2.76 s; 1,077 new objects and 1 object reused.
+- Search-ready open: 1.29 s and 1.40 s for two samples, with 39 metadata reads,
+  zero lazy payload reads and zero source reads/parses.
+- Q001: native 7.09 ms, reopened first 14.36 ms, warm median 9.10 ms, count 3,269.
+- Q119: native 6.19 ms, reopened first 6.97 ms, warm median 6.81 ms, count 133,948.
+- Every storage result digest matched its native result.
+- Offline audit verified all 1,077 reachable objects with no error.
 
-These are implementation/validation gaps, not failures hidden by the passing test
-suite.
+## Approved deviations and limitations
+
+- The user authorized the smaller Q001/Q119 smoke benchmark. The full 150-query,
+  ASCII/Unicode, worker, mutation, compaction and seven-process acceptance matrices
+  are unmeasured for this task revision.
+- Presence/null/empty-selection masks are still eager. Independent query-state leaves
+  are not implemented.
+- Segment-local relation contributions remain coarser than independent endpoint
+  payloads.
+- Eager metadata is archived as four checked rkyv catalogs, but runtime snapshot
+  detail is still JSON carried in bounded rkyv frames. Search-ready open therefore
+  performs a substantial eager decode and its measured memory floor is high.
+- FTS remains conservative and retains source verification for exact text, regex or
+  evidence requirements.
+- The supported persistence claim is Linux local-filesystem, 64-bit only. NFS,
+  distributed filesystems and Windows crash durability are not claimed.
+- The measurement uses an empty application payload cache; OS page-cache state was not
+  controlled. No physical machine-crash experiment was performed.
+
+These limitations are correctness-preserving implementation and measurement gaps.
+They are not represented as passed performance or schema requirements.
+
+## Integration state
+
+All work is committed and pushed on the integration branch. The integration worktree
+and branch are retained for user review. No merge into `master` was performed.

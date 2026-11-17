@@ -1,0 +1,5 @@
+alphabet	budget_mib	step	case_id	elapsed_ns	count	index_reads	index_bytes	cache_hits	cache_misses	cache_evictions	resident_bytes	pinned_bytes
+ascii	64	1	Q001	14293452	3269	253	372896910	0	184	0	1070230	0
+ascii	64	2	Q119	8392654	133948	253	372896910	0	184	0	1070230	0
+ascii	256	1	Q001	13418716	3269	253	372896910	0	184	0	1070230	0
+ascii	256	2	Q119	7590468	133948	253	372896910	0	184	0	1070230	0

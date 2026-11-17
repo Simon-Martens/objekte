@@ -1,0 +1,2 @@
+alphabet	variant	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	bytes_serialized	bytes_written	objects_new	objects_reused	sync_calls
+ascii	first_save	1	2759753145	2759753145	2759753145	519038336	434041128	1077	1	4

@@ -1,0 +1,11 @@
+alphabet	case_id	state	index_reads	index_bytes	cache_hits	cache_misses	cache_joins	cache_evictions	resident_bytes	pinned_bytes
+ascii	Q001	reopened_warm	253	372896910	184	184	0	0	1070230	0
+ascii	Q001	reopened_warm	253	372896910	368	184	0	0	1070230	0
+ascii	Q001	reopened_warm	253	372896910	552	184	0	0	1070230	0
+ascii	Q001	reopened_warm	253	372896910	736	184	0	0	1070230	0
+ascii	Q001	reopened_warm	253	372896910	920	184	0	0	1070230	0
+ascii	Q119	reopened_warm	253	372896910	920	184	0	0	1070230	0
+ascii	Q119	reopened_warm	253	372896910	920	184	0	0	1070230	0
+ascii	Q119	reopened_warm	253	372896910	920	184	0	0	1070230	0
+ascii	Q119	reopened_warm	253	372896910	920	184	0	0	1070230	0
+ascii	Q119	reopened_warm	253	372896910	920	184	0	0	1070230	0

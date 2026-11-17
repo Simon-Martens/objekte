@@ -1,0 +1,2 @@
+alphabet	workers	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	peak_rss_bytes
+ascii	32	1	805910122	805910122	805910122	746618880

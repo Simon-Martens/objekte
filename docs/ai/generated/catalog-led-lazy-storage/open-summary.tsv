@@ -1,0 +1,2 @@
+alphabet	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	index_reads	index_bytes	file_rows	record_rows	index_descriptors	leaf_rows	peak_rss_bytes
+ascii	2	1347465241	1292858011	1402072473	39	367452992	148486	148486	1256	238150	2181570560

@@ -10,7 +10,7 @@
     "30185637b6"
   ],
   "integration_branch": "integration/catalog-led-lazy-storage",
-  "storage_backend_revision": "9fadf6fd192fa0757ab545b5981378d7ada937c7",
+  "storage_backend_revision": "ee52c8239c56fbe82b7c67a0e9b368dc4d9b8d8d",
   "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
   "prerequisite_status": {
     "native_search_ready_publication": true,
