@@ -4466,6 +4466,25 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
+    if query.fts.is_some()
+        && repo.collections.iter().any(|collection| {
+            collection.raw.is_stored()
+                || collection.fallback_text.is_stored()
+                || collection
+                    .custom_text
+                    .values()
+                    .any(crate::bigram::BigramIndex::is_stored)
+        })
+    {
+        for collection in &repo.collections {
+            collection.raw.ensure_storage_loaded()?;
+            collection.fallback_text.ensure_storage_loaded()?;
+            for index in collection.custom_text.values() {
+                index.ensure_storage_loaded()?;
+            }
+        }
+        return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
+    }
     query
         .options
         .offset
@@ -11042,11 +11061,7 @@ fn try_inferred_segment_order_page(
     traces: Option<&mut Vec<QueryPlanTrace>>,
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<SearchResult>, String> {
-    if query.fts.is_some()
-        && prepared.collections.iter().any(|(index, _, fts)| {
-            fts.is_some() && repo.collections[*index].raw.is_stored()
-        })
-    {
+    if query.fts.is_some() {
         return Ok(None);
     }
     if query.options.sort.len() != 1

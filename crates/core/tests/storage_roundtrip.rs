@@ -1,7 +1,9 @@
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::{CompactionMode, CompactionOptions};
 use objekte_search_core::model::LogicalType;
-use objekte_search_core::query::{Query, QueryOptions, parse_filter};
+use objekte_search_core::query::{
+    CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
+};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
@@ -563,6 +565,49 @@ fn corrupt_current_and_missing_lazy_objects_have_distinct_outcomes() {
         .search(&request)
         .expect_err("a missing selected payload must fail the query");
     assert!(error.contains("No such file") || error.contains("cannot find"));
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn full_text_payload_reopens_lazily_and_preserves_results() {
+    let root = fixture_root("fts");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let mut request = all_records();
+    request.options.count = false;
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    let native = index.view().unwrap().search(&request).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let restored = reopened.view().unwrap().search(&request).unwrap();
+    assert_eq!(
+        restored
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        native
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>()
+    );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
