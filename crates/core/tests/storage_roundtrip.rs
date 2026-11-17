@@ -611,6 +611,33 @@ fn lazy_payload_read_limits_fail_at_selection_not_open() {
 }
 
 #[test]
+fn explicit_cache_trim_releases_serialized_staging_entries() {
+    let root = fixture_root("trim");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    reopened.view().unwrap().search(&request).unwrap();
+    assert!(reopened.storage_status().unwrap().cache.resident_bytes > 0);
+    let trimmed = reopened.trim_storage_cache().unwrap();
+    assert!(trimmed.evicted_bytes > 0);
+    assert_eq!(reopened.storage_status().unwrap().cache.resident_bytes, 0);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
     let root = fixture_root("export");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
