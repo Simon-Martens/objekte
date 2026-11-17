@@ -1888,7 +1888,7 @@ fn fts_covered_target(fts: Option<&BoundFts>) -> String {
 }
 
 fn regex_prefilter_reason(
-    collection: &crate::repository::CollectionState,
+    _collection: &crate::repository::CollectionState,
     fts: Option<&BoundFts>,
 ) -> Option<String> {
     let fts = fts?;
@@ -1903,11 +1903,7 @@ fn regex_prefilter_reason(
     {
         return Some("regex has no bounded necessary literal; scanner fallback".into());
     }
-    if estimate_fts_candidates(collection, fts).is_none() {
-        Some("regex has no usable grams or compatible index coverage; scanner fallback".into())
-    } else {
-        Some("regex uses necessary folded grams; exact verification remains".into())
-    }
+    Some("regex uses necessary folded grams; exact verification remains".into())
 }
 
 /// Observed source and predicate work for one plan.
@@ -4662,10 +4658,11 @@ fn search_segmented_impl(
             &mut winner_bytes,
         )?;
     }
-    if context.is_none()
+    let exact_ordered = if context.is_none()
         && retained_budget.is_none()
         && cache_key.is_none()
-        && let Some(ordered) = try_exact_segment_ordered_page(
+    {
+        try_exact_segment_ordered_page(
             repo,
             query,
             &sort,
@@ -4676,7 +4673,10 @@ fn search_segmented_impl(
             &prepared.collections,
             &counters,
         )?
-    {
+    } else {
+        None
+    };
+    if let Some(ordered) = exact_ordered {
         return Ok(ordered);
     }
     let mut delta_opened = HashSet::new();
@@ -11042,6 +11042,13 @@ fn try_inferred_segment_order_page(
     traces: Option<&mut Vec<QueryPlanTrace>>,
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<SearchResult>, String> {
+    if query.fts.is_some()
+        && prepared.collections.iter().any(|(index, _, fts)| {
+            fts.is_some() && repo.collections[*index].raw.is_stored()
+        })
+    {
+        return Ok(None);
+    }
     if query.options.sort.len() != 1
         || query.fts.is_some()
         || base_active.iter().any(|active| active.len() != 0)

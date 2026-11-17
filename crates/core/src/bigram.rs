@@ -519,7 +519,7 @@ impl BigramIndex {
 
     pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
         let this = self.payload();
-        if this.record_count == 0 {
+        if self.is_stored() && this.record_count == 0 {
             return None;
         }
         let grams = request.grams(this.alphabet);
@@ -557,7 +557,7 @@ impl BigramIndex {
         if self.is_stored() && self.loaded.get().is_none() {
             return (self.record_count != 0).then_some(u64::from(self.record_count));
         }
-        if self.record_count == 0 {
+        if self.is_stored() && self.record_count == 0 {
             return None;
         }
         request

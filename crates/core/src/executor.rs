@@ -2689,13 +2689,15 @@ fn prepare_fts_accesses<'a, 'b>(
         {
             return None;
         }
-        if indexes.raw_text.record_count != 0 {
+        if indexes.raw_text.record_count != 0 || !indexes.raw_text.is_stored() {
             probes.push(TextProbe {
                 index: indexes.raw_text,
                 request: &fts.gram_request,
             });
         }
-        if has_fallback && indexes.fallback_text.record_count != 0 {
+        if has_fallback
+            && (indexes.fallback_text.record_count != 0 || !indexes.fallback_text.is_stored())
+        {
             probes.push(TextProbe {
                 index: indexes.fallback_text,
                 request: &fts.fallback_gram_request,
@@ -2729,7 +2731,7 @@ fn prepare_fts_accesses<'a, 'b>(
                 logical_text_complete,
                 raw_field_compatible,
             )?;
-            if index.record_count == 0 {
+            if index.record_count == 0 && index.is_stored() {
                 continue;
             }
             probes.push(TextProbe {
