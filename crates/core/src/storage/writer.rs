@@ -17,6 +17,7 @@ const METADATA_OBJECT_KIND: u16 = 1;
 const PAYLOAD_OBJECT_KIND: u16 = 2;
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
+const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 
 fn bincode_options() -> impl bincode::Options {
     bincode::DefaultOptions::new()
@@ -193,6 +194,7 @@ fn externalize_posting_payloads(
         externalize_posting_collection(&mut collection.postings, objects)?;
         externalize_bigram(&mut collection.raw, objects)?;
         externalize_bigram(&mut collection.fallback_text, objects)?;
+        externalize_sorting(&mut collection.sorting, objects)?;
         for bigram in collection.custom_text.values_mut() {
             externalize_bigram(bigram, objects)?;
         }
@@ -211,6 +213,7 @@ fn externalize_posting_payloads(
             externalize_posting_collection(&mut segment.postings, objects)?;
             externalize_bigram(&mut segment.raw, objects)?;
             externalize_bigram(&mut segment.fallback_text, objects)?;
+            externalize_sorting(&mut segment.sorting, objects)?;
             for bigram in segment.custom_text.values_mut() {
                 externalize_bigram(bigram, objects)?;
             }
@@ -224,6 +227,31 @@ fn externalize_posting_payloads(
             }
         }
     }
+    Ok(())
+}
+
+fn externalize_sorting(
+    sorting: &mut crate::sorting::SortCollection,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    let payload = sorting
+        .archive_payload()
+        .map_err(StorageError::UnsupportedComponent)?;
+    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let object = format::envelope(SORT_PAYLOAD_OBJECT_KIND, &body);
+    let digest = format::sha256(&object);
+    let length = object.len() as u64;
+    objects.push((digest, object));
+    for column in sorting.columns.values_mut() {
+        column.keys.clear();
+        column.ascending.clear();
+        column.descending.clear();
+    }
+    for composite in &mut sorting.composites {
+        composite.order.clear();
+    }
+    sorting.payload = Some(crate::sorting::StoredSortPayloadRef { digest, length });
     Ok(())
 }
 

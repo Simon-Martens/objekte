@@ -50,6 +50,28 @@ impl<'de> Deserialize<'de> for ExactDecimal {
 
 
 impl ExactDecimal {
+    pub(crate) fn from_stored_parts(
+        negative: bool,
+        digits: String,
+        exponent: i64,
+    ) -> Result<Self, String> {
+        let bytes = digits.as_bytes();
+        let canonical_zero = bytes == b"0" && !negative && exponent == 0;
+        let canonical_nonzero = !bytes.is_empty()
+            && bytes.len() <= 4096
+            && bytes[0] != b'0'
+            && bytes[bytes.len() - 1] != b'0'
+            && bytes.iter().all(u8::is_ascii_digit);
+        if !canonical_zero && !canonical_nonzero {
+            return Err("invalid exact decimal representation".into());
+        }
+        Ok(Self {
+            negative,
+            digits,
+            exponent,
+        })
+    }
+
     pub fn parse(token: &str) -> Result<Self, String> {
         const MAX_SIGNIFICAND_DIGITS: usize = 4096;
         let bytes = token.as_bytes();

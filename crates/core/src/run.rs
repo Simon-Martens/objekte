@@ -194,11 +194,28 @@ struct ResolvedSort<'a> {
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+        for collection in repo.collections() {
+            if query.collections.is_empty()
+                || query.collections.contains(&collection.definition.name)
+            {
+                collection.sorting.ensure_storage_loaded()?;
+            }
+        }
         let bound = BoundSort::bind(repo, query)?;
         Ok(Self::from_bound(repo, query, bound))
     }
 
     fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
+        for collection in repo.collections() {
+            if query.collections.is_empty()
+                || query.collections.contains(&collection.definition.name)
+            {
+                collection
+                    .sorting
+                    .ensure_storage_loaded()
+                    .expect("stored sort collection must load before binding");
+            }
+        }
         let columns = repo
             .collections
             .iter()
@@ -2713,6 +2730,7 @@ fn segment_rank_key(
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("segment sort collection missing")?;
+    segment.sorting.ensure_storage_loaded()?;
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
         let key = match &term.source {
@@ -2753,15 +2771,12 @@ fn segment_compare_to_rank(
     if terms.len() != worst.parts.len() {
         return Err("segment sort rank arity mismatch".into());
     }
+    segment.sorting.ensure_storage_loaded()?;
     for (term, (other, _, _)) in terms.iter().zip(&worst.parts) {
         let BoundSortSource::Stored(base_column) = &term.source else {
             return Err("computed segment sort has no stored comparison".into());
         };
-        let column = segment
-            .sorting
-            .columns
-            .get(&base_column.path)
-            .ok_or("segment sort column missing")?;
+        let column = segment.sorting.column(&base_column.path.display())?;
         let key = column
             .keys
             .get(slot.0 as usize)
@@ -2862,6 +2877,7 @@ fn relation_rank_key_merged(
             BoundSortSource::Stored(column) => {
                 if let Some(segment_index) = address.segment {
                     let segment = &segments[collection_index][segment_index].index;
+                    segment.sorting.ensure_storage_loaded()?;
                     segment
                         .sorting
                         .column(&column.path.display())?
@@ -2870,6 +2886,9 @@ fn relation_rank_key_merged(
                         .ok_or("merged segment sort slot missing")?
                         .clone()
                 } else {
+                    repo.collections[collection_index]
+                        .sorting
+                        .ensure_storage_loaded()?;
                     column
                         .keys
                         .get(address.slot.0 as usize)
@@ -2998,6 +3017,10 @@ fn direct_related_target_sort_key(
     };
     let target_index = target.collection.0 as usize;
     let column = if let Some(segment_index) = target.segment {
+        segments[target_index][segment_index]
+            .index
+            .sorting
+            .ensure_storage_loaded()?;
         let Ok(column) = segments[target_index][segment_index]
             .index
             .sorting
@@ -3007,6 +3030,9 @@ fn direct_related_target_sort_key(
         };
         column
     } else {
+        repo.collections[target_index]
+            .sorting
+            .ensure_storage_loaded()?;
         let Ok(column) = repo.collections[target_index].sorting.column(path) else {
             return Ok(None);
         };
@@ -8686,6 +8712,7 @@ fn lifecycle_segment_order<'a>(
     query: &Query,
     collection_index: usize,
 ) -> Option<&'a [RecordSlot]> {
+    segment.sorting.ensure_storage_loaded().ok()?;
     if query.options.sort.len() > 1 {
         return segment
             .sorting
@@ -8699,7 +8726,10 @@ fn lifecycle_segment_order<'a>(
     let BoundSortSource::Stored(base_column) = &term.source else {
         return None;
     };
-    let column = segment.sorting.columns.get(&base_column.path)?;
+    let column = segment
+        .sorting
+        .column(&base_column.path.display())
+        .ok()?;
     Some(if term.descending {
         &column.descending
     } else {
@@ -11276,6 +11306,11 @@ fn try_stored_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
+    for (collection_index, _, _) in &prepared.collections {
+        repo.collections[*collection_index]
+            .sorting
+            .ensure_storage_loaded()?;
+    }
     if let Some(execution) = execution {
         execution.check_string()?;
     }

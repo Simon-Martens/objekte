@@ -22,6 +22,9 @@ use crate::posting::{
 };
 use crate::repository::{CollectionState, Repository};
 use crate::segment_archive::{FileLookup, RecordLookup, SegmentRows};
+use crate::sorting::{
+    SortArchivePayload, SortCollection, SortCollectionLoader, StoredSortPayloadRef,
+};
 use crate::storage::format::{self, StorageError};
 use crate::storage::model;
 use crate::storage::{
@@ -332,7 +335,10 @@ fn rebuild_repository(
                     .collect::<Result<_, StorageError>>()?,
             ),
             text_bindings: crate::index_catalog::TextBindingCatalog::new(&definition.schema),
-            sorting: Arc::new(stored.sorting.clone()),
+            sorting: Arc::new(sorting_from_storage(
+                stored.sorting.clone(),
+                Arc::clone(&session),
+            )?),
             index_family_bytes: 0,
             id_lookup: stored.id_lookup.iter().map(|(id, slot)| (id.clone(), *slot)).collect(),
             identity_order: Arc::new(stored.identity_order.clone()),
@@ -414,6 +420,7 @@ fn rebuild_repository(
 
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
+const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -474,6 +481,37 @@ impl BigramIndexLoader for StoredBigramLoader {
         let payload = rkyv::from_bytes::<BigramArchivePayload, rkyv::rancor::Error>(&aligned)
             .map_err(|error| format!("bigram payload decode failed: {error}"))?;
         BigramIndex::from_archive_payload(payload)
+    }
+}
+
+struct StoredSortLoader {
+    session: SharedStorageSession,
+    reference: StoredSortPayloadRef,
+}
+
+impl std::fmt::Debug for StoredSortLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredSortLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .field("length", &self.reference.length)
+            .finish()
+    }
+}
+
+impl SortCollectionLoader for StoredSortLoader {
+    fn load_sort_collection(&self) -> Result<SortCollection, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            SORT_PAYLOAD_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let payload = rkyv::from_bytes::<SortArchivePayload, rkyv::rancor::Error>(&aligned)
+            .map_err(|error| format!("sort payload decode failed: {error}"))?;
+        SortCollection::from_archive_payload(payload)
     }
 }
 
@@ -546,6 +584,16 @@ fn bigram_from_storage(
         snapshot.storage = Some(Arc::new(StoredBigramLoader { session, reference }));
     }
     Ok(snapshot)
+}
+
+fn sorting_from_storage(
+    mut sorting: SortCollection,
+    session: SharedStorageSession,
+) -> Result<SortCollection, StorageError> {
+    if let Some(reference) = sorting.payload {
+        sorting.storage = Some(Arc::new(StoredSortLoader { session, reference }));
+    }
+    Ok(sorting)
 }
 
 fn posting_collection_from_storage(
@@ -666,7 +714,10 @@ fn rebuild_segment(
         ),
         logical_records: snapshot.logical_records.clone(),
         empty_array_records: snapshot.empty_array_records.clone(),
-        sorting: Arc::new(snapshot.sorting.clone()),
+        sorting: Arc::new(sorting_from_storage(
+            snapshot.sorting.clone(),
+            session,
+        )?),
         relations: Arc::new(snapshot.relations.clone()),
         record_parses: snapshot.record_parses,
         failed_parses: snapshot.failed_parses,

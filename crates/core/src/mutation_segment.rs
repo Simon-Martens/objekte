@@ -1819,6 +1819,9 @@ fn project_sorting(
                 order: Vec::new(),
             })
             .collect(),
+        payload: None,
+        storage: None,
+        loaded: Arc::new(std::sync::OnceLock::new()),
     };
     for (path, original) in &source.columns {
         let mut column = SortColumn {
@@ -2070,6 +2073,9 @@ impl IndexedCollectionSegment {
                         order: Vec::new(),
                     })
                     .collect(),
+                payload: None,
+                storage: None,
+                loaded: Arc::new(std::sync::OnceLock::new()),
             })
             .collect::<Vec<_>>();
         for (path, original) in &self.sorting.columns {

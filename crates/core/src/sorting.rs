@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering;
 use std::collections::HashMap;
-use std::sync::Arc;
+use std::sync::{Arc, OnceLock};
 
 use icu_collator::{
     CollatorBorrowed, CollatorPreferences,
@@ -11,6 +11,7 @@ use icu_collator::{
 };
 use icu_locale_core::Locale;
 use roaring::RoaringBitmap;
+use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
@@ -560,6 +561,76 @@ fn append_inferred_group(
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
+    #[serde(default)]
+    pub(crate) payload: Option<StoredSortPayloadRef>,
+    #[serde(skip)]
+    pub(crate) storage: Option<Arc<dyn SortCollectionLoader>>,
+    #[serde(skip)]
+    pub(crate) loaded: Arc<OnceLock<Box<SortCollection>>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredSortPayloadRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+pub(crate) trait SortCollectionLoader: std::fmt::Debug + Send + Sync {
+    fn load_sort_collection(&self) -> Result<SortCollection, String>;
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+enum StoredSortKey {
+    Missing,
+    Unavailable,
+    Null,
+    String(Vec<u8>),
+    Id(String),
+    Integer(i128),
+    Float(f64),
+    ExactDecimal {
+        negative: bool,
+        digits: String,
+        exponent: i64,
+    },
+    Bool(bool),
+    Date {
+        year: i32,
+        month: u8,
+        day: u8,
+    },
+    Datetime {
+        unix_nanos: i128,
+        offset_seconds: i32,
+    },
+    Unixtime(i64),
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+struct StoredSortColumn {
+    path: String,
+    kind: String,
+    keys: Vec<StoredSortKey>,
+    ascending: Vec<u32>,
+    descending: Vec<u32>,
+    locale: String,
+    strength: u8,
+    numeric: bool,
+    nulls: u8,
+    missing: u8,
+    collation_version: String,
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+struct StoredComposite {
+    fields: Vec<(String, bool)>,
+    order: Vec<u32>,
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct SortArchivePayload {
+    columns: Vec<StoredSortColumn>,
+    composites: Vec<StoredComposite>,
 }
 
 /// Explicit composite order over compatible resident scalar columns.
@@ -588,7 +659,297 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
     })
 }
 
+fn encode_logical_type(kind: &LogicalType) -> String {
+    match kind {
+        LogicalType::Unknown => "unknown".into(),
+        LogicalType::String => "string".into(),
+        LogicalType::Id => "id".into(),
+        LogicalType::Number => "number".into(),
+        LogicalType::Bool => "bool".into(),
+        LogicalType::Date => "date".into(),
+        LogicalType::Datetime => "datetime".into(),
+        LogicalType::Unixtime => "unixtime".into(),
+        LogicalType::Object => "object".into(),
+        LogicalType::Array(inner) => format!("array:{}", encode_logical_type(inner)),
+    }
+}
+
+fn decode_logical_type(encoded: &str) -> Result<LogicalType, String> {
+    Ok(match encoded {
+        "unknown" => LogicalType::Unknown,
+        "string" => LogicalType::String,
+        "id" => LogicalType::Id,
+        "number" => LogicalType::Number,
+        "bool" => LogicalType::Bool,
+        "date" => LogicalType::Date,
+        "datetime" => LogicalType::Datetime,
+        "unixtime" => LogicalType::Unixtime,
+        "object" => LogicalType::Object,
+        array if array.starts_with("array:") => {
+            LogicalType::Array(Box::new(decode_logical_type(&array[6..])?))
+        }
+        other => return Err(format!("unknown stored sort logical type {other}")),
+    })
+}
+
+fn month_code(month: time::Month) -> u8 {
+    match month {
+        time::Month::January => 1,
+        time::Month::February => 2,
+        time::Month::March => 3,
+        time::Month::April => 4,
+        time::Month::May => 5,
+        time::Month::June => 6,
+        time::Month::July => 7,
+        time::Month::August => 8,
+        time::Month::September => 9,
+        time::Month::October => 10,
+        time::Month::November => 11,
+        time::Month::December => 12,
+    }
+}
+
+fn month_from_code(month: u8) -> Result<time::Month, String> {
+    Ok(match month {
+        1 => time::Month::January,
+        2 => time::Month::February,
+        3 => time::Month::March,
+        4 => time::Month::April,
+        5 => time::Month::May,
+        6 => time::Month::June,
+        7 => time::Month::July,
+        8 => time::Month::August,
+        9 => time::Month::September,
+        10 => time::Month::October,
+        11 => time::Month::November,
+        12 => time::Month::December,
+        _ => return Err(format!("invalid stored month {month}")),
+    })
+}
+
+fn encode_sort_key(key: &SortKey) -> StoredSortKey {
+    match key {
+        SortKey::Missing => StoredSortKey::Missing,
+        SortKey::Unavailable => StoredSortKey::Unavailable,
+        SortKey::Null => StoredSortKey::Null,
+        SortKey::String(value) => StoredSortKey::String(value.clone()),
+        SortKey::Id(value) => StoredSortKey::Id(value.clone()),
+        SortKey::Number(Number::Integer(value)) => StoredSortKey::Integer(*value),
+        SortKey::Number(Number::Float(value)) => StoredSortKey::Float(*value),
+        SortKey::Number(Number::ExactDecimal(value)) => StoredSortKey::ExactDecimal {
+            negative: value.negative,
+            digits: value.digits.clone(),
+            exponent: value.exponent,
+        },
+        SortKey::Bool(value) => StoredSortKey::Bool(*value),
+        SortKey::Date(value) => StoredSortKey::Date {
+            year: value.year(),
+            month: month_code(value.month()),
+            day: value.day(),
+        },
+        SortKey::Datetime(value) => StoredSortKey::Datetime {
+            unix_nanos: value.unix_timestamp_nanos(),
+            offset_seconds: value.offset().whole_seconds(),
+        },
+        SortKey::Unixtime(value) => StoredSortKey::Unixtime(*value),
+    }
+}
+
+fn decode_sort_key(key: StoredSortKey) -> Result<SortKey, String> {
+    Ok(match key {
+        StoredSortKey::Missing => SortKey::Missing,
+        StoredSortKey::Unavailable => SortKey::Unavailable,
+        StoredSortKey::Null => SortKey::Null,
+        StoredSortKey::String(value) => SortKey::String(value),
+        StoredSortKey::Id(value) => SortKey::Id(value),
+        StoredSortKey::Integer(value) => SortKey::Number(Number::Integer(value)),
+        StoredSortKey::Float(value) => SortKey::Number(Number::float(value)?),
+        StoredSortKey::ExactDecimal {
+            negative,
+            digits,
+            exponent,
+        } => SortKey::Number(Number::ExactDecimal(
+            crate::decimal::ExactDecimal::from_stored_parts(negative, digits, exponent)?,
+        )),
+        StoredSortKey::Bool(value) => SortKey::Bool(value),
+        StoredSortKey::Date { year, month, day } => {
+            SortKey::Date(
+                Date::from_calendar_date(year, month_from_code(month)?, day)
+                    .map_err(|error| error.to_string())?,
+            )
+        }
+        StoredSortKey::Datetime {
+            unix_nanos,
+            offset_seconds,
+        } => {
+            let instant = OffsetDateTime::from_unix_timestamp_nanos(unix_nanos)
+                .map_err(|error| error.to_string())?;
+            let offset = time::UtcOffset::from_whole_seconds(offset_seconds)
+                .map_err(|error| error.to_string())?;
+            SortKey::Datetime(instant.to_offset(offset))
+        }
+        StoredSortKey::Unixtime(value) => SortKey::Unixtime(value),
+    })
+}
+
+fn encode_strength(strength: CollationStrength) -> u8 {
+    match strength {
+        CollationStrength::LocaleDefault => 0,
+        CollationStrength::Primary => 1,
+        CollationStrength::Secondary => 2,
+        CollationStrength::Tertiary => 3,
+        CollationStrength::Quaternary => 4,
+        CollationStrength::Identical => 5,
+    }
+}
+
+fn decode_strength(value: u8) -> Result<CollationStrength, String> {
+    Ok(match value {
+        0 => CollationStrength::LocaleDefault,
+        1 => CollationStrength::Primary,
+        2 => CollationStrength::Secondary,
+        3 => CollationStrength::Tertiary,
+        4 => CollationStrength::Quaternary,
+        5 => CollationStrength::Identical,
+        _ => return Err(format!("invalid stored collation strength {value}")),
+    })
+}
+
+fn encode_placement(value: Placement) -> u8 {
+    match value {
+        Placement::First => 0,
+        Placement::Last => 1,
+    }
+}
+
+fn decode_placement(value: u8) -> Result<Placement, String> {
+    Ok(match value {
+        0 => Placement::First,
+        1 => Placement::Last,
+        _ => return Err(format!("invalid stored placement {value}")),
+    })
+}
+
 impl SortCollection {
+    pub(crate) fn archive_payload(&self) -> Result<SortArchivePayload, String> {
+        let mut columns = self
+            .columns
+            .values()
+            .map(|column| StoredSortColumn {
+                path: column.path.display(),
+                kind: encode_logical_type(&column.kind),
+                keys: column.keys.iter().map(encode_sort_key).collect(),
+                ascending: column.ascending.iter().map(|slot| slot.0).collect(),
+                descending: column.descending.iter().map(|slot| slot.0).collect(),
+                locale: column.locale.clone(),
+                strength: encode_strength(column.options.strength),
+                numeric: column.options.numeric,
+                nulls: encode_placement(column.options.nulls),
+                missing: encode_placement(column.options.missing),
+                collation_version: column.collation_version.clone(),
+            })
+            .collect::<Vec<_>>();
+        columns.sort_by(|left, right| left.path.cmp(&right.path));
+        Ok(SortArchivePayload {
+            columns,
+            composites: self
+                .composites
+                .iter()
+                .map(|composite| StoredComposite {
+                    fields: composite
+                        .fields
+                        .iter()
+                        .map(|part| (part.path.display(), part.descending))
+                        .collect(),
+                    order: composite.order.iter().map(|slot| slot.0).collect(),
+                })
+                .collect(),
+        })
+    }
+
+    pub(crate) fn from_archive_payload(payload: SortArchivePayload) -> Result<Self, String> {
+        let mut columns = HashMap::with_capacity(payload.columns.len());
+        for column in payload.columns {
+            let path = FieldPath::parse(&column.path)?;
+            columns.insert(
+                path.clone(),
+                SortColumn {
+                    path,
+                    kind: decode_logical_type(&column.kind)?,
+                    keys: column
+                        .keys
+                        .into_iter()
+                        .map(decode_sort_key)
+                        .collect::<Result<_, String>>()?,
+                    ascending: column.ascending.into_iter().map(RecordSlot).collect(),
+                    descending: column.descending.into_iter().map(RecordSlot).collect(),
+                    locale: column.locale,
+                    options: SortOptions {
+                        strength: decode_strength(column.strength)?,
+                        numeric: column.numeric,
+                        nulls: decode_placement(column.nulls)?,
+                        missing: decode_placement(column.missing)?,
+                    },
+                    collation_version: column.collation_version,
+                },
+            );
+        }
+        Ok(Self {
+            columns,
+            composites: payload
+                .composites
+                .into_iter()
+                .map(|composite| {
+                    Ok(CompositeSortOrder {
+                        fields: composite
+                            .fields
+                            .into_iter()
+                            .map(|(path, descending)| {
+                                Ok(CompositeSortPart {
+                                    path: FieldPath::parse(&path)?,
+                                    descending,
+                                })
+                            })
+                            .collect::<Result<_, String>>()?,
+                        order: composite.order.into_iter().map(RecordSlot).collect(),
+                    })
+                })
+                .collect::<Result<_, String>>()?,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
+        })
+    }
+
+    pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.storage.is_none() || self.loaded.get().is_some() {
+            return Ok(());
+        }
+        let mut loaded = self
+            .storage
+            .as_ref()
+            .expect("stored sort collection")
+            .load_sort_collection()?;
+        loaded.payload = None;
+        loaded.storage = None;
+        loaded.loaded = Arc::new(OnceLock::new());
+        if self.loaded.set(Box::new(loaded)).is_err() {
+            return Err("stored sort collection was concurrently initialized".into());
+        }
+        Ok(())
+    }
+
+    pub(crate) fn is_stored(&self) -> bool {
+        self.storage.is_some()
+    }
+
+    fn payload(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
+    }
+
     pub(crate) fn configuration_only(
         paths: &[FieldPath],
         schema: &Schema,
@@ -652,15 +1013,19 @@ impl SortCollection {
         Ok(Self {
             columns,
             composites,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         })
     }
 
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
+        let this = self.payload();
         let normalized = fields
             .iter()
             .map(simple_composite_part)
             .collect::<Option<Vec<_>>>()?;
-        self.composites
+        this.composites
             .iter()
             .find(|entry| entry.fields == normalized)
     }
@@ -923,6 +1288,9 @@ impl SortBuilder {
         Ok(SortCollection {
             columns: self.columns,
             composites,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
         })
     }
 }
@@ -1041,12 +1409,14 @@ impl SortCollection {
 
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
-        self.columns
+        self.payload()
+            .columns
             .get(&path)
             .ok_or_else(|| format!("sort field is not registered: {field}"))
     }
 
     pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
+        self.ensure_storage_loaded()?;
         self.column(field)?
             .keys
             .get(slot.0 as usize)
