@@ -405,6 +405,7 @@ impl BigramIndex {
         let mut leaf_directory = HashMap::with_capacity(payload.normal.len() + payload.skip.len());
         let mut previous_key = None;
         for (key, reference) in payload.normal {
+            validate_stored_bigram_leaf(&reference)?;
             if previous_key.is_some_and(|previous| key <= previous)
                 || leaf_directory.insert((false, key), reference).is_some()
             {
@@ -414,6 +415,7 @@ impl BigramIndex {
         }
         previous_key = None;
         for (key, reference) in payload.skip {
+            validate_stored_bigram_leaf(&reference)?;
             if previous_key.is_some_and(|previous| key <= previous)
                 || leaf_directory.insert((true, key), reference).is_some()
             {
@@ -812,6 +814,25 @@ impl BigramIndex {
         }
         Ok(bitmaps)
     }
+}
+
+fn validate_stored_bigram_leaf(reference: &StoredBigramLeafRef) -> Result<(), String> {
+    if reference.length == 0 {
+        if reference.offset != 0
+            || reference.cardinality != 0
+            || reference.decoded_bytes_estimate != 0
+            || reference.digest != [0; 32]
+        {
+            return Err("stored bigram dictionary has a malformed empty leaf".into());
+        }
+    } else if reference.offset < 64
+        || reference.cardinality == 0
+        || reference.decoded_bytes_estimate == 0
+        || reference.digest == [0; 32]
+    {
+        return Err("stored bigram dictionary has a malformed leaf descriptor".into());
+    }
+    Ok(())
 }
 
 fn ascii_pair(a: u8, b: u8) -> Option<u64> {

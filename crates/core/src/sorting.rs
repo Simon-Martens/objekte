@@ -334,6 +334,13 @@ impl SortColumn {
     }
 
     pub(crate) fn from_archive_payload(payload: StoredSortColumn) -> Result<Self, String> {
+        if payload.keys.len() != payload.ascending.len()
+            || payload.keys.len() != payload.descending.len()
+        {
+            return Err("stored sort column coverage mismatch".into());
+        }
+        validate_sort_slots(&payload.ascending, payload.keys.len())?;
+        validate_sort_slots(&payload.descending, payload.keys.len())?;
         Ok(Self {
             path: FieldPath::parse(&payload.path)?,
             kind: decode_logical_type(&payload.kind)?,
@@ -629,6 +636,23 @@ impl SortColumn {
     }
 }
 
+fn validate_sort_slots(slots: &[u32], expected: usize) -> Result<(), String> {
+    let mut seen = vec![false; expected];
+    for &slot in slots {
+        let index = slot as usize;
+        let Some(entry) = seen.get_mut(index) else {
+            return Err("stored sort slot is outside the segment domain".into());
+        };
+        if std::mem::replace(entry, true) {
+            return Err("stored sort order repeats a record slot".into());
+        }
+    }
+    if seen.iter().any(|visited| !visited) {
+        return Err("stored sort order does not cover the segment domain".into());
+    }
+    Ok(())
+}
+
 fn append_inferred_group(
     order: &mut Vec<RecordSlot>,
     slots: &RoaringBitmap,
@@ -745,6 +769,7 @@ impl CompositeSortOrder {
     }
 
     pub(crate) fn from_archive_payload(payload: StoredComposite) -> Result<Self, String> {
+        validate_sort_slots(&payload.order, payload.order.len())?;
         Ok(Self {
             fields: payload
                 .fields

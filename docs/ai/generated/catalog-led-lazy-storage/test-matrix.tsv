@@ -60,10 +60,10 @@ S58	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_bu
 S59	pass	storage_roundtrip::current_header_rejects_magic_version_flags_length_and_checksum_errors	Magic, version, flags, manifest length and checksum mutations are all rejected before publication.
 S60	partial	storage_roundtrip::corrupt_eager_catalog_chunk_fails_open_before_publication	Eager chunk digest corruption fails open; malformed cross-catalog route cases remain.
 S61	pass	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Missing lazy payload does not affect eager open and fails when selected.
-S62	partial	none	Dictionary/frame checks exist but reverse-directory disagreement lacks a storage test.
+S62	pass	posting::tests::rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement	Stored dictionary key order and leaf descriptors are checked; archived tree/reverse-directory disagreement is rejected.
 S63	pending	none	Per-leaf Roaring checksum/cardinality/domain checks exist; malformed trailing-byte matrix is pending.
-S64	pending	none	Sort validation remains frame-level and lacks the required negative cases.
-S65	pending	none	Extension/schema/normalization compatibility matrix is pending.
+S64	pass	sorting::tests::stored_sort_orders_reject_domain_repetition_and_coverage_errors	Sort frame loading rejects repeated slots, out-of-domain slots and coverage mismatches.
+S65	partial	storage_roundtrip::reopened_store_rejects_schema_and_indexing_changes	Schema and indexing identity changes fail open; reader/extension version variants remain to be exercised.
 S66	pending	none	Pre-CURRENT fault stages need deterministic StorageIo injection.
 S67	pass	storage::writer::tests::current_rename_failure_preserves_the_previous_commit	An injected rename failure preserves the previous CURRENT byte-for-byte.
 S68	pass	storage::writer::tests::post_rename_directory_sync_error_is_commit_uncertain	Post-rename directory sync failure is classified as CommitUncertain with generation and manifest identity.

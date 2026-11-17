@@ -45,6 +45,44 @@ fn archive_payload_round_trip_preserves_dictionary_and_candidates() {
     assert_eq!(restored.skip, index.skip);
 }
 
+#[test]
+fn stored_bigram_leaf_descriptors_reject_malformed_ranges_and_metadata() {
+    let valid = StoredBigramLeafRef {
+        offset: 64,
+        length: 8,
+        cardinality: 1,
+        decoded_bytes_estimate: 8,
+        digest: [1; 32],
+    };
+    validate_stored_bigram_leaf(&valid).unwrap();
+    for malformed in [
+        StoredBigramLeafRef { offset: 0, ..valid },
+        StoredBigramLeafRef { length: 0, ..valid },
+        StoredBigramLeafRef {
+            cardinality: 0,
+            ..valid
+        },
+        StoredBigramLeafRef {
+            decoded_bytes_estimate: 0,
+            ..valid
+        },
+        StoredBigramLeafRef {
+            digest: [0; 32],
+            ..valid
+        },
+    ] {
+        assert!(validate_stored_bigram_leaf(&malformed).is_err());
+    }
+    let empty = StoredBigramLeafRef {
+        offset: 0,
+        length: 0,
+        cardinality: 0,
+        decoded_bytes_estimate: 0,
+        digest: [0; 32],
+    };
+    validate_stored_bigram_leaf(&empty).unwrap();
+}
+
 #[derive(Default)]
 struct StreamCollector(String);
 

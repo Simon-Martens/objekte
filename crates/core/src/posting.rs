@@ -2492,6 +2492,23 @@ impl PostingIndexSnapshot {
         payload: PostingArchivePayload,
         leaf_loader: Arc<dyn PostingLeafLoader>,
     ) -> Result<Self, String> {
+        validate_stored_posting_entries(
+            payload
+                .values
+                .iter()
+                .map(|(key, reference)| (key, reference)),
+        )?;
+        validate_stored_posting_entries(
+            payload
+                .lengths
+                .iter()
+                .map(|(key, reference)| (key, reference)),
+        )?;
+        if let Some(structural) = &payload.structural {
+            validate_stored_posting_entries(
+                structural.iter().map(|(key, reference)| (key, reference)),
+            )?;
+        }
         let has_structural = payload.structural.is_some();
         let structural = payload
             .structural
@@ -2548,6 +2565,37 @@ impl PostingIndexSnapshot {
             leaf_loader: Some(leaf_loader),
         })
     }
+}
+
+fn validate_stored_posting_entries<'a, K>(
+    entries: impl Iterator<Item = (&'a K, &'a StoredPostingLeafRef)>,
+) -> Result<(), String>
+where
+    K: Ord + 'a,
+{
+    let mut previous: Option<&K> = None;
+    for (key, reference) in entries {
+        if previous.is_some_and(|previous| previous >= key) {
+            return Err("stored posting dictionary is not strictly ordered".into());
+        }
+        if reference.length == 0 {
+            if reference.offset != 0
+                || reference.cardinality != 0
+                || reference.decoded_bytes_estimate != 0
+                || reference.digest != [0; 32]
+            {
+                return Err("stored posting dictionary has a malformed empty leaf".into());
+            }
+        } else if reference.offset < 64
+            || reference.cardinality == 0
+            || reference.decoded_bytes_estimate == 0
+            || reference.digest == [0; 32]
+        {
+            return Err("stored posting dictionary has a malformed leaf descriptor".into());
+        }
+        previous = Some(key);
+    }
+    Ok(())
 }
 
 /// Borrowed ordered traversal over one scalar posting dictionary.

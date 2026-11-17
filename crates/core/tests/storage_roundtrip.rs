@@ -2419,7 +2419,12 @@ fn pack_handle_cache_stays_bounded_while_selected_columns_load() {
         definitions,
         RepositoryOptions::default(),
         root.join("storage"),
-        StorageOpenOptions::default(),
+        StorageOpenOptions {
+            cache_policy: CachePolicy::Budget {
+                resident_bytes: std::num::NonZeroU64::new(4096).unwrap(),
+            },
+            ..StorageOpenOptions::default()
+        },
     )
     .unwrap();
     for number in 0..70 {
@@ -2440,6 +2445,7 @@ fn pack_handle_cache_stays_bounded_while_selected_columns_load() {
     let status = reopened.storage_status().unwrap();
     assert!(status.open_pack_handles > 0);
     assert!(status.open_pack_handles <= 64);
+    assert!(status.cache.resident_bytes <= 4096);
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

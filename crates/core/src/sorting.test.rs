@@ -1,4 +1,12 @@
 use super::*;
+
+#[test]
+fn stored_sort_orders_reject_domain_repetition_and_coverage_errors() {
+    validate_sort_slots(&[2, 0, 1], 3).unwrap();
+    assert!(validate_sort_slots(&[0, 0, 1], 3).is_err());
+    assert!(validate_sort_slots(&[0, 1, 3], 3).is_err());
+    assert!(validate_sort_slots(&[0, 1], 3).is_err());
+}
 use crate::reference::FieldDefinition;
 
 #[test]

@@ -1,6 +1,33 @@
 use super::*;
 
 #[test]
+fn stored_posting_descriptors_reject_order_and_range_errors() {
+    let reference = StoredPostingLeafRef {
+        offset: 64,
+        length: 8,
+        cardinality: 1,
+        decoded_bytes_estimate: 8,
+        digest: [1; 32],
+    };
+    let ordered = [(1u64, reference), (2u64, reference)];
+    validate_stored_posting_entries(ordered.iter().map(|(key, ref_)| (key, ref_))).unwrap();
+    let repeated = [(1u64, reference), (1u64, reference)];
+    assert!(
+        validate_stored_posting_entries(repeated.iter().map(|(key, ref_)| (key, ref_))).is_err()
+    );
+    let malformed = [(
+        1u64,
+        StoredPostingLeafRef {
+            offset: 0,
+            ..reference
+        },
+    )];
+    assert!(
+        validate_stored_posting_entries(malformed.iter().map(|(key, ref_)| (key, ref_))).is_err()
+    );
+}
+
+#[test]
 fn rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement() {
     let archive = crate::archive_storage::ValidatedArchive::freeze(&OrderedPostingArchive {
         postings: BTreeMap::from([(StoredScalarKey::String("tree".into()), 0)]),
