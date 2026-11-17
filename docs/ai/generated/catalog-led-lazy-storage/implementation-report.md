@@ -8,7 +8,7 @@ Integration branch: `integration/catalog-led-lazy-storage`
 
 Implementation revision covered by this report:
 
-`26c3a58e9f`
+`3f7140779f`
 
 Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 
@@ -17,7 +17,7 @@ Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 | Area | Verdict | Evidence |
 | --- | --- | --- |
 | Correctness | Pass for the exercised round trips | Native and reopened search, mutation, compaction, relation, FTS, sort and empty-index tests pass. |
-| Eagerness/laziness | Partial | Eager open performs no selected payload reads and `EXPLAIN` is payload-independent. FTS and posting values/state use independent leaves; sort remains collection-coarse. |
+| Eagerness/laziness | Partial | Eager open performs no selected payload reads and `EXPLAIN` is payload-independent. FTS, posting values/state, and configured sort columns use independent lazy units. |
 | Durability | Partial | Dependencies are synchronized before `CURRENT`, uncertain root sync is classified, and interrupted staging is pruned. Deterministic fault injection and process-abort barriers are not implemented. |
 | Lifecycle/mutations | Pass for the exercised cases | Add, delete, replace, move, multi-generation save and source-free compaction pass. The required 128-step model matrix is not implemented. |
 | Native construction | Pass structurally | Native build and memory-only archive create no storage files and serialize no storage payload. No new release construction comparison was run after this repair. |
@@ -75,12 +75,12 @@ worker, mutation, cache-budget and memory matrices required by the specification
 ## Remaining acceptance work
 
 The prototype is not ready to be represented as full specification completion.
-`test-matrix.tsv` currently records 21 passing, 19 partial and 40 pending rows.
+`test-matrix.tsv` currently records 38 passing, 17 partial and 25 pending rows.
 The principal remaining gaps are:
 
 - replace the JSON snapshot body with independently archived eager catalog/map
   schemas and persisted shard reuse;
-- split sort columns into independently loaded frames;
+- split segment-local relation contributions into independently loaded payloads;
 - add the complete lease/pinning, permanent-failure, cancellation and file-handle
   cache model;
 - add deterministic `StorageIo` fault injection, process-abort transaction barriers
