@@ -16,17 +16,17 @@ S14	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_resul
 S15	pending	none	Empty-leaf behavior exists, but all Roaring container forms lack a storage round-trip matrix.
 S16	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Selected FTS and posting leaf requests admit only requested leaves; an equality filter retains exactly one posting leaf.
 S17	partial	storage_roundtrip::explicit_save_reopens_a_complete_searchable_snapshot	Basic zero/one/many path association is not fully parameterized.
-S18	pending	none	Multiple collections with duplicate-ID policy are not covered by storage tests.
+S18	pass	storage_roundtrip::duplicate_record_ids_stay_collection_scoped_after_reopen	Identical RecordIds remain scoped to their source collections before and after reopen.
 S19	pass	storage_roundtrip::non_utf8_source_paths_round_trip_without_loss	Lossless non-UTF-8 path lookup is covered.
-S20	pending	none	Adapter identity and stale locator behavior need dedicated storage coverage.
+S20	pass	storage_roundtrip::changed_source_revision_is_rejected_when_payload_materialization_requires_it	Snapshot-only indexed answers remain available while stale saved locators fail on materialization.
 S21	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Stored posting dictionaries preserve dense key ordinals and resolve the selected leaf by that ordinal.
-S22	pending	none	Range semantics are not in the storage matrix.
-S23	pending	none	Domain-state matrix is not in storage tests.
-S24	pending	none	Large exact decimal storage/sort round-trip is pending.
+S22	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Inclusive scalar ranges round-trip with identical hits and counts.
+S23	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Null, missing, empty-array and multi-value predicates match native state after reopen.
+S24	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Large and sub-ULP decimal equality/ranges and descending sort retain exact values.
 S25	pending	none	Sort coverage does not include all tie/null/composite cases.
 S26	partial	storage_roundtrip::relation_payload_loads_only_for_a_relation_query_after_reopen	Base relation payload is lazy and round-trips; full relation oracle matrix after reopen is pending.
 S27	pending	none	ASCII/Unicode/skip/raw/named FTS equivalence after reopen is not exhaustive.
-S28	pending	none	Old-view lazy load after cache trim/replacement lacks a direct storage test.
+S28	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its store lease and performs a first lazy FTS load after root replacement.
 S29	pending	none	Reclamation of converted native key maps is not allocator-verified.
 S30	pending	none	Saving warm native groups without bitmap clones lacks structural proof.
 S31	pending	none	Compatibility FileEntry/RecordEntry materialization counters are absent.
@@ -34,9 +34,9 @@ S32	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchange
 S33	partial	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	Single-load behavior is covered for the current coarse posting unit.
 S34	pending	none	Different-component concurrency under the new read-permit limit needs a storage test.
 S35	pending	none	Waiter cancellation does not yet have a deterministic storage test.
-S36	pending	none	Transient versus permanent lazy load failure retry semantics are incomplete.
+S36	pass	storage_roundtrip::transient_missing_lazy_dictionary_can_be_retried	A transient missing dictionary error does not poison the cache and a later query succeeds after restoration.
 S37	partial	storage_roundtrip::trimming_decoded_fts_leaves_allows_a_later_checked_reload	Decoded leaf trim is covered; full query pin and budget eviction accounting is pending.
-S38	pending	none	Oversize bypass is reported but lacks a storage test.
+S38	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	An oversize selected payload serves the query, is not retained, and records the bypass.
 S39	pending	none	Eager/unsaved non-eviction needs structural assertion.
 S40	pending	none	Native group eviction/reclamation is not allocator-verified.
 S41	pending	none	Late lazy loads through an old view need a storage-specific test.

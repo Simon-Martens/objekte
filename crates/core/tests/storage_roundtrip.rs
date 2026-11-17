@@ -11,7 +11,8 @@ use objekte_search_core::repository::{
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::{
-    AuditOptions, StorageOpenOptions, StorageReadLimits, StorageWriteOptions, audit, prune,
+    AuditOptions, CachePolicy, StorageOpenOptions, StorageReadLimits, StorageWriteOptions, audit,
+    prune,
 };
 use objekte_search_core::workload::{ReturnMode, SortField};
 
@@ -113,6 +114,115 @@ fn relation_definitions() -> Vec<CollectionDefinition> {
         })
         .unwrap();
     vec![entries, mentions]
+}
+
+fn semantic_definitions() -> Vec<CollectionDefinition> {
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (path, kind, multi) in [
+        ("id", LogicalType::Id, false),
+        ("title", LogicalType::String, false),
+        ("amount", LogicalType::Number, false),
+        (
+            "tags",
+            LogicalType::Array(Box::new(LogicalType::String)),
+            true,
+        ),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: path == "id",
+                nullable: path == "amount",
+                indexed: true,
+                multi,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    for field in ["title", "amount"] {
+        definition
+            .sort_fields
+            .push(objekte_search_core::model::FieldPath::parse(field).unwrap());
+    }
+    vec![definition]
+}
+
+#[test]
+fn reopened_semantic_query_matrix_matches_native_storage_state() {
+    let root = fixture_root("semantic-matrix");
+    let documents = [
+        (
+            "a.json",
+            r#"{"id":"a","title":"Straße","amount":9007199254740993.1,"tags":["α","β"]}"#,
+        ),
+        (
+            "b.json",
+            r#"{"id":"b","title":"STRASSE","amount":null,"tags":[]}"#,
+        ),
+        ("c.json", r#"{"id":"c","title":"Tie","amount":2}"#),
+        (
+            "d.json",
+            r#"{"id":"d","title":"Tie","amount":1.00000000000000000001,"tags":["β"]}"#,
+        ),
+    ];
+    for (name, document) in documents {
+        std::fs::write(root.join("data").join(name), document).unwrap();
+    }
+    let definitions = semantic_definitions();
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let mut queries = Vec::new();
+    for filter in [
+        "title >= 'Tie'",
+        "amount = 9007199254740993.1",
+        "amount > 1",
+        "amount:null = true",
+        "amount:exists = false",
+        "tags = 'β'",
+    ] {
+        let mut request = all_records();
+        request.filter = Some(parse_filter(filter).unwrap());
+        queries.push(request);
+    }
+    let mut fts = all_records();
+    fts.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Insensitive,
+        mode: FtsMode::Literal,
+        literal: "strasse".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    queries.push(fts);
+    for (field, descending) in [("title", false), ("amount", true)] {
+        let mut request = all_records();
+        request.options.sort = vec![SortField::simple(field, descending)];
+        queries.push(request);
+    }
+    let native = queries
+        .iter()
+        .map(|request| index.view().unwrap().search(request).unwrap())
+        .collect::<Vec<_>>();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    for (request, expected) in queries.iter().zip(native) {
+        let actual = reopened.view().unwrap().search(request).unwrap();
+        assert_eq!(actual.count, expected.count, "{request:?}");
+        assert_eq!(actual.hits, expected.hits, "{request:?}");
+    }
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
@@ -1097,6 +1207,55 @@ fn concurrent_first_use_shares_one_stored_posting_load() {
 }
 
 #[test]
+fn different_stored_components_can_load_concurrently() {
+    let root = fixture_root("concurrent-components");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = std::sync::Arc::new(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions {
+                max_concurrent_reads: std::num::NonZeroUsize::new(2).unwrap(),
+                ..StorageOpenOptions::default()
+            },
+        )
+        .unwrap(),
+    );
+    let barrier = std::sync::Arc::new(std::sync::Barrier::new(3));
+    let mut workers = Vec::new();
+    for (filter, expected) in [
+        ("title = \"Alpha token\"", 1),
+        ("title = \"Beta token\"", 1),
+    ] {
+        let reopened = std::sync::Arc::clone(&reopened);
+        let barrier = std::sync::Arc::clone(&barrier);
+        workers.push(std::thread::spawn(move || {
+            let mut request = all_records();
+            request.filter = Some(parse_filter(filter).unwrap());
+            barrier.wait();
+            (
+                reopened.view().unwrap().search(&request).unwrap().count,
+                expected,
+            )
+        }));
+    }
+    barrier.wait();
+    for worker in workers {
+        let (actual, expected) = worker.join().unwrap();
+        assert_eq!(actual, Some(expected));
+    }
+    reopened.shutdown().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 #[cfg(unix)]
 fn non_utf8_source_paths_round_trip_without_loss() {
     use std::os::unix::ffi::OsStringExt;
@@ -1381,5 +1540,224 @@ fn relation_payload_loads_only_for_a_relation_query_after_reopen() {
             .collect::<Vec<_>>(),
         ["m1"]
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn duplicate_record_ids_stay_collection_scoped_after_reopen() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-storage-duplicate-id-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("entries")).unwrap();
+    std::fs::create_dir_all(root.join("mentions")).unwrap();
+    std::fs::create_dir_all(root.join("storage")).unwrap();
+    std::fs::write(
+        root.join("entries/same.json"),
+        br#"{"id":"same","title":"Entry"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/same.json"),
+        br#"{"id":"same","title":"Mention","entry":"same"}"#,
+    )
+    .unwrap();
+    let definitions = relation_definitions();
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let mut query = all_records();
+    query.collections.clear();
+    query.filter = Some(parse_filter("id = 'same'").unwrap());
+    let expected = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(expected.count, Some(2));
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let actual = reopened.view().unwrap().search(&query).unwrap();
+    assert_eq!(actual.hits, expected.hits);
+    assert_eq!(
+        actual
+            .hits
+            .iter()
+            .map(|hit| hit.collection.as_str())
+            .collect::<std::collections::BTreeSet<_>>(),
+        ["entries", "mentions"].into_iter().collect()
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn changed_source_revision_is_rejected_when_payload_materialization_requires_it() {
+    let root = fixture_root("stale-locator");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut indexed_only = all_records();
+    indexed_only.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&indexed_only)
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","title":"Omega token changed"}"#,
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&indexed_only)
+            .unwrap()
+            .count,
+        Some(1),
+        "an indexed-only query reflects the saved snapshot"
+    );
+    let mut materialized = indexed_only;
+    materialized.options.return_mode = ReturnMode::Logical;
+    assert!(
+        reopened.view().unwrap().search(&materialized).is_err(),
+        "materialization must reject the stale saved locator"
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn old_view_can_lazy_load_after_current_root_replacement_and_index_drop() {
+    let root = fixture_root("old-view-lazy");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let old_view = reopened.view().unwrap();
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    reopened.shutdown().unwrap();
+    drop(reopened);
+
+    let mut request = all_records();
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    assert_eq!(old_view.search(&request).unwrap().count, Some(2));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn transient_missing_lazy_dictionary_can_be_retried() {
+    let root = fixture_root("transient-retry");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let posting_object = object_with_kind(&root.join("storage"), 3);
+    let offline = posting_object.with_extension("offline");
+    std::fs::rename(&posting_object, &offline).unwrap();
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    assert!(reopened.view().unwrap().search(&request).is_err());
+    std::fs::rename(&offline, &posting_object).unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(1),
+        "a transient read failure must permit a later retry"
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn tiny_cache_budget_bypasses_oversized_selected_payloads() {
+    let root = fixture_root("budget-bypass");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions {
+            cache_policy: CachePolicy::Budget {
+                resident_bytes: std::num::NonZeroU64::new(1).unwrap(),
+            },
+            ..StorageOpenOptions::default()
+        },
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    assert!(cold.eager_record_rows > 0);
+    assert_eq!(cold.cache.resident_bytes, 0);
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(1)
+    );
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.cache.oversize_bypasses > 0);
+    assert_eq!(warm.cache.resident_bytes, 0);
+    assert_eq!(reopened.trim_storage_cache().unwrap().evicted_entries, 0);
+    reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
