@@ -409,18 +409,20 @@ fn rebuild_repository(
     repository.catalog = catalog.clone();
     let (manifest_digest, _manifest_length) = session.manifest_token();
     let (store_identity, _lineage_identity) = session.identities();
-    *repository
+    repository
         .storage_binding
         .lock()
-        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))? =
-        Some(crate::storage::StorageBinding {
-            directory: session.directory().to_path_buf(),
-            generation: session.generation(),
-            manifest_digest,
-            store_identity,
-            revision: repository.revision,
-            configuration_identity: snapshot.configuration_identity,
-        });
+        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))?
+        .insert(
+            session.directory().to_path_buf(),
+            crate::storage::StorageBinding {
+                generation: session.generation(),
+                manifest_digest,
+                store_identity,
+                revision: repository.revision,
+                configuration_identity: snapshot.configuration_identity,
+            },
+        );
     repository.storage = Some(session);
     Ok((repository, base_active, groups, catalog, versions))
 }

@@ -2121,7 +2121,7 @@ impl Repository {
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
             storage: None,
-            storage_binding: Arc::new(Mutex::new(None)),
+            storage_binding: Arc::new(Mutex::new(std::collections::HashMap::new())),
         })
     }
 
@@ -2802,7 +2802,7 @@ impl Repository {
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
             storage: None,
-            storage_binding: Arc::new(Mutex::new(None)),
+            storage_binding: Arc::new(Mutex::new(std::collections::HashMap::new())),
         })
     }
 

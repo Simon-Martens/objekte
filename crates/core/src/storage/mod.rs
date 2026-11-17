@@ -297,7 +297,6 @@ pub(crate) struct StorageSession {
 
 #[derive(Clone, Debug)]
 pub(crate) struct StorageBinding {
-    pub directory: PathBuf,
     pub generation: u64,
     pub manifest_digest: [u8; 32],
     pub store_identity: [u8; 16],
@@ -305,7 +304,8 @@ pub(crate) struct StorageBinding {
     pub configuration_identity: [u8; 32],
 }
 
-pub(crate) type SharedStorageBinding = Arc<Mutex<Option<StorageBinding>>>;
+pub(crate) type SharedStorageBinding =
+    Arc<Mutex<std::collections::HashMap<PathBuf, StorageBinding>>>;
 
 impl StorageSession {
     pub(crate) fn directory(&self) -> &Path {

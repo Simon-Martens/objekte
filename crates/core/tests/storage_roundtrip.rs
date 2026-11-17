@@ -675,6 +675,13 @@ fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
         .archive_to(&export, StorageWriteOptions::default())
         .unwrap();
     assert_eq!(report.generation, 1);
+    assert!(
+        reopened
+            .archive_to(root.join("storage"), StorageWriteOptions::default())
+            .unwrap()
+            .unchanged,
+        "exporting a copy must not discard the original store binding"
+    );
     reopened.shutdown().unwrap();
     drop(reopened);
     std::fs::rename(root.join("storage"), root.join("storage.offline")).unwrap();

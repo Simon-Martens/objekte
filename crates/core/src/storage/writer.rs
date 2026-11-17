@@ -1,7 +1,8 @@
 use std::fs::{self, File, OpenOptions};
 use std::io::Write;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use sha2::{Digest, Sha256};
@@ -18,6 +19,7 @@ const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
+static STAGING_SEQUENCE: AtomicU64 = AtomicU64::new(0);
 
 #[derive(Clone, Copy, Debug)]
 struct CurrentRecord {
@@ -110,8 +112,8 @@ fn write_parts(
         .storage_binding
         .lock()
         .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))?
-        .clone()
-        .filter(|binding| binding.directory == directory);
+        .get(directory)
+        .cloned();
     if let Some(binding) = &binding {
         let observed = current.ok_or_else(|| {
             StorageError::StorageConflict(
@@ -352,18 +354,20 @@ fn write_parts(
     sync_directory(directory)?;
     let sync_ns = sync_started.elapsed().as_nanos() as u64;
 
-    *binding_repository
+    binding_repository
         .storage_binding
         .lock()
-        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))? =
-        Some(crate::storage::StorageBinding {
-            directory: directory.to_path_buf(),
-            generation,
-            manifest_digest: metadata_digest,
-            store_identity,
-            revision: save_revision,
-            configuration_identity: save_configuration_identity,
-        });
+        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))?
+        .insert(
+            directory.to_path_buf(),
+            crate::storage::StorageBinding {
+                generation,
+                manifest_digest: metadata_digest,
+                store_identity,
+                revision: save_revision,
+                configuration_identity: save_configuration_identity,
+            },
+        );
 
     Ok(StorageWriteReport {
         generation,
@@ -1032,12 +1036,8 @@ fn write_object(
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
         Err(error) => return Err(StorageError::Io(error.to_string())),
     }
-    let staging_path = staging.join(format!("{}.tmp", format::hex(&digest)));
-    let mut file = OpenOptions::new()
-        .create_new(true)
-        .write(true)
-        .open(&staging_path)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let (staging_path, mut file) =
+        create_staging_file(staging, &format!("object-{}", format::hex(&digest)))?;
     file.write_all(bytes)
         .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
@@ -1090,19 +1090,28 @@ fn install_current(
     generation: u64,
     bytes: &[u8; format::CURRENT_LEN],
 ) -> Result<(), StorageError> {
-    let temporary = directory
-        .join("staging")
-        .join(format!("CURRENT-{generation}.tmp"));
-    let mut file = OpenOptions::new()
-        .create_new(true)
-        .write(true)
-        .open(&temporary)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let (temporary, mut file) =
+        create_staging_file(&directory.join("staging"), &format!("CURRENT-{generation}"))?;
     file.write_all(bytes)
         .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
     fs::rename(&temporary, directory.join("CURRENT"))
         .map_err(|error| StorageError::Io(error.to_string()))
+}
+
+fn create_staging_file(directory: &Path, label: &str) -> Result<(PathBuf, File), StorageError> {
+    for _ in 0..32 {
+        let sequence = STAGING_SEQUENCE.fetch_add(1, Ordering::Relaxed);
+        let path = directory.join(format!("{label}-{}-{sequence}.tmp", std::process::id()));
+        match OpenOptions::new().create_new(true).write(true).open(&path) {
+            Ok(file) => return Ok((path, file)),
+            Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {}
+            Err(error) => return Err(StorageError::Io(error.to_string())),
+        }
+    }
+    Err(StorageError::StorageBusy(
+        "could not allocate a unique storage staging file".into(),
+    ))
 }
 
 fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError> {
