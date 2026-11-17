@@ -1,4 +1,5 @@
 use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::{CompactionMode, CompactionOptions};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::FieldDefinition;
@@ -339,5 +340,135 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     let removed = prune(&root.join("storage")).unwrap();
     assert!(removed.removed_objects >= 1);
     assert!(!orphan.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn full_compaction_after_reopen_does_not_parse_source_files() {
+    let root = fixture_root("source-free-compaction");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let live_data = root.join("data");
+    let offline_data = root.join("data.offline");
+    std::fs::rename(&live_data, &offline_data).unwrap();
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let report = reopened
+        .compact_with_options(CompactionOptions {
+            mode: CompactionMode::Full,
+            merge_small_segments: true,
+        })
+        .unwrap();
+    assert!(report.segments_after <= report.segments_before);
+    assert_eq!(
+        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
+    let after = reopened.storage_status().unwrap();
+    assert_eq!(after.source_reads, cold.source_reads);
+    assert_eq!(after.source_parses, cold.source_parses);
+    reopened.shutdown().unwrap();
+    std::fs::rename(&offline_data, &live_data).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
+    let root = fixture_root("replace-move");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let original = root.join("data/a.json");
+    let handle = reopened
+        .view()
+        .unwrap()
+        .file_handle_for_path(&original)
+        .unwrap();
+    std::fs::write(&original, br#"{"id":"a","title":"Omega replacement"}"#).unwrap();
+    reopened.update_file(handle, &original).unwrap();
+    let mut replacement_query = all_records();
+    replacement_query.filter =
+        Some(parse_filter("title = \"Omega replacement\"").unwrap());
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&replacement_query)
+            .unwrap()
+            .count,
+        Some(1)
+    );
+
+    let destination = root.join("data/renamed.json");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved_handle = reopened
+        .view()
+        .unwrap()
+        .file_handle_for_path(&original)
+        .unwrap();
+    reopened.move_file(moved_handle, &destination).unwrap();
+    reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    reopened.shutdown().unwrap();
+    drop(reopened);
+
+    let reopened_again = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened_again
+            .view()
+            .unwrap()
+            .search(&replacement_query)
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    assert!(
+        reopened_again
+            .view()
+            .unwrap()
+            .file_handle_for_path(&destination)
+            .is_some()
+    );
+    reopened_again.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
