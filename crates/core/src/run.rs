@@ -8051,32 +8051,25 @@ pub(crate) fn explain_segmented(
             .find(|(index, _, _)| *index == collection_index)
             .ok_or("explained collection has no prepared query")?;
         let mut delta = 0u64;
-        let mut delta_candidates = 0u64;
+        let mut delta_candidates;
         let mut delta_fts_candidates = 0u64;
         let mut delta_filter_exact = true;
         let mut delta_logical_exact = true;
         for published in segments[collection_index].iter() {
             delta = delta.saturating_add(published.active.len());
-            let mut candidates = published.active.bitmap();
-            if let Some(filter) = filter {
-                let bounds =
-                    segment_filter_bounds(&published.index, &published.active, filter, collection)?;
-                delta_filter_exact &= bounds.may == bounds.must;
-                let logical = &published.active.bitmap() & &published.index.logical_records;
-                delta_logical_exact &= (&bounds.may & &logical) == (&bounds.must & &logical);
-                candidates &= &bounds.may;
-            }
-            if let Some(fts) = fts {
-                if let Some(text) = segment_fts_candidates(&published.index, collection, fts)? {
-                    let text = &text & &published.active.bitmap();
-                    delta_fts_candidates = delta_fts_candidates.saturating_add(text.len());
-                    candidates &= text;
-                } else {
-                    delta_fts_candidates =
-                        delta_fts_candidates.saturating_add(published.active.len());
-                }
-            }
-            delta_candidates = delta_candidates.saturating_add(candidates.len());
+        }
+        delta_candidates = delta;
+        if let Some(filter) = filter {
+            let (_, estimated) = estimate_expr(collection, filter, delta)?;
+            delta_candidates = delta_candidates.min(estimated);
+            delta_filter_exact = false;
+            delta_logical_exact = false;
+        }
+        if let Some(fts) = fts {
+            let (estimated, _) = estimate_fts_candidates(collection, fts)
+                .unwrap_or((collection.logical_records.len().min(delta), 0.0));
+            delta_fts_candidates = estimated.min(delta);
+            delta_candidates = delta_candidates.min(delta_fts_candidates);
         }
         trace.generation = revision.0;
         trace.input_records = trace.input_records.saturating_add(delta);
@@ -8088,6 +8081,13 @@ pub(crate) fn explain_segmented(
                 .saturating_add(delta_fts_candidates)
         });
         trace.candidates_estimated = true;
+        if collection_has_stored_payload(collection)
+            || segments[collection_index]
+                .iter()
+                .any(|segment| segment_has_stored_payload(&segment.index))
+        {
+            return Ok(traces);
+        }
         if delta > 0 {
             trace.sort_strategy = "merged base and indexed segment top-k".into();
             trace.sort_strategy_estimated = true;
@@ -8170,17 +8170,7 @@ pub(crate) fn explain_segmented(
                     operation = None;
                     break;
                 }
-                let bounds = segment_filter_bounds(
-                    &published.index,
-                    &published.active,
-                    filter.as_ref().unwrap(),
-                    collection,
-                )?;
-                if bounds.may != bounds.must {
-                    operation = None;
-                    break;
-                }
-                output = output.saturating_add(bounds.must.len());
+                output = output.saturating_add(proposal.output.min(published.active.len()));
                 work += proposal.lookup_work;
                 operation = Some((proposal.id, proposal.operation));
             }
@@ -8457,6 +8447,54 @@ pub(crate) fn explain_segmented(
         }
     }
     Ok(traces)
+}
+
+fn collection_has_stored_payload(collection: &CollectionState) -> bool {
+    collection
+        .postings
+        .fields
+        .values()
+        .any(crate::posting::PostingIndex::is_stored)
+        || collection.raw.is_stored()
+        || collection.fallback_text.is_stored()
+        || collection
+            .custom_postings
+            .values()
+            .any(|custom| custom.index.is_stored())
+        || collection
+            .custom_text
+            .values()
+            .any(crate::bigram::BigramIndex::is_stored)
+        || collection.inference.as_ref().is_some_and(|inference| {
+            inference
+                .indexes
+                .values()
+                .any(crate::posting::PostingIndex::is_stored)
+        })
+}
+
+fn segment_has_stored_payload(segment: &IndexedCollectionSegment) -> bool {
+    segment
+        .postings
+        .fields
+        .values()
+        .any(crate::posting::PostingIndex::is_stored)
+        || segment.raw.is_stored()
+        || segment.fallback_text.is_stored()
+        || segment
+            .custom_postings
+            .values()
+            .any(|custom| custom.index.is_stored())
+        || segment
+            .custom_text
+            .values()
+            .any(crate::bigram::BigramIndex::is_stored)
+        || segment.inference.as_ref().is_some_and(|inference| {
+            inference
+                .indexes
+                .values()
+                .any(crate::posting::PostingIndex::is_stored)
+        })
 }
 
 fn collect_positive_relation_terms<'a>(

@@ -240,6 +240,60 @@ fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
 }
 
 #[test]
+fn explain_does_not_read_selected_lazy_payloads() {
+    let root = fixture_root("explain-lazy");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    for entry in std::fs::read_dir(root.join("storage/objects")).unwrap() {
+        let path = entry.unwrap().path();
+        if !path
+            .extension()
+            .is_some_and(|extension| extension == "pack")
+        {
+            continue;
+        }
+        let mut bytes = std::fs::read(&path).unwrap();
+        let kind = u16::from_le_bytes(bytes[10..12].try_into().unwrap());
+        if matches!(kind, 3..=5 | 8) {
+            for byte in &mut bytes[64..] {
+                *byte ^= 0xff;
+            }
+            std::fs::write(path, bytes).unwrap();
+        }
+    }
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    request.options.sort = vec![SortField::simple("title", false)];
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    let traces = reopened.view().unwrap().explain(&request).unwrap();
+    assert_eq!(traces.len(), 1);
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        cold.index_reads
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn corrupt_selected_sort_errors_instead_of_falling_back_to_source() {
     let root = fixture_root("sort-corrupt");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
