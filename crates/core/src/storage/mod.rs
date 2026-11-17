@@ -307,11 +307,8 @@ pub(crate) struct StorageBinding {
     pub directory: PathBuf,
     pub generation: u64,
     pub manifest_digest: [u8; 32],
-    pub manifest_length: u64,
     pub store_identity: [u8; 16],
-    pub lineage_identity: [u8; 16],
     pub revision: IndexRevision,
-    pub representation_generation: u64,
     pub configuration_identity: [u8; 32],
 }
 

@@ -950,10 +950,6 @@ impl SortCollection {
         Ok(())
     }
 
-    pub(crate) fn is_stored(&self) -> bool {
-        self.storage.is_some()
-    }
-
     pub(crate) fn materialized(&self) -> &Self {
         self.loaded
             .get()

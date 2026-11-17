@@ -3978,18 +3978,6 @@ impl PostingCollection {
         })
     }
 
-    pub(crate) fn from_storage_snapshot(
-        snapshot: PostingCollectionSnapshot,
-    ) -> Result<Self, String> {
-        Ok(Self {
-            fields: snapshot
-                .fields
-                .into_iter()
-                .map(|(path, index)| Ok((path, PostingIndex::from_storage_snapshot(index)?)))
-                .collect::<Result<_, String>>()?,
-        })
-    }
-
     pub(crate) fn configuration_matches(&self, schema: &Schema) -> bool {
         self.fields.len() == schema.fields.len()
             && self.fields.iter().all(|(path, index)| {

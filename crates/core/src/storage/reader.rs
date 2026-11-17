@@ -416,8 +416,8 @@ fn rebuild_repository(
         .replace_all_ownership(&versions, &routes)
         .map_err(StorageError::InvalidFormat)?;
     repository.catalog = catalog.clone();
-    let (manifest_digest, manifest_length) = session.manifest_token();
-    let (store_identity, lineage_identity) = session.identities();
+    let (manifest_digest, _manifest_length) = session.manifest_token();
+    let (store_identity, _lineage_identity) = session.identities();
     *repository
         .storage_binding
         .lock()
@@ -426,11 +426,8 @@ fn rebuild_repository(
             directory: session.directory().to_path_buf(),
             generation: session.generation(),
             manifest_digest,
-            manifest_length,
             store_identity,
-            lineage_identity,
             revision: repository.revision,
-            representation_generation: repository.representation_generation,
             configuration_identity: snapshot.configuration_identity,
         });
     repository.storage = Some(session);
@@ -468,7 +465,9 @@ impl PostingIndexLoader for StoredPostingLoader {
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        let payload = rkyv::from_bytes::<PostingArchivePayload, rkyv::rancor::Error>(&aligned)
+        let owner = crate::archive_storage::ValidatedArchive::<PostingArchivePayload>::checked_from_aligned(aligned)
+            .map_err(|error| format!("posting payload validation failed: {error}"))?;
+        let payload = rkyv::deserialize::<PostingArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("posting payload decode failed: {error}"))?;
         PostingIndexSnapshot::from_archive_payload(payload)
     }
@@ -499,7 +498,9 @@ impl BigramIndexLoader for StoredBigramLoader {
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        let payload = rkyv::from_bytes::<BigramArchivePayload, rkyv::rancor::Error>(&aligned)
+        let owner = crate::archive_storage::ValidatedArchive::<BigramArchivePayload>::checked_from_aligned(aligned)
+            .map_err(|error| format!("bigram payload validation failed: {error}"))?;
+        let payload = rkyv::deserialize::<BigramArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("bigram payload decode failed: {error}"))?;
         BigramIndex::from_archive_payload(payload)
     }
@@ -530,7 +531,9 @@ impl SortCollectionLoader for StoredSortLoader {
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        let payload = rkyv::from_bytes::<SortArchivePayload, rkyv::rancor::Error>(&aligned)
+        let owner = crate::archive_storage::ValidatedArchive::<SortArchivePayload>::checked_from_aligned(aligned)
+            .map_err(|error| format!("sort payload validation failed: {error}"))?;
+        let payload = rkyv::deserialize::<SortArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("sort payload decode failed: {error}"))?;
         SortCollection::from_archive_payload(payload)
     }
@@ -816,8 +819,13 @@ fn read_metadata_snapshot(
     let body = format::checked_body(manifest_object, METADATA_OBJECT_KIND)?;
     let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(body.len());
     aligned.extend_from_slice(body);
+    let owner =
+        crate::archive_storage::ValidatedArchive::<model::MetadataManifest>::checked_from_aligned(
+            aligned,
+        )
+        .map_err(StorageError::InvalidFormat)?;
     let manifest =
-        rkyv::from_bytes::<model::MetadataManifest, rkyv::rancor::Error>(&aligned)
+        rkyv::deserialize::<model::MetadataManifest, rkyv::rancor::Error>(owner.root())
             .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
     if manifest.schema_version != model::SNAPSHOT_SCHEMA_VERSION {
         return Err(StorageError::IncompatibleConfiguration(
@@ -866,7 +874,12 @@ fn read_metadata_snapshot(
         let chunk_body = format::checked_body(&bytes, METADATA_CHUNK_OBJECT_KIND)?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(chunk_body.len());
         aligned.extend_from_slice(chunk_body);
-        let chunk = rkyv::from_bytes::<model::MetadataChunk, rkyv::rancor::Error>(&aligned)
+        let owner =
+            crate::archive_storage::ValidatedArchive::<model::MetadataChunk>::checked_from_aligned(
+                aligned,
+            )
+            .map_err(StorageError::InvalidFormat)?;
+        let chunk = rkyv::deserialize::<model::MetadataChunk, rkyv::rancor::Error>(owner.root())
             .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
         let next_length = body.len().checked_add(chunk.bytes.len()).ok_or(
             StorageError::LimitExceeded {

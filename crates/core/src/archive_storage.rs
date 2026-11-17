@@ -184,10 +184,6 @@ where
         self.bytes.capacity()
     }
 
-    pub(crate) fn bytes(&self) -> &[u8] {
-        &self.bytes
-    }
-
 }
 
 impl<T> ValidatedArchive<T>

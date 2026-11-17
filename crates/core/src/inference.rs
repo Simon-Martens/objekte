@@ -308,23 +308,6 @@ impl InferenceState {
                 .collect(),
         })
     }
-
-    pub(crate) fn from_storage_snapshot(
-        snapshot: InferenceStateSnapshot,
-    ) -> Result<Self, String> {
-        Ok(Self {
-            report: snapshot.report,
-            indexes: snapshot
-                .indexes
-                .into_iter()
-                .map(|(path, index)| {
-                    Ok((path, crate::posting::PostingIndex::from_storage_snapshot(index)?))
-                })
-                .collect::<Result<_, String>>()?,
-            empty_selections: snapshot.empty_selections.into_iter().collect(),
-            short_string_coverage: snapshot.short_string_coverage.into_iter().collect(),
-        })
-    }
 }
 
 impl InferenceState {

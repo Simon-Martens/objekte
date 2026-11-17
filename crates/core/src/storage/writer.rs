@@ -23,9 +23,6 @@ const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 struct CurrentRecord {
     generation: u64,
     manifest_digest: [u8; 32],
-    manifest_length: u64,
-    store_identity: [u8; 16],
-    lineage_identity: [u8; 16],
 }
 
 pub(crate) fn archive_index_to(
@@ -105,7 +102,6 @@ fn write_parts(
     let current = read_current(directory)?;
     let binding_repository = Arc::clone(&parts.repository);
     let save_revision = parts.revision;
-    let save_representation_generation = parts.representation_generation;
     let save_configuration_identity = parts.configuration_identity;
     let binding = parts
         .repository
@@ -291,11 +287,8 @@ fn write_parts(
             directory: directory.to_path_buf(),
             generation,
             manifest_digest: metadata_digest,
-            manifest_length: metadata.len() as u64,
             store_identity,
-            lineage_identity: snapshot.lineage_identity,
             revision: save_revision,
-            representation_generation: save_representation_generation,
             configuration_identity: save_configuration_identity,
         });
 
@@ -928,11 +921,6 @@ fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError>
             bytes[16..24].try_into().expect("fixed generation bytes"),
         ),
         manifest_digest: bytes[24..56].try_into().expect("fixed manifest digest"),
-        manifest_length: u64::from_le_bytes(
-            bytes[56..64].try_into().expect("fixed manifest length"),
-        ),
-        store_identity: bytes[64..80].try_into().expect("fixed store identity"),
-        lineage_identity: bytes[80..96].try_into().expect("fixed lineage identity"),
     }))
 }
 

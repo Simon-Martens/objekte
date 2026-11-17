@@ -1,6 +1,4 @@
 use std::collections::BTreeMap;
-use std::sync::Arc;
-
 use roaring::RoaringBitmap;
 use rkyv::{
     Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize,
@@ -208,4 +206,3 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
     Ok(())
 }
 
-pub(crate) type SharedSnapshot = Arc<StorageSnapshot>;
