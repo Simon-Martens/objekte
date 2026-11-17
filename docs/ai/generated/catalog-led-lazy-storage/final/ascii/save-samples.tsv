@@ -1,0 +1,2 @@
+alphabet	variant	elapsed_ns	bytes_serialized	bytes_written	objects_new	objects_reused	sync_calls	rss_bytes	peak_rss_bytes
+ascii	first_save	2663627619	519038336	434041128	1077	1	4	1419239424	2032672768

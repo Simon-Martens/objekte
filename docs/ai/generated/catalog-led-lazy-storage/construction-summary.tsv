@@ -1,2 +1,2 @@
-alphabet	workers	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	peak_rss_bytes
-ascii	32	1	805910122	805910122	805910122	746618880
+alphabet	workers	entry_point	samples	elapsed_ns_median	elapsed_ns_p95	elapsed_ns_max	rss_bytes_median	rss_bytes_p95	rss_bytes_max	peak_rss_bytes_median	peak_rss_bytes_p95	peak_rss_bytes_max	rss_before_bytes_median	rss_before_bytes_p95	rss_before_bytes_max
+ascii	32	index_build	1	832573504	832573504	832573504	745848832	745848832	745848832	757260288	757260288	757260288	7073792	7073792	7073792

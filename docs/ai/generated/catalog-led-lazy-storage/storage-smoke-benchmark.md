@@ -1,5 +1,9 @@
 # Catalog-led storage smoke benchmark
 
+> Historical intermediate smoke evidence. The final reduced-scope result is
+> `reduced-scope-benchmark.md`; this file is retained only for the earlier Q001/Q119
+> checkpoint and is not the acceptance summary.
+
 Date: 2026-11-17
 
 Implementation revision: `ee52c8239c`

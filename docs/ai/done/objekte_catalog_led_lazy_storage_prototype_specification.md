@@ -1323,7 +1323,7 @@ phased implementation and evidence commits, including:
 - `5bd087f7f4`, `8b0206584e` reopened mutation and compaction
 - `24a33cdb99` archived eager catalogs and leaf directory
 - `003c4d7fd8` bounded decoded posting leaves and query pins
-- `ee52c8239c` final reproducible smoke harness
+- `ee52c8239c` reproducible storage benchmark harness
 - `58eb56f422` final generated acceptance evidence
 
 ### Validation
@@ -1345,16 +1345,24 @@ in the final full workspace rerun.
 
 ### Benchmark
 
-The user authorized a bounded final Musenalm smoke rather than the full 150-query matrix.
-The command, raw TSV samples and analysis are in
-`docs/ai/generated/catalog-led-lazy-storage/storage-smoke-benchmark.md`.
+The final user-authorized reduced-scope benchmark is recorded in
+`docs/ai/generated/catalog-led-lazy-storage/reduced-scope-benchmark.md`. It reuses the
+completed ASCII Musenalm run with the normal 32-worker configuration.
 
-- Q001: native 7.09 ms; reopened first 14.36 ms; warm median 9.10 ms.
-- Q119: native 6.19 ms; reopened first 6.97 ms; warm median 6.81 ms.
-- Search-ready open: 1.29 s and 1.40 s in two samples, with zero lazy/source reads.
-- First synchronized save: 2.76 s; 1,077 new objects; 516.66 MB referenced storage.
-- Eager open reached about 1.79 GiB RSS and 2.18 GiB peak RSS.
+- Native build: 832.574 ms.
+- Explicit in-memory archive: 311.232 ms.
+- First synchronized save: 2.664 s; 1,077 new objects; 516.66 MB referenced storage.
+- Seven eager opens: 1.418 s median, 39 metadata reads, zero lazy/source reads.
+- Q001: native 6.765 ms; resident archived 44.540 ms; reopened first 12.784 ms.
+- Q119: native 5.260 ms; resident archived 5.449 ms; reopened first 5.437 ms.
+- Metadata Q034: native 14.990 us; resident archived 16.916 us; reopened first
+  72.534 us.
+- All three queries retained identical counts and ordered-result digests across native,
+  resident-archived and reopened states.
 - Offline audit verified all 1,077 objects with no error.
+
+No comparable storage-backend baseline was available, so the report gives absolute
+timings and makes no speedup claim.
 
 ### Verdicts and limitations
 
@@ -1369,8 +1377,9 @@ The following are explicit, correctness-preserving gaps rather than hidden passe
 - Segment-local relation contributions remain coarser than endpoint-level lazy payloads.
 - Runtime snapshot detail is still JSON carried inside bounded checked rkyv frames;
   eager decode contributes materially to open latency and memory.
-- The final benchmark covers Q001/Q119 only. The full query/alphabet/worker/mutation/
-  compaction matrices are unmeasured.
+- Per the user's final reduced scope, worker-count/alphabet matrices,
+  mutation/compaction benchmark matrices and repeated cold/warm series were not run.
+  Their correctness remains covered by the passing tests above.
 - FTS remains conservative and retains source verification where exact text, regex or
   evidence semantics require it.
 - Persistence is supported only for 64-bit Linux local filesystems. No NFS, distributed

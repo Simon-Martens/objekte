@@ -21,10 +21,10 @@ Worktree: `/home/simon/source/objekte-integration-catalog-led-lazy-storage`
 | Durability | Pass for the supported prototype environment | Dependency ordering, file/directory synchronization, failure stages, `CommitUncertain`, two-writer fencing and child-process abort barriers are tested on local Linux. No physical power-loss claim is made. |
 | Lifecycle/mutations | Pass for exercised cases | Add, replace, delete, move, multi-generation save/reopen, mixed native/cold state, source-free full compaction and a deterministic 128-step sequence pass. |
 | Native construction | Pass structurally | Native build and memory-only archive create no storage files and perform no implicit storage serialization. A full paired P/S construction benchmark was not run. |
-| Warm-query overhead | Partial | The final smoke run adds no index reads after warm-up for Q001/Q119. The complete 150-query/warm-native comparison matrix was not run. |
-| Cold-query latency | Pass in the bounded smoke | Q001 first selected storage query was 14.36 ms and Q119 was 6.97 ms after a 1.29 s search-ready open. This is not a full cold-query matrix. |
-| Memory | Measured limitation | Eager open reached approximately 1.79 GiB RSS and 2.18 GiB peak in the smoke run. The 64-byte payload-budget test proves eviction/reload behavior, but eager metadata dominates this corpus. |
-| Disk amplification | Measured, partial | The smoke snapshot used 516.66 MB referenced storage: 85.00 MB metadata and 431.66 MB payload packs. Deletion-only and unchanged-object reuse pass; the full object-amplification matrix was not run. |
+| Warm-query overhead | Partial | The completed representative run contains warm samples, but the reduced acceptance scope focuses on first archived execution and provides no comparable storage baseline for a speedup verdict. |
+| Cold-query latency | Pass for the reduced scope | Q001 first archived execution was 12.784 ms, Q119 was 5.437 ms and metadata Q034 was 72.534 us after eager open, with identical ordered results. |
+| Memory | Measured limitation | Eager open reached 2.035 GiB RSS with a 2.348 GiB process peak after the completed run. The cache-budget tests prove eviction/reload behavior, but eager metadata remains a measured memory floor. |
+| Disk amplification | Measured, partial | The representative snapshot used 516.66 MB referenced storage: 85.00 MB metadata and 431.66 MB payload packs. Deletion-only and unchanged-object reuse pass; no broader amplification matrix was authorized. |
 
 ## Implementation
 
@@ -81,26 +81,32 @@ Outcomes:
 
 ## Benchmark evidence
 
-The authorized final smoke command and all raw samples are recorded in
-`storage-smoke-benchmark.md`. Summary files are committed beside the raw TSV samples.
+The final user-authorized reduced-scope benchmark is recorded in
+`reduced-scope-benchmark.md`. It reuses the completed ASCII Musenalm run with the normal
+32-worker configuration and does not restart the benchmark campaign.
 
-Key results:
-
-- Completed native build: 805.91 ms.
-- Explicit memory-only archive: 314.55 ms.
-- First synchronized save: 2.76 s; 1,077 new objects and 1 object reused.
-- Search-ready open: 1.29 s and 1.40 s for two samples, with 39 metadata reads,
-  zero lazy payload reads and zero source reads/parses.
-- Q001: native 7.09 ms, reopened first 14.36 ms, warm median 9.10 ms, count 3,269.
-- Q119: native 6.19 ms, reopened first 6.97 ms, warm median 6.81 ms, count 133,948.
-- Every storage result digest matched its native result.
+- Native build: 832.574 ms.
+- Explicit memory-only archive: 311.232 ms.
+- First synchronized save: 2.664 s; 1,077 new objects and one reused object.
+- Seven eager opens: 1.418 s median, 39 metadata reads, zero lazy/source reads.
+- Q001: native 6.765 ms; resident archived 44.540 ms; reopened first 12.784 ms.
+- Q119: native 5.260 ms; resident archived 5.449 ms; reopened first 5.437 ms.
+- Q034 (`@record.id = "d7kbujq7399g22j"`): native 14.990 us; resident archived
+  16.916 us; reopened first 72.534 us.
+- All three queries retained identical counts and ordered-result digests across native,
+  resident-archived and reopened states.
 - Offline audit verified all 1,077 reachable objects with no error.
+
+No comparable storage-backend baseline was available for this revision, so the report
+contains absolute timing values and makes no speedup claim. The existing full ASCII
+150-query raw run is retained under `final/ascii`, but the reduced acceptance summary
+only depends on the three required queries above.
 
 ## Approved deviations and limitations
 
-- The user authorized the smaller Q001/Q119 smoke benchmark. The full 150-query,
-  ASCII/Unicode, worker, mutation, compaction and seven-process acceptance matrices
-  are unmeasured for this task revision.
+- Per the user's final reduced scope, worker-count and alphabet matrices,
+  mutation/compaction benchmark matrices and repeated cold/warm series were not run.
+  Their correctness remains covered by the passing test suite.
 - Presence/null/empty-selection masks are still eager. Independent query-state leaves
   are not implemented.
 - Segment-local relation contributions remain coarser than independent endpoint

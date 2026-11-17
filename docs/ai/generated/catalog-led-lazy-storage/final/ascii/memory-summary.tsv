@@ -1,0 +1,5 @@
+alphabet	checkpoint	rss_bytes	peak_rss_bytes
+ascii	native_build	745848832	757260288
+ascii	after_memory_archive	977776640	979603456
+ascii	after_first_save	1419239424	2032672768
+ascii	after_eager_open	2034503680	2348408832

@@ -1,2 +1,2 @@
-alphabet	variant	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	bytes_serialized	bytes_written	objects_new	objects_reused	sync_calls
-ascii	first_save	1	2759753145	2759753145	2759753145	519038336	434041128	1077	1	4
+alphabet	variant	samples	elapsed_ns_median	elapsed_ns_p95	elapsed_ns_max	bytes_serialized_median	bytes_serialized_p95	bytes_serialized_max	bytes_written_median	bytes_written_p95	bytes_written_max	objects_new_median	objects_new_p95	objects_new_max	objects_reused_median	objects_reused_p95	objects_reused_max	sync_calls_median	sync_calls_p95	sync_calls_max	rss_bytes_median	rss_bytes_p95	rss_bytes_max	peak_rss_bytes_median	peak_rss_bytes_p95	peak_rss_bytes_max
+ascii	first_save	1	2663627619	2663627619	2663627619	519038336	519038336	519038336	434041128	434041128	434041128	1077	1077	1077	1	1	1	4	4	4	1419239424	1419239424	1419239424	2032672768	2032672768	2032672768

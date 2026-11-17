@@ -1,2 +1,2 @@
-alphabet	samples	median_elapsed_ns	min_elapsed_ns	max_elapsed_ns	index_reads	index_bytes	file_rows	record_rows	index_descriptors	leaf_rows	peak_rss_bytes
-ascii	2	1347465241	1292858011	1402072473	39	367452992	148486	148486	1256	238150	2181570560
+alphabet	samples	elapsed_ns_median	elapsed_ns_p95	elapsed_ns_max	index_reads_median	index_reads_p95	index_reads_max	index_bytes_median	index_bytes_p95	index_bytes_max	file_rows_median	file_rows_p95	file_rows_max	record_rows_median	record_rows_p95	record_rows_max	index_descriptors_median	index_descriptors_p95	index_descriptors_max	leaf_rows_median	leaf_rows_p95	leaf_rows_max	rss_bytes_median	rss_bytes_p95	rss_bytes_max	peak_rss_bytes_median	peak_rss_bytes_p95	peak_rss_bytes_max
+ascii	7	1417951095	1442062464	1442062464	39	39	39	367452992	367452992	367452992	148486	148486	148486	148486	148486	148486	1256	1256	1256	238150	238150	238150	2011803648	2058440704	2058440704	2289811456	2348408832	2348408832
