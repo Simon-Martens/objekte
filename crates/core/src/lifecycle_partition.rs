@@ -77,13 +77,12 @@ fn compact_source_parts_with_limits(
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
-        let Some(current) = catalog.entry(file.entry.id) else {
-            continue;
-        };
-        if current.revision != file.entry.revision
-            || current.created_ns != file.entry.created_ns
-            || !current.collections.contains(&source.collection)
-        {
+        if !catalog.matches_revision(
+            file.entry.id,
+            file.entry.revision,
+            file.entry.created_ns,
+            source.collection,
+        ) {
             continue;
         }
         let owned = file
@@ -172,11 +171,20 @@ fn compact_source_parts_with_limits(
                 inference,
             )
             .map_err(IndexError::Build)?;
-        for file in &mut compacted.files {
-            if let Some(current) = catalog.entry(file.entry.id) {
+        let mut refreshed_files = compacted.files.to_vec();
+        for file in &mut refreshed_files {
+            if let Some(current) = catalog.entry_owned(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
+        let (files, records) = crate::segment_archive::SegmentRows::native(
+            refreshed_files,
+            compacted.records.to_vec(),
+        )
+        .map_err(IndexError::Build)?
+        .views();
+        compacted.files = files;
+        compacted.records = records;
         parts.push(compacted);
     }
     Ok(parts)
@@ -235,11 +243,13 @@ fn partition_base_with_limits_inner(
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active =
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
-            group.push(Arc::new(PublishedSegment {
-                id: crate::native_segment::SegmentId::new(ordinal),
-                index: Arc::new(part),
-                active,
-            }));
+            let id = crate::native_segment::SegmentId::new(ordinal);
+            let mut part = part;
+            part.id = id;
+            group.push(Arc::new(
+                PublishedSegment::checked(id, Arc::new(part), active)
+                    .map_err(IndexError::InvalidPublication)?,
+            ));
         }
         groups[number] = Arc::new(group);
     }
@@ -251,6 +261,7 @@ fn partition_base_with_limits_inner(
         .map(|_| ActiveRecords::all(0).map_err(IndexError::ResourceLimit))
         .collect::<Result<Vec<_>, _>>()?;
     root.segments = groups;
+    root.rebuild_all_segment_positions();
     Ok(root)
 }
 

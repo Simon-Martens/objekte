@@ -1,0 +1,7 @@
+revision	alphabet	worker_limit	sample	total_ms	transition_wait_ns	preparation_ms	installation_ns	serializer_work_sum_ms	validation_work_sum_ms	serialized_bytes	capacity_bytes	peak_active_jobs
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii	1	query-archived-final	175.230	35	163.881	575	73.799	6.489	149111376	233891392	1
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode	1	query-archived-final	149.572	36	137.755	478	56.691	6.423	149111376	233891392	1
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii	8	archive-w8-final	178.895	0	166.817	0	80.376	7.264	149111376	233891392	7
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode	8	archive-w8-final	172.518	0	157.330	0	68.732	7.419	149111376	233891392	7
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii	32	archive-w32-final	288.846	0	256.810	0	131.697	11.134	149111376	233891392	7
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode	32	archive-w32-final	161.846	0	150.061	0	66.586	7.248	149111376	233891392	7

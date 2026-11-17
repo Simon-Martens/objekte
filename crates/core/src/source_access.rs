@@ -149,7 +149,7 @@ impl<'a> SourceAccessSession<'a> {
                 (path, file.revision)
             }
             SourceFileTable::Catalog { root, catalog } => {
-                let file = catalog.entry(file_id).ok_or("unknown source file")?;
+                let file = catalog.entry_owned(file_id).ok_or("unknown source file")?;
                 (root.join(&file.relative_path), file.revision)
             }
         };

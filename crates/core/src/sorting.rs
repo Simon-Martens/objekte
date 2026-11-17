@@ -191,6 +191,7 @@ impl InferredOrderKey {
     }
 }
 
+#[derive(Clone)]
 struct InferredOrderEntry {
     column: Arc<SortColumn>,
     bytes: usize,
@@ -208,6 +209,7 @@ pub(crate) struct InferredOrderCacheStats {
 
 /// A lazy, bounded cache owned by one repository. Callers build a missing
 /// column outside its mutex, then publish it with a second short lock.
+#[derive(Clone)]
 pub(crate) struct InferredOrderCache {
     entries: HashMap<InferredOrderKey, InferredOrderEntry>,
     max_bytes: usize,
@@ -407,7 +409,12 @@ impl SortColumn {
             *key = SortKey::Null;
         }
         let value_map = &index.values;
-        for (value, slots) in value_map.iter() {
+        let mut values = value_map.range(
+            std::ops::Bound::Unbounded,
+            std::ops::Bound::Unbounded,
+            false,
+        );
+        while let Some((value, slots)) = values.next() {
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
@@ -415,13 +422,13 @@ impl SortColumn {
                 ScalarKey::Number(number) if index.kind == LogicalType::Number => {
                     SortKey::Number(number.clone())
                 }
-                ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(*flag),
+                ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(flag),
                 ScalarKey::String(text) if index.kind == LogicalType::String => {
                     let mut bytes = Vec::new();
                     collator
                         .as_ref()
                         .expect("string collator")
-                        .write_sort_key_to(text, &mut bytes)
+                        .write_sort_key_to(&text, &mut bytes)
                         .map_err(|error| error.to_string())?;
                     let memberships = usize::try_from(slots.len())
                         .map_err(|_| "inferred sort membership count overflow")?;
@@ -496,13 +503,16 @@ impl SortColumn {
                 order.extend(&missing);
             }
             if descending {
-                for (_, slots) in value_map.iter().rev() {
+                let mut cursor =
+                    value_map.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded, true);
+                while let Some((_, slots)) = cursor.next() {
                     append_inferred_group(&mut order, slots, records);
                 }
             } else {
-                for slots in value_map.values() {
+                value_map.for_each(|_, slots| {
                     append_inferred_group(&mut order, slots, records);
-                }
+                    Ok(())
+                })?;
             }
             if options.nulls == Placement::Last {
                 order.extend(&nulls);
@@ -579,6 +589,72 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
 }
 
 impl SortCollection {
+    pub(crate) fn configuration_only(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+    ) -> Result<Self, String> {
+        if overrides.keys().any(|path| !paths.contains(path)) {
+            return Err("sort override is not a configured sort field".into());
+        }
+        let mut columns = HashMap::with_capacity(paths.len());
+        for path in paths {
+            let config = overrides.get(path).cloned().unwrap_or_else(|| SortConfig {
+                locale: locale.into(),
+                options: defaults,
+            });
+            let field = schema.field(path)?;
+            if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
+                return Err(format!(
+                    "array/object sort needs explicit reduction: {}",
+                    path.display()
+                ));
+            }
+            if columns
+                .insert(
+                    path.clone(),
+                    SortColumn {
+                        path: path.clone(),
+                        kind: field.kind,
+                        keys: Vec::new(),
+                        ascending: Vec::new(),
+                        descending: Vec::new(),
+                        locale: config.locale,
+                        options: config.options,
+                        collation_version: COLLATION_VERSION.into(),
+                    },
+                )
+                .is_some()
+            {
+                return Err("duplicate sort field".into());
+            }
+        }
+        let mut composites = Vec::new();
+        for fields in &schema.composite_sorts {
+            let parts = fields
+                .iter()
+                .map(simple_composite_part)
+                .collect::<Option<Vec<_>>>();
+            if fields.len() < 2
+                || parts
+                    .as_ref()
+                    .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))
+            {
+                return Err("composite sort requires configured resident scalar fields".into());
+            }
+            composites.push(CompositeSortOrder {
+                fields: parts.expect("validated composite parts"),
+                order: Vec::new(),
+            });
+        }
+        Ok(Self {
+            columns,
+            composites,
+        })
+    }
+
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields
             .iter()
@@ -622,6 +698,32 @@ pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'sta
 }
 
 impl SortBuilder {
+    pub(crate) fn with_keys(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+        mut keys: HashMap<FieldPath, Vec<SortKey>>,
+        record_count: usize,
+    ) -> Result<Self, String> {
+        let mut builder = Self::new(paths, schema, locale, defaults, overrides)?;
+        if keys.len() != builder.columns.len() {
+            return Err("sort batch column coverage mismatch".into());
+        }
+        for (path, column) in &mut builder.columns {
+            let values = keys.remove(path).ok_or("sort batch column missing")?;
+            if values.len() != record_count {
+                return Err("sort batch key coverage mismatch".into());
+            }
+            column.keys = values;
+        }
+        if !keys.is_empty() {
+            return Err("sort batch contains an unexpected column".into());
+        }
+        Ok(builder)
+    }
+
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
         self.columns
             .into_iter()

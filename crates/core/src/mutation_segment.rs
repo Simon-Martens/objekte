@@ -129,6 +129,100 @@ impl SegmentAggregate {
         })
     }
 
+    fn adopt_first(
+        batch: BatchContribution,
+        definition: &CollectionDefinition,
+        alphabet: BigramAlphabet,
+        record_count: u32,
+        collection_count: usize,
+    ) -> Result<Self, String> {
+        let BatchContribution {
+            postings,
+            inference,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sort_keys,
+            relations,
+            ..
+        } = batch;
+        if !postings.configuration_matches(&definition.schema) {
+            return Err("first posting batch does not match the declared schema".into());
+        }
+        let expected_custom = definition
+            .schema
+            .operations
+            .iter()
+            .filter(|(_, binding)| binding.operation.posting())
+            .map(|(key, _)| key)
+            .collect::<HashSet<_>>();
+        if custom_postings.len() != expected_custom.len()
+            || !custom_postings
+                .keys()
+                .all(|key| expected_custom.contains(key))
+        {
+            return Err("first custom posting batch does not match the schema".into());
+        }
+        let expected_custom_text = definition
+            .schema
+            .custom
+            .keys()
+            .chain(
+                definition
+                    .schema
+                    .operations
+                    .iter()
+                    .filter(|(_, binding)| {
+                        binding.operation.bigram() && binding.operation.complete_coverage()
+                    })
+                    .map(|(key, _)| key),
+            )
+            .map(|key| canonical_custom_text_key(&definition.schema, &key.0, &key.1))
+            .collect::<HashSet<_>>();
+        if custom_text.len() != expected_custom_text.len()
+            || !custom_text
+                .keys()
+                .all(|key| expected_custom_text.contains(key))
+            || raw.alphabet() != alphabet
+            || fallback_text.alphabet() != alphabet
+            || raw.record_count() != record_count
+            || fallback_text.record_count() != record_count
+            || custom_text
+                .values()
+                .any(|index| index.alphabet() != alphabet || index.record_count() != record_count)
+            || relations.len() != definition.schema.relations().len()
+        {
+            return Err("first batch component configuration mismatch".into());
+        }
+        let sorting = SortBuilder::with_keys(
+            &definition.sort_fields,
+            &definition.schema,
+            &definition.sort_locale,
+            definition.sort_options,
+            &definition.sort_overrides,
+            sort_keys,
+            record_count as usize,
+        )?;
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.first_batch_transfers = counters.first_batch_transfers.saturating_add(1);
+        });
+        Ok(Self {
+            postings,
+            inference: inference.map(|builder| builder.promote_first_batch(collection_count)),
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sorting,
+            relations,
+        })
+    }
+
     fn admit_parallel(
         &mut self,
         batch: BatchContribution,
@@ -514,13 +608,31 @@ impl CollectionSegment {
         mut profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<IndexedCollectionSegment, String> {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let mut aggregate =
-            SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?;
+        let mut batches = self.batches.into_iter();
+        let mut aggregate = if let Some(SegmentBatch {
+            base,
+            count,
+            contribution,
+        }) = batches.next()
+        {
+            if base != 0 {
+                return Err("first segment batch has an invalid base or count".into());
+            }
+            SegmentAggregate::adopt_first(
+                contribution,
+                definition,
+                alphabet,
+                count,
+                collection_count,
+            )?
+        } else {
+            SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?
+        };
         for SegmentBatch {
             base,
             count,
             contribution,
-        } in self.batches
+        } in batches
         {
             aggregate.admit_parallel(contribution, base, count, pool)?;
         }
@@ -528,9 +640,9 @@ impl CollectionSegment {
             profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
         }
         let SegmentAggregate {
-            mut postings,
+            postings,
             inference,
-            mut custom_postings,
+            custom_postings,
             raw,
             fallback_text,
             custom_text,
@@ -541,26 +653,8 @@ impl CollectionSegment {
         } = aggregate;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        postings.finish_stats();
-        postings.validate_eligible(record_count, logical_count)?;
-        if logical_count != record_count {
-            postings.validate_domain(&logical_records)?;
-        }
         if !(&empty_array_records - &logical_records).is_empty() {
             return Err("empty-array structural bitmap exceeds logical records".into());
-        }
-        for custom in custom_postings.values_mut() {
-            custom.index.finish_stats();
-            custom
-                .index
-                .validate_eligible(record_count, logical_count)?;
-            if logical_count != record_count {
-                custom.index.validate_domain(&logical_records)?;
-            }
-        }
-        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.postings_finish_validation_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let raw = raw.into_index_in_pool(pool)?;
@@ -631,32 +725,45 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
-        let mut index = IndexedCollectionSegment {
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let id_lookup = crate::segment_archive::RecordLookup::native(self.id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(self.file_index)?;
+        let (files, records) =
+            crate::segment_archive::SegmentRows::native(self.files, self.records)?.views();
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.segment_rows_native_publication_ns += started.elapsed().as_nanos() as u64;
+        }
+        let index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
             source_id: self.source_id,
             source_version: self.source_version,
-            files: self.files,
-            file_index: self.file_index,
-            records: self.records,
-            id_lookup: self.id_lookup,
-            identity_order,
+            files,
+            file_index,
+            records,
+            id_lookup,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation,
             inference,
             custom_postings,
-            raw,
-            fallback_text,
-            custom_text,
+            raw: Arc::new(raw),
+            fallback_text: Arc::new(fallback_text),
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
-            sorting,
-            relations,
+            sorting: Arc::new(sorting),
+            relations: Arc::new(relations),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
+            storage_completed: false,
         };
-        index.recompute_accounting();
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let index = index.seal_completed_storage_in_pool(pool)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.postings_native_publication_ns = started.elapsed().as_nanos() as u64;
+        }
         Ok(index)
     }
 }
@@ -728,7 +835,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|_| Vec::with_capacity(self.relations.len()))
             .collect::<Vec<_>>();
-        for relation in &self.relations {
+        for relation in self.relations.iter() {
             let parts = relation.project_partitions(&counts, |old| {
                 routing
                     .locations
@@ -924,6 +1031,7 @@ fn consolidate_inference(
                 continue;
             }
             let mut index = initial.clone();
+            index.thaw_storage()?;
             index.presence.clear();
             index.empty_selections.clear();
             index.nulls.clear();
@@ -1065,14 +1173,18 @@ impl IndexedCollectionSegment {
         let mut records = Vec::with_capacity(total_records);
         let mut id_lookup = HashMap::new();
         let mut postings = first.postings.clone();
+        postings.thaw_storage()?;
         let mut custom_postings = first.custom_postings.clone();
-        let mut raw = first.raw.clone();
-        let mut fallback_text = first.fallback_text.clone();
-        let mut custom_text = first.custom_text.clone();
+        for posting in custom_postings.values_mut() {
+            posting.index.thaw_storage()?;
+        }
+        let mut raw = (*first.raw).clone();
+        let mut fallback_text = (*first.fallback_text).clone();
+        let mut custom_text = (*first.custom_text).clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
-        let mut sorting = first.sorting.clone();
-        let mut relations = first.relations.clone();
+        let mut sorting = (*first.sorting).clone();
+        let mut relations = (*first.relations).clone();
         let mut record_parses = 0u64;
         let mut failed_parses = 0u64;
         for (number, shard) in shards.iter().enumerate() {
@@ -1144,7 +1256,7 @@ impl IndexedCollectionSegment {
                 if custom_text.len() != shard.custom_text.len() {
                     return Err("custom bigram segment coverage mismatch".into());
                 }
-                for (key, source) in &shard.custom_text {
+                for (key, source) in shard.custom_text.iter() {
                     merge_bigram_index(
                         custom_text
                             .get_mut(key)
@@ -1156,7 +1268,7 @@ impl IndexedCollectionSegment {
                 if relations.len() != shard.relations.len() {
                     return Err("relation segment coverage mismatch".into());
                 }
-                for (target, source) in relations.iter_mut().zip(&shard.relations) {
+                for (target, source) in relations.iter_mut().zip(shard.relations.iter()) {
                     target.merge_shifted(source.clone(), base, shard.record_count() as u32)?;
                 }
                 if sorting.columns.len() != shard.sorting.columns.len()
@@ -1184,21 +1296,7 @@ impl IndexedCollectionSegment {
             record_parses = record_parses.saturating_add(shard.record_parses);
             failed_parses = failed_parses.saturating_add(shard.failed_parses);
         }
-        postings.finish_stats();
         let logical_count = logical_records.len() as usize;
-        postings.validate_eligible(records.len(), logical_count)?;
-        if logical_count != records.len() {
-            postings.validate_domain(&logical_records)?;
-        }
-        for custom in custom_postings.values_mut() {
-            custom.index.finish_stats();
-            custom
-                .index
-                .validate_eligible(records.len(), logical_count)?;
-            if logical_count != records.len() {
-                custom.index.validate_domain(&logical_records)?;
-            }
-        }
         raw.validate(records.len())?;
         fallback_text.validate(records.len())?;
         if logical_count != records.len() {
@@ -1254,7 +1352,10 @@ impl IndexedCollectionSegment {
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
-        let mut index = IndexedCollectionSegment {
+        let id_lookup = crate::segment_archive::RecordLookup::native(id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(file_index)?;
+        let (files, records) = crate::segment_archive::SegmentRows::native(files, records)?.views();
+        let index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
             source_id: first.source_id.clone(),
@@ -1263,24 +1364,27 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
-            identity_order,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation: None,
             inference,
             custom_postings,
-            raw,
-            fallback_text,
-            custom_text,
+            raw: Arc::new(raw),
+            fallback_text: Arc::new(fallback_text),
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
-            sorting,
-            relations,
+            sorting: Arc::new(sorting),
+            relations: Arc::new(relations),
             record_parses,
             failed_parses,
             accounting: SegmentAccounting::default(),
+            storage_completed: false,
         };
-        index.recompute_accounting();
-        Ok(ConsolidatedSegment { index, offsets })
+        Ok(ConsolidatedSegment {
+            index: index.seal_completed_storage()?,
+            offsets,
+        })
     }
 }
 
@@ -1310,27 +1414,13 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
             .structural
             .as_ref()
             .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
+        values: crate::posting::PostingDictionary::builder(),
+        lengths: crate::posting::PostingDictionary::builder(),
         value_complete: source.value_complete,
         length_complete: source.length_complete,
         empty_string_complete: source.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
-    }
-}
-
-fn scatter_posting_key<K: Ord + Clone>(
-    target: &mut std::collections::BTreeMap<K, RoaringBitmap>,
-    key: &K,
-    slot: u32,
-) {
-    if let Some(bitmap) = target.get_mut(key) {
-        bitmap.insert(slot);
-    } else {
-        let mut bitmap = RoaringBitmap::new();
-        bitmap.insert(slot);
-        target.insert(key.clone(), bitmap);
     }
 }
 
@@ -1371,7 +1461,7 @@ fn scatter_posting_partitions(
         }
     }
     if let Some(facts) = &index.structural {
-        for (key, bitmap) in &facts.postings {
+        facts.postings.for_each(|key, bitmap| {
             for old in bitmap.iter() {
                 if let Some((part, slot)) = posting_destination(routing, old)? {
                     parts[part]
@@ -1379,17 +1469,20 @@ fn scatter_posting_partitions(
                         .as_mut()
                         .unwrap()
                         .postings
-                        .entry(*key)
-                        .or_default()
+                        .bitmap_mut(*key)?
                         .insert(slot.0);
                 }
             }
-        }
+            Ok(())
+        })?;
     }
     index.for_each_value(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].values, key, slot.0);
+                parts[part]
+                    .values
+                    .bitmap_mut(crate::posting::StoredScalarKey::from_scalar(key))?
+                    .insert(slot.0);
             }
         }
         Ok(())
@@ -1397,7 +1490,10 @@ fn scatter_posting_partitions(
     index.for_each_length(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
-                scatter_posting_key(&mut parts[part].lengths, key, slot.0);
+                parts[part]
+                    .lengths
+                    .bitmap_mut(crate::posting::PostingNumberKey::from_number(key))?
+                    .insert(slot.0);
             }
         }
         Ok(())
@@ -1600,8 +1696,8 @@ fn project_posting(
             .structural
             .as_ref()
             .map(|_| StructuralFacts::default()),
-        values: Default::default(),
-        lengths: Default::default(),
+        values: crate::posting::PostingDictionary::builder(),
+        lengths: crate::posting::PostingDictionary::builder(),
         value_complete: index.value_complete,
         length_complete: index.length_complete,
         empty_string_complete: index.empty_string_complete,
@@ -1611,24 +1707,25 @@ fn project_posting(
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.values.insert(key.clone(), kept);
+            projected.values.insert_public(key, kept)?;
         }
         Ok(())
     })?;
     index.for_each_length(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.lengths.insert(key.clone(), kept);
+            projected.lengths.insert_public(key, kept)?;
         }
         Ok(())
     })?;
     if let (Some(source), Some(target)) = (&index.structural, &mut projected.structural) {
-        for (key, bitmap) in &source.postings {
+        source.postings.for_each(|key, bitmap| {
             let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
             if !kept.is_empty() {
-                target.postings.insert(*key, kept);
+                target.postings.insert_public(key, kept)?;
             }
-        }
+            Ok(())
+        })?;
     }
     projected.covered_records = logical_count;
     projected.finish_stats();
@@ -2070,7 +2167,7 @@ impl IndexedCollectionSegment {
         let mut custom = (0..routing.selected.len())
             .map(|_| HashMap::with_capacity(self.custom_text.len()))
             .collect::<Vec<_>>();
-        for (key, index) in &self.custom_text {
+        for (key, index) in self.custom_text.iter() {
             for (destination, projected) in scatter_bigram_partitions(index, routing)?
                 .into_iter()
                 .enumerate()
@@ -2246,8 +2343,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|id| {
                 self.file_index
-                    .get(id)
-                    .copied()
+                    .get(*id)
                     .ok_or_else(|| "partition file missing".to_owned())
             })
             .collect::<Result<Vec<_>, _>>()?;
@@ -2469,16 +2565,15 @@ impl IndexedCollectionSegment {
         };
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
-        postings.validate_eligible(records.len(), logical_records.len() as usize)?;
-        if logical_records.len() as usize != records.len() {
-            postings.validate_domain(&logical_records)?;
-        }
         raw.validate(records.len())?;
         fallback_text.validate(records.len())?;
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
-        let mut index = IndexedCollectionSegment {
+        let id_lookup = crate::segment_archive::RecordLookup::native(id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(file_index)?;
+        let (files, records) = crate::segment_archive::SegmentRows::native(files, records)?.views();
+        let index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
             source_id: self.source_id.clone(),
@@ -2487,24 +2582,24 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
-            identity_order,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation: None,
             inference,
             custom_postings,
-            raw,
-            fallback_text,
-            custom_text,
+            raw: Arc::new(raw),
+            fallback_text: Arc::new(fallback_text),
+            custom_text: Arc::new(custom_text),
             logical_records,
             empty_array_records,
-            sorting,
-            relations,
+            sorting: Arc::new(sorting),
+            relations: Arc::new(relations),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
+            storage_completed: false,
         };
-        index.recompute_accounting();
-        Ok(index)
+        index.seal_completed_storage()
     }
 }
 

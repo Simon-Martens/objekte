@@ -1,0 +1,145 @@
+{
+  "generated": "2026-11-17",
+  "bootstrap_seed": 20261117,
+  "bootstrap_resamples": 10000,
+  "rows": [
+    {
+      "alphabet": "ascii",
+      "workers": 1,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 3671.000552,
+      "predecessor_median_ms": 4177.077994,
+      "followup_median_ms": 4016.418133,
+      "paired_ratio_median": 1.0940935791501891,
+      "paired_ratio_ci95": [
+        1.0922857733124227,
+        1.1096701985270678
+      ],
+      "native_end_rss_mib": 415.8984375,
+      "predecessor_end_rss_mib": 606.6640625,
+      "followup_end_rss_mib": 555.5390625,
+      "native_peak_rss_mib": 458.29296875,
+      "predecessor_peak_rss_mib": 671.89453125,
+      "followup_peak_rss_mib": 620.8671875,
+      "gate": "failed"
+    },
+    {
+      "alphabet": "ascii",
+      "workers": 8,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 808.010034,
+      "predecessor_median_ms": 1192.501118,
+      "followup_median_ms": 987.563986,
+      "paired_ratio_median": 1.2334541343325012,
+      "paired_ratio_ci95": [
+        1.192278274356182,
+        1.2638168487522325
+      ],
+      "native_end_rss_mib": 462.5546875,
+      "predecessor_end_rss_mib": 672.96875,
+      "followup_end_rss_mib": 590.7578125,
+      "native_peak_rss_mib": 503.46484375,
+      "predecessor_peak_rss_mib": 737.09375,
+      "followup_peak_rss_mib": 655.1328125,
+      "gate": "failed"
+    },
+    {
+      "alphabet": "ascii",
+      "workers": 32,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 649.406397,
+      "predecessor_median_ms": 1073.441968,
+      "followup_median_ms": 832.147903,
+      "paired_ratio_median": 1.2870480388237706,
+      "paired_ratio_ci95": [
+        1.2698265174487557,
+        1.3140388530001097
+      ],
+      "native_end_rss_mib": 575.1640625,
+      "predecessor_end_rss_mib": 839.56640625,
+      "followup_end_rss_mib": 721.5625,
+      "native_peak_rss_mib": 615.5703125,
+      "predecessor_peak_rss_mib": 902.22265625,
+      "followup_peak_rss_mib": 784.76171875,
+      "gate": "failed"
+    },
+    {
+      "alphabet": "unicode",
+      "workers": 1,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 4393.871389,
+      "predecessor_median_ms": 5047.683111,
+      "followup_median_ms": 4775.540208,
+      "paired_ratio_median": 1.0844890980476347,
+      "paired_ratio_ci95": [
+        1.080492522713729,
+        1.1000503897712657
+      ],
+      "native_end_rss_mib": 424.109375,
+      "predecessor_end_rss_mib": 612.1015625,
+      "followup_end_rss_mib": 561.76953125,
+      "native_peak_rss_mib": 466.32421875,
+      "predecessor_peak_rss_mib": 676.91796875,
+      "followup_peak_rss_mib": 626.75390625,
+      "gate": "failed"
+    },
+    {
+      "alphabet": "unicode",
+      "workers": 8,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 930.83708,
+      "predecessor_median_ms": 1345.514901,
+      "followup_median_ms": 1099.229978,
+      "paired_ratio_median": 1.1725153856742871,
+      "paired_ratio_ci95": [
+        1.1581649051768284,
+        1.2105167520208246
+      ],
+      "native_end_rss_mib": 472.8359375,
+      "predecessor_end_rss_mib": 694.86328125,
+      "followup_end_rss_mib": 596.125,
+      "native_peak_rss_mib": 514.2734375,
+      "predecessor_peak_rss_mib": 758.8671875,
+      "followup_peak_rss_mib": 659.78125,
+      "gate": "failed"
+    },
+    {
+      "alphabet": "unicode",
+      "workers": 32,
+      "native_commit": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+      "predecessor_commit": "e4a7471ffe777a9a4992dff34d7070edf372e873",
+      "followup_commit": "65cb66dc5bac2623a94f74cc4e12b110839ce813",
+      "samples_per_revision": 7,
+      "native_median_ms": 702.858717,
+      "predecessor_median_ms": 1140.445308,
+      "followup_median_ms": 897.600945,
+      "paired_ratio_median": 1.2698617522659377,
+      "paired_ratio_ci95": [
+        1.2588239245531192,
+        1.3196591652115135
+      ],
+      "native_end_rss_mib": 596.4296875,
+      "predecessor_end_rss_mib": 846.46484375,
+      "followup_end_rss_mib": 716.6484375,
+      "native_peak_rss_mib": 636.6875,
+      "predecessor_peak_rss_mib": 909.26171875,
+      "followup_peak_rss_mib": 779.74609375,
+      "gate": "failed"
+    }
+  ]
+}

@@ -953,7 +953,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .iter()
         .find(|shard| shard.index.file(handle.file_id).is_some())
         .unwrap();
-    assert_eq!(new_shard.id.get(), old_ordinal);
+    assert_ne!(new_shard.id.get(), old_ordinal);
     assert_eq!(
         new_shard.index.file_records(handle.file_id).unwrap(),
         [old_slot]
@@ -1098,7 +1098,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
             .len(),
         1
     );
-    assert_eq!(
+    assert_ne!(
         index.view().unwrap().segments(CollectionId(0)).unwrap()[0]
             .id
             .get(),
@@ -1135,7 +1135,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
             .segments(CollectionId(0))
             .unwrap()
             .len(),
-        2
+        1
     );
 
     std::fs::remove_file(&path).unwrap();
@@ -1530,7 +1530,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         .relation_outgoing_page("sources", &relation_path, "S", 0, 10)
         .unwrap()
         .source;
-    assert_eq!(first_locator.segment_ordinal, Some(ordinal));
+    assert_ne!(first_locator.segment_ordinal, Some(ordinal));
     assert_eq!(first_locator.slot, RecordSlot(0));
     assert_ne!(first_locator.generation, original_locator.generation);
     assert_eq!(
@@ -1702,7 +1702,7 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     for (collection, ordinal) in [CollectionId(0), CollectionId(1)].into_iter().zip(ordinals) {
         let shards = current.segments(collection).unwrap();
         assert_eq!(shards.len(), 1);
-        assert_eq!(shards[0].id.get(), ordinal);
+        assert_ne!(shards[0].id.get(), ordinal);
         assert_eq!(shards[0].index.records[0].slot, RecordSlot(0));
         assert_eq!(pinned.segments(collection).unwrap()[0].id.get(), ordinal);
     }

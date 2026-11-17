@@ -3,6 +3,8 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
+mod archive_storage;
+mod archived_path;
 pub mod bigram;
 mod build;
 mod byte_size_literal;
@@ -55,11 +57,13 @@ pub mod repository;
 pub mod repository_configuration;
 pub mod run;
 pub mod schema_adapter;
+mod segment_archive;
 mod sort_binding;
 pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod source_scan;
+mod storage_usage;
 pub mod streaming;
 mod structural;
 pub mod temporal_query;
@@ -73,6 +77,10 @@ mod tests;
 #[cfg(test)]
 #[path = "foundation_invariants.test.rs"]
 mod foundation_invariants;
+
+#[cfg(test)]
+#[path = "rkyv_prototype.test.rs"]
+mod rkyv_prototype;
 
 #[cfg(test)]
 #[path = "id.test.rs"]

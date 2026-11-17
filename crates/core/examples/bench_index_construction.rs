@@ -13,9 +13,7 @@ use std::time::{Instant, SystemTime};
 use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
 use objekte_search_core::workload::ReturnMode;
@@ -205,13 +203,13 @@ fn run() -> Result<(), String> {
     let relation_edges = repo
         .collections()
         .iter()
-        .flat_map(|c| &c.relations)
+        .flat_map(|c| c.relations.iter())
         .map(|r| r.edge_count())
         .sum::<usize>();
     let relation_heap_bytes = repo
         .collections()
         .iter()
-        .flat_map(|c| &c.relations)
+        .flat_map(|c| c.relations.iter())
         .map(|r| r.estimated_heap_bytes())
         .sum::<usize>();
     let estimated_index_bytes = repo
@@ -228,21 +226,7 @@ fn run() -> Result<(), String> {
                     .fields
                     .values()
                     .map(|p| {
-                        p.values
-                            .values()
-                            .map(|bitmap| bitmap.serialized_size() as usize)
-                            .sum::<usize>()
-                            + p.lengths
-                                .values()
-                                .map(|bitmap| bitmap.serialized_size() as usize)
-                                .sum::<usize>()
-                            + p.structural.as_ref().map_or(0, |facts| {
-                                facts
-                                    .postings
-                                    .values()
-                                    .map(|bitmap| bitmap.serialized_size())
-                                    .sum::<usize>()
-                            })
+                        p.dictionary_payload_bytes()
                             + if p.empty_selections.is_empty() {
                                 0
                             } else {
@@ -270,8 +254,8 @@ fn run() -> Result<(), String> {
         repo.collections()
             .iter()
             .fold((0usize, 0usize), |total, collection| {
-                std::iter::once(&collection.raw)
-                    .chain(std::iter::once(&collection.fallback_text))
+                std::iter::once(collection.raw.as_ref())
+                    .chain(std::iter::once(collection.fallback_text.as_ref()))
                     .chain(collection.custom_text.values())
                     .fold(total, |(stores, keys), index| {
                         (stores + 1, keys + index.normal.len() + index.skip.len())
@@ -614,7 +598,10 @@ fn probe_storage_operations(repo: &Repository) -> Result<serde_json::Value, Stri
         Ok(())
     })?;
     let id_lookup_ns = median_probe_ns(100_000, || {
-        let found = collection.id_lookup.get(id).ok_or("ID lookup missed")?;
+        let found = collection
+            .id_lookup
+            .get(id.as_str())
+            .ok_or("ID lookup missed")?;
         std::hint::black_box(found);
         Ok(())
     })?;
@@ -712,7 +699,7 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &Repository) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.files().files.iter() {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.revision.modified_ns.to_le_bytes());
         hash.update(file.revision.size.to_le_bytes());

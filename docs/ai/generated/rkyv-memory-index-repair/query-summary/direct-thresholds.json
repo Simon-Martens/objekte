@@ -1,0 +1,27 @@
+{
+  "over_25pct_and_1ms": 5,
+  "max_ratio": 4.780695714883324,
+  "slowest_ratio": {
+    "case": "Q001|ascii",
+    "native_ns": 17455254,
+    "final_ns": 83448258,
+    "ratio": 4.780695714883324,
+    "delta_ns": 65993004
+  },
+  "q119": [
+    {
+      "case": "Q119|ascii",
+      "native_ns": 4971450,
+      "final_ns": 5996819,
+      "ratio": 1.2062514960424022,
+      "delta_ns": 1025369
+    },
+    {
+      "case": "Q119|unicode",
+      "native_ns": 4981193,
+      "final_ns": 9152005,
+      "ratio": 1.837311864848441,
+      "delta_ns": 4170812
+    }
+  ]
+}

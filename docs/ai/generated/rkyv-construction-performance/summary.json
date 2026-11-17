@@ -1,0 +1,21 @@
+{
+  "task": "rkyv-construction-performance",
+  "verdict": "correctness complete; native performance acceptance incomplete",
+  "followup_code_commit": "65cb66dc5b",
+  "construction_samples": 126,
+  "construction_samples_per_cell_per_revision": 7,
+  "construction_gate": "failed",
+  "query_semantic_mismatches": 0,
+  "query_aggregate_gate": "failed",
+  "query_focused_gate": "failed",
+  "memory_vs_predecessor": "improved",
+  "memory_vs_native": "still higher",
+  "artifacts": {
+    "construction": "build-samples.jsonl",
+    "construction_summary": "build-summary.tsv",
+    "queries": "query-summary.json",
+    "memory": "metadata-ownership.md",
+    "allocations": "allocation-summary.tsv",
+    "details": "implementation-report.md"
+  }
+}

@@ -1,12 +1,20 @@
 //! Typed B-tree dictionaries with record-slot postings and special states.
 
+use std::cmp::Ordering;
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::fmt;
 use std::ops::Bound::{Excluded, Included, Unbounded};
+use std::sync::{Arc, OnceLock};
 
+use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
+use rkyv::place::Place;
+use rkyv::vec::{ArchivedVec, VecResolver};
+use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
+use crate::archive_storage::ValidatedArchive;
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
@@ -23,6 +31,1843 @@ pub enum ScalarKey {
     Date(Date),
     Datetime(OffsetDateTime),
     Unixtime(i64),
+}
+
+/// Native key stored in completed posting archives.
+///
+/// The stored variants retain the original numeric representation while the
+/// comparison implementation preserves `Number`'s cross-representation order.
+#[derive(Clone, Debug, Archive, ArchiveSerialize)]
+pub(crate) enum PostingNumberKey {
+    Integer(i128),
+    Float(f64),
+    ExactDecimal {
+        negative: bool,
+        digits: String,
+        exponent: i64,
+    },
+}
+
+/// Native key stored in completed scalar posting archives.
+#[derive(Clone, Debug, Archive, ArchiveSerialize)]
+pub(crate) enum StoredScalarKey {
+    String(String),
+    Id(String),
+    Number(PostingNumberKey),
+    Bool(bool),
+    Date(i32),
+    Datetime {
+        unix_nanos: i128,
+        offset_seconds: i32,
+    },
+    Unixtime(i64),
+}
+
+#[derive(Clone, Copy)]
+enum BorrowedNumber<'a> {
+    Integer(i128),
+    Float(f64),
+    Exact {
+        negative: bool,
+        digits: &'a str,
+        exponent: i64,
+    },
+}
+
+impl<'a> From<&'a PostingNumberKey> for BorrowedNumber<'a> {
+    fn from(number: &'a PostingNumberKey) -> Self {
+        match number {
+            PostingNumberKey::Integer(value) => Self::Integer(*value),
+            PostingNumberKey::Float(value) => Self::Float(*value),
+            PostingNumberKey::ExactDecimal {
+                negative,
+                digits,
+                exponent,
+            } => Self::Exact {
+                negative: *negative,
+                digits,
+                exponent: *exponent,
+            },
+        }
+    }
+}
+
+impl<'a> From<&'a Number> for BorrowedNumber<'a> {
+    fn from(number: &'a Number) -> Self {
+        match number {
+            Number::Integer(value) => Self::Integer(*value),
+            Number::Float(value) => Self::Float(*value),
+            Number::ExactDecimal(decimal) => Self::Exact {
+                negative: decimal.negative,
+                digits: &decimal.digits,
+                exponent: decimal.exponent,
+            },
+        }
+    }
+}
+
+impl<'a> From<&'a ArchivedPostingNumberKey> for BorrowedNumber<'a> {
+    fn from(number: &'a ArchivedPostingNumberKey) -> Self {
+        match number {
+            ArchivedPostingNumberKey::Integer(value) => Self::Integer(value.to_native()),
+            ArchivedPostingNumberKey::Float(value) => Self::Float(value.to_native()),
+            ArchivedPostingNumberKey::ExactDecimal {
+                negative,
+                digits,
+                exponent,
+            } => Self::Exact {
+                negative: bool::from(*negative),
+                digits: digits.as_str(),
+                exponent: exponent.to_native(),
+            },
+        }
+    }
+}
+
+fn compare_int_float(integer: i128, float: f64) -> Ordering {
+    if !float.is_finite() {
+        return 0.0f64.total_cmp(&float);
+    }
+    if float >= 2f64.powi(127) {
+        return Ordering::Less;
+    }
+    if float < i128::MIN as f64 {
+        return Ordering::Greater;
+    }
+    let truncated = float.trunc() as i128;
+    match integer.cmp(&truncated) {
+        Ordering::Equal if float.fract() > 0.0 => Ordering::Less,
+        Ordering::Equal if float.fract() < 0.0 => Ordering::Greater,
+        result => result,
+    }
+}
+
+fn compare_exact(
+    left_negative: bool,
+    left_digits: &str,
+    left_exponent: i64,
+    right_negative: bool,
+    right_digits: &str,
+    right_exponent: i64,
+) -> Ordering {
+    if left_digits == "0" {
+        return if right_digits == "0" {
+            Ordering::Equal
+        } else if right_negative {
+            Ordering::Greater
+        } else {
+            Ordering::Less
+        };
+    }
+    if right_digits == "0" {
+        return if left_negative {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        };
+    }
+    if left_negative != right_negative {
+        return if left_negative {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        };
+    }
+    let sign = if left_negative {
+        Ordering::Less
+    } else {
+        Ordering::Greater
+    };
+    let left_magnitude = left_digits.len() as i128 + left_exponent as i128;
+    let right_magnitude = right_digits.len() as i128 + right_exponent as i128;
+    let compared = left_magnitude.cmp(&right_magnitude);
+    if compared != Ordering::Equal {
+        return if sign == Ordering::Greater {
+            compared
+        } else {
+            compared.reverse()
+        };
+    }
+    let left = left_digits.as_bytes();
+    let right = right_digits.as_bytes();
+    let compared = (0..left.len().max(right.len()))
+        .map(|index| {
+            left.get(index)
+                .copied()
+                .unwrap_or(b'0')
+                .cmp(&right.get(index).copied().unwrap_or(b'0'))
+        })
+        .find(|order| *order != Ordering::Equal)
+        .unwrap_or(Ordering::Equal);
+    if sign == Ordering::Greater {
+        compared
+    } else {
+        compared.reverse()
+    }
+}
+
+fn compare_exact_integer(negative: bool, digits: &str, exponent: i64, integer: i128) -> Ordering {
+    let integer_text = integer.to_string();
+    let (integer_negative, integer_digits) = integer_text
+        .strip_prefix('-')
+        .map_or((false, integer_text.as_str()), |digits| (true, digits));
+    compare_exact(
+        negative,
+        digits,
+        exponent,
+        integer_negative,
+        integer_digits,
+        0,
+    )
+}
+
+fn compare_exact_float(negative: bool, digits: &str, exponent: i64, float: f64) -> Ordering {
+    if !float.is_finite() {
+        return if float.is_sign_negative() {
+            Ordering::Greater
+        } else {
+            Ordering::Less
+        };
+    }
+    let exact = crate::decimal::ExactDecimal::from_f64(float);
+    compare_exact(
+        negative,
+        digits,
+        exponent,
+        exact.negative,
+        &exact.digits,
+        exact.exponent,
+    )
+}
+
+fn compare_borrowed_numbers(left: BorrowedNumber<'_>, right: BorrowedNumber<'_>) -> Ordering {
+    use BorrowedNumber::{Exact, Float, Integer};
+    match (left, right) {
+        (Integer(left), Integer(right)) => left.cmp(&right),
+        (Float(left), Float(right)) if left == 0.0 && right == 0.0 => Ordering::Equal,
+        (Float(left), Float(right)) => left.total_cmp(&right),
+        (Integer(left), Float(right)) => compare_int_float(left, right),
+        (Float(left), Integer(right)) => compare_int_float(right, left).reverse(),
+        (
+            Exact {
+                negative: left_negative,
+                digits: left_digits,
+                exponent: left_exponent,
+            },
+            Exact {
+                negative: right_negative,
+                digits: right_digits,
+                exponent: right_exponent,
+            },
+        ) => compare_exact(
+            left_negative,
+            left_digits,
+            left_exponent,
+            right_negative,
+            right_digits,
+            right_exponent,
+        ),
+        (
+            Exact {
+                negative,
+                digits,
+                exponent,
+            },
+            Integer(right),
+        ) => compare_exact_integer(negative, digits, exponent, right),
+        (
+            Integer(left),
+            Exact {
+                negative,
+                digits,
+                exponent,
+            },
+        ) => compare_exact_integer(negative, digits, exponent, left).reverse(),
+        (Exact { .. }, Float(right)) if !right.is_finite() => 0.0f64.total_cmp(&right),
+        (Float(left), Exact { .. }) if !left.is_finite() => 0.0f64.total_cmp(&left).reverse(),
+        (
+            Exact {
+                negative,
+                digits,
+                exponent,
+            },
+            Float(right),
+        ) => compare_exact_float(negative, digits, exponent, right),
+        (
+            Float(left),
+            Exact {
+                negative,
+                digits,
+                exponent,
+            },
+        ) => compare_exact_float(negative, digits, exponent, left).reverse(),
+    }
+}
+
+impl PartialEq for PostingNumberKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for PostingNumberKey {}
+
+impl PartialOrd for PostingNumberKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for PostingNumberKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        compare_borrowed_numbers(self.into(), other.into())
+    }
+}
+
+impl PartialEq for ArchivedPostingNumberKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for ArchivedPostingNumberKey {}
+
+impl PartialOrd for ArchivedPostingNumberKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for ArchivedPostingNumberKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        compare_borrowed_numbers(self.into(), other.into())
+    }
+}
+
+fn stored_scalar_variant(key: &StoredScalarKey) -> u8 {
+    match key {
+        StoredScalarKey::String(_) => 0,
+        StoredScalarKey::Id(_) => 1,
+        StoredScalarKey::Number(_) => 2,
+        StoredScalarKey::Bool(_) => 3,
+        StoredScalarKey::Date(_) => 4,
+        StoredScalarKey::Datetime { .. } => 5,
+        StoredScalarKey::Unixtime(_) => 6,
+    }
+}
+
+fn archived_scalar_variant(key: &rkyv::Archived<StoredScalarKey>) -> u8 {
+    match key {
+        rkyv::Archived::<StoredScalarKey>::String(_) => 0,
+        rkyv::Archived::<StoredScalarKey>::Id(_) => 1,
+        rkyv::Archived::<StoredScalarKey>::Number(_) => 2,
+        rkyv::Archived::<StoredScalarKey>::Bool(_) => 3,
+        rkyv::Archived::<StoredScalarKey>::Date(_) => 4,
+        rkyv::Archived::<StoredScalarKey>::Datetime { .. } => 5,
+        rkyv::Archived::<StoredScalarKey>::Unixtime(_) => 6,
+    }
+}
+
+impl PartialEq for StoredScalarKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for StoredScalarKey {}
+
+impl PartialOrd for StoredScalarKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for StoredScalarKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        stored_scalar_variant(self)
+            .cmp(&stored_scalar_variant(other))
+            .then_with(|| match (self, other) {
+                (StoredScalarKey::String(left), StoredScalarKey::String(right))
+                | (StoredScalarKey::Id(left), StoredScalarKey::Id(right)) => left.cmp(right),
+                (StoredScalarKey::Number(left), StoredScalarKey::Number(right)) => left.cmp(right),
+                (StoredScalarKey::Bool(left), StoredScalarKey::Bool(right)) => left.cmp(right),
+                (StoredScalarKey::Date(left), StoredScalarKey::Date(right)) => left.cmp(right),
+                (
+                    StoredScalarKey::Datetime {
+                        unix_nanos: left, ..
+                    },
+                    StoredScalarKey::Datetime {
+                        unix_nanos: right, ..
+                    },
+                ) => left.cmp(right),
+                (StoredScalarKey::Unixtime(left), StoredScalarKey::Unixtime(right)) => {
+                    left.cmp(right)
+                }
+                _ => Ordering::Equal,
+            })
+    }
+}
+
+impl PartialEq for ArchivedStoredScalarKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for ArchivedStoredScalarKey {}
+
+impl PartialOrd for ArchivedStoredScalarKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for ArchivedStoredScalarKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        archived_scalar_variant(self)
+            .cmp(&archived_scalar_variant(other))
+            .then_with(|| match (self, other) {
+                (
+                    rkyv::Archived::<StoredScalarKey>::String(left),
+                    rkyv::Archived::<StoredScalarKey>::String(right),
+                )
+                | (
+                    rkyv::Archived::<StoredScalarKey>::Id(left),
+                    rkyv::Archived::<StoredScalarKey>::Id(right),
+                ) => left.as_str().cmp(right.as_str()),
+                (
+                    rkyv::Archived::<StoredScalarKey>::Number(left),
+                    rkyv::Archived::<StoredScalarKey>::Number(right),
+                ) => left.cmp(right),
+                (
+                    rkyv::Archived::<StoredScalarKey>::Bool(left),
+                    rkyv::Archived::<StoredScalarKey>::Bool(right),
+                ) => bool::from(*left).cmp(&bool::from(*right)),
+                (
+                    rkyv::Archived::<StoredScalarKey>::Date(left),
+                    rkyv::Archived::<StoredScalarKey>::Date(right),
+                ) => left.to_native().cmp(&right.to_native()),
+                (
+                    rkyv::Archived::<StoredScalarKey>::Datetime {
+                        unix_nanos: left, ..
+                    },
+                    rkyv::Archived::<StoredScalarKey>::Datetime {
+                        unix_nanos: right, ..
+                    },
+                ) => left.to_native().cmp(&right.to_native()),
+                (
+                    rkyv::Archived::<StoredScalarKey>::Unixtime(left),
+                    rkyv::Archived::<StoredScalarKey>::Unixtime(right),
+                ) => left.to_native().cmp(&right.to_native()),
+                _ => Ordering::Equal,
+            })
+    }
+}
+
+impl PostingNumberKey {
+    pub(crate) fn from_number(number: &Number) -> Self {
+        match number {
+            Number::Integer(value) => Self::Integer(*value),
+            Number::Float(value) => Self::Float(*value),
+            Number::ExactDecimal(decimal) => Self::ExactDecimal {
+                negative: decimal.negative,
+                digits: decimal.digits.clone(),
+                exponent: decimal.exponent,
+            },
+        }
+    }
+
+    pub(crate) fn from_number_owned(number: Number) -> Self {
+        match number {
+            Number::Integer(value) => Self::Integer(value),
+            Number::Float(value) => Self::Float(value),
+            Number::ExactDecimal(decimal) => Self::ExactDecimal {
+                negative: decimal.negative,
+                digits: decimal.digits,
+                exponent: decimal.exponent,
+            },
+        }
+    }
+
+    pub(crate) fn to_number(&self) -> Number {
+        match self {
+            Self::Integer(value) => Number::Integer(*value),
+            Self::Float(value) => Number::Float(*value),
+            Self::ExactDecimal {
+                negative,
+                digits,
+                exponent,
+            } => Number::ExactDecimal(crate::decimal::ExactDecimal {
+                negative: *negative,
+                digits: digits.clone(),
+                exponent: *exponent,
+            }),
+        }
+    }
+}
+
+impl StoredScalarKey {
+    pub(crate) fn from_scalar(key: &ScalarKey) -> Self {
+        match key {
+            ScalarKey::String(value) => Self::String(value.clone()),
+            ScalarKey::Id(value) => Self::Id(value.clone()),
+            ScalarKey::Number(value) => Self::Number(PostingNumberKey::from_number(value)),
+            ScalarKey::Bool(value) => Self::Bool(*value),
+            ScalarKey::Date(value) => Self::Date(value.to_julian_day()),
+            ScalarKey::Datetime(value) => Self::Datetime {
+                unix_nanos: value.unix_timestamp_nanos(),
+                offset_seconds: value.offset().whole_seconds(),
+            },
+            ScalarKey::Unixtime(value) => Self::Unixtime(*value),
+        }
+    }
+
+    pub(crate) fn from_scalar_owned(key: ScalarKey) -> Self {
+        match key {
+            ScalarKey::String(value) => Self::String(value),
+            ScalarKey::Id(value) => Self::Id(value),
+            ScalarKey::Number(value) => Self::Number(PostingNumberKey::from_number_owned(value)),
+            ScalarKey::Bool(value) => Self::Bool(value),
+            ScalarKey::Date(value) => Self::Date(value.to_julian_day()),
+            ScalarKey::Datetime(value) => Self::Datetime {
+                unix_nanos: value.unix_timestamp_nanos(),
+                offset_seconds: value.offset().whole_seconds(),
+            },
+            ScalarKey::Unixtime(value) => Self::Unixtime(value),
+        }
+    }
+
+    pub(crate) fn from_value(value: &Value) -> Option<Self> {
+        Some(match value {
+            Value::String(value) => Self::String(value.clone()),
+            Value::Id(value) => Self::Id(value.clone()),
+            Value::Number(value) => Self::Number(PostingNumberKey::from_number(value)),
+            Value::Bool(value) => Self::Bool(*value),
+            Value::Date(value) => Self::Date(value.to_julian_day()),
+            Value::Datetime(value) => Self::Datetime {
+                unix_nanos: value.unix_timestamp_nanos(),
+                offset_seconds: value.offset().whole_seconds(),
+            },
+            Value::Unixtime(value) => Self::Unixtime(*value),
+            _ => return None,
+        })
+    }
+
+    pub(crate) fn to_scalar(&self) -> ScalarKey {
+        match self {
+            Self::String(value) => ScalarKey::String(value.clone()),
+            Self::Id(value) => ScalarKey::Id(value.clone()),
+            Self::Number(value) => ScalarKey::Number(value.to_number()),
+            Self::Bool(value) => ScalarKey::Bool(*value),
+            Self::Date(value) => {
+                ScalarKey::Date(Date::from_julian_day(*value).expect("validated stored Julian day"))
+            }
+            Self::Datetime {
+                unix_nanos,
+                offset_seconds,
+            } => {
+                let utc = OffsetDateTime::from_unix_timestamp_nanos(*unix_nanos)
+                    .expect("validated stored UTC instant");
+                let offset = time::UtcOffset::from_whole_seconds(*offset_seconds)
+                    .expect("validated stored UTC offset");
+                ScalarKey::Datetime(utc.to_offset(offset))
+            }
+            Self::Unixtime(value) => ScalarKey::Unixtime(*value),
+        }
+    }
+}
+
+fn compare_scalar_to_archived(
+    query: &ScalarKey,
+    archived: &rkyv::Archived<StoredScalarKey>,
+) -> Ordering {
+    let query_variant = match query {
+        ScalarKey::String(_) => 0u8,
+        ScalarKey::Id(_) => 1,
+        ScalarKey::Number(_) => 2,
+        ScalarKey::Bool(_) => 3,
+        ScalarKey::Date(_) => 4,
+        ScalarKey::Datetime(_) => 5,
+        ScalarKey::Unixtime(_) => 6,
+    };
+    query_variant
+        .cmp(&archived_scalar_variant(archived))
+        .then_with(|| match (query, archived) {
+            (ScalarKey::String(query), rkyv::Archived::<StoredScalarKey>::String(archived))
+            | (ScalarKey::Id(query), rkyv::Archived::<StoredScalarKey>::Id(archived)) => {
+                query.as_str().cmp(archived.as_str())
+            }
+            (ScalarKey::Number(query), rkyv::Archived::<StoredScalarKey>::Number(archived)) => {
+                compare_borrowed_numbers(query.into(), archived.into())
+            }
+            (ScalarKey::Bool(query), rkyv::Archived::<StoredScalarKey>::Bool(archived)) => {
+                query.cmp(&bool::from(*archived))
+            }
+            (ScalarKey::Date(query), rkyv::Archived::<StoredScalarKey>::Date(archived)) => {
+                query.to_julian_day().cmp(&archived.to_native())
+            }
+            (
+                ScalarKey::Datetime(query),
+                rkyv::Archived::<StoredScalarKey>::Datetime {
+                    unix_nanos: archived,
+                    ..
+                },
+            ) => query.unix_timestamp_nanos().cmp(&archived.to_native()),
+            (ScalarKey::Unixtime(query), rkyv::Archived::<StoredScalarKey>::Unixtime(archived)) => {
+                query.cmp(&archived.to_native())
+            }
+            _ => Ordering::Equal,
+        })
+}
+
+pub(crate) trait PostingDictionaryKey: Clone + Ord + Archive + Sized
+where
+    Self::Archived: Ord,
+{
+    type Query: Ord + Sized;
+    type Public: PartialEq;
+
+    fn stored_query(query: &Self::Query) -> Self;
+    fn stored_from_public(value: &Self::Public) -> Self;
+    fn stored_from_public_owned(value: Self::Public) -> Self;
+    fn compare_query(query: &Self::Query, archived: &Self::Archived) -> Ordering;
+    fn public_from_stored(value: &Self) -> Self::Public;
+    fn public_from_archived(value: &Self::Archived) -> Self::Public;
+    fn empty_published() -> &'static PublishedPostingDictionary<Self>
+    where
+        Self: Sized;
+}
+
+impl PostingDictionaryKey for StoredScalarKey {
+    type Query = ScalarKey;
+    type Public = ScalarKey;
+
+    fn stored_query(query: &Self::Query) -> Self {
+        Self::from_scalar(query)
+    }
+
+    fn stored_from_public(value: &Self::Public) -> Self {
+        Self::from_scalar(value)
+    }
+
+    fn stored_from_public_owned(value: Self::Public) -> Self {
+        Self::from_scalar_owned(value)
+    }
+
+    fn compare_query(query: &Self::Query, archived: &Self::Archived) -> Ordering {
+        compare_scalar_to_archived(query, archived)
+    }
+
+    fn public_from_stored(value: &Self) -> Self::Public {
+        value.to_scalar()
+    }
+
+    fn public_from_archived(value: &Self::Archived) -> Self::Public {
+        scalar_from_archived(value)
+    }
+
+    fn empty_published() -> &'static PublishedPostingDictionary<Self> {
+        static EMPTY: OnceLock<PublishedPostingDictionary<StoredScalarKey>> = OnceLock::new();
+        EMPTY.get_or_init(empty_scalar_published_dictionary)
+    }
+}
+
+impl PostingDictionaryKey for PostingNumberKey {
+    type Query = Number;
+    type Public = Number;
+
+    fn stored_query(query: &Self::Query) -> Self {
+        Self::from_number(query)
+    }
+
+    fn stored_from_public(value: &Self::Public) -> Self {
+        Self::from_number(value)
+    }
+
+    fn stored_from_public_owned(value: Self::Public) -> Self {
+        Self::from_number_owned(value)
+    }
+
+    fn compare_query(query: &Self::Query, archived: &Self::Archived) -> Ordering {
+        compare_borrowed_numbers(query.into(), archived.into())
+    }
+
+    fn public_from_stored(value: &Self) -> Self::Public {
+        value.to_number()
+    }
+
+    fn public_from_archived(value: &Self::Archived) -> Self::Public {
+        number_from_archived(value)
+    }
+
+    fn empty_published() -> &'static PublishedPostingDictionary<Self> {
+        static EMPTY: OnceLock<PublishedPostingDictionary<PostingNumberKey>> = OnceLock::new();
+        EMPTY.get_or_init(empty_number_published_dictionary)
+    }
+}
+
+fn scalar_from_archived(key: &rkyv::Archived<StoredScalarKey>) -> ScalarKey {
+    match key {
+        rkyv::Archived::<StoredScalarKey>::String(value) => {
+            ScalarKey::String(value.as_str().into())
+        }
+        rkyv::Archived::<StoredScalarKey>::Id(value) => ScalarKey::Id(value.as_str().into()),
+        rkyv::Archived::<StoredScalarKey>::Number(value) => {
+            ScalarKey::Number(number_from_archived(value))
+        }
+        rkyv::Archived::<StoredScalarKey>::Bool(value) => ScalarKey::Bool(bool::from(*value)),
+        rkyv::Archived::<StoredScalarKey>::Date(value) => ScalarKey::Date(
+            Date::from_julian_day(value.to_native()).expect("validated stored Julian day"),
+        ),
+        rkyv::Archived::<StoredScalarKey>::Datetime {
+            unix_nanos,
+            offset_seconds,
+        } => {
+            let utc = OffsetDateTime::from_unix_timestamp_nanos(unix_nanos.to_native())
+                .expect("validated stored UTC instant");
+            let offset = time::UtcOffset::from_whole_seconds(offset_seconds.to_native())
+                .expect("validated stored UTC offset");
+            ScalarKey::Datetime(utc.to_offset(offset))
+        }
+        rkyv::Archived::<StoredScalarKey>::Unixtime(value) => {
+            ScalarKey::Unixtime(value.to_native())
+        }
+    }
+}
+
+fn number_from_archived(value: &rkyv::Archived<PostingNumberKey>) -> Number {
+    match value {
+        rkyv::Archived::<PostingNumberKey>::Integer(value) => Number::Integer(value.to_native()),
+        rkyv::Archived::<PostingNumberKey>::Float(value) => Number::Float(value.to_native()),
+        rkyv::Archived::<PostingNumberKey>::ExactDecimal {
+            negative,
+            digits,
+            exponent,
+        } => Number::ExactDecimal(crate::decimal::ExactDecimal {
+            negative: bool::from(*negative),
+            digits: digits.as_str().into(),
+            exponent: exponent.to_native(),
+        }),
+    }
+}
+
+impl PostingDictionaryKey for StructuralKey {
+    type Query = StructuralKey;
+    type Public = StructuralKey;
+
+    fn stored_query(query: &Self::Query) -> Self {
+        *query
+    }
+
+    fn stored_from_public(value: &Self::Public) -> Self {
+        *value
+    }
+
+    fn stored_from_public_owned(value: Self::Public) -> Self {
+        value
+    }
+
+    fn compare_query(query: &Self::Query, archived: &Self::Archived) -> Ordering {
+        structural_key_index(*query).cmp(&structural_key_index(structural_key_from_archived(
+            archived,
+        )))
+    }
+
+    fn public_from_stored(value: &Self) -> Self::Public {
+        *value
+    }
+
+    fn public_from_archived(value: &Self::Archived) -> Self::Public {
+        structural_key_from_archived(value)
+    }
+
+    fn empty_published() -> &'static PublishedPostingDictionary<Self> {
+        static EMPTY: OnceLock<PublishedPostingDictionary<StructuralKey>> = OnceLock::new();
+        EMPTY.get_or_init(empty_structural_published_dictionary)
+    }
+}
+
+#[derive(Archive, ArchiveSerialize)]
+struct OrderedPostingEntry<K> {
+    key: K,
+    ordinal: u32,
+}
+
+#[derive(Archive, ArchiveSerialize)]
+pub(crate) struct OrderedPostingArchive<K> {
+    postings: BTreeMap<K, u32>,
+    ascending: Vec<OrderedPostingEntry<K>>,
+}
+
+struct OrderedPostingMapResolver {
+    postings: BTreeMapResolver,
+    ascending: VecResolver,
+}
+
+struct OrderedPostingArchiveSource<'a, K> {
+    postings: &'a BTreeMap<K, u32>,
+}
+
+struct BorrowedOrderedPostingEntry<'a, K> {
+    key: &'a K,
+    ordinal: u32,
+}
+
+struct BorrowedOrderedPostingEntryResolver<K>
+where
+    K: Archive,
+{
+    key: K::Resolver,
+    ordinal: <u32 as Archive>::Resolver,
+}
+
+impl<K> Archive for BorrowedOrderedPostingEntry<'_, K>
+where
+    K: Archive,
+{
+    type Archived = Archived<OrderedPostingEntry<K>>;
+    type Resolver = BorrowedOrderedPostingEntryResolver<K>;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The adapter resolves precisely the key and ordinal fields of
+        // the generated archived entry, in declaration order.
+        unsafe {
+            let root = out.ptr();
+            let key = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).key));
+            let ordinal = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).ordinal));
+            Archive::resolve(self.key, resolver.key, key);
+            Archive::resolve(&self.ordinal, resolver.ordinal, ordinal);
+        }
+    }
+}
+
+impl<K, S> ArchiveSerialize<S> for BorrowedOrderedPostingEntry<'_, K>
+where
+    K: ArchiveSerialize<S> + Archive,
+    S: rkyv::rancor::Fallible + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        Ok(BorrowedOrderedPostingEntryResolver {
+            key: ArchiveSerialize::serialize(self.key, serializer)?,
+            ordinal: ArchiveSerialize::serialize(&self.ordinal, serializer)?,
+        })
+    }
+}
+
+impl<K> Archive for OrderedPostingArchiveSource<'_, K>
+where
+    K: Archive + Ord,
+    K::Archived: Ord,
+{
+    type Archived = Archived<OrderedPostingArchive<K>>;
+    type Resolver = OrderedPostingMapResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: `OrderedPostingArchiveSource` resolves exactly the two
+        // fields of `OrderedPostingArchive`, in declaration order, into the
+        // matching generated archived type. The field pointers come from the
+        // destination place and are used only to initialize those fields.
+        unsafe {
+            let root = out.ptr();
+            let postings =
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).postings));
+            let ascending =
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).ascending));
+            ArchivedBTreeMap::<K::Archived, Archived<u32>, 5>::resolve_from_len(
+                self.postings.len(),
+                resolver.postings,
+                postings,
+            );
+            ArchivedVec::resolve_from_len(self.postings.len(), resolver.ascending, ascending);
+        }
+    }
+}
+
+impl<K, S> ArchiveSerialize<S> for OrderedPostingArchiveSource<'_, K>
+where
+    K: ArchiveSerialize<S> + Archive + Ord,
+    K::Archived: Ord,
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let postings =
+            ArchivedBTreeMap::<K::Archived, Archived<u32>, 5>::serialize_from_ordered_iter::<
+                _,
+                &K,
+                &u32,
+                K,
+                u32,
+                S,
+            >(self.postings.iter(), serializer)?;
+        let ascending = ArchivedVec::serialize_from_iter::<_, _, _>(
+            self.postings
+                .iter()
+                .map(|(key, ordinal)| BorrowedOrderedPostingEntry {
+                    key,
+                    ordinal: *ordinal,
+                }),
+            serializer,
+        )?;
+        Ok(OrderedPostingMapResolver {
+            postings,
+            ascending,
+        })
+    }
+}
+
+#[derive(Clone)]
+struct NativePostingBuilder<K> {
+    values: BTreeMap<K, u32>,
+    bitmaps: Vec<RoaringBitmap>,
+}
+
+enum PublishedPostingBacking<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    Native(Arc<BTreeMap<K, u32>>),
+    Archived(Arc<ValidatedArchive<OrderedPostingArchive<K>>>),
+}
+
+impl<K> Clone for PublishedPostingBacking<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn clone(&self) -> Self {
+        match self {
+            Self::Native(values) => Self::Native(Arc::clone(values)),
+            Self::Archived(archive) => Self::Archived(Arc::clone(archive)),
+        }
+    }
+}
+
+pub(crate) struct PublishedPostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    backing: PublishedPostingBacking<K>,
+    bitmaps: Arc<Vec<RoaringBitmap>>,
+}
+
+fn empty_published_dictionary<K>() -> PublishedPostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    PublishedPostingDictionary {
+        backing: PublishedPostingBacking::Native(Arc::new(BTreeMap::new())),
+        bitmaps: Arc::new(Vec::new()),
+    }
+}
+
+fn empty_scalar_published_dictionary() -> PublishedPostingDictionary<StoredScalarKey> {
+    empty_published_dictionary()
+}
+
+fn empty_number_published_dictionary() -> PublishedPostingDictionary<PostingNumberKey> {
+    empty_published_dictionary()
+}
+
+fn empty_structural_published_dictionary() -> PublishedPostingDictionary<StructuralKey> {
+    empty_published_dictionary()
+}
+
+impl<K> Clone for PublishedPostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn clone(&self) -> Self {
+        Self {
+            backing: self.backing.clone(),
+            bitmaps: Arc::clone(&self.bitmaps),
+        }
+    }
+}
+
+impl<K> PublishedPostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn representation_name(&self) -> &'static str {
+        match self.backing {
+            PublishedPostingBacking::Native(_) => "native",
+            PublishedPostingBacking::Archived(_) => "archived",
+        }
+    }
+
+    fn len(&self) -> usize {
+        match &self.backing {
+            PublishedPostingBacking::Native(values) => values.len(),
+            PublishedPostingBacking::Archived(archive) => archive.root().postings.len(),
+        }
+    }
+
+    fn archive_bytes(&self) -> usize {
+        match &self.backing {
+            PublishedPostingBacking::Native(_) => 0,
+            PublishedPostingBacking::Archived(archive) => archive.len(),
+        }
+    }
+
+    fn first_public(&self) -> Option<K::Public> {
+        match &self.backing {
+            PublishedPostingBacking::Native(values) => {
+                values.keys().next().map(K::public_from_stored)
+            }
+            PublishedPostingBacking::Archived(archive) => archive
+                .root()
+                .ascending
+                .first()
+                .map(|entry| K::public_from_archived(&entry.key)),
+        }
+    }
+
+    fn last_public(&self) -> Option<K::Public> {
+        match &self.backing {
+            PublishedPostingBacking::Native(values) => {
+                values.keys().next_back().map(K::public_from_stored)
+            }
+            PublishedPostingBacking::Archived(archive) => archive
+                .root()
+                .ascending
+                .last()
+                .map(|entry| K::public_from_archived(&entry.key)),
+        }
+    }
+
+    fn get(&self, query: &K::Query) -> Option<&RoaringBitmap> {
+        let ordinal = match &self.backing {
+            PublishedPostingBacking::Native(values) => {
+                let query = K::stored_query(query);
+                *values.get(&query)?
+            }
+            PublishedPostingBacking::Archived(archive) => {
+                let (_, ordinal) = archive
+                    .root()
+                    .postings
+                    .get_key_value_with(query, K::compare_query)?;
+                ordinal.to_native()
+            }
+        };
+        self.bitmaps.get(ordinal as usize)
+    }
+
+    fn to_native_map(&self) -> Result<BTreeMap<K, u32>, String> {
+        match &self.backing {
+            PublishedPostingBacking::Native(values) => Ok(values.as_ref().clone()),
+            PublishedPostingBacking::Archived(archive) => {
+                let mut values = BTreeMap::new();
+                for entry in archive.root().ascending.iter() {
+                    let public = K::public_from_archived(&entry.key);
+                    values.insert(K::stored_from_public(&public), entry.ordinal.to_native());
+                }
+                Ok(values)
+            }
+        }
+    }
+}
+
+impl<K> fmt::Debug for PublishedPostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("PublishedPostingDictionary")
+            .field("entries", &self.len())
+            .field("representation", &self.representation_name())
+            .field("archive_bytes", &self.archive_bytes())
+            .finish()
+    }
+}
+
+enum PostingDictionaryState<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    Builder(NativePostingBuilder<K>),
+    Published(PublishedPostingDictionary<K>),
+}
+
+/// A structured posting dictionary with a mutable construction phase and an
+/// immutable checked archive phase.
+pub(crate) struct PostingDictionary<K>(PostingDictionaryState<K>)
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord;
+
+impl<K> Default for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn default() -> Self {
+        Self(PostingDictionaryState::Builder(NativePostingBuilder {
+            values: BTreeMap::new(),
+            bitmaps: Vec::new(),
+        }))
+    }
+}
+
+impl<K> Clone for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn clone(&self) -> Self {
+        Self(match &self.0 {
+            PostingDictionaryState::Builder(values) => {
+                PostingDictionaryState::Builder(values.clone())
+            }
+            PostingDictionaryState::Published(values) => {
+                PostingDictionaryState::Published(values.clone())
+            }
+        })
+    }
+}
+
+impl<K> PartialEq for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+{
+    fn eq(&self, other: &Self) -> bool {
+        if self.len() != other.len() {
+            return false;
+        }
+        let mut left = self.range(Unbounded, Unbounded, false);
+        let mut right = other.range(Unbounded, Unbounded, false);
+        loop {
+            match (left.next(), right.next()) {
+                (None, None) => return true,
+                (Some((left_key, left_posting)), Some((right_key, right_posting))) => {
+                    if left_key != right_key || left_posting != right_posting {
+                        return false;
+                    }
+                }
+                _ => return false,
+            }
+        }
+    }
+}
+
+impl<K> Eq for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+{
+}
+
+impl<K> fmt::Debug for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let state = match &self.0 {
+            PostingDictionaryState::Builder(_) => "builder",
+            PostingDictionaryState::Published(values) => values.representation_name(),
+        };
+        formatter
+            .debug_struct("PostingDictionary")
+            .field("state", &state)
+            .finish()
+    }
+}
+
+pub(crate) enum DictionaryValueCursor<'a, K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    Empty,
+    Builder {
+        range: std::collections::btree_map::Range<'a, K, u32>,
+        bitmaps: &'a [RoaringBitmap],
+        reverse: bool,
+    },
+    Native {
+        range: std::collections::btree_map::Range<'a, K, u32>,
+        bitmaps: &'a [RoaringBitmap],
+        reverse: bool,
+    },
+    Archived {
+        range: rkyv::collections::btree_map::Range<'a, K::Archived, rkyv::rend::u32_le, 5>,
+        bitmaps: &'a [RoaringBitmap],
+    },
+    ArchivedReverse {
+        archive: &'a ValidatedArchive<OrderedPostingArchive<K>>,
+        bitmaps: &'a [RoaringBitmap],
+        next: Option<usize>,
+        lower: usize,
+    },
+}
+
+impl<'a, K> DictionaryValueCursor<'a, K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    pub(crate) fn next(&mut self) -> Option<(K::Public, &'a RoaringBitmap)> {
+        match self {
+            Self::Empty => None,
+            Self::Builder {
+                range,
+                bitmaps,
+                reverse,
+            }
+            | Self::Native {
+                range,
+                bitmaps,
+                reverse,
+            } => {
+                let (key, ordinal) = if *reverse {
+                    range.next_back()
+                } else {
+                    range.next()
+                }?;
+                let posting = bitmaps.get(*ordinal as usize)?;
+                Some((K::public_from_stored(key), posting))
+            }
+            Self::Archived { range, bitmaps } => range.next().and_then(|(key, ordinal)| {
+                let posting = bitmaps.get(ordinal.to_native() as usize)?;
+                Some((K::public_from_archived(key), posting))
+            }),
+            Self::ArchivedReverse {
+                archive,
+                bitmaps,
+                next,
+                lower,
+            } => {
+                let index = (*next)?;
+                let entry = archive.root().ascending.get(index)?;
+                let posting = bitmaps.get(entry.ordinal.to_native() as usize)?;
+                *next = index.checked_sub(1).filter(|next| *next >= *lower);
+                Some((K::public_from_archived(&entry.key), posting))
+            }
+        }
+    }
+}
+
+impl<K> PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+{
+    pub(crate) fn builder() -> Self {
+        Self::default()
+    }
+
+    fn from_native_builder(builder: NativePostingBuilder<K>) -> Self {
+        Self(PostingDictionaryState::Builder(builder))
+    }
+
+    pub(crate) fn from_public(
+        entries: impl IntoIterator<Item = (K::Public, RoaringBitmap)>,
+    ) -> Self {
+        let mut dictionary = Self::builder();
+        for (key, posting) in entries {
+            dictionary
+                .insert(K::stored_from_public_owned(key), posting)
+                .expect("new public posting dictionary has room");
+        }
+        dictionary
+    }
+
+    fn builder_parts_mut(&mut self) -> &mut NativePostingBuilder<K> {
+        match &mut self.0 {
+            PostingDictionaryState::Builder(builder) => builder,
+            PostingDictionaryState::Published(_) => {
+                panic!("published posting dictionary cannot be mutated")
+            }
+        }
+    }
+
+    fn into_native_builder(self) -> Result<NativePostingBuilder<K>, String> {
+        match self.0 {
+            PostingDictionaryState::Builder(builder) => Ok(builder),
+            PostingDictionaryState::Published(values) => Ok(NativePostingBuilder {
+                values: values.to_native_map()?,
+                bitmaps: (*values.bitmaps).clone(),
+            }),
+        }
+    }
+
+    pub(crate) fn is_archived(&self) -> bool {
+        matches!(
+            self.0,
+            PostingDictionaryState::Published(PublishedPostingDictionary {
+                backing: PublishedPostingBacking::Archived(_),
+                ..
+            })
+        )
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn is_native(&self) -> bool {
+        matches!(
+            self.0,
+            PostingDictionaryState::Published(PublishedPostingDictionary {
+                backing: PublishedPostingBacking::Native(_),
+                ..
+            })
+        )
+    }
+
+    pub(crate) fn is_published(&self) -> bool {
+        matches!(self.0, PostingDictionaryState::Published(_))
+    }
+
+    fn first_public(&self) -> Option<K::Public> {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                builder.values.keys().next().map(K::public_from_stored)
+            }
+            PostingDictionaryState::Published(values) => values.first_public(),
+        }
+    }
+
+    fn last_public(&self) -> Option<K::Public> {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                builder.values.keys().next_back().map(K::public_from_stored)
+            }
+            PostingDictionaryState::Published(values) => values.last_public(),
+        }
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => builder.values.len(),
+            PostingDictionaryState::Published(values) => values.len(),
+        }
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    pub(crate) fn get(&self, query: &K::Query) -> Option<&RoaringBitmap> {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                let query = K::stored_query(query);
+                let ordinal = *builder.values.get(&query)?;
+                builder.bitmaps.get(ordinal as usize)
+            }
+            PostingDictionaryState::Published(values) => values.get(query),
+        }
+    }
+
+    #[cfg(test)]
+    pub(crate) fn contains_key(&self, query: &K::Query) -> bool {
+        self.get(query).is_some()
+    }
+
+    pub(crate) fn range(
+        &self,
+        lower: std::ops::Bound<K::Query>,
+        upper: std::ops::Bound<K::Query>,
+        descending: bool,
+    ) -> DictionaryValueCursor<'_, K> {
+        if invalid_query_bounds::<K>(&lower, &upper) {
+            return DictionaryValueCursor::Empty;
+        }
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                let lower = lower.map(|query| K::stored_query(&query));
+                let upper = upper.map(|query| K::stored_query(&query));
+                let bounds = (lower, upper);
+                DictionaryValueCursor::Builder {
+                    range: builder.values.range(bounds),
+                    bitmaps: &builder.bitmaps,
+                    reverse: descending,
+                }
+            }
+            PostingDictionaryState::Published(values) => match &values.backing {
+                PublishedPostingBacking::Native(map) => {
+                    let lower = lower.map(|query| K::stored_query(&query));
+                    let upper = upper.map(|query| K::stored_query(&query));
+                    DictionaryValueCursor::Native {
+                        range: map.range((lower, upper)),
+                        bitmaps: &values.bitmaps,
+                        reverse: descending,
+                    }
+                }
+                PublishedPostingBacking::Archived(archive) if !descending => {
+                    let range = archive
+                        .root()
+                        .postings
+                        .range_with((lower, upper), K::compare_query);
+                    DictionaryValueCursor::Archived {
+                        range,
+                        bitmaps: &values.bitmaps,
+                    }
+                }
+                PublishedPostingBacking::Archived(archive) => {
+                    let (lower, upper) =
+                        archived_reverse_bounds(&archive.root().ascending, &lower, &upper);
+                    DictionaryValueCursor::ArchivedReverse {
+                        archive,
+                        bitmaps: &values.bitmaps,
+                        next: upper.checked_sub(1).filter(|index| *index >= lower),
+                        lower,
+                    }
+                }
+            },
+        }
+    }
+
+    pub(crate) fn for_each(
+        &self,
+        mut visit: impl FnMut(&K::Public, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                for (key, ordinal) in &builder.values {
+                    let posting = builder
+                        .bitmaps
+                        .get(*ordinal as usize)
+                        .ok_or("posting bitmap slot out of bounds")?;
+                    visit(&K::public_from_stored(key), posting)?;
+                }
+            }
+            PostingDictionaryState::Published(values) => match &values.backing {
+                PublishedPostingBacking::Native(map) => {
+                    for (key, ordinal) in map.iter() {
+                        let posting = values
+                            .bitmaps
+                            .get(*ordinal as usize)
+                            .ok_or("native posting bitmap slot out of bounds")?;
+                        visit(&K::public_from_stored(key), posting)?;
+                    }
+                }
+                PublishedPostingBacking::Archived(archive) => {
+                    for entry in archive.root().ascending.iter() {
+                        let posting = values
+                            .bitmaps
+                            .get(entry.ordinal.to_native() as usize)
+                            .ok_or("archived posting ordinal out of bounds")?;
+                        visit(&K::public_from_archived(&entry.key), posting)?;
+                    }
+                }
+            },
+        }
+        Ok(())
+    }
+
+    pub(crate) fn for_each_bitmap(
+        &self,
+        mut visit: impl FnMut(&RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                for posting in &builder.bitmaps {
+                    visit(posting)?;
+                }
+            }
+            PostingDictionaryState::Published(values) => {
+                for posting in values.bitmaps.iter() {
+                    visit(posting)?;
+                }
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn iter(&self) -> std::vec::IntoIter<(K::Public, RoaringBitmap)> {
+        let mut values = Vec::with_capacity(self.len());
+        let mut cursor = self.range(Unbounded, Unbounded, false);
+        while let Some((key, posting)) = cursor.next() {
+            values.push((key, posting.clone()));
+        }
+        values.into_iter()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn values(&self) -> impl Iterator<Item = RoaringBitmap> + '_ {
+        self.iter().map(|(_, posting)| posting)
+    }
+
+    /// Publish the native builder as immutable shared ownership without
+    /// serializing it. Empty postings are removed while their now-unreferenced
+    /// payload slots remain empty, preserving every live insertion
+    /// identifier.
+    pub(crate) fn publish_native(mut self) -> Result<Self, String>
+    where
+        K: 'static,
+    {
+        let mut builder = match std::mem::replace(
+            &mut self.0,
+            PostingDictionaryState::Builder(NativePostingBuilder {
+                values: BTreeMap::new(),
+                bitmaps: Vec::new(),
+            }),
+        ) {
+            PostingDictionaryState::Builder(builder) => builder,
+            published @ PostingDictionaryState::Published(_) => {
+                self.0 = published;
+                return Ok(self);
+            }
+        };
+        let mut removed = Vec::new();
+        builder.values.retain(|_, ordinal| {
+            let keep = builder
+                .bitmaps
+                .get(*ordinal as usize)
+                .is_some_and(|bitmap| !bitmap.is_empty());
+            if !keep {
+                removed.push(*ordinal as usize);
+            }
+            keep
+        });
+        for ordinal in removed {
+            if let Some(bitmap) = builder.bitmaps.get_mut(ordinal) {
+                bitmap.clear();
+            }
+        }
+        if builder.values.is_empty() {
+            return Ok(Self(PostingDictionaryState::Published(
+                K::empty_published().clone(),
+            )));
+        }
+        let published = PublishedPostingDictionary {
+            backing: PublishedPostingBacking::Native(Arc::new(builder.values)),
+            bitmaps: Arc::new(builder.bitmaps),
+        };
+        validate_published_dictionary::<K>(&published)?;
+        Ok(Self(PostingDictionaryState::Published(published)))
+    }
+
+    /// Prepare a checked archived dictionary while borrowing the immutable
+    /// published source. The caller installs the returned owner only after all
+    /// component conversions succeed.
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        match &self.0 {
+            PostingDictionaryState::Published(PublishedPostingDictionary {
+                backing: PublishedPostingBacking::Native(map),
+                bitmaps,
+            }) => {
+                let source = OrderedPostingArchiveSource {
+                    postings: map.as_ref(),
+                };
+                let archive = ValidatedArchive::<OrderedPostingArchive<K>>::freeze_source(&source)?;
+                let published = PublishedPostingDictionary {
+                    backing: PublishedPostingBacking::Archived(archive),
+                    bitmaps: Arc::clone(bitmaps),
+                };
+                validate_published_dictionary::<K>(&published)?;
+                Ok(Self(PostingDictionaryState::Published(published)))
+            }
+            PostingDictionaryState::Published(_) => Ok(self.clone()),
+            PostingDictionaryState::Builder(_) => {
+                Err("posting dictionary must be published before archiving".into())
+            }
+        }
+    }
+
+    pub(crate) fn archive_bytes(&self) -> usize {
+        match &self.0 {
+            PostingDictionaryState::Builder(_) => 0,
+            PostingDictionaryState::Published(values) => values.archive_bytes(),
+        }
+    }
+
+    #[cfg(test)]
+    pub(crate) fn bitmap_owner_id(&self) -> usize {
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => builder.bitmaps.as_ptr() as usize,
+            PostingDictionaryState::Published(values) => Arc::as_ptr(&values.bitmaps) as usize,
+        }
+    }
+
+    pub(crate) fn for_each_archive_owner(&self, visit: &mut impl FnMut(usize, usize, usize)) {
+        if let PostingDictionaryState::Published(values) = &self.0
+            && let PublishedPostingBacking::Archived(archive) = &values.backing
+        {
+            visit(
+                Arc::as_ptr(archive) as usize,
+                archive.len(),
+                archive.capacity(),
+            );
+        }
+    }
+
+    pub(crate) fn clear(&mut self) {
+        let builder = self.builder_parts_mut();
+        builder.values.clear();
+        builder.bitmaps.clear();
+    }
+
+    pub(crate) fn insert(
+        &mut self,
+        key: K,
+        value: RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        let builder = self.builder_parts_mut();
+        if let Some(ordinal) = builder.values.get(&key).copied() {
+            return Ok(builder
+                .bitmaps
+                .get_mut(ordinal as usize)
+                .map(|previous| std::mem::replace(previous, value)));
+        }
+        let ordinal =
+            u32::try_from(builder.bitmaps.len()).map_err(|_| "posting bitmap slot overflow")?;
+        builder.values.insert(key, ordinal);
+        builder.bitmaps.push(value);
+        Ok(None)
+    }
+
+    pub(crate) fn insert_public(
+        &mut self,
+        key: &K::Public,
+        value: RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        self.insert(K::stored_from_public(key), value)
+    }
+
+    pub(crate) fn remove(&mut self, key: &K) -> Option<RoaringBitmap> {
+        let builder = self.builder_parts_mut();
+        let ordinal = builder.values.remove(key)?;
+        builder
+            .bitmaps
+            .get_mut(ordinal as usize)
+            .map(std::mem::take)
+    }
+
+    pub(crate) fn remove_public(&mut self, key: &K::Public) -> Option<RoaringBitmap> {
+        self.remove(&K::stored_from_public(key))
+    }
+
+    pub(crate) fn bitmap_mut(&mut self, key: K) -> Result<&mut RoaringBitmap, String> {
+        let builder = self.builder_parts_mut();
+        let ordinal = match builder.values.entry(key) {
+            std::collections::btree_map::Entry::Occupied(entry) => *entry.get(),
+            std::collections::btree_map::Entry::Vacant(entry) => {
+                let ordinal = u32::try_from(builder.bitmaps.len())
+                    .map_err(|_| "posting bitmap slot overflow")?;
+                entry.insert(ordinal);
+                builder.bitmaps.push(RoaringBitmap::new());
+                ordinal
+            }
+        };
+        builder
+            .bitmaps
+            .get_mut(ordinal as usize)
+            .ok_or_else(|| "posting bitmap slot out of bounds".into())
+    }
+
+    pub(crate) fn retain(&mut self, mut keep: impl FnMut(&K::Public, &RoaringBitmap) -> bool) {
+        let builder = self.builder_parts_mut();
+        let mut removed = Vec::new();
+        builder.values.retain(|key, ordinal| {
+            let Some(posting) = builder.bitmaps.get(*ordinal as usize) else {
+                removed.push(*ordinal as usize);
+                return false;
+            };
+            let public = K::public_from_stored(key);
+            let retain = keep(&public, posting);
+            if !retain {
+                removed.push(*ordinal as usize);
+            }
+            retain
+        });
+        for ordinal in removed {
+            if let Some(posting) = builder.bitmaps.get_mut(ordinal) {
+                posting.clear();
+            }
+        }
+    }
+}
+
+fn invalid_query_bounds<K>(
+    lower: &std::ops::Bound<K::Query>,
+    upper: &std::ops::Bound<K::Query>,
+) -> bool
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    match (lower, upper) {
+        (std::ops::Bound::Included(lower), std::ops::Bound::Included(upper)) => lower > upper,
+        (
+            std::ops::Bound::Included(lower) | std::ops::Bound::Excluded(lower),
+            std::ops::Bound::Excluded(upper),
+        ) => lower >= upper,
+        (std::ops::Bound::Excluded(lower), std::ops::Bound::Included(upper)) => lower >= upper,
+        _ => false,
+    }
+}
+
+impl<'dict, K> IntoIterator for &'dict PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+{
+    type Item = (K::Public, RoaringBitmap);
+    type IntoIter = std::vec::IntoIter<(K::Public, RoaringBitmap)>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter()
+    }
+}
+
+impl<K> std::ops::Index<&K::Query> for PostingDictionary<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+{
+    type Output = RoaringBitmap;
+
+    fn index(&self, query: &K::Query) -> &Self::Output {
+        self.get(query)
+            .expect("posting dictionary query key must exist")
+    }
+}
+
+fn archived_reverse_bounds<K>(
+    entries: &[rkyv::Archived<OrderedPostingEntry<K>>],
+    lower: &std::ops::Bound<K::Query>,
+    upper: &std::ops::Bound<K::Query>,
+) -> (usize, usize)
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    let start = match lower {
+        std::ops::Bound::Unbounded => 0,
+        std::ops::Bound::Included(query) => entries
+            .partition_point(|entry| K::compare_query(query, &entry.key) == Ordering::Greater),
+        std::ops::Bound::Excluded(query) => {
+            entries.partition_point(|entry| K::compare_query(query, &entry.key) != Ordering::Less)
+        }
+    };
+    let end = match upper {
+        std::ops::Bound::Unbounded => entries.len(),
+        std::ops::Bound::Included(query) => {
+            entries.partition_point(|entry| K::compare_query(query, &entry.key) != Ordering::Less)
+        }
+        std::ops::Bound::Excluded(query) => entries
+            .partition_point(|entry| K::compare_query(query, &entry.key) == Ordering::Greater),
+    };
+    (start.min(entries.len()), end.min(entries.len()))
+}
+
+fn validate_published_dictionary<K>(
+    dictionary: &PublishedPostingDictionary<K>,
+) -> Result<(), String>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    let mut referenced = vec![false; dictionary.bitmaps.len()];
+    let visits = match &dictionary.backing {
+        PublishedPostingBacking::Native(values) => {
+            for ordinal in values.values().copied() {
+                let Some(posting) = dictionary.bitmaps.get(ordinal as usize) else {
+                    return Err("native posting bitmap slot out of bounds".into());
+                };
+                if posting.is_empty() || std::mem::replace(&mut referenced[ordinal as usize], true)
+                {
+                    return Err("native posting slot is empty or multiply referenced".into());
+                }
+            }
+            values.len()
+        }
+        PublishedPostingBacking::Archived(archive) => {
+            let root = archive.root();
+            if root.postings.len() != root.ascending.len() {
+                return Err("archived posting dictionary length mismatch".into());
+            }
+            let mut tree = root.postings.iter();
+            let mut previous: Option<&K::Archived> = None;
+            for entry in root.ascending.iter() {
+                if previous.is_some_and(|previous| previous >= &entry.key) {
+                    return Err("archived posting dictionary is not strictly ordered".into());
+                }
+                let ordinal = entry.ordinal.to_native() as usize;
+                let Some(posting) = dictionary.bitmaps.get(ordinal) else {
+                    return Err("archived posting bitmap slot out of bounds".into());
+                };
+                if posting.is_empty() || std::mem::replace(&mut referenced[ordinal], true) {
+                    return Err("archived posting slot is empty or multiply referenced".into());
+                }
+                let (tree_key, tree_ordinal) = tree
+                    .next()
+                    .ok_or("archived reverse entry is absent from the tree")?;
+                if tree_key != &entry.key || tree_ordinal.to_native() as usize != ordinal {
+                    return Err("archived posting reverse directory disagrees with the tree".into());
+                }
+                previous = Some(&entry.key);
+            }
+            if tree.next().is_some() {
+                return Err("archived posting tree traversal length mismatch".into());
+            }
+            root.ascending.len()
+        }
+    };
+    if dictionary
+        .bitmaps
+        .iter()
+        .zip(referenced)
+        .any(|(posting, referenced)| !referenced && !posting.is_empty())
+    {
+        return Err("posting dictionary retains a nonempty unreachable payload".into());
+    }
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.semantic_archive_visits = counters
+            .semantic_archive_visits
+            .saturating_add(visits as u64);
+    });
+    Ok(())
 }
 
 impl ScalarKey {
@@ -54,8 +1899,8 @@ pub struct PostingIndex {
     /// Exact selected-occurrence facts for an admitted logical field. `None`
     /// preserves the narrower legacy structural-only or named value index.
     pub structural: Option<StructuralFacts>,
-    pub values: BTreeMap<ScalarKey, RoaringBitmap>,
-    pub lengths: BTreeMap<Number, RoaringBitmap>,
+    pub(crate) values: PostingDictionary<StoredScalarKey>,
+    pub(crate) lengths: PostingDictionary<PostingNumberKey>,
     /// Whether the declared field admits a complete typed value dictionary.
     /// Partial length and empty-string shortcuts are tracked separately.
     pub values_indexed: bool,
@@ -68,7 +1913,7 @@ pub struct PostingIndex {
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Archive, ArchiveSerialize)]
 pub enum StructuralKey {
     AnyNull,
     NonEmpty,
@@ -79,14 +1924,62 @@ pub enum StructuralKey {
     EmptyObject,
 }
 
+fn structural_key_index(key: StructuralKey) -> u8 {
+    match key {
+        StructuralKey::AnyNull => 0,
+        StructuralKey::NonEmpty => 1,
+        StructuralKey::String => 2,
+        StructuralKey::Number => 3,
+        StructuralKey::Array => 4,
+        StructuralKey::Object => 5,
+        StructuralKey::EmptyObject => 6,
+    }
+}
+
+fn structural_key_from_archived(key: &rkyv::Archived<StructuralKey>) -> StructuralKey {
+    match key {
+        rkyv::Archived::<StructuralKey>::AnyNull => StructuralKey::AnyNull,
+        rkyv::Archived::<StructuralKey>::NonEmpty => StructuralKey::NonEmpty,
+        rkyv::Archived::<StructuralKey>::String => StructuralKey::String,
+        rkyv::Archived::<StructuralKey>::Number => StructuralKey::Number,
+        rkyv::Archived::<StructuralKey>::Array => StructuralKey::Array,
+        rkyv::Archived::<StructuralKey>::Object => StructuralKey::Object,
+        rkyv::Archived::<StructuralKey>::EmptyObject => StructuralKey::EmptyObject,
+    }
+}
+
+impl PartialEq for ArchivedStructuralKey {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other) == Ordering::Equal
+    }
+}
+
+impl Eq for ArchivedStructuralKey {}
+
+impl PartialOrd for ArchivedStructuralKey {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for ArchivedStructuralKey {
+    fn cmp(&self, other: &Self) -> Ordering {
+        structural_key_index(structural_key_from_archived(self))
+            .cmp(&structural_key_index(structural_key_from_archived(other)))
+    }
+}
+
 #[derive(Clone, Debug, Default)]
 pub struct StructuralFacts {
-    pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
+    pub(crate) postings: PostingDictionary<StructuralKey>,
 }
 
 impl StructuralFacts {
     fn insert(&mut self, key: StructuralKey, slot: RecordSlot) {
-        self.postings.entry(key).or_default().insert(slot.0);
+        self.postings
+            .bitmap_mut(key)
+            .expect("posting bitmap slot domain is checked")
+            .insert(slot.0);
     }
 
     fn observe(&mut self, slot: RecordSlot, value: &Value, multi: bool) {
@@ -109,17 +2002,19 @@ impl StructuralFacts {
     }
 
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
-        for (key, posting) in batch.postings {
-            append_shifted_bitmap(self.postings.entry(key).or_default(), &posting, base)?;
+        let mut batch = batch.postings.into_native_builder()?;
+        for (key, ordinal) in batch.values {
+            let posting = batch
+                .bitmaps
+                .get_mut(ordinal as usize)
+                .ok_or("posting bitmap slot out of bounds")?;
+            append_shifted_bitmap(self.postings.bitmap_mut(key)?, posting, base)?;
         }
         Ok(())
     }
 
     pub(crate) fn estimated_bytes(&self) -> usize {
-        self.postings
-            .values()
-            .map(RoaringBitmap::serialized_size)
-            .sum()
+        self.postings.archive_bytes()
     }
 }
 
@@ -140,36 +2035,33 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
-/// Borrowed ordered traversal over one posting dictionary's values.
-pub(crate) enum PostingValueCursor<'a> {
-    Forward(std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>),
-    Reverse(std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>),
-}
-
-impl<'a> PostingValueCursor<'a> {
-    pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
-        match self {
-            Self::Forward(range) => range.next(),
-            Self::Reverse(range) => range.next(),
-        }
-        .map(|(key, posting)| (key.clone(), posting))
-    }
-}
+/// Borrowed ordered traversal over one scalar posting dictionary.
+pub(crate) type PostingValueCursor<'a> = DictionaryValueCursor<'a, StoredScalarKey>;
 
 impl PostingIndex {
-    /// Borrow the ordered value keys of this posting index. The native
-    /// B-tree is the completed query representation; callers never decode it.
+    fn configuration_matches(&self, field: &FieldDefinition, schema: &Schema) -> bool {
+        let auto_prohibited = !field.indexed && schema.is_auto_index_prohibited(&field.path);
+        let auto_length = matches!(field.kind, LogicalType::Array(_)) && !auto_prohibited;
+        let auto_empty = field.kind == LogicalType::String && !field.multi && !auto_prohibited;
+        self.path == field.path
+            && self.kind == field.kind
+            && self.multi == field.multi
+            && self.values_indexed == field.indexed
+            && self.value_complete == field.indexed
+            && self.length_complete == auto_length
+            && self.empty_string_complete == auto_empty
+            && self.structural.is_some()
+    }
+
+    /// Borrow the ordered value keys of this posting index. Completed indexes
+    /// traverse their archived B-tree or archived reverse directory.
     pub(crate) fn value_range(
         &self,
         lower: std::ops::Bound<ScalarKey>,
         upper: std::ops::Bound<ScalarKey>,
         descending: bool,
     ) -> PostingValueCursor<'_> {
-        if descending {
-            PostingValueCursor::Reverse(self.values.range((lower, upper)).rev())
-        } else {
-            PostingValueCursor::Forward(self.values.range((lower, upper)))
-        }
+        self.values.range(lower, upper, descending)
     }
 
     pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> u64 {
@@ -196,14 +2088,56 @@ impl PostingIndex {
                 }
             }
         } else {
-            for (key, slots) in &self.values {
-                if let ScalarKey::Id(id) = key
-                    && ids.contains(id)
-                {
-                    lists += 1;
-                    members += slots.len();
-                    union |= slots;
+            match &self.values.0 {
+                PostingDictionaryState::Builder(builder) => {
+                    for (key, ordinal) in &builder.values {
+                        if let StoredScalarKey::Id(id) = key
+                            && ids.contains(id)
+                        {
+                            let slots = builder
+                                .bitmaps
+                                .get(*ordinal as usize)
+                                .expect("posting bitmap slot");
+                            lists += 1;
+                            members += slots.len();
+                            union |= slots;
+                        }
+                    }
                 }
+                PostingDictionaryState::Published(values) => match &values.backing {
+                    PublishedPostingBacking::Native(map) => {
+                        for (key, ordinal) in map.iter() {
+                            let StoredScalarKey::Id(id) = key else {
+                                continue;
+                            };
+                            if ids.contains(id) {
+                                let slots = values
+                                    .bitmaps
+                                    .get(*ordinal as usize)
+                                    .expect("validated posting slot");
+                                lists += 1;
+                                members += slots.len();
+                                union |= slots;
+                            }
+                        }
+                    }
+                    PublishedPostingBacking::Archived(archive) => {
+                        for entry in archive.root().ascending.iter() {
+                            let rkyv::Archived::<StoredScalarKey>::Id(id) = &entry.key else {
+                                continue;
+                            };
+                            if ids.contains(id.as_str()) {
+                                let slots = values
+                                    .bitmaps
+                                    .get(entry.ordinal.to_native() as usize)
+                                    .expect("validated posting ordinal");
+                                lists += 1;
+                                members += slots.len();
+                                union |= slots;
+                            }
+                        }
+                    }
+                },
             }
         }
         (union, lists, members)
@@ -219,22 +2153,16 @@ impl PostingIndex {
 
     pub(crate) fn for_each_value(
         &self,
-        mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
+        visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        for (key, posting) in &self.values {
-            visit(key, posting)?;
-        }
-        Ok(())
+        self.values.for_each(visit)
     }
 
     pub(crate) fn for_each_length(
         &self,
-        mut visit: impl FnMut(&Number, &RoaringBitmap) -> Result<(), String>,
+        visit: impl FnMut(&Number, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
-        for (key, posting) in &self.lengths {
-            visit(key, posting)?;
-        }
-        Ok(())
+        self.lengths.for_each(visit)
     }
 
     pub(crate) fn union_scalar_range(
@@ -371,11 +2299,21 @@ impl PostingIndex {
         if let (Some(target), Some(source)) = (&mut self.structural, batch.structural) {
             target.merge_shifted(source, base)?;
         }
-        for (key, posting) in batch.values {
-            append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
+        let mut values = batch.values.into_native_builder()?;
+        for (key, ordinal) in values.values {
+            let posting = values
+                .bitmaps
+                .get_mut(ordinal as usize)
+                .ok_or("posting bitmap slot out of bounds")?;
+            append_shifted_bitmap(self.values.bitmap_mut(key)?, posting, base)?;
         }
-        for (key, posting) in batch.lengths {
-            append_shifted_bitmap(self.lengths.entry(key).or_default(), &posting, base)?;
+        let mut lengths = batch.lengths.into_native_builder()?;
+        for (key, ordinal) in lengths.values {
+            let posting = lengths
+                .bitmaps
+                .get_mut(ordinal as usize)
+                .ok_or("posting bitmap slot out of bounds")?;
+            append_shifted_bitmap(self.lengths.bitmap_mut(key)?, posting, base)?;
         }
         self.covered_records = covered;
         Ok(())
@@ -386,16 +2324,32 @@ impl PostingIndex {
             || !self.empty_selections.is_subset(allowed)
             || !self.nulls.is_subset(allowed)
             || self.structural.as_ref().is_some_and(|facts| {
+                let mut outside = false;
                 facts
                     .postings
-                    .values()
-                    .any(|slots| !slots.is_subset(allowed))
+                    .for_each_bitmap(|slots| {
+                        outside |= !slots.is_subset(allowed);
+                        Ok(())
+                    })
+                    .expect("validated structural archive");
+                outside
             })
-            || self
-                .values
-                .values()
-                .chain(self.lengths.values())
-                .any(|slots| !slots.is_subset(allowed))
+            || {
+                let mut outside = false;
+                self.values
+                    .for_each_bitmap(|slots| {
+                        outside |= !slots.is_subset(allowed);
+                        Ok(())
+                    })
+                    .expect("validated scalar archive");
+                self.lengths
+                    .for_each_bitmap(|slots| {
+                        outside |= !slots.is_subset(allowed);
+                        Ok(())
+                    })
+                    .expect("validated number archive");
+                outside
+            }
         {
             return Err("posting outside logical eligible domain".into());
         }
@@ -473,13 +2427,16 @@ impl PostingIndex {
                 let Value::Number(number) = &term.literal else {
                     return None;
                 };
-                return Some(
-                    union_postings(
-                        self.lengths.iter().filter(|(key, _)| *key != number),
-                        Some(input),
-                    )
-                    .0,
-                );
+                let mut result = RoaringBitmap::new();
+                self.lengths
+                    .for_each(|key, slots| {
+                        if key != number {
+                            result |= input & slots;
+                        }
+                        Ok(())
+                    })
+                    .expect("validated number archive");
+                return Some(result);
             }
             Derived::None if matches!(term.literal, Value::Null) => {
                 // The null posting tracks only an explicit null field. It cannot
@@ -531,8 +2488,8 @@ impl PostingIndex {
             empty_selections: RoaringBitmap::new(),
             nulls: RoaringBitmap::new(),
             structural: None,
-            values: BTreeMap::new(),
-            lengths: BTreeMap::new(),
+            values: PostingDictionary::builder(),
+            lengths: PostingDictionary::builder(),
             values_indexed: true,
             value_complete: true,
             length_complete: matches!(field.kind, LogicalType::Array(_)),
@@ -564,8 +2521,8 @@ impl PostingIndex {
             present_count: self.presence.len(),
             null_count: self.nulls.len(),
             distinct_count: self.values.len(),
-            min_key: self.values.first_key_value().map(|(key, _)| key.clone()),
-            max_key: self.values.last_key_value().map(|(key, _)| key.clone()),
+            min_key: self.values.first_public(),
+            max_key: self.values.last_public(),
         };
     }
 
@@ -608,13 +2565,12 @@ impl PostingIndex {
                     && !self.value_complete
                 {
                     self.values
-                        .entry(ScalarKey::String(String::new()))
-                        .or_default()
+                        .bitmap_mut(StoredScalarKey::String(String::new()))?
                         .insert(slot.0);
                 } else if self.value_complete
-                    && let Some(key) = ScalarKey::from_value(value)
+                    && let Some(key) = StoredScalarKey::from_value(value)
                 {
-                    self.values.entry(key).or_default().insert(slot.0);
+                    self.values.bitmap_mut(key)?.insert(slot.0);
                 }
                 return Ok(());
             }
@@ -624,34 +2580,36 @@ impl PostingIndex {
                 for value in selected {
                     if let Value::Array(array) = value {
                         self.lengths
-                            .entry(Number::integer(array.values.len() as i128))
-                            .or_default()
+                            .bitmap_mut(PostingNumberKey::from_number(&Number::integer(
+                                array.values.len() as i128,
+                            )))?
                             .insert(slot.0);
                     }
                 }
             }
             return Ok(());
         }
-        let mut unique = HashSet::new();
+        let mut unique = std::collections::BTreeSet::new();
         for value in selected {
             if let Value::Array(array) = value {
                 if self.length_complete {
                     self.lengths
-                        .entry(Number::integer(array.values.len() as i128))
-                        .or_default()
+                        .bitmap_mut(PostingNumberKey::from_number(&Number::integer(
+                            array.values.len() as i128,
+                        )))?
                         .insert(slot.0);
                 }
                 for item in &array.values {
-                    if let Some(key) = ScalarKey::from_value(item) {
+                    if let Some(key) = StoredScalarKey::from_value(item) {
                         unique.insert(key);
                     }
                 }
-            } else if let Some(key) = ScalarKey::from_value(value) {
+            } else if let Some(key) = StoredScalarKey::from_value(value) {
                 unique.insert(key);
             }
         }
         for key in unique {
-            self.values.entry(key).or_default().insert(slot.0);
+            self.values.bitmap_mut(key)?.insert(slot.0);
         }
         Ok(())
     }
@@ -666,23 +2624,62 @@ impl PostingIndex {
         slot_count: usize,
         eligible_count: usize,
     ) -> Result<(), String> {
+        self.validate_completed(slot_count, eligible_count, None)
+    }
+
+    /// The one completed-component validation pass. When an eligible domain is
+    /// narrower than the physical slot domain, it is checked in the same
+    /// bitmap traversal instead of scanning every dictionary a second time.
+    pub(crate) fn validate_completed(
+        &self,
+        slot_count: usize,
+        eligible_count: usize,
+        allowed: Option<&RoaringBitmap>,
+    ) -> Result<(), String> {
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.posting_logical_validation_passes =
+                counters.posting_logical_validation_passes.saturating_add(1);
+        });
         if !self.values_indexed && self.value_complete {
             return Err("structural-only posting has complete values".into());
         }
         if self.covered_records as usize != eligible_count {
             return Err("incomplete posting coverage".into());
         }
-        let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < slot_count);
-        if !valid(&self.presence)
-            || !valid(&self.empty_selections)
-            || !valid(&self.nulls)
-            || self
-                .structural
-                .as_ref()
-                .is_some_and(|facts| facts.postings.values().any(|slots| !valid(slots)))
-            || !self.values.values().all(valid)
-            || !self.lengths.values().all(valid)
-        {
+        let valid = |set: &RoaringBitmap| {
+            set.max().is_none_or(|s| (s as usize) < slot_count)
+                && allowed.is_none_or(|allowed| set.is_subset(allowed))
+        };
+        let mut visited = 3u64;
+        let mut invalid_domain =
+            !valid(&self.presence) || !valid(&self.empty_selections) || !valid(&self.nulls);
+        let mut inconsistent_structure = false;
+        if let Some(facts) = &self.structural {
+            facts
+                .postings
+                .for_each_bitmap(|slots| {
+                    visited = visited.saturating_add(1);
+                    invalid_domain |= !valid(slots);
+                    inconsistent_structure |= !slots.is_subset(&self.presence);
+                    Ok(())
+                })
+                .expect("validated structural archive");
+        }
+        self.values
+            .for_each_bitmap(|slots| {
+                visited = visited.saturating_add(1);
+                invalid_domain |= !valid(slots);
+                Ok(())
+            })
+            .expect("validated scalar archive");
+        self.lengths
+            .for_each_bitmap(|slots| {
+                visited = visited.saturating_add(1);
+                invalid_domain |= !valid(slots);
+                Ok(())
+            })
+            .expect("validated number archive");
+        if invalid_domain {
             return Err("posting contains out-of-domain record slot".into());
         }
         if !self.nulls.is_subset(&self.presence) {
@@ -692,10 +2689,7 @@ impl PostingIndex {
             return Err("empty selection is not present".into());
         }
         if self.structural.as_ref().is_some_and(|facts| {
-            facts
-                .postings
-                .values()
-                .any(|slots| !slots.is_subset(&self.presence))
+            inconsistent_structure
                 || facts
                     .postings
                     .get(&StructuralKey::EmptyObject)
@@ -719,11 +2713,221 @@ impl PostingIndex {
         if !self.length_complete && !self.lengths.is_empty() {
             return Err("posting capability and stored facts mismatch".into());
         }
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.posting_logical_visits =
+                counters.posting_logical_visits.saturating_add(visited);
+        });
         Ok(())
     }
 
     pub fn distinct_values(&self) -> usize {
         self.values.len()
+    }
+
+    pub fn value_membership_count(&self) -> u64 {
+        let mut total = 0u64;
+        self.values
+            .for_each(|_, bitmap| {
+                total = total.saturating_add(bitmap.len());
+                Ok(())
+            })
+            .expect("validated scalar posting archive");
+        total
+    }
+
+    /// Native Roaring payload bytes plus the checked key archive bytes.
+    pub fn dictionary_payload_bytes(&self) -> usize {
+        let mut total = self.archive_bytes();
+        self.values
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated scalar posting archive");
+        self.lengths
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated number posting archive");
+        if let Some(facts) = &self.structural {
+            facts
+                .postings
+                .for_each_bitmap(|bitmap| {
+                    total = total.saturating_add(bitmap.serialized_size());
+                    Ok(())
+                })
+                .expect("validated structural posting archive");
+        }
+        total
+    }
+
+    pub(crate) fn dictionary_bitmap_payload_bytes(&self) -> usize {
+        let mut total = 0usize;
+        self.values
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated scalar posting archive");
+        self.lengths
+            .for_each_bitmap(|bitmap| {
+                total = total.saturating_add(bitmap.serialized_size());
+                Ok(())
+            })
+            .expect("validated number posting archive");
+        if let Some(facts) = &self.structural {
+            facts
+                .postings
+                .for_each_bitmap(|bitmap| {
+                    total = total.saturating_add(bitmap.serialized_size());
+                    Ok(())
+                })
+                .expect("validated structural posting archive");
+        }
+        total
+    }
+
+    pub(crate) fn native_bitmap_payload_bytes(&self) -> usize {
+        self.presence.serialized_size()
+            + self.empty_selections.serialized_size()
+            + self.nulls.serialized_size()
+            + self.dictionary_bitmap_payload_bytes()
+    }
+
+    /// Freeze every ordered posting dictionary into checked immutable storage.
+    ///
+    /// This boundary is called from segment finalization, after all inference
+    /// admission and semantic posting validation has completed.
+    pub(crate) fn seal_native_storage(&mut self) -> Result<(), String> {
+        self.values =
+            std::mem::replace(&mut self.values, PostingDictionary::builder()).publish_native()?;
+        self.lengths =
+            std::mem::replace(&mut self.lengths, PostingDictionary::builder()).publish_native()?;
+        if let Some(facts) = &mut self.structural {
+            facts.postings = std::mem::replace(&mut facts.postings, PostingDictionary::builder())
+                .publish_native()?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn thaw_storage(&mut self) -> Result<(), String> {
+        let values = std::mem::replace(&mut self.values, PostingDictionary::builder())
+            .into_native_builder()?;
+        self.values = PostingDictionary::from_native_builder(values);
+        let lengths = std::mem::replace(&mut self.lengths, PostingDictionary::builder())
+            .into_native_builder()?;
+        self.lengths = PostingDictionary::from_native_builder(lengths);
+        if let Some(facts) = &mut self.structural {
+            let postings = std::mem::replace(&mut facts.postings, PostingDictionary::builder())
+                .into_native_builder()?;
+            facts.postings = PostingDictionary::from_native_builder(postings);
+        }
+        Ok(())
+    }
+
+    pub(crate) fn thaw_values_storage(&mut self) -> Result<(), String> {
+        let values = std::mem::replace(&mut self.values, PostingDictionary::builder())
+            .into_native_builder()?;
+        self.values = PostingDictionary::from_native_builder(values);
+        Ok(())
+    }
+
+    pub(crate) fn is_archived(&self) -> bool {
+        self.values.is_archived()
+            && self.lengths.is_archived()
+            && self
+                .structural
+                .as_ref()
+                .is_none_or(|facts| facts.postings.is_archived())
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn is_native(&self) -> bool {
+        self.values.is_native()
+            && self.lengths.is_native()
+            && self
+                .structural
+                .as_ref()
+                .is_none_or(|facts| facts.postings.is_native())
+    }
+
+    pub(crate) fn is_published(&self) -> bool {
+        self.values.is_published()
+            && self.lengths.is_published()
+            && self
+                .structural
+                .as_ref()
+                .is_none_or(|facts| facts.postings.is_published())
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut native = 0usize;
+        let mut archived = 0usize;
+        if self.values.is_archived() {
+            archived += 1;
+        } else {
+            native += 1;
+        }
+        if self.lengths.is_archived() {
+            archived += 1;
+        } else {
+            native += 1;
+        }
+        if let Some(facts) = &self.structural {
+            if facts.postings.is_archived() {
+                archived += 1;
+            } else {
+                native += 1;
+            }
+        }
+        (native, archived)
+    }
+
+    #[cfg(test)]
+    pub(crate) fn value_bitmap_owner_id(&self) -> usize {
+        self.values.bitmap_owner_id()
+    }
+
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        let mut archived = self.clone();
+        archived.archive_storage()?;
+        Ok(archived)
+    }
+
+    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+        let values = self.values.archived()?;
+        let lengths = self.lengths.archived()?;
+        let structural = self
+            .structural
+            .as_ref()
+            .map(|facts| facts.postings.archived())
+            .transpose()?;
+        self.values = values;
+        self.lengths = lengths;
+        if let (Some(facts), Some(structural)) = (&mut self.structural, structural) {
+            facts.postings = structural;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn archive_bytes(&self) -> usize {
+        self.values
+            .archive_bytes()
+            .saturating_add(self.lengths.archive_bytes())
+            .saturating_add(
+                self.structural
+                    .as_ref()
+                    .map_or(0, |facts| facts.postings.archive_bytes()),
+            )
+    }
+
+    pub(crate) fn for_each_archive_owner(&self, visit: &mut impl FnMut(usize, usize, usize)) {
+        self.values.for_each_archive_owner(visit);
+        self.lengths.for_each_archive_owner(visit);
+        if let Some(facts) = &self.structural {
+            facts.postings.for_each_archive_owner(visit);
+        }
     }
 
     pub(crate) fn distinct_lengths(&self) -> usize {
@@ -949,10 +3153,18 @@ impl PostingIndex {
                 };
                 return match term.operator {
                     Operator::Eq => Some(self.lengths.get(number).cloned().unwrap_or_default()),
-                    Operator::Ne => Some(
-                        union_postings(self.lengths.iter().filter(|(key, _)| *key != number), None)
-                            .0,
-                    ),
+                    Operator::Ne => {
+                        let mut result = RoaringBitmap::new();
+                        self.lengths
+                            .for_each(|key, slots| {
+                                if key != number {
+                                    result |= slots;
+                                }
+                                Ok(())
+                            })
+                            .expect("validated number archive");
+                        Some(result)
+                    }
                     op if is_range(op) => Some(range_postings(&self.lengths, &number, op, None).0),
                     _ => None,
                 };
@@ -1019,29 +3231,60 @@ impl PostingIndex {
             return None;
         }
         let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
-        let values = &self.values;
-        let lower = |bound: &ScalarKey| {
-            values
-                .range(..bound.clone())
-                .rev()
-                .take_while(|(key, _)| same_type(key))
+        let ascending = |lower: std::ops::Bound<ScalarKey>, upper: std::ops::Bound<ScalarKey>| {
+            self.values.range(lower, upper, false)
         };
-        let upper = |bound: &ScalarKey| {
-            values
-                .range(bound.clone()..)
-                .take_while(|(key, _)| same_type(key))
+        let descending = |lower: std::ops::Bound<ScalarKey>, upper: std::ops::Bound<ScalarKey>| {
+            self.values.range(lower, upper, true)
         };
         Some(match term.operator {
-            Operator::Eq => union_postings(values.range(start..end), input).0,
+            Operator::Eq => {
+                let mut range = ascending(Included(start.clone()), Excluded(end.clone()));
+                union_postings(std::iter::from_fn(move || range.next()), input).0
+            }
             Operator::Ne => {
-                let mut result = union_postings(lower(&start), input).0;
-                result |= union_postings(upper(&end), input).0;
+                let mut below = descending(Unbounded, Excluded(start.clone()));
+                let mut result = union_postings(
+                    std::iter::from_fn(move || {
+                        let (key, posting) = below.next()?;
+                        same_type(&key).then_some((key, posting))
+                    }),
+                    input,
+                )
+                .0;
+                let mut above = ascending(Included(end.clone()), Unbounded);
+                result |= union_postings(
+                    std::iter::from_fn(move || {
+                        let (key, posting) = above.next()?;
+                        same_type(&key).then_some((key, posting))
+                    }),
+                    input,
+                )
+                .0;
                 result
             }
-            Operator::Lt => union_postings(lower(&start), input).0,
-            Operator::Le => union_postings(lower(&end), input).0,
-            Operator::Gt => union_postings(upper(&end), input).0,
-            Operator::Ge => union_postings(upper(&start), input).0,
+            Operator::Lt | Operator::Le | Operator::Gt | Operator::Ge => {
+                let (bound, descending_scan) = match term.operator {
+                    Operator::Lt => (start.clone(), true),
+                    Operator::Le => (end.clone(), true),
+                    Operator::Gt => (end.clone(), false),
+                    Operator::Ge => (start.clone(), false),
+                    _ => unreachable!(),
+                };
+                let mut range = if descending_scan {
+                    descending(Unbounded, Excluded(bound))
+                } else {
+                    ascending(Included(bound), Unbounded)
+                };
+                union_postings(
+                    std::iter::from_fn(move || {
+                        let (key, posting) = range.next()?;
+                        same_type(&key).then_some((key, posting))
+                    }),
+                    input,
+                )
+                .0
+            }
             _ => return None,
         })
     }
@@ -1055,45 +3298,50 @@ impl PostingIndex {
             return None;
         }
         let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
-        let values = &self.values;
         Some(match term.operator {
-            Operator::Eq => values.range(start..end).take(limit).count(),
-            Operator::Ne => {
-                let below = values
-                    .range(..start)
-                    .rev()
-                    .take_while(|(key, _)| same_type(key))
-                    .take(limit)
-                    .count();
-                below
-                    + values
-                        .range(end..)
-                        .take_while(|(key, _)| same_type(key))
-                        .take(limit.saturating_sub(below))
-                        .count()
+            Operator::Eq => {
+                let mut range =
+                    self.values
+                        .range(Included(start.clone()), Excluded(end.clone()), false);
+                std::iter::from_fn(move || range.next()).take(limit).count()
             }
-            Operator::Lt => values
-                .range(..start)
-                .rev()
-                .take_while(|(key, _)| same_type(key))
+            Operator::Ne => {
+                let mut below = self.values.range(Unbounded, Excluded(start.clone()), true);
+                let below = std::iter::from_fn(|| {
+                    let (key, posting) = below.next()?;
+                    same_type(&key).then_some((key, posting))
+                })
                 .take(limit)
-                .count(),
-            Operator::Le => values
-                .range(..end)
-                .rev()
-                .take_while(|(key, _)| same_type(key))
+                .count();
+                let mut above = self.values.range(Included(end.clone()), Unbounded, false);
+                below
+                    + std::iter::from_fn(|| {
+                        let (key, posting) = above.next()?;
+                        same_type(&key).then_some((key, posting))
+                    })
+                    .take(limit.saturating_sub(below))
+                    .count()
+            }
+            Operator::Lt | Operator::Le | Operator::Gt | Operator::Ge => {
+                let (bound, descending_scan) = match term.operator {
+                    Operator::Lt => (start.clone(), true),
+                    Operator::Le => (end.clone(), true),
+                    Operator::Gt => (end.clone(), false),
+                    Operator::Ge => (start.clone(), false),
+                    _ => unreachable!(),
+                };
+                let mut range = if descending_scan {
+                    self.values.range(Unbounded, Excluded(bound), true)
+                } else {
+                    self.values.range(Included(bound), Unbounded, false)
+                };
+                std::iter::from_fn(|| {
+                    let (key, posting) = range.next()?;
+                    same_type(&key).then_some((key, posting))
+                })
                 .take(limit)
-                .count(),
-            Operator::Gt => values
-                .range(end..)
-                .take_while(|(key, _)| same_type(key))
-                .take(limit)
-                .count(),
-            Operator::Ge => values
-                .range(start..)
-                .take_while(|(key, _)| same_type(key))
-                .take(limit)
-                .count(),
+                .count()
+            }
             _ => return None,
         })
     }
@@ -1117,7 +3365,7 @@ fn is_range(operator: Operator) -> bool {
 }
 
 fn union_postings<'a, K: 'a>(
-    entries: impl Iterator<Item = (&'a K, &'a RoaringBitmap)>,
+    entries: impl Iterator<Item = (K, &'a RoaringBitmap)>,
     restriction: Option<&RoaringBitmap>,
 ) -> (RoaringBitmap, usize) {
     let mut result = RoaringBitmap::new();
@@ -1133,120 +3381,123 @@ fn union_postings<'a, K: 'a>(
     (result, visited)
 }
 
-fn range_postings<K: Ord>(
-    entries: &BTreeMap<K, RoaringBitmap>,
-    key: &K,
+fn range_postings<K>(
+    entries: &PostingDictionary<K>,
+    key: &K::Query,
     operator: Operator,
     restriction: Option<&RoaringBitmap>,
-) -> (RoaringBitmap, usize) {
-    match operator {
-        Operator::Gt => union_postings(entries.range((Excluded(key), Unbounded)), restriction),
-        Operator::Ge => union_postings(entries.range((Included(key), Unbounded)), restriction),
-        Operator::Lt => union_postings(entries.range((Unbounded, Excluded(key))), restriction),
-        Operator::Le => union_postings(entries.range((Unbounded, Included(key))), restriction),
-        _ => (RoaringBitmap::new(), 0),
-    }
+) -> (RoaringBitmap, usize)
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+    K::Query: Clone,
+{
+    let mut range = match operator {
+        Operator::Gt => entries.range(Excluded(key.clone()), Unbounded, false),
+        Operator::Ge => entries.range(Included(key.clone()), Unbounded, false),
+        Operator::Lt => entries.range(Unbounded, Excluded(key.clone()), false),
+        Operator::Le => entries.range(Unbounded, Included(key.clone()), false),
+        _ => return (RoaringBitmap::new(), 0),
+    };
+    union_postings(std::iter::from_fn(move || range.next()), restriction)
 }
 
-fn range_key_probe<K: Ord>(
-    entries: &BTreeMap<K, RoaringBitmap>,
-    key: &K,
+fn range_key_probe<K>(
+    entries: &PostingDictionary<K>,
+    key: &K::Query,
     operator: Operator,
     limit: usize,
-) -> usize {
-    match operator {
-        Operator::Gt => entries
-            .range((Excluded(key), Unbounded))
-            .take(limit)
-            .count(),
-        Operator::Ge => entries
-            .range((Included(key), Unbounded))
-            .take(limit)
-            .count(),
-        Operator::Lt => entries
-            .range((Unbounded, Excluded(key)))
-            .take(limit)
-            .count(),
-        Operator::Le => entries
-            .range((Unbounded, Included(key)))
-            .take(limit)
-            .count(),
-        _ => 0,
+) -> usize
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord
+        + for<'a> rkyv::bytecheck::CheckBytes<rkyv::api::high::HighValidator<'a, rkyv::rancor::Error>>,
+    K: for<'a> ArchiveSerialize<
+        rkyv::api::high::HighSerializer<
+            rkyv::util::AlignedVec,
+            rkyv::ser::allocator::ArenaHandle<'a>,
+            rkyv::rancor::Error,
+        >,
+    >,
+    K::Query: Clone,
+{
+    let (lower, upper) = match operator {
+        Operator::Gt => (Excluded(key.clone()), Unbounded),
+        Operator::Ge => (Included(key.clone()), Unbounded),
+        Operator::Lt => (Unbounded, Excluded(key.clone())),
+        Operator::Le => (Unbounded, Included(key.clone())),
+        _ => return 0,
+    };
+    let mut range = entries.range(lower, upper, false);
+    let mut count = 0;
+    while count < limit && range.next().is_some() {
+        count += 1;
     }
+    count
 }
 
 fn scalar_range_key_probe(
-    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    entries: &PostingDictionary<StoredScalarKey>,
     key: &ScalarKey,
     operator: Operator,
     limit: usize,
 ) -> usize {
     let same_type =
         |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
-    match operator {
-        Operator::Gt => entries
-            .range((Excluded(key), Unbounded))
-            .take_while(|(candidate, _)| same_type(candidate))
-            .take(limit)
-            .count(),
-        Operator::Ge => entries
-            .range((Included(key), Unbounded))
-            .take_while(|(candidate, _)| same_type(candidate))
-            .take(limit)
-            .count(),
-        Operator::Lt => entries
-            .range((Unbounded, Excluded(key)))
-            .rev()
-            .take_while(|(candidate, _)| same_type(candidate))
-            .take(limit)
-            .count(),
-        Operator::Le => entries
-            .range((Unbounded, Included(key)))
-            .rev()
-            .take_while(|(candidate, _)| same_type(candidate))
-            .take(limit)
-            .count(),
-        _ => 0,
+    let descending = matches!(operator, Operator::Lt | Operator::Le);
+    let (lower, upper) = match operator {
+        Operator::Gt => (Excluded(key.clone()), Unbounded),
+        Operator::Ge => (Included(key.clone()), Unbounded),
+        Operator::Lt => (Unbounded, Excluded(key.clone())),
+        Operator::Le => (Unbounded, Included(key.clone())),
+        _ => return 0,
+    };
+    let mut range = entries.range(lower, upper, descending);
+    let mut count = 0;
+    while count < limit {
+        let Some((candidate, _)) = range.next() else {
+            break;
+        };
+        if !same_type(&candidate) {
+            break;
+        }
+        count += 1;
     }
+    count
 }
 
 fn scalar_range_postings(
-    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    entries: &PostingDictionary<StoredScalarKey>,
     key: &ScalarKey,
     operator: Operator,
     restriction: Option<&RoaringBitmap>,
 ) -> (RoaringBitmap, usize) {
     let same_type =
         |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
-    match operator {
-        Operator::Gt => union_postings(
-            entries
-                .range((Excluded(key), Unbounded))
-                .take_while(|(candidate, _)| same_type(candidate)),
-            restriction,
-        ),
-        Operator::Ge => union_postings(
-            entries
-                .range((Included(key), Unbounded))
-                .take_while(|(candidate, _)| same_type(candidate)),
-            restriction,
-        ),
-        Operator::Lt => union_postings(
-            entries
-                .range((Unbounded, Excluded(key)))
-                .rev()
-                .take_while(|(candidate, _)| same_type(candidate)),
-            restriction,
-        ),
-        Operator::Le => union_postings(
-            entries
-                .range((Unbounded, Included(key)))
-                .rev()
-                .take_while(|(candidate, _)| same_type(candidate)),
-            restriction,
-        ),
-        _ => (RoaringBitmap::new(), 0),
-    }
+    let descending = matches!(operator, Operator::Lt | Operator::Le);
+    let (lower, upper) = match operator {
+        Operator::Gt => (Excluded(key.clone()), Unbounded),
+        Operator::Ge => (Included(key.clone()), Unbounded),
+        Operator::Lt => (Unbounded, Excluded(key.clone())),
+        Operator::Le => (Unbounded, Included(key.clone())),
+        _ => return (RoaringBitmap::new(), 0),
+    };
+    let mut range = entries.range(lower, upper, descending);
+    union_postings(
+        std::iter::from_fn(move || {
+            let (candidate, posting) = range.next()?;
+            same_type(&candidate).then_some((candidate, posting))
+        }),
+        restriction,
+    )
 }
 
 /// Posting indexes registered for one collection.
@@ -1256,6 +3507,16 @@ pub struct PostingCollection {
 }
 
 impl PostingCollection {
+    pub(crate) fn configuration_matches(&self, schema: &Schema) -> bool {
+        self.fields.len() == schema.fields.len()
+            && self.fields.iter().all(|(path, index)| {
+                schema
+                    .fields
+                    .get(path)
+                    .is_some_and(|field| index.configuration_matches(field, schema))
+            })
+    }
+
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.fields.len() != batch.fields.len() {
             return Err("posting batch field coverage mismatch".into());
@@ -1273,39 +3534,17 @@ impl PostingCollection {
         &mut self,
         batch: Self,
         base: u32,
-        pool: &rayon::ThreadPool,
+        _pool: &rayon::ThreadPool,
     ) -> Result<(), String> {
         if self.fields.len() != batch.fields.len() {
             return Err("posting batch field coverage mismatch".into());
         }
-        let mut global = std::mem::take(&mut self.fields)
-            .into_iter()
-            .collect::<Vec<_>>();
-        global.sort_unstable_by(|left, right| left.0.cmp(&right.0));
-        let mut incoming = batch.fields;
-        let mut jobs = Vec::with_capacity(global.len());
-        for (path, index) in global {
-            let batch = incoming
-                .remove(&path)
-                .ok_or("posting batch field missing")?;
-            jobs.push((path, index, batch));
+        for (path, index) in batch.fields {
+            self.fields
+                .get_mut(&path)
+                .ok_or("posting batch field missing")?
+                .merge_shifted(index, base)?;
         }
-        if !incoming.is_empty() {
-            return Err("posting batch field coverage mismatch".into());
-        }
-        let reduce = |jobs: Vec<(Vec<String>, PostingIndex, PostingIndex)>| {
-            jobs.into_iter()
-                .map(|(path, mut index, batch)| {
-                    index.merge_shifted(batch, base)?;
-                    Ok::<_, String>((path, index))
-                })
-                .collect::<Result<Vec<_>, _>>()
-        };
-        let mut first = jobs;
-        let split = first.len().saturating_add(1) / 2;
-        let second = first.split_off(split);
-        let (left, right) = pool.join(|| reduce(first), || reduce(second));
-        self.fields = left?.into_iter().chain(right?).collect();
         Ok(())
     }
 
@@ -1332,6 +3571,63 @@ impl PostingCollection {
         Self { fields }
     }
 
+    pub(crate) fn seal_native_storage(&mut self) -> Result<(), String> {
+        for index in self.fields.values_mut() {
+            index.seal_native_storage()?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn thaw_storage(&mut self) -> Result<(), String> {
+        for index in self.fields.values_mut() {
+            index.thaw_storage()?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn all_archived(&self) -> bool {
+        self.fields.values().all(PostingIndex::is_archived)
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn all_native(&self) -> bool {
+        self.fields.values().all(PostingIndex::is_native)
+    }
+
+    pub(crate) fn all_published(&self) -> bool {
+        self.fields.values().all(PostingIndex::is_published)
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        self.fields
+            .values()
+            .map(PostingIndex::storage_representation_counts)
+            .fold((0, 0), |(native, archived), (add_native, add_archived)| {
+                (native + add_native, archived + add_archived)
+            })
+    }
+
+    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+        self.fields
+            .values_mut()
+            .try_for_each(PostingIndex::archive_storage)
+    }
+
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        let fields = self
+            .fields
+            .iter()
+            .map(|(path, index)| Ok((path.clone(), index.archived()?)))
+            .collect::<Result<HashMap<_, _>, String>>()?;
+        Ok(Self { fields })
+    }
+
+    pub(crate) fn for_each_archive_owner(&self, visit: &mut impl FnMut(usize, usize, usize)) {
+        for index in self.fields.values() {
+            index.for_each_archive_owner(visit);
+        }
+    }
+
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
         for index in self.fields.values_mut() {
             index.add(slot, record)?;
@@ -1356,6 +3652,18 @@ impl PostingCollection {
     ) -> Result<(), String> {
         for index in self.fields.values() {
             index.validate_eligible(slot_count, eligible_count)?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn validate_completed(
+        &self,
+        slot_count: usize,
+        eligible_count: usize,
+        allowed: Option<&RoaringBitmap>,
+    ) -> Result<(), String> {
+        for index in self.fields.values() {
+            index.validate_completed(slot_count, eligible_count, allowed)?;
         }
         Ok(())
     }

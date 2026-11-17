@@ -2231,7 +2231,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         .unwrap()
         .appended(segment.files[0].entry.clone(), None, None)
         .unwrap();
-    let id = segment.records[0].id.0.as_ref();
+    let id = segment.records[0].id.0.as_str();
     let active = ActiveRecords::all(segment.records.len()).unwrap();
     let revision = IndexRevision(9);
     let locator = get_segment_record_by_id(
@@ -2675,7 +2675,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
         .sortable_scalar(&["label".into()])
         .unwrap();
     let mut generation = collection.generation.clone();
-    generation.records = segment.index.records.clone();
+    generation.records = segment.index.records.to_vec();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),

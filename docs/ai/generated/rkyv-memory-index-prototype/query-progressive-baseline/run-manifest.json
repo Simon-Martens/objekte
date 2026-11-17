@@ -1,0 +1,127 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "dc29ff42cf24b2cc4de67a2297f3c4d676c9034c0b91315465d1fb1136b486f7",
+  "code_revision": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+  "command": [
+    "target-rkyv-baseline/release/examples/bench_musenalm",
+    "--incremental",
+    "--root",
+    "/home/simon/source/objekte-integration-rkyv-memory-index-prototype/examples/musenalm",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--repetitions",
+    "3",
+    "--query-workers",
+    "4",
+    "--verified-cache-bytes",
+    "0",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-rkyv-memory-index-prototype/docs/ai/generated/rkyv-memory-index-prototype/query-progressive-baseline"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "f6431382a7e133e7f02397d2644d8d0473f13f58dc0b30c6e8a168f881ce336b",
+  "executable_sha256": "bd162b4c5529e622b69068b40a54c45f9fda8c5b636b142fedae60f388889863",
+  "execution_checkout_revision": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+  "extended": false,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 4,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 3,
+  "root": "/home/simon/source/objekte-integration-rkyv-memory-index-prototype/examples/musenalm",
+  "run_id": "1794863379-2e18871c0b",
+  "schema_fingerprint": "95d0fe463329ad0d0d3e1d5e7f6da4ea6568a0ee05ee9b5c65ca055aa01a27c7",
+  "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "f88fcfe915d0c1d05f11eae812ff7ee8716f0dffc7ee32003da04ea31db10433"
+}

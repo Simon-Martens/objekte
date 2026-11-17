@@ -314,8 +314,7 @@ impl<'a> MergedRelationView<'a> {
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
                 .file_index
-                .get(&record.file)
-                .copied()
+                .get(record.file)
                 .ok_or("merged segment file missing")?;
             let file = segment
                 .files
@@ -376,7 +375,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.id_lookup.get(id)
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -494,7 +493,7 @@ impl<'a> MergedRelationView<'a> {
                 self.segments[index][segment_index]
                     .index
                     .record(address.slot)
-                    .map(|record| record.id.0.as_ref())
+                    .map(|record| record.id.0.as_str())
                     .ok_or("backlink segment slot missing")?
                     .to_string()
             } else {
@@ -1720,7 +1719,7 @@ fn visit_merged_hop(
             }
         }
         HopDirection::Backlink => {
-            let target_id = current.record.id.0.as_ref();
+            let target_id = current.record.id.0.as_str();
             let sources = view.backlink_sources(hop.relation, target_id)?;
             let mut selected = 0usize;
             for (position, source) in sources.into_iter().enumerate() {
@@ -2090,7 +2089,7 @@ fn visit_hop(
                     } else {
                         targets
                             .iter()
-                            .find(|record| record.id.0.as_ref() == id.as_str())
+                            .find(|record| record.id.0.as_str() == id.as_str())
                             .map(|record| record.slot)
                     };
                     if let Some(target_slot) = target_slot {
@@ -2125,7 +2124,7 @@ fn visit_hop(
                     &repo.collections[collection_index].generation.records[source_slot.0 as usize];
                 let mut seen = 0usize;
                 let mut selected = 0usize;
-                for candidate in &source_collection.identity_order {
+                for candidate in source_collection.identity_order.iter() {
                     if !work.is_active(hop.to, *candidate) {
                         continue;
                     }
@@ -2139,7 +2138,7 @@ fn visit_hop(
                     if !references
                         .values
                         .iter()
-                        .any(|(id, _)| id.as_str() == target.id.0.as_ref())
+                        .any(|(id, _)| id.as_str() == target.id.0.as_str())
                     {
                         continue;
                     }
@@ -2263,7 +2262,7 @@ fn visit_hop(
                 } else {
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
-                    for source in &source_collection.identity_order {
+                    for source in source_collection.identity_order.iter() {
                         if !work.is_active(hop.to, *source) {
                             continue;
                         }

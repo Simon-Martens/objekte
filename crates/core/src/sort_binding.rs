@@ -1312,7 +1312,7 @@ impl ComputedSort {
                 if let Some(sources) = sources {
                     if has_position {
                         let mut seen = 0usize;
-                        for source in &source_collection.identity_order {
+                        for source in source_collection.identity_order.iter() {
                             if !SortTargetCache::is_active(cache, hop.to, *source)? {
                                 continue;
                             }

@@ -1,0 +1,15 @@
+experiment	followup	predecessor	native	unit	decision
+unique_archive_owners	2594	4757	not_applicable	owners	retained
+archive_serialized_bytes	148561552	149111376	not_applicable	bytes	retained
+archive_capacity_bytes	233658336	233891392	not_applicable	bytes	retained
+archive_capacity_slack_bytes	85096784	84780016	not_applicable	bytes	remaining limitation
+posting_bitmap_payload_bytes	17713236	17713236	17713236	bytes	unchanged native sidecar
+bigram_payload_bytes_unicode_32	91134554	91134554	91134554	bytes	unchanged native sidecar
+sorting_payload_bytes	23660638	23656222	not_applicable	bytes	native sidecar
+inventory_bytes	40275669	40275669	40275674	bytes	retained compatibility inventory
+initialized_file_row_caches	0	0	not_applicable	caches	retained
+initialized_record_row_caches	0	0	not_applicable	caches	retained
+scratch_lookup_repeated_direct	7.030	not_applicable	not_applicable	ms	microbenchmark
+scratch_lookup_repeated_scratch	4.557	not_applicable	not_applicable	ms	not retained
+scratch_lookup_unique_direct	32.349	not_applicable	not_applicable	ms	microbenchmark
+scratch_lookup_unique_scratch	37.812	not_applicable	not_applicable	ms	rejected: 16.9% high-cardinality regression

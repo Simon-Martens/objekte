@@ -1088,7 +1088,7 @@ fn finish_admission_profile(
 struct SegmentMetadata {
     generation: CollectionGeneration,
     id_lookup: HashMap<RecordId, RecordSlot>,
-    identity_order: Vec<RecordSlot>,
+    identity_order: Arc<Vec<RecordSlot>>,
     stats: CollectionStats,
     logical_records: RoaringBitmap,
     empty_array_records: RoaringBitmap,
@@ -1109,7 +1109,7 @@ fn segment_metadata_generation(
     for segment in segments {
         let base = u32::try_from(record_count).map_err(|_| "too many segment records")?;
         let segment_count =
-            u32::try_from(segment.index.records.len()).map_err(|_| "too many segment records")?;
+            u32::try_from(segment.index.record_count()).map_err(|_| "too many segment records")?;
         if relations.len() != segment.index.relations.len() {
             return Err("segment relation coverage mismatch".into());
         }
@@ -1131,44 +1131,49 @@ fn segment_metadata_generation(
                     .ok_or("empty-array record slot overflow")?,
             );
         }
-        for segment_file in &segment.index.files {
-            if file_set.insert(segment_file.entry.id) {
-                builder.include_file(segment_file.entry.id)?;
+        for file in segment.index.files.file_ids() {
+            if file_set.insert(file) {
+                builder.include_file(file)?;
             }
         }
-        for record in &segment.index.records {
-            let file = files
-                .files
-                .get_mut(record.file.0 as usize)
+        for slot in 0..segment.index.record_count() {
+            let record = segment
+                .index
+                .records
+                .record_row(slot)
+                .ok_or("segment record row missing")?;
+            let record_id = crate::model::RecordId(Arc::new(record.id().to_owned()));
+            let range = record.range();
+            let file = Arc::make_mut(&mut files.files)
+                .get_mut(record.file().0 as usize)
                 .ok_or("segment metadata file missing")?;
-            if record.class == RecordClass::Logical {
-                builder.add_record(
-                    file,
-                    record.id.clone(),
-                    record.range.start,
-                    record.range.end,
-                )?;
+            if record.class() == RecordClass::Logical {
+                builder
+                    .add_record(file, record_id, range.start, range.end)
+                    .map_err(|error| {
+                        format!(
+                            "{}:{}..{}: {error}",
+                            file.relative_path.as_path().display(),
+                            range.start,
+                            range.end,
+                        )
+                    })?;
             } else {
-                let segment_file = segment
+                let file_row = segment
                     .index
-                    .file(record.file)
+                    .file_index
+                    .get(record.file())
                     .ok_or("fallback segment file missing")?;
-                let Some(local) = record.diagnostic_ref.stored_index() else {
-                    builder.add_raw_fallback(
-                        file,
-                        record.id.clone(),
-                        record.range,
-                        record.diagnostic_ref,
-                    )?;
+                let Some(local) = record.diagnostic_ref().stored_index() else {
+                    builder.add_raw_fallback(file, record_id, range, record.diagnostic_ref())?;
                     record_count += 1;
                     continue;
                 };
-                let diagnostic = segment_file
-                    .entry
-                    .diagnostics
-                    .get(local)
-                    .ok_or("fallback diagnostic missing")?
-                    .clone();
+                let diagnostic = segment
+                    .index
+                    .files
+                    .diagnostic(file_row, local)
+                    .ok_or("fallback diagnostic missing")?;
                 let existing = file.diagnostics.iter().position(|candidate| {
                     let mut candidate = candidate.clone();
                     candidate.record = None;
@@ -1179,8 +1184,8 @@ fn segment_metadata_generation(
                 if existing.is_none() && file.omitted_diagnostics != 0 {
                     builder.add_raw_fallback(
                         file,
-                        record.id.clone(),
-                        record.range,
+                        record_id,
+                        range,
                         crate::inventory::DiagnosticRef(u32::MAX),
                     )?;
                     record_count += 1;
@@ -1194,8 +1199,7 @@ fn segment_metadata_generation(
                 let reference = crate::inventory::DiagnosticRef(
                     u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
                 );
-                let slot =
-                    builder.add_raw_fallback(file, record.id.clone(), record.range, reference)?;
+                let slot = builder.add_raw_fallback(file, record_id, range, reference)?;
                 file.diagnostics[global].record = Some(slot);
             }
             record_count += 1;
@@ -1233,7 +1237,7 @@ fn segment_metadata_generation(
     Ok(SegmentMetadata {
         generation,
         id_lookup,
-        identity_order,
+        identity_order: Arc::new(identity_order),
         stats,
         logical_records,
         empty_array_records,
@@ -1514,10 +1518,10 @@ impl Repository {
             })
             .collect::<Vec<_>>();
         let mut repository =
-            Self::build_fresh(root.clone(), definitions.clone(), options, &sources, false)
+            Self::build_configured_shell(root.clone(), definitions.clone(), options, &sources)
                 .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);
-        repository.base_fingerprints = vec![None; discovered.files.len()];
+        repository.base_fingerprints = Arc::new(vec![None; discovered.files.len()]);
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
             collection.generation = CollectionBuilder::new(
                 state.id,
@@ -1556,9 +1560,17 @@ impl Repository {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::build::file_batches(&state.member_files, &discovered) {
+            for batch in crate::build::file_batches(
+                &state.member_files,
+                &discovered,
+                options.segment_policy.max_files.get(),
+            ) {
                 if batch.len() == 1
-                    && discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                    && (discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                        || matches!(
+                            state.definition.format,
+                            crate::source::SourceFormat::JsonLines
+                        ))
                 {
                     jobs.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -1927,17 +1939,18 @@ impl Repository {
             profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let mut final_repository = Self::build_fresh(root, definitions, options, &sources, false)
-            .map_err(IndexError::Build)?;
-        final_repository.base_fingerprints = base_fingerprints;
+        let mut final_repository =
+            Self::build_configured_shell(root, definitions, options, &sources)
+                .map_err(IndexError::Build)?;
+        final_repository.base_fingerprints = Arc::new(base_fingerprints);
         final_repository.build_parses = build_parses;
         final_repository.build_failed_parses = failed_parses;
         let mut inference_build = InferenceBuildStats::default();
         let segment_view = index.view()?;
         let mut final_files = (*discovered).clone();
         let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
-        for file in &mut final_files.files {
-            if let Some(current) = segment_view.file_entry(file.id) {
+        for file in Arc::make_mut(&mut final_files.files) {
+            if let Some(current) = segment_view.file_entry_owned(file.id) {
                 file.status = current.status;
                 file.omitted_diagnostics = current.omitted_diagnostics;
                 for diagnostic in &current.diagnostics {
@@ -1972,24 +1985,21 @@ impl Repository {
             collection.stats = metadata.stats;
             collection.logical_records = metadata.logical_records;
             collection.empty_array_records = metadata.empty_array_records;
-            if let Some(first) = segments.first() {
+            if !segments.is_empty() {
                 // Sort bindings need locale/options/direction metadata before
                 // segment-local columns can be selected. Keys remain owned by
                 // their source segments and are never addressed through this
                 // compatibility header.
-                collection.sorting = first.index.sorting.clone();
-                for column in collection.sorting.columns.values_mut() {
-                    column.keys.clear();
-                    column.keys.shrink_to_fit();
-                    column.ascending.clear();
-                    column.ascending.shrink_to_fit();
-                    column.descending.clear();
-                    column.descending.shrink_to_fit();
-                }
-                for composite in &mut collection.sorting.composites {
-                    composite.order.clear();
-                    composite.order.shrink_to_fit();
-                }
+                collection.sorting = Arc::new(
+                    crate::sorting::SortCollection::configuration_only(
+                        &state.definition.sort_fields,
+                        &state.definition.schema,
+                        &state.definition.sort_locale,
+                        state.definition.sort_options,
+                        &state.definition.sort_overrides,
+                    )
+                    .map_err(IndexError::Build)?,
+                );
             }
             pending_relations.push(relations);
             let (_, stats) = state.finish_summary().map_err(IndexError::Build)?;
@@ -2006,19 +2016,35 @@ impl Repository {
             let source = final_repository.collections[source_index]
                 .generation
                 .collection;
+            let record_count = final_repository.collections[source_index]
+                .generation
+                .records
+                .len();
+            let logical_records = final_repository.collections[source_index]
+                .logical_records
+                .clone();
             for contribution in &contributions {
-                let logical_count = final_repository.collections[source_index]
-                    .logical_records
-                    .len() as u32;
+                let logical_count = logical_records.len() as u32;
                 if let Some(posting) = final_repository.collections[source_index]
                     .postings
                     .fields
                     .get_mut(&contribution.declaration().path)
                 {
                     posting.presence = contribution.presence().clone();
-                    posting.values = contribution.reverse_postings();
+                    posting.values = crate::posting::PostingDictionary::from_public(
+                        contribution.reverse_postings(),
+                    );
                     posting.value_complete = true;
                     posting.covered_records = logical_count;
+                    posting.finish_stats();
+                    posting.seal_native_storage().map_err(IndexError::Build)?;
+                    posting
+                        .validate_completed(
+                            record_count,
+                            logical_count as usize,
+                            Some(&logical_records),
+                        )
+                        .map_err(IndexError::Build)?;
                 }
             }
             let indexes = contributions
@@ -2033,7 +2059,7 @@ impl Repository {
                 })
                 .collect::<Result<Vec<_>, _>>()
                 .map_err(IndexError::Build)?;
-            final_repository.collections[source_index].relations = indexes;
+            final_repository.collections[source_index].relations = Arc::new(indexes);
         }
         crate::relation::validate_indexes(&final_repository.collections)
             .map_err(IndexError::Build)?;
@@ -2068,7 +2094,7 @@ impl Repository {
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
-        index.finish_initial_construction(expected, Arc::new(final_repository))?;
+        index.finish_initial_construction(expected, Arc::new(final_repository), &pool)?;
         Ok(index)
     }
 }

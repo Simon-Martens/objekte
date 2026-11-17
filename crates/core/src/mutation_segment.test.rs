@@ -68,6 +68,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
         .num_threads(1)
         .build()
         .unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
     let indexed = admission
         .finish()
         .into_indexed(
@@ -78,6 +79,9 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
             &pool,
         )
         .unwrap();
+    let adoption = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(adoption.first_batch_transfers, 1);
+    assert_eq!(adoption.field_container_rebuilds, 0);
     assert_eq!(indexed.files.len(), 2);
     assert_eq!(indexed.records.len(), 2);
     assert_eq!(indexed.files[0].records, [RecordSlot(0)]);
@@ -85,6 +89,21 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
     assert_eq!(indexed.files[1].entry.diagnostics.len(), 1);
     indexed.raw.validate(2).unwrap();
     indexed.postings.validate_eligible(2, 1).unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let resealed = indexed.clone().seal_completed_storage().unwrap();
+    let unchanged = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(unchanged.posting_logical_validation_passes, 0);
+    assert_eq!(unchanged.checked_archive_validations, 0);
+    assert_eq!(unchanged.semantic_archive_visits, 0);
+    crate::storage_usage::StorageWorkCounters::reset();
+    resealed
+        .postings
+        .validate_completed(2, 1, Some(&resealed.logical_records))
+        .unwrap();
+    let validated = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert!(validated.posting_logical_validation_passes > 0);
+    assert!(validated.posting_logical_visits > 0);
+    assert_eq!(validated.validation_owned_key_bytes, 0);
     std::fs::remove_dir_all(root).unwrap();
 }
 

@@ -1,0 +1,13 @@
+{
+  "task_id": "explicit-archiving-repair",
+  "base_revision": "29613ab1ccbcd9c01b2b44de3288ad6dab044736",
+  "implementation_revision": "bfc1f0a1c2",
+  "integration_branch": "integration/explicit-archiving-repair",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "benchmark_executable_sha256_measurement": "d6cc3bc021b30f30682ee92169f8d6bc9c283bc8fbd90470ed5bf70d5c708916",
+  "clean_benchmark_build_revision": "7cb23fb7a24ce413935a42c9d391dd15fa82d151",
+  "clean_benchmark_executable_sha256": "9862d7872588ff13797f2a2454e9688a23efa02ff5c447ef40edc9415dfeefa5",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "target": "x86_64-unknown-linux-gnu",
+  "benchmark_note": "The full construction/query matrices were produced from the exact implementation with only untracked evidence present. After evidence commit, a clean executable was rebuilt with binary_build_dirty=false and a fresh Q001/Q119 smoke run was recorded in clean-provenance."
+}

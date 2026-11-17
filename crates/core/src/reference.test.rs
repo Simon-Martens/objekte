@@ -611,7 +611,7 @@ fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conv
 fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
     let record = RecordEntry {
         slot: RecordSlot(0),
-        id: RecordId("x".into()),
+        id: RecordId(std::sync::Arc::new("x".into())),
         file: FileId(0),
         range: ByteRange { start: 0, end: 4 },
         revision: SourceRevision {

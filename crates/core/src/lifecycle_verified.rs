@@ -31,7 +31,7 @@ pub(crate) fn verify_old_content(
     old_bytes: &[u8],
 ) -> Result<VerifiedPlan, VerifiedFallbackReason> {
     let old = view
-        .file_entry(handle.file_id)
+        .file_entry_owned(handle.file_id)
         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
     let fingerprint = view
         .file_fingerprint(handle.file_id)
@@ -192,8 +192,8 @@ pub(crate) fn preserve_single_record_slots(
     if plan.has_active_base {
         return None;
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
+    let old_entry = view.file_entry_owned(file)?;
+    let new_entry = next.catalog.entry_owned(file)?;
     if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
         return None;
     }
@@ -252,16 +252,44 @@ pub(crate) fn preserve_single_record_slots(
         replacements.push((*collection, old_position, new_position, old_ordinal));
     }
     let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal) in replacements {
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
+    for (collection, old_position, new_position, _old_ordinal) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[old_position],
+            &candidate.file_versions,
+        ));
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[new_position],
+            &candidate.file_versions,
+        ));
         let replacement = Arc::clone(&group[new_position]);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
-            index: Arc::clone(&replacement.index),
-            active: replacement.active.clone(),
-        });
+        let fresh_ordinal = candidate.next_segment_ordinal;
+        candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
+        let mut index = (*replacement.index).clone();
+        index.id = crate::native_segment::SegmentId::new(fresh_ordinal);
+        let published = Arc::new(
+            PublishedSegment::checked(
+                index.id,
+                Arc::new(index),
+                replacement.active.clone(),
+            )
+            .ok()?,
+        );
+        crate::lifecycle::append_segment_ownership(&published, &mut ownership_added);
+        group[old_position] = published;
         group.remove(new_position);
     }
+    candidate
+        .catalog
+        .update_ownership(
+            &candidate.file_versions,
+            &ownership_removed,
+            &ownership_added,
+        )
+        .ok()?;
+    candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
 
@@ -278,8 +306,8 @@ pub(crate) fn preserve_partition_record_slots(
     if plan.has_active_base {
         return None;
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
+    let old_entry = view.file_entry_owned(file)?;
+    let new_entry = next.catalog.entry_owned(file)?;
     if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
         return None;
     }
@@ -342,11 +370,12 @@ pub(crate) fn preserve_partition_record_slots(
             .index
             .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
                 entry.id != file
-                    && next.catalog.entry(entry.id).is_some_and(|current| {
-                        current.revision == entry.revision
-                            && current.created_ns == entry.created_ns
-                            && current.collections.contains(collection)
-                    })
+                    && next.catalog.matches_revision(
+                        entry.id,
+                        entry.revision,
+                        entry.created_ns,
+                        *collection,
+                    )
             })
             .ok()?;
         let consolidated = crate::build::IndexedCollectionSegment::consolidate(
@@ -370,15 +399,39 @@ pub(crate) fn preserve_partition_record_slots(
         ));
     }
     let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
+    for (collection, old_position, new_position, _old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
-            active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
-            index: Arc::new(replacement),
-        });
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[old_position],
+            &candidate.file_versions,
+        ));
+        ownership_removed.extend(crate::lifecycle::removed_segment_ownership(
+            &group[new_position],
+            &candidate.file_versions,
+        ));
+        let fresh_ordinal = candidate.next_segment_ordinal;
+        candidate.next_segment_ordinal = fresh_ordinal.checked_add(1)?;
+        let mut replacement = replacement;
+        replacement.id = crate::native_segment::SegmentId::new(fresh_ordinal);
+        let active = crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?;
+        let published = Arc::new(
+            PublishedSegment::checked(replacement.id, Arc::new(replacement), active).ok()?,
+        );
+        crate::lifecycle::append_segment_ownership(&published, &mut ownership_added);
+        group[old_position] = published;
         group.remove(new_position);
     }
+    candidate
+        .catalog
+        .update_ownership(
+            &candidate.file_versions,
+            &ownership_removed,
+            &ownership_added,
+        )
+        .ok()?;
+    candidate.rebuild_all_segment_positions();
     Some(candidate)
 }
 
@@ -438,11 +491,12 @@ pub(crate) fn remove_verified_old_shards(
                 .index
                 .compact_active(&shard.active, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
                     entry.id != replaced_file
-                        && catalog.entry(entry.id).is_some_and(|current| {
-                            current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&collection)
-                        })
+                        && catalog.matches_revision(
+                            entry.id,
+                            entry.revision,
+                            entry.created_ns,
+                            collection,
+                        )
                 })
                 .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?;
             if compacted.index.record_count() == 0 {
@@ -452,15 +506,28 @@ pub(crate) fn remove_verified_old_shards(
                     .next_segment_ordinal
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
-                group[position] = Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(candidate.next_segment_ordinal),
-                    index: Arc::new(compacted.index),
-                    active: compacted.active,
-                });
+                let id = crate::native_segment::SegmentId::new(candidate.next_segment_ordinal);
+                let mut index = compacted.index;
+                index.id = id;
+                group[position] = Arc::new(
+                    PublishedSegment::checked(id, Arc::new(index), compacted.active)
+                        .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?,
+                );
                 candidate.next_segment_ordinal = ordinal;
                 position += 1;
             }
         }
     }
+    let routes = crate::lifecycle::initial_ownership_routes(
+        &candidate.repository,
+        &candidate.active,
+        &candidate.segments,
+        candidate.file_versions.len(),
+    );
+    candidate
+        .catalog
+        .replace_all_ownership(&candidate.file_versions, &routes)
+        .map_err(|_| VerifiedFallbackReason::IndexedLayoutChanged)?;
+    candidate.rebuild_all_segment_positions();
     Ok(candidate)
 }

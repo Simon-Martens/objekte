@@ -62,7 +62,13 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         original.id_for(std::path::Path::new("data/a.json")),
         Some(FileId(0))
     );
-    assert!(Arc::ptr_eq(&changed.base_files, &original.base_files));
+    let changed_path_owners = changed
+        .paths
+        .iter()
+        .zip(original.paths.iter())
+        .filter(|(changed, original)| !Arc::ptr_eq(changed, original))
+        .count();
+    assert!((1..=2).contains(&changed_path_owners));
 
     let retired = changed.retired(FileId(1)).unwrap();
     assert_eq!(retired.active_files(), 1);
@@ -103,7 +109,6 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let restored = FileCatalog::restored(Arc::clone(&repository), slots.clone()).unwrap();
     assert_eq!(restored.allocated_files(), 3);
     assert_eq!(restored.active_files(), 2);
-    assert!(Arc::ptr_eq(&restored.base_files, &repository.files));
     assert_eq!(restored.id_for(std::path::Path::new("data/a.json")), None);
     assert_eq!(restored.id_for(std::path::Path::new("data/b.json")), None);
     assert_eq!(
@@ -124,13 +129,11 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
 
     let unchanged = original.snapshot_slots();
     let baseline = FileCatalog::restored(Arc::clone(&repository), unchanged).unwrap();
-    assert!(baseline.changed.iter().all(|bucket| bucket.is_empty()));
-    assert!(
-        baseline
-            .changed_paths
-            .iter()
-            .all(|bucket| bucket.is_empty())
-    );
+    for id in original.active_ids() {
+        assert_eq!(baseline.entry(id), original.entry(id));
+        assert_eq!(baseline.fingerprint(id), original.fingerprint(id));
+        assert_eq!(baseline.configuration(id), original.configuration(id));
+    }
 
     let mut duplicate_path = slots.clone();
     duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.json".into();
@@ -143,4 +146,105 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(FileCatalog::restored(Arc::clone(&repository), invalid_membership).is_err());
     assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn rebase_reuses_paths_and_ownership_and_rebuilds_only_changed_metadata() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-catalog-rebase-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    let repository = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions::default(),
+        )
+        .unwrap(),
+    );
+    let configuration =
+        FileCatalog::configuration_for(&repository).expect("repository configuration hashes");
+    let inventory = Arc::clone(&repository.files);
+    let mut catalog = FileCatalog::from_parts(
+        inventory,
+        Arc::new(vec![Some([1; 32]); repository.files().files.len()]),
+        configuration,
+    );
+    let ownership = Arc::clone(&catalog.ownership);
+    let paths = Arc::clone(&catalog.paths);
+    let metadata_before = Arc::clone(&catalog.metadata);
+    crate::storage_usage::StorageWorkCounters::reset();
+    catalog
+        .rebase_in_pool(Arc::clone(&repository), None)
+        .unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.path_shards_rebuilt, 0);
+    assert!(counters.metadata_shards_rebuilt > 0);
+    assert!(
+        paths
+            .iter()
+            .zip(catalog.paths.iter())
+            .all(|(before, after)| Arc::ptr_eq(before, after))
+    );
+    assert!(Arc::ptr_eq(&ownership, &catalog.ownership));
+    assert!(
+        metadata_before
+            .iter()
+            .zip(catalog.metadata.iter())
+            .any(|(before, after)| !Arc::ptr_eq(before, after))
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
+    use std::ffi::OsString;
+    use std::os::unix::ffi::OsStringExt;
+
+    let root = std::env::temp_dir().join("objekte-rkyv-non-utf8-catalog");
+    let mut inventory = crate::inventory::FileInventory::new(root.clone());
+    let native = std::path::PathBuf::from(OsString::from_vec(b"data/non-utf8-\xff.json".to_vec()));
+    let id = inventory
+        .add(
+            native.clone(),
+            crate::inventory::SourceRevision {
+                modified_ns: 1,
+                size: 2,
+            },
+            None,
+            CollectionId(0),
+        )
+        .unwrap();
+    let inventory = std::sync::Arc::new(inventory);
+    let mut without_bindings = FileCatalog::from_parts(
+        std::sync::Arc::clone(&inventory),
+        std::sync::Arc::new(vec![None]),
+        [4; 32],
+    );
+    without_bindings.archive_storage().unwrap();
+    let mut catalog =
+        FileCatalog::from_parts(inventory, std::sync::Arc::new(vec![Some([9; 32])]), [4; 32]);
+    assert_eq!(catalog.id_for(&native), Some(id));
+    assert_eq!(catalog.fingerprint(id), Some([9; 32]));
+    assert_eq!(catalog.configuration(id), Some([4; 32]));
+    let query = crate::path_repr::query_path(&native);
+    assert_eq!(
+        catalog.relative_path_ids(Operator::Eq, &query),
+        Some(vec![id])
+    );
+    assert_ne!(query, "data/non-utf8-\u{fffd}.json");
+    catalog.archive_storage().unwrap();
+    assert_eq!(catalog.id_for(&native), Some(id));
+    assert_eq!(catalog.fingerprint(id), Some([9; 32]));
+    assert_eq!(catalog.configuration(id), Some([4; 32]));
 }

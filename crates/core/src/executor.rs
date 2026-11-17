@@ -262,7 +262,7 @@ fn metadata_probe_file() -> FileEntry {
 fn metadata_probe_record() -> RecordEntry {
     RecordEntry {
         slot: RecordSlot(0),
-        id: RecordId(Arc::from("")),
+        id: RecordId(Arc::new(String::new())),
         file: FileId(0),
         range: ByteRange { start: 0, end: 0 },
         revision: SourceRevision {
@@ -294,8 +294,7 @@ fn segment_file_size_matches(
     for index in 0..segment.file_count() {
         let revision = segment
             .files
-            .get(index)
-            .map(|file| file.entry.revision)
+            .revision(index)
             .ok_or("segment file row missing")?;
         let order = Number::integer(revision.size as i128).cmp(literal);
         if order_matches(order, term.operator) {
@@ -317,10 +316,9 @@ fn segment_file_path_matches(
     for index in 0..segment.file_count() {
         let id = segment
             .files
-            .get(index)
-            .map(|file| file.entry.id)
+            .file_id(index)
             .ok_or("segment file row missing")?;
-        let Some(entry) = catalog.entry(id) else {
+        let Some(entry) = catalog.entry_owned(id) else {
             continue;
         };
         let path = crate::path_repr::query_path(&entry.relative_path);
@@ -368,17 +366,15 @@ fn segment_file_modified_matches(
     for index in 0..segment.file_count() {
         if segment
             .files
-            .get(index)
-            .map(|file| file.records.len())
+            .archived_record_slots(index)
+            .map(|mut records| records.next().is_none())
             .ok_or("segment file row missing")?
-            == 0
         {
             continue;
         }
         file.revision = segment
             .files
-            .get(index)
-            .map(|file| file.entry.revision)
+            .revision(index)
             .ok_or("segment file row missing")?;
         let selected = if let Some(literal) = direct_literal {
             let modified = file.revision.modified_ns;
@@ -430,8 +426,9 @@ fn segment_record_range_matches(
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
         record.range = segment
-            .record(RecordSlot(slot))
-            .map(|record| record.range)
+            .records
+            .record_row(slot as usize)
+            .map(|record| record.range())
             .ok_or("segment record row missing")?;
         let ctx = RecordContext {
             value: &empty,
@@ -617,15 +614,28 @@ fn segment_metadata_matches(
             return Ok(Some(RoaringBitmap::new()));
         };
         let record = segment
-            .record(crate::model::RecordSlot(slot))
+            .records
+            .record_row(slot as usize)
             .ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else {
+        let Some(file) = catalog.entry(record.file()) else {
             return Ok(None);
+        };
+        let record = RecordEntry {
+            slot: RecordSlot(slot),
+            id: RecordId(Arc::new(record.id().to_owned())),
+            file: record.file(),
+            range: record.range(),
+            revision: crate::inventory::SourceRevision {
+                modified_ns: 0,
+                size: 0,
+            },
+            class: record.class(),
+            diagnostic_ref: record.diagnostic_ref(),
         };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record,
+            record: &record,
             file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
@@ -636,19 +646,67 @@ fn segment_metadata_matches(
             RoaringBitmap::new()
         }));
     }
+    let needs_record_id = std::iter::once(&term.path)
+        .chain(term.rhs.as_ref().map(|rhs| &rhs.path))
+        .any(|path| path.root == PathRoot::Metadata(MetadataField::RecordId));
+    let needs_file_path = std::iter::once(&term.path)
+        .chain(term.rhs.as_ref().map(|rhs| &rhs.path))
+        .any(|path| path.root == PathRoot::Metadata(MetadataField::FilePath));
+    let mut record = metadata_probe_record();
+    let mut file = metadata_probe_file();
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        let record = segment
-            .record(crate::model::RecordSlot(slot))
+        let row = segment
+            .records
+            .record_row(slot as usize)
             .ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else {
+        let file_id = row.file();
+        let Some(file_index) = segment.file_index.get(file_id) else {
             return Ok(None);
+        };
+        let Some(revision) = segment.files.revision(file_index) else {
+            return Ok(None);
+        };
+        record.slot = RecordSlot(slot);
+        record.id = if needs_record_id {
+            RecordId(Arc::new(row.id().to_owned()))
+        } else {
+            RecordId(Arc::new(String::new()))
+        };
+        record.file = file_id;
+        record.range = row.range();
+        record.revision = revision;
+        record.class = row.class();
+        record.diagnostic_ref = row.diagnostic_ref();
+        file.id = file_id;
+        file.relative_path = if needs_file_path {
+            let Some(entry) = catalog.entry_owned(file_id) else {
+                return Ok(None);
+            };
+            entry.relative_path
+        } else {
+            SharedPath::from("")
+        };
+        file.revision = revision;
+        file.created_ns = segment
+            .files
+            .created_ns(file_index)
+            .ok_or("segment record file row missing")?;
+        file.status = match segment
+            .files
+            .status_code(file_index)
+            .ok_or("segment record file row missing")?
+        {
+            0 => FileStatus::Valid,
+            1 => FileStatus::Broken,
+            2 => FileStatus::Unreadable,
+            _ => return Err("segment file status code is invalid".into()),
         };
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record,
-            file,
+            record: &record,
+            file: &file,
             collection_name: &collection.definition.name,
             repository_root: catalog.repository_root(),
         };
@@ -700,7 +758,7 @@ fn segment_expr_bounds(
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.id_lookup.get(id.as_str()).copied()
+                if let Some(slot) = segment.id_lookup.get(id.as_str())
                     && domain.contains(slot.0)
                 {
                     matches.insert(slot.0);

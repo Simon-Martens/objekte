@@ -1851,7 +1851,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         generation
             .records
             .iter()
-            .map(|r| r.id.0.as_ref())
+            .map(|r| r.id.0.as_str())
             .collect::<Vec<_>>(),
         ["first", "second", "third"]
     );

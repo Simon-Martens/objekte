@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q008",
+    "collection": "*",
+    "fts": "__objekte_missing_7c9f31__",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

@@ -91,15 +91,17 @@ impl SourceFileInput {
 pub(crate) fn file_batches<'a>(
     files: &'a [FileId],
     inventory: &FileInventory,
+    max_files: usize,
 ) -> Vec<&'a [FileId]> {
-    const MAX_FILES: usize = 512;
+    const MAX_JOB_FILES: usize = 512;
     const MAX_BYTES: u64 = 8 * 1024 * 1024;
+    let max_files = max_files.clamp(1, MAX_JOB_FILES);
     let mut batches = Vec::new();
     let mut start = 0;
     while start < files.len() {
         let mut end = start;
         let mut bytes = 0u64;
-        while end < files.len() && end - start < MAX_FILES {
+        while end < files.len() && end - start < max_files {
             let size = inventory.files[files[end].0 as usize].revision.size;
             if end > start && bytes.saturating_add(size) > MAX_BYTES {
                 break;
@@ -2376,6 +2378,7 @@ pub(crate) fn process_file_batches(
     )
 }
 
+#[allow(dead_code)]
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -2460,6 +2463,7 @@ impl AdmissionBreakdown {
 }
 
 impl CollectionAdmission<'_> {
+    #[allow(dead_code)]
     pub(crate) fn admit_profiled(
         &mut self,
         batch: BatchContribution,
@@ -2493,7 +2497,7 @@ impl CollectionAdmission<'_> {
                 }
                 diagnostic_refs.push(self.inventory.record_diagnostic(file_id, diagnostic)?);
             }
-            let file = &mut self.inventory.files[file_id.0 as usize];
+            let file = &mut Arc::make_mut(&mut self.inventory.files)[file_id.0 as usize];
             file.status = file.status.max(batch_file.entry.status);
             file.omitted_diagnostics = file
                 .omitted_diagnostics

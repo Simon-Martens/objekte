@@ -1,0 +1,15 @@
+phase	ms	rss_kb	hwm_kb	revision	files	records	detail
+build	31.871	34128	34084	1	10000	10000	synthetic=true
+verified_original_update	27.348	49636	51852	2	10000	10000	sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	23.606	59232	59232	3	10000	10000	sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	21.187	62976	62976	4	10000	10000	sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	21.138	63248	63248	5	10000	10000	sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	23.382	63248	63248	6	10000	10000	sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	21.093	63288	63288	7	10000	10000	sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	21.414	64144	64144	8	10000	10000	sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	22.884	64856	64856	9	10000	10000	sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	23.288	64860	64860	10	10000	10000	sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	23.140	64860	64860	11	10000	10000	sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+verified_original_update	26.054	64864	64864	12	10000	10000	sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1
+count	0.020	65184	65184	12	10000	10000	count=10000
+compact	0.000	65184	65184	12	10000	10000	removed=0

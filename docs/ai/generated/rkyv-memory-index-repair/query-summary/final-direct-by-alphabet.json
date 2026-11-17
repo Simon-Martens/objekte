@@ -1,0 +1,14 @@
+[
+  {
+    "alphabet": "ascii",
+    "cases": 150,
+    "sum_ns": 1471068238,
+    "mean_ns": 9807121.586666666
+  },
+  {
+    "alphabet": "unicode",
+    "cases": 150,
+    "sum_ns": 1432640985,
+    "mean_ns": 9550939.9
+  }
+]

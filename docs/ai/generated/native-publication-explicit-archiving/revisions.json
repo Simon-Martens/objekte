@@ -1,0 +1,15 @@
+{
+  "base_revision": "dc371a42e666ef6c4d3c0519d6653326d0ad6d56",
+  "implementation_revision": "cd9b8275cd574df64c2889f2fe74565effbe656b",
+  "native_comparison": "745.9-805.7 ms in the final query run",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cpu": "13th Gen Intel(R) Core(TM) i9-13900K, 32 logical CPUs",
+  "lockfile_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "corpus": "examples/musenalm",
+  "corpus_fingerprint": "fe191c7e3dd50e61b6c2ddcb05dd1e680e69707d0a4d960b5b205f3444697cad",
+  "schema_fingerprint": "3d2b89eb85090fcc0116d4e27e1f2ef5ffd3e0cf87f4eda1f4dc4dc527eebe47",
+  "workload_fingerprint": "04a15bf45cbcd3b16b18a2fdf8335e16cdcbae62817633467acc84bc7e851512",
+  "query_repetitions": 1,
+  "archive_worker_profiles": [1, 8, 32],
+  "smaller_benchmark_authorization": "The user authorized a smaller benchmark; the evidence labels this limitation and does not claim the full seven-sample protocol."
+}

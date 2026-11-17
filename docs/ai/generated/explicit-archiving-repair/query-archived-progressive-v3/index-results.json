@@ -1,0 +1,616 @@
+[
+  {
+    "alphabet": "ascii",
+    "archive_report": {
+      "archived_components": 5783,
+      "archived_storage_owners": 5783,
+      "converted_components": 5783,
+      "converted_storage_owners": 5783,
+      "current_capacity_bytes": 233957056,
+      "current_serialized_bytes": 149152416,
+      "index_revision": 17,
+      "installation_ns": 1045,
+      "instance_id": 2,
+      "native_components": 0,
+      "native_storage_owners": 0,
+      "newly_capacity_bytes": 233957056,
+      "newly_serialized_bytes": 149152416,
+      "peak_active_conversion_jobs": 8,
+      "preparation_ns": 100619806,
+      "representation_after": "Archived",
+      "representation_before": "Native",
+      "representation_generation_after": 1,
+      "representation_generation_before": 0,
+      "residual_native_bigram_bytes": 86790604,
+      "residual_native_control_metadata_bytes": 13066768,
+      "residual_native_relation_bytes": 0,
+      "residual_native_sorting_bytes": 23660638,
+      "retirement_ns": 115,
+      "reused_components": 0,
+      "reused_storage_owners": 0,
+      "serializer_work_ns_sum": 165643622,
+      "total_ns": 113541851,
+      "transition_wait_ns": 48,
+      "validation_work_ns_sum": 14157707,
+      "worker_limit": 8
+    },
+    "archived_end_rss": 937205760,
+    "build_mode": "hybrid",
+    "build_ns": 765389236,
+    "build_parses": 148486,
+    "combined_ns": 879016463,
+    "discovery_ns": 274764411,
+    "estimated_index_bytes": 104496642,
+    "explicit_archive_ns": 113543165,
+    "first_batch_ns": 488036165,
+    "inventory_heap_bytes": 29371974,
+    "native_build_ns": 765389236,
+    "native_open_ns": 765389236,
+    "native_ready_rss": 704589824,
+    "peak_resident_bytes": 937205760,
+    "resident_bytes": 937205760,
+    "rkyv_archive_bytes": 149152416,
+    "searchable_batches": 15,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 16704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          9,
+          {
+            "custom_text_bytes": 376302,
+            "fallback_bytes": 0,
+            "postings_bytes": 1142012,
+            "raw_bytes": 7158916,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2368,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196570,
+            "raw_bytes": 8403906,
+            "sorting_bytes": 1228795
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196472,
+            "raw_bytes": 8415454,
+            "sorting_bytes": 1229939
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196018,
+            "raw_bytes": 8412984,
+            "sorting_bytes": 1243747
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3199614,
+            "raw_bytes": 8405718,
+            "sorting_bytes": 1232465
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3195894,
+            "raw_bytes": 8418122,
+            "sorting_bytes": 1240879
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3194032,
+            "raw_bytes": 8403108,
+            "sorting_bytes": 1238886
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196686,
+            "raw_bytes": 8421154,
+            "sorting_bytes": 1233563
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3199462,
+            "raw_bytes": 8398794,
+            "sorting_bytes": 1234319
+          }
+        ],
+        [
+          10,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 844390,
+            "raw_bytes": 2348730,
+            "sorting_bytes": 215907
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 4160,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          11,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1713578,
+            "raw_bytes": 6008372,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 960,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          12,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 102406,
+            "raw_bytes": 1937814,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          13,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2888,
+            "raw_bytes": 31068,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          14,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 37192,
+            "raw_bytes": 69602,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1152,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          15,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 209106,
+            "raw_bytes": 1082576,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 193297230,
+    "source_reads": 148486,
+    "storage_usage": {
+      "active_and_control_metadata_bytes": 13066768,
+      "allocated_bytes": 233957056,
+      "bigram_payload_bytes": 86790604,
+      "capacity_slack_bytes": 84804640,
+      "file_row_cache_bytes": 0,
+      "metadata_cache_initializations": 0,
+      "native_diagnostics_bytes": 0,
+      "native_inventory_bytes": 29371974,
+      "owners": 5783,
+      "posting_bitmap_payload_bytes": 17713236,
+      "record_row_cache_bytes": 0,
+      "relation_payload_bytes": 0,
+      "serialized_bytes": 149152416,
+      "sorting_payload_bytes": 23660638
+    }
+  },
+  {
+    "alphabet": "unicode",
+    "archive_report": {
+      "archived_components": 5783,
+      "archived_storage_owners": 5783,
+      "converted_components": 5783,
+      "converted_storage_owners": 5783,
+      "current_capacity_bytes": 233957056,
+      "current_serialized_bytes": 149152416,
+      "index_revision": 17,
+      "installation_ns": 785,
+      "instance_id": 5,
+      "native_components": 0,
+      "native_storage_owners": 0,
+      "newly_capacity_bytes": 233957056,
+      "newly_serialized_bytes": 149152416,
+      "peak_active_conversion_jobs": 8,
+      "preparation_ns": 85544591,
+      "representation_after": "Archived",
+      "representation_before": "Native",
+      "representation_generation_after": 1,
+      "representation_generation_before": 0,
+      "residual_native_bigram_bytes": 91134554,
+      "residual_native_control_metadata_bytes": 13066768,
+      "residual_native_relation_bytes": 0,
+      "residual_native_sorting_bytes": 23660638,
+      "retirement_ns": 133,
+      "reused_components": 0,
+      "reused_storage_owners": 0,
+      "serializer_work_ns_sum": 153889905,
+      "total_ns": 98723929,
+      "transition_wait_ns": 34,
+      "validation_work_ns_sum": 13693471,
+      "worker_limit": 8
+    },
+    "archived_end_rss": 1694208000,
+    "build_mode": "hybrid",
+    "build_ns": 877028166,
+    "build_parses": 148486,
+    "combined_ns": 975839070,
+    "discovery_ns": 276178267,
+    "estimated_index_bytes": 108665376,
+    "explicit_archive_ns": 98725711,
+    "first_batch_ns": 620486049,
+    "inventory_heap_bytes": 29371974,
+    "native_build_ns": 877028166,
+    "native_open_ns": 877028166,
+    "native_ready_rss": 1641107456,
+    "peak_resident_bytes": 1694208000,
+    "resident_bytes": 1694208000,
+    "rkyv_archive_bytes": 149152416,
+    "searchable_batches": 15,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 16704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          9,
+          {
+            "custom_text_bytes": 403038,
+            "fallback_bytes": 0,
+            "postings_bytes": 1142012,
+            "raw_bytes": 7738926,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2368,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196570,
+            "raw_bytes": 8784432,
+            "sorting_bytes": 1228795
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196472,
+            "raw_bytes": 8800750,
+            "sorting_bytes": 1229939
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196018,
+            "raw_bytes": 8795602,
+            "sorting_bytes": 1243747
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3199614,
+            "raw_bytes": 8787984,
+            "sorting_bytes": 1232465
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3195894,
+            "raw_bytes": 8802702,
+            "sorting_bytes": 1240879
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3194032,
+            "raw_bytes": 8785650,
+            "sorting_bytes": 1238886
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3196686,
+            "raw_bytes": 8799570,
+            "sorting_bytes": 1233563
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 3199462,
+            "raw_bytes": 8776400,
+            "sorting_bytes": 1234319
+          }
+        ],
+        [
+          10,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 844390,
+            "raw_bytes": 2465836,
+            "sorting_bytes": 215907
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 4160,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          11,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1713578,
+            "raw_bytes": 6211896,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 960,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          12,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 102406,
+            "raw_bytes": 2027956,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          13,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2888,
+            "raw_bytes": 32004,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 704,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          14,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 37192,
+            "raw_bytes": 73272,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1152,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          15,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 209106,
+            "raw_bytes": 1175336,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 193297230,
+    "source_reads": 148486,
+    "storage_usage": {
+      "active_and_control_metadata_bytes": 13066768,
+      "allocated_bytes": 233957056,
+      "bigram_payload_bytes": 91134554,
+      "capacity_slack_bytes": 84804640,
+      "file_row_cache_bytes": 0,
+      "metadata_cache_initializations": 0,
+      "native_diagnostics_bytes": 0,
+      "native_inventory_bytes": 29371974,
+      "owners": 5783,
+      "posting_bitmap_payload_bytes": 17713236,
+      "record_row_cache_bytes": 0,
+      "relation_payload_bytes": 0,
+      "serialized_bytes": 149152416,
+      "sorting_payload_bytes": 23660638
+    }
+  }
+]

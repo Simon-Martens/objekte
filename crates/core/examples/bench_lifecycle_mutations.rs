@@ -159,14 +159,20 @@ fn memory_kb(label: &str) -> u64 {
 
 fn emit(label: &str, elapsed: Duration, index: &Index, detail: impl AsRef<str>) {
     let status = index.status().expect("index status");
+    let usage = index.storage_usage().expect("storage usage");
     println!(
-        "{label}\t{:.3}\t{}\t{}\t{}\t{}\t{}\t{}",
+        "{label}\t{:.3}\t{}\t{}\t{}\t{}\t{}\tarchive_bytes={}\tarchive_capacity={}\tarchive_owners={}\tbitmap_bytes={}\tbigram_bytes={}\t{}",
         elapsed.as_secs_f64() * 1000.0,
         memory_kb("VmRSS:"),
         memory_kb("VmHWM:"),
         status.revision.0,
         status.indexed_files,
         status.live_records,
+        usage.archive.serialized_bytes,
+        usage.archive.allocated_bytes,
+        usage.archive.owners,
+        usage.posting_bitmap_payload_bytes,
+        usage.bigram_payload_bytes,
         detail.as_ref().replace('\t', " ")
     );
 }

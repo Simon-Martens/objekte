@@ -9,7 +9,7 @@ use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle_catalog::{FileCatalog, OwnershipRoute};
 use crate::lifecycle_partition::compact_source_parts_with_policy;
 use crate::repository::CollectionState;
 
@@ -32,6 +32,29 @@ pub struct CompactionReport {
     pub temporary_bytes_estimated: u64,
     pub pinned_prior_views: usize,
     pub duration: Duration,
+    pub segments_before: usize,
+    pub segments_after: usize,
+    pub segments_rewritten: usize,
+    pub segments_removed: usize,
+    pub segments_merged: usize,
+    pub segments_retained_dirty: usize,
+    pub segments_merge_candidates: usize,
+    pub segments_produced: usize,
+    pub archive_bytes_before: usize,
+    pub archive_bytes_after: usize,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum CompactionMode {
+    #[default]
+    Bounded,
+    Full,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompactionOptions {
+    pub mode: CompactionMode,
+    pub merge_small_segments: bool,
 }
 
 #[derive(Clone, Copy)]
@@ -58,12 +81,93 @@ struct CompactionWork {
     records: u64,
     input_bytes: u64,
     temporary_bytes: u64,
+    segments_reconstructed: usize,
+    segments_produced: usize,
+    merge_candidates: usize,
 }
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
     u64::try_from(source.accounting.retained_bytes_estimated)
         .unwrap_or(u64::MAX)
         .max(source.accounting.source_bytes_estimated)
+}
+
+fn budget_allows(
+    work: &CompactionWork,
+    budget: CompactionBudget,
+    records: u64,
+    input_bytes: u64,
+    temporary_bytes: u64,
+    started: Instant,
+) -> bool {
+    work.records.saturating_add(records) <= budget.records
+        && work.input_bytes.saturating_add(input_bytes) <= budget.input_bytes
+        && work.temporary_bytes.saturating_add(temporary_bytes) <= budget.temporary_bytes
+        && started.elapsed() < budget.elapsed
+}
+
+fn charge_work(work: &mut CompactionWork, records: u64, input_bytes: u64, temporary_bytes: u64) {
+    work.records = work.records.saturating_add(records);
+    work.input_bytes = work.input_bytes.saturating_add(input_bytes);
+    work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
+}
+
+fn removed_ownership_routes(
+    index: &IndexedCollectionSegment,
+    segment: crate::native_segment::SegmentId,
+    versions: &crate::inventory::FileVersions,
+) -> Vec<(
+    crate::model::FileId,
+    crate::inventory::FileVersion,
+    OwnershipRoute,
+)> {
+    (0..index.file_count())
+        .filter_map(|ordinal| {
+            let file = index.files.file_id(ordinal)?;
+            let version = versions.get(file)?;
+            Some((
+                file,
+                version,
+                OwnershipRoute {
+                    collection: index.collection,
+                    segment,
+                    file_row_ordinal: ordinal as u32,
+                },
+            ))
+        })
+        .collect()
+}
+
+fn added_ownership_routes(
+    segment: &PublishedSegment,
+) -> Vec<(crate::model::FileId, OwnershipRoute)> {
+    (0..segment.index.file_count())
+        .filter_map(|ordinal| {
+            let file = segment.index.files.file_id(ordinal)?;
+            Some((
+                file,
+                OwnershipRoute {
+                    collection: segment.index.collection,
+                    segment: segment.id,
+                    file_row_ordinal: ordinal as u32,
+                },
+            ))
+        })
+        .collect()
+}
+
+fn commit_compaction_ownership(
+    root: &mut PublishedIndex,
+    removed: &[(
+        crate::model::FileId,
+        crate::inventory::FileVersion,
+        OwnershipRoute,
+    )],
+    added: &[(crate::model::FileId, OwnershipRoute)],
+) -> Result<(), IndexError> {
+    root.catalog
+        .update_ownership(&root.file_versions, removed, added)
+        .map_err(IndexError::InvalidPublication)
 }
 
 pub(crate) fn base_as_segment(
@@ -98,6 +202,16 @@ pub(crate) fn base_as_segment(
             .map_err(IndexError::InvalidPublication)
         })
         .collect::<Result<Vec<_>, _>>()?;
+    let (segment_files, records) = crate::segment_archive::SegmentRows::native(
+        segment_files,
+        collection.generation.records.clone(),
+    )
+    .map_err(IndexError::InvalidPublication)?
+    .views();
+    let file_index = crate::segment_archive::FileLookup::native(file_index)
+        .map_err(IndexError::InvalidPublication)?;
+    let id_lookup = crate::segment_archive::RecordLookup::native(collection.id_lookup.clone())
+        .map_err(IndexError::InvalidPublication)?;
     let mut segment = IndexedCollectionSegment {
         id: crate::native_segment::SegmentId::new(1),
         collection: collection.generation.collection,
@@ -105,23 +219,24 @@ pub(crate) fn base_as_segment(
         source_version: collection.source.version(),
         files: segment_files,
         file_index,
-        records: collection.generation.records.clone(),
-        id_lookup: collection.id_lookup.clone(),
+        records,
+        id_lookup,
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),
         inference_observation: None,
         inference: collection.inference.clone(),
         custom_postings: collection.custom_postings.clone(),
-        raw: collection.raw.clone(),
-        fallback_text: collection.fallback_text.clone(),
-        custom_text: collection.custom_text.clone(),
+        raw: Arc::clone(&collection.raw),
+        fallback_text: Arc::clone(&collection.fallback_text),
+        custom_text: Arc::clone(&collection.custom_text),
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
-        sorting: collection.sorting.clone(),
-        relations,
+        sorting: Arc::clone(&collection.sorting),
+        relations: Arc::new(relations),
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),
+        storage_completed: false,
     };
     segment.recompute_accounting();
     Ok(segment)
@@ -140,6 +255,189 @@ fn slot_count(root: &PublishedIndex) -> u64 {
                     .sum::<u64>()
         })
         .sum()
+}
+
+fn segment_count(root: &PublishedIndex) -> usize {
+    root.segments.iter().map(|group| group.len()).sum()
+}
+
+fn publication_archive_bytes(root: &PublishedIndex) -> usize {
+    root.archive_bytes()
+}
+
+fn clean_merge_compatible(
+    left: &IndexedCollectionSegment,
+    right: &IndexedCollectionSegment,
+    target_records: usize,
+    max_files: usize,
+) -> bool {
+    crate::storage_usage::StorageWorkCounters::update(|counters| {
+        counters.merge_candidate_probes = counters.merge_candidate_probes.saturating_add(1);
+    });
+    if left.collection != right.collection
+        || left.source_id != right.source_id
+        || left.source_version != right.source_version
+        || left.record_count().saturating_add(right.record_count()) > target_records
+        || left.file_count().saturating_add(right.file_count()) > max_files
+    {
+        return false;
+    }
+    for index in 0..left.file_count() {
+        let Some(file) = left.files.file_id(index) else {
+            return false;
+        };
+        if right.file_index.get(file).is_some() {
+            return false;
+        }
+    }
+    let left_ids = left
+        .identity_order
+        .iter()
+        .filter_map(|slot| left.records.record_id(*slot))
+        .collect::<std::collections::HashSet<_>>();
+    for slot in 0..right.record_count() {
+        let Some(id) = right
+            .records
+            .record_id(crate::model::RecordSlot(slot as u32))
+        else {
+            return false;
+        };
+        if left_ids.contains(id) {
+            return false;
+        }
+    }
+    true
+}
+
+fn merge_small_segments(
+    root: &mut PublishedIndex,
+    work: &mut CompactionWork,
+    budget: CompactionBudget,
+    started: Instant,
+    cancelled: impl Fn() -> bool,
+) -> Result<usize, IndexError> {
+    let mut merged_count = 0usize;
+    let target = root
+        .repository
+        .options()
+        .segment_policy
+        .target_records
+        .get();
+    let max_files = root.repository.options().segment_policy.max_files.get();
+    for number in 0..root.segments.len() {
+        loop {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            let group = &root.segments[number];
+            let mut positions = group
+                .iter()
+                .enumerate()
+                .filter_map(|(position, segment)| {
+                    (segment.active.len() == segment.index.record_count() as u64)
+                        .then_some(position)
+                })
+                .collect::<Vec<_>>();
+            positions.sort_by(|left, right| {
+                group[*left]
+                    .active
+                    .len()
+                    .cmp(&group[*right].active.len())
+                    .then_with(|| group[*left].id.cmp(&group[*right].id))
+            });
+            if positions.len() < 2
+                || group[positions[0]]
+                    .active
+                    .len()
+                    .saturating_add(group[positions[1]].active.len())
+                    > target as u64
+            {
+                break;
+            }
+            let mut selected = None;
+            'pairs: for (left_at, left) in positions.iter().copied().enumerate() {
+                for right in positions.iter().copied().skip(left_at + 1) {
+                    let combined = group[left]
+                        .active
+                        .len()
+                        .saturating_add(group[right].active.len());
+                    if combined > target as u64 {
+                        break;
+                    }
+                    if clean_merge_compatible(
+                        &group[left].index,
+                        &group[right].index,
+                        target,
+                        max_files,
+                    ) {
+                        selected = Some((left, right));
+                        break 'pairs;
+                    }
+                }
+            }
+            let Some((left, right)) = selected else {
+                break;
+            };
+            let records = group[left]
+                .index
+                .record_count()
+                .saturating_add(group[right].index.record_count()) as u64;
+            let input_bytes = source_budget_bytes(&group[left].index)
+                .saturating_add(source_budget_bytes(&group[right].index));
+            let temporary_bytes = input_bytes
+                .saturating_mul(3)
+                .saturating_add(records.saturating_mul(512));
+            if !budget_allows(work, budget, records, input_bytes, temporary_bytes, started) {
+                break;
+            }
+            charge_work(work, records, input_bytes, temporary_bytes);
+            work.merge_candidates = work.merge_candidates.saturating_add(1);
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            let consolidated = IndexedCollectionSegment::consolidate(
+                &[&group[left].index, &group[right].index],
+                target,
+            )
+            .map_err(IndexError::Build)?;
+            work.segments_reconstructed = work.segments_reconstructed.saturating_add(1);
+            work.segments_produced = work.segments_produced.saturating_add(1);
+            let mut index = consolidated.index;
+            index.id = crate::native_segment::SegmentId::new(root.next_segment_ordinal);
+            root.next_segment_ordinal = root
+                .next_segment_ordinal
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            let active =
+                ActiveRecords::all(index.record_count()).map_err(IndexError::ResourceLimit)?;
+            let replacement = Arc::new(
+                PublishedSegment::checked(index.id, Arc::new(index), active)
+                    .map_err(IndexError::InvalidPublication)?,
+            );
+            let mut removed =
+                removed_ownership_routes(&group[left].index, group[left].id, &root.file_versions);
+            removed.extend(removed_ownership_routes(
+                &group[right].index,
+                group[right].id,
+                &root.file_versions,
+            ));
+            let added = added_ownership_routes(&replacement);
+            root.catalog
+                .update_ownership(&root.file_versions, &removed, &added)
+                .map_err(IndexError::InvalidPublication)?;
+            let group = Arc::make_mut(&mut root.segments[number]);
+            let (first, second) = if left < right {
+                (left, right)
+            } else {
+                (right, left)
+            };
+            group.remove(second);
+            group.remove(first);
+            group.insert(first, replacement);
+            merged_count += 1;
+        }
+    }
+    Ok(merged_count)
 }
 
 /// Rebuild one staged publication from its active contributions. The caller
@@ -174,6 +472,8 @@ fn compact_published_with_budget(
     if cancelled() {
         return Err(IndexError::Cancelled);
     }
+    let mut ownership_removed = Vec::new();
+    let mut ownership_added = Vec::new();
     // After the initial base has been partitioned, every contribution lives
     // in an immutable shard. Keep the existing catalog and unaffected shard
     // groups instead of rebuilding an empty repository for every collection.
@@ -182,7 +482,7 @@ fn compact_published_with_budget(
         let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
-        'collections: for (number, group) in old.segments.iter().enumerate() {
+        for (number, group) in old.segments.iter().enumerate() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -193,7 +493,7 @@ fn compact_published_with_budget(
                 continue;
             }
             let mut compacted = Vec::with_capacity(group.len());
-            for (position, segment) in group.iter().enumerate() {
+            for segment in group.iter() {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
@@ -213,20 +513,27 @@ fn compact_published_with_budget(
                             > budget.temporary_bytes
                         || started.elapsed() >= budget.elapsed)
                 {
-                    compacted.extend(group[position..].iter().cloned());
-                    next.segments[number] = Arc::new(compacted);
-                    break 'collections;
+                    compacted.push(Arc::clone(segment));
+                    continue;
                 }
                 work.records = work.records.saturating_add(records);
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
-                for part in compact_source_parts_with_policy(
+                work.segments_reconstructed = work.segments_reconstructed.saturating_add(1);
+                ownership_removed.extend(removed_ownership_routes(
+                    &segment.index,
+                    segment.id,
+                    &next.file_versions,
+                ));
+                let parts = compact_source_parts_with_policy(
                     &segment.index,
                     &segment.active,
                     &next.catalog,
                     next.repository.options().segment_policy,
                     &cancelled,
-                )? {
+                )?;
+                work.segments_produced = work.segments_produced.saturating_add(parts.len());
+                for part in parts {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
                     }
@@ -236,15 +543,21 @@ fn compact_published_with_budget(
                     })?;
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
-                    compacted.push(Arc::new(PublishedSegment {
-                        id: crate::native_segment::SegmentId::new(ordinal),
-                        index: Arc::new(part),
-                        active,
-                    }));
+                    let id = crate::native_segment::SegmentId::new(ordinal);
+                    let mut part = part;
+                    part.id = id;
+                    let published = Arc::new(
+                        PublishedSegment::checked(id, Arc::new(part), active)
+                            .map_err(IndexError::InvalidPublication)?,
+                    );
+                    ownership_added.extend(added_ownership_routes(&published));
+                    compacted.push(published);
                 }
             }
             next.segments[number] = Arc::new(compacted);
         }
+        commit_compaction_ownership(&mut next, &ownership_removed, &ownership_added)?;
+        next.rebuild_all_segment_positions();
         return Ok((next, work));
     }
     let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
@@ -289,28 +602,63 @@ fn compact_published_with_budget(
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
                 let active =
                     ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
-                replacements.push(Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(ordinal),
-                    index: Arc::new(part),
-                    active,
-                }));
+                let id = crate::native_segment::SegmentId::new(ordinal);
+                let mut part = part;
+                part.id = id;
+                replacements.push(Arc::new(
+                    PublishedSegment::checked(id, Arc::new(part), active)
+                        .map_err(IndexError::InvalidPublication)?,
+                ));
             }
             Ok(replacements)
         };
         if old.active[number].slot_count() != 0 {
-            let base = base_as_segment(collection, old.repository.files())?;
-            compacted.extend(compact_source(&base, &old.active[number])?);
+            let mut base = base_as_segment(collection, old.repository.files())?;
+            base.id = crate::native_segment::SegmentId::new(0);
+            ownership_removed.extend(removed_ownership_routes(
+                &base,
+                base.id,
+                &next.file_versions,
+            ));
+            let replacements = compact_source(&base, &old.active[number])?;
+            ownership_added.extend(
+                replacements
+                    .iter()
+                    .flat_map(|segment| added_ownership_routes(segment)),
+            );
+            compacted.extend(replacements);
         }
         for segment in old.segments[number].iter() {
             if segment.active.len() == segment.index.record_count() as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
-                compacted.extend(compact_source(&segment.index, &segment.active)?);
+                ownership_removed.extend(removed_ownership_routes(
+                    &segment.index,
+                    segment.id,
+                    &next.file_versions,
+                ));
+                let replacements = compact_source(&segment.index, &segment.active)?;
+                ownership_added.extend(
+                    replacements
+                        .iter()
+                        .flat_map(|segment| added_ownership_routes(segment)),
+                );
+                compacted.extend(replacements);
             }
         }
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
     }
+    let all_routes = crate::lifecycle::initial_ownership_routes(
+        &next.repository,
+        &next.active,
+        &next.segments,
+        next.file_versions.len(),
+    );
+    next.catalog
+        .replace_all_ownership(&next.file_versions, &all_routes)
+        .map_err(IndexError::InvalidPublication)?;
+    next.rebuild_all_segment_positions();
     Ok((next, CompactionWork::default()))
 }
 
@@ -320,13 +668,29 @@ impl Index {
     /// again. Preparation uses a pinned root and retries publication conflicts
     /// without replacing a newer revision.
     pub fn compact(&self) -> Result<CompactionReport, IndexError> {
-        self.compact_with_control(|| false, |_, _| {})
+        self.compact_with_options(CompactionOptions::default())
+    }
+
+    pub fn compact_with_options(
+        &self,
+        options: CompactionOptions,
+    ) -> Result<CompactionReport, IndexError> {
+        self.compact_with_control_options(|| false, |_, _| {}, options)
     }
 
     pub(crate) fn compact_with_control(
         &self,
         cancelled: impl Fn() -> bool,
+        progress: impl FnMut(MaintenancePhase, usize),
+    ) -> Result<CompactionReport, IndexError> {
+        self.compact_with_control_options(cancelled, progress, CompactionOptions::default())
+    }
+
+    fn compact_with_control_options(
+        &self,
+        cancelled: impl Fn() -> bool,
         mut progress: impl FnMut(MaintenancePhase, usize),
+        options: CompactionOptions,
     ) -> Result<CompactionReport, IndexError> {
         let started = Instant::now();
         let mut conflict = None;
@@ -335,8 +699,11 @@ impl Index {
                 return Err(IndexError::Cancelled);
             }
             progress(MaintenancePhase::Preparing, attempt);
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let before = slot_count(&view.0);
+            let segments_before = segment_count(&view.0);
+            let archive_bytes_before = publication_archive_bytes(&view.0);
             let old = &view.0;
             let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
                 + old
@@ -345,7 +712,9 @@ impl Index {
                     .flat_map(|group| group.iter())
                     .map(|segment| segment.active.len())
                     .sum::<u64>();
-            if before == live {
+            if before == live
+                && !(options.mode == CompactionMode::Full && options.merge_small_segments)
+            {
                 return Ok(CompactionReport {
                     revision: view.revision(),
                     attempts: attempt,
@@ -358,19 +727,73 @@ impl Index {
                     temporary_bytes_estimated: 0,
                     pinned_prior_views: 0,
                     duration: started.elapsed(),
+                    segments_before,
+                    segments_after: segments_before,
+                    segments_rewritten: 0,
+                    segments_removed: 0,
+                    segments_merged: 0,
+                    segments_retained_dirty: 0,
+                    segments_merge_candidates: 0,
+                    segments_produced: 0,
+                    archive_bytes_before,
+                    archive_bytes_after: archive_bytes_before,
                 });
             }
-            let (next, work) = compact_published_with_budget(
-                old,
-                view.revision().next()?,
-                &cancelled,
-                CompactionBudget::DEFAULT,
-            )?;
+            let budget = match options.mode {
+                CompactionMode::Bounded => CompactionBudget::DEFAULT,
+                CompactionMode::Full => CompactionBudget {
+                    records: u64::MAX,
+                    input_bytes: u64::MAX,
+                    temporary_bytes: u64::MAX,
+                    elapsed: Duration::MAX,
+                },
+            };
+            let (mut next, mut work) =
+                compact_published_with_budget(old, view.revision().next()?, &cancelled, budget)?;
+            let segments_merged = if options.merge_small_segments {
+                merge_small_segments(&mut next, &mut work, budget, started, &cancelled)?
+            } else {
+                0
+            };
+            next.rebuild_all_segment_positions();
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
             progress(MaintenancePhase::Publishing, attempt);
             let after = slot_count(&next);
+            let segments_after = segment_count(&next);
+            let segments_retained_dirty = next
+                .segments
+                .iter()
+                .flat_map(|group| group.iter())
+                .filter(|segment| segment.active.len() != segment.index.record_count() as u64)
+                .count();
+            let archive_bytes_after = publication_archive_bytes(&next);
+            if after == before && segments_after == segments_before && segments_merged == 0 {
+                return Ok(CompactionReport {
+                    revision: view.revision(),
+                    attempts: attempt,
+                    slots_before: before,
+                    slots_after: after,
+                    retired_slots_removed: 0,
+                    remaining_retired_slots: after.saturating_sub(live),
+                    input_records_examined: 0,
+                    input_bytes_budgeted: 0,
+                    temporary_bytes_estimated: 0,
+                    pinned_prior_views: Arc::strong_count(&view.0).saturating_sub(2),
+                    duration: started.elapsed(),
+                    segments_before,
+                    segments_after,
+                    segments_rewritten: 0,
+                    segments_removed: 0,
+                    segments_merged: 0,
+                    segments_retained_dirty,
+                    segments_merge_candidates: 0,
+                    segments_produced: 0,
+                    archive_bytes_before,
+                    archive_bytes_after,
+                });
+            }
             let pinned_prior_views = Arc::strong_count(&view.0).saturating_sub(2);
             match self.publish_prepared(view.revision(), next) {
                 Ok(revision) => {
@@ -386,6 +809,18 @@ impl Index {
                         temporary_bytes_estimated: work.temporary_bytes,
                         pinned_prior_views,
                         duration: started.elapsed(),
+                        segments_before,
+                        segments_after,
+                        segments_rewritten: work.segments_reconstructed,
+                        segments_removed: segments_before
+                            .saturating_sub(segments_after)
+                            .saturating_sub(segments_merged),
+                        segments_merged,
+                        segments_retained_dirty,
+                        segments_merge_candidates: work.merge_candidates,
+                        segments_produced: work.segments_produced,
+                        archive_bytes_before,
+                        archive_bytes_after,
                     });
                 }
                 Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),

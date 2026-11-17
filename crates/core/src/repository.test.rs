@@ -9,6 +9,43 @@ use crate::streaming::{ExecutionContext, ExecutionLimits};
 use crate::workload::ReturnMode;
 
 #[test]
+fn configured_empty_shell_preserves_collection_bindings_without_build_pool() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-configured-shell-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::SystemTime::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"shell"}"#).unwrap();
+    let repository = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let empty = repository.empty_like().unwrap();
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.empty_shell_finalizations, 1);
+    assert!(empty.files().files.is_empty());
+    assert_eq!(empty.collections().len(), 1);
+    assert_eq!(empty.collections()[0].definition.name, "data");
+    assert!(empty.collections()[0].postings.all_archived());
+    assert_eq!(
+        empty.workers.current_num_threads(),
+        empty.options.query_workers
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_memberships() {
     use super::{prepare_discovered_file, prepare_discovered_window};
     use crate::inventory::FileInventory;
@@ -128,15 +165,16 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
         [Some(digest)]
     );
     assert_eq!(
-        finish_fresh_fingerprints(&inventory, vec![vec![(CollectionId(0), digest)]])
-            .unwrap(),
+        finish_fresh_fingerprints(&inventory, vec![vec![(CollectionId(0), digest)]]).unwrap(),
         [None]
     );
-    assert!(finish_fresh_fingerprints(
-        &inventory,
-        vec![vec![(CollectionId(0), digest), (CollectionId(1), [8; 32])]],
-    )
-    .is_err());
+    assert!(
+        finish_fresh_fingerprints(
+            &inventory,
+            vec![vec![(CollectionId(0), digest), (CollectionId(1), [8; 32])]],
+        )
+        .is_err()
+    );
 }
 
 #[test]
@@ -164,7 +202,10 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let verify = |repo: &Repository| {
         let collection = &repo.collections()[0];
         for record in &collection.generation.records {
-            let (lookup_id, slot) = collection.id_lookup.get_key_value(record.id.0.as_ref()).unwrap();
+            let (lookup_id, slot) = collection
+                .id_lookup
+                .get_key_value(record.id.0.as_str())
+                .unwrap();
             assert_eq!(*slot, record.slot);
             assert!(std::sync::Arc::ptr_eq(&lookup_id.0, &record.id.0));
         }

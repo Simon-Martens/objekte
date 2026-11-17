@@ -35,7 +35,6 @@ fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, Verifi
     })
 }
 
-
 /// The change actually published by a file mutation. `Unchanged` keeps both
 /// the file version and index revision intact.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -46,11 +45,13 @@ pub enum FileMutationKind {
     Unchanged,
 }
 
-
 /// Physical index maintenance selected for this operation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FileMutationStrategy {
     AppendReplacement,
+    /// One existing destination segment per affected collection was rebuilt
+    /// from its live archived contributions plus the incoming file.
+    RebuildSmallestSegment,
     /// The destination's raw digest and source revision matched the indexed
     /// file; only its catalog route and file version changed.
     ContentPreservingMove,
@@ -58,7 +59,6 @@ pub enum FileMutationStrategy {
     VerifiedPhysicalRemoval,
     Unchanged,
 }
-
 
 /// Why a requested verified operation safely used the normal tombstone and
 /// append strategy. A wrong old-content hint is never a mutation error.
@@ -76,7 +76,6 @@ pub enum VerifiedFallbackReason {
     CompactionUnavailable,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum UpdateStrategy {
     #[default]
@@ -84,20 +83,17 @@ pub enum UpdateStrategy {
     PreferVerified,
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub struct UpdateOptions<'a> {
     pub old_content: Option<&'a [u8]>,
     pub strategy: UpdateStrategy,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VerifiedDeleteResult {
     pub deletion: DeleteResult,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 /// One atomic file mutation, across every selected collection. The result's
 /// handle is the version callers should pass to the next update or deletion.
@@ -113,7 +109,6 @@ pub struct FileMutationResult {
     pub strategy: FileMutationStrategy,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 fn collection_names(
     view: &IndexView,
@@ -288,7 +283,7 @@ fn prepare_replacement_bytes(
         });
     }
     let previous = view
-        .file_entry(handle.file_id)
+        .file_entry_owned(handle.file_id)
         .ok_or(IndexError::UnknownFile)?;
     let relative = relative_path(&view, path)?;
     if view
@@ -357,7 +352,6 @@ fn prepare_replacement_bytes(
     })
 }
 
-
 impl Index {
     /// Index one source file already created by the application. An active
     /// destination is a collision; no source bytes are written by this call.
@@ -365,6 +359,7 @@ impl Index {
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
             let prepared = self.prepare_add_file(path)?;
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 conflict = Some(IndexError::RevisionConflict {
@@ -393,6 +388,11 @@ impl Index {
                         IndexError::InvalidPublication("new file version missing".into()),
                     )?,
                 };
+            let strategy = if next.destination_rebuilt {
+                FileMutationStrategy::RebuildSmallestSegment
+            } else {
+                FileMutationStrategy::AppendReplacement
+            };
             match self.publish_prepared(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {
@@ -403,7 +403,7 @@ impl Index {
                         indexed_records,
                         affected_collections,
                         kind: FileMutationKind::Added,
-                        strategy: FileMutationStrategy::AppendReplacement,
+                        strategy,
                         fallback_reason: None,
                     });
                 }
@@ -470,6 +470,7 @@ impl Index {
         }
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let actual = view
                 .file_version_including_inactive(handle.file_id)
@@ -482,7 +483,7 @@ impl Index {
                 });
             }
             let old = view
-                .file_entry(handle.file_id)
+                .file_entry_owned(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let relative = relative_path(&view, destination)?;
             if relative.as_path() == old.relative_path.as_path() {
@@ -494,7 +495,7 @@ impl Index {
             {
                 return Err(IndexError::DestinationExists);
             }
-            if !path_independent_memberships(&view, old, &relative)? {
+            if !path_independent_memberships(&view, &old, &relative)? {
                 return Ok(None);
             }
             let Some(fingerprint) = view.file_fingerprint(handle.file_id) else {
@@ -524,6 +525,15 @@ impl Index {
                 .advanced(handle.file_id)
                 .map_err(IndexError::ResourceLimit)?
                 .0;
+            next.catalog
+                .advance_ownership(
+                    handle.file_id,
+                    handle.version,
+                    next.file_versions
+                        .get(handle.file_id)
+                        .ok_or(IndexError::UnknownFile)?,
+                )
+                .map_err(IndexError::InvalidPublication)?;
             next.revision = view.revision().next()?;
             let file = FileHandle {
                 instance_id: self.instance_id(),
@@ -608,6 +618,7 @@ impl Index {
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
             let prepared = prepare(self)?;
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 conflict = Some(IndexError::RevisionConflict {
@@ -617,7 +628,7 @@ impl Index {
                 continue;
             }
             let previous = view
-                .file_entry(handle.file_id)
+                .file_entry_owned(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let retired_records = view
                 .file_record_count(handle.file_id)
@@ -665,7 +676,10 @@ impl Index {
                 }),
             };
             let expected = prepared.expected_revision;
-            let next = match self.stage_prepared_replace(prepared) {
+            let next = match match options.strategy {
+                UpdateStrategy::AppendReplacement => self.stage_prepared_replace(prepared),
+                UpdateStrategy::PreferVerified => self.stage_prepared_replace_append_only(prepared),
+            } {
                 Ok(next) => next,
                 Err(error @ IndexError::RevisionConflict { .. }) => {
                     conflict = Some(error);
@@ -673,7 +687,7 @@ impl Index {
                 }
                 Err(error) => return Err(error),
             };
-            let (next, strategy, fallback_reason) = match verified {
+            let (mut next, strategy, fallback_reason) = match verified {
                 Some(Ok(plan)) => {
                     if plan.requires_base_compaction() {
                         match compact_verified_base(&next) {
@@ -712,6 +726,16 @@ impl Index {
                 Some(Err(reason)) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
                 None => (next, FileMutationStrategy::AppendReplacement, None),
             };
+            let strategy = if matches!(strategy, FileMutationStrategy::AppendReplacement)
+                && next.destination_rebuilt
+            {
+                FileMutationStrategy::RebuildSmallestSegment
+            } else {
+                strategy
+            };
+            if !matches!(strategy, FileMutationStrategy::VerifiedSlotPreserving) {
+                next.remove_obsolete_segments()?;
+            }
             let file = FileHandle {
                 instance_id: self.instance_id(),
                 file_id: handle.file_id,
@@ -753,6 +777,7 @@ impl Index {
             if handle.instance_id != self.instance_id() {
                 return Err(IndexError::ForeignInstance);
             }
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let actual = view
                 .file_version_including_inactive(handle.file_id)
@@ -808,7 +833,6 @@ impl Index {
         Err(conflict.expect("publication retry always captures a conflict"))
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_mutation.test.rs"]

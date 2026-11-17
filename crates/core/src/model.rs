@@ -424,7 +424,7 @@ pub struct RecordSlot(pub u32);
 
 /// Stable logical identifier within a collection.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
-pub struct RecordId(pub std::sync::Arc<str>);
+pub struct RecordId(pub std::sync::Arc<String>);
 
 
 /// Collection-scoped identity used outside slot storage.
@@ -478,7 +478,7 @@ impl RecordId {
 
 impl std::borrow::Borrow<str> for RecordId {
     fn borrow(&self) -> &str {
-        &self.0
+        self.0.as_str()
     }
 }
 

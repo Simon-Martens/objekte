@@ -6,6 +6,7 @@ use std::num::NonZeroUsize;
 use std::ops::BitOrAssign;
 use std::sync::Arc;
 
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
@@ -14,9 +15,10 @@ use crate::inference::{InferenceObservation, InferenceState};
 use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, Number, RecordSlot};
-use crate::posting::{CustomPostingIndex, PostingCollection};
+use crate::model::{CollectionId, FileId, RecordSlot};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::relation::RelationContribution;
+use crate::segment_archive::{FileLookup, RecordLookup, RecordRows, SegmentFiles};
 use crate::sorting::SortCollection;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
@@ -235,27 +237,30 @@ pub(crate) struct IndexedCollectionSegment {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
-    pub files: Vec<SegmentFile>,
-    pub file_index: HashMap<FileId, usize>,
-    pub records: Vec<RecordEntry>,
-    pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
-    pub identity_order: Vec<RecordSlot>,
+    pub files: SegmentFiles,
+    pub file_index: FileLookup,
+    pub records: RecordRows,
+    pub id_lookup: RecordLookup,
+    pub identity_order: Arc<Vec<RecordSlot>>,
     pub postings: PostingCollection,
     pub(crate) inference_observation: Option<InferenceObservation>,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: BigramIndex,
-    pub fallback_text: BigramIndex,
-    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub raw: Arc<BigramIndex>,
+    pub fallback_text: Arc<BigramIndex>,
+    pub custom_text: Arc<HashMap<(Vec<String>, String), BigramIndex>>,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
-    pub sorting: SortCollection,
+    pub sorting: Arc<SortCollection>,
     /// Relation source references retain logical target IDs for merged-view
     /// resolution across segment and collection boundaries.
-    pub relations: Vec<RelationContribution>,
+    pub relations: Arc<Vec<RelationContribution>>,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub accounting: SegmentAccounting,
+    /// Set only after the query dictionaries passed completed-storage
+    /// finalization. Component mutations clear this before resealing.
+    pub(crate) storage_completed: bool,
 }
 
 /// One published payload and its independently versioned local liveness.
@@ -264,6 +269,28 @@ pub(crate) struct PublishedSegment {
     pub id: SegmentId,
     pub index: Arc<IndexedCollectionSegment>,
     pub active: ActiveRecords,
+}
+
+impl PublishedSegment {
+    pub(crate) fn checked(
+        id: SegmentId,
+        index: Arc<IndexedCollectionSegment>,
+        active: ActiveRecords,
+    ) -> Result<Self, String> {
+        if id != index.id {
+            return Err("published segment descriptor and payload IDs disagree".into());
+        }
+        if active.slot_count() as usize != index.record_count() {
+            return Err("published segment liveness domain is inconsistent".into());
+        }
+        if !index.storage_completed {
+            return Err("published segment did not cross completed-storage validation".into());
+        }
+        if !index.has_published_storage() {
+            return Err("published segment retained a mutable query dictionary".into());
+        }
+        Ok(Self { id, index, active })
+    }
 }
 
 /// One payload and liveness pair at its native segment boundary.
@@ -309,6 +336,245 @@ pub struct NativeComponentDescriptor<'a> {
 }
 
 impl IndexedCollectionSegment {
+    /// One completed-storage boundary for every ordinary and maintenance
+    /// producer. Existing archives are shared rather than serialized again.
+    pub(crate) fn seal_completed_storage(self) -> Result<Self, String> {
+        self.seal_completed_storage_inner(None)
+    }
+
+    pub(crate) fn seal_completed_storage_in_pool(
+        self,
+        pool: &rayon::ThreadPool,
+    ) -> Result<Self, String> {
+        self.seal_completed_storage_inner(Some(pool))
+    }
+
+    fn seal_completed_storage_inner(
+        mut self,
+        pool: Option<&rayon::ThreadPool>,
+    ) -> Result<Self, String> {
+        if self.storage_completed {
+            if !self.has_published_storage() {
+                return Err("completed segment lost its published dictionaries".into());
+            }
+            return Ok(self);
+        }
+        self.postings.finish_stats();
+        for custom in self.custom_postings.values_mut() {
+            custom.index.finish_stats();
+        }
+        if let Some(inference) = &mut self.inference {
+            for index in inference.indexes.values_mut() {
+                index.finish_stats();
+            }
+        }
+        let freeze_fields =
+            |fields: &mut HashMap<Vec<String>, PostingIndex>| -> Result<(), String> {
+                match pool {
+                    Some(pool) => pool.install(|| {
+                        fields
+                            .par_iter_mut()
+                            .try_for_each(|(_, index)| index.seal_native_storage())
+                    }),
+                    None => fields
+                        .values_mut()
+                        .try_for_each(PostingIndex::seal_native_storage),
+                }
+            };
+        freeze_fields(&mut self.postings.fields)?;
+        match pool {
+            Some(pool) => pool.install(|| {
+                self.custom_postings
+                    .par_iter_mut()
+                    .try_for_each(|(_, custom)| custom.index.seal_native_storage())
+            })?,
+            None => self
+                .custom_postings
+                .values_mut()
+                .try_for_each(|custom| custom.index.seal_native_storage())?,
+        }
+        if let Some(inference) = &mut self.inference {
+            match pool {
+                Some(pool) => pool.install(|| {
+                    inference
+                        .indexes
+                        .par_iter_mut()
+                        .try_for_each(|(_, index)| index.seal_native_storage())
+                })?,
+                None => inference
+                    .indexes
+                    .values_mut()
+                    .try_for_each(PostingIndex::seal_native_storage)?,
+            }
+        }
+        let record_count = self.record_count();
+        let logical_count = self.logical_records.len() as usize;
+        let logical_domain = (logical_count != record_count).then_some(&self.logical_records);
+        match pool {
+            Some(pool) => pool.install(|| {
+                self.postings.fields.par_iter().try_for_each(|(_, index)| {
+                    index.validate_completed(record_count, logical_count, logical_domain)
+                })
+            })?,
+            None => {
+                self.postings
+                    .validate_completed(record_count, logical_count, logical_domain)?
+            }
+        }
+        match pool {
+            Some(pool) => pool.install(|| {
+                self.custom_postings.par_iter().try_for_each(|(_, custom)| {
+                    custom
+                        .index
+                        .validate_completed(record_count, logical_count, logical_domain)
+                })
+            })?,
+            None => {
+                for custom in self.custom_postings.values() {
+                    custom
+                        .index
+                        .validate_completed(record_count, logical_count, logical_domain)?;
+                }
+            }
+        }
+        if let Some(inference) = &self.inference {
+            match pool {
+                Some(pool) => pool.install(|| {
+                    inference.indexes.par_iter().try_for_each(|(_, index)| {
+                        index.validate_completed(record_count, logical_count, logical_domain)
+                    })
+                })?,
+                None => {
+                    for index in inference.indexes.values() {
+                        index.validate_completed(record_count, logical_count, logical_domain)?;
+                    }
+                }
+            }
+        }
+        crate::segment_archive::validate_segment_components(
+            &self.files,
+            &self.records,
+            &self.file_index,
+            &self.id_lookup,
+            self.collection,
+        )?;
+        if !self.has_published_storage() {
+            return Err("completed segment retained a mutable query dictionary".into());
+        }
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.row_cross_checks = counters.row_cross_checks.saturating_add(1);
+        });
+        self.recompute_accounting();
+        self.storage_completed = true;
+        Ok(self)
+    }
+
+    pub(crate) fn has_published_storage(&self) -> bool {
+        self.postings.all_published()
+            && self
+                .custom_postings
+                .values()
+                .all(|custom| custom.index.is_published())
+            && self
+                .inference
+                .as_ref()
+                .is_none_or(|inference| inference.indexes.values().all(PostingIndex::is_published))
+    }
+
+    pub(crate) fn all_storage_archived(&self) -> bool {
+        self.files.is_archived()
+            && self.file_index.is_archived()
+            && self.id_lookup.is_archived()
+            && self.postings.all_archived()
+            && self
+                .custom_postings
+                .values()
+                .all(|custom| custom.index.is_archived())
+            && self
+                .inference
+                .as_ref()
+                .is_none_or(|inference| inference.indexes.values().all(PostingIndex::is_archived))
+    }
+
+    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+        if !self.storage_completed || !self.has_published_storage() {
+            return Err("segment storage is not semantically completed".into());
+        }
+        let (files, records) = self.files.archive_rows()?;
+        let file_index = self.file_index.archive()?;
+        let id_lookup = self.id_lookup.archive()?;
+        let postings = self.postings.archived()?;
+        let custom_postings = self
+            .custom_postings
+            .iter()
+            .map(|(key, custom)| {
+                Ok((
+                    key.clone(),
+                    CustomPostingIndex {
+                        index: custom.index.archived()?,
+                        complete: custom.complete,
+                    },
+                ))
+            })
+            .collect::<Result<HashMap<_, _>, String>>()?;
+        let inference = self
+            .inference
+            .as_ref()
+            .map(|inference| {
+                let mut inference = inference.clone();
+                for index in inference.indexes.values_mut() {
+                    *index = index.archived()?;
+                }
+                Ok::<_, String>(inference)
+            })
+            .transpose()?;
+        crate::segment_archive::validate_segment_components(
+            &files,
+            &records,
+            &file_index,
+            &id_lookup,
+            self.collection,
+        )?;
+        self.files = files;
+        self.records = records;
+        self.file_index = file_index;
+        self.id_lookup = id_lookup;
+        self.postings = postings;
+        self.custom_postings = custom_postings;
+        self.inference = inference;
+        Ok(())
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut native = 0usize;
+        let mut archived = 0usize;
+        for is_archived in [
+            self.files.is_archived(),
+            self.file_index.is_archived(),
+            self.id_lookup.is_archived(),
+        ] {
+            if is_archived {
+                archived += 1;
+            } else {
+                native += 1;
+            }
+        }
+        let mut add = |(add_native, add_archived): (usize, usize)| {
+            native += add_native;
+            archived += add_archived;
+        };
+        add(self.postings.storage_representation_counts());
+        for custom in self.custom_postings.values() {
+            add(custom.index.storage_representation_counts());
+        }
+        if let Some(inference) = &self.inference {
+            for index in inference.indexes.values() {
+                add(index.storage_representation_counts());
+            }
+        }
+        (native, archived)
+    }
+
     pub(crate) fn read_view<'a>(published: &'a PublishedSegment) -> SegmentReadView<'a> {
         SegmentReadView {
             id: published.id,
@@ -405,63 +671,31 @@ impl IndexedCollectionSegment {
     /// metadata rewrite. Arc-reused segments do not repeat this traversal.
     pub(crate) fn recompute_accounting(&mut self) {
         let mut retained = self.source_id.len();
-        retained =
-            retained.saturating_add(self.files.capacity() * std::mem::size_of::<SegmentFile>());
-        for file in &self.files {
-            retained = retained
-                .saturating_add(file.records.capacity() * std::mem::size_of::<RecordSlot>())
-                .saturating_add(file.entry.relative_path.as_path().as_os_str().len())
-                .saturating_add(
-                    file.entry.collections.capacity() * std::mem::size_of::<CollectionId>(),
-                )
-                .saturating_add(
-                    file.entry.diagnostics.capacity()
-                        * std::mem::size_of::<crate::inventory::SourceDiagnostic>(),
-                );
-            for diagnostic in &file.entry.diagnostics {
-                retained = retained
-                    .saturating_add(diagnostic.code.len())
-                    .saturating_add(diagnostic.message.len())
-                    .saturating_add(diagnostic.source_id.len());
-                if let Some(path) = &diagnostic.field_path {
-                    retained = retained.saturating_add(path_bytes(path));
-                }
-            }
-        }
         retained = retained
-            .saturating_add(
-                self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>(),
-            )
+            .saturating_add(self.files.archive_bytes())
+            .saturating_add(self.files.compatibility_cache_bytes())
+            .saturating_add(self.records.compatibility_cache_bytes())
             .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
-            .saturating_add(
-                self.file_index
-                    .capacity()
-                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<usize>()),
-            )
-            .saturating_add(
-                self.id_lookup
-                    .capacity()
-                    .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<RecordSlot>()),
-            );
-        for record in &self.records {
-            retained = retained.saturating_add(record.id.0.len());
-        }
+            .saturating_add(self.file_index.archive_bytes())
+            .saturating_add(self.id_lookup.archive_bytes());
         for (path, index) in &self.postings.fields {
             retained = retained
                 .saturating_add(path_bytes(path))
-                .saturating_add(posting_bytes(index));
+                .saturating_add(posting_bytes(index))
+                .saturating_add(index.archive_bytes());
         }
         for ((path, binding), posting) in &self.custom_postings {
             retained = retained
                 .saturating_add(path_bytes(path))
                 .saturating_add(binding.len())
                 .saturating_add(posting_bytes(&posting.index))
+                .saturating_add(posting.index.archive_bytes())
                 .saturating_add(ACCOUNTING_OVERHEAD);
         }
         retained = retained
             .saturating_add(gram_bytes(&self.raw))
             .saturating_add(gram_bytes(&self.fallback_text));
-        for ((path, binding), index) in &self.custom_text {
+        for ((path, binding), index) in self.custom_text.iter() {
             retained = retained
                 .saturating_add(path_bytes(path))
                 .saturating_add(binding.len())
@@ -481,17 +715,8 @@ impl IndexedCollectionSegment {
         if let Some(inference) = &self.inference {
             retained = retained.saturating_add(inference_bytes(inference));
         }
-        let source_bytes_estimated = self
-            .files
-            .iter()
-            .map(|file| file.entry.revision.size)
-            .fold(0u64, u64::saturating_add);
-        let max_record_range_len = self
-            .records
-            .iter()
-            .map(|record| record.range.end.saturating_sub(record.range.start))
-            .max()
-            .unwrap_or(0);
+        let source_bytes_estimated = self.files.source_bytes();
+        let max_record_range_len = self.records.max_record_range_len();
         self.accounting = SegmentAccounting {
             retained_bytes_estimated: retained,
             source_bytes_estimated,
@@ -518,18 +743,118 @@ impl IndexedCollectionSegment {
         self.files.len()
     }
 
+    pub(crate) fn collect_storage_usage(
+        &self,
+        seen: &mut std::collections::HashSet<usize>,
+        usage: &mut crate::storage_usage::StorageUsage,
+    ) {
+        if self.files.is_archived() {
+            usage.record_archive(
+                seen,
+                self.files.archive_owner_id(),
+                self.files.archive_bytes(),
+                self.files.capacity(),
+            );
+        }
+        if self.file_index.is_archived() {
+            usage.record_archive(
+                seen,
+                self.file_index.archive_owner_id(),
+                self.file_index.archive_bytes(),
+                self.file_index.capacity(),
+            );
+        }
+        if self.id_lookup.is_archived() {
+            usage.record_archive(
+                seen,
+                self.id_lookup.archive_owner_id(),
+                self.id_lookup.archive_bytes(),
+                self.id_lookup.capacity(),
+            );
+        }
+        {
+            let mut record_posting = |owner: usize, length: usize, capacity: usize| {
+                usage.record_archive(seen, owner, length, capacity);
+            };
+            self.postings.for_each_archive_owner(&mut record_posting);
+            for custom in self.custom_postings.values() {
+                custom.index.for_each_archive_owner(&mut record_posting);
+            }
+            if let Some(inference) = &self.inference {
+                for index in inference.indexes.values() {
+                    index.for_each_archive_owner(&mut record_posting);
+                }
+            }
+        }
+        usage.posting_bitmap_payload_bytes = usage.posting_bitmap_payload_bytes.saturating_add(
+            self.postings
+                .fields
+                .values()
+                .map(PostingIndex::native_bitmap_payload_bytes)
+                .sum::<usize>() as u64,
+        );
+        for custom in self.custom_postings.values() {
+            usage.posting_bitmap_payload_bytes = usage
+                .posting_bitmap_payload_bytes
+                .saturating_add(custom.index.native_bitmap_payload_bytes() as u64);
+        }
+        if let Some(inference) = &self.inference {
+            for index in inference.indexes.values() {
+                usage.posting_bitmap_payload_bytes = usage
+                    .posting_bitmap_payload_bytes
+                    .saturating_add(index.native_bitmap_payload_bytes() as u64);
+            }
+        }
+        usage.bigram_payload_bytes = usage
+            .bigram_payload_bytes
+            .saturating_add(gram_bytes(&self.raw) as u64)
+            .saturating_add(gram_bytes(&self.fallback_text) as u64)
+            .saturating_add(
+                self.custom_text
+                    .values()
+                    .map(|index| gram_bytes(index))
+                    .sum::<usize>() as u64,
+            );
+        usage.sorting_payload_bytes = usage
+            .sorting_payload_bytes
+            .saturating_add(sort_bytes(&self.sorting) as u64);
+        usage.relation_payload_bytes = usage.relation_payload_bytes.saturating_add(
+            self.relations
+                .iter()
+                .map(RelationContribution::estimated_bytes)
+                .sum::<usize>() as u64,
+        );
+        usage.active_and_control_metadata_bytes =
+            usage.active_and_control_metadata_bytes.saturating_add(
+                (self.identity_order.capacity() * std::mem::size_of::<RecordSlot>()) as u64,
+            );
+        usage.file_row_cache_bytes = usage
+            .file_row_cache_bytes
+            .saturating_add(self.files.compatibility_cache_bytes() as u64);
+        usage.record_row_cache_bytes = usage
+            .record_row_cache_bytes
+            .saturating_add(self.records.compatibility_cache_bytes() as u64);
+        usage.metadata_cache_initializations = usage
+            .metadata_cache_initializations
+            .saturating_add(self.files.cache_initialized() as u64)
+            .saturating_add(self.records.cache_initialized() as u64);
+    }
+
     pub(crate) fn extend_file_slots(
         &self,
         index: usize,
         matches: &mut RoaringBitmap,
     ) -> Result<(), String> {
-        let file = self.files.get(index).ok_or("segment file row missing")?;
-        matches.extend(file.records.iter().map(|slot| slot.0));
+        let records = self
+            .files
+            .archived_record_slots(index)
+            .ok_or("segment file row missing")?;
+        matches.extend(records.map(|slot| slot.0));
         Ok(())
     }
 
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
-        self.files.get(*self.file_index.get(&id)?)
+        self.files.get(self.file_index.get(id)?)
     }
 
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
@@ -559,32 +884,23 @@ fn posting_bytes(index: &crate::posting::PostingIndex) -> usize {
     total = total.saturating_add(bitmap_bytes(&index.empty_selections));
     total = total.saturating_add(bitmap_bytes(&index.nulls));
     if let Some(facts) = &index.structural {
-        total = total.saturating_add(facts.postings.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::StructuralKey>(),
-        ));
-        total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
+        let _ = facts.postings.for_each_bitmap(|bitmap| {
+            total = total.saturating_add(bitmap_bytes(bitmap));
+            Ok(())
+        });
     }
-    total =
-        total.saturating_add(index.values.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::ScalarKey>(),
-        ));
-    for (key, bitmap) in &index.values {
+    let _ = index.values.for_each_bitmap(|bitmap| {
         total = total.saturating_add(bitmap_bytes(bitmap));
-        if let crate::posting::ScalarKey::String(value) | crate::posting::ScalarKey::Id(value) = key
-        {
-            total = total.saturating_add(value.len());
-        }
-    }
-    total = total.saturating_add(
-        index
-            .lengths
-            .len()
-            .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<Number>()),
-    );
-    total.saturating_add(index.lengths.values().map(bitmap_bytes).sum::<usize>())
+        Ok(())
+    });
+    let _ = index.lengths.for_each_bitmap(|bitmap| {
+        total = total.saturating_add(bitmap_bytes(bitmap));
+        Ok(())
+    });
+    total
 }
 
-fn gram_bytes(index: &BigramIndex) -> usize {
+pub(crate) fn gram_bytes(index: &BigramIndex) -> usize {
     index
         .normal
         .len()
@@ -600,7 +916,7 @@ fn gram_bytes(index: &BigramIndex) -> usize {
         )
 }
 
-fn sort_bytes(sorting: &SortCollection) -> usize {
+pub(crate) fn sort_bytes(sorting: &SortCollection) -> usize {
     let mut total = 0usize;
     for (path, column) in &sorting.columns {
         total = total
@@ -638,7 +954,8 @@ fn inference_bytes(state: &InferenceState) -> usize {
     for (path, index) in &state.indexes {
         total = total
             .saturating_add(path_bytes(path))
-            .saturating_add(posting_bytes(index));
+            .saturating_add(posting_bytes(index))
+            .saturating_add(index.archive_bytes());
     }
     for (path, bitmap) in state
         .empty_selections

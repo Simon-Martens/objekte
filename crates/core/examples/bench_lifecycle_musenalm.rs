@@ -40,6 +40,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
         .map(|value| value.parse::<usize>())
         .transpose()?;
     let retire_path = std::env::var("LIFECYCLE_RETIRE_PATH").ok();
+    let archive_before_mutation = std::env::var_os("LIFECYCLE_ARCHIVE").is_some();
     let core = Path::new(env!("CARGO_MANIFEST_DIR")).to_path_buf();
     let mut cases = load_extended_manifest(
         &core.join("benches/musenalm_queries.json"),
@@ -72,6 +73,13 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
             },
         )?;
         let build_ns = started.elapsed().as_nanos();
+        let archive_ns = if archive_before_mutation {
+            let started = Instant::now();
+            index.archive()?;
+            started.elapsed().as_nanos()
+        } else {
+            0
+        };
         if let Some(path) = retire_path.as_deref() {
             let handle = index
                 .view()?
@@ -81,9 +89,11 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
         }
         let view = index.view()?;
         println!(
-            "profile={name} cache_bytes={cache_bytes} retired_file={:?} build_ms={:.3} files={} records={} rss_kb={} hwm_kb={}",
+            "profile={name} cache_bytes={cache_bytes} archive={} retired_file={:?} build_ms={:.3} archive_ms={:.3} files={} records={} rss_kb={} hwm_kb={}",
+            archive_before_mutation,
             retire_path,
             build_ns as f64 / 1_000_000.0,
+            archive_ns as f64 / 1_000_000.0,
             index.status()?.indexed_files,
             index.status()?.live_records,
             memory_kb("VmRSS:"),

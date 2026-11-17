@@ -389,7 +389,10 @@ impl ActiveRecords {
         let mut live_count = self.live_count;
         for slot in slots {
             if slot.0 >= self.slot_count {
-                return Err("record slot out of bounds".into());
+                return Err(format!(
+                    "record slot {} out of bounds for domain {}",
+                    slot.0, self.slot_count
+                ));
             }
             let chunk = Arc::make_mut(&mut chunks[(slot.0 / ACTIVE_SLOT_CHUNK) as usize]);
             if chunk.remove(slot.0 % ACTIVE_SLOT_CHUNK) {
@@ -619,12 +622,14 @@ impl FileEntry {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
     pub root: PathBuf,
-    pub files: Vec<FileEntry>,
+    pub files: Arc<Vec<FileEntry>>,
     #[serde(skip)]
     by_path: HashMap<SharedPath, FileId>,
     /// Ordered root-relative query keys, rebuilt with every restored index.
     #[serde(skip)]
     pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
+    #[serde(skip)]
+    published_paths: Option<crate::lifecycle_catalog::PathDirectory>,
 }
 
 /// Opt-in component accounting for the file table and its path indexes.
@@ -745,7 +750,7 @@ impl FileInventory {
             + self.files.capacity() * std::mem::size_of::<FileEntry>()
             + self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
         let mut diagnostics = 0;
-        for file in &self.files {
+        for file in self.files.iter() {
             inventory += file.relative_path.payload_bytes()
                 + file.collections.capacity() * std::mem::size_of::<CollectionId>();
             diagnostics += file.diagnostics.capacity() * std::mem::size_of::<SourceDiagnostic>();
@@ -772,9 +777,10 @@ impl FileInventory {
     pub fn new(root: PathBuf) -> Self {
         Self {
             root,
-            files: Vec::new(),
+            files: Arc::new(Vec::new()),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            published_paths: None,
         }
     }
 
@@ -784,13 +790,14 @@ impl FileInventory {
     #[cfg(test)]
     pub(crate) fn from_restored_entries(
         root: PathBuf,
-        entries: Vec<FileEntry>,
+        entries: Arc<Vec<FileEntry>>,
     ) -> Result<Self, String> {
         let mut inventory = Self {
             root,
             files: entries,
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            published_paths: None,
         };
         inventory.rebuild_lookup()?;
         Ok(inventory)
@@ -807,7 +814,7 @@ impl FileInventory {
             return Err("file path must be repository-relative and contained".into());
         }
         if let Some(&id) = self.by_path.get(relative_path.as_path()) {
-            let file = &mut self.files[id.0 as usize];
+            let file = &mut Arc::make_mut(&mut self.files)[id.0 as usize];
             if file.revision != revision {
                 return Err("one file has inconsistent revisions".into());
             }
@@ -820,7 +827,7 @@ impl FileInventory {
         let relative_path = SharedPath::from(relative_path);
         self.by_path.insert(relative_path.clone(), id);
         self.relative_paths.insert(relative_path.query_key(), id);
-        self.files.push(FileEntry {
+        Arc::make_mut(&mut self.files).push(FileEntry {
             id,
             relative_path,
             revision,
@@ -838,8 +845,7 @@ impl FileInventory {
         file: FileId,
         diagnostic: SourceDiagnostic,
     ) -> Result<DiagnosticRef, String> {
-        let entry = self
-            .files
+        let entry = Arc::make_mut(&mut self.files)
             .get_mut(file.0 as usize)
             .ok_or("diagnostic file out of bounds")?;
         entry.record_diagnostic(diagnostic)
@@ -935,6 +941,9 @@ impl FileInventory {
     }
 
     pub fn id_for(&self, path: &Path) -> Option<FileId> {
+        if let Some(paths) = &self.published_paths {
+            return paths.id_for(path);
+        }
         self.by_path.get(path).copied()
     }
 
@@ -942,6 +951,11 @@ impl FileInventory {
         &self,
         bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
     ) -> Vec<FileId> {
+        if let Some(paths) = &self.published_paths {
+            return paths
+                .ids_in_bounds_up_to(bounds, usize::MAX)
+                .expect("an index cannot contain usize::MAX paths");
+        }
         if empty_path_bounds(&bounds) {
             return Vec::new();
         }
@@ -958,6 +972,9 @@ impl FileInventory {
         limit: usize,
     ) -> Option<Vec<FileId>> {
         let bounds = relative_path_bounds(operator, literal)?;
+        if let Some(paths) = &self.published_paths {
+            return paths.ids_in_bounds_up_to(bounds, limit);
+        }
         let mut ids = Vec::new();
         for (_, id) in self.relative_paths.range(bounds) {
             if ids.len() == limit {
@@ -966,6 +983,37 @@ impl FileInventory {
             ids.push(*id);
         }
         Some(ids)
+    }
+
+    pub(crate) fn adopt_published_paths(&mut self, paths: crate::lifecycle_catalog::PathDirectory) {
+        self.published_paths = Some(paths);
+        self.by_path = HashMap::new();
+        self.relative_paths = BTreeMap::new();
+    }
+
+    pub(crate) fn with_published_paths(
+        &self,
+        paths: crate::lifecycle_catalog::PathDirectory,
+    ) -> Self {
+        let mut inventory = self.clone();
+        inventory.published_paths = Some(paths);
+        inventory.by_path = HashMap::new();
+        inventory.relative_paths = BTreeMap::new();
+        inventory
+    }
+
+    #[cfg(test)]
+    pub(crate) fn native_lookup_maps_released(&self) -> bool {
+        self.published_paths.is_some()
+            && self.by_path.capacity() == 0
+            && self.relative_paths.is_empty()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn path_directory_archived(&self) -> bool {
+        self.published_paths
+            .as_ref()
+            .is_some_and(crate::lifecycle_catalog::PathDirectory::is_archived)
     }
 }
 
@@ -1136,6 +1184,7 @@ pub struct CollectionBuilder {
 }
 
 impl CollectionBuilder {
+    #[allow(dead_code)]
     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
         Ok(RecordSlot(
             u32::try_from(self.records.len()).map_err(|_| "too many records")?,
@@ -1174,6 +1223,7 @@ impl CollectionBuilder {
         Ok(())
     }
 
+    #[allow(dead_code)]
     pub(crate) fn contains_file(&self, file: FileId) -> bool {
         self.included_files.get(file.0 as usize) == Some(&true)
     }
@@ -1192,7 +1242,9 @@ impl CollectionBuilder {
         if range.start == range.end {
             return Err("record range must be nonempty".into());
         }
-        self.ids.insert(id.clone())?;
+        self.ids
+            .insert(id.clone())
+            .map_err(|error| format!("{error} ({})", file.relative_path.as_path().display()))?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,
@@ -1224,7 +1276,9 @@ impl CollectionBuilder {
         {
             return Err("invalid fallback range".into());
         }
-        self.ids.insert(id.clone())?;
+        self.ids
+            .insert(id.clone())
+            .map_err(|error| format!("{error} ({})", file.relative_path.as_path().display()))?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,

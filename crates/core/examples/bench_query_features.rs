@@ -16,7 +16,6 @@ use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 use serde_json::json;
 
-
 struct FeatureCase {
     id: &'static str,
     collection: &'static str,
@@ -31,7 +30,6 @@ struct FeatureCase {
     offset: usize,
     limit: usize,
 }
-
 
 impl FeatureCase {
     fn query(&self) -> Result<Query, String> {
@@ -60,7 +58,6 @@ impl FeatureCase {
         })
     }
 }
-
 
 fn add_field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
@@ -563,7 +560,7 @@ fn main() -> Result<(), String> {
     let relations = repo
         .collections()
         .iter()
-        .flat_map(|collection| &collection.relations)
+        .flat_map(|collection| collection.relations.iter())
         .collect::<Vec<_>>();
     if !check_only {
         println!(

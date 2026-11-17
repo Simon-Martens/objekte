@@ -13,7 +13,6 @@ use crate::repository::{CollectionState, Repository};
 /// Maximum number of outgoing occurrences or distinct backlink sources per page.
 pub const MAX_RELATION_PAGE_SIZE: usize = 1024;
 
-
 /// Stable record identity and resident provenance returned by inspection.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InspectedRecord {
@@ -29,7 +28,6 @@ pub struct InspectedRecord {
     pub diagnostic_ref: DiagnosticRef,
 }
 
-
 /// Availability of one source relation field without reading its logical payload.
 /// `Present` includes explicit null and empty arrays; the page reports those separately.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -39,7 +37,6 @@ pub enum RelationPresence {
     Unavailable,
 }
 
-
 /// One source occurrence, including duplicate IDs at different array positions.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OutgoingReference {
@@ -47,7 +44,6 @@ pub struct OutgoingReference {
     pub target_id: String,
     pub resolved: Option<InspectedRecord>,
 }
-
 
 /// Bounded page of source occurrences in immutable adjacency order.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -64,7 +60,6 @@ pub struct OutgoingReferencePage {
     pub references: Vec<OutgoingReference>,
 }
 
-
 /// Bounded page of distinct sources from an existing typed reverse posting.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BacklinkPage {
@@ -77,7 +72,6 @@ pub struct BacklinkPage {
     pub sources: Vec<InspectedRecord>,
 }
 
-
 /// One configured collection, including collections that currently have no records.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CollectionGraphNode {
@@ -88,7 +82,6 @@ pub struct CollectionGraphNode {
     pub outgoing: Vec<RelationId>,
     pub incoming: Vec<RelationId>,
 }
-
 
 /// One declared relation; parallel source-target relations remain distinct.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -103,14 +96,12 @@ pub struct CollectionGraphEdge {
     pub unresolved_occurrence_count: u64,
 }
 
-
 /// Strongly connected collection IDs; a self-loop is cyclic on its own.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CollectionComponent {
     pub members: Vec<CollectionId>,
     pub cyclic: bool,
 }
-
 
 /// Resident declaration graph with adjacency and bounded-size cycle summary.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -119,7 +110,6 @@ pub struct CollectionGraph {
     pub edges: Vec<CollectionGraphEdge>,
     pub components: Vec<CollectionComponent>,
 }
-
 
 fn page_limit(limit: usize) -> Result<usize, String> {
     if !(1..=MAX_RELATION_PAGE_SIZE).contains(&limit) {
@@ -166,7 +156,6 @@ fn inspected_record(
         diagnostic_ref: record.diagnostic_ref,
     })
 }
-
 
 impl Repository {
     /// Page one record's outgoing occurrences without opening source files.
@@ -410,7 +399,7 @@ impl Repository {
             .collect::<Vec<_>>();
         let mut edges = Vec::new();
         for collection in &self.collections {
-            for relation in &collection.relations {
+            for relation in collection.relations.iter() {
                 let source = relation.id.source.0 as usize;
                 let target = relation.target_collection.0 as usize;
                 nodes
@@ -504,20 +493,25 @@ pub(crate) fn relation_outgoing_page_segmented(
     catalog: &FileCatalog,
 ) -> Result<OutgoingReferencePage, String> {
     let limit = page_limit(limit)?;
-    let source = repo.collections.iter()
+    let source = repo
+        .collections
+        .iter()
         .find(|collection| collection.definition.name == source_collection)
         .ok_or("source collection not found")?;
-    let relation = repo.relation_index(source_collection, relation_path)
+    let relation = repo
+        .relation_index(source_collection, relation_path)
         .ok_or("relation not found in source collection")?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
-    let source_address = view.resolve_id(source.generation.collection, source_id)?
+    let source_address = view
+        .resolve_id(source.generation.collection, source_id)?
         .ok_or("source ID not found")?;
     let (edges, present, null, empty, unavailable) =
         view.forward_edges(source_address, relation.id.ordinal as usize)?;
     let (start, end, next_offset) = page_bounds(edges.len(), offset, limit);
     let mut references = Vec::with_capacity(end - start);
     for (target_id, positions) in &edges[start..end] {
-        let resolved = view.resolve_id(relation.target_collection, target_id)?
+        let resolved = view
+            .resolve_id(relation.target_collection, target_id)?
             .map(|address| inspected_merged_record(&view, address, revision))
             .transpose()?;
         references.push(OutgoingReference {
@@ -559,17 +553,22 @@ pub(crate) fn relation_backlink_page_segmented(
     catalog: &FileCatalog,
 ) -> Result<BacklinkPage, String> {
     let limit = page_limit(limit)?;
-    let target = repo.collections.iter()
+    let target = repo
+        .collections
+        .iter()
         .find(|collection| collection.definition.name == target_collection)
         .ok_or("target collection not found")?;
-    let relation = repo.backlink_relation(target_collection, reverse_alias)
+    let relation = repo
+        .backlink_relation(target_collection, reverse_alias)
         .ok_or("reverse relation alias not found")?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
-    let target_address = view.resolve_id(target.generation.collection, target_id)?
+    let target_address = view
+        .resolve_id(target.generation.collection, target_id)?
         .ok_or("target ID not found")?;
     let sources = view.backlink_sources(relation.id, target_id)?;
     let (start, end, next_offset) = page_bounds(sources.len(), offset, limit);
-    let page = sources[start..end].iter()
+    let page = sources[start..end]
+        .iter()
         .map(|address| inspected_merged_record(&view, *address, revision))
         .collect::<Result<Vec<_>, _>>()?;
     Ok(BacklinkPage {
@@ -591,23 +590,29 @@ pub(crate) fn collection_graph_segmented(
     catalog: &FileCatalog,
 ) -> Result<CollectionGraph, String> {
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
-    let mut nodes = repo.collections.iter().enumerate().map(|(index, collection)| {
-        let records = segments[index].iter()
-            .fold(base_active[index].len() as usize, |count, segment| {
-                count.saturating_add(segment.active.len() as usize)
-            });
-        CollectionGraphNode {
-            id: collection.generation.collection,
-            name: collection.definition.name.clone(),
-            generation: revision.0,
-            record_count: records,
-            outgoing: Vec::new(),
-            incoming: Vec::new(),
-        }
-    }).collect::<Vec<_>>();
+    let mut nodes = repo
+        .collections
+        .iter()
+        .enumerate()
+        .map(|(index, collection)| {
+            let records = segments[index]
+                .iter()
+                .fold(base_active[index].len() as usize, |count, segment| {
+                    count.saturating_add(segment.active.len() as usize)
+                });
+            CollectionGraphNode {
+                id: collection.generation.collection,
+                name: collection.definition.name.clone(),
+                generation: revision.0,
+                record_count: records,
+                outgoing: Vec::new(),
+                incoming: Vec::new(),
+            }
+        })
+        .collect::<Vec<_>>();
     let mut edges = Vec::new();
     for (source_index, collection) in repo.collections.iter().enumerate() {
-        for relation in &collection.relations {
+        for relation in collection.relations.iter() {
             let target_index = relation.target_collection.0 as usize;
             nodes[source_index].outgoing.push(relation.id);
             nodes[target_index].incoming.push(relation.id);
@@ -617,11 +622,16 @@ pub(crate) fn collection_graph_segmented(
                 view.record(address)?.ok_or("active graph source retired")?;
                 let (references, _, _, _, _) =
                     view.forward_edges(address, relation.id.ordinal as usize)?;
-                occurrences = occurrences.checked_add(references.len())
+                occurrences = occurrences
+                    .checked_add(references.len())
                     .ok_or("relation occurrence count overflow")?;
                 for (target_id, _) in references {
-                    if view.resolve_id(relation.target_collection, target_id)?.is_none() {
-                        unresolved = unresolved.checked_add(1)
+                    if view
+                        .resolve_id(relation.target_collection, target_id)?
+                        .is_none()
+                    {
+                        unresolved = unresolved
+                            .checked_add(1)
                             .ok_or("relation unresolved count overflow")?;
                     }
                 }
@@ -656,9 +666,12 @@ pub(crate) fn collection_graph_segmented(
         }
     }
     let components = graph_components(nodes.len(), &edges);
-    Ok(CollectionGraph { nodes, edges, components })
+    Ok(CollectionGraph {
+        nodes,
+        edges,
+        components,
+    })
 }
-
 
 fn graph_components(node_count: usize, edges: &[CollectionGraphEdge]) -> Vec<CollectionComponent> {
     let mut forward = vec![Vec::new(); node_count];

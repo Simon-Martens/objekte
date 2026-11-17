@@ -555,8 +555,8 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
             },
             ..Default::default()
         },
@@ -568,7 +568,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         .position(|collection| collection.definition.name == "sources")
         .unwrap();
     let source_segments = &repo.segments[source_index];
-    assert_eq!(source_segments.len(), 2);
+    assert_eq!(source_segments.len(), 257);
     assert_eq!(source_segments[0].index.records[0].slot.0, 0);
     assert_eq!(source_segments[1].index.records[0].slot.0, 0);
 
@@ -657,8 +657,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         std::fs::create_dir_all(root.join(name)).unwrap();
     }
     for number in 0..513 {
-        let (id, title) = if number == 512 {
-            ("T512".to_owned(), "Needle")
+        let (id, title) = if number == 2 {
+            ("T002".to_owned(), "Needle")
         } else {
             (format!("T{number:03}"), "Other")
         };
@@ -670,7 +670,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
     }
     for number in 0..600 {
         let (id, target) = if number == 0 {
-            ("S0".to_owned(), "T512")
+            ("S0".to_owned(), "T002")
         } else {
             (format!("S{number:03}"), "T000")
         };
@@ -686,8 +686,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
             },
             ..Default::default()
         },
@@ -698,7 +698,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         .iter()
         .position(|collection| collection.definition.name == "targets")
         .unwrap();
-    assert_eq!(repo.segments[target_index].len(), 2);
+    assert_eq!(repo.segments[target_index].len(), 257);
     assert_eq!(
         repo.segments[target_index][0].index.records[0]
             .id
@@ -712,7 +712,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             .id
             .0
             .as_ref(),
-        "T512"
+        "T002"
     );
     assert_eq!(repo.segments[target_index][1].index.records[0].slot.0, 0);
 
@@ -769,7 +769,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
                 .iter()
                 .find(|segment| segment.id == address.segment)
                 .unwrap();
-            segment.index.record(address.slot).unwrap().id.0.as_ref() == "S0"
+            segment.index.record(address.slot).unwrap().id.0.as_str() == "S0"
         }));
         assert!(work.target_candidates >= 1);
     }
@@ -777,7 +777,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
 }
 
 #[test]
-fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
+fn relation_fts_counts_distinct_local_slots_across_segments_once() {
     let root = std::env::temp_dir().join(format!(
         "objekte-semijoin-three-segments-{}-{:?}",
         std::process::id(),
@@ -819,8 +819,8 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
             },
             ..Default::default()
         },
@@ -832,13 +832,13 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         .position(|collection| collection.definition.name == "sources")
         .unwrap();
     let source_segments = &repo.segments[source_index];
-    assert_eq!(source_segments.len(), 3);
+    assert_eq!(source_segments.len(), 513);
     assert_eq!(
         source_segments
             .iter()
             .map(|segment| segment.index.records.len())
             .collect::<Vec<_>>(),
-        [512, 512, 1]
+        [vec![2; 512], vec![1]].concat()
     );
     for segment in &source_segments[..2] {
         assert_eq!(segment.index.records[0].slot.0, 0);
@@ -850,7 +850,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
             .map(|segment| segment.id)
             .collect::<HashSet<_>>()
             .len(),
-        3
+        source_segments.len()
     );
     for request in [
         query("entry.title = 'Needle'"),
@@ -1321,7 +1321,7 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .filter(|record| {
                         expected
                             .iter()
-                            .any(|id| id.as_str() == record.id.0.as_ref())
+                            .any(|id| id.as_str() == record.id.0.as_str())
                     })
                     .map(|record| record.slot.0)
                     .collect::<roaring::RoaringBitmap>();

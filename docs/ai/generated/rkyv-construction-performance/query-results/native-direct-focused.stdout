@@ -1,0 +1,6 @@
+Q001 collection=* FTS=Some("Almanach") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 12088.489 / 12455.369 / 13851.450 / 13851.450 µs (min/median/p95/max; ok) | unicode-off: 12652.695 / 12785.685 / 17282.867 / 17282.867 µs (min/median/p95/max; ok)
+Q119 collection=contents FTS=None FILTER=Some("@file.modified >= \"2026-01-01T00:00:00Z\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 4591.284 / 4704.087 / 5119.918 / 5119.918 µs (min/median/p95/max; ok) | unicode-off: 4594.113 / 4607.051 / 9537.908 / 9537.908 µs (min/median/p95/max; ok)
+build "ascii": 0.652 s; parses=148486; resident_bytes=618160128; peak_resident_bytes=661192704; estimated_index_bytes=0
+build "unicode": 0.669 s; parses=148486; resident_bytes=733569024; peak_resident_bytes=751620096; estimated_index_bytes=0
+reports: docs/ai/generated/rkyv-construction-performance/query-results/native-direct-focused
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--profiles" "ascii-off,unicode-off" "--cases" "Q001,Q119" "--repetitions" "3" "--query-workers" "4" "--verified-cache-bytes" "0" "--result-dir" "docs/ai/generated/rkyv-construction-performance/query-results/native-direct-focused"
