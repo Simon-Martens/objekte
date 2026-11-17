@@ -1778,6 +1778,55 @@ pub struct RecordContext<'a> {
     pub repository_root: &'a Path,
 }
 
+pub(crate) enum MetadataOperand<'a> {
+    Null,
+    Text(Cow<'a, str>),
+    Number(i128),
+    Datetime(time::OffsetDateTime),
+}
+
+pub(crate) trait MetadataView {
+    fn metadata_operand(&self, field: MetadataField) -> Result<MetadataOperand<'_>, String>;
+}
+
+impl MetadataView for RecordContext<'_> {
+    fn metadata_operand(&self, field: MetadataField) -> Result<MetadataOperand<'_>, String> {
+        let number = |n: u64| MetadataOperand::Number(n as i128);
+        Ok(match field {
+            MetadataField::RecordId => {
+                MetadataOperand::Text(Cow::Borrowed(self.record.id.0.as_str()))
+            }
+            MetadataField::RecordByteStart => {
+                MetadataOperand::Number(self.record.range.start as i128)
+            }
+            MetadataField::RecordByteEnd => MetadataOperand::Number(self.record.range.end as i128),
+            MetadataField::RecordByteLength => {
+                MetadataOperand::Number(self.record.range.len() as i128)
+            }
+            MetadataField::FileId => number(self.file.id.0 as u64),
+            MetadataField::FilePath => MetadataOperand::Text(
+                crate::path_repr::query_path_borrowed(&self.file.relative_path),
+            ),
+            MetadataField::FileSize => number(self.file.revision.size),
+            MetadataField::FileCreated => self
+                .file
+                .created_ns
+                .map(timestamp_operand)
+                .transpose()?
+                .unwrap_or(MetadataOperand::Null),
+            MetadataField::FileModified => timestamp_operand(self.file.revision.modified_ns)?,
+            MetadataField::FileStatus => MetadataOperand::Number(self.file.status.code() as i128),
+            MetadataField::RecordClass => MetadataOperand::Number(self.record.class.code() as i128),
+            MetadataField::CollectionName => {
+                MetadataOperand::Text(Cow::Borrowed(self.collection_name))
+            }
+            MetadataField::RepositoryRoot => {
+                MetadataOperand::Text(crate::path_repr::query_path_borrowed(self.repository_root))
+            }
+        })
+    }
+}
+
 pub(crate) fn metadata_value(
     field: MetadataField,
     ctx: &RecordContext<'_>,
@@ -1813,6 +1862,175 @@ fn timestamp_value(ns: i128) -> Result<Value, String> {
     time::OffsetDateTime::from_unix_timestamp_nanos(ns)
         .map(Value::Datetime)
         .map_err(|e| e.to_string())
+}
+
+fn timestamp_operand(ns: i128) -> Result<MetadataOperand<'static>, String> {
+    time::OffsetDateTime::from_unix_timestamp_nanos(ns)
+        .map(MetadataOperand::Datetime)
+        .map_err(|e| e.to_string())
+}
+
+fn metadata_text_literal(value: &Value) -> Option<&str> {
+    match value {
+        Value::String(value) | Value::Id(value) => Some(value),
+        _ => None,
+    }
+}
+
+fn compare_metadata_text(text: &str, pattern: &str, op: Operator) -> bool {
+    let order = text.cmp(pattern);
+    match op {
+        Operator::Eq => order.is_eq(),
+        Operator::Ne => !order.is_eq(),
+        Operator::Gt => order.is_gt(),
+        Operator::Ge => !order.is_lt(),
+        Operator::Lt => order.is_lt(),
+        Operator::Le => !order.is_gt(),
+        Operator::Contains => contains_pattern(text, pattern),
+        Operator::NotContains => !contains_pattern(text, pattern),
+    }
+}
+
+fn compare_metadata_literal(
+    operand: &MetadataOperand<'_>,
+    term: &BoundTerm,
+) -> Result<bool, String> {
+    match operand {
+        MetadataOperand::Null => Ok(compare_scalar(
+            &Value::Null,
+            &term.literal,
+            term.operator,
+            term.transform,
+        )),
+        MetadataOperand::Text(text) => {
+            let Some(pattern) = metadata_text_literal(&term.literal) else {
+                return Ok(false);
+            };
+            if let Some(prepared) = &term.prepared_contains {
+                let found = if term.transform == Transform::CaseFold {
+                    with_folded_candidate_str(text, |folded| {
+                        prepared.matches_bytes(folded.as_bytes())
+                    })
+                } else {
+                    prepared.matches(text, pattern)
+                };
+                return Ok(if term.operator == Operator::Contains {
+                    found
+                } else {
+                    !found
+                });
+            }
+            Ok(match term.transform {
+                Transform::Identity => compare_metadata_text(text, pattern, term.operator),
+                Transform::CaseFold => with_folded_candidate_str(text, |folded| {
+                    compare_folded_text(folded, pattern, term.operator)
+                }),
+            })
+        }
+        MetadataOperand::Number(number) => Ok(compare_scalar(
+            &Value::Number(Number::integer(*number)),
+            &term.literal,
+            term.operator,
+            Transform::Identity,
+        )),
+        MetadataOperand::Datetime(datetime) => Ok(compare_scalar(
+            &Value::Datetime(*datetime),
+            &term.literal,
+            term.operator,
+            Transform::Identity,
+        )),
+    }
+}
+
+fn simple_metadata_comparison(term: &BoundTerm) -> bool {
+    matches!(term.path.root, PathRoot::Metadata(_))
+        && term.derived == Derived::None
+        && !term.multi
+        && term.period.is_none()
+        && term.matcher.is_none()
+        && term.operation.is_none()
+}
+
+fn eval_metadata_scalar(
+    term: &BoundTerm,
+    operand: MetadataOperand<'_>,
+) -> Result<Option<bool>, String> {
+    if !simple_metadata_comparison(term) {
+        return Ok(None);
+    }
+    compare_metadata_literal(&operand, term).map(Some)
+}
+
+fn eval_metadata_field_term(
+    term: &BoundTerm,
+    rhs: &BoundFieldOperand,
+    left: MetadataOperand<'_>,
+    right: MetadataOperand<'_>,
+) -> Result<Option<bool>, String> {
+    if !simple_metadata_comparison(term)
+        || !matches!(rhs.path.root, PathRoot::Metadata(_))
+        || rhs.derived != Derived::None
+        || rhs.multi
+        || rhs.operation.is_some()
+    {
+        return Ok(None);
+    }
+    if matches!(left, MetadataOperand::Null) || matches!(right, MetadataOperand::Null) {
+        return Ok(Some(match (left, right) {
+            (MetadataOperand::Null, MetadataOperand::Null) => term.operator == Operator::Eq,
+            (MetadataOperand::Null, _) | (_, MetadataOperand::Null) => {
+                term.operator == Operator::Ne
+            }
+            _ => unreachable!(),
+        }));
+    }
+    Ok(Some(match (left, right) {
+        (MetadataOperand::Text(left), MetadataOperand::Text(right)) => {
+            let left = match term.transform {
+                Transform::Identity => left,
+                Transform::CaseFold => Cow::Owned(fold(&left)),
+            };
+            let right = match rhs.transform {
+                Transform::Identity => right,
+                Transform::CaseFold => Cow::Owned(fold(&right)),
+            };
+            compare_metadata_text(&left, &right, term.operator)
+        }
+        (MetadataOperand::Number(left), MetadataOperand::Number(right)) => compare_scalar(
+            &Value::Number(Number::integer(left)),
+            &Value::Number(Number::integer(right)),
+            term.operator,
+            Transform::Identity,
+        ),
+        (MetadataOperand::Datetime(left), MetadataOperand::Datetime(right)) => compare_scalar(
+            &Value::Datetime(left),
+            &Value::Datetime(right),
+            term.operator,
+            Transform::Identity,
+        ),
+        _ => false,
+    }))
+}
+
+pub(crate) fn eval_borrowed_metadata_term(
+    term: &BoundTerm,
+    view: &dyn MetadataView,
+) -> Result<Option<bool>, String> {
+    let PathRoot::Metadata(left) = term.path.root else {
+        return Ok(None);
+    };
+    if let Some(rhs) = &term.rhs {
+        let PathRoot::Metadata(right) = rhs.path.root else {
+            return Ok(None);
+        };
+        return eval_metadata_field_term(
+            term,
+            rhs,
+            view.metadata_operand(left)?,
+            view.metadata_operand(right)?,
+        );
+    }
+    eval_metadata_scalar(term, view.metadata_operand(left)?)
 }
 
 fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut impl Extend<&'a Value>) -> bool {
@@ -2183,6 +2401,17 @@ fn eval_field_term(
     rhs: &BoundFieldOperand,
     ctx: &RecordContext<'_>,
 ) -> Result<bool, String> {
+    if let PathRoot::Metadata(left_field) = term.path.root
+        && let PathRoot::Metadata(right_field) = rhs.path.root
+        && let Some(result) = eval_metadata_field_term(
+            term,
+            rhs,
+            ctx.metadata_operand(left_field)?,
+            ctx.metadata_operand(right_field)?,
+        )?
+    {
+        return Ok(result);
+    }
     let paired = term.multi && rhs.multi;
     let Some(left) = scoped_values(
         &term.path,
@@ -2418,6 +2647,9 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
         }
     }
     if let PathRoot::Metadata(field) = term.path.root {
+        if let Some(result) = eval_metadata_scalar(term, ctx.metadata_operand(field)?)? {
+            return Ok(result);
+        }
         if term.derived == Derived::None && !term.multi {
             let value = if field == MetadataField::RecordId && term.transform == Transform::CaseFold
             {

@@ -1960,6 +1960,18 @@ impl FileCatalog {
         self.metadata.get(file_shard_number(file))?.entry(file)
     }
 
+    pub(crate) fn relative_path_query(&self, file: FileId) -> Option<std::borrow::Cow<'_, str>> {
+        let shard = self.metadata.get(file_shard_number(file))?;
+        match &shard.backing {
+            CatalogMetadataBacking::Native { .. } => shard
+                .entry(file)
+                .map(|entry| crate::path_repr::query_path_borrowed(&entry.relative_path)),
+            CatalogMetadataBacking::Archived { .. } => shard
+                .archived_row(file)
+                .map(|row| std::borrow::Cow::Borrowed(crate::archived_path::query(&row.path))),
+        }
+    }
+
     pub(crate) fn entry_owned(&self, file: FileId) -> Option<FileEntry> {
         let shard = self.metadata.get(file_shard_number(file))?;
         crate::storage_usage::StorageWorkCounters::update(|counters| {

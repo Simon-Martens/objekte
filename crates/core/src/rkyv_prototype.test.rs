@@ -1434,6 +1434,83 @@ fn cold_archived_metadata_queries_do_not_materialize_compatibility_rows() {
 }
 
 #[test]
+fn borrowed_metadata_predicates_match_native_and_archive_without_row_copies() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-borrowed-predicates-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, payload) in [
+        (
+            "a",
+            r#"{"id":"a","year":10,"title":"ordinary metadata path"}"#,
+        ),
+        (
+            "b",
+            r#"{"id":"b","year":20,"title":"second record with padding"}"#,
+        ),
+        (
+            "c",
+            r#"{"id":"c","year":30,"title":"third borrowed record"}"#,
+        ),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), payload).unwrap();
+    }
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let filters = [
+        "year >= 20",
+        "@record.id = 'b'",
+        "@record.id = 'missing'",
+        "@file.path = 'data/b.json'",
+        "@file.path ~ 'missing'",
+        "@file.size < @record.byte_length",
+        "@collection.name = 'items'",
+        "@repository.root = @repository.root",
+    ];
+    let native_view = index.view().unwrap();
+    let native = filters
+        .iter()
+        .map(|filter| ids(&native_view, &query(None, Some(filter), 20, 0)))
+        .collect::<Vec<_>>();
+    drop(native_view);
+
+    index.archive().unwrap();
+    let archived_view = index.view().unwrap();
+    let archived = filters
+        .iter()
+        .map(|filter| ids(&archived_view, &query(None, Some(filter), 20, 0)))
+        .collect::<Vec<_>>();
+    assert_eq!(archived, native);
+    drop(archived_view);
+
+    crate::storage_usage::StorageWorkCounters::reset();
+    let active_view = index.view().unwrap();
+    for filter in [
+        "@record.id = 'missing'",
+        "@file.path ~ 'missing'",
+        "@file.size < @record.byte_length",
+    ] {
+        let result = active_view
+            .search(&query(None, Some(filter), 20, 0))
+            .unwrap();
+        assert_eq!(result.count, Some(0), "{filter}");
+    }
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.catalog_row_cache_initializations, 0);
+    assert_eq!(counters.record_row_cache_initializations, 0);
+    assert_eq!(counters.file_row_cache_initializations, 0);
+    assert_eq!(counters.native_compatibility_copies, 0);
+
+    drop(active_view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rkyv_compatibility_row_caches_initialize_once_and_are_shared_by_clones() {
     let root = std::env::temp_dir().join(format!(
         "objekte-rkyv-compat-cache-{}-{}",
@@ -2215,12 +2292,11 @@ fn operation_scoped_worker_failures_leave_index_and_queries_unchanged() {
         crate::lifecycle::install_test_archive_fault_control(Arc::new(
             ArchiveTestFaultControl::new(stage, successes),
         ));
-        let error = match index
-            .archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap())
-        {
-            Err(error) => error,
-            Ok(_) => panic!("{stage:?} fault was not injected"),
-        };
+        let error =
+            match index.archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap()) {
+                Err(error) => error,
+                Ok(_) => panic!("{stage:?} fault was not injected"),
+            };
         crate::lifecycle::clear_test_archive_fault_control();
         assert!(error.to_string().contains("injected"), "{stage:?}: {error}");
         assert_eq!(index.archive_status().unwrap(), before_status);

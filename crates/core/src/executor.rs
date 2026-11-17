@@ -1,5 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
 use std::sync::Arc;
@@ -19,9 +20,11 @@ use crate::model::{
 };
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, MetadataOperand, MetadataView, RecordContext,
+    Transform, eval_borrowed_metadata_term, eval_term,
 };
 use crate::repository::{CollectionState, Repository};
+use crate::segment_archive::SegmentRecordRowRef;
 use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
@@ -274,6 +277,80 @@ fn metadata_probe_record() -> RecordEntry {
     }
 }
 
+struct SegmentConstantMetadataView<'a> {
+    collection_name: &'a str,
+    repository_root: &'a str,
+}
+
+impl MetadataView for SegmentConstantMetadataView<'_> {
+    fn metadata_operand(&self, field: MetadataField) -> Result<MetadataOperand<'_>, String> {
+        match field {
+            MetadataField::CollectionName => {
+                Ok(MetadataOperand::Text(Cow::Borrowed(self.collection_name)))
+            }
+            MetadataField::RepositoryRoot => {
+                Ok(MetadataOperand::Text(Cow::Borrowed(self.repository_root)))
+            }
+            _ => Err("metadata field is not constant over the segment domain".into()),
+        }
+    }
+}
+
+struct SegmentMetadataView<'a> {
+    record: SegmentRecordRowRef<'a>,
+    file_id: FileId,
+    file_path: Option<&'a str>,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+    status: FileStatus,
+    collection_name: &'a str,
+    repository_root: &'a str,
+}
+
+fn metadata_number(value: u128) -> Result<MetadataOperand<'static>, String> {
+    i128::try_from(value)
+        .map(MetadataOperand::Number)
+        .map_err(|_| "metadata number exceeds i128".to_string())
+}
+
+impl MetadataView for SegmentMetadataView<'_> {
+    fn metadata_operand(&self, field: MetadataField) -> Result<MetadataOperand<'_>, String> {
+        Ok(match field {
+            MetadataField::RecordId => MetadataOperand::Text(Cow::Borrowed(self.record.id())),
+            MetadataField::RecordByteStart => metadata_number(self.record.range().start.into())?,
+            MetadataField::RecordByteEnd => metadata_number(self.record.range().end.into())?,
+            MetadataField::RecordByteLength => metadata_number(self.record.range().len().into())?,
+            MetadataField::FileId => metadata_number(self.file_id.0.into())?,
+            MetadataField::FilePath => MetadataOperand::Text(Cow::Borrowed(
+                self.file_path
+                    .ok_or("segment metadata file path is unavailable")?,
+            )),
+            MetadataField::FileSize => metadata_number(self.revision.size.into())?,
+            MetadataField::FileCreated => self
+                .created_ns
+                .map(|value| {
+                    time::OffsetDateTime::from_unix_timestamp_nanos(value)
+                        .map(MetadataOperand::Datetime)
+                        .map_err(|error| error.to_string())
+                })
+                .transpose()?
+                .unwrap_or(MetadataOperand::Null),
+            MetadataField::FileModified => MetadataOperand::Datetime(
+                time::OffsetDateTime::from_unix_timestamp_nanos(self.revision.modified_ns)
+                    .map_err(|error| error.to_string())?,
+            ),
+            MetadataField::FileStatus => metadata_number(self.status.code().into())?,
+            MetadataField::RecordClass => metadata_number(self.record.class().code().into())?,
+            MetadataField::CollectionName => {
+                MetadataOperand::Text(Cow::Borrowed(self.collection_name))
+            }
+            MetadataField::RepositoryRoot => {
+                MetadataOperand::Text(Cow::Borrowed(self.repository_root))
+            }
+        })
+    }
+}
+
 fn segment_file_size_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
@@ -318,10 +395,9 @@ fn segment_file_path_matches(
             .files
             .file_id(index)
             .ok_or("segment file row missing")?;
-        let Some(entry) = catalog.entry_owned(id) else {
+        let Some(path) = catalog.relative_path_query(id) else {
             continue;
         };
-        let path = crate::path_repr::query_path(&entry.relative_path);
         if file_path_matches(&path, operator, literal) {
             extend_segment_file_slots(segment, index, &mut matches)?;
         }
@@ -602,56 +678,48 @@ fn segment_metadata_matches(
     let Some(catalog) = catalog else {
         return Ok(None);
     };
-    let empty = Value::Object(BTreeMap::new());
-    if term.rhs.is_none()
-        && term.transform == Transform::Identity
-        && matches!(
-            term.path.root,
-            PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
-        )
-    {
-        let Some(slot) = domain.iter().next() else {
-            return Ok(Some(RoaringBitmap::new()));
+    let repository_root = crate::path_repr::query_path_borrowed(catalog.repository_root());
+    let constant_term = std::iter::once(&term.path)
+        .chain(term.rhs.as_ref().map(|rhs| &rhs.path))
+        .all(|path| {
+            matches!(
+                path.root,
+                PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
+            )
+        });
+    if constant_term {
+        let view = SegmentConstantMetadataView {
+            collection_name: &collection.definition.name,
+            repository_root: &repository_root,
         };
-        let record = segment
-            .records
-            .record_row(slot as usize)
-            .ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file()) else {
+        let Some(matched) = eval_borrowed_metadata_term(term, &view)? else {
             return Ok(None);
         };
-        let record = RecordEntry {
-            slot: RecordSlot(slot),
-            id: RecordId(Arc::new(record.id().to_owned())),
-            file: record.file(),
-            range: record.range(),
-            revision: crate::inventory::SourceRevision {
-                modified_ns: 0,
-                size: 0,
-            },
-            class: record.class(),
-            diagnostic_ref: record.diagnostic_ref(),
-        };
-        let ctx = RecordContext {
-            value: &empty,
-            source_bytes: None,
-            record: &record,
-            file,
-            collection_name: &collection.definition.name,
-            repository_root: catalog.repository_root(),
-        };
-        return Ok(Some(if eval_term(term, &ctx)? {
+        return Ok(Some(if matched {
             domain.clone()
         } else {
             RoaringBitmap::new()
         }));
     }
-    let needs_record_id = std::iter::once(&term.path)
-        .chain(term.rhs.as_ref().map(|rhs| &rhs.path))
-        .any(|path| path.root == PathRoot::Metadata(MetadataField::RecordId));
     let needs_file_path = std::iter::once(&term.path)
         .chain(term.rhs.as_ref().map(|rhs| &rhs.path))
         .any(|path| path.root == PathRoot::Metadata(MetadataField::FilePath));
+    let file_paths = if needs_file_path {
+        let mut paths = HashMap::with_capacity(segment.file_count());
+        for index in 0..segment.file_count() {
+            let file_id = segment
+                .files
+                .file_id(index)
+                .ok_or("segment file row missing")?;
+            let Some(path) = catalog.relative_path_query(file_id) else {
+                return Ok(None);
+            };
+            paths.insert(file_id, path);
+        }
+        Some(paths)
+    } else {
+        None
+    };
     let mut record = metadata_probe_record();
     let mut file = metadata_probe_file();
     let mut matches = RoaringBitmap::new();
@@ -667,32 +735,11 @@ fn segment_metadata_matches(
         let Some(revision) = segment.files.revision(file_index) else {
             return Ok(None);
         };
-        record.slot = RecordSlot(slot);
-        record.id = if needs_record_id {
-            RecordId(Arc::new(row.id().to_owned()))
-        } else {
-            RecordId(Arc::new(String::new()))
-        };
-        record.file = file_id;
-        record.range = row.range();
-        record.revision = revision;
-        record.class = row.class();
-        record.diagnostic_ref = row.diagnostic_ref();
-        file.id = file_id;
-        file.relative_path = if needs_file_path {
-            let Some(entry) = catalog.entry_owned(file_id) else {
-                return Ok(None);
-            };
-            entry.relative_path
-        } else {
-            SharedPath::from("")
-        };
-        file.revision = revision;
-        file.created_ns = segment
+        let created_ns = segment
             .files
             .created_ns(file_index)
             .ok_or("segment record file row missing")?;
-        file.status = match segment
+        let status = match segment
             .files
             .status_code(file_index)
             .ok_or("segment record file row missing")?
@@ -702,6 +749,52 @@ fn segment_metadata_matches(
             2 => FileStatus::Unreadable,
             _ => return Err("segment file status code is invalid".into()),
         };
+        let view = SegmentMetadataView {
+            record: row,
+            file_id,
+            file_path: file_paths
+                .as_ref()
+                .and_then(|paths| paths.get(&file_id))
+                .map(Cow::as_ref),
+            revision,
+            created_ns,
+            status,
+            collection_name: &collection.definition.name,
+            repository_root: &repository_root,
+        };
+        if let Some(selected) = eval_borrowed_metadata_term(term, &view)? {
+            if selected {
+                matches.insert(slot);
+            }
+            continue;
+        }
+
+        let empty = Value::Object(BTreeMap::new());
+        let row = segment
+            .records
+            .record_row(slot as usize)
+            .ok_or("segment record row missing")?;
+        record.slot = RecordSlot(slot);
+        record.id = RecordId(Arc::new(row.id().to_owned()));
+        record.file = file_id;
+        record.range = row.range();
+        record.revision = revision;
+        record.class = row.class();
+        record.diagnostic_ref = row.diagnostic_ref();
+        file.id = file_id;
+        file.relative_path = if let Some(path) = &view.file_path {
+            SharedPath::from(*path)
+        } else if needs_file_path {
+            let Some(entry) = catalog.entry_owned(file_id) else {
+                return Ok(None);
+            };
+            entry.relative_path
+        } else {
+            SharedPath::from("")
+        };
+        file.revision = revision;
+        file.created_ns = created_ns;
+        file.status = status;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,

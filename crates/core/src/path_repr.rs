@@ -1,6 +1,7 @@
 //! Reversible query representation of native paths. Slash is the separator;
 //! percent escapes encode a literal percent, backslash, and invalid UTF-8 bytes.
 
+use std::borrow::Cow;
 use std::path::Path;
 
 pub fn query_path(path: &Path) -> String {
@@ -60,6 +61,21 @@ pub fn query_path(path: &Path) -> String {
         }
         output
     }
+}
+
+/// Return the query representation without allocating for ordinary Unix paths.
+pub(crate) fn query_path_borrowed(path: &Path) -> Cow<'_, str> {
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStrExt;
+        if let Ok(valid) = std::str::from_utf8(path.as_os_str().as_bytes())
+            && !valid.as_bytes().contains(&b'%')
+            && !valid.as_bytes().contains(&b'\\')
+        {
+            return Cow::Borrowed(valid);
+        }
+    }
+    Cow::Owned(query_path(path))
 }
 
 #[cfg(unix)]
