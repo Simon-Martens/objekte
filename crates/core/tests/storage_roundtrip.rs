@@ -927,6 +927,73 @@ fn full_compaction_after_reopen_does_not_parse_source_files() {
 }
 
 #[test]
+fn mixed_native_archived_cold_compaction_preserves_old_and_current_views() {
+    let root = fixture_root("mixed-compaction");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let old_view = reopened.view().unwrap();
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    let report = reopened
+        .compact_with_options(CompactionOptions {
+            mode: CompactionMode::Full,
+            merge_small_segments: true,
+        })
+        .unwrap();
+    assert!(report.segments_after <= report.segments_before);
+    assert_eq!(old_view.search(&all_records()).unwrap().count, Some(2));
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    reopened.shutdown().unwrap();
+    drop(old_view);
+    drop(reopened);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
     let root = fixture_root("replace-move");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
