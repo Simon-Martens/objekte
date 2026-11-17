@@ -4,7 +4,6 @@ use std::path::Path;
 use std::sync::Arc;
 use std::time::Instant;
 
-use bincode::Options;
 use sha2::{Digest, Sha256};
 
 use crate::lifecycle::{
@@ -27,12 +26,6 @@ struct CurrentRecord {
     manifest_length: u64,
     store_identity: [u8; 16],
     lineage_identity: [u8; 16],
-}
-
-fn bincode_options() -> impl bincode::Options {
-    bincode::DefaultOptions::new()
-        .with_fixint_encoding()
-        .reject_trailing_bytes()
 }
 
 pub(crate) fn archive_index_to(
@@ -169,7 +162,7 @@ fn write_parts(
     };
     let store_identity = binding
         .as_ref()
-        .map_or_else(random_identity, |binding| binding.store_identity);
+        .map_or_else(random_identity, |binding| Ok(binding.store_identity))?;
     let encode_started = Instant::now();
     let mut external_objects = Vec::new();
     let mut snapshot = snapshot_from_parts(parts, generation)?;
@@ -221,22 +214,26 @@ fn write_parts(
             PAYLOAD_OBJECT_KIND as u32,
             &payload,
         ));
-    let snapshot_body = bincode_options()
-        .serialize(&snapshot)
+    let snapshot_body = serde_json::to_vec(&snapshot)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let metadata_chunks = snapshot_body
         .chunks(model::METADATA_CHUNK_BYTES)
         .map(|chunk| {
-            let object = format::envelope(METADATA_CHUNK_OBJECT_KIND, chunk);
+            let chunk = model::MetadataChunk {
+                bytes: chunk.to_vec(),
+            };
+            let body = rkyv::to_bytes::<rkyv::rancor::Error>(&chunk)
+                .map_err(|error| StorageError::Io(error.to_string()))?;
+            let object = format::envelope(METADATA_CHUNK_OBJECT_KIND, &body);
             let digest = format::sha256(&object);
             let length = object.len() as u64;
-            (
+            Ok((
                 digest,
                 object,
                 model::StoredMetadataChunk { digest, length },
-            )
+            ))
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, StorageError>>()?;
     let metadata_manifest = model::MetadataManifest {
         schema_version: model::SNAPSHOT_SCHEMA_VERSION,
         total_length: snapshot_body.len() as u64,
@@ -986,7 +983,7 @@ fn acquire_reader_lease(directory: &Path) -> Result<File, StorageError> {
     Ok(file)
 }
 
-fn random_identity() -> [u8; 16] {
+fn random_identity() -> Result<[u8; 16], StorageError> {
     use std::io::Read;
 
     let mut identity = [0u8; 16];
@@ -994,8 +991,8 @@ fn random_identity() -> [u8; 16] {
         .read(true)
         .open("/dev/urandom")
         .and_then(|mut source| source.read_exact(&mut identity))
-        .expect("Linux /dev/urandom supplies storage identities");
-    identity
+        .map_err(|error| StorageError::Io(format!("/dev/urandom: {error}")))?;
+    Ok(identity)
 }
 
 fn sync_directory(directory: &Path) -> Result<(), StorageError> {

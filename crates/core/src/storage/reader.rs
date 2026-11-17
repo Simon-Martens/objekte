@@ -5,7 +5,6 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::sync::atomic::AtomicU64;
 
-use bincode::Options;
 use serde::Serialize;
 
 use crate::bigram::{
@@ -181,6 +180,11 @@ fn open_snapshot(
     model::validate_snapshot(&snapshot).map_err(StorageError::InvalidFormat)?;
     if !snapshot.complete {
         return Err(StorageError::IncompleteBuild);
+    }
+    if snapshot.lineage_identity != current.lineage_identity {
+        return Err(StorageError::IncompatibleConfiguration(
+            "manifest and CURRENT lineage identities differ".into(),
+        ));
     }
     let root = source_root
         .canonicalize()
@@ -438,12 +442,6 @@ const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_OBJECT_KIND: u16 = 1;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
-
-fn bincode_options() -> impl bincode::Options {
-    bincode::DefaultOptions::new()
-        .with_fixint_encoding()
-        .reject_trailing_bytes()
-}
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -866,7 +864,11 @@ fn read_metadata_snapshot(
         read_count = read_count.saturating_add(1);
         bytes_read = bytes_read.saturating_add(bytes.len() as u64);
         let chunk_body = format::checked_body(&bytes, METADATA_CHUNK_OBJECT_KIND)?;
-        let next_length = body.len().checked_add(chunk_body.len()).ok_or(
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(chunk_body.len());
+        aligned.extend_from_slice(chunk_body);
+        let chunk = rkyv::from_bytes::<model::MetadataChunk, rkyv::rancor::Error>(&aligned)
+            .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
+        let next_length = body.len().checked_add(chunk.bytes.len()).ok_or(
             StorageError::LimitExceeded {
                 limit: limits.total_eager_catalog_bytes,
                 requested: u64::MAX,
@@ -877,15 +879,14 @@ fn read_metadata_snapshot(
                 "metadata chunks exceed the declared body length".into(),
             ));
         }
-        body.extend_from_slice(chunk_body);
+        body.extend_from_slice(&chunk.bytes);
     }
     if body.len() as u64 != manifest.total_length {
         return Err(StorageError::InvalidFormat(
             "metadata chunks do not cover the declared body length".into(),
         ));
     }
-    let snapshot = bincode_options()
-        .deserialize(&body)
+    let snapshot = serde_json::from_slice(&body)
         .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
     Ok((snapshot, manifest, read_count, bytes_read))
 }

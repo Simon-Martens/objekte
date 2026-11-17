@@ -15,6 +15,40 @@ use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 use crate::query::Operator;
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
+mod native_path_serde {
+    use super::*;
+
+    pub(super) fn serialize<S: serde::Serializer>(
+        path: &PathBuf,
+        serializer: S,
+    ) -> Result<S::Ok, S::Error> {
+        #[cfg(unix)]
+        {
+            use std::os::unix::ffi::OsStrExt;
+            path.as_os_str().as_bytes().to_vec().serialize(serializer)
+        }
+        #[cfg(not(unix))]
+        {
+            path.to_string_lossy().into_owned().serialize(serializer)
+        }
+    }
+
+    pub(super) fn deserialize<'de, D: serde::Deserializer<'de>>(
+        deserializer: D,
+    ) -> Result<PathBuf, D::Error> {
+        #[cfg(unix)]
+        {
+            use std::os::unix::ffi::OsStringExt;
+            let bytes = Vec::<u8>::deserialize(deserializer)?;
+            Ok(PathBuf::from(std::ffi::OsString::from_vec(bytes)))
+        }
+        #[cfg(not(unix))]
+        {
+            String::deserialize(deserializer).map(PathBuf::from)
+        }
+    }
+}
+
 /// Append a batch-local bitmap after its final slot base is known. Batch
 /// admission is ordered, so each translated set must follow existing slots.
 pub(crate) fn append_shifted_bitmap(
@@ -656,6 +690,7 @@ impl FileEntry {
 /// Authoritative source-file table shared by collections.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
+    #[serde(with = "native_path_serde")]
     pub root: PathBuf,
     pub files: Arc<Vec<FileEntry>>,
     #[serde(skip)]

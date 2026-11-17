@@ -30,6 +30,11 @@ pub(crate) struct MetadataManifest {
     pub chunks: Vec<StoredMetadataChunk>,
 }
 
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct MetadataChunk {
+    pub bytes: Vec<u8>,
+}
+
 #[derive(Clone, Archive, ArchiveSerialize, ArchiveDeserialize)]
 pub(crate) struct StoredMetadataChunk {
     pub digest: [u8; 32],
