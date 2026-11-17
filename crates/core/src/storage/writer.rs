@@ -133,7 +133,6 @@ fn write_parts(
             ));
         }
         if save_revision == binding.revision
-            && save_representation_generation == binding.representation_generation
             && save_configuration_identity == binding.configuration_identity
         {
             return Ok(StorageWriteReport {

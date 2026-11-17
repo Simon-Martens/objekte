@@ -472,3 +472,98 @@ fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
     reopened_again.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn independent_writers_cannot_overwrite_a_nonempty_store() {
+    let root = fixture_root("writer-conflict");
+    let first = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    first
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(first);
+
+    let second = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let error = second
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap_err();
+    assert!(
+        error.to_string().contains("storage conflict"),
+        "unexpected conflict error: {error}"
+    );
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let no_change = reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    assert!(no_change.unchanged);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn corrupt_current_and_missing_lazy_objects_have_distinct_outcomes() {
+    let root = fixture_root("corruption");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let current_path = root.join("storage/CURRENT");
+    let current = std::fs::read(&current_path).unwrap();
+    std::fs::write(&current_path, [b'X'; 128]).unwrap();
+    let error = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .err()
+    .expect("bad CURRENT must fail");
+    assert!(error.to_string().contains("CURRENT"));
+    std::fs::write(&current_path, current).unwrap();
+
+    let posting = object_with_kind(&root.join("storage"), 3);
+    std::fs::remove_file(&posting).unwrap();
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+    let error = reopened
+        .view()
+        .unwrap()
+        .search(&request)
+        .expect_err("a missing selected payload must fail the query");
+    assert!(error.contains("No such file") || error.contains("cannot find"));
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+

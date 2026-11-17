@@ -11306,6 +11306,15 @@ fn try_stored_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
+    if prepared
+        .collections
+        .iter()
+        .any(|(index, _, fts)| {
+            fts.is_some() && repo.collections[*index].raw.is_stored()
+        })
+    {
+        return Ok(None);
+    }
     for (collection_index, _, _) in &prepared.collections {
         repo.collections[*collection_index]
             .sorting

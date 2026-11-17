@@ -2689,15 +2689,20 @@ fn prepare_fts_accesses<'a, 'b>(
         {
             return None;
         }
-        probes.push(TextProbe {
-            index: indexes.raw_text,
-            request: &fts.gram_request,
-        });
-        if has_fallback {
+        if indexes.raw_text.record_count != 0 {
+            probes.push(TextProbe {
+                index: indexes.raw_text,
+                request: &fts.gram_request,
+            });
+        }
+        if has_fallback && indexes.fallback_text.record_count != 0 {
             probes.push(TextProbe {
                 index: indexes.fallback_text,
                 request: &fts.fallback_gram_request,
             });
+        }
+        if probes.is_empty() {
+            return None;
         }
         if regex.is_none() {
             fts.literal.len() as f64
@@ -2724,10 +2729,16 @@ fn prepare_fts_accesses<'a, 'b>(
                 logical_text_complete,
                 raw_field_compatible,
             )?;
+            if index.record_count == 0 {
+                continue;
+            }
             probes.push(TextProbe {
                 index,
                 request: &field.gram_request,
             });
+        }
+        if probes.is_empty() {
+            return None;
         }
         if regex.is_none() {
             fts.fields
@@ -2771,7 +2782,7 @@ pub(crate) fn estimate_fts_candidates(
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
     let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
+    let prepared = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -2779,8 +2790,10 @@ pub(crate) fn estimate_fts_candidates(
         collection.logical_records.len() != collection.generation.records.len() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?
-    .estimate()
+    )?;
+    prepared
+        .estimate()
+        .filter(|(count, _)| *count != 0)
 }
 
 #[cfg(test)]
