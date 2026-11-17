@@ -613,6 +613,15 @@ fn append_bigram_leaf(
     pack: &mut Vec<u8>,
     bitmap: &roaring::RoaringBitmap,
 ) -> Result<crate::bigram::StoredBigramLeafRef, StorageError> {
+    if bitmap.is_empty() {
+        return Ok(crate::bigram::StoredBigramLeafRef {
+            offset: 0,
+            length: 0,
+            cardinality: 0,
+            decoded_bytes_estimate: 0,
+            digest: [0; 32],
+        });
+    }
     align_object(pack);
     let offset = pack.len() as u64;
     let start = pack.len();
@@ -685,6 +694,15 @@ fn append_posting_leaf(
     pack: &mut Vec<u8>,
     bitmap: &roaring::RoaringBitmap,
 ) -> Result<crate::posting::StoredPostingLeafRef, String> {
+    if bitmap.is_empty() {
+        return Ok(crate::posting::StoredPostingLeafRef {
+            offset: 0,
+            length: 0,
+            cardinality: 0,
+            decoded_bytes_estimate: 0,
+            digest: [0; 32],
+        });
+    }
     align_object(pack);
     let offset = pack.len() as u64;
     let start = pack.len();
@@ -1324,4 +1342,62 @@ fn stable_lineage(configuration: &[u8; 32], root: &str) -> [u8; 16] {
     hash.update(root.as_bytes());
     let digest = hash.finalize();
     digest[..16].try_into().expect("fixed lineage length")
+}
+
+#[cfg(test)]
+mod tests {
+    use roaring::RoaringBitmap;
+
+    use super::{append_bigram_leaf, append_posting_leaf, format};
+
+    fn variants() -> Vec<RoaringBitmap> {
+        let sparse = RoaringBitmap::from_iter([1, 65_536, 1_000_000]);
+        let dense = (0..70_000).collect::<RoaringBitmap>();
+        let alternating = (0..20_000)
+            .filter(|value| value % 2 == 0)
+            .collect::<RoaringBitmap>();
+        vec![sparse, dense, alternating]
+    }
+
+    #[test]
+    fn posting_leaf_codec_round_trips_roaring_container_shapes() {
+        let mut pack = format::envelope(3, &[]);
+        for bitmap in variants() {
+            let reference = append_posting_leaf(&mut pack, &bitmap).unwrap();
+            let start = reference.offset as usize;
+            let end = start + reference.length as usize;
+            let decoded = RoaringBitmap::deserialize_from(&mut &pack[start..end]).unwrap();
+            assert_eq!(decoded, bitmap);
+            assert_eq!(reference.cardinality, bitmap.len());
+            assert_eq!(reference.digest, format::sha256(&pack[start..end]));
+        }
+    }
+
+    #[test]
+    fn empty_posting_and_bigram_leaves_are_canonical_and_read_no_bytes() {
+        let empty = RoaringBitmap::new();
+        let mut pack = format::envelope(3, &[]);
+        let original_len = pack.len();
+        let posting = append_posting_leaf(&mut pack, &empty).unwrap();
+        let bigram = append_bigram_leaf(&mut pack, &empty).unwrap();
+        assert_eq!(pack.len(), original_len);
+        assert_eq!(
+            (
+                posting.offset,
+                posting.length,
+                posting.cardinality,
+                posting.digest
+            ),
+            (0, 0, 0, [0; 32])
+        );
+        assert_eq!(
+            (
+                bigram.offset,
+                bigram.length,
+                bigram.cardinality,
+                bigram.digest
+            ),
+            (0, 0, 0, [0; 32])
+        );
+    }
 }

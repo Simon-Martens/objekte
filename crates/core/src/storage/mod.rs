@@ -152,6 +152,7 @@ pub struct StorageStatus {
     pub eager_record_rows: usize,
     pub eager_index_descriptors: usize,
     pub eager_leaf_rows: usize,
+    pub open_pack_handles: usize,
     pub stored_objects: usize,
     pub referenced_bytes: u64,
     pub cache: crate::storage::format::CacheStatus,
@@ -293,8 +294,15 @@ pub(crate) struct StorageSession {
     max_concurrent_reads: usize,
     reads_in_flight: Mutex<usize>,
     reads_available: Condvar,
+    pack_handles: Mutex<PackHandleCache>,
     index_reads: std::sync::atomic::AtomicU64,
     index_bytes: std::sync::atomic::AtomicU64,
+}
+
+#[derive(Default)]
+struct PackHandleCache {
+    handles: std::collections::HashMap<([u8; 32], u16), Arc<std::fs::File>>,
+    order: std::collections::VecDeque<([u8; 32], u16)>,
 }
 
 pub(crate) struct ReadPermit<'a> {
@@ -351,6 +359,47 @@ impl StorageSession {
         }
         *in_flight += 1;
         Ok(ReadPermit { session: self })
+    }
+
+    pub(crate) fn open_pack_handle(
+        &self,
+        digest: [u8; 32],
+        kind: u16,
+    ) -> Result<Arc<std::fs::File>, String> {
+        let key = (digest, kind);
+        let mut cache = self
+            .pack_handles
+            .lock()
+            .map_err(|_| "storage pack handle cache lock poisoned".to_string())?;
+        if let Some(file) = cache.handles.get(&key).cloned() {
+            if let Some(position) = cache.order.iter().position(|candidate| *candidate == key) {
+                cache.order.remove(position);
+            }
+            cache.order.push_back(key);
+            return Ok(file);
+        }
+        let path = self
+            .directory
+            .join("objects")
+            .join(crate::storage::format::object_file_name(&digest, kind));
+        let file = Arc::new(
+            std::fs::File::open(&path).map_err(|error| format!("{}: {error}", path.display()))?,
+        );
+        while cache.handles.len() >= 64 {
+            let Some(evicted) = cache.order.pop_front() else {
+                break;
+            };
+            cache.handles.remove(&evicted);
+        }
+        cache.handles.insert(key, Arc::clone(&file));
+        cache.order.push_back(key);
+        Ok(file)
+    }
+
+    pub(crate) fn open_pack_handle_count(&self) -> usize {
+        self.pack_handles
+            .lock()
+            .map_or(0, |cache| cache.handles.len())
     }
 }
 

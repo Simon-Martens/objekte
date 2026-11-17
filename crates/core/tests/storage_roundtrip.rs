@@ -15,6 +15,7 @@ use objekte_search_core::storage::{
     prune,
 };
 use objekte_search_core::workload::{ReturnMode, SortField};
+use sha2::{Digest, Sha256};
 
 fn fixture_root(label: &str) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
@@ -38,6 +39,19 @@ fn fixture_root(label: &str) -> std::path::PathBuf {
     )
     .unwrap();
     root
+}
+
+fn copy_tree(source: &std::path::Path, target: &std::path::Path) {
+    std::fs::create_dir_all(target).unwrap();
+    for entry in std::fs::read_dir(source).unwrap() {
+        let entry = entry.unwrap();
+        let destination = target.join(entry.file_name());
+        if entry.file_type().unwrap().is_dir() {
+            copy_tree(&entry.path(), &destination);
+        } else {
+            std::fs::copy(entry.path(), destination).unwrap();
+        }
+    }
 }
 
 fn definitions() -> Vec<CollectionDefinition> {
@@ -1042,6 +1056,73 @@ fn lazy_payload_read_limits_fail_at_selection_not_open() {
         .expect_err("an oversized selected frame must fail");
     assert!(error.contains("limit is 1"), "{error}");
     reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn current_header_rejects_magic_version_flags_length_and_checksum_errors() {
+    let root = fixture_root("current-matrix");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let original = std::fs::read(root.join("storage/CURRENT")).unwrap();
+    for case in 0..5 {
+        let clone = root.join(format!("clone-{case}"));
+        copy_tree(&root.join("storage"), &clone);
+        let mut current = original.clone();
+        match case {
+            0 => current[..8].copy_from_slice(b"BADMAGIC"),
+            1 => current[8..12].copy_from_slice(&2u32.to_le_bytes()),
+            2 => current[12..16].copy_from_slice(&1u32.to_le_bytes()),
+            3 => current[56..64].copy_from_slice(&1u64.to_le_bytes()),
+            4 => current[32] ^= 0xff,
+            _ => unreachable!(),
+        }
+        if case != 4 {
+            let checksum = Sha256::digest(&current[..96]);
+            current[96..].copy_from_slice(&checksum);
+        }
+        std::fs::write(clone.join("CURRENT"), current).unwrap();
+        assert!(
+            Index::open_storage(
+                &root,
+                definitions(),
+                RepositoryOptions::default(),
+                &clone,
+                StorageOpenOptions::default(),
+            )
+            .is_err(),
+            "CURRENT corruption case {case} was accepted"
+        );
+        std::fs::remove_dir_all(clone).unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn corrupt_eager_catalog_chunk_fails_open_before_publication() {
+    let root = fixture_root("catalog-corrupt");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let chunk = object_with_kind(&root.join("storage"), 6);
+    let mut bytes = std::fs::read(&chunk).unwrap();
+    bytes[64] ^= 0xff;
+    std::fs::write(chunk, bytes).unwrap();
+    assert!(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .is_err()
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -2077,6 +2158,133 @@ fn normal_skip_and_raw_fallback_fts_match_after_reopen() {
         assert_eq!(actual.count, expected.count);
         assert_eq!(actual.hits, expected.hits);
     }
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn empty_fts_intersection_stops_before_loading_every_gram_leaf() {
+    let root = fixture_root("fts-empty-intersection");
+    for (name, title) in [("a", "abcdef"), ("b", "efgh"), ("c", "ghijkl")] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"id":"{name}","title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let mut request = all_records();
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "abcdefgh".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(0)
+    );
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.index_reads < cold.index_reads + 9);
+    assert!(warm.cache.loaded_families < 7);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn pack_handle_cache_stays_bounded_while_selected_columns_load() {
+    let root = fixture_root("handle-cache");
+    std::fs::remove_file(root.join("data/a.json")).unwrap();
+    std::fs::remove_file(root.join("data/b.json")).unwrap();
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let mut document = serde_json::Map::new();
+    document.insert("id".into(), serde_json::Value::String("a".into()));
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    for number in 0..70 {
+        let name = format!("f{number}");
+        document.insert(
+            name.clone(),
+            serde_json::Value::String(format!("value {number}")),
+        );
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.clone()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+        definition
+            .sort_fields
+            .push(objekte_search_core::model::FieldPath::parse(&name).unwrap());
+    }
+    std::fs::write(
+        root.join("data/a.json"),
+        serde_json::to_vec(&document).unwrap(),
+    )
+    .unwrap();
+    let definitions = vec![definition];
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    for number in 0..70 {
+        let mut request = all_records();
+        request.options.sort = vec![SortField::simple(format!("f{number}"), false)];
+        request.options.count = false;
+        assert_eq!(
+            reopened
+                .view()
+                .unwrap()
+                .search(&request)
+                .unwrap()
+                .hits
+                .len(),
+            1
+        );
+    }
+    let status = reopened.storage_status().unwrap();
+    assert!(status.open_pack_handles > 0);
+    assert!(status.open_pack_handles <= 64);
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

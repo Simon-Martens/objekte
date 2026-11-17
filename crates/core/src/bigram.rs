@@ -655,13 +655,12 @@ impl BigramIndex {
                 leaves.push((skip, key, *reference));
             }
             leaves.sort_by_key(|(_, _, reference)| reference.cardinality);
-            let references = leaves
-                .iter()
-                .map(|(_, _, reference)| *reference)
-                .collect::<Vec<_>>();
-            let bitmaps = this.load_stored_leaves_checked(&references)?;
             let mut result: Option<RoaringBitmap> = None;
-            for bitmap in bitmaps {
+            for (_, _, reference) in leaves {
+                let bitmap = this
+                    .load_stored_leaves_checked(&[reference])?
+                    .pop()
+                    .expect("one selected gram leaf was requested");
                 result = Some(match result {
                     Some(mut current) => {
                         current &= bitmap.as_ref();
@@ -807,10 +806,7 @@ impl BigramIndex {
             if bitmap.len() != reference.cardinality {
                 return Err("stored bigram leaf cardinality mismatch".into());
             }
-            if bitmap
-                .max()
-                .is_some_and(|slot| slot >= self.record_count)
-            {
+            if bitmap.max().is_some_and(|slot| slot >= self.record_count) {
                 return Err("stored bigram leaf contains a slot outside its domain".into());
             }
         }

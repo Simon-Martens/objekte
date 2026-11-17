@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 use std::fs::{self, File, OpenOptions};
-use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::sync::atomic::AtomicU64;
@@ -215,6 +214,7 @@ fn open_snapshot(
         max_concurrent_reads: options.max_concurrent_reads.get(),
         reads_in_flight: std::sync::Mutex::new(0),
         reads_available: std::sync::Condvar::new(),
+        pack_handles: std::sync::Mutex::new(Default::default()),
         index_reads: AtomicU64::new(metadata_reads),
         index_bytes: AtomicU64::new(metadata_bytes),
     });
@@ -519,6 +519,12 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
         &self,
         reference: &StoredPostingLeafRef,
     ) -> Result<roaring::RoaringBitmap, String> {
+        if reference.length == 0 {
+            if reference.offset != 0 || reference.cardinality != 0 || reference.digest != [0; 32] {
+                return Err("canonical empty posting leaf has inconsistent metadata".into());
+            }
+            return Ok(roaring::RoaringBitmap::new());
+        }
         let cache_key = (reference.digest, reference.offset, POSTING_LEAF_KIND);
         if let Some(bitmap) = self
             .pack
@@ -557,7 +563,7 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
 struct StoredPostingPack {
     session: SharedStorageSession,
     reference: StoredPostingPayloadRef,
-    file: File,
+    file: Arc<File>,
 }
 
 impl StoredPostingPack {
@@ -565,17 +571,10 @@ impl StoredPostingPack {
         session: SharedStorageSession,
         reference: StoredPostingPayloadRef,
     ) -> Result<Self, String> {
-        let path = session
-            .directory()
-            .join("objects")
-            .join(format::object_file_name(
-                &reference.digest,
-                POSTING_PAYLOAD_OBJECT_KIND,
-            ));
-        let mut file = File::open(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+        let file = session.open_pack_handle(reference.digest, POSTING_PAYLOAD_OBJECT_KIND)?;
         if file
             .metadata()
-            .map_err(|error| format!("{}: {error}", path.display()))?
+            .map_err(|error| format!("stored posting pack: {error}"))?
             .len()
             != reference.length
         {
@@ -583,8 +582,8 @@ impl StoredPostingPack {
         }
         let mut envelope = [0u8; format::ENVELOPE_LEN];
         let permit = session.acquire_read_permit()?;
-        file.read_exact(&mut envelope)
-            .map_err(|error| format!("{}: {error}", path.display()))?;
+        read_exact_at(&file, &mut envelope, 0)
+            .map_err(|error| format!("stored posting pack: {error}"))?;
         drop(permit);
         format::checked_body(&envelope, POSTING_PAYLOAD_OBJECT_KIND)
             .map_err(|error| error.to_string())?;
@@ -711,6 +710,16 @@ impl BigramLeafLoader for StoredBigramLeafAccess {
         let mut decoded = vec![None; references.len()];
         let mut missing = Vec::new();
         for (index, reference) in references.iter().enumerate() {
+            if reference.length == 0 {
+                if reference.offset != 0
+                    || reference.cardinality != 0
+                    || reference.digest != [0; 32]
+                {
+                    return Err("canonical empty bigram leaf has inconsistent metadata".into());
+                }
+                decoded[index] = Some(Arc::new(roaring::RoaringBitmap::new()));
+                continue;
+            }
             let cache_key = (
                 reference.digest,
                 reference.offset,
@@ -835,7 +844,7 @@ impl StoredBigramLeafAccess {
 struct StoredBigramPack {
     session: SharedStorageSession,
     reference: StoredBigramPayloadRef,
-    file: File,
+    file: Arc<File>,
 }
 
 impl StoredBigramPack {
@@ -844,14 +853,10 @@ impl StoredBigramPack {
         reference: StoredBigramPayloadRef,
         kind: u16,
     ) -> Result<Self, String> {
-        let path = session
-            .directory()
-            .join("objects")
-            .join(format::object_file_name(&reference.digest, kind));
-        let mut file = File::open(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+        let file = session.open_pack_handle(reference.digest, kind)?;
         let file_length = file
             .metadata()
-            .map_err(|error| format!("{}: {error}", path.display()))?
+            .map_err(|error| format!("stored bigram pack: {error}"))?
             .len();
         if file_length != reference.length {
             return Err(format!(
@@ -862,8 +867,8 @@ impl StoredBigramPack {
         }
         let mut envelope = [0u8; format::ENVELOPE_LEN];
         let permit = session.acquire_read_permit()?;
-        file.read_exact(&mut envelope)
-            .map_err(|error| format!("{}: {error}", path.display()))?;
+        read_exact_at(&file, &mut envelope, 0)
+            .map_err(|error| format!("stored bigram pack: {error}"))?;
         drop(permit);
         format::checked_body(&envelope, kind).map_err(|error| error.to_string())?;
         session
@@ -1110,14 +1115,22 @@ fn read_checked_object(
         return Ok(bytes.as_ref().to_vec());
     }
     session.cache().record_miss();
-    let path = session
-        .directory()
-        .join("objects")
-        .join(format::object_file_name(&digest, kind));
-    let permit = session.acquire_read_permit()?;
-    if matches!(kind, SORT_COLUMN_OBJECT_KIND | SORT_ORDER_OBJECT_KIND) {
+    let file = session.open_pack_handle(digest, kind)?;
+    let file_length = file
+        .metadata()
+        .map_err(|error| format!("storage object {}: {error}", format::hex(&digest)))?
+        .len();
+    if file_length != length {
+        return Err(format!(
+            "object {} length mismatch: expected {length}, got {file_length}",
+            format::hex(&digest)
+        ));
     }
-    let bytes = fs::read(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+    let capacity = usize::try_from(length).map_err(|_| "storage object is too large")?;
+    let mut bytes = vec![0u8; capacity];
+    let permit = session.acquire_read_permit()?;
+    read_exact_at(&file, &mut bytes, 0)
+        .map_err(|error| format!("storage object {}: {error}", format::hex(&digest)))?;
     drop(permit);
     session
         .index_reads
@@ -1125,18 +1138,11 @@ fn read_checked_object(
     session
         .index_bytes
         .fetch_add(bytes.len() as u64, std::sync::atomic::Ordering::AcqRel);
-    if bytes.len() as u64 != length {
-        return Err(format!(
-            "object {} length mismatch: expected {length}, got {}",
-            format::hex(&digest),
-            bytes.len()
-        ));
-    }
     if format::sha256(&bytes) != digest {
         return Err(format!("object {} checksum mismatch", format::hex(&digest)));
     }
     let body = format::checked_body(&bytes, kind)
-        .map_err(|error| error.to_string())?
+        .map_err(|error| format!("object {} kind {kind}: {error}", format::hex(&digest)))?
         .to_vec();
     session.cache().insert(cache_key, Arc::from(body.clone()));
     Ok(body)
@@ -1508,6 +1514,7 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         eager_record_rows: snapshot.counters.eager_record_rows as usize,
         eager_index_descriptors: snapshot.counters.eager_index_descriptors as usize,
         eager_leaf_rows: snapshot.counters.eager_leaf_rows as usize,
+        open_pack_handles: session.open_pack_handle_count(),
         stored_objects: snapshot
             .stored_objects
             .len()

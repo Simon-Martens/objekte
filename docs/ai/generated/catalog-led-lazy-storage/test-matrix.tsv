@@ -10,10 +10,10 @@ S08	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_sele
 S09	pass	storage_roundtrip::presence_and_null_queries_do_not_open_value_or_text_payloads	Presence and scalar-null queries use eager state masks with no lazy payload reads.
 S10	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Selected FTS dictionaries and gram leaves load after reopen.
 S11	pass	storage_roundtrip::missing_stored_fts_gram_skips_all_leaf_reads	Missing gram returns empty without sibling leaf retention.
-S12	pending	none	Early empty-intersection stopping is implemented but not isolated by a test.
+S12	pass	storage_roundtrip::empty_fts_intersection_stops_before_loading_every_gram_leaf	FTS loads gram leaves in cardinality order and skips the remaining gram after an empty intersection.
 S13	pass	storage_roundtrip::selected_sort_loads_only_its_configured_column_frame	A selected title sort loads its key/order frames while the separately configured id column remains cold.
 S14	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Repeated FTS query adds no index reads.
-S15	pending	none	Empty-leaf behavior exists, but all Roaring container forms lack a storage round-trip matrix.
+S15	pass	storage::writer::tests::posting_leaf_codec_round_trips_roaring_container_shapes	Empty leaves are canonical zero-length references; sparse, dense and alternating container shapes round-trip through the leaf codec.
 S16	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Selected FTS and posting leaf requests admit only requested leaves; an equality filter retains exactly one posting leaf.
 S17	pass	storage_roundtrip::zero_one_and_many_record_file_associations_round_trip	Zero-, one- and multi-record files retain path, membership and record associations after reopen.
 S18	pass	storage_roundtrip::duplicate_record_ids_stay_collection_scoped_after_reopen	Identical RecordIds remain scoped to their source collections before and after reopen.
@@ -41,7 +41,7 @@ S39	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloa
 S40	pending	none	Native group eviction/reclamation is not allocator-verified.
 S41	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its lease and lazy-loads after root replacement and Index drop.
 S42	pending	none	Posting component-domain cache-key isolation is pending.
-S43	pending	none	Bounded pack-handle cache and active-read survival need a test.
+S43	pass	storage_roundtrip::pack_handle_cache_stays_bounded_while_selected_columns_load	Seventy selected column frames leave at most 64 cached descriptors; active reads retain Arc handles across eviction.
 S44	pending	none	Mutation/save concurrency needs deterministic barrier coverage.
 S45	pending	none	Completion callbacks re-entering save are tested outside the storage matrix only.
 S46	pending	none	Warm native disk-bypass counters need a storage test.
@@ -57,8 +57,8 @@ S55	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchange
 S56	pass	storage_roundtrip::a_reopened_store_exports_a_self_contained_fresh_snapshot	Exported cold FTS payloads reopen after the original store is moved offline.
 S57	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Failure separation is covered; every mutation failure point is pending.
 S58	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Thirty-two cycles of add/update/move/delete with checkpoints every eight cycles match independent fresh builds.
-S59	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	CURRENT corruption is covered; full magic/flags/length matrix is pending.
-S60	pending	none	Eager catalog corruption and invalid cross-catalog routes need more cases.
+S59	pass	storage_roundtrip::current_header_rejects_magic_version_flags_length_and_checksum_errors	Magic, version, flags, manifest length and checksum mutations are all rejected before publication.
+S60	partial	storage_roundtrip::corrupt_eager_catalog_chunk_fails_open_before_publication	Eager chunk digest corruption fails open; malformed cross-catalog route cases remain.
 S61	pass	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Missing lazy payload does not affect eager open and fails when selected.
 S62	partial	none	Dictionary/frame checks exist but reverse-directory disagreement lacks a storage test.
 S63	pending	none	Per-leaf Roaring checksum/cardinality/domain checks exist; malformed trailing-byte matrix is pending.
