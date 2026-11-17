@@ -200,6 +200,31 @@ fn write_parts(
         {
             entries.entry(entry.id).or_insert(entry);
         }
+        let max_file_id = entries.keys().map(|id| id.0).max().unwrap_or(0);
+        let collection = snapshot
+            .collections
+            .first()
+            .map(|collection| collection.generation.collection)
+            .unwrap_or(crate::model::CollectionId(0));
+        for number in 0..=max_file_id {
+            entries
+                .entry(crate::model::FileId(number))
+                .or_insert_with(|| crate::inventory::FileEntry {
+                    id: crate::model::FileId(number),
+                    relative_path: crate::inventory::SharedPath::from(std::path::PathBuf::from(
+                        format!(".objekte/retired/{number}.json"),
+                    )),
+                    revision: crate::inventory::SourceRevision {
+                        modified_ns: 0,
+                        size: 0,
+                    },
+                    created_ns: None,
+                    collections: vec![collection],
+                    status: crate::inventory::FileStatus::Valid,
+                    diagnostics: Vec::new(),
+                    omitted_diagnostics: 0,
+                });
+        }
         snapshot.files = crate::inventory::FileInventory::from_restored_entries(
             snapshot.files.root.clone(),
             Arc::new(entries.into_values().collect()),
