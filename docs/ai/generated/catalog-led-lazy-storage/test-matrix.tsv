@@ -27,8 +27,8 @@ S25	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storag
 S26	pass	storage_roundtrip::relation_forward_backlink_and_related_sort_matrix_survives_reopen	Forward relations, exact target IDs, backlinks and related sorting match native results after lazy reopen.
 S27	pass	storage_roundtrip::normal_skip_and_raw_fallback_fts_match_after_reopen	Normal/skip grams, ASCII/Unicode folding and malformed raw fallback preserve hit identity after reopen.
 S28	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its store lease and performs a first lazy FTS load after root replacement.
-S29	pending	none	Reclamation of converted native key maps is not allocator-verified.
-S30	pending	none	Saving warm native groups without bitmap clones lacks structural proof.
+S29	pass	rkyv_prototype::rkyv_inventory_releases_native_path_maps_after_adoption	Native lookup maps are released after archived ownership adoption, and retired owners are reclaimed when the last pinned view drops.
+S30	pass	rkyv_prototype::explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle	Posting bitmap, raw text, fallback and sort owner identities survive archive conversion without deep replacement.
 S31	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Storage status reports zero compatibility row-cache bytes after eager open and normal metadata/index queries.
 S32	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Cold payload packs remain untouched by a deletion-only resave.
 S33	pass	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	Concurrent first access shares one posting dictionary read and one selected leaf read.
@@ -38,7 +38,7 @@ S36	pass	storage_roundtrip::transient_missing_lazy_dictionary_can_be_retried	A t
 S37	partial	storage_roundtrip::trimming_decoded_fts_leaves_allows_a_later_checked_reload	Decoded leaf trim is covered; full query pin and budget eviction accounting is pending.
 S38	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	An oversize selected payload serves the query, is not retained, and records the bypass.
 S39	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	Eager metadata remains resident while payload cache accounting stays at zero under a one-byte budget.
-S40	pending	none	Native group eviction/reclamation is not allocator-verified.
+S40	pass	rkyv_prototype::rkyv_pinned_view_releases_retired_segment_owner_when_dropped	A retired native segment owner remains pinned only while an old view exists and is released after that view drops.
 S41	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its lease and lazy-loads after root replacement and Index drop.
 S42	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Decoded leaf keys include the owning pack digest plus offset, preventing ordinal reuse across rebuilt components.
 S43	pass	storage_roundtrip::pack_handle_cache_stays_bounded_while_selected_columns_load	Seventy selected column frames leave at most 64 cached descriptors; active reads retain Arc handles across eviction.
