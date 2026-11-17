@@ -568,12 +568,37 @@ impl Hash for SharedPath {
     }
 }
 
+#[cfg(unix)]
+impl Serialize for SharedPath {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        use std::os::unix::ffi::OsStrExt;
+
+        self.as_path()
+            .as_os_str()
+            .as_bytes()
+            .to_vec()
+            .serialize(serializer)
+    }
+}
+
+#[cfg(not(unix))]
 impl Serialize for SharedPath {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         self.as_path().to_path_buf().serialize(serializer)
     }
 }
 
+#[cfg(unix)]
+impl<'de> Deserialize<'de> for SharedPath {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        use std::os::unix::ffi::OsStringExt;
+
+        let bytes = Vec::<u8>::deserialize(deserializer)?;
+        Ok(std::ffi::OsString::from_vec(bytes).into())
+    }
+}
+
+#[cfg(not(unix))]
 impl<'de> Deserialize<'de> for SharedPath {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
         PathBuf::deserialize(deserializer).map(Self::from)

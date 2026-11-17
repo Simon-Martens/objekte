@@ -701,6 +701,48 @@ fn concurrent_first_use_shares_one_stored_posting_load() {
 }
 
 #[test]
+#[cfg(unix)]
+fn non_utf8_source_paths_round_trip_without_loss() {
+    use std::os::unix::ffi::OsStringExt;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-storage-nonutf-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root
+        .join("data")
+        .join(std::ffi::OsString::from_vec(b"bad-\xff.json".to_vec()));
+    std::fs::write(&path, br#"{"id":"bad","title":"Lossless token"}"#).unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert!(
+        reopened
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .is_some()
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_text_payload_reopens_lazily_and_preserves_results() {
     let root = fixture_root("fts");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
