@@ -370,6 +370,8 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     .unwrap();
     let cold = reopened.storage_status().unwrap();
     assert_eq!(cold.index_reads, 2);
+    assert_eq!(cold.compatibility_file_row_bytes, 0);
+    assert_eq!(cold.compatibility_record_row_bytes, 0);
 
     let mut request = all_records();
     request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
@@ -2383,6 +2385,94 @@ fn pack_handle_cache_stays_bounded_while_selected_columns_load() {
     let status = reopened.storage_status().unwrap();
     assert!(status.open_pack_handles > 0);
     assert!(status.open_pack_handles <= 64);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn multi_segment_file_replacement_retires_every_old_record_after_reopen() {
+    let root = fixture_root("multi-segment-replace");
+    std::fs::remove_file(root.join("data/a.json")).unwrap();
+    std::fs::remove_file(root.join("data/b.json")).unwrap();
+    for name in ["a", "b", "c"] {
+        std::fs::write(
+            root.join(format!("data/{name}.jsonl")),
+            format!("{{\"id\":\"{name}\",\"title\":\"Old {name} token\"}}\n"),
+        )
+        .unwrap();
+    }
+    let options = RepositoryOptions {
+        segment_policy: objekte_search_core::native_segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+        },
+        ..RepositoryOptions::default()
+    };
+    let definitions = sequence_definitions();
+    let index = Index::build(&root, definitions.clone(), options).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions.clone(),
+        options,
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let a_path = root.join("data/a.jsonl");
+    let handle = reopened
+        .view()
+        .unwrap()
+        .file_handle_for_path(&a_path)
+        .unwrap();
+    std::fs::write(
+        &a_path,
+        "{\"id\":\"new-a\",\"title\":\"New token\"}\n{\"id\":\"new-b\",\"title\":\"New token\"}\n",
+    )
+    .unwrap();
+    reopened.update_file(handle, &a_path).unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(4)
+    );
+    let mut old = all_records();
+    old.filter = Some(parse_filter("title = \"Old a token\"").unwrap());
+    assert_eq!(
+        reopened.view().unwrap().search(&old).unwrap().count,
+        Some(0)
+    );
+    let mut new = all_records();
+    new.filter = Some(parse_filter("title = \"New token\"").unwrap());
+    assert_eq!(
+        reopened.view().unwrap().search(&new).unwrap().count,
+        Some(2)
+    );
+    reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    reopened.shutdown().unwrap();
+    drop(reopened);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        options,
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&new).unwrap().count,
+        Some(2)
+    );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
