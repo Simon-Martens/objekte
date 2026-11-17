@@ -276,10 +276,14 @@ impl PostingAccess<'_> {
         operation: PostingOperation,
     ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.index;
-        if operation == PostingOperation::StringDictionaryExact {
-            index.ensure_all_values_loaded()?;
-        } else {
-            index.ensure_term_leaves(term)?;
+        if operation != PostingOperation::SelfComparePresence
+            && !(!term.multi && matches!(term.derived, Derived::Exists | Derived::Null))
+        {
+            if operation == PostingOperation::StringDictionaryExact {
+                index.ensure_all_values_loaded()?;
+            } else {
+                index.ensure_term_leaves(term)?;
+            }
         }
         match operation {
             PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),

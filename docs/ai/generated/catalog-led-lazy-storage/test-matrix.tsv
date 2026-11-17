@@ -7,7 +7,7 @@ S05	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_sourc
 S06	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Metadata lookup and status are covered without payloads.
 S07	pass	storage_roundtrip::explain_does_not_read_selected_lazy_payloads	EXPLAIN remains successful after every selected lazy posting/FTS/sort/relation payload is corrupted.
 S08	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	An equality filter loads the field dictionary and one selected posting leaf; unrelated fields and sort/FTS payloads remain cold.
-S09	pending	none	Presence/null-only storage isolation is not separately tested.
+S09	pass	storage_roundtrip::presence_and_null_queries_do_not_open_value_or_text_payloads	Presence and scalar-null queries use eager state masks with no lazy payload reads.
 S10	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Selected FTS dictionaries and gram leaves load after reopen.
 S11	pass	storage_roundtrip::missing_stored_fts_gram_skips_all_leaf_reads	Missing gram returns empty without sibling leaf retention.
 S12	pending	none	Early empty-intersection stopping is implemented but not isolated by a test.

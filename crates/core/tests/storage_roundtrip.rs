@@ -230,6 +230,50 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
 }
 
 #[test]
+fn presence_and_null_queries_do_not_open_value_or_text_payloads() {
+    let root = fixture_root("presence-null-state");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let mut exists = all_records();
+    exists.filter = Some(parse_filter("title:exists = true").unwrap());
+    eprintln!("{:?}", reopened.view().unwrap().explain(&exists));
+    assert_eq!(
+        reopened.view().unwrap().search(&exists).unwrap().count,
+        Some(2)
+    );
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        cold.index_reads,
+        "presence must use the eager state masks"
+    );
+    let mut null = all_records();
+    null.filter = Some(parse_filter("title:null = true").unwrap());
+    assert_eq!(
+        reopened.view().unwrap().search(&null).unwrap().count,
+        Some(0)
+    );
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        cold.index_reads,
+        "null must use the eager state masks"
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
     let root = fixture_root("sort-lazy");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
