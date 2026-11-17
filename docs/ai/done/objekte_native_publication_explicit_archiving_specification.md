@@ -485,6 +485,8 @@ Implementation commits:
 - `cd9b8275cd` — direct borrowed catalog/row serialization, cache-free archive
   validation, explicit archive benchmark controls, and final lifecycle coverage
 - `1d3c7be663` — transactional standalone Repository archive failure/retry
+- `b7f1f0d36a` — desktop incremental-open test accepts a construction task
+  that has already completed natively
 
 ### Implemented scope
 
