@@ -163,15 +163,15 @@ fn write_parts(
         .map_or_else(random_identity, |binding| Ok(binding.store_identity))?;
     let encode_started = Instant::now();
     let mut external_objects = Vec::new();
-    let source_storage = parts.repository.storage.as_ref().map(|session| {
-        (
-            session.directory().to_path_buf(),
-            crate::storage::reader::read_snapshot(session.directory()),
-        )
-    });
-    if let Some((source_directory, source_snapshot)) = source_storage {
-        copy_referenced_objects(&source_directory, &source_snapshot?, &mut external_objects)?;
-    }
+    let source_storage = parts
+        .repository
+        .storage
+        .as_ref()
+        .map(|session| {
+            let directory = session.directory().to_path_buf();
+            crate::storage::reader::read_snapshot(&directory).map(|snapshot| (directory, snapshot))
+        })
+        .transpose()?;
     let mut snapshot = snapshot_from_parts(parts, generation)?;
     if let Some(prior) = read_prior_snapshot(directory, current)? {
         let mut entries = prior
@@ -200,19 +200,27 @@ fn write_parts(
         .map_err(StorageError::InvalidFormat)?;
     }
     externalize_posting_payloads(&mut snapshot, &mut external_objects)?;
-    snapshot
-        .stored_objects
-        .extend(external_objects.iter().map(|(digest, bytes)| {
-            model::StoredObjectDescriptor {
-                kind: u16::from_le_bytes(
-                    bytes[10..12]
-                        .try_into()
-                        .expect("generated object envelope contains a kind"),
-                ) as u32,
-                digest: *digest,
-                length: bytes.len() as u64,
-            }
-        }));
+    if let Some((_, source_snapshot)) = &source_storage {
+        snapshot.stored_objects = source_snapshot.stored_objects.clone();
+    }
+    for (digest, bytes) in &external_objects {
+        let descriptor = model::StoredObjectDescriptor {
+            kind: u16::from_le_bytes(
+                bytes[10..12]
+                    .try_into()
+                    .expect("generated object envelope contains a kind"),
+            ) as u32,
+            digest: *digest,
+            length: bytes.len() as u64,
+        };
+        if !snapshot
+            .stored_objects
+            .iter()
+            .any(|object| object.digest == descriptor.digest)
+        {
+            snapshot.stored_objects.push(descriptor);
+        }
+    }
     let mut seen_objects = std::collections::HashSet::new();
     snapshot
         .stored_objects
@@ -274,15 +282,42 @@ fn write_parts(
         &mut objects_new,
         &mut objects_reused,
     )?;
-    for (digest, bytes) in &external_objects {
-        record_object_write(
-            &staging,
-            &objects,
-            *digest,
-            bytes,
-            &mut objects_new,
-            &mut objects_reused,
-        )?;
+    let generated_objects = external_objects
+        .iter()
+        .map(|(digest, bytes)| (*digest, bytes.as_slice()))
+        .collect::<std::collections::HashMap<_, _>>();
+    for descriptor in &snapshot.stored_objects {
+        let kind = u16::try_from(descriptor.kind).map_err(|_| {
+            StorageError::InvalidFormat(format!(
+                "stored object kind {} does not fit the format",
+                descriptor.kind
+            ))
+        })?;
+        if let Some(bytes) = generated_objects.get(&descriptor.digest) {
+            record_object_write(
+                &staging,
+                &objects,
+                descriptor.digest,
+                bytes,
+                &mut objects_new,
+                &mut objects_reused,
+            )?;
+        } else {
+            let source_directory = source_storage
+                .as_ref()
+                .map(|(source_directory, _)| source_directory.as_path());
+            install_referenced_object(
+                &staging,
+                &objects,
+                directory,
+                source_directory,
+                descriptor.digest,
+                descriptor.length,
+                kind,
+                &mut objects_new,
+                &mut objects_reused,
+            )?;
+        }
     }
     for (digest, bytes, _) in &metadata_chunks {
         record_object_write(
@@ -903,36 +938,6 @@ fn ensure_directory(directory: &Path) -> Result<(), StorageError> {
     fs::create_dir(directory).map_err(|error| StorageError::Io(error.to_string()))
 }
 
-fn copy_referenced_objects(
-    source_directory: &Path,
-    snapshot: &model::StorageSnapshot,
-    objects: &mut Vec<([u8; 32], Vec<u8>)>,
-) -> Result<(), StorageError> {
-    for descriptor in &snapshot.stored_objects {
-        let kind = u16::try_from(descriptor.kind).map_err(|_| {
-            StorageError::InvalidFormat(format!(
-                "stored object kind {} does not fit the format",
-                descriptor.kind
-            ))
-        })?;
-        let path = source_directory
-            .join("objects")
-            .join(format::object_file_name(&descriptor.digest, kind));
-        let bytes = fs::read(&path).map_err(|error| match error.kind() {
-            std::io::ErrorKind::NotFound => StorageError::MissingObject(descriptor.digest),
-            _ => StorageError::Io(format!("{}: {error}", path.display())),
-        })?;
-        if bytes.len() as u64 != descriptor.length || format::sha256(&bytes) != descriptor.digest {
-            return Err(StorageError::corrupt(
-                format::hex(&descriptor.digest),
-                "referenced payload object length or digest mismatch during export",
-            ));
-        }
-        objects.push((descriptor.digest, bytes));
-    }
-    Ok(())
-}
-
 fn record_object_write(
     staging: &Path,
     objects: &Path,
@@ -949,12 +954,84 @@ fn record_object_write(
     Ok(())
 }
 
+fn install_referenced_object(
+    staging: &Path,
+    objects: &Path,
+    target_directory: &Path,
+    source_directory: Option<&Path>,
+    digest: [u8; 32],
+    length: u64,
+    kind: u16,
+    objects_new: &mut usize,
+    objects_reused: &mut usize,
+) -> Result<(), StorageError> {
+    let final_path = objects.join(format::object_file_name(&digest, kind));
+    match fs::metadata(&final_path) {
+        Ok(metadata) if metadata.is_file() && metadata.len() == length => {
+            *objects_reused = (*objects_reused).saturating_add(1);
+            return Ok(());
+        }
+        Ok(_) => {
+            return Err(StorageError::corrupt(
+                format::hex(&digest),
+                "existing content-addressed object length differs",
+            ));
+        }
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+        Err(error) => return Err(StorageError::Io(error.to_string())),
+    }
+    let source_directory = source_directory.ok_or(StorageError::MissingObject(digest))?;
+    if source_directory == target_directory {
+        return Err(StorageError::MissingObject(digest));
+    }
+    let source_path = source_directory
+        .join("objects")
+        .join(format::object_file_name(&digest, kind));
+    let bytes = fs::read(&source_path).map_err(|error| match error.kind() {
+        std::io::ErrorKind::NotFound => StorageError::MissingObject(digest),
+        _ => StorageError::Io(format!("{}: {error}", source_path.display())),
+    })?;
+    if bytes.len() as u64 != length || format::sha256(&bytes) != digest {
+        return Err(StorageError::corrupt(
+            format::hex(&digest),
+            "source object length or digest mismatch during export",
+        ));
+    }
+    if write_object(staging, objects, digest, &bytes)? {
+        *objects_new = (*objects_new).saturating_add(1);
+    } else {
+        *objects_reused = (*objects_reused).saturating_add(1);
+    }
+    Ok(())
+}
+
 fn write_object(
     staging: &Path,
     objects: &Path,
     digest: [u8; 32],
     bytes: &[u8],
 ) -> Result<bool, StorageError> {
+    let final_path = objects.join(format::object_file_name(
+        &digest,
+        u16::from_le_bytes(
+            bytes[10..12]
+                .try_into()
+                .expect("storage object has a fixed envelope kind"),
+        ),
+    ));
+    match fs::metadata(&final_path) {
+        Ok(metadata) if metadata.is_file() && metadata.len() == bytes.len() as u64 => {
+            return Ok(false);
+        }
+        Ok(_) => {
+            return Err(StorageError::Corrupt {
+                identity: format::hex(&digest),
+                message: "existing content-addressed object length differs".into(),
+            });
+        }
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+        Err(error) => return Err(StorageError::Io(error.to_string())),
+    }
     let staging_path = staging.join(format!("{}.tmp", format::hex(&digest)));
     let mut file = OpenOptions::new()
         .create_new(true)
@@ -964,26 +1041,22 @@ fn write_object(
     file.write_all(bytes)
         .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let kind = u16::from_le_bytes(
-        bytes[10..12]
-            .try_into()
-            .expect("storage object has a fixed envelope kind"),
-    );
-    let final_path = objects.join(format::object_file_name(&digest, kind));
-    if final_path.exists() {
-        let existing =
-            fs::read(&final_path).map_err(|error| StorageError::Io(error.to_string()))?;
-        if existing != bytes {
-            return Err(StorageError::Corrupt {
-                identity: format::hex(&digest),
-                message: "existing content-addressed object differs".into(),
-            });
+    match fs::hard_link(&staging_path, &final_path) {
+        Ok(()) => {}
+        Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {
+            let metadata =
+                fs::metadata(&final_path).map_err(|error| StorageError::Io(error.to_string()))?;
+            if !metadata.is_file() || metadata.len() != bytes.len() as u64 {
+                return Err(StorageError::Corrupt {
+                    identity: format::hex(&digest),
+                    message: "concurrent content-addressed object differs".into(),
+                });
+            }
+            fs::remove_file(&staging_path).map_err(|error| StorageError::Io(error.to_string()))?;
+            return Ok(false);
         }
-        fs::remove_file(&staging_path).map_err(|error| StorageError::Io(error.to_string()))?;
-        return Ok(false);
+        Err(error) => return Err(StorageError::Io(error.to_string())),
     }
-    fs::hard_link(&staging_path, &final_path)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
     fs::remove_file(&staging_path).map_err(|error| StorageError::Io(error.to_string()))?;
     File::open(&final_path)
         .and_then(|file| file.sync_all())

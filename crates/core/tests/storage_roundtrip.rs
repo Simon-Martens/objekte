@@ -275,6 +275,64 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs() {
+    let root = fixture_root("deletion-no-pack-io");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let first = index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let pack = std::fs::read_dir(root.join("storage/objects"))
+        .unwrap()
+        .map(Result::unwrap)
+        .find(|entry| {
+            let path = entry.path();
+            if !path
+                .extension()
+                .is_some_and(|extension| extension == "pack")
+            {
+                return false;
+            }
+            let bytes = std::fs::read(path).unwrap();
+            matches!(
+                u16::from_le_bytes(bytes[10..12].try_into().unwrap()),
+                3 | 4 | 5
+            )
+        })
+        .map(|entry| entry.path())
+        .expect("fixture contains a payload pack");
+    let mut corrupted = std::fs::read(&pack).unwrap();
+    for byte in &mut corrupted[64..] {
+        *byte ^= 0xff;
+    }
+    std::fs::write(&pack, &corrupted).unwrap();
+
+    let handle = reopened
+        .view()
+        .unwrap()
+        .file_handle_for_path(&root.join("data/a.json"))
+        .unwrap();
+    reopened.delete_file(handle).unwrap();
+    let report = reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+
+    assert_eq!(report.generation, first.generation + 1);
+    assert_eq!(std::fs::read(&pack).unwrap(), corrupted);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn object_with_kind(directory: &std::path::Path, kind: u16) -> std::path::PathBuf {
     std::fs::read_dir(directory.join("objects"))
         .unwrap()
@@ -824,6 +882,50 @@ fn full_text_payload_reopens_lazily_and_preserves_results() {
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>()
     );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn trimming_decoded_fts_leaves_allows_a_later_checked_reload() {
+    let root = fixture_root("fts-cache-trim");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let mut request = all_records();
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.cache.resident_bytes > 0);
+
+    let trimmed = reopened.trim_storage_cache().unwrap();
+    assert!(trimmed.evicted_entries > 0);
+    assert!(trimmed.evicted_bytes > 0);
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
+    let reloaded = reopened.storage_status().unwrap();
+    assert!(reloaded.index_reads > warm.index_reads);
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
