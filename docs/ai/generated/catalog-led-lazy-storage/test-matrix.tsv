@@ -6,7 +6,7 @@ S04	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_s
 S05	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Source-free restore is covered; a dedicated open source-I/O prohibition counter is pending.
 S06	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Metadata lookup and status are covered without payloads.
 S07	pass	storage_roundtrip::explain_does_not_read_selected_lazy_payloads	EXPLAIN remains successful after every selected lazy posting/FTS/sort/relation payload is corrupted.
-S08	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Only one selected posting path is exercised.
+S08	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	An equality filter loads the field dictionary and one selected posting leaf; unrelated fields and sort/FTS payloads remain cold.
 S09	pending	none	Presence/null-only storage isolation is not separately tested.
 S10	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Selected FTS dictionaries and gram leaves load after reopen.
 S11	pass	storage_roundtrip::missing_stored_fts_gram_skips_all_leaf_reads	Missing gram returns empty without sibling leaf retention.
@@ -14,12 +14,12 @@ S12	pending	none	Early empty-intersection stopping is implemented but not isolat
 S13	pending	none	Sort remains collection/segment-frame lazy, not per-column lazy.
 S14	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Repeated FTS query adds no index reads.
 S15	pending	none	Empty-leaf behavior exists, but all Roaring container forms lack a storage round-trip matrix.
-S16	partial	storage_roundtrip::missing_stored_fts_gram_skips_all_leaf_reads	Selected FTS leaves are lazy and coalesced; posting sibling leaves are still coarse.
+S16	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Selected FTS and posting leaf requests admit only requested leaves; an equality filter retains exactly one posting leaf.
 S17	partial	storage_roundtrip::explicit_save_reopens_a_complete_searchable_snapshot	Basic zero/one/many path association is not fully parameterized.
 S18	pending	none	Multiple collections with duplicate-ID policy are not covered by storage tests.
 S19	pass	storage_roundtrip::non_utf8_source_paths_round_trip_without_loss	Lossless non-UTF-8 path lookup is covered.
 S20	pending	none	Adapter identity and stale locator behavior need dedicated storage coverage.
-S21	pending	none	Posting insertion ordinals remain inside a coarse field frame.
+S21	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Stored posting dictionaries preserve dense key ordinals and resolve the selected leaf by that ordinal.
 S22	pending	none	Range semantics are not in the storage matrix.
 S23	pending	none	Domain-state matrix is not in storage tests.
 S24	pending	none	Large exact decimal storage/sort round-trip is pending.

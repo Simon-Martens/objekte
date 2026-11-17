@@ -16,7 +16,7 @@ use crate::lifecycle::{Index, IndexError, IndexRevision, IndexStorageParts, Publ
 use crate::native_segment::IndexedCollectionSegment;
 use crate::posting::{
     CustomPostingIndex, PostingArchivePayload, PostingCollection, PostingIndex, PostingIndexLoader,
-    PostingIndexSnapshot, StoredPostingPayloadRef,
+    PostingIndexSnapshot, PostingLeafLoader, StoredPostingLeafRef, StoredPostingPayloadRef,
 };
 use crate::relation::{
     RelationArchivePayload, RelationIndex, RelationIndexLoader, StoredRelationPayloadRef,
@@ -446,6 +446,7 @@ const METADATA_OBJECT_KIND: u16 = 1;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 const BIGRAM_LEAF_KIND: u16 = 7;
 const RELATION_PAYLOAD_OBJECT_KIND: u16 = 8;
+const POSTING_LEAF_KIND: u32 = 9;
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -464,19 +465,160 @@ impl std::fmt::Debug for StoredPostingLoader {
 
 impl PostingIndexLoader for StoredPostingLoader {
     fn load_posting_index(&self) -> Result<PostingIndexSnapshot, String> {
-        let bytes = read_checked_object(
-            &self.session,
-            self.reference.digest,
-            self.reference.length,
-            POSTING_PAYLOAD_OBJECT_KIND,
+        if self.reference.dictionary_length > self.session.limits().lazy_dictionary_body_bytes {
+            return Err(format!(
+                "posting dictionary requires {} bytes, limit is {}",
+                self.reference.dictionary_length,
+                self.session.limits().lazy_dictionary_body_bytes
+            ));
+        }
+        let pack = StoredPostingPack::open(Arc::clone(&self.session), self.reference)?;
+        let bytes = pack.read_range(
+            self.reference.dictionary_offset,
+            self.reference.dictionary_length,
+            self.reference.dictionary_digest,
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
-        aligned.extend_from_slice(&bytes);
+        aligned.extend_from_slice(bytes.as_ref());
         let owner = crate::archive_storage::ValidatedArchive::<PostingArchivePayload>::checked_from_aligned(aligned)
             .map_err(|error| format!("posting payload validation failed: {error}"))?;
         let payload = rkyv::deserialize::<PostingArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("posting payload decode failed: {error}"))?;
-        PostingIndexSnapshot::from_archive_payload(payload)
+        PostingIndexSnapshot::from_stored_payload(
+            payload,
+            Arc::new(StoredPostingLeafAccess {
+                pack: Arc::new(pack),
+            }),
+        )
+    }
+
+    fn stored_payload_reference(&self) -> Option<StoredPostingPayloadRef> {
+        Some(self.reference)
+    }
+}
+
+struct StoredPostingLeafAccess {
+    pack: Arc<StoredPostingPack>,
+}
+
+impl std::fmt::Debug for StoredPostingLeafAccess {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredPostingLeafAccess")
+            .field("digest", &format::hex(&self.pack.reference.digest))
+            .finish()
+    }
+}
+
+impl PostingLeafLoader for StoredPostingLeafAccess {
+    fn load_posting_leaf(
+        &self,
+        reference: &StoredPostingLeafRef,
+    ) -> Result<roaring::RoaringBitmap, String> {
+        let cache_key = (reference.digest, reference.offset, POSTING_LEAF_KIND);
+        if let Some(bitmap) = self
+            .pack
+            .session
+            .cache()
+            .get_decoded::<roaring::RoaringBitmap>(&cache_key)
+        {
+            return Ok(bitmap.as_ref().clone());
+        }
+        self.pack.session.cache().record_miss();
+        if reference.length > self.pack.session.limits().serialized_leaf_bytes {
+            return Err("posting leaf exceeds the serialized leaf limit".into());
+        }
+        if reference.decoded_bytes_estimate > self.pack.session.limits().decoded_leaf_bytes {
+            return Err("posting leaf exceeds the decoded leaf limit".into());
+        }
+        let bytes = self
+            .pack
+            .read_range(reference.offset, reference.length, reference.digest)?;
+        let mut cursor = std::io::Cursor::new(bytes.as_ref());
+        let bitmap = roaring::RoaringBitmap::deserialize_from(&mut cursor)
+            .map_err(|error| format!("posting leaf decode failed: {error}"))?;
+        if cursor.position() != reference.length {
+            return Err("posting leaf has trailing bytes".into());
+        }
+        let bitmap = Arc::new(bitmap);
+        self.pack.session.cache().insert_decoded(
+            cache_key,
+            Arc::clone(&bitmap),
+            reference.decoded_bytes_estimate,
+        );
+        Ok(bitmap.as_ref().clone())
+    }
+}
+
+struct StoredPostingPack {
+    session: SharedStorageSession,
+    reference: StoredPostingPayloadRef,
+    file: File,
+}
+
+impl StoredPostingPack {
+    fn open(
+        session: SharedStorageSession,
+        reference: StoredPostingPayloadRef,
+    ) -> Result<Self, String> {
+        let path = session
+            .directory()
+            .join("objects")
+            .join(format::object_file_name(
+                &reference.digest,
+                POSTING_PAYLOAD_OBJECT_KIND,
+            ));
+        let mut file = File::open(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+        if file
+            .metadata()
+            .map_err(|error| format!("{}: {error}", path.display()))?
+            .len()
+            != reference.length
+        {
+            return Err("stored posting pack length mismatch".into());
+        }
+        let mut envelope = [0u8; format::ENVELOPE_LEN];
+        let permit = session.acquire_read_permit()?;
+        file.read_exact(&mut envelope)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        drop(permit);
+        format::checked_body(&envelope, POSTING_PAYLOAD_OBJECT_KIND)
+            .map_err(|error| error.to_string())?;
+        Ok(Self {
+            session,
+            reference,
+            file,
+        })
+    }
+
+    fn read_range(
+        &self,
+        offset: u64,
+        length: u64,
+        expected_digest: [u8; 32],
+    ) -> Result<Arc<[u8]>, String> {
+        let end = offset
+            .checked_add(length)
+            .ok_or("stored posting range overflow")?;
+        if offset < format::ENVELOPE_LEN as u64 || length == 0 || end > self.reference.length {
+            return Err("stored posting range is outside its pack".into());
+        }
+        let capacity = usize::try_from(length).map_err(|_| "posting range is too large")?;
+        let mut bytes = vec![0u8; capacity];
+        let permit = self.session.acquire_read_permit()?;
+        read_exact_at(&self.file, &mut bytes, offset)
+            .map_err(|error| format!("stored posting pack read failed: {error}"))?;
+        drop(permit);
+        self.session
+            .index_reads
+            .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
+        self.session
+            .index_bytes
+            .fetch_add(length, std::sync::atomic::Ordering::AcqRel);
+        if format::sha256(&bytes) != expected_digest {
+            return Err("stored posting body checksum mismatch".into());
+        }
+        Ok(Arc::from(bytes))
     }
 }
 

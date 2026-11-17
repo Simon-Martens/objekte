@@ -606,23 +606,57 @@ fn externalize_posting(
     posting: &mut crate::posting::PostingIndexSnapshot,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
 ) -> Result<(), StorageError> {
-    if posting.values.is_empty() && posting.lengths.is_empty() && posting.structural.is_none() {
+    if posting.payload.is_some()
+        && posting.values.is_empty()
+        && posting.lengths.is_empty()
+        && posting.structural.is_none()
+    {
         return Ok(());
     }
+    let mut pack = format::envelope(POSTING_PAYLOAD_OBJECT_KIND, &[]);
     let payload = posting
-        .archive_payload()
+        .archive_payload_with(|bitmap| append_posting_leaf(&mut pack, bitmap))
         .map_err(StorageError::UnsupportedComponent)?;
-    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+    align_object(&mut pack);
+    let dictionary_offset = pack.len() as u64;
+    let dictionary_body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let object = format::envelope(POSTING_PAYLOAD_OBJECT_KIND, &body);
-    let digest = format::sha256(&object);
-    let length = object.len() as u64;
-    objects.push((digest, object));
+    pack.extend_from_slice(&dictionary_body);
+    let digest = format::sha256(&pack);
+    let length = pack.len() as u64;
+    objects.push((digest, pack));
     posting.structural = None;
     posting.values.clear();
     posting.lengths.clear();
-    posting.payload = Some(crate::posting::StoredPostingPayloadRef { digest, length });
+    posting.payload = Some(crate::posting::StoredPostingPayloadRef {
+        digest,
+        length,
+        dictionary_offset,
+        dictionary_length: dictionary_body.len() as u64,
+        dictionary_digest: format::sha256(&dictionary_body),
+    });
     Ok(())
+}
+
+fn append_posting_leaf(
+    pack: &mut Vec<u8>,
+    bitmap: &roaring::RoaringBitmap,
+) -> Result<crate::posting::StoredPostingLeafRef, String> {
+    align_object(pack);
+    let offset = pack.len() as u64;
+    let start = pack.len();
+    bitmap
+        .serialize_into(&mut *pack)
+        .map_err(|error| format!("posting leaf serialization failed: {error}"))?;
+    let bytes = &pack[start..];
+    Ok(crate::posting::StoredPostingLeafRef {
+        offset,
+        length: bytes.len() as u64,
+        cardinality: bitmap.len(),
+        decoded_bytes_estimate: u64::try_from(bitmap.serialized_size())
+            .map_err(|_| "posting leaf size overflow".to_string())?,
+        digest: format::sha256(bytes),
+    })
 }
 
 fn snapshot_from_parts(

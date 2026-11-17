@@ -1503,7 +1503,7 @@ fn term_set(
             .get(&(term.path.segments.clone(), term.binding_name.clone()))
             .filter(|posting| posting.complete);
         if let Some(posting) = posting {
-            posting.index.ensure_storage_loaded()?;
+            posting.index.ensure_term_leaves(term)?;
             return Ok(posting.index.exact_set(term, domain));
         }
         Ok(None)
@@ -1511,7 +1511,7 @@ fn term_set(
         let Some(index) = collection.postings.fields.get(&term.path.segments) else {
             return Ok(None);
         };
-        index.ensure_storage_loaded()?;
+        index.ensure_term_leaves(term)?;
         Ok(index.exact_set(term, domain))
     }
 }

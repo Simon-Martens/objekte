@@ -24,6 +24,23 @@ use crate::reference::{FieldDefinition, Schema, data_values_small};
 
 pub(crate) trait PostingIndexLoader: fmt::Debug + Send + Sync {
     fn load_posting_index(&self) -> Result<PostingIndexSnapshot, String>;
+
+    fn stored_payload_reference(&self) -> Option<StoredPostingPayloadRef> {
+        None
+    }
+}
+
+pub(crate) trait PostingLeafLoader: fmt::Debug + Send + Sync {
+    fn load_posting_leaf(&self, reference: &StoredPostingLeafRef) -> Result<RoaringBitmap, String>;
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct StoredPostingLeafRef {
+    pub offset: u64,
+    pub length: u64,
+    pub cardinality: u64,
+    pub decoded_bytes_estimate: u64,
+    pub digest: [u8; 32],
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -629,7 +646,7 @@ where
     Self::Archived: Ord,
 {
     type Query: Ord + Sized;
-    type Public: PartialEq;
+    type Public: Ord + PartialEq;
 
     fn stored_query(query: &Self::Query) -> Self;
     fn stored_from_public(value: &Self::Public) -> Self;
@@ -934,6 +951,75 @@ where
 {
     Native(Arc<BTreeMap<K, u32>>),
     Archived(Arc<ValidatedArchive<OrderedPostingArchive<K>>>),
+    Stored(StoredPostingBacking<K>),
+}
+
+pub(crate) struct StoredPostingBacking<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    values: Arc<BTreeMap<K, u32>>,
+    leaves: Arc<Vec<StoredPostingLeafRef>>,
+    loader: Arc<dyn PostingLeafLoader>,
+    decoded: Arc<Vec<OnceLock<Arc<RoaringBitmap>>>>,
+    loads: Arc<Vec<std::sync::Mutex<()>>>,
+}
+
+impl<K> Clone for StoredPostingBacking<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn clone(&self) -> Self {
+        Self {
+            values: Arc::clone(&self.values),
+            leaves: Arc::clone(&self.leaves),
+            loader: Arc::clone(&self.loader),
+            decoded: Arc::clone(&self.decoded),
+            loads: Arc::clone(&self.loads),
+        }
+    }
+}
+
+impl<K> StoredPostingBacking<K>
+where
+    K: PostingDictionaryKey,
+    K::Archived: Ord,
+{
+    fn load_ordinal(&self, ordinal: usize) -> Result<&RoaringBitmap, String> {
+        let cell = self
+            .decoded
+            .get(ordinal)
+            .ok_or("stored posting ordinal is out of bounds")?;
+        if cell.get().is_none() {
+            let _guard = self
+                .loads
+                .get(ordinal)
+                .ok_or("stored posting load lock is missing")?
+                .lock()
+                .map_err(|_| "stored posting load lock poisoned")?;
+            if cell.get().is_some() {
+                return Ok(cell
+                    .get()
+                    .expect("stored posting leaf was initialized")
+                    .as_ref());
+            }
+            let reference = self
+                .leaves
+                .get(ordinal)
+                .ok_or("stored posting leaf reference is missing")?;
+            let bitmap = self.loader.load_posting_leaf(reference)?;
+            if bitmap.len() != reference.cardinality {
+                return Err("stored posting leaf cardinality mismatch".into());
+            }
+            let _ = cell.set(Arc::new(bitmap));
+        }
+        Ok(cell
+            .get()
+            .expect("stored posting leaf was initialized")
+            .as_ref())
+    }
 }
 
 impl<K> Clone for PublishedPostingBacking<K>
@@ -945,6 +1031,7 @@ where
         match self {
             Self::Native(values) => Self::Native(Arc::clone(values)),
             Self::Archived(archive) => Self::Archived(Arc::clone(archive)),
+            Self::Stored(values) => Self::Stored(values.clone()),
         }
     }
 }
@@ -999,10 +1086,35 @@ where
     K: PostingDictionaryKey,
     K::Archived: Ord,
 {
+    fn from_stored(
+        entries: BTreeMap<K, StoredPostingLeafRef>,
+        loader: Arc<dyn PostingLeafLoader>,
+    ) -> Self {
+        let mut values = BTreeMap::new();
+        let mut leaves = Vec::with_capacity(entries.len());
+        for (key, reference) in entries {
+            values.insert(key, leaves.len() as u32);
+            leaves.push(reference);
+        }
+        let leaf_count = leaves.len();
+        let decoded = (0..leaf_count).map(|_| OnceLock::new()).collect::<Vec<_>>();
+        Self {
+            backing: PublishedPostingBacking::Stored(StoredPostingBacking {
+                values: Arc::new(values),
+                leaves: Arc::new(leaves),
+                loader,
+                decoded: Arc::new(decoded),
+                loads: Arc::new((0..leaf_count).map(|_| std::sync::Mutex::new(())).collect()),
+            }),
+            bitmaps: Arc::new(Vec::new()),
+        }
+    }
+
     fn representation_name(&self) -> &'static str {
         match self.backing {
             PublishedPostingBacking::Native(_) => "native",
             PublishedPostingBacking::Archived(_) => "archived",
+            PublishedPostingBacking::Stored(_) => "stored",
         }
     }
 
@@ -1010,6 +1122,7 @@ where
         match &self.backing {
             PublishedPostingBacking::Native(values) => values.len(),
             PublishedPostingBacking::Archived(archive) => archive.root().postings.len(),
+            PublishedPostingBacking::Stored(stored) => stored.values.len(),
         }
     }
 
@@ -1017,6 +1130,7 @@ where
         match &self.backing {
             PublishedPostingBacking::Native(_) => 0,
             PublishedPostingBacking::Archived(archive) => archive.len(),
+            PublishedPostingBacking::Stored(_) => 0,
         }
     }
 
@@ -1030,6 +1144,9 @@ where
                 .ascending
                 .first()
                 .map(|entry| K::public_from_archived(&entry.key)),
+            PublishedPostingBacking::Stored(stored) => {
+                stored.values.keys().next().map(K::public_from_stored)
+            }
         }
     }
 
@@ -1043,24 +1160,58 @@ where
                 .ascending
                 .last()
                 .map(|entry| K::public_from_archived(&entry.key)),
+            PublishedPostingBacking::Stored(stored) => {
+                stored.values.keys().next_back().map(K::public_from_stored)
+            }
         }
     }
 
     fn get(&self, query: &K::Query) -> Option<&RoaringBitmap> {
+        self.get_checked(query).ok().flatten()
+    }
+
+    fn get_checked(&self, query: &K::Query) -> Result<Option<&RoaringBitmap>, String> {
         let ordinal = match &self.backing {
             PublishedPostingBacking::Native(values) => {
                 let query = K::stored_query(query);
-                *values.get(&query)?
+                let Some(ordinal) = values.get(&query) else {
+                    return Ok(None);
+                };
+                *ordinal
             }
             PublishedPostingBacking::Archived(archive) => {
-                let (_, ordinal) = archive
+                let Some((_, ordinal)) = archive
                     .root()
                     .postings
-                    .get_key_value_with(query, K::compare_query)?;
+                    .get_key_value_with(query, K::compare_query)
+                else {
+                    return Ok(None);
+                };
                 ordinal.to_native()
             }
+            PublishedPostingBacking::Stored(stored) => {
+                let query = K::stored_query(query);
+                let Some(ordinal) = stored.values.get(&query).copied() else {
+                    return Ok(None);
+                };
+                return stored.load_ordinal(ordinal as usize).map(Some);
+            }
         };
-        self.bitmaps.get(ordinal as usize)
+        Ok(self.bitmaps.get(ordinal as usize))
+    }
+
+    fn cardinality(&self, query: &K::Query) -> u64 {
+        match &self.backing {
+            PublishedPostingBacking::Stored(stored) => {
+                let query = K::stored_query(query);
+                stored
+                    .values
+                    .get(&query)
+                    .and_then(|ordinal| stored.leaves.get(*ordinal as usize))
+                    .map_or(0, |reference| reference.cardinality)
+            }
+            _ => self.get(query).map_or(0, RoaringBitmap::len),
+        }
     }
 
     fn to_native_map(&self) -> Result<BTreeMap<K, u32>, String> {
@@ -1074,6 +1225,7 @@ where
                 }
                 Ok(values)
             }
+            PublishedPostingBacking::Stored(stored) => Ok(stored.values.as_ref().clone()),
         }
     }
 }
@@ -1230,6 +1382,11 @@ where
         next: Option<usize>,
         lower: usize,
     },
+    Stored {
+        range: std::collections::btree_map::Range<'a, K, u32>,
+        stored: &'a StoredPostingBacking<K>,
+        reverse: bool,
+    },
 }
 
 impl<'a, K> DictionaryValueCursor<'a, K>
@@ -1274,6 +1431,19 @@ where
                 *next = index.checked_sub(1).filter(|next| *next >= *lower);
                 Some((K::public_from_archived(&entry.key), posting))
             }
+            Self::Stored {
+                range,
+                stored,
+                reverse,
+            } => {
+                let (key, ordinal) = if *reverse {
+                    range.next_back()
+                } else {
+                    range.next()
+                }?;
+                let posting = stored.load_ordinal(*ordinal as usize).ok()?;
+                Some((K::public_from_stored(key), posting))
+            }
         }
     }
 }
@@ -1291,6 +1461,20 @@ where
         >,
     >,
 {
+    fn from_published(values: PublishedPostingDictionary<K>) -> Self {
+        Self(PostingDictionaryState::Published(values))
+    }
+
+    fn is_stored(&self) -> bool {
+        matches!(
+            &self.0,
+            PostingDictionaryState::Published(PublishedPostingDictionary {
+                backing: PublishedPostingBacking::Stored(_),
+                ..
+            })
+        )
+    }
+
     pub(crate) fn builder() -> Self {
         Self::default()
     }
@@ -1309,6 +1493,17 @@ where
                 .expect("new public posting dictionary has room");
         }
         dictionary
+    }
+
+    pub(crate) fn from_stored(
+        entries: BTreeMap<K::Public, StoredPostingLeafRef>,
+        loader: Arc<dyn PostingLeafLoader>,
+    ) -> Self {
+        let entries = entries
+            .into_iter()
+            .map(|(key, reference)| (K::stored_from_public_owned(key), reference))
+            .collect();
+        Self::from_published(PublishedPostingDictionary::from_stored(entries, loader))
     }
 
     fn builder_parts_mut(&mut self) -> &mut NativePostingBuilder<K> {
@@ -1338,6 +1533,10 @@ where
                 ..
             })
         )
+    }
+
+    pub(crate) fn is_storage_backed(&self) -> bool {
+        self.is_stored()
     }
 
     #[allow(dead_code)]
@@ -1392,6 +1591,20 @@ where
                 builder.bitmaps.get(ordinal as usize)
             }
             PostingDictionaryState::Published(values) => values.get(query),
+        }
+    }
+
+    pub(crate) fn get_checked(&self, query: &K::Query) -> Result<Option<&RoaringBitmap>, String> {
+        match &self.0 {
+            PostingDictionaryState::Published(values) => values.get_checked(query),
+            _ => Ok(self.get(query)),
+        }
+    }
+
+    pub(crate) fn cardinality(&self, query: &K::Query) -> u64 {
+        match &self.0 {
+            PostingDictionaryState::Published(values) => values.cardinality(query),
+            _ => self.get(query).map_or(0, RoaringBitmap::len),
         }
     }
 
@@ -1450,6 +1663,15 @@ where
                         lower,
                     }
                 }
+                PublishedPostingBacking::Stored(stored) => {
+                    let lower = lower.map(|query| K::stored_query(&query));
+                    let upper = upper.map(|query| K::stored_query(&query));
+                    DictionaryValueCursor::Stored {
+                        range: stored.values.range((lower, upper)),
+                        stored,
+                        reverse: descending,
+                    }
+                }
             },
         }
     }
@@ -1487,6 +1709,12 @@ where
                         visit(&K::public_from_archived(&entry.key), posting)?;
                     }
                 }
+                PublishedPostingBacking::Stored(stored) => {
+                    for (key, ordinal) in stored.values.iter() {
+                        let posting = stored.load_ordinal(*ordinal as usize)?;
+                        visit(&K::public_from_stored(key), posting)?;
+                    }
+                }
             },
         }
         Ok(())
@@ -1502,11 +1730,18 @@ where
                     visit(posting)?;
                 }
             }
-            PostingDictionaryState::Published(values) => {
-                for posting in values.bitmaps.iter() {
-                    visit(posting)?;
+            PostingDictionaryState::Published(values) => match &values.backing {
+                PublishedPostingBacking::Stored(stored) => {
+                    for ordinal in 0..stored.leaves.len() {
+                        visit(stored.load_ordinal(ordinal)?)?;
+                    }
                 }
-            }
+                _ => {
+                    for posting in values.bitmaps.iter() {
+                        visit(posting)?;
+                    }
+                }
+            },
         }
         Ok(())
     }
@@ -1857,6 +2092,24 @@ where
             }
             root.ascending.len()
         }
+        PublishedPostingBacking::Stored(stored) => {
+            if stored.values.len() != stored.leaves.len()
+                || stored.leaves.len() != stored.decoded.len()
+            {
+                return Err("stored posting dictionary and leaf directory lengths differ".into());
+            }
+            for ordinal in stored.values.values().copied() {
+                if ordinal as usize >= stored.leaves.len() {
+                    return Err("stored posting leaf ordinal is out of bounds".into());
+                }
+            }
+            for ordinal in 0..stored.leaves.len() {
+                if stored.load_ordinal(ordinal)?.is_empty() {
+                    return Err("stored posting leaf is empty".into());
+                }
+            }
+            stored.values.len()
+        }
     };
     if dictionary
         .bitmaps
@@ -2080,35 +2333,49 @@ pub(crate) struct PostingIndexSnapshot {
     pub has_structural: bool,
     #[serde(default)]
     pub payload: Option<StoredPostingPayloadRef>,
+    #[serde(skip)]
+    pub stored_leaves: Option<StoredPostingLeafCatalog>,
+    #[serde(skip)]
+    pub leaf_loader: Option<Arc<dyn PostingLeafLoader>>,
+}
+
+#[derive(Clone, Debug)]
+pub(crate) struct StoredPostingLeafCatalog {
+    pub values: BTreeMap<ScalarKey, StoredPostingLeafRef>,
+    pub lengths: BTreeMap<Number, StoredPostingLeafRef>,
+    pub structural: BTreeMap<StructuralKey, StoredPostingLeafRef>,
 }
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
 pub(crate) struct PostingArchivePayload {
-    path: Vec<String>,
-    kind: String,
-    multi: bool,
-    presence: Vec<u8>,
-    empty_selections: Vec<u8>,
-    nulls: Vec<u8>,
-    structural: Option<Vec<(StructuralKey, Vec<u8>)>>,
-    values: Vec<(StoredScalarKey, Vec<u8>)>,
-    lengths: Vec<(PostingNumberKey, Vec<u8>)>,
-    values_indexed: bool,
-    value_complete: bool,
-    length_complete: bool,
-    empty_string_complete: bool,
-    covered_records: u32,
-    present_count: u64,
-    null_count: u64,
-    distinct_count: u64,
-    min_key: Option<StoredScalarKey>,
-    max_key: Option<StoredScalarKey>,
+    pub path: Vec<String>,
+    pub kind: String,
+    pub multi: bool,
+    pub presence: Vec<u8>,
+    pub empty_selections: Vec<u8>,
+    pub nulls: Vec<u8>,
+    pub structural: Option<Vec<(StructuralKey, StoredPostingLeafRef)>>,
+    pub values: Vec<(StoredScalarKey, StoredPostingLeafRef)>,
+    pub lengths: Vec<(PostingNumberKey, StoredPostingLeafRef)>,
+    pub values_indexed: bool,
+    pub value_complete: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
+    pub covered_records: u32,
+    pub present_count: u64,
+    pub null_count: u64,
+    pub distinct_count: u64,
+    pub min_key: Option<StoredScalarKey>,
+    pub max_key: Option<StoredScalarKey>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub(crate) struct StoredPostingPayloadRef {
     pub digest: [u8; 32],
     pub length: u64,
+    pub dictionary_offset: u64,
+    pub dictionary_length: u64,
+    pub dictionary_digest: [u8; 32],
 }
 
 fn encode_logical_type(kind: &LogicalType) -> String {
@@ -2163,26 +2430,24 @@ fn decode_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
 }
 
 impl PostingIndexSnapshot {
-    pub(crate) fn archive_payload(&self) -> Result<PostingArchivePayload, String> {
+    pub(crate) fn archive_payload_with(
+        &self,
+        mut leaf: impl FnMut(&RoaringBitmap) -> Result<StoredPostingLeafRef, String>,
+    ) -> Result<PostingArchivePayload, String> {
         let structural = self
             .structural
             .as_ref()
             .map(|postings| {
                 postings
                     .iter()
-                    .map(|(key, bitmap)| Ok((*key, encode_bitmap(bitmap)?)))
+                    .map(|(key, bitmap)| Ok((*key, leaf(bitmap)?)))
                     .collect::<Result<_, String>>()
             })
             .transpose()?;
         let values = self
             .values
             .iter()
-            .map(|(key, bitmap)| {
-                Ok((
-                    StoredScalarKey::stored_from_public(key),
-                    encode_bitmap(bitmap)?,
-                ))
-            })
+            .map(|(key, bitmap)| Ok((StoredScalarKey::stored_from_public(key), leaf(bitmap)?)))
             .collect::<Result<_, String>>()?;
         let lengths = self
             .lengths
@@ -2190,7 +2455,7 @@ impl PostingIndexSnapshot {
             .map(|(key, bitmap)| {
                 Ok((
                     PostingNumberKey::from_number_owned(key.clone()),
-                    encode_bitmap(bitmap)?,
+                    leaf(bitmap)?,
                 ))
             })
             .collect::<Result<_, String>>()?;
@@ -2223,37 +2488,30 @@ impl PostingIndexSnapshot {
         })
     }
 
-    pub(crate) fn from_archive_payload(payload: PostingArchivePayload) -> Result<Self, String> {
+    pub(crate) fn from_stored_payload(
+        payload: PostingArchivePayload,
+        leaf_loader: Arc<dyn PostingLeafLoader>,
+    ) -> Result<Self, String> {
         let has_structural = payload.structural.is_some();
         let structural = payload
             .structural
             .map(|postings| {
                 postings
                     .into_iter()
-                    .map(|(key, bitmap)| Ok((key, decode_bitmap(&bitmap)?)))
-                    .collect::<Result<_, String>>()
+                    .map(|(key, reference)| (key, reference))
+                    .collect()
             })
-            .transpose()?;
+            .unwrap_or_default();
         let values = payload
             .values
             .into_iter()
-            .map(|(key, bitmap)| {
-                Ok((
-                    StoredScalarKey::public_from_stored(&key),
-                    decode_bitmap(&bitmap)?,
-                ))
-            })
-            .collect::<Result<_, String>>()?;
+            .map(|(key, reference)| (StoredScalarKey::public_from_stored(&key), reference))
+            .collect();
         let lengths = payload
             .lengths
             .into_iter()
-            .map(|(key, bitmap)| {
-                Ok((
-                    PostingNumberKey::public_from_stored(&key),
-                    decode_bitmap(&bitmap)?,
-                ))
-            })
-            .collect::<Result<_, String>>()?;
+            .map(|(key, reference)| (PostingNumberKey::public_from_stored(&key), reference))
+            .collect();
         Ok(Self {
             path: payload.path,
             kind: decode_logical_type(&payload.kind)?,
@@ -2261,9 +2519,9 @@ impl PostingIndexSnapshot {
             presence: decode_bitmap(&payload.presence)?,
             empty_selections: decode_bitmap(&payload.empty_selections)?,
             nulls: decode_bitmap(&payload.nulls)?,
-            structural,
-            values,
-            lengths,
+            structural: None,
+            values: BTreeMap::new(),
+            lengths: BTreeMap::new(),
             values_indexed: payload.values_indexed,
             value_complete: payload.value_complete,
             length_complete: payload.length_complete,
@@ -2282,6 +2540,12 @@ impl PostingIndexSnapshot {
                 .map(StoredScalarKey::public_from_stored),
             has_structural,
             payload: None,
+            stored_leaves: Some(StoredPostingLeafCatalog {
+                values,
+                lengths,
+                structural,
+            }),
+            leaf_loader: Some(leaf_loader),
         })
     }
 }
@@ -2293,6 +2557,44 @@ impl PostingIndex {
     pub(crate) fn storage_snapshot(&self) -> Result<PostingIndexSnapshot, String> {
         if !self.is_published() {
             return Err("posting index is not published".into());
+        }
+        let stored_payload = self
+            .storage
+            .as_ref()
+            .and_then(|loader| loader.stored_payload_reference());
+        if stored_payload.is_some()
+            && (self.values.is_storage_backed()
+                || self.lengths.is_storage_backed()
+                || self
+                    .structural
+                    .as_ref()
+                    .is_some_and(|facts| facts.postings.is_storage_backed()))
+        {
+            return Ok(PostingIndexSnapshot {
+                path: self.path.clone(),
+                kind: self.kind.clone(),
+                multi: self.multi,
+                presence: self.presence.clone(),
+                empty_selections: self.empty_selections.clone(),
+                nulls: self.nulls.clone(),
+                structural: None,
+                values: BTreeMap::new(),
+                lengths: BTreeMap::new(),
+                values_indexed: self.values_indexed,
+                value_complete: self.value_complete,
+                length_complete: self.length_complete,
+                empty_string_complete: self.empty_string_complete,
+                covered_records: self.covered_records,
+                present_count: self.stats.present_count,
+                null_count: self.stats.null_count,
+                distinct_count: self.stats.distinct_count,
+                min_key: self.stats.min_key.clone(),
+                max_key: self.stats.max_key.clone(),
+                has_structural: self.has_structural,
+                payload: stored_payload,
+                stored_leaves: None,
+                leaf_loader: None,
+            });
         }
         let structural = self.structural.as_ref().map(|facts| {
             facts
@@ -2328,19 +2630,49 @@ impl PostingIndex {
             max_key: self.stats.max_key.clone(),
             has_structural: self.has_structural,
             payload: None,
+            stored_leaves: None,
+            leaf_loader: None,
         })
     }
 
-    pub(crate) fn from_storage_snapshot(snapshot: PostingIndexSnapshot) -> Result<Self, String> {
+    pub(crate) fn from_storage_snapshot(
+        mut snapshot: PostingIndexSnapshot,
+    ) -> Result<Self, String> {
         let has_structural = snapshot.has_structural || snapshot.structural.is_some();
-        let structural = snapshot
-            .structural
-            .map(|postings| {
-                Ok::<_, String>(StructuralFacts {
-                    postings: PostingDictionary::from_public(postings).publish_native()?,
+        let stored_catalog = snapshot.stored_leaves.take();
+        let leaf_loader = snapshot.leaf_loader.take();
+        let (structural, values, lengths) = if let Some(catalog) = stored_catalog {
+            let loader = leaf_loader.ok_or("stored posting leaf loader is missing")?;
+            let structural = if snapshot.has_structural {
+                Some(StructuralFacts {
+                    postings: PostingDictionary::from_stored(
+                        catalog.structural,
+                        Arc::clone(&loader),
+                    ),
                 })
-            })
-            .transpose()?;
+            } else {
+                None
+            };
+            (
+                structural,
+                PostingDictionary::from_stored(catalog.values, Arc::clone(&loader)),
+                PostingDictionary::from_stored(catalog.lengths, loader),
+            )
+        } else {
+            let structural = snapshot
+                .structural
+                .map(|postings| {
+                    Ok::<_, String>(StructuralFacts {
+                        postings: PostingDictionary::from_public(postings).publish_native()?,
+                    })
+                })
+                .transpose()?;
+            (
+                structural,
+                PostingDictionary::from_public(snapshot.values).publish_native()?,
+                PostingDictionary::from_public(snapshot.lengths).publish_native()?,
+            )
+        };
         let index = Self {
             path: snapshot.path,
             kind: snapshot.kind,
@@ -2349,8 +2681,8 @@ impl PostingIndex {
             empty_selections: snapshot.empty_selections,
             nulls: snapshot.nulls,
             structural,
-            values: PostingDictionary::from_public(snapshot.values).publish_native()?,
-            lengths: PostingDictionary::from_public(snapshot.lengths).publish_native()?,
+            values,
+            lengths,
             values_indexed: snapshot.values_indexed,
             value_complete: snapshot.value_complete,
             length_complete: snapshot.length_complete,
@@ -2368,7 +2700,9 @@ impl PostingIndex {
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
         };
-        index.validate_domain(&(0..index.covered_records).collect::<RoaringBitmap>())?;
+        if !index.values.is_storage_backed() && !index.lengths.is_storage_backed() {
+            index.validate_domain(&(0..index.covered_records).collect::<RoaringBitmap>())?;
+        }
         Ok(index)
     }
 
@@ -2403,8 +2737,74 @@ impl PostingIndex {
         Ok(())
     }
 
+    pub(crate) fn ensure_term_leaves(&self, term: &BoundTerm) -> Result<(), String> {
+        self.ensure_storage_loaded()?;
+        let this = self.payload();
+        if let Some(structural) = this.structural.as_ref()
+            && let Some(key) = derived_structural_key(term.derived)
+        {
+            structural.postings.get_checked(&key)?;
+        }
+        if term.derived == Derived::Length {
+            let Value::Number(number) = &term.literal else {
+                return Ok(());
+            };
+            match term.operator {
+                Operator::Eq => {
+                    this.lengths.get_checked(number)?;
+                }
+                Operator::Ne => {
+                    let mut range = this.lengths.range(Unbounded, Unbounded, false);
+                    while range.next().is_some() {}
+                }
+                Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                    let (lower, upper) = range_bounds(number, term.operator);
+                    let mut range = this.lengths.range(lower, upper, false);
+                    while range.next().is_some() {}
+                }
+                _ => {}
+            }
+            return Ok(());
+        }
+        let Some(key) = ScalarKey::from_value(&term.literal) else {
+            return Ok(());
+        };
+        if let Some(period) = &term.period {
+            if let (Some(start), Some(end)) = (
+                ScalarKey::from_value(&period.start),
+                ScalarKey::from_value(&period.end),
+            ) {
+                let mut range = this.values.range(Excluded(start), Excluded(end), false);
+                while range.next().is_some() {}
+            }
+            return Ok(());
+        }
+        match term.operator {
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                let (lower, upper) = range_bounds(&key, term.operator);
+                let mut range = this.values.range(lower, upper, false);
+                while range.next().is_some() {}
+            }
+            _ => {
+                this.values.get_checked(&key)?;
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn ensure_all_values_loaded(&self) -> Result<(), String> {
+        self.ensure_storage_loaded()?;
+        self.payload().values.for_each(|_, _| Ok(()))
+    }
+
     pub(crate) fn is_stored(&self) -> bool {
         self.storage.is_some()
+            || self.values.is_storage_backed()
+            || self.lengths.is_storage_backed()
+            || self
+                .structural
+                .as_ref()
+                .is_some_and(|facts| facts.postings.is_storage_backed())
     }
 
     fn materialize_storage(&mut self) -> Result<(), String> {
@@ -2462,7 +2862,7 @@ impl PostingIndex {
     }
 
     pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> u64 {
-        self.payload().values.get(key).map_or(0, RoaringBitmap::len)
+        self.payload().values.cardinality(key)
     }
 
     pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<&RoaringBitmap> {
@@ -2529,6 +2929,21 @@ impl PostingIndex {
                                     .bitmaps
                                     .get(entry.ordinal.to_native() as usize)
                                     .expect("validated posting ordinal");
+                                lists += 1;
+                                members += slots.len();
+                                union |= slots;
+                            }
+                        }
+                    }
+                    PublishedPostingBacking::Stored(stored) => {
+                        for (key, ordinal) in stored.values.iter() {
+                            let StoredScalarKey::Id(id) = key else {
+                                continue;
+                            };
+                            if ids.contains(id) {
+                                let slots = stored
+                                    .load_ordinal(*ordinal as usize)
+                                    .expect("stored posting leaf");
                                 lists += 1;
                                 members += slots.len();
                                 union |= slots;
@@ -2611,7 +3026,7 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
-        let equal = || this.values.get(key).map(RoaringBitmap::len).unwrap_or(0);
+        let equal = || this.values.cardinality(key);
         match operator {
             Operator::Eq => {
                 *visits += 1;
@@ -3516,10 +3931,7 @@ impl PostingIndex {
         match term.operator {
             Operator::Eq => {
                 *visits += 1;
-                Some((
-                    1.0,
-                    this.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
-                ))
+                Some((1.0, this.values.cardinality(&key)))
             }
             Operator::Ne if !term.multi => {
                 *visits += 1;
@@ -3527,7 +3939,7 @@ impl PostingIndex {
                     2.0,
                     self.stats.present_count
                         - self.stats.null_count
-                        - this.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                        - this.values.cardinality(&key),
                 ))
             }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
@@ -3805,6 +4217,31 @@ impl PostingIndex {
 fn length_posting_is_exact(term: &BoundTerm) -> bool {
     !term.query_path.has_explicit_array_step
         && (term.quantifier == Quantifier::Any || term.path.segments.len() == 1)
+}
+
+fn derived_structural_key(derived: Derived) -> Option<StructuralKey> {
+    match derived {
+        Derived::Null => Some(StructuralKey::AnyNull),
+        Derived::IsNonEmpty => Some(StructuralKey::NonEmpty),
+        Derived::IsString => Some(StructuralKey::String),
+        Derived::IsNumber => Some(StructuralKey::Number),
+        Derived::IsArray => Some(StructuralKey::Array),
+        Derived::IsObject => Some(StructuralKey::Object),
+        _ => None,
+    }
+}
+
+fn range_bounds<K: Clone + Ord>(
+    key: &K,
+    operator: Operator,
+) -> (std::ops::Bound<K>, std::ops::Bound<K>) {
+    match operator {
+        Operator::Gt => (Excluded(key.clone()), Unbounded),
+        Operator::Ge => (Included(key.clone()), Unbounded),
+        Operator::Lt => (Unbounded, Excluded(key.clone())),
+        Operator::Le => (Unbounded, Included(key.clone())),
+        _ => (Unbounded, Unbounded),
+    }
 }
 
 fn is_range(operator: Operator) -> bool {

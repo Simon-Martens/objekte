@@ -220,6 +220,10 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     assert_eq!(result.count, Some(1));
     let warm = reopened.storage_status().unwrap();
     assert!(warm.index_reads > cold.index_reads);
+    assert_eq!(
+        warm.cache.loaded_families, 1,
+        "an equality filter must retain only its selected posting leaf"
+    );
 
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -997,8 +1001,8 @@ fn concurrent_first_use_shares_one_stored_posting_load() {
     let warm = reopened.storage_status().unwrap();
     assert_eq!(
         warm.index_reads,
-        cold.index_reads + 1,
-        "two concurrent first accesses must share one payload read"
+        cold.index_reads + 2,
+        "two concurrent accesses must share one dictionary read and one selected leaf read"
     );
     reopened.shutdown().unwrap();
     drop(reopened);

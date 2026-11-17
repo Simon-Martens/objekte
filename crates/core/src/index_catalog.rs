@@ -16,7 +16,6 @@ use crate::query_path::PathStep;
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 use crate::repository::CollectionState;
 
-
 /// Physical identity is used only to resolve a selected borrowed access. It
 /// does not change applicability, proof, or cost.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -25,7 +24,6 @@ pub(crate) enum PostingId {
     Observed,
     Named,
 }
-
 
 #[derive(Clone, Copy)]
 pub(crate) struct PostingAccess<'a> {
@@ -38,7 +36,6 @@ pub(crate) struct PostingAccess<'a> {
     pub empty_selections: Option<&'a RoaringBitmap>,
     pub short_string_coverage: Option<&'a RoaringBitmap>,
 }
-
 
 /// The same prepared operation is used by estimation, execution, and EXPLAIN.
 /// It contains no handle that could outlive its published owner.
@@ -53,7 +50,6 @@ pub(crate) enum PostingOperation {
     ValueCandidates,
 }
 
-
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct PostingProposal {
     pub id: PostingId,
@@ -63,7 +59,6 @@ pub(crate) struct PostingProposal {
     pub output: u64,
     pub coverage: u32,
 }
-
 
 impl PostingAccess<'_> {
     pub fn assess(
@@ -129,8 +124,7 @@ impl PostingAccess<'_> {
             output,
             coverage: index.covered_records,
         };
-        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits)
-        {
+        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
         if index.empty_string_complete
@@ -282,7 +276,11 @@ impl PostingAccess<'_> {
         operation: PostingOperation,
     ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.index;
-        index.ensure_storage_loaded()?;
+        if operation == PostingOperation::StringDictionaryExact {
+            index.ensure_all_values_loaded()?;
+        } else {
+            index.ensure_term_leaves(term)?;
+        }
         match operation {
             PostingOperation::Exact => Ok(index.exact_set_restricted(term, domain, input)),
             PostingOperation::SelfComparePresence => Ok(Some(input & &index.presence)),
@@ -347,7 +345,6 @@ impl PostingAccess<'_> {
     }
 }
 
-
 fn declared_array_steps(schema: &Schema, term: &BoundTerm) -> bool {
     let mut prefix = Vec::new();
     for step in &term.query_path.steps {
@@ -399,7 +396,6 @@ pub(crate) fn self_comparison_shape(term: &BoundTerm) -> bool {
         && term.period.is_none()
 }
 
-
 pub(crate) struct IndexCatalog<'a> {
     schema: &'a Schema,
     postings: &'a PostingCollection,
@@ -412,14 +408,12 @@ pub(crate) struct IndexCatalog<'a> {
     pub fallback_text: &'a BigramIndex,
 }
 
-
 /// Derived once when a collection is published or restored. It contains only
 /// small binding names; postings and membership remain in their owners.
 #[derive(Clone, Debug, Default)]
 pub(crate) struct TextBindingCatalog {
     canonical: HashMap<Vec<String>, String>,
 }
-
 
 impl TextBindingCatalog {
     pub fn new(schema: &Schema) -> Self {
@@ -437,7 +431,6 @@ impl TextBindingCatalog {
         Self { canonical }
     }
 }
-
 
 impl<'a> IndexCatalog<'a> {
     pub fn collection(state: &'a CollectionState) -> Self {
