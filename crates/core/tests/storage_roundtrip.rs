@@ -154,7 +154,7 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     )
     .unwrap();
     let cold = reopened.storage_status().unwrap();
-    assert_eq!(cold.index_reads, 1);
+    assert_eq!(cold.index_reads, 2);
 
     let mut request = all_records();
     request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
