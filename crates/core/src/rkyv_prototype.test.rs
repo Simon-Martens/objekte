@@ -1411,6 +1411,8 @@ fn rkyv_storage_diagnostics_do_not_populate_caches_or_clone_payloads() {
     assert_eq!(native_status.archived_components, 0);
     let native_usage = index.view().unwrap().storage_usage();
     assert!(native_status.native_components > 0);
+    assert_eq!(native_usage.archive.owners, 0);
+    assert_eq!(native_usage.archive.serialized_bytes, 0);
     assert!(native_usage.posting_bitmap_payload_bytes > 0);
     index.archive().unwrap();
     let view = index.view().unwrap();
@@ -1804,6 +1806,10 @@ fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
         crate::lifecycle::ArchiveRepresentation::Native
     );
     let native_ids = ids(&native_view, &query(None, None, 10, 0));
+    let native_revision = native_view.revision();
+    let native_file = native_view
+        .file_handle_for_path(std::path::Path::new("data/a.json"))
+        .unwrap();
     let pinned_weak =
         Arc::downgrade(&native_view.segments(crate::model::CollectionId(0)).unwrap()[0].index);
     let segment_id = native_view.segments(crate::model::CollectionId(0)).unwrap()[0].id;
@@ -1829,12 +1835,24 @@ fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
     let archive_work = crate::storage_usage::StorageWorkCounters::snapshot();
     assert_eq!(archive_work.temporary_ordinal_trees, 0);
     assert!(archive_work.checked_archive_validations > 0);
+    assert_eq!(
+        ids(&native_view, &query(None, None, 10, 0)),
+        native_ids,
+        "a pinned pre-archive view must continue using native storage"
+    );
     drop(native_view);
     assert!(
         pinned_weak.upgrade().is_none(),
         "old native segment remained reachable after archive"
     );
     let archived_view = index.view().unwrap();
+    assert_eq!(archived_view.revision(), native_revision);
+    assert_eq!(
+        archived_view
+            .file_handle_for_path(std::path::Path::new("data/a.json"))
+            .unwrap(),
+        native_file
+    );
     let archived_segment = archived_view
         .segments(crate::model::CollectionId(0))
         .unwrap()
@@ -1875,10 +1893,21 @@ fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
         crate::lifecycle::ArchiveRepresentation::Archived
     );
     let generation = index.archive_status().unwrap().representation_generation;
+    let archive_usage = index.storage_usage().unwrap();
     let noop = index.archive().unwrap();
     assert_eq!(noop.converted_components, 0);
     assert_eq!(noop.representation_generation_after, generation);
     assert_eq!(noop.newly_serialized_bytes, 0);
+    let noop_usage = index.storage_usage().unwrap();
+    assert_eq!(noop_usage.archive.owners, archive_usage.archive.owners);
+    assert_eq!(
+        noop_usage.archive.serialized_bytes,
+        archive_usage.archive.serialized_bytes
+    );
+    assert_eq!(
+        noop_usage.archive.allocated_bytes,
+        archive_usage.archive.allocated_bytes
+    );
     drop(archived_view);
 
     let added = root.join("data/b.json");

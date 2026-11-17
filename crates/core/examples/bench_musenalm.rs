@@ -74,10 +74,20 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
+    let mut archive = false;
+    let mut archive_workers = 1usize;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
             "--incremental" => incremental = true,
+            "--archive" => archive = true,
+            "--archive-workers" => {
+                archive_workers = args
+                    .next()
+                    .ok_or("--archive-workers needs a number")?
+                    .parse()
+                    .map_err(|e| format!("invalid archive worker count: {e}"))?
+            }
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -251,6 +261,18 @@ fn run() -> Result<(), String> {
             let task = Index::start_incremental_build(&root, definitions.clone(), options)
                 .map_err(|error| error.to_string())?;
             let index = task.wait_complete().map_err(|error| error.to_string())?;
+            let archive_report = if archive {
+                Some(
+                    index
+                        .archive_with_options(
+                            objekte_search_core::lifecycle::ArchiveOptions::new(archive_workers)
+                                .map_err(|error| error.to_string())?,
+                        )
+                        .map_err(|error| error.to_string())?,
+                )
+            } else {
+                None
+            };
             let build_status = Some(task.status().map_err(|error| error.to_string())?);
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
@@ -279,6 +301,7 @@ fn run() -> Result<(), String> {
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
                 "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
+                "archive_report": archive_report,
                 "storage_usage": storage_usage,
                 "segment_families":view.index_family_breakdown(),
             }));
@@ -293,7 +316,7 @@ fn run() -> Result<(), String> {
             SearchBackend::Incremental(index, view)
         } else {
             let build_start = Instant::now();
-            let repo = Repository::open_with_options(
+            let mut repo = Repository::open_with_options(
                 &root,
                 definitions.clone(),
                 RepositoryOptions {
@@ -304,6 +327,17 @@ fn run() -> Result<(), String> {
             )?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup().build_ns;
+            let archive_report = if archive {
+                Some(
+                    repo.archive_with_options(
+                        objekte_search_core::lifecycle::ArchiveOptions::new(archive_workers)
+                            .map_err(|error| error.to_string())?,
+                    )
+                    .map_err(|error| error.to_string())?,
+                )
+            } else {
+                None
+            };
             let storage_usage = repo.storage_usage();
             if corpus_hash.is_empty() {
                 corpus_hash = fingerprint_inventory(&repo);
@@ -366,6 +400,7 @@ fn run() -> Result<(), String> {
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
                 "estimated_index_bytes": estimated_index_bytes,
                 "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
+                "archive_report": archive_report,
                 "storage_usage": storage_usage,
                 "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
                 "relation_count": relations.len(),

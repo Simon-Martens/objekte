@@ -520,6 +520,13 @@ impl IndexedCollectionSegment {
                 index.archive_storage()?;
             }
         }
+        crate::segment_archive::validate_segment_components(
+            &self.files,
+            &self.records,
+            &self.file_index,
+            &self.id_lookup,
+            self.collection,
+        )?;
         Ok(())
     }
 

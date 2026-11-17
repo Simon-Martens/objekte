@@ -15,7 +15,11 @@ use std::sync::{Arc, LazyLock, OnceLock};
 
 use rayon::ThreadPool;
 use rayon::prelude::*;
-use rkyv::{Archive, Serialize as ArchiveSerialize};
+use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
+use rkyv::collections::swiss_table::{ArchivedHashMap, HashMapResolver};
+use rkyv::place::Place;
+use rkyv::vec::{ArchivedVec, VecResolver};
+use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 
 use crate::archive_storage::ValidatedArchive;
@@ -327,6 +331,91 @@ enum CatalogMetadataBacking {
     },
 }
 
+struct CatalogMetadataSource<'a> {
+    id_lookup: &'a HashMap<u32, u32>,
+    rows: &'a [NativeCatalogRow],
+}
+
+struct CatalogMetadataSourceResolver {
+    id_lookup: HashMapResolver,
+    rows: VecResolver,
+}
+
+#[derive(Clone, Copy)]
+struct BorrowedCatalogRow<'a>(&'a NativeCatalogRow);
+
+impl Archive for BorrowedCatalogRow<'_> {
+    type Archived = Archived<StoredFileRow>;
+    type Resolver = <StoredFileRow as Archive>::Resolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        let stored =
+            StoredFileRow::from_entry(&self.0.entry, self.0.fingerprint, self.0.configuration);
+        Archive::resolve(&stored, resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedCatalogRow<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let stored =
+            StoredFileRow::from_entry(&self.0.entry, self.0.fingerprint, self.0.configuration);
+        ArchiveSerialize::serialize(&stored, serializer)
+    }
+}
+
+impl Archive for CatalogMetadataSource<'_> {
+    type Archived = Archived<CatalogMetadataArchive>;
+    type Resolver = CatalogMetadataSourceResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The source mirrors the two fields of the archive in order.
+        unsafe {
+            let root = out.ptr();
+            let id_lookup =
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id_lookup));
+            let rows = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).rows));
+            ArchivedHashMap::<rkyv::rend::u32_le, rkyv::rend::u32_le>::resolve_from_len(
+                self.id_lookup.len(),
+                (7, 8),
+                resolver.id_lookup,
+                id_lookup,
+            );
+            ArchivedVec::<Archived<StoredFileRow>>::resolve_from_len(
+                self.rows.len(),
+                resolver.rows,
+                rows,
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogMetadataSource<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let id_lookup = ArchivedHashMap::<
+            rkyv::rend::u32_le,
+            rkyv::rend::u32_le,
+            rkyv::hash::FxHasher64,
+        >::serialize_from_iter::<_, &u32, &u32, u32, u32, S>(
+            self.id_lookup.iter(),
+            (7, 8),
+            serializer,
+        )?;
+        let rows = ArchivedVec::serialize_from_iter::<_, _, _>(
+            self.rows.iter().map(BorrowedCatalogRow),
+            serializer,
+        )?;
+        Ok(CatalogMetadataSourceResolver { id_lookup, rows })
+    }
+}
+
 struct CatalogMetadataShard {
     backing: CatalogMetadataBacking,
     cache: OnceLock<Vec<FileEntry>>,
@@ -346,6 +435,63 @@ enum CatalogPathBacking {
     Archived {
         archive: Arc<ValidatedArchive<CatalogPathArchive>>,
     },
+}
+
+struct CatalogPathSource<'a> {
+    exact: &'a HashMap<String, u32>,
+    ordered: &'a BTreeMap<String, u32>,
+}
+
+struct CatalogPathSourceResolver {
+    exact: HashMapResolver,
+    ordered: BTreeMapResolver,
+}
+
+impl Archive for CatalogPathSource<'_> {
+    type Archived = Archived<CatalogPathArchive>;
+    type Resolver = CatalogPathSourceResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The source mirrors the two fields of the archive in order.
+        unsafe {
+            let root = out.ptr();
+            let exact = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).exact));
+            let ordered = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).ordered));
+            ArchivedHashMap::<rkyv::string::ArchivedString, rkyv::rend::u32_le>::resolve_from_len(
+                self.exact.len(),
+                (7, 8),
+                resolver.exact,
+                exact,
+            );
+            ArchivedBTreeMap::<rkyv::string::ArchivedString, rkyv::rend::u32_le, 5>::
+                resolve_from_len(self.ordered.len(), resolver.ordered, ordered);
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogPathSource<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let exact = ArchivedHashMap::<
+            rkyv::string::ArchivedString,
+            rkyv::rend::u32_le,
+            rkyv::hash::FxHasher64,
+        >::serialize_from_iter::<_, &String, &u32, String, u32, S>(
+            self.exact.iter(),
+            (7, 8),
+            serializer,
+        )?;
+        let ordered =
+            ArchivedBTreeMap::<rkyv::string::ArchivedString, rkyv::rend::u32_le, 5>::
+                serialize_from_ordered_iter::<_, &String, &u32, String, u32, S>(
+                    self.ordered.iter(),
+                    serializer,
+                )?;
+        Ok(CatalogPathSourceResolver { exact, ordered })
+    }
 }
 
 struct CatalogPathShard {
@@ -466,6 +612,61 @@ enum OwnershipBacking {
     Archived {
         archive: Arc<ValidatedArchive<OwnershipArchive>>,
     },
+}
+
+struct OwnershipSource<'a> {
+    lookup: &'a HashMap<u32, u32>,
+    rows: &'a [StoredOwnershipRow],
+}
+
+struct OwnershipSourceResolver {
+    lookup: HashMapResolver,
+    rows: VecResolver,
+}
+
+impl Archive for OwnershipSource<'_> {
+    type Archived = Archived<OwnershipArchive>;
+    type Resolver = OwnershipSourceResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The source mirrors the two fields of the archive in order.
+        unsafe {
+            let root = out.ptr();
+            let lookup = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).lookup));
+            let rows = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).rows));
+            ArchivedHashMap::<rkyv::rend::u32_le, rkyv::rend::u32_le>::resolve_from_len(
+                self.lookup.len(),
+                (7, 8),
+                resolver.lookup,
+                lookup,
+            );
+            ArchivedVec::<Archived<StoredOwnershipRow>>::resolve_from_len(
+                self.rows.len(),
+                resolver.rows,
+                rows,
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for OwnershipSource<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let lookup = ArchivedHashMap::<
+            rkyv::rend::u32_le,
+            rkyv::rend::u32_le,
+            rkyv::hash::FxHasher64,
+        >::serialize_from_iter::<_, &u32, &u32, u32, u32, S>(
+            self.lookup.iter(),
+            (7, 8),
+            serializer,
+        )?;
+        let rows = ArchivedVec::serialize_from_slice(self.rows, serializer)?;
+        Ok(OwnershipSourceResolver { lookup, rows })
+    }
 }
 
 struct OwnershipShard {
@@ -656,10 +857,7 @@ impl CatalogPathShard {
         };
         Ok(Self {
             backing: CatalogPathBacking::Archived {
-                archive: ValidatedArchive::freeze(&CatalogPathArchive {
-                    exact: exact.clone(),
-                    ordered: ordered.clone(),
-                })?,
+                archive: ValidatedArchive::freeze_source(&CatalogPathSource { exact, ordered })?,
             },
         })
     }
@@ -762,10 +960,7 @@ impl OwnershipShard {
         let OwnershipBacking::Native { lookup, rows } = &self.backing else {
             return Err("ownership shard is already archived".into());
         };
-        let archive = ValidatedArchive::freeze(&OwnershipArchive {
-            lookup: lookup.clone(),
-            rows: rows.clone(),
-        })?;
+        let archive = ValidatedArchive::freeze_source(&OwnershipSource { lookup, rows })?;
         Ok(Self {
             backing: OwnershipBacking::Archived { archive },
         })
@@ -879,18 +1074,11 @@ impl CatalogMetadataShard {
         let CatalogMetadataBacking::Native { id_lookup, rows } = &self.backing else {
             return Err("catalog metadata shard is already archived".into());
         };
-        let rows = rows
-            .iter()
-            .map(|row| StoredFileRow::from_entry(&row.entry, row.fingerprint, row.configuration))
-            .collect::<Vec<_>>();
-        for row in &rows {
-            row.validate_stored()?;
+        for row in rows {
+            StoredFileRow::from_entry(&row.entry, row.fingerprint, row.configuration)
+                .validate_stored()?;
         }
-        let source = CatalogMetadataArchive {
-            id_lookup: id_lookup.clone(),
-            rows,
-        };
-        let archive = ValidatedArchive::freeze(&source)?;
+        let archive = ValidatedArchive::freeze_source(&CatalogMetadataSource { id_lookup, rows })?;
         Ok(Self {
             backing: CatalogMetadataBacking::Archived { archive },
             cache: OnceLock::new(),
@@ -2053,10 +2241,10 @@ impl FileCatalog {
             .fold((0, 0), |(native, archived), (add_native, add_archived)| {
                 (native + add_native, archived + add_archived)
             });
-        let paths =
-            self.paths
-                .iter()
-                .map(|shard| if shard.is_archived() { (0, 1) } else { (1, 0) });
+        let paths = self
+            .paths
+            .iter()
+            .map(|shard| if shard.is_archived() { (0, 1) } else { (1, 0) });
         let ownership = self.ownership.iter().map(|shard| match shard.backing {
             OwnershipBacking::Native { .. } => (1, 0),
             OwnershipBacking::Archived { .. } => (0, 1),

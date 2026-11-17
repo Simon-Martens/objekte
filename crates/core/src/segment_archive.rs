@@ -1266,52 +1266,104 @@ pub(crate) fn validate_segment_components(
     if !Arc::ptr_eq(&files.owner, &records.owner) {
         return Err("segment file and record rows do not share one owner".into());
     }
-    if file_index.len() != files.len() {
-        return Err("segment file lookup coverage mismatch".into());
-    }
-    let mut file_ids = std::collections::HashSet::with_capacity(files.len());
-    for (ordinal, file) in files.iter().enumerate() {
-        let id = file.entry.id;
-        if !file_ids.insert(id)
-            || file_index.get(id) != Some(ordinal)
-            || !file
-                .entry
-                .collections
-                .iter()
-                .any(|candidate| *candidate == collection)
-        {
-            return Err("segment file row or lookup is inconsistent".into());
-        }
-        for slot in file.records.iter() {
-            let record = records
-                .record_row(slot.0 as usize)
-                .ok_or("segment file owns an out-of-bounds record slot")?;
-            if record.file() != id {
-                return Err("segment file and record ownership disagree".into());
+    match (&files.owner.backing, &records.owner.backing) {
+        (
+            SegmentRowsBacking::Native {
+                files: file_rows, ..
+            },
+            SegmentRowsBacking::Native {
+                records: record_rows,
+                ..
+            },
+        ) => {
+            if file_index.len() != file_rows.len() {
+                return Err("segment file lookup coverage mismatch".into());
+            }
+            let mut file_ids = std::collections::HashSet::with_capacity(file_rows.len());
+            for (ordinal, file) in file_rows.iter().enumerate() {
+                let id = file.entry.id;
+                if !file_ids.insert(id)
+                    || file_index.get(id) != Some(ordinal)
+                    || !file.entry.collections.contains(&collection)
+                {
+                    return Err("segment file row or lookup is inconsistent".into());
+                }
+                for slot in &file.records {
+                    let record = record_rows
+                        .get(slot.0 as usize)
+                        .ok_or("segment file owns an out-of-bounds record slot")?;
+                    if record.file != id {
+                        return Err("segment file and record ownership disagree".into());
+                    }
+                }
+            }
+            if record_rows.len() != id_lookup.len() {
+                return Err("segment record lookup coverage mismatch".into());
+            }
+            let mut ids = std::collections::HashSet::with_capacity(record_rows.len());
+            for (slot, record) in record_rows.iter().enumerate() {
+                if record.slot.0 as usize != slot
+                    || record.range.start > record.range.end
+                    || record.range.end > record.revision.size
+                    || !file_ids.contains(&record.file)
+                    || !ids.insert(Arc::clone(&record.id.0))
+                    || id_lookup.get(&record.id.0) != Some(RecordSlot(slot as u32))
+                {
+                    return Err("segment record row or identity lookup is inconsistent".into());
+                }
             }
         }
-    }
-    if records.len() != id_lookup.len() {
-        return Err("segment record lookup coverage mismatch".into());
-    }
-    let mut ids = std::collections::HashSet::with_capacity(records.len());
-    for slot in 0..records.len() {
-        let record = records
-            .record_row(slot)
-            .ok_or("segment record row missing during validation")?;
-        let record_id = Arc::<str>::from(record.id());
-        let indexed = records
-            .get(slot)
-            .ok_or("segment record row missing during validation")?;
-        if indexed.slot.0 as usize != slot
-            || record.range().start > record.range().end
-            || record.range().end > indexed.revision.size
-            || !file_ids.contains(&record.file())
-            || !ids.insert(Arc::clone(&record_id))
-            || id_lookup.get(&record_id) != Some(RecordSlot(slot as u32))
-        {
-            return Err("segment record row or identity lookup is inconsistent".into());
+        (
+            SegmentRowsBacking::Archived { archive, .. },
+            SegmentRowsBacking::Archived {
+                archive: record_archive,
+                ..
+            },
+        ) if Arc::ptr_eq(archive, record_archive) => {
+            let root = archive.root();
+            if file_index.len() != root.files.len() {
+                return Err("segment file lookup coverage mismatch".into());
+            }
+            let mut file_ids = std::collections::HashSet::with_capacity(root.files.len());
+            for (ordinal, file) in root.files.iter().enumerate() {
+                let id = FileId(file.id.to_native());
+                if !file_ids.insert(id)
+                    || file_index.get(id) != Some(ordinal)
+                    || !file
+                        .collections
+                        .iter()
+                        .any(|candidate| candidate.to_native() == collection.0)
+                {
+                    return Err("segment file row or lookup is inconsistent".into());
+                }
+                for slot in file.records.iter() {
+                    let record = root
+                        .records
+                        .get(slot.to_native() as usize)
+                        .ok_or("segment file owns an out-of-bounds record slot")?;
+                    if record.file.to_native() != file.id.to_native() {
+                        return Err("segment file and record ownership disagree".into());
+                    }
+                }
+            }
+            if root.records.len() != id_lookup.len() {
+                return Err("segment record lookup coverage mismatch".into());
+            }
+            let mut ids = std::collections::HashSet::with_capacity(root.records.len());
+            for (slot, record) in root.records.iter().enumerate() {
+                let id = Arc::<str>::from(record.id.as_str());
+                if record.slot.to_native() as usize != slot
+                    || record.range_start.to_native() > record.range_end.to_native()
+                    || record.range_end.to_native() > record.size.to_native()
+                    || !file_ids.contains(&FileId(record.file.to_native()))
+                    || !ids.insert(Arc::clone(&id))
+                    || id_lookup.get(&id) != Some(RecordSlot(slot as u32))
+                {
+                    return Err("segment record row or identity lookup is inconsistent".into());
+                }
+            }
         }
+        _ => return Err("segment row representations do not share an owner".into()),
     }
     Ok(())
 }

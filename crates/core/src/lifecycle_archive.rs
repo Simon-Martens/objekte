@@ -138,6 +138,18 @@ impl Default for ArchiveOptions {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::ArchiveOptions;
+
+    #[test]
+    fn archive_options_reject_zero_and_default_to_one_worker() {
+        assert!(ArchiveOptions::new(0).is_err());
+        assert_eq!(ArchiveOptions::default().worker_limit(), 1);
+        assert_eq!(ArchiveOptions::new(8).unwrap().worker_limit(), 8);
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 pub struct ArchiveStatus {
     pub representation: ArchiveRepresentation,
@@ -412,7 +424,7 @@ impl Index {
         drop(retired);
         let installation_ns = installation_started.elapsed().as_nanos() as u64;
         let after_usage = self.view()?.storage_usage();
-        let converted_components = before_counts.0.saturating_sub(after_counts.0);
+        let converted_components = after_counts.1.saturating_sub(before_counts.1);
         Ok(ArchiveReport {
             index_revision: source.revision,
             instance_id: source.instance_id,
@@ -564,7 +576,7 @@ impl Repository {
             ),
             representation_generation_before: before_generation,
             representation_generation_after: self.representation_generation,
-            converted_components: before_counts.0.saturating_sub(after_counts.0),
+            converted_components: after_counts.1.saturating_sub(before_counts.1),
             reused_components: before_counts.1,
             native_components: after_counts.0,
             archived_components: after_counts.1,
