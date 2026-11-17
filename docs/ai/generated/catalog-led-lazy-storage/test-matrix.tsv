@@ -35,7 +35,7 @@ S33	pass	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	
 S34	pass	storage_roundtrip::different_stored_components_can_load_concurrently	Different posting components load concurrently within a two-read permit.
 S35	pass	storage_roundtrip::cancelled_cold_query_does_not_poison_later_lazy_access	A pre-cancelled cold query returns Cancelled without payload reads, and a later uncancelled query reuses the untouched backend successfully.
 S36	pass	storage_roundtrip::transient_missing_lazy_dictionary_can_be_retried	A transient missing dictionary error does not poison the cache and a later query succeeds after restoration.
-S37	partial	storage_roundtrip::trimming_decoded_fts_leaves_allows_a_later_checked_reload	Decoded leaf trim is covered; full query pin and budget eviction accounting is pending.
+S37	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	Budgeted loads obey the resident target, oversize requests bypass retention, and Arc leases keep active query owners valid when trim/eviction removes cache keys.
 S38	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	An oversize selected payload serves the query, is not retained, and records the bypass.
 S39	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	Eager metadata remains resident while payload cache accounting stays at zero under a one-byte budget.
 S40	pass	rkyv_prototype::rkyv_pinned_view_releases_retired_segment_owner_when_dropped	A retired native segment owner remains pinned only while an old view exists and is released after that view drops.
