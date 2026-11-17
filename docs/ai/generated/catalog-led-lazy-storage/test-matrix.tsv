@@ -70,7 +70,7 @@ S68	pass	storage::writer::tests::post_rename_directory_sync_error_is_commit_unce
 S69	pending	none	Child-process transaction barriers are not implemented.
 S70	pass	storage::writer::tests::transaction_trace_orders_dependencies_before_current_and_root_sync	The transaction trace orders dependency sync/install before CURRENT sync/rename and final store-directory sync.
 S71	pass	storage_roundtrip::independent_writers_cannot_overwrite_a_nonempty_store	A second unrelated writer is rejected.
-S72	pending	none	Reader pinned across concurrent commit needs a process-level test.
+S72	pass	storage_roundtrip::reader_opening_during_commit_pins_one_complete_generation	A barrier-started opener resolves to either the complete old or new snapshot and never a mixed generation; the final reopen resolves to the new one.
 S73	pass	storage_roundtrip::empty_completed_index_round_trips	An empty completed publication saves, reopens and queries as an empty index.
 S74	pass	storage_roundtrip::zero_and_tiny_eager_limits_are_rejected_without_opening	Zero limits and undersized manifest admission fail explicitly without publishing an open snapshot; bounded leaf/frame limits are tested separately.
 S75	pass	storage_roundtrip::reopened_store_rejects_a_different_source_root	A mismatched source root is rejected instead of becoming an empty index.

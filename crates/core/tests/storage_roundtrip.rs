@@ -2154,6 +2154,89 @@ fn mixed_native_and_cold_compaction_preserves_old_and_current_views() {
 }
 
 #[test]
+fn reader_opening_during_commit_pins_one_complete_generation() {
+    let root = fixture_root("reader-during-commit");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = std::sync::Arc::new(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .unwrap(),
+    );
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    let barrier = std::sync::Arc::new(std::sync::Barrier::new(3));
+    let saver = {
+        let index = std::sync::Arc::clone(&reopened);
+        let barrier = std::sync::Arc::clone(&barrier);
+        let storage = root.join("storage");
+        std::thread::spawn(move || {
+            barrier.wait();
+            index
+                .archive_to(storage, StorageWriteOptions::default())
+                .unwrap();
+        })
+    };
+    let opener = {
+        let barrier = std::sync::Arc::clone(&barrier);
+        let root = root.clone();
+        let definitions = definitions();
+        std::thread::spawn(move || {
+            barrier.wait();
+            Index::open_storage(
+                &root,
+                definitions,
+                RepositoryOptions::default(),
+                root.join("storage"),
+                StorageOpenOptions::default(),
+            )
+            .unwrap()
+        })
+    };
+    barrier.wait();
+    saver.join().unwrap();
+    let opened = opener.join().unwrap();
+    let count = opened.view().unwrap().search(&all_records()).unwrap().count;
+    assert!(matches!(count, Some(2) | Some(3)));
+    opened.shutdown().unwrap();
+    drop(opened);
+    reopened.shutdown().unwrap();
+    drop(reopened);
+
+    let final_index = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        final_index
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    final_index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn old_view_can_lazy_load_after_current_root_replacement_and_index_drop() {
     let root = fixture_root("old-view-lazy");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
