@@ -24,7 +24,9 @@ use crate::relation::{
 use crate::repository::{CollectionState, Repository};
 use crate::segment_archive::{FileLookup, RecordLookup, SegmentRows};
 use crate::sorting::{
-    SortArchivePayload, SortCollection, SortCollectionLoader, StoredSortPayloadRef,
+    SortArchivePayload, SortCollection, SortCollectionLoader, SortColumnLoader, SortOrderLoader,
+    StoredComposite, StoredSortColumn, StoredSortColumnRef, StoredSortOrderRef,
+    StoredSortPayloadRef,
 };
 use crate::storage::format::{self, StorageError};
 use crate::storage::model;
@@ -447,6 +449,8 @@ const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 const BIGRAM_LEAF_KIND: u16 = 7;
 const RELATION_PAYLOAD_OBJECT_KIND: u16 = 8;
 const POSTING_LEAF_KIND: u32 = 9;
+const SORT_COLUMN_OBJECT_KIND: u16 = 10;
+const SORT_ORDER_OBJECT_KIND: u16 = 11;
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -976,6 +980,75 @@ impl SortCollectionLoader for StoredSortLoader {
     }
 }
 
+struct StoredSortColumnLoader {
+    session: SharedStorageSession,
+    reference: StoredSortColumnRef,
+}
+
+impl std::fmt::Debug for StoredSortColumnLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredSortColumnLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .finish()
+    }
+}
+
+impl SortColumnLoader for StoredSortColumnLoader {
+    fn load_sort_column(&self) -> Result<StoredSortColumn, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            SORT_COLUMN_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let owner =
+            crate::archive_storage::ValidatedArchive::<StoredSortColumn>::checked_from_aligned(
+                aligned,
+            )
+            .map_err(|error| format!("sort column validation failed: {error}"))?;
+        let payload = rkyv::deserialize::<StoredSortColumn, rkyv::rancor::Error>(owner.root())
+            .map_err(|error| format!("sort column decode failed: {error}"))?;
+        Ok(payload)
+    }
+}
+
+struct StoredSortOrderLoader {
+    session: SharedStorageSession,
+    reference: StoredSortOrderRef,
+}
+
+impl std::fmt::Debug for StoredSortOrderLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredSortOrderLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .finish()
+    }
+}
+
+impl SortOrderLoader for StoredSortOrderLoader {
+    fn load_sort_order(&self) -> Result<StoredComposite, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            SORT_ORDER_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let owner =
+            crate::archive_storage::ValidatedArchive::<StoredComposite>::checked_from_aligned(
+                aligned,
+            )
+            .map_err(|error| format!("sort order validation failed: {error}"))?;
+        rkyv::deserialize::<StoredComposite, rkyv::rancor::Error>(owner.root())
+            .map_err(|error| format!("sort order decode failed: {error}"))
+    }
+}
+
 struct StoredRelationLoader {
     session: SharedStorageSession,
     reference: StoredRelationPayloadRef,
@@ -1021,7 +1094,9 @@ fn read_checked_object(
         POSTING_PAYLOAD_OBJECT_KIND
         | BIGRAM_PAYLOAD_OBJECT_KIND
         | SORT_PAYLOAD_OBJECT_KIND
-        | RELATION_PAYLOAD_OBJECT_KIND => session.limits().lazy_dictionary_body_bytes,
+        | RELATION_PAYLOAD_OBJECT_KIND
+        | SORT_COLUMN_OBJECT_KIND
+        | SORT_ORDER_OBJECT_KIND => session.limits().lazy_dictionary_body_bytes,
         _ => session.limits().eager_catalog_body_bytes,
     };
     if length > limit {
@@ -1040,6 +1115,8 @@ fn read_checked_object(
         .join("objects")
         .join(format::object_file_name(&digest, kind));
     let permit = session.acquire_read_permit()?;
+    if matches!(kind, SORT_COLUMN_OBJECT_KIND | SORT_ORDER_OBJECT_KIND) {
+    }
     let bytes = fs::read(&path).map_err(|error| format!("{}: {error}", path.display()))?;
     drop(permit);
     session
@@ -1113,6 +1190,23 @@ fn sorting_from_storage(
 ) -> Result<SortCollection, StorageError> {
     if let Some(reference) = sorting.payload {
         sorting.storage = Some(Arc::new(StoredSortLoader { session, reference }));
+        return Ok(sorting);
+    }
+    for column in sorting.columns.values_mut() {
+        if let Some(reference) = column.stored {
+            column.loader = Some(Arc::new(StoredSortColumnLoader {
+                session: Arc::clone(&session),
+                reference,
+            }));
+        }
+    }
+    for composite in &mut sorting.composites {
+        if let Some(reference) = composite.stored {
+            composite.loader = Some(Arc::new(StoredSortOrderLoader {
+                session: Arc::clone(&session),
+                reference,
+            }));
+        }
     }
     Ok(sorting)
 }

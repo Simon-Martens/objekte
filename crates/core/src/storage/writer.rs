@@ -17,8 +17,11 @@ const METADATA_OBJECT_KIND: u16 = 1;
 const PAYLOAD_OBJECT_KIND: u16 = 2;
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
+#[allow(dead_code)]
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
+const SORT_COLUMN_OBJECT_KIND: u16 = 10;
+const SORT_ORDER_OBJECT_KIND: u16 = 11;
 const RELATION_PAYLOAD_OBJECT_KIND: u16 = 8;
 static STAGING_SEQUENCE: AtomicU64 = AtomicU64::new(0);
 
@@ -476,24 +479,39 @@ fn externalize_sorting(
     sorting: &mut crate::sorting::SortCollection,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
 ) -> Result<(), StorageError> {
-    let payload = sorting
-        .archive_payload()
-        .map_err(StorageError::UnsupportedComponent)?;
-    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
-    let object = format::envelope(SORT_PAYLOAD_OBJECT_KIND, &body);
-    let digest = format::sha256(&object);
-    let length = object.len() as u64;
-    objects.push((digest, object));
+    if sorting.payload.is_some() {
+        return Ok(());
+    }
     for column in sorting.columns.values_mut() {
+        if column.stored.is_none() {
+            let payload = column
+                .archive_payload()
+                .map_err(StorageError::UnsupportedComponent)?;
+            let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+                .map_err(|error| StorageError::Io(error.to_string()))?;
+            let object = format::envelope(SORT_COLUMN_OBJECT_KIND, &body);
+            let digest = format::sha256(&object);
+            let length = object.len() as u64;
+            objects.push((digest, object));
+            column.stored = Some(crate::sorting::StoredSortColumnRef { digest, length });
+        }
         column.keys.clear();
         column.ascending.clear();
         column.descending.clear();
     }
     for composite in &mut sorting.composites {
+        if composite.stored.is_none() {
+            let payload = composite.archive_payload();
+            let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+                .map_err(|error| StorageError::Io(error.to_string()))?;
+            let object = format::envelope(SORT_ORDER_OBJECT_KIND, &body);
+            let digest = format::sha256(&object);
+            let length = object.len() as u64;
+            objects.push((digest, object));
+            composite.stored = Some(crate::sorting::StoredSortOrderRef { digest, length });
+        }
         composite.order.clear();
     }
-    sorting.payload = Some(crate::sorting::StoredSortPayloadRef { digest, length });
     Ok(())
 }
 

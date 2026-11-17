@@ -2389,6 +2389,9 @@ fn concurrent_test_inferred_column(path: &str) -> SortColumn {
         locale: "de".into(),
         options: SortOptions::default(),
         collation_version: crate::sorting::COLLATION_VERSION.into(),
+        stored: None,
+        loader: None,
+        loaded: std::sync::Arc::new(std::sync::OnceLock::new()),
     }
 }
 

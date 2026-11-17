@@ -11,7 +11,7 @@ S09	pass	storage_roundtrip::presence_and_null_queries_do_not_open_value_or_text_
 S10	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Selected FTS dictionaries and gram leaves load after reopen.
 S11	pass	storage_roundtrip::missing_stored_fts_gram_skips_all_leaf_reads	Missing gram returns empty without sibling leaf retention.
 S12	pending	none	Early empty-intersection stopping is implemented but not isolated by a test.
-S13	pending	none	Sort remains collection/segment-frame lazy, not per-column lazy.
+S13	pass	storage_roundtrip::selected_sort_loads_only_its_configured_column_frame	A selected title sort loads its key/order frames while the separately configured id column remains cold.
 S14	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Repeated FTS query adds no index reads.
 S15	pending	none	Empty-leaf behavior exists, but all Roaring container forms lack a storage round-trip matrix.
 S16	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Selected FTS and posting leaf requests admit only requested leaves; an equality filter retains exactly one posting leaf.

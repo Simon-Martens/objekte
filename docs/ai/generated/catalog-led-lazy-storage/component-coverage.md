@@ -17,7 +17,7 @@ component gains its stored descriptor and resolver.
 | Presence/null/empty-selection masks | `PostingIndex` | eager liveness/state plus lazy query-state leaves | presence/null/empty selection are eager in snapshot metadata; structural/length/value payload is field-lazy |
 | FTS normal/skip dictionaries | `BigramIndex` | lazy archived dictionary frame | per-binding dictionary frame implemented; normal and skip maps are separately keyed |
 | FTS bitmaps | `BigramIndex` leaf pack | lazy Roaring leaves | fully lazy per-gram leaves implemented with offset, length, cardinality, decoded estimate and SHA-256; bounded coalescing and decoded cache implemented |
-| Sorting keys/order arrays | `SortCollection` | lazy sort frames | collection/segment-level rkyv payload implemented; per-column independent frames remain pending |
+| Sorting keys/order arrays | `SortColumn`, `CompositeSortOrder` | lazy sort frames | each configured column and composite order is an independently checked frame; selected sorts resolve only their required frames |
 | Base relations and contributions | `RelationIndex` / `RelationContribution` | lazy relation payload | base CSR adjacency is a checked lazy frame; segment-local contributions remain eager metadata and endpoint-level splits are pending |
 | Inferred-order and verified caches | synchronized runtime caches | ephemeral/not persisted | classified |
 | Worker pools/query plans | runtime only | ephemeral/not persisted | classified |
@@ -28,10 +28,9 @@ component gains its stored descriptor and resolver.
 - FTS dictionary: one lazy unit per field/binding/segment representation.
 - FTS normal/skip leaf: one lazy unit per gram, addressed by the dictionary frame.
 - Posting: one dictionary unit per field and one independently decoded Roaring leaf per value/length/structural key.
-- Sort: one coarse lazy unit per collection/segment sort collection.
+- Sort: one independently decoded key/order frame per configured column or composite order.
 - Relation: one lazy unit per base relation declaration.
 
 The benchmark confirms selected FTS bindings and leaves stay cold until execution. A
 selected query loads the relevant segment dictionaries and only the requested gram or
-posting leaves; unrelated fields remain cold. Sort components still require the
-per-column refactor.
+posting/sort leaves; unrelated fields remain cold.

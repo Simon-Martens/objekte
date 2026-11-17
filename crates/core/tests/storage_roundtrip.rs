@@ -340,7 +340,7 @@ fn explain_does_not_read_selected_lazy_payloads() {
         }
         let mut bytes = std::fs::read(&path).unwrap();
         let kind = u16::from_le_bytes(bytes[10..12].try_into().unwrap());
-        if matches!(kind, 3..=5 | 8) {
+        if matches!(kind, 3..=5 | 8 | 10 | 11) {
             for byte in &mut bytes[64..] {
                 *byte ^= 0xff;
             }
@@ -368,6 +368,50 @@ fn explain_does_not_read_selected_lazy_payloads() {
 }
 
 #[test]
+fn selected_sort_loads_only_its_configured_column_frame() {
+    let root = fixture_root("sort-column-lazy");
+    let mut definitions = definitions();
+    definitions[0]
+        .sort_fields
+        .push(objekte_search_core::model::FieldPath::parse("id").unwrap());
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let mut by_title = all_records();
+    by_title.options.sort = vec![SortField::simple("title", false)];
+    by_title.options.count = false;
+    reopened.view().unwrap().search(&by_title).unwrap();
+    let first = reopened.storage_status().unwrap();
+    assert!(first.index_reads > cold.index_reads);
+    assert!(
+        first.cache.loaded_families <= 2,
+        "title must not load the configured id column: {:?}",
+        first.cache
+    );
+
+    let mut by_id = all_records();
+    by_id.options.sort = vec![SortField::simple("id", false)];
+    by_id.options.count = false;
+    reopened.view().unwrap().search(&by_id).unwrap();
+    let second = reopened.storage_status().unwrap();
+    assert!(second.index_reads > first.index_reads);
+    assert!(second.cache.loaded_families > first.cache.loaded_families);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn corrupt_selected_sort_errors_instead_of_falling_back_to_source() {
     let root = fixture_root("sort-corrupt");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -375,7 +419,7 @@ fn corrupt_selected_sort_errors_instead_of_falling_back_to_source() {
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
     drop(index);
-    let sort_object = object_with_kind(&root.join("storage"), 5);
+    let sort_object = object_with_kind(&root.join("storage"), 10);
     let mut bytes = std::fs::read(&sort_object).unwrap();
     bytes.truncate(bytes.len() - 1);
     std::fs::write(sort_object, bytes).unwrap();

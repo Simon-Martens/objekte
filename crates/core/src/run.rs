@@ -194,32 +194,15 @@ struct ResolvedSort<'a> {
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
-        if !query.options.sort.is_empty() {
-            for collection in repo.collections() {
-                if query.collections.is_empty()
-                    || query.collections.contains(&collection.definition.name)
-                {
-                    collection.sorting.ensure_storage_loaded()?;
-                }
-            }
-        }
         let bound = BoundSort::bind(repo, query)?;
-        Ok(Self::from_bound(repo, query, bound))
+        Self::from_bound(repo, query, bound)
     }
 
-    fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
-        if !query.options.sort.is_empty() {
-            for collection in repo.collections() {
-                if query.collections.is_empty()
-                    || query.collections.contains(&collection.definition.name)
-                {
-                    collection
-                        .sorting
-                        .ensure_storage_loaded()
-                        .expect("stored sort collection must load before binding");
-                }
-            }
-        }
+    fn from_bound(
+        repo: &'a Repository,
+        query: &Query,
+        bound: BoundSort<'a>,
+    ) -> Result<Self, String> {
         let columns = repo
             .collections
             .iter()
@@ -242,17 +225,23 @@ impl<'a> ResolvedSort<'a> {
                             let BoundSortSource::Stored(column) = &term.source else {
                                 unreachable!("all terms resident")
                             };
-                            (*column, term.descending)
+                            Ok((
+                                collection.sorting.column(&column.path.display())?,
+                                term.descending,
+                            ))
                         })
-                        .collect(),
+                        .collect::<Result<Vec<_>, String>>(),
                 )
             })
-            .collect();
-        Self {
+            .collect::<Vec<_>>()
+            .into_iter()
+            .map(|columns| columns.transpose())
+            .collect::<Result<Vec<_>, _>>()?;
+        Ok(Self {
             columns,
             bound,
             target_cache: std::sync::Mutex::new(SortTargetCache::default()),
-        }
+        })
     }
 
     fn compare_to_rank(
@@ -2737,7 +2726,6 @@ fn segment_rank_key(
             id: record.id.0.to_string(),
         });
     }
-    segment.sorting.ensure_storage_loaded()?;
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
         let key = match &term.source {
@@ -2790,7 +2778,6 @@ fn segment_compare_to_rank(
                     .unwrap_or(Ordering::Equal)
             }));
     }
-    segment.sorting.ensure_storage_loaded()?;
     for (term, (other, _, _)) in terms.iter().zip(&worst.parts) {
         let BoundSortSource::Stored(base_column) = &term.source else {
             return Err("computed segment sort has no stored comparison".into());
@@ -2896,7 +2883,6 @@ fn relation_rank_key_merged(
             BoundSortSource::Stored(column) => {
                 if let Some(segment_index) = address.segment {
                     let segment = &segments[collection_index][segment_index].index;
-                    segment.sorting.ensure_storage_loaded()?;
                     segment
                         .sorting
                         .column(&column.path.display())?
@@ -8079,10 +8065,8 @@ pub(crate) fn explain_segmented(
                         collection,
                     )?;
                     delta_filter_exact &= bounds.may == bounds.must;
-                    let logical =
-                        &published.active.bitmap() & &published.index.logical_records;
-                    delta_logical_exact &=
-                        (&bounds.may & &logical) == (&bounds.must & &logical);
+                    let logical = &published.active.bitmap() & &published.index.logical_records;
+                    delta_logical_exact &= (&bounds.may & &logical) == (&bounds.must & &logical);
                     candidates &= &bounds.may;
                 }
             }
@@ -8504,6 +8488,17 @@ fn collection_has_stored_payload(collection: &CollectionState) -> bool {
                 .values()
                 .any(crate::posting::PostingIndex::is_stored)
         })
+        || collection.sorting.payload.is_some()
+        || collection
+            .sorting
+            .columns
+            .values()
+            .any(|column| column.stored.is_some())
+        || collection
+            .sorting
+            .composites
+            .iter()
+            .any(|composite| composite.stored.is_some())
 }
 
 fn segment_has_stored_payload(segment: &IndexedCollectionSegment) -> bool {
@@ -8528,6 +8523,17 @@ fn segment_has_stored_payload(segment: &IndexedCollectionSegment) -> bool {
                 .values()
                 .any(crate::posting::PostingIndex::is_stored)
         })
+        || segment.sorting.payload.is_some()
+        || segment
+            .sorting
+            .columns
+            .values()
+            .any(|column| column.stored.is_some())
+        || segment
+            .sorting
+            .composites
+            .iter()
+            .any(|composite| composite.stored.is_some())
 }
 
 fn collect_positive_relation_terms<'a>(
@@ -8810,7 +8816,6 @@ fn lifecycle_segment_order<'a>(
     if query.options.sort.is_empty() {
         return Ok(Some(&segment.identity_order));
     }
-    segment.sorting.ensure_storage_loaded()?;
     if query.options.sort.len() > 1 {
         return Ok(segment
             .sorting
@@ -11105,7 +11110,7 @@ fn try_inferred_order_page(
             has_computed: false,
             needs_source: false,
         },
-    );
+    )?;
     let mut local_traces = Vec::new();
     let result = try_stored_order_page(
         repo,
@@ -11983,7 +11988,7 @@ fn materialize_computed_cached<'a>(
 ) -> Result<SearchResult, String> {
     #[cfg(feature = "detailed-profiling")]
     let preparation_start = DetailedInstant::now();
-    let sort = ResolvedSort::from_bound(repo, query, bound_sort);
+    let sort = ResolvedSort::from_bound(repo, query, bound_sort)?;
     if let Some(execution) = execution {
         sort.target_cache
             .lock()
@@ -12865,7 +12870,7 @@ fn search_impl_with_collector<'a>(
     }
     let preparation_start = DetailedInstant::now();
     let sort = match prebound_sort {
-        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
+        Some(bound) => ResolvedSort::from_bound(repo, query, bound)?,
         None => ResolvedSort::new(repo, query).map_err(|message| {
             if let Some(context) = execution {
                 context.fail(ExecutionErrorKind::InvalidQuery, message)

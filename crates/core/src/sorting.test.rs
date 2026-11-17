@@ -40,6 +40,9 @@ fn inferred_test_column(path: &str) -> SortColumn {
         locale: "de".into(),
         options: SortOptions::default(),
         collation_version: COLLATION_VERSION.into(),
+        stored: None,
+        loader: None,
+        loaded: std::sync::Arc::new(std::sync::OnceLock::new()),
     }
 }
 

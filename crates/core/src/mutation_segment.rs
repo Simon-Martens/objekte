@@ -1183,6 +1183,7 @@ impl IndexedCollectionSegment {
         let mut custom_text = (*first.custom_text).clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
+        first.sorting.ensure_all_loaded()?;
         let mut sorting = (*first.sorting).clone();
         let mut relations = (*first.relations).clone();
         let mut record_parses = 0u64;
@@ -1827,6 +1828,9 @@ fn project_sorting(
             .map(|order| CompositeSortOrder {
                 fields: order.fields.clone(),
                 order: Vec::new(),
+                stored: None,
+                loader: None,
+                loaded: Arc::new(std::sync::OnceLock::new()),
             })
             .collect(),
         payload: None,
@@ -1835,6 +1839,8 @@ fn project_sorting(
         load_lock: Arc::new(std::sync::Mutex::new(())),
     };
     for (path, original) in &source.columns {
+        original.ensure_storage_loaded()?;
+        let original = original.materialized();
         let mut column = SortColumn {
             path: original.path.clone(),
             kind: original.kind.clone(),
@@ -1844,10 +1850,18 @@ fn project_sorting(
             locale: original.locale.clone(),
             options: original.options,
             collation_version: original.collation_version.clone(),
+            stored: None,
+            loader: None,
+            loaded: Arc::new(std::sync::OnceLock::new()),
         };
         let old_keys = &original.keys;
         if old_keys.len() != slots.len() {
-            return Err("sort projection coverage mismatch".into());
+            return Err(format!(
+                "sort projection coverage mismatch for {}: keys={} slots={}",
+                path.display(),
+                old_keys.len(),
+                slots.len()
+            ));
         }
         let mut keys = std::iter::repeat_with(|| None)
             .take(records.len())
@@ -2069,7 +2083,7 @@ impl IndexedCollectionSegment {
         &self,
         routing: &PartitionRouting,
     ) -> Result<Vec<SortCollection>, String> {
-        self.sorting.ensure_storage_loaded()?;
+        self.sorting.ensure_all_loaded()?;
         let sorting = self.sorting.materialized();
         let source_len = self.record_count();
         let mut parts = routing
@@ -2083,6 +2097,9 @@ impl IndexedCollectionSegment {
                     .map(|order| CompositeSortOrder {
                         fields: order.fields.clone(),
                         order: Vec::new(),
+                        stored: None,
+                        loader: None,
+                        loaded: Arc::new(std::sync::OnceLock::new()),
                     })
                     .collect(),
                 payload: None,
@@ -2092,11 +2109,18 @@ impl IndexedCollectionSegment {
             })
             .collect::<Vec<_>>();
         for (path, original) in &sorting.columns {
+            let original = original.materialized();
             if original.keys.len() != source_len
                 || original.ascending.len() != source_len
                 || original.descending.len() != source_len
             {
-                return Err("sort projection coverage mismatch".into());
+                return Err(format!(
+                    "sort projection coverage mismatch for {}: keys={} ascending={} descending={} expected={source_len}",
+                    path.display(),
+                    original.keys.len(),
+                    original.ascending.len(),
+                    original.descending.len()
+                ));
             }
             for (part, selected) in routing.selected.iter().enumerate() {
                 let keys = selected
@@ -2120,6 +2144,9 @@ impl IndexedCollectionSegment {
                         locale: original.locale.clone(),
                         options: original.options,
                         collation_version: original.collation_version.clone(),
+                        stored: None,
+                        loader: None,
+                        loaded: Arc::new(std::sync::OnceLock::new()),
                     },
                 );
             }
@@ -2146,6 +2173,7 @@ impl IndexedCollectionSegment {
             }
         }
         for (number, original) in sorting.composites.iter().enumerate() {
+            let original = original.materialized();
             if original.order.len() != source_len
                 || original
                     .fields

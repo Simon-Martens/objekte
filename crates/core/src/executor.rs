@@ -470,7 +470,6 @@ fn segment_sort_column_matches(
         return None;
     }
     let literal = sort_key(&term.literal)?;
-    segment.sorting.ensure_storage_loaded().ok()?;
     let column = segment.sorting.column(&term.path.display()).ok()?;
     if column.keys.len() != segment.record_count() {
         return None;
@@ -1793,7 +1792,6 @@ fn execute_path(
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
         AccessPathKind::SortColumn => {
-            collection.sorting.ensure_storage_loaded()?;
             let column = collection.sorting.column(&term.path.display())?;
             let literal = sort_key(&term.literal).ok_or("sort-column predicate is not scalar")?;
             let mut result = RoaringBitmap::new();

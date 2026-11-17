@@ -135,6 +135,22 @@ pub struct SortColumn {
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
+    #[serde(default)]
+    pub(crate) stored: Option<StoredSortColumnRef>,
+    #[serde(skip)]
+    pub(crate) loader: Option<Arc<dyn SortColumnLoader>>,
+    #[serde(skip)]
+    pub(crate) loaded: Arc<OnceLock<Box<SortColumn>>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredSortColumnRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+pub(crate) trait SortColumnLoader: std::fmt::Debug + Send + Sync {
+    fn load_sort_column(&self) -> Result<StoredSortColumn, String>;
 }
 
 /// An inferred order is query-created but remains valid for a repository
@@ -301,6 +317,70 @@ impl InferredOrderCache {
 }
 
 impl SortColumn {
+    pub(crate) fn archive_payload(&self) -> Result<StoredSortColumn, String> {
+        Ok(StoredSortColumn {
+            path: self.path.display(),
+            kind: encode_logical_type(&self.kind),
+            keys: self.keys.iter().map(encode_sort_key).collect(),
+            ascending: self.ascending.iter().map(|slot| slot.0).collect(),
+            descending: self.descending.iter().map(|slot| slot.0).collect(),
+            locale: self.locale.clone(),
+            strength: encode_strength(self.options.strength),
+            numeric: self.options.numeric,
+            nulls: encode_placement(self.options.nulls),
+            missing: encode_placement(self.options.missing),
+            collation_version: self.collation_version.clone(),
+        })
+    }
+
+    pub(crate) fn from_archive_payload(payload: StoredSortColumn) -> Result<Self, String> {
+        Ok(Self {
+            path: FieldPath::parse(&payload.path)?,
+            kind: decode_logical_type(&payload.kind)?,
+            keys: payload
+                .keys
+                .into_iter()
+                .map(decode_sort_key)
+                .collect::<Result<_, String>>()?,
+            ascending: payload.ascending.into_iter().map(RecordSlot).collect(),
+            descending: payload.descending.into_iter().map(RecordSlot).collect(),
+            locale: payload.locale,
+            options: SortOptions {
+                strength: decode_strength(payload.strength)?,
+                numeric: payload.numeric,
+                nulls: decode_placement(payload.nulls)?,
+                missing: decode_placement(payload.missing)?,
+            },
+            collation_version: payload.collation_version,
+            stored: None,
+            loader: None,
+            loaded: Arc::new(OnceLock::new()),
+        })
+    }
+
+    pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.loader.is_none() {
+            return Ok(());
+        }
+        if self.loaded.get().is_none() {
+            let loaded = Box::new(Self::from_archive_payload(
+                self.loader
+                    .as_ref()
+                    .expect("stored sort column")
+                    .load_sort_column()?,
+            )?);
+            let _ = self.loaded.set(loaded);
+        }
+        Ok(())
+    }
+
+    pub(crate) fn materialized(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
+    }
+
     pub(crate) fn retained_bytes(&self) -> usize {
         let mut bytes = std::mem::size_of::<Self>()
             .saturating_add(
@@ -542,6 +622,9 @@ impl SortColumn {
             locale: locale.to_owned(),
             options,
             collation_version: COLLATION_VERSION.into(),
+            stored: None,
+            loader: None,
+            loaded: Arc::new(OnceLock::new()),
         }))
     }
 }
@@ -610,7 +693,7 @@ enum StoredSortKey {
 }
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
-struct StoredSortColumn {
+pub(crate) struct StoredSortColumn {
     path: String,
     kind: String,
     keys: Vec<StoredSortKey>,
@@ -625,7 +708,7 @@ struct StoredSortColumn {
 }
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
-struct StoredComposite {
+pub(crate) struct StoredComposite {
     fields: Vec<(String, bool)>,
     order: Vec<u32>,
 }
@@ -641,6 +724,77 @@ pub(crate) struct SortArchivePayload {
 pub struct CompositeSortOrder {
     pub fields: Vec<CompositeSortPart>,
     pub order: Vec<RecordSlot>,
+    #[serde(default)]
+    pub(crate) stored: Option<StoredSortOrderRef>,
+    #[serde(skip)]
+    pub(crate) loader: Option<Arc<dyn SortOrderLoader>>,
+    #[serde(skip)]
+    pub(crate) loaded: Arc<OnceLock<Box<CompositeSortOrder>>>,
+}
+
+impl CompositeSortOrder {
+    pub(crate) fn archive_payload(&self) -> StoredComposite {
+        StoredComposite {
+            fields: self
+                .fields
+                .iter()
+                .map(|part| (part.path.display(), part.descending))
+                .collect(),
+            order: self.order.iter().map(|slot| slot.0).collect(),
+        }
+    }
+
+    pub(crate) fn from_archive_payload(payload: StoredComposite) -> Result<Self, String> {
+        Ok(Self {
+            fields: payload
+                .fields
+                .into_iter()
+                .map(|(path, descending)| {
+                    Ok(CompositeSortPart {
+                        path: FieldPath::parse(&path)?,
+                        descending,
+                    })
+                })
+                .collect::<Result<_, String>>()?,
+            order: payload.order.into_iter().map(RecordSlot).collect(),
+            stored: None,
+            loader: None,
+            loaded: Arc::new(OnceLock::new()),
+        })
+    }
+
+    fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.loader.is_none() {
+            return Ok(());
+        }
+        if self.loaded.get().is_none() {
+            let loaded = Box::new(Self::from_archive_payload(
+                self.loader
+                    .as_ref()
+                    .expect("stored sort order")
+                    .load_sort_order()?,
+            )?);
+            let _ = self.loaded.set(loaded);
+        }
+        Ok(())
+    }
+
+    pub(crate) fn materialized(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredSortOrderRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+pub(crate) trait SortOrderLoader: std::fmt::Debug + Send + Sync {
+    fn load_sort_order(&self) -> Result<StoredComposite, String>;
 }
 
 /// Fixed binary identity for one resident composite constituent.
@@ -832,6 +986,7 @@ fn decode_placement(value: u8) -> Result<Placement, String> {
 }
 
 impl SortCollection {
+    #[allow(dead_code)]
     pub(crate) fn archive_payload(&self) -> Result<SortArchivePayload, String> {
         let mut columns = self
             .columns
@@ -892,6 +1047,9 @@ impl SortCollection {
                         missing: decode_placement(column.missing)?,
                     },
                     collation_version: column.collation_version,
+                    stored: None,
+                    loader: None,
+                    loaded: Arc::new(OnceLock::new()),
                 },
             );
         }
@@ -913,6 +1071,9 @@ impl SortCollection {
                             })
                             .collect::<Result<_, String>>()?,
                         order: composite.order.into_iter().map(RecordSlot).collect(),
+                        stored: None,
+                        loader: None,
+                        loaded: Arc::new(OnceLock::new()),
                     })
                 })
                 .collect::<Result<_, String>>()?,
@@ -944,6 +1105,16 @@ impl SortCollection {
             self.loaded
                 .set(Box::new(loaded))
                 .map_err(|_| "sort collection was initialized concurrently".to_string())?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn ensure_all_loaded(&self) -> Result<(), String> {
+        for column in self.columns.values() {
+            column.ensure_storage_loaded()?;
+        }
+        for composite in &self.composites {
+            composite.ensure_storage_loaded()?;
         }
         Ok(())
     }
@@ -1015,6 +1186,9 @@ impl SortCollection {
                         locale: config.locale,
                         options: config.options,
                         collation_version: COLLATION_VERSION.into(),
+                        stored: None,
+                        loader: None,
+                        loaded: Arc::new(OnceLock::new()),
                     },
                 )
                 .is_some()
@@ -1038,6 +1212,9 @@ impl SortCollection {
             composites.push(CompositeSortOrder {
                 fields: parts.expect("validated composite parts"),
                 order: Vec::new(),
+                stored: None,
+                loader: None,
+                loaded: Arc::new(OnceLock::new()),
             });
         }
         Ok(Self {
@@ -1051,14 +1228,17 @@ impl SortCollection {
     }
 
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
-        let this = self.materialized();
         let normalized = fields
             .iter()
             .map(simple_composite_part)
             .collect::<Option<Vec<_>>>()?;
-        this.composites
+        let composite = self
+            .materialized()
+            .composites
             .iter()
-            .find(|entry| entry.fields == normalized)
+            .find(|entry| entry.fields == normalized)?;
+        composite.ensure_storage_loaded().ok()?;
+        Some(composite.materialized())
     }
 }
 
@@ -1187,6 +1367,9 @@ impl SortBuilder {
                         locale: config.locale,
                         options: config.options,
                         collation_version: COLLATION_VERSION.into(),
+                        stored: None,
+                        loader: None,
+                        loaded: Arc::new(OnceLock::new()),
                     },
                 )
                 .is_some()
@@ -1313,7 +1496,13 @@ impl SortBuilder {
                     compare_composite(&columns, *a, *b)
                         .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
                 });
-                CompositeSortOrder { fields, order }
+                CompositeSortOrder {
+                    fields,
+                    order,
+                    stored: None,
+                    loader: None,
+                    loaded: Arc::new(OnceLock::new()),
+                }
             })
             .collect();
         Ok(SortCollection {
@@ -1441,14 +1630,16 @@ impl SortCollection {
 
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
-        self.materialized()
+        let column = self
+            .materialized()
             .columns
             .get(&path)
-            .ok_or_else(|| format!("sort field is not registered: {field}"))
+            .ok_or_else(|| format!("sort field is not registered: {field}"))?;
+        column.ensure_storage_loaded()?;
+        Ok(column.materialized())
     }
 
     pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
-        self.ensure_storage_loaded()?;
         self.column(field)?
             .keys
             .get(slot.0 as usize)
