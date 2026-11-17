@@ -8,7 +8,7 @@ Integration branch: `integration/catalog-led-lazy-storage`
 
 Implementation revision covered by this report:
 
-`9fadf6fd192fa0757ab545b5981378d7ada937c7`
+`26c3a58e9f`
 
 Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 
@@ -17,7 +17,7 @@ Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 | Area | Verdict | Evidence |
 | --- | --- | --- |
 | Correctness | Pass for the exercised round trips | Native and reopened search, mutation, compaction, relation, FTS, sort and empty-index tests pass. |
-| Eagerness/laziness | Partial | Eager open performs no selected payload reads and `EXPLAIN` is payload-independent. Posting and sort payloads are still coarse component units. |
+| Eagerness/laziness | Partial | Eager open performs no selected payload reads and `EXPLAIN` is payload-independent. FTS and posting values/state use independent leaves; sort remains collection-coarse. |
 | Durability | Partial | Dependencies are synchronized before `CURRENT`, uncertain root sync is classified, and interrupted staging is pruned. Deterministic fault injection and process-abort barriers are not implemented. |
 | Lifecycle/mutations | Pass for the exercised cases | Add, delete, replace, move, multi-generation save and source-free compaction pass. The required 128-step model matrix is not implemented. |
 | Native construction | Pass structurally | Native build and memory-only archive create no storage files and serialize no storage payload. No new release construction comparison was run after this repair. |
@@ -30,6 +30,9 @@ Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 
 - Stored FTS dictionaries are separated from normal/skip Roaring leaves. A missing
   gram returns an empty candidate set without reading sibling leaves.
+- Stored posting dictionaries contain dense key ordinals and independently addressed
+  value, length and structural leaves. An equality filter loads one selected posting
+  leaf, and concurrent first access shares both the dictionary and leaf load.
 - Selected posting/FTS/sort/relation I/O failures propagate through query execution
   rather than being interpreted as an absent index.
 - `EXPLAIN` remains metadata-only after every selected lazy payload is corrupted.
@@ -72,13 +75,12 @@ worker, mutation, cache-budget and memory matrices required by the specification
 ## Remaining acceptance work
 
 The prototype is not ready to be represented as full specification completion.
-`test-matrix.tsv` currently records 18 passing, 21 partial and 41 pending rows.
+`test-matrix.tsv` currently records 21 passing, 19 partial and 40 pending rows.
 The principal remaining gaps are:
 
 - replace the JSON snapshot body with independently archived eager catalog/map
   schemas and persisted shard reuse;
-- split posting value/state bitmaps and sort columns into independently loaded
-  leaves/frames;
+- split sort columns into independently loaded frames;
 - add the complete lease/pinning, permanent-failure, cancellation and file-handle
   cache model;
 - add deterministic `StorageIo` fault injection, process-abort transaction barriers
