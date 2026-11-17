@@ -1,0 +1,22 @@
+{
+  "repetitions": 1,
+  "complete_cases_per_alphabet": 150,
+  "failures": 0,
+  "result_digests_identical": true,
+  "direct": {
+    "ascii": {"native_ms": 586.420062, "archived_ms": 628.68118, "ratio": 1.072067},
+    "unicode": {"native_ms": 574.607616, "archived_ms": 614.612293, "ratio": 1.069621},
+    "both": {"native_ms": 1161.027678, "archived_ms": 1243.293473, "ratio": 1.070855}
+  },
+  "progressive": {
+    "ascii": {"native_ms": 579.5375, "archived_ms": 574.688098, "ratio": 0.991633},
+    "unicode": {"native_ms": 569.300842, "archived_ms": 612.93622, "ratio": 1.076647},
+    "both": {"native_ms": 1148.838342, "archived_ms": 1187.624318, "ratio": 1.033761}
+  },
+  "focused_cold_medians_ms": {
+    "ascii_q001": {"native": 6.773907, "archived": 8.766325},
+    "ascii_q119": {"native": 5.445609, "archived": 6.481243},
+    "unicode_q001": {"native": 7.156217, "archived": 8.645263},
+    "unicode_q119": {"native": 5.276916, "archived": 6.446958}
+  }
+}

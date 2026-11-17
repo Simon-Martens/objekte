@@ -1,0 +1,7 @@
+case	functional_evidence	performance_evidence
+add	delete archive converts mixed state and preserves deleted record exclusion	timing not separately benchmarked
+replace	rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction	timing not separately benchmarked
+delete	archive delete archive converts changed current catalog	timing not separately benchmarked
+compatible move	compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction	timing not separately benchmarked
+source-free compaction	rkyv_source_free_compaction_removes_tombstones_without_source_opens	timing not separately benchmarked
+repeated no-op	archive generation and bytes remain unchanged	timing not separately benchmarked

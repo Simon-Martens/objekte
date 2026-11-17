@@ -1,0 +1,17 @@
+{
+  "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "logical_cpus": 32,
+  "physical_cores": 24,
+  "os": "Linux 7.3.3-200.fc44.x86_64",
+  "architecture": "x86_64",
+  "filesystem": "local filesystem",
+  "profile": "release",
+  "allocator": "system allocator",
+  "build_workers": 32,
+  "query_workers": 32,
+  "archive_workers": [1, 8, 32],
+  "corpus": "examples/musenalm",
+  "records": 148486,
+  "query_cases": 150,
+  "os_page_cache": "warm/unspecified; no privileged cache dropping"
+}

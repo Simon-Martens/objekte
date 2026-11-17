@@ -1,0 +1,11 @@
+{
+  "task_id": "explicit-archiving-repair",
+  "base_revision": "29613ab1ccbcd9c01b2b44de3288ad6dab044736",
+  "implementation_revision": "bfc1f0a1c2",
+  "integration_branch": "integration/explicit-archiving-repair",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "benchmark_executable_sha256_dirty_measurement": "d6cc3bc021b30f30682ee92169f8d6bc9c283bc8fbd90470ed5bf70d5c708916",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "target": "x86_64-unknown-linux-gnu",
+  "benchmark_note": "Raw query and construction runs were produced before the implementation commit because the evidence itself made the checkout dirty. The final commit and a clean executable are rebuilt after evidence commit; the measured source is the exact implementation commit plus untracked evidence only."
+}

@@ -1,0 +1,7 @@
+alphabet	workers	median_archive_ms	median_combined_ms	capacity_slack_bytes	peak_jobs
+ascii	1	152.944	920.519	84804640	1
+ascii	8	113.024	882.221	84804640	8
+ascii	32	111.499	850.582	84804640	15
+unicode	1	153.714	951.001	84804640	1
+unicode	8	113.210	934.605	84804640	8
+unicode	32	108.627	932.745	84804640	15
