@@ -2611,6 +2611,151 @@ fn one_collection_many_segments_archives_with_multiple_bounded_jobs() {
 }
 
 #[test]
+fn distinct_segment_wrappers_share_one_conversion_job() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-dedup-wrapper-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"deduplicated owner"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let view = index.view().unwrap();
+    let mut duplicated = (*view.0).clone();
+    let group = Arc::make_mut(&mut duplicated.segments[0]);
+    let original = Arc::clone(&group[0]);
+    group.push(Arc::new(crate::native_segment::PublishedSegment {
+        id: original.id,
+        index: Arc::clone(&original.index),
+        active: original.active.clone(),
+    }));
+    duplicated.revision = view.revision().next().unwrap();
+    duplicated.rebuild_all_segment_positions();
+    index.publish_prepared(view.revision(), duplicated).unwrap();
+    drop(view);
+
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let worker_index = index.clone();
+    let archive = std::thread::spawn(move || {
+        let gate = crate::lifecycle::install_test_archive_job_gate();
+        sender.send(Arc::clone(&gate)).unwrap();
+        let result =
+            worker_index.archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap());
+        crate::lifecycle::clear_test_archive_job_gate();
+        (result, gate)
+    });
+    let gate = receiver.recv().unwrap();
+    gate.wait_for_arrived(4);
+    gate.release();
+    let (report, gate) = archive.join().unwrap();
+    report.unwrap();
+    assert_eq!(gate.segment_arrivals(), 1);
+
+    let view = index.view().unwrap();
+    let group = view.segments(crate::model::CollectionId(0)).unwrap();
+    assert_eq!(group.len(), 2);
+    assert!(Arc::ptr_eq(&group[0].index, &group[1].index));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn base_and_catalog_jobs_execute_together_and_share_unchanged_shards() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-catalog-jobs-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"base catalog"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let added = root.join("data/b.json");
+    std::fs::write(&added, br#"{"id":"b","year":20,"title":"current catalog"}"#).unwrap();
+    index.add_file(&added).unwrap();
+
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let worker_index = index.clone();
+    let archive = std::thread::spawn(move || {
+        let gate = crate::lifecycle::install_test_archive_job_gate();
+        sender.send(Arc::clone(&gate)).unwrap();
+        let result =
+            worker_index.archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap());
+        crate::lifecycle::clear_test_archive_job_gate();
+        (result, gate)
+    });
+    let gate = receiver.recv().unwrap();
+    gate.wait_for_arrived(2);
+    gate.release();
+    let (report, gate) = archive.join().unwrap();
+    let report = report.unwrap();
+    assert!(gate.collection_arrivals() >= 1);
+    assert!(gate.catalog_arrivals() >= 1);
+    assert!(report.peak_active_conversion_jobs >= 2);
+    assert!(report.peak_active_conversion_jobs <= 4);
+
+    let view = index.view().unwrap();
+    let base = &view.repository().catalog;
+    let current = &view.0.catalog;
+    assert!(!base.has_same_storage_owners(current));
+    assert!(base.shared_shard_owner_count(current) > 0);
+    assert_eq!(
+        view.search(&query(None, None, 10, 0)).unwrap().count,
+        Some(2)
+    );
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn archive_worker_limits_cap_both_under_and_over_provisioned_jobs() {
+    for workers in [1, 2, 64] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-rkyv-worker-limit-{workers}-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        for (id, year) in [("a", 10), ("b", 20)] {
+            std::fs::write(
+                root.join(format!("data/{id}.json")),
+                format!(r#"{{"id":"{id}","year":{year},"title":"worker limit"}}"#),
+            )
+            .unwrap();
+        }
+        let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+        let report = index
+            .archive_with_options(crate::lifecycle::ArchiveOptions::new(workers).unwrap())
+            .unwrap();
+        assert_eq!(report.worker_limit, workers);
+        assert!(report.peak_active_conversion_jobs <= workers);
+        assert_eq!(
+            ids(&index.view().unwrap(), &query(None, None, 10, 0)).0,
+            ["a", "b"]
+        );
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
 fn archive_delete_archive_converts_the_current_catalog_without_resurrecting_records() {
     let root = std::env::temp_dir().join(format!(
         "objekte-archive-catalog-delete-{}-{}",

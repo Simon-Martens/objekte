@@ -14,12 +14,8 @@ pub struct ArchiveUsage {
 impl ArchiveUsage {
     pub(crate) fn record(&mut self, serialized: usize, capacity: usize) {
         self.owners = self.owners.saturating_add(1);
-        self.serialized_bytes = self
-            .serialized_bytes
-            .saturating_add(serialized as u64);
-        self.allocated_bytes = self
-            .allocated_bytes
-            .saturating_add(capacity as u64);
+        self.serialized_bytes = self.serialized_bytes.saturating_add(serialized as u64);
+        self.allocated_bytes = self.allocated_bytes.saturating_add(capacity as u64);
         self.capacity_slack_bytes = self
             .capacity_slack_bytes
             .saturating_add(capacity.saturating_sub(serialized) as u64);
@@ -163,5 +159,118 @@ impl StorageWorkCounters {
     #[allow(dead_code)]
     pub(crate) fn reset() {
         STORAGE_WORK.with(|counters| counters.set(Self::ZERO));
+    }
+
+    pub(crate) fn take() -> Self {
+        #[cfg(any(test, feature = "detailed-profiling"))]
+        {
+            return STORAGE_WORK.with(|counters| counters.replace(Self::ZERO));
+        }
+        #[cfg(not(any(test, feature = "detailed-profiling")))]
+        Self::default()
+    }
+
+    pub(crate) fn merge(&mut self, other: Self) {
+        #[cfg(any(test, feature = "detailed-profiling"))]
+        {
+            self.metadata_rows_examined = self
+                .metadata_rows_examined
+                .saturating_add(other.metadata_rows_examined);
+            self.path_entries_examined = self
+                .path_entries_examined
+                .saturating_add(other.path_entries_examined);
+            self.ownership_routes_examined = self
+                .ownership_routes_examined
+                .saturating_add(other.ownership_routes_examined);
+            self.segment_descriptors_examined = self
+                .segment_descriptors_examined
+                .saturating_add(other.segment_descriptors_examined);
+            self.metadata_cache_initializations = self
+                .metadata_cache_initializations
+                .saturating_add(other.metadata_cache_initializations);
+            self.catalog_row_cache_initializations = self
+                .catalog_row_cache_initializations
+                .saturating_add(other.catalog_row_cache_initializations);
+            self.file_row_cache_initializations = self
+                .file_row_cache_initializations
+                .saturating_add(other.file_row_cache_initializations);
+            self.record_row_cache_initializations = self
+                .record_row_cache_initializations
+                .saturating_add(other.record_row_cache_initializations);
+            self.metadata_shards_rebuilt = self
+                .metadata_shards_rebuilt
+                .saturating_add(other.metadata_shards_rebuilt);
+            self.path_shards_rebuilt = self
+                .path_shards_rebuilt
+                .saturating_add(other.path_shards_rebuilt);
+            self.ownership_shards_rebuilt = self
+                .ownership_shards_rebuilt
+                .saturating_add(other.ownership_shards_rebuilt);
+            self.merge_candidate_probes = self
+                .merge_candidate_probes
+                .saturating_add(other.merge_candidate_probes);
+            self.segment_reconstructions = self
+                .segment_reconstructions
+                .saturating_add(other.segment_reconstructions);
+            self.archive_bytes_generated = self
+                .archive_bytes_generated
+                .saturating_add(other.archive_bytes_generated);
+            self.posting_logical_validation_passes = self
+                .posting_logical_validation_passes
+                .saturating_add(other.posting_logical_validation_passes);
+            self.posting_logical_visits = self
+                .posting_logical_visits
+                .saturating_add(other.posting_logical_visits);
+            self.validation_owned_key_bytes = self
+                .validation_owned_key_bytes
+                .saturating_add(other.validation_owned_key_bytes);
+            self.checked_archive_validations = self
+                .checked_archive_validations
+                .saturating_add(other.checked_archive_validations);
+            self.semantic_archive_visits = self
+                .semantic_archive_visits
+                .saturating_add(other.semantic_archive_visits);
+            self.row_cross_checks = self.row_cross_checks.saturating_add(other.row_cross_checks);
+            self.accounting_visits = self
+                .accounting_visits
+                .saturating_add(other.accounting_visits);
+            self.temporary_ordinal_trees = self
+                .temporary_ordinal_trees
+                .saturating_add(other.temporary_ordinal_trees);
+            self.first_batch_transfers = self
+                .first_batch_transfers
+                .saturating_add(other.first_batch_transfers);
+            self.field_container_rebuilds = self
+                .field_container_rebuilds
+                .saturating_add(other.field_container_rebuilds);
+            self.sort_payload_clones = self
+                .sort_payload_clones
+                .saturating_add(other.sort_payload_clones);
+            self.native_compatibility_copies = self
+                .native_compatibility_copies
+                .saturating_add(other.native_compatibility_copies);
+            self.inventory_copies = self.inventory_copies.saturating_add(other.inventory_copies);
+            self.empty_shell_finalizations = self
+                .empty_shell_finalizations
+                .saturating_add(other.empty_shell_finalizations);
+            self.build_pool_creations = self
+                .build_pool_creations
+                .saturating_add(other.build_pool_creations);
+            self.build_pool_destructions = self
+                .build_pool_destructions
+                .saturating_add(other.build_pool_destructions);
+            self.duplicate_id_probes = self
+                .duplicate_id_probes
+                .saturating_add(other.duplicate_id_probes);
+            self.duplicate_registry_bytes = self
+                .duplicate_registry_bytes
+                .saturating_add(other.duplicate_registry_bytes);
+        }
+        #[cfg(not(any(test, feature = "detailed-profiling")))]
+        let _ = other;
+    }
+
+    pub(crate) fn commit_merge(other: Self) {
+        Self::update(|current| current.merge(other));
     }
 }

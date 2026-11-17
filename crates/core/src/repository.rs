@@ -168,31 +168,34 @@ pub struct CollectionState {
 }
 
 impl CollectionState {
-    fn archived_candidate(&self) -> Result<Self, String> {
+    pub(crate) fn archived_candidate(&self) -> Result<Self, String> {
+        let postings = self.postings.archived()?;
+        let custom_postings = self
+            .custom_postings
+            .iter()
+            .map(|(key, custom)| {
+                Ok((
+                    key.clone(),
+                    CustomPostingIndex {
+                        index: custom.index.archived()?,
+                        complete: custom.complete,
+                    },
+                ))
+            })
+            .collect::<Result<HashMap<_, _>, String>>()?;
+        let inference = self
+            .inference
+            .as_ref()
+            .map(InferenceState::archived)
+            .transpose()?;
         Ok(Self {
             definition: self.definition.clone(),
             source: self.source.clone(),
             generation: Arc::clone(&self.generation),
-            postings: self.postings.archived()?,
-            inference: self
-                .inference
-                .as_ref()
-                .map(InferenceState::archived)
-                .transpose()?,
+            postings,
+            inference,
             global_inference: self.global_inference.clone(),
-            custom_postings: self
-                .custom_postings
-                .iter()
-                .map(|(key, custom)| {
-                    Ok((
-                        key.clone(),
-                        CustomPostingIndex {
-                            index: custom.index.archived()?,
-                            complete: custom.complete,
-                        },
-                    ))
-                })
-                .collect::<Result<HashMap<_, _>, String>>()?,
+            custom_postings,
             raw: Arc::clone(&self.raw),
             fallback_text: Arc::clone(&self.fallback_text),
             logical_records: Arc::clone(&self.logical_records),
@@ -395,18 +398,18 @@ pub struct Repository {
 }
 
 impl Repository {
-    pub(crate) fn archive_candidate(&self) -> Result<Self, String> {
-        Ok(Self {
+    pub(crate) fn archive_shell(
+        &self,
+        collections: Vec<CollectionState>,
+        catalog: FileCatalog,
+    ) -> Self {
+        Self {
             files: Arc::clone(&self.files),
             base_fingerprints: Arc::clone(&self.base_fingerprints),
-            collections: self
-                .collections
-                .iter()
-                .map(CollectionState::archived_candidate)
-                .collect::<Result<Vec<_>, _>>()?,
+            collections,
             active: self.active.clone(),
             segments: self.segments.clone(),
-            catalog: self.catalog.clone(),
+            catalog,
             revision: self.revision,
             representation_generation: self.representation_generation,
             sources: self.sources.clone(),
@@ -418,7 +421,7 @@ impl Repository {
             workers: Arc::clone(&self.workers),
             verified: Arc::clone(&self.verified),
             inferred_orders: Arc::clone(&self.inferred_orders),
-        })
+        }
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
@@ -444,7 +447,6 @@ impl Repository {
         }
         counts
     }
-
 }
 
 fn hash_field(hash: &mut Sha256, value: &[u8]) {

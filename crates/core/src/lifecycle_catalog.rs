@@ -1563,6 +1563,87 @@ fn string_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> (Bound<String>,
 }
 
 impl FileCatalog {
+    pub(crate) fn native_archive_jobs(&self) -> Vec<CatalogShardJob<'_>> {
+        let mut jobs = Vec::new();
+        for shard in self.metadata.iter() {
+            if matches!(shard.backing, CatalogMetadataBacking::Native { .. }) {
+                jobs.push(CatalogShardJob {
+                    kind: CatalogShardJobKind::Metadata(shard),
+                });
+            }
+        }
+        for shard in self.paths.iter() {
+            if !shard.is_archived() {
+                jobs.push(CatalogShardJob {
+                    kind: CatalogShardJobKind::Path(shard),
+                });
+            }
+        }
+        for shard in self.ownership.iter() {
+            if matches!(shard.backing, OwnershipBacking::Native { .. }) {
+                jobs.push(CatalogShardJob {
+                    kind: CatalogShardJobKind::Ownership(shard),
+                });
+            }
+        }
+        jobs
+    }
+
+    pub(crate) fn with_converted_shards(
+        &self,
+        results: &HashMap<usize, CatalogShardResult>,
+    ) -> Result<Self, String> {
+        let metadata = self
+            .metadata
+            .iter()
+            .map(|shard| {
+                let Some(result) = results.get(&(Arc::as_ptr(shard) as usize)) else {
+                    return Ok(Arc::clone(shard));
+                };
+                let CatalogArchivedShard::Metadata(archived) = &result.archived else {
+                    return Err("catalog metadata-shard result kind mismatch".into());
+                };
+                Ok(Arc::clone(archived))
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        let paths = self
+            .paths
+            .iter()
+            .map(|shard| {
+                let Some(result) = results.get(&(Arc::as_ptr(shard) as usize)) else {
+                    return Ok(Arc::clone(shard));
+                };
+                let CatalogArchivedShard::Path(archived) = &result.archived else {
+                    return Err("catalog path-shard result kind mismatch".into());
+                };
+                Ok(Arc::clone(archived))
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        let ownership = self
+            .ownership
+            .iter()
+            .map(|shard| {
+                let Some(result) = results.get(&(Arc::as_ptr(shard) as usize)) else {
+                    return Ok(Arc::clone(shard));
+                };
+                let CatalogArchivedShard::Ownership(archived) = &result.archived else {
+                    return Err("catalog ownership-shard result kind mismatch".into());
+                };
+                Ok(Arc::clone(archived))
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        Ok(Self {
+            root: self.root.clone(),
+            construction_complete: self.construction_complete,
+            inventory: Arc::clone(&self.inventory),
+            metadata: Arc::new(metadata),
+            paths: Arc::new(paths),
+            ownership: Arc::new(ownership),
+            active: Arc::clone(&self.active),
+            len: self.len,
+        })
+    }
+
     /// Whether two catalog wrappers still reference exactly the same shard
     /// owners. This is used by archive planning to avoid converting the base
     /// and current catalog twice when lifecycle mutations have not separated
@@ -1586,6 +1667,27 @@ impl FileCatalog {
                 .iter()
                 .zip(other.ownership.iter())
                 .all(|(left, right)| Arc::ptr_eq(left, right))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn shared_shard_owner_count(&self, other: &Self) -> usize {
+        self.metadata
+            .iter()
+            .zip(other.metadata.iter())
+            .filter(|(left, right)| Arc::ptr_eq(left, right))
+            .count()
+            + self
+                .paths
+                .iter()
+                .zip(other.paths.iter())
+                .filter(|(left, right)| Arc::ptr_eq(left, right))
+                .count()
+            + self
+                .ownership
+                .iter()
+                .zip(other.ownership.iter())
+                .filter(|(left, right)| Arc::ptr_eq(left, right))
+                .count()
     }
 
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
@@ -2626,6 +2728,7 @@ impl FileCatalog {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn archive_storage(&mut self) -> Result<usize, String> {
         let mut converted = 0usize;
         let metadata = Arc::make_mut(&mut self.metadata);
@@ -2764,6 +2867,66 @@ impl FileCatalog {
             }
         }
     }
+}
+
+pub(crate) struct CatalogShardJob<'a> {
+    kind: CatalogShardJobKind<'a>,
+}
+
+enum CatalogShardJobKind<'a> {
+    Metadata(&'a Arc<CatalogMetadataShard>),
+    Path(&'a Arc<CatalogPathShard>),
+    Ownership(&'a Arc<OwnershipShard>),
+}
+
+impl CatalogShardJob<'_> {
+    pub(crate) fn owner_id(&self) -> usize {
+        match &self.kind {
+            CatalogShardJobKind::Metadata(shard) => Arc::as_ptr(shard) as usize,
+            CatalogShardJobKind::Path(shard) => Arc::as_ptr(shard) as usize,
+            CatalogShardJobKind::Ownership(shard) => Arc::as_ptr(shard) as usize,
+        }
+    }
+
+    pub(crate) fn convert(&self) -> Result<CatalogShardResult, String> {
+        Ok(CatalogShardResult {
+            owner: self.owner_id(),
+            archived: match &self.kind {
+                CatalogShardJobKind::Metadata(shard) => CatalogArchivedShard::Metadata(Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog metadata shard: {error}"))?,
+                )),
+                CatalogShardJobKind::Path(shard) => CatalogArchivedShard::Path(Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog path shard: {error}"))?,
+                )),
+                CatalogShardJobKind::Ownership(shard) => CatalogArchivedShard::Ownership(Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog ownership shard: {error}"))?,
+                )),
+            },
+        })
+    }
+}
+
+pub(crate) struct CatalogShardResult {
+    owner: usize,
+    archived: CatalogArchivedShard,
+}
+
+impl CatalogShardResult {
+    pub(crate) fn owner_id(&self) -> usize {
+        self.owner
+    }
+}
+
+enum CatalogArchivedShard {
+    Metadata(Arc<CatalogMetadataShard>),
+    Path(Arc<CatalogPathShard>),
+    Ownership(Arc<OwnershipShard>),
 }
 
 #[cfg(test)]
