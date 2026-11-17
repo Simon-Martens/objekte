@@ -369,7 +369,7 @@ fn write_parts(
         &mut objects_new,
         &mut objects_reused,
     )?;
-    sync_directory(&objects)?;
+    sync_directory_for(&objects, "objects-directory-sync")?;
     let write_ns = write_started.elapsed().as_nanos() as u64;
 
     let sync_started = Instant::now();
@@ -382,7 +382,7 @@ fn write_parts(
         snapshot.lineage_identity,
     );
     install_current(directory, generation, &current_bytes)?;
-    sync_directory(directory)
+    sync_directory_for(directory, "store-directory-sync")
         .map_err(|error| commit_uncertain(error, generation, metadata_digest))?;
     if initialized_store {
         let parent = directory.parent().ok_or_else(|| {
@@ -390,7 +390,7 @@ fn write_parts(
                 "storage directory has no parent entry to synchronize".into(),
             )
         })?;
-        sync_directory(parent)
+        sync_directory_for(parent, "parent-directory-sync")
             .map_err(|error| commit_uncertain(error, generation, metadata_digest))?;
         sync_calls = sync_calls.saturating_add(1);
     }
@@ -1170,9 +1170,14 @@ fn write_object(
     }
     let (staging_path, mut file) =
         create_staging_file(staging, &format!("object-{}", format::hex(&digest)))?;
+    inject_fault("object-write")?;
     file.write_all(bytes)
-        .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
+    inject_fault("object-file-sync")?;
+    file.sync_all()
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    trace_stage("object-file-sync");
+    inject_fault("object-install")?;
     match fs::hard_link(&staging_path, &final_path) {
         Ok(()) => {}
         Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {
@@ -1193,6 +1198,7 @@ fn write_object(
     File::open(&final_path)
         .and_then(|file| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
+    trace_stage("object-install");
     Ok(true)
 }
 
@@ -1224,15 +1230,22 @@ fn install_current(
 ) -> Result<(), StorageError> {
     let (temporary, mut file) =
         create_staging_file(&directory.join("staging"), &format!("CURRENT-{generation}"))?;
+    inject_fault("current-write")?;
     file.write_all(bytes)
-        .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
+    inject_fault("current-file-sync")?;
+    file.sync_all()
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    trace_stage("current-file-sync");
+    inject_fault("current-rename")?;
     #[cfg(test)]
     if CURRENT_RENAME_FAILURE.swap(false, Ordering::SeqCst) {
         return Err(StorageError::Io("injected CURRENT rename failure".into()));
     }
     fs::rename(&temporary, directory.join("CURRENT"))
-        .map_err(|error| StorageError::Io(error.to_string()))
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    trace_stage("current-rename");
+    Ok(())
 }
 
 fn commit_uncertain(error: StorageError, generation: u64, manifest: [u8; 32]) -> StorageError {
@@ -1245,6 +1258,52 @@ fn commit_uncertain(error: StorageError, generation: u64, manifest: [u8; 32]) ->
 #[cfg(test)]
 static CURRENT_RENAME_FAILURE: std::sync::atomic::AtomicBool =
     std::sync::atomic::AtomicBool::new(false);
+
+#[cfg(test)]
+thread_local! {
+    static INJECTED_FAULT: std::cell::RefCell<Option<&'static str>> =
+        const { std::cell::RefCell::new(None) };
+    static TRANSACTION_TRACE: std::cell::RefCell<Vec<&'static str>> =
+        const { std::cell::RefCell::new(Vec::new()) };
+}
+
+fn inject_fault(stage: &'static str) -> Result<(), StorageError> {
+    #[cfg(test)]
+    {
+        let matches = INJECTED_FAULT.with(|fault| {
+            let mut fault = fault.borrow_mut();
+            if fault.as_ref() == Some(&stage) {
+                *fault = None;
+                true
+            } else {
+                false
+            }
+        });
+        if matches {
+            return Err(StorageError::Io(format!("injected failure at {stage}")));
+        }
+    }
+    #[cfg(not(test))]
+    let _ = stage;
+    Ok(())
+}
+
+fn trace_stage(stage: &'static str) {
+    #[cfg(test)]
+    TRANSACTION_TRACE.with(|trace| trace.borrow_mut().push(stage));
+    #[cfg(not(test))]
+    let _ = stage;
+}
+
+#[cfg(test)]
+fn set_injected_fault(stage: &'static str) {
+    INJECTED_FAULT.with(|fault| *fault.borrow_mut() = Some(stage));
+}
+
+#[cfg(test)]
+fn take_transaction_trace() -> Vec<&'static str> {
+    TRANSACTION_TRACE.with(|trace| std::mem::take(&mut *trace.borrow_mut()))
+}
 
 fn create_staging_file(directory: &Path, label: &str) -> Result<(PathBuf, File), StorageError> {
     for _ in 0..32 {
@@ -1344,6 +1403,12 @@ fn sync_directory(directory: &Path) -> Result<(), StorageError> {
         .map_err(|error| StorageError::Io(error.to_string()))
 }
 
+fn sync_directory_for(directory: &Path, stage: &'static str) -> Result<(), StorageError> {
+    trace_stage(stage);
+    inject_fault(stage)?;
+    sync_directory(directory)
+}
+
 fn stable_lineage(configuration: &[u8; 32], root: &str) -> [u8; 16] {
     let mut hash = Sha256::new();
     hash.update(configuration);
@@ -1358,7 +1423,8 @@ mod tests {
 
     use super::{
         CURRENT_RENAME_FAILURE, append_bigram_leaf, append_posting_leaf, commit_uncertain, format,
-        install_current,
+        install_current, set_injected_fault, sync_directory_for, take_transaction_trace,
+        write_object,
     };
     use crate::storage::StorageError;
 
@@ -1441,5 +1507,84 @@ mod tests {
         );
         assert!(matches!(error, StorageError::CommitUncertain(_)));
         assert!(error.to_string().contains("generation 7"));
+    }
+
+    #[test]
+    fn every_pre_current_fault_preserves_the_previous_commit() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-pre-current-faults-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("staging")).unwrap();
+        std::fs::create_dir_all(root.join("objects")).unwrap();
+        let old = [0x33; 128];
+        std::fs::write(root.join("CURRENT"), old).unwrap();
+        let object = format::envelope(3, &[]);
+        let digest = format::sha256(&object);
+        for stage in [
+            "object-write",
+            "object-file-sync",
+            "object-install",
+            "current-write",
+            "current-file-sync",
+            "current-rename",
+        ] {
+            set_injected_fault(stage);
+            let result = if stage.starts_with("object") {
+                write_object(
+                    &root.join("staging"),
+                    &root.join("objects"),
+                    digest,
+                    &object,
+                )
+                .map(|_| ())
+            } else {
+                install_current(&root, 2, &[0x44; 128])
+            };
+            assert!(result.is_err(), "{stage} did not fail");
+            assert_eq!(std::fs::read(root.join("CURRENT")).unwrap(), old);
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn transaction_trace_orders_dependencies_before_current_and_root_sync() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-sync-trace-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("staging")).unwrap();
+        std::fs::create_dir_all(root.join("objects")).unwrap();
+        let object = format::envelope(3, &[]);
+        write_object(
+            &root.join("staging"),
+            &root.join("objects"),
+            format::sha256(&object),
+            &object,
+        )
+        .unwrap();
+        sync_directory_for(&root.join("objects"), "objects-directory-sync").unwrap();
+        install_current(&root, 1, &[0x55; 128]).unwrap();
+        sync_directory_for(&root, "store-directory-sync").unwrap();
+        assert_eq!(
+            take_transaction_trace(),
+            [
+                "object-file-sync",
+                "object-install",
+                "objects-directory-sync",
+                "current-file-sync",
+                "current-rename",
+                "store-directory-sync",
+            ]
+        );
+        std::fs::remove_dir_all(root).unwrap();
     }
 }
