@@ -1,10 +1,15 @@
 # Catalog-led storage smoke benchmark
 
-Date: 2026-11-17  
-Revisions: `ed789336e6` and `456184cd38`  
-Worktree: `/home/simon/source/objekte-integration-catalog-led-lazy-storage`  
-Dataset: `examples/musenalm`  
-Profile: release, 32 query workers, verified cache disabled  
+Date: 2026-11-17
+
+Revision: `f711919fd8`
+
+Worktree: `/home/simon/source/objekte-integration-catalog-led-lazy-storage`
+
+Dataset: `examples/musenalm`
+
+Profile: release, 32 query workers, verified cache disabled
+
 Queries: Q001 and Q119, five warm repetitions
 
 Command:
@@ -12,37 +17,53 @@ Command:
 ```sh
 cargo run --release -p objekte-search-core --example bench_storage -- \
   --cases Q001,Q119 --repetitions 5 --workers 32 \
-  --storage-root target/storage-benchmark
+  --storage-root target/storage-benchmark-final-smoke
 ```
 
-The user authorized a smaller benchmark for this task. These runs are therefore bounded
-smoke measurement, not the complete required 150-case matrix.
+The user authorized a smaller benchmark for this task. These runs are bounded smoke
+measurements, not the complete required 150-case matrix.
 
-| Operation | Provisional binary metadata at `ed789336e6` | rkyv-framed metadata chunks at `456184cd38` |
-| --- | ---: | ---: |
-| Native construction | 819,727,250 ns | 794,299,689 ns |
-| Explicit save | 2,121,991,565 ns | 2,656,014,596 ns |
-| Search-ready reopen | 459,725,093 ns | 1,231,176,136 ns |
-| Offline audit | 610,882,939 ns | 2,111,890,203 ns |
-| Stored bytes | 248,524,432 | 419,651,448 |
+| Operation | Result |
+| --- | ---: |
+| Native construction | 768,065,742 ns |
+| Explicit save | 2,507,818,228 ns |
+| Search-ready reopen | 1,229,775,918 ns |
+| Offline audit | 2,181,328,811 ns |
+| Stored bytes | 420,710,352 |
+| Stored objects | 1,062 |
 
-| Query | Revision | Cold | Warm median | Warm min | Warm max | Count |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Q001 | `ed789336e6` | 1,078,878,523 ns | 1,108,278,867 ns | 1,101,190,168 ns | 1,120,412,051 ns | 3,269 |
-| Q001 | `456184cd38` | 1,062,678,261 ns | 1,048,728,827 ns | 1,034,168,748 ns | 1,064,426,739 ns | 3,269 |
-| Q119 | `ed789336e6` | 27,729,484 ns | 4,686,140 ns | 4,643,302 ns | 4,848,414 ns | 133,948 |
-| Q119 | `456184cd38` | 25,067,725 ns | 4,714,343 ns | 4,687,405 ns | 4,796,561 ns | 133,948 |
+| Query | Cold | Warm median | Warm min | Warm max | Count |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Q001 | 58,037,369 ns | 6,121,324 ns | 5,933,534 ns | 6,597,855 ns | 3,269 |
+| Q119 | 5,461,149 ns | 4,802,463 ns | 4,652,454 ns | 4,946,908 ns | 133,948 |
 
-Open read only the `CURRENT` record and the bounded metadata manifest during the measured
-search-ready interval. It reported zero source reads and zero source parses. The cold
-status reported 148,486 eager file rows, 148,486 eager record rows, 418 eager index
-descriptors, and 714 eager leaf rows.
+The previous scanner-routed Q001 path measured about 1.06 s both cold and warm.
+Stored FTS now enters the normal segment planner, loads dictionaries only for selected
+segments, and reads only the gram leaves needed by the query. After loading, the five
+warm repetitions produced 976 cache hits with no additional index reads. Q001 retained
+208 decoded cache entries totalling 24,225,910 bytes in the measured process. That is
+down from 28 whole binding payloads and 107,614,944 retained bytes before per-gram leaf
+splitting.
 
-The latest save produced 1,236 objects and 419,651,448 bytes. Audit validated all 1,236
-reachable objects with no errors. The storage remained lazy for Q001 and used the correct
-source-scan fallback; therefore the warm Q001 time is not evidence of a working stored-gram
-acceleration path. This limitation must be repaired before final acceptance.
+The open snapshot still reported zero application-cache payload reads and zero source
+parses. It read 35 eager metadata objects totalling 282,241,928 bytes and restored
+148,486 file rows, 148,486 record rows, 418 eager index descriptors and 241,546 declared
+leaf rows. Offline audit verified all 1,062 reachable objects without error.
 
-The latest format removes bincode and frames metadata chunks with rkyv, but the chunk payloads
-still contain a serialized eager snapshot rather than the required independently archived
-catalog rows and maps. That schema and its size/open-time overhead remain blocking work.
+## Remaining limitations
+
+- Posting values and state bitmaps are still loaded as one field-level frame. Independent
+  posting leaves and a fully eager posting-leaf catalog remain unfinished.
+- FTS dictionaries are loaded per binding, while their normal/skip Roaring leaves are now
+  independent and coalesced. A complete eager catalog row per leaf is still absent.
+- Sort collections still use one collection/segment-level frame rather than one selected
+  field/configuration frame per query.
+- Base relation CSR adjacency is lazy, but segment-local relation contributions remain
+  eager metadata and relations are not split into independent endpoint payloads.
+- The snapshot body remains JSON split across rkyv-framed metadata chunks. Search-ready
+  open is therefore still dominated by eager metadata decode and is a blocking schema
+  and performance gap.
+- FTS remains a conservative filter. Source verification for exact literal or regex
+  evidence is retained where the query semantics require it.
+- The complete 150-query matrix, worker/config sweeps, budget sequence, mutation matrix,
+  S01-S80 execution evidence and final acceptance report are not yet complete.

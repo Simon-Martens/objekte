@@ -161,6 +161,7 @@ fn write_parts(
             .ok_or_else(|| StorageError::StorageConflict("storage generation overflow".into()))?,
         None => 1,
     };
+    let initialized_store = current.is_none();
     let store_identity = binding
         .as_ref()
         .map_or_else(random_identity, |binding| Ok(binding.store_identity))?;
@@ -344,6 +345,7 @@ fn write_parts(
     let write_ns = write_started.elapsed().as_nanos() as u64;
 
     let sync_started = Instant::now();
+    let mut sync_calls = 3u64;
     let current_bytes = make_current(
         generation,
         metadata_digest,
@@ -352,7 +354,25 @@ fn write_parts(
         snapshot.lineage_identity,
     );
     install_current(directory, generation, &current_bytes)?;
-    sync_directory(directory)?;
+    sync_directory(directory).map_err(|error| {
+        StorageError::CommitUncertain(format!(
+            "generation {generation}, manifest {}: {error}",
+            format::hex(&metadata_digest)
+        ))
+    })?;
+    if initialized_store {
+        let parent = directory.parent().ok_or_else(|| {
+            StorageError::CommitUncertain(
+                "storage directory has no parent entry to synchronize".into(),
+            )
+        })?;
+        sync_directory(parent).map_err(|error| {
+            StorageError::CommitUncertain(format!(
+                "initializing store directory for generation {generation}: {error}"
+            ))
+        })?;
+        sync_calls = sync_calls.saturating_add(1);
+    }
     let sync_ns = sync_started.elapsed().as_nanos() as u64;
 
     binding_repository
@@ -395,7 +415,7 @@ fn write_parts(
                 .iter()
                 .map(|(_, bytes, _)| bytes.len() as u64)
                 .sum::<u64>(),
-        sync_calls: 3,
+        sync_calls,
         archive_ns,
         encode_ns,
         write_ns,
