@@ -248,7 +248,6 @@ fn presence_and_null_queries_do_not_open_value_or_text_payloads() {
     let cold = reopened.storage_status().unwrap();
     let mut exists = all_records();
     exists.filter = Some(parse_filter("title:exists = true").unwrap());
-    eprintln!("{:?}", reopened.view().unwrap().explain(&exists));
     assert_eq!(
         reopened.view().unwrap().search(&exists).unwrap().count,
         Some(2)
