@@ -47,7 +47,7 @@ S45	pending	none	Completion callbacks re-entering save are tested outside the st
 S46	pending	none	Warm native disk-bypass counters need a storage test.
 S47	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Add after reopen publishes and persists the new records.
 S48	pending	none	Multi-segment replacement retirement is not storage-tested.
-S49	partial	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Delete correctness is covered; all query-family exclusion is pending.
+S49	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Deleted files disappear from file catalog, filter, FTS and sorted queries while surviving sources remain searchable.
 S50	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Deletion-only save leaves payload packs untouched.
 S51	partial	storage_roundtrip::replace_and_move_after_reopen_persist_correct_identity_and_content	Move identity and content round-trip is covered; affected-component scope is pending.
 S52	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Cold source-free compaction is covered for the fixture.

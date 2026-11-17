@@ -4722,11 +4722,16 @@ fn search_segmented_impl(
             if filter.as_ref().is_some_and(excludes_raw_fallback) {
                 candidates &= &segment.logical_records;
             }
-            if let Some(fts_may) = fts
-                .as_ref()
-                .map(|fts| segment_fts_candidates(segment, collection, fts))
-                .transpose()?
-                .flatten()
+            let fts_may = if mixed_segment_fts(repo, collection_index) {
+                None
+            } else {
+                fts.as_ref()
+                    .map(|fts| segment_fts_candidates(segment, collection, fts))
+                    .transpose()?
+                    .flatten()
+            };
+            if let Some(fts_may) = fts_may
+                && !fts_may.is_empty()
             {
                 candidates &= fts_may;
             }
@@ -7049,11 +7054,14 @@ fn try_parallel_relation_page(
                     .map(|bounds| bounds.may)
                 })
                 .transpose()?;
-            let fts_may = fts
-                .as_ref()
-                .map(|fts| segment_fts_candidates(&published.index, collection, fts))
-                .transpose()?
-                .flatten();
+            let fts_may = if mixed_segment_fts(repo, *collection_index) {
+                None
+            } else {
+                fts.as_ref()
+                    .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+                    .transpose()?
+                    .flatten()
+            };
             match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter & fts),
                 (Some(filter), None) => Some(filter),
@@ -7721,11 +7729,14 @@ fn search_segmented_relations(
                         .map(|bounds| bounds.may)
                     })
                     .transpose()?;
-                let fts_may = fts
-                    .as_ref()
-                    .map(|fts| segment_fts_candidates(&published.index, collection, fts))
-                    .transpose()?
-                    .flatten();
+                let fts_may = if mixed_segment_fts(repo, collection_index) {
+                    None
+                } else {
+                    fts.as_ref()
+                        .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+                        .transpose()?
+                        .flatten()
+                };
                 match (filter_may, fts_may) {
                     (Some(filter), Some(fts)) => Some(filter & fts),
                     (Some(filter), None) => Some(filter),
@@ -8501,6 +8512,25 @@ fn collection_has_stored_payload(collection: &CollectionState) -> bool {
             .any(|composite| composite.stored.is_some())
 }
 
+fn mixed_segment_fts(repo: &Repository, collection_index: usize) -> bool {
+    if let Some(session) = repo.storage.as_ref()
+        && let Ok(bindings) = repo.storage_binding.lock()
+        && bindings
+            .get(session.directory())
+            .is_some_and(|binding| binding.revision != repo.revision)
+    {
+        return true;
+    }
+    let Some(segments) = repo.segments.get(collection_index) else {
+        return false;
+    };
+    let stored = segments
+        .iter()
+        .filter(|segment| segment.index.raw.is_stored())
+        .count();
+    stored > 0 && stored < segments.len()
+}
+
 fn segment_has_stored_payload(segment: &IndexedCollectionSegment) -> bool {
     segment
         .postings
@@ -9020,11 +9050,14 @@ fn try_lifecycle_ordered_stream(
                     })
                 })
                 .transpose()?;
-            let fts_may = fts
-                .as_ref()
-                .map(|fts| segment_fts_candidates(&segment.index, collection, fts))
-                .transpose()?
-                .flatten();
+            let fts_may = if mixed_segment_fts(repo, collection_index) {
+                None
+            } else {
+                fts.as_ref()
+                    .map(|fts| segment_fts_candidates(&segment.index, collection, fts))
+                    .transpose()?
+                    .flatten()
+            };
             candidates[collection_index][segment_index] = match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter & fts),
                 (Some(filter), None) => Some(filter),
@@ -11499,7 +11532,7 @@ fn try_stored_order_page(
         candidates &= &domain;
         if let Some(fts_candidates) = fts
             .as_ref()
-            .map(|fts| fts_candidates(collection, fts))
+            .map(|fts| fts_candidates(collection, fts, mixed_segment_fts(repo, *collection_index)))
             .transpose()?
             .flatten()
         {
@@ -12994,8 +13027,16 @@ fn search_impl_with_collector<'a>(
             };
             if text_first {
                 if let Some(fts) = &fts {
-                    if let Some(text) = fts_candidates(collection, fts)? {
-                        input &= text;
+                    if let Some(text) =
+                        fts_candidates(collection, fts, mixed_segment_fts(repo, collection_index))?
+                    {
+                        let unrestricted = input.clone();
+                        input &= &text;
+                        if input.is_empty() && !text.is_empty() && !unrestricted.is_empty() {
+                            // A stale mixed-state restriction is not proof of an
+                            // empty answer; retain the source-verification path.
+                            input = unrestricted;
+                        }
                     }
                 }
             }
@@ -13028,7 +13069,11 @@ fn search_impl_with_collector<'a>(
             if !text_first {
                 if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
                     if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
-                        if let Some(text_candidates) = fts_candidates(collection, fts)? {
+                        if let Some(text_candidates) = fts_candidates(
+                            collection,
+                            fts,
+                            mixed_segment_fts(repo, collection_index),
+                        )? {
                             candidates &= text_candidates;
                         }
                     }
@@ -13037,14 +13082,11 @@ fn search_impl_with_collector<'a>(
             (plan, candidates, text_first)
         };
         candidates &= &domain;
-        if candidates.is_empty()
-            && fts.is_some()
-            && !domain.is_empty()
-            && collection.raw.is_stored()
-        {
-            // A stored planner may not turn an unavailable cold estimate into
-            // proof that no text matches. Execution resolves the selected
-            // dictionary and can still return a proven empty result.
+        if candidates.is_empty() && fts.is_some() && !domain.is_empty() {
+            // A mixed or reopened publication can retain a stale conservative
+            // candidate restriction after mutation. Never turn that state into
+            // a false empty answer; source verification still returns an empty
+            // result when the grams genuinely do not match.
             candidates = domain.clone();
         }
         counters.add_semijoin(plan.semijoin_work)?;

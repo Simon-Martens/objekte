@@ -646,6 +646,8 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
         .file_handle_for_path(&added_path)
         .unwrap();
     reopened.delete_file(handle).unwrap();
+    std::fs::remove_file(&added_path).unwrap();
+    assert_eq!(reopened.view().unwrap().file_paths().count(), 2);
     assert_eq!(
         reopened
             .view()
@@ -654,6 +656,62 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
             .unwrap()
             .count,
         Some(2)
+    );
+    let mut deleted_filter = all_records();
+    deleted_filter.filter = Some(parse_filter("title = \"Gamma token\"").unwrap());
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&deleted_filter)
+            .unwrap()
+            .count,
+        Some(0)
+    );
+    let mut deleted_fts = all_records();
+    deleted_fts.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search_reference(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
+    );
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search_reference(&deleted_fts)
+            .unwrap()
+            .count,
+        Some(2),
+        "reference FTS must see the two surviving source files"
+    );
+    assert_eq!(
+        reopened.view().unwrap().search(&deleted_fts).unwrap().count,
+        Some(2)
+    );
+    let mut deleted_sort = all_records();
+    deleted_sort.options.sort = vec![SortField::simple("title", false)];
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&deleted_sort)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["path:a.json", "path:b.json"]
     );
     let third = reopened
         .archive_to(root.join("storage"), StorageWriteOptions::default())
@@ -1271,6 +1329,46 @@ fn reopened_store_rejects_a_different_source_root() {
     .err()
     .expect("a different source root must be rejected");
     assert!(error.to_string().contains("source root"));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn reopened_store_rejects_schema_and_indexing_changes() {
+    let root = fixture_root("schema-mismatch");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    for (name, kind, indexed) in [
+        ("id", LogicalType::Id, true),
+        ("title", LogicalType::String, false),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let changed = vec![definition];
+    assert!(
+        Index::open_storage(
+            &root,
+            changed,
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .is_err()
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

@@ -2749,7 +2749,14 @@ fn prepare_fts_accesses<'a, 'b>(
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
+    mixed_segment_fts: bool,
 ) -> Result<Option<RoaringBitmap>, String> {
+    if mixed_segment_fts {
+        // Segment-local gram slots are not collection-global. During a mixed
+        // publication, only source verification can combine stored and native
+        // segment indexes without an unsafe cross-domain intersection.
+        return Ok(None);
+    }
     let indexes = IndexCatalog::collection(collection);
     let Some(prepared) = prepare_fts_accesses(
         &indexes,
