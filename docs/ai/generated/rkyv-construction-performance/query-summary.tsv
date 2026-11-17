@@ -1,0 +1,7 @@
+mode	profile	native_ms	predecessor_ms	followup_ms	followup_native	followup_predecessor
+direct	ascii-off	1357.874	1464.184	1444.623	1.0639	0.9866
+direct	unicode-off	1336.303	1405.903	1396.086	1.0447	0.993
+direct	combined	2694.177	2870.087	2840.709	1.0544	0.9898
+progressive	ascii-off	1349.377	1371.954	1423.511	1.0549	1.0376
+progressive	unicode-off	1296.024	1366.549	1345.603	1.0383	0.9847
+progressive	combined	2645.4	2738.503	2769.114	1.0468	1.0112

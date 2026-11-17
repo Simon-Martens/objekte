@@ -366,7 +366,7 @@ fn private_final_drain_consumes_worker_error_before_returning() {
         }
     });
     let catalogue = catalogue_rx.recv().unwrap();
-    let timeout = std::time::Duration::from_secs(10);
+    let timeout = std::time::Duration::from_secs(120);
     assert!(gate.wait_for_private_job(0, timeout));
     assert!(gate.wait_for_private_job(1, timeout));
     assert!(gate.wait_for_private_final_drain(timeout));

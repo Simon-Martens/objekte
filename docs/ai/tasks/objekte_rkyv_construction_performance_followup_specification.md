@@ -447,3 +447,102 @@ These references are review anchors. The agent must work against the completed p
 - [Rust BTreeMap lookup and borrowed-key ordering requirements](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html#method.get_mut)
 
 **Required result:** one isolated, tested integration branch with all avoidable construction work addressed and an honest measured verdict against the native baseline. Faster native performance is the objective; a promise or a partial benchmark is not evidence.
+
+## Implementation report — performance acceptance pending
+
+Task: `rkyv-construction-performance`
+
+Date: 2026-11-17
+
+Starting revision: `e4a7471ffe777a9a4992dff34d7070edf372e873`
+
+Implementation head:
+`65cb66dc5b` (`perf(core): share custom text payloads`)
+
+Integration branch:
+`integration/rkyv-memory-index-repair`
+
+Integration worktree:
+`/home/simon/source/objekte-integration-rkyv-memory-index-repair`
+
+### Verdict
+
+The construction-work repairs and required correctness coverage are complete.
+The native-performance gate is not complete. The document therefore remains in
+`tasks/` rather than being moved to `done/`, and the branch has not been merged
+into `master`.
+
+### Implemented construction repairs
+
+- Posting dictionaries serialize directly from checked owned ordered entries;
+  the temporary native ordinal B-tree and its key clones are gone.
+- Empty posting dictionaries share immutable archives by key type.
+- Scalar insertion converts `Value` directly to the stored representation.
+  The reusable-scratch experiment was rejected after a 16.9% all-unique
+  regression.
+- The first batch is adopted by moving compatible ownership. Later field maps
+  merge in place without drained/sorted/reconstructed work vectors.
+- Sort compatibility headers are configuration-only with zero-capacity payload
+  vectors.
+- Record diagnostics move into archive rows. Record lookup serialization uses a
+  borrowed ordered reference vector instead of an owned native string map.
+  `RecordId` stores `Arc<String>` so the final row freeze can move a unique ID.
+- Catalog rebase reuses unchanged path and ownership shards, rebuilds only
+  changed metadata shards, and serializes shards through the build pool.
+- Initial publication uses borrowed file validation and one batched metadata
+  edit per touched ID shard. Healthy files create no native file/record cache.
+- Validation is bitmap-only and fused into one completed-component pass.
+  Sealed unchanged segments bypass repeat freeze/validation.
+- Relation reverse dictionaries are frozen and validated before publication.
+- Raw text, fallback text, custom text and sorting use immutable shared owners.
+  Inference-only pruning changes only value dictionaries and sort state.
+- A bounded construction-only duplicate-ID registry replaces repeated
+  cross-segment probes and is released before final publication.
+- Empty repository shells use a lightweight configured-state constructor with
+  no construction pool or repeated empty finalization.
+
+### Construction result
+
+Seven fresh-process samples per revision and configuration:
+
+| Alphabet | Workers | Native ms | Predecessor ms | Follow-up ms | Follow-up/native |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| ASCII | 1 | 3,671.0 | 4,177.1 | 4,016.4 | 1.094x |
+| ASCII | 8 | 808.0 | 1,192.5 | 987.6 | 1.234x |
+| ASCII | 32 | 649.4 | 1,073.4 | 832.1 | 1.287x |
+| Unicode | 1 | 4,393.9 | 5,047.7 | 4,775.5 | 1.085x |
+| Unicode | 8 | 930.8 | 1,345.5 | 1,099.2 | 1.173x |
+| Unicode | 32 | 702.9 | 1,140.4 | 897.6 | 1.270x |
+
+The follow-up improves predecessor 32-worker construction by 19–22% and
+8-worker construction by about 17%. Every native construction gate remains
+failed.
+
+### Query, memory and validation
+
+All 150 query cases completed through direct and progressive paths for both
+alphabets with zero semantic digest mismatches. Aggregate query time remains
+1.054x native direct and 1.047x native progressive. Focused three-repetition
+Q119 Unicode retries remain above the individual query safeguard.
+
+End and peak RSS improved in every construction cell versus the predecessor.
+On 32-worker ASCII, end RSS fell from 839.6 to 721.6 MiB and peak RSS from
+902.2 to 784.8 MiB. Native remains lower at 575.2/615.6 MiB.
+
+The final workspace suite, core library suite, compaction API test,
+all-target workspace check, detailed-profiling all-target check and diff check
+all passed. The deterministic five-seed lifecycle matrix passed with fresh
+rebuild/model comparison after every operation.
+
+### Remaining blocker
+
+Segment finalization still dominates the remaining gap. On the critical
+contents shard, bigram packing alone takes roughly 186 ms; required archive
+validation, row/lookup construction and compatibility metadata add serial work
+inside that shard. The next bounded optimization is to overlap bigram packing
+with posting, lookup and row-archive finalization while retaining the existing
+scheduler and archive ownership model.
+
+The complete C01–C15 status, P01–P24 mapping, raw benchmark matrix, query
+results, memory accounting and residual analysis are in
+[`implementation-report.md`](../generated/rkyv-construction-performance/implementation-report.md).

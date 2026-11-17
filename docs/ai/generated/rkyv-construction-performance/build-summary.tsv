@@ -1,0 +1,7 @@
+alphabet	workers	entry_path	revisions	samples_each	native_median_ms	predecessor_median_ms	followup_median_ms	paired_ratio_median	ci95_low	ci95_high	native_end_rss_mib	native_peak_rss_mib	predecessor_end_rss_mib	predecessor_peak_rss_mib	followup_end_rss_mib	followup_peak_rss_mib	gate
+ascii	1	repository-progressive	N/R/F	7	3671.001	4177.078	4016.418	1.0941	1.0923	1.1097	415.9	458.3	606.7	671.9	555.5	620.9	failed
+ascii	8	repository-progressive	N/R/F	7	808.01	1192.501	987.564	1.2335	1.1923	1.2638	462.6	503.5	673.0	737.1	590.8	655.1	failed
+ascii	32	repository-progressive	N/R/F	7	649.406	1073.442	832.148	1.287	1.2698	1.3140	575.2	615.6	839.6	902.2	721.6	784.8	failed
+unicode	1	repository-progressive	N/R/F	7	4393.871	5047.683	4775.54	1.0845	1.0805	1.1001	424.1	466.3	612.1	676.9	561.8	626.8	failed
+unicode	8	repository-progressive	N/R/F	7	930.837	1345.515	1099.23	1.1725	1.1582	1.2105	472.8	514.3	694.9	758.9	596.1	659.8	failed
+unicode	32	repository-progressive	N/R/F	7	702.859	1140.445	897.601	1.2699	1.2588	1.3197	596.4	636.7	846.5	909.3	716.6	779.7	failed
