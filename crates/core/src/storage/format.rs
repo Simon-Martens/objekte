@@ -1,6 +1,6 @@
+use std::any::Any;
 use std::collections::HashMap;
 use std::fmt;
-use std::any::Any;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
 
