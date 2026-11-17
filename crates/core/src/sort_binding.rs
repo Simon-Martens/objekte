@@ -277,7 +277,9 @@ impl<'a> BoundSort<'a> {
                 terms.push(None);
                 continue;
             }
-            collection.sorting.ensure_storage_loaded()?;
+            if !query.options.sort.is_empty() {
+                collection.sorting.ensure_storage_loaded()?;
+            }
             let mut selected = Vec::with_capacity(query.options.sort.len());
             for (position, field) in query.options.sort.iter().enumerate() {
                 let expression = expression(field)?;

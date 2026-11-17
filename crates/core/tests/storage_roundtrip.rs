@@ -653,6 +653,48 @@ fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
 }
 
 #[test]
+fn concurrent_first_use_shares_one_stored_posting_load() {
+    let root = fixture_root("concurrent-load");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = std::sync::Arc::new(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .unwrap(),
+    );
+    let cold = reopened.storage_status().unwrap();
+    let barrier = std::sync::Arc::new(std::sync::Barrier::new(3));
+    let mut workers = Vec::new();
+    for _ in 0..2 {
+        let reopened = std::sync::Arc::clone(&reopened);
+        let barrier = std::sync::Arc::clone(&barrier);
+        workers.push(std::thread::spawn(move || {
+            let mut request = all_records();
+            request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
+            barrier.wait();
+            reopened.view().unwrap().search(&request).unwrap().count
+        }));
+    }
+    barrier.wait();
+    for worker in workers {
+        assert_eq!(worker.join().unwrap(), Some(1));
+    }
+    let warm = reopened.storage_status().unwrap();
+    assert_eq!(warm.index_reads, cold.index_reads + 2);
+    reopened.shutdown().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_text_payload_reopens_lazily_and_preserves_results() {
     let root = fixture_root("fts");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();

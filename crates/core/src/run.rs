@@ -194,11 +194,13 @@ struct ResolvedSort<'a> {
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
-        for collection in repo.collections() {
-            if query.collections.is_empty()
-                || query.collections.contains(&collection.definition.name)
-            {
-                collection.sorting.ensure_storage_loaded()?;
+        if !query.options.sort.is_empty() {
+            for collection in repo.collections() {
+                if query.collections.is_empty()
+                    || query.collections.contains(&collection.definition.name)
+                {
+                    collection.sorting.ensure_storage_loaded()?;
+                }
             }
         }
         let bound = BoundSort::bind(repo, query)?;
@@ -206,14 +208,16 @@ impl<'a> ResolvedSort<'a> {
     }
 
     fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
-        for collection in repo.collections() {
-            if query.collections.is_empty()
-                || query.collections.contains(&collection.definition.name)
-            {
-                collection
-                    .sorting
-                    .ensure_storage_loaded()
-                    .expect("stored sort collection must load before binding");
+        if !query.options.sort.is_empty() {
+            for collection in repo.collections() {
+                if query.collections.is_empty()
+                    || query.collections.contains(&collection.definition.name)
+                {
+                    collection
+                        .sorting
+                        .ensure_storage_loaded()
+                        .expect("stored sort collection must load before binding");
+                }
             }
         }
         let columns = repo
@@ -11337,10 +11341,12 @@ fn try_stored_order_page(
     {
         return Ok(None);
     }
-    for (collection_index, _, _) in &prepared.collections {
-        repo.collections[*collection_index]
-            .sorting
-            .ensure_storage_loaded()?;
+    if !query.options.sort.is_empty() {
+        for (collection_index, _, _) in &prepared.collections {
+            repo.collections[*collection_index]
+                .sorting
+                .ensure_storage_loaded()?;
+        }
     }
     if let Some(execution) = execution {
         execution.check_string()?;
