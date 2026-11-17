@@ -121,7 +121,7 @@ change and does not rebuild every posting dictionary.
 
 ```text
 cargo test -p objekte-search-core --lib
-  result: 591 passed; 17 ignored; 0 failed
+  result: 592 passed; 17 ignored; 0 failed
 
 cargo check --workspace --all-targets
   result: passed

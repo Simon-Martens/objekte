@@ -484,6 +484,7 @@ Implementation commits:
   records and dictionaries, transition gating, readiness, and focused tests
 - `cd9b8275cd` — direct borrowed catalog/row serialization, cache-free archive
   validation, explicit archive benchmark controls, and final lifecycle coverage
+- `1d3c7be663` — transactional standalone Repository archive failure/retry
 
 ### Implemented scope
 
@@ -521,7 +522,7 @@ the common readers and produces native compacted segments.
 
 Required/focused tests executed:
 
-- `cargo test -p objekte-search-core --lib`: 591 passed, 17 ignored, 0 failed
+- `cargo test -p objekte-search-core --lib`: 592 passed, 17 ignored, 0 failed
 - `cargo test --workspace`: passed, including CLI, desktop, integration, and
   compaction API tests
 - `cargo check --workspace --all-targets`: passed
