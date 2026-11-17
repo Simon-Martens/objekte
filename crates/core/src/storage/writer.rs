@@ -11,7 +11,9 @@ use crate::lifecycle::{
     ArchiveOptions, ArchiveReport, Index, IndexError, IndexRevision, IndexStorageParts,
 };
 use crate::repository::{CollectionState, Repository};
-use crate::storage::{StorageError, StorageWriteOptions, StorageWriteReport, format, model};
+use crate::storage::{
+    StorageError, StorageWriteOptions, StorageWriteReport, catalog, format, model,
+};
 
 const METADATA_OBJECT_KIND: u16 = 1;
 const PAYLOAD_OBJECT_KIND: u16 = 2;
@@ -200,7 +202,19 @@ fn write_parts(
         {
             entries.entry(entry.id).or_insert(entry);
         }
-        let max_file_id = entries.keys().map(|id| id.0).max().unwrap_or(0);
+        let max_file_id = entries
+            .keys()
+            .map(|id| id.0)
+            .chain(
+                snapshot
+                    .segments
+                    .iter()
+                    .flatten()
+                    .flat_map(|segment| &segment.segment.records)
+                    .map(|record| record.file.0),
+            )
+            .max()
+            .unwrap_or(0);
         let collection = snapshot
             .collections
             .first()
@@ -231,7 +245,17 @@ fn write_parts(
         )
         .map_err(StorageError::InvalidFormat)?;
     }
-    externalize_posting_payloads(&mut snapshot, &mut external_objects)?;
+    let mut leaf_groups = source_storage
+        .as_ref()
+        .map(|(directory, _)| read_leaf_groups(directory))
+        .transpose()?
+        .unwrap_or_default()
+        .into_iter()
+        .map(|group| (group.identity.clone(), group))
+        .collect::<std::collections::BTreeMap<_, _>>();
+    externalize_posting_payloads(&mut snapshot, &mut external_objects, &mut leaf_groups)?;
+    let encoded_catalogs = catalog::build(&snapshot, leaf_groups.into_values().collect())
+        .map_err(StorageError::InvalidFormat)?;
     if let Some((_, source_snapshot)) = &source_storage {
         snapshot.stored_objects = source_snapshot.stored_objects.clone();
     }
@@ -292,6 +316,7 @@ fn write_parts(
             .iter()
             .map(|(_, _, descriptor)| descriptor.clone())
             .collect(),
+        catalogs: encoded_catalogs.references(),
     };
     let metadata_body = rkyv::to_bytes::<rkyv::rancor::Error>(&metadata_manifest)
         .map_err(|error| StorageError::Io(error.to_string()))?;
@@ -314,9 +339,15 @@ fn write_parts(
         &mut objects_new,
         &mut objects_reused,
     )?;
+    let encoded_objects = encoded_catalogs.into_objects();
     let generated_objects = external_objects
         .iter()
         .map(|(digest, bytes)| (*digest, bytes.as_slice()))
+        .chain(
+            encoded_objects
+                .iter()
+                .map(|(digest, bytes)| (*digest, bytes.as_slice())),
+        )
         .collect::<std::collections::HashMap<_, _>>();
     for descriptor in &snapshot.stored_objects {
         let kind = u16::try_from(descriptor.kind).map_err(|_| {
@@ -352,6 +383,16 @@ fn write_parts(
         }
     }
     for (digest, bytes, _) in &metadata_chunks {
+        record_object_write(
+            &staging,
+            &objects,
+            *digest,
+            bytes,
+            &mut objects_new,
+            &mut objects_reused,
+        )?;
+    }
+    for (digest, bytes) in &encoded_objects {
         record_object_write(
             &staging,
             &objects,
@@ -423,6 +464,10 @@ fn write_parts(
                 .iter()
                 .map(|(_, bytes)| bytes.len() as u64)
                 .sum::<u64>()
+            + encoded_objects
+                .iter()
+                .map(|(_, bytes)| bytes.len() as u64)
+                .sum::<u64>()
             + metadata_chunks
                 .iter()
                 .map(|(_, bytes, _)| bytes.len() as u64)
@@ -449,44 +494,141 @@ fn write_parts(
 fn externalize_posting_payloads(
     snapshot: &mut model::StorageSnapshot,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
+    leaf_groups: &mut std::collections::BTreeMap<String, catalog::StoredLeafGroupDescriptor>,
 ) -> Result<(), StorageError> {
-    for collection in &mut snapshot.collections {
-        externalize_posting_collection(&mut collection.postings, objects)?;
-        externalize_bigram(&mut collection.raw, objects)?;
-        externalize_bigram(&mut collection.fallback_text, objects)?;
+    for (collection_ordinal, collection) in snapshot.collections.iter_mut().enumerate() {
+        externalize_posting_collection(
+            &mut collection.postings,
+            objects,
+            leaf_groups,
+            collection_ordinal,
+            None,
+        )?;
+        externalize_bigram(
+            &mut collection.raw,
+            objects,
+            leaf_groups,
+            collection_ordinal,
+            None,
+            "fts.raw",
+        )?;
+        externalize_bigram(
+            &mut collection.fallback_text,
+            objects,
+            leaf_groups,
+            collection_ordinal,
+            None,
+            "fts.fallback",
+        )?;
         externalize_sorting(&mut collection.sorting, objects)?;
-        for bigram in collection.custom_text.values_mut() {
-            externalize_bigram(bigram, objects)?;
+        for (key, bigram) in &mut collection.custom_text {
+            let path = format!("{}.{}", key.0.join("."), key.1);
+            externalize_bigram(
+                bigram,
+                objects,
+                leaf_groups,
+                collection_ordinal,
+                None,
+                &format!("fts.custom.{path}"),
+            )?;
         }
         for relation in &mut collection.relations {
             externalize_relation(relation, objects)?;
         }
         if let Some(inference) = &mut collection.inference {
-            for posting in inference.indexes.values_mut() {
-                externalize_posting(posting, objects)?;
+            for (path, posting) in &mut inference.indexes {
+                externalize_posting(
+                    posting,
+                    objects,
+                    leaf_groups,
+                    catalog::storage_leaf_identity(
+                        collection_ordinal,
+                        None,
+                        "inference.posting",
+                        &path.join("."),
+                    ),
+                )?;
             }
         }
-        for custom in collection.custom_postings.values_mut() {
-            externalize_posting(&mut custom.index, objects)?;
+        for (key, custom) in &mut collection.custom_postings {
+            externalize_posting(
+                &mut custom.index,
+                objects,
+                leaf_groups,
+                catalog::storage_leaf_identity(
+                    collection_ordinal,
+                    None,
+                    "custom.posting",
+                    &format!("{}.{}", key.0.join("."), key.1),
+                ),
+            )?;
         }
     }
-    for group in &mut snapshot.segments {
+    for (collection_ordinal, group) in snapshot.segments.iter_mut().enumerate() {
         for published in group {
             let segment = &mut published.segment;
-            externalize_posting_collection(&mut segment.postings, objects)?;
-            externalize_bigram(&mut segment.raw, objects)?;
-            externalize_bigram(&mut segment.fallback_text, objects)?;
+            externalize_posting_collection(
+                &mut segment.postings,
+                objects,
+                leaf_groups,
+                collection_ordinal,
+                Some(segment.id.get()),
+            )?;
+            externalize_bigram(
+                &mut segment.raw,
+                objects,
+                leaf_groups,
+                collection_ordinal,
+                Some(segment.id.get()),
+                "fts.raw",
+            )?;
+            externalize_bigram(
+                &mut segment.fallback_text,
+                objects,
+                leaf_groups,
+                collection_ordinal,
+                Some(segment.id.get()),
+                "fts.fallback",
+            )?;
             externalize_sorting(&mut segment.sorting, objects)?;
-            for bigram in segment.custom_text.values_mut() {
-                externalize_bigram(bigram, objects)?;
+            for (key, bigram) in &mut segment.custom_text {
+                let path = format!("{}.{}", key.0.join("."), key.1);
+                externalize_bigram(
+                    bigram,
+                    objects,
+                    leaf_groups,
+                    collection_ordinal,
+                    Some(segment.id.get()),
+                    &format!("fts.custom.{path}"),
+                )?;
             }
             if let Some(inference) = &mut segment.inference {
-                for posting in inference.indexes.values_mut() {
-                    externalize_posting(posting, objects)?;
+                for (path, posting) in &mut inference.indexes {
+                    externalize_posting(
+                        posting,
+                        objects,
+                        leaf_groups,
+                        catalog::storage_leaf_identity(
+                            collection_ordinal,
+                            Some(segment.id.get()),
+                            "inference.posting",
+                            &path.join("."),
+                        ),
+                    )?;
                 }
             }
-            for custom in segment.custom_postings.values_mut() {
-                externalize_posting(&mut custom.index, objects)?;
+            for (key, custom) in &mut segment.custom_postings {
+                externalize_posting(
+                    &mut custom.index,
+                    objects,
+                    leaf_groups,
+                    catalog::storage_leaf_identity(
+                        collection_ordinal,
+                        Some(segment.id.get()),
+                        "custom.posting",
+                        &format!("{}.{}", key.0.join("."), key.1),
+                    ),
+                )?;
             }
         }
     }
@@ -536,6 +678,10 @@ fn externalize_sorting(
 fn externalize_bigram(
     bigram: &mut crate::bigram::BigramIndex,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
+    leaf_groups: &mut std::collections::BTreeMap<String, catalog::StoredLeafGroupDescriptor>,
+    collection: usize,
+    segment: Option<u64>,
+    scope: &str,
 ) -> Result<(), StorageError> {
     if bigram.payload.is_some() && bigram.normal.is_empty() && bigram.skip.is_empty() {
         return Ok(());
@@ -570,6 +716,34 @@ fn externalize_bigram(
     let digest = format::sha256(&pack);
     let length = pack.len() as u64;
     objects.push((digest, pack));
+    leaf_groups.insert(
+        catalog::storage_leaf_identity(collection, segment, scope, "normal"),
+        catalog::quick_leaf_group(
+            catalog::storage_leaf_identity(collection, segment, scope, "normal"),
+            digest,
+            length,
+            dictionary
+                .normal
+                .iter()
+                .copied()
+                .map(|(_, reference)| reference.into())
+                .collect(),
+        ),
+    );
+    leaf_groups.insert(
+        catalog::storage_leaf_identity(collection, segment, scope, "skip"),
+        catalog::quick_leaf_group(
+            catalog::storage_leaf_identity(collection, segment, scope, "skip"),
+            digest,
+            length,
+            dictionary
+                .skip
+                .iter()
+                .copied()
+                .map(|(_, reference)| reference.into())
+                .collect(),
+        ),
+    );
     bigram.normal.clear();
     bigram.skip.clear();
     bigram.payload = Some(crate::bigram::StoredBigramPayloadRef {
@@ -640,9 +814,17 @@ fn align_object(bytes: &mut Vec<u8>) {
 fn externalize_posting_collection(
     collection: &mut crate::posting::PostingCollectionSnapshot,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
+    leaf_groups: &mut std::collections::BTreeMap<String, catalog::StoredLeafGroupDescriptor>,
+    collection_ordinal: usize,
+    segment: Option<u64>,
 ) -> Result<(), StorageError> {
-    for posting in collection.fields.values_mut() {
-        externalize_posting(posting, objects)?;
+    for (path, posting) in &mut collection.fields {
+        externalize_posting(
+            posting,
+            objects,
+            leaf_groups,
+            catalog::storage_leaf_identity(collection_ordinal, segment, "posting", &path.join(".")),
+        )?;
     }
     Ok(())
 }
@@ -650,6 +832,8 @@ fn externalize_posting_collection(
 fn externalize_posting(
     posting: &mut crate::posting::PostingIndexSnapshot,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
+    leaf_groups: &mut std::collections::BTreeMap<String, catalog::StoredLeafGroupDescriptor>,
+    identity: String,
 ) -> Result<(), StorageError> {
     if posting.payload.is_some()
         && posting.values.is_empty()
@@ -669,6 +853,26 @@ fn externalize_posting(
     pack.extend_from_slice(&dictionary_body);
     let digest = format::sha256(&pack);
     let length = pack.len() as u64;
+    let mut rows = Vec::new();
+    if let Some(structural) = &payload.structural {
+        rows.extend(structural.iter().map(|(_, reference)| (*reference).into()));
+    }
+    rows.extend(
+        payload
+            .values
+            .iter()
+            .map(|(_, reference)| (*reference).into()),
+    );
+    rows.extend(
+        payload
+            .lengths
+            .iter()
+            .map(|(_, reference)| (*reference).into()),
+    );
+    leaf_groups.insert(
+        identity.clone(),
+        catalog::quick_leaf_group(identity, digest, length, rows),
+    );
     objects.push((digest, pack));
     posting.structural = None;
     posting.values.clear();
@@ -1357,6 +1561,60 @@ fn read_prior_snapshot(
     crate::storage::reader::read_snapshot(directory).map(Some)
 }
 
+fn read_leaf_groups(
+    directory: &Path,
+) -> Result<Vec<catalog::StoredLeafGroupDescriptor>, StorageError> {
+    let current = read_current(directory)?.ok_or_else(|| StorageError::MissingObject([0; 32]))?;
+    let manifest_path = directory.join("objects").join(format::object_file_name(
+        &current.manifest_digest,
+        METADATA_OBJECT_KIND,
+    ));
+    let manifest_bytes =
+        fs::read(&manifest_path).map_err(|error| StorageError::Io(error.to_string()))?;
+    let manifest_body = format::checked_body(&manifest_bytes, METADATA_OBJECT_KIND)?;
+    let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(manifest_body.len());
+    aligned.extend_from_slice(manifest_body);
+    let manifest =
+        crate::archive_storage::ValidatedArchive::<model::MetadataManifest>::checked_from_aligned(
+            aligned,
+        )
+        .map_err(StorageError::InvalidFormat)?;
+    let leaf_reference = manifest
+        .root()
+        .catalogs
+        .iter()
+        .find(|catalog| catalog.kind.to_native() == catalog::LEAF_CATALOG_OBJECT_KIND)
+        .ok_or_else(|| {
+            StorageError::InvalidFormat("metadata manifest has no eager leaf catalog".into())
+        })?;
+    let digest = leaf_reference.digest;
+    let expected_length = leaf_reference.length.to_native();
+    let path = directory.join("objects").join(format::object_file_name(
+        &digest,
+        catalog::LEAF_CATALOG_OBJECT_KIND,
+    ));
+    let bytes = fs::read(&path).map_err(|error| match error.kind() {
+        std::io::ErrorKind::NotFound => StorageError::MissingObject(digest),
+        _ => StorageError::Io(error.to_string()),
+    })?;
+    if bytes.len() as u64 != expected_length || format::sha256(&bytes) != digest {
+        return Err(StorageError::corrupt(
+            format::hex(&digest),
+            "eager leaf catalog length or digest mismatch",
+        ));
+    }
+    let (leaf_catalog, _) = catalog::checked_from_archive::<catalog::EagerLeafCatalog>(
+        &bytes,
+        catalog::LEAF_CATALOG_OBJECT_KIND,
+    )
+    .map_err(StorageError::InvalidFormat)?;
+    Ok(
+        rkyv::deserialize::<catalog::EagerLeafCatalog, rkyv::rancor::Error>(leaf_catalog.root())
+            .map_err(|error| StorageError::InvalidFormat(error.to_string()))?
+            .groups,
+    )
+}
+
 fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
     let path = directory.join("writer.lock");
     let file = OpenOptions::new()
@@ -1423,8 +1681,8 @@ mod tests {
 
     use super::{
         CURRENT_RENAME_FAILURE, append_bigram_leaf, append_posting_leaf, commit_uncertain, format,
-        install_current, set_injected_fault, sync_directory_for, take_transaction_trace,
-        snapshot_from_parts, write_object,
+        install_current, set_injected_fault, snapshot_from_parts, sync_directory_for,
+        take_transaction_trace, write_object,
     };
     use crate::lifecycle::Index;
     use crate::model::LogicalType;
@@ -1740,7 +1998,9 @@ mod tests {
         assert!(model::validate_snapshot(&bad_record).is_err());
 
         let mut bad_file = snapshot.clone();
-        bad_file.segments[0][0].segment.files[0].records.push(crate::model::RecordSlot(7));
+        bad_file.segments[0][0].segment.files[0]
+            .records
+            .push(crate::model::RecordSlot(7));
         assert!(model::validate_snapshot(&bad_file).is_err());
 
         index.shutdown().unwrap();

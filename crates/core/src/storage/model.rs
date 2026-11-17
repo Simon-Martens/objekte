@@ -14,7 +14,7 @@ use crate::repository::{CollectionStats, GlobalInferenceSummary};
 use crate::sorting::SortCollection;
 use crate::storage::format::sha256;
 
-pub(crate) const SNAPSHOT_SCHEMA_VERSION: u32 = 2;
+pub(crate) const SNAPSHOT_SCHEMA_VERSION: u32 = 3;
 pub(crate) const METADATA_CHUNK_BYTES: usize = 8 * 1024 * 1024;
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
@@ -22,6 +22,7 @@ pub(crate) struct MetadataManifest {
     pub schema_version: u32,
     pub total_length: u64,
     pub chunks: Vec<StoredMetadataChunk>,
+    pub catalogs: Vec<crate::storage::catalog::StoredEagerCatalogRef>,
 }
 
 #[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
@@ -205,12 +206,19 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
         .enumerate()
     {
         let record_count = collection.generation.records.len();
-        if active.max().is_some_and(|slot| slot as usize >= record_count) {
+        if active
+            .max()
+            .is_some_and(|slot| slot as usize >= record_count)
+        {
             return Err(format!(
                 "base liveness for collection {collection_index} exceeds its record domain"
             ));
         }
-        if collection.id_lookup.iter().any(|(_, slot)| slot.0 as usize >= record_count) {
+        if collection
+            .id_lookup
+            .iter()
+            .any(|(_, slot)| slot.0 as usize >= record_count)
+        {
             return Err(format!(
                 "base ID lookup for collection {collection_index} points outside its record domain"
             ));
@@ -238,10 +246,18 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
             {
                 return Err("segment liveness exceeds its record domain".into());
             }
-            if segment.id_lookup.iter().any(|(_, slot)| slot.0 as usize >= record_count) {
+            if segment
+                .id_lookup
+                .iter()
+                .any(|(_, slot)| slot.0 as usize >= record_count)
+            {
                 return Err("segment ID lookup points outside its record domain".into());
             }
-            if segment.identity_order.iter().any(|slot| slot.0 as usize >= record_count) {
+            if segment
+                .identity_order
+                .iter()
+                .any(|slot| slot.0 as usize >= record_count)
+            {
                 return Err("segment identity order points outside its record domain".into());
             }
             if segment
@@ -258,13 +274,6 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
                 .any(|slot| slot.0 as usize >= record_count)
             {
                 return Err("segment file membership points outside its record domain".into());
-            }
-            if segment
-                .records
-                .iter()
-                .any(|record| record.file.0 as usize >= segment.files.len())
-            {
-                return Err("segment record points outside its file domain".into());
             }
         }
     }

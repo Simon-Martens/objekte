@@ -369,7 +369,14 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     )
     .unwrap();
     let cold = reopened.storage_status().unwrap();
-    assert_eq!(cold.index_reads, 2);
+    assert_eq!(
+        cold.index_reads, 6,
+        "open reads CURRENT's manifest, four eager catalogs and the metadata chunk"
+    );
+    assert!(cold.eager_file_rows >= 2);
+    assert!(cold.eager_record_rows >= 2);
+    assert!(cold.eager_index_descriptors > 0);
+    assert!(cold.eager_leaf_rows > 0);
     assert_eq!(cold.source_reads, 0);
     assert_eq!(cold.source_parses, 0);
     assert_eq!(cold.compatibility_file_row_bytes, 0);
@@ -3117,4 +3124,3 @@ fn cancelled_cold_query_does_not_poison_later_lazy_access() {
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
-

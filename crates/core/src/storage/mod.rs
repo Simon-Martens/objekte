@@ -9,6 +9,7 @@ use serde::{Deserialize, Serialize};
 use crate::lifecycle::{Index, IndexError, IndexRevision};
 use crate::repository::Repository;
 
+mod catalog;
 mod format;
 mod model;
 mod reader;
@@ -293,6 +294,7 @@ pub(crate) struct StorageSession {
     lineage_identity: [u8; 16],
     manifest_digest: [u8; 32],
     manifest_length: u64,
+    _eager_catalogs: crate::storage::catalog::RestoredEagerCatalogs,
     limits: StorageReadLimits,
     max_concurrent_reads: usize,
     reads_in_flight: Mutex<usize>,

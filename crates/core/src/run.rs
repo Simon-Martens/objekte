@@ -4730,9 +4730,7 @@ fn search_segmented_impl(
                     .transpose()?
                     .flatten()
             };
-            if let Some(fts_may) = fts_may
-                && !fts_may.is_empty()
-            {
+            if let Some(fts_may) = fts_may {
                 candidates &= fts_may;
             }
             counters.candidates += candidates.len();

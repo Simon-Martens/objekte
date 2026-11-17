@@ -312,7 +312,11 @@ pub(crate) fn hex(bytes: &[u8]) -> String {
 }
 
 pub(crate) fn object_file_name(digest: &[u8; 32], kind: u16) -> String {
-    let suffix = if kind == 1 { "meta" } else { "pack" };
+    let suffix = if matches!(kind, 1 | 12..=15) {
+        "meta"
+    } else {
+        "pack"
+    };
     format!("{}.{}", hex(digest), suffix)
 }
 

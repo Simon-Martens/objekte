@@ -27,6 +27,7 @@ use crate::sorting::{
     StoredComposite, StoredSortColumn, StoredSortColumnRef, StoredSortOrderRef,
     StoredSortPayloadRef,
 };
+use crate::storage::catalog;
 use crate::storage::format::{self, StorageError};
 use crate::storage::model;
 use crate::storage::{SharedStorageSession, StorageOpenOptions, StorageSession, StorageStatus};
@@ -174,7 +175,7 @@ fn open_snapshot(
             "manifest length or digest mismatch",
         ));
     }
-    let (snapshot, _, metadata_reads, metadata_bytes) =
+    let (snapshot, _, eager_catalogs, metadata_reads, metadata_bytes) =
         read_metadata_snapshot(&bytes, directory, limits)?;
     model::validate_snapshot(&snapshot).map_err(StorageError::InvalidFormat)?;
     if !snapshot.complete {
@@ -210,6 +211,7 @@ fn open_snapshot(
         lineage_identity: current.lineage_identity,
         manifest_digest: current.manifest_digest,
         manifest_length: current.manifest_length,
+        _eager_catalogs: eager_catalogs,
         limits,
         max_concurrent_reads: options.max_concurrent_reads.get(),
         reads_in_flight: std::sync::Mutex::new(0),
@@ -1395,7 +1397,16 @@ fn read_metadata_snapshot(
     manifest_object: &[u8],
     directory: &Path,
     limits: crate::storage::StorageReadLimits,
-) -> Result<(model::StorageSnapshot, model::MetadataManifest, u64, u64), StorageError> {
+) -> Result<
+    (
+        model::StorageSnapshot,
+        model::MetadataManifest,
+        catalog::RestoredEagerCatalogs,
+        u64,
+        u64,
+    ),
+    StorageError,
+> {
     let body = format::checked_body(manifest_object, METADATA_OBJECT_KIND)?;
     let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(body.len());
     aligned.extend_from_slice(body);
@@ -1477,9 +1488,106 @@ fn read_metadata_snapshot(
             "metadata chunks do not cover the declared body length".into(),
         ));
     }
+    let (eager_catalogs, catalog_reads, catalog_bytes) =
+        read_eager_catalogs(&manifest, directory, limits)?;
+    read_count = read_count.saturating_add(catalog_reads);
+    bytes_read = bytes_read.saturating_add(catalog_bytes);
+    catalog::validate_archived_catalogs(&eager_catalogs).map_err(StorageError::InvalidFormat)?;
     let snapshot = serde_json::from_slice(&body)
         .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
-    Ok((snapshot, manifest, read_count, bytes_read))
+    catalog::validate_snapshot_binding(&snapshot, &eager_catalogs)
+        .map_err(StorageError::InvalidFormat)?;
+    Ok((snapshot, manifest, eager_catalogs, read_count, bytes_read))
+}
+
+fn read_eager_catalogs(
+    manifest: &model::MetadataManifest,
+    directory: &Path,
+    limits: crate::storage::StorageReadLimits,
+) -> Result<(catalog::RestoredEagerCatalogs, u64, u64), StorageError> {
+    if manifest.catalogs.len() != 4 {
+        return Err(StorageError::InvalidFormat(
+            "metadata manifest must reference four eager catalogs".into(),
+        ));
+    }
+    let mut seen = std::collections::HashSet::new();
+    let mut objects = std::collections::HashMap::new();
+    let mut reads = 0u64;
+    let mut bytes_read = 0u64;
+    for reference in &manifest.catalogs {
+        if !seen.insert(reference.kind)
+            || !matches!(
+                reference.kind,
+                catalog::FILE_CATALOG_OBJECT_KIND
+                    | catalog::RECORD_CATALOG_OBJECT_KIND
+                    | catalog::INDEX_CATALOG_OBJECT_KIND
+                    | catalog::LEAF_CATALOG_OBJECT_KIND
+            )
+            || reference.length > limits.eager_catalog_body_bytes
+        {
+            return Err(StorageError::InvalidFormat(
+                "metadata manifest has an invalid eager catalog reference".into(),
+            ));
+        }
+        let path = directory
+            .join("objects")
+            .join(format::object_file_name(&reference.digest, reference.kind));
+        let bytes = fs::read(&path).map_err(|error| match error.kind() {
+            std::io::ErrorKind::NotFound => StorageError::MissingObject(reference.digest),
+            _ => StorageError::Io(error.to_string()),
+        })?;
+        if bytes.len() as u64 != reference.length || format::sha256(&bytes) != reference.digest {
+            return Err(StorageError::corrupt(
+                format::hex(&reference.digest),
+                "eager catalog length or digest mismatch",
+            ));
+        }
+        reads = reads.saturating_add(1);
+        bytes_read = bytes_read.saturating_add(bytes.len() as u64);
+        objects.insert(reference.kind, (reference, bytes));
+    }
+    let mut take = |kind: u16| {
+        objects
+            .remove(&kind)
+            .ok_or_else(|| StorageError::InvalidFormat("missing eager catalog object".into()))
+    };
+    let (file_reference, file_bytes) = take(catalog::FILE_CATALOG_OBJECT_KIND)?;
+    let (record_reference, record_bytes) = take(catalog::RECORD_CATALOG_OBJECT_KIND)?;
+    let (index_reference, index_bytes) = take(catalog::INDEX_CATALOG_OBJECT_KIND)?;
+    let (leaf_reference, leaf_bytes) = take(catalog::LEAF_CATALOG_OBJECT_KIND)?;
+    let (files, _) = catalog::checked_from_archive::<catalog::EagerFileCatalog>(
+        &file_bytes,
+        catalog::FILE_CATALOG_OBJECT_KIND,
+    )
+    .map_err(StorageError::InvalidFormat)?;
+    let (records, _) = catalog::checked_from_archive::<catalog::EagerRecordCatalog>(
+        &record_bytes,
+        catalog::RECORD_CATALOG_OBJECT_KIND,
+    )
+    .map_err(StorageError::InvalidFormat)?;
+    let (indexes, _) = catalog::checked_from_archive::<catalog::EagerIndexCatalog>(
+        &index_bytes,
+        catalog::INDEX_CATALOG_OBJECT_KIND,
+    )
+    .map_err(StorageError::InvalidFormat)?;
+    let (leaves, _) = catalog::checked_from_archive::<catalog::EagerLeafCatalog>(
+        &leaf_bytes,
+        catalog::LEAF_CATALOG_OBJECT_KIND,
+    )
+    .map_err(StorageError::InvalidFormat)?;
+    let leaf_groups = leaves.root().groups.len() as u64;
+    let catalog = catalog::RestoredEagerCatalogs {
+        files,
+        records,
+        indexes,
+        leaves,
+        file_rows: file_reference.rows,
+        record_rows: record_reference.rows,
+        index_rows: index_reference.rows,
+        leaf_rows: leaf_reference.rows,
+        leaf_groups,
+    };
+    Ok((catalog, reads, bytes_read))
 }
 
 fn session_for(repository: &Repository) -> Result<&StorageSession, IndexError> {
@@ -1506,7 +1614,7 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         ));
     let manifest_object =
         fs::read(&manifest_path).map_err(|error| IndexError::Io(error.to_string()))?;
-    let (_, metadata_manifest, _, metadata_bytes) =
+    let (_, metadata_manifest, eager_catalogs, _, metadata_bytes) =
         read_metadata_snapshot(&manifest_object, session.directory(), session.limits())
             .map_err(crate::storage::storage_to_index_error)?;
     Ok(StorageStatus {
@@ -1515,10 +1623,10 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         logical_revision: IndexRevision(snapshot.logical_revision),
         store_identity,
         lineage_identity,
-        eager_file_rows: snapshot.files.files.len(),
-        eager_record_rows: snapshot.counters.eager_record_rows as usize,
-        eager_index_descriptors: snapshot.counters.eager_index_descriptors as usize,
-        eager_leaf_rows: snapshot.counters.eager_leaf_rows as usize,
+        eager_file_rows: eager_catalogs.file_rows as usize,
+        eager_record_rows: eager_catalogs.record_rows as usize,
+        eager_index_descriptors: eager_catalogs.index_rows as usize,
+        eager_leaf_rows: eager_catalogs.leaf_rows as usize,
         open_pack_handles: session.open_pack_handle_count(),
         compatibility_file_row_bytes: usage.file_row_cache_bytes,
         compatibility_record_row_bytes: usage.record_row_cache_bytes,
@@ -1527,6 +1635,7 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
             .stored_objects
             .len()
             .saturating_add(metadata_manifest.chunks.len())
+            .saturating_add(metadata_manifest.catalogs.len())
             .saturating_add(1),
         referenced_bytes: metadata_bytes.saturating_add(
             snapshot
@@ -1580,7 +1689,7 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     ));
     let manifest_bytes =
         fs::read(&manifest_path).map_err(|error| StorageError::Io(error.to_string()))?;
-    let (_, metadata_manifest, _, _) = read_metadata_snapshot(
+    let (_, metadata_manifest, _, _, _) = read_metadata_snapshot(
         &manifest_bytes,
         directory,
         crate::storage::StorageReadLimits::default(),
@@ -1608,6 +1717,12 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
             .chunks
             .iter()
             .map(|chunk| (chunk.digest, chunk.length, METADATA_CHUNK_OBJECT_KIND)),
+    );
+    objects.extend(
+        metadata_manifest
+            .catalogs
+            .iter()
+            .map(|catalog| (catalog.digest, catalog.length, catalog.kind)),
     );
     for (digest, length, kind) in &objects {
         let path = directory
@@ -1643,7 +1758,7 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
     ));
     let manifest_bytes =
         fs::read(&manifest_path).map_err(|error| StorageError::Io(error.to_string()))?;
-    let (_, metadata_manifest, _, _) = read_metadata_snapshot(
+    let (_, metadata_manifest, _, _, _) = read_metadata_snapshot(
         &manifest_bytes,
         directory,
         crate::storage::StorageReadLimits::default(),
@@ -1666,6 +1781,12 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
                 .chunks
                 .iter()
                 .map(|chunk| format::object_file_name(&chunk.digest, METADATA_CHUNK_OBJECT_KIND)),
+        )
+        .chain(
+            metadata_manifest
+                .catalogs
+                .iter()
+                .map(|catalog| format::object_file_name(&catalog.digest, catalog.kind)),
         )
         .collect::<std::collections::HashSet<_>>();
     let mut removed_objects = 0usize;
@@ -1785,7 +1906,7 @@ pub(crate) fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, 
         directory,
         crate::storage::StorageReadLimits::default(),
     )
-    .map(|(snapshot, _, _, _)| snapshot)
+    .map(|(snapshot, _, _, _, _)| snapshot)
 }
 
 fn sync_directory(directory: &Path) -> Result<(), StorageError> {
