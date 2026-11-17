@@ -106,6 +106,7 @@ fn write_parts(
     started: Instant,
 ) -> Result<StorageWriteReport, StorageError> {
     ensure_directory(directory)?;
+    let _readers_lease = acquire_reader_lease(directory)?;
     let _writer_lock = acquire_writer_lock(directory)?;
     let current = read_current(directory)?;
     let binding_repository = Arc::clone(&parts.repository);
@@ -827,6 +828,24 @@ fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
     if result != 0 {
         return Err(StorageError::StorageBusy(
             "another writer holds the storage lock".into(),
+        ));
+    }
+    Ok(file)
+}
+
+fn acquire_reader_lease(directory: &Path) -> Result<File, StorageError> {
+    use std::os::fd::AsRawFd;
+
+    let file = OpenOptions::new()
+        .create(true)
+        .read(true)
+        .write(true)
+        .open(directory.join("readers.lock"))
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_SH | libc::LOCK_NB) };
+    if result != 0 {
+        return Err(StorageError::StorageBusy(
+            "offline storage pruning holds the backend lease".into(),
         ));
     }
     Ok(file)
