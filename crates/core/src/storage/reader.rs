@@ -879,9 +879,7 @@ fn read_checked_object(
         POSTING_PAYLOAD_OBJECT_KIND
         | BIGRAM_PAYLOAD_OBJECT_KIND
         | SORT_PAYLOAD_OBJECT_KIND
-        | RELATION_PAYLOAD_OBJECT_KIND => {
-            session.limits().lazy_dictionary_body_bytes
-        }
+        | RELATION_PAYLOAD_OBJECT_KIND => session.limits().lazy_dictionary_body_bytes,
         _ => session.limits().eager_catalog_body_bytes,
     };
     if length > limit {
@@ -964,10 +962,7 @@ fn relation_from_storage(
     let Some(reference) = snapshot.stored_payload() else {
         return Ok(snapshot);
     };
-    Ok(snapshot.with_loader(Arc::new(StoredRelationLoader {
-        session,
-        reference,
-    })))
+    Ok(snapshot.with_loader(Arc::new(StoredRelationLoader { session, reference })))
 }
 
 fn sorting_from_storage(

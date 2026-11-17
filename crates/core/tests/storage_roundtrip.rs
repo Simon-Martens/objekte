@@ -1030,11 +1030,7 @@ fn relation_payload_loads_only_for_a_relation_query_after_reopen() {
     std::fs::create_dir_all(root.join("entries")).unwrap();
     std::fs::create_dir_all(root.join("mentions")).unwrap();
     std::fs::create_dir_all(root.join("storage")).unwrap();
-    std::fs::write(
-        root.join("entries/a.json"),
-        br#"{"id":"A","title":"Hymn"}"#,
-    )
-    .unwrap();
+    std::fs::write(root.join("entries/a.json"), br#"{"id":"A","title":"Hymn"}"#).unwrap();
     std::fs::write(
         root.join("entries/b.json"),
         br#"{"id":"B","title":"Festival"}"#,
