@@ -1424,7 +1424,7 @@ mod tests {
     use super::{
         CURRENT_RENAME_FAILURE, append_bigram_leaf, append_posting_leaf, commit_uncertain, format,
         install_current, set_injected_fault, sync_directory_for, take_transaction_trace,
-        write_object,
+        snapshot_from_parts, write_object,
     };
     use crate::lifecycle::Index;
     use crate::model::LogicalType;
@@ -1432,7 +1432,7 @@ mod tests {
     use crate::reference::FieldDefinition;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::storage::StorageError;
+    use crate::storage::{StorageError, model};
     use crate::storage::{StorageOpenOptions, StorageWriteOptions};
     use crate::workload::ReturnMode;
 
@@ -1703,6 +1703,47 @@ mod tests {
             .unwrap();
         assert!(matches!(result.count, Some(1) | Some(2)));
         reopened.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn snapshot_admission_rejects_cross_catalog_routing_errors() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-route-validation-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/a.json"),
+            br#"{"id":"a","title":"Route token"}"#,
+        )
+        .unwrap();
+        let index = Index::build(&root, child_definitions(), RepositoryOptions::default()).unwrap();
+        let parts = index.storage_parts().unwrap();
+        let snapshot = snapshot_from_parts(parts, 1).unwrap();
+        model::validate_snapshot(&snapshot).unwrap();
+
+        let mut bad_active = snapshot.clone();
+        bad_active.base_active[0].insert(u32::MAX);
+        assert!(model::validate_snapshot(&bad_active).is_err());
+
+        let mut bad_collection = snapshot.clone();
+        bad_collection.segments[0][0].segment.collection.0 = 7;
+        assert!(model::validate_snapshot(&bad_collection).is_err());
+
+        let mut bad_record = snapshot.clone();
+        bad_record.segments[0][0].segment.records[0].slot.0 = 7;
+        assert!(model::validate_snapshot(&bad_record).is_err());
+
+        let mut bad_file = snapshot.clone();
+        bad_file.segments[0][0].segment.files[0].records.push(crate::model::RecordSlot(7));
+        assert!(model::validate_snapshot(&bad_file).is_err());
+
+        index.shutdown().unwrap();
         std::fs::remove_dir_all(root).unwrap();
     }
 }

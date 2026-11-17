@@ -198,5 +198,75 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
     {
         return Err("snapshot catalogue row identity mismatch".into());
     }
+    for (collection_index, (collection, active)) in snapshot
+        .collections
+        .iter()
+        .zip(&snapshot.base_active)
+        .enumerate()
+    {
+        let record_count = collection.generation.records.len();
+        if active.max().is_some_and(|slot| slot as usize >= record_count) {
+            return Err(format!(
+                "base liveness for collection {collection_index} exceeds its record domain"
+            ));
+        }
+        if collection.id_lookup.iter().any(|(_, slot)| slot.0 as usize >= record_count) {
+            return Err(format!(
+                "base ID lookup for collection {collection_index} points outside its record domain"
+            ));
+        }
+    }
+    for (collection_index, group) in snapshot.segments.iter().enumerate() {
+        for published in group {
+            let segment = &published.segment;
+            if segment.collection.0 as usize != collection_index {
+                return Err("segment collection route does not match its catalog group".into());
+            }
+            let record_count = segment.records.len();
+            if segment
+                .records
+                .iter()
+                .enumerate()
+                .any(|(ordinal, record)| record.slot.0 as usize != ordinal)
+            {
+                return Err("segment record slots are not dense and ordered".into());
+            }
+            if published
+                .active
+                .max()
+                .is_some_and(|slot| slot as usize >= record_count)
+            {
+                return Err("segment liveness exceeds its record domain".into());
+            }
+            if segment.id_lookup.iter().any(|(_, slot)| slot.0 as usize >= record_count) {
+                return Err("segment ID lookup points outside its record domain".into());
+            }
+            if segment.identity_order.iter().any(|slot| slot.0 as usize >= record_count) {
+                return Err("segment identity order points outside its record domain".into());
+            }
+            if segment
+                .file_index
+                .iter()
+                .any(|(_, ordinal)| *ordinal as usize >= segment.files.len())
+            {
+                return Err("segment file lookup points outside its file domain".into());
+            }
+            if segment
+                .files
+                .iter()
+                .flat_map(|file| &file.records)
+                .any(|slot| slot.0 as usize >= record_count)
+            {
+                return Err("segment file membership points outside its record domain".into());
+            }
+            if segment
+                .records
+                .iter()
+                .any(|record| record.file.0 as usize >= segment.files.len())
+            {
+                return Err("segment record points outside its file domain".into());
+            }
+        }
+    }
     Ok(())
 }

@@ -58,7 +58,7 @@ S56	pass	storage_roundtrip::a_reopened_store_exports_a_self_contained_fresh_snap
 S57	pass	storage_roundtrip::failed_save_keeps_previous_current_and_live_ram_usable	A failed post-mutation save preserves CURRENT and leaves the three-record live RAM publication searchable.
 S58	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Thirty-two cycles of add/update/move/delete with checkpoints every eight cycles match independent fresh builds.
 S59	pass	storage_roundtrip::current_header_rejects_magic_version_flags_length_and_checksum_errors	Magic, version, flags, manifest length and checksum mutations are all rejected before publication.
-S60	partial	storage_roundtrip::corrupt_eager_catalog_chunk_fails_open_before_publication	Eager chunk digest corruption fails open; malformed cross-catalog route cases remain.
+S60	pass	storage::writer::tests::snapshot_admission_rejects_cross_catalog_routing_errors	Snapshot admission rejects liveness outside record domains and invalid collection, record-slot, membership and file routes.
 S61	pass	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Missing lazy payload does not affect eager open and fails when selected.
 S62	pass	posting::tests::rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement	Stored dictionary key order and leaf descriptors are checked; archived tree/reverse-directory disagreement is rejected.
 S63	pass	bigram::tests::stored_bigram_leaf_descriptors_reject_malformed_ranges_and_metadata	Stored leaf descriptors reject malformed ranges, zero cardinality, invalid offsets and absent digests before decode; checksum and trailing-byte checks execute on admission.
