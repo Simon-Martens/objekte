@@ -39,6 +39,13 @@ impl SearchBackend {
         }
     }
 
+    fn search_available(&self, query: &Query) -> Result<SearchResult, String> {
+        match self {
+            Self::Direct(repo) => repo.search(query),
+            Self::Incremental(_, view) => view.search_available(query).map(|result| result.result),
+        }
+    }
+
     fn explain_analyze(
         &self,
         query: &Query,
@@ -76,6 +83,7 @@ fn run() -> Result<(), String> {
     let mut incremental = false;
     let mut archive = false;
     let mut archive_workers = 1usize;
+    let mut progressive = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
@@ -88,6 +96,7 @@ fn run() -> Result<(), String> {
                     .parse()
                     .map_err(|e| format!("invalid archive worker count: {e}"))?
             }
+            "--progressive" => progressive = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -447,11 +456,20 @@ fn run() -> Result<(), String> {
                 let mut counter_samples = Vec::new();
                 let mut error = None;
                 if profile.warm {
-                    backend.search(&query)?;
+                    if progressive {
+                        backend.search_available(&query)?;
+                    } else {
+                        backend.search(&query)?;
+                    }
                 }
                 for repetition in 0..repetitions {
                     let start = Instant::now();
-                    match backend.search(&query) {
+                    let search_result = if progressive {
+                        backend.search_available(&query)
+                    } else {
+                        backend.search(&query)
+                    };
+                    match search_result {
                         Ok(result) => {
                             let ns = start.elapsed().as_nanos() as u64;
                             let identity = (

@@ -1,0 +1,5 @@
+revision	profile	archive_before_mutation	build_ms	archive_ms	end_rss_kib	peak_rss_kib
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii-off	false	906.700	0.000	822744	859440
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode-off	false	926.986	0.000	1313664	1333128
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii-off	true	933.312	267.016	981900	997520
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode-off	true	890.974	241.465	1519688	1519688

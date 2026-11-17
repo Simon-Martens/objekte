@@ -1,0 +1,55 @@
+{
+  "revision": "cd9b8275cd574df64c2889f2fe74565effbe656b",
+  "corpus": "examples/musenalm",
+  "cases_per_alphabet": 150,
+  "repetitions": 1,
+  "native_result_digest_file": "query-native-final/result-digests.json",
+  "archived_result_digest_file": "query-archived-final/result-digests.json",
+  "result_digests_equal": true,
+  "measured_cases": 300,
+  "aggregate_ms": {
+    "native_ascii": 601.567,
+    "archived_ascii": 597.728,
+    "ascii_ratio": 0.99362,
+    "native_unicode": 601.152,
+    "archived_unicode": 603.509,
+    "unicode_ratio": 1.00392,
+    "native_all": 1202.719,
+    "archived_all": 1201.237,
+    "all_ratio": 0.99877
+  },
+  "focused_cold_ms": {
+    "Q001_ascii": {"native": 7.727, "archived": 53.438, "ratio": 6.9155},
+    "Q001_unicode": {"native": 7.196, "archived": 74.233, "ratio": 10.3158},
+    "Q119_ascii": {"native": 5.133, "archived": 5.613, "ratio": 1.0934},
+    "Q119_unicode": {"native": 5.021, "archived": 5.788, "ratio": 1.1526}
+  },
+  "focused_warm_median_ms": {
+    "Q001_ascii": {"native": 0.021576, "archived": 0.023789},
+    "Q001_unicode": {"native": 0.020312, "archived": 0.020525},
+    "Q119_ascii": {"native": 0.026726, "archived": 0.022814},
+    "Q119_unicode": {"native": 0.024835, "archived": 0.022246}
+  },
+  "progressive": {
+    "native_result_digest_file": "query-progressive-native-final/result-digests.json",
+    "archived_result_digest_file": "query-progressive-archived-final/result-digests.json",
+    "result_digests_equal": true,
+    "measured_cases": 300,
+    "aggregate_ms": {
+      "native_ascii": 603.500,
+      "archived_ascii": 587.249,
+      "ascii_ratio": 0.97307,
+      "native_unicode": 576.683,
+      "archived_unicode": 606.918,
+      "unicode_ratio": 1.05243,
+      "native_all": 1180.183,
+      "archived_all": 1194.167,
+      "all_ratio": 1.01185
+    }
+  },
+  "limitations": [
+    "The full run used one repetition per case, not the five-repetition protocol.",
+    "Cold first-query measurements are reported separately from warm medians.",
+    "The corpus and workload are the unchanged Musenalm fixed 150-case fixtures."
+  ]
+}

@@ -1,0 +1,3 @@
+revision	alphabet	workers	samples	native_build_ms	end_rss_mib	peak_rss_mib	archive_serialized_bytes
+cd9b8275cd574df64c2889f2fe74565effbe656b	ascii	32	1	745.907	690.1	753.3	0
+cd9b8275cd574df64c2889f2fe74565effbe656b	unicode	32	1	805.718	1366.6	1384.3	0

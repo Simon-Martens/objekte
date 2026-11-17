@@ -1,0 +1,122 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "code_revision": "92b8e59ae7efe2a27a36aca2e11c7d9d16119797",
+  "command": [
+    "target/release/examples/bench_musenalm",
+    "--incremental",
+    "--archive",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "docs/ai/generated/native-publication-explicit-archiving/query-archived-150"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "fe191c7e3dd50e61b6c2ddcb05dd1e680e69707d0a4d960b5b205f3444697cad",
+  "executable_sha256": "3645425f250111ffa5909466d491d674e3ec8a454a48229f6b6fd761e0cc2a00",
+  "execution_checkout_revision": "92b8e59ae7efe2a27a36aca2e11c7d9d16119797",
+  "extended": false,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-native-publication-explicit-archiving/crates/core/../../examples/musenalm",
+  "run_id": "1794877778-92b8e59ae7",
+  "schema_fingerprint": "3d2b89eb85090fcc0116d4e27e1f2ef5ffd3e0cf87f4eda1f4dc4dc527eebe47",
+  "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "04a15bf45cbcd3b16b18a2fdf8335e16cdcbae62817633467acc84bc7e851512"
+}
