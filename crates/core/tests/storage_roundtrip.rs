@@ -116,6 +116,33 @@ fn relation_definitions() -> Vec<CollectionDefinition> {
 }
 
 #[test]
+fn native_build_and_memory_archive_do_not_touch_storage_files() {
+    let root = fixture_root("memory-only");
+    std::fs::remove_dir_all(root.join("storage")).unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    assert!(!root.join("storage").exists());
+    assert_eq!(index.storage_usage().unwrap().archive.serialized_bytes, 0);
+    let before = index.view().unwrap().search(&all_records()).unwrap();
+    index.archive().unwrap();
+    assert!(!root.join("storage").exists());
+    let after = index.view().unwrap().search(&all_records()).unwrap();
+    assert_eq!(after.count, before.count);
+    assert_eq!(
+        after
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        before
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn explicit_save_reopens_a_complete_searchable_snapshot() {
     let root = fixture_root("roundtrip");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -527,6 +554,26 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
 }
 
 #[test]
+fn prune_deletes_nothing_when_current_manifest_is_corrupt() {
+    let root = fixture_root("prune-corrupt-manifest");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let manifest = object_with_kind(&root.join("storage"), 1);
+    let mut bytes = std::fs::read(&manifest).unwrap();
+    bytes[65] ^= 0xff;
+    std::fs::write(&manifest, bytes).unwrap();
+    let orphan = root.join(format!("storage/objects/{}.pack", "c".repeat(64)));
+    std::fs::write(&orphan, b"unreferenced").unwrap();
+
+    assert!(prune(&root.join("storage")).is_err());
+    assert!(orphan.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_compaction_after_reopen_does_not_parse_source_files() {
     let root = fixture_root("source-free-compaction");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -855,6 +902,60 @@ fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
         Some(2)
     );
     exported.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn empty_completed_index_round_trips() {
+    let root = fixture_root("empty");
+    std::fs::remove_file(root.join("data/a.json")).unwrap();
+    std::fs::remove_file(root.join("data/b.json")).unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(0)
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn reopened_store_rejects_a_different_source_root() {
+    let root = fixture_root("source-mismatch");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let other_root = root.join("other-source");
+    std::fs::create_dir_all(other_root.join("data")).unwrap();
+    let error = Index::open_storage(
+        &other_root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .err()
+    .expect("a different source root must be rejected");
+    assert!(error.to_string().contains("source root"));
     std::fs::remove_dir_all(root).unwrap();
 }
 

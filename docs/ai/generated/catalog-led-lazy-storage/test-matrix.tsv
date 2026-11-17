@@ -1,6 +1,6 @@
 id	status	evidence	notes
-S01	pending	none	Native no-storage behavior is covered elsewhere but not tied to the storage matrix.
-S02	pending	none	Memory-only archive behavior needs an explicit storage acceptance case.
+S01	pass	storage_roundtrip::native_build_and_memory_archive_do_not_touch_storage_files	Native construction creates no storage directory and performs no archive serialization.
+S02	pass	storage_roundtrip::native_build_and_memory_archive_do_not_touch_storage_files	Explicit in-memory archive creates no files and preserves result identity.
 S03	partial	storage_roundtrip::explicit_save_reopens_a_complete_searchable_snapshot	Eager rows restore and search, but the snapshot is still serialized JSON chunks.
 S04	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Open counters show lazy payloads untouched; an explicit eager leaf catalog is still absent.
 S05	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Source-free restore is covered; a dedicated open source-I/O prohibition counter is pending.
@@ -71,11 +71,11 @@ S69	pending	none	Child-process transaction barriers are not implemented.
 S70	pending	none	Sync-operation tracing is not implemented.
 S71	pass	storage_roundtrip::independent_writers_cannot_overwrite_a_nonempty_store	A second unrelated writer is rejected.
 S72	pending	none	Reader pinned across concurrent commit needs a process-level test.
-S73	pending	none	Incomplete and empty completed publications need storage test coverage.
+S73	pass	storage_roundtrip::empty_completed_index_round_trips	An empty completed publication saves, reopens and queries as an empty index.
 S74	partial	storage_roundtrip::lazy_payload_read_limits_fail_at_selection_not_open	Lazy frame limits are covered; full checked-arithmetic matrix is pending.
-S75	pending	none	Source/configuration incompatibility has basic code paths but no matrix.
+S75	pass	storage_roundtrip::reopened_store_rejects_a_different_source_root	A mismatched source root is rejected instead of becoming an empty index.
 S76	pass	storage_roundtrip::audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases	Audit detects unused payload corruption while ordinary open remains lazy.
 S77	pass	storage_roundtrip::audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases	Prune is blocked by a shared reader lease.
 S78	partial	storage_roundtrip::audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases	Current dependency preservation and orphan removal are covered; unrelated-file preservation is partially covered elsewhere.
-S79	pending	none	Corrupt manifest prune-no-delete needs a dedicated test.
+S79	pass	storage_roundtrip::prune_deletes_nothing_when_current_manifest_is_corrupt	Prune returns an error before deleting an unrelated orphan when CURRENT metadata is corrupt.
 S80	partial	cargo check --workspace --all-targets	Workspace compilation is verified; ordinary startup no-storage instrumentation is pending.
