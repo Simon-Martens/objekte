@@ -1120,6 +1120,49 @@ fn lazy_payload_read_limits_fail_at_selection_not_open() {
 }
 
 #[test]
+fn zero_and_tiny_eager_limits_are_rejected_without_opening() {
+    let root = fixture_root("limit-arithmetic");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    assert!(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions {
+                limits: StorageReadLimits {
+                    manifest_body_bytes: 0,
+                    ..StorageReadLimits::default()
+                },
+                ..StorageOpenOptions::default()
+            },
+        )
+        .is_err()
+    );
+    assert!(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions {
+                limits: StorageReadLimits {
+                    manifest_body_bytes: 1,
+                    ..StorageReadLimits::default()
+                },
+                ..StorageOpenOptions::default()
+            },
+        )
+        .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn current_header_rejects_magic_version_flags_length_and_checksum_errors() {
     let root = fixture_root("current-matrix");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -1915,6 +1958,57 @@ fn changed_source_revision_is_rejected_when_payload_materialization_requires_it(
     assert!(
         reopened.view().unwrap().search(&materialized).is_err(),
         "materialization must reject the stale saved locator"
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn failed_save_keeps_previous_current_and_live_ram_usable() {
+    let root = fixture_root("save-failure");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let old_current = std::fs::read(root.join("storage/CURRENT")).unwrap();
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    let objects = root.join("storage/objects");
+    let offline = root.join("storage/objects.offline");
+    std::fs::rename(&objects, &offline).unwrap();
+    std::fs::write(&objects, b"not a directory").unwrap();
+    assert!(
+        reopened
+            .archive_to(root.join("storage"), StorageWriteOptions::default())
+            .is_err()
+    );
+    assert_eq!(
+        std::fs::read(root.join("storage/CURRENT")).unwrap(),
+        old_current
+    );
+    std::fs::remove_file(&objects).unwrap();
+    std::fs::rename(offline, objects).unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
     );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

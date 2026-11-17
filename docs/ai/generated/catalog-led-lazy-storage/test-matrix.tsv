@@ -72,7 +72,7 @@ S70	pending	none	Sync-operation tracing is not implemented.
 S71	pass	storage_roundtrip::independent_writers_cannot_overwrite_a_nonempty_store	A second unrelated writer is rejected.
 S72	pending	none	Reader pinned across concurrent commit needs a process-level test.
 S73	pass	storage_roundtrip::empty_completed_index_round_trips	An empty completed publication saves, reopens and queries as an empty index.
-S74	partial	storage_roundtrip::lazy_payload_read_limits_fail_at_selection_not_open	Lazy frame limits are covered; full checked-arithmetic matrix is pending.
+S74	pass	storage_roundtrip::zero_and_tiny_eager_limits_are_rejected_without_opening	Zero limits and undersized manifest admission fail explicitly without publishing an open snapshot; bounded leaf/frame limits are tested separately.
 S75	pass	storage_roundtrip::reopened_store_rejects_a_different_source_root	A mismatched source root is rejected instead of becoming an empty index.
 S76	pass	storage_roundtrip::audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases	Audit detects unused payload corruption while ordinary open remains lazy.
 S77	pass	storage_roundtrip::audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases	Prune is blocked by a shared reader lease.
