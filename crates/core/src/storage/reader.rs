@@ -7,13 +7,9 @@ use std::sync::atomic::AtomicU64;
 
 use serde::Serialize;
 
-use crate::bigram::{
-    BigramArchivePayload, BigramIndex, BigramIndexLoader, StoredBigramPayloadRef,
-};
+use crate::bigram::{BigramArchivePayload, BigramIndex, BigramIndexLoader, StoredBigramPayloadRef};
 use crate::inventory::{ActiveRecords, FileVersions};
-use crate::lifecycle::{
-    Index, IndexError, IndexRevision, IndexStorageParts, PublishedSegment,
-};
+use crate::lifecycle::{Index, IndexError, IndexRevision, IndexStorageParts, PublishedSegment};
 use crate::native_segment::IndexedCollectionSegment;
 use crate::posting::{
     CustomPostingIndex, PostingArchivePayload, PostingCollection, PostingIndex, PostingIndexLoader,
@@ -26,9 +22,7 @@ use crate::sorting::{
 };
 use crate::storage::format::{self, StorageError};
 use crate::storage::model;
-use crate::storage::{
-    SharedStorageSession, StorageOpenOptions, StorageSession, StorageStatus,
-};
+use crate::storage::{SharedStorageSession, StorageOpenOptions, StorageSession, StorageStatus};
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize)]
 pub struct AuditOptions {
@@ -157,12 +151,10 @@ fn open_snapshot(
             requested: current.manifest_length,
         });
     }
-    let object_path = directory
-        .join("objects")
-        .join(format::object_file_name(
-            &current.manifest_digest,
-            METADATA_OBJECT_KIND,
-        ));
+    let object_path = directory.join("objects").join(format::object_file_name(
+        &current.manifest_digest,
+        METADATA_OBJECT_KIND,
+    ));
     let bytes = fs::read(&object_path).map_err(|error| match error.kind() {
         std::io::ErrorKind::NotFound => StorageError::MissingObject(current.manifest_digest),
         _ => StorageError::Io(error.to_string()),
@@ -194,12 +186,9 @@ fn open_snapshot(
             "stored source root differs from the supplied root".into(),
         ));
     }
-    let configuration = crate::configuration::configuration_hash(
-        definitions,
-        repository_options,
-        sources,
-    )
-    .map_err(StorageError::IncompatibleConfiguration)?;
+    let configuration =
+        crate::configuration::configuration_hash(definitions, repository_options, sources)
+            .map_err(StorageError::IncompatibleConfiguration)?;
     if configuration != snapshot.configuration_identity {
         return Err(StorageError::IncompatibleConfiguration(
             "collection/schema/source configuration fingerprint differs".into(),
@@ -252,18 +241,17 @@ fn rebuild_repository(
     repository.files = Arc::new(inventory);
     repository.base_fingerprints = Arc::new(snapshot.base_fingerprints.clone());
     repository.catalog = crate::lifecycle_catalog::FileCatalog::restored(
-        Arc::new(repository.archive_candidate().map_err(StorageError::InvalidFormat)?),
+        Arc::new(
+            repository
+                .archive_candidate()
+                .map_err(StorageError::InvalidFormat)?,
+        ),
         snapshot
             .catalog_slots
             .iter()
             .map(|slot| {
-                slot.as_ref().map(|slot| {
-                    (
-                        slot.entry.clone(),
-                        slot.fingerprint,
-                        slot.configuration,
-                    )
-                })
+                slot.as_ref()
+                    .map(|slot| (slot.entry.clone(), slot.fingerprint, slot.configuration))
             })
             .collect(),
     )
@@ -341,7 +329,11 @@ fn rebuild_repository(
                 Arc::clone(&session),
             )?),
             index_family_bytes: 0,
-            id_lookup: stored.id_lookup.iter().map(|(id, slot)| (id.clone(), *slot)).collect(),
+            id_lookup: stored
+                .id_lookup
+                .iter()
+                .map(|(id, slot)| (id.clone(), *slot))
+                .collect(),
             identity_order: Arc::new(stored.identity_order.clone()),
             stats: stored.stats,
             relations: Arc::new(stored.relations.clone()),
@@ -370,14 +362,11 @@ fn rebuild_repository(
         let mut stored_group = Vec::with_capacity(group.len());
         for published in group {
             let index = rebuild_segment(&published.segment, Arc::clone(&session))?;
-            let active = ActiveRecords::from_bitmap(
-                index.record_count(),
-                published.active.clone(),
-            )
-            .map_err(|message| StorageError::Corrupt {
-                identity: format!("segment {}/{}", collection_number, published.segment.id),
-                message,
-            })?;
+            let active = ActiveRecords::from_bitmap(index.record_count(), published.active.clone())
+                .map_err(|message| StorageError::Corrupt {
+                    identity: format!("segment {}/{}", collection_number, published.segment.id),
+                    message,
+                })?;
             let segment = PublishedSegment::checked(index.id, Arc::new(index), active)
                 .map_err(StorageError::InvalidFormat)?;
             stored_group.push(Arc::new(segment));
@@ -395,18 +384,17 @@ fn rebuild_repository(
         versions.len(),
     );
     let mut catalog = crate::lifecycle_catalog::FileCatalog::restored(
-        Arc::new(repository.archive_candidate().map_err(StorageError::InvalidFormat)?),
+        Arc::new(
+            repository
+                .archive_candidate()
+                .map_err(StorageError::InvalidFormat)?,
+        ),
         snapshot
             .catalog_slots
             .iter()
             .map(|slot| {
-                slot.as_ref().map(|slot| {
-                    (
-                        slot.entry.clone(),
-                        slot.fingerprint,
-                        slot.configuration,
-                    )
-                })
+                slot.as_ref()
+                    .map(|slot| (slot.entry.clone(), slot.fingerprint, slot.configuration))
             })
             .collect(),
     )
@@ -497,7 +485,10 @@ impl BigramIndexLoader for StoredBigramLoader {
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        let owner = crate::archive_storage::ValidatedArchive::<BigramArchivePayload>::checked_from_aligned(aligned)
+        let owner =
+            crate::archive_storage::ValidatedArchive::<BigramArchivePayload>::checked_from_aligned(
+                aligned,
+            )
             .map_err(|error| format!("bigram payload validation failed: {error}"))?;
         let payload = rkyv::deserialize::<BigramArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("bigram payload decode failed: {error}"))?;
@@ -530,7 +521,10 @@ impl SortCollectionLoader for StoredSortLoader {
         )?;
         let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
         aligned.extend_from_slice(&bytes);
-        let owner = crate::archive_storage::ValidatedArchive::<SortArchivePayload>::checked_from_aligned(aligned)
+        let owner =
+            crate::archive_storage::ValidatedArchive::<SortArchivePayload>::checked_from_aligned(
+                aligned,
+            )
             .map_err(|error| format!("sort payload validation failed: {error}"))?;
         let payload = rkyv::deserialize::<SortArchivePayload, rkyv::rancor::Error>(owner.root())
             .map_err(|error| format!("sort payload decode failed: {error}"))?;
@@ -602,12 +596,12 @@ fn posting_from_storage(
             identity: "stored posting metadata".into(),
             message,
         }),
-        None => PostingIndex::from_storage_snapshot(snapshot).map_err(|message| {
-            StorageError::Corrupt {
+        None => {
+            PostingIndex::from_storage_snapshot(snapshot).map_err(|message| StorageError::Corrupt {
                 identity: "posting metadata".into(),
                 message,
-            }
-        }),
+            })
+        }
     }
 }
 
@@ -653,9 +647,7 @@ fn inference_from_storage(
         indexes: snapshot
             .indexes
             .into_iter()
-            .map(|(path, posting)| {
-                Ok((path, posting_from_storage(posting, Arc::clone(&session))?))
-            })
+            .map(|(path, posting)| Ok((path, posting_from_storage(posting, Arc::clone(&session))?)))
             .collect::<Result<_, StorageError>>()?,
         empty_selections: snapshot.empty_selections.into_iter().collect(),
         short_string_coverage: snapshot.short_string_coverage.into_iter().collect(),
@@ -716,10 +708,7 @@ fn rebuild_segment(
         records,
         id_lookup,
         identity_order: Arc::new(snapshot.identity_order.clone()),
-        postings: posting_collection_from_storage(
-            snapshot.postings.clone(),
-            Arc::clone(&session),
-        )?,
+        postings: posting_collection_from_storage(snapshot.postings.clone(), Arc::clone(&session))?,
         inference_observation: snapshot.inference_observation.clone(),
         inference: snapshot
             .inference
@@ -749,10 +738,7 @@ fn rebuild_segment(
         ),
         logical_records: snapshot.logical_records.clone(),
         empty_array_records: snapshot.empty_array_records.clone(),
-        sorting: Arc::new(sorting_from_storage(
-            snapshot.sorting.clone(),
-            session,
-        )?),
+        sorting: Arc::new(sorting_from_storage(snapshot.sorting.clone(), session)?),
         relations: Arc::new(snapshot.relations.clone()),
         record_parses: snapshot.record_parses,
         failed_parses: snapshot.failed_parses,
@@ -800,7 +786,9 @@ fn read_current(directory: &Path) -> Result<CurrentToken, StorageError> {
     use sha2::Digest;
     let checksum = sha2::Sha256::digest(&bytes[..96]);
     if checksum.as_slice() != &bytes[96..] {
-        return Err(StorageError::InvalidFormat("CURRENT checksum mismatch".into()));
+        return Err(StorageError::InvalidFormat(
+            "CURRENT checksum mismatch".into(),
+        ));
     }
     Ok(CurrentToken {
         generation: u64::from_le_bytes(bytes[16..24].try_into().expect("fixed generation")),
@@ -824,9 +812,8 @@ fn read_metadata_snapshot(
             aligned,
         )
         .map_err(StorageError::InvalidFormat)?;
-    let manifest =
-        rkyv::deserialize::<model::MetadataManifest, rkyv::rancor::Error>(owner.root())
-            .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
+    let manifest = rkyv::deserialize::<model::MetadataManifest, rkyv::rancor::Error>(owner.root())
+        .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
     if manifest.schema_version != model::SNAPSHOT_SCHEMA_VERSION {
         return Err(StorageError::IncompatibleConfiguration(
             "metadata manifest schema version differs".into(),
@@ -853,12 +840,10 @@ fn read_metadata_snapshot(
                 requested: chunk.length,
             });
         }
-        let path = directory
-            .join("objects")
-            .join(format::object_file_name(
-                &chunk.digest,
-                METADATA_CHUNK_OBJECT_KIND,
-            ));
+        let path = directory.join("objects").join(format::object_file_name(
+            &chunk.digest,
+            METADATA_CHUNK_OBJECT_KIND,
+        ));
         let bytes = fs::read(&path).map_err(|error| match error.kind() {
             std::io::ErrorKind::NotFound => StorageError::MissingObject(chunk.digest),
             _ => StorageError::Io(error.to_string()),
@@ -881,12 +866,13 @@ fn read_metadata_snapshot(
             .map_err(StorageError::InvalidFormat)?;
         let chunk = rkyv::deserialize::<model::MetadataChunk, rkyv::rancor::Error>(owner.root())
             .map_err(|error| StorageError::InvalidFormat(error.to_string()))?;
-        let next_length = body.len().checked_add(chunk.bytes.len()).ok_or(
-            StorageError::LimitExceeded {
-                limit: limits.total_eager_catalog_bytes,
-                requested: u64::MAX,
-            },
-        )?;
+        let next_length =
+            body.len()
+                .checked_add(chunk.bytes.len())
+                .ok_or(StorageError::LimitExceeded {
+                    limit: limits.total_eager_catalog_bytes,
+                    requested: u64::MAX,
+                })?;
         if next_length as u64 > manifest.total_length {
             return Err(StorageError::InvalidFormat(
                 "metadata chunks exceed the declared body length".into(),
@@ -916,8 +902,8 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
     let (store_identity, lineage_identity) = session.identities();
     let snapshot =
         read_snapshot(session.directory()).map_err(crate::storage::storage_to_index_error)?;
-    let current = read_current(session.directory())
-        .map_err(crate::storage::storage_to_index_error)?;
+    let current =
+        read_current(session.directory()).map_err(crate::storage::storage_to_index_error)?;
     let manifest_path = session
         .directory()
         .join("objects")
@@ -925,14 +911,11 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
             &current.manifest_digest,
             METADATA_OBJECT_KIND,
         ));
-    let manifest_object = fs::read(&manifest_path)
-        .map_err(|error| IndexError::Io(error.to_string()))?;
-    let (_, metadata_manifest, _, metadata_bytes) = read_metadata_snapshot(
-        &manifest_object,
-        session.directory(),
-        session.limits(),
-    )
-    .map_err(crate::storage::storage_to_index_error)?;
+    let manifest_object =
+        fs::read(&manifest_path).map_err(|error| IndexError::Io(error.to_string()))?;
+    let (_, metadata_manifest, _, metadata_bytes) =
+        read_metadata_snapshot(&manifest_object, session.directory(), session.limits())
+            .map_err(crate::storage::storage_to_index_error)?;
     Ok(StorageStatus {
         directory: session.directory().to_path_buf(),
         generation: session.generation(),
@@ -958,8 +941,12 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         cache: session.cache().status(),
         source_reads: 0,
         source_parses: 0,
-        index_reads: session.index_reads.load(std::sync::atomic::Ordering::Acquire),
-        index_bytes: session.index_bytes.load(std::sync::atomic::Ordering::Acquire),
+        index_reads: session
+            .index_reads
+            .load(std::sync::atomic::Ordering::Acquire),
+        index_bytes: session
+            .index_bytes
+            .load(std::sync::atomic::Ordering::Acquire),
     })
 }
 
@@ -990,14 +977,12 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     let _readers = open_shared_lock(&directory.join("readers.lock"))?;
     let current = read_current(directory)?;
     let snapshot = read_snapshot(directory)?;
-    let manifest_path = directory
-        .join("objects")
-        .join(format::object_file_name(
-            &current.manifest_digest,
-            METADATA_OBJECT_KIND,
-        ));
-    let manifest_bytes = fs::read(&manifest_path)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let manifest_path = directory.join("objects").join(format::object_file_name(
+        &current.manifest_digest,
+        METADATA_OBJECT_KIND,
+    ));
+    let manifest_bytes =
+        fs::read(&manifest_path).map_err(|error| StorageError::Io(error.to_string()))?;
     let (_, metadata_manifest, _, _) = read_metadata_snapshot(
         &manifest_bytes,
         directory,
@@ -1008,12 +993,25 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
     let mut objects = snapshot
         .stored_objects
         .iter()
-        .map(|object| (object.digest, object.length, u16::try_from(object.kind).unwrap_or(u16::MAX)))
+        .map(|object| {
+            (
+                object.digest,
+                object.length,
+                u16::try_from(object.kind).unwrap_or(u16::MAX),
+            )
+        })
         .collect::<Vec<_>>();
-    objects.push((current.manifest_digest, current.manifest_length, METADATA_OBJECT_KIND));
-    objects.extend(metadata_manifest.chunks.iter().map(|chunk| {
-        (chunk.digest, chunk.length, METADATA_CHUNK_OBJECT_KIND)
-    }));
+    objects.push((
+        current.manifest_digest,
+        current.manifest_length,
+        METADATA_OBJECT_KIND,
+    ));
+    objects.extend(
+        metadata_manifest
+            .chunks
+            .iter()
+            .map(|chunk| (chunk.digest, chunk.length, METADATA_CHUNK_OBJECT_KIND)),
+    );
     for (digest, length, kind) in &objects {
         let path = directory
             .join("objects")
@@ -1022,7 +1020,10 @@ pub fn audit(directory: &Path, options: AuditOptions) -> Result<AuditReport, Sto
             Ok(data) if data.len() as u64 == *length && format::sha256(&data) == *digest => {
                 bytes = bytes.saturating_add(data.len() as u64);
             }
-            Ok(_) => errors.push(format!("object {} failed verification", format::hex(digest))),
+            Ok(_) => errors.push(format!(
+                "object {} failed verification",
+                format::hex(digest)
+            )),
             Err(error) => errors.push(format!("object {}: {error}", format::hex(digest))),
         }
     }
@@ -1039,14 +1040,12 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
     let writer = open_exclusive_lock(&directory.join("writer.lock"))?;
     let current = read_current(directory)?;
     let snapshot = read_snapshot(directory)?;
-    let manifest_path = directory
-        .join("objects")
-        .join(format::object_file_name(
-            &current.manifest_digest,
-            METADATA_OBJECT_KIND,
-        ));
-    let manifest_bytes = fs::read(&manifest_path)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let manifest_path = directory.join("objects").join(format::object_file_name(
+        &current.manifest_digest,
+        METADATA_OBJECT_KIND,
+    ));
+    let manifest_bytes =
+        fs::read(&manifest_path).map_err(|error| StorageError::Io(error.to_string()))?;
     let (_, metadata_manifest, _, _) = read_metadata_snapshot(
         &manifest_bytes,
         directory,
@@ -1065,9 +1064,12 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
             &current.manifest_digest,
             METADATA_OBJECT_KIND,
         )))
-        .chain(metadata_manifest.chunks.iter().map(|chunk| {
-            format::object_file_name(&chunk.digest, METADATA_CHUNK_OBJECT_KIND)
-        }))
+        .chain(
+            metadata_manifest
+                .chunks
+                .iter()
+                .map(|chunk| format::object_file_name(&chunk.digest, METADATA_CHUNK_OBJECT_KIND)),
+        )
         .collect::<std::collections::HashSet<_>>();
     let mut removed_objects = 0usize;
     let mut removed_bytes = 0u64;
@@ -1107,7 +1109,9 @@ fn is_owned_object_name(name: &str) -> bool {
         return false;
     };
     digest.len() == 64
-        && digest.bytes().all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase())
+        && digest
+            .bytes()
+            .all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase())
         && matches!(suffix, "meta" | "pack")
 }
 
@@ -1129,22 +1133,20 @@ fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
 
 pub(crate) fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageError> {
     let current = read_current(directory)?;
-    let bytes = fs::read(
-        directory
-            .join("objects")
-            .join(format::object_file_name(
-                &current.manifest_digest,
-                METADATA_OBJECT_KIND,
-            )),
-    )
-        .map_err(|error| match error.kind() {
-            std::io::ErrorKind::NotFound => StorageError::MissingObject(current.manifest_digest),
-            _ => StorageError::Io(error.to_string()),
-        })?;
+    let bytes = fs::read(directory.join("objects").join(format::object_file_name(
+        &current.manifest_digest,
+        METADATA_OBJECT_KIND,
+    )))
+    .map_err(|error| match error.kind() {
+        std::io::ErrorKind::NotFound => StorageError::MissingObject(current.manifest_digest),
+        _ => StorageError::Io(error.to_string()),
+    })?;
     if bytes.len() as u64 != current.manifest_length
         || format::sha256(&bytes) != current.manifest_digest
     {
-        return Err(StorageError::InvalidFormat("manifest verification failed".into()));
+        return Err(StorageError::InvalidFormat(
+            "manifest verification failed".into(),
+        ));
     }
     read_metadata_snapshot(
         &bytes,

@@ -77,12 +77,7 @@ fn all_records() -> Query {
 #[test]
 fn explicit_save_reopens_a_complete_searchable_snapshot() {
     let root = fixture_root("roundtrip");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     let before = index.view().unwrap().search(&all_records()).unwrap();
     let report = index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
@@ -127,12 +122,7 @@ fn explicit_save_reopens_a_complete_searchable_snapshot() {
 #[test]
 fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
     let root = fixture_root("lazy");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -170,12 +160,7 @@ fn open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting() {
 #[test]
 fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
     let root = fixture_root("sort-lazy");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -216,12 +201,7 @@ fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
 #[test]
 fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
     let root = fixture_root("mutation");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     let first = index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -239,7 +219,12 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
     std::fs::write(&added_path, br#"{"id":"c","title":"Gamma token"}"#).unwrap();
     reopened.add_file(&added_path).unwrap();
     assert_eq!(
-        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
         Some(3)
     );
     let second = reopened
@@ -255,7 +240,12 @@ fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
         .unwrap();
     reopened.delete_file(handle).unwrap();
     assert_eq!(
-        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
         Some(2)
     );
     let third = reopened
@@ -299,12 +289,7 @@ fn object_with_kind(directory: &std::path::Path, kind: u16) -> std::path::PathBu
 #[test]
 fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     let root = fixture_root("audit");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -314,10 +299,7 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     let mut bytes = std::fs::read(&posting_object).unwrap();
     bytes.truncate(bytes.len() - 1);
     std::fs::write(&posting_object, bytes).unwrap();
-    let orphan = root.join(format!(
-        "storage/objects/{}.pack",
-        "a".repeat(64)
-    ));
+    let orphan = root.join(format!("storage/objects/{}.pack", "a".repeat(64)));
     std::fs::write(&orphan, b"unreferenced").unwrap();
     let unrelated = root.join("storage/objects/README");
     std::fs::write(&unrelated, b"not owned by the backend").unwrap();
@@ -334,11 +316,7 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     request.filter = Some(parse_filter("title = \"Alpha token\"").unwrap());
     assert!(reopened.view().unwrap().search(&request).is_err());
 
-    let audit_report = audit(
-        &root.join("storage"),
-        AuditOptions::default(),
-    )
-    .unwrap();
+    let audit_report = audit(&root.join("storage"), AuditOptions::default()).unwrap();
     assert!(!audit_report.errors.is_empty());
     assert!(prune(&root.join("storage")).is_err());
     reopened.shutdown().unwrap();
@@ -354,12 +332,7 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
 #[test]
 fn full_compaction_after_reopen_does_not_parse_source_files() {
     let root = fixture_root("source-free-compaction");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -385,7 +358,12 @@ fn full_compaction_after_reopen_does_not_parse_source_files() {
         .unwrap();
     assert!(report.segments_after <= report.segments_before);
     assert_eq!(
-        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
         Some(2)
     );
     let after = reopened.storage_status().unwrap();
@@ -399,12 +377,7 @@ fn full_compaction_after_reopen_does_not_parse_source_files() {
 #[test]
 fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
     let root = fixture_root("replace-move");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -427,8 +400,7 @@ fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
     std::fs::write(&original, br#"{"id":"a","title":"Omega replacement"}"#).unwrap();
     reopened.update_file(handle, &original).unwrap();
     let mut replacement_query = all_records();
-    replacement_query.filter =
-        Some(parse_filter("title = \"Omega replacement\"").unwrap());
+    replacement_query.filter = Some(parse_filter("title = \"Omega replacement\"").unwrap());
     assert_eq!(
         reopened
             .view()
@@ -484,23 +456,13 @@ fn replace_and_move_after_reopen_persist_correct_identity_and_content() {
 #[test]
 fn independent_writers_cannot_overwrite_a_nonempty_store() {
     let root = fixture_root("writer-conflict");
-    let first = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let first = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     first
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
     drop(first);
 
-    let second = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let second = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     let error = second
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap_err();
@@ -527,12 +489,7 @@ fn independent_writers_cannot_overwrite_a_nonempty_store() {
 #[test]
 fn corrupt_current_and_missing_lazy_objects_have_distinct_outcomes() {
     let root = fixture_root("corruption");
-    let index = Index::build(
-        &root,
-        definitions(),
-        RepositoryOptions::default(),
-    )
-    .unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
     index
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
@@ -798,7 +755,10 @@ fn save_refuses_an_unrelated_nonempty_directory() {
         .archive_to(&target, StorageWriteOptions::default())
         .expect_err("an unrelated nonempty directory must be rejected");
     assert!(error.to_string().contains("not an Objekte store"));
-    assert_eq!(std::fs::read(target.join("valuable.txt")).unwrap(), b"keep me");
+    assert_eq!(
+        std::fs::read(target.join("valuable.txt")).unwrap(),
+        b"keep me"
+    );
     assert!(!target.join("objects").exists());
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -846,7 +806,3 @@ fn full_text_payload_reopens_lazily_and_preserves_results() {
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
-
-
-
-

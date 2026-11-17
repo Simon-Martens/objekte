@@ -17,9 +17,7 @@ pub(crate) mod serde_support;
 mod writer;
 
 pub use format::{CacheTrimReport, StorageError};
-pub use reader::{
-    AuditOptions, AuditReport, PruneReport, audit, prune,
-};
+pub use reader::{AuditOptions, AuditReport, PruneReport, audit, prune};
 
 const DEFAULT_MANIFEST_BODY_LIMIT: u64 = 16 * 1024 * 1024;
 const DEFAULT_CATALOG_BODY_LIMIT: u64 = 256 * 1024 * 1024;
@@ -34,7 +32,9 @@ const DEFAULT_COALESCED_READ_GAP: u64 = 4096;
 pub enum CachePolicy {
     #[default]
     KeepLoaded,
-    Budget { resident_bytes: NonZeroU64 },
+    Budget {
+        resident_bytes: NonZeroU64,
+    },
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -276,9 +276,7 @@ pub(crate) fn storage_to_index_error(error: StorageError) -> IndexError {
         }
         StorageError::Corrupt { message, .. }
         | StorageError::InvalidFormat(message)
-        | StorageError::UnsupportedComponent(message) => {
-            IndexError::InvalidPublication(message)
-        }
+        | StorageError::UnsupportedComponent(message) => IndexError::InvalidPublication(message),
         other => IndexError::Io(other.to_string()),
     }
 }
@@ -336,4 +334,3 @@ impl StorageSession {
 }
 
 pub(crate) type SharedStorageSession = Arc<StorageSession>;
-

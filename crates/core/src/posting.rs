@@ -2238,7 +2238,10 @@ impl PostingIndexSnapshot {
             .values
             .into_iter()
             .map(|(key, bitmap)| {
-                Ok((StoredScalarKey::public_from_stored(&key), decode_bitmap(&bitmap)?))
+                Ok((
+                    StoredScalarKey::public_from_stored(&key),
+                    decode_bitmap(&bitmap)?,
+                ))
             })
             .collect::<Result<_, String>>()?;
         let lengths = payload
@@ -2291,16 +2294,13 @@ impl PostingIndex {
         if !self.is_published() {
             return Err("posting index is not published".into());
         }
-        let structural = self
-            .structural
-            .as_ref()
-            .map(|facts| {
-                facts
-                    .postings
-                    .iter()
-                    .map(|(key, bitmap)| (key, bitmap))
-                    .collect()
-            });
+        let structural = self.structural.as_ref().map(|facts| {
+            facts
+                .postings
+                .iter()
+                .map(|(key, bitmap)| (key, bitmap))
+                .collect()
+        });
         let lengths = self
             .lengths
             .iter()
@@ -2368,10 +2368,7 @@ impl PostingIndex {
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
         };
-        index.validate_domain(
-            &(0..index.covered_records)
-                .collect::<RoaringBitmap>(),
-        )?;
+        index.validate_domain(&(0..index.covered_records).collect::<RoaringBitmap>())?;
         Ok(index)
     }
 
@@ -2549,10 +2546,7 @@ impl PostingIndex {
         key: &ScalarKey,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        self.payload()
-            .values
-            .get(key)
-            .map(|bitmap| input & bitmap)
+        self.payload().values.get(key).map(|bitmap| input & bitmap)
     }
 
     pub(crate) fn for_each_value(
@@ -3268,12 +3262,13 @@ impl PostingIndex {
     }
 
     pub(crate) fn is_archived(&self) -> bool {
-        self.storage.is_some() || self.values.is_archived()
-            && self.lengths.is_archived()
-            && self
-                .structural
-                .as_ref()
-                .is_none_or(|facts| facts.postings.is_archived())
+        self.storage.is_some()
+            || self.values.is_archived()
+                && self.lengths.is_archived()
+                && self
+                    .structural
+                    .as_ref()
+                    .is_none_or(|facts| facts.postings.is_archived())
     }
 
     #[allow(dead_code)]

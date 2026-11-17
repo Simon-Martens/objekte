@@ -4681,10 +4681,7 @@ fn search_segmented_impl(
             &mut winner_bytes,
         )?;
     }
-    let exact_ordered = if context.is_none()
-        && retained_budget.is_none()
-        && cache_key.is_none()
-    {
+    let exact_ordered = if context.is_none() && retained_budget.is_none() && cache_key.is_none() {
         try_exact_segment_ordered_page(
             repo,
             query,
@@ -8749,10 +8746,7 @@ fn lifecycle_segment_order<'a>(
     let BoundSortSource::Stored(base_column) = &term.source else {
         return None;
     };
-    let column = segment
-        .sorting
-        .column(&base_column.path.display())
-        .ok()?;
+    let column = segment.sorting.column(&base_column.path.display()).ok()?;
     Some(if term.descending {
         &column.descending
     } else {
@@ -11335,9 +11329,7 @@ fn try_stored_order_page(
     if prepared
         .collections
         .iter()
-        .any(|(index, _, fts)| {
-            fts.is_some() && repo.collections[*index].raw.is_stored()
-        })
+        .any(|(index, _, fts)| fts.is_some() && repo.collections[*index].raw.is_stored())
     {
         return Ok(None);
     }

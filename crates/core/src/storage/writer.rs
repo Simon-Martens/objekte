@@ -32,9 +32,8 @@ pub(crate) fn archive_index_to(
 ) -> Result<StorageWriteReport, IndexError> {
     let started = Instant::now();
     let archive_started = Instant::now();
-    let archive_report = index.archive_with_options(ArchiveOptions::new(
-        options.archive_workers.get(),
-    )?)?;
+    let archive_report =
+        index.archive_with_options(ArchiveOptions::new(options.archive_workers.get())?)?;
     let archive_ns = archive_started.elapsed().as_nanos() as u64;
     let parts = index.storage_parts()?;
     write_parts(directory, parts, archive_report, archive_ns, started)
@@ -48,9 +47,8 @@ pub(crate) fn archive_repository_to(
 ) -> Result<StorageWriteReport, IndexError> {
     let started = Instant::now();
     let archive_started = Instant::now();
-    let archive_report = repository.archive_with_options(ArchiveOptions::new(
-        options.archive_workers.get(),
-    )?)?;
+    let archive_report =
+        repository.archive_with_options(ArchiveOptions::new(options.archive_workers.get())?)?;
     let archive_ns = archive_started.elapsed().as_nanos() as u64;
     let versions = crate::inventory::FileVersions::filled(
         repository.files().files.len(),
@@ -63,7 +61,11 @@ pub(crate) fn archive_repository_to(
                 .map_err(IndexError::InvalidPublication)?,
         ),
         configuration_identity: crate::configuration::configuration_hash(
-            &repository.collections().iter().map(|c| c.definition.clone()).collect::<Vec<_>>(),
+            &repository
+                .collections()
+                .iter()
+                .map(|c| c.definition.clone())
+                .collect::<Vec<_>>(),
             repository.options(),
             repository.sources(),
         )
@@ -189,10 +191,10 @@ fn write_parts(
         .map_err(StorageError::InvalidFormat)?;
     }
     externalize_posting_payloads(&mut snapshot, &mut external_objects)?;
-    snapshot.stored_objects.extend(
-        external_objects
-            .iter()
-            .map(|(digest, bytes)| model::StoredObjectDescriptor {
+    snapshot
+        .stored_objects
+        .extend(external_objects.iter().map(|(digest, bytes)| {
+            model::StoredObjectDescriptor {
                 kind: u16::from_le_bytes(
                     bytes[10..12]
                         .try_into()
@@ -200,8 +202,8 @@ fn write_parts(
                 ) as u32,
                 digest: *digest,
                 length: bytes.len() as u64,
-            }),
-    );
+            }
+        }));
     let payload = format::envelope(PAYLOAD_OBJECT_KIND, &[]);
     let payload_digest = format::sha256(&payload);
     snapshot
@@ -210,8 +212,8 @@ fn write_parts(
             PAYLOAD_OBJECT_KIND as u32,
             &payload,
         ));
-    let snapshot_body = serde_json::to_vec(&snapshot)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let snapshot_body =
+        serde_json::to_vec(&snapshot).map_err(|error| StorageError::Io(error.to_string()))?;
     let metadata_chunks = snapshot_body
         .chunks(model::METADATA_CHUNK_BYTES)
         .map(|chunk| {
@@ -247,10 +249,8 @@ fn write_parts(
     let write_started = Instant::now();
     let objects = directory.join("objects");
     let staging = directory.join("staging");
-    fs::create_dir_all(&objects)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
-    fs::create_dir_all(&staging)
-        .map_err(|error| StorageError::Io(error.to_string()))?;
+    fs::create_dir_all(&objects).map_err(|error| StorageError::Io(error.to_string()))?;
+    fs::create_dir_all(&staging).map_err(|error| StorageError::Io(error.to_string()))?;
     let mut objects_new = 0usize;
     write_object(&staging, &objects, payload_digest, &payload)?;
     objects_new += 1;
@@ -429,10 +429,7 @@ fn externalize_posting(
     posting: &mut crate::posting::PostingIndexSnapshot,
     objects: &mut Vec<([u8; 32], Vec<u8>)>,
 ) -> Result<(), StorageError> {
-    if posting.values.is_empty()
-        && posting.lengths.is_empty()
-        && posting.structural.is_none()
-    {
+    if posting.values.is_empty() && posting.lengths.is_empty() && posting.structural.is_none() {
         return Ok(());
     }
     let payload = posting
@@ -573,11 +570,13 @@ fn snapshot_from_parts(
     let catalog_slots = catalog_snapshot
         .into_iter()
         .map(|slot| {
-            slot.map(|(entry, fingerprint, configuration)| model::StoredCatalogSlot {
-                entry,
-                fingerprint,
-                configuration,
-            })
+            slot.map(
+                |(entry, fingerprint, configuration)| model::StoredCatalogSlot {
+                    entry,
+                    fingerprint,
+                    configuration,
+                },
+            )
         })
         .collect();
     let counters = model::SnapshotCounters {
@@ -631,7 +630,8 @@ fn snapshot_from_parts(
     };
     model::validate_snapshot(&snapshot).map_err(StorageError::InvalidFormat)?;
     let mut snapshot = snapshot;
-    snapshot.lineage_identity = stable_lineage(&snapshot.configuration_identity, &snapshot.source_root);
+    snapshot.lineage_identity =
+        stable_lineage(&snapshot.configuration_identity, &snapshot.source_root);
     Ok(snapshot)
 }
 
@@ -649,21 +649,12 @@ fn posting_leaf_rows(posting: &crate::posting::PostingIndexSnapshot) -> u64 {
     (dictionary_rows as u64).saturating_add(3)
 }
 
-fn posting_collection_leaf_rows(
-    collection: &crate::posting::PostingCollectionSnapshot,
-) -> u64 {
-    collection
-        .fields
-        .values()
-        .map(posting_leaf_rows)
-        .sum()
+fn posting_collection_leaf_rows(collection: &crate::posting::PostingCollectionSnapshot) -> u64 {
+    collection.fields.values().map(posting_leaf_rows).sum()
 }
 
 fn bigram_leaf_rows(index: &crate::bigram::BigramIndex) -> u64 {
-    index
-        .normal
-        .len()
-        .saturating_add(index.skip.len()) as u64
+    index.normal.len().saturating_add(index.skip.len()) as u64
 }
 
 fn collection_leaf_rows(collection: &model::CollectionSnapshot) -> u64 {
@@ -726,7 +717,9 @@ fn segment_leaf_rows(segment: &model::SegmentSnapshot) -> u64 {
     rows
 }
 
-fn snapshot_collection(collection: &CollectionState) -> Result<model::CollectionSnapshot, StorageError> {
+fn snapshot_collection(
+    collection: &CollectionState,
+) -> Result<model::CollectionSnapshot, StorageError> {
     Ok(model::CollectionSnapshot {
         name: collection.definition.name.clone(),
         generation: collection.generation.clone(),
@@ -783,11 +776,11 @@ fn ensure_directory(directory: &Path) -> Result<(), StorageError> {
                 "storage target is not a directory".into(),
             ));
         }
-        let mut entries = fs::read_dir(directory)
-            .map_err(|error| StorageError::Io(error.to_string()))?;
+        let mut entries =
+            fs::read_dir(directory).map_err(|error| StorageError::Io(error.to_string()))?;
         if !directory.join("CURRENT").exists() && entries.next().is_some() {
-            for entry in fs::read_dir(directory)
-                .map_err(|error| StorageError::Io(error.to_string()))?
+            for entry in
+                fs::read_dir(directory).map_err(|error| StorageError::Io(error.to_string()))?
             {
                 let entry = entry.map_err(|error| StorageError::Io(error.to_string()))?;
                 let name = entry.file_name();
@@ -804,9 +797,9 @@ fn ensure_directory(directory: &Path) -> Result<(), StorageError> {
         }
         return Ok(());
     }
-    let parent = directory.parent().ok_or_else(|| {
-        StorageError::Io("storage directory has no existing parent".into())
-    })?;
+    let parent = directory
+        .parent()
+        .ok_or_else(|| StorageError::Io("storage directory has no existing parent".into()))?;
     if !parent.is_dir() {
         return Err(StorageError::Io(format!(
             "storage parent is unavailable: {}",
@@ -838,7 +831,8 @@ fn write_object(
     );
     let final_path = objects.join(format::object_file_name(&digest, kind));
     if final_path.exists() {
-        let existing = fs::read(&final_path).map_err(|error| StorageError::Io(error.to_string()))?;
+        let existing =
+            fs::read(&final_path).map_err(|error| StorageError::Io(error.to_string()))?;
         if existing != bytes {
             return Err(StorageError::Corrupt {
                 identity: format::hex(&digest),
@@ -909,7 +903,9 @@ fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError>
     }
     let checksum = Sha256::digest(&bytes[..96]);
     if checksum.as_slice() != &bytes[96..] {
-        return Err(StorageError::InvalidFormat("CURRENT checksum mismatch".into()));
+        return Err(StorageError::InvalidFormat(
+            "CURRENT checksum mismatch".into(),
+        ));
     }
     if bytes[8..12] != 1u32.to_le_bytes() || bytes[12..16] != 0u32.to_le_bytes() {
         return Err(StorageError::InvalidFormat(
@@ -917,9 +913,7 @@ fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError>
         ));
     }
     Ok(Some(CurrentRecord {
-        generation: u64::from_le_bytes(
-            bytes[16..24].try_into().expect("fixed generation bytes"),
-        ),
+        generation: u64::from_le_bytes(bytes[16..24].try_into().expect("fixed generation bytes")),
         manifest_digest: bytes[24..56].try_into().expect("fixed manifest digest"),
     }))
 }
@@ -998,4 +992,3 @@ fn stable_lineage(configuration: &[u8; 32], root: &str) -> [u8; 16] {
     let digest = hash.finalize();
     digest[..16].try_into().expect("fixed lineage length")
 }
-

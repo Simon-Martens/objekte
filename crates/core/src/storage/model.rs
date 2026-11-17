@@ -1,15 +1,11 @@
-use std::collections::BTreeMap;
+use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
-use rkyv::{
-    Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize,
-};
 use serde::{Deserialize, Serialize};
+use std::collections::BTreeMap;
 
 use crate::bigram::BigramIndex;
 use crate::inference::{InferenceObservation, InferenceStateSnapshot};
-use crate::inventory::{
-    CollectionGeneration, FileEntry, FileInventory, FileVersion, RecordEntry,
-};
+use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, FileVersion, RecordEntry};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::native_segment::{SegmentAccounting, SegmentId};
 use crate::posting::{PostingCollectionSnapshot, PostingIndexSnapshot};
@@ -194,15 +190,13 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
         .iter()
         .enumerate()
         .any(|(ordinal, slot)| {
-            slot.as_ref()
-                .is_some_and(|slot| {
-                    slot.entry.id.0 as usize != ordinal
-                        || slot.entry.id.0 as usize >= snapshot.catalog_slots.len()
-                })
+            slot.as_ref().is_some_and(|slot| {
+                slot.entry.id.0 as usize != ordinal
+                    || slot.entry.id.0 as usize >= snapshot.catalog_slots.len()
+            })
         })
     {
         return Err("snapshot catalogue row identity mismatch".into());
     }
     Ok(())
 }
-

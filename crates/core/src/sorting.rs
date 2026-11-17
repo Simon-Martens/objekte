@@ -10,8 +10,8 @@ use icu_collator::{
     preferences::CollationNumericOrdering,
 };
 use icu_locale_core::Locale;
-use roaring::RoaringBitmap;
 use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
+use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
@@ -775,12 +775,10 @@ fn decode_sort_key(key: StoredSortKey) -> Result<SortKey, String> {
             crate::decimal::ExactDecimal::from_stored_parts(negative, digits, exponent)?,
         )),
         StoredSortKey::Bool(value) => SortKey::Bool(value),
-        StoredSortKey::Date { year, month, day } => {
-            SortKey::Date(
-                Date::from_calendar_date(year, month_from_code(month)?, day)
-                    .map_err(|error| error.to_string())?,
-            )
-        }
+        StoredSortKey::Date { year, month, day } => SortKey::Date(
+            Date::from_calendar_date(year, month_from_code(month)?, day)
+                .map_err(|error| error.to_string())?,
+        ),
         StoredSortKey::Datetime {
             unix_nanos,
             offset_seconds,

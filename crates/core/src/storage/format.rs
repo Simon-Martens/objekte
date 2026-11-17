@@ -3,9 +3,9 @@ use std::fmt;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
 
+use crate::storage::CachePolicy;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
-use crate::storage::CachePolicy;
 
 pub const ENVELOPE_LEN: usize = 64;
 pub const CURRENT_LEN: usize = 128;
@@ -48,8 +48,12 @@ impl StorageError {
 impl fmt::Display for StorageError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Self::UnsupportedPlatform(message) => write!(formatter, "unsupported platform: {message}"),
-            Self::UnsupportedFormat(message) => write!(formatter, "unsupported storage format: {message}"),
+            Self::UnsupportedPlatform(message) => {
+                write!(formatter, "unsupported platform: {message}")
+            }
+            Self::UnsupportedFormat(message) => {
+                write!(formatter, "unsupported storage format: {message}")
+            }
             Self::InvalidFormat(message) => write!(formatter, "invalid storage format: {message}"),
             Self::IncompatibleConfiguration(message) => {
                 write!(formatter, "incompatible storage configuration: {message}")
@@ -61,14 +65,21 @@ impl fmt::Display for StorageError {
             Self::StorageBusy(message) => write!(formatter, "storage busy: {message}"),
             Self::StorageConflict(message) => write!(formatter, "storage conflict: {message}"),
             Self::LimitExceeded { limit, requested } => {
-                write!(formatter, "storage read requires {requested} bytes, limit is {limit}")
+                write!(
+                    formatter,
+                    "storage read requires {requested} bytes, limit is {limit}"
+                )
             }
             Self::Corrupt { identity, message } => {
                 write!(formatter, "storage object {identity} is corrupt: {message}")
             }
-            Self::MissingObject(digest) => write!(formatter, "missing storage object {}", hex(digest)),
+            Self::MissingObject(digest) => {
+                write!(formatter, "missing storage object {}", hex(digest))
+            }
             Self::Io(message) => write!(formatter, "storage I/O: {message}"),
-            Self::CommitUncertain(message) => write!(formatter, "storage commit uncertain: {message}"),
+            Self::CommitUncertain(message) => {
+                write!(formatter, "storage commit uncertain: {message}")
+            }
         }
     }
 }
@@ -201,10 +212,7 @@ impl StorageCache {
             return CacheTrimReport::default();
         };
         let evicted_entries = entries.len() as u64;
-        let evicted_bytes = entries
-            .values()
-            .map(|entry| entry.serialized_bytes)
-            .sum();
+        let evicted_bytes = entries.values().map(|entry| entry.serialized_bytes).sum();
         entries.clear();
         self.stats.resident_bytes.store(0, Ordering::Release);
         self.stats
@@ -267,12 +275,11 @@ pub(crate) fn envelope(kind: u16, body: &[u8]) -> Vec<u8> {
     output
 }
 
-pub(crate) fn checked_body(
-    bytes: &[u8],
-    expected_kind: u16,
-) -> Result<&[u8], StorageError> {
+pub(crate) fn checked_body(bytes: &[u8], expected_kind: u16) -> Result<&[u8], StorageError> {
     if bytes.len() < ENVELOPE_LEN || bytes[..8] != OBJECT_MAGIC {
-        return Err(StorageError::InvalidFormat("object envelope magic mismatch".into()));
+        return Err(StorageError::InvalidFormat(
+            "object envelope magic mismatch".into(),
+        ));
     }
     let version = u16::from_le_bytes(bytes[8..10].try_into().expect("fixed version bytes"));
     let kind = u16::from_le_bytes(bytes[10..12].try_into().expect("fixed kind bytes"));
@@ -289,4 +296,3 @@ pub(crate) fn checked_body(
     }
     Ok(&bytes[ENVELOPE_LEN..])
 }
-

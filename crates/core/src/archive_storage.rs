@@ -183,7 +183,6 @@ where
     pub(crate) fn capacity(&self) -> usize {
         self.bytes.capacity()
     }
-
 }
 
 impl<T> ValidatedArchive<T>

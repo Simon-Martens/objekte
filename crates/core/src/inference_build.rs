@@ -752,8 +752,7 @@ impl<'a> AggregatedField<'a> {
 }
 
 /// Observations retained for one path while construction batches are admitted.
-#[derive(Clone, Serialize, Deserialize)]
-#[derive(Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug)]
 struct FieldState {
     path: Vec<String>,
     kinds: Vec<LogicalType>,

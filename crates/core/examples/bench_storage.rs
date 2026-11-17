@@ -6,9 +6,7 @@ use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::repository::RepositoryOptions;
-use objekte_search_core::storage::{
-    StorageOpenOptions, StorageWriteOptions, audit,
-};
+use objekte_search_core::storage::{StorageOpenOptions, StorageWriteOptions, audit};
 use objekte_search_core::workload::{BenchmarkCase, load_manifest};
 use serde_json::json;
 use sha2::{Digest, Sha256};
@@ -39,8 +37,7 @@ fn median(mut samples: Vec<u64>) -> u64 {
 }
 
 fn run() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let mut root =
-        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
+    let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut storage_root = std::env::temp_dir().join("objekte-storage-benchmark");
     let mut cases = vec!["Q001".to_string(), "Q119".to_string()];
     let mut repetitions = 5usize;
@@ -49,12 +46,9 @@ fn run() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let mut args = arguments.iter().skip(1);
     while let Some(argument) = args.next() {
         match argument.as_str() {
-            "--root" => {
-                root = PathBuf::from(args.next().ok_or("--root needs a path")?)
-            }
+            "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--storage-root" => {
-                storage_root =
-                    PathBuf::from(args.next().ok_or("--storage-root needs a path")?)
+                storage_root = PathBuf::from(args.next().ok_or("--storage-root needs a path")?)
             }
             "--cases" => {
                 cases = args
@@ -85,8 +79,7 @@ fn run() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         return Err("repetitions and workers must be positive".into());
     }
     let (definitions, _) = musenalm::load_definitions_with_schemas(&root)?;
-    let manifest = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("benches/musenalm_queries.json");
+    let manifest = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let selected = load_manifest(&manifest)?
         .into_iter()
         .map(|request| BenchmarkCase {

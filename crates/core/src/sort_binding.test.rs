@@ -7,10 +7,8 @@ use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions}
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
-
 #[derive(Debug)]
 struct NullAsZero;
-
 
 impl BindingOperation for NullAsZero {
     fn accepts(&self, _: &crate::model::LogicalType, _: crate::query::Operator, _: bool) -> bool {
@@ -41,7 +39,6 @@ impl BindingOperation for NullAsZero {
         true
     }
 }
-
 
 #[test]
 fn min_max_transform_null_before_classifying_it() {
