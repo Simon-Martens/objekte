@@ -321,7 +321,7 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
     Arc::make_mut(&mut inventory.files)[broken.0 as usize].diagnostics[0].record =
         Some(fallback_slot);
     let generation = builder.finish(&inventory).unwrap();
-    assert_eq!(generation.files, [empty, valid, broken]);
+    assert_eq!(generation.files.as_slice(), [empty, valid, broken]);
     assert_eq!(
         generation.file_records.records_for(empty),
         Some([].as_slice())
@@ -389,7 +389,7 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     }
     let generation = builder.finish(&inventory).unwrap();
     let mut grouped = vec![Vec::new(); files.len()];
-    for record in &generation.records {
+    for record in generation.records.iter() {
         grouped[record.file.0 as usize].push(record.slot);
     }
     let mut expected_offsets = vec![0];

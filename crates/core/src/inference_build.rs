@@ -271,7 +271,7 @@ pub(crate) fn aggregate_segment_inference(
                         empty |= ancestor;
                     }
                 }
-                empty &= &segment.index.logical_records;
+                empty &= segment.index.logical_records.as_ref();
                 add_count(
                     &mut aggregate.present_records,
                     empty.len(),

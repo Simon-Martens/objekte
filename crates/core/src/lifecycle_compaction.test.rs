@@ -48,7 +48,11 @@ fn compacting_native_segments_preserves_text_postings() {
     std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
@@ -56,15 +60,32 @@ fn compacting_native_segments_preserves_text_postings() {
             },
             ..Default::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     let pinned = index.view().unwrap();
-    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
-    index.delete_file(pinned.file_handle_for_path(&remove).unwrap()).unwrap();
+    assert_eq!(
+        pinned.search(&literal("bravo needle")).unwrap().count,
+        Some(1)
+    );
+    index
+        .delete_file(pinned.file_handle_for_path(&remove).unwrap())
+        .unwrap();
     std::fs::remove_file(&remove).unwrap();
     assert_eq!(slot_count(&index.view().unwrap().0), 1);
     assert_eq!(index.compact().unwrap().retired_slots_removed, 0);
-    assert_eq!(index.view().unwrap().search(&literal("bravo needle")).unwrap().count, Some(1));
-    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&literal("bravo needle"))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    assert_eq!(
+        pinned.search(&literal("bravo needle")).unwrap().count,
+        Some(1)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -82,7 +103,11 @@ fn compaction_reuses_unaffected_native_segment() {
     std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
@@ -90,7 +115,8 @@ fn compaction_reuses_unaffected_native_segment() {
             },
             ..Default::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     let removed = root.join("data/removed.json");
     let kept = root.join("data/kept.json");
     std::fs::write(&removed, br#"{"name":"removed"}"#).unwrap();
@@ -102,15 +128,33 @@ fn compaction_reuses_unaffected_native_segment() {
     let unchanged_accounting = unchanged.index.accounting;
     assert!(unchanged_accounting.retained_bytes_estimated > 0);
     assert!(unchanged_accounting.source_bytes_estimated > 0);
-    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
-    index.delete_file(pinned.file_handle_for_path(&removed).unwrap()).unwrap();
+    assert_eq!(
+        pinned.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
+    index
+        .delete_file(pinned.file_handle_for_path(&removed).unwrap())
+        .unwrap();
     std::fs::remove_file(&removed).unwrap();
     index.compact().unwrap();
     let current = index.view().unwrap();
-    assert!(current.0.segments[0].iter().any(|segment| Arc::ptr_eq(segment, &unchanged)));
-    assert_eq!(unchanged.index.accounting.retained_bytes_estimated, unchanged_accounting.retained_bytes_estimated);
-    assert_eq!(current.search(&literal("kept needle")).unwrap().count, Some(1));
-    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
+    assert!(
+        current.0.segments[0]
+            .iter()
+            .any(|segment| Arc::ptr_eq(segment, &unchanged))
+    );
+    assert_eq!(
+        unchanged.index.accounting.retained_bytes_estimated,
+        unchanged_accounting.retained_bytes_estimated
+    );
+    assert_eq!(
+        current.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
+    assert_eq!(
+        pinned.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -133,7 +177,11 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     }
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions {
             segment_policy: crate::native_segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(4).unwrap(),
@@ -141,7 +189,8 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
             },
             ..Default::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     for number in [0usize, 2] {
         let path = root.join(format!("data/{number}.json"));
         let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
@@ -156,14 +205,14 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
         temporary_bytes: u64::MAX,
         elapsed: Duration::from_secs(60),
     };
-    let (first, work) = compact_published_with_budget(
-        &old.0, old.revision().next().unwrap(), || false, budget,
-    ).unwrap();
+    let (first, work) =
+        compact_published_with_budget(&old.0, old.revision().next().unwrap(), || false, budget)
+            .unwrap();
     assert_eq!(work.records, 2);
     assert_eq!(slot_count(&first), 5);
-    let (second, work) = compact_published_with_budget(
-        &first, first.revision.next().unwrap(), || false, budget,
-    ).unwrap();
+    let (second, work) =
+        compact_published_with_budget(&first, first.revision.next().unwrap(), || false, budget)
+            .unwrap();
     assert_eq!(work.records, 2);
     assert_eq!(slot_count(&second), 4);
     assert_eq!(old.search(&all()).unwrap().count, Some(4));
@@ -261,9 +310,17 @@ fn bounded_merge_never_reactivates_retired_slots() {
     assert_eq!(second.index.record_count(), 1);
 
     let first_two = ActiveRecords::from_bitmap(8, [0, 1].into_iter().collect()).unwrap();
-    let two = first.index.compact_active(&first_two, 8, |_| true).unwrap().index;
+    let two = first
+        .index
+        .compact_active(&first_two, 8, |_| true)
+        .unwrap()
+        .index;
     let first_six = ActiveRecords::from_bitmap(8, (0..6).collect()).unwrap();
-    let six = first.index.compact_active(&first_six, 8, |_| true).unwrap().index;
+    let six = first
+        .index
+        .compact_active(&first_six, 8, |_| true)
+        .unwrap()
+        .index;
 
     let mut a = two;
     a.id = crate::native_segment::SegmentId::new(100);
@@ -283,12 +340,7 @@ fn bounded_merge_never_reactivates_retired_slots() {
     .unwrap();
     let mut c = (*second.index).clone();
     c.id = crate::native_segment::SegmentId::new(102);
-    let c = PublishedSegment::checked(
-        c.id,
-        Arc::new(c),
-        ActiveRecords::all(1).unwrap(),
-    )
-    .unwrap();
+    let c = PublishedSegment::checked(c.id, Arc::new(c), ActiveRecords::all(1).unwrap()).unwrap();
     original.segments[0] = Arc::new(vec![Arc::new(a), Arc::new(b), Arc::new(c)]);
     let budget = CompactionBudget {
         records: 4,
@@ -304,20 +356,16 @@ fn bounded_merge_never_reactivates_retired_slots() {
     )
     .unwrap();
     assert_eq!(work.records, 2);
-    merge_small_segments(
-        &mut compacted,
-        &mut work,
-        budget,
-        Instant::now(),
-        || false,
-    )
-    .unwrap();
+    merge_small_segments(&mut compacted, &mut work, budget, Instant::now(), || false).unwrap();
     let retired_b = compacted.segments[0]
         .iter()
         .find(|segment| segment.index.file_count() == 8 && segment.index.record_count() == 6)
         .expect("dirty B segment must be retained");
     assert_eq!(retired_b.active.len(), 1);
-    assert_ne!(retired_b.active.len(), retired_b.index.record_count() as u64);
+    assert_ne!(
+        retired_b.active.len(),
+        retired_b.index.record_count() as u64
+    );
     let expected_revision = original.revision;
     index
         .publish_prepared(expected_revision, compacted)
@@ -513,11 +561,13 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     let current = index.view().unwrap();
     // The new mutation policy intentionally rebuilds the live-lightest
     // destination rather than invoking the old multi-pass coalescing path.
-    assert!(!current
-        .segments(CollectionId(0))
-        .unwrap()
-        .iter()
-        .any(|segment| Arc::ptr_eq(segment, &dense)));
+    assert!(
+        !current
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .any(|segment| Arc::ptr_eq(segment, &dense))
+    );
     assert_eq!(slot_count(&current.0), 72);
     assert_eq!(current.search(&all()).unwrap().count, Some(72));
     assert_eq!(current.search(&literal("new-69")).unwrap().count, Some(1));

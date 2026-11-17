@@ -147,38 +147,65 @@ pub(crate) struct GlobalInferenceSummary {
 pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub(crate) source: PreparedSource,
-    pub generation: CollectionGeneration,
+    pub generation: Arc<CollectionGeneration>,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
     pub(crate) global_inference: Option<GlobalInferenceSummary>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: Arc<BigramIndex>,
     pub fallback_text: Arc<BigramIndex>,
-    pub logical_records: RoaringBitmap,
-    pub empty_array_records: RoaringBitmap,
+    pub logical_records: Arc<RoaringBitmap>,
+    pub empty_array_records: Arc<RoaringBitmap>,
     pub custom_text: Arc<HashMap<(Vec<String>, String), BigramIndex>>,
     pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
     pub sorting: Arc<SortCollection>,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
-    pub id_lookup: HashMap<RecordId, RecordSlot>,
+    pub id_lookup: Arc<HashMap<RecordId, RecordSlot>>,
     pub identity_order: Arc<Vec<RecordSlot>>,
     pub stats: CollectionStats,
     pub relations: Arc<Vec<RelationIndex>>,
 }
 
 impl CollectionState {
-    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
-        self.postings.archive_storage()?;
-        for custom in self.custom_postings.values_mut() {
-            custom.index.archive_storage()?;
-        }
-        if let Some(inference) = &mut self.inference {
-            for index in inference.indexes.values_mut() {
-                index.archive_storage()?;
-            }
-        }
-        Ok(())
+    fn archived_candidate(&self) -> Result<Self, String> {
+        Ok(Self {
+            definition: self.definition.clone(),
+            source: self.source.clone(),
+            generation: Arc::clone(&self.generation),
+            postings: self.postings.archived()?,
+            inference: self
+                .inference
+                .as_ref()
+                .map(InferenceState::archived)
+                .transpose()?,
+            global_inference: self.global_inference.clone(),
+            custom_postings: self
+                .custom_postings
+                .iter()
+                .map(|(key, custom)| {
+                    Ok((
+                        key.clone(),
+                        CustomPostingIndex {
+                            index: custom.index.archived()?,
+                            complete: custom.complete,
+                        },
+                    ))
+                })
+                .collect::<Result<HashMap<_, _>, String>>()?,
+            raw: Arc::clone(&self.raw),
+            fallback_text: Arc::clone(&self.fallback_text),
+            logical_records: Arc::clone(&self.logical_records),
+            empty_array_records: Arc::clone(&self.empty_array_records),
+            custom_text: Arc::clone(&self.custom_text),
+            text_bindings: self.text_bindings.clone(),
+            sorting: Arc::clone(&self.sorting),
+            index_family_bytes: self.index_family_bytes,
+            id_lookup: Arc::clone(&self.id_lookup),
+            identity_order: Arc::clone(&self.identity_order),
+            stats: self.stats,
+            relations: Arc::clone(&self.relations),
+        })
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
@@ -363,8 +390,8 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: Arc<rayon::ThreadPool>,
-    pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
-    pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+    pub(crate) verified: Arc<Mutex<crate::verified::VerifiedCache>>,
+    pub(crate) inferred_orders: Arc<Mutex<crate::sorting::InferredOrderCache>>,
 }
 
 impl Repository {
@@ -372,7 +399,11 @@ impl Repository {
         Ok(Self {
             files: Arc::clone(&self.files),
             base_fingerprints: Arc::clone(&self.base_fingerprints),
-            collections: self.collections.clone(),
+            collections: self
+                .collections
+                .iter()
+                .map(CollectionState::archived_candidate)
+                .collect::<Result<Vec<_>, _>>()?,
             active: self.active.clone(),
             segments: self.segments.clone(),
             catalog: self.catalog.clone(),
@@ -385,19 +416,8 @@ impl Repository {
             options: self.options,
             startup: self.startup.clone(),
             workers: Arc::clone(&self.workers),
-            verified: Mutex::new({
-                let guard = self
-                    .verified
-                    .lock()
-                    .map_err(|_| "verified cache lock poisoned")?;
-                (*guard).clone()
-            }),
-            inferred_orders: Mutex::new(
-                self.inferred_orders
-                    .lock()
-                    .map_err(|_| "inferred order cache lock poisoned")?
-                    .clone(),
-            ),
+            verified: Arc::clone(&self.verified),
+            inferred_orders: Arc::clone(&self.inferred_orders),
         })
     }
 
@@ -425,12 +445,6 @@ impl Repository {
         counts
     }
 
-    pub(crate) fn archive_collection_storage(&mut self) -> Result<(), String> {
-        for collection in &mut self.collections {
-            collection.archive_storage()?;
-        }
-        Ok(())
-    }
 }
 
 fn hash_field(hash: &mut Sha256, value: &[u8]) {
@@ -1369,7 +1383,7 @@ impl Repository {
             }
             for relation in collection.relations.iter() {
                 hash_field(&mut hash, relation.declaration.path.join(".").as_bytes());
-                for record in records {
+                for record in records.iter() {
                     if let Some(edges) = relation.edges(record.slot) {
                         for edge in edges {
                             hash_field(&mut hash, record.id.0.as_bytes());
@@ -2025,20 +2039,20 @@ impl Repository {
             collections.push(CollectionState {
                 definition,
                 source,
-                generation,
+                generation: Arc::new(generation),
                 postings,
                 inference,
                 global_inference: None,
                 custom_postings,
                 raw: Arc::new(raw),
                 fallback_text: Arc::new(fallback_text),
-                logical_records: RoaringBitmap::new(),
-                empty_array_records: RoaringBitmap::new(),
+                logical_records: Arc::new(RoaringBitmap::new()),
+                empty_array_records: Arc::new(RoaringBitmap::new()),
                 custom_text: Arc::new(custom_text),
                 text_bindings,
                 sorting: Arc::new(sorting),
                 index_family_bytes: 0,
-                id_lookup: HashMap::new(),
+                id_lookup: Arc::new(HashMap::new()),
                 identity_order: Arc::new(Vec::new()),
                 stats: CollectionStats {
                     file_count: 0,
@@ -2108,10 +2122,12 @@ impl Repository {
                 ..StartupStats::default()
             },
             workers: Arc::new(workers),
-            verified: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
-            inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+            verified: Arc::new(Mutex::new(crate::verified::VerifiedCache::new(
+                verified_cache_bytes,
+            ))),
+            inferred_orders: Arc::new(Mutex::new(crate::sorting::InferredOrderCache::new(
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
-            )),
+            ))),
         })
     }
 
@@ -2650,20 +2666,20 @@ impl Repository {
             collections.push(CollectionState {
                 definition,
                 source,
-                generation,
+                generation: Arc::new(generation),
                 postings,
                 inference,
                 global_inference: None,
                 custom_postings,
                 raw: Arc::new(raw),
                 fallback_text: Arc::new(fallback_text),
-                logical_records,
-                empty_array_records,
+                logical_records: Arc::new(logical_records),
+                empty_array_records: Arc::new(empty_array_records),
                 custom_text: Arc::new(custom_text),
                 text_bindings,
                 sorting: Arc::new(sorting),
                 index_family_bytes,
-                id_lookup,
+                id_lookup: Arc::new(id_lookup),
                 identity_order: Arc::new(identity_order),
                 stats,
                 relations: Arc::new(Vec::new()),
@@ -2785,12 +2801,12 @@ impl Repository {
                 ..StartupStats::default()
             },
             workers: Arc::new(workers),
-            verified: Mutex::new(crate::verified::VerifiedCache::new(
+            verified: Arc::new(Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
-            )),
-            inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+            ))),
+            inferred_orders: Arc::new(Mutex::new(crate::sorting::InferredOrderCache::new(
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
-            )),
+            ))),
         })
     }
 
@@ -2897,7 +2913,7 @@ impl Repository {
         let mut files_read = HashSet::new();
         let relation_active = active.map(|domains| Arc::new(domains.to_vec()));
         for (collection, filter, fts) in bound {
-            for record in &collection.generation.records {
+            for record in collection.generation.records.iter() {
                 if active.is_some_and(|domains| {
                     !domains[collection.generation.collection.0 as usize].contains(record.slot)
                 }) {

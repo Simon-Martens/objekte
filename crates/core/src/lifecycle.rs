@@ -948,7 +948,8 @@ impl PublishedIndex {
                     let segments = self.segments[number]
                         .iter()
                         .map(|segment| {
-                            (&segment.active.bitmap() - &segment.index.logical_records).len()
+                            (&segment.active.bitmap() - segment.index.logical_records.as_ref())
+                                .len()
                         })
                         .sum::<u64>();
                     base + segments

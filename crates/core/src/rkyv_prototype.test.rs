@@ -1618,6 +1618,156 @@ fn rkyv_shared_archive_owner_is_counted_once_across_wrappers() {
 }
 
 #[test]
+fn archive_shares_immutable_owners_and_preserves_populated_caches() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-shared-candidate-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, year) in [("a", 1), ("b", 2)] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            serde_json::json!({"id": name, "year": year, "title": "shared cache"}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut options = prototype_options();
+    options.verified_cache_bytes = 1024 * 1024;
+    let mut repository =
+        Repository::open_with_options(&root, vec![prototype_definition()], options).unwrap();
+    let mut request = query(None, Some("year >= 1"), 10, 0);
+    request.options.sort.clear();
+    assert!(
+        !repository
+            .search(&request)
+            .unwrap()
+            .counters
+            .verified_result_hit
+    );
+    assert!(
+        repository
+            .search(&request)
+            .unwrap()
+            .counters
+            .verified_result_hit
+    );
+
+    let verified = Arc::clone(&repository.verified);
+    let inferred_orders = Arc::clone(&repository.inferred_orders);
+    let file_table = Arc::clone(&repository.files.files);
+    let generation = Arc::clone(&repository.collections[0].generation);
+    let logical_records = Arc::clone(&repository.collections[0].logical_records);
+    let empty_array_records = Arc::clone(&repository.collections[0].empty_array_records);
+    let id_lookup = Arc::clone(&repository.collections[0].id_lookup);
+    let raw = Arc::clone(&repository.collections[0].raw);
+    let sorting = Arc::clone(&repository.collections[0].sorting);
+
+    repository.archive().unwrap();
+    assert!(Arc::ptr_eq(&verified, &repository.verified));
+    assert!(Arc::ptr_eq(&inferred_orders, &repository.inferred_orders));
+    assert!(Arc::ptr_eq(&file_table, &repository.files.files));
+    assert!(Arc::ptr_eq(
+        &generation,
+        &repository.collections[0].generation
+    ));
+    assert!(Arc::ptr_eq(
+        &logical_records,
+        &repository.collections[0].logical_records
+    ));
+    assert!(Arc::ptr_eq(
+        &empty_array_records,
+        &repository.collections[0].empty_array_records
+    ));
+    assert!(Arc::ptr_eq(
+        &id_lookup,
+        &repository.collections[0].id_lookup
+    ));
+    assert!(Arc::ptr_eq(&raw, &repository.collections[0].raw));
+    assert!(Arc::ptr_eq(&sorting, &repository.collections[0].sorting));
+    assert!(repository.files.native_lookup_maps_released());
+    assert!(repository.files.path_directory_archived());
+    assert!(
+        repository
+            .search(&request)
+            .unwrap()
+            .counters
+            .verified_result_hit
+    );
+
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn archive_shares_segment_controls_until_the_pinned_view_is_dropped() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-shared-segment-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":1,"title":"pinned archive"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let pinned = index.view().unwrap();
+    let old_segment = Arc::clone(
+        pinned
+            .segments(crate::model::CollectionId(0))
+            .unwrap()
+            .first()
+            .unwrap(),
+    );
+    let old_segment_weak = Arc::downgrade(&old_segment);
+    let logical = Arc::clone(&old_segment.index.logical_records);
+    let empty = Arc::clone(&old_segment.index.empty_array_records);
+    let identity_order = Arc::clone(&old_segment.index.identity_order);
+    let raw = Arc::clone(&old_segment.index.raw);
+    let sorting = Arc::clone(&old_segment.index.sorting);
+    drop(old_segment);
+
+    index.archive().unwrap();
+    assert!(old_segment_weak.upgrade().is_some());
+    let archived = index.view().unwrap();
+    let archived_segment = archived
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .first()
+        .unwrap();
+    assert!(Arc::ptr_eq(
+        &logical,
+        &archived_segment.index.logical_records
+    ));
+    assert!(Arc::ptr_eq(
+        &empty,
+        &archived_segment.index.empty_array_records
+    ));
+    assert!(Arc::ptr_eq(
+        &identity_order,
+        &archived_segment.index.identity_order
+    ));
+    assert!(Arc::ptr_eq(&raw, &archived_segment.index.raw));
+    assert!(Arc::ptr_eq(&sorting, &archived_segment.index.sorting));
+
+    drop(archived);
+    drop(pinned);
+    assert!(
+        old_segment_weak.upgrade().is_none(),
+        "archive retained the replaced native segment wrapper"
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rkyv_repository_and_adopted_index_archive_accounting_match() {
     let root = std::env::temp_dir().join(format!(
         "objekte-rkyv-accounting-adopt-{}-{}",

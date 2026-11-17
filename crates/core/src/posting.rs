@@ -2890,11 +2890,35 @@ impl PostingIndex {
     }
 
     pub(crate) fn archived(&self) -> Result<Self, String> {
-        let mut archived = self.clone();
-        archived.archive_storage()?;
-        Ok(archived)
+        let structural = self
+            .structural
+            .as_ref()
+            .map(|facts| {
+                Ok::<_, String>(StructuralFacts {
+                    postings: facts.postings.archived()?,
+                })
+            })
+            .transpose()?;
+        Ok(Self {
+            path: self.path.clone(),
+            kind: self.kind.clone(),
+            multi: self.multi,
+            presence: self.presence.clone(),
+            empty_selections: self.empty_selections.clone(),
+            nulls: self.nulls.clone(),
+            structural,
+            values: self.values.archived()?,
+            lengths: self.lengths.archived()?,
+            values_indexed: self.values_indexed,
+            value_complete: self.value_complete,
+            length_complete: self.length_complete,
+            empty_string_complete: self.empty_string_complete,
+            covered_records: self.covered_records,
+            stats: self.stats.clone(),
+        })
     }
 
+    #[cfg(test)]
     pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
         let values = self.values.archived()?;
         let lengths = self.lengths.archived()?;
@@ -3607,6 +3631,7 @@ impl PostingCollection {
             })
     }
 
+    #[cfg(test)]
     pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
         self.fields
             .values_mut()

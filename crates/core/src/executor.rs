@@ -68,8 +68,8 @@ pub(crate) fn segment_filter_bounds_with_catalog(
         return Err("segment active domain length mismatch".into());
     }
     let domain = active.bitmap();
-    let logical_active = &domain & &segment.logical_records;
-    let fallback_active = &domain - &segment.logical_records;
+    let logical_active = &domain & segment.logical_records.as_ref();
+    let fallback_active = &domain - segment.logical_records.as_ref();
     segment_expr_bounds(
         segment,
         expr,
@@ -973,7 +973,7 @@ fn segment_expr_bounds(
                 }
                 if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
                     if empty_selection_preservation(term) {
-                        grams |= &segment.empty_array_records;
+                        grams |= segment.empty_array_records.as_ref();
                     }
                     SegmentCandidateBounds {
                         may: (&grams & domain) | fallback_active,
@@ -1439,7 +1439,7 @@ fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Opti
     if empty_selection_preservation(term) {
         // The universal comparison may be true on a present empty array with
         // no string witness. This bitmap is deliberately collection-wide.
-        grams |= &collection.empty_array_records;
+        grams |= collection.empty_array_records.as_ref();
     }
     Some(grams)
 }
@@ -1527,7 +1527,7 @@ fn term_set(
                 | MetadataField::FileModified
         );
         if file_level {
-            for file_id in &collection.generation.files {
+            for file_id in collection.generation.files.iter() {
                 let Some(slots) = collection.generation.file_records.records_for(*file_id) else {
                     continue;
                 };
@@ -1570,7 +1570,7 @@ fn term_set(
             }
             return Ok(Some(result));
         }
-        for record in &collection.generation.records {
+        for record in collection.generation.records.iter() {
             let file = &repo.files.files[record.file.0 as usize];
             let ctx = RecordContext {
                 value: &empty,
@@ -2328,9 +2328,9 @@ fn plan_expr_restricted_inner(
         }
         return Ok(plan);
     }
-    let logical_domain = domain & &collection.logical_records;
+    let logical_domain = domain & collection.logical_records.as_ref();
     let logical_input = input & &logical_domain;
-    let fallback_input = input - &collection.logical_records;
+    let fallback_input = input - collection.logical_records.as_ref();
     let mut logical = if logical_input.is_empty() {
         Plan {
             candidates: Some(RoaringBitmap::new()),

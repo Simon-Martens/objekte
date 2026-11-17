@@ -336,30 +336,35 @@ fn archive_segment(
     }
     let result = (|| {
         let _ = take_construction_timing();
-        let mut index = (*published.index).clone();
-        let mut archive_storage = || -> Result<(), String> {
-            index.archive_storage().map_err(|error| {
+        let archive_storage = || -> Result<_, String> {
+            published.index.archived_candidate().map_err(|error| {
                 format!(
                     "segment {} in collection {}: {error}",
                     published.id, published.index.collection.0
                 )
-            })?;
+            })
+        };
+        let index;
+        #[cfg(test)]
+        if let Some(control) = fault_control.clone() {
+            index = with_test_fault_control(control, archive_storage)?;
+        } else {
+            index = archive_storage()?;
+        }
+        #[cfg(not(test))]
+        {
+            index = archive_storage()?;
+        }
+        #[cfg(test)]
+        {
+            let _ = &index;
             #[cfg(test)]
             if crate::archive_storage::injected_test_failure(
                 crate::archive_storage::ArchiveFailureStage::SemanticValidation,
             ) {
                 return Err("injected archive semantic-validation failure".into());
             }
-            Ok(())
-        };
-        #[cfg(test)]
-        if let Some(control) = fault_control.clone() {
-            with_test_fault_control(control, archive_storage)?;
-        } else {
-            archive_storage()?;
         }
-        #[cfg(not(test))]
-        archive_storage()?;
         let timing = take_construction_timing();
         serializer_ns.fetch_add(timing.serializer_ns, Ordering::AcqRel);
         validation_ns.fetch_add(timing.validation_ns, Ordering::AcqRel);
@@ -541,9 +546,6 @@ impl Index {
             .catalog
             .has_same_storage_owners(&source.catalog);
         let _ = take_construction_timing();
-        repository.archive_collection_storage().map_err(|error| {
-            IndexError::InvalidPublication(format!("base collection storage: {error}"))
-        })?;
         repository.catalog.archive_storage().map_err(|error| {
             IndexError::InvalidPublication(format!("base catalog storage: {error}"))
         })?;
@@ -750,9 +752,6 @@ impl Repository {
         let mut candidate = self
             .archive_candidate()
             .map_err(IndexError::InvalidPublication)?;
-        candidate.archive_collection_storage().map_err(|error| {
-            IndexError::InvalidPublication(format!("repository collection storage: {error}"))
-        })?;
         candidate.catalog.archive_storage().map_err(|error| {
             IndexError::InvalidPublication(format!("repository catalog storage: {error}"))
         })?;

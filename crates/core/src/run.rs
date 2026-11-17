@@ -3342,7 +3342,7 @@ fn has_unavailable_active_source(
         probe_source_unavailable_for_search(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
-        for file_id in &collection.generation.files {
+        for file_id in collection.generation.files.iter() {
             if let Some(slots) = collection.generation.file_records.records_for(*file_id)
                 && slots.iter().any(|slot| base_active[index].contains(*slot))
                 && let Some(file) = catalog.entry(*file_id)
@@ -4118,10 +4118,10 @@ fn try_exact_segment_ordered_page(
             Some(bounds) if bounds.may == bounds.must => bounds.may.clone(),
             Some(bounds)
                 if filter.as_ref().is_some_and(excludes_raw_fallback)
-                    && (&bounds.may & &published.index.logical_records)
-                        == (&bounds.must & &published.index.logical_records) =>
+                    && (&bounds.may & published.index.logical_records.as_ref())
+                        == (&bounds.must & published.index.logical_records.as_ref()) =>
             {
-                &bounds.must & &published.index.logical_records
+                &bounds.must & published.index.logical_records.as_ref()
             }
             Some(_) => return Ok(None),
             None => published.active.bitmap().clone(),
@@ -4227,7 +4227,7 @@ fn exact_or_branch_members(
         for published in segments[collection_index].iter() {
             let bounds =
                 segment_filter_bounds(&published.index, &published.active, part, collection)?;
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = &published.active.bitmap() & published.index.logical_records.as_ref();
             if bounds.may != bounds.must
                 && !(excludes_raw_fallback(part)
                     && (&bounds.may & &logical) == (&bounds.must & &logical))
@@ -4305,7 +4305,7 @@ fn try_lifecycle_ordered_page(
                 &repo.collections[*collection_index],
                 Some(catalog),
             )?;
-            let logical = &segment.active.bitmap() & &segment.index.logical_records;
+            let logical = &segment.active.bitmap() & segment.index.logical_records.as_ref();
             let exact = bounds.may == bounds.must
                 || (excludes_raw_fallback(filter)
                     && (&bounds.may & &logical) == (&bounds.must & &logical));
@@ -4688,7 +4688,7 @@ fn search_segmented_impl(
                 .as_ref()
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
             if filter.as_ref().is_some_and(excludes_raw_fallback) {
-                candidates &= &segment.logical_records;
+                candidates &= segment.logical_records.as_ref();
             }
             if let Some(fts_may) = fts
                 .as_ref()
@@ -4851,8 +4851,8 @@ fn search_segmented_impl(
                 && bounds.as_ref().is_none_or(|bounds| {
                     bounds.may == bounds.must
                         || (filter.as_ref().is_some_and(excludes_raw_fallback)
-                            && (&bounds.may & &segment.logical_records)
-                                == (&bounds.must & &segment.logical_records))
+                            && (&bounds.may & segment.logical_records.as_ref())
+                                == (&bounds.must & segment.logical_records.as_ref()))
                 });
             if index_exact {
                 let exact_fields = |slot: u32| {
@@ -5857,7 +5857,7 @@ fn relation_source_candidates(
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
-        &published.active.bitmap() - &published.index.logical_records
+        &published.active.bitmap() - published.index.logical_records.as_ref()
     };
     for id in &plan.target_ids {
         if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone())) {
@@ -6082,7 +6082,7 @@ fn try_direct_relation_page(
             )?;
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = &published.active.bitmap() & published.index.logical_records.as_ref();
             let may = &bounds.may & &logical;
             let must = &bounds.must & &logical;
             if may != must {
@@ -6347,7 +6347,7 @@ fn try_direct_relation_page(
         counters.relation_reverse_postings_visited += lists;
         counters.relation_reverse_members_visited += members;
         may &= published.active.bitmap();
-        may &= &published.index.logical_records;
+        may &= published.index.logical_records.as_ref();
         if local_filter.is_some() {
             may &= &local_proofs[segment_index];
         }
@@ -6557,7 +6557,7 @@ fn try_semijoin_relation_page(
                 collection,
                 Some(catalog),
             )?;
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = &published.active.bitmap() & published.index.logical_records.as_ref();
             if (&bounds.may & &logical) != (&bounds.must & &logical) {
                 return Ok(None);
             }
@@ -6565,7 +6565,7 @@ fn try_semijoin_relation_page(
         } else {
             published.active.bitmap().clone()
         };
-        let may = &may & &published.index.logical_records;
+        let may = &may & published.index.logical_records.as_ref();
         input.insert_local(source_collection, published.id, may);
         if query.options.evidence
             && filter.is_some()
@@ -7561,7 +7561,7 @@ fn search_segmented_relations(
             Ok(())
         };
         let collection = &repo.collections[collection_index];
-        for file_id in &collection.generation.files {
+        for file_id in collection.generation.files.iter() {
             if let Some(context) = context {
                 context.check_string()?;
             }
@@ -8012,7 +8012,7 @@ pub(crate) fn explain_segmented(
                 let bounds =
                     segment_filter_bounds(&published.index, &published.active, filter, collection)?;
                 delta_filter_exact &= bounds.may == bounds.must;
-                let logical = &published.active.bitmap() & &published.index.logical_records;
+                let logical = &published.active.bitmap() & published.index.logical_records.as_ref();
                 delta_logical_exact &= (&bounds.may & &logical) == (&bounds.must & &logical);
                 candidates &= &bounds.may;
             }
@@ -8267,7 +8267,8 @@ pub(crate) fn explain_segmented(
                     output =
                         output.saturating_add((&bounds.may & &published.active.bitmap()).len());
                     structural = structural.saturating_add(
-                        (&published.index.empty_array_records & &published.active.bitmap()).len(),
+                        (published.index.empty_array_records.as_ref() & &published.active.bitmap())
+                            .len(),
                     );
                 }
                 if let Some(choice) = trace
@@ -8512,7 +8513,7 @@ fn relation_source_input_estimate(
             )?;
             may &= bounds.may;
         }
-        estimate = estimate.saturating_add((&may & &published.index.logical_records).len());
+        estimate = estimate.saturating_add((&may & published.index.logical_records.as_ref()).len());
     }
     Ok(estimate)
 }
@@ -8539,7 +8540,8 @@ fn segment_filter_input_estimate(
             collection,
             Some(&repo.catalog),
         )?;
-        estimate = estimate.saturating_add((&bounds.may & &published.index.logical_records).len());
+        estimate =
+            estimate.saturating_add((&bounds.may & published.index.logical_records.as_ref()).len());
     }
     Ok(estimate)
 }
@@ -8870,7 +8872,7 @@ fn try_lifecycle_ordered_stream(
                         collection,
                         Some(catalog),
                     )?;
-                    let logical = &segment.active.bitmap() & &segment.index.logical_records;
+                    let logical = &segment.active.bitmap() & segment.index.logical_records.as_ref();
                     filter_exact[collection_index][segment_index] = bounds.may == bounds.must
                         || (excludes_raw_fallback(filter)
                             && (&bounds.may & &logical) == (&bounds.must & &logical));
@@ -10824,7 +10826,7 @@ fn posting_order_eligible(
             continue;
         }
         saw_segment = true;
-        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+        let logical = &segment.active.bitmap() & segment.index.logical_records.as_ref();
         let Ok(bounds) = segment_filter_bounds_with_catalog(
             &segment.index,
             &segment.active,
@@ -11061,7 +11063,7 @@ fn try_inferred_segment_order_page(
                 collection,
                 Some(catalog),
             )?;
-            let logical = &segment.active.bitmap() & &segment.index.logical_records;
+            let logical = &segment.active.bitmap() & segment.index.logical_records.as_ref();
             if (&bounds.may & &logical) != (&bounds.must & &logical) {
                 return Ok(None);
             }
@@ -13072,7 +13074,8 @@ fn search_impl_with_collector<'a>(
         {
             // Fallback truth established from inventory metadata needs no
             // source verification, even when logical candidates still do.
-            let fallback_proven = &(&candidates & &plan.proven_hits) - &collection.logical_records;
+            let fallback_proven =
+                &(&candidates & &plan.proven_hits) - collection.logical_records.as_ref();
             for slot in fallback_proven.iter() {
                 let record = &collection.generation.records[slot as usize];
                 let evidence = filter

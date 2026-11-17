@@ -2674,8 +2674,8 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     let index = crate::index_catalog::IndexCatalog::segment(&segment.index, collection)
         .sortable_scalar(&["label".into()])
         .unwrap();
-    let mut generation = collection.generation.clone();
-    generation.records = segment.index.records.to_vec();
+    let mut generation = (*collection.generation).clone();
+    generation.records = Arc::new(segment.index.records.to_vec());
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),

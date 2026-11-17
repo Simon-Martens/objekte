@@ -2,6 +2,7 @@ use super::*;
 use crate::reference::FieldDefinition;
 use crate::repository::{IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
+use std::sync::Arc;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool, nullable: bool) {
     schema
@@ -577,7 +578,8 @@ fn publication_validation_still_rejects_broken_relation_state() {
     );
 
     let target_slot = target.id_lookup["A"].0 as usize;
-    repo.collections[0].generation.records[target_slot].slot = RecordSlot(u32::MAX);
+    Arc::make_mut(&mut Arc::make_mut(&mut repo.collections[0].generation).records)[target_slot]
+        .slot = RecordSlot(u32::MAX);
     assert!(
         original
             .validate(&repo.collections[2], &repo.collections[0])

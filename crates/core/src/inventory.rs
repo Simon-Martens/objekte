@@ -995,11 +995,13 @@ impl FileInventory {
         &self,
         paths: crate::lifecycle_catalog::PathDirectory,
     ) -> Self {
-        let mut inventory = self.clone();
-        inventory.published_paths = Some(paths);
-        inventory.by_path = HashMap::new();
-        inventory.relative_paths = BTreeMap::new();
-        inventory
+        Self {
+            root: self.root.clone(),
+            files: Arc::clone(&self.files),
+            by_path: HashMap::new(),
+            relative_paths: BTreeMap::new(),
+            published_paths: Some(paths),
+        }
     }
 
     #[cfg(test)]
@@ -1089,15 +1091,15 @@ pub struct CollectionGeneration {
     pub collection: CollectionId,
     pub name: String,
     pub generation: u64,
-    pub files: Vec<FileId>,
-    pub records: Vec<RecordEntry>,
-    pub file_records: FileRecordIndex,
+    pub files: Arc<Vec<FileId>>,
+    pub records: Arc<Vec<RecordEntry>>,
+    pub file_records: Arc<FileRecordIndex>,
 }
 
 impl CollectionGeneration {
     pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
         let mut included = std::collections::HashSet::new();
-        for file_id in &self.files {
+        for file_id in self.files.iter() {
             if !included.insert(*file_id)
                 || inventory
                     .files
@@ -1299,13 +1301,13 @@ impl CollectionBuilder {
                 collection: self.collection,
                 name: self.name,
                 generation: self.generation,
-                files: self.files,
-                records: self.records,
-                file_records: FileRecordIndex {
+                files: Arc::new(self.files),
+                records: Arc::new(self.records),
+                file_records: Arc::new(FileRecordIndex {
                     file_count,
                     offsets: Vec::new(),
                     slots: Vec::new(),
-                },
+                }),
             };
             result.validate(inventory)?;
             return Ok(result);
@@ -1339,13 +1341,13 @@ impl CollectionBuilder {
             collection: self.collection,
             name: self.name,
             generation: self.generation,
-            files: self.files,
-            records: self.records,
-            file_records: FileRecordIndex {
+            files: Arc::new(self.files),
+            records: Arc::new(self.records),
+            file_records: Arc::new(FileRecordIndex {
                 file_count,
                 offsets,
                 slots,
-            },
+            }),
         };
         result.validate(inventory)?;
         Ok(result)

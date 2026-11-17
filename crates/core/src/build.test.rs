@@ -48,17 +48,19 @@ fn measure_direct_shard_build_from_real_worker_batches() {
     let jobs = file_batches(
         &collection.generation.files,
         repository.files(),
-        crate::native_segment::SegmentPolicy::default().max_files.get(),
+        crate::native_segment::SegmentPolicy::default()
+            .max_files
+            .get(),
     )
-        .into_iter()
-        .map(|files| RepositoryFileJob {
-            collection_index: id.0 as usize,
-            collection: id,
-            definition: Arc::clone(&definition),
-            source: source.clone(),
-            files: files.to_vec(),
-        })
-        .collect::<Vec<_>>();
+    .into_iter()
+    .map(|files| RepositoryFileJob {
+        collection_index: id.0 as usize,
+        collection: id,
+        definition: Arc::clone(&definition),
+        source: source.clone(),
+        files: files.to_vec(),
+    })
+    .collect::<Vec<_>>();
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(repository.startup().build_workers)
         .build()
@@ -1235,8 +1237,14 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
     assert_eq!(reader.active.load(Ordering::SeqCst), 0);
     assert_eq!(repo.collections()[0].generation.records.len(), 1);
     assert_eq!(repo.collections()[1].generation.records.len(), 1);
-    assert_eq!(repo.collections()[0].generation.files, [FileId(0)]);
-    assert_eq!(repo.collections()[1].generation.files, [FileId(1)]);
+    assert_eq!(
+        repo.collections()[0].generation.files.as_slice(),
+        [FileId(0)]
+    );
+    assert_eq!(
+        repo.collections()[1].generation.files.as_slice(),
+        [FileId(1)]
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -2198,7 +2206,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         ] {
             let result = repo.search(&query(filter)).unwrap();
             assert_eq!(result.count, Some(count), "{filter}");
-                assert!(result.counters.files_opened <= result.count.unwrap_or(0) as u64);
+            assert!(result.counters.files_opened <= result.count.unwrap_or(0) as u64);
             assert_eq!(
                 result.hits,
                 repo.search_reference(&query(filter)).unwrap().hits

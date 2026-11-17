@@ -539,10 +539,10 @@ fn verified_targets(
     let collection = &repo.collections[target_index];
     let active_domain = execution
         .and_then(ExecutionContext::active_records)
-        .map(|domains| &collection.logical_records & &domains[target_index].bitmap());
+        .map(|domains| collection.logical_records.as_ref() & &domains[target_index].bitmap());
     let domain = active_domain
         .as_ref()
-        .unwrap_or(&collection.logical_records);
+        .unwrap_or(collection.logical_records.as_ref());
     if restricted.is_none() {
         ensure_slots(domain.len(), execution)?;
     }
@@ -763,7 +763,7 @@ fn qualified_expression_candidates(
         } else {
             &active
         };
-        let domain = &active & &segment.index.logical_records;
+        let domain = &active & segment.index.logical_records.as_ref();
         let input = input & &domain;
         if input.is_empty() {
             continue;
@@ -811,7 +811,7 @@ fn qualified_fts_candidates(
             };
             input &= local;
         }
-        input &= &segment.index.logical_records;
+        input &= segment.index.logical_records.as_ref();
         if input.is_empty() {
             continue;
         }
@@ -1274,7 +1274,7 @@ pub(crate) fn fts_witnesses(
         let restricted = if strategy == Strategy::SourceRestricted {
             Some(reachable_targets(repo, hops, input, &mut work, execution)?)
         } else {
-            let mut domain = target.logical_records.clone();
+            let mut domain = target.logical_records.as_ref().clone();
             if let Some(active) = execution.and_then(ExecutionContext::active_records) {
                 domain &= active[target_index].bitmap();
             }

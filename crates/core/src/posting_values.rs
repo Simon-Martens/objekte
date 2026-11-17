@@ -564,10 +564,10 @@ pub(crate) fn select_exact_segmented(
                     Ok(bounds) if bounds.may == bounds.must => bounds.must,
                     Ok(bounds)
                         if filter_excludes_raw_fallback(filter)
-                            && (&bounds.may & &segment.index.logical_records)
-                                == (&bounds.must & &segment.index.logical_records) =>
+                            && (&bounds.may & segment.index.logical_records.as_ref())
+                                == (&bounds.must & segment.index.logical_records.as_ref()) =>
                     {
-                        &bounds.must & &segment.index.logical_records
+                        &bounds.must & segment.index.logical_records.as_ref()
                     }
                     _ => {
                         exact = false;
@@ -643,9 +643,7 @@ fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
                     crate::query::Operator::Contains | crate::query::Operator::NotContains
                 )
         }
-        crate::reference::BoundExpr::And(parts) => {
-            parts.iter().all(filter_excludes_raw_fallback)
-        }
+        crate::reference::BoundExpr::And(parts) => parts.iter().all(filter_excludes_raw_fallback),
         crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
     }
 }

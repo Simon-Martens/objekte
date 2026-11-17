@@ -249,8 +249,8 @@ pub(crate) struct IndexedCollectionSegment {
     pub raw: Arc<BigramIndex>,
     pub fallback_text: Arc<BigramIndex>,
     pub custom_text: Arc<HashMap<(Vec<String>, String), BigramIndex>>,
-    pub logical_records: RoaringBitmap,
-    pub empty_array_records: RoaringBitmap,
+    pub logical_records: Arc<RoaringBitmap>,
+    pub empty_array_records: Arc<RoaringBitmap>,
     pub sorting: Arc<SortCollection>,
     /// Relation source references retain logical target IDs for merged-view
     /// resolution across segment and collection boundaries.
@@ -409,7 +409,8 @@ impl IndexedCollectionSegment {
         }
         let record_count = self.record_count();
         let logical_count = self.logical_records.len() as usize;
-        let logical_domain = (logical_count != record_count).then_some(&self.logical_records);
+        let logical_domain =
+            (logical_count != record_count).then_some(self.logical_records.as_ref());
         match pool {
             Some(pool) => pool.install(|| {
                 self.postings.fields.par_iter().try_for_each(|(_, index)| {
@@ -496,7 +497,7 @@ impl IndexedCollectionSegment {
                 .is_none_or(|inference| inference.indexes.values().all(PostingIndex::is_archived))
     }
 
-    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+    pub(crate) fn archived_candidate(&self) -> Result<Self, String> {
         if !self.storage_completed || !self.has_published_storage() {
             return Err("segment storage is not semantically completed".into());
         }
@@ -520,29 +521,34 @@ impl IndexedCollectionSegment {
         let inference = self
             .inference
             .as_ref()
-            .map(|inference| {
-                let mut inference = inference.clone();
-                for index in inference.indexes.values_mut() {
-                    *index = index.archived()?;
-                }
-                Ok::<_, String>(inference)
-            })
+            .map(InferenceState::archived)
             .transpose()?;
-        crate::segment_archive::validate_segment_components(
-            &files,
-            &records,
-            &file_index,
-            &id_lookup,
-            self.collection,
-        )?;
-        self.files = files;
-        self.records = records;
-        self.file_index = file_index;
-        self.id_lookup = id_lookup;
-        self.postings = postings;
-        self.custom_postings = custom_postings;
-        self.inference = inference;
-        Ok(())
+        Ok(Self {
+            id: self.id,
+            collection: self.collection,
+            source_id: self.source_id.clone(),
+            source_version: self.source_version,
+            files,
+            file_index,
+            records,
+            id_lookup,
+            identity_order: Arc::clone(&self.identity_order),
+            postings,
+            inference_observation: self.inference_observation.clone(),
+            inference,
+            custom_postings,
+            raw: Arc::clone(&self.raw),
+            fallback_text: Arc::clone(&self.fallback_text),
+            custom_text: Arc::clone(&self.custom_text),
+            logical_records: Arc::clone(&self.logical_records),
+            empty_array_records: Arc::clone(&self.empty_array_records),
+            sorting: Arc::clone(&self.sorting),
+            relations: Arc::clone(&self.relations),
+            record_parses: self.record_parses,
+            failed_parses: self.failed_parses,
+            accounting: self.accounting.clone(),
+            storage_completed: self.storage_completed,
+        })
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {

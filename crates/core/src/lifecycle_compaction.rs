@@ -176,7 +176,7 @@ pub(crate) fn base_as_segment(
 ) -> Result<IndexedCollectionSegment, IndexError> {
     let mut segment_files = Vec::new();
     let mut file_index = HashMap::new();
-    for id in &collection.generation.files {
+    for id in collection.generation.files.iter() {
         let entry = files
             .files
             .get(id.0 as usize)
@@ -204,14 +204,15 @@ pub(crate) fn base_as_segment(
         .collect::<Result<Vec<_>, _>>()?;
     let (segment_files, records) = crate::segment_archive::SegmentRows::native(
         segment_files,
-        collection.generation.records.clone(),
+        collection.generation.records.as_ref().clone(),
     )
     .map_err(IndexError::InvalidPublication)?
     .views();
     let file_index = crate::segment_archive::FileLookup::native(file_index)
         .map_err(IndexError::InvalidPublication)?;
-    let id_lookup = crate::segment_archive::RecordLookup::native(collection.id_lookup.clone())
-        .map_err(IndexError::InvalidPublication)?;
+    let id_lookup =
+        crate::segment_archive::RecordLookup::native(collection.id_lookup.as_ref().clone())
+            .map_err(IndexError::InvalidPublication)?;
     let mut segment = IndexedCollectionSegment {
         id: crate::native_segment::SegmentId::new(1),
         collection: collection.generation.collection,
@@ -229,8 +230,8 @@ pub(crate) fn base_as_segment(
         raw: Arc::clone(&collection.raw),
         fallback_text: Arc::clone(&collection.fallback_text),
         custom_text: Arc::clone(&collection.custom_text),
-        logical_records: collection.logical_records.clone(),
-        empty_array_records: collection.empty_array_records.clone(),
+        logical_records: Arc::clone(&collection.logical_records),
+        empty_array_records: Arc::clone(&collection.empty_array_records),
         sorting: Arc::clone(&collection.sorting),
         relations: Arc::new(relations),
         record_parses: 0,

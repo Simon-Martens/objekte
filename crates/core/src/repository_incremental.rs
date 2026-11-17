@@ -1119,13 +1119,13 @@ fn segment_metadata_generation(
         {
             global.merge_shifted(local, base, segment_count)?;
         }
-        for slot in &segment.index.logical_records {
+        for slot in segment.index.logical_records.iter() {
             logical_records.insert(
                 base.checked_add(slot)
                     .ok_or("logical record slot overflow")?,
             );
         }
-        for slot in &segment.index.empty_array_records {
+        for slot in segment.index.empty_array_records.iter() {
             empty_array_records.insert(
                 base.checked_add(slot)
                     .ok_or("empty-array record slot overflow")?,
@@ -1523,14 +1523,16 @@ impl Repository {
         repository.files = Arc::clone(&discovered);
         repository.base_fingerprints = Arc::new(vec![None; discovered.files.len()]);
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
-            collection.generation = CollectionBuilder::new(
-                state.id,
-                state.definition.name.clone(),
-                1,
-                discovered.files.len(),
-            )
-            .finish(&discovered)
-            .map_err(IndexError::Build)?;
+            collection.generation = Arc::new(
+                CollectionBuilder::new(
+                    state.id,
+                    state.definition.name.clone(),
+                    1,
+                    discovered.files.len(),
+                )
+                .finish(&discovered)
+                .map_err(IndexError::Build)?,
+            );
             collection.stats.file_count = state.member_files.len();
             collection.stats.total_file_bytes = state
                 .member_files
@@ -1979,12 +1981,12 @@ impl Repository {
                 &mut relations,
             )
             .map_err(IndexError::Build)?;
-            collection.generation = metadata.generation;
-            collection.id_lookup = metadata.id_lookup;
+            collection.generation = Arc::new(metadata.generation);
+            collection.id_lookup = Arc::new(metadata.id_lookup);
             collection.identity_order = metadata.identity_order;
             collection.stats = metadata.stats;
-            collection.logical_records = metadata.logical_records;
-            collection.empty_array_records = metadata.empty_array_records;
+            collection.logical_records = Arc::new(metadata.logical_records);
+            collection.empty_array_records = Arc::new(metadata.empty_array_records);
             if !segments.is_empty() {
                 // Sort bindings need locale/options/direction metadata before
                 // segment-local columns can be selected. Keys remain owned by

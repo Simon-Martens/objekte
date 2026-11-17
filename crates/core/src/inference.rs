@@ -277,6 +277,19 @@ pub struct InferenceState {
 }
 
 impl InferenceState {
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        Ok(Self {
+            report: self.report.clone(),
+            indexes: self
+                .indexes
+                .iter()
+                .map(|(path, index)| Ok((path.clone(), index.archived()?)))
+                .collect::<Result<HashMap<_, _>, String>>()?,
+            empty_selections: self.empty_selections.clone(),
+            short_string_coverage: self.short_string_coverage.clone(),
+        })
+    }
+
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
         let mut fields = self.report.fields.iter().collect::<Vec<_>>();
         fields.sort_unstable_by(|left, right| left.path.cmp(&right.path));
