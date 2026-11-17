@@ -67,7 +67,7 @@ S65	pass	storage_roundtrip::reopened_store_rejects_reader_extension_version_chan
 S66	pass	storage::writer::tests::every_pre_current_fault_preserves_the_previous_commit	Named faults at object write/file sync/install and CURRENT write/file sync/rename all leave the previous CURRENT unchanged.
 S67	pass	storage::writer::tests::current_rename_failure_preserves_the_previous_commit	An injected rename failure preserves the previous CURRENT byte-for-byte.
 S68	pass	storage::writer::tests::post_rename_directory_sync_error_is_commit_uncertain	Post-rename directory sync failure is classified as CommitUncertain with generation and manifest identity.
-S69	pending	none	Child-process transaction barriers are not implemented.
+S69	pass	storage::writer::tests::child_process_abort_after_current_rename_leaves_a_complete_generation	A child process aborts at the post-rename sync barrier; reopening yields either the complete old or complete new generation.
 S70	pass	storage::writer::tests::transaction_trace_orders_dependencies_before_current_and_root_sync	The transaction trace orders dependency sync/install before CURRENT sync/rename and final store-directory sync.
 S71	pass	storage_roundtrip::independent_writers_cannot_overwrite_a_nonempty_store	A second unrelated writer is rejected.
 S72	pass	storage_roundtrip::reader_opening_during_commit_pins_one_complete_generation	A barrier-started opener resolves to either the complete old or new snapshot and never a mixed generation; the final reopen resolves to the new one.

@@ -1426,7 +1426,15 @@ mod tests {
         install_current, set_injected_fault, sync_directory_for, take_transaction_trace,
         write_object,
     };
+    use crate::lifecycle::Index;
+    use crate::model::LogicalType;
+    use crate::query::{Query, QueryOptions};
+    use crate::reference::FieldDefinition;
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::source::SourceFormat;
     use crate::storage::StorageError;
+    use crate::storage::{StorageOpenOptions, StorageWriteOptions};
+    use crate::workload::ReturnMode;
 
     fn variants() -> Vec<RoaringBitmap> {
         let sparse = RoaringBitmap::from_iter([1, 65_536, 1_000_000]);
@@ -1585,6 +1593,116 @@ mod tests {
                 "store-directory-sync",
             ]
         );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    fn child_definitions() -> Vec<CollectionDefinition> {
+        let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        for (name, kind) in [("id", LogicalType::Id), ("title", LogicalType::String)] {
+            definition
+                .schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind,
+                    required: name == "id",
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                    element_nullable: Vec::new(),
+                })
+                .unwrap();
+        }
+        vec![definition]
+    }
+
+    #[test]
+    fn child_save_abort_helper() {
+        let Ok(root) = std::env::var("OBJEKTE_STORAGE_ABORT_ROOT") else {
+            return;
+        };
+        let stage = std::env::var("OBJEKTE_STORAGE_ABORT_STAGE").unwrap();
+        let root = std::path::PathBuf::from(root);
+        let reopened = Index::open_storage(
+            &root,
+            child_definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .unwrap();
+        std::fs::write(
+            root.join("data/c.json"),
+            br#"{"id":"c","title":"Child token"}"#,
+        )
+        .unwrap();
+        reopened.add_file(&root.join("data/c.json")).unwrap();
+        set_injected_fault(Box::leak(stage.into_boxed_str()));
+        let _ = reopened.archive_to(root.join("storage"), StorageWriteOptions::default());
+        std::process::abort();
+    }
+
+    #[test]
+    fn child_process_abort_after_current_rename_leaves_a_complete_generation() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-child-abort-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/a.json"),
+            br#"{"id":"a","title":"Parent token"}"#,
+        )
+        .unwrap();
+        let index = Index::build(&root, child_definitions(), RepositoryOptions::default()).unwrap();
+        index
+            .archive_to(root.join("storage"), StorageWriteOptions::default())
+            .unwrap();
+        drop(index);
+
+        let status = std::process::Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "storage::writer::tests::child_save_abort_helper",
+                "--nocapture",
+            ])
+            .env("OBJEKTE_STORAGE_ABORT_ROOT", &root)
+            .env("OBJEKTE_STORAGE_ABORT_STAGE", "store-directory-sync")
+            .status()
+            .unwrap();
+        assert!(!status.success(), "child did not abort");
+
+        let reopened = Index::open_storage(
+            &root,
+            child_definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .unwrap();
+        let result = reopened
+            .view()
+            .unwrap()
+            .search(&Query {
+                collections: vec!["items".into()],
+                fts: None,
+                filter: None,
+                options: QueryOptions {
+                    sort: Vec::new(),
+                    limit: 20,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: false,
+                },
+            })
+            .unwrap();
+        assert!(matches!(result.count, Some(1) | Some(2)));
+        reopened.shutdown().unwrap();
         std::fs::remove_dir_all(root).unwrap();
     }
 }
