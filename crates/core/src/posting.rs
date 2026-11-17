@@ -2700,9 +2700,6 @@ impl PostingIndex {
             loaded: Arc::new(OnceLock::new()),
             load_lock: Arc::new(std::sync::Mutex::new(())),
         };
-        if !index.values.is_storage_backed() && !index.lengths.is_storage_backed() {
-            index.validate_domain(&(0..index.covered_records).collect::<RoaringBitmap>())?;
-        }
         Ok(index)
     }
 

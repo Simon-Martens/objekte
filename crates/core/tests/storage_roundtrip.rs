@@ -147,6 +147,10 @@ fn semantic_definitions() -> Vec<CollectionDefinition> {
             .sort_fields
             .push(objekte_search_core::model::FieldPath::parse(field).unwrap());
     }
+    definition.schema.composite_sorts.push(vec![
+        SortField::simple("title", false),
+        SortField::simple("amount", true),
+    ]);
     vec![definition]
 }
 
@@ -223,6 +227,12 @@ fn reopened_semantic_query_matrix_matches_native_storage_state() {
         request.options.sort = vec![SortField::simple(field, descending)];
         queries.push(request);
     }
+    let mut composite = all_records();
+    composite.options.sort = vec![
+        SortField::simple("title", false),
+        SortField::simple("amount", true),
+    ];
+    queries.push(composite);
     let native = queries
         .iter()
         .map(|request| index.view().unwrap().search(request).unwrap())
@@ -1957,6 +1967,116 @@ fn first_save_after_delete_preserves_a_dense_file_domain() {
             .count,
         Some(2)
     );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn zero_one_and_many_record_file_associations_round_trip() {
+    let root = fixture_root("file-cardinalities");
+    std::fs::remove_file(root.join("data/a.json")).unwrap();
+    std::fs::remove_file(root.join("data/b.json")).unwrap();
+    std::fs::write(root.join("data/zero.jsonl"), "").unwrap();
+    std::fs::write(
+        root.join("data/one.jsonl"),
+        "{\"id\":\"one\",\"title\":\"One token\"}\n",
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("data/many.jsonl"),
+        "{\"id\":\"many-a\",\"title\":\"Many A token\"}\n{\"id\":\"many-b\",\"title\":\"Many B token\"}\n",
+    )
+    .unwrap();
+    let definitions = sequence_definitions();
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let view = reopened.view().unwrap();
+    assert_eq!(view.file_paths().count(), 3);
+    let result = view.search(&all_records()).unwrap();
+    assert_eq!(result.count, Some(3));
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .filter(|hit| hit.file_path.ends_with("many.jsonl"))
+            .count(),
+        2
+    );
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .filter(|hit| hit.file_path.ends_with("one.jsonl"))
+            .count(),
+        1
+    );
+    drop(view);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn normal_skip_and_raw_fallback_fts_match_after_reopen() {
+    let root = fixture_root("fts-modes");
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","title":"Supercalifragilisticexpialidocious"}"#,
+    )
+    .unwrap();
+    std::fs::write(root.join("data/b.json"), b"invalid json fallbackword bytes").unwrap();
+    std::fs::write(root.join("data/c.json"), r#"{"id":"c","title":"Straße"}"#).unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let cases = [
+        ("token", CaseSensitivity::Sensitive),
+        ("fragilistic", CaseSensitivity::Sensitive),
+        ("fallbackword", CaseSensitivity::Sensitive),
+        ("strasse", CaseSensitivity::Insensitive),
+    ];
+    let run_case = |view: &objekte_search_core::lifecycle::IndexView| {
+        cases
+            .iter()
+            .map(|(literal, case_sensitivity)| {
+                let mut request = all_records();
+                request.fts = Some(FtsQuery {
+                    case_sensitivity: *case_sensitivity,
+                    mode: FtsMode::Literal,
+                    literal: (*literal).into(),
+                    pattern_parameter: None,
+                    fields: Vec::new(),
+                });
+                view.search(&request).unwrap()
+            })
+            .collect::<Vec<_>>()
+    };
+    let native = run_case(&index.view().unwrap());
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let restored = run_case(&reopened.view().unwrap());
+    for (actual, expected) in restored.into_iter().zip(native) {
+        assert_eq!(actual.count, expected.count);
+        assert_eq!(actual.hits, expected.hits);
+    }
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
