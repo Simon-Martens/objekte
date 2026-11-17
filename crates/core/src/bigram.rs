@@ -7,7 +7,7 @@ use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 #[cfg(test)]
@@ -260,7 +260,7 @@ impl BigramRequest {
 
 
 /// Record-level bigram postings for one text binding.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BigramIndex {
     pub alphabet: BigramAlphabet,
     pub record_count: u32,

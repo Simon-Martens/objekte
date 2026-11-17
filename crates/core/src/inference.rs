@@ -14,7 +14,7 @@ pub const INFERENCE_POLICY_VERSION: u32 = 5;
 
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub(crate) enum ObservedStep {
     Field(Arc<str>),
     // Automatic inference observes named fields only. Keep the typed key so a
@@ -274,6 +274,54 @@ pub struct InferenceState {
     /// Records whose entire selected value stream is represented by the
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub(crate) struct InferenceStateSnapshot {
+    pub report: InferenceReport,
+    pub indexes: std::collections::BTreeMap<Vec<String>, crate::posting::PostingIndexSnapshot>,
+    pub empty_selections: std::collections::BTreeMap<Vec<String>, RoaringBitmap>,
+    pub short_string_coverage: std::collections::BTreeMap<Vec<String>, RoaringBitmap>,
+}
+
+impl InferenceState {
+    pub(crate) fn storage_snapshot(&self) -> Result<InferenceStateSnapshot, String> {
+        Ok(InferenceStateSnapshot {
+            report: self.report.clone(),
+            indexes: self
+                .indexes
+                .iter()
+                .map(|(path, index)| Ok((path.clone(), index.storage_snapshot()?)))
+                .collect::<Result<_, String>>()?,
+            empty_selections: self
+                .empty_selections
+                .iter()
+                .map(|(path, bitmap)| (path.clone(), bitmap.clone()))
+                .collect(),
+            short_string_coverage: self
+                .short_string_coverage
+                .iter()
+                .map(|(path, bitmap)| (path.clone(), bitmap.clone()))
+                .collect(),
+        })
+    }
+
+    pub(crate) fn from_storage_snapshot(
+        snapshot: InferenceStateSnapshot,
+    ) -> Result<Self, String> {
+        Ok(Self {
+            report: snapshot.report,
+            indexes: snapshot
+                .indexes
+                .into_iter()
+                .map(|(path, index)| {
+                    Ok((path, crate::posting::PostingIndex::from_storage_snapshot(index)?))
+                })
+                .collect::<Result<_, String>>()?,
+            empty_selections: snapshot.empty_selections.into_iter().collect(),
+            short_string_coverage: snapshot.short_string_coverage.into_iter().collect(),
+        })
+    }
 }
 
 impl InferenceState {

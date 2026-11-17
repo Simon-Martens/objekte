@@ -124,7 +124,7 @@ impl SortKey {
 }
 
 /// Precomputed sort keys for one configured field.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortColumn {
     pub path: FieldPath,
     pub kind: LogicalType,
@@ -556,21 +556,21 @@ fn append_inferred_group(
 }
 
 /// All sort columns available for a collection.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
 }
 
 /// Explicit composite order over compatible resident scalar columns.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CompositeSortOrder {
     pub fields: Vec<CompositeSortPart>,
     pub order: Vec<RecordSlot>,
 }
 
 /// Fixed binary identity for one resident composite constituent.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,

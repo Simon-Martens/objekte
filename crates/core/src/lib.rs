@@ -63,6 +63,7 @@ pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod source_scan;
+pub mod storage;
 mod storage_usage;
 pub mod streaming;
 mod structural;

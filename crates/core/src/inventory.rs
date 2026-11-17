@@ -233,7 +233,6 @@ pub(crate) struct FileVersions {
 
 impl FileVersions {
     /// Restore version tokens without replaying every historical mutation.
-    #[cfg(test)]
     pub(crate) fn from_versions(versions: Vec<FileVersion>) -> Result<Self, String> {
         let len = versions.len();
         u32::try_from(len).map_err(|_| "too many indexed file versions")?;
@@ -268,6 +267,17 @@ impl FileVersions {
 
     pub(crate) fn len(&self) -> usize {
         self.len
+    }
+
+    pub(crate) fn stored_versions(&self) -> Vec<FileVersion> {
+        (0..self.len)
+            .filter_map(|index| {
+                self.chunks
+                    .get(index / FILE_VERSION_CHUNK)?
+                    .get(index % FILE_VERSION_CHUNK)
+                    .copied()
+            })
+            .collect()
     }
 
     pub(crate) fn get(&self, file: FileId) -> Option<FileVersion> {

@@ -365,6 +365,7 @@ pub struct Repository {
     pub(crate) workers: Arc<rayon::ThreadPool>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+    pub(crate) storage: Option<Arc<crate::storage::StorageSession>>,
 }
 
 impl Repository {
@@ -398,7 +399,12 @@ impl Repository {
                     .map_err(|_| "inferred order cache lock poisoned")?
                     .clone(),
             ),
+            storage: self.storage.clone(),
         })
+    }
+
+    pub(crate) fn sources(&self) -> &SourceRegistry {
+        &self.sources
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
@@ -1920,7 +1926,7 @@ impl Repository {
         Ok(empty)
     }
 
-    fn build_configured_shell(
+    pub(crate) fn build_configured_shell(
         root: PathBuf,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
@@ -2112,6 +2118,7 @@ impl Repository {
             inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
+            storage: None,
         })
     }
 
@@ -2791,6 +2798,7 @@ impl Repository {
             inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
+            storage: None,
         })
     }
 

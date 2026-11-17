@@ -37,7 +37,7 @@ pub enum ScalarKey {
 ///
 /// The stored variants retain the original numeric representation while the
 /// comparison implementation preserves `Number`'s cross-representation order.
-#[derive(Clone, Debug, Archive, ArchiveSerialize)]
+#[derive(Clone, Debug, Archive, ArchiveSerialize, Serialize, Deserialize)]
 pub(crate) enum PostingNumberKey {
     Integer(i128),
     Float(f64),
@@ -1913,7 +1913,19 @@ pub struct PostingIndex {
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Archive, ArchiveSerialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Archive,
+    ArchiveSerialize,
+    Serialize,
+    Deserialize,
+)]
 pub enum StructuralKey {
     AnyNull,
     NonEmpty,
@@ -2035,10 +2047,114 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub(crate) struct PostingIndexSnapshot {
+    pub path: Vec<String>,
+    pub kind: LogicalType,
+    pub multi: bool,
+    pub presence: RoaringBitmap,
+    pub empty_selections: RoaringBitmap,
+    pub nulls: RoaringBitmap,
+    pub structural: Option<BTreeMap<StructuralKey, RoaringBitmap>>,
+    pub values: BTreeMap<ScalarKey, RoaringBitmap>,
+    pub lengths: BTreeMap<Number, RoaringBitmap>,
+    pub values_indexed: bool,
+    pub value_complete: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
+    pub covered_records: u32,
+    pub present_count: u64,
+    pub null_count: u64,
+    pub distinct_count: usize,
+    pub min_key: Option<ScalarKey>,
+    pub max_key: Option<ScalarKey>,
+}
+
 /// Borrowed ordered traversal over one scalar posting dictionary.
 pub(crate) type PostingValueCursor<'a> = DictionaryValueCursor<'a, StoredScalarKey>;
 
 impl PostingIndex {
+    pub(crate) fn storage_snapshot(&self) -> Result<PostingIndexSnapshot, String> {
+        if !self.is_published() {
+            return Err("posting index is not published".into());
+        }
+        let structural = self
+            .structural
+            .as_ref()
+            .map(|facts| {
+                facts
+                    .postings
+                    .iter()
+                    .map(|(key, bitmap)| (key, bitmap))
+                    .collect()
+            });
+        let lengths = self
+            .lengths
+            .iter()
+            .map(|(key, bitmap)| (key, bitmap))
+            .collect::<BTreeMap<_, _>>();
+        Ok(PostingIndexSnapshot {
+            path: self.path.clone(),
+            kind: self.kind.clone(),
+            multi: self.multi,
+            presence: self.presence.clone(),
+            empty_selections: self.empty_selections.clone(),
+            nulls: self.nulls.clone(),
+            structural,
+            values: self.values.iter().collect(),
+            lengths,
+            values_indexed: self.values_indexed,
+            value_complete: self.value_complete,
+            length_complete: self.length_complete,
+            empty_string_complete: self.empty_string_complete,
+            covered_records: self.covered_records,
+            present_count: self.stats.present_count,
+            null_count: self.stats.null_count,
+            distinct_count: self.stats.distinct_count,
+            min_key: self.stats.min_key.clone(),
+            max_key: self.stats.max_key.clone(),
+        })
+    }
+
+    pub(crate) fn from_storage_snapshot(snapshot: PostingIndexSnapshot) -> Result<Self, String> {
+        let structural = snapshot
+            .structural
+            .map(|postings| {
+                Ok::<_, String>(StructuralFacts {
+                    postings: PostingDictionary::from_public(postings).publish_native()?,
+                })
+            })
+            .transpose()?;
+        let index = Self {
+            path: snapshot.path,
+            kind: snapshot.kind,
+            multi: snapshot.multi,
+            presence: snapshot.presence,
+            empty_selections: snapshot.empty_selections,
+            nulls: snapshot.nulls,
+            structural,
+            values: PostingDictionary::from_public(snapshot.values).publish_native()?,
+            lengths: PostingDictionary::from_public(snapshot.lengths).publish_native()?,
+            values_indexed: snapshot.values_indexed,
+            value_complete: snapshot.value_complete,
+            length_complete: snapshot.length_complete,
+            empty_string_complete: snapshot.empty_string_complete,
+            covered_records: snapshot.covered_records,
+            stats: PostingStats {
+                present_count: snapshot.present_count,
+                null_count: snapshot.null_count,
+                distinct_count: snapshot.distinct_count,
+                min_key: snapshot.min_key,
+                max_key: snapshot.max_key,
+            },
+        };
+        index.validate_domain(
+            &(0..index.covered_records)
+                .collect::<RoaringBitmap>(),
+        )?;
+        Ok(index)
+    }
+
     fn configuration_matches(&self, field: &FieldDefinition, schema: &Schema) -> bool {
         let auto_prohibited = !field.indexed && schema.is_auto_index_prohibited(&field.path);
         let auto_length = matches!(field.kind, LogicalType::Array(_)) && !auto_prohibited;
@@ -3506,7 +3622,34 @@ pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
 
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub(crate) struct PostingCollectionSnapshot {
+    pub fields: BTreeMap<Vec<String>, PostingIndexSnapshot>,
+}
+
 impl PostingCollection {
+    pub(crate) fn storage_snapshot(&self) -> Result<PostingCollectionSnapshot, String> {
+        Ok(PostingCollectionSnapshot {
+            fields: self
+                .fields
+                .iter()
+                .map(|(path, index)| Ok((path.clone(), index.storage_snapshot()?)))
+                .collect::<Result<_, String>>()?,
+        })
+    }
+
+    pub(crate) fn from_storage_snapshot(
+        snapshot: PostingCollectionSnapshot,
+    ) -> Result<Self, String> {
+        Ok(Self {
+            fields: snapshot
+                .fields
+                .into_iter()
+                .map(|(path, index)| Ok((path, PostingIndex::from_storage_snapshot(index)?)))
+                .collect::<Result<_, String>>()?,
+        })
+    }
+
     pub(crate) fn configuration_matches(&self, schema: &Schema) -> bool {
         self.fields.len() == schema.fields.len()
             && self.fields.iter().all(|(path, index)| {

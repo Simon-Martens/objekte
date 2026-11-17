@@ -438,6 +438,20 @@ pub(crate) struct PublishedIndex {
     construction_ids: Option<Vec<HashSet<Arc<str>>>>,
 }
 
+pub(crate) struct IndexStorageParts {
+    pub repository: Arc<Repository>,
+    pub configuration_identity: [u8; 32],
+    pub active: Vec<ActiveRecords>,
+    pub segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub next_segment_ordinal: u64,
+    pub last_size_maintenance_revision: u64,
+    pub catalog: FileCatalog,
+    pub file_versions: FileVersions,
+    pub processed_files: usize,
+    pub revision: IndexRevision,
+    pub representation_generation: u64,
+}
+
 /// Native retained-memory estimate for one published contribution. It counts
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
 /// allocator measurement or a strict peak bound; it orders maintenance.
@@ -2233,6 +2247,48 @@ fn merge_initial_segment_metadata(
 }
 
 impl Index {
+    pub(crate) fn storage_parts(&self) -> Result<IndexStorageParts, IndexError> {
+        let view = self.view()?;
+        Ok(IndexStorageParts {
+            repository: Arc::clone(&view.0.repository),
+            configuration_identity: view.0.configuration_identity,
+            active: view.0.active.clone(),
+            segments: view.0.segments.clone(),
+            next_segment_ordinal: view.0.next_segment_ordinal,
+            last_size_maintenance_revision: view.0.last_size_maintenance_revision,
+            catalog: view.0.catalog.clone(),
+            file_versions: view.0.file_versions.clone(),
+            processed_files: view.0.processed_files,
+            revision: view.0.revision,
+            representation_generation: view.0.representation_generation,
+        })
+    }
+
+    pub(crate) fn from_storage_parts(parts: IndexStorageParts) -> Result<Self, IndexError> {
+        let instance_id = parts.repository.instance_id;
+        let processed_files = parts.processed_files;
+        let published = PublishedIndex {
+            instance_id,
+            revision: parts.revision,
+            representation_generation: parts.representation_generation,
+            repository: parts.repository,
+            configuration_identity: parts.configuration_identity,
+            active: parts.active,
+            segment_positions: PublishedIndex::segment_position_directory(&parts.segments),
+            segments: parts.segments,
+            next_segment_ordinal: parts.next_segment_ordinal,
+            last_size_maintenance_revision: parts.last_size_maintenance_revision,
+            catalog: parts.catalog,
+            file_versions: parts.file_versions,
+            reconciliation: ReconciliationState::NotStarted,
+            processed_files,
+            processed_memberships: Vec::new(),
+            destination_rebuilt: false,
+            construction_ids: None,
+        };
+        Ok(Self::from_published(published))
+    }
+
     pub(crate) fn transition_read(&self) -> Result<std::sync::RwLockReadGuard<'_, ()>, IndexError> {
         self.0
             .transition

@@ -206,7 +206,7 @@ pub(crate) struct SegmentFile {
 }
 
 /// Saturating native retained-size and query-planning estimates.
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug, Default, Serialize, Deserialize)]
 pub(crate) struct SegmentAccounting {
     pub retained_bytes_estimated: usize,
     pub source_bytes_estimated: u64,

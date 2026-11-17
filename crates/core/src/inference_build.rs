@@ -4,6 +4,7 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
+use serde::{Deserialize, Serialize};
 
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
@@ -20,7 +21,7 @@ use super::{
 /// Compact segment-local observations retained independently from candidate
 /// postings. Global admission is derived from these observations, never from
 /// the surviving candidate dictionaries.
-#[derive(Clone)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct InferenceObservation {
     fields: Vec<FieldState>,
     empty_ancestors: HashMap<Vec<ObservedStep>, RoaringBitmap>,
@@ -751,7 +752,8 @@ impl<'a> AggregatedField<'a> {
 }
 
 /// Observations retained for one path while construction batches are admitted.
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
+#[derive(Debug)]
 struct FieldState {
     path: Vec<String>,
     kinds: Vec<LogicalType>,
