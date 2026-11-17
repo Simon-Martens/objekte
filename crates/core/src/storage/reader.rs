@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use std::fs::{self, File, OpenOptions};
 use std::io::Read;
-use std::os::fd::AsRawFd;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::sync::atomic::AtomicU64;
@@ -741,9 +740,7 @@ impl StoredBigramPack {
         }
         let capacity = usize::try_from(length).map_err(|_| "stored bigram range is too large")?;
         let mut bytes = vec![0u8; capacity];
-        use std::os::unix::fs::FileExt;
-        self.file
-            .read_exact_at(&mut bytes, offset)
+        read_exact_at(&self.file, &mut bytes, offset)
             .map_err(|error| format!("stored bigram pack read failed: {error}"))?;
         self.session
             .index_reads
@@ -753,6 +750,34 @@ impl StoredBigramPack {
             .fetch_add(length, std::sync::atomic::Ordering::AcqRel);
         Ok(Arc::from(bytes))
     }
+}
+
+#[cfg(unix)]
+fn read_exact_at(file: &File, bytes: &mut [u8], offset: u64) -> std::io::Result<()> {
+    use std::os::unix::fs::FileExt;
+    file.read_exact_at(bytes, offset)
+}
+
+#[cfg(windows)]
+fn read_exact_at(file: &File, bytes: &mut [u8], offset: u64) -> std::io::Result<()> {
+    use std::os::windows::fs::FileExt;
+    let mut read = 0usize;
+    while read < bytes.len() {
+        let count = file.seek_read(&mut bytes[read..], offset.saturating_add(read as u64))?;
+        if count == 0 {
+            return Err(std::io::ErrorKind::UnexpectedEof.into());
+        }
+        read += count;
+    }
+    Ok(())
+}
+
+#[cfg(not(any(unix, windows)))]
+fn read_exact_at(_: &File, _: &mut [u8], _: u64) -> std::io::Result<()> {
+    Err(std::io::Error::new(
+        std::io::ErrorKind::Unsupported,
+        "positioned storage reads are unsupported on this platform",
+    ))
 }
 
 struct StoredSortLoader {
@@ -1013,12 +1038,8 @@ fn open_shared_lock(path: &Path) -> Result<File, StorageError> {
         .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_SH | libc::LOCK_NB) };
-    if result != 0 {
-        return Err(StorageError::StorageBusy(
-            "reader lease could not be acquired".into(),
-        ));
-    }
+    file.try_lock_shared()
+        .map_err(|_| StorageError::StorageBusy("reader lease could not be acquired".into()))?;
     Ok(file)
 }
 
@@ -1381,12 +1402,8 @@ fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
         .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) };
-    if result != 0 {
-        return Err(StorageError::StorageBusy(
-            "storage exclusive lock is busy".into(),
-        ));
-    }
+    file.try_lock()
+        .map_err(|_| StorageError::StorageBusy("storage exclusive lock is busy".into()))?;
     Ok(file)
 }
 

@@ -1152,8 +1152,6 @@ fn read_prior_snapshot(
 }
 
 fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
-    use std::os::fd::AsRawFd;
-
     let path = directory.join("writer.lock");
     let file = OpenOptions::new()
         .create(true)
@@ -1162,18 +1160,12 @@ fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
         .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) };
-    if result != 0 {
-        return Err(StorageError::StorageBusy(
-            "another writer holds the storage lock".into(),
-        ));
-    }
+    file.try_lock()
+        .map_err(|_| StorageError::StorageBusy("another writer holds the storage lock".into()))?;
     Ok(file)
 }
 
 fn acquire_reader_lease(directory: &Path) -> Result<File, StorageError> {
-    use std::os::fd::AsRawFd;
-
     let file = OpenOptions::new()
         .create(true)
         .read(true)
@@ -1181,12 +1173,9 @@ fn acquire_reader_lease(directory: &Path) -> Result<File, StorageError> {
         .truncate(false)
         .open(directory.join("readers.lock"))
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_SH | libc::LOCK_NB) };
-    if result != 0 {
-        return Err(StorageError::StorageBusy(
-            "offline storage pruning holds the backend lease".into(),
-        ));
-    }
+    file.try_lock_shared().map_err(|_| {
+        StorageError::StorageBusy("offline storage pruning holds the backend lease".into())
+    })?;
     Ok(file)
 }
 
