@@ -1,0 +1,128 @@
+{
+  "binary_build_dirty": "false",
+  "binary_build_revision": "7cb23fb7a24ce413935a42c9d391dd15fa82d151",
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "code_revision": "7cb23fb7a24ce413935a42c9d391dd15fa82d151",
+  "command": [
+    "target/release/examples/bench_musenalm",
+    "--incremental",
+    "--archive",
+    "--archive-workers",
+    "8",
+    "--cases",
+    "Q001,Q119",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "docs/ai/generated/explicit-archiving-repair/clean-provenance"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "a9d0dba2dac13f710f935d6bc3ea51bf94d3aad9ae9e176bd1113b3f3e95586c",
+  "executable_sha256": "9862d7872588ff13797f2a2454e9688a23efa02ff5c447ef40edc9415dfeefa5",
+  "execution_checkout_revision": "7cb23fb7a24ce413935a42c9d391dd15fa82d151",
+  "execution_dirty_status": "?? docs/ai/generated/explicit-archiving-repair/clean-provenance/",
+  "extended": false,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-explicit-archiving-repair/crates/core/../../examples/musenalm",
+  "run_id": "1794882494-7cb23fb7a2",
+  "schema_fingerprint": "b47b7fff2108c89f32035dc8364e6dc0f93f763a30132e807d9515aec8cd5817",
+  "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "3854c92414c9e5a3d83abf34a6609d2cb1d92ae227dc4ce1c7c17d5d54a859ea"
+}

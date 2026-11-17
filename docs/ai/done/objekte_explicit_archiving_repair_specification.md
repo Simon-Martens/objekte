@@ -570,9 +570,17 @@ cargo check -p objekte-search-core --all-targets --features detailed-profiling
   passed
 
 cargo test --workspace
-  one existing private-drain test exceeded its 120-second deadline under the
-  default parallel full-workspace run; the same test passes alone and in the
-  core library suite. The serialized workspace rerun is recorded below.
+  default parallel run hit the existing private-drain test's 120-second timeout;
+  RUST_TEST_THREADS=1 cargo test --workspace then passed completely
+
+cargo clippy --workspace --all-targets
+  passed with the repository's existing advisory warnings
+
+cargo fmt on changed Rust files
+  passed; whole-workspace fmt check still exposes pre-existing formatting drift
+
+git diff --check
+  passed
 ```
 
 The completed task document and implementation report are committed separately

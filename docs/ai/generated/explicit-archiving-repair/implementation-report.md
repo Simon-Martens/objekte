@@ -42,6 +42,9 @@ borrowed rows, and benchmark phases/provenance are separated.
   deadline under default parallel full-workspace load; it passes alone and in
   the core suite. The serial workspace rerun is recorded in the completed task.
 - Explicit archive example: native/archived/mixed/final counts `1/1/2/2`.
+- Clean benchmark binary: revision `7cb23fb7a2`, dirty `false`, SHA-256
+  `9862d7872588ff13797f2a2454e9688a23efa02ff5c447ef40edc9415dfeefa5`;
+  clean-provenance smoke run completed with zero failures.
 - Clippy and final workspace checks are recorded in the completed task.
 
 ## Benchmarks
