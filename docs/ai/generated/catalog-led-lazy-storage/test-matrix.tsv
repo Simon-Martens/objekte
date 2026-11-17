@@ -5,7 +5,7 @@ S03	partial	storage_roundtrip::explicit_save_reopens_a_complete_searchable_snaps
 S04	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Open counters show lazy payloads untouched; an explicit eager leaf catalog is still absent.
 S05	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Source-free restore is covered; a dedicated open source-I/O prohibition counter is pending.
 S06	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Metadata lookup and status are covered without payloads.
-S07	pending	none	EXPLAIN no-payload assertions need a storage-specific test.
+S07	pass	storage_roundtrip::explain_does_not_read_selected_lazy_payloads	EXPLAIN remains successful after every selected lazy posting/FTS/sort/relation payload is corrupted.
 S08	partial	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_selects_a_posting	Only one selected posting path is exercised.
 S09	pending	none	Presence/null-only storage isolation is not separately tested.
 S10	pass	storage_roundtrip::full_text_payload_reopens_lazily_and_preserves_results	Selected FTS dictionaries and gram leaves load after reopen.
