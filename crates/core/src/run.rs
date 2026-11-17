@@ -3898,7 +3898,7 @@ fn push_exact_order_cursor(
     retained_bytes: &mut usize,
 ) -> Result<bool, String> {
     let published = &segments[collection_index][segment_index];
-    let Some(order) = lifecycle_segment_order(&published.index, sort, query, collection_index)
+    let Some(order) = lifecycle_segment_order(&published.index, sort, query, collection_index)?
     else {
         return Ok(false);
     };
@@ -4125,7 +4125,7 @@ fn try_exact_segment_ordered_page(
     let mut selected = Vec::with_capacity(segments[*collection_index].len());
     let mut counters = counters.clone();
     for published in segments[*collection_index].iter() {
-        if lifecycle_segment_order(&published.index, sort, query, *collection_index).is_none() {
+        if lifecycle_segment_order(&published.index, sort, query, *collection_index)?.is_none() {
             return Ok(None);
         }
         let bounds = filter
@@ -4893,12 +4893,15 @@ fn search_segmented_impl(
                 // top `cap` page cannot contain a shard row ranked below that
                 // shard's own top `cap`; count the complete bitmap but only
                 // materialize those possible page rows.
-                if cache_builder.is_none()
+                let stored_order = if cache_builder.is_none()
                     && context.is_none()
                     && cap < candidates.len() as usize
-                    && let Some(order) =
-                        lifecycle_segment_order(segment, &sort, query, collection_index)
                 {
+                    lifecycle_segment_order(segment, &sort, query, collection_index)?
+                } else {
+                    None
+                };
+                if let Some(order) = stored_order {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
                     let mut selected = 0usize;
@@ -6429,7 +6432,7 @@ fn try_direct_relation_page(
             && direct_sort_column.is_none()
             && cap < may.len() as usize
         {
-            lifecycle_segment_order(&published.index, sort, query, *source_index)
+            lifecycle_segment_order(&published.index, sort, query, *source_index)?
         } else {
             None
         };
@@ -8016,7 +8019,6 @@ pub(crate) fn explain_segmented(
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
     let prepared = crate::prepared::prepare(repo, query)?;
-    let resolved_sort = ResolvedSort::new(repo, query)?;
     for trace in &mut traces {
         let collection_index = repo
             .collections
@@ -8099,8 +8101,10 @@ pub(crate) fn explain_segmented(
                         .saturating_add(query.options.limit)
                         .saturating_mul(4) as u64)
             && segments[collection_index].iter().all(|segment| {
-                lifecycle_segment_order(&segment.index, &resolved_sort, query, collection_index)
-                    .is_some()
+                segment
+                    .index
+                    .sorting
+                    .may_resolve_requested_order(&query.options.sort)
             })
         {
             trace.fts_strategy = "stored order page traversal".into();
@@ -8712,27 +8716,37 @@ fn lifecycle_segment_order<'a>(
     sort: &ResolvedSort<'_>,
     query: &Query,
     collection_index: usize,
-) -> Option<&'a [RecordSlot]> {
-    segment.sorting.ensure_storage_loaded().ok()?;
+) -> Result<Option<&'a [RecordSlot]>, String> {
+    segment.sorting.ensure_storage_loaded()?;
     if query.options.sort.len() > 1 {
-        return segment
+        return Ok(segment
             .sorting
             .composite(&query.options.sort)
-            .map(|order| order.order.as_slice());
+            .map(|order| order.order.as_slice()));
     }
     if query.options.sort.is_empty() {
-        return Some(&segment.identity_order);
+        return Ok(Some(&segment.identity_order));
     }
-    let term = sort.bound.terms[collection_index].as_ref()?.first()?;
-    let BoundSortSource::Stored(base_column) = &term.source else {
-        return None;
+    let Some(term) = sort
+        .bound
+        .terms
+        .get(collection_index)
+        .and_then(Option::as_ref)
+        .and_then(|terms| terms.first())
+    else {
+        return Ok(None);
     };
-    let column = segment.sorting.column(&base_column.path.display()).ok()?;
-    Some(if term.descending {
+    let BoundSortSource::Stored(base_column) = &term.source else {
+        return Ok(None);
+    };
+    let Ok(column) = segment.sorting.column(&base_column.path.display()) else {
+        return Ok(None);
+    };
+    Ok(Some(if term.descending {
         &column.descending
     } else {
         &column.ascending
-    })
+    }))
 }
 
 fn push_lifecycle_order_cursor(
@@ -8750,7 +8764,7 @@ fn push_lifecycle_order_cursor(
     context: &ExecutionContext,
 ) -> Result<(), String> {
     let published = &segments[collection_index][segment_index];
-    let order = lifecycle_segment_order(&published.index, sort, query, collection_index)
+    let order = lifecycle_segment_order(&published.index, sort, query, collection_index)?
         .ok_or("lifecycle stored order unavailable")?;
     while let Some(slot) = order.get(position).copied() {
         position += 1;
@@ -8870,7 +8884,7 @@ fn try_lifecycle_ordered_stream(
     }
     for (collection_index, _, _) in &prepared.collections {
         for segment in segments[*collection_index].iter() {
-            if lifecycle_segment_order(&segment.index, &sort, request, *collection_index).is_none()
+            if lifecycle_segment_order(&segment.index, &sort, request, *collection_index)?.is_none()
             {
                 return Ok(None);
             }

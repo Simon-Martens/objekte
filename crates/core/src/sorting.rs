@@ -948,6 +948,31 @@ impl SortCollection {
         Ok(())
     }
 
+    pub(crate) fn may_resolve_requested_order(
+        &self,
+        fields: &[crate::execution_options::SortField],
+    ) -> bool {
+        let this = self.materialized();
+        if fields.is_empty() {
+            return true;
+        }
+        if fields.len() == 1 {
+            return FieldPath::parse(&fields[0].field)
+                .is_ok_and(|path| this.columns.contains_key(&path));
+        }
+        this.composites.iter().any(|composite| {
+            composite.fields.len() == fields.len()
+                && composite
+                    .fields
+                    .iter()
+                    .zip(fields)
+                    .all(|(stored, requested)| {
+                        stored.path.display() == requested.field
+                            && stored.descending == requested.descending
+                    })
+        })
+    }
+
     pub(crate) fn materialized(&self) -> &Self {
         self.loaded
             .get()
