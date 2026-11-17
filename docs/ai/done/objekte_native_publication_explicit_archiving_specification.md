@@ -487,6 +487,7 @@ Implementation commits:
 - `1d3c7be663` — transactional standalone Repository archive failure/retry
 - `b7f1f0d36a` — desktop incremental-open test accepts a construction task
   that has already completed natively
+- `2064f477dd` — archived-state replacement coverage
 
 ### Implemented scope
 
