@@ -7,8 +7,10 @@ use crate::inventory::SharedPath;
 #[test]
 fn borrowed_path_adapter_round_trips_plain_unicode_and_escaped_paths() {
     let mut paths = vec![
+        SharedPath::from(""),
         SharedPath::from("data/a.json"),
         SharedPath::from("data/über/ファイル.json"),
+        SharedPath::from(format!("data/{}.json", "ü".repeat(256))),
         SharedPath::from("data/%literal\\separator.json"),
     ];
     #[cfg(unix)]
@@ -23,7 +25,8 @@ fn borrowed_path_adapter_round_trips_plain_unicode_and_escaped_paths() {
         let owned = StoredPath::from_shared(&path).to_shared().unwrap();
         assert_eq!(owned, path);
         let archive =
-            ValidatedArchive::<StoredPath>::freeze_source(&BorrowedStoredPath(&path)).unwrap();
+            ValidatedArchive::<StoredPath>::freeze_source(&BorrowedStoredPath::from_shared(&path))
+                .unwrap();
         assert_eq!(to_shared(archive.root()).unwrap(), owned);
     }
 }

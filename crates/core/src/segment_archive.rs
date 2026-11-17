@@ -377,9 +377,9 @@ where
 
 struct BorrowedSegmentFile<'a>(&'a SegmentFile);
 
-struct BorrowedSegmentFileResolver {
+struct BorrowedSegmentFileResolver<'a> {
     id: <u32 as Archive>::Resolver,
-    relative_path: BorrowedStoredPathResolver,
+    relative_path: BorrowedStoredPathResolver<'a>,
     modified_ns: <i128 as Archive>::Resolver,
     size: <u64 as Archive>::Resolver,
     created_ns: Option<<i128 as Archive>::Resolver>,
@@ -390,9 +390,9 @@ struct BorrowedSegmentFileResolver {
     records: VecResolver,
 }
 
-impl Archive for BorrowedSegmentFile<'_> {
+impl<'a> Archive for BorrowedSegmentFile<'a> {
     type Archived = Archived<StoredSegmentFile>;
-    type Resolver = BorrowedSegmentFileResolver;
+    type Resolver = BorrowedSegmentFileResolver<'a>;
 
     fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
         // SAFETY: Every projection targets the corresponding generated field
@@ -404,7 +404,7 @@ impl Archive for BorrowedSegmentFile<'_> {
                 resolver.id,
                 Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
             );
-            let path = BorrowedStoredPath(&self.0.entry.relative_path);
+            let path = BorrowedStoredPath::from_shared(&self.0.entry.relative_path);
             Archive::resolve(
                 &path,
                 resolver.relative_path,
@@ -459,7 +459,7 @@ impl Archive for BorrowedSegmentFile<'_> {
     }
 }
 
-impl<S> ArchiveSerialize<S> for BorrowedSegmentFile<'_>
+impl<'a, S> ArchiveSerialize<S> for BorrowedSegmentFile<'a>
 where
     S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
     S::Error: rkyv::rancor::Source,
@@ -468,7 +468,7 @@ where
         Ok(BorrowedSegmentFileResolver {
             id: ArchiveSerialize::serialize(&self.0.entry.id.0, serializer)?,
             relative_path: ArchiveSerialize::serialize(
-                &BorrowedStoredPath(&self.0.entry.relative_path),
+                &BorrowedStoredPath::from_shared(&self.0.entry.relative_path),
                 serializer,
             )?,
             modified_ns: ArchiveSerialize::serialize(

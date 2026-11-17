@@ -564,9 +564,9 @@ where
 }
 
 #[allow(dead_code)]
-struct BorrowedCatalogRowResolver {
+struct BorrowedCatalogRowResolver<'a> {
     id: <u32 as Archive>::Resolver,
-    path: BorrowedStoredPathResolver,
+    path: BorrowedStoredPathResolver<'a>,
     modified_ns: <i128 as Archive>::Resolver,
     size: <u64 as Archive>::Resolver,
     created_ns: Option<<i128 as Archive>::Resolver>,
@@ -578,9 +578,9 @@ struct BorrowedCatalogRowResolver {
     configuration: Option<VecResolver>,
 }
 
-impl Archive for BorrowedCatalogRow<'_> {
+impl<'a> Archive for BorrowedCatalogRow<'a> {
     type Archived = Archived<StoredFileRow>;
-    type Resolver = BorrowedCatalogRowResolver;
+    type Resolver = BorrowedCatalogRowResolver<'a>;
 
     fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
         // SAFETY: The adapter resolves each field of the generated archived
@@ -592,7 +592,7 @@ impl Archive for BorrowedCatalogRow<'_> {
                 resolver.id,
                 Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
             );
-            let path = BorrowedStoredPath(&self.0.entry.relative_path);
+            let path = BorrowedStoredPath::from_shared(&self.0.entry.relative_path);
             Archive::resolve(
                 &path,
                 resolver.path,
@@ -654,7 +654,7 @@ impl Archive for BorrowedCatalogRow<'_> {
     }
 }
 
-impl<S> ArchiveSerialize<S> for BorrowedCatalogRow<'_>
+impl<'a, S> ArchiveSerialize<S> for BorrowedCatalogRow<'a>
 where
     S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
     S::Error: rkyv::rancor::Source,
@@ -663,7 +663,7 @@ where
         Ok(BorrowedCatalogRowResolver {
             id: ArchiveSerialize::serialize(&self.0.entry.id.0, serializer)?,
             path: ArchiveSerialize::serialize(
-                &BorrowedStoredPath(&self.0.entry.relative_path),
+                &BorrowedStoredPath::from_shared(&self.0.entry.relative_path),
                 serializer,
             )?,
             modified_ns: ArchiveSerialize::serialize(
