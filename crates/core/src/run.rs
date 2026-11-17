@@ -12922,6 +12922,16 @@ fn search_impl_with_collector<'a>(
             (plan, candidates, text_first)
         };
         candidates &= &domain;
+        if candidates.is_empty()
+            && fts.is_some()
+            && !domain.is_empty()
+            && collection.raw.is_stored()
+        {
+            // A stored planner may not turn an unavailable cold estimate into
+            // proof that no text matches. Execution resolves the selected
+            // dictionary and can still return a proven empty result.
+            candidates = domain.clone();
+        }
         counters.add_semijoin(plan.semijoin_work)?;
         let metadata_only_fts = fts.as_ref().is_some_and(|fts| {
             !fts.fields.is_empty()
