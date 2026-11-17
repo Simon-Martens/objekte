@@ -55,7 +55,7 @@ S53	pending	none	Mixed native/archived/cold compaction and old-view results need
 S54	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Four save/reopen checkpoints preserve reuse and semantic identity across mutation cycles.
 S55	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	No-change and deletion-only payload-reading limits are covered.
 S56	pass	storage_roundtrip::a_reopened_store_exports_a_self_contained_fresh_snapshot	Exported cold FTS payloads reopen after the original store is moved offline.
-S57	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Failure separation is covered; every mutation failure point is pending.
+S57	pass	storage_roundtrip::failed_save_keeps_previous_current_and_live_ram_usable	A failed post-mutation save preserves CURRENT and leaves the three-record live RAM publication searchable.
 S58	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Thirty-two cycles of add/update/move/delete with checkpoints every eight cycles match independent fresh builds.
 S59	pass	storage_roundtrip::current_header_rejects_magic_version_flags_length_and_checksum_errors	Magic, version, flags, manifest length and checksum mutations are all rejected before publication.
 S60	partial	storage_roundtrip::corrupt_eager_catalog_chunk_fails_open_before_publication	Eager chunk digest corruption fails open; malformed cross-catalog route cases remain.

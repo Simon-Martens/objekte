@@ -2008,9 +2008,75 @@ fn failed_save_keeps_previous_current_and_live_ram_usable() {
             .search(&all_records())
             .unwrap()
             .count,
-        Some(2)
+        Some(3)
     );
     reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_native_and_cold_compaction_preserves_old_and_current_views() {
+    let root = fixture_root("mixed-compaction");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let old_view = reopened.view().unwrap();
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    reopened
+        .compact_with_options(CompactionOptions {
+            mode: CompactionMode::Full,
+            merge_small_segments: true,
+            ..CompactionOptions::default()
+        })
+        .unwrap();
+    assert_eq!(old_view.search(&all_records()).unwrap().count, Some(2));
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    reopened.shutdown().unwrap();
+    drop(reopened);
+    let restored = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        restored
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
