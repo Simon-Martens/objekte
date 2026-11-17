@@ -609,6 +609,10 @@ fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conv
 }
 
 fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
+    with_record_created(value, None, f);
+}
+
+fn with_record_created<F: FnOnce(RecordContext<'_>)>(value: Value, created_ns: Option<i128>, f: F) {
     let record = RecordEntry {
         slot: RecordSlot(0),
         id: RecordId(std::sync::Arc::new("x".into())),
@@ -625,7 +629,7 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
         id: FileId(0),
         relative_path: "x.json".into(),
         revision: record.revision,
-        created_ns: None,
+        created_ns,
         collections: vec![],
         status: crate::inventory::FileStatus::Valid,
         diagnostics: vec![],
@@ -650,6 +654,36 @@ fn scalar_metadata_comparisons_preserve_null_and_timestamp_rules() {
             ("@file.modified < '1971-01-01T00:00:00Z'", true),
             ("@file.created:null = true", true),
             ("@file.created = '1970-01-01T00:00:00Z'", false),
+            ("@record.id = null", false),
+            ("@record.id != null", true),
+            ("@file.path = null", false),
+            ("@file.path != null", true),
+            ("@collection.name = null", false),
+            ("@collection.name != null", true),
+            ("@repository.root = null", false),
+            ("@repository.root != null", true),
+            ("@file.created = null", true),
+            ("@file.created != null", false),
+            ("@record.id:lower != null", true),
+            ("@collection.name != @record.id", true),
+        ] {
+            let bound = bind_filter(&parse_filter(expression).unwrap(), &schema()).unwrap();
+            let BoundExpr::Term(term) = bound else {
+                panic!("expected one metadata predicate");
+            };
+            assert_eq!(eval_term(&term, &ctx).unwrap(), expected, "{expression}");
+        }
+    });
+    for expression in ["@record.id > null", "@file.path ~ null"] {
+        assert!(
+            bind_filter(&parse_filter(expression).unwrap(), &schema()).is_err(),
+            "{expression}"
+        );
+    }
+    with_record_created(Value::Null, Some(1_000_000_000), |ctx| {
+        for (expression, expected) in [
+            ("@file.created = null", false),
+            ("@file.created != null", true),
         ] {
             let bound = bind_filter(&parse_filter(expression).unwrap(), &schema()).unwrap();
             let BoundExpr::Term(term) = bound else {

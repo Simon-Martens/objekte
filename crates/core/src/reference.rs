@@ -1895,6 +1895,13 @@ fn compare_metadata_literal(
     operand: &MetadataOperand<'_>,
     term: &BoundTerm,
 ) -> Result<bool, String> {
+    if matches!(term.literal, Value::Null) {
+        return Ok(match term.operator {
+            Operator::Eq => matches!(operand, MetadataOperand::Null),
+            Operator::Ne => !matches!(operand, MetadataOperand::Null),
+            _ => false,
+        });
+    }
     match operand {
         MetadataOperand::Null => Ok(compare_scalar(
             &Value::Null,
