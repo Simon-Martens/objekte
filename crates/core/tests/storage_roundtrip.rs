@@ -840,7 +840,11 @@ fn concurrent_first_use_shares_one_stored_posting_load() {
         assert_eq!(worker.join().unwrap(), Some(1));
     }
     let warm = reopened.storage_status().unwrap();
-    assert_eq!(warm.index_reads, cold.index_reads + 2);
+    assert_eq!(
+        warm.index_reads,
+        cold.index_reads + 1,
+        "two concurrent first accesses must share one payload read"
+    );
     reopened.shutdown().unwrap();
     drop(reopened);
     std::fs::remove_dir_all(root).unwrap();
