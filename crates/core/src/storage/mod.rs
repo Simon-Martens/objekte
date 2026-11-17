@@ -2,8 +2,7 @@
 
 use std::num::{NonZeroU64, NonZeroUsize};
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
-use std::sync::Mutex;
+use std::sync::{Arc, Condvar, Mutex};
 
 use serde::{Deserialize, Serialize};
 
@@ -291,8 +290,15 @@ pub(crate) struct StorageSession {
     manifest_digest: [u8; 32],
     manifest_length: u64,
     limits: StorageReadLimits,
+    max_concurrent_reads: usize,
+    reads_in_flight: Mutex<usize>,
+    reads_available: Condvar,
     index_reads: std::sync::atomic::AtomicU64,
     index_bytes: std::sync::atomic::AtomicU64,
+}
+
+pub(crate) struct ReadPermit<'a> {
+    session: &'a StorageSession,
 }
 
 #[derive(Clone, Debug)]
@@ -330,6 +336,30 @@ impl StorageSession {
 
     pub(crate) fn limits(&self) -> StorageReadLimits {
         self.limits
+    }
+
+    pub(crate) fn acquire_read_permit(&self) -> Result<ReadPermit<'_>, String> {
+        let mut in_flight = self
+            .reads_in_flight
+            .lock()
+            .map_err(|_| "storage read permit lock poisoned".to_string())?;
+        while *in_flight >= self.max_concurrent_reads {
+            in_flight = self
+                .reads_available
+                .wait(in_flight)
+                .map_err(|_| "storage read permit lock poisoned".to_string())?;
+        }
+        *in_flight += 1;
+        Ok(ReadPermit { session: self })
+    }
+}
+
+impl Drop for ReadPermit<'_> {
+    fn drop(&mut self) {
+        if let Ok(mut in_flight) = self.session.reads_in_flight.lock() {
+            *in_flight = in_flight.saturating_sub(1);
+            self.session.reads_available.notify_one();
+        }
     }
 }
 

@@ -19,6 +19,7 @@ const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
+const RELATION_PAYLOAD_OBJECT_KIND: u16 = 8;
 static STAGING_SEQUENCE: AtomicU64 = AtomicU64::new(0);
 
 #[derive(Clone, Copy, Debug)]
@@ -416,6 +417,9 @@ fn externalize_posting_payloads(
         for bigram in collection.custom_text.values_mut() {
             externalize_bigram(bigram, objects)?;
         }
+        for relation in &mut collection.relations {
+            externalize_relation(relation, objects)?;
+        }
         if let Some(inference) = &mut collection.inference {
             for posting in inference.indexes.values_mut() {
                 externalize_posting(posting, objects)?;
@@ -519,6 +523,26 @@ fn externalize_bigram(
         dictionary_length: dictionary_body.len() as u64,
         dictionary_digest: format::sha256(&dictionary_body),
     });
+    Ok(())
+}
+
+fn externalize_relation(
+    relation: &mut crate::relation::RelationIndex,
+    objects: &mut Vec<([u8; 32], Vec<u8>)>,
+) -> Result<(), StorageError> {
+    if relation.stored_payload().is_some() {
+        return Ok(());
+    }
+    let payload = relation
+        .archive_payload()
+        .map_err(StorageError::UnsupportedComponent)?;
+    let body = rkyv::to_bytes::<rkyv::rancor::Error>(&payload)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let object = format::envelope(RELATION_PAYLOAD_OBJECT_KIND, &body);
+    let digest = format::sha256(&object);
+    let length = object.len() as u64;
+    objects.push((digest, object));
+    relation.use_stored_payload(crate::relation::StoredRelationPayloadRef { digest, length });
     Ok(())
 }
 

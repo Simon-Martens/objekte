@@ -18,6 +18,9 @@ use crate::posting::{
     CustomPostingIndex, PostingArchivePayload, PostingCollection, PostingIndex, PostingIndexLoader,
     PostingIndexSnapshot, StoredPostingPayloadRef,
 };
+use crate::relation::{
+    RelationArchivePayload, RelationIndex, RelationIndexLoader, StoredRelationPayloadRef,
+};
 use crate::repository::{CollectionState, Repository};
 use crate::segment_archive::{FileLookup, RecordLookup, SegmentRows};
 use crate::sorting::{
@@ -207,6 +210,9 @@ fn open_snapshot(
         manifest_digest: current.manifest_digest,
         manifest_length: current.manifest_length,
         limits,
+        max_concurrent_reads: options.max_concurrent_reads.get(),
+        reads_in_flight: std::sync::Mutex::new(0),
+        reads_available: std::sync::Condvar::new(),
         index_reads: AtomicU64::new(metadata_reads),
         index_bytes: AtomicU64::new(metadata_bytes),
     });
@@ -339,7 +345,14 @@ fn rebuild_repository(
                 .collect(),
             identity_order: Arc::new(stored.identity_order.clone()),
             stats: stored.stats,
-            relations: Arc::new(stored.relations.clone()),
+            relations: Arc::new(
+                stored
+                    .relations
+                    .iter()
+                    .cloned()
+                    .map(|relation| relation_from_storage(relation, Arc::clone(&session)))
+                    .collect::<Result<Vec<_>, _>>()?,
+            ),
         });
     }
     repository.collections = collections;
@@ -432,6 +445,7 @@ const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 const METADATA_OBJECT_KIND: u16 = 1;
 const METADATA_CHUNK_OBJECT_KIND: u16 = 6;
 const BIGRAM_LEAF_KIND: u16 = 7;
+const RELATION_PAYLOAD_OBJECT_KIND: u16 = 8;
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -701,8 +715,10 @@ impl StoredBigramPack {
             ));
         }
         let mut envelope = [0u8; format::ENVELOPE_LEN];
+        let permit = session.acquire_read_permit()?;
         file.read_exact(&mut envelope)
             .map_err(|error| format!("{}: {error}", path.display()))?;
+        drop(permit);
         format::checked_body(&envelope, kind).map_err(|error| error.to_string())?;
         session
             .index_reads
@@ -740,8 +756,10 @@ impl StoredBigramPack {
         }
         let capacity = usize::try_from(length).map_err(|_| "stored bigram range is too large")?;
         let mut bytes = vec![0u8; capacity];
+        let permit = self.session.acquire_read_permit()?;
         read_exact_at(&self.file, &mut bytes, offset)
             .map_err(|error| format!("stored bigram pack read failed: {error}"))?;
+        drop(permit);
         self.session
             .index_reads
             .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
@@ -816,6 +834,41 @@ impl SortCollectionLoader for StoredSortLoader {
     }
 }
 
+struct StoredRelationLoader {
+    session: SharedStorageSession,
+    reference: StoredRelationPayloadRef,
+}
+
+impl std::fmt::Debug for StoredRelationLoader {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("StoredRelationLoader")
+            .field("digest", &format::hex(&self.reference.digest))
+            .field("length", &self.reference.length)
+            .finish()
+    }
+}
+
+impl RelationIndexLoader for StoredRelationLoader {
+    fn load_relation_index(&self) -> Result<RelationArchivePayload, String> {
+        let bytes = read_checked_object(
+            &self.session,
+            self.reference.digest,
+            self.reference.length,
+            RELATION_PAYLOAD_OBJECT_KIND,
+        )?;
+        let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+        aligned.extend_from_slice(&bytes);
+        let owner =
+            crate::archive_storage::ValidatedArchive::<RelationArchivePayload>::checked_from_aligned(
+                aligned,
+            )
+            .map_err(|error| format!("relation payload validation failed: {error}"))?;
+        rkyv::deserialize::<RelationArchivePayload, rkyv::rancor::Error>(owner.root())
+            .map_err(|error| format!("relation payload decode failed: {error}"))
+    }
+}
+
 fn read_checked_object(
     session: &StorageSession,
     digest: [u8; 32],
@@ -823,7 +876,10 @@ fn read_checked_object(
     kind: u16,
 ) -> Result<Vec<u8>, String> {
     let limit = match kind {
-        POSTING_PAYLOAD_OBJECT_KIND | BIGRAM_PAYLOAD_OBJECT_KIND | SORT_PAYLOAD_OBJECT_KIND => {
+        POSTING_PAYLOAD_OBJECT_KIND
+        | BIGRAM_PAYLOAD_OBJECT_KIND
+        | SORT_PAYLOAD_OBJECT_KIND
+        | RELATION_PAYLOAD_OBJECT_KIND => {
             session.limits().lazy_dictionary_body_bytes
         }
         _ => session.limits().eager_catalog_body_bytes,
@@ -843,7 +899,9 @@ fn read_checked_object(
         .directory()
         .join("objects")
         .join(format::object_file_name(&digest, kind));
+    let permit = session.acquire_read_permit()?;
     let bytes = fs::read(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+    drop(permit);
     session
         .index_reads
         .fetch_add(1, std::sync::atomic::Ordering::AcqRel);
@@ -897,6 +955,19 @@ fn bigram_from_storage(
         snapshot.storage = Some(Arc::new(StoredBigramLoader { session, reference }));
     }
     Ok(snapshot)
+}
+
+fn relation_from_storage(
+    snapshot: RelationIndex,
+    session: SharedStorageSession,
+) -> Result<RelationIndex, StorageError> {
+    let Some(reference) = snapshot.stored_payload() else {
+        return Ok(snapshot);
+    };
+    Ok(snapshot.with_loader(Arc::new(StoredRelationLoader {
+        session,
+        reference,
+    })))
 }
 
 fn sorting_from_storage(

@@ -416,6 +416,7 @@ impl<'a> MergedRelationView<'a> {
                 .relations
                 .get(relation_index)
                 .ok_or("merged base relation missing")?;
+            relation.ensure_storage_loaded()?;
             Ok((
                 relation
                     .edges(address.slot)

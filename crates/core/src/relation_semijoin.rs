@@ -169,11 +169,14 @@ fn relation<'a>(
     repo: &'a Repository,
     hop: &BoundRelationHop,
 ) -> Result<&'a crate::relation::RelationIndex, String> {
-    repo.collections
+    let relation = repo
+        .collections
         .get(hop.relation.source.0 as usize)
         .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))
         .filter(|relation| relation.target_collection == hop.to)
-        .ok_or_else(|| "relation semijoin declaration changed".into())
+        .ok_or("relation semijoin declaration changed")?;
+    relation.ensure_storage_loaded()?;
+    Ok(relation)
 }
 
 fn segment_target_candidates(

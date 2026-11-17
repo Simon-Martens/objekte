@@ -214,6 +214,7 @@ impl Repository {
         let relation = self
             .relation_index(source_collection, relation_path)
             .ok_or("relation not found in source collection")?;
+        relation.ensure_storage_loaded()?;
         let slot = *source
             .id_lookup
             .get(source_id)
@@ -400,6 +401,7 @@ impl Repository {
         let mut edges = Vec::new();
         for collection in &self.collections {
             for relation in collection.relations.iter() {
+                relation.ensure_storage_loaded()?;
                 let source = relation.id.source.0 as usize;
                 let target = relation.target_collection.0 as usize;
                 nodes

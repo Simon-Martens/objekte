@@ -1,7 +1,9 @@
 //! Declared, collection-scoped links and immutable forward reference access.
 
 use std::collections::{BTreeMap, HashMap};
+use std::sync::{Arc, OnceLock};
 
+use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
@@ -75,42 +77,179 @@ pub struct RelationIndex {
     empty_arrays: RoaringBitmap,
     unavailable: RoaringBitmap,
     unresolved_count: u64,
+    #[serde(default)]
+    payload: Option<StoredRelationPayloadRef>,
+    #[serde(skip)]
+    storage: Option<Arc<dyn RelationIndexLoader>>,
+    #[serde(skip)]
+    loaded: Arc<OnceLock<Box<RelationIndex>>>,
+    #[serde(skip)]
+    lock: Arc<std::sync::Mutex<()>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub(crate) struct StoredRelationPayloadRef {
+    pub digest: [u8; 32],
+    pub length: u64,
+}
+
+pub(crate) trait RelationIndexLoader: std::fmt::Debug + Send + Sync {
+    fn load_relation_index(&self) -> Result<RelationArchivePayload, String>;
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+pub(crate) struct RelationArchivePayload {
+    offsets: Vec<u32>,
+    edges: Vec<StoredRelationEdge>,
+    present: Vec<u8>,
+    nulls: Vec<u8>,
+    empty_arrays: Vec<u8>,
+    unavailable: Vec<u8>,
+    unresolved_count: u64,
+}
+
+#[derive(Archive, ArchiveSerialize, ArchiveDeserialize)]
+struct StoredRelationEdge {
+    target_slot: Option<u32>,
+    target_id: String,
+    positions: Vec<u32>,
 }
 
 impl RelationIndex {
+    pub(crate) fn with_loader(mut self, loader: Arc<dyn RelationIndexLoader>) -> Self {
+        self.storage = Some(loader);
+        self
+    }
+
+    pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
+        if self.storage.is_none() {
+            return Ok(());
+        }
+        let _guard = self
+            .lock
+            .lock()
+            .map_err(|_| "relation payload load lock poisoned".to_string())?;
+        if self.loaded.get().is_none() {
+            let payload = self
+                .storage
+                .as_ref()
+                .expect("stored relation payload")
+                .load_relation_index()?;
+            let mut loaded = self.clone();
+            loaded.apply_archive_payload(payload)?;
+            loaded.payload = None;
+            loaded.storage = None;
+            loaded.loaded = Arc::new(OnceLock::new());
+            loaded.lock = Arc::new(std::sync::Mutex::new(()));
+            self.loaded
+                .set(Box::new(loaded))
+                .map_err(|_| "relation payload was initialized concurrently".to_string())?;
+        }
+        Ok(())
+    }
+
+    fn materialized(&self) -> &Self {
+        self.loaded
+            .get()
+            .map(|loaded| loaded.as_ref())
+            .unwrap_or(self)
+    }
+
+    pub(crate) fn archive_payload(&self) -> Result<RelationArchivePayload, String> {
+        let this = self.materialized();
+        Ok(RelationArchivePayload {
+            offsets: this.offsets.clone(),
+            edges: this
+                .edges
+                .iter()
+                .map(|edge| StoredRelationEdge {
+                    target_slot: match edge.target {
+                        RelationTarget::Resolved(slot) => Some(slot.0),
+                        RelationTarget::Unresolved(_) => None,
+                    },
+                    target_id: edge.target_id.clone(),
+                    positions: edge.positions.clone(),
+                })
+                .collect(),
+            present: encode_relation_bitmap(&this.present)?,
+            nulls: encode_relation_bitmap(&this.nulls)?,
+            empty_arrays: encode_relation_bitmap(&this.empty_arrays)?,
+            unavailable: encode_relation_bitmap(&this.unavailable)?,
+            unresolved_count: this.unresolved_count,
+        })
+    }
+
+    pub(crate) fn use_stored_payload(&mut self, payload: StoredRelationPayloadRef) {
+        self.offsets.clear();
+        self.edges.clear();
+        self.present = RoaringBitmap::new();
+        self.nulls = RoaringBitmap::new();
+        self.empty_arrays = RoaringBitmap::new();
+        self.unavailable = RoaringBitmap::new();
+        self.payload = Some(payload);
+    }
+
+    pub(crate) fn stored_payload(&self) -> Option<StoredRelationPayloadRef> {
+        self.payload
+    }
+
+    fn apply_archive_payload(&mut self, payload: RelationArchivePayload) -> Result<(), String> {
+        self.offsets = payload.offsets;
+        self.edges = payload
+            .edges
+            .into_iter()
+            .map(|edge| RelationEdge {
+                target: edge.target_slot.map_or_else(
+                    || RelationTarget::Unresolved(edge.target_id.clone()),
+                    |slot| RelationTarget::Resolved(RecordSlot(slot)),
+                ),
+                target_id: edge.target_id,
+                positions: edge.positions,
+            })
+            .collect();
+        self.present = decode_relation_bitmap(&payload.present)?;
+        self.nulls = decode_relation_bitmap(&payload.nulls)?;
+        self.empty_arrays = decode_relation_bitmap(&payload.empty_arrays)?;
+        self.unavailable = decode_relation_bitmap(&payload.unavailable)?;
+        self.unresolved_count = payload.unresolved_count;
+        Ok(())
+    }
+
     pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
-        let start = *self.offsets.get(source.0 as usize)? as usize;
-        let end = *self.offsets.get(source.0 as usize + 1)? as usize;
-        self.edges.get(start..end)
+        let this = self.materialized();
+        let start = *this.offsets.get(source.0 as usize)? as usize;
+        let end = *this.offsets.get(source.0 as usize + 1)? as usize;
+        this.edges.get(start..end)
     }
 
     pub fn present(&self) -> &RoaringBitmap {
-        &self.present
+        &self.materialized().present
     }
 
     pub fn nulls(&self) -> &RoaringBitmap {
-        &self.nulls
+        &self.materialized().nulls
     }
 
     pub fn empty_arrays(&self) -> &RoaringBitmap {
-        &self.empty_arrays
+        &self.materialized().empty_arrays
     }
 
     pub fn unavailable(&self) -> &RoaringBitmap {
-        &self.unavailable
+        &self.materialized().unavailable
     }
 
     pub fn unresolved_count(&self) -> u64 {
-        self.unresolved_count
+        self.materialized().unresolved_count
     }
 
     /// Report dangling references without changing the source record's parse status.
     pub fn unresolved_references(&self) -> impl Iterator<Item = (RecordSlot, &str, &[u32])> {
-        self.offsets
+        let this = self.materialized();
+        this.offsets
             .windows(2)
             .enumerate()
             .flat_map(|(source, pair)| {
-                self.edges[pair[0] as usize..pair[1] as usize]
+                this.edges[pair[0] as usize..pair[1] as usize]
                     .iter()
                     .filter_map(move |edge| match &edge.target {
                         RelationTarget::Unresolved(id) => Some((
@@ -124,13 +263,14 @@ impl RelationIndex {
     }
 
     pub fn edge_count(&self) -> usize {
-        self.edges.len()
+        self.materialized().edges.len()
     }
 
     pub fn estimated_heap_bytes(&self) -> usize {
-        self.offsets.capacity() * std::mem::size_of::<u32>()
-            + self.edges.capacity() * std::mem::size_of::<RelationEdge>()
-            + self
+        let this = self.materialized();
+        this.offsets.capacity() * std::mem::size_of::<u32>()
+            + this.edges.capacity() * std::mem::size_of::<RelationEdge>()
+            + this
                 .edges
                 .iter()
                 .map(|edge| {
@@ -142,10 +282,10 @@ impl RelationIndex {
                         }
                 })
                 .sum::<usize>()
-            + self.present.serialized_size()
-            + self.nulls.serialized_size()
-            + self.empty_arrays.serialized_size()
-            + self.unavailable.serialized_size()
+            + this.present.serialized_size()
+            + this.nulls.serialized_size()
+            + this.empty_arrays.serialized_size()
+            + this.unavailable.serialized_size()
     }
 
     pub(crate) fn validate(
@@ -153,6 +293,7 @@ impl RelationIndex {
         source: &CollectionState,
         target: &CollectionState,
     ) -> Result<(), String> {
+        self.ensure_storage_loaded()?;
         if self.id.source != source.generation.collection
             || self.target_collection != target.generation.collection
             || self.declaration.target_collection != target.definition.name
@@ -330,6 +471,7 @@ impl RelationContribution {
         index: &RelationIndex,
         record_count: usize,
     ) -> Result<Self, String> {
+        index.ensure_storage_loaded()?;
         if index.offsets.len() != record_count + 1 {
             return Err("relation index record coverage mismatch".into());
         }
@@ -693,6 +835,10 @@ impl RelationContribution {
             empty_arrays: self.empty_arrays,
             unavailable: self.unavailable,
             unresolved_count,
+            payload: None,
+            storage: None,
+            loaded: Arc::new(OnceLock::new()),
+            lock: Arc::new(std::sync::Mutex::new(())),
         })
     }
 }
@@ -829,6 +975,24 @@ fn valid_alias(alias: &str) -> bool {
     let mut bytes = alias.bytes();
     matches!(bytes.next(), Some(first) if first.is_ascii_alphabetic() || first == b'_')
         && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+}
+
+fn encode_relation_bitmap(bitmap: &RoaringBitmap) -> Result<Vec<u8>, String> {
+    let mut bytes = Vec::with_capacity(bitmap.serialized_size());
+    bitmap
+        .serialize_into(&mut bytes)
+        .map_err(|error| format!("relation bitmap serialization failed: {error}"))?;
+    Ok(bytes)
+}
+
+fn decode_relation_bitmap(bytes: &[u8]) -> Result<RoaringBitmap, String> {
+    let mut cursor = std::io::Cursor::new(bytes);
+    let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
+        .map_err(|error| format!("relation bitmap decode failed: {error}"))?;
+    if cursor.position() != bytes.len() as u64 {
+        return Err("relation bitmap has trailing bytes".into());
+    }
+    Ok(bitmap)
 }
 
 pub(crate) fn validate_definitions(definitions: &[CollectionDefinition]) -> Result<(), String> {

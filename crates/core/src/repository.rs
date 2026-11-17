@@ -1376,6 +1376,9 @@ impl Repository {
                 }
             }
             for relation in collection.relations.iter() {
+                relation
+                    .ensure_storage_loaded()
+                    .expect("native index signatures require loaded relation payloads");
                 hash_field(&mut hash, relation.declaration.path.join(".").as_bytes());
                 for record in records {
                     if let Some(edges) = relation.edges(record.slot) {

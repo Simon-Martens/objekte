@@ -5,7 +5,10 @@ use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
 use objekte_search_core::reference::FieldDefinition;
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
+use objekte_search_core::repository::{
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
+};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::{
     AuditOptions, StorageOpenOptions, StorageReadLimits, StorageWriteOptions, audit, prune,
@@ -72,6 +75,44 @@ fn all_records() -> Query {
             evidence: false,
         },
     }
+}
+
+fn relation_definitions() -> Vec<CollectionDefinition> {
+    fn add_field(definition: &mut CollectionDefinition, name: &str, kind: LogicalType) {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: name == "id",
+                nullable: name != "id",
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+
+    let mut entries = CollectionDefinition::folder("entries", "entries", SourceFormat::Json);
+    entries.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    add_field(&mut entries, "id", LogicalType::Id);
+    add_field(&mut entries, "title", LogicalType::String);
+
+    let mut mentions = CollectionDefinition::folder("mentions", "mentions", SourceFormat::Json);
+    mentions.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    add_field(&mut mentions, "id", LogicalType::Id);
+    add_field(&mut mentions, "title", LogicalType::String);
+    add_field(&mut mentions, "entry", LogicalType::Id);
+    mentions
+        .schema
+        .register_relation(RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "entries".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("mentions".into()),
+        })
+        .unwrap();
+    vec![entries, mentions]
 }
 
 #[test]
@@ -973,5 +1014,82 @@ fn missing_stored_fts_gram_skips_all_leaf_reads() {
         warm.cache
     );
     reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn relation_payload_loads_only_for_a_relation_query_after_reopen() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-storage-relation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("entries")).unwrap();
+    std::fs::create_dir_all(root.join("mentions")).unwrap();
+    std::fs::create_dir_all(root.join("storage")).unwrap();
+    std::fs::write(
+        root.join("entries/a.json"),
+        br#"{"id":"A","title":"Hymn"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("entries/b.json"),
+        br#"{"id":"B","title":"Festival"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m1.json"),
+        br#"{"id":"m1","title":"One","entry":"A"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        br#"{"id":"m2","title":"Two","entry":"B"}"#,
+    )
+    .unwrap();
+    let definitions = relation_definitions();
+    let mut repository =
+        Repository::open_with_options(&root, definitions.clone(), RepositoryOptions::default())
+            .unwrap();
+    let mut request = all_records();
+    request.collections = vec!["mentions".into()];
+    request.filter = Some(parse_filter("entry.title = 'Hymn'").unwrap());
+    let native = repository.search(&request).unwrap();
+    assert_eq!(
+        native
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1"]
+    );
+    repository
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(repository);
+
+    let reopened = Repository::open_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let restored = reopened.search(&request).unwrap();
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.index_reads > cold.index_reads);
+    assert_eq!(
+        restored
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1"]
+    );
     std::fs::remove_dir_all(root).unwrap();
 }

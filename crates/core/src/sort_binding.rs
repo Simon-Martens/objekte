@@ -1212,6 +1212,7 @@ impl ComputedSort {
             .relations
             .get(hop.relation.ordinal as usize)
             .ok_or("sort relation index is missing")?;
+        relation.ensure_storage_loaded()?;
         if hop.direction == HopDirection::Forward && relation.unavailable().contains(slot.0) {
             reduced.observe_unavailable()?;
             return Ok(());

@@ -255,6 +255,7 @@ fn prepare_with_limits(
                 .relations
                 .get(hop.relation.ordinal as usize)
                 .ok_or("relation declaration missing")?;
+            relation.ensure_storage_loaded()?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
                 if active
