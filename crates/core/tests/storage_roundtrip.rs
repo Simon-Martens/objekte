@@ -605,6 +605,54 @@ fn lazy_payload_read_limits_fail_at_selection_not_open() {
 }
 
 #[test]
+fn a_reopened_store_exports_a_self_contained_fresh_snapshot() {
+    let root = fixture_root("export");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let export = root.join("export");
+    std::fs::create_dir_all(&export).unwrap();
+    let report = reopened
+        .archive_to(&export, StorageWriteOptions::default())
+        .unwrap();
+    assert_eq!(report.generation, 1);
+    reopened.shutdown().unwrap();
+    drop(reopened);
+    std::fs::rename(root.join("storage"), root.join("storage.offline")).unwrap();
+
+    let exported = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        &export,
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        exported
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
+    );
+    exported.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_text_payload_reopens_lazily_and_preserves_results() {
     let root = fixture_root("fts");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
