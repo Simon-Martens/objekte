@@ -2041,6 +2041,46 @@ fn concurrent_archive_calls_serialize_without_duplicate_conversion() {
 }
 
 #[test]
+fn repository_archive_failure_is_atomic_and_retryable() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-repository-archive-failure-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"alpha"}"#,
+    )
+    .unwrap();
+    let mut repository =
+        Repository::open_with_options(&root, vec![prototype_definition()], prototype_options())
+            .unwrap();
+    let before = repository.archive_status();
+    let count = repository.search(&query(None, None, 10, 0)).unwrap().count;
+    crate::archive_storage::fail_next_freeze();
+    assert!(repository.archive().is_err());
+    assert_eq!(repository.archive_status(), before);
+    assert_eq!(
+        repository.search(&query(None, None, 10, 0)).unwrap().count,
+        count
+    );
+    let report = repository.archive().unwrap();
+    assert_eq!(
+        report.representation_after,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert_eq!(
+        repository.search(&query(None, None, 10, 0)).unwrap().count,
+        count
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn queries_and_quiesce_coordinate_with_a_paused_archive() {
     let root = std::env::temp_dir().join(format!(
         "objekte-paused-archive-{}-{}",

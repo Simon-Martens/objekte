@@ -527,9 +527,14 @@ impl Repository {
         }
         let preparation_started = Instant::now();
         let _ = take_construction_timing();
-        self.archive_collection_storage()
+        let mut candidate = self
+            .archive_candidate()
             .map_err(IndexError::InvalidPublication)?;
-        self.catalog
+        candidate
+            .archive_collection_storage()
+            .map_err(IndexError::InvalidPublication)?;
+        candidate
+            .catalog
             .archive_storage()
             .map_err(IndexError::InvalidPublication)?;
         let mut timing = take_construction_timing();
@@ -538,7 +543,7 @@ impl Repository {
         let segment_serializer_ns = AtomicU64::new(0);
         let segment_validation_ns = AtomicU64::new(0);
         archive_segment_groups(
-            &mut self.segments,
+            &mut candidate.segments,
             options,
             &converted_segments,
             &peak_jobs,
@@ -552,20 +557,24 @@ impl Repository {
         timing.validation_ns = timing
             .validation_ns
             .saturating_add(segment_validation_ns.load(Ordering::Acquire));
-        self.representation_generation = before_generation
+        candidate.representation_generation = before_generation
             .checked_add(1)
             .ok_or(IndexError::RevisionOverflow)?;
-        let after_counts = self.storage_representation_counts();
+        let after_counts = candidate.storage_representation_counts();
         if after_counts.0 != 0 {
             return Err(IndexError::InvalidPublication(
                 "repository archive retained native eligible components".into(),
             ));
         }
         let preparation_ns = preparation_started.elapsed().as_nanos() as u64;
-        let after_usage = self.storage_usage();
+        let after_usage = candidate.storage_usage();
+        let revision = candidate.revision;
+        let instance_id = candidate.instance_id;
+        let representation_generation = candidate.representation_generation;
+        *self = candidate;
         Ok(ArchiveReport {
-            index_revision: self.revision,
-            instance_id: self.instance_id,
+            index_revision: revision,
+            instance_id,
             representation_before: ArchiveRepresentation::from_counts(
                 before_counts.0,
                 before_counts.1,
@@ -575,7 +584,7 @@ impl Repository {
                 after_counts.1,
             ),
             representation_generation_before: before_generation,
-            representation_generation_after: self.representation_generation,
+            representation_generation_after: representation_generation,
             converted_components: after_counts.1.saturating_sub(before_counts.1),
             reused_components: before_counts.1,
             native_components: after_counts.0,
