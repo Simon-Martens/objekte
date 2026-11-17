@@ -19,7 +19,7 @@ mod native_path_serde {
     use super::*;
 
     pub(super) fn serialize<S: serde::Serializer>(
-        path: &PathBuf,
+        path: &Path,
         serializer: S,
     ) -> Result<S::Ok, S::Error> {
         #[cfg(unix)]

@@ -30,16 +30,11 @@ const DEFAULT_DECODED_LEAF_LIMIT: u64 = 128 * 1024 * 1024;
 const DEFAULT_COALESCED_READ_SPAN: u64 = 1024 * 1024;
 const DEFAULT_COALESCED_READ_GAP: u64 = 4096;
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub enum CachePolicy {
+    #[default]
     KeepLoaded,
     Budget { resident_bytes: NonZeroU64 },
-}
-
-impl Default for CachePolicy {
-    fn default() -> Self {
-        Self::KeepLoaded
-    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]

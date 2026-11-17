@@ -221,22 +221,21 @@ fn open_snapshot(
     Ok((snapshot, session))
 }
 
+type RebuiltRepository = (
+    Repository,
+    Vec<ActiveRecords>,
+    Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    crate::lifecycle_catalog::FileCatalog,
+    FileVersions,
+);
+
 fn rebuild_repository(
     snapshot: model::StorageSnapshot,
     definitions: Vec<crate::repository::CollectionDefinition>,
     repository_options: crate::repository::RepositoryOptions,
     sources: crate::source::SourceRegistry,
     session: SharedStorageSession,
-) -> Result<
-    (
-        Repository,
-        Vec<ActiveRecords>,
-        Vec<Arc<Vec<Arc<PublishedSegment>>>>,
-        crate::lifecycle_catalog::FileCatalog,
-        FileVersions,
-    ),
-    StorageError,
-> {
+) -> Result<RebuiltRepository, StorageError> {
     let root = PathBuf::from(&snapshot.source_root);
     let mut repository = Repository::build_configured_shell(
         root.clone(),
@@ -380,7 +379,7 @@ fn rebuild_repository(
                 message,
             })?;
             let segment = PublishedSegment::checked(index.id, Arc::new(index), active)
-                .map_err(|message| StorageError::InvalidFormat(message))?;
+                .map_err(StorageError::InvalidFormat)?;
             stored_group.push(Arc::new(segment));
         }
         groups.push(Arc::new(stored_group));
@@ -766,6 +765,7 @@ fn open_shared_lock(path: &Path) -> Result<File, StorageError> {
     let file = OpenOptions::new()
         .read(true)
         .write(true)
+        .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_SH | libc::LOCK_NB) };
@@ -1115,6 +1115,7 @@ fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
     let file = OpenOptions::new()
         .read(true)
         .write(true)
+        .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) };

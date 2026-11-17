@@ -267,10 +267,10 @@ pub(crate) fn envelope(kind: u16, body: &[u8]) -> Vec<u8> {
     output
 }
 
-pub(crate) fn checked_body<'a>(
-    bytes: &'a [u8],
+pub(crate) fn checked_body(
+    bytes: &[u8],
     expected_kind: u16,
-) -> Result<&'a [u8], StorageError> {
+) -> Result<&[u8], StorageError> {
     if bytes.len() < ENVELOPE_LEN || bytes[..8] != OBJECT_MAGIC {
         return Err(StorageError::InvalidFormat("object envelope magic mismatch".into()));
     }

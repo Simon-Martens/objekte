@@ -942,6 +942,7 @@ fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
         .create(true)
         .read(true)
         .write(true)
+        .truncate(false)
         .open(path)
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) };
@@ -960,6 +961,7 @@ fn acquire_reader_lease(directory: &Path) -> Result<File, StorageError> {
         .create(true)
         .read(true)
         .write(true)
+        .truncate(false)
         .open(directory.join("readers.lock"))
         .map_err(|error| StorageError::Io(error.to_string()))?;
     let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_SH | libc::LOCK_NB) };
