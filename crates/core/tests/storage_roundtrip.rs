@@ -761,6 +761,23 @@ fn opening_a_missing_store_does_not_initialize_it() {
 }
 
 #[test]
+fn save_refuses_an_unrelated_nonempty_directory() {
+    let root = fixture_root("nonempty");
+    let target = root.join("unrelated");
+    std::fs::create_dir_all(&target).unwrap();
+    std::fs::write(target.join("valuable.txt"), b"keep me").unwrap();
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let error = index
+        .archive_to(&target, StorageWriteOptions::default())
+        .expect_err("an unrelated nonempty directory must be rejected");
+    assert!(error.to_string().contains("not an Objekte store"));
+    assert_eq!(std::fs::read(target.join("valuable.txt")).unwrap(), b"keep me");
+    assert!(!target.join("objects").exists());
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_text_payload_reopens_lazily_and_preserves_results() {
     let root = fixture_root("fts");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();

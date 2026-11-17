@@ -793,6 +793,25 @@ fn ensure_directory(directory: &Path) -> Result<(), StorageError> {
                 "storage target is not a directory".into(),
             ));
         }
+        let mut entries = fs::read_dir(directory)
+            .map_err(|error| StorageError::Io(error.to_string()))?;
+        if !directory.join("CURRENT").exists() && entries.next().is_some() {
+            for entry in fs::read_dir(directory)
+                .map_err(|error| StorageError::Io(error.to_string()))?
+            {
+                let entry = entry.map_err(|error| StorageError::Io(error.to_string()))?;
+                let name = entry.file_name();
+                if !matches!(
+                    name.to_str(),
+                    Some("objects" | "staging" | "writer.lock" | "readers.lock")
+                ) {
+                    return Err(StorageError::InvalidFormat(format!(
+                        "storage target is nonempty and is not an Objekte store: {}",
+                        entry.path().display()
+                    )));
+                }
+            }
+        }
         return Ok(());
     }
     let parent = directory.parent().ok_or_else(|| {
