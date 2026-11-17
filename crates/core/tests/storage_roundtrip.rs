@@ -207,3 +207,75 @@ fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
+    let root = fixture_root("mutation");
+    let index = Index::build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let first = index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let added_path = root.join("data/c.json");
+    std::fs::write(&added_path, br#"{"id":"c","title":"Gamma token"}"#).unwrap();
+    reopened.add_file(&added_path).unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        Some(3)
+    );
+    let second = reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    assert!(!second.unchanged);
+    assert_eq!(second.generation, first.generation + 1);
+
+    let handle = reopened
+        .view()
+        .unwrap()
+        .file_handle_for_path(&added_path)
+        .unwrap();
+    reopened.delete_file(handle).unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
+    let third = reopened
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    assert_eq!(third.generation, second.generation + 1);
+    reopened.shutdown().unwrap();
+
+    let reopened_again = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened_again
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
+    );
+    reopened_again.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

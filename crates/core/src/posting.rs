@@ -2410,11 +2410,33 @@ impl PostingIndex {
         self.storage.is_some()
     }
 
+    fn materialize_storage(&mut self) -> Result<(), String> {
+        if self.storage.is_none() {
+            return Ok(());
+        }
+        self.ensure_storage_loaded()?;
+        let mut loaded = self
+            .loaded
+            .get()
+            .expect("stored posting index was loaded")
+            .as_ref()
+            .clone();
+        loaded.storage = None;
+        loaded.loaded = Arc::new(OnceLock::new());
+        loaded.load_lock = Arc::new(std::sync::Mutex::new(()));
+        *self = loaded;
+        Ok(())
+    }
+
     fn payload(&self) -> &Self {
         self.loaded
             .get()
             .map(|loaded| loaded.as_ref())
             .unwrap_or(self)
+    }
+
+    pub(crate) fn materialized(&self) -> &Self {
+        self.payload()
     }
 
     fn configuration_matches(&self, field: &FieldDefinition, schema: &Schema) -> bool {
@@ -2662,7 +2684,9 @@ impl PostingIndex {
         }
     }
 
-    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+    pub(crate) fn merge_shifted(&mut self, mut batch: Self, base: u32) -> Result<(), String> {
+        self.materialize_storage()?;
+        batch.materialize_storage()?;
         if self.path != batch.path
             || self.kind != batch.kind
             || self.multi != batch.multi
@@ -2672,7 +2696,25 @@ impl PostingIndex {
             || self.empty_string_complete != batch.empty_string_complete
             || self.structural.is_some() != batch.structural.is_some()
         {
-            return Err("posting batch representation mismatch".into());
+            return Err(format!(
+                "posting batch representation mismatch: path={:?}/{:?} kind={:?}/{:?} multi={}/{} values={}/{} value_complete={}/{} length={}/{} empty={}/{} structural={}/{}",
+                self.path,
+                batch.path,
+                self.kind,
+                batch.kind,
+                self.multi,
+                batch.multi,
+                self.values_indexed,
+                batch.values_indexed,
+                self.value_complete,
+                batch.value_complete,
+                self.length_complete,
+                batch.length_complete,
+                self.empty_string_complete,
+                batch.empty_string_complete,
+                self.structural.is_some(),
+                batch.structural.is_some(),
+            ));
         }
         let covered = self
             .covered_records
@@ -3027,6 +3069,7 @@ impl PostingIndex {
         eligible_count: usize,
         allowed: Option<&RoaringBitmap>,
     ) -> Result<(), String> {
+        self.ensure_storage_loaded()?;
         crate::storage_usage::StorageWorkCounters::update(|counters| {
             counters.posting_logical_validation_passes =
                 counters.posting_logical_validation_passes.saturating_add(1);
@@ -3225,7 +3268,7 @@ impl PostingIndex {
     }
 
     pub(crate) fn is_archived(&self) -> bool {
-        self.values.is_archived()
+        self.storage.is_some() || self.values.is_archived()
             && self.lengths.is_archived()
             && self
                 .structural
@@ -3235,6 +3278,9 @@ impl PostingIndex {
 
     #[allow(dead_code)]
     pub(crate) fn is_native(&self) -> bool {
+        if self.storage.is_some() {
+            return false;
+        }
         self.values.is_native()
             && self.lengths.is_native()
             && self
@@ -3253,6 +3299,9 @@ impl PostingIndex {
     }
 
     pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        if self.storage.is_some() {
+            return (0, 3);
+        }
         let mut native = 0usize;
         let mut archived = 0usize;
         if self.values.is_archived() {
@@ -3287,6 +3336,9 @@ impl PostingIndex {
     }
 
     pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+        if self.storage.is_some() {
+            return Ok(());
+        }
         let values = self.values.archived()?;
         let lengths = self.lengths.archived()?;
         let structural = self
@@ -3303,6 +3355,9 @@ impl PostingIndex {
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
+        if self.storage.is_some() {
+            return 0;
+        }
         self.values
             .archive_bytes()
             .saturating_add(self.lengths.archive_bytes())

@@ -172,6 +172,32 @@ fn write_parts(
     let encode_started = Instant::now();
     let mut external_objects = Vec::new();
     let mut snapshot = snapshot_from_parts(parts, generation)?;
+    if let Some(prior) = read_prior_snapshot(directory, current)? {
+        let mut entries = prior
+            .files
+            .files
+            .iter()
+            .cloned()
+            .map(|entry| (entry.id, entry))
+            .collect::<std::collections::BTreeMap<_, _>>();
+        for entry in snapshot.files.files.iter().cloned() {
+            entries.insert(entry.id, entry);
+        }
+        for entry in snapshot
+            .segments
+            .iter()
+            .flatten()
+            .flat_map(|published| published.segment.files.iter())
+            .map(|file| file.entry.clone())
+        {
+            entries.entry(entry.id).or_insert(entry);
+        }
+        snapshot.files = crate::inventory::FileInventory::from_restored_entries(
+            snapshot.files.root.clone(),
+            Arc::new(entries.into_values().collect()),
+        )
+        .map_err(StorageError::InvalidFormat)?;
+    }
     externalize_posting_payloads(&mut snapshot, &mut external_objects)?;
     snapshot.stored_objects.extend(
         external_objects
@@ -400,6 +426,23 @@ fn snapshot_from_parts(
     _generation: u64,
 ) -> Result<model::StorageSnapshot, StorageError> {
     let repository = Arc::clone(&parts.repository);
+    let catalog_snapshot = parts.catalog.snapshot_slots();
+    let mut file_entries = repository
+        .files()
+        .files
+        .iter()
+        .cloned()
+        .map(|entry| (entry.id, entry))
+        .collect::<std::collections::BTreeMap<_, _>>();
+    for (entry, _, _) in catalog_snapshot.iter().filter_map(Option::as_ref) {
+        file_entries.insert(entry.id, entry.clone());
+    }
+    let catalog_entries = file_entries.into_values().collect::<Vec<_>>();
+    let files = crate::inventory::FileInventory::from_restored_entries(
+        repository.files().root.clone(),
+        Arc::new(catalog_entries),
+    )
+    .map_err(StorageError::InvalidFormat)?;
     let mut collections = Vec::with_capacity(repository.collections().len());
     for collection in repository.collections() {
         collections.push(snapshot_collection(collection)?);
@@ -497,9 +540,7 @@ fn snapshot_from_parts(
         }
         segments.push(stored_group);
     }
-    let catalog_slots = parts
-        .catalog
-        .snapshot_slots()
+    let catalog_slots = catalog_snapshot
         .into_iter()
         .map(|slot| {
             slot.map(|(entry, fingerprint, configuration)| model::StoredCatalogSlot {
@@ -536,7 +577,7 @@ fn snapshot_from_parts(
         configuration_identity: parts.configuration_identity,
         source_root: repository.files().root.to_string_lossy().into_owned(),
         complete: true,
-        files: (*repository.files()).clone(),
+        files,
         base_fingerprints: parts.repository.base_fingerprints.as_ref().clone(),
         file_versions: model::FileVersionsSnapshot {
             versions: parts.file_versions.stored_versions(),
@@ -737,6 +778,31 @@ fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError>
         store_identity: bytes[64..80].try_into().expect("fixed store identity"),
         lineage_identity: bytes[80..96].try_into().expect("fixed lineage identity"),
     }))
+}
+
+fn read_prior_snapshot(
+    directory: &Path,
+    current: Option<CurrentRecord>,
+) -> Result<Option<model::StorageSnapshot>, StorageError> {
+    let Some(current) = current else {
+        return Ok(None);
+    };
+    let path = directory
+        .join("objects")
+        .join(format::hex(&current.manifest_digest));
+    let bytes = fs::read(&path).map_err(|error| StorageError::Io(error.to_string()))?;
+    if bytes.len() as u64 != current.manifest_length
+        || format::sha256(&bytes) != current.manifest_digest
+    {
+        return Err(StorageError::corrupt(
+            format::hex(&current.manifest_digest),
+            "prior manifest length or digest mismatch",
+        ));
+    }
+    bincode_options()
+        .deserialize(format::checked_body(&bytes, METADATA_OBJECT_KIND)?)
+        .map(Some)
+        .map_err(|error| StorageError::InvalidFormat(error.to_string()))
 }
 
 fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {

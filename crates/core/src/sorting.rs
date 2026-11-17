@@ -953,7 +953,7 @@ impl SortCollection {
         self.storage.is_some()
     }
 
-    fn payload(&self) -> &Self {
+    pub(crate) fn materialized(&self) -> &Self {
         self.loaded
             .get()
             .map(|loaded| loaded.as_ref())
@@ -1031,7 +1031,7 @@ impl SortCollection {
     }
 
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
-        let this = self.payload();
+        let this = self.materialized();
         let normalized = fields
             .iter()
             .map(simple_composite_part)
@@ -1421,7 +1421,7 @@ impl SortCollection {
 
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
-        self.payload()
+        self.materialized()
             .columns
             .get(&path)
             .ok_or_else(|| format!("sort field is not registered: {field}"))

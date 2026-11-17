@@ -580,6 +580,12 @@ impl Index {
             &segment_validation_ns,
         )
         .map_err(IndexError::InvalidPublication)?;
+        let mut repository = candidate
+            .repository
+            .archive_candidate()
+            .map_err(IndexError::InvalidPublication)?;
+        repository.segments = candidate.segments.clone();
+        candidate.repository = Arc::new(repository);
         serializer_ns = serializer_ns.saturating_add(segment_serializer_ns.load(Ordering::Acquire));
         validation_ns = validation_ns.saturating_add(segment_validation_ns.load(Ordering::Acquire));
 

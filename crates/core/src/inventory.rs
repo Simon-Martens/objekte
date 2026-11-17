@@ -797,7 +797,6 @@ impl FileInventory {
     /// Restore an already decoded file table without first populating lookup
     /// maps through `add`. `rebuild_lookup` validates identities and paths,
     /// constructs both final maps once, and checks diagnostic ownership.
-    #[cfg(test)]
     pub(crate) fn from_restored_entries(
         root: PathBuf,
         entries: Arc<Vec<FileEntry>>,

@@ -151,10 +151,14 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
     if snapshot.schema_version != SNAPSHOT_SCHEMA_VERSION {
         return Err("unsupported snapshot schema version".into());
     }
-    if snapshot.files.files.len() != snapshot.catalog_slots.len()
+    if snapshot.catalog_slots.len() < snapshot.files.files.len()
         || snapshot.files.files.len() > u32::MAX as usize
     {
-        return Err("snapshot file catalogue length mismatch".into());
+        return Err(format!(
+            "snapshot file catalogue length mismatch: files={} catalog_slots={}",
+            snapshot.files.files.len(),
+            snapshot.catalog_slots.len()
+        ));
     }
     if snapshot.base_active.len() != snapshot.collections.len()
         || snapshot.segments.len() != snapshot.collections.len()
@@ -167,7 +171,10 @@ pub(crate) fn validate_snapshot(snapshot: &StorageSnapshot) -> Result<(), String
         .enumerate()
         .any(|(ordinal, slot)| {
             slot.as_ref()
-                .is_some_and(|slot| slot.entry.id.0 as usize != ordinal)
+                .is_some_and(|slot| {
+                    slot.entry.id.0 as usize != ordinal
+                        || slot.entry.id.0 as usize >= snapshot.catalog_slots.len()
+                })
         })
     {
         return Err("snapshot catalogue row identity mismatch".into());

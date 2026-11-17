@@ -418,19 +418,19 @@ impl Repository {
     }
 
     pub(crate) fn storage_representation_counts_without_catalog(&self) -> (usize, usize) {
-        let mut counts = self
+        let mut totals = self
             .collections
             .iter()
             .map(CollectionState::storage_representation_counts)
             .fold((0, 0), |(native, archived), (add_native, add_archived)| {
                 (native + add_native, archived + add_archived)
             });
-        for segment in self.segments.iter().flat_map(|group| group.iter()) {
-            let segment = segment.index.storage_representation_counts();
-            counts.0 += segment.0;
-            counts.1 += segment.1;
+        for published in self.segments.iter().flat_map(|group| group.iter()) {
+            let segment_counts = published.index.storage_representation_counts();
+            totals.0 += segment_counts.0;
+            totals.1 += segment_counts.1;
         }
-        counts
+        totals
     }
 
     pub(crate) fn archive_collection_storage(&mut self) -> Result<(), String> {

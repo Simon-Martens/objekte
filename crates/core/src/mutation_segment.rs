@@ -1402,6 +1402,10 @@ pub(crate) struct PostingProjection {
 }
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
+    source
+        .ensure_storage_loaded()
+        .expect("stored posting projection source must load");
+    let source = source.materialized();
     PostingIndex {
         values_indexed: source.values_indexed,
         path: source.path.clone(),
@@ -1688,6 +1692,8 @@ fn project_posting(
     logical_count: u32,
     bounds: Option<(u32, u32)>,
 ) -> Result<PostingIndex, String> {
+    index.ensure_storage_loaded()?;
+    let index = index.materialized();
     let mut projected = PostingIndex {
         values_indexed: index.values_indexed,
         path: index.path.clone(),
@@ -1811,6 +1817,8 @@ fn project_sorting(
     slots: &SlotMap<'_>,
     records: &[RecordEntry],
 ) -> Result<SortCollection, String> {
+    source.ensure_storage_loaded()?;
+    let source = source.materialized();
     let mut sorting = SortCollection {
         columns: HashMap::with_capacity(source.columns.len()),
         composites: source
@@ -2061,14 +2069,15 @@ impl IndexedCollectionSegment {
         &self,
         routing: &PartitionRouting,
     ) -> Result<Vec<SortCollection>, String> {
+        self.sorting.ensure_storage_loaded()?;
+        let sorting = self.sorting.materialized();
         let source_len = self.record_count();
         let mut parts = routing
             .selected
             .iter()
             .map(|_| SortCollection {
-                columns: HashMap::with_capacity(self.sorting.columns.len()),
-                composites: self
-                    .sorting
+                columns: HashMap::with_capacity(sorting.columns.len()),
+                composites: sorting
                     .composites
                     .iter()
                     .map(|order| CompositeSortOrder {
@@ -2082,7 +2091,7 @@ impl IndexedCollectionSegment {
                 load_lock: Arc::new(std::sync::Mutex::new(())),
             })
             .collect::<Vec<_>>();
-        for (path, original) in &self.sorting.columns {
+        for (path, original) in &sorting.columns {
             if original.keys.len() != source_len
                 || original.ascending.len() != source_len
                 || original.descending.len() != source_len
@@ -2136,12 +2145,12 @@ impl IndexedCollectionSegment {
                 }
             }
         }
-        for (number, original) in self.sorting.composites.iter().enumerate() {
+        for (number, original) in sorting.composites.iter().enumerate() {
             if original.order.len() != source_len
                 || original
                     .fields
                     .iter()
-                    .any(|field| !self.sorting.columns.contains_key(&field.path))
+                    .any(|field| !sorting.columns.contains_key(&field.path))
             {
                 return Err("composite sort projection coverage mismatch".into());
             }
