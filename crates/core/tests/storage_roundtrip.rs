@@ -150,6 +150,29 @@ fn semantic_definitions() -> Vec<CollectionDefinition> {
     vec![definition]
 }
 
+fn sequence_definitions() -> Vec<CollectionDefinition> {
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (path, kind) in [("id", LogicalType::Id), ("title", LogicalType::String)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: path == "id",
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    definition
+        .sort_fields
+        .push(objekte_search_core::model::FieldPath::parse("title").unwrap());
+    vec![definition]
+}
+
 #[test]
 fn reopened_semantic_query_matrix_matches_native_storage_state() {
     let root = fixture_root("semantic-matrix");
@@ -1758,6 +1781,135 @@ fn tiny_cache_budget_bypasses_oversized_selected_payloads() {
     assert!(warm.cache.oversize_bypasses > 0);
     assert_eq!(warm.cache.resident_bytes, 0);
     assert_eq!(reopened.trim_storage_cache().unwrap().evicted_entries, 0);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints() {
+    let root = fixture_root("mutation-sequence");
+    std::fs::remove_file(root.join("data/a.json")).unwrap();
+    std::fs::remove_file(root.join("data/b.json")).unwrap();
+    let definitions = sequence_definitions();
+    let state_path = root.join("data/state.jsonl");
+    let mut state = vec![(0, "Base".to_owned())];
+    let write_state = |state: &[(usize, String)]| {
+        let body = state
+            .iter()
+            .map(|(id, title)| format!(r#"{{"id":"state-{id}","title":"{title}"}}"#))
+            .collect::<Vec<_>>()
+            .join("\n")
+            + "\n";
+        std::fs::write(&state_path, body).unwrap();
+    };
+    write_state(&state);
+    let movable_path = root.join("data/movable.json");
+    std::fs::write(&movable_path, br#"{"id":"movable","title":"Move token"}"#).unwrap();
+
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let mut reopened = Index::open_storage(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let view = reopened.view().unwrap();
+    let mut movable_path = view
+        .file_paths()
+        .find(|path| path.ends_with("movable.json"))
+        .map(std::path::Path::to_path_buf)
+        .unwrap();
+    let mut movable_handle = view.file_handle_for_path(&movable_path).unwrap();
+    drop(view);
+
+    for step in 0..32 {
+        let add_path = root.join(format!("data/add-{step}.json"));
+        std::fs::write(
+            &add_path,
+            format!(r#"{{"id":"add-{step}","title":"Added {step} token"}}"#),
+        )
+        .unwrap();
+        let added = reopened.add_file(&add_path).unwrap();
+
+        state.push((step + 1, format!("State {step} token")));
+        write_state(&state);
+        let state_handle = reopened
+            .view()
+            .unwrap()
+            .file_handle_for_path(&state_path)
+            .unwrap();
+        reopened.update_file(state_handle, &state_path).unwrap();
+
+        let next_movable = if movable_path.ends_with("movable.json") {
+            root.join("data/moved.json")
+        } else {
+            root.join("data/movable.json")
+        };
+        std::fs::rename(&movable_path, &next_movable).unwrap();
+        movable_handle = reopened
+            .move_file(movable_handle, &next_movable)
+            .unwrap()
+            .file;
+        movable_path = next_movable;
+
+        reopened.delete_file(added.file).unwrap();
+
+        if (step + 1) % 8 == 0 {
+            reopened
+                .archive_to(root.join("storage"), StorageWriteOptions::default())
+                .unwrap();
+            reopened.shutdown().unwrap();
+            drop(reopened);
+            reopened = Index::open_storage(
+                &root,
+                definitions.clone(),
+                RepositoryOptions::default(),
+                root.join("storage"),
+                StorageOpenOptions::default(),
+            )
+            .unwrap();
+            let view = reopened.view().unwrap();
+            movable_path = view
+                .file_paths()
+                .find(|path| {
+                    path.file_name().is_some_and(|name| {
+                        matches!(name.to_str(), Some("movable.json" | "moved.json"))
+                    })
+                })
+                .map(std::path::Path::to_path_buf)
+                .unwrap();
+            movable_handle = view.file_handle_for_path(&movable_path).unwrap();
+            drop(view);
+
+            let fresh =
+                Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+            let mut sorted = all_records();
+            sorted.options.sort = vec![SortField::simple("title", false)];
+            let expected = fresh.view().unwrap().search(&sorted).unwrap();
+            let actual = reopened.view().unwrap().search(&sorted).unwrap();
+            assert_eq!(actual.count, expected.count, "checkpoint {}", step + 1);
+            assert_eq!(
+                actual
+                    .hits
+                    .iter()
+                    .map(|hit| (hit.collection.as_str(), hit.record_id.as_str()))
+                    .collect::<Vec<_>>(),
+                expected
+                    .hits
+                    .iter()
+                    .map(|hit| (hit.collection.as_str(), hit.record_id.as_str()))
+                    .collect::<Vec<_>>(),
+                "checkpoint {}",
+                step + 1
+            );
+        }
+    }
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
