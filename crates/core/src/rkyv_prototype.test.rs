@@ -2215,13 +2215,11 @@ fn operation_scoped_worker_failures_leave_index_and_queries_unchanged() {
         crate::lifecycle::install_test_archive_fault_control(Arc::new(
             ArchiveTestFaultControl::new(stage, successes),
         ));
-        let result = index
+        let error = match index
             .archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap())
-            .map(|_report| ())
-            .map_err(|error| error);
-        let error = match result {
+        {
             Err(error) => error,
-            Ok(()) => panic!("{stage:?} fault was not injected"),
+            Ok(_) => panic!("{stage:?} fault was not injected"),
         };
         crate::lifecycle::clear_test_archive_fault_control();
         assert!(error.to_string().contains("injected"), "{stage:?}: {error}");
