@@ -1910,9 +1910,9 @@ fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
     );
     drop(archived_view);
 
-    let added = root.join("data/b.json");
-    std::fs::write(&added, br#"{"id":"b","year":20,"title":"beta"}"#).unwrap();
-    let added = index.add_file(&added).unwrap();
+    let added_path = root.join("data/b.json");
+    std::fs::write(&added_path, br#"{"id":"b","year":20,"title":"beta"}"#).unwrap();
+    let added = index.add_file(&added_path).unwrap();
     assert_eq!(
         added.kind,
         crate::lifecycle_mutation::FileMutationKind::Added
@@ -1934,6 +1934,23 @@ fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
     assert_eq!(ids(&archived_view, &query(None, None, 10, 0)).0, ["a", "b"]);
     drop(archived_view);
 
+    std::fs::write(
+        &added_path,
+        br#"{"id":"b","year":21,"title":"beta updated"}"#,
+    )
+    .unwrap();
+    let updated = index.update_file(added.file, &added_path).unwrap();
+    assert_eq!(updated.file.file_id, added.file.file_id);
+    assert_eq!(
+        ids(
+            &index.view().unwrap(),
+            &query(Some("beta updated"), None, 10, 0)
+        )
+        .0,
+        ["b"]
+    );
+    index.archive().unwrap();
+    let added = updated;
     index.delete_file(added.file).unwrap();
     assert_eq!(
         ids(&index.view().unwrap(), &query(None, None, 10, 0)).0,
