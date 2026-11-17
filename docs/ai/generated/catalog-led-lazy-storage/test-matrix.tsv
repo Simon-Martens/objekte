@@ -65,8 +65,8 @@ S63	pending	none	Per-leaf Roaring checksum/cardinality/domain checks exist; malf
 S64	pending	none	Sort validation remains frame-level and lacks the required negative cases.
 S65	pending	none	Extension/schema/normalization compatibility matrix is pending.
 S66	pending	none	Pre-CURRENT fault stages need deterministic StorageIo injection.
-S67	pending	none	CURRENT rename failure injection is pending.
-S68	pending	none	CommitUncertain directory-sync injection is pending.
+S67	pass	storage::writer::tests::current_rename_failure_preserves_the_previous_commit	An injected rename failure preserves the previous CURRENT byte-for-byte.
+S68	pass	storage::writer::tests::post_rename_directory_sync_error_is_commit_uncertain	Post-rename directory sync failure is classified as CommitUncertain with generation and manifest identity.
 S69	pending	none	Child-process transaction barriers are not implemented.
 S70	pending	none	Sync-operation tracing is not implemented.
 S71	pass	storage_roundtrip::independent_writers_cannot_overwrite_a_nonempty_store	A second unrelated writer is rejected.

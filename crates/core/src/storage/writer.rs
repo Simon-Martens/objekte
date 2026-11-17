@@ -382,23 +382,16 @@ fn write_parts(
         snapshot.lineage_identity,
     );
     install_current(directory, generation, &current_bytes)?;
-    sync_directory(directory).map_err(|error| {
-        StorageError::CommitUncertain(format!(
-            "generation {generation}, manifest {}: {error}",
-            format::hex(&metadata_digest)
-        ))
-    })?;
+    sync_directory(directory)
+        .map_err(|error| commit_uncertain(error, generation, metadata_digest))?;
     if initialized_store {
         let parent = directory.parent().ok_or_else(|| {
             StorageError::CommitUncertain(
                 "storage directory has no parent entry to synchronize".into(),
             )
         })?;
-        sync_directory(parent).map_err(|error| {
-            StorageError::CommitUncertain(format!(
-                "initializing store directory for generation {generation}: {error}"
-            ))
-        })?;
+        sync_directory(parent)
+            .map_err(|error| commit_uncertain(error, generation, metadata_digest))?;
         sync_calls = sync_calls.saturating_add(1);
     }
     let sync_ns = sync_started.elapsed().as_nanos() as u64;
@@ -1234,9 +1227,24 @@ fn install_current(
     file.write_all(bytes)
         .and_then(|_| file.sync_all())
         .map_err(|error| StorageError::Io(error.to_string()))?;
+    #[cfg(test)]
+    if CURRENT_RENAME_FAILURE.swap(false, Ordering::SeqCst) {
+        return Err(StorageError::Io("injected CURRENT rename failure".into()));
+    }
     fs::rename(&temporary, directory.join("CURRENT"))
         .map_err(|error| StorageError::Io(error.to_string()))
 }
+
+fn commit_uncertain(error: StorageError, generation: u64, manifest: [u8; 32]) -> StorageError {
+    StorageError::CommitUncertain(format!(
+        "generation {generation}, manifest {}: {error}",
+        format::hex(&manifest)
+    ))
+}
+
+#[cfg(test)]
+static CURRENT_RENAME_FAILURE: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
 
 fn create_staging_file(directory: &Path, label: &str) -> Result<(PathBuf, File), StorageError> {
     for _ in 0..32 {
@@ -1348,7 +1356,11 @@ fn stable_lineage(configuration: &[u8; 32], root: &str) -> [u8; 16] {
 mod tests {
     use roaring::RoaringBitmap;
 
-    use super::{append_bigram_leaf, append_posting_leaf, format};
+    use super::{
+        CURRENT_RENAME_FAILURE, append_bigram_leaf, append_posting_leaf, commit_uncertain, format,
+        install_current,
+    };
+    use crate::storage::StorageError;
 
     fn variants() -> Vec<RoaringBitmap> {
         let sparse = RoaringBitmap::from_iter([1, 65_536, 1_000_000]);
@@ -1399,5 +1411,35 @@ mod tests {
             ),
             (0, 0, 0, [0; 32])
         );
+    }
+
+    #[test]
+    fn current_rename_failure_preserves_the_previous_commit() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-current-fault-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("staging")).unwrap();
+        let old = [0x5a; 128];
+        std::fs::write(root.join("CURRENT"), old).unwrap();
+        CURRENT_RENAME_FAILURE.store(true, std::sync::atomic::Ordering::SeqCst);
+        assert!(install_current(&root, 2, &[0xa5; 128]).is_err());
+        assert_eq!(std::fs::read(root.join("CURRENT")).unwrap(), old);
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn post_rename_directory_sync_error_is_commit_uncertain() {
+        let error = commit_uncertain(
+            StorageError::Io("injected directory sync failure".into()),
+            7,
+            [9; 32],
+        );
+        assert!(matches!(error, StorageError::CommitUncertain(_)));
+        assert!(error.to_string().contains("generation 7"));
     }
 }
