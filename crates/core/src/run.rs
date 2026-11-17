@@ -4470,25 +4470,6 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
-    if query.fts.is_some()
-        && repo.collections.iter().any(|collection| {
-            collection.raw.is_stored()
-                || collection.fallback_text.is_stored()
-                || collection
-                    .custom_text
-                    .values()
-                    .any(crate::bigram::BigramIndex::is_stored)
-        })
-    {
-        for collection in &repo.collections {
-            collection.raw.ensure_storage_loaded()?;
-            collection.fallback_text.ensure_storage_loaded()?;
-            for index in collection.custom_text.values() {
-                index.ensure_storage_loaded()?;
-            }
-        }
-        return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
-    }
     query
         .options
         .offset

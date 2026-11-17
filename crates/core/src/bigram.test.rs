@@ -1,5 +1,50 @@
 use super::*;
 
+#[test]
+fn archive_payload_round_trip_preserves_dictionary_and_candidates() {
+    let mut index = BigramIndex::new_ascii();
+    index
+        .add_record(
+            RecordSlot(0),
+            &[TextSegment {
+                path: vec!["title".into()],
+                text: "Alpha token".into(),
+            }],
+        )
+        .unwrap();
+    index
+        .add_record(
+            RecordSlot(1),
+            &[TextSegment {
+                path: vec!["title".into()],
+                text: "Beta token".into(),
+            }],
+        )
+        .unwrap();
+    let payload = index.archive_payload().unwrap();
+    let restored = BigramIndex::from_archive_payload(payload).unwrap();
+
+    assert_eq!(restored.record_count, 2);
+    assert_eq!(restored.normal, index.normal);
+    assert_eq!(restored.skip, index.skip);
+    assert_eq!(restored.candidates("token"), index.candidates("token"));
+
+    let payload = index.archive_payload().unwrap();
+    let bytes = rkyv::to_bytes::<rkyv::rancor::Error>(&payload).unwrap();
+    let mut aligned = rkyv::util::AlignedVec::<16>::with_capacity(bytes.len());
+    aligned.extend_from_slice(&bytes);
+    let owner =
+        crate::archive_storage::ValidatedArchive::<BigramArchivePayload>::checked_from_aligned(
+            aligned,
+        )
+        .unwrap();
+    let payload =
+        rkyv::deserialize::<BigramArchivePayload, rkyv::rancor::Error>(owner.root()).unwrap();
+    let restored = BigramIndex::from_archive_payload(payload).unwrap();
+    assert_eq!(restored.normal, index.normal);
+    assert_eq!(restored.skip, index.skip);
+}
+
 #[derive(Default)]
 struct StreamCollector(String);
 

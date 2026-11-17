@@ -2641,6 +2641,7 @@ impl PreparedFtsAccess<'_, '_> {
     fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
+            probe.index.ensure_storage_loaded()?;
             let next = if let Some(condition) = self.regex {
                 condition.candidates_checked(probe.index)?
             } else {

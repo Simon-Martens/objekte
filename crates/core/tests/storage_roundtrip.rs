@@ -790,7 +790,13 @@ fn full_text_payload_reopens_lazily_and_preserves_results() {
         StorageOpenOptions::default(),
     )
     .unwrap();
+    let cold = reopened.storage_status().unwrap();
     let restored = reopened.view().unwrap().search(&request).unwrap();
+    let warm = reopened.storage_status().unwrap();
+    assert!(warm.index_reads > cold.index_reads);
+    assert!(warm.cache.loaded_families > 0);
+    reopened.view().unwrap().search(&request).unwrap();
+    assert_eq!(reopened.storage_status().unwrap().index_reads, warm.index_reads);
     assert_eq!(
         restored
             .hits
