@@ -1,0 +1,125 @@
+{
+  "binary_build_dirty": "true",
+  "binary_build_revision": "15f45465ed0b7455577fce5431de50dfeea1ee16",
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "code_revision": "15f45465ed0b7455577fce5431de50dfeea1ee16",
+  "command": [
+    "target/release/examples/bench_musenalm",
+    "--incremental",
+    "--cases",
+    "Q001,Q119",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "docs/ai/generated/catalog-led-lazy-storage/baseline"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "aed33eec386a7031b10ac1d08ba24adc2f0dbd97d9b84af29f0bd24bec03b800",
+  "executable_sha256": "1758e7cd6f3b28cc58c1f37ac9aa6918baf4eb662d82ae7946cd31c0e60b2ead",
+  "execution_checkout_revision": "15f45465ed0b7455577fce5431de50dfeea1ee16",
+  "execution_dirty_status": "?? docs/ai/generated/catalog-led-lazy-storage/",
+  "extended": false,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-catalog-led-lazy-storage/crates/core/../../examples/musenalm",
+  "run_id": "1794882605-15f45465ed",
+  "schema_fingerprint": "c5b5981ba14d024a937c2c29d7e897cc0079f228f128b9b0a9099322b64cb898",
+  "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "71400bb1d610277b02cd3f012981ce900a5458f4bcd9d4b5f3f9d0e3a3c132ed"
+}

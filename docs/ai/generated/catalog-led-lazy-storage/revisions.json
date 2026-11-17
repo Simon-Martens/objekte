@@ -1,0 +1,21 @@
+{
+  "task_id": "catalog-led-lazy-storage",
+  "native_reference": "2e18871c0bcfb9cf9335d9e73525c64f91c960cf",
+  "merged_master_base": "15f45465ed0b7455577fce5431de50dfeea1ee16",
+  "archive_prerequisite_commits": [
+    "9558a51949b1d08e8487bda8d98131286b00a377",
+    "7cb23fb7a24ce413935a42c9d391dd15fa82d151",
+    "bfc1f0a1c2",
+    "d25114425f",
+    "30185637b6"
+  ],
+  "integration_branch": "integration/catalog-led-lazy-storage",
+  "storage_backend_revision": "pending",
+  "cargo_lock_sha256": "e9a405bb6b52450424816a4c134cb14a532256bf4db6b815617d8b0002a54c36",
+  "prerequisite_status": {
+    "native_search_ready_publication": true,
+    "explicit_memory_archive": true,
+    "direct_iterator_serialization": true,
+    "mutation_and_compaction": true
+  }
+}

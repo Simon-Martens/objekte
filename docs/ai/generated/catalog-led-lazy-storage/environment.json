@@ -1,0 +1,14 @@
+{
+  "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "logical_cpus": 32,
+  "physical_cores": 24,
+  "architecture": "x86_64",
+  "os": "Linux 7.3.3-200.fc44.x86_64",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "profile": "release",
+  "rkyv": "0.8.18",
+  "roaring": "locked 0.11.x",
+  "corpus": "examples/musenalm",
+  "storage_filesystem": "local filesystem",
+  "page_cache_policy": "unloaded application payload cache; OS page cache observed/unspecified"
+}
