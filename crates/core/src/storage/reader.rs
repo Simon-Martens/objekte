@@ -906,6 +906,23 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
     let (store_identity, lineage_identity) = session.identities();
     let snapshot =
         read_snapshot(session.directory()).map_err(crate::storage::storage_to_index_error)?;
+    let current = read_current(session.directory())
+        .map_err(crate::storage::storage_to_index_error)?;
+    let manifest_path = session
+        .directory()
+        .join("objects")
+        .join(format::object_file_name(
+            &current.manifest_digest,
+            METADATA_OBJECT_KIND,
+        ));
+    let manifest_object = fs::read(&manifest_path)
+        .map_err(|error| IndexError::Io(error.to_string()))?;
+    let (_, metadata_manifest, _, metadata_bytes) = read_metadata_snapshot(
+        &manifest_object,
+        session.directory(),
+        session.limits(),
+    )
+    .map_err(crate::storage::storage_to_index_error)?;
     Ok(StorageStatus {
         directory: session.directory().to_path_buf(),
         generation: session.generation(),
@@ -916,8 +933,18 @@ fn status_for(repository: &Repository) -> Result<StorageStatus, IndexError> {
         eager_record_rows: snapshot.counters.eager_record_rows as usize,
         eager_index_descriptors: snapshot.counters.eager_index_descriptors as usize,
         eager_leaf_rows: snapshot.counters.eager_leaf_rows as usize,
-        stored_objects: snapshot.stored_objects.len(),
-        referenced_bytes: snapshot.stored_objects.iter().map(|object| object.length).sum(),
+        stored_objects: snapshot
+            .stored_objects
+            .len()
+            .saturating_add(metadata_manifest.chunks.len())
+            .saturating_add(1),
+        referenced_bytes: metadata_bytes.saturating_add(
+            snapshot
+                .stored_objects
+                .iter()
+                .map(|object| object.length)
+                .sum(),
+        ),
         cache: session.cache().status(),
         source_reads: 0,
         source_parses: 0,

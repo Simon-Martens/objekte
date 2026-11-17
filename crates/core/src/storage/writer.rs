@@ -602,11 +602,15 @@ fn snapshot_from_parts(
             .iter()
             .map(|collection| collection.postings.fields.len() as u64)
             .sum(),
-        eager_leaf_rows: parts
-            .segments
+        eager_leaf_rows: collections
             .iter()
-            .flat_map(|group| group.iter())
-            .map(|segment| segment.index.postings.fields.len() as u64)
+            .map(collection_leaf_rows)
+            .chain(
+                segments
+                    .iter()
+                    .flatten()
+                    .map(|published| segment_leaf_rows(&published.segment)),
+            )
             .sum(),
     };
     let snapshot = model::StorageSnapshot {
@@ -639,6 +643,97 @@ fn snapshot_from_parts(
     let mut snapshot = snapshot;
     snapshot.lineage_identity = stable_lineage(&snapshot.configuration_identity, &snapshot.source_root);
     Ok(snapshot)
+}
+
+fn posting_leaf_rows(posting: &crate::posting::PostingIndexSnapshot) -> u64 {
+    let dictionary_rows = posting
+        .values
+        .len()
+        .saturating_add(posting.lengths.len())
+        .saturating_add(
+            posting
+                .structural
+                .as_ref()
+                .map_or(0, std::collections::BTreeMap::len),
+        );
+    (dictionary_rows as u64).saturating_add(3)
+}
+
+fn posting_collection_leaf_rows(
+    collection: &crate::posting::PostingCollectionSnapshot,
+) -> u64 {
+    collection
+        .fields
+        .values()
+        .map(posting_leaf_rows)
+        .sum()
+}
+
+fn bigram_leaf_rows(index: &crate::bigram::BigramIndex) -> u64 {
+    index
+        .normal
+        .len()
+        .saturating_add(index.skip.len()) as u64
+}
+
+fn collection_leaf_rows(collection: &model::CollectionSnapshot) -> u64 {
+    let mut rows = posting_collection_leaf_rows(&collection.postings)
+        .saturating_add(bigram_leaf_rows(&collection.raw))
+        .saturating_add(bigram_leaf_rows(&collection.fallback_text));
+    rows = rows.saturating_add(
+        collection
+            .custom_text
+            .values()
+            .map(bigram_leaf_rows)
+            .sum::<u64>(),
+    );
+    rows = rows.saturating_add(
+        collection
+            .custom_postings
+            .values()
+            .map(|custom| posting_leaf_rows(&custom.index))
+            .sum::<u64>(),
+    );
+    if let Some(inference) = &collection.inference {
+        rows = rows.saturating_add(
+            inference
+                .indexes
+                .values()
+                .map(posting_leaf_rows)
+                .sum::<u64>(),
+        );
+    }
+    rows
+}
+
+fn segment_leaf_rows(segment: &model::SegmentSnapshot) -> u64 {
+    let mut rows = posting_collection_leaf_rows(&segment.postings)
+        .saturating_add(bigram_leaf_rows(&segment.raw))
+        .saturating_add(bigram_leaf_rows(&segment.fallback_text));
+    rows = rows.saturating_add(
+        segment
+            .custom_text
+            .values()
+            .map(bigram_leaf_rows)
+            .sum::<u64>(),
+    );
+    rows = rows.saturating_add(
+        segment
+            .custom_postings
+            .values()
+            .map(|custom| posting_leaf_rows(&custom.index))
+            .sum::<u64>(),
+    );
+    if let Some(inference) = &segment.inference {
+        rows = rows.saturating_add(
+            inference
+                .indexes
+                .values()
+                .map(posting_leaf_rows)
+                .sum::<u64>(),
+        );
+    }
+    rows
 }
 
 fn snapshot_collection(collection: &CollectionState) -> Result<model::CollectionSnapshot, StorageError> {
