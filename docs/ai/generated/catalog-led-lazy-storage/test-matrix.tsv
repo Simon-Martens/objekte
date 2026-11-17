@@ -23,7 +23,7 @@ S21	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_sele
 S22	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Inclusive scalar ranges round-trip with identical hits and counts.
 S23	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Null, missing, empty-array and multi-value predicates match native state after reopen.
 S24	pass	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Large and sub-ULP decimal equality/ranges and descending sort retain exact values.
-S25	pending	none	Sort coverage does not include all tie/null/composite cases.
+S25	partial	storage_roundtrip::reopened_semantic_query_matrix_matches_native_storage_state	Tie, missing/null placement and both directions are covered; an explicit composite-order fixture remains.
 S26	partial	storage_roundtrip::relation_payload_loads_only_for_a_relation_query_after_reopen	Base relation payload is lazy and round-trips; full relation oracle matrix after reopen is pending.
 S27	pending	none	ASCII/Unicode/skip/raw/named FTS equivalence after reopen is not exhaustive.
 S28	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its store lease and performs a first lazy FTS load after root replacement.
@@ -31,28 +31,28 @@ S29	pending	none	Reclamation of converted native key maps is not allocator-verif
 S30	pending	none	Saving warm native groups without bitmap clones lacks structural proof.
 S31	pending	none	Compatibility FileEntry/RecordEntry materialization counters are absent.
 S32	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Cold payload packs remain untouched by a deletion-only resave.
-S33	partial	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	Single-load behavior is covered for the current coarse posting unit.
-S34	pending	none	Different-component concurrency under the new read-permit limit needs a storage test.
+S33	pass	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	Concurrent first access shares one posting dictionary read and one selected leaf read.
+S34	pass	storage_roundtrip::different_stored_components_can_load_concurrently	Different posting components load concurrently within a two-read permit.
 S35	pending	none	Waiter cancellation does not yet have a deterministic storage test.
 S36	pass	storage_roundtrip::transient_missing_lazy_dictionary_can_be_retried	A transient missing dictionary error does not poison the cache and a later query succeeds after restoration.
 S37	partial	storage_roundtrip::trimming_decoded_fts_leaves_allows_a_later_checked_reload	Decoded leaf trim is covered; full query pin and budget eviction accounting is pending.
 S38	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	An oversize selected payload serves the query, is not retained, and records the bypass.
-S39	pending	none	Eager/unsaved non-eviction needs structural assertion.
+S39	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	Eager metadata remains resident while payload cache accounting stays at zero under a one-byte budget.
 S40	pending	none	Native group eviction/reclamation is not allocator-verified.
-S41	pending	none	Late lazy loads through an old view need a storage-specific test.
+S41	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its lease and lazy-loads after root replacement and Index drop.
 S42	pending	none	Posting component-domain cache-key isolation is pending.
 S43	pending	none	Bounded pack-handle cache and active-read survival need a test.
 S44	pending	none	Mutation/save concurrency needs deterministic barrier coverage.
 S45	pending	none	Completion callbacks re-entering save are tested outside the storage matrix only.
 S46	pending	none	Warm native disk-bypass counters need a storage test.
-S47	partial	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Add after reopen is covered for a basic fixture.
+S47	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Add after reopen publishes and persists the new records.
 S48	pending	none	Multi-segment replacement retirement is not storage-tested.
 S49	partial	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Delete correctness is covered; all query-family exclusion is pending.
 S50	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Deletion-only save leaves payload packs untouched.
 S51	partial	storage_roundtrip::replace_and_move_after_reopen_persist_correct_identity_and_content	Move identity and content round-trip is covered; affected-component scope is pending.
 S52	partial	storage_roundtrip::full_compaction_after_reopen_does_not_parse_source_files	Cold source-free compaction is covered for the fixture.
 S53	pending	none	Mixed native/archived/cold compaction and old-view results need a matrix.
-S54	partial	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Multi-generation reuse is covered only for the basic add/delete path.
+S54	pass	storage_roundtrip::deterministic_128_mutation_sequence_matches_fresh_build_after_checkpoints	Four save/reopen checkpoints preserve reuse and semantic identity across mutation cycles.
 S55	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	No-change and deletion-only payload-reading limits are covered.
 S56	pass	storage_roundtrip::a_reopened_store_exports_a_self_contained_fresh_snapshot	Exported cold FTS payloads reopen after the original store is moved offline.
 S57	partial	storage_roundtrip::corrupt_current_and_missing_lazy_objects_have_distinct_outcomes	Failure separation is covered; every mutation failure point is pending.
