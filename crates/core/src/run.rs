@@ -2730,6 +2730,13 @@ fn segment_rank_key(
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("segment sort collection missing")?;
+    if terms.is_empty() {
+        return Ok(RankKey {
+            parts: Vec::new(),
+            collection: repo.collections[collection_index].definition.name.clone(),
+            id: record.id.0.to_string(),
+        });
+    }
     segment.sorting.ensure_storage_loaded()?;
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
@@ -2770,6 +2777,18 @@ fn segment_compare_to_rank(
         .ok_or("segment sort collection missing")?;
     if terms.len() != worst.parts.len() {
         return Err("segment sort rank arity mismatch".into());
+    }
+    if terms.is_empty() {
+        return Ok(repo.collections[collection_index]
+            .definition
+            .name
+            .cmp(&worst.collection)
+            .then_with(|| {
+                segment
+                    .record(slot)
+                    .map(|record| record.id.0.as_str().cmp(worst.id.as_str()))
+                    .unwrap_or(Ordering::Equal)
+            }));
     }
     segment.sorting.ensure_storage_loaded()?;
     for (term, (other, _, _)) in terms.iter().zip(&worst.parts) {
@@ -8717,15 +8736,15 @@ fn lifecycle_segment_order<'a>(
     query: &Query,
     collection_index: usize,
 ) -> Result<Option<&'a [RecordSlot]>, String> {
+    if query.options.sort.is_empty() {
+        return Ok(Some(&segment.identity_order));
+    }
     segment.sorting.ensure_storage_loaded()?;
     if query.options.sort.len() > 1 {
         return Ok(segment
             .sorting
             .composite(&query.options.sort)
             .map(|order| order.order.as_slice()));
-    }
-    if query.options.sort.is_empty() {
-        return Ok(Some(&segment.identity_order));
     }
     let Some(term) = sort
         .bound

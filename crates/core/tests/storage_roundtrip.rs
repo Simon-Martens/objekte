@@ -240,6 +240,43 @@ fn configured_sort_frames_load_only_when_sort_execution_needs_them() {
 }
 
 #[test]
+fn corrupt_selected_sort_errors_instead_of_falling_back_to_source() {
+    let root = fixture_root("sort-corrupt");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let sort_object = object_with_kind(&root.join("storage"), 5);
+    let mut bytes = std::fs::read(&sort_object).unwrap();
+    bytes.truncate(bytes.len() - 1);
+    std::fs::write(sort_object, bytes).unwrap();
+
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(2)
+    );
+    let mut sorted = all_records();
+    sorted.options.sort = vec![SortField::simple("title", false)];
+    assert!(reopened.view().unwrap().search(&sorted).is_err());
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn add_and_delete_after_reopen_publish_a_new_storage_generation() {
     let root = fixture_root("mutation");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
