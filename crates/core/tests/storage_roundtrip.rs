@@ -402,6 +402,11 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     std::fs::write(&orphan, b"unreferenced").unwrap();
     let unrelated = root.join("storage/objects/README");
     std::fs::write(&unrelated, b"not owned by the backend").unwrap();
+    let staging = root.join("storage/staging");
+    let stale_staging = staging.join(format!("object-{}-1-1.tmp", "b".repeat(64)));
+    let unrelated_staging = staging.join("operator-notes.tmp");
+    std::fs::write(&stale_staging, b"interrupted save").unwrap();
+    std::fs::write(&unrelated_staging, b"not backend-owned").unwrap();
 
     let reopened = Index::open_storage(
         &root,
@@ -425,6 +430,8 @@ fn audit_detects_corrupt_lazy_payload_and_prune_respects_reader_leases() {
     assert!(removed.removed_objects >= 1);
     assert!(!orphan.exists());
     assert!(unrelated.exists());
+    assert!(!stale_staging.exists());
+    assert!(unrelated_staging.exists());
     std::fs::remove_dir_all(root).unwrap();
 }
 

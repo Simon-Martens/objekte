@@ -1440,6 +1440,23 @@ pub fn prune(directory: &Path) -> Result<PruneReport, StorageError> {
         }
     }
     sync_directory(&directory.join("objects"))?;
+    let staging = directory.join("staging");
+    if staging.is_dir() {
+        for entry in fs::read_dir(&staging).map_err(|error| StorageError::Io(error.to_string()))? {
+            let entry = entry.map_err(|error| StorageError::Io(error.to_string()))?;
+            let metadata = fs::symlink_metadata(entry.path())
+                .map_err(|error| StorageError::Io(error.to_string()))?;
+            if !metadata.file_type().is_file() {
+                continue;
+            }
+            let name = entry.file_name().to_string_lossy().into_owned();
+            if is_owned_staging_name(&name) {
+                fs::remove_file(entry.path())
+                    .map_err(|error| StorageError::Io(error.to_string()))?;
+            }
+        }
+        sync_directory(&staging)?;
+    }
     drop(writer);
     drop(readers);
     Ok(PruneReport {
@@ -1459,6 +1476,28 @@ fn is_owned_object_name(name: &str) -> bool {
             .bytes()
             .all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase())
         && matches!(suffix, "meta" | "pack")
+}
+
+fn is_owned_staging_name(name: &str) -> bool {
+    let Some(stem) = name.strip_suffix(".tmp") else {
+        return false;
+    };
+    if let Some(rest) = stem.strip_prefix("object-") {
+        return rest
+            .split('-')
+            .next()
+            .is_some_and(|digest| digest.len() == 64)
+            && rest
+                .split('-')
+                .next()
+                .is_some_and(|digest| digest.bytes().all(|byte| byte.is_ascii_hexdigit()));
+    }
+    if let Some(generation) = stem.strip_prefix("CURRENT-") {
+        return generation.split('-').next().is_some_and(|generation| {
+            !generation.is_empty() && generation.bytes().all(|byte| byte.is_ascii_digit())
+        });
+    }
+    stem.len() == 64 && stem.bytes().all(|byte| byte.is_ascii_hexdigit())
 }
 
 fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
