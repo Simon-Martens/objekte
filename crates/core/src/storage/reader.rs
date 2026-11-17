@@ -762,11 +762,7 @@ fn rebuild_segment(
 }
 
 fn open_shared_lock(path: &Path) -> Result<File, StorageError> {
-    if let Some(parent) = path.parent() {
-        fs::create_dir_all(parent).map_err(|error| StorageError::Io(error.to_string()))?;
-    }
     let file = OpenOptions::new()
-        .create(true)
         .read(true)
         .write(true)
         .open(path)
@@ -1103,7 +1099,6 @@ fn is_owned_object_name(name: &str) -> bool {
 
 fn open_exclusive_lock(path: &Path) -> Result<File, StorageError> {
     let file = OpenOptions::new()
-        .create(true)
         .read(true)
         .write(true)
         .open(path)

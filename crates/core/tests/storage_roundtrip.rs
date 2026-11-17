@@ -743,6 +743,24 @@ fn non_utf8_source_paths_round_trip_without_loss() {
 }
 
 #[test]
+fn opening_a_missing_store_does_not_initialize_it() {
+    let root = fixture_root("missing");
+    let missing = root.join("not-a-store");
+    assert!(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            &missing,
+            StorageOpenOptions::default(),
+        )
+        .is_err()
+    );
+    assert!(!missing.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn full_text_payload_reopens_lazily_and_preserves_results() {
     let root = fixture_root("fts");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
