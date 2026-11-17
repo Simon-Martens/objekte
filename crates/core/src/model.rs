@@ -9,7 +9,6 @@ use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
 use crate::decimal::ExactDecimal;
 
-
 /// Exact numeric value; finite floats may be compared across representations.
 /// Direct non-finite `Float` variants have IEEE total order and are rejected
 /// by deserialization and repository build admission.
@@ -20,14 +19,12 @@ pub enum Number {
     ExactDecimal(ExactDecimal),
 }
 
-
 #[derive(Deserialize)]
 enum NumberRepresentation {
     Integer(i128),
     Float(f64),
     ExactDecimal(ExactDecimal),
 }
-
 
 impl<'de> Deserialize<'de> for Number {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
@@ -42,7 +39,6 @@ impl<'de> Deserialize<'de> for Number {
         })
     }
 }
-
 
 impl Number {
     pub fn integer(value: i128) -> Self {
@@ -96,23 +92,19 @@ impl Number {
     }
 }
 
-
 impl PartialEq for Number {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
 
-
 impl Eq for Number {}
-
 
 impl PartialOrd for Number {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for Number {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -134,7 +126,6 @@ impl Ord for Number {
         }
     }
 }
-
 
 impl Hash for Number {
     fn hash<H: Hasher>(&self, state: &mut H) {
@@ -173,7 +164,6 @@ impl Hash for Number {
     }
 }
 
-
 fn compare_int_float(i: i128, f: f64) -> Ordering {
     if !f.is_finite() {
         return 0.0f64.total_cmp(&f);
@@ -200,7 +190,6 @@ fn compare_int_float(i: i128, f: f64) -> Ordering {
     }
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum LogicalType {
     Unknown,
@@ -215,7 +204,6 @@ pub enum LogicalType {
     Array(Box<LogicalType>),
 }
 
-
 /// Logical array with an optional homogeneous element summary.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ArrayValue {
@@ -225,7 +213,6 @@ pub struct ArrayValue {
     pub nullable_elements: bool,
     pub values: Vec<Value>,
 }
-
 
 impl ArrayValue {
     pub fn new(
@@ -295,7 +282,6 @@ impl ArrayValue {
     }
 }
 
-
 fn merge_array_element_types(left: &LogicalType, right: &LogicalType) -> Option<LogicalType> {
     match (left, right) {
         (LogicalType::Unknown, kind) | (kind, LogicalType::Unknown) => Some(kind.clone()),
@@ -306,7 +292,6 @@ fn merge_array_element_types(left: &LogicalType, right: &LogicalType) -> Option<
         _ => None,
     }
 }
-
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum Value {
@@ -321,7 +306,6 @@ pub enum Value {
     Object(BTreeMap<String, Value>),
     Array(ArrayValue),
 }
-
 
 impl Value {
     /// Reject non-finite values supplied by custom readers before indexing.
@@ -406,26 +390,21 @@ impl Value {
     }
 }
 
-
 /// Compact repository-local collection identifier.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct CollectionId(pub u32);
-
 
 /// Compact repository-local source-file identifier.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct FileId(pub u32);
 
-
 /// Dense record position within one collection generation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordSlot(pub u32);
 
-
 /// Stable logical identifier within a collection.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordId(pub std::sync::Arc<String>);
-
 
 /// Collection-scoped identity used outside slot storage.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
@@ -433,7 +412,6 @@ pub struct RecordIdentity {
     pub collection: CollectionId,
     pub record: RecordId,
 }
-
 
 impl RecordId {
     pub fn intrinsic(text: impl Into<String>) -> Result<Self, String> {
@@ -475,18 +453,15 @@ impl RecordId {
     }
 }
 
-
 impl std::borrow::Borrow<str> for RecordId {
     fn borrow(&self) -> &str {
         self.0.as_str()
     }
 }
 
-
 /// Duplicate-detecting set of logical record IDs.
 #[derive(Default)]
 pub struct IdentitySet(HashSet<RecordId>);
-
 
 impl IdentitySet {
     pub fn insert(&mut self, id: RecordId) -> Result<(), String> {
@@ -497,14 +472,12 @@ impl IdentitySet {
     }
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum PathRoot {
     Data,
     Metadata(MetadataField),
     Backlinks,
 }
-
 
 /// Schema/index field address into data or reserved metadata. Occurrence
 /// selectors belong to `QueryPath` and are not retained here.
@@ -513,7 +486,6 @@ pub struct FieldPath {
     pub root: PathRoot,
     pub segments: Vec<String>,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum MetadataField {
@@ -531,7 +503,6 @@ pub enum MetadataField {
     CollectionName,
     RepositoryRoot,
 }
-
 
 impl MetadataField {
     pub fn as_str(self) -> &'static str {
@@ -571,7 +542,6 @@ impl MetadataField {
         }
     }
 }
-
 
 impl FieldPath {
     pub fn display(&self) -> String {
@@ -716,7 +686,6 @@ impl FieldPath {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "model.test.rs"]

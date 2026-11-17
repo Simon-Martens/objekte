@@ -13,7 +13,7 @@ use std::time::{Duration, Instant};
 use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{RepositoryOptions};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 use serde_json::json;
 

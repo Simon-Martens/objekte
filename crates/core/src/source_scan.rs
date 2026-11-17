@@ -24,13 +24,11 @@ use crate::source::{
 use crate::streaming::CancellationToken;
 use crate::workload::{ReturnMode, WorkCounters};
 
-
 struct ScanCollection {
     definition: CollectionDefinition,
     source: PreparedSource,
     files: Vec<FileId>,
 }
-
 
 /// A file inventory and schema prepared without parsing records or constructing
 /// postings. Each request scans the selected source files directly.
@@ -38,7 +36,6 @@ pub struct SourceScan {
     files: FileInventory,
     collections: Vec<ScanCollection>,
 }
-
 
 impl SourceScan {
     pub fn open(root: &Path, definitions: Vec<CollectionDefinition>) -> Result<Self, String> {
@@ -391,7 +388,6 @@ impl SourceScan {
     }
 }
 
-
 fn record_id(
     root: &Path,
     definition: &CollectionDefinition,
@@ -432,7 +428,6 @@ fn record_id(
         ),
     }
 }
-
 
 #[cfg(test)]
 mod tests {

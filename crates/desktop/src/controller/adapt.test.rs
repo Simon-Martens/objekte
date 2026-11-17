@@ -54,7 +54,10 @@ fn configured_repository_builds_from_its_source_root() {
         ..OpenDraft::default()
     };
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert_eq!(spec.args.repo.as_deref(), Some(Path::new("/tmp/repository")));
+    assert_eq!(
+        spec.args.repo.as_deref(),
+        Some(Path::new("/tmp/repository"))
+    );
 }
 
 #[test]

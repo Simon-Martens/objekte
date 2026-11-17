@@ -15,14 +15,12 @@ use serde::{Deserialize, Serialize};
 
 const WINDOW_TITLE: &str = "GPUI Environment Validation";
 
-
 #[derive(Debug, PartialEq, Eq, Serialize, Deserialize)]
 struct SavedFixture {
     text: String,
     checked: bool,
     action_count: u32,
 }
-
 
 fn fixture_path() -> PathBuf {
     let name = if cfg!(test) {
@@ -35,14 +33,12 @@ fn fixture_path() -> PathBuf {
         .join(name)
 }
 
-
 struct ValidationView {
     input: Entity<InputState>,
     checked: bool,
     action_count: u32,
     status: String,
 }
-
 
 impl ValidationView {
     fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
@@ -75,7 +71,6 @@ impl ValidationView {
         cx.notify();
     }
 }
-
 
 impl Render for ValidationView {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
@@ -141,7 +136,6 @@ impl Render for ValidationView {
     }
 }
 
-
 fn main() {
     application().with_assets(assets::Assets).run(|cx| {
         init(cx);
@@ -159,7 +153,6 @@ fn main() {
         .expect("failed to open validation window");
     });
 }
-
 
 #[cfg(test)]
 mod tests {

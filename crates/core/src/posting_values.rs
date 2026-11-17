@@ -643,9 +643,7 @@ fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
                     crate::query::Operator::Contains | crate::query::Operator::NotContains
                 )
         }
-        crate::reference::BoundExpr::And(parts) => {
-            parts.iter().all(filter_excludes_raw_fallback)
-        }
+        crate::reference::BoundExpr::And(parts) => parts.iter().all(filter_excludes_raw_fallback),
         crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
     }
 }

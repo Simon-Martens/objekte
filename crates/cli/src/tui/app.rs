@@ -27,13 +27,13 @@ use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
+use super::TuiOptions;
 use super::completion;
 use super::export;
 use super::input::Input;
 use super::record::{self, DisplayRow, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
-use super::TuiOptions;
 
 pub(super) const PAGE_SIZE: usize = 100;
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);

@@ -144,17 +144,32 @@ fn nested_column_visibility_is_explicit_and_scoped() {
 fn lifecycle_preferences_are_off_by_default_and_scoped_to_source() {
     let temp = tempfile::tempdir().unwrap();
     let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
-    assert_eq!(preferences.lifecycle_policy("repo-a"), LifecyclePreference::default());
-    preferences.set_automatic_check_local("repo-a", true, 45).unwrap();
-    assert!(preferences.set_automatic_check_local("repo-a", true, 0).is_err());
+    assert_eq!(
+        preferences.lifecycle_policy("repo-a"),
+        LifecyclePreference::default()
+    );
+    preferences
+        .set_automatic_check_local("repo-a", true, 45)
+        .unwrap();
+    assert!(
+        preferences
+            .set_automatic_check_local("repo-a", true, 0)
+            .is_err()
+    );
     preferences.persist().unwrap();
 
     let reloaded = DesktopPreferences::load(temp.path()).unwrap();
-    assert_eq!(reloaded.lifecycle_policy("repo-a"), LifecyclePreference {
-        automatic_check: true,
-        check_interval_seconds: 45,
-    });
-    assert_eq!(reloaded.lifecycle_policy("repo-b"), LifecyclePreference::default());
+    assert_eq!(
+        reloaded.lifecycle_policy("repo-a"),
+        LifecyclePreference {
+            automatic_check: true,
+            check_interval_seconds: 45,
+        }
+    );
+    assert_eq!(
+        reloaded.lifecycle_policy("repo-b"),
+        LifecyclePreference::default()
+    );
 }
 
 #[test]

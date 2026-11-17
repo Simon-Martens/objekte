@@ -18,7 +18,6 @@ use super::{BackendError, BackendErrorKind, OpenedSession};
 
 pub const MAX_PAGE_ROWS: usize = 100;
 
-
 /// Search controls and the full requested range, independent of viewport pages.
 #[derive(Clone, Debug)]
 pub struct QuerySpec {
@@ -32,7 +31,6 @@ pub struct QuerySpec {
     pub limit: Option<usize>,
     pub count: bool,
 }
-
 
 impl Default for QuerySpec {
     fn default() -> Self {
@@ -49,7 +47,6 @@ impl Default for QuerySpec {
         }
     }
 }
-
 
 /// One verified viewport page; `count` is exact or absent, never an estimate.
 #[derive(Clone, Debug)]
@@ -72,7 +69,6 @@ pub struct QueryPage {
     pub elapsed_ns: u128,
 }
 
-
 impl QueryPage {
     /// A source range could not be verified, so delivered rows and count may
     /// cover only part of the requested domain.
@@ -80,7 +76,6 @@ impl QueryPage {
         self.provisional || self.counters.source_unavailable_events > 0
     }
 }
-
 
 /// Parse the full accepted structured syntax while keeping FTS independent.
 ///

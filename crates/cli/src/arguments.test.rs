@@ -1,5 +1,5 @@
-use clap::Parser;
 use super::Arguments;
+use clap::Parser;
 
 #[test]
 fn removed_storage_flags_are_unsupported_arguments() {
@@ -24,12 +24,23 @@ fn removed_storage_flags_are_unsupported_arguments() {
 fn input_modes_and_repeated_positionals_are_rejected() {
     assert!(Arguments::try_parse_from(["obj", "--fts", "A", "--query-file", "q.txt"]).is_err());
     assert!(Arguments::try_parse_from(["obj", "a", "b"]).is_err());
-    assert_eq!(Arguments::try_parse_from(["obj", "--", "-a"]).unwrap().query.as_deref(), Some("-a"));
+    assert_eq!(
+        Arguments::try_parse_from(["obj", "--", "-a"])
+            .unwrap()
+            .query
+            .as_deref(),
+        Some("-a")
+    );
 }
 
 #[test]
 fn bare_command_requires_a_query_or_interactive_mode() {
-    assert!(Arguments::try_parse_from(["obj"]).unwrap().validate_input().is_err());
+    assert!(
+        Arguments::try_parse_from(["obj"])
+            .unwrap()
+            .validate_input()
+            .is_err()
+    );
     assert!(
         Arguments::try_parse_from(["obj", "--tui"])
             .unwrap()

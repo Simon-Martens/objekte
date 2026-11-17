@@ -3,7 +3,6 @@
 //! GPUI Kit still owns the active component theme; these tokens keep the
 //! application chrome coherent with its dark and light modes.
 
-
 /// Colors for the workspace shell and data grid.
 #[derive(Clone, Copy, Debug)]
 pub struct Palette {
@@ -18,7 +17,6 @@ pub struct Palette {
     pub row_alt: u32,
     pub error: u32,
 }
-
 
 /// Return the palette matching the stored GPUI Kit theme preference.
 pub fn palette(dark: bool) -> Palette {

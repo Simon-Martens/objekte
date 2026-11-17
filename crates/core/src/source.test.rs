@@ -138,7 +138,6 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
         limit: u64,
     }
 
-
     impl Read for FailingRead {
         fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
             if self.bytes.position() >= self.limit {
@@ -149,7 +148,6 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
             self.bytes.read(&mut output[..count])
         }
     }
-
 
     const LINES: &[u8] = b"{\"a\":1}\n{\"a\":2}\n";
     let make = |limit| {
@@ -421,9 +419,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root =
@@ -681,9 +677,7 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 #[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
@@ -827,12 +821,9 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     }
 }
 
-
 struct TinyReader(Arc<AtomicUsize>);
 
-
 struct TemporalSegmentsReader;
-
 
 impl SourceReader for TemporalSegmentsReader {
     fn name(&self) -> &'static str {
@@ -874,15 +865,12 @@ impl SourceReader for TemporalSegmentsReader {
     }
 }
 
-
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root =
@@ -969,8 +957,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                     sources(),
                 )
                 .unwrap();
-                if open == 0 {
-                }
+                if open == 0 {}
                 for (text, field, count, evidence) in [
                     ("needle", None, 1, vec!["body"]),
                     ("here", Some("body"), 1, vec!["body"]),
@@ -1014,13 +1001,11 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 struct OutcomeReader {
     ranges: Vec<ByteRange>,
     parses: Arc<AtomicUsize>,
     fail_framing: bool,
 }
-
 
 impl SourceReader for OutcomeReader {
     fn name(&self) -> &'static str {
@@ -1064,7 +1049,6 @@ impl SourceReader for OutcomeReader {
         }
     }
 }
-
 
 #[test]
 fn reusable_build_buffer_preserves_outcomes_and_releases_large_storage() {
@@ -1499,7 +1483,6 @@ fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
     assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
 }
 
-
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"
@@ -1541,15 +1524,12 @@ impl SourceReader for TinyReader {
     }
 }
 
-
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));

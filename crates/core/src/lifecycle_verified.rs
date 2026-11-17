@@ -270,12 +270,8 @@ pub(crate) fn preserve_single_record_slots(
         let mut index = (*replacement.index).clone();
         index.id = crate::native_segment::SegmentId::new(fresh_ordinal);
         let published = Arc::new(
-            PublishedSegment::checked(
-                index.id,
-                Arc::new(index),
-                replacement.active.clone(),
-            )
-            .ok()?,
+            PublishedSegment::checked(index.id, Arc::new(index), replacement.active.clone())
+                .ok()?,
         );
         crate::lifecycle::append_segment_ownership(&published, &mut ownership_added);
         group[old_position] = published;

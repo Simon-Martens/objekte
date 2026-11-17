@@ -553,49 +553,48 @@ impl DesktopView {
                         }),
                 );
             }
-            content = content
-                .child(
-                    div()
-                        .flex()
-                        .flex_col()
-                        .gap_2()
-                        .child(
-                            div()
-                                .text_xs()
-                                .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                                .child("Index construction"),
-                        )
-                        .child(
-                            Checkbox::new("open-auto-index")
-                                .accessibility_label("Infer field indexes")
-                                .checked(self.state.open.auto_index)
-                                .child("Infer field indexes")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.auto_index = *checked;
-                                    cx.notify();
-                                })),
-                        )
-                        .child(
-                            Checkbox::new("open-unicode-index")
-                                .accessibility_label("Unicode index alphabet")
-                                .checked(self.state.open.unicode_index)
-                                .child("Unicode index alphabet")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.unicode_index = *checked;
-                                    cx.notify();
-                                })),
-                        )
-                        .child(
-                            Checkbox::new("open-diagnostics")
-                                .accessibility_label("Collect detailed diagnostics")
-                                .checked(self.state.open.diagnostic)
-                                .child("Collect detailed diagnostics")
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.open.diagnostic = *checked;
-                                    cx.notify();
-                                })),
-                        ),
-                );
+            content = content.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .gap_2()
+                    .child(
+                        div()
+                            .text_xs()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Index construction"),
+                    )
+                    .child(
+                        Checkbox::new("open-auto-index")
+                            .accessibility_label("Infer field indexes")
+                            .checked(self.state.open.auto_index)
+                            .child("Infer field indexes")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.auto_index = *checked;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Checkbox::new("open-unicode-index")
+                            .accessibility_label("Unicode index alphabet")
+                            .checked(self.state.open.unicode_index)
+                            .child("Unicode index alphabet")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.unicode_index = *checked;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Checkbox::new("open-diagnostics")
+                            .accessibility_label("Collect detailed diagnostics")
+                            .checked(self.state.open.diagnostic)
+                            .child("Collect detailed diagnostics")
+                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                this.state.open.diagnostic = *checked;
+                                cx.notify();
+                            })),
+                    ),
+            );
         }
         if let Some(message) = &self.state.open_dialog.error {
             content = content.child(
@@ -822,7 +821,6 @@ impl DesktopView {
         }
         cx.notify();
     }
-
 }
 
 #[cfg(test)]

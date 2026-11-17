@@ -6,13 +6,11 @@ use crate::query::Query;
 use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::Repository;
 
-
 /// Bound query terms for the selected collection generations.
 #[derive(Clone)]
 pub(crate) struct PreparedQuery {
     pub collections: Vec<(usize, Option<BoundExpr>, Option<BoundFts>)>,
 }
-
 
 /// Bind one query against the selected collections on every request.
 pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery, String> {
@@ -61,7 +59,6 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
     }
     Ok(PreparedQuery { collections })
 }
-
 
 #[cfg(test)]
 mod tests {

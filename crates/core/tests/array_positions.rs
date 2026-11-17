@@ -13,10 +13,8 @@ use objekte_search_core::repository::{
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
-
 #[derive(Debug)]
 struct LiteralOnlyOperation;
-
 
 impl BindingOperation for LiteralOnlyOperation {
     fn accepts(&self, _: &LogicalType, _: Operator, _: bool) -> bool {
@@ -35,7 +33,6 @@ impl BindingOperation for LiteralOnlyOperation {
         text.into()
     }
 }
-
 
 fn query(filter: &str) -> Query {
     Query {

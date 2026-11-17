@@ -288,13 +288,11 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
         atomic::{AtomicUsize, Ordering},
     };
 
-
     struct TrackingReader {
         opt_in: bool,
         validating: Arc<AtomicUsize>,
         trusted: Arc<AtomicUsize>,
     }
-
 
     impl SourceReader for TrackingReader {
         fn name(&self) -> &'static str {
@@ -331,7 +329,6 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             JsonReader.parse_for_query_trusted(bytes, projection)
         }
     }
-
 
     let mut schema = Schema::default();
     schema
@@ -463,14 +460,12 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
         atomic::{AtomicUsize, Ordering},
     };
 
-
     struct ExpandingReader {
         calls: Arc<AtomicUsize>,
         estimate: bool,
         fail: bool,
         trusted: bool,
     }
-
 
     impl SourceReader for ExpandingReader {
         fn name(&self) -> &'static str {
@@ -519,7 +514,6 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
             self.estimate.then_some(4096)
         }
     }
-
 
     let context = || {
         ExecutionContext::new(

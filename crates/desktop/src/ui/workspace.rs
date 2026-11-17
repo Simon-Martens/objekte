@@ -581,7 +581,10 @@ mod tests {
         assert_eq!(workspace.primary.tabs.len(), 1);
         assert!(workspace.secondary.tabs.is_empty());
 
-        let pinned = RecordTabSummary { pinned: true, ..preview };
+        let pinned = RecordTabSummary {
+            pinned: true,
+            ..preview
+        };
         workspace.sync_records(&[pinned], Some(7));
         assert_eq!(workspace.primary.active, Some(TabId::Record(7)));
         assert_eq!(workspace.current_search, Some(query));

@@ -3,10 +3,8 @@ use std::path::{Path, PathBuf};
 use objekte_search_core::discovery::{Discovery, SymlinkPolicy, discover, selects_file};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 
-
 /// Builds a private fixture tree for traversal-policy assertions.
 struct Fixture(PathBuf);
-
 
 impl Fixture {
     fn new() -> Self {
@@ -29,13 +27,11 @@ impl Fixture {
     }
 }
 
-
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.0).unwrap();
     }
 }
-
 
 #[test]
 fn excluded_directories_are_pruned_instead_of_only_filtering_files() {
@@ -234,11 +230,8 @@ fn followed_aliases_into_generated_namespaces_are_not_sources() {
     let fixture = Fixture::new();
     fixture.file("data/a.json");
     fixture.file(".objekte/indexes/poison.json");
-    std::os::unix::fs::symlink(
-        fixture.0.join(".objekte/indexes"),
-        fixture.0.join("alias"),
-    )
-    .unwrap();
+    std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
+        .unwrap();
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();
@@ -307,11 +300,8 @@ fn canonical_alias_source_roots_are_rejected_for_direct_selection() {
     let fixture = Fixture::new();
     fixture.file("data/a.json");
     fixture.file(".objekte/indexes/poison.json");
-    std::os::unix::fs::symlink(
-        fixture.0.join(".objekte/indexes"),
-        fixture.0.join("alias"),
-    )
-    .unwrap();
+    std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
+        .unwrap();
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();

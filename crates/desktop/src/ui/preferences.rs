@@ -69,7 +69,6 @@ struct QueryDefinition {
     regex: bool,
 }
 
-
 impl From<&SearchDraft> for QueryDefinition {
     fn from(draft: &SearchDraft) -> Self {
         Self {
@@ -83,7 +82,6 @@ impl From<&SearchDraft> for QueryDefinition {
         }
     }
 }
-
 
 impl QueryDefinition {
     fn into_draft(self) -> SearchDraft {
@@ -99,7 +97,6 @@ impl QueryDefinition {
     }
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 struct Bookmark {
     id: u64,
@@ -107,7 +104,6 @@ struct Bookmark {
     custom_title: Option<String>,
     query: QueryDefinition,
 }
-
 
 #[derive(Clone, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 struct ColumnPreferences {
@@ -122,7 +118,6 @@ struct ColumnPreferences {
     wrapped: Vec<String>,
 }
 
-
 /// Persistent desktop choices for one canonical source configuration.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 struct StoredLifecyclePreference {
@@ -132,7 +127,9 @@ struct StoredLifecyclePreference {
     check_interval_seconds: u64,
 }
 
-fn default_check_interval() -> u64 { 30 }
+fn default_check_interval() -> u64 {
+    30
+}
 
 impl Default for StoredLifecyclePreference {
     fn default() -> Self {
@@ -162,7 +159,6 @@ pub(crate) fn nested_column(column: &str) -> bool {
     QueryPath::parse(column).is_ok_and(|path| path.steps.len() > 1)
 }
 
-
 #[derive(Clone, Debug, Serialize, Deserialize)]
 struct DesktopSettings {
     version: u32,
@@ -181,7 +177,6 @@ struct DesktopSettings {
     lifecycle: BTreeMap<String, StoredLifecyclePreference>,
 }
 
-
 impl Default for DesktopSettings {
     fn default() -> Self {
         Self {
@@ -196,14 +191,12 @@ impl Default for DesktopSettings {
     }
 }
 
-
 /// Desktop preferences stored separately from terminal preferences.
 #[derive(Clone)]
 pub struct DesktopPreferences {
     path: PathBuf,
     settings: DesktopSettings,
 }
-
 
 impl DesktopPreferences {
     /// Keys are canonical source-configuration identities supplied by the controller.
@@ -227,7 +220,11 @@ impl DesktopPreferences {
         if source_key.is_empty() || !(1..=86_400).contains(&interval_seconds) {
             return Err("Choose a source and an interval from 1 to 86,400 seconds".into());
         }
-        let stored = self.settings.lifecycle.entry(source_key.to_owned()).or_default();
+        let stored = self
+            .settings
+            .lifecycle
+            .entry(source_key.to_owned())
+            .or_default();
         stored.automatic_check = enabled;
         stored.check_interval_seconds = interval_seconds;
         Ok(())
@@ -479,7 +476,6 @@ impl DesktopPreferences {
         fs::rename(&temporary, &self.path).map_err(|error| describe(&error))
     }
 }
-
 
 /// A display-only description shared by history and default bookmarks.
 pub fn generated_title(draft: &SearchDraft) -> String {

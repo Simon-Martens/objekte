@@ -798,7 +798,10 @@ fn failed_source_open_keeps_previous_session() {
     assert!(controller.opening_draft.is_none());
     assert!(updates.iter().any(|update| matches!(
         update,
-        UiUpdate::Error { field: ErrorField::Open, .. }
+        UiUpdate::Error {
+            field: ErrorField::Open,
+            ..
+        }
     )));
 }
 

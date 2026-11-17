@@ -6,7 +6,6 @@ use objekte_search_core::model::FileId;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
-use objekte_search_core::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat, FileCatalogue,
@@ -15,6 +14,7 @@ use super::model::{
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 use super::workspace::{TabId, Workspace};
+use objekte_search_core::completion::{CompletionContext, CompletionTarget};
 
 /// A small, read-only preview for a query visible beside the live query.
 /// Query execution and result locators remain controller-owned.

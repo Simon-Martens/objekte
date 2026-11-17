@@ -77,7 +77,6 @@ fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
     })
 }
 
-
 fn memory_label(bytes: usize) -> String {
     if bytes >= 1024 * 1024 {
         format!("{:.1} MiB", bytes as f64 / (1024.0 * 1024.0))
@@ -1373,19 +1372,16 @@ impl DesktopView {
                                 .items_center()
                                 .gap_2()
                                 .child(div().text_xs().flex_1().child(summary))
-                                .when(
-                                    matches!(task, IndexTaskState::Running { .. }),
-                                    |this| {
-                                        this.child(
-                                            Button::new(format!("index-cancel-{kind:?}"))
-                                                .ghost()
-                                                .label("Cancel")
-                                                .on_click(cx.listener(move |this, _, _, _| {
-                                                    this.send(UiAction::CancelIndexTask(kind))
-                                                })),
-                                        )
-                                    },
-                                ),
+                                .when(matches!(task, IndexTaskState::Running { .. }), |this| {
+                                    this.child(
+                                        Button::new(format!("index-cancel-{kind:?}"))
+                                            .ghost()
+                                            .label("Cancel")
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.send(UiAction::CancelIndexTask(kind))
+                                            })),
+                                    )
+                                }),
                         );
                     }
                 }

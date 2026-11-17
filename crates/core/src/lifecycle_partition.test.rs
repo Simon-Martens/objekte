@@ -224,21 +224,14 @@ fn compacts_one_large_file_in_source_free_parts() {
     .unwrap();
     let index = Index::from_published(published);
     let view = index.view().unwrap();
-    let source = view
-        .segments(crate::model::CollectionId(0))
-        .unwrap()[0]
+    let source = view.segments(crate::model::CollectionId(0)).unwrap()[0]
         .index
         .clone();
-    let active = view
-        .segments(crate::model::CollectionId(0))
-        .unwrap()[0]
+    let active = view.segments(crate::model::CollectionId(0)).unwrap()[0]
         .active
         .clone();
     std::fs::remove_file(&path).unwrap();
-    let parts =
-        compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || {
-            false
-        })
+    let parts = compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || false)
         .unwrap();
     assert_eq!(parts.len(), 5);
     assert!(parts.iter().all(|part| part.records.len() <= 2));

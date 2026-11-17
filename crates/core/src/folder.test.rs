@@ -1,7 +1,5 @@
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 

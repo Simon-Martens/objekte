@@ -14,12 +14,8 @@ pub struct ArchiveUsage {
 impl ArchiveUsage {
     pub(crate) fn record(&mut self, serialized: usize, capacity: usize) {
         self.owners = self.owners.saturating_add(1);
-        self.serialized_bytes = self
-            .serialized_bytes
-            .saturating_add(serialized as u64);
-        self.allocated_bytes = self
-            .allocated_bytes
-            .saturating_add(capacity as u64);
+        self.serialized_bytes = self.serialized_bytes.saturating_add(serialized as u64);
+        self.allocated_bytes = self.allocated_bytes.saturating_add(capacity as u64);
         self.capacity_slack_bytes = self
             .capacity_slack_bytes
             .saturating_add(capacity.saturating_sub(serialized) as u64);

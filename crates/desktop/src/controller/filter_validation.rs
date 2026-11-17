@@ -140,8 +140,7 @@ fn byte_offset(message: &str) -> Option<usize> {
 }
 
 fn concise_error(message: &str, filter: &str) -> String {
-    if message.starts_with("independent multivalued field operands")
-        && has_unquoted_percent(filter)
+    if message.starts_with("independent multivalued field operands") && has_unquoted_percent(filter)
     {
         return "Quote wildcard values, for example: name ~ 'A%'".into();
     }

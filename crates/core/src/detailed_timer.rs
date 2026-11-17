@@ -4,13 +4,11 @@
 
 use std::time::{Duration, Instant};
 
-
 #[derive(Clone, Copy)]
 pub(crate) struct DetailedInstant {
     #[cfg(feature = "detailed-profiling")]
     started: Instant,
 }
-
 
 impl DetailedInstant {
     #[inline(always)]
@@ -63,7 +61,6 @@ impl DetailedInstant {
     }
 }
 
-
 #[inline(always)]
 pub(crate) fn start_if_enabled(enabled: bool) -> Option<std::time::Instant> {
     #[cfg(feature = "detailed-profiling")]
@@ -77,7 +74,6 @@ pub(crate) fn start_if_enabled(enabled: bool) -> Option<std::time::Instant> {
         None
     }
 }
-
 
 #[cfg(all(test, not(feature = "detailed-profiling")))]
 mod tests {

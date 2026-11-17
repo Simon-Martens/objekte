@@ -267,7 +267,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let opened = open_incremental_repository(args, &paths, &configured, options, &mut source, token);
+    let opened =
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token);
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }

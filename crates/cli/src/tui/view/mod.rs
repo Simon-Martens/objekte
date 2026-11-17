@@ -1172,11 +1172,7 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
 
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     let area = frame.area();
-    let width = area
-        .width
-        .min(70)
-        .saturating_sub(4)
-        .max(20);
+    let width = area.width.min(70).saturating_sub(4).max(20);
     let height = match overlay {
         Overlay::Actions => {
             (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
