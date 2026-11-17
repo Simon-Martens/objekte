@@ -5900,7 +5900,7 @@ fn relation_source_candidates(
     };
     for id in &plan.target_ids {
         if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone())) {
-            may |= slots;
+            may |= slots.as_ref();
         }
     }
     may &= published.active.bitmap();

@@ -155,11 +155,17 @@ pub(crate) struct CacheStats {
     pub resident_bytes: AtomicU64,
     pub pinned_bytes: AtomicU64,
     pub in_flight_bytes: AtomicU64,
+    pub active_pins: AtomicU64,
     pub hits: AtomicU64,
     pub misses: AtomicU64,
     pub joins: AtomicU64,
     pub evictions: AtomicU64,
     pub oversize_bypasses: AtomicU64,
+}
+
+#[derive(Debug)]
+pub(crate) struct CachePin {
+    cache: StorageCache,
 }
 
 impl StorageCache {
@@ -228,7 +234,9 @@ impl StorageCache {
             CachePolicy::Budget { resident_bytes } => resident_bytes.get(),
         };
         let mut resident = self.stats.resident_bytes.load(Ordering::Acquire);
-        if resident.saturating_add(length) > target {
+        if resident.saturating_add(length) > target
+            && self.stats.active_pins.load(Ordering::Acquire) == 0
+        {
             let mut victims = entries
                 .iter()
                 .filter(|(candidate, _)| **candidate != key)
@@ -257,12 +265,22 @@ impl StorageCache {
         }
         resident = resident.saturating_add(length);
         self.stats.resident_bytes.store(resident, Ordering::Release);
+        if self.stats.active_pins.load(Ordering::Acquire) != 0 {
+            self.stats.pinned_bytes.store(resident, Ordering::Release);
+        }
     }
 
     pub(crate) fn trim(&self) -> CacheTrimReport {
         let Ok(mut entries) = self.entries.lock() else {
             return CacheTrimReport::default();
         };
+        if self.stats.active_pins.load(Ordering::Acquire) != 0 {
+            return CacheTrimReport {
+                evicted_entries: 0,
+                evicted_bytes: 0,
+                retained_pinned_bytes: self.stats.resident_bytes.load(Ordering::Acquire),
+            };
+        }
         let evicted_entries = entries.len() as u64;
         let evicted_bytes = entries.values().map(|entry| entry.serialized_bytes).sum();
         entries.clear();
@@ -277,7 +295,70 @@ impl StorageCache {
         }
     }
 
+    pub(crate) fn pin(&self) -> CachePin {
+        let entries = self.entries.lock().ok();
+        self.stats.active_pins.fetch_add(1, Ordering::AcqRel);
+        self.stats.pinned_bytes.store(
+            self.stats.resident_bytes.load(Ordering::Acquire),
+            Ordering::Release,
+        );
+        drop(entries);
+        CachePin {
+            cache: self.clone(),
+        }
+    }
+
+    fn unpin(&self) {
+        if self.stats.active_pins.fetch_sub(1, Ordering::AcqRel) == 1 {
+            self.stats.pinned_bytes.store(0, Ordering::Release);
+            self.enforce_budget();
+        } else {
+            self.stats.pinned_bytes.store(
+                self.stats.resident_bytes.load(Ordering::Acquire),
+                Ordering::Release,
+            );
+        }
+    }
+
+    fn enforce_budget(&self) {
+        let CachePolicy::Budget { resident_bytes } = self.policy else {
+            return;
+        };
+        let Ok(mut entries) = self.entries.lock() else {
+            return;
+        };
+        if self.stats.active_pins.load(Ordering::Acquire) != 0 {
+            return;
+        }
+        let target = resident_bytes.get();
+        let mut resident = self.stats.resident_bytes.load(Ordering::Acquire);
+        if resident <= target {
+            return;
+        }
+        let mut victims = entries
+            .iter()
+            .map(|(key, entry)| (*key, entry.serialized_bytes))
+            .collect::<Vec<_>>();
+        victims.sort_by_key(|(_, size)| std::cmp::Reverse(*size));
+        for (key, size) in victims {
+            if resident <= target {
+                break;
+            }
+            if entries.remove(&key).is_some() {
+                resident = resident.saturating_sub(size);
+                self.stats.evictions.fetch_add(1, Ordering::Relaxed);
+            }
+        }
+        self.stats.resident_bytes.store(resident, Ordering::Release);
+    }
+
     pub(crate) fn status(&self) -> CacheStatus {
+        let resident_bytes = self.stats.resident_bytes.load(Ordering::Acquire);
+        let pinned_bytes = if self.stats.active_pins.load(Ordering::Acquire) == 0 {
+            0
+        } else {
+            resident_bytes
+        };
         CacheStatus {
             policy: match self.policy {
                 CachePolicy::KeepLoaded => CachePolicyStatus::KeepLoaded,
@@ -285,8 +366,8 @@ impl StorageCache {
                     CachePolicyStatus::Budget(resident_bytes.get())
                 }
             },
-            resident_bytes: self.stats.resident_bytes.load(Ordering::Acquire),
-            pinned_bytes: self.stats.pinned_bytes.load(Ordering::Acquire),
+            resident_bytes,
+            pinned_bytes,
             in_flight_bytes: self.stats.in_flight_bytes.load(Ordering::Acquire),
             hits: self.stats.hits.load(Ordering::Acquire),
             misses: self.stats.misses.load(Ordering::Acquire),
@@ -295,6 +376,12 @@ impl StorageCache {
             oversize_bypasses: self.stats.oversize_bypasses.load(Ordering::Acquire),
             loaded_families: self.entries.lock().map_or(0, |entries| entries.len()),
         }
+    }
+}
+
+impl Drop for CachePin {
+    fn drop(&mut self) {
+        self.cache.unpin();
     }
 }
 
@@ -351,4 +438,27 @@ pub(crate) fn checked_body(bytes: &[u8], expected_kind: u16) -> Result<&[u8], St
         ));
     }
     Ok(&bytes[ENVELOPE_LEN..])
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn pinned_entries_survive_trim_and_budget_is_enforced_after_unpin() {
+        let cache = StorageCache::new(CachePolicy::Budget {
+            resident_bytes: std::num::NonZeroU64::new(100).unwrap(),
+        });
+        cache.insert(([1; 32], 1, 1), Arc::from(vec![0u8; 60]));
+        let pin = cache.pin();
+        cache.insert(([2; 32], 2, 2), Arc::from(vec![0u8; 60]));
+        assert_eq!(cache.status().pinned_bytes, 120);
+        let trim = cache.trim();
+        assert_eq!(trim.evicted_entries, 0);
+        assert_eq!(trim.retained_pinned_bytes, 120);
+        assert_eq!(cache.status().resident_bytes, 120);
+        drop(pin);
+        assert!(cache.status().resident_bytes <= 100);
+        assert!(cache.status().evictions > 0);
+    }
 }

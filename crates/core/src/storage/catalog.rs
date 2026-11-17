@@ -1,7 +1,7 @@
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use roaring::RoaringBitmap;
 use rkyv::{Archive, Deserialize as ArchiveDeserialize, Serialize as ArchiveSerialize};
+use roaring::RoaringBitmap;
 
 use crate::bigram::StoredBigramLeafRef;
 use crate::inventory::{FileStatus, RecordClass};
@@ -531,6 +531,38 @@ fn build_index_descriptors(
                 bigram,
             )?;
         }
+        if let Some(inference) = &stored.inference {
+            for (path, posting) in &inference.indexes {
+                add_posting_descriptor(
+                    &mut descriptors,
+                    &leaf_groups,
+                    collection,
+                    None,
+                    storage_leaf_identity(
+                        collection as usize,
+                        None,
+                        "inference.posting",
+                        &path.join("."),
+                    ),
+                    path.join("."),
+                    posting,
+                    false,
+                )?;
+            }
+        }
+        for (key, custom) in &stored.custom_postings {
+            let binding = binding_key(key);
+            add_posting_descriptor(
+                &mut descriptors,
+                &leaf_groups,
+                collection,
+                None,
+                storage_leaf_identity(collection as usize, None, "custom.posting", &binding),
+                key.0.join("."),
+                &custom.index,
+                custom.complete,
+            )?;
+        }
         for column in stored.sorting.columns.values() {
             let (digest, length) = column.stored.map_or((None, 0), |reference| {
                 (Some(reference.digest), reference.length)
@@ -648,6 +680,74 @@ fn build_index_descriptors(
                     bigram,
                 )?;
             }
+            if let Some(inference) = &segment.inference {
+                for (path, posting) in &inference.indexes {
+                    add_posting_descriptor(
+                        &mut descriptors,
+                        &leaf_groups,
+                        collection,
+                        Some(segment.id.get()),
+                        storage_leaf_identity(
+                            collection as usize,
+                            Some(segment.id.get()),
+                            "inference.posting",
+                            &path.join("."),
+                        ),
+                        path.join("."),
+                        posting,
+                        false,
+                    )?;
+                }
+            }
+            for (key, custom) in &segment.custom_postings {
+                let binding = binding_key(key);
+                add_posting_descriptor(
+                    &mut descriptors,
+                    &leaf_groups,
+                    collection,
+                    Some(segment.id.get()),
+                    storage_leaf_identity(
+                        collection as usize,
+                        Some(segment.id.get()),
+                        "custom.posting",
+                        &binding,
+                    ),
+                    key.0.join("."),
+                    &custom.index,
+                    custom.complete,
+                )?;
+            }
+            add_sort_descriptors(
+                &mut descriptors,
+                collection,
+                Some(segment.id.get()),
+                &segment.sorting,
+            );
+            for relation in &segment.relations {
+                descriptors.push(StoredIndexDescriptor {
+                    identity: storage_leaf_identity(
+                        collection as usize,
+                        Some(segment.id.get()),
+                        "relation",
+                        &relation.declaration().path.join("."),
+                    ),
+                    collection,
+                    segment: Some(segment.id.get()),
+                    family: 4,
+                    path: relation.declaration().path.join("."),
+                    binding: relation.declaration().target_collection.clone(),
+                    complete: true,
+                    value_complete: true,
+                    empty_string_complete: true,
+                    covered_records: 0,
+                    dictionary_pack: None,
+                    dictionary_length: 0,
+                    frame_pack: None,
+                    frame_length: 0,
+                    leaf_group: None,
+                    leaf_rows: 0,
+                });
+            }
         }
     }
     Ok(descriptors)
@@ -662,31 +762,120 @@ fn add_posting_collection_descriptors(
 ) -> Result<(), String> {
     for (path, posting) in &postings.fields {
         let display_path = path.join(".");
-        let collection_scope =
-            segment.map_or_else(|| "base".to_owned(), |id| format!("segment{id}"));
-        let identity = format!("c{collection}:{collection_scope}:posting:{display_path}");
-        let (leaf_group, leaf_rows) = leaf_group_reference(leaf_groups, &identity)?;
-        let dictionary = posting.payload;
-        descriptors.push(StoredIndexDescriptor {
-            identity,
+        add_posting_descriptor(
+            descriptors,
+            leaf_groups,
             collection,
             segment,
-            family: 1,
-            path: display_path,
-            binding: String::new(),
-            complete: posting.value_complete || posting.length_complete,
-            value_complete: posting.value_complete,
-            empty_string_complete: posting.empty_string_complete,
-            covered_records: posting.covered_records as u64,
-            dictionary_pack: dictionary.map(|reference| reference.digest),
-            dictionary_length: dictionary.map_or(0, |reference| reference.dictionary_length),
-            frame_pack: None,
-            frame_length: 0,
-            leaf_group,
-            leaf_rows,
-        });
+            storage_leaf_identity(collection as usize, segment, "posting", &display_path),
+            display_path,
+            posting,
+            false,
+        )?;
     }
     Ok(())
+}
+
+fn add_posting_descriptor(
+    descriptors: &mut Vec<StoredIndexDescriptor>,
+    leaf_groups: &HashMap<&str, (u32, u64)>,
+    collection: u32,
+    segment: Option<u64>,
+    identity: String,
+    path: String,
+    posting: &crate::posting::PostingIndexSnapshot,
+    named_complete: bool,
+) -> Result<(), String> {
+    let (leaf_group, leaf_rows) = leaf_group_reference(leaf_groups, &identity)?;
+    let dictionary = posting.payload;
+    descriptors.push(StoredIndexDescriptor {
+        identity,
+        collection,
+        segment,
+        family: 1,
+        path,
+        binding: String::new(),
+        complete: named_complete || posting.value_complete || posting.length_complete,
+        value_complete: posting.value_complete,
+        empty_string_complete: posting.empty_string_complete,
+        covered_records: posting.covered_records as u64,
+        dictionary_pack: dictionary.map(|reference| reference.digest),
+        dictionary_length: dictionary.map_or(0, |reference| reference.dictionary_length),
+        frame_pack: None,
+        frame_length: 0,
+        leaf_group,
+        leaf_rows,
+    });
+    Ok(())
+}
+
+fn add_sort_descriptors(
+    descriptors: &mut Vec<StoredIndexDescriptor>,
+    collection: u32,
+    segment: Option<u64>,
+    sorting: &crate::sorting::SortCollection,
+) {
+    for column in sorting.columns.values() {
+        let (digest, length) = column.stored.map_or((None, 0), |reference| {
+            (Some(reference.digest), reference.length)
+        });
+        descriptors.push(StoredIndexDescriptor {
+            identity: storage_leaf_identity(
+                collection as usize,
+                segment,
+                "sort.column",
+                &column.path.display(),
+            ),
+            collection,
+            segment,
+            family: 3,
+            path: column.path.display(),
+            binding: String::new(),
+            complete: true,
+            value_complete: true,
+            empty_string_complete: true,
+            covered_records: column.keys.len() as u64,
+            dictionary_pack: None,
+            dictionary_length: 0,
+            frame_pack: digest,
+            frame_length: length,
+            leaf_group: None,
+            leaf_rows: 0,
+        });
+    }
+    for (ordinal, composite) in sorting.composites.iter().enumerate() {
+        let (digest, length) = composite.stored.map_or((None, 0), |reference| {
+            (Some(reference.digest), reference.length)
+        });
+        descriptors.push(StoredIndexDescriptor {
+            identity: storage_leaf_identity(
+                collection as usize,
+                segment,
+                "sort.composite",
+                &ordinal.to_string(),
+            ),
+            collection,
+            segment,
+            family: 3,
+            path: composite
+                .fields
+                .iter()
+                .map(|field| field.path.display())
+                .collect::<Vec<_>>()
+                .join(","),
+            binding: String::new(),
+            complete: true,
+            value_complete: true,
+            empty_string_complete: true,
+            covered_records: composite.order.len() as u64,
+            dictionary_pack: None,
+            dictionary_length: 0,
+            frame_pack: digest,
+            frame_length: length,
+            leaf_group: None,
+            leaf_rows: 0,
+        });
+    }
 }
 
 fn add_bigram_descriptors(

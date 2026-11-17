@@ -371,8 +371,11 @@ fn rkyv_descending_4096_key_pages_use_archived_reverse_directory() {
 
     for _ in 0..100 {
         assert_eq!(
-            archived.get(&ScalarKey::Number(Number::integer(2048))),
-            Some(&bitmap([2048]))
+            archived
+                .get(&ScalarKey::Number(Number::integer(2048)))
+                .unwrap()
+                .as_ref(),
+            &bitmap([2048])
         );
     }
 }

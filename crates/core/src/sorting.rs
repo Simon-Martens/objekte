@@ -542,7 +542,7 @@ impl SortColumn {
                 }
                 _ => return Err("inferred sort posting type mismatch".into()),
             };
-            for slot in slots {
+            for slot in slots.iter() {
                 let target = keys
                     .get_mut(slot as usize)
                     .ok_or("inferred sort value slot out of range")?;
@@ -594,7 +594,7 @@ impl SortColumn {
                 let mut cursor =
                     value_map.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded, true);
                 while let Some((_, slots)) = cursor.next() {
-                    append_inferred_group(&mut order, slots, records);
+                    append_inferred_group(&mut order, &slots, records);
                 }
             } else {
                 value_map.for_each(|_, slots| {

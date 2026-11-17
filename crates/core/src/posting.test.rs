@@ -254,7 +254,7 @@ fn broad_id_union_matches_individual_lookups() {
         let (actual, lists, members) = index.union_id_postings(&ids);
         let expected = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
             if let Some(slots) = index.values.get(&ScalarKey::Id(id.clone())) {
-                all |= slots;
+                all |= &*slots;
             }
             all
         });

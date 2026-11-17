@@ -339,6 +339,10 @@ impl StorageSession {
         &self.cache
     }
 
+    pub(crate) fn pin_query(&self) -> format::CachePin {
+        self.cache.pin()
+    }
+
     pub(crate) fn identities(&self) -> ([u8; 16], [u8; 16]) {
         (self.store_identity, self.lineage_identity)
     }

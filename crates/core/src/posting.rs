@@ -4,6 +4,7 @@ use std::cmp::Ordering;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::fmt;
 use std::ops::Bound::{Excluded, Included, Unbounded};
+use std::ops::Deref;
 use std::sync::{Arc, OnceLock};
 
 use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
@@ -31,7 +32,70 @@ pub(crate) trait PostingIndexLoader: fmt::Debug + Send + Sync {
 }
 
 pub(crate) trait PostingLeafLoader: fmt::Debug + Send + Sync {
-    fn load_posting_leaf(&self, reference: &StoredPostingLeafRef) -> Result<RoaringBitmap, String>;
+    fn load_posting_leaf(
+        &self,
+        reference: &StoredPostingLeafRef,
+    ) -> Result<Arc<RoaringBitmap>, String>;
+}
+
+/// One checked posting bitmap lease. Native and archived dictionaries borrow
+/// their resident bitmap; stored dictionaries retain the cache owner for as
+/// long as the selected leaf is needed.
+pub enum BitmapLease<'a> {
+    Borrowed(&'a RoaringBitmap),
+    Owned(Arc<RoaringBitmap>),
+}
+
+impl Deref for BitmapLease<'_> {
+    type Target = RoaringBitmap;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            Self::Borrowed(bitmap) => bitmap,
+            Self::Owned(bitmap) => bitmap,
+        }
+    }
+}
+
+impl AsRef<RoaringBitmap> for BitmapLease<'_> {
+    fn as_ref(&self) -> &RoaringBitmap {
+        self
+    }
+}
+
+impl PartialEq for BitmapLease<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        **self == **other
+    }
+}
+
+impl Eq for BitmapLease<'_> {}
+
+impl PartialEq<&RoaringBitmap> for BitmapLease<'_> {
+    fn eq(&self, other: &&RoaringBitmap) -> bool {
+        **self == **other
+    }
+}
+
+impl PartialEq<BitmapLease<'_>> for &RoaringBitmap {
+    fn eq(&self, other: &BitmapLease<'_>) -> bool {
+        **self == **other
+    }
+}
+
+impl fmt::Debug for BitmapLease<'_> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let storage = if matches!(self, Self::Owned(_)) {
+            "stored"
+        } else {
+            "resident"
+        };
+        formatter
+            .debug_struct("BitmapLease")
+            .field("storage", &storage)
+            .field("cardinality", &self.len())
+            .finish()
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Archive, ArchiveSerialize, ArchiveDeserialize)]
@@ -962,7 +1026,7 @@ where
     values: Arc<BTreeMap<K, u32>>,
     leaves: Arc<Vec<StoredPostingLeafRef>>,
     loader: Arc<dyn PostingLeafLoader>,
-    decoded: Arc<Vec<OnceLock<Arc<RoaringBitmap>>>>,
+    decoded: Arc<Vec<std::sync::Mutex<Option<std::sync::Weak<RoaringBitmap>>>>>,
     loads: Arc<Vec<std::sync::Mutex<()>>>,
 }
 
@@ -987,23 +1051,31 @@ where
     K: PostingDictionaryKey,
     K::Archived: Ord,
 {
-    fn load_ordinal(&self, ordinal: usize) -> Result<&RoaringBitmap, String> {
+    fn load_ordinal(&self, ordinal: usize) -> Result<Arc<RoaringBitmap>, String> {
         let cell = self
             .decoded
             .get(ordinal)
             .ok_or("stored posting ordinal is out of bounds")?;
-        if cell.get().is_none() {
+        if let Some(bitmap) = cell
+            .lock()
+            .map_err(|_| "stored posting leaf cache lock poisoned")?
+            .as_ref()
+            .and_then(std::sync::Weak::upgrade)
+        {
+            return Ok(bitmap);
+        }
+        {
             let _guard = self
                 .loads
                 .get(ordinal)
                 .ok_or("stored posting load lock is missing")?
                 .lock()
                 .map_err(|_| "stored posting load lock poisoned")?;
-            if cell.get().is_some() {
-                return Ok(cell
-                    .get()
-                    .expect("stored posting leaf was initialized")
-                    .as_ref());
+            let mut cell = cell
+                .lock()
+                .map_err(|_| "stored posting leaf cache lock poisoned")?;
+            if let Some(bitmap) = cell.as_ref().and_then(std::sync::Weak::upgrade) {
+                return Ok(bitmap);
             }
             let reference = self
                 .leaves
@@ -1013,12 +1085,9 @@ where
             if bitmap.len() != reference.cardinality {
                 return Err("stored posting leaf cardinality mismatch".into());
             }
-            let _ = cell.set(Arc::new(bitmap));
+            *cell = Some(Arc::downgrade(&bitmap));
+            return Ok(bitmap);
         }
-        Ok(cell
-            .get()
-            .expect("stored posting leaf was initialized")
-            .as_ref())
     }
 }
 
@@ -1097,7 +1166,9 @@ where
             leaves.push(reference);
         }
         let leaf_count = leaves.len();
-        let decoded = (0..leaf_count).map(|_| OnceLock::new()).collect::<Vec<_>>();
+        let decoded = (0..leaf_count)
+            .map(|_| std::sync::Mutex::new(None))
+            .collect::<Vec<_>>();
         Self {
             backing: PublishedPostingBacking::Stored(StoredPostingBacking {
                 values: Arc::new(values),
@@ -1166,11 +1237,11 @@ where
         }
     }
 
-    fn get(&self, query: &K::Query) -> Option<&RoaringBitmap> {
+    fn get(&self, query: &K::Query) -> Option<BitmapLease<'_>> {
         self.get_checked(query).ok().flatten()
     }
 
-    fn get_checked(&self, query: &K::Query) -> Result<Option<&RoaringBitmap>, String> {
+    fn get_checked(&self, query: &K::Query) -> Result<Option<BitmapLease<'_>>, String> {
         let ordinal = match &self.backing {
             PublishedPostingBacking::Native(values) => {
                 let query = K::stored_query(query);
@@ -1194,10 +1265,16 @@ where
                 let Some(ordinal) = stored.values.get(&query).copied() else {
                     return Ok(None);
                 };
-                return stored.load_ordinal(ordinal as usize).map(Some);
+                return stored
+                    .load_ordinal(ordinal as usize)
+                    .map(BitmapLease::Owned)
+                    .map(Some);
             }
         };
-        Ok(self.bitmaps.get(ordinal as usize))
+        Ok(self
+            .bitmaps
+            .get(ordinal as usize)
+            .map(BitmapLease::Borrowed))
     }
 
     fn cardinality(&self, query: &K::Query) -> u64 {
@@ -1210,7 +1287,7 @@ where
                     .and_then(|ordinal| stored.leaves.get(*ordinal as usize))
                     .map_or(0, |reference| reference.cardinality)
             }
-            _ => self.get(query).map_or(0, RoaringBitmap::len),
+            _ => self.get(query).map_or(0, |bitmap| bitmap.len()),
         }
     }
 
@@ -1394,7 +1471,7 @@ where
     K: PostingDictionaryKey,
     K::Archived: Ord,
 {
-    pub(crate) fn next(&mut self) -> Option<(K::Public, &'a RoaringBitmap)> {
+    pub(crate) fn next(&mut self) -> Option<(K::Public, BitmapLease<'a>)> {
         match self {
             Self::Empty => None,
             Self::Builder {
@@ -1413,11 +1490,11 @@ where
                     range.next()
                 }?;
                 let posting = bitmaps.get(*ordinal as usize)?;
-                Some((K::public_from_stored(key), posting))
+                Some((K::public_from_stored(key), BitmapLease::Borrowed(posting)))
             }
             Self::Archived { range, bitmaps } => range.next().and_then(|(key, ordinal)| {
                 let posting = bitmaps.get(ordinal.to_native() as usize)?;
-                Some((K::public_from_archived(key), posting))
+                Some((K::public_from_archived(key), BitmapLease::Borrowed(posting)))
             }),
             Self::ArchivedReverse {
                 archive,
@@ -1429,7 +1506,10 @@ where
                 let entry = archive.root().ascending.get(index)?;
                 let posting = bitmaps.get(entry.ordinal.to_native() as usize)?;
                 *next = index.checked_sub(1).filter(|next| *next >= *lower);
-                Some((K::public_from_archived(&entry.key), posting))
+                Some((
+                    K::public_from_archived(&entry.key),
+                    BitmapLease::Borrowed(posting),
+                ))
             }
             Self::Stored {
                 range,
@@ -1441,8 +1521,10 @@ where
                 } else {
                     range.next()
                 }?;
-                let posting = stored.load_ordinal(*ordinal as usize).ok()?;
-                Some((K::public_from_stored(key), posting))
+                Some((
+                    K::public_from_stored(key),
+                    BitmapLease::Owned(stored.load_ordinal(*ordinal as usize).ok()?),
+                ))
             }
         }
     }
@@ -1583,18 +1665,21 @@ where
         self.len() == 0
     }
 
-    pub(crate) fn get(&self, query: &K::Query) -> Option<&RoaringBitmap> {
+    pub(crate) fn get(&self, query: &K::Query) -> Option<BitmapLease<'_>> {
         match &self.0 {
             PostingDictionaryState::Builder(builder) => {
                 let query = K::stored_query(query);
                 let ordinal = *builder.values.get(&query)?;
-                builder.bitmaps.get(ordinal as usize)
+                builder
+                    .bitmaps
+                    .get(ordinal as usize)
+                    .map(BitmapLease::Borrowed)
             }
             PostingDictionaryState::Published(values) => values.get(query),
         }
     }
 
-    pub(crate) fn get_checked(&self, query: &K::Query) -> Result<Option<&RoaringBitmap>, String> {
+    pub(crate) fn get_checked(&self, query: &K::Query) -> Result<Option<BitmapLease<'_>>, String> {
         match &self.0 {
             PostingDictionaryState::Published(values) => values.get_checked(query),
             _ => Ok(self.get(query)),
@@ -1604,7 +1689,7 @@ where
     pub(crate) fn cardinality(&self, query: &K::Query) -> u64 {
         match &self.0 {
             PostingDictionaryState::Published(values) => values.cardinality(query),
-            _ => self.get(query).map_or(0, RoaringBitmap::len),
+            _ => self.get(query).map_or(0, |bitmap| bitmap.len()),
         }
     }
 
@@ -1697,7 +1782,7 @@ where
                             .bitmaps
                             .get(*ordinal as usize)
                             .ok_or("native posting bitmap slot out of bounds")?;
-                        visit(&K::public_from_stored(key), posting)?;
+                        visit(&K::public_from_stored(key), &posting)?;
                     }
                 }
                 PublishedPostingBacking::Archived(archive) => {
@@ -1712,7 +1797,7 @@ where
                 PublishedPostingBacking::Stored(stored) => {
                     for (key, ordinal) in stored.values.iter() {
                         let posting = stored.load_ordinal(*ordinal as usize)?;
-                        visit(&K::public_from_stored(key), posting)?;
+                        visit(&K::public_from_stored(key), &posting)?;
                     }
                 }
             },
@@ -1733,7 +1818,8 @@ where
             PostingDictionaryState::Published(values) => match &values.backing {
                 PublishedPostingBacking::Stored(stored) => {
                     for ordinal in 0..stored.leaves.len() {
-                        visit(stored.load_ordinal(ordinal)?)?;
+                        let posting = stored.load_ordinal(ordinal)?;
+                        visit(&posting)?;
                     }
                 }
                 _ => {
@@ -2007,8 +2093,45 @@ where
     type Output = RoaringBitmap;
 
     fn index(&self, query: &K::Query) -> &Self::Output {
-        self.get(query)
-            .expect("posting dictionary query key must exist")
+        match &self.0 {
+            PostingDictionaryState::Builder(builder) => {
+                let query = K::stored_query(query);
+                let ordinal = *builder
+                    .values
+                    .get(&query)
+                    .expect("posting dictionary query key must exist");
+                builder
+                    .bitmaps
+                    .get(ordinal as usize)
+                    .expect("posting dictionary ordinal must exist")
+            }
+            PostingDictionaryState::Published(values) => match &values.backing {
+                PublishedPostingBacking::Native(map) => {
+                    let query = K::stored_query(query);
+                    let ordinal = *map
+                        .get(&query)
+                        .expect("posting dictionary query key must exist");
+                    values
+                        .bitmaps
+                        .get(ordinal as usize)
+                        .expect("posting dictionary ordinal must exist")
+                }
+                PublishedPostingBacking::Archived(archive) => {
+                    let (_, ordinal) = archive
+                        .root()
+                        .postings
+                        .get_key_value_with(query, K::compare_query)
+                        .expect("posting dictionary query key must exist");
+                    values
+                        .bitmaps
+                        .get(ordinal.to_native() as usize)
+                        .expect("posting dictionary ordinal must exist")
+                }
+                PublishedPostingBacking::Stored(_) => {
+                    panic!("stored posting dictionaries require a checked owned leaf")
+                }
+            },
+        }
     }
 }
 
@@ -2910,7 +3033,7 @@ impl PostingIndex {
         self.payload().values.cardinality(key)
     }
 
-    pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<&RoaringBitmap> {
+    pub(crate) fn value_posting(&self, key: &ScalarKey) -> Option<BitmapLease<'_>> {
         self.payload().values.get(key)
     }
 
@@ -2927,7 +3050,7 @@ impl PostingIndex {
                 if let Some(slots) = this.values.get(&ScalarKey::Id(id.clone())) {
                     lists += 1;
                     members += slots.len();
-                    union |= slots;
+                    union |= slots.as_ref();
                 }
             }
         } else {
@@ -2991,7 +3114,7 @@ impl PostingIndex {
                                     .expect("stored posting leaf");
                                 lists += 1;
                                 members += slots.len();
-                                union |= slots;
+                                union |= &*slots;
                             }
                         }
                     }
@@ -3006,7 +3129,10 @@ impl PostingIndex {
         key: &ScalarKey,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        self.payload().values.get(key).map(|bitmap| input & bitmap)
+        self.payload()
+            .values
+            .get(key)
+            .map(|bitmap| input & bitmap.as_ref())
     }
 
     pub(crate) fn for_each_value(
@@ -3032,11 +3158,11 @@ impl PostingIndex {
         scalar_range_postings(&self.payload().values, key, operator, input).0
     }
 
-    fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
+    fn state_source(&self, derived: Derived) -> Option<Option<BitmapLease<'_>>> {
         let this = self.payload();
         let key = match derived {
             Derived::Exists => return None,
-            Derived::Null if !this.multi => return Some(Some(&this.nulls)),
+            Derived::Null if !this.multi => return Some(Some(BitmapLease::Borrowed(&this.nulls))),
             Derived::Null => StructuralKey::AnyNull,
             Derived::IsNonEmpty => StructuralKey::NonEmpty,
             Derived::IsString => StructuralKey::String,
@@ -3120,14 +3246,14 @@ impl PostingIndex {
             Operator::Eq => Some(
                 this.values
                     .get(key)
-                    .map(|slots| input & slots)
+                    .map(|slots| input & slots.as_ref())
                     .unwrap_or_default(),
             ),
             Operator::Ne => {
                 let mut result = input & &this.presence;
                 result -= &this.nulls;
                 if let Some(equal) = this.values.get(key) {
-                    result -= equal;
+                    result -= equal.as_ref();
                 }
                 Some(result)
             }
@@ -3276,8 +3402,8 @@ impl PostingIndex {
         }
         if let Some(source) = this.state_source(term.derived) {
             return Some(match (Self::state_truth(term)?, source) {
-                (true, Some(slots)) => input & slots,
-                (false, Some(slots)) => input - slots,
+                (true, Some(slots)) => input & slots.as_ref(),
+                (false, Some(slots)) => input - slots.as_ref(),
                 (true, None) => RoaringBitmap::new(),
                 (false, None) => input.clone(),
             });
@@ -3294,7 +3420,7 @@ impl PostingIndex {
                 return Some(
                     this.lengths
                         .get(number)
-                        .map(|set| input & set)
+                        .map(|set| input & set.as_ref())
                         .unwrap_or_default(),
                 );
             }
@@ -3356,7 +3482,7 @@ impl PostingIndex {
             _ => None,
         };
         if let Some(set) = borrowed {
-            return Some(input & set);
+            return Some(input & set.as_ref());
         }
         this.exact_set(term, domain).map(|set| &set & input)
     }
@@ -3582,12 +3708,10 @@ impl PostingIndex {
                     .postings
                     .get(&StructuralKey::EmptyObject)
                     .is_some_and(|empty| {
-                        !empty.is_subset(
-                            facts
-                                .postings
-                                .get(&StructuralKey::Object)
-                                .unwrap_or(&RoaringBitmap::new()),
-                        )
+                        facts
+                            .postings
+                            .get(&StructuralKey::Object)
+                            .is_some_and(|object| !empty.is_subset(&object))
                     })
         }) {
             return Err("structural posting is inconsistent with presence or type".into());
@@ -3895,7 +4019,7 @@ impl PostingIndex {
         }
         if let Some(source) = this.state_source(term.derived) {
             *visits += 1;
-            let yes = source.map_or(0, RoaringBitmap::len);
+            let yes = source.map_or(0, |slots| slots.len());
             return Some((
                 1.0,
                 if Self::state_truth(term)? {
@@ -3920,7 +4044,7 @@ impl PostingIndex {
                 let count = if term.operator == Operator::Eq {
                     this.lengths
                         .get(number)
-                        .map(RoaringBitmap::len)
+                        .map(|bitmap| bitmap.len())
                         .unwrap_or(0)
                 } else if let Some(keys) = range_keys {
                     if keys <= 32 {
@@ -4042,8 +4166,8 @@ impl PostingIndex {
         }
         if let Some(source) = this.state_source(term.derived) {
             return Some(match (Self::state_truth(term)?, source) {
-                (true, Some(slots)) => slots.clone(),
-                (false, Some(slots)) => domain - slots,
+                (true, Some(slots)) => slots.as_ref().clone(),
+                (false, Some(slots)) => domain - &*slots,
                 (true, None) => RoaringBitmap::new(),
                 (false, None) => domain.clone(),
             });
@@ -4058,7 +4182,12 @@ impl PostingIndex {
                     return None;
                 };
                 return match term.operator {
-                    Operator::Eq => Some(this.lengths.get(number).cloned().unwrap_or_default()),
+                    Operator::Eq => Some(
+                        this.lengths
+                            .get(number)
+                            .map(|bitmap| bitmap.as_ref().clone())
+                            .unwrap_or_default(),
+                    ),
                     Operator::Ne => {
                         let mut result = RoaringBitmap::new();
                         this.lengths
@@ -4109,10 +4238,19 @@ impl PostingIndex {
             return None;
         }
         match term.operator {
-            Operator::Eq => Some(this.values.get(&key).cloned().unwrap_or_default()),
+            Operator::Eq => Some(
+                this.values
+                    .get(&key)
+                    .map(|bitmap| bitmap.as_ref().clone())
+                    .unwrap_or_default(),
+            ),
             Operator::Ne if !term.multi => Some(
                 &(&this.presence - &this.nulls)
-                    - &this.values.get(&key).cloned().unwrap_or_default(),
+                    - &this
+                        .values
+                        .get(&key)
+                        .map(|bitmap| bitmap.as_ref().clone())
+                        .unwrap_or_default(),
             ),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
                 Some(scalar_range_postings(&this.values, &key, term.operator, None).0)
@@ -4297,7 +4435,7 @@ fn is_range(operator: Operator) -> bool {
 }
 
 fn union_postings<'a, K: 'a>(
-    entries: impl Iterator<Item = (K, &'a RoaringBitmap)>,
+    entries: impl Iterator<Item = (K, BitmapLease<'a>)>,
     restriction: Option<&RoaringBitmap>,
 ) -> (RoaringBitmap, usize) {
     let mut result = RoaringBitmap::new();
@@ -4305,9 +4443,9 @@ fn union_postings<'a, K: 'a>(
     for (_, posting) in entries {
         visited += 1;
         if let Some(input) = restriction {
-            result |= input & posting;
+            result |= input & &*posting;
         } else {
-            result |= posting;
+            result |= &*posting;
         }
     }
     (result, visited)

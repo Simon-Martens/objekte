@@ -1319,6 +1319,37 @@ fn corrupt_eager_catalog_chunk_fails_open_before_publication() {
 }
 
 #[test]
+fn every_archived_eager_catalog_is_checked_before_publication() {
+    let root = fixture_root("archived-catalog-corrupt");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    for kind in 12..=15 {
+        let clone = root.join(format!("catalog-{kind}"));
+        copy_tree(&root.join("storage"), &clone);
+        let object = object_with_kind(&clone, kind);
+        let mut bytes = std::fs::read(&object).unwrap();
+        bytes[64] ^= 0xff;
+        std::fs::write(object, bytes).unwrap();
+        assert!(
+            Index::open_storage(
+                &root,
+                definitions(),
+                RepositoryOptions::default(),
+                &clone,
+                StorageOpenOptions::default(),
+            )
+            .is_err(),
+            "corrupt eager catalog kind {kind} was accepted"
+        );
+        std::fs::remove_dir_all(clone).unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn explicit_cache_trim_releases_serialized_staging_entries() {
     let root = fixture_root("trim");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -1890,6 +1921,76 @@ fn trimming_decoded_fts_leaves_allows_a_later_checked_reload() {
     );
     let reloaded = reopened.storage_status().unwrap();
     assert!(reloaded.index_reads > warm.index_reads);
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn finite_budget_evicts_unpinned_payloads_and_reloads_selected_leaves() {
+    let root = fixture_root("budget-eviction");
+    for number in 0..80 {
+        std::fs::write(
+            root.join(format!("data/value-{number}.json")),
+            format!(r#"{{"id":"v{number}","title":"Unique{number}"}}"#),
+        )
+        .unwrap();
+    }
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions {
+            cache_policy: CachePolicy::Budget {
+                resident_bytes: std::num::NonZeroU64::new(64).unwrap(),
+            },
+            ..StorageOpenOptions::default()
+        },
+    )
+    .unwrap();
+    let mut previous_reads = reopened.storage_status().unwrap().index_reads;
+    for number in 0..80 {
+        let mut request = all_records();
+        request.filter = Some(parse_filter(&format!("title = \"Unique{number}\"")).unwrap());
+        assert_eq!(
+            reopened.view().unwrap().search(&request).unwrap().count,
+            Some(1)
+        );
+        let status = reopened.storage_status().unwrap();
+        assert!(status.cache.resident_bytes <= 64);
+        assert_eq!(status.cache.pinned_bytes, 0);
+        assert!(
+            status.index_reads > previous_reads,
+            "fresh FTS leaf {number} must perform a selected cold read"
+        );
+        previous_reads = status.index_reads;
+    }
+    let status = reopened.storage_status().unwrap();
+    assert!(status.cache.evictions > 0);
+    previous_reads = status.index_reads;
+    let mut reloaded = 0;
+    for number in 0..80 {
+        let mut request = all_records();
+        request.filter = Some(parse_filter(&format!("title = \"Unique{number}\"")).unwrap());
+        assert_eq!(
+            reopened.view().unwrap().search(&request).unwrap().count,
+            Some(1)
+        );
+        let reads = reopened.storage_status().unwrap().index_reads;
+        if reads > previous_reads {
+            reloaded += 1;
+        }
+        previous_reads = reads;
+    }
+    assert!(
+        reloaded > 0,
+        "at least one evicted selected leaf must reload on later selection"
+    );
     reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

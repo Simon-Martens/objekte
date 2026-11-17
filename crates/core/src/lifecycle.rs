@@ -4226,6 +4226,11 @@ impl IndexView {
     }
 
     fn search_published(&self, query: &Query) -> Result<SearchResult, String> {
+        let _storage_pin = self
+            .repository()
+            .storage
+            .as_ref()
+            .map(|session| session.pin_query());
         let resolved = query.resolve_current_clock()?;
         let owner = self.1.upgrade();
         let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
@@ -4303,6 +4308,11 @@ impl IndexView {
         context: &ExecutionContext,
     ) -> Result<SearchResult, ExecutionError> {
         context.enter()?;
+        let _storage_pin = self
+            .repository()
+            .storage
+            .as_ref()
+            .map(|session| session.pin_query());
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
@@ -4877,6 +4887,11 @@ impl IndexView {
                 progress: crate::streaming::StreamProgress::default(),
             });
         }
+        let _storage_pin = self
+            .repository()
+            .storage
+            .as_ref()
+            .map(|session| session.pin_query());
         let owner = self.1.upgrade();
         let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
             store: &owner.verified_cache,

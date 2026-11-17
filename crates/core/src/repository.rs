@@ -1085,11 +1085,11 @@ impl Repository {
     }
 
     /// Borrow the existing typed posting for sources referencing this ID.
-    pub fn relation_reverse_sources(
+    pub(crate) fn relation_reverse_sources(
         &self,
         relation: &RelationIndex,
         target_id: &str,
-    ) -> Option<&RoaringBitmap> {
+    ) -> Option<crate::posting::BitmapLease<'_>> {
         let source = self.collections.get(relation.id.source.0 as usize)?;
         if !source
             .relations
@@ -1491,6 +1491,7 @@ impl Repository {
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
+        let _storage_pin = self.storage.as_ref().map(|session| session.pin_query());
         let resolved = query.resolve_current_clock()?;
         let result = if self.has_native_segments() {
             let snapshot = self.native_snapshot();
@@ -1552,6 +1553,7 @@ impl Repository {
         context: &crate::streaming::ExecutionContext,
     ) -> Result<SearchResult, crate::streaming::ExecutionError> {
         context.enter()?;
+        let _storage_pin = self.storage.as_ref().map(|session| session.pin_query());
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
@@ -1654,6 +1656,7 @@ impl Repository {
             crate::streaming::StreamEvent<'e>,
         ) -> Result<crate::streaming::StreamControl, String>,
     {
+        let _storage_pin = self.storage.as_ref().map(|session| session.pin_query());
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() && self.has_native_segments() {
             let cache = crate::run::LifecycleCacheScope {

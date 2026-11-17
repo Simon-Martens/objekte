@@ -83,7 +83,12 @@ impl PostingAccess<'_> {
             && index.structural.as_ref().is_some_and(|facts| {
                 [StructuralKey::Array, StructuralKey::Object]
                     .into_iter()
-                    .all(|key| facts.postings.get(&key).is_none_or(RoaringBitmap::is_empty))
+                    .all(|key| {
+                        facts
+                            .postings
+                            .get(&key)
+                            .is_none_or(|bitmap| bitmap.is_empty())
+                    })
             })
         {
             *visits += 1;

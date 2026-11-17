@@ -345,8 +345,8 @@ impl Repository {
         let posting = self.relation_reverse_sources(relation, target_id);
         let visible = posting.map(|slots| {
             active.map_or_else(
-                || slots.clone(),
-                |domains| slots & &domains[relation.id.source.0 as usize].bitmap(),
+                || slots.as_ref().clone(),
+                |domains| &*slots & &domains[relation.id.source.0 as usize].bitmap(),
             )
         });
         let total = visible.as_ref().map_or(0, |slots| slots.len() as usize);

@@ -520,12 +520,12 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
     fn load_posting_leaf(
         &self,
         reference: &StoredPostingLeafRef,
-    ) -> Result<roaring::RoaringBitmap, String> {
+    ) -> Result<Arc<roaring::RoaringBitmap>, String> {
         if reference.length == 0 {
             if reference.offset != 0 || reference.cardinality != 0 || reference.digest != [0; 32] {
                 return Err("canonical empty posting leaf has inconsistent metadata".into());
             }
-            return Ok(roaring::RoaringBitmap::new());
+            return Ok(Arc::new(roaring::RoaringBitmap::new()));
         }
         let cache_key = (
             self.pack.reference.digest,
@@ -538,7 +538,7 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
             .cache()
             .get_decoded::<roaring::RoaringBitmap>(&cache_key)
         {
-            return Ok(bitmap.as_ref().clone());
+            return Ok(bitmap);
         }
         self.pack.session.cache().record_miss();
         if reference.length > self.pack.session.limits().serialized_leaf_bytes {
@@ -562,7 +562,7 @@ impl PostingLeafLoader for StoredPostingLeafAccess {
             Arc::clone(&bitmap),
             reference.decoded_bytes_estimate,
         );
-        Ok(bitmap.as_ref().clone())
+        Ok(bitmap)
     }
 }
 
@@ -1426,6 +1426,22 @@ fn read_metadata_snapshot(
         return Err(StorageError::LimitExceeded {
             limit: limits.total_eager_catalog_bytes,
             requested: manifest.total_length,
+        });
+    }
+    let total_eager = manifest
+        .catalogs
+        .iter()
+        .try_fold(manifest.total_length, |total, catalog| {
+            total.checked_add(catalog.length)
+        })
+        .ok_or(StorageError::LimitExceeded {
+            limit: limits.total_eager_catalog_bytes,
+            requested: u64::MAX,
+        })?;
+    if total_eager > limits.total_eager_catalog_bytes {
+        return Err(StorageError::LimitExceeded {
+            limit: limits.total_eager_catalog_bytes,
+            requested: total_eager,
         });
     }
     let mut body = Vec::with_capacity(usize::try_from(manifest.total_length).map_err(|_| {
