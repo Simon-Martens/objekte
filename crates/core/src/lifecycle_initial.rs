@@ -27,6 +27,7 @@ pub struct InitialBuildStatus {
     pub processed_files: usize,
     pub processed_records: u64,
     pub searchable_batches: u64,
+    pub search_ready: bool,
     pub construction_complete: bool,
     pub error: Option<String>,
     pub catalogue_elapsed_ns: Option<u64>,
@@ -43,6 +44,7 @@ impl Default for InitialBuildStatus {
             processed_files: 0,
             processed_records: 0,
             searchable_batches: 0,
+            search_ready: false,
             construction_complete: false,
             error: None,
             catalogue_elapsed_ns: None,
@@ -113,6 +115,7 @@ impl InitialBuildTask {
         state.status.discovered_files = status.indexed_files;
         state.status.processed_files = status.processed_files;
         state.status.processed_records = status.live_records;
+        state.status.search_ready = view.search_ready();
         state.status.searchable_batches = view
             .0
             .segments
@@ -298,8 +301,9 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
-        let definitions = crate::repository_configuration::prepare_source_definitions(&root, &definitions)
-            .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions =
+            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+                .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();

@@ -176,8 +176,7 @@ impl SegmentAggregate {
                     .operations
                     .iter()
                     .filter(|(_, binding)| {
-                        binding.operation.bigram()
-                            && binding.operation.complete_coverage()
+                        binding.operation.bigram() && binding.operation.complete_coverage()
                     })
                     .map(|(key, _)| key),
             )
@@ -212,8 +211,7 @@ impl SegmentAggregate {
         });
         Ok(Self {
             postings,
-            inference: inference
-                .map(|builder| builder.promote_first_batch(collection_count)),
+            inference: inference.map(|builder| builder.promote_first_batch(collection_count)),
             custom_postings,
             raw,
             fallback_text,
@@ -628,18 +626,14 @@ impl CollectionSegment {
                 collection_count,
             )?
         } else {
-            SegmentAggregate::new(
-                definition,
-                alphabet,
-                inference_config,
-                collection_count,
-            )?
+            SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?
         };
         for SegmentBatch {
             base,
             count,
             contribution,
-        } in batches {
+        } in batches
+        {
             aggregate.admit_parallel(contribution, base, count, pool)?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
@@ -732,12 +726,12 @@ impl CollectionSegment {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let id_lookup = crate::segment_archive::RecordLookup::freeze(self.id_lookup)?;
-        let file_index = crate::segment_archive::FileLookup::freeze(self.file_index)?;
+        let id_lookup = crate::segment_archive::RecordLookup::native(self.id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(self.file_index)?;
         let (files, records) =
-            crate::segment_archive::SegmentRows::freeze(self.files, self.records)?.views();
+            crate::segment_archive::SegmentRows::native(self.files, self.records)?.views();
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.segment_rows_archive_freeze_ns += started.elapsed().as_nanos() as u64;
+            profile.segment_rows_native_publication_ns += started.elapsed().as_nanos() as u64;
         }
         let index = IndexedCollectionSegment {
             id: self.id,
@@ -768,7 +762,7 @@ impl CollectionSegment {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let index = index.seal_completed_storage_in_pool(pool)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.postings_archive_freeze_ns = started.elapsed().as_nanos() as u64;
+            profile.postings_native_publication_ns = started.elapsed().as_nanos() as u64;
         }
         Ok(index)
     }
@@ -1358,10 +1352,9 @@ impl IndexedCollectionSegment {
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
-        let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
-        let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
-        let (files, records) =
-            crate::segment_archive::SegmentRows::freeze(files, records)?.views();
+        let id_lookup = crate::segment_archive::RecordLookup::native(id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(file_index)?;
+        let (files, records) = crate::segment_archive::SegmentRows::native(files, records)?.views();
         let index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
@@ -1476,8 +1469,7 @@ fn scatter_posting_partitions(
                         .as_mut()
                         .unwrap()
                         .postings
-                        .entry(*key)
-                        .or_default()
+                        .bitmap_mut(*key)?
                         .insert(slot.0);
                 }
             }
@@ -1489,8 +1481,7 @@ fn scatter_posting_partitions(
             if let Some((part, slot)) = posting_destination(routing, old)? {
                 parts[part]
                     .values
-                    .entry(crate::posting::StoredScalarKey::from_scalar(key))
-                    .or_default()
+                    .bitmap_mut(crate::posting::StoredScalarKey::from_scalar(key))?
                     .insert(slot.0);
             }
         }
@@ -1501,8 +1492,7 @@ fn scatter_posting_partitions(
             if let Some((part, slot)) = posting_destination(routing, old)? {
                 parts[part]
                     .lengths
-                    .entry(crate::posting::PostingNumberKey::from_number(key))
-                    .or_default()
+                    .bitmap_mut(crate::posting::PostingNumberKey::from_number(key))?
                     .insert(slot.0);
             }
         }
@@ -1717,14 +1707,14 @@ fn project_posting(
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.values.insert_public(key, kept);
+            projected.values.insert_public(key, kept)?;
         }
         Ok(())
     })?;
     index.for_each_length(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.lengths.insert_public(key, kept);
+            projected.lengths.insert_public(key, kept)?;
         }
         Ok(())
     })?;
@@ -1732,7 +1722,7 @@ fn project_posting(
         source.postings.for_each(|key, bitmap| {
             let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
             if !kept.is_empty() {
-                target.postings.insert_public(key, kept);
+                target.postings.insert_public(key, kept)?;
             }
             Ok(())
         })?;
@@ -2580,10 +2570,9 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
-        let id_lookup = crate::segment_archive::RecordLookup::freeze(id_lookup)?;
-        let file_index = crate::segment_archive::FileLookup::freeze(file_index)?;
-        let (files, records) =
-            crate::segment_archive::SegmentRows::freeze(files, records)?.views();
+        let id_lookup = crate::segment_archive::RecordLookup::native(id_lookup)?;
+        let file_index = crate::segment_archive::FileLookup::native(file_index)?;
+        let (files, records) = crate::segment_archive::SegmentRows::native(files, records)?.views();
         let index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,

@@ -24,9 +24,7 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::{FileCatalog, OwnershipRoute};
-pub use crate::lifecycle_compaction::{
-    CompactionMode, CompactionOptions, CompactionReport,
-};
+pub use crate::lifecycle_compaction::{CompactionMode, CompactionOptions, CompactionReport};
 use crate::model::{CollectionId, FileId, Value};
 pub(crate) use crate::native_segment::PublishedSegment;
 use crate::native_segment::SegmentId;
@@ -191,6 +189,7 @@ pub struct IndexStatus {
     /// processed. Equal to `indexed_files` on an ordinary completed index.
     pub processed_files: usize,
     pub initial_construction_complete: bool,
+    pub search_ready: bool,
     /// Construction parse attempts captured by the resident repository.
     pub build_parses: u64,
     pub build_source_reads: u64,
@@ -414,6 +413,7 @@ pub(crate) struct PreparedReplacement {
 pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
     pub(crate) revision: IndexRevision,
+    pub(crate) representation_generation: u64,
     pub(crate) repository: Arc<Repository>,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
@@ -558,11 +558,7 @@ pub(crate) fn initial_ownership_routes(
                     .generation
                     .file_records
                     .records_for(*file)
-                    .is_none_or(|slots| {
-                        !slots
-                            .iter()
-                            .any(|slot| active[number].contains(*slot))
-                    })
+                    .is_none_or(|slots| !slots.iter().any(|slot| active[number].contains(*slot)))
             {
                 continue;
             }
@@ -634,6 +630,16 @@ pub(crate) fn removed_segment_ownership(
 }
 
 impl PublishedIndex {
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut counts = self.repository.storage_representation_counts();
+        for segment in self.segments.iter().flat_map(|group| group.iter()) {
+            let (native, archived) = segment.index.storage_representation_counts();
+            counts.0 += native;
+            counts.1 += archived;
+        }
+        counts
+    }
+
     fn segment_position_directory(
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     ) -> Arc<Vec<HashMap<SegmentId, usize>>> {
@@ -698,11 +704,7 @@ impl PublishedIndex {
                         .ok_or("base route slot list missing")?;
                     for slot in slots {
                         if self.active[route.collection.0 as usize].contains(*slot)
-                            && !routed.insert((
-                                route.collection,
-                                SegmentId::new(0),
-                                slot.0,
-                            ))
+                            && !routed.insert((route.collection, SegmentId::new(0), slot.0))
                         {
                             return Err("record has duplicate base ownership".into());
                         }
@@ -736,11 +738,7 @@ impl PublishedIndex {
         for (number, active) in self.active.iter().enumerate() {
             for slot in 0..active.slot_count() {
                 if active.contains(crate::model::RecordSlot(slot))
-                    && !routed.contains(&(
-                        CollectionId(number as u32),
-                        SegmentId::new(0),
-                        slot,
-                    ))
+                    && !routed.contains(&(CollectionId(number as u32), SegmentId::new(0), slot))
                 {
                     return Err("active base record is not routed".into());
                 }
@@ -750,11 +748,7 @@ impl PublishedIndex {
             for segment in segments.iter() {
                 for slot in 0..segment.active.slot_count() {
                     if segment.active.contains(crate::model::RecordSlot(slot))
-                        && !routed.contains(&(
-                            CollectionId(number as u32),
-                            segment.id,
-                            slot,
-                        ))
+                        && !routed.contains(&(CollectionId(number as u32), segment.id, slot))
                     {
                         return Err("active segment record is not routed".into());
                     }
@@ -834,8 +828,7 @@ impl PublishedIndex {
         .map_err(IndexError::IncompatibleConfiguration)?;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
-        let mut catalog = if repository.catalog.allocated_files()
-            == repository.files().files.len()
+        let mut catalog = if repository.catalog.allocated_files() == repository.files().files.len()
         {
             repository.catalog.clone()
         } else {
@@ -848,12 +841,7 @@ impl PublishedIndex {
         catalog
             .replace_all_ownership(
                 &file_versions,
-                &initial_ownership_routes(
-                    &repository,
-                    &active,
-                    &segments,
-                    file_versions.len(),
-                ),
+                &initial_ownership_routes(&repository, &active, &segments, file_versions.len()),
             )
             .map_err(IndexError::InvalidPublication)?;
         let processed_files = catalog.active_files() as usize;
@@ -868,6 +856,7 @@ impl PublishedIndex {
         Ok(Self {
             instance_id,
             revision,
+            representation_generation: 0,
             repository,
             configuration_identity,
             active,
@@ -912,6 +901,8 @@ impl PublishedIndex {
             indexed_files: self.catalog.active_files() as usize,
             processed_files: self.processed_files,
             initial_construction_complete: self.catalog.construction_complete(),
+            search_ready: self.catalog.construction_complete()
+                || self.segments.iter().any(|group| !group.is_empty()),
             build_parses: self.repository.build_parses(),
             build_source_reads: self.repository.startup().build_source_reads,
             build_source_bytes_read: self.repository.startup().build_source_bytes_read,
@@ -951,17 +942,11 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(
-        self,
-        index: IndexedCollectionSegment,
-    ) -> Result<Self, IndexError> {
+    pub(crate) fn with_segment(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
         self.with_segment_mode(index, true, true)
     }
 
-    fn with_segment_uncoalesced(
-        self,
-        index: IndexedCollectionSegment,
-    ) -> Result<Self, IndexError> {
+    fn with_segment_uncoalesced(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
         self.with_segment_mode(index, false, false)
     }
 
@@ -997,21 +982,15 @@ impl PublishedIndex {
                     "segment file row missing".into(),
                 ));
             };
-            let path = index
-                .files
-                .archived_path(ordinal)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("segment file path missing".into())
-                })?;
+            let path = index.files.native_path(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file path missing".into())
+            })?;
             let revision = index.files.revision(ordinal).ok_or_else(|| {
                 IndexError::InvalidPublication("segment file revision missing".into())
             })?;
-            let created_ns = index
-                .files
-                .created_ns(ordinal)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("segment file creation time missing".into())
-                })?;
+            let created_ns = index.files.created_ns(ordinal).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file creation time missing".into())
+            })?;
             if !self.catalog.matches_segment_file(
                 file,
                 index.collection,
@@ -1033,8 +1012,7 @@ impl PublishedIndex {
                     return;
                 }
                 crate::storage_usage::StorageWorkCounters::update(|counters| {
-                    counters.duplicate_id_probes =
-                        counters.duplicate_id_probes.saturating_add(1);
+                    counters.duplicate_id_probes = counters.duplicate_id_probes.saturating_add(1);
                 });
                 let collection_duplicate = self.active[number].len() != 0
                     && collection
@@ -1054,8 +1032,7 @@ impl PublishedIndex {
                     return;
                 }
                 crate::storage_usage::StorageWorkCounters::update(|counters| {
-                    counters.duplicate_id_probes =
-                        counters.duplicate_id_probes.saturating_add(1);
+                    counters.duplicate_id_probes = counters.duplicate_id_probes.saturating_add(1);
                 });
                 let existing_duplicate = self.segments[number].iter().any(|segment| {
                     segment
@@ -1080,9 +1057,7 @@ impl PublishedIndex {
                 record_id,
             });
         }
-        if let (Some(registry), Some(ids)) =
-            (self.construction_ids.as_mut(), incoming_ids)
-        {
+        if let (Some(registry), Some(ids)) = (self.construction_ids.as_mut(), incoming_ids) {
             let bytes = ids
                 .iter()
                 .map(|id| id.len() + std::mem::size_of::<Arc<str>>())
@@ -1271,13 +1246,11 @@ impl PublishedIndex {
                 .iter()
                 .map(|file| file.entry.id)
                 .collect::<std::collections::HashSet<_>>();
-            let projected_overlap = parts
-                .first()
-                .is_some_and(|part| {
-                    part.files
-                        .iter()
-                        .any(|file| incoming_file_ids.contains(&file.entry.id))
-                });
+            let projected_overlap = parts.first().is_some_and(|part| {
+                part.files
+                    .iter()
+                    .any(|file| incoming_file_ids.contains(&file.entry.id))
+            });
             if projected_overlap {
                 let part = parts
                     .first_mut()
@@ -1299,7 +1272,7 @@ impl PublishedIndex {
                     .cloned()
                     .collect::<Vec<_>>();
                 let (files, records) =
-                    crate::segment_archive::SegmentRows::freeze(files, part.records.to_vec())
+                    crate::segment_archive::SegmentRows::native(files, part.records.to_vec())
                         .map_err(IndexError::Build)?
                         .views();
                 part.files = files;
@@ -1325,8 +1298,8 @@ impl PublishedIndex {
             let mut consolidated = consolidated.index;
             let segment_id = incoming.id;
             consolidated.id = segment_id;
-            let active =
-                ActiveRecords::all(consolidated.record_count()).map_err(IndexError::ResourceLimit)?;
+            let active = ActiveRecords::all(consolidated.record_count())
+                .map_err(IndexError::ResourceLimit)?;
             let replacement = Arc::new(
                 PublishedSegment::checked(segment_id, Arc::new(consolidated), active)
                     .map_err(IndexError::InvalidPublication)?,
@@ -1374,11 +1347,7 @@ impl PublishedIndex {
             self.destination_rebuilt = true;
         }
         self.catalog
-            .update_ownership(
-                &self.file_versions,
-                &ownership_removed,
-                &ownership_added,
-            )
+            .update_ownership(&self.file_versions, &ownership_removed, &ownership_added)
             .map_err(IndexError::InvalidPublication)?;
         for number in attempted {
             self.rebuild_segment_position(number);
@@ -1426,11 +1395,8 @@ impl PublishedIndex {
                     let revision = segment.index.files.revision(file_number).ok_or_else(|| {
                         IndexError::InvalidPublication("segment file revision missing".into())
                     })?;
-                    let created_ns = segment
-                        .index
-                        .files
-                        .created_ns(file_number)
-                        .ok_or_else(|| {
+                    let created_ns =
+                        segment.index.files.created_ns(file_number).ok_or_else(|| {
                             IndexError::InvalidPublication(
                                 "segment file creation time missing".into(),
                             )
@@ -1448,10 +1414,8 @@ impl PublishedIndex {
                 if segment.active.len() > 0 || current_file {
                     kept.push(segment);
                 } else {
-                    ownership_removed.extend(removed_segment_ownership(
-                        &segment,
-                        &self.file_versions,
-                    ));
+                    ownership_removed
+                        .extend(removed_segment_ownership(&segment, &self.file_versions));
                 }
             }
             *group = kept;
@@ -1479,10 +1443,7 @@ impl PublishedIndex {
                     policy,
                     || false,
                 )?;
-                ownership_removed.extend(removed_segment_ownership(
-                    &old,
-                    &self.file_versions,
-                ));
+                ownership_removed.extend(removed_segment_ownership(&old, &self.file_versions));
                 group.remove(index);
                 for (offset, part) in replacements.into_iter().enumerate() {
                     let ordinal = self.next_segment_ordinal;
@@ -1497,17 +1458,10 @@ impl PublishedIndex {
                     let published = PublishedSegment::checked(id, Arc::new(part), active)
                         .map_err(IndexError::InvalidPublication)?;
                     append_segment_ownership(&published, &mut ownership_added);
-                    group.insert(
-                        index + offset,
-                        Arc::new(published),
-                    );
+                    group.insert(index + offset, Arc::new(published));
                 }
                 self.catalog
-                    .update_ownership(
-                        &self.file_versions,
-                        &ownership_removed,
-                        &ownership_added,
-                    )
+                    .update_ownership(&self.file_versions, &ownership_removed, &ownership_added)
                     .map_err(IndexError::InvalidPublication)?;
                 self.rebuild_segment_position(number);
                 return Ok(());
@@ -1554,10 +1508,7 @@ impl PublishedIndex {
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
         let mut merged_index = merged.index;
-        ownership_removed.extend(removed_segment_ownership(
-            &group[left],
-            &self.file_versions,
-        ));
+        ownership_removed.extend(removed_segment_ownership(&group[left], &self.file_versions));
         ownership_removed.extend(removed_segment_ownership(
             &group[right],
             &self.file_versions,
@@ -1573,11 +1524,7 @@ impl PublishedIndex {
         append_segment_ownership(&published, &mut ownership_added);
         group.push(published);
         self.catalog
-            .update_ownership(
-                &self.file_versions,
-                &ownership_removed,
-                &ownership_added,
-            )
+            .update_ownership(&self.file_versions, &ownership_removed, &ownership_added)
             .map_err(IndexError::InvalidPublication)?;
         self.rebuild_segment_position(number);
         if size_triggered {
@@ -1605,18 +1552,14 @@ impl PublishedIndex {
                     .collections()
                     .get(route.collection.0 as usize)
                     .ok_or_else(|| {
-                        IndexError::InvalidPublication(
-                            "base ownership collection missing".into(),
-                        )
+                        IndexError::InvalidPublication("base ownership collection missing".into())
                     })?;
                 let routed_file = collection
                     .generation
                     .files
                     .get(route.file_row_ordinal as usize)
                     .ok_or_else(|| {
-                        IndexError::InvalidPublication(
-                            "base ownership row ordinal missing".into(),
-                        )
+                        IndexError::InvalidPublication("base ownership row ordinal missing".into())
                     })?;
                 if *routed_file != file.id {
                     return Err(IndexError::InvalidPublication(
@@ -1628,13 +1571,14 @@ impl PublishedIndex {
                     .file_records
                     .records_for(file.id)
                     .ok_or_else(|| {
-                        IndexError::InvalidPublication(
-                            "base file record route missing".into(),
-                        )
+                        IndexError::InvalidPublication("base file record route missing".into())
                     })?;
-                let active = self.active.get_mut(route.collection.0 as usize).ok_or_else(
-                    || IndexError::InvalidPublication("base active domain missing".into()),
-                )?;
+                let active = self
+                    .active
+                    .get_mut(route.collection.0 as usize)
+                    .ok_or_else(|| {
+                        IndexError::InvalidPublication("base active domain missing".into())
+                    })?;
                 retired_records +=
                     slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
                 *active = active
@@ -1650,18 +1594,15 @@ impl PublishedIndex {
                 })?;
             let segments = Arc::make_mut(segments);
             crate::storage_usage::StorageWorkCounters::update(|counters| {
-                counters.segment_descriptors_examined = counters
-                    .segment_descriptors_examined
-                    .saturating_add(1);
+                counters.segment_descriptors_examined =
+                    counters.segment_descriptors_examined.saturating_add(1);
             });
             let position = self
                 .segment_positions
                 .get(route.collection.0 as usize)
                 .and_then(|positions| positions.get(&route.segment))
                 .copied()
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("routed segment missing".into())
-                })?;
+                .ok_or_else(|| IndexError::InvalidPublication("routed segment missing".into()))?;
             if segments.get(position).map(|segment| segment.id) != Some(route.segment) {
                 return Err(IndexError::InvalidPublication(
                     "segment position directory is stale".into(),
@@ -1940,6 +1881,9 @@ fn prepare_file_at(
 struct IndexInner {
     instance_id: u64,
     timings: Mutex<IndexTimingsMs>,
+    /// Excludes publication staging while a complete archive candidate is
+    /// being prepared. Queries never acquire this gate.
+    transition: RwLock<()>,
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
     quiescing: AtomicBool,
@@ -2148,9 +2092,10 @@ fn merge_initial_segment_metadata(
     let mut replacements = std::collections::BTreeMap::new();
     for segment in segments {
         for ordinal in 0..segment.file_count() {
-            let file_id = segment.files.file_id(ordinal).ok_or_else(|| {
-                IndexError::InvalidPublication("segment file row missing".into())
-            })?;
+            let file_id = segment
+                .files
+                .file_id(ordinal)
+                .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
             let segment_status = segment.files.status_code(ordinal).ok_or_else(|| {
                 IndexError::InvalidPublication("segment file status missing".into())
             })?;
@@ -2158,9 +2103,7 @@ fn merge_initial_segment_metadata(
                 IndexError::InvalidPublication("segment file diagnostics missing".into())
             })?;
             let omitted = segment.files.omitted_diagnostics(ordinal).ok_or_else(|| {
-                IndexError::InvalidPublication(
-                    "segment omitted diagnostic count missing".into(),
-                )
+                IndexError::InvalidPublication("segment omitted diagnostic count missing".into())
             })?;
             let current_status = replacements
                 .get(&file_id)
@@ -2173,12 +2116,12 @@ fn merge_initial_segment_metadata(
             if !replacements.contains_key(&file_id) {
                 replacements.insert(
                     file_id,
-                    catalog.entry_owned(file_id).ok_or(IndexError::UnknownFile)?,
+                    catalog
+                        .entry_owned(file_id)
+                        .ok_or(IndexError::UnknownFile)?,
                 );
             }
-            let current = replacements
-                .get(&file_id)
-                .ok_or(IndexError::UnknownFile)?;
+            let current = replacements.get(&file_id).ok_or(IndexError::UnknownFile)?;
             let mut merged = current.clone();
             segment
                 .files
@@ -2199,6 +2142,13 @@ fn merge_initial_segment_metadata(
 }
 
 impl Index {
+    pub(crate) fn transition_read(&self) -> Result<std::sync::RwLockReadGuard<'_, ()>, IndexError> {
+        self.0
+            .transition
+            .read()
+            .map_err(|_| IndexError::LockPoisoned)
+    }
+
     pub fn rkyv_archive_bytes(&self) -> Result<usize, IndexError> {
         Ok(self.view()?.storage_usage().archive.serialized_bytes as usize)
     }
@@ -2378,15 +2328,14 @@ impl Index {
                 if needs_status_refresh {
                     let mut refreshed_files = index.files.to_vec();
                     for file in &mut refreshed_files {
-                        if let Some(current) =
-                            repository.files.files.get(file.entry.id.0 as usize)
+                        if let Some(current) = repository.files.files.get(file.entry.id.0 as usize)
                         {
                             file.entry.status = current.status;
                             file.entry.diagnostics = current.diagnostics.clone();
                             file.entry.omitted_diagnostics = current.omitted_diagnostics;
                         }
                     }
-                    let (files, records) = crate::segment_archive::SegmentRows::freeze(
+                    let (files, records) = crate::segment_archive::SegmentRows::native(
                         refreshed_files,
                         index.records.to_vec(),
                     )
@@ -2394,8 +2343,9 @@ impl Index {
                     .views();
                     index.files = files;
                     index.records = records;
-                    Arc::make_mut(&mut index.sorting)
-                        .refresh_file_status_for_records(&index.records, |file| {
+                    Arc::make_mut(&mut index.sorting).refresh_file_status_for_records(
+                        &index.records,
+                        |file| {
                             repository
                                 .files
                                 .files
@@ -2403,11 +2353,10 @@ impl Index {
                                 .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
                                     entry.status.code()
                                 })
-                        });
+                        },
+                    );
                 }
-                if needs_inference_prune
-                    && let Some(decision) = decision
-                {
+                if needs_inference_prune && let Some(decision) = decision {
                     if let Some(inference) = index.inference.as_mut() {
                         for field in &decision.report.fields {
                             if matches!(
@@ -2442,10 +2391,13 @@ impl Index {
                                     });
                                     posting.values.clear();
                                     if let Some(Some(slots)) = empty {
-                                        posting.values.insert_public(
-                                            &crate::posting::ScalarKey::String(String::new()),
-                                            slots,
-                                        );
+                                        posting
+                                            .values
+                                            .insert_public(
+                                                &crate::posting::ScalarKey::String(String::new()),
+                                                slots,
+                                            )
+                                            .map_err(IndexError::InvalidPublication)?;
                                     }
                                     posting.values_indexed = empty_string_exact;
                                 }
@@ -2535,6 +2487,7 @@ impl Index {
         Self(Arc::new(IndexInner {
             instance_id,
             timings: Mutex::new(IndexTimingsMs::default()),
+            transition: RwLock::new(()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
@@ -2765,6 +2718,11 @@ impl Index {
                 return Err(IndexError::Cancelled);
             }
             progress(MaintenancePhase::Preparing, attempt);
+            let _transition = self
+                .0
+                .transition
+                .read()
+                .map_err(|_| IndexError::LockPoisoned)?;
             let view = self.view()?;
             let repository = view.repository();
             let definitions = repository
@@ -3019,6 +2977,11 @@ impl Index {
                 .map_err(|_| IndexError::LockPoisoned)?;
             self.0.quiescing.store(true, Ordering::Release);
         }
+        let _drained_transition = self
+            .0
+            .transition
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
         self.stop_periodic_reconciliation()?;
         let operation = self
             .0
@@ -3443,6 +3406,11 @@ impl Index {
                     ));
                 }
                 let expected = prepared.expected_revision;
+                let _transition = self
+                    .0
+                    .transition
+                    .read()
+                    .map_err(|_| IndexError::LockPoisoned)?;
                 let next = self.stage_prepared_add(prepared)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
@@ -3457,6 +3425,11 @@ impl Index {
                     ));
                 }
                 let expected = prepared.expected_revision;
+                let _transition = self
+                    .0
+                    .transition
+                    .read()
+                    .map_err(|_| IndexError::LockPoisoned)?;
                 let next = self.stage_prepared_replace(prepared)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
@@ -3481,6 +3454,11 @@ impl Index {
     /// publication. This changes index state only, and requires no source
     /// content or source-file I/O. A later scan can add a still-present file.
     pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        let _transition = self
+            .0
+            .transition
+            .read()
+            .map_err(|_| IndexError::LockPoisoned)?;
         let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
         let (expected, next, retired_records, affected_collections) =
             self.stage_prepared_delete(handle)?;
@@ -3610,11 +3588,15 @@ impl Index {
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 impl IndexView {
+    pub fn search_ready(&self) -> bool {
+        self.0.catalog.construction_complete()
+            || self.0.segments.iter().any(|group| !group.is_empty())
+    }
+
     pub fn storage_usage(&self) -> crate::storage_usage::StorageUsage {
         let mut usage = self.0.storage_usage();
-        usage.active_and_control_metadata_bytes = usage
-            .active_and_control_metadata_bytes
-            .saturating_add(
+        usage.active_and_control_metadata_bytes =
+            usage.active_and_control_metadata_bytes.saturating_add(
                 self.0
                     .active
                     .iter()
@@ -4725,3 +4707,9 @@ impl IndexView {
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]
 mod tests;
+
+#[path = "lifecycle_archive.rs"]
+mod archive_operation;
+pub use archive_operation::{ArchiveOptions, ArchiveReport, ArchiveRepresentation, ArchiveStatus};
+#[cfg(test)]
+pub(crate) use archive_operation::{clear_test_archive_gate, install_test_archive_gate};

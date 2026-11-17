@@ -1140,7 +1140,7 @@ fn segment_metadata_generation(
             let record = segment
                 .index
                 .records
-                .archived_record(slot)
+                .record_row(slot)
                 .ok_or("segment record row missing")?;
             let record_id = crate::model::RecordId(Arc::new(record.id().to_owned()));
             let range = record.range();
@@ -1149,20 +1149,16 @@ fn segment_metadata_generation(
                 .get_mut(record.file().0 as usize)
                 .ok_or("segment metadata file missing")?;
             if record.class() == RecordClass::Logical {
-                builder.add_record(
-                    file,
-                    record_id,
-                    range.start,
-                    range.end,
-                )
-                .map_err(|error| {
-                    format!(
-                        "{}:{}..{}: {error}",
-                        file.relative_path.as_path().display(),
-                        range.start,
-                        range.end,
-                    )
-                })?;
+                builder
+                    .add_record(file, record_id, range.start, range.end)
+                    .map_err(|error| {
+                        format!(
+                            "{}:{}..{}: {error}",
+                            file.relative_path.as_path().display(),
+                            range.start,
+                            range.end,
+                        )
+                    })?;
             } else {
                 let file_row = segment
                     .index
@@ -1170,12 +1166,7 @@ fn segment_metadata_generation(
                     .get(record.file())
                     .ok_or("fallback segment file missing")?;
                 let Some(local) = record.diagnostic_ref().stored_index() else {
-                    builder.add_raw_fallback(
-                        file,
-                        record_id,
-                        range,
-                        record.diagnostic_ref(),
-                    )?;
+                    builder.add_raw_fallback(file, record_id, range, record.diagnostic_ref())?;
                     record_count += 1;
                     continue;
                 };
@@ -1183,8 +1174,7 @@ fn segment_metadata_generation(
                     .index
                     .files
                     .diagnostic(file_row, local)
-                    .ok_or("fallback diagnostic missing")?
-                    ;
+                    .ok_or("fallback diagnostic missing")?;
                 let existing = file.diagnostics.iter().position(|candidate| {
                     let mut candidate = candidate.clone();
                     candidate.record = None;
@@ -1210,8 +1200,7 @@ fn segment_metadata_generation(
                 let reference = crate::inventory::DiagnosticRef(
                     u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
                 );
-                let slot =
-                    builder.add_raw_fallback(file, record_id, range, reference)?;
+                let slot = builder.add_raw_fallback(file, record_id, range, reference)?;
                 file.diagnostics[global].record = Some(slot);
             }
             record_count += 1;
@@ -1579,7 +1568,10 @@ impl Repository {
             ) {
                 if batch.len() == 1
                     && (discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
-                        || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))
+                        || matches!(
+                            state.definition.format,
+                            crate::source::SourceFormat::JsonLines
+                        ))
                 {
                     jobs.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -1999,14 +1991,16 @@ impl Repository {
                 // segment-local columns can be selected. Keys remain owned by
                 // their source segments and are never addressed through this
                 // compatibility header.
-                collection.sorting = crate::sorting::SortCollection::configuration_only(
-                    &state.definition.sort_fields,
-                    &state.definition.schema,
-                    &state.definition.sort_locale,
-                    state.definition.sort_options,
-                    &state.definition.sort_overrides,
-                )
-                .map_err(IndexError::Build)?;
+                collection.sorting = Arc::new(
+                    crate::sorting::SortCollection::configuration_only(
+                        &state.definition.sort_fields,
+                        &state.definition.schema,
+                        &state.definition.sort_locale,
+                        state.definition.sort_options,
+                        &state.definition.sort_overrides,
+                    )
+                    .map_err(IndexError::Build)?,
+                );
             }
             pending_relations.push(relations);
             let (_, stats) = state.finish_summary().map_err(IndexError::Build)?;
@@ -2044,9 +2038,7 @@ impl Repository {
                     posting.value_complete = true;
                     posting.covered_records = logical_count;
                     posting.finish_stats();
-                    posting
-                        .freeze_storage()
-                        .map_err(IndexError::Build)?;
+                    posting.seal_native_storage().map_err(IndexError::Build)?;
                     posting
                         .validate_completed(
                             record_count,

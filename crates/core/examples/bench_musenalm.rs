@@ -343,8 +343,8 @@ fn run() -> Result<(), String> {
                 repo.collections()
                     .iter()
                     .fold((0usize, 0usize), |total, collection| {
-                        std::iter::once(&collection.raw)
-                            .chain(std::iter::once(&collection.fallback_text))
+                        std::iter::once(collection.raw.as_ref())
+                            .chain(std::iter::once(collection.fallback_text.as_ref()))
                             .chain(collection.custom_text.values())
                             .fold(total, |(stores, keys), index| {
                                 (stores + 1, keys + index.normal.len() + index.skip.len())

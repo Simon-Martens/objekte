@@ -7,23 +7,22 @@
 use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::hash::{Hash, Hasher};
 use std::ops::Bound;
-use std::path::{Path, PathBuf};
 #[cfg(test)]
 use std::path::PathBuf as TestPathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering as AtomicOrdering};
 use std::sync::{Arc, LazyLock, OnceLock};
 
-use rayon::prelude::*;
 use rayon::ThreadPool;
+use rayon::prelude::*;
 use rkyv::{Archive, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
 
 use crate::archive_storage::ValidatedArchive;
 use crate::archived_path::StoredPath;
 use crate::inventory::{
-    ByteRange, FileEntry, FileInventory, FileStatus, FileVersion, FileVersions,
-    SourceDiagnostic, SourceRevision,
-    empty_path_bounds, relative_path_bounds,
+    ByteRange, FileEntry, FileInventory, FileStatus, FileVersion, FileVersions, SourceDiagnostic,
+    SourceRevision, empty_path_bounds, relative_path_bounds,
 };
 use crate::lifecycle_scan::FileStamp;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -149,26 +148,19 @@ impl StoredCatalogDiagnostic {
                 .range_start
                 .as_ref()
                 .map(|value| value.to_native()),
-            range_end: diagnostic
-                .range_end
-                .as_ref()
-                .map(|value| value.to_native()),
+            range_end: diagnostic.range_end.as_ref().map(|value| value.to_native()),
             category: diagnostic.category,
             code: diagnostic.code.as_str().into(),
-            field_path: diagnostic.field_path.as_ref().map(|path| {
-                path.iter()
-                    .map(|part| part.as_str().to_owned())
-                    .collect()
-            }),
+            field_path: diagnostic
+                .field_path
+                .as_ref()
+                .map(|path| path.iter().map(|part| part.as_str().to_owned()).collect()),
             byte_offset: diagnostic
                 .byte_offset
                 .as_ref()
                 .map(|value| value.to_native()),
             line: diagnostic.line.as_ref().map(|value| value.to_native()),
-            column: diagnostic
-                .column
-                .as_ref()
-                .map(|value| value.to_native()),
+            column: diagnostic.column.as_ref().map(|value| value.to_native()),
             message: diagnostic.message.as_str().into(),
         }
     }
@@ -268,12 +260,7 @@ impl StoredFileRow {
                 size: self.size,
             },
             created_ns: self.created_ns,
-            collections: self
-                .collections
-                .iter()
-                .copied()
-                .map(CollectionId)
-                .collect(),
+            collections: self.collections.iter().copied().map(CollectionId).collect(),
             status,
             diagnostics: self
                 .diagnostics
@@ -323,8 +310,25 @@ struct CatalogMetadataArchive {
     rows: Vec<StoredFileRow>,
 }
 
+#[derive(Clone)]
+struct NativeCatalogRow {
+    entry: FileEntry,
+    fingerprint: Option<[u8; 32]>,
+    configuration: Option<[u8; 32]>,
+}
+
+enum CatalogMetadataBacking {
+    Native {
+        id_lookup: HashMap<u32, u32>,
+        rows: Vec<NativeCatalogRow>,
+    },
+    Archived {
+        archive: Arc<ValidatedArchive<CatalogMetadataArchive>>,
+    },
+}
+
 struct CatalogMetadataShard {
-    archive: Arc<ValidatedArchive<CatalogMetadataArchive>>,
+    backing: CatalogMetadataBacking,
     cache: OnceLock<Vec<FileEntry>>,
 }
 
@@ -334,8 +338,18 @@ struct CatalogPathArchive {
     ordered: BTreeMap<String, u32>,
 }
 
+enum CatalogPathBacking {
+    Native {
+        exact: HashMap<String, u32>,
+        ordered: BTreeMap<String, u32>,
+    },
+    Archived {
+        archive: Arc<ValidatedArchive<CatalogPathArchive>>,
+    },
+}
+
 struct CatalogPathShard {
-    archive: Arc<ValidatedArchive<CatalogPathArchive>>,
+    backing: CatalogPathBacking,
 }
 
 #[derive(Clone)]
@@ -355,13 +369,17 @@ impl std::fmt::Debug for PathDirectory {
 impl PathDirectory {
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
         let query = crate::path_repr::query_path(path);
-        self.shards[shard(&query)]
-            .archive
-            .root()
-            .exact
-            .get::<str>(query.as_str())
-            .copied()
-            .map(|id| FileId(id.to_native()))
+        match &self.shards[shard(&query)].backing {
+            CatalogPathBacking::Native { exact, .. } => {
+                exact.get(query.as_str()).copied().map(FileId)
+            }
+            CatalogPathBacking::Archived { archive } => archive
+                .root()
+                .exact
+                .get::<str>(query.as_str())
+                .copied()
+                .map(|id| FileId(id.to_native())),
+        }
     }
 
     pub(crate) fn ids_in_bounds_up_to(
@@ -376,19 +394,31 @@ impl PathDirectory {
         let mut rows = Vec::new();
         let mut scanned = 0usize;
         for path_shard in self.shards.iter() {
-            for (query, id) in path_shard
-                .archive
-                .root()
-                .ordered
-                .range_with(bounds.clone(), |query, archived| {
-                    query.as_str().cmp(archived.as_str())
-                })
-            {
-                if scanned == limit {
-                    return None;
+            match &path_shard.backing {
+                CatalogPathBacking::Native { ordered, .. } => {
+                    for (query, id) in ordered.range(bounds.clone()) {
+                        if scanned == limit {
+                            return None;
+                        }
+                        scanned += 1;
+                        rows.push((query.as_str(), FileId(*id)));
+                    }
                 }
-                scanned += 1;
-                rows.push((query.as_str(), FileId(id.to_native())));
+                CatalogPathBacking::Archived { archive } => {
+                    for (query, id) in archive
+                        .root()
+                        .ordered
+                        .range_with(bounds.clone(), |query, archived| {
+                            query.as_str().cmp(archived.as_str())
+                        })
+                    {
+                        if scanned == limit {
+                            return None;
+                        }
+                        scanned += 1;
+                        rows.push((query.as_str(), FileId(id.to_native())));
+                    }
+                }
             }
         }
         crate::storage_usage::StorageWorkCounters::update(|counters| {
@@ -408,14 +438,14 @@ pub(crate) struct OwnershipRoute {
     pub file_row_ordinal: u32,
 }
 
-#[derive(Archive, ArchiveSerialize)]
+#[derive(Archive, ArchiveSerialize, Clone)]
 struct StoredOwnershipRoute {
     collection: u32,
     segment: u64,
     file_row_ordinal: u32,
 }
 
-#[derive(Archive, ArchiveSerialize)]
+#[derive(Archive, ArchiveSerialize, Clone)]
 struct StoredOwnershipRow {
     file: u32,
     version: u64,
@@ -428,8 +458,18 @@ struct OwnershipArchive {
     rows: Vec<StoredOwnershipRow>,
 }
 
+enum OwnershipBacking {
+    Native {
+        lookup: HashMap<u32, u32>,
+        rows: Vec<StoredOwnershipRow>,
+    },
+    Archived {
+        archive: Arc<ValidatedArchive<OwnershipArchive>>,
+    },
+}
+
 struct OwnershipShard {
-    archive: Arc<ValidatedArchive<OwnershipArchive>>,
+    backing: OwnershipBacking,
 }
 
 /// One published view's active file table. Previous views retain their own
@@ -475,24 +515,27 @@ fn archived_diagnostic_matches(
         && archived.collection.to_native() == current.collection.0
         && archived.source_id.as_str() == current.source_id
         && archived.source_version.to_native() == current.source_version
-        && archived.record.as_ref().map(|slot| slot.to_native()) == current.record.map(|slot| slot.0)
+        && archived.record.as_ref().map(|slot| slot.to_native())
+            == current.record.map(|slot| slot.0)
         && archived.range_start.as_ref().map(|value| value.to_native())
             == current.range.map(|range| range.start)
         && archived.range_end.as_ref().map(|value| value.to_native())
             == current.range.map(|range| range.end)
         && archived.category == category_code(current.category)
         && archived.code.as_str() == current.code
-        && archived.field_path.as_ref().map_or(current.field_path.is_none(), |path| {
-            current.field_path.as_ref().is_some_and(|current| {
-                path.len() == current.len()
-                    && path
-                        .iter()
-                        .zip(current)
-                        .all(|(archived, current)| archived.as_str() == current)
+        && archived
+            .field_path
+            .as_ref()
+            .map_or(current.field_path.is_none(), |path| {
+                current.field_path.as_ref().is_some_and(|current| {
+                    path.len() == current.len()
+                        && path
+                            .iter()
+                            .zip(current)
+                            .all(|(archived, current)| archived.as_str() == current)
+                })
             })
-        })
-        && archived.byte_offset.as_ref().map(|value| value.to_native())
-            == current.byte_offset
+        && archived.byte_offset.as_ref().map(|value| value.to_native()) == current.byte_offset
         && archived.line.as_ref().map(|value| value.to_native()) == current.line
         && archived.column.as_ref().map(|value| value.to_native()) == current.column
         && archived.message.as_str() == current.message
@@ -525,63 +568,54 @@ fn archived_catalog_row_matches(
         && archived.omitted_diagnostics.to_native() == current.omitted_diagnostics
         && archived.fingerprint.as_ref().map(|value| value.as_slice())
             == fingerprint.as_ref().map(|value| value.as_slice())
-        && archived.configuration.as_ref().map(|value| value.as_slice())
+        && archived
+            .configuration
+            .as_ref()
+            .map(|value| value.as_slice())
             == configuration.as_ref().map(|value| value.as_slice())
 }
 
 fn build_metadata_shard(
-    rows: impl IntoIterator<Item = StoredFileRow>,
+    rows: impl IntoIterator<Item = NativeCatalogRow>,
 ) -> Result<Arc<CatalogMetadataShard>, String> {
     crate::storage_usage::StorageWorkCounters::update(|counters| {
         counters.metadata_shards_rebuilt = counters.metadata_shards_rebuilt.saturating_add(1);
     });
     let mut rows = rows.into_iter().collect::<Vec<_>>();
-    rows.sort_by_key(|row| row.id);
+    rows.sort_by_key(|row| row.entry.id.0);
     let mut id_lookup = HashMap::with_capacity(rows.len());
     for (ordinal, row) in rows.iter().enumerate() {
         if id_lookup
-            .insert(row.id, u32::try_from(ordinal).map_err(|_| "catalog shard overflow")?)
+            .insert(
+                row.entry.id.0,
+                u32::try_from(ordinal).map_err(|_| "catalog shard overflow")?,
+            )
             .is_some()
         {
             return Err("duplicate file ID in catalog shard".into());
         }
-        row.validate_stored()?;
+        validate_entry(&row.entry, row.entry.id.0 as usize)?;
     }
-    let archive = ValidatedArchive::freeze(&CatalogMetadataArchive { id_lookup, rows })?;
     let shard = Arc::new(CatalogMetadataShard {
-        archive,
+        backing: CatalogMetadataBacking::Native { id_lookup, rows },
         cache: OnceLock::new(),
     });
-    for row in shard.archive.root().rows.iter() {
-        let id = row.id.to_native();
-        let key = rkyv::rend::u32_le::from_native(id);
-        let ordinal = shard
-            .archive
-            .root()
-            .id_lookup
-            .get(&key)
-            .ok_or("archived catalog ID lookup missing row")?;
-        if ordinal.to_native() as usize >= shard.archive.root().rows.len() {
-            return Err("archived catalog row ordinal out of bounds".into());
-        }
-    }
     Ok(shard)
 }
 
 static EMPTY_METADATA_SHARD: LazyLock<Arc<CatalogMetadataShard>> = LazyLock::new(|| {
-    build_metadata_shard(std::iter::empty()).expect("empty catalog shard serializes")
+    build_metadata_shard(std::iter::empty()).expect("empty native catalog shard is valid")
 });
 static EMPTY_PATH_SHARD: LazyLock<Arc<CatalogPathShard>> = LazyLock::new(|| {
     Arc::new(CatalogPathShard {
-        archive: ValidatedArchive::freeze(&CatalogPathArchive {
+        backing: CatalogPathBacking::Native {
             exact: HashMap::new(),
             ordered: BTreeMap::new(),
-        })
-        .expect("empty path shard serializes"),
+        },
     })
 });
 static EMPTY_OWNERSHIP_SHARD: LazyLock<Arc<OwnershipShard>> = LazyLock::new(|| {
-    build_ownership_shard(std::iter::empty()).expect("empty ownership shard serializes")
+    build_ownership_shard(std::iter::empty()).expect("empty native ownership shard is valid")
 });
 
 fn empty_metadata_shard() -> Arc<CatalogMetadataShard> {
@@ -611,16 +645,35 @@ fn build_path_shard(
         ordered.insert(query, id.0);
     }
     Ok(Arc::new(CatalogPathShard {
-        archive: ValidatedArchive::freeze(&CatalogPathArchive { exact, ordered })?,
+        backing: CatalogPathBacking::Native { exact, ordered },
     }))
+}
+
+impl CatalogPathShard {
+    fn archive(&self) -> Result<Self, String> {
+        let CatalogPathBacking::Native { exact, ordered } = &self.backing else {
+            return Err("catalog path shard is already archived".into());
+        };
+        Ok(Self {
+            backing: CatalogPathBacking::Archived {
+                archive: ValidatedArchive::freeze(&CatalogPathArchive {
+                    exact: exact.clone(),
+                    ordered: ordered.clone(),
+                })?,
+            },
+        })
+    }
+
+    fn is_archived(&self) -> bool {
+        matches!(self.backing, CatalogPathBacking::Archived { .. })
+    }
 }
 
 fn build_ownership_shard(
     rows: impl IntoIterator<Item = StoredOwnershipRow>,
 ) -> Result<Arc<OwnershipShard>, String> {
     crate::storage_usage::StorageWorkCounters::update(|counters| {
-        counters.ownership_shards_rebuilt =
-            counters.ownership_shards_rebuilt.saturating_add(1);
+        counters.ownership_shards_rebuilt = counters.ownership_shards_rebuilt.saturating_add(1);
     });
     let mut rows = rows.into_iter().collect::<Vec<_>>();
     rows.sort_by_key(|row| row.file);
@@ -629,12 +682,10 @@ fn build_ownership_shard(
         if row.routes.is_empty() {
             return Err("ownership row has no active route".into());
         }
-        row.routes.sort_by_key(|route| {
-            (route.collection, route.segment, route.file_row_ordinal)
-        });
-        row.routes.dedup_by_key(|route| {
-            (route.collection, route.segment, route.file_row_ordinal)
-        });
+        row.routes
+            .sort_by_key(|route| (route.collection, route.segment, route.file_row_ordinal));
+        row.routes
+            .dedup_by_key(|route| (route.collection, route.segment, route.file_row_ordinal));
         if lookup
             .insert(
                 row.file,
@@ -646,21 +697,82 @@ fn build_ownership_shard(
         }
     }
     Ok(Arc::new(OwnershipShard {
-        archive: ValidatedArchive::freeze(&OwnershipArchive { lookup, rows })?,
+        backing: OwnershipBacking::Native { lookup, rows },
     }))
 }
 
+struct OwnershipRowSnapshot {
+    version: u64,
+    routes: Vec<OwnershipRoute>,
+}
+
 impl OwnershipShard {
-    fn row(&self, file: FileId) -> Option<&rkyv::Archived<StoredOwnershipRow>> {
-        let key = rkyv::rend::u32_le::from_native(file.0);
-        let ordinal = self.archive.root().lookup.get(&key)?.to_native() as usize;
-        self.archive.root().rows.get(ordinal)
+    fn row(&self, file: FileId) -> Option<OwnershipRowSnapshot> {
+        match &self.backing {
+            OwnershipBacking::Native { lookup, rows } => {
+                let ordinal = *lookup.get(&file.0)? as usize;
+                let row = rows.get(ordinal)?;
+                Some(OwnershipRowSnapshot {
+                    version: row.version,
+                    routes: row
+                        .routes
+                        .iter()
+                        .map(|route| OwnershipRoute {
+                            collection: CollectionId(route.collection),
+                            segment: SegmentId::new(route.segment),
+                            file_row_ordinal: route.file_row_ordinal,
+                        })
+                        .collect(),
+                })
+            }
+            OwnershipBacking::Archived { archive } => {
+                let key = rkyv::rend::u32_le::from_native(file.0);
+                let ordinal = archive.root().lookup.get(&key)?.to_native() as usize;
+                let row = archive.root().rows.get(ordinal)?;
+                Some(OwnershipRowSnapshot {
+                    version: row.version.to_native(),
+                    routes: row.routes.iter().map(archived_ownership_route).collect(),
+                })
+            }
+        }
+    }
+
+    fn rows(&self) -> Vec<StoredOwnershipRow> {
+        match &self.backing {
+            OwnershipBacking::Native { rows, .. } => rows.clone(),
+            OwnershipBacking::Archived { archive } => archive
+                .root()
+                .rows
+                .iter()
+                .map(|row| StoredOwnershipRow {
+                    file: row.file.to_native(),
+                    version: row.version.to_native(),
+                    routes: row
+                        .routes
+                        .iter()
+                        .map(archived_ownership_route)
+                        .map(stored_ownership_route)
+                        .collect(),
+                })
+                .collect(),
+        }
+    }
+
+    fn archive(&self) -> Result<Self, String> {
+        let OwnershipBacking::Native { lookup, rows } = &self.backing else {
+            return Err("ownership shard is already archived".into());
+        };
+        let archive = ValidatedArchive::freeze(&OwnershipArchive {
+            lookup: lookup.clone(),
+            rows: rows.clone(),
+        })?;
+        Ok(Self {
+            backing: OwnershipBacking::Archived { archive },
+        })
     }
 }
 
-fn archived_ownership_route(
-    route: &rkyv::Archived<StoredOwnershipRoute>,
-) -> OwnershipRoute {
+fn archived_ownership_route(route: &rkyv::Archived<StoredOwnershipRoute>) -> OwnershipRoute {
     OwnershipRoute {
         collection: CollectionId(route.collection.to_native()),
         segment: SegmentId::new(route.segment.to_native()),
@@ -678,28 +790,132 @@ fn stored_ownership_route(route: OwnershipRoute) -> StoredOwnershipRoute {
 
 impl CatalogMetadataShard {
     fn row_ordinal(&self, file: FileId) -> Option<usize> {
-        let key = rkyv::rend::u32_le::from_native(file.0);
-        self.archive
-            .root()
-            .id_lookup
-            .get(&key)
-            .map(|ordinal| ordinal.to_native() as usize)
+        match &self.backing {
+            CatalogMetadataBacking::Native { id_lookup, .. } => {
+                id_lookup.get(&file.0).map(|ordinal| *ordinal as usize)
+            }
+            CatalogMetadataBacking::Archived { archive } => {
+                let key = rkyv::rend::u32_le::from_native(file.0);
+                archive
+                    .root()
+                    .id_lookup
+                    .get(&key)
+                    .map(|ordinal| ordinal.to_native() as usize)
+            }
+        }
+    }
+
+    fn row_len(&self) -> usize {
+        match &self.backing {
+            CatalogMetadataBacking::Native { rows, .. } => rows.len(),
+            CatalogMetadataBacking::Archived { archive } => archive.root().rows.len(),
+        }
+    }
+
+    fn entry(&self, file: FileId) -> Option<&FileEntry> {
+        let ordinal = self.row_ordinal(file)?;
+        match &self.backing {
+            CatalogMetadataBacking::Native { rows, .. } => rows.get(ordinal).map(|row| &row.entry),
+            CatalogMetadataBacking::Archived { archive } => {
+                self.archived_entries(archive).get(ordinal)
+            }
+        }
+    }
+
+    fn native_row(&self, file: FileId) -> Option<&NativeCatalogRow> {
+        let CatalogMetadataBacking::Native { rows, .. } = &self.backing else {
+            return None;
+        };
+        rows.get(self.row_ordinal(file)?)
+    }
+
+    fn snapshot_rows(&self) -> Vec<NativeCatalogRow> {
+        match &self.backing {
+            CatalogMetadataBacking::Native { rows, .. } => rows.clone(),
+            CatalogMetadataBacking::Archived { archive } => archive
+                .root()
+                .rows
+                .iter()
+                .map(|row| {
+                    let stored = StoredFileRow::from_archived(row);
+                    let fingerprint = stored
+                        .fingerprint
+                        .as_ref()
+                        .and_then(|bytes| bytes.as_slice().try_into().ok());
+                    let configuration = stored
+                        .configuration
+                        .as_ref()
+                        .and_then(|bytes| bytes.as_slice().try_into().ok());
+                    NativeCatalogRow {
+                        entry: stored.to_entry().expect("validated catalog row"),
+                        fingerprint,
+                        configuration,
+                    }
+                })
+                .collect(),
+        }
+    }
+
+    fn matches_native_row(
+        &self,
+        file: FileId,
+        current: &FileEntry,
+        fingerprint: Option<[u8; 32]>,
+        configuration: Option<[u8; 32]>,
+    ) -> bool {
+        match &self.backing {
+            CatalogMetadataBacking::Native { .. } => self.native_row(file).is_some_and(|row| {
+                row.entry == *current
+                    && row.fingerprint == fingerprint
+                    && row.configuration == configuration
+            }),
+            CatalogMetadataBacking::Archived { .. } => self.archived_row(file).is_some_and(|row| {
+                archived_catalog_row_matches(row, current, fingerprint, configuration)
+            }),
+        }
+    }
+
+    fn archive(&self) -> Result<Self, String> {
+        let CatalogMetadataBacking::Native { id_lookup, rows } = &self.backing else {
+            return Err("catalog metadata shard is already archived".into());
+        };
+        let rows = rows
+            .iter()
+            .map(|row| StoredFileRow::from_entry(&row.entry, row.fingerprint, row.configuration))
+            .collect::<Vec<_>>();
+        for row in &rows {
+            row.validate_stored()?;
+        }
+        let source = CatalogMetadataArchive {
+            id_lookup: id_lookup.clone(),
+            rows,
+        };
+        let archive = ValidatedArchive::freeze(&source)?;
+        Ok(Self {
+            backing: CatalogMetadataBacking::Archived { archive },
+            cache: OnceLock::new(),
+        })
     }
 
     fn archived_row(&self, file: FileId) -> Option<&rkyv::Archived<StoredFileRow>> {
-        self.archive.root().rows.get(self.row_ordinal(file)?)
+        let CatalogMetadataBacking::Archived { archive } = &self.backing else {
+            return None;
+        };
+        archive.root().rows.get(self.row_ordinal(file)?)
     }
 
-    fn entries(&self) -> &[FileEntry] {
+    fn archived_entries(
+        &self,
+        archive: &Arc<ValidatedArchive<CatalogMetadataArchive>>,
+    ) -> &[FileEntry] {
         self.cache.get_or_init(|| {
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.metadata_cache_initializations =
                     counters.metadata_cache_initializations.saturating_add(1);
-                counters.catalog_row_cache_initializations = counters
-                    .catalog_row_cache_initializations
-                    .saturating_add(1);
+                counters.catalog_row_cache_initializations =
+                    counters.catalog_row_cache_initializations.saturating_add(1);
             });
-            self.archive
+            archive
                 .root()
                 .rows
                 .iter()
@@ -744,9 +960,7 @@ impl CatalogMetadataShard {
                                 };
                                 SourceDiagnostic {
                                     file: FileId(diagnostic.file.to_native()),
-                                    collection: CollectionId(
-                                        diagnostic.collection.to_native(),
-                                    ),
+                                    collection: CollectionId(diagnostic.collection.to_native()),
                                     source_id: diagnostic.source_id.as_str().into(),
                                     source_version: diagnostic.source_version.to_native(),
                                     record: diagnostic
@@ -758,18 +972,13 @@ impl CatalogMetadataShard {
                                         .expect("validated diagnostic category"),
                                     code: diagnostic.code.as_str().into(),
                                     field_path: diagnostic.field_path.as_ref().map(|path| {
-                                        path.iter()
-                                            .map(|part| part.as_str().to_owned())
-                                            .collect()
+                                        path.iter().map(|part| part.as_str().to_owned()).collect()
                                     }),
                                     byte_offset: diagnostic
                                         .byte_offset
                                         .as_ref()
                                         .map(|value| value.to_native()),
-                                    line: diagnostic
-                                        .line
-                                        .as_ref()
-                                        .map(|value| value.to_native()),
+                                    line: diagnostic.line.as_ref().map(|value| value.to_native()),
                                     column: diagnostic
                                         .column
                                         .as_ref()
@@ -786,9 +995,7 @@ impl CatalogMetadataShard {
     }
 }
 
-fn string_bounds(
-    bounds: &(Bound<Arc<str>>, Bound<Arc<str>>),
-) -> (Bound<String>, Bound<String>) {
+fn string_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> (Bound<String>, Bound<String>) {
     let map = |bound: &Bound<Arc<str>>| match bound {
         Bound::Unbounded => Bound::Unbounded,
         Bound::Included(value) => Bound::Included(value.to_string()),
@@ -833,20 +1040,20 @@ impl FileCatalog {
     ) -> Self {
         let len = u32::try_from(files.files.len()).expect("file inventory length checked at build");
         let mut path_buckets = vec![Vec::new(); SHARDS];
-        let mut grouped_rows =
+        let mut grouped_rows: Vec<Vec<NativeCatalogRow>> =
             (0..=file_shard_number(FileId(len.saturating_sub(1))))
                 .map(|_| Vec::new())
-                .collect::<Vec<_>>();
+                .collect();
         let mut active = RoaringBitmap::new();
         for entry in &files.files {
             active.insert(entry.id.0);
             let fingerprint = fingerprints.get(entry.id.0 as usize).copied().flatten();
             let configuration = fingerprint.map(|_| configuration_identity);
-            grouped_rows[file_shard_number(entry.id)].push(StoredFileRow::from_entry(
-                entry,
+            grouped_rows[file_shard_number(entry.id)].push(NativeCatalogRow {
+                entry: entry.clone(),
                 fingerprint,
                 configuration,
-            ));
+            });
             let query = entry.relative_path.query_key().to_string();
             path_buckets[shard(&entry.relative_path.query_key())].push((query, entry.id));
         }
@@ -859,9 +1066,8 @@ impl FileCatalog {
                             if rows.is_empty() {
                                 empty_metadata_shard()
                             } else {
-                                build_metadata_shard(rows).expect(
-                                    "file inventory entries pass catalog validation",
-                                )
+                                build_metadata_shard(rows)
+                                    .expect("file inventory entries pass catalog validation")
                             }
                         })
                         .collect::<Vec<_>>()
@@ -873,8 +1079,7 @@ impl FileCatalog {
                             if entries.is_empty() {
                                 empty_path_shard()
                             } else {
-                                build_path_shard(entries)
-                                    .expect("file inventory paths are unique")
+                                build_path_shard(entries).expect("file inventory paths are unique")
                             }
                         })
                         .collect::<Vec<_>>()
@@ -898,8 +1103,7 @@ impl FileCatalog {
                         if entries.is_empty() {
                             empty_path_shard()
                         } else {
-                            build_path_shard(entries)
-                                .expect("file inventory paths are unique")
+                            build_path_shard(entries).expect("file inventory paths are unique")
                         }
                     })
                     .collect(),
@@ -942,10 +1146,9 @@ impl FileCatalog {
             return Err("restored catalog is shorter than base inventory".into());
         }
         let len = u32::try_from(slots.len()).map_err(|_| "too many indexed files")?;
-        let mut grouped_rows: Vec<Vec<StoredFileRow>> =
-            (0..=file_shard_number(FileId(len)))
-                .map(|_| Vec::new())
-                .collect();
+        let mut grouped_rows: Vec<Vec<NativeCatalogRow>> = (0..=file_shard_number(FileId(len)))
+            .map(|_| Vec::new())
+            .collect();
         let mut path_buckets = vec![Vec::new(); SHARDS];
         let mut active = RoaringBitmap::new();
         let mut paths = HashSet::new();
@@ -965,11 +1168,11 @@ impl FileCatalog {
             active.insert(entry.id.0);
             let query = entry.relative_path.query_key().to_string();
             path_buckets[shard(&entry.relative_path.query_key())].push((query, entry.id));
-            grouped_rows[file_shard_number(entry.id)].push(StoredFileRow::from_entry(
-                &entry,
+            grouped_rows[file_shard_number(entry.id)].push(NativeCatalogRow {
+                entry,
                 fingerprint,
-                entry_configuration,
-            ));
+                configuration: entry_configuration,
+            });
         }
         let metadata = grouped_rows
             .into_iter()
@@ -1043,9 +1246,7 @@ impl FileCatalog {
                         if first >= self.len {
                             return Ok(Some(empty_metadata_shard()));
                         }
-                        let end = self
-                            .len
-                            .min(first.saturating_add(FILE_SHARD_WIDTH));
+                        let end = self.len.min(first.saturating_add(FILE_SHARD_WIDTH));
                         let current_shard = &self.metadata[number];
                         let mut changed = false;
                         for id in first..end {
@@ -1053,27 +1254,20 @@ impl FileCatalog {
                                 .files
                                 .get(id as usize)
                                 .ok_or("catalog rebase file row missing")?;
-                            let fingerprint =
-                                fingerprints.get(id as usize).copied().flatten();
-                            let entry_configuration =
-                                fingerprint.map(|_| configuration);
-                            let archived = current_shard.archived_row(FileId(id));
-                            if archived.is_none_or(|archived| {
-                                !crate::archived_path::matches_native(
-                                    &archived.path,
-                                    current.relative_path.as_path(),
-                                )
+                            let fingerprint = fingerprints.get(id as usize).copied().flatten();
+                            let entry_configuration = fingerprint.map(|_| configuration);
+                            let existing = current_shard.entry(FileId(id));
+                            if existing.is_none_or(|entry| {
+                                entry.relative_path.as_path() != current.relative_path.as_path()
                             }) {
                                 paths_changed.store(true, AtomicOrdering::Relaxed);
                             }
-                            let row_matches = archived.is_some_and(|archived| {
-                                archived_catalog_row_matches(
-                                    archived,
-                                    current,
-                                    fingerprint,
-                                    entry_configuration,
-                                )
-                            });
+                            let row_matches = current_shard.matches_native_row(
+                                FileId(id),
+                                current,
+                                fingerprint,
+                                entry_configuration,
+                            );
                             if !row_matches {
                                 changed = true;
                             }
@@ -1087,13 +1281,12 @@ impl FileCatalog {
                                     .files
                                     .get(id as usize)
                                     .ok_or("catalog rebase file row missing")?;
-                                let fingerprint =
-                                    fingerprints.get(id as usize).copied().flatten();
-                                Ok(StoredFileRow::from_entry(
-                                    entry,
+                                let fingerprint = fingerprints.get(id as usize).copied().flatten();
+                                Ok(NativeCatalogRow {
+                                    entry: entry.clone(),
                                     fingerprint,
-                                    fingerprint.map(|_| configuration),
-                                ))
+                                    configuration: fingerprint.map(|_| configuration),
+                                })
                             })
                             .collect::<Result<Vec<_>, String>>()?;
                         build_metadata_shard(rows).map(Some)
@@ -1118,26 +1311,20 @@ impl FileCatalog {
                             .files
                             .get(id as usize)
                             .ok_or("catalog rebase file row missing")?;
-                        let fingerprint =
-                            fingerprints.get(id as usize).copied().flatten();
+                        let fingerprint = fingerprints.get(id as usize).copied().flatten();
                         let entry_configuration = fingerprint.map(|_| configuration);
-                        let archived = current_shard.archived_row(FileId(id));
-                        if archived.is_none_or(|archived| {
-                            !crate::archived_path::matches_native(
-                                &archived.path,
-                                current.relative_path.as_path(),
-                            )
+                        let existing = current_shard.entry(FileId(id));
+                        if existing.is_none_or(|entry| {
+                            entry.relative_path.as_path() != current.relative_path.as_path()
                         }) {
                             paths_changed.store(true, AtomicOrdering::Relaxed);
                         }
-                        let row_matches = archived.is_some_and(|archived| {
-                            archived_catalog_row_matches(
-                                archived,
-                                current,
-                                fingerprint,
-                                entry_configuration,
-                            )
-                        });
+                        let row_matches = current_shard.matches_native_row(
+                            FileId(id),
+                            current,
+                            fingerprint,
+                            entry_configuration,
+                        );
                         if !row_matches {
                             changed = true;
                         }
@@ -1152,13 +1339,12 @@ impl FileCatalog {
                                 .files
                                 .get(id as usize)
                                 .ok_or("catalog rebase file row missing")?;
-                            let fingerprint =
-                                fingerprints.get(id as usize).copied().flatten();
-                            Ok(StoredFileRow::from_entry(
-                                entry,
+                            let fingerprint = fingerprints.get(id as usize).copied().flatten();
+                            Ok(NativeCatalogRow {
+                                entry: entry.clone(),
                                 fingerprint,
-                                fingerprint.map(|_| configuration),
-                            ))
+                                configuration: fingerprint.map(|_| configuration),
+                            })
                         })
                         .collect::<Result<Vec<_>, String>>()?;
                     metadata.push(Some(build_metadata_shard(rows)?));
@@ -1177,15 +1363,11 @@ impl FileCatalog {
             let mut buckets = vec![Vec::new(); SHARDS];
             let mut seen = HashSet::with_capacity(files.files.len());
             for entry in &files.files {
-                if !valid_relative_path(entry.relative_path.as_path())
-                    || !seen.insert(entry.id)
-                {
+                if !valid_relative_path(entry.relative_path.as_path()) || !seen.insert(entry.id) {
                     return Err("invalid or duplicate rebased catalog path".into());
                 }
-                buckets[shard(&entry.relative_path.query_key())].push((
-                    entry.relative_path.query_key().to_string(),
-                    entry.id,
-                ));
+                buckets[shard(&entry.relative_path.query_key())]
+                    .push((entry.relative_path.query_key().to_string(), entry.id));
             }
             let build = |entries: Vec<(String, FileId)>| {
                 if entries.is_empty() {
@@ -1195,12 +1377,9 @@ impl FileCatalog {
                 }
             };
             match pool {
-                Some(pool) => pool.install(|| {
-                    buckets
-                        .into_par_iter()
-                        .map(build)
-                        .collect::<Vec<_>>()
-                }),
+                Some(pool) => {
+                    pool.install(|| buckets.into_par_iter().map(build).collect::<Vec<_>>())
+                }
                 None => buckets.into_iter().map(build).collect(),
             }
         } else {
@@ -1226,21 +1405,25 @@ impl FileCatalog {
     }
 
     pub(crate) fn entry(&self, file: FileId) -> Option<&FileEntry> {
-        let shard = self.metadata.get(file_shard_number(file))?;
-        let ordinal = shard.row_ordinal(file)?;
-        shard.entries().get(ordinal)
+        self.metadata.get(file_shard_number(file))?.entry(file)
     }
 
     pub(crate) fn entry_owned(&self, file: FileId) -> Option<FileEntry> {
         let shard = self.metadata.get(file_shard_number(file))?;
-        let row = shard.archived_row(file)?;
         crate::storage_usage::StorageWorkCounters::update(|counters| {
-            counters.metadata_rows_examined =
-                counters.metadata_rows_examined.saturating_add(1);
-            counters.native_compatibility_copies =
-                counters.native_compatibility_copies.saturating_add(1);
+            counters.metadata_rows_examined = counters.metadata_rows_examined.saturating_add(1);
         });
-        StoredFileRow::from_archived(row).to_entry().ok()
+        match &shard.backing {
+            CatalogMetadataBacking::Native { .. } => shard.entry(file).cloned(),
+            CatalogMetadataBacking::Archived { .. } => {
+                let row = shard.archived_row(file)?;
+                crate::storage_usage::StorageWorkCounters::update(|counters| {
+                    counters.native_compatibility_copies =
+                        counters.native_compatibility_copies.saturating_add(1);
+                });
+                StoredFileRow::from_archived(row).to_entry().ok()
+            }
+        }
     }
 
     pub(crate) fn matches_revision(
@@ -1253,42 +1436,44 @@ impl FileCatalog {
         let Some(shard) = self.metadata.get(file_shard_number(file)) else {
             return false;
         };
-        let Some(row) = shard.archived_row(file) else {
+        let Some(entry) = (shard.entry(file).is_some())
+            .then(|| shard.entry(file))
+            .flatten()
+        else {
             return false;
         };
         crate::storage_usage::StorageWorkCounters::update(|counters| {
-            counters.metadata_rows_examined =
-                counters.metadata_rows_examined.saturating_add(1);
+            counters.metadata_rows_examined = counters.metadata_rows_examined.saturating_add(1);
         });
-        row.modified_ns.to_native() == revision.modified_ns
-            && row.size.to_native() == revision.size
-            && row.created_ns.as_ref().map(|value| value.to_native()) == created_ns
-            && row
+        entry.revision.modified_ns == revision.modified_ns
+            && entry.revision.size == revision.size
+            && entry.created_ns == created_ns
+            && entry
                 .collections
                 .iter()
-                .any(|candidate| candidate.to_native() == collection.0)
+                .any(|candidate| *candidate == collection)
     }
 
     pub(crate) fn matches_segment_file(
         &self,
         file: FileId,
         collection: CollectionId,
-        path: &rkyv::Archived<StoredPath>,
+        path: &Path,
         revision: SourceRevision,
         created_ns: Option<i128>,
     ) -> bool {
         self.metadata
             .get(file_shard_number(file))
-            .and_then(|shard| shard.archived_row(file))
-            .is_some_and(|row| {
-                crate::archived_path::archived_paths_equal(&row.path, path)
-                    && row.modified_ns.to_native() == revision.modified_ns
-                    && row.size.to_native() == revision.size
-                    && row.created_ns.as_ref().map(|value| value.to_native()) == created_ns
-                    && row
+            .and_then(|shard| shard.entry(file))
+            .is_some_and(|entry| {
+                entry.relative_path.as_path() == path
+                    && entry.revision.modified_ns == revision.modified_ns
+                    && entry.revision.size == revision.size
+                    && entry.created_ns == created_ns
+                    && entry
                         .collections
                         .iter()
-                        .any(|candidate| candidate.to_native() == collection.0)
+                        .any(|candidate| *candidate == collection)
             })
     }
 
@@ -1296,58 +1481,46 @@ impl FileCatalog {
         &self,
         file: FileId,
     ) -> Option<impl Iterator<Item = CollectionId> + '_> {
-        self.metadata
-            .get(file_shard_number(file))?
-            .archived_row(file)
-            .map(|row| {
-                row.collections
-                    .iter()
-                    .map(|collection| CollectionId(collection.to_native()))
-            })
+        Some(self.entry(file)?.collections.clone().into_iter())
     }
 
     pub(crate) fn status_code(&self, file: FileId) -> Option<u8> {
-        self.metadata
-            .get(file_shard_number(file))?
-            .archived_row(file)
-            .map(|row| row.status)
+        self.entry(file).map(|entry| entry.status.code())
     }
 
     pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
-        let bytes = self
-            .metadata
-            .get(file_shard_number(file))?
-            .archived_row(file)?
-            .fingerprint
-            .as_ref()?;
-        bytes.as_slice().try_into().ok()
+        let shard = self.metadata.get(file_shard_number(file))?;
+        match &shard.backing {
+            CatalogMetadataBacking::Native { .. } => shard.native_row(file)?.fingerprint,
+            CatalogMetadataBacking::Archived { .. } => shard
+                .archived_row(file)?
+                .fingerprint
+                .as_ref()?
+                .as_slice()
+                .try_into()
+                .ok(),
+        }
     }
 
     pub(crate) fn configuration(&self, file: FileId) -> Option<[u8; 32]> {
-        let bytes = self
-            .metadata
-            .get(file_shard_number(file))?
-            .archived_row(file)?
-            .configuration
-            .as_ref()?;
-        bytes.as_slice().try_into().ok()
+        let shard = self.metadata.get(file_shard_number(file))?;
+        match &shard.backing {
+            CatalogMetadataBacking::Native { .. } => shard.native_row(file)?.configuration,
+            CatalogMetadataBacking::Archived { .. } => shard
+                .archived_row(file)?
+                .configuration
+                .as_ref()?
+                .as_slice()
+                .try_into()
+                .ok(),
+        }
     }
 
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
-        let query = crate::path_repr::query_path(path);
-        let number = shard(&query);
-        let id = self.paths[number]
-            .archive
-            .root()
-            .exact
-            .get::<str>(query.as_str())
-            .copied()
-            .map(|id| FileId(id.to_native()))?;
-        let row = self
-            .metadata
-            .get(file_shard_number(id))?
-            .archived_row(id)?;
-        crate::archived_path::matches_native(&row.path, path).then_some(id)
+        let id = self.path_directory().id_for(path)?;
+        self.entry(id)
+            .is_some_and(|entry| entry.relative_path.as_path() == path)
+            .then_some(id)
     }
 
     #[cfg(test)]
@@ -1455,9 +1628,21 @@ impl FileCatalog {
         next.ensure_metadata_shard(file_shard_number(entry.id));
         next.replace_metadata_entry(
             entry.id,
-            Some(StoredFileRow::from_entry(&entry, fingerprint, configuration)),
+            Some(NativeCatalogRow {
+                entry,
+                fingerprint,
+                configuration,
+            }),
         )?;
-        let query: Arc<str> = entry.relative_path.query_key();
+        let query: Arc<str> = next
+            .entry(FileId(next.len))
+            .expect("appended catalog row")
+            .relative_path
+            .query_key();
+        let entry = next
+            .entry(FileId(next.len))
+            .expect("appended catalog row")
+            .clone();
         next.rebuild_path_buckets(&[query], &[(&entry, true)])?;
         Arc::make_mut(&mut next.active).insert(entry.id.0);
         next.len = next.len.checked_add(1).ok_or("too many indexed files")?;
@@ -1481,15 +1666,16 @@ impl FileCatalog {
         let mut next = self.clone();
         next.replace_metadata_entry(
             entry.id,
-            Some(StoredFileRow::from_entry(&entry, fingerprint, configuration)),
+            Some(NativeCatalogRow {
+                entry: entry.clone(),
+                fingerprint,
+                configuration,
+            }),
         )?;
         let old_query = old.relative_path.query_key();
         let new_query = entry.relative_path.query_key();
         if old_query != new_query {
-            next.rebuild_path_buckets(
-                &[old_query, new_query],
-                &[(&old, false), (&entry, true)],
-            )?;
+            next.rebuild_path_buckets(&[old_query, new_query], &[(&old, false), (&entry, true)])?;
         }
         Ok(next)
     }
@@ -1504,7 +1690,7 @@ impl FileCatalog {
     fn replace_metadata_entry(
         &mut self,
         file: FileId,
-        replacement: Option<StoredFileRow>,
+        replacement: Option<NativeCatalogRow>,
     ) -> Result<(), String> {
         self.ensure_metadata_shard(file_shard_number(file));
         let number = file_shard_number(file);
@@ -1512,18 +1698,15 @@ impl FileCatalog {
         crate::storage_usage::StorageWorkCounters::update(|counters| {
             counters.metadata_rows_examined = counters
                 .metadata_rows_examined
-                .saturating_add(current.archive.root().rows.len() as u64);
+                .saturating_add(current.row_len() as u64);
         });
         let mut rows = current
-            .archive
-            .root()
-            .rows
-            .iter()
-            .filter(|row| row.id.to_native() != file.0)
-            .map(StoredFileRow::from_archived)
+            .snapshot_rows()
+            .into_iter()
+            .filter(|row| row.entry.id != file)
             .collect::<Vec<_>>();
         if let Some(row) = replacement {
-            row.to_entry()?;
+            validate_entry(&row.entry, row.entry.id.0 as usize)?;
             rows.push(row);
         }
         let shard = build_metadata_shard(rows)?;
@@ -1541,29 +1724,25 @@ impl FileCatalog {
         if replacements.is_empty() {
             return Ok(());
         }
-        let mut grouped =
-            BTreeMap::<usize, Vec<(FileId, StoredFileRow)>>::new();
+        let mut grouped = BTreeMap::<usize, Vec<(FileId, NativeCatalogRow)>>::new();
         for entry in replacements {
             validate_entry(&entry, entry.id.0 as usize)?;
             let number = file_shard_number(entry.id);
             let current = self
                 .metadata
                 .get(number)
-                .and_then(|shard| shard.archived_row(entry.id))
+                .and_then(|shard| shard.entry(entry.id))
                 .ok_or("metadata replacement targets an inactive file")?;
-            if !crate::archived_path::matches_native(
-                &current.path,
-                entry.relative_path.as_path(),
-            ) {
+            if current.relative_path.as_path() != entry.relative_path.as_path() {
                 return Err("metadata-only replacement changed a file path".into());
             }
             grouped.entry(number).or_default().push((
                 entry.id,
-                StoredFileRow::from_entry(
-                    &entry,
-                    self.fingerprint(entry.id),
-                    self.configuration(entry.id),
-                ),
+                NativeCatalogRow {
+                    fingerprint: self.fingerprint(entry.id),
+                    configuration: self.configuration(entry.id),
+                    entry,
+                },
             ));
         }
         let metadata = Arc::make_mut(&mut self.metadata);
@@ -1574,19 +1753,16 @@ impl FileCatalog {
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.metadata_rows_examined = counters
                     .metadata_rows_examined
-                    .saturating_add(current.archive.root().rows.len() as u64);
+                    .saturating_add(current.row_len() as u64);
             });
             let replaced = replacements
                 .iter()
                 .map(|(file, _)| *file)
                 .collect::<HashSet<_>>();
             let mut rows = current
-                .archive
-                .root()
-                .rows
-                .iter()
-                .filter(|row| !replaced.contains(&FileId(row.id.to_native())))
-                .map(StoredFileRow::from_archived)
+                .snapshot_rows()
+                .into_iter()
+                .filter(|row| !replaced.contains(&row.entry.id))
                 .collect::<Vec<_>>();
             rows.extend(replacements.into_iter().map(|(_, row)| row));
             let rebuilt = build_metadata_shard(rows)?;
@@ -1605,18 +1781,18 @@ impl FileCatalog {
             .map(|key| shard(key))
             .collect::<BTreeSet<_>>();
         for bucket in buckets.iter().copied() {
-            let mut entries = self.paths[bucket]
-                .archive
-                .root()
-                .ordered
-                .iter()
-                .map(|(query, id)| {
-                    (
-                        FileId(id.to_native()),
-                        query.as_str().to_owned(),
-                    )
-                })
-                .collect::<BTreeMap<_, _>>();
+            let mut entries = match &self.paths[bucket].backing {
+                CatalogPathBacking::Native { ordered, .. } => ordered
+                    .iter()
+                    .map(|(query, id)| (FileId(*id), query.clone()))
+                    .collect::<BTreeMap<_, _>>(),
+                CatalogPathBacking::Archived { archive } => archive
+                    .root()
+                    .ordered
+                    .iter()
+                    .map(|(query, id)| (FileId(id.to_native()), query.as_str().to_owned()))
+                    .collect::<BTreeMap<_, _>>(),
+            };
             crate::storage_usage::StorageWorkCounters::update(|counters| {
                 counters.path_entries_examined = counters
                     .path_entries_examined
@@ -1652,9 +1828,7 @@ impl FileCatalog {
         if routes.len() != versions.len() {
             return Err("ownership route table length mismatch".into());
         }
-        let shard_count = file_shard_number(
-            FileId(versions.len().saturating_sub(1) as u32),
-        ) + 1;
+        let shard_count = file_shard_number(FileId(versions.len().saturating_sub(1) as u32)) + 1;
         let mut grouped = (0..shard_count)
             .map(|_| Vec::<StoredOwnershipRow>::new())
             .collect::<Vec<_>>();
@@ -1662,12 +1836,8 @@ impl FileCatalog {
             if routes.is_empty() {
                 continue;
             }
-            let file = FileId(
-                u32::try_from(number).map_err(|_| "too many ownership files")?,
-            );
-            let version = versions
-                .get(file)
-                .ok_or("ownership file version missing")?;
+            let file = FileId(u32::try_from(number).map_err(|_| "too many ownership files")?);
+            let version = versions.get(file).ok_or("ownership file version missing")?;
             grouped[file_shard_number(file)].push(StoredOwnershipRow {
                 file: file.0,
                 version: version.0,
@@ -1698,17 +1868,14 @@ impl FileCatalog {
             .get(file_shard_number(file))
             .and_then(|shard| shard.row(file))
             .ok_or("current file ownership row missing")?;
-        if row.version.to_native() != version.0 {
+        if row.version != version.0 {
             return Err("file ownership incarnation mismatch".into());
         }
-        let routes = row
-            .routes
-            .iter()
-            .map(archived_ownership_route)
-            .collect::<Vec<_>>();
+        let routes = row.routes;
         crate::storage_usage::StorageWorkCounters::update(|counters| {
-            counters.ownership_routes_examined =
-                counters.ownership_routes_examined.saturating_add(routes.len() as u64);
+            counters.ownership_routes_examined = counters
+                .ownership_routes_examined
+                .saturating_add(routes.len() as u64);
         });
         Ok(routes)
     }
@@ -1723,25 +1890,16 @@ impl FileCatalog {
             .ownership
             .get(number)
             .ok_or("file ownership shard missing")?;
-        let row = shard.row(file).ok_or("current file ownership row missing")?;
-        if row.version.to_native() != version.0 {
+        let row = shard
+            .row(file)
+            .ok_or("current file ownership row missing")?;
+        if row.version != version.0 {
             return Err("file ownership incarnation mismatch".into());
         }
         let mut rows = shard
-            .archive
-            .root()
-            .rows
-            .iter()
-            .filter(|row| row.file.to_native() != file.0)
-            .map(|row| StoredOwnershipRow {
-                file: row.file.to_native(),
-                version: row.version.to_native(),
-                routes: row
-                    .routes
-                    .iter()
-                    .map(|route| stored_ownership_route(archived_ownership_route(route)))
-                    .collect(),
-            })
+            .rows()
+            .into_iter()
+            .filter(|row| row.file != file.0)
             .collect::<Vec<_>>();
         let replacement = if rows.is_empty() {
             empty_ownership_shard()
@@ -1763,21 +1921,7 @@ impl FileCatalog {
             .ownership
             .get(number)
             .ok_or("file ownership shard missing")?;
-        let mut rows = shard
-            .archive
-            .root()
-            .rows
-            .iter()
-            .map(|row| StoredOwnershipRow {
-                file: row.file.to_native(),
-                version: row.version.to_native(),
-                routes: row
-                    .routes
-                    .iter()
-                    .map(|route| stored_ownership_route(archived_ownership_route(route)))
-                    .collect(),
-            })
-            .collect::<Vec<_>>();
+        let mut rows = shard.rows();
         let row = rows
             .iter_mut()
             .find(|row| row.file == file.0)
@@ -1805,19 +1949,21 @@ impl FileCatalog {
                 .get(number)
                 .ok_or("ownership shard missing")?;
             let mut rows = current
-                .archive
-                .root()
-                .rows
-                .iter()
+                .rows()
+                .into_iter()
                 .map(|row| {
                     (
-                        row.file.to_native(),
+                        row.file,
                         (
-                        row.version.to_native(),
-                        row.routes
-                            .iter()
-                            .map(archived_ownership_route)
-                            .collect::<Vec<_>>(),
+                            row.version,
+                            row.routes
+                                .into_iter()
+                                .map(|route| OwnershipRoute {
+                                    collection: CollectionId(route.collection),
+                                    segment: SegmentId::new(route.segment),
+                                    file_row_ordinal: route.file_row_ordinal,
+                                })
+                                .collect::<Vec<_>>(),
                         ),
                     )
                 })
@@ -1844,9 +1990,9 @@ impl FileCatalog {
                 let version = versions
                     .get(*file)
                     .ok_or("updated ownership file version missing")?;
-                let row = rows.entry(file.0).or_insert_with(|| {
-                    (version.0, Vec::new())
-                });
+                let row = rows
+                    .entry(file.0)
+                    .or_insert_with(|| (version.0, Vec::new()));
                 if row.0 != version.0 {
                     return Err("new ownership route has stale file version".into());
                 }
@@ -1857,22 +2003,70 @@ impl FileCatalog {
             let replacement = if rows.values().all(|(_, routes)| routes.is_empty()) {
                 empty_ownership_shard()
             } else {
-                build_ownership_shard(rows.into_iter().filter_map(
-                    |(file, (version, routes))| {
-                        (!routes.is_empty()).then(|| StoredOwnershipRow {
-                            file,
-                            version,
-                            routes: routes
-                                .into_iter()
-                                .map(stored_ownership_route)
-                                .collect(),
-                        })
-                    },
-                ))?
+                build_ownership_shard(rows.into_iter().filter_map(|(file, (version, routes))| {
+                    (!routes.is_empty()).then(|| StoredOwnershipRow {
+                        file,
+                        version,
+                        routes: routes.into_iter().map(stored_ownership_route).collect(),
+                    })
+                }))?
             };
             Arc::make_mut(&mut self.ownership)[number] = replacement;
         }
         Ok(())
+    }
+
+    pub(crate) fn archive_storage(&mut self) -> Result<usize, String> {
+        let mut converted = 0usize;
+        let metadata = Arc::make_mut(&mut self.metadata);
+        for shard in metadata.iter_mut() {
+            if !matches!(shard.backing, CatalogMetadataBacking::Archived { .. }) {
+                *shard = Arc::new(shard.archive()?);
+                converted += 1;
+            }
+        }
+        let paths = Arc::make_mut(&mut self.paths);
+        for shard in paths.iter_mut() {
+            if !shard.is_archived() {
+                *shard = Arc::new(shard.archive()?);
+                converted += 1;
+            }
+        }
+        let ownership = Arc::make_mut(&mut self.ownership);
+        for shard in ownership.iter_mut() {
+            if !matches!(shard.backing, OwnershipBacking::Archived { .. }) {
+                *shard = Arc::new(shard.archive()?);
+                converted += 1;
+            }
+        }
+        Ok(converted)
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let metadata = self
+            .metadata
+            .iter()
+            .map(|shard| match shard.backing {
+                CatalogMetadataBacking::Native { .. } => (1, 0),
+                CatalogMetadataBacking::Archived { .. } => (0, 1),
+            })
+            .fold((0, 0), |(native, archived), (add_native, add_archived)| {
+                (native + add_native, archived + add_archived)
+            });
+        let paths =
+            self.paths
+                .iter()
+                .map(|shard| if shard.is_archived() { (0, 1) } else { (1, 0) });
+        let ownership = self.ownership.iter().map(|shard| match shard.backing {
+            OwnershipBacking::Native { .. } => (1, 0),
+            OwnershipBacking::Archived { .. } => (0, 1),
+        });
+        std::iter::once(metadata)
+            .chain(paths)
+            .chain(ownership)
+            .fold((0, 0), |(native, archived), (add_native, add_archived)| {
+                (native + add_native, archived + add_archived)
+            })
     }
 
     pub(crate) fn collect_storage_usage(
@@ -1881,12 +2075,29 @@ impl FileCatalog {
         usage: &mut crate::storage_usage::StorageUsage,
     ) {
         for shard in self.metadata.iter() {
-            usage.record_archive(
-                seen,
-                Arc::as_ptr(shard) as usize,
-                shard.archive.len(),
-                shard.archive.capacity(),
-            );
+            match &shard.backing {
+                CatalogMetadataBacking::Native { rows, .. } => {
+                    usage.active_and_control_metadata_bytes =
+                        usage.active_and_control_metadata_bytes.saturating_add(
+                            rows.iter()
+                                .map(|row| {
+                                    std::mem::size_of::<FileEntry>()
+                                        + row.entry.relative_path.as_path().as_os_str().len()
+                                        + row.entry.collections.len()
+                                            * std::mem::size_of::<CollectionId>()
+                                })
+                                .sum::<usize>() as u64,
+                        );
+                }
+                CatalogMetadataBacking::Archived { archive } => {
+                    usage.record_archive(
+                        seen,
+                        Arc::as_ptr(archive) as usize,
+                        archive.len(),
+                        archive.capacity(),
+                    );
+                }
+            }
             if let Some(cache) = shard.cache.get() {
                 usage.file_row_cache_bytes = usage
                     .file_row_cache_bytes
@@ -1896,20 +2107,39 @@ impl FileCatalog {
             }
         }
         for shard in self.paths.iter() {
-            usage.record_archive(
-                seen,
-                Arc::as_ptr(shard) as usize,
-                shard.archive.len(),
-                shard.archive.capacity(),
-            );
+            match &shard.backing {
+                CatalogPathBacking::Native { exact, ordered } => {
+                    usage.active_and_control_metadata_bytes =
+                        usage.active_and_control_metadata_bytes.saturating_add(
+                            (exact.len() + ordered.len()).saturating_mul(std::mem::size_of::<(
+                                String,
+                                u32,
+                            )>(
+                            )) as u64,
+                        );
+                }
+                CatalogPathBacking::Archived { archive } => {
+                    usage.record_archive(
+                        seen,
+                        Arc::as_ptr(archive) as usize,
+                        archive.len(),
+                        archive.capacity(),
+                    );
+                }
+            }
         }
         for shard in self.ownership.iter() {
-            usage.record_archive(
-                seen,
-                Arc::as_ptr(shard) as usize,
-                shard.archive.len(),
-                shard.archive.capacity(),
-            );
+            match &shard.backing {
+                OwnershipBacking::Native { .. } => {}
+                OwnershipBacking::Archived { archive } => {
+                    usage.record_archive(
+                        seen,
+                        Arc::as_ptr(archive) as usize,
+                        archive.len(),
+                        archive.capacity(),
+                    );
+                }
+            }
         }
     }
 }

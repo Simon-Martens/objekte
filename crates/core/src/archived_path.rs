@@ -62,10 +62,7 @@ impl StoredPath {
                 {
                     Self::Escaped {
                         query: query.as_str().into(),
-                        native: native
-                            .iter()
-                            .map(|unit| unit.to_native())
-                            .collect(),
+                        native: native.iter().map(|unit| unit.to_native()).collect(),
                     }
                 }
             }
@@ -124,7 +121,6 @@ impl StoredPath {
                 .all(|part| matches!(part, std::path::Component::Normal(_)))
     }
 }
-
 pub(crate) fn query(path: &rkyv::Archived<StoredPath>) -> &str {
     match path {
         rkyv::Archived::<StoredPath>::Plain(value) => value.as_str(),
@@ -176,35 +172,5 @@ pub(crate) fn matches_native(path: &rkyv::Archived<StoredPath>, native: &Path) -
                 stored.iter().copied().eq(native.as_os_str().encode_wide())
             }
         }
-    }
-}
-
-pub(crate) fn archived_paths_equal(
-    left: &rkyv::Archived<StoredPath>,
-    right: &rkyv::Archived<StoredPath>,
-) -> bool {
-    match (left, right) {
-        (
-            rkyv::Archived::<StoredPath>::Plain(left),
-            rkyv::Archived::<StoredPath>::Plain(right),
-        ) => left.as_str() == right.as_str(),
-        (
-            rkyv::Archived::<StoredPath>::Escaped {
-                query: left_query,
-                native: left_native,
-            },
-            rkyv::Archived::<StoredPath>::Escaped {
-                query: right_query,
-                native: right_native,
-            },
-        ) => {
-            left_query.as_str() == right_query.as_str()
-                && left_native.len() == right_native.len()
-                && left_native
-                    .iter()
-                    .zip(right_native.iter())
-                    .all(|(left, right)| left == right)
-        }
-        _ => false,
     }
 }

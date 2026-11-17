@@ -11,7 +11,7 @@ fn rkyv_semantic_validation_rejects_tree_reverse_directory_disagreement() {
     })
     .unwrap();
     let dictionary = PublishedPostingDictionary {
-        archive,
+        backing: PublishedPostingBacking::Archived(archive),
         bitmaps: Arc::new(vec![RoaringBitmap::from_iter([1])]),
     };
     assert_eq!(
@@ -33,10 +33,13 @@ fn rkyv_statistics_use_dictionary_endpoints() {
     };
     let mut index = PostingIndex::new(&field);
     for value in [7, -2, 100, 4, 0] {
-        index.values.insert_public(
-            &ScalarKey::Number(Number::integer(value)),
-            RoaringBitmap::from_iter([value.unsigned_abs() as u32]),
-        );
+        index
+            .values
+            .insert_public(
+                &ScalarKey::Number(Number::integer(value)),
+                RoaringBitmap::from_iter([value.unsigned_abs() as u32]),
+            )
+            .unwrap();
     }
     index.finish_stats();
     assert_eq!(
@@ -50,47 +53,78 @@ fn rkyv_statistics_use_dictionary_endpoints() {
 }
 
 #[test]
-fn ordered_posting_source_rejects_unordered_duplicate_or_sparse_entries() {
-    let sparse = [OrderedPostingEntry {
-        key: StoredScalarKey::String("a".into()),
-        ordinal: 2,
-    }];
-    assert!(OrderedPostingArchiveSource::checked(&sparse).is_err());
-    let duplicate = [
-        OrderedPostingEntry {
-            key: StoredScalarKey::String("a".into()),
-            ordinal: 0,
-        },
-        OrderedPostingEntry {
-            key: StoredScalarKey::String("a".into()),
-            ordinal: 1,
-        },
-    ];
-    assert!(OrderedPostingArchiveSource::checked(&duplicate).is_err());
-    let unordered = [
-        OrderedPostingEntry {
-            key: StoredScalarKey::String("b".into()),
-            ordinal: 0,
-        },
-        OrderedPostingEntry {
-            key: StoredScalarKey::String("a".into()),
-            ordinal: 1,
-        },
-    ];
-    assert!(OrderedPostingArchiveSource::checked(&unordered).is_err());
+fn publishing_preserves_insertion_assigned_bitmap_slots() {
+    let mut dictionary = PostingDictionary::<StoredScalarKey>::builder();
+    dictionary
+        .insert(
+            StoredScalarKey::String("beta".into()),
+            RoaringBitmap::from_iter([9]),
+        )
+        .unwrap();
+    dictionary
+        .insert(
+            StoredScalarKey::String("alpha".into()),
+            RoaringBitmap::from_iter([3]),
+        )
+        .unwrap();
+    let dictionary = dictionary.publish_native().unwrap();
+    let PostingDictionaryState::Published(published) = &dictionary.0 else {
+        panic!("published");
+    };
+    let PublishedPostingBacking::Native(values) = &published.backing else {
+        panic!("native");
+    };
+    assert_eq!(values[&StoredScalarKey::String("beta".into())], 0);
+    assert_eq!(values[&StoredScalarKey::String("alpha".into())], 1);
+    let mut ascending = dictionary.range(Unbounded, Unbounded, false);
+    assert_eq!(
+        ascending.next().map(|(key, bitmap)| (key, bitmap.clone())),
+        Some((
+            ScalarKey::String("alpha".into()),
+            RoaringBitmap::from_iter([3])
+        ))
+    );
+    let mut descending = dictionary.range(Unbounded, Unbounded, true);
+    assert_eq!(
+        descending.next().map(|(key, bitmap)| (key, bitmap.clone())),
+        Some((
+            ScalarKey::String("beta".into()),
+            RoaringBitmap::from_iter([9])
+        ))
+    );
 }
 
 #[test]
-fn posting_freeze_serializes_one_owned_ordered_directory() {
+fn validation_rejects_a_nonempty_unreachable_payload() {
+    let dictionary = PublishedPostingDictionary::<StructuralKey> {
+        backing: PublishedPostingBacking::Native(Arc::new(BTreeMap::from([(
+            StructuralKey::Object,
+            0,
+        )]))),
+        bitmaps: Arc::new(vec![
+            RoaringBitmap::from_iter([1]),
+            RoaringBitmap::from_iter([2]),
+        ]),
+    };
+    assert_eq!(
+        validate_published_dictionary(&dictionary),
+        Err("posting dictionary retains a nonempty unreachable payload".into())
+    );
+}
+
+#[test]
+fn posting_publication_retains_one_owned_ordered_directory() {
     let mut dictionary = PostingDictionary::<StoredScalarKey>::builder();
     for (number, key) in ["alpha", "beta", "gamma", "delta"].into_iter().enumerate() {
-        dictionary.insert(
-            StoredScalarKey::String(key.into()),
-            RoaringBitmap::from_iter([number as u32]),
-        );
+        dictionary
+            .insert(
+                StoredScalarKey::String(key.into()),
+                RoaringBitmap::from_iter([number as u32]),
+            )
+            .unwrap();
     }
     crate::storage_usage::StorageWorkCounters::reset();
-    let dictionary = dictionary.freeze().unwrap();
+    let dictionary = dictionary.publish_native().unwrap();
     let counters = crate::storage_usage::StorageWorkCounters::snapshot();
     assert_eq!(counters.temporary_ordinal_trees, 0);
     assert_eq!(dictionary.len(), 4);
@@ -150,7 +184,10 @@ fn reusable_lookup_scratch_microbenchmark() {
         .map(|index| format!("unique-{index}"))
         .collect::<Vec<_>>();
     let unique = unique.iter().map(String::as_str).collect::<Vec<_>>();
-    for (label, keys) in [("repeated", repeated.as_slice()), ("unique", unique.as_slice())] {
+    for (label, keys) in [
+        ("repeated", repeated.as_slice()),
+        ("unique", unique.as_slice()),
+    ] {
         let direct = direct(keys);
         let scratch = scratch(keys);
         eprintln!(
@@ -175,10 +212,13 @@ fn broad_id_union_matches_individual_lookups() {
     };
     let mut index = PostingIndex::new(&field);
     for id in 0..100 {
-        index.values.insert_public(
-            &ScalarKey::Id(format!("id-{id:03}")),
-            RoaringBitmap::from_iter([id, id + 100]),
-        );
+        index
+            .values
+            .insert_public(
+                &ScalarKey::Id(format!("id-{id:03}")),
+                RoaringBitmap::from_iter([id, id + 100]),
+            )
+            .unwrap();
     }
     for ids in [
         HashSet::from(["id-017".to_owned()]),
@@ -1143,13 +1183,9 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             assert_eq!(actual.counters.files_opened, 0, "{filter}");
         }
     }
-    let restored = Index::build_with_sources(
-        &root,
-        vec![definition],
-        options,
-        SourceRegistry::builtin(),
-    )
-    .unwrap();
+    let restored =
+        Index::build_with_sources(&root, vec![definition], options, SourceRegistry::builtin())
+            .unwrap();
     let restored = restored.view().unwrap();
     for filter in [
         "x:null = true",

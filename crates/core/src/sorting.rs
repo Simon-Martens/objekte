@@ -191,6 +191,7 @@ impl InferredOrderKey {
     }
 }
 
+#[derive(Clone)]
 struct InferredOrderEntry {
     column: Arc<SortColumn>,
     bytes: usize,
@@ -208,6 +209,7 @@ pub(crate) struct InferredOrderCacheStats {
 
 /// A lazy, bounded cache owned by one repository. Callers build a missing
 /// column outside its mutex, then publish it with a second short lock.
+#[derive(Clone)]
 pub(crate) struct InferredOrderCache {
     entries: HashMap<InferredOrderKey, InferredOrderEntry>,
     max_bytes: usize,
@@ -501,11 +503,8 @@ impl SortColumn {
                 order.extend(&missing);
             }
             if descending {
-                let mut cursor = value_map.range(
-                    std::ops::Bound::Unbounded,
-                    std::ops::Bound::Unbounded,
-                    true,
-                );
+                let mut cursor =
+                    value_map.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded, true);
                 while let Some((_, slots)) = cursor.next() {
                     append_inferred_group(&mut order, slots, records);
                 }
@@ -639,9 +638,9 @@ impl SortCollection {
                 .map(simple_composite_part)
                 .collect::<Option<Vec<_>>>();
             if fields.len() < 2
-                || parts.as_ref().is_none_or(|parts| {
-                    parts.iter().any(|part| !columns.contains_key(&part.path))
-                })
+                || parts
+                    .as_ref()
+                    .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))
             {
                 return Err("composite sort requires configured resident scalar fields".into());
             }
@@ -650,7 +649,10 @@ impl SortCollection {
                 order: Vec::new(),
             });
         }
-        Ok(Self { columns, composites })
+        Ok(Self {
+            columns,
+            composites,
+        })
     }
 
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
@@ -710,9 +712,7 @@ impl SortBuilder {
             return Err("sort batch column coverage mismatch".into());
         }
         for (path, column) in &mut builder.columns {
-            let values = keys
-                .remove(path)
-                .ok_or("sort batch column missing")?;
+            let values = keys.remove(path).ok_or("sort batch column missing")?;
             if values.len() != record_count {
                 return Err("sort batch key coverage mismatch".into());
             }

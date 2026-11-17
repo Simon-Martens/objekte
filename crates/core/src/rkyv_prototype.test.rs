@@ -6,19 +6,13 @@ use roaring::RoaringBitmap;
 use time::{Date, Month, OffsetDateTime, format_description::well_known::Rfc3339};
 
 use crate::decimal::ExactDecimal;
-use crate::model::Number;
-use crate::posting::{
-    PostingDictionary, PostingNumberKey, ScalarKey, StoredScalarKey,
-};
 use crate::lifecycle::{CompactionMode, CompactionOptions, Index, IndexView};
 use crate::model::LogicalType;
-use crate::query::{
-    CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
-};
+use crate::model::Number;
+use crate::posting::{PostingDictionary, PostingNumberKey, ScalarKey, StoredScalarKey};
+use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::{ReturnMode, SortField};
 
@@ -27,8 +21,7 @@ fn bitmap(slots: impl IntoIterator<Item = u32>) -> RoaringBitmap {
 }
 
 fn prototype_definition() -> CollectionDefinition {
-    let mut definition =
-        CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [
         ("id", LogicalType::Id),
@@ -86,61 +79,53 @@ fn query(fts: Option<&str>, year_filter: Option<&str>, limit: usize, offset: usi
 fn ids(view: &IndexView, request: &Query) -> (Vec<String>, Option<usize>) {
     let result = view.search(request).unwrap();
     (
-        result
-            .hits
-            .into_iter()
-            .map(|hit| hit.record_id)
-            .collect(),
+        result.hits.into_iter().map(|hit| hit.record_id).collect(),
         result.count,
     )
 }
 
-fn assert_published_dictionaries_archived(view: &IndexView) {
+fn assert_published_dictionaries(view: &IndexView) {
     view.0.validate_ownership().unwrap();
     for collection in view.repository().collections() {
         assert!(
-            collection.postings.all_archived(),
-            "base posting dictionary reverted to a native builder"
+            collection.postings.all_published(),
+            "base posting dictionary reverted to a mutable builder"
         );
         for custom in collection.custom_postings.values() {
             assert!(
-                custom.index.is_archived(),
-                "base custom posting dictionary reverted to a native builder"
+                custom.index.is_published(),
+                "base custom posting dictionary reverted to a mutable builder"
             );
         }
         if let Some(inference) = &collection.inference {
             assert!(
-                inference.indexes.values().all(|index| index.is_archived()),
-                "base inferred posting dictionary reverted to a native builder"
+                inference.indexes.values().all(|index| index.is_published()),
+                "base inferred posting dictionary reverted to a mutable builder"
             );
         }
     }
-    for collection in 0..view
-        .repository()
-        .collections()
-        .len()
-    {
+    for collection in 0..view.repository().collections().len() {
         for segment in view
             .segments(crate::model::CollectionId(collection as u32))
             .unwrap()
             .iter()
         {
             assert!(
-                segment.index.postings.all_archived(),
-                "published segment posting dictionary reverted to a native builder"
+                segment.index.postings.all_published(),
+                "published segment posting dictionary reverted to a mutable builder"
             );
             assert!(
                 segment
                     .index
                     .custom_postings
                     .values()
-                    .all(|custom| custom.index.is_archived()),
-                "published custom posting dictionary reverted to a native builder"
+                    .all(|custom| custom.index.is_published()),
+                "published custom posting dictionary reverted to a mutable builder"
             );
             if let Some(inference) = &segment.index.inference {
                 assert!(
-                    inference.indexes.values().all(|index| index.is_archived()),
-                    "published inferred posting dictionary reverted to a native builder"
+                    inference.indexes.values().all(|index| index.is_published()),
+                    "published inferred posting dictionary reverted to a mutable builder"
                 );
             }
         }
@@ -214,17 +199,19 @@ fn assert_fixture_queries(
 fn assert_scalar_oracle(
     native: &BTreeMap<ScalarKey, RoaringBitmap>,
 ) -> PostingDictionary<StoredScalarKey> {
-    let archived = PostingDictionary::from_public(native.clone()).freeze().unwrap();
-    assert!(archived.is_archived());
-    assert_eq!(archived.len(), native.len());
-    let mut cursor = archived.range(Unbounded, Unbounded, false);
+    let published = PostingDictionary::from_public(native.clone())
+        .publish_native()
+        .unwrap();
+    assert!(published.is_native());
+    assert_eq!(published.len(), native.len());
+    let mut cursor = published.range(Unbounded, Unbounded, false);
     for (expected_key, expected_posting) in native {
         let (actual_key, actual_posting) = cursor.next().unwrap();
         assert_eq!(&actual_key, expected_key);
         assert_eq!(actual_posting, expected_posting);
     }
     assert!(cursor.next().is_none());
-    archived
+    published
 }
 
 #[test]
@@ -232,10 +219,7 @@ fn rkyv_scalar_dictionary_empty_singleton_and_multi_match_native_oracle() {
     let empty = BTreeMap::new();
     assert_scalar_oracle(&empty);
 
-    let singleton = BTreeMap::from([(
-        ScalarKey::String("only".into()),
-        bitmap([3]),
-    )]);
+    let singleton = BTreeMap::from([(ScalarKey::String("only".into()), bitmap([3]))]);
     assert_scalar_oracle(&singleton);
 
     let multi = BTreeMap::from([
@@ -261,8 +245,14 @@ fn rkyv_forward_and_descending_bounds_match_native_oracle() {
     let archived = assert_scalar_oracle(&native);
 
     for (lower, upper) in [
-        (Included(ScalarKey::Number(Number::integer(3))), Excluded(ScalarKey::Number(Number::integer(9)))),
-        (Excluded(ScalarKey::Number(Number::integer(3))), Included(ScalarKey::Number(Number::integer(9)))),
+        (
+            Included(ScalarKey::Number(Number::integer(3))),
+            Excluded(ScalarKey::Number(Number::integer(9))),
+        ),
+        (
+            Excluded(ScalarKey::Number(Number::integer(3))),
+            Included(ScalarKey::Number(Number::integer(9))),
+        ),
         (Unbounded, Excluded(ScalarKey::Number(Number::integer(4)))),
         (Included(ScalarKey::Number(Number::integer(12))), Unbounded),
     ] {
@@ -307,9 +297,8 @@ impl CursorSnapshot for crate::posting::PostingValueCursor<'_> {
 
 #[test]
 fn rkyv_numeric_and_scalar_keys_preserve_exact_order_and_types() {
-    let exact_small = Number::ExactDecimal(
-        ExactDecimal::parse("-1.2345678901234567890123456789e-120").unwrap(),
-    );
+    let exact_small =
+        Number::ExactDecimal(ExactDecimal::parse("-1.2345678901234567890123456789e-120").unwrap());
     let exact_large =
         Number::ExactDecimal(ExactDecimal::parse("9.999999999999999999e1000").unwrap());
     let values = vec![
@@ -330,9 +319,10 @@ fn rkyv_numeric_and_scalar_keys_preserve_exact_order_and_types() {
         .enumerate()
         .map(|(slot, value)| (value, bitmap([slot as u32])))
         .collect::<BTreeMap<Number, RoaringBitmap>>();
-    let archived: PostingDictionary<PostingNumberKey> = PostingDictionary::from_public(native.clone())
-        .freeze()
-        .unwrap();
+    let archived: PostingDictionary<PostingNumberKey> =
+        PostingDictionary::from_public(native.clone())
+            .publish_native()
+            .unwrap();
     let mut cursor = archived.range(Unbounded, Unbounded, false);
     for expected in native.keys() {
         assert_eq!(&cursor.next().unwrap().0, expected);
@@ -350,9 +340,7 @@ fn rkyv_numeric_and_scalar_keys_preserve_exact_order_and_types() {
     ]);
     let archived = assert_scalar_oracle(&scalars);
     assert_eq!(
-        archived
-            .get(&ScalarKey::Datetime(datetime))
-            .unwrap(),
+        archived.get(&ScalarKey::Datetime(datetime)).unwrap(),
         &bitmap([3])
     );
 }
@@ -368,7 +356,7 @@ fn rkyv_descending_4096_key_pages_use_archived_reverse_directory() {
         })
         .collect::<BTreeMap<_, _>>();
     let archived: PostingDictionary<StoredScalarKey> = PostingDictionary::from_public(native)
-        .freeze()
+        .publish_native()
         .unwrap();
     for (offset, limit) in [(0, 1), (1, 1), (127, 64), (4095, 1)] {
         let mut cursor = archived.range(Unbounded, Unbounded, true);
@@ -406,27 +394,43 @@ fn rkyv_repository_and_lifecycle_defaults_publish_archived_components() {
     )
     .unwrap();
     let definition = prototype_definition();
-    let repository = Repository::open_with_options(
-        &root,
-        vec![definition.clone()],
-        prototype_options(),
-    )
-    .unwrap();
+    let mut repository =
+        Repository::open_with_options(&root, vec![definition.clone()], prototype_options())
+            .unwrap();
     assert!(
-        repository.collections()[0]
-            .postings
-            .all_archived(),
-        "Repository dictionaries must be archived"
+        repository.collections()[0].postings.all_native(),
+        "Repository dictionaries must begin native"
+    );
+    let before_query = repository.search(&query(None, None, 10, 0)).unwrap().count;
+    let report = repository.archive().unwrap();
+    assert_eq!(
+        report.representation_after,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert!(repository.collections()[0].postings.all_archived());
+    assert_eq!(
+        repository.search(&query(None, None, 10, 0)).unwrap().count,
+        before_query
     );
 
-    let index = Index::build(
-        &root,
-        vec![definition.clone()],
-        prototype_options(),
-    )
-    .unwrap();
+    let index = Index::build(&root, vec![definition.clone()], prototype_options()).unwrap();
     let view = index.view().unwrap();
-    assert_published_dictionaries_archived(&view);
+    assert_published_dictionaries(&view);
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Native
+    );
+    drop(view);
+    let report = index.archive().unwrap();
+    assert_eq!(
+        report.representation_after,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    let view = index.view().unwrap();
     assert_eq!(
         view.file_handle_for_path(std::path::Path::new("data/a.json"))
             .unwrap()
@@ -454,20 +458,21 @@ fn rkyv_native_builder_is_rejected_at_publication_boundary() {
     )
     .unwrap();
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    index.archive().unwrap();
     let view = index.view().unwrap();
     let revision = view.revision();
     let published = &view.segments(crate::model::CollectionId(0)).unwrap()[0];
-    let mut native = (*published.index).clone();
-    native.postings.thaw_storage().unwrap();
+    let mut mutable = (*published.index).clone();
+    mutable.postings.thaw_storage().unwrap();
     let error = match crate::native_segment::PublishedSegment::checked(
         published.id,
-        Arc::new(native),
+        Arc::new(mutable),
         published.active.clone(),
     ) {
         Ok(_) => panic!("native builder unexpectedly remained publishable"),
         Err(error) => error,
     };
-    assert!(error.contains("native posting dictionary"));
+    assert!(error.contains("mutable query dictionary"));
     assert_eq!(index.view().unwrap().revision(), revision);
     drop(view);
     index.shutdown().unwrap();
@@ -487,9 +492,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let definitions = vec![prototype_definition()];
     let index = Index::build(&root, definitions.clone(), prototype_options()).unwrap();
-    assert_fixture_queries(
-        &index, &root, &definitions, &[], &[], &[], &[], &[],
-    );
+    assert_fixture_queries(&index, &root, &definitions, &[], &[], &[], &[], &[]);
 
     let write = |name: &str, value: &str| {
         let path = root.join(format!("data/{name}.json"));
@@ -499,16 +502,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
 
     let a = write("a", r#"{"id":"a","year":10,"title":"alpha token-old"}"#);
     index.add_file(&a).unwrap();
-    assert_fixture_queries(
-        &index,
-        &root,
-        &definitions,
-        &["a"],
-        &[],
-        &["a"],
-        &[],
-        &[],
-    );
+    assert_fixture_queries(&index, &root, &definitions, &["a"], &[], &["a"], &[], &[]);
 
     let b = write("b", r#"{"id":"b","year":20,"title":"beta token-common"}"#);
     index.add_file(&b).unwrap();
@@ -537,13 +531,9 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     );
 
     let mut b_handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
-    std::fs::write(
-        &b,
-        r#"{"id":"b","year":5,"title":"beta token-new"}"#,
-    )
-    .unwrap();
+    std::fs::write(&b, r#"{"id":"b","year":5,"title":"beta token-new"}"#).unwrap();
     b_handle = index.update_file(b_handle, &b).unwrap().file;
-    assert_published_dictionaries_archived(&index.view().unwrap());
+    assert_published_dictionaries(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -558,7 +548,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
     let a_handle = index.view().unwrap().file_handle_for_path(&a).unwrap();
     std::fs::remove_file(&a).unwrap();
     index.delete_file(a_handle).unwrap();
-    assert_published_dictionaries_archived(&index.view().unwrap());
+    assert_published_dictionaries(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -589,7 +579,7 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
             merge_small_segments: true,
         })
         .unwrap();
-    assert_published_dictionaries_archived(&index.view().unwrap());
+    assert_published_dictionaries(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -601,13 +591,9 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
         &["d", "c"],
     );
 
-    std::fs::write(
-        &c,
-        r#"{"id":"c","year":7,"title":"gamma token-new"}"#,
-    )
-    .unwrap();
+    std::fs::write(&c, r#"{"id":"c","year":7,"title":"gamma token-new"}"#).unwrap();
     let _c_handle = index.update_file(c_handle, &c).unwrap().file;
-    assert_published_dictionaries_archived(&index.view().unwrap());
+    assert_published_dictionaries(&index.view().unwrap());
     assert_fixture_queries(
         &index,
         &root,
@@ -643,10 +629,8 @@ fn rkyv_concrete_add_replace_delete_compact_matches_fresh_reconstruction() {
             merge_small_segments: true,
         })
         .unwrap();
-    assert_published_dictionaries_archived(&index.view().unwrap());
-    assert_fixture_queries(
-        &index, &root, &definitions, &[], &[], &[], &[], &[],
-    );
+    assert_published_dictionaries(&index.view().unwrap());
+    assert_fixture_queries(&index, &root, &definitions, &[], &[], &[], &[], &[]);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -662,8 +646,7 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut definition =
-        CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [
         ("id", LogicalType::Id),
@@ -694,9 +677,7 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
     let path = root.join("data/multi.jsonl");
     let old = (0..11)
         .map(|number| {
-            format!(
-                "{{\"id\":\"r{number:02}\",\"year\":{number},\"title\":\"old-only\"}}\n"
-            )
+            format!("{{\"id\":\"r{number:02}\",\"year\":{number},\"title\":\"old-only\"}}\n")
         })
         .collect::<String>();
     std::fs::write(&path, &old).unwrap();
@@ -714,11 +695,9 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
         .unwrap()
         .iter()
         .filter(|segment| {
-            segment
-                .index
-                .files
-                .iter()
-                .any(|file| file.entry.relative_path.as_path() == std::path::Path::new("data/multi.jsonl"))
+            segment.index.files.iter().any(|file| {
+                file.entry.relative_path.as_path() == std::path::Path::new("data/multi.jsonl")
+            })
         })
         .count();
     assert!(
@@ -761,9 +740,7 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
     let new_query = query(Some("new-only"), None, 100, 0);
     assert_eq!(
         ids(&view, &new_query).0,
-        [
-            "r00", "r01", "r02", "r03", "r04", "r05", "r06"
-        ]
+        ["r00", "r01", "r02", "r03", "r04", "r05", "r06"]
     );
     let removed = query(None, Some("id = \"r07\""), 100, 0);
     assert_eq!(ids(&view, &removed).0, Vec::<String>::new());
@@ -781,10 +758,7 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
     std::fs::remove_file(&path).unwrap();
     index.delete_file(handle).unwrap();
     let view = index.view().unwrap();
-    assert_eq!(
-        ids(&view, &query(None, None, 100, 0)).0,
-        ["sentinel"]
-    );
+    assert_eq!(ids(&view, &query(None, None, 100, 0)).0, ["sentinel"]);
     drop(view);
     index
         .compact_with_options(CompactionOptions {
@@ -793,20 +767,12 @@ fn rkyv_multi_record_replacement_spans_segments_and_validates_ranges() {
         })
         .unwrap();
     assert_eq!(
-        ids(
-            &index.view().unwrap(),
-            &query(None, None, 100, 0)
-        )
-        .0,
+        ids(&index.view().unwrap(), &query(None, None, 100, 0)).0,
         ["sentinel"]
     );
     let pinned = index.view().unwrap();
     let revision = pinned.revision();
-    let owner = Arc::clone(
-        &pinned
-            .segments(crate::model::CollectionId(0))
-            .unwrap()[0],
-    );
+    let owner = Arc::clone(&pinned.segments(crate::model::CollectionId(0)).unwrap()[0]);
     drop(pinned);
     let no_op = index
         .compact_with_options(CompactionOptions {
@@ -838,18 +804,12 @@ fn rkyv_repeated_single_file_updates_keep_one_live_segment() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/only.json");
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
-    std::fs::write(
-        &path,
-        br#"{"id":"only","year":0,"title":"revision 0"}"#,
-    )
-    .unwrap();
+    std::fs::write(&path, br#"{"id":"only","year":0,"title":"revision 0"}"#).unwrap();
     let mut handle = index.add_file(&path).unwrap().file;
     for revision in 1..=1_000 {
         std::fs::write(
             &path,
-            format!(
-                "{{\"id\":\"only\",\"year\":{revision},\"title\":\"revision {revision}\"}}"
-            ),
+            format!("{{\"id\":\"only\",\"year\":{revision},\"title\":\"revision {revision}\"}}"),
         )
         .unwrap();
         handle = index.update_file(handle, &path).unwrap().file;
@@ -868,7 +828,10 @@ fn rkyv_repeated_single_file_updates_keep_one_live_segment() {
             1,
             "update {revision} retained obsolete live-segment descriptors"
         );
-        assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(1));
+        assert_eq!(
+            view.search(&query(None, None, 10, 0)).unwrap().count,
+            Some(1)
+        );
         view.0.validate_ownership().unwrap();
     }
     index.shutdown().unwrap();
@@ -889,16 +852,15 @@ fn rkyv_delete_all_records_removes_payload_without_reusing_file_id() {
     let first = root.join("data/first.json");
     let replacement = root.join("data/replacement.json");
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
-    std::fs::write(
-        &first,
-        br#"{"id":"first","year":1,"title":"delete all"}"#,
-    )
-    .unwrap();
+    std::fs::write(&first, br#"{"id":"first","year":1,"title":"delete all"}"#).unwrap();
     let old = index.add_file(&first).unwrap().file;
     std::fs::remove_file(&first).unwrap();
     index.delete_file(old).unwrap();
     let view = index.view().unwrap();
-    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(0));
+    assert_eq!(
+        view.search(&query(None, None, 10, 0)).unwrap().count,
+        Some(0)
+    );
     assert!(
         view.segments(crate::model::CollectionId(0))
             .unwrap()
@@ -941,18 +903,10 @@ fn rkyv_same_path_update_rebuilds_one_metadata_and_ownership_shard() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/same.json");
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
-    std::fs::write(
-        &path,
-        br#"{"id":"same","year":1,"title":"first content"}"#,
-    )
-    .unwrap();
+    std::fs::write(&path, br#"{"id":"same","year":1,"title":"first content"}"#).unwrap();
     let handle = index.add_file(&path).unwrap().file;
     crate::storage_usage::StorageWorkCounters::reset();
-    std::fs::write(
-        &path,
-        br#"{"id":"same","year":2,"title":"second content"}"#,
-    )
-    .unwrap();
+    std::fs::write(&path, br#"{"id":"same","year":2,"title":"second content"}"#).unwrap();
     index.update_file(handle, &path).unwrap();
     let counters = crate::storage_usage::StorageWorkCounters::snapshot();
     assert_eq!(counters.path_shards_rebuilt, 0);
@@ -991,16 +945,16 @@ fn rkyv_rename_rebuilds_only_each_affected_path_bucket_once() {
     )
     .unwrap();
     let handle = index.add_file(&original).unwrap().file;
-    let source_bucket = crate::lifecycle_catalog::shard(
-        &crate::path_repr::query_path(std::path::Path::new("data/original.json")),
-    );
+    let source_bucket = crate::lifecycle_catalog::shard(&crate::path_repr::query_path(
+        std::path::Path::new("data/original.json"),
+    ));
     let mut same_bucket = None;
     let mut other_bucket = None;
     for number in 0..10_000 {
         let relative = format!("data/move-{number}.json");
-        let bucket = crate::lifecycle_catalog::shard(
-            &crate::path_repr::query_path(std::path::Path::new(&relative)),
-        );
+        let bucket = crate::lifecycle_catalog::shard(&crate::path_repr::query_path(
+            std::path::Path::new(&relative),
+        ));
         if bucket == source_bucket && same_bucket.is_none() {
             same_bucket = Some(root.join(relative));
         } else if bucket != source_bucket && other_bucket.is_none() {
@@ -1096,9 +1050,7 @@ fn rkyv_one_file_routes_invalidation_across_three_segments_and_two_collections()
     let path = root.join("data/multi.jsonl");
     let body = (0..9)
         .map(|number| {
-            format!(
-                "{{\"id\":\"r{number}\",\"year\":{number},\"title\":\"routed file\"}}\n"
-            )
+            format!("{{\"id\":\"r{number}\",\"year\":{number},\"title\":\"routed file\"}}\n")
         })
         .collect::<String>();
     std::fs::write(&path, body).unwrap();
@@ -1135,9 +1087,12 @@ fn rkyv_one_file_routes_invalidation_across_three_segments_and_two_collections()
             .count,
             Some(0)
         );
-        assert!(view.segments(crate::model::CollectionId(collection)).unwrap().iter().all(
-            |segment| segment.index.file(handle.file_id).is_none()
-        ));
+        assert!(
+            view.segments(crate::model::CollectionId(collection))
+                .unwrap()
+                .iter()
+                .all(|segment| segment.index.file(handle.file_id).is_none())
+        );
     }
     view.0.validate_ownership().unwrap();
     index.shutdown().unwrap();
@@ -1214,10 +1169,7 @@ fn rkyv_relocated_survivor_uses_rewritten_ownership_route() {
         b"{\"id\":\"survivor\",\"year\":11,\"title\":\"survivor updated\"}\n",
     )
     .unwrap();
-    let survivor_handle = index
-        .update_file(survivor_handle, &survivor)
-        .unwrap()
-        .file;
+    let survivor_handle = index.update_file(survivor_handle, &survivor).unwrap().file;
     assert_eq!(
         index
             .view()
@@ -1309,12 +1261,21 @@ fn rkyv_zero_record_and_malformed_files_keep_current_metadata_and_routes() {
     assert_eq!(view.file_record_count(broken_handle.file_id), Some(1));
     let empty_entry = view.file_entry_owned(empty_handle.file_id).unwrap();
     let broken_entry = view.file_entry_owned(broken_handle.file_id).unwrap();
-    assert_eq!(empty_entry.relative_path.as_path(), std::path::Path::new("data/empty.jsonl"));
-    assert_eq!(broken_entry.relative_path.as_path(), std::path::Path::new("data/broken.jsonl"));
+    assert_eq!(
+        empty_entry.relative_path.as_path(),
+        std::path::Path::new("data/empty.jsonl")
+    );
+    assert_eq!(
+        broken_entry.relative_path.as_path(),
+        std::path::Path::new("data/broken.jsonl")
+    );
     assert!(!broken_entry.diagnostics.is_empty());
     assert_ne!(broken_entry.status, crate::inventory::FileStatus::Valid);
     view.0.validate_ownership().unwrap();
-    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(1));
+    assert_eq!(
+        view.search(&query(None, None, 10, 0)).unwrap().count,
+        Some(1)
+    );
     drop(view);
     index.delete_file(empty_handle).unwrap();
     assert!(
@@ -1350,7 +1311,8 @@ fn rkyv_cache_free_build_keeps_native_row_caches_uninitialized() {
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
     let counters = crate::storage_usage::StorageWorkCounters::snapshot();
     assert_eq!(
-        counters.metadata_cache_initializations, 0,
+        counters.metadata_cache_initializations,
+        0,
         "catalog={}, files={}, records={}",
         counters.catalog_row_cache_initializations,
         counters.file_row_cache_initializations,
@@ -1358,11 +1320,7 @@ fn rkyv_cache_free_build_keeps_native_row_caches_uninitialized() {
     );
     let view = index.view().unwrap();
     assert!(view.0.construction_registry_released());
-    for segment in view
-        .segments(crate::model::CollectionId(0))
-        .unwrap()
-        .iter()
-    {
+    for segment in view.segments(crate::model::CollectionId(0)).unwrap().iter() {
         assert!(!segment.index.files.cache_initialized());
         assert!(!segment.index.records.cache_initialized());
     }
@@ -1417,11 +1375,9 @@ fn rkyv_compatibility_row_caches_initialize_once_and_are_shared_by_clones() {
     )
     .unwrap();
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    index.archive().unwrap();
     let view = index.view().unwrap();
-    let segment = view
-        .segments(crate::model::CollectionId(0))
-        .unwrap()[0]
-        .clone();
+    let segment = view.segments(crate::model::CollectionId(0)).unwrap()[0].clone();
     crate::storage_usage::StorageWorkCounters::reset();
     assert!(segment.index.files.get(0).is_some());
     assert!(segment.index.records.get(0).is_some());
@@ -1451,6 +1407,12 @@ fn rkyv_storage_diagnostics_do_not_populate_caches_or_clone_payloads() {
     )
     .unwrap();
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let native_status = index.archive_status().unwrap();
+    assert_eq!(native_status.archived_components, 0);
+    let native_usage = index.view().unwrap().storage_usage();
+    assert!(native_status.native_components > 0);
+    assert!(native_usage.posting_bitmap_payload_bytes > 0);
+    index.archive().unwrap();
     let view = index.view().unwrap();
     crate::storage_usage::StorageWorkCounters::reset();
     let usage = view.storage_usage();
@@ -1526,9 +1488,7 @@ fn rkyv_repository_and_adopted_index_archive_accounting_match() {
     assert!(after.archive.owners >= before.archive.owners);
     assert!(after.archive.owners <= before.archive.owners + 1);
     assert!(after.archive.serialized_bytes >= before.archive.serialized_bytes);
-    assert!(
-        after.archive.serialized_bytes <= before.archive.serialized_bytes + 64
-    );
+    assert!(after.archive.serialized_bytes <= before.archive.serialized_bytes + 64);
     assert_eq!(
         after.posting_bitmap_payload_bytes,
         before.posting_bitmap_payload_bytes
@@ -1574,7 +1534,10 @@ fn rkyv_pinned_view_releases_retired_segment_owner_when_dropped() {
         }
         std::thread::yield_now();
     }
-    assert!(weak.upgrade().is_none(), "retired segment archive remained owned");
+    assert!(
+        weak.upgrade().is_none(),
+        "retired segment archive remained owned"
+    );
     assert_eq!(
         index
             .view()
@@ -1599,17 +1562,31 @@ fn rkyv_archive_finalization_failure_publishes_nothing() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":1,"title":"failure"}"#,
+    )
+    .unwrap();
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
-    let path = root.join("data/fail.json");
-    std::fs::write(&path, br#"{"id":"fail","year":1,"title":"failure"}"#).unwrap();
-    let before = index.view().unwrap().revision();
+    let before = index.view().unwrap();
+    let revision = before.revision();
+    let generation = index.archive_status().unwrap().representation_generation;
+    let count = before.search(&query(None, None, 10, 0)).unwrap().count;
+    drop(before);
     crate::archive_storage::fail_next_freeze();
-    let error = index.add_file(&path).unwrap_err();
-    assert!(error.to_string().contains("injected archive-finalization failure"));
+    let error = index.archive().unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("injected archive-finalization failure")
+    );
     let view = index.view().unwrap();
-    assert_eq!(view.revision(), before);
-    assert!(view.file_handle_for_path(&path).is_none());
-    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, Some(0));
+    assert_eq!(view.revision(), revision);
+    assert_eq!(
+        index.archive_status().unwrap().representation_generation,
+        generation
+    );
+    assert_eq!(view.search(&query(None, None, 10, 0)).unwrap().count, count);
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -1631,57 +1608,142 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
             (3, 0),
             (3, 2 * 1024 * 1024),
         ] {
-        let root = std::env::temp_dir().join(format!(
-            "objekte-rkyv-seed-{seed}-{build_workers}-{verified_cache_bytes}-{}-{}",
-            std::process::id(),
-            std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
-                .unwrap()
-                .as_nanos()
-        ));
-        std::fs::create_dir_all(root.join("data")).unwrap();
-        let mut first = prototype_definition();
-        first.name = "first".into();
-        first.format = SourceFormat::JsonLines;
-        let mut second = prototype_definition();
-        second.name = "second".into();
-        second.format = SourceFormat::JsonLines;
-        let definitions = vec![first, second];
-        let options = RepositoryOptions {
-            build_workers: std::num::NonZeroUsize::new(build_workers),
-            verified_cache_bytes,
-            ..prototype_options()
-        };
-        let index = Index::build(&root, definitions.clone(), options).unwrap();
-        let mut model = BTreeMap::<std::path::PathBuf, Vec<(String, i64)>>::new();
-        let mut files = Vec::<(std::path::PathBuf, crate::lifecycle::FileHandle)>::new();
-        let mut random = seed;
-        let mut serial = 0usize;
-        let mut file_serial = 0usize;
-
-        for operation in 0..100 {
-            let mut operation_description = String::from("compaction");
-            let scheduled = match operation {
-                20 => Some((CompactionMode::Bounded, false)),
-                40 => Some((CompactionMode::Bounded, true)),
-                60 => Some((CompactionMode::Full, false)),
-                80 => Some((CompactionMode::Full, true)),
-                _ => None,
+            let root = std::env::temp_dir().join(format!(
+                "objekte-rkyv-seed-{seed}-{build_workers}-{verified_cache_bytes}-{}-{}",
+                std::process::id(),
+                std::time::SystemTime::now()
+                    .duration_since(std::time::UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos()
+            ));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            let mut first = prototype_definition();
+            first.name = "first".into();
+            first.format = SourceFormat::JsonLines;
+            let mut second = prototype_definition();
+            second.name = "second".into();
+            second.format = SourceFormat::JsonLines;
+            let definitions = vec![first, second];
+            let options = RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(build_workers),
+                verified_cache_bytes,
+                ..prototype_options()
             };
-            if let Some((mode, merge_small_segments)) = scheduled {
-                operation_description = format!("{mode:?} merge={merge_small_segments}");
-                index
-                    .compact_with_options(CompactionOptions {
-                        mode,
-                        merge_small_segments,
-                    })
-                    .unwrap();
-                match (mode, merge_small_segments) {
-                    (CompactionMode::Bounded, false) => bounded_plain_seen = true,
-                    (CompactionMode::Bounded, true) => bounded_merge_seen = true,
-                    (CompactionMode::Full, false) => full_plain_seen = true,
-                    (CompactionMode::Full, true) => full_merge_seen = true,
+            let index = Index::build(&root, definitions.clone(), options).unwrap();
+            let mut model = BTreeMap::<std::path::PathBuf, Vec<(String, i64)>>::new();
+            let mut files = Vec::<(std::path::PathBuf, crate::lifecycle::FileHandle)>::new();
+            let mut random = seed;
+            let mut serial = 0usize;
+            let mut file_serial = 0usize;
+
+            for operation in 0..100 {
+                let mut operation_description = String::from("compaction");
+                let scheduled = match operation {
+                    20 => Some((CompactionMode::Bounded, false)),
+                    40 => Some((CompactionMode::Bounded, true)),
+                    60 => Some((CompactionMode::Full, false)),
+                    80 => Some((CompactionMode::Full, true)),
+                    _ => None,
+                };
+                if let Some((mode, merge_small_segments)) = scheduled {
+                    operation_description = format!("{mode:?} merge={merge_small_segments}");
+                    index
+                        .compact_with_options(CompactionOptions {
+                            mode,
+                            merge_small_segments,
+                        })
+                        .unwrap();
+                    match (mode, merge_small_segments) {
+                        (CompactionMode::Bounded, false) => bounded_plain_seen = true,
+                        (CompactionMode::Bounded, true) => bounded_merge_seen = true,
+                        (CompactionMode::Full, false) => full_plain_seen = true,
+                        (CompactionMode::Full, true) => full_merge_seen = true,
+                    }
+                    assert_sequence_oracle(
+                        &index,
+                        &root,
+                        &definitions,
+                        &options,
+                        &model,
+                        seed,
+                        operation,
+                        &operation_description,
+                    );
+                    continue;
                 }
+                random = random
+                    .wrapping_mul(6_364_136_223_846_793_005)
+                    .wrapping_add(1_442_695_040_888_963_407);
+                let action = random % 100;
+                if files.is_empty() || (action < 45 && files.len() < 24) {
+                    let year = (random % 40) as i64;
+                    let path = root.join(format!(
+                        "data/file-{seed}-{build_workers}-{file_serial}.jsonl"
+                    ));
+                    operation_description = format!("add {}", path.display());
+                    file_serial += 1;
+                    let count = (random as usize % 13).min(12);
+                    let mut records = Vec::with_capacity(count);
+                    let mut body = String::new();
+                    for _ in 0..count {
+                        let id = format!("s{seed}_{serial}");
+                        serial += 1;
+                        let nullable = if random.is_multiple_of(3) {
+                            ",\"maybe\":null".to_owned()
+                        } else {
+                            String::new()
+                        };
+                        body.push_str(&format!(
+                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} add token\",\"tags\":[\"a\",\"b\"]{nullable}}}\n"
+                    ));
+                        records.push((id, year));
+                    }
+                    std::fs::write(&path, body).unwrap();
+                    let handle = index.add_file(&path).unwrap().file;
+                    model.insert(path.clone(), records);
+                    files.push((path, handle));
+                    add_seen = true;
+                } else if action < 75 {
+                    let position = (random as usize) % files.len();
+                    operation_description = format!("replace {}", files[position].0.display());
+                    let year = (random % 40) as i64;
+                    let count = (random as usize % 13).min(12);
+                    let mut records = Vec::with_capacity(count);
+                    let mut body = String::new();
+                    for _ in 0..count {
+                        let id = format!("s{seed}_{serial}");
+                        serial += 1;
+                        body.push_str(&format!(
+                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} replace token\"}}\n"
+                    ));
+                        records.push((id, year));
+                    }
+                    std::fs::write(&files[position].0, body).unwrap();
+                    let handle = index
+                        .update_file(files[position].1, &files[position].0)
+                        .unwrap()
+                        .file;
+                    model.insert(files[position].0.clone(), records);
+                    files[position].1 = handle;
+                    replace_seen = true;
+                } else if action < 94 {
+                    let position = (random as usize) % files.len();
+                    let (path, handle) = files.remove(position);
+                    operation_description = format!("delete {}", path.display());
+                    std::fs::remove_file(&path).unwrap();
+                    index.delete_file(handle).unwrap();
+                    model.remove(&path);
+                    delete_seen = true;
+                } else {
+                    index
+                        .compact_with_options(CompactionOptions {
+                            mode: CompactionMode::Full,
+                            merge_small_segments: true,
+                        })
+                        .unwrap();
+                    full_merge_seen = true;
+                }
+
                 assert_sequence_oracle(
                     &index,
                     &root,
@@ -1692,84 +1754,13 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
                     operation,
                     &operation_description,
                 );
-                continue;
             }
-            random = random
-                .wrapping_mul(6_364_136_223_846_793_005)
-                .wrapping_add(1_442_695_040_888_963_407);
-            let action = random % 100;
-            if files.is_empty() || (action < 45 && files.len() < 24) {
-                let year = (random % 40) as i64;
-                let path = root.join(format!(
-                    "data/file-{seed}-{build_workers}-{file_serial}.jsonl"
-                ));
-                operation_description = format!("add {}", path.display());
-                file_serial += 1;
-                let count = (random as usize % 13).min(12);
-                let mut records = Vec::with_capacity(count);
-                let mut body = String::new();
-                for _ in 0..count {
-                    let id = format!("s{seed}_{serial}");
-                    serial += 1;
-                    let nullable = if random.is_multiple_of(3) {
-                        ",\"maybe\":null".to_owned()
-                    } else {
-                        String::new()
-                    };
-                    body.push_str(&format!(
-                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} add token\",\"tags\":[\"a\",\"b\"]{nullable}}}\n"
-                    ));
-                    records.push((id, year));
-                }
-                std::fs::write(&path, body).unwrap();
-                let handle = index.add_file(&path).unwrap().file;
-                model.insert(path.clone(), records);
-                files.push((path, handle));
-                add_seen = true;
-            } else if action < 75 {
-                let position = (random as usize) % files.len();
-                operation_description = format!(
-                    "replace {}",
-                    files[position].0.display()
-                );
-                let year = (random % 40) as i64;
-                let count = (random as usize % 13).min(12);
-                let mut records = Vec::with_capacity(count);
-                let mut body = String::new();
-                for _ in 0..count {
-                    let id = format!("s{seed}_{serial}");
-                    serial += 1;
-                    body.push_str(&format!(
-                        "{{\"id\":\"{id}\",\"year\":{year},\"title\":\"seed {seed} replace token\"}}\n"
-                    ));
-                    records.push((id, year));
-                }
-                std::fs::write(&files[position].0, body).unwrap();
-                let handle = index
-                    .update_file(files[position].1, &files[position].0)
-                    .unwrap()
-                    .file;
-                model.insert(files[position].0.clone(), records);
-                files[position].1 = handle;
-                replace_seen = true;
-            } else if action < 94 {
-                let position = (random as usize) % files.len();
-                let (path, handle) = files.remove(position);
-                operation_description = format!("delete {}", path.display());
-                std::fs::remove_file(&path).unwrap();
-                index.delete_file(handle).unwrap();
-                model.remove(&path);
-                delete_seen = true;
-            } else {
-                index
-                    .compact_with_options(CompactionOptions {
-                        mode: CompactionMode::Full,
-                        merge_small_segments: true,
-                    })
-                    .unwrap();
-                full_merge_seen = true;
-            }
-
+            index
+                .compact_with_options(CompactionOptions {
+                    mode: CompactionMode::Full,
+                    merge_small_segments: true,
+                })
+                .unwrap();
             assert_sequence_oracle(
                 &index,
                 &root,
@@ -1777,33 +1768,303 @@ fn rkyv_deterministic_mutation_sequences_match_fresh_rebuilds_and_models() {
                 &options,
                 &model,
                 seed,
-                operation,
-                &operation_description,
+                100,
+                "final full compaction",
             );
-        }
-        index
-            .compact_with_options(CompactionOptions {
-                mode: CompactionMode::Full,
-                merge_small_segments: true,
-            })
-            .unwrap();
-        assert_sequence_oracle(
-            &index,
-            &root,
-            &definitions,
-            &options,
-            &model,
-            seed,
-            100,
-            "final full compaction",
-        );
-        index.shutdown().unwrap();
-        std::fs::remove_dir_all(root).unwrap();
+            index.shutdown().unwrap();
+            std::fs::remove_dir_all(root).unwrap();
         }
     }
     assert!(add_seen && replace_seen && delete_seen);
     assert!(bounded_plain_seen && bounded_merge_seen);
     assert!(full_plain_seen && full_merge_seen);
+}
+
+#[test]
+fn explicit_archive_is_blocking_atomic_and_supports_mixed_lifecycle() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-archive-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"alpha"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let native_view = index.view().unwrap();
+    assert!(native_view.search_ready());
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Native
+    );
+    let native_ids = ids(&native_view, &query(None, None, 10, 0));
+    let pinned_weak =
+        Arc::downgrade(&native_view.segments(crate::model::CollectionId(0)).unwrap()[0].index);
+    let segment_id = native_view.segments(crate::model::CollectionId(0)).unwrap()[0].id;
+    let native_segment = &native_view.segments(crate::model::CollectionId(0)).unwrap()[0].index;
+    let bitmap_owner = native_segment.postings.fields[&vec!["year".into()]].value_bitmap_owner_id();
+    let text_owner = Arc::as_ptr(&native_segment.raw) as usize;
+    let base_text_owner = Arc::as_ptr(&native_view.repository().collections()[0].raw) as usize;
+    let base_sort_owner = Arc::as_ptr(&native_view.repository().collections()[0].sorting) as usize;
+    let base_bitmap_owner = native_view.repository().collections()[0].postings.fields
+        [&vec!["year".into()]]
+        .value_bitmap_owner_id();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let report = index
+        .archive_with_options(crate::lifecycle::ArchiveOptions::new(8).unwrap())
+        .unwrap();
+    assert_eq!(
+        report.representation_after,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert!(report.converted_components > 0);
+    assert!(report.newly_serialized_bytes > 0);
+    assert!(report.peak_active_conversion_jobs <= 8);
+    let archive_work = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(archive_work.temporary_ordinal_trees, 0);
+    assert!(archive_work.checked_archive_validations > 0);
+    drop(native_view);
+    assert!(
+        pinned_weak.upgrade().is_none(),
+        "old native segment remained reachable after archive"
+    );
+    let archived_view = index.view().unwrap();
+    let archived_segment = archived_view
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|segment| segment.id == segment_id)
+        .unwrap()
+        .index
+        .clone();
+    assert_eq!(
+        archived_segment.postings.fields[&vec!["year".into()]].value_bitmap_owner_id(),
+        bitmap_owner,
+        "archive conversion must retain the canonical bitmap payload allocation"
+    );
+    assert_eq!(
+        Arc::as_ptr(&archived_segment.raw) as usize,
+        text_owner,
+        "archive conversion must retain native text payload owners"
+    );
+    assert_eq!(
+        Arc::as_ptr(&archived_view.repository().collections()[0].raw) as usize,
+        base_text_owner,
+        "base text payload owners must survive archive conversion"
+    );
+    assert_eq!(
+        Arc::as_ptr(&archived_view.repository().collections()[0].sorting) as usize,
+        base_sort_owner,
+        "base sorting payload owners must survive archive conversion"
+    );
+    assert_eq!(
+        archived_view.repository().collections()[0].postings.fields[&vec!["year".into()]]
+            .value_bitmap_owner_id(),
+        base_bitmap_owner,
+        "base posting bitmap owners must survive archive conversion"
+    );
+    assert_eq!(ids(&archived_view, &query(None, None, 10, 0)), native_ids);
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    let generation = index.archive_status().unwrap().representation_generation;
+    let noop = index.archive().unwrap();
+    assert_eq!(noop.converted_components, 0);
+    assert_eq!(noop.representation_generation_after, generation);
+    assert_eq!(noop.newly_serialized_bytes, 0);
+    drop(archived_view);
+
+    let added = root.join("data/b.json");
+    std::fs::write(&added, br#"{"id":"b","year":20,"title":"beta"}"#).unwrap();
+    let added = index.add_file(&added).unwrap();
+    assert_eq!(
+        added.kind,
+        crate::lifecycle_mutation::FileMutationKind::Added
+    );
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Mixed
+    );
+    let mixed_view = index.view().unwrap();
+    assert_eq!(ids(&mixed_view, &query(Some("beta"), None, 10, 0)).0, ["b"]);
+    drop(mixed_view);
+    let second = index.archive().unwrap();
+    assert_eq!(
+        second.representation_after,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert!(second.converted_components > 0);
+    let archived_view = index.view().unwrap();
+    assert_eq!(ids(&archived_view, &query(None, None, 10, 0)).0, ["a", "b"]);
+    drop(archived_view);
+
+    index.delete_file(added.file).unwrap();
+    assert_eq!(
+        ids(&index.view().unwrap(), &query(None, None, 10, 0)).0,
+        ["a"]
+    );
+    index.archive().unwrap();
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    index
+        .compact_with_options(CompactionOptions {
+            mode: CompactionMode::Full,
+            merge_small_segments: true,
+        })
+        .unwrap();
+    assert_eq!(
+        ids(&index.view().unwrap(), &query(None, None, 10, 0)).0,
+        ["a"]
+    );
+    index.archive().unwrap();
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn native_startup_and_empty_archive_have_explicit_boundaries() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-empty-native-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let startup = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(startup.checked_archive_validations, 0);
+    assert_eq!(startup.archive_bytes_generated, 0);
+    let view = index.view().unwrap();
+    assert!(view.search_ready());
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Native
+    );
+    drop(view);
+    let report = index.archive().unwrap();
+    assert!(report.converted_components > 0);
+    assert!(report.newly_serialized_bytes > 0);
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    assert!(index.status().unwrap().search_ready);
+    index.shutdown().unwrap();
+    assert_eq!(
+        index.archive().unwrap_err(),
+        crate::lifecycle::IndexError::Cancelled
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn concurrent_archive_calls_serialize_without_duplicate_conversion() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-concurrent-archive-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"alpha"}"#,
+    )
+    .unwrap();
+    let index =
+        Arc::new(Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap());
+    let left = Arc::clone(&index);
+    let right = Arc::clone(&index);
+    let left = std::thread::spawn(move || {
+        left.archive_with_options(crate::lifecycle::ArchiveOptions::new(2).unwrap())
+    });
+    let right = std::thread::spawn(move || {
+        right.archive_with_options(crate::lifecycle::ArchiveOptions::new(2).unwrap())
+    });
+    let left = left.join().unwrap().unwrap();
+    let right = right.join().unwrap().unwrap();
+    assert!(left.converted_components + right.converted_components > 0);
+    assert_eq!(left.converted_components.min(right.converted_components), 0);
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn queries_and_quiesce_coordinate_with_a_paused_archive() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-paused-archive-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"alpha"}"#,
+    )
+    .unwrap();
+    let index =
+        Arc::new(Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap());
+    let (gate_tx, gate_rx) = std::sync::mpsc::channel();
+    let archive_index = Arc::clone(&index);
+    let archive = std::thread::spawn(move || {
+        let gate = crate::lifecycle::install_test_archive_gate();
+        gate_tx.send(Arc::clone(&gate)).unwrap();
+        let result = archive_index.archive();
+        crate::lifecycle::clear_test_archive_gate();
+        result
+    });
+    let gate = gate_rx.recv().unwrap();
+    gate.wait_for_arrival();
+    let pinned = index.view().unwrap();
+    assert_eq!(
+        ids(&pinned, &query(None, None, 10, 0)).0,
+        ["a"],
+        "queries must not wait for archive conversion"
+    );
+    drop(pinned);
+    let generation = index.archive_status().unwrap().representation_generation;
+    let quiesce_index = Arc::clone(&index);
+    let quiesce = std::thread::spawn(move || quiesce_index.quiesce());
+    gate.release();
+    assert_eq!(
+        archive.join().unwrap(),
+        Err(crate::lifecycle::IndexError::Cancelled)
+    );
+    quiesce.join().unwrap().unwrap();
+    assert_eq!(
+        index.archive_status().unwrap().representation_generation,
+        generation
+    );
+    assert_eq!(
+        index.archive_status().unwrap().representation,
+        crate::lifecycle::ArchiveRepresentation::Native
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -1878,9 +2139,7 @@ fn assert_sequence_oracle(
                                     let slot = segment.index.id_lookup.get(id)?;
                                     Some((
                                         number,
-                                        crate::native_segment::SegmentId::new(
-                                            segment.id.get(),
-                                        ),
+                                        crate::native_segment::SegmentId::new(segment.id.get()),
                                         slot,
                                         segment.active.contains(slot),
                                         segment.index.logical_records.contains(slot.0),
@@ -1914,7 +2173,10 @@ fn assert_sequence_oracle(
         assert_eq!((actual, count), ids(&fresh_view, &ge));
         for offset in 0..expected_ids.len().min(4) {
             let page = sequence_query(collection, None, offset, 1);
-            assert_eq!(ids(&view, &page), (vec![expected_ids[offset].clone()], Some(expected_ids.len())));
+            assert_eq!(
+                ids(&view, &page),
+                (vec![expected_ids[offset].clone()], Some(expected_ids.len()))
+            );
             assert_eq!(ids(&view, &page), ids(&fresh_view, &page));
         }
         for segment in view
@@ -1927,7 +2189,10 @@ fn assert_sequence_oracle(
             .iter()
         {
             for slot in 0..segment.index.record_count() {
-                if segment.active.contains(crate::model::RecordSlot(slot as u32)) {
+                if segment
+                    .active
+                    .contains(crate::model::RecordSlot(slot as u32))
+                {
                     assert!(
                         segment
                             .index
@@ -1945,12 +2210,7 @@ fn assert_sequence_oracle(
     fresh.shutdown().unwrap();
 }
 
-fn sequence_query(
-    collection: &str,
-    filter: Option<&str>,
-    offset: usize,
-    limit: usize,
-) -> Query {
+fn sequence_query(collection: &str, filter: Option<&str>, offset: usize, limit: usize) -> Query {
     Query {
         collections: vec![collection.into()],
         fts: None,
@@ -1999,14 +2259,12 @@ fn rkyv_build_query_and_compaction_do_not_write_files() {
         files
     };
     let before = snapshot();
-    let index = Index::build(
-        &root,
-        vec![prototype_definition()],
-        prototype_options(),
-    )
-    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
     let request = query(Some("audit"), None, 10, 0);
-    assert_eq!(index.view().unwrap().search(&request).unwrap().count, Some(2));
+    assert_eq!(
+        index.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
     index
         .compact_with_options(CompactionOptions {
             mode: CompactionMode::Full,
@@ -2040,9 +2298,7 @@ fn rkyv_source_free_compaction_removes_tombstones_without_source_opens() {
     for (number, path) in paths.iter().enumerate() {
         std::fs::write(
             path,
-            format!(
-                "{{\"id\":\"{number}\",\"year\":{number},\"title\":\"source-free\"}}"
-            ),
+            format!("{{\"id\":\"{number}\",\"year\":{number},\"title\":\"source-free\"}}"),
         )
         .unwrap();
     }
@@ -2068,9 +2324,7 @@ fn rkyv_source_free_compaction_removes_tombstones_without_source_opens() {
         .unwrap();
     assert_eq!(full.remaining_retired_slots, 0);
     let view = index.view().unwrap();
-    let result = view
-        .search(&query(None, Some("year >= 0"), 10, 0))
-        .unwrap();
+    let result = view.search(&query(None, Some("year >= 0"), 10, 0)).unwrap();
     assert_eq!(result.count, Some(2));
     assert_eq!(result.counters.files_opened, 0);
     assert_eq!(result.counters.record_parses, 0);

@@ -177,7 +177,7 @@ fn compact_source_parts_with_limits(
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
-        let (files, records) = crate::segment_archive::SegmentRows::freeze(
+        let (files, records) = crate::segment_archive::SegmentRows::native(
             refreshed_files,
             compacted.records.to_vec(),
         )

@@ -143,6 +143,7 @@ pub(crate) struct GlobalInferenceSummary {
     pub(crate) diagnostics: Vec<InferencePathDiagnostic>,
 }
 
+#[derive(Clone)]
 pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub(crate) source: PreparedSource,
@@ -151,19 +152,51 @@ pub struct CollectionState {
     pub inference: Option<InferenceState>,
     pub(crate) global_inference: Option<GlobalInferenceSummary>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: BigramIndex,
-    pub fallback_text: BigramIndex,
+    pub raw: Arc<BigramIndex>,
+    pub fallback_text: Arc<BigramIndex>,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
-    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub custom_text: Arc<HashMap<(Vec<String>, String), BigramIndex>>,
     pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
-    pub sorting: SortCollection,
+    pub sorting: Arc<SortCollection>,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
+}
+
+impl CollectionState {
+    pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
+        self.postings.archive_storage()?;
+        for custom in self.custom_postings.values_mut() {
+            custom.index.archive_storage()?;
+        }
+        if let Some(inference) = &mut self.inference {
+            for index in inference.indexes.values_mut() {
+                index.archive_storage()?;
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut counts = self.postings.storage_representation_counts();
+        for custom in self.custom_postings.values() {
+            let (native, archived) = custom.index.storage_representation_counts();
+            counts.0 += native;
+            counts.1 += archived;
+        }
+        if let Some(inference) = &self.inference {
+            for index in inference.indexes.values() {
+                let (native, archived) = index.storage_representation_counts();
+                counts.0 += native;
+                counts.1 += archived;
+            }
+        }
+        counts
+    }
 }
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
@@ -322,15 +355,77 @@ pub struct Repository {
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) catalog: FileCatalog,
     pub(crate) revision: IndexRevision,
+    pub(crate) representation_generation: u64,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
     pub(crate) build_failed_parses: u64,
     pub(crate) instance_id: u64,
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
-    pub(crate) workers: rayon::ThreadPool,
+    pub(crate) workers: Arc<rayon::ThreadPool>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+}
+
+impl Repository {
+    pub(crate) fn archive_candidate(&self) -> Result<Self, String> {
+        Ok(Self {
+            files: Arc::clone(&self.files),
+            base_fingerprints: self.base_fingerprints.clone(),
+            collections: self.collections.clone(),
+            active: self.active.clone(),
+            segments: self.segments.clone(),
+            catalog: self.catalog.clone(),
+            revision: self.revision,
+            representation_generation: self.representation_generation,
+            sources: self.sources.clone(),
+            build_parses: self.build_parses,
+            build_failed_parses: self.build_failed_parses,
+            instance_id: self.instance_id,
+            options: self.options,
+            startup: self.startup.clone(),
+            workers: Arc::clone(&self.workers),
+            verified: Mutex::new({
+                let guard = self
+                    .verified
+                    .lock()
+                    .map_err(|_| "verified cache lock poisoned")?;
+                (*guard).clone()
+            }),
+            inferred_orders: Mutex::new(
+                self.inferred_orders
+                    .lock()
+                    .map_err(|_| "inferred order cache lock poisoned")?
+                    .clone(),
+            ),
+        })
+    }
+
+    pub(crate) fn storage_representation_counts(&self) -> (usize, usize) {
+        let mut counts = self
+            .collections
+            .iter()
+            .map(CollectionState::storage_representation_counts)
+            .fold((0, 0), |(native, archived), (add_native, add_archived)| {
+                (native + add_native, archived + add_archived)
+            });
+        let catalog = self.catalog.storage_representation_counts();
+        counts.0 += catalog.0;
+        counts.1 += catalog.1;
+        for segment in self.segments.iter().flat_map(|group| group.iter()) {
+            let segment = segment.index.storage_representation_counts();
+            counts.0 += segment.0;
+            counts.1 += segment.1;
+        }
+        counts
+    }
+
+    pub(crate) fn archive_collection_storage(&mut self) -> Result<(), String> {
+        for collection in &mut self.collections {
+            collection.archive_storage()?;
+        }
+        Ok(())
+    }
 }
 
 fn hash_field(hash: &mut Sha256, value: &[u8]) {
@@ -444,8 +539,8 @@ pub struct BuildProfileStats {
     pub finalize_validation_ns: u64,
     pub finalize_sort_ns: u64,
     pub finalize_inference_ns: u64,
-    pub postings_archive_freeze_ns: u64,
-    pub segment_rows_archive_freeze_ns: u64,
+    pub postings_native_publication_ns: u64,
+    pub segment_rows_native_publication_ns: u64,
     pub finalize_identity_ns: u64,
     pub relations_ns: u64,
     pub final_checks_ns: u64,
@@ -471,8 +566,8 @@ pub struct IncrementalSegmentProfile {
     pub callback_ns: u64,
     pub aggregate_merge_ns: u64,
     pub postings_finish_validation_ns: u64,
-    pub postings_archive_freeze_ns: u64,
-    pub segment_rows_archive_freeze_ns: u64,
+    pub postings_native_publication_ns: u64,
+    pub segment_rows_native_publication_ns: u64,
     pub bigram_finish_ns: u64,
     pub bigram_validation_ns: u64,
     pub sorting_finish_ns: u64,
@@ -758,7 +853,9 @@ impl Repository {
             let mut record_posting = |owner: usize, length: usize, capacity: usize| {
                 usage.record_archive(&mut seen, owner, length, capacity);
             };
-            collection.postings.for_each_archive_owner(&mut record_posting);
+            collection
+                .postings
+                .for_each_archive_owner(&mut record_posting);
             for custom in collection.custom_postings.values() {
                 custom.index.for_each_archive_owner(&mut record_posting);
             }
@@ -767,16 +864,14 @@ impl Repository {
                     index.for_each_archive_owner(&mut record_posting);
                 }
             }
-            usage.posting_bitmap_payload_bytes = usage
-                .posting_bitmap_payload_bytes
-                .saturating_add(
-                    collection
-                        .postings
-                        .fields
-                        .values()
-                        .map(crate::posting::PostingIndex::native_bitmap_payload_bytes)
-                        .sum::<usize>() as u64,
-                );
+            usage.posting_bitmap_payload_bytes = usage.posting_bitmap_payload_bytes.saturating_add(
+                collection
+                    .postings
+                    .fields
+                    .values()
+                    .map(crate::posting::PostingIndex::native_bitmap_payload_bytes)
+                    .sum::<usize>() as u64,
+            );
             for custom in collection.custom_postings.values() {
                 usage.posting_bitmap_payload_bytes = usage
                     .posting_bitmap_payload_bytes
@@ -792,9 +887,7 @@ impl Repository {
             usage.bigram_payload_bytes = usage
                 .bigram_payload_bytes
                 .saturating_add(crate::native_segment::gram_bytes(&collection.raw) as u64)
-                .saturating_add(
-                    crate::native_segment::gram_bytes(&collection.fallback_text) as u64,
-                )
+                .saturating_add(crate::native_segment::gram_bytes(&collection.fallback_text) as u64)
                 .saturating_add(
                     collection
                         .custom_text
@@ -804,27 +897,25 @@ impl Repository {
                 );
             usage.sorting_payload_bytes = usage
                 .sorting_payload_bytes
-                .saturating_add(
-                    crate::native_segment::sort_bytes(&collection.sorting) as u64,
-                );
-            usage.relation_payload_bytes = usage
-                .relation_payload_bytes
-                .saturating_add(
-                    collection
-                        .relations
-                        .iter()
-                        .map(crate::relation::RelationIndex::estimated_heap_bytes)
-                        .sum::<usize>() as u64,
-                );
+                .saturating_add(crate::native_segment::sort_bytes(&collection.sorting) as u64);
+            usage.relation_payload_bytes = usage.relation_payload_bytes.saturating_add(
+                collection
+                    .relations
+                    .iter()
+                    .map(crate::relation::RelationIndex::estimated_heap_bytes)
+                    .sum::<usize>() as u64,
+            );
             usage.active_and_control_metadata_bytes = usage
                 .active_and_control_metadata_bytes
                 .saturating_add(
                     (collection.generation.records.capacity()
-                        * std::mem::size_of::<crate::inventory::RecordEntry>()) as u64,
+                        * std::mem::size_of::<crate::inventory::RecordEntry>())
+                        as u64,
                 )
                 .saturating_add(
                     (collection.identity_order.capacity()
-                        * std::mem::size_of::<crate::model::RecordSlot>()) as u64,
+                        * std::mem::size_of::<crate::model::RecordSlot>())
+                        as u64,
                 );
         }
         for group in &self.segments {
@@ -1824,26 +1915,28 @@ impl Repository {
     ) -> Result<Self, String> {
         let configuration_identity =
             crate::configuration::configuration_hash(&definitions, options, sources)?;
-        let build_workers =
-            crate::build::resolve_build_workers(options.build_workers, std::thread::available_parallelism().ok())?;
+        let build_workers = crate::build::resolve_build_workers(
+            options.build_workers,
+            std::thread::available_parallelism().ok(),
+        )?;
         let files = Arc::new(FileInventory::new(root.clone()));
         let collection_count = definitions.len();
         let verified_cache_bytes = options.verified_cache_bytes;
         let mut collections = Vec::with_capacity(definitions.len());
         let mut pending_relations = Vec::with_capacity(definitions.len());
         for (number, definition) in definitions.into_iter().enumerate() {
-            if collections.iter().any(|state: &CollectionState| {
-                state.definition.name == definition.name
-            }) {
+            if collections
+                .iter()
+                .any(|state: &CollectionState| state.definition.name == definition.name)
+            {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
-            let id =
-                CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
+            let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
             let source = sources.resolve(&definition.format)?;
             let generation =
                 CollectionBuilder::new(id, definition.name.clone(), 1, 0).finish(&files)?;
             let mut postings = PostingCollection::new(&definition.schema);
-            postings.freeze_storage()?;
+            postings.seal_native_storage()?;
             postings.validate_completed(0, 0, None)?;
             let mut custom_postings: HashMap<_, _> = definition
                 .schema
@@ -1862,30 +1955,24 @@ impl Repository {
                 .collect();
             for custom in custom_postings.values_mut() {
                 custom.index.finish_stats();
-                custom.index.freeze_storage()?;
+                custom.index.seal_native_storage()?;
                 custom.index.validate_completed(0, 0, None)?;
             }
-            let inference = InferenceBuilder::for_collection(
-                options.inference,
-                collection_count,
-            )
-            .map(|builder| {
-                builder.finish(&RoaringBitmap::new(), 0, &definition.schema)
-            })
-            .transpose()?
-            .map(|mut state| {
-                for index in state.indexes.values_mut() {
-                    index.finish_stats();
-                    index.freeze_storage()?;
-                    index.validate_completed(0, 0, None)?;
-                }
-                Ok::<_, String>(state)
-            })
-            .transpose()?;
-            let raw = BigramContribution::new(options.bigram_alphabet)
-                .into_index_serial()?;
-            let fallback_text = BigramContribution::new(options.bigram_alphabet)
-                .into_index_serial()?;
+            let inference = InferenceBuilder::for_collection(options.inference, collection_count)
+                .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
+                .transpose()?
+                .map(|mut state| {
+                    for index in state.indexes.values_mut() {
+                        index.finish_stats();
+                        index.seal_native_storage()?;
+                        index.validate_completed(0, 0, None)?;
+                    }
+                    Ok::<_, String>(state)
+                })
+                .transpose()?;
+            let raw = BigramContribution::new(options.bigram_alphabet).into_index_serial()?;
+            let fallback_text =
+                BigramContribution::new(options.bigram_alphabet).into_index_serial()?;
             let custom_text = definition
                 .schema
                 .custom
@@ -1896,8 +1983,7 @@ impl Repository {
                         .operations
                         .iter()
                         .filter(|(_, binding)| {
-                            binding.operation.bigram()
-                                && binding.operation.complete_coverage()
+                            binding.operation.bigram() && binding.operation.complete_coverage()
                         })
                         .map(|(key, _)| key),
                 )
@@ -1906,11 +1992,7 @@ impl Repository {
                         .into_index_serial()
                         .map(|index| {
                             (
-                                canonical_custom_text_key(
-                                    &definition.schema,
-                                    &key.0,
-                                    &key.1,
-                                ),
+                                canonical_custom_text_key(&definition.schema, &key.0, &key.1),
                                 index,
                             )
                         })
@@ -1925,9 +2007,7 @@ impl Repository {
             )?
             .finish(&generation)?;
             let relations = RelationContribution::for_schema(&definition.schema);
-            let text_bindings = crate::index_catalog::TextBindingCatalog::new(
-                &definition.schema,
-            );
+            let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
             pending_relations.push(relations);
             collections.push(CollectionState {
                 definition,
@@ -1937,13 +2017,13 @@ impl Repository {
                 inference,
                 global_inference: None,
                 custom_postings,
-                raw,
-                fallback_text,
+                raw: Arc::new(raw),
+                fallback_text: Arc::new(fallback_text),
                 logical_records: RoaringBitmap::new(),
                 empty_array_records: RoaringBitmap::new(),
-                custom_text,
+                custom_text: Arc::new(custom_text),
                 text_bindings,
-                sorting,
+                sorting: Arc::new(sorting),
                 index_family_bytes: 0,
                 id_lookup: HashMap::new(),
                 identity_order: Vec::new(),
@@ -1979,11 +2059,8 @@ impl Repository {
                 &state.sorting,
             );
         }
-        let catalog = FileCatalog::from_parts(
-            Arc::clone(&files),
-            Vec::new(),
-            configuration_identity,
-        );
+        let catalog =
+            FileCatalog::from_parts(Arc::clone(&files), Vec::new(), configuration_identity);
         let active = (0..collections.len())
             .map(|_| ActiveRecords::all(0))
             .collect::<Result<Vec<_>, _>>()?;
@@ -1991,12 +2068,8 @@ impl Repository {
         crate::storage_usage::StorageWorkCounters::update(|counters| {
             counters.empty_shell_finalizations =
                 counters.empty_shell_finalizations.saturating_add(1);
-            counters.build_pool_creations = counters
-                .build_pool_creations
-                .saturating_add(0);
-            counters.build_pool_destructions = counters
-                .build_pool_destructions
-                .saturating_add(0);
+            counters.build_pool_creations = counters.build_pool_creations.saturating_add(0);
+            counters.build_pool_destructions = counters.build_pool_destructions.saturating_add(0);
         });
         Ok(Self {
             files,
@@ -2006,6 +2079,7 @@ impl Repository {
             segments: vec![Arc::new(Vec::new()); collection_count],
             catalog,
             revision: IndexRevision::INITIAL,
+            representation_generation: 0,
             sources: sources.clone(),
             build_parses: 0,
             build_failed_parses: 0,
@@ -2015,10 +2089,8 @@ impl Repository {
                 build_workers,
                 ..StartupStats::default()
             },
-            workers,
-            verified: Mutex::new(crate::verified::VerifiedCache::new(
-                verified_cache_bytes,
-            )),
+            workers: Arc::new(workers),
+            verified: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
@@ -2227,14 +2299,13 @@ impl Repository {
         }
         let mut scheduled = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::build::file_batches(
-                &state.member_files,
-                &files,
-                512,
-            ) {
+            for batch in crate::build::file_batches(&state.member_files, &files, 512) {
                 if batch.len() == 1
                     && (files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
-                        || matches!(state.definition.format, crate::source::SourceFormat::JsonLines))
+                        || matches!(
+                            state.definition.format,
+                            crate::source::SourceFormat::JsonLines
+                        ))
                 {
                     scheduled.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -2566,13 +2637,13 @@ impl Repository {
                 inference,
                 global_inference: None,
                 custom_postings,
-                raw,
-                fallback_text,
+                raw: Arc::new(raw),
+                fallback_text: Arc::new(fallback_text),
                 logical_records,
                 empty_array_records,
-                custom_text,
+                custom_text: Arc::new(custom_text),
                 text_bindings,
-                sorting,
+                sorting: Arc::new(sorting),
                 index_family_bytes,
                 id_lookup,
                 identity_order,
@@ -2606,15 +2677,15 @@ impl Repository {
             collection.relations = indexes;
         }
         crate::relation::validate_indexes(&collections)?;
-        let archive_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let native_publication_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         for collection in &mut collections {
-            collection.postings.freeze_storage()?;
+            collection.postings.seal_native_storage()?;
             for custom in collection.custom_postings.values_mut() {
-                custom.index.freeze_storage()?;
+                custom.index.seal_native_storage()?;
             }
             if let Some(inference) = &mut collection.inference {
                 for index in inference.indexes.values_mut() {
-                    index.freeze_storage()?;
+                    index.seal_native_storage()?;
                 }
             }
             collection.postings.validate_eligible(
@@ -2622,15 +2693,15 @@ impl Repository {
                 collection.logical_records.len() as usize,
             )?;
         }
-        if let (Some(started), Some(profile)) = (archive_started, profile.as_mut()) {
-            profile.postings_archive_freeze_ns += started.elapsed().as_nanos() as u64;
+        if let (Some(started), Some(profile)) = (native_publication_started, profile.as_mut()) {
+            profile.postings_native_publication_ns += started.elapsed().as_nanos() as u64;
         }
         if let (Some(started), Some(profile)) = (relations_started, profile.as_mut()) {
             profile.relations_ns = started.elapsed().as_nanos() as u64;
         }
         let checks_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         for state in &mut collections {
-            state.sorting.refresh_file_status(&state.generation, &files);
+            Arc::make_mut(&mut state.sorting).refresh_file_status(&state.generation, &files);
         }
         files.validate_diagnostics()?;
         if let (Some(started), Some(profile)) = (checks_started, profile.as_mut()) {
@@ -2666,6 +2737,7 @@ impl Repository {
             segments,
             catalog,
             revision: IndexRevision::INITIAL,
+            representation_generation: 0,
             sources: sources.clone(),
             build_parses,
             build_failed_parses,
@@ -2693,7 +2765,7 @@ impl Repository {
                 build_profile: profile,
                 ..StartupStats::default()
             },
-            workers,
+            workers: Arc::new(workers),
             verified: Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
             )),

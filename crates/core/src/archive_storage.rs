@@ -8,8 +8,8 @@ use std::fmt;
 use std::marker::PhantomData;
 use std::sync::Arc;
 
-use rkyv::bytecheck::CheckBytes;
 use rkyv::api::high::HighSerializer;
+use rkyv::bytecheck::CheckBytes;
 use rkyv::rancor::Error;
 use rkyv::ser::allocator::ArenaHandle;
 use rkyv::util::AlignedVec;
@@ -25,6 +25,34 @@ const SHRINK_OVERALLOCATED_ARCHIVES: bool = false;
 #[cfg(test)]
 thread_local! {
     static FAIL_NEXT_FREEZE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+}
+
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct ArchiveConstructionTiming {
+    pub serializer_ns: u64,
+    pub validation_ns: u64,
+}
+
+thread_local! {
+    static CONSTRUCTION_TIMING: std::cell::Cell<ArchiveConstructionTiming> =
+        const { std::cell::Cell::new(ArchiveConstructionTiming {
+            serializer_ns: 0,
+            validation_ns: 0,
+        }) };
+}
+
+pub(crate) fn take_construction_timing() -> ArchiveConstructionTiming {
+    CONSTRUCTION_TIMING.with(std::cell::Cell::take)
+}
+
+fn add_construction_timing(serializer_ns: u64, validation_ns: u64) {
+    CONSTRUCTION_TIMING.with(|timing| {
+        let current = timing.get();
+        timing.set(ArchiveConstructionTiming {
+            serializer_ns: current.serializer_ns.saturating_add(serializer_ns),
+            validation_ns: current.validation_ns.saturating_add(validation_ns),
+        });
+    });
 }
 
 #[cfg(test)]
@@ -96,6 +124,7 @@ where
         if FAIL_NEXT_FREEZE.with(|fail| fail.replace(false)) {
             return Err("injected archive-finalization failure".into());
         }
+        let serializer_started = std::time::Instant::now();
         let mut bytes = rkyv::to_bytes::<Error>(value)
             .map_err(|error| format!("archive serialization failed: {error}"))?;
         if SHRINK_OVERALLOCATED_ARCHIVES
@@ -104,8 +133,12 @@ where
         {
             bytes.shrink_to_fit();
         }
+        let serializer_ns = serializer_started.elapsed().as_nanos() as u64;
+        let validation_started = std::time::Instant::now();
         let _validated = access::<Archived<T>, Error>(&bytes)
             .map_err(|error| format!("archive validation failed: {error}"))?;
+        let validation_ns = validation_started.elapsed().as_nanos() as u64;
+        add_construction_timing(serializer_ns, validation_ns);
         StorageWorkCounters::update(|counters| {
             counters.checked_archive_validations =
                 counters.checked_archive_validations.saturating_add(1);
@@ -183,8 +216,11 @@ mod tests {
 
     #[test]
     fn checked_test_constructor_rejects_truncated_archive() {
-        let owner =
-            ValidatedArchive::freeze(&Fixture { label: "short".into(), values: vec![7] }).unwrap();
+        let owner = ValidatedArchive::freeze(&Fixture {
+            label: "short".into(),
+            values: vec![7],
+        })
+        .unwrap();
         let mut bytes = owner.bytes.to_vec();
         bytes.truncate(bytes.len() / 2);
         assert!(ValidatedArchive::<Fixture>::checked_from_bytes(bytes).is_err());

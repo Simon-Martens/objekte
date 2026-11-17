@@ -11,7 +11,6 @@ use objekte_search_core::query::{
 use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode};
 
-
 #[derive(Clone, Copy)]
 struct Case {
     label: &'static str,
@@ -21,7 +20,6 @@ struct Case {
     filter: Option<&'static str>,
     mode: CaseSensitivity,
 }
-
 
 fn cases() -> Vec<Case> {
     let mut cases = Vec::new();
@@ -157,8 +155,8 @@ fn store_counts(repo: &Repository) -> (usize, usize) {
     repo.collections()
         .iter()
         .fold((0, 0), |(stores, grams), collection| {
-            let indexes = std::iter::once(&collection.raw)
-                .chain(std::iter::once(&collection.fallback_text))
+            let indexes = std::iter::once(collection.raw.as_ref())
+                .chain(std::iter::once(collection.fallback_text.as_ref()))
                 .chain(collection.custom_text.values());
             indexes.fold((stores, grams), |(stores, grams), index| {
                 (stores + 1, grams + index.normal.len() + index.skip.len())

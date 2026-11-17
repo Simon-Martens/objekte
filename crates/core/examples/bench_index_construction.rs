@@ -13,9 +13,7 @@ use std::time::{Instant, SystemTime};
 use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
 use objekte_search_core::workload::ReturnMode;
@@ -256,8 +254,8 @@ fn run() -> Result<(), String> {
         repo.collections()
             .iter()
             .fold((0usize, 0usize), |total, collection| {
-                std::iter::once(&collection.raw)
-                    .chain(std::iter::once(&collection.fallback_text))
+                std::iter::once(collection.raw.as_ref())
+                    .chain(std::iter::once(collection.fallback_text.as_ref()))
                     .chain(collection.custom_text.values())
                     .fold(total, |(stores, keys), index| {
                         (stores + 1, keys + index.normal.len() + index.skip.len())

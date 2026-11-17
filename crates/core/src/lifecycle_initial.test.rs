@@ -1,5 +1,6 @@
 use super::*;
 use std::sync::mpsc;
+use std::time::Instant;
 
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::model::{FileId, LogicalType};
@@ -146,6 +147,64 @@ fn large_file_finalizes_private_segments_before_eof() {
     let view = index.view().unwrap();
     let result = view.search(&all_query()).unwrap();
     assert_eq!(result.count, Some(records));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn explicit_archive_rejects_incomplete_build_without_waiting_for_workers() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-archive-incomplete-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let records = write_large_jsonl(&root, "archive incomplete");
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+    let thread_gate = std::sync::Arc::clone(&gate);
+    let worker_root = root.clone();
+    let worker = std::thread::spawn(move || {
+        Repository::build_incremental_with_sources_gated(
+            worker_root,
+            vec![definition],
+            RepositoryOptions {
+                build_workers: std::num::NonZeroUsize::new(1),
+                segment_policy: crate::native_segment::SegmentPolicy {
+                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                },
+                ..Default::default()
+            },
+            SourceRegistry::builtin(),
+            |index| {
+                catalogue_tx.send(index.clone()).unwrap();
+                Ok(())
+            },
+            |_| Ok(()),
+            || false,
+            thread_gate,
+        )
+    });
+    let catalogue = catalogue_rx.recv().unwrap();
+    gate.wait_for_workers(1);
+    let started = Instant::now();
+    assert_eq!(
+        catalogue.archive(),
+        Err(crate::lifecycle::IndexError::IncompleteBuild)
+    );
+    assert!(started.elapsed() < std::time::Duration::from_secs(1));
+    assert!(!catalogue.status().unwrap().search_ready);
+    gate.release();
+    let index = worker.join().unwrap().unwrap();
+    assert!(index.status().unwrap().search_ready);
+    assert_eq!(
+        index.view().unwrap().search(&all_query()).unwrap().count,
+        Some(records)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -487,12 +487,10 @@ fn index_byte_estimate(index: &PostingIndex) -> usize {
     let mut total = 0usize;
     let _ = index.values.for_each(|key, slots| {
         total = total.saturating_add(
-            128
-                + match key {
-                    ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
-                    _ => 0,
-                }
-                + slots.serialized_size(),
+            128 + match key {
+                ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
+                _ => 0,
+            } + slots.serialized_size(),
         );
         Ok(())
     });
@@ -1264,8 +1262,7 @@ impl InferenceBuilder {
 
     pub(crate) fn promote_first_batch(mut self, collections: usize) -> Self {
         self.batch = false;
-        self.coordinator_limit =
-            self.config.policy.max_total_bytes / collections.max(1);
+        self.coordinator_limit = self.config.policy.max_total_bytes / collections.max(1);
         self
     }
 
@@ -1799,14 +1796,14 @@ impl InferenceBuilder {
                     ),
                 ] {
                     if !slots.is_empty() {
-                        facts.postings.insert(key, slots);
+                        facts.postings.insert(key, slots)?;
                     }
                 }
                 if index.multi && !field.selected_null.is_empty() {
                     facts.postings.insert(
                         StructuralKey::AnyNull,
                         std::mem::take(&mut field.selected_null),
-                    );
+                    )?;
                 }
                 index.finish_stats();
                 index.validate_eligible(record_count, logical.len() as usize)?;
@@ -1815,12 +1812,11 @@ impl InferenceBuilder {
                 index
                     .values
                     .for_each(|key, slots| {
-                        index_bytes += 128
-                            + match key {
+                        index_bytes +=
+                            128 + match key {
                                 ScalarKey::String(text) | ScalarKey::Id(text) => text.len(),
                                 _ => 0,
-                            }
-                            + slots.serialized_size();
+                            } + slots.serialized_size();
                         Ok(())
                     })
                     .expect("posting builder iteration");

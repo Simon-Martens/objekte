@@ -35,7 +35,6 @@ fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, Verifi
     })
 }
 
-
 /// The change actually published by a file mutation. `Unchanged` keeps both
 /// the file version and index revision intact.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -45,7 +44,6 @@ pub enum FileMutationKind {
     Moved,
     Unchanged,
 }
-
 
 /// Physical index maintenance selected for this operation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -61,7 +59,6 @@ pub enum FileMutationStrategy {
     VerifiedPhysicalRemoval,
     Unchanged,
 }
-
 
 /// Why a requested verified operation safely used the normal tombstone and
 /// append strategy. A wrong old-content hint is never a mutation error.
@@ -79,7 +76,6 @@ pub enum VerifiedFallbackReason {
     CompactionUnavailable,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum UpdateStrategy {
     #[default]
@@ -87,20 +83,17 @@ pub enum UpdateStrategy {
     PreferVerified,
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub struct UpdateOptions<'a> {
     pub old_content: Option<&'a [u8]>,
     pub strategy: UpdateStrategy,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VerifiedDeleteResult {
     pub deletion: DeleteResult,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 /// One atomic file mutation, across every selected collection. The result's
 /// handle is the version callers should pass to the next update or deletion.
@@ -116,7 +109,6 @@ pub struct FileMutationResult {
     pub strategy: FileMutationStrategy,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 fn collection_names(
     view: &IndexView,
@@ -360,7 +352,6 @@ fn prepare_replacement_bytes(
     })
 }
 
-
 impl Index {
     /// Index one source file already created by the application. An active
     /// destination is a collision; no source bytes are written by this call.
@@ -368,6 +359,7 @@ impl Index {
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
             let prepared = self.prepare_add_file(path)?;
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 conflict = Some(IndexError::RevisionConflict {
@@ -478,6 +470,7 @@ impl Index {
         }
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let actual = view
                 .file_version_including_inactive(handle.file_id)
@@ -625,6 +618,7 @@ impl Index {
         let mut conflict = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
             let prepared = prepare(self)?;
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 conflict = Some(IndexError::RevisionConflict {
@@ -684,9 +678,7 @@ impl Index {
             let expected = prepared.expected_revision;
             let next = match match options.strategy {
                 UpdateStrategy::AppendReplacement => self.stage_prepared_replace(prepared),
-                UpdateStrategy::PreferVerified => {
-                    self.stage_prepared_replace_append_only(prepared)
-                }
+                UpdateStrategy::PreferVerified => self.stage_prepared_replace_append_only(prepared),
             } {
                 Ok(next) => next,
                 Err(error @ IndexError::RevisionConflict { .. }) => {
@@ -785,6 +777,7 @@ impl Index {
             if handle.instance_id != self.instance_id() {
                 return Err(IndexError::ForeignInstance);
             }
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let actual = view
                 .file_version_including_inactive(handle.file_id)
@@ -840,7 +833,6 @@ impl Index {
         Err(conflict.expect("publication retry always captures a conflict"))
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_mutation.test.rs"]

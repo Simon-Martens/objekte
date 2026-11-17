@@ -106,12 +106,7 @@ fn budget_allows(
         && started.elapsed() < budget.elapsed
 }
 
-fn charge_work(
-    work: &mut CompactionWork,
-    records: u64,
-    input_bytes: u64,
-    temporary_bytes: u64,
-) {
+fn charge_work(work: &mut CompactionWork, records: u64, input_bytes: u64, temporary_bytes: u64) {
     work.records = work.records.saturating_add(records);
     work.input_bytes = work.input_bytes.saturating_add(input_bytes);
     work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
@@ -121,7 +116,11 @@ fn removed_ownership_routes(
     index: &IndexedCollectionSegment,
     segment: crate::native_segment::SegmentId,
     versions: &crate::inventory::FileVersions,
-) -> Vec<(crate::model::FileId, crate::inventory::FileVersion, OwnershipRoute)> {
+) -> Vec<(
+    crate::model::FileId,
+    crate::inventory::FileVersion,
+    OwnershipRoute,
+)> {
     (0..index.file_count())
         .filter_map(|ordinal| {
             let file = index.files.file_id(ordinal)?;
@@ -159,7 +158,11 @@ fn added_ownership_routes(
 
 fn commit_compaction_ownership(
     root: &mut PublishedIndex,
-    removed: &[(crate::model::FileId, crate::inventory::FileVersion, OwnershipRoute)],
+    removed: &[(
+        crate::model::FileId,
+        crate::inventory::FileVersion,
+        OwnershipRoute,
+    )],
     added: &[(crate::model::FileId, OwnershipRoute)],
 ) -> Result<(), IndexError> {
     root.catalog
@@ -199,13 +202,15 @@ pub(crate) fn base_as_segment(
             .map_err(IndexError::InvalidPublication)
         })
         .collect::<Result<Vec<_>, _>>()?;
-    let (segment_files, records) =
-        crate::segment_archive::SegmentRows::freeze(segment_files, collection.generation.records.clone())
-            .map_err(IndexError::InvalidPublication)?
-            .views();
-    let file_index =
-        crate::segment_archive::FileLookup::freeze(file_index).map_err(IndexError::InvalidPublication)?;
-    let id_lookup = crate::segment_archive::RecordLookup::freeze(collection.id_lookup.clone())
+    let (segment_files, records) = crate::segment_archive::SegmentRows::native(
+        segment_files,
+        collection.generation.records.clone(),
+    )
+    .map_err(IndexError::InvalidPublication)?
+    .views();
+    let file_index = crate::segment_archive::FileLookup::native(file_index)
+        .map_err(IndexError::InvalidPublication)?;
+    let id_lookup = crate::segment_archive::RecordLookup::native(collection.id_lookup.clone())
         .map_err(IndexError::InvalidPublication)?;
     let mut segment = IndexedCollectionSegment {
         id: crate::native_segment::SegmentId::new(1),
@@ -221,12 +226,12 @@ pub(crate) fn base_as_segment(
         inference_observation: None,
         inference: collection.inference.clone(),
         custom_postings: collection.custom_postings.clone(),
-        raw: Arc::new(collection.raw.clone()),
-        fallback_text: Arc::new(collection.fallback_text.clone()),
-        custom_text: Arc::new(collection.custom_text.clone()),
+        raw: Arc::clone(&collection.raw),
+        fallback_text: Arc::clone(&collection.fallback_text),
+        custom_text: Arc::clone(&collection.custom_text),
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
-        sorting: Arc::new(collection.sorting.clone()),
+        sorting: Arc::clone(&collection.sorting),
         relations,
         record_parses: 0,
         failed_parses: 0,
@@ -291,7 +296,10 @@ fn clean_merge_compatible(
         .filter_map(|slot| left.records.record_id(*slot))
         .collect::<std::collections::HashSet<_>>();
     for slot in 0..right.record_count() {
-        let Some(id) = right.records.record_id(crate::model::RecordSlot(slot as u32)) else {
+        let Some(id) = right
+            .records
+            .record_id(crate::model::RecordSlot(slot as u32))
+        else {
             return false;
         };
         if left_ids.contains(id) {
@@ -309,7 +317,12 @@ fn merge_small_segments(
     cancelled: impl Fn() -> bool,
 ) -> Result<usize, IndexError> {
     let mut merged_count = 0usize;
-    let target = root.repository.options().segment_policy.target_records.get();
+    let target = root
+        .repository
+        .options()
+        .segment_policy
+        .target_records
+        .get();
     let max_files = root.repository.options().segment_policy.max_files.get();
     for number in 0..root.segments.len() {
         loop {
@@ -374,14 +387,7 @@ fn merge_small_segments(
             let temporary_bytes = input_bytes
                 .saturating_mul(3)
                 .saturating_add(records.saturating_mul(512));
-            if !budget_allows(
-                work,
-                budget,
-                records,
-                input_bytes,
-                temporary_bytes,
-                started,
-            ) {
+            if !budget_allows(work, budget, records, input_bytes, temporary_bytes, started) {
                 break;
             }
             charge_work(work, records, input_bytes, temporary_bytes);
@@ -408,11 +414,8 @@ fn merge_small_segments(
                 PublishedSegment::checked(index.id, Arc::new(index), active)
                     .map_err(IndexError::InvalidPublication)?,
             );
-            let mut removed = removed_ownership_routes(
-                &group[left].index,
-                group[left].id,
-                &root.file_versions,
-            );
+            let mut removed =
+                removed_ownership_routes(&group[left].index, group[left].id, &root.file_versions);
             removed.extend(removed_ownership_routes(
                 &group[right].index,
                 group[right].id,
@@ -529,9 +532,7 @@ fn compact_published_with_budget(
                     next.repository.options().segment_policy,
                     &cancelled,
                 )?;
-                work.segments_produced = work
-                    .segments_produced
-                    .saturating_add(parts.len());
+                work.segments_produced = work.segments_produced.saturating_add(parts.len());
                 for part in parts {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
@@ -555,11 +556,7 @@ fn compact_published_with_budget(
             }
             next.segments[number] = Arc::new(compacted);
         }
-        commit_compaction_ownership(
-            &mut next,
-            &ownership_removed,
-            &ownership_added,
-        )?;
+        commit_compaction_ownership(&mut next, &ownership_removed, &ownership_added)?;
         next.rebuild_all_segment_positions();
         return Ok((next, work));
     }
@@ -640,8 +637,7 @@ fn compact_published_with_budget(
                     segment.id,
                     &next.file_versions,
                 ));
-                let replacements =
-                    compact_source(&segment.index, &segment.active)?;
+                let replacements = compact_source(&segment.index, &segment.active)?;
                 ownership_added.extend(
                     replacements
                         .iter()
@@ -703,6 +699,7 @@ impl Index {
                 return Err(IndexError::Cancelled);
             }
             progress(MaintenancePhase::Preparing, attempt);
+            let _transition = self.transition_read()?;
             let view = self.view()?;
             let before = slot_count(&view.0);
             let segments_before = segment_count(&view.0);
@@ -715,7 +712,8 @@ impl Index {
                     .flat_map(|group| group.iter())
                     .map(|segment| segment.active.len())
                     .sum::<u64>();
-            if before == live && !(options.mode == CompactionMode::Full && options.merge_small_segments)
+            if before == live
+                && !(options.mode == CompactionMode::Full && options.merge_small_segments)
             {
                 return Ok(CompactionReport {
                     revision: view.revision(),
@@ -750,12 +748,8 @@ impl Index {
                     elapsed: Duration::MAX,
                 },
             };
-            let (mut next, mut work) = compact_published_with_budget(
-                old,
-                view.revision().next()?,
-                &cancelled,
-                budget,
-            )?;
+            let (mut next, mut work) =
+                compact_published_with_budget(old, view.revision().next()?, &cancelled, budget)?;
             let segments_merged = if options.merge_small_segments {
                 merge_small_segments(&mut next, &mut work, budget, started, &cancelled)?
             } else {
