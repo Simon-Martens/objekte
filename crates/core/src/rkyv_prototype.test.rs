@@ -1510,6 +1510,92 @@ fn borrowed_metadata_predicates_match_native_and_archive_without_row_copies() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+fn assert_metadata_null_query(view: &IndexView, filter: &str, expected: &[&str]) {
+    let request = query(None, Some(filter), 20, 0);
+    for label in ["reference", "optimized"] {
+        let result = if label == "reference" {
+            view.search_reference(&request).unwrap()
+        } else {
+            view.search(&request).unwrap()
+        };
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter} ({label})"
+        );
+        assert_eq!(result.count, Some(expected.len()), "{filter} ({label})");
+    }
+}
+
+#[test]
+fn metadata_null_literals_match_across_reference_native_and_archive() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-metadata-null-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, year) in [("a", 10), ("b", 20), ("c", 30)] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"id":"{name}","year":{year},"title":"{name}"}}"#),
+        )
+        .unwrap();
+    }
+    let repository =
+        Repository::open_with_options(&root, vec![prototype_definition()], prototype_options())
+            .unwrap();
+    let index = Index::from_repository(repository).unwrap();
+    let expected_all = ["a", "b", "c"];
+    let native = index.view().unwrap();
+    for view in [&native] {
+        for filter in [
+            "@record.id != null",
+            "@file.path != null",
+            "@collection.name != null",
+            "@repository.root != null",
+            "@record.id:lower != null",
+        ] {
+            assert_metadata_null_query(view, filter, &expected_all);
+        }
+        for filter in [
+            "@record.id = null",
+            "@file.path = null",
+            "@collection.name = null",
+            "@repository.root = null",
+        ] {
+            assert_metadata_null_query(view, filter, &[]);
+        }
+        assert_metadata_null_query(view, "@collection.name = @record.id", &[]);
+        for filter in ["@record.id > null", "@file.path ~ null"] {
+            assert!(view.search(&query(None, Some(filter), 20, 0)).is_err());
+        }
+    }
+    drop(native);
+    index.archive().unwrap();
+    let archived = index.view().unwrap();
+    for filter in [
+        "@record.id != null",
+        "@file.path != null",
+        "@collection.name != null",
+        "@repository.root != null",
+        "@record.id:lower != null",
+    ] {
+        assert_metadata_null_query(&archived, filter, &expected_all);
+    }
+    assert_metadata_null_query(&archived, "@collection.name = @record.id", &[]);
+    drop(archived);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn rkyv_compatibility_row_caches_initialize_once_and_are_shared_by_clones() {
     let root = std::env::temp_dir().join(format!(
@@ -2562,6 +2648,72 @@ fn operation_scoped_worker_failure_leaves_repository_and_retry_unchanged() {
         crate::lifecycle::ArchiveRepresentation::Archived
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn converted_segment_lookup_mismatches_fail_before_publication_and_retry() {
+    use crate::native_segment::SegmentConversionMismatch;
+
+    for (mismatch, expected_error) in [
+        (
+            SegmentConversionMismatch::FileLookup,
+            "segment file lookup coverage mismatch",
+        ),
+        (
+            SegmentConversionMismatch::IdLookup,
+            "segment record lookup coverage mismatch",
+        ),
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-segment-semantic-{mismatch:?}-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/a.json"),
+            br#"{"id":"a","year":10,"title":"semantic validation"}"#,
+        )
+        .unwrap();
+        let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+        let pinned = index.view().unwrap();
+        let before_status = index.archive_status().unwrap();
+        let before_revision = pinned.revision();
+        let before_ids = ids(&pinned, &query(Some("semantic validation"), None, 10, 0));
+
+        crate::lifecycle::install_test_archive_segment_mismatch(mismatch);
+        let error = index.archive().unwrap_err().to_string();
+        crate::lifecycle::clear_test_archive_segment_mismatch();
+        assert!(error.contains(expected_error), "{mismatch:?}: {error}");
+
+        assert_eq!(index.archive_status().unwrap(), before_status);
+        assert_eq!(index.view().unwrap().revision(), before_revision);
+        assert_eq!(
+            ids(&pinned, &query(Some("semantic validation"), None, 10, 0)),
+            before_ids
+        );
+        assert_eq!(
+            ids(
+                &index.view().unwrap(),
+                &query(Some("semantic validation"), None, 10, 0)
+            ),
+            before_ids
+        );
+        index.archive().unwrap();
+        assert_eq!(
+            ids(
+                &index.view().unwrap(),
+                &query(Some("semantic validation"), None, 10, 0)
+            ),
+            before_ids
+        );
+        drop(pinned);
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
 }
 
 #[test]

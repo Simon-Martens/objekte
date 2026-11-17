@@ -3,6 +3,8 @@
 
 use std::num::NonZeroUsize;
 use std::sync::Arc;
+#[cfg(test)]
+use std::sync::atomic::AtomicU8;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::Instant;
 
@@ -15,6 +17,8 @@ use crate::archive_storage::{ArchiveTestFaultControl, with_test_fault_control};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::{CatalogShardJob, CatalogShardResult, FileCatalog};
 use crate::native_segment::IndexedCollectionSegment;
+#[cfg(test)]
+use crate::native_segment::SegmentConversionMismatch;
 use crate::repository::{CollectionState, Repository};
 use crate::storage_usage::StorageWorkCounters;
 
@@ -153,6 +157,8 @@ thread_local! {
         const { std::cell::RefCell::new(None) };
     static TEST_ARCHIVE_JOB_GATE: std::cell::RefCell<Option<Arc<ArchiveJobTestGate>>> =
         const { std::cell::RefCell::new(None) };
+    static TEST_ARCHIVE_SEGMENT_MISMATCH: std::cell::RefCell<Option<Arc<AtomicU8>>> =
+        const { std::cell::RefCell::new(None) };
 }
 
 #[cfg(test)]
@@ -181,6 +187,30 @@ pub(crate) fn clear_test_archive_job_gate() {
     TEST_ARCHIVE_JOB_GATE.with(|slot| {
         slot.borrow_mut().take();
     });
+}
+
+#[cfg(test)]
+pub(crate) fn install_test_archive_segment_mismatch(
+    mismatch: SegmentConversionMismatch,
+) -> Arc<AtomicU8> {
+    let control = Arc::new(AtomicU8::new(match mismatch {
+        SegmentConversionMismatch::FileLookup => 1,
+        SegmentConversionMismatch::IdLookup => 2,
+    }));
+    TEST_ARCHIVE_SEGMENT_MISMATCH.with(|slot| *slot.borrow_mut() = Some(Arc::clone(&control)));
+    control
+}
+
+#[cfg(test)]
+pub(crate) fn clear_test_archive_segment_mismatch() {
+    TEST_ARCHIVE_SEGMENT_MISMATCH.with(|slot| {
+        slot.borrow_mut().take();
+    });
+}
+
+#[cfg(test)]
+fn test_archive_segment_mismatch() -> Option<Arc<AtomicU8>> {
+    TEST_ARCHIVE_SEGMENT_MISMATCH.with(|slot| slot.borrow().clone())
 }
 
 #[cfg(test)]
@@ -373,6 +403,7 @@ fn execute_preparation_job(
     peak_jobs: &AtomicUsize,
     #[cfg(test)] fault_control: Option<Arc<ArchiveTestFaultControl>>,
     #[cfg(test)] job_gate: Option<Arc<ArchiveJobTestGate>>,
+    #[cfg(test)] segment_mismatch: Option<Arc<AtomicU8>>,
 ) -> Result<
     (
         PreparationResult,
@@ -400,7 +431,21 @@ fn execute_preparation_job(
             }
             PreparationJob::Catalog(job) => PreparationResult::Catalog(job.convert()?),
             PreparationJob::Segment(owner, index) => {
-                let index = index.archived_candidate().map_err(|error| {
+                #[cfg(test)]
+                let mismatch = segment_mismatch.as_ref().map(|mismatch| {
+                    match mismatch.load(Ordering::Acquire) {
+                        1 => SegmentConversionMismatch::FileLookup,
+                        2 => SegmentConversionMismatch::IdLookup,
+                        _ => {
+                            panic!("invalid test segment mismatch control")
+                        }
+                    }
+                });
+                #[cfg(test)]
+                let candidate = index.archived_candidate_with_mismatch(mismatch);
+                #[cfg(not(test))]
+                let candidate = index.archived_candidate();
+                let index = candidate.map_err(|error| {
                     format!(
                         "segment {} in collection {}: {error}",
                         index.id, index.collection.0
@@ -464,6 +509,8 @@ fn prepare_archive_jobs(
     let fault_control = test_archive_fault_control();
     #[cfg(test)]
     let job_gate = TEST_ARCHIVE_JOB_GATE.with(|slot| slot.borrow().clone());
+    #[cfg(test)]
+    let segment_mismatch = test_archive_segment_mismatch();
     let execute = |job: &PreparationJob<'_>| {
         execute_preparation_job(
             job,
@@ -473,6 +520,8 @@ fn prepare_archive_jobs(
             fault_control.clone(),
             #[cfg(test)]
             job_gate.clone(),
+            #[cfg(test)]
+            segment_mismatch.clone(),
         )
     };
     let results = if jobs.len() <= 1 || options.worker_limit() == 1 {

@@ -263,6 +263,13 @@ pub(crate) struct IndexedCollectionSegment {
     pub(crate) storage_completed: bool,
 }
 
+#[cfg(test)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum SegmentConversionMismatch {
+    FileLookup,
+    IdLookup,
+}
+
 /// One published payload and its independently versioned local liveness.
 #[derive(Clone)]
 pub(crate) struct PublishedSegment {
@@ -497,12 +504,44 @@ impl IndexedCollectionSegment {
                 .is_none_or(|inference| inference.indexes.values().all(PostingIndex::is_archived))
     }
 
+    #[cfg_attr(test, allow(dead_code))]
     pub(crate) fn archived_candidate(&self) -> Result<Self, String> {
+        #[cfg(test)]
+        {
+            return self.archived_candidate_with_mismatch(None);
+        }
+        #[cfg(not(test))]
+        {
+            self.archived_candidate_with_mismatch()
+        }
+    }
+
+    pub(crate) fn archived_candidate_with_mismatch(
+        &self,
+        #[cfg(test)] mismatch: Option<SegmentConversionMismatch>,
+    ) -> Result<Self, String> {
         if !self.storage_completed || !self.has_published_storage() {
             return Err("segment storage is not semantically completed".into());
         }
         let (files, records) = self.files.archive_rows()?;
+        #[cfg(test)]
+        let file_index = match mismatch {
+            Some(SegmentConversionMismatch::FileLookup) => {
+                FileLookup::native(HashMap::<FileId, usize>::new())?.archive()?
+            }
+            _ => self.file_index.archive()?,
+        };
+        #[cfg(not(test))]
         let file_index = self.file_index.archive()?;
+        #[cfg(test)]
+        let id_lookup = match mismatch {
+            Some(SegmentConversionMismatch::IdLookup) => {
+                RecordLookup::native(HashMap::<crate::model::RecordId, RecordSlot>::new())?
+                    .archive()?
+            }
+            _ => self.id_lookup.archive()?,
+        };
+        #[cfg(not(test))]
         let id_lookup = self.id_lookup.archive()?;
         let postings = self.postings.archived()?;
         let custom_postings = self
@@ -523,6 +562,13 @@ impl IndexedCollectionSegment {
             .as_ref()
             .map(InferenceState::archived)
             .transpose()?;
+        crate::segment_archive::validate_segment_components(
+            &files,
+            &records,
+            &file_index,
+            &id_lookup,
+            self.collection,
+        )?;
         Ok(Self {
             id: self.id,
             collection: self.collection,
