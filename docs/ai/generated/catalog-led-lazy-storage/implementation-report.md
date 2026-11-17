@@ -8,7 +8,7 @@ Integration branch: `integration/catalog-led-lazy-storage`
 
 Implementation revision covered by this report:
 
-`3f7140779f`
+`38cb8e808f`
 
 Merged base: `15f45465ed0b7455577fce5431de50dfeea1ee16`
 
@@ -75,7 +75,7 @@ worker, mutation, cache-budget and memory matrices required by the specification
 ## Remaining acceptance work
 
 The prototype is not ready to be represented as full specification completion.
-`test-matrix.tsv` currently records 38 passing, 17 partial and 25 pending rows.
+`test-matrix.tsv` currently records 45 passing, 15 partial and 20 pending rows.
 The principal remaining gaps are:
 
 - replace the JSON snapshot body with independently archived eager catalog/map
