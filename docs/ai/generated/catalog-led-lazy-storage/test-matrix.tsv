@@ -42,7 +42,7 @@ S40	pending	none	Native group eviction/reclamation is not allocator-verified.
 S41	pass	storage_roundtrip::old_view_can_lazy_load_after_current_root_replacement_and_index_drop	An old view retains its lease and lazy-loads after root replacement and Index drop.
 S42	pending	none	Posting component-domain cache-key isolation is pending.
 S43	pass	storage_roundtrip::pack_handle_cache_stays_bounded_while_selected_columns_load	Seventy selected column frames leave at most 64 cached descriptors; active reads retain Arc handles across eviction.
-S44	pending	none	Mutation/save concurrency needs deterministic barrier coverage.
+S44	pass	storage_roundtrip::queries_continue_during_a_real_mutated_save	Four barrier-started readers complete against the pinned root while a real mutated save publishes a new generation.
 S45	pending	none	Completion callbacks re-entering save are tested outside the storage matrix only.
 S46	pending	none	Warm native disk-bypass counters need a storage test.
 S47	pass	storage_roundtrip::add_and_delete_after_reopen_publish_a_new_storage_generation	Add after reopen publishes and persists the new records.

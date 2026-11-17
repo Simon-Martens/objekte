@@ -1375,6 +1375,61 @@ fn reopened_store_rejects_schema_and_indexing_changes() {
 }
 
 #[test]
+fn queries_continue_during_a_real_mutated_save() {
+    let root = fixture_root("query-save-overlap");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = std::sync::Arc::new(
+        Index::open_storage(
+            &root,
+            definitions(),
+            RepositoryOptions::default(),
+            root.join("storage"),
+            StorageOpenOptions::default(),
+        )
+        .unwrap(),
+    );
+    std::fs::write(
+        root.join("data/c.json"),
+        br#"{"id":"c","title":"Gamma token"}"#,
+    )
+    .unwrap();
+    reopened.add_file(&root.join("data/c.json")).unwrap();
+    let barrier = std::sync::Arc::new(std::sync::Barrier::new(5));
+    let writer = {
+        let index = std::sync::Arc::clone(&reopened);
+        let barrier = std::sync::Arc::clone(&barrier);
+        let storage = root.join("storage");
+        std::thread::spawn(move || {
+            barrier.wait();
+            index
+                .archive_to(storage, StorageWriteOptions::default())
+                .unwrap()
+        })
+    };
+    let mut readers = Vec::new();
+    for _ in 0..4 {
+        let index = std::sync::Arc::clone(&reopened);
+        let barrier = std::sync::Arc::clone(&barrier);
+        readers.push(std::thread::spawn(move || {
+            barrier.wait();
+            index.view().unwrap().search(&all_records()).unwrap().count
+        }));
+    }
+    let report = writer.join().unwrap();
+    assert!(!report.unchanged);
+    for reader in readers {
+        assert_eq!(reader.join().unwrap(), Some(3));
+    }
+    reopened.shutdown().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn concurrent_first_use_shares_one_stored_posting_load() {
     let root = fixture_root("concurrent-load");
     let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
@@ -2474,5 +2529,55 @@ fn multi_segment_file_replacement_retires_every_old_record_after_reopen() {
         Some(2)
     );
     reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn queries_continue_while_an_explicit_save_is_running() {
+    let root = fixture_root("save-concurrency");
+    for number in 0..200 {
+        std::fs::write(
+            root.join(format!("data/extra-{number}.json")),
+            format!(r#"{{"id":"extra-{number}","title":"Concurrent token {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let index = std::sync::Arc::new(
+        Index::build(&root, definitions(), RepositoryOptions::default()).unwrap(),
+    );
+    let barrier = std::sync::Arc::new(std::sync::Barrier::new(3));
+    let done = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
+    let saver = {
+        let index = std::sync::Arc::clone(&index);
+        let barrier = std::sync::Arc::clone(&barrier);
+        let done = std::sync::Arc::clone(&done);
+        let storage = root.join("storage");
+        std::thread::spawn(move || {
+            barrier.wait();
+            let result = index.archive_to(storage, StorageWriteOptions::default());
+            done.store(true, std::sync::atomic::Ordering::Release);
+            result
+        })
+    };
+    let querier = {
+        let index = std::sync::Arc::clone(&index);
+        let barrier = std::sync::Arc::clone(&barrier);
+        let done = std::sync::Arc::clone(&done);
+        std::thread::spawn(move || {
+            barrier.wait();
+            let mut queries = 0usize;
+            while !done.load(std::sync::atomic::Ordering::Acquire) {
+                assert_eq!(
+                    index.view().unwrap().search(&all_records()).unwrap().count,
+                    Some(202)
+                );
+                queries += 1;
+            }
+            queries
+        })
+    };
+    barrier.wait();
+    assert!(saver.join().unwrap().is_ok());
+    assert!(querier.join().unwrap() > 0);
     std::fs::remove_dir_all(root).unwrap();
 }
