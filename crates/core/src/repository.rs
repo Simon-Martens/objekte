@@ -366,6 +366,7 @@ pub struct Repository {
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
     pub(crate) storage: Option<Arc<crate::storage::StorageSession>>,
+    pub(crate) storage_binding: crate::storage::SharedStorageBinding,
 }
 
 impl Repository {
@@ -400,6 +401,7 @@ impl Repository {
                     .clone(),
             ),
             storage: self.storage.clone(),
+            storage_binding: Arc::clone(&self.storage_binding),
         })
     }
 
@@ -2119,6 +2121,7 @@ impl Repository {
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
             storage: None,
+            storage_binding: Arc::new(Mutex::new(None)),
         })
     }
 
@@ -2799,6 +2802,7 @@ impl Repository {
                 crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
             storage: None,
+            storage_binding: Arc::new(Mutex::new(None)),
         })
     }
 

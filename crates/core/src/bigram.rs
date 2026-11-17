@@ -272,6 +272,8 @@ pub struct BigramIndex {
     pub(crate) storage: Option<Arc<dyn BigramIndexLoader>>,
     #[serde(skip)]
     pub(crate) loaded: Arc<OnceLock<Box<BigramIndex>>>,
+    #[serde(skip)]
+    pub(crate) load_lock: Arc<std::sync::Mutex<()>>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -353,6 +355,7 @@ impl BigramIndex {
             payload: None,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         })
     }
 
@@ -382,23 +385,31 @@ impl BigramIndex {
             payload: None,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         }
     }
 
     pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
-        if self.storage.is_none() || self.loaded.get().is_some() {
+        if self.storage.is_none() {
             return Ok(());
         }
-        let mut loaded = self
-            .storage
-            .as_ref()
-            .expect("stored bigram index")
-            .load_bigram_index()?;
-        loaded.payload = None;
-        loaded.storage = None;
-        loaded.loaded = Arc::new(OnceLock::new());
-        if self.loaded.set(Box::new(loaded)).is_err() {
-            return Err("stored bigram index was concurrently initialized".into());
+        let _guard = self
+            .load_lock
+            .lock()
+            .map_err(|_| "bigram index load lock poisoned".to_string())?;
+        if self.loaded.get().is_none() {
+            let mut loaded = self
+                .storage
+                .as_ref()
+                .expect("stored bigram index")
+                .load_bigram_index()?;
+            loaded.payload = None;
+            loaded.storage = None;
+            loaded.loaded = Arc::new(OnceLock::new());
+            loaded.load_lock = Arc::new(std::sync::Mutex::new(()));
+            self.loaded
+                .set(Box::new(loaded))
+                .map_err(|_| "bigram index was initialized concurrently".to_string())?;
         }
         Ok(())
     }
@@ -964,6 +975,7 @@ impl BigramContribution {
             payload: None,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         })
     }
 
@@ -984,6 +996,7 @@ impl BigramContribution {
             payload: None,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         })
     }
 }

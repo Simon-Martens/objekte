@@ -1778,6 +1778,7 @@ impl InferenceBuilder {
                     has_structural: true,
                     storage: None,
                     loaded: Arc::new(std::sync::OnceLock::new()),
+                    load_lock: Arc::new(std::sync::Mutex::new(())),
                 };
                 let facts = index.structural.as_mut().unwrap();
                 for (key, slots) in [

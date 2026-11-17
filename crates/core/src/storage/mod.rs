@@ -3,6 +3,7 @@
 use std::num::{NonZeroU64, NonZeroUsize};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use std::sync::Mutex;
 
 use serde::{Deserialize, Serialize};
 
@@ -293,9 +294,26 @@ pub(crate) struct StorageSession {
     _readers_lock: std::fs::File,
     store_identity: [u8; 16],
     lineage_identity: [u8; 16],
+    manifest_digest: [u8; 32],
+    manifest_length: u64,
     index_reads: std::sync::atomic::AtomicU64,
     index_bytes: std::sync::atomic::AtomicU64,
 }
+
+#[derive(Clone, Debug)]
+pub(crate) struct StorageBinding {
+    pub directory: PathBuf,
+    pub generation: u64,
+    pub manifest_digest: [u8; 32],
+    pub manifest_length: u64,
+    pub store_identity: [u8; 16],
+    pub lineage_identity: [u8; 16],
+    pub revision: IndexRevision,
+    pub representation_generation: u64,
+    pub configuration_identity: [u8; 32],
+}
+
+pub(crate) type SharedStorageBinding = Arc<Mutex<Option<StorageBinding>>>;
 
 impl StorageSession {
     pub(crate) fn directory(&self) -> &Path {
@@ -312,6 +330,10 @@ impl StorageSession {
 
     pub(crate) fn identities(&self) -> ([u8; 16], [u8; 16]) {
         (self.store_identity, self.lineage_identity)
+    }
+
+    pub(crate) fn manifest_token(&self) -> ([u8; 32], u64) {
+        (self.manifest_digest, self.manifest_length)
     }
 }
 

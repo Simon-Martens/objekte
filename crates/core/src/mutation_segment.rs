@@ -1424,6 +1424,7 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         has_structural: source.has_structural,
         storage: None,
         loaded: Arc::new(std::sync::OnceLock::new()),
+        load_lock: Arc::new(std::sync::Mutex::new(())),
     }
 }
 
@@ -1709,6 +1710,7 @@ fn project_posting(
         has_structural: index.has_structural,
         storage: None,
         loaded: Arc::new(std::sync::OnceLock::new()),
+        load_lock: Arc::new(std::sync::Mutex::new(())),
     };
     index.for_each_value(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
@@ -1822,6 +1824,7 @@ fn project_sorting(
         payload: None,
         storage: None,
         loaded: Arc::new(std::sync::OnceLock::new()),
+        load_lock: Arc::new(std::sync::Mutex::new(())),
     };
     for (path, original) in &source.columns {
         let mut column = SortColumn {
@@ -2076,6 +2079,7 @@ impl IndexedCollectionSegment {
                 payload: None,
                 storage: None,
                 loaded: Arc::new(std::sync::OnceLock::new()),
+                load_lock: Arc::new(std::sync::Mutex::new(())),
             })
             .collect::<Vec<_>>();
         for (path, original) in &self.sorting.columns {

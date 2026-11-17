@@ -60,12 +60,6 @@ pub struct PruneReport {
     pub preserved_objects: usize,
 }
 
-fn bincode_options() -> impl bincode::Options {
-    bincode::DefaultOptions::new()
-        .with_fixint_encoding()
-        .reject_trailing_bytes()
-}
-
 pub(crate) fn open_index(
     source_root: PathBuf,
     definitions: Vec<crate::repository::CollectionDefinition>,
@@ -213,6 +207,8 @@ fn open_snapshot(
         _readers_lock: readers_lock,
         store_identity: current.store_identity,
         lineage_identity: current.lineage_identity,
+        manifest_digest: current.manifest_digest,
+        manifest_length: current.manifest_length,
         index_reads: AtomicU64::new(1),
         index_bytes: AtomicU64::new(bytes.len() as u64),
     });
@@ -414,6 +410,23 @@ fn rebuild_repository(
         .replace_all_ownership(&versions, &routes)
         .map_err(StorageError::InvalidFormat)?;
     repository.catalog = catalog.clone();
+    let (manifest_digest, manifest_length) = session.manifest_token();
+    let (store_identity, lineage_identity) = session.identities();
+    *repository
+        .storage_binding
+        .lock()
+        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))? =
+        Some(crate::storage::StorageBinding {
+            directory: session.directory().to_path_buf(),
+            generation: session.generation(),
+            manifest_digest,
+            manifest_length,
+            store_identity,
+            lineage_identity,
+            revision: repository.revision,
+            representation_generation: repository.representation_generation,
+            configuration_identity: snapshot.configuration_identity,
+        });
     repository.storage = Some(session);
     Ok((repository, base_active, groups, catalog, versions))
 }
@@ -421,6 +434,12 @@ fn rebuild_repository(
 const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
+
+fn bincode_options() -> impl bincode::Options {
+    bincode::DefaultOptions::new()
+        .with_fixint_encoding()
+        .reject_trailing_bytes()
+}
 
 struct StoredPostingLoader {
     session: SharedStorageSession,
@@ -924,8 +943,9 @@ fn read_snapshot(directory: &Path) -> Result<model::StorageSnapshot, StorageErro
     {
         return Err(StorageError::InvalidFormat("manifest verification failed".into()));
     }
+    let body = format::checked_body(&bytes, 1)?;
     bincode_options()
-        .deserialize(format::checked_body(&bytes, 1)?)
+        .deserialize(body)
         .map_err(|error| StorageError::InvalidFormat(error.to_string()))
 }
 

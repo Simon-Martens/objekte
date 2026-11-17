@@ -1917,6 +1917,7 @@ pub struct PostingIndex {
     pub(crate) has_structural: bool,
     pub(crate) storage: Option<Arc<dyn PostingIndexLoader>>,
     pub(crate) loaded: Arc<OnceLock<Box<PostingIndex>>>,
+    pub(crate) load_lock: Arc<std::sync::Mutex<()>>,
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
@@ -2365,6 +2366,7 @@ impl PostingIndex {
             has_structural,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         };
         index.validate_domain(
             &(0..index.covered_records)
@@ -2383,17 +2385,23 @@ impl PostingIndex {
     }
 
     pub(crate) fn ensure_storage_loaded(&self) -> Result<(), String> {
-        if self.storage.is_none() || self.loaded.get().is_some() {
+        if self.storage.is_none() {
             return Ok(());
         }
-        let snapshot = self
-            .storage
-            .as_ref()
-            .expect("stored posting index")
-            .load_posting_index()?;
-        let loaded = Self::from_storage_snapshot(snapshot)?;
-        if self.loaded.set(Box::new(loaded)).is_err() {
-            return Err("stored posting index was concurrently initialized".into());
+        let _guard = self
+            .load_lock
+            .lock()
+            .map_err(|_| "posting index load lock poisoned".to_string())?;
+        if self.loaded.get().is_none() {
+            let snapshot = self
+                .storage
+                .as_ref()
+                .expect("stored posting index")
+                .load_posting_index()?;
+            let loaded = Box::new(Self::from_storage_snapshot(snapshot)?);
+            self.loaded
+                .set(loaded)
+                .map_err(|_| "posting index was initialized concurrently".to_string())?;
         }
         Ok(())
     }
@@ -2877,6 +2885,7 @@ impl PostingIndex {
             has_structural: false,
             storage: None,
             loaded: Arc::new(OnceLock::new()),
+            load_lock: Arc::new(std::sync::Mutex::new(())),
         }
     }
 

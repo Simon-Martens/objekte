@@ -5,9 +5,6 @@ use std::sync::{Arc, Mutex};
 
 use serde::Serialize;
 use sha2::{Digest, Sha256};
-use rkyv::Archive;
-use rkyv::Serialize as ArchiveSerialize;
-
 use crate::storage::CachePolicy;
 
 pub const ENVELOPE_LEN: usize = 64;
@@ -239,12 +236,6 @@ impl StorageCache {
             loaded_families: self.entries.lock().map_or(0, |entries| entries.len()),
         }
     }
-}
-
-#[derive(Archive, ArchiveSerialize)]
-pub(crate) struct MetadataEnvelope {
-    pub schema_version: u32,
-    pub payload: Vec<u8>,
 }
 
 pub(crate) fn sha256(bytes: &[u8]) -> [u8; 32] {

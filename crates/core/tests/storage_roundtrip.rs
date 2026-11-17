@@ -83,6 +83,14 @@ fn explicit_save_reopens_a_complete_searchable_snapshot() {
         .archive_to(root.join("storage"), StorageWriteOptions::default())
         .unwrap();
     assert!(!report.unchanged);
+    let repeated = index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    assert!(repeated.unchanged);
+    assert_eq!(repeated.objects_new, 0);
+    assert_eq!(repeated.bytes_serialized, 0);
+    assert_eq!(repeated.bytes_written, 0);
+    assert_eq!(repeated.sync_calls, 0);
     drop(index);
 
     let reopened = Index::open_storage(

@@ -19,6 +19,15 @@ const POSTING_PAYLOAD_OBJECT_KIND: u16 = 3;
 const BIGRAM_PAYLOAD_OBJECT_KIND: u16 = 4;
 const SORT_PAYLOAD_OBJECT_KIND: u16 = 5;
 
+#[derive(Clone, Copy, Debug)]
+struct CurrentRecord {
+    generation: u64,
+    manifest_digest: [u8; 32],
+    manifest_length: u64,
+    store_identity: [u8; 16],
+    lineage_identity: [u8; 16],
+}
+
 fn bincode_options() -> impl bincode::Options {
     bincode::DefaultOptions::new()
         .with_fixint_encoding()
@@ -97,9 +106,69 @@ fn write_parts(
     started: Instant,
 ) -> Result<StorageWriteReport, StorageError> {
     ensure_directory(directory)?;
-    let current = read_current_generation(directory)?;
-    let generation = current
-        .map_or(1, |generation| generation.saturating_add(1));
+    let _writer_lock = acquire_writer_lock(directory)?;
+    let current = read_current(directory)?;
+    let binding_repository = Arc::clone(&parts.repository);
+    let save_revision = parts.revision;
+    let save_representation_generation = parts.representation_generation;
+    let save_configuration_identity = parts.configuration_identity;
+    let binding = parts
+        .repository
+        .storage_binding
+        .lock()
+        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))?
+        .clone()
+        .filter(|binding| binding.directory == directory);
+    if let Some(binding) = &binding {
+        let observed = current.ok_or_else(|| {
+            StorageError::StorageConflict(
+                "the bound storage destination no longer contains CURRENT".into(),
+            )
+        })?;
+        if observed.generation != binding.generation
+            || observed.manifest_digest != binding.manifest_digest
+        {
+            return Err(StorageError::StorageConflict(
+                "another writer advanced the storage generation".into(),
+            ));
+        }
+        if save_revision == binding.revision
+            && save_representation_generation == binding.representation_generation
+            && save_configuration_identity == binding.configuration_identity
+        {
+            return Ok(StorageWriteReport {
+                generation: binding.generation,
+                logical_revision: save_revision,
+                unchanged: true,
+                archive_report,
+                objects_new: 0,
+                objects_reused: 0,
+                bytes_serialized: 0,
+                bytes_written: 0,
+                sync_calls: 0,
+                archive_ns,
+                encode_ns: 0,
+                write_ns: 0,
+                sync_ns: 0,
+                total_ns: started.elapsed().as_nanos() as u64,
+                manifest_digest: binding.manifest_digest,
+            });
+        }
+    } else if current.is_some() {
+        return Err(StorageError::StorageConflict(
+            "a nonempty storage destination is owned by another publication".into(),
+        ));
+    }
+    let generation = match current {
+        Some(current) => current
+            .generation
+            .checked_add(1)
+            .ok_or_else(|| StorageError::StorageConflict("storage generation overflow".into()))?,
+        None => 1,
+    };
+    let store_identity = binding
+        .as_ref()
+        .map_or_else(random_identity, |binding| binding.store_identity);
     let encode_started = Instant::now();
     let mut external_objects = Vec::new();
     let mut snapshot = snapshot_from_parts(parts, generation)?;
@@ -121,10 +190,10 @@ fn write_parts(
             PAYLOAD_OBJECT_KIND as u32,
             &payload,
         ));
-    let metadata = bincode_options()
+    let metadata_body = bincode_options()
         .serialize(&snapshot)
         .map_err(|error| StorageError::Io(error.to_string()))?;
-    let metadata = format::envelope(METADATA_OBJECT_KIND, &metadata);
+    let metadata = format::envelope(METADATA_OBJECT_KIND, &metadata_body);
     let metadata_digest = format::sha256(&metadata);
     let encode_ns = encode_started.elapsed().as_nanos() as u64;
 
@@ -152,12 +221,28 @@ fn write_parts(
         generation,
         metadata_digest,
         metadata.len() as u64,
-        [generation as u8; 16],
+        store_identity,
         snapshot.lineage_identity,
     );
     install_current(directory, generation, &current_bytes)?;
     sync_directory(directory)?;
     let sync_ns = sync_started.elapsed().as_nanos() as u64;
+
+    *binding_repository
+        .storage_binding
+        .lock()
+        .map_err(|_| StorageError::Io("storage binding lock poisoned".into()))? =
+        Some(crate::storage::StorageBinding {
+            directory: directory.to_path_buf(),
+            generation,
+            manifest_digest: metadata_digest,
+            manifest_length: metadata.len() as u64,
+            store_identity,
+            lineage_identity: snapshot.lineage_identity,
+            revision: save_revision,
+            representation_generation: save_representation_generation,
+            configuration_identity: save_configuration_identity,
+        });
 
     Ok(StorageWriteReport {
         generation,
@@ -622,7 +707,7 @@ fn install_current(
         .map_err(|error| StorageError::Io(error.to_string()))
 }
 
-fn read_current_generation(directory: &Path) -> Result<Option<u64>, StorageError> {
+fn read_current(directory: &Path) -> Result<Option<CurrentRecord>, StorageError> {
     let path = directory.join("CURRENT");
     let bytes = match fs::read(&path) {
         Ok(bytes) => bytes,
@@ -636,9 +721,53 @@ fn read_current_generation(directory: &Path) -> Result<Option<u64>, StorageError
     if checksum.as_slice() != &bytes[96..] {
         return Err(StorageError::InvalidFormat("CURRENT checksum mismatch".into()));
     }
-    Ok(Some(u64::from_le_bytes(
-        bytes[16..24].try_into().expect("fixed generation bytes"),
-    )))
+    if bytes[8..12] != 1u32.to_le_bytes() || bytes[12..16] != 0u32.to_le_bytes() {
+        return Err(StorageError::InvalidFormat(
+            "unsupported CURRENT version or flags".into(),
+        ));
+    }
+    Ok(Some(CurrentRecord {
+        generation: u64::from_le_bytes(
+            bytes[16..24].try_into().expect("fixed generation bytes"),
+        ),
+        manifest_digest: bytes[24..56].try_into().expect("fixed manifest digest"),
+        manifest_length: u64::from_le_bytes(
+            bytes[56..64].try_into().expect("fixed manifest length"),
+        ),
+        store_identity: bytes[64..80].try_into().expect("fixed store identity"),
+        lineage_identity: bytes[80..96].try_into().expect("fixed lineage identity"),
+    }))
+}
+
+fn acquire_writer_lock(directory: &Path) -> Result<File, StorageError> {
+    use std::os::fd::AsRawFd;
+
+    let path = directory.join("writer.lock");
+    let file = OpenOptions::new()
+        .create(true)
+        .read(true)
+        .write(true)
+        .open(path)
+        .map_err(|error| StorageError::Io(error.to_string()))?;
+    let result = unsafe { libc::flock(file.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) };
+    if result != 0 {
+        return Err(StorageError::StorageBusy(
+            "another writer holds the storage lock".into(),
+        ));
+    }
+    Ok(file)
+}
+
+fn random_identity() -> [u8; 16] {
+    use std::io::Read;
+
+    let mut identity = [0u8; 16];
+    OpenOptions::new()
+        .read(true)
+        .open("/dev/urandom")
+        .and_then(|mut source| source.read_exact(&mut identity))
+        .expect("Linux /dev/urandom supplies storage identities");
+    identity
 }
 
 fn sync_directory(directory: &Path) -> Result<(), StorageError> {
