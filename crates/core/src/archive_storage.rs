@@ -7,6 +7,8 @@
 use std::fmt;
 use std::marker::PhantomData;
 use std::sync::Arc;
+#[cfg(test)]
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use rkyv::api::high::HighSerializer;
 use rkyv::bytecheck::CheckBytes;
@@ -23,8 +25,79 @@ use crate::storage_usage::StorageWorkCounters;
 const SHRINK_OVERALLOCATED_ARCHIVES: bool = false;
 
 #[cfg(test)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ArchiveFailureStage {
+    Serialization,
+    ByteValidation,
+    SemanticValidation,
+    FinalCandidateValidation,
+    PreInstall,
+}
+
+#[cfg(test)]
+pub(crate) struct ArchiveTestFaultControl {
+    successes_before_failure: usize,
+    stage: ArchiveFailureStage,
+    successes: AtomicUsize,
+    failed: AtomicBool,
+}
+
+#[cfg(test)]
+impl ArchiveTestFaultControl {
+    pub(crate) fn new(stage: ArchiveFailureStage, successes_before_failure: usize) -> Self {
+        Self {
+            successes_before_failure,
+            stage,
+            successes: AtomicUsize::new(0),
+            failed: AtomicBool::new(false),
+        }
+    }
+
+    fn should_fail(&self, stage: ArchiveFailureStage) -> bool {
+        if self.stage != stage || self.failed.load(Ordering::Acquire) {
+            return false;
+        }
+        let previous = self.successes.fetch_add(1, Ordering::AcqRel);
+        if previous < self.successes_before_failure {
+            false
+        } else {
+            self.failed.store(true, Ordering::Release);
+            true
+        }
+    }
+}
+
+#[cfg(test)]
 thread_local! {
-    static FAIL_NEXT_FREEZE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static TEST_FAULT_CONTROL: std::cell::RefCell<Option<Arc<ArchiveTestFaultControl>>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+#[cfg(test)]
+pub(crate) fn with_test_fault_control<R>(
+    control: Arc<ArchiveTestFaultControl>,
+    operation: impl FnOnce() -> R,
+) -> R {
+    TEST_FAULT_CONTROL.with(|slot| *slot.borrow_mut() = Some(control));
+    let result = operation();
+    TEST_FAULT_CONTROL.with(|slot| {
+        slot.borrow_mut().take();
+    });
+    result
+}
+
+#[cfg(test)]
+fn injected_failure(stage: ArchiveFailureStage) -> bool {
+    TEST_FAULT_CONTROL.with(|slot| {
+        slot.borrow()
+            .as_ref()
+            .is_some_and(|control| control.should_fail(stage))
+    })
+}
+
+#[cfg(test)]
+pub(crate) fn injected_test_failure(stage: ArchiveFailureStage) -> bool {
+    injected_failure(stage)
 }
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -57,7 +130,12 @@ fn add_construction_timing(serializer_ns: u64, validation_ns: u64) {
 
 #[cfg(test)]
 pub(crate) fn fail_next_freeze() {
-    FAIL_NEXT_FREEZE.with(|fail| fail.set(true));
+    TEST_FAULT_CONTROL.with(|slot| {
+        *slot.borrow_mut() = Some(Arc::new(ArchiveTestFaultControl::new(
+            ArchiveFailureStage::Serialization,
+            0,
+        )));
+    });
 }
 
 /// A serialized and checked archive whose aligned allocation is immutable.
@@ -121,7 +199,7 @@ where
             + for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
     {
         #[cfg(test)]
-        if FAIL_NEXT_FREEZE.with(|fail| fail.replace(false)) {
+        if injected_failure(ArchiveFailureStage::Serialization) {
             return Err("injected archive-finalization failure".into());
         }
         let serializer_started = std::time::Instant::now();
@@ -134,6 +212,10 @@ where
             bytes.shrink_to_fit();
         }
         let serializer_ns = serializer_started.elapsed().as_nanos() as u64;
+        #[cfg(test)]
+        if injected_failure(ArchiveFailureStage::ByteValidation) {
+            return Err("injected archive-byte validation failure".into());
+        }
         let validation_started = std::time::Instant::now();
         let _validated = access::<Archived<T>, Error>(&bytes)
             .map_err(|error| format!("archive validation failed: {error}"))?;
@@ -162,6 +244,7 @@ where
     T::Archived: Portable + for<'a> CheckBytes<rkyv::api::high::HighValidator<'a, Error>>,
     T: for<'a> Serialize<HighSerializer<AlignedVec, ArenaHandle<'a>, Error>>,
 {
+    #[allow(dead_code)]
     pub(crate) fn freeze(value: &T) -> Result<Arc<Self>, String> {
         Self::freeze_source(value)
     }

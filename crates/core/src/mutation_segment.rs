@@ -742,7 +742,7 @@ impl CollectionSegment {
             file_index,
             records,
             id_lookup,
-            identity_order,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation,
             inference,
@@ -753,7 +753,7 @@ impl CollectionSegment {
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),
-            relations,
+            relations: Arc::new(relations),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),
@@ -835,7 +835,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|_| Vec::with_capacity(self.relations.len()))
             .collect::<Vec<_>>();
-        for relation in &self.relations {
+        for relation in self.relations.iter() {
             let parts = relation.project_partitions(&counts, |old| {
                 routing
                     .locations
@@ -1184,7 +1184,7 @@ impl IndexedCollectionSegment {
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
         let mut sorting = (*first.sorting).clone();
-        let mut relations = first.relations.clone();
+        let mut relations = (*first.relations).clone();
         let mut record_parses = 0u64;
         let mut failed_parses = 0u64;
         for (number, shard) in shards.iter().enumerate() {
@@ -1268,7 +1268,7 @@ impl IndexedCollectionSegment {
                 if relations.len() != shard.relations.len() {
                     return Err("relation segment coverage mismatch".into());
                 }
-                for (target, source) in relations.iter_mut().zip(&shard.relations) {
+                for (target, source) in relations.iter_mut().zip(shard.relations.iter()) {
                     target.merge_shifted(source.clone(), base, shard.record_count() as u32)?;
                 }
                 if sorting.columns.len() != shard.sorting.columns.len()
@@ -1364,7 +1364,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
-            identity_order,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation: None,
             inference,
@@ -1375,7 +1375,7 @@ impl IndexedCollectionSegment {
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),
-            relations,
+            relations: Arc::new(relations),
             record_parses,
             failed_parses,
             accounting: SegmentAccounting::default(),
@@ -2582,7 +2582,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             id_lookup,
-            identity_order,
+            identity_order: Arc::new(identity_order),
             postings,
             inference_observation: None,
             inference,
@@ -2593,7 +2593,7 @@ impl IndexedCollectionSegment {
             logical_records,
             empty_array_records,
             sorting: Arc::new(sorting),
-            relations,
+            relations: Arc::new(relations),
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),

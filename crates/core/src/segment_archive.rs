@@ -8,6 +8,7 @@ use std::sync::{Arc, OnceLock};
 use rkyv::collections::swiss_table::{ArchivedHashMap, HashMapResolver};
 use rkyv::place::Place;
 use rkyv::string::{ArchivedString, StringResolver};
+use rkyv::vec::VecResolver;
 use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 
 use crate::archive_storage::ValidatedArchive;
@@ -66,25 +67,6 @@ struct StoredDiagnostic {
 }
 
 impl StoredDiagnostic {
-    fn from_source(diagnostic: SourceDiagnostic) -> Self {
-        Self {
-            file: diagnostic.file.0,
-            collection: diagnostic.collection.0,
-            source_id: diagnostic.source_id.to_string(),
-            source_version: diagnostic.source_version,
-            record: diagnostic.record.map(|slot| slot.0),
-            range_start: diagnostic.range.map(|range| range.start),
-            range_end: diagnostic.range.map(|range| range.end),
-            category: category_code(diagnostic.category),
-            code: diagnostic.code.to_string(),
-            field_path: diagnostic.field_path,
-            byte_offset: diagnostic.byte_offset,
-            line: diagnostic.line,
-            column: diagnostic.column,
-            message: diagnostic.message.to_string(),
-        }
-    }
-
     fn from_archived(diagnostic: &rkyv::Archived<Self>) -> Self {
         Self {
             file: diagnostic.file.to_native(),
@@ -128,35 +110,6 @@ struct StoredSegmentFile {
     records: Vec<u32>,
 }
 
-impl StoredSegmentFile {
-    fn from_file(file: &SegmentFile) -> Self {
-        let relative_path = StoredPath::from_shared(&file.entry.relative_path);
-        Self {
-            id: file.entry.id.0,
-            relative_path,
-            modified_ns: file.entry.revision.modified_ns,
-            size: file.entry.revision.size,
-            created_ns: file.entry.created_ns,
-            collections: file
-                .entry
-                .collections
-                .iter()
-                .map(|collection| collection.0)
-                .collect(),
-            status: file.entry.status.code(),
-            diagnostics: file
-                .entry
-                .diagnostics
-                .iter()
-                .cloned()
-                .map(StoredDiagnostic::from_source)
-                .collect(),
-            omitted_diagnostics: file.entry.omitted_diagnostics,
-            records: file.records.iter().map(|slot| slot.0).collect(),
-        }
-    }
-}
-
 #[derive(Archive, ArchiveSerialize)]
 struct StoredRecord {
     slot: u32,
@@ -170,26 +123,527 @@ struct StoredRecord {
     diagnostic_ref: u32,
 }
 
-impl StoredRecord {
-    fn from_record(record: &RecordEntry) -> Self {
-        Self {
-            slot: record.slot.0,
-            id: record.id.0.as_ref().to_owned(),
-            file: record.file.0,
-            range_start: record.range.start,
-            range_end: record.range.end,
-            modified_ns: record.revision.modified_ns,
-            size: record.revision.size,
-            class: record.class.code(),
-            diagnostic_ref: record.diagnostic_ref.0,
-        }
-    }
-}
-
 #[derive(Archive, ArchiveSerialize)]
 struct SegmentRowsArchive {
     files: Vec<StoredSegmentFile>,
     records: Vec<StoredRecord>,
+}
+
+struct BorrowedString<'a>(&'a str);
+
+impl Archive for BorrowedString<'_> {
+    type Archived = ArchivedString;
+    type Resolver = StringResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedString::resolve_from_str(self.0, resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedString<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedString::serialize_from_str(self.0, serializer)
+    }
+}
+
+struct BorrowedStringSlice<'a>(&'a [String]);
+
+impl Archive for BorrowedStringSlice<'_> {
+    type Archived = rkyv::vec::ArchivedVec<ArchivedString>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        rkyv::vec::ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedStringSlice<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        rkyv::vec::ArchivedVec::serialize_from_iter(
+            self.0.iter().map(|value| BorrowedString(value.as_str())),
+            serializer,
+        )
+    }
+}
+
+struct BorrowedCollectionIds<'a>(&'a [CollectionId]);
+
+impl Archive for BorrowedCollectionIds<'_> {
+    type Archived = rkyv::vec::ArchivedVec<Archived<u32>>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        rkyv::vec::ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedCollectionIds<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        rkyv::vec::ArchivedVec::serialize_from_iter(
+            self.0.iter().map(|collection| collection.0),
+            serializer,
+        )
+    }
+}
+
+struct BorrowedRecordSlots<'a>(&'a [RecordSlot]);
+
+impl Archive for BorrowedRecordSlots<'_> {
+    type Archived = rkyv::vec::ArchivedVec<Archived<u32>>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        rkyv::vec::ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedRecordSlots<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        rkyv::vec::ArchivedVec::serialize_from_iter(self.0.iter().map(|slot| slot.0), serializer)
+    }
+}
+
+struct BorrowedDiagnostic<'a>(&'a SourceDiagnostic);
+
+struct BorrowedDiagnosticResolver {
+    file: <u32 as Archive>::Resolver,
+    collection: <u32 as Archive>::Resolver,
+    source_id: StringResolver,
+    source_version: <u32 as Archive>::Resolver,
+    record: Option<<u32 as Archive>::Resolver>,
+    range_start: Option<<u64 as Archive>::Resolver>,
+    range_end: Option<<u64 as Archive>::Resolver>,
+    category: <u8 as Archive>::Resolver,
+    code: StringResolver,
+    field_path: Option<VecResolver>,
+    byte_offset: Option<<u64 as Archive>::Resolver>,
+    line: Option<<u64 as Archive>::Resolver>,
+    column: Option<<u64 as Archive>::Resolver>,
+    message: StringResolver,
+}
+
+impl Archive for BorrowedDiagnostic<'_> {
+    type Archived = Archived<StoredDiagnostic>;
+    type Resolver = BorrowedDiagnosticResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The adapter projects each field to the generated
+        // `Archived<StoredDiagnostic>` field at the same offset.
+        unsafe {
+            let root = out.ptr();
+            Archive::resolve(
+                &self.0.file.0,
+                resolver.file,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).file)),
+            );
+            Archive::resolve(
+                &self.0.collection.0,
+                resolver.collection,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).collection)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.source_id,
+                resolver.source_id,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).source_id)),
+            );
+            Archive::resolve(
+                &self.0.source_version,
+                resolver.source_version,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).source_version)),
+            );
+            let record = self.0.record.map(|slot| slot.0);
+            Archive::resolve(
+                &record,
+                resolver.record,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).record)),
+            );
+            let range_start = self.0.range.map(|range| range.start);
+            Archive::resolve(
+                &range_start,
+                resolver.range_start,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_start)),
+            );
+            let range_end = self.0.range.map(|range| range.end);
+            Archive::resolve(
+                &range_end,
+                resolver.range_end,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_end)),
+            );
+            Archive::resolve(
+                &category_code(self.0.category),
+                resolver.category,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).category)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.code,
+                resolver.code,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).code)),
+            );
+            let field_path = self.0.field_path.as_deref().map(BorrowedStringSlice);
+            Archive::resolve(
+                &field_path,
+                resolver.field_path,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).field_path)),
+            );
+            Archive::resolve(
+                &self.0.byte_offset,
+                resolver.byte_offset,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).byte_offset)),
+            );
+            Archive::resolve(
+                &self.0.line,
+                resolver.line,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).line)),
+            );
+            Archive::resolve(
+                &self.0.column,
+                resolver.column,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).column)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.message,
+                resolver.message,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).message)),
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedDiagnostic<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let field_path = match self.0.field_path.as_deref() {
+            Some(path) => Some(ArchiveSerialize::serialize(
+                &BorrowedStringSlice(path),
+                serializer,
+            )?),
+            None => None,
+        };
+        Ok(BorrowedDiagnosticResolver {
+            file: ArchiveSerialize::serialize(&self.0.file.0, serializer)?,
+            collection: ArchiveSerialize::serialize(&self.0.collection.0, serializer)?,
+            source_id: ArchivedString::serialize_from_str(&self.0.source_id, serializer)?,
+            source_version: ArchiveSerialize::serialize(&self.0.source_version, serializer)?,
+            record: match self.0.record {
+                Some(slot) => Some(ArchiveSerialize::serialize(&slot.0, serializer)?),
+                None => None,
+            },
+            range_start: match self.0.range {
+                Some(range) => Some(ArchiveSerialize::serialize(&range.start, serializer)?),
+                None => None,
+            },
+            range_end: match self.0.range {
+                Some(range) => Some(ArchiveSerialize::serialize(&range.end, serializer)?),
+                None => None,
+            },
+            category: ArchiveSerialize::serialize(&category_code(self.0.category), serializer)?,
+            code: ArchivedString::serialize_from_str(&self.0.code, serializer)?,
+            field_path,
+            byte_offset: match self.0.byte_offset {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            line: match self.0.line {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            column: match self.0.column {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            message: ArchivedString::serialize_from_str(&self.0.message, serializer)?,
+        })
+    }
+}
+
+struct BorrowedSegmentFile<'a>(&'a SegmentFile);
+
+struct BorrowedSegmentFileResolver {
+    id: <u32 as Archive>::Resolver,
+    relative_path: <StoredPath as Archive>::Resolver,
+    modified_ns: <i128 as Archive>::Resolver,
+    size: <u64 as Archive>::Resolver,
+    created_ns: Option<<i128 as Archive>::Resolver>,
+    collections: VecResolver,
+    status: <u8 as Archive>::Resolver,
+    diagnostics: VecResolver,
+    omitted_diagnostics: <u32 as Archive>::Resolver,
+    records: VecResolver,
+}
+
+impl Archive for BorrowedSegmentFile<'_> {
+    type Archived = Archived<StoredSegmentFile>;
+    type Resolver = BorrowedSegmentFileResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: Every projection targets the corresponding generated field
+        // of `Archived<StoredSegmentFile>` and uses that field's resolver.
+        unsafe {
+            let root = out.ptr();
+            Archive::resolve(
+                &self.0.entry.id.0,
+                resolver.id,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
+            );
+            let path = StoredPath::from_shared(&self.0.entry.relative_path);
+            Archive::resolve(
+                &path,
+                resolver.relative_path,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).relative_path)),
+            );
+            Archive::resolve(
+                &self.0.entry.revision.modified_ns,
+                resolver.modified_ns,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).modified_ns)),
+            );
+            Archive::resolve(
+                &self.0.entry.revision.size,
+                resolver.size,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).size)),
+            );
+            Archive::resolve(
+                &self.0.entry.created_ns,
+                resolver.created_ns,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).created_ns)),
+            );
+            Archive::resolve(
+                &BorrowedCollectionIds(&self.0.entry.collections),
+                resolver.collections,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).collections)),
+            );
+            Archive::resolve(
+                &self.0.entry.status.code(),
+                resolver.status,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).status)),
+            );
+            let diagnostics =
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).diagnostics));
+            rkyv::vec::ArchivedVec::<Archived<StoredDiagnostic>>::resolve_from_len(
+                self.0.entry.diagnostics.len(),
+                resolver.diagnostics,
+                diagnostics,
+            );
+            Archive::resolve(
+                &self.0.entry.omitted_diagnostics,
+                resolver.omitted_diagnostics,
+                Place::from_field_unchecked(
+                    out,
+                    std::ptr::addr_of_mut!((*root).omitted_diagnostics),
+                ),
+            );
+            Archive::resolve(
+                &BorrowedRecordSlots(&self.0.records),
+                resolver.records,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).records)),
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedSegmentFile<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        let path = StoredPath::from_shared(&self.0.entry.relative_path);
+        Ok(BorrowedSegmentFileResolver {
+            id: ArchiveSerialize::serialize(&self.0.entry.id.0, serializer)?,
+            relative_path: ArchiveSerialize::serialize(&path, serializer)?,
+            modified_ns: ArchiveSerialize::serialize(
+                &self.0.entry.revision.modified_ns,
+                serializer,
+            )?,
+            size: ArchiveSerialize::serialize(&self.0.entry.revision.size, serializer)?,
+            created_ns: ArchiveSerialize::serialize(&self.0.entry.created_ns, serializer)?,
+            collections: rkyv::vec::ArchivedVec::serialize_from_iter(
+                self.0
+                    .entry
+                    .collections
+                    .iter()
+                    .map(|collection| collection.0),
+                serializer,
+            )?,
+            status: ArchiveSerialize::serialize(&self.0.entry.status.code(), serializer)?,
+            diagnostics: rkyv::vec::ArchivedVec::serialize_from_iter(
+                self.0.entry.diagnostics.iter().map(BorrowedDiagnostic),
+                serializer,
+            )?,
+            omitted_diagnostics: ArchiveSerialize::serialize(
+                &self.0.entry.omitted_diagnostics,
+                serializer,
+            )?,
+            records: rkyv::vec::ArchivedVec::serialize_from_iter(
+                self.0.records.iter().map(|slot| slot.0),
+                serializer,
+            )?,
+        })
+    }
+}
+
+struct BorrowedRecord<'a>(&'a RecordEntry);
+
+struct BorrowedRecordResolver {
+    slot: <u32 as Archive>::Resolver,
+    id: StringResolver,
+    file: <u32 as Archive>::Resolver,
+    range_start: <u64 as Archive>::Resolver,
+    range_end: <u64 as Archive>::Resolver,
+    modified_ns: <i128 as Archive>::Resolver,
+    size: <u64 as Archive>::Resolver,
+    class: <u8 as Archive>::Resolver,
+    diagnostic_ref: <u32 as Archive>::Resolver,
+}
+
+impl Archive for BorrowedRecord<'_> {
+    type Archived = Archived<StoredRecord>;
+    type Resolver = BorrowedRecordResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The adapter projects each field to the generated
+        // `Archived<StoredRecord>` field at the same offset.
+        unsafe {
+            let root = out.ptr();
+            Archive::resolve(
+                &self.0.slot.0,
+                resolver.slot,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).slot)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.id.0,
+                resolver.id,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
+            );
+            Archive::resolve(
+                &self.0.file.0,
+                resolver.file,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).file)),
+            );
+            Archive::resolve(
+                &self.0.range.start,
+                resolver.range_start,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_start)),
+            );
+            Archive::resolve(
+                &self.0.range.end,
+                resolver.range_end,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_end)),
+            );
+            Archive::resolve(
+                &self.0.revision.modified_ns,
+                resolver.modified_ns,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).modified_ns)),
+            );
+            Archive::resolve(
+                &self.0.revision.size,
+                resolver.size,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).size)),
+            );
+            Archive::resolve(
+                &self.0.class.code(),
+                resolver.class,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).class)),
+            );
+            Archive::resolve(
+                &self.0.diagnostic_ref.0,
+                resolver.diagnostic_ref,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).diagnostic_ref)),
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedRecord<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        Ok(BorrowedRecordResolver {
+            slot: ArchiveSerialize::serialize(&self.0.slot.0, serializer)?,
+            id: ArchivedString::serialize_from_str(&self.0.id.0, serializer)?,
+            file: ArchiveSerialize::serialize(&self.0.file.0, serializer)?,
+            range_start: ArchiveSerialize::serialize(&self.0.range.start, serializer)?,
+            range_end: ArchiveSerialize::serialize(&self.0.range.end, serializer)?,
+            modified_ns: ArchiveSerialize::serialize(&self.0.revision.modified_ns, serializer)?,
+            size: ArchiveSerialize::serialize(&self.0.revision.size, serializer)?,
+            class: ArchiveSerialize::serialize(&self.0.class.code(), serializer)?,
+            diagnostic_ref: ArchiveSerialize::serialize(&self.0.diagnostic_ref.0, serializer)?,
+        })
+    }
+}
+
+struct SegmentRowsArchiveSource<'a> {
+    files: &'a [SegmentFile],
+    records: &'a [RecordEntry],
+}
+
+struct SegmentRowsArchiveSourceResolver {
+    files: VecResolver,
+    records: VecResolver,
+}
+
+impl Archive for SegmentRowsArchiveSource<'_> {
+    type Archived = Archived<SegmentRowsArchive>;
+    type Resolver = SegmentRowsArchiveSourceResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: The source mirrors the two generated fields of
+        // `SegmentRowsArchive`.
+        unsafe {
+            let root = out.ptr();
+            let files = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).files));
+            let records = Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).records));
+            rkyv::vec::ArchivedVec::<Archived<StoredSegmentFile>>::resolve_from_len(
+                self.files.len(),
+                resolver.files,
+                files,
+            );
+            rkyv::vec::ArchivedVec::<Archived<StoredRecord>>::resolve_from_len(
+                self.records.len(),
+                resolver.records,
+                records,
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for SegmentRowsArchiveSource<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        Ok(SegmentRowsArchiveSourceResolver {
+            files: rkyv::vec::ArchivedVec::serialize_from_iter(
+                self.files.iter().map(BorrowedSegmentFile),
+                serializer,
+            )?,
+            records: rkyv::vec::ArchivedVec::serialize_from_iter(
+                self.records.iter().map(BorrowedRecord),
+                serializer,
+            )?,
+        })
+    }
 }
 
 enum SegmentRowsBacking {
@@ -262,19 +716,12 @@ impl SegmentRows {
         if matches!(self.owner.backing, SegmentRowsBacking::Archived { .. }) {
             return Ok(self.clone());
         }
-        let source = SegmentRowsArchive {
-            files: self
-                .files()
-                .iter()
-                .map(StoredSegmentFile::from_file)
-                .collect(),
-            records: self
-                .records()
-                .iter()
-                .map(StoredRecord::from_record)
-                .collect(),
+        let source = SegmentRowsArchiveSource {
+            files: self.files(),
+            records: self.records(),
         };
-        let archive = ValidatedArchive::freeze(&source)?;
+        let archive: Arc<ValidatedArchive<SegmentRowsArchive>> =
+            ValidatedArchive::freeze_source(&source)?;
         let file_ids = archive
             .root()
             .files
@@ -366,6 +813,22 @@ pub(crate) struct SegmentFiles {
     owner: Arc<SegmentRowsOwner>,
 }
 
+pub(crate) enum SegmentRecordSlotsIter<'a> {
+    Native(std::slice::Iter<'a, RecordSlot>),
+    Archived(std::slice::Iter<'a, Archived<u32>>),
+}
+
+impl Iterator for SegmentRecordSlotsIter<'_> {
+    type Item = RecordSlot;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Native(slots) => slots.next().copied(),
+            Self::Archived(slots) => slots.next().map(|slot| RecordSlot(slot.to_native())),
+        }
+    }
+}
+
 impl Clone for SegmentFiles {
     fn clone(&self) -> Self {
         Self {
@@ -449,33 +912,72 @@ impl SegmentFiles {
     }
 
     pub(crate) fn file_id(&self, index: usize) -> Option<FileId> {
-        self.values().get(index).map(|file| file.entry.id)
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => files.get(index).map(|file| file.entry.id),
+            SegmentRowsBacking::Archived { archive, .. } => archive
+                .root()
+                .files
+                .get(index)
+                .map(|file| FileId(file.id.to_native())),
+        }
     }
 
     pub(crate) fn file_ids(&self) -> impl Iterator<Item = FileId> + '_ {
         self.values().iter().map(|file| file.entry.id)
     }
 
-    pub(crate) fn archived_record_slots(
-        &self,
-        index: usize,
-    ) -> Option<impl Iterator<Item = RecordSlot> + '_> {
-        Some(self.values().get(index)?.records.iter().copied())
+    pub(crate) fn archived_record_slots(&self, index: usize) -> Option<SegmentRecordSlotsIter<'_>> {
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => Some(SegmentRecordSlotsIter::Native(
+                files.get(index)?.records.iter(),
+            )),
+            SegmentRowsBacking::Archived { archive, .. } => Some(SegmentRecordSlotsIter::Archived(
+                archive.root().files.get(index)?.records.iter(),
+            )),
+        }
     }
 
     pub(crate) fn source_bytes(&self) -> u64 {
-        self.values()
-            .iter()
-            .map(|file| file.entry.revision.size)
-            .fold(0u64, u64::saturating_add)
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => files
+                .iter()
+                .map(|file| file.entry.revision.size)
+                .fold(0u64, u64::saturating_add),
+            SegmentRowsBacking::Archived { archive, .. } => archive
+                .root()
+                .files
+                .iter()
+                .map(|file| file.size.to_native())
+                .fold(0u64, u64::saturating_add),
+        }
     }
 
     pub(crate) fn revision(&self, index: usize) -> Option<SourceRevision> {
-        self.values().get(index).map(|file| file.entry.revision)
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => {
+                files.get(index).map(|file| file.entry.revision)
+            }
+            SegmentRowsBacking::Archived { archive, .. } => {
+                let file = archive.root().files.get(index)?;
+                Some(SourceRevision {
+                    modified_ns: file.modified_ns.to_native(),
+                    size: file.size.to_native(),
+                })
+            }
+        }
     }
 
     pub(crate) fn created_ns(&self, index: usize) -> Option<Option<i128>> {
-        self.values().get(index).map(|file| file.entry.created_ns)
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => {
+                files.get(index).map(|file| file.entry.created_ns)
+            }
+            SegmentRowsBacking::Archived { archive, .. } => archive
+                .root()
+                .files
+                .get(index)
+                .map(|file| file.created_ns.as_ref().map(|value| value.to_native())),
+        }
     }
 
     pub(crate) fn native_path(&self, index: usize) -> Option<&std::path::Path> {
@@ -485,9 +987,30 @@ impl SegmentFiles {
     }
 
     pub(crate) fn status_code(&self, index: usize) -> Option<u8> {
-        self.values()
-            .get(index)
-            .map(|file| file.entry.status.code())
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => {
+                files.get(index).map(|file| file.entry.status.code())
+            }
+            SegmentRowsBacking::Archived { archive, .. } => {
+                archive.root().files.get(index).map(|file| file.status)
+            }
+        }
+    }
+
+    pub(crate) fn collections(&self, index: usize) -> Option<Vec<CollectionId>> {
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => {
+                files.get(index).map(|file| file.entry.collections.clone())
+            }
+            SegmentRowsBacking::Archived { archive, .. } => {
+                archive.root().files.get(index).map(|file| {
+                    file.collections
+                        .iter()
+                        .map(|collection| CollectionId(collection.to_native()))
+                        .collect()
+                })
+            }
+        }
     }
 
     pub(crate) fn diagnostic_count(&self, index: usize) -> Option<usize> {
@@ -504,9 +1027,16 @@ impl SegmentFiles {
     }
 
     pub(crate) fn omitted_diagnostics(&self, index: usize) -> Option<u32> {
-        self.values()
-            .get(index)
-            .map(|file| file.entry.omitted_diagnostics)
+        match &self.owner.backing {
+            SegmentRowsBacking::Native { files, .. } => {
+                files.get(index).map(|file| file.entry.omitted_diagnostics)
+            }
+            SegmentRowsBacking::Archived { archive, .. } => archive
+                .root()
+                .files
+                .get(index)
+                .map(|file| file.omitted_diagnostics.to_native()),
+        }
     }
 
     pub(crate) fn diagnostic(&self, index: usize, diagnostic: usize) -> Option<SourceDiagnostic> {
@@ -1061,7 +1591,7 @@ struct RecordLookupArchive {
 }
 
 struct RecordLookupSource<'a> {
-    values: &'a HashMap<Arc<str>, u32>,
+    values: &'a HashMap<RecordId, RecordSlot>,
 }
 
 #[derive(Clone, Copy, Eq, Hash, PartialEq)]
@@ -1119,14 +1649,14 @@ where
         let values = ArchivedHashMap::<ArchivedString, Archived<u32>>::serialize_from_iter::<
             _,
             RecordLookupKey<'_>,
-            &u32,
+            u32,
             RecordLookupKey<'_>,
             u32,
             S,
         >(
             self.values
                 .iter()
-                .map(|(id, slot)| (RecordLookupKey(id.as_ref()), slot)),
+                .map(|(id, slot)| (RecordLookupKey(id.0.as_ref()), slot.0)),
             (7, 8),
             serializer,
         )?;
@@ -1135,7 +1665,7 @@ where
 }
 
 enum RecordLookupBacking {
-    Native(Arc<HashMap<Arc<str>, u32>>),
+    Native(Arc<HashMap<RecordId, RecordSlot>>),
     Archived(Arc<ValidatedArchive<RecordLookupArchive>>),
 }
 
@@ -1165,23 +1695,17 @@ impl fmt::Debug for RecordLookup {
 
 impl RecordLookup {
     pub(crate) fn native(values: HashMap<RecordId, RecordSlot>) -> Result<Self, String> {
-        let mut native = HashMap::with_capacity(values.len());
-        for (id, slot) in values {
-            if native
-                .insert(Arc::<str>::from(id.0.as_ref().as_str()), slot.0)
-                .is_some()
-            {
-                return Err("duplicate segment record ID lookup key".into());
-            }
+        if values.keys().any(|id| id.0.is_empty()) {
+            return Err("invalid segment record ID lookup".into());
         }
         Ok(Self {
-            backing: RecordLookupBacking::Native(Arc::new(native)),
+            backing: RecordLookupBacking::Native(Arc::new(values)),
         })
     }
 
     pub(crate) fn get(&self, id: &str) -> Option<RecordSlot> {
         match &self.backing {
-            RecordLookupBacking::Native(values) => values.get(id).map(|slot| RecordSlot(*slot)),
+            RecordLookupBacking::Native(values) => values.get(id).copied(),
             RecordLookupBacking::Archived(archive) => archive
                 .root()
                 .values
@@ -1199,7 +1723,7 @@ impl RecordLookup {
         match &self.backing {
             RecordLookupBacking::Native(values) => {
                 for id in values.keys() {
-                    visit(id);
+                    visit(id.0.as_ref());
                 }
             }
             RecordLookupBacking::Archived(archive) => {
@@ -1280,6 +1804,7 @@ pub(crate) fn validate_segment_components(
                 return Err("segment file lookup coverage mismatch".into());
             }
             let mut file_ids = std::collections::HashSet::with_capacity(file_rows.len());
+            let mut owned = vec![false; record_rows.len()];
             for (ordinal, file) in file_rows.iter().enumerate() {
                 let id = file.entry.id;
                 if !file_ids.insert(id)
@@ -1289,6 +1814,13 @@ pub(crate) fn validate_segment_components(
                     return Err("segment file row or lookup is inconsistent".into());
                 }
                 for slot in &file.records {
+                    let owned = owned
+                        .get_mut(slot.0 as usize)
+                        .ok_or("segment file owns an out-of-bounds record slot")?;
+                    if *owned {
+                        return Err("segment record has duplicate file ownership".into());
+                    }
+                    *owned = true;
                     let record = record_rows
                         .get(slot.0 as usize)
                         .ok_or("segment file owns an out-of-bounds record slot")?;
@@ -1296,6 +1828,9 @@ pub(crate) fn validate_segment_components(
                         return Err("segment file and record ownership disagree".into());
                     }
                 }
+            }
+            if owned.iter().any(|owned| !owned) {
+                return Err("segment record has no file ownership".into());
             }
             if record_rows.len() != id_lookup.len() {
                 return Err("segment record lookup coverage mismatch".into());
@@ -1306,8 +1841,8 @@ pub(crate) fn validate_segment_components(
                     || record.range.start > record.range.end
                     || record.range.end > record.revision.size
                     || !file_ids.contains(&record.file)
-                    || !ids.insert(Arc::clone(&record.id.0))
-                    || id_lookup.get(&record.id.0) != Some(RecordSlot(slot as u32))
+                    || !ids.insert(record.id.0.as_str())
+                    || id_lookup.get(record.id.0.as_str()) != Some(RecordSlot(slot as u32))
                 {
                     return Err("segment record row or identity lookup is inconsistent".into());
                 }
@@ -1325,6 +1860,7 @@ pub(crate) fn validate_segment_components(
                 return Err("segment file lookup coverage mismatch".into());
             }
             let mut file_ids = std::collections::HashSet::with_capacity(root.files.len());
+            let mut owned = vec![false; root.records.len()];
             for (ordinal, file) in root.files.iter().enumerate() {
                 let id = FileId(file.id.to_native());
                 if !file_ids.insert(id)
@@ -1337,6 +1873,13 @@ pub(crate) fn validate_segment_components(
                     return Err("segment file row or lookup is inconsistent".into());
                 }
                 for slot in file.records.iter() {
+                    let owned = owned
+                        .get_mut(slot.to_native() as usize)
+                        .ok_or("segment file owns an out-of-bounds record slot")?;
+                    if *owned {
+                        return Err("segment record has duplicate file ownership".into());
+                    }
+                    *owned = true;
                     let record = root
                         .records
                         .get(slot.to_native() as usize)
@@ -1346,18 +1889,20 @@ pub(crate) fn validate_segment_components(
                     }
                 }
             }
+            if owned.iter().any(|owned| !owned) {
+                return Err("segment record has no file ownership".into());
+            }
             if root.records.len() != id_lookup.len() {
                 return Err("segment record lookup coverage mismatch".into());
             }
             let mut ids = std::collections::HashSet::with_capacity(root.records.len());
             for (slot, record) in root.records.iter().enumerate() {
-                let id = Arc::<str>::from(record.id.as_str());
                 if record.slot.to_native() as usize != slot
                     || record.range_start.to_native() > record.range_end.to_native()
                     || record.range_end.to_native() > record.size.to_native()
                     || !file_ids.contains(&FileId(record.file.to_native()))
-                    || !ids.insert(Arc::clone(&id))
-                    || id_lookup.get(&id) != Some(RecordSlot(slot as u32))
+                    || !ids.insert(record.id.as_str())
+                    || id_lookup.get(record.id.as_str()) != Some(RecordSlot(slot as u32))
                 {
                     return Err("segment record row or identity lookup is inconsistent".into());
                 }

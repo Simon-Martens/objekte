@@ -97,29 +97,6 @@ impl StoredPath {
         }
         Ok(shared)
     }
-
-    pub(crate) fn is_valid_relative(&self) -> bool {
-        let path = match self {
-            Self::Plain(value) => Path::new(value),
-            #[cfg(unix)]
-            Self::Escaped { native, .. } => {
-                use std::ffi::OsStr;
-                use std::os::unix::ffi::OsStrExt;
-                Path::new(OsStr::from_bytes(native))
-            }
-            #[cfg(windows)]
-            Self::Escaped { native, .. } => {
-                use std::ffi::OsStr;
-                use std::os::windows::ffi::OsStrExt;
-                Path::new(OsStr::from_wide(native))
-            }
-        };
-        !path.as_os_str().is_empty()
-            && !path.is_absolute()
-            && path
-                .components()
-                .all(|part| matches!(part, std::path::Component::Normal(_)))
-    }
 }
 pub(crate) fn query(path: &rkyv::Archived<StoredPath>) -> &str {
     match path {

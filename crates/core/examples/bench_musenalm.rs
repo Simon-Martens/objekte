@@ -270,20 +270,22 @@ fn run() -> Result<(), String> {
             let task = Index::start_incremental_build(&root, definitions.clone(), options)
                 .map_err(|error| error.to_string())?;
             let index = task.wait_complete().map_err(|error| error.to_string())?;
+            let native_build_ns = build_start.elapsed().as_nanos() as u64;
+            let native_ready_rss = resident_bytes();
             let archive_report = if archive {
-                Some(
-                    index
-                        .archive_with_options(
-                            objekte_search_core::lifecycle::ArchiveOptions::new(archive_workers)
-                                .map_err(|error| error.to_string())?,
-                        )
-                        .map_err(|error| error.to_string())?,
-                )
+                let archive_started = Instant::now();
+                let report = index
+                    .archive_with_options(
+                        objekte_search_core::lifecycle::ArchiveOptions::new(archive_workers)
+                            .map_err(|error| error.to_string())?,
+                    )
+                    .map_err(|error| error.to_string())?;
+                Some((report, archive_started.elapsed().as_nanos() as u64))
             } else {
                 None
             };
             let build_status = Some(task.status().map_err(|error| error.to_string())?);
-            let open_ns = build_start.elapsed().as_nanos() as u64;
+            let combined_ns = build_start.elapsed().as_nanos() as u64;
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
             let storage_usage = view.storage_usage();
@@ -300,7 +302,13 @@ fn run() -> Result<(), String> {
             let peak_resident_bytes = peak_resident_bytes();
             build_results.push(serde_json::json!({
                 "alphabet":alphabet,"build_mode":"hybrid",
-                "build_ns":open_ns,"open_ns":open_ns,
+                "build_ns":native_build_ns,
+                "native_build_ns":native_build_ns,
+                "native_open_ns":native_build_ns,
+                "combined_ns":combined_ns,
+                "explicit_archive_ns":archive_report.as_ref().map(|(_, elapsed)| *elapsed),
+                "native_ready_rss":native_ready_rss,
+                "archived_end_rss":memory_bytes,
                 "discovery_ns":build_status.as_ref().and_then(|status| status.catalogue_elapsed_ns).unwrap_or(0),
                 "first_batch_ns":build_status.as_ref().and_then(|status| status.first_batch_elapsed_ns).unwrap_or(0),
                 "searchable_batches":build_status.as_ref().map_or(0, |status| status.searchable_batches),
@@ -310,7 +318,7 @@ fn run() -> Result<(), String> {
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
                 "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
-                "archive_report": archive_report,
+                "archive_report": archive_report.as_ref().map(|(report, _)| report),
                 "storage_usage": storage_usage,
                 "segment_families":view.index_family_breakdown(),
             }));
@@ -336,14 +344,16 @@ fn run() -> Result<(), String> {
             )?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup().build_ns;
+            let native_ready_rss = resident_bytes();
             let archive_report = if archive {
-                Some(
-                    repo.archive_with_options(
+                let archive_started = Instant::now();
+                let report = repo
+                    .archive_with_options(
                         objekte_search_core::lifecycle::ArchiveOptions::new(archive_workers)
                             .map_err(|error| error.to_string())?,
                     )
-                    .map_err(|error| error.to_string())?,
-                )
+                    .map_err(|error| error.to_string())?;
+                Some((report, archive_started.elapsed().as_nanos() as u64))
             } else {
                 None
             };
@@ -397,10 +407,15 @@ fn run() -> Result<(), String> {
             let relations = repo
                 .collections()
                 .iter()
-                .flat_map(|collection| &collection.relations)
+                .flat_map(|collection| collection.relations.iter())
                 .collect::<Vec<_>>();
             build_results.push(serde_json::json!({
                 "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
+                "native_open_ns": open_ns,
+                "combined_ns": build_start.elapsed().as_nanos() as u64,
+                "explicit_archive_ns": archive_report.as_ref().map(|(_, elapsed)| *elapsed),
+                "native_ready_rss": native_ready_rss,
+                "archived_end_rss": memory_bytes,
                 "discovery_ns": repo.startup().build_discovery_ns,
                 "extraction_index_ns": repo.startup().build_extraction_index_ns,
                 "finalization_ns": repo.startup().build_finalization_ns,
@@ -409,7 +424,7 @@ fn run() -> Result<(), String> {
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
                 "estimated_index_bytes": estimated_index_bytes,
                 "rkyv_archive_bytes": storage_usage.archive.serialized_bytes,
-                "archive_report": archive_report,
+                "archive_report": archive_report.as_ref().map(|(report, _)| report),
                 "storage_usage": storage_usage,
                 "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
                 "relation_count": relations.len(),
@@ -570,9 +585,13 @@ fn run() -> Result<(), String> {
         "{:x}",
         Sha256::digest(fs::read(lockfile).map_err(|error| error.to_string())?)
     );
+    let execution_dirty_status =
+        command_output("git", &["status", "--porcelain"]).unwrap_or_else(|error| error);
     let run_manifest = serde_json::json!({
         "run_id":run_id,"code_revision":rev,"execution_checkout_revision":rev,
         "binary_build_revision":option_env!("OBJEKTE_BUILD_REVISION"),
+        "binary_build_dirty":option_env!("OBJEKTE_BUILD_DIRTY"),
+        "execution_dirty_status":execution_dirty_status,
         "executable_sha256":executable_sha256,"cargo_lock_sha256":lockfile_sha256,
         "compiler":compiler,"command":arguments,"root":root,"extended":extended,
         "build_mode":if incremental {"hybrid"} else {"repository"},
@@ -691,11 +710,17 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             report.push_str(&format!(
-                "- {}: open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
+                "- {}: native build {:.3} ms; combined {:.3} ms; explicit archive {} ms; parses {}; native-ready RSS {} MiB; archived RSS {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
                 result["alphabet"],
-                result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+                result["native_build_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+                result["combined_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+                result["explicit_archive_ns"]
+                    .as_u64()
+                    .map(|value| format!("{:.3}", value as f64 / 1e6))
+                    .unwrap_or_else(|| "disabled".into()),
                 result["build_parses"],
-                result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["native_ready_rss"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["archived_end_rss"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
                 result["rkyv_archive_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
@@ -703,11 +728,17 @@ fn run() -> Result<(), String> {
             continue;
         }
         report.push_str(&format!(
-            "- {}: build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
+            "- {}: native build {:.3} ms; combined {:.3} ms; explicit archive {} ms; parses {}; native-ready RSS {} MiB; archived RSS {} MiB; peak resident {} MiB; estimated index {} MiB; rkyv archive {} MiB.\n",
             result["alphabet"],
-            result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+            result["native_build_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+            result["combined_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+            result["explicit_archive_ns"]
+                .as_u64()
+                .map(|value| format!("{:.3}", value as f64 / 1e6))
+                .unwrap_or_else(|| "disabled".into()),
             result["build_parses"],
-            result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            result["native_ready_rss"].as_u64().unwrap_or(0) / 1024 / 1024,
+            result["archived_end_rss"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["rkyv_archive_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
@@ -737,11 +768,17 @@ fn run() -> Result<(), String> {
     for result in &build_results {
         if result["build_mode"] == "hybrid" {
             println!(
-                "build {}: open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
+                "build {}: native_open_ms={:.3}; combined_ms={:.3}; explicit_archive_ms={}; parses={}; native_ready_rss={}; archived_end_rss={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
                 result["alphabet"],
-                result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+                result["native_build_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+                result["combined_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+                result["explicit_archive_ns"]
+                    .as_u64()
+                    .map(|value| format!("{:.3}", value as f64 / 1e6))
+                    .unwrap_or_else(|| "disabled".into()),
                 result["build_parses"],
-                result["resident_bytes"],
+                result["native_ready_rss"],
+                result["archived_end_rss"],
                 result["peak_resident_bytes"],
                 result["estimated_index_bytes"],
                 result["rkyv_archive_bytes"],
@@ -749,11 +786,17 @@ fn run() -> Result<(), String> {
             continue;
         }
         println!(
-            "build {}: {:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
+            "build {}: native_open_ms={:.3}; combined_ms={:.3}; explicit_archive_ms={}; parses={}; native_ready_rss={}; archived_end_rss={}; peak_resident_bytes={}; estimated_index_bytes={}; rkyv_archive_bytes={}",
             result["alphabet"],
-            result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+            result["native_build_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+            result["combined_ns"].as_u64().unwrap_or(0) as f64 / 1e6,
+            result["explicit_archive_ns"]
+                .as_u64()
+                .map(|value| format!("{:.3}", value as f64 / 1e6))
+                .unwrap_or_else(|| "disabled".into()),
             result["build_parses"],
-            result["resident_bytes"],
+            result["native_ready_rss"],
+            result["archived_end_rss"],
             result["peak_resident_bytes"],
             result["estimated_index_bytes"],
             result["rkyv_archive_bytes"],
@@ -812,7 +855,7 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &Repository) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.files().files.iter() {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.revision.modified_ns.to_le_bytes());
         hash.update(file.revision.size.to_le_bytes());

@@ -232,7 +232,7 @@ pub(crate) fn base_as_segment(
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
         sorting: Arc::clone(&collection.sorting),
-        relations,
+        relations: Arc::new(relations),
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),

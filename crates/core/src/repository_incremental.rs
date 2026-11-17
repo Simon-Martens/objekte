@@ -1088,7 +1088,7 @@ fn finish_admission_profile(
 struct SegmentMetadata {
     generation: CollectionGeneration,
     id_lookup: HashMap<RecordId, RecordSlot>,
-    identity_order: Vec<RecordSlot>,
+    identity_order: Arc<Vec<RecordSlot>>,
     stats: CollectionStats,
     logical_records: RoaringBitmap,
     empty_array_records: RoaringBitmap,
@@ -1144,8 +1144,7 @@ fn segment_metadata_generation(
                 .ok_or("segment record row missing")?;
             let record_id = crate::model::RecordId(Arc::new(record.id().to_owned()));
             let range = record.range();
-            let file = files
-                .files
+            let file = Arc::make_mut(&mut files.files)
                 .get_mut(record.file().0 as usize)
                 .ok_or("segment metadata file missing")?;
             if record.class() == RecordClass::Logical {
@@ -1238,7 +1237,7 @@ fn segment_metadata_generation(
     Ok(SegmentMetadata {
         generation,
         id_lookup,
-        identity_order,
+        identity_order: Arc::new(identity_order),
         stats,
         logical_records,
         empty_array_records,
@@ -1522,7 +1521,7 @@ impl Repository {
             Self::build_configured_shell(root.clone(), definitions.clone(), options, &sources)
                 .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);
-        repository.base_fingerprints = vec![None; discovered.files.len()];
+        repository.base_fingerprints = Arc::new(vec![None; discovered.files.len()]);
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
             collection.generation = CollectionBuilder::new(
                 state.id,
@@ -1943,14 +1942,14 @@ impl Repository {
         let mut final_repository =
             Self::build_configured_shell(root, definitions, options, &sources)
                 .map_err(IndexError::Build)?;
-        final_repository.base_fingerprints = base_fingerprints;
+        final_repository.base_fingerprints = Arc::new(base_fingerprints);
         final_repository.build_parses = build_parses;
         final_repository.build_failed_parses = failed_parses;
         let mut inference_build = InferenceBuildStats::default();
         let segment_view = index.view()?;
         let mut final_files = (*discovered).clone();
         let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
-        for file in &mut final_files.files {
+        for file in Arc::make_mut(&mut final_files.files) {
             if let Some(current) = segment_view.file_entry_owned(file.id) {
                 file.status = current.status;
                 file.omitted_diagnostics = current.omitted_diagnostics;
@@ -2060,7 +2059,7 @@ impl Repository {
                 })
                 .collect::<Result<Vec<_>, _>>()
                 .map_err(IndexError::Build)?;
-            final_repository.collections[source_index].relations = indexes;
+            final_repository.collections[source_index].relations = Arc::new(indexes);
         }
         crate::relation::validate_indexes(&final_repository.collections)
             .map_err(IndexError::Build)?;

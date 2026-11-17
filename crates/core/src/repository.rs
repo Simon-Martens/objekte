@@ -162,9 +162,9 @@ pub struct CollectionState {
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
-    pub identity_order: Vec<RecordSlot>,
+    pub identity_order: Arc<Vec<RecordSlot>>,
     pub stats: CollectionStats,
-    pub relations: Vec<RelationIndex>,
+    pub relations: Arc<Vec<RelationIndex>>,
 }
 
 impl CollectionState {
@@ -349,7 +349,7 @@ pub struct Repository {
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
     /// complete bytes, so verified maintenance must fall back.
-    pub(crate) base_fingerprints: Vec<Option<[u8; 32]>>,
+    pub(crate) base_fingerprints: Arc<Vec<Option<[u8; 32]>>>,
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
@@ -371,7 +371,7 @@ impl Repository {
     pub(crate) fn archive_candidate(&self) -> Result<Self, String> {
         Ok(Self {
             files: Arc::clone(&self.files),
-            base_fingerprints: self.base_fingerprints.clone(),
+            base_fingerprints: Arc::clone(&self.base_fingerprints),
             collections: self.collections.clone(),
             active: self.active.clone(),
             segments: self.segments.clone(),
@@ -1069,7 +1069,7 @@ impl Repository {
             .find(|item| item.definition.name == target_collection)?;
         self.collections
             .iter()
-            .flat_map(|source| &source.relations)
+            .flat_map(|source| source.relations.iter())
             .find(|relation| {
                 relation.target_collection == target.generation.collection
                     && relation.declaration.reverse_alias.as_deref() == Some(alias)
@@ -1367,7 +1367,7 @@ impl Repository {
                     hash_field(&mut hash, id.as_bytes());
                 }
             }
-            for relation in &collection.relations {
+            for relation in collection.relations.iter() {
                 hash_field(&mut hash, relation.declaration.path.join(".").as_bytes());
                 for record in records {
                     if let Some(edges) = relation.edges(record.slot) {
@@ -2039,28 +2039,30 @@ impl Repository {
                 sorting: Arc::new(sorting),
                 index_family_bytes: 0,
                 id_lookup: HashMap::new(),
-                identity_order: Vec::new(),
+                identity_order: Arc::new(Vec::new()),
                 stats: CollectionStats {
                     file_count: 0,
                     record_count: 0,
                     total_file_bytes: 0,
                 },
-                relations: Vec::new(),
+                relations: Arc::new(Vec::new()),
             });
         }
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {
             let source_id = collections[source_index].generation.collection;
-            collections[source_index].relations = contributions
-                .into_iter()
-                .enumerate()
-                .map(|(ordinal, contribution)| {
-                    contribution.resolve(
-                        source_id,
-                        u32::try_from(ordinal).map_err(|_| "too many relations")?,
-                        &collections,
-                    )
-                })
-                .collect::<Result<Vec<_>, String>>()?;
+            collections[source_index].relations = Arc::new(
+                contributions
+                    .into_iter()
+                    .enumerate()
+                    .map(|(ordinal, contribution)| {
+                        contribution.resolve(
+                            source_id,
+                            u32::try_from(ordinal).map_err(|_| "too many relations")?,
+                            &collections,
+                        )
+                    })
+                    .collect::<Result<Vec<_>, String>>()?,
+            );
         }
         crate::relation::validate_indexes(&collections)?;
         for state in &mut collections {
@@ -2072,8 +2074,11 @@ impl Repository {
                 &state.sorting,
             );
         }
-        let catalog =
-            FileCatalog::from_parts(Arc::clone(&files), Vec::new(), configuration_identity);
+        let catalog = FileCatalog::from_parts(
+            Arc::clone(&files),
+            Arc::new(Vec::new()),
+            configuration_identity,
+        );
         let active = (0..collections.len())
             .map(|_| ActiveRecords::all(0))
             .collect::<Result<Vec<_>, _>>()?;
@@ -2086,7 +2091,7 @@ impl Repository {
         });
         Ok(Self {
             files,
-            base_fingerprints: Vec::new(),
+            base_fingerprints: Arc::new(Vec::new()),
             collections,
             active,
             segments: vec![Arc::new(Vec::new()); collection_count],
@@ -2659,9 +2664,9 @@ impl Repository {
                 sorting: Arc::new(sorting),
                 index_family_bytes,
                 id_lookup,
-                identity_order,
+                identity_order: Arc::new(identity_order),
                 stats,
-                relations: Vec::new(),
+                relations: Arc::new(Vec::new()),
             });
             pending_relations.push(relations);
             finalization_ns += finalization_started.elapsed().as_nanos() as u64;
@@ -2687,7 +2692,7 @@ impl Repository {
             resolved_relations.push(indexes);
         }
         for (collection, indexes) in collections.iter_mut().zip(resolved_relations) {
-            collection.relations = indexes;
+            collection.relations = Arc::new(indexes);
         }
         crate::relation::validate_indexes(&collections)?;
         let native_publication_started = crate::detailed_timer::start_if_enabled(profile.is_some());
@@ -2721,9 +2726,10 @@ impl Repository {
             profile.final_checks_ns = started.elapsed().as_nanos() as u64;
         }
         let files = Arc::new(files);
+        let base_fingerprints = Arc::new(base_fingerprints);
         let catalog = FileCatalog::from_parts_in_pool(
             Arc::clone(&files),
-            base_fingerprints.clone(),
+            Arc::clone(&base_fingerprints),
             configuration_identity,
             Some(&build_pool),
         );

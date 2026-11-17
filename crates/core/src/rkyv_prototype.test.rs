@@ -1004,7 +1004,7 @@ fn rkyv_large_catalog_update_examines_only_the_affected_metadata_shard() {
     }
     let catalog = crate::lifecycle_catalog::FileCatalog::from_parts(
         Arc::new(files),
-        vec![None; 100_000],
+        Arc::new(vec![None; 100_000]),
         [0; 32],
     );
     let file = crate::model::FileId(54_321);
@@ -1345,8 +1345,10 @@ fn rkyv_inventory_releases_native_path_maps_after_adoption() {
     )
     .unwrap();
     let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    index.archive().unwrap();
     let view = index.view().unwrap();
     assert!(view.repository().files().native_lookup_maps_released());
+    assert!(view.repository().files().path_directory_archived());
     assert_eq!(
         view.repository()
             .files()
@@ -1354,6 +1356,79 @@ fn rkyv_inventory_releases_native_path_maps_after_adoption() {
         view.file_handle_for_path(std::path::Path::new("data/a.json"))
             .map(|handle| handle.file_id)
     );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segment_rows_archive_from_borrowed_rows_round_trips() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-borrowed-rows-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"borrowed rows"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let files = index
+        .view()
+        .unwrap()
+        .segments(crate::model::CollectionId(0))
+        .unwrap()[0]
+        .index
+        .files
+        .clone();
+    let (archived_files, archived_records) = files.archive_rows().unwrap();
+    assert!(archived_files.is_archived());
+    assert_eq!(archived_files.len(), 1);
+    assert_eq!(
+        archived_records.record_id(crate::model::RecordSlot(0)),
+        Some("a")
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn cold_archived_metadata_queries_do_not_materialize_compatibility_rows() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rkyv-borrowed-metadata-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"borrowed metadata"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    index.archive().unwrap();
+    crate::storage_usage::StorageWorkCounters::reset();
+    let view = index.view().unwrap();
+    let range = query(None, Some("@record.byte_length < 0"), 10, 0);
+    assert!(ids(&view, &range).0.is_empty());
+    let file_size = query(None, Some("@file.size < 0"), 10, 0);
+    assert!(ids(&view, &file_size).0.is_empty());
+    let counters = crate::storage_usage::StorageWorkCounters::snapshot();
+    assert_eq!(counters.record_row_cache_initializations, 0);
+    assert_eq!(counters.file_row_cache_initializations, 0);
+    assert_eq!(counters.catalog_row_cache_initializations, 0);
+
+    let segment = view.segments(crate::model::CollectionId(0)).unwrap()[0].clone();
+    assert!(segment.index.records.get(0).is_some());
+    assert!(segment.index.records.cache_initialized());
+    drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -2094,6 +2169,220 @@ fn repository_archive_failure_is_atomic_and_retryable() {
         repository.search(&query(None, None, 10, 0)).unwrap().count,
         count
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn operation_scoped_worker_failures_leave_index_and_queries_unchanged() {
+    use crate::archive_storage::{
+        ArchiveFailureStage, ArchiveTestFaultControl, with_test_fault_control,
+    };
+
+    for stage in [
+        ArchiveFailureStage::Serialization,
+        ArchiveFailureStage::ByteValidation,
+        ArchiveFailureStage::SemanticValidation,
+        ArchiveFailureStage::FinalCandidateValidation,
+        ArchiveFailureStage::PreInstall,
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-index-stage-failure-{stage:?}-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        for (id, year, title) in [("a", 10, "alpha"), ("b", 20, "beta")] {
+            std::fs::write(
+                root.join(format!("data/{id}.json")),
+                format!(r#"{{"id":"{id}","year":{year},"title":"{title}"}}"#),
+            )
+            .unwrap();
+        }
+        let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+        let before_status = index.archive_status().unwrap();
+        let before_revision = index.view().unwrap().revision();
+        let before_all = ids(&index.view().unwrap(), &query(None, None, 10, 0));
+        let before_old = ids(&index.view().unwrap(), &query(Some("alpha"), None, 10, 0));
+        let successes = match stage {
+            ArchiveFailureStage::Serialization | ArchiveFailureStage::ByteValidation => 2,
+            ArchiveFailureStage::SemanticValidation
+            | ArchiveFailureStage::FinalCandidateValidation
+            | ArchiveFailureStage::PreInstall => 0,
+        };
+        crate::lifecycle::install_test_archive_fault_control(Arc::new(
+            ArchiveTestFaultControl::new(stage, successes),
+        ));
+        let result = index
+            .archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap())
+            .map(|_report| ())
+            .map_err(|error| error);
+        let error = match result {
+            Err(error) => error,
+            Ok(()) => panic!("{stage:?} fault was not injected"),
+        };
+        crate::lifecycle::clear_test_archive_fault_control();
+        assert!(error.to_string().contains("injected"), "{stage:?}: {error}");
+        assert_eq!(index.archive_status().unwrap(), before_status);
+        let view = index.view().unwrap();
+        assert_eq!(view.revision(), before_revision);
+        assert_eq!(ids(&view, &query(None, None, 10, 0)), before_all);
+        assert_eq!(ids(&view, &query(Some("alpha"), None, 10, 0)), before_old);
+        drop(view);
+        index.archive().unwrap();
+        assert_eq!(
+            index.archive_status().unwrap().representation,
+            crate::lifecycle::ArchiveRepresentation::Archived
+        );
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-posting-component-failure-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"id":"a","year":10,"title":"alpha"}"#,
+    )
+    .unwrap();
+    let index = Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap();
+    let mut postings = index
+        .view()
+        .unwrap()
+        .segments(crate::model::CollectionId(0))
+        .unwrap()[0]
+        .index
+        .postings
+        .clone();
+    let error = with_test_fault_control(
+        Arc::new(ArchiveTestFaultControl::new(
+            ArchiveFailureStage::ByteValidation,
+            1,
+        )),
+        || postings.archive_storage(),
+    )
+    .unwrap_err();
+    assert!(error.contains("injected"));
+    assert!(postings.all_native());
+    assert_eq!(
+        ids(&index.view().unwrap(), &query(Some("alpha"), None, 10, 0)).0,
+        ["a"]
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn operation_scoped_worker_failure_leaves_repository_and_retry_unchanged() {
+    use crate::archive_storage::{ArchiveFailureStage, ArchiveTestFaultControl};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-repository-stage-failure-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, year, title) in [("a", 10, "alpha"), ("b", 20, "beta")] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            format!(r#"{{"id":"{id}","year":{year},"title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+    let mut repository =
+        Repository::open_with_options(&root, vec![prototype_definition()], prototype_options())
+            .unwrap();
+    let before_status = repository.archive_status();
+    let before_all = repository.search(&query(None, None, 10, 0)).unwrap();
+    let before_old = repository
+        .search(&query(Some("alpha"), None, 10, 0))
+        .unwrap();
+    crate::lifecycle::install_test_archive_fault_control(Arc::new(ArchiveTestFaultControl::new(
+        ArchiveFailureStage::Serialization,
+        2,
+    )));
+    let error = repository
+        .archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap())
+        .unwrap_err();
+    crate::lifecycle::clear_test_archive_fault_control();
+    assert!(error.to_string().contains("injected"));
+    assert_eq!(repository.archive_status(), before_status);
+    assert_eq!(
+        repository.search(&query(None, None, 10, 0)).unwrap().hits,
+        before_all.hits
+    );
+    assert_eq!(
+        repository
+            .search(&query(Some("alpha"), None, 10, 0))
+            .unwrap()
+            .hits,
+        before_old.hits
+    );
+    repository
+        .archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap())
+        .unwrap();
+    assert_eq!(
+        repository.archive_status().representation,
+        crate::lifecycle::ArchiveRepresentation::Archived
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn one_collection_many_segments_archives_with_multiple_bounded_jobs() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-archive-segment-jobs-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for ordinal in 0..8 {
+        std::fs::write(
+            root.join(format!("data/{ordinal}.json")),
+            format!(r#"{{"id":"{ordinal}","year":{ordinal},"title":"job"}}"#),
+        )
+        .unwrap();
+    }
+    let index =
+        Arc::new(Index::build(&root, vec![prototype_definition()], prototype_options()).unwrap());
+    let build_segments = index
+        .view()
+        .unwrap()
+        .segments(crate::model::CollectionId(0))
+        .unwrap()
+        .len();
+    assert!(build_segments >= 2);
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let worker = Arc::clone(&index);
+    let archive = std::thread::spawn(move || {
+        let gate = crate::lifecycle::install_test_archive_job_gate();
+        sender.send(Arc::clone(&gate)).unwrap();
+        let result = worker.archive_with_options(crate::lifecycle::ArchiveOptions::new(4).unwrap());
+        crate::lifecycle::clear_test_archive_job_gate();
+        result
+    });
+    let gate = receiver.recv().unwrap();
+    gate.wait_for_arrived(2);
+    gate.release();
+    let report = archive.join().unwrap().unwrap();
+    assert!(report.peak_active_conversion_jobs >= 2);
+    assert!(report.peak_active_conversion_jobs <= 4);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

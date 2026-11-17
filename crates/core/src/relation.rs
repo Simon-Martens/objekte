@@ -238,18 +238,20 @@ impl RelationIndex {
                     .insert(source_slot as u32);
             }
         }
-        let reverse_mismatch = if !posting.values.is_empty() && reverse.len() != posting.values.len() {
-            true
-        } else {
-            let mut mismatch = false;
-            posting.values
-                .for_each(|key, bitmap| {
-                    mismatch |= reverse.get(key) != Some(bitmap);
-                    Ok(())
-                })
-                .map_err(|error| error.to_string())?;
-            mismatch
-        };
+        let reverse_mismatch =
+            if !posting.values.is_empty() && reverse.len() != posting.values.len() {
+                true
+            } else {
+                let mut mismatch = false;
+                posting
+                    .values
+                    .for_each(|key, bitmap| {
+                        mismatch |= reverse.get(key) != Some(bitmap);
+                        Ok(())
+                    })
+                    .map_err(|error| error.to_string())?;
+                mismatch
+            };
         if reverse_mismatch || unresolved != self.unresolved_count {
             return Err("relation forward/reverse membership mismatch".into());
         }
@@ -282,9 +284,7 @@ impl RelationContribution {
         &self.present
     }
 
-    pub(crate) fn reverse_postings(
-        &self,
-    ) -> BTreeMap<ScalarKey, RoaringBitmap> {
+    pub(crate) fn reverse_postings(&self) -> BTreeMap<ScalarKey, RoaringBitmap> {
         let mut postings = BTreeMap::<ScalarKey, RoaringBitmap>::new();
         for reference in &self.references {
             postings
@@ -312,8 +312,7 @@ impl RelationContribution {
                     .map_or(0, String::len),
             );
         total = total.saturating_add(
-            self.references.capacity()
-                * (std::mem::size_of::<PendingReference>() + OVERHEAD),
+            self.references.capacity() * (std::mem::size_of::<PendingReference>() + OVERHEAD),
         );
         for reference in &self.references {
             total = total
@@ -366,7 +365,6 @@ impl RelationContribution {
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }
-
 
     /// References are appended in source-slot order during admission and
     /// projection, so a selective query can borrow one source's edges without
@@ -441,8 +439,7 @@ impl RelationContribution {
         let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
             let mut projected = RoaringBitmap::new();
             for old in bitmap.iter() {
-                let mapped = resolve(old)
-                    .ok_or("relation projection bitmap out of bounds")?;
+                let mapped = resolve(old).ok_or("relation projection bitmap out of bounds")?;
                 if let Some(slot) = mapped {
                     projected.insert(slot.0);
                 }
@@ -451,8 +448,8 @@ impl RelationContribution {
         };
         let mut references = Vec::new();
         for reference in &self.references {
-            if let Some(source) = resolve(reference.source.0)
-                .ok_or("relation projection source out of bounds")?
+            if let Some(source) =
+                resolve(reference.source.0).ok_or("relation projection source out of bounds")?
             {
                 references.push(PendingReference {
                     source,
@@ -874,7 +871,7 @@ pub(crate) fn validate_indexes(collections: &[CollectionState]) -> Result<(), St
             .schema
             .relations()
             .values()
-            .zip(&source.relations)
+            .zip(source.relations.iter())
             .enumerate()
         {
             if relation.declaration != *declaration

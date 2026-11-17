@@ -176,7 +176,7 @@ fn rebase_reuses_paths_and_ownership_and_rebuilds_only_changed_metadata() {
     let inventory = Arc::clone(&repository.files);
     let mut catalog = FileCatalog::from_parts(
         inventory,
-        vec![Some([1; 32]); repository.files().files.len()],
+        Arc::new(vec![Some([1; 32]); repository.files().files.len()]),
         configuration,
     );
     let ownership = Arc::clone(&catalog.ownership);
@@ -225,8 +225,15 @@ fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
             CollectionId(0),
         )
         .unwrap();
-    let catalog =
-        FileCatalog::from_parts(std::sync::Arc::new(inventory), vec![Some([9; 32])], [4; 32]);
+    let inventory = std::sync::Arc::new(inventory);
+    let mut without_bindings = FileCatalog::from_parts(
+        std::sync::Arc::clone(&inventory),
+        std::sync::Arc::new(vec![None]),
+        [4; 32],
+    );
+    without_bindings.archive_storage().unwrap();
+    let mut catalog =
+        FileCatalog::from_parts(inventory, std::sync::Arc::new(vec![Some([9; 32])]), [4; 32]);
     assert_eq!(catalog.id_for(&native), Some(id));
     assert_eq!(catalog.fingerprint(id), Some([9; 32]));
     assert_eq!(catalog.configuration(id), Some([4; 32]));
@@ -236,4 +243,8 @@ fn rkyv_catalog_preserves_non_utf8_exact_paths_and_distinct_query_keys() {
         Some(vec![id])
     );
     assert_ne!(query, "data/non-utf8-\u{fffd}.json");
+    catalog.archive_storage().unwrap();
+    assert_eq!(catalog.id_for(&native), Some(id));
+    assert_eq!(catalog.fingerprint(id), Some([9; 32]));
+    assert_eq!(catalog.configuration(id), Some([4; 32]));
 }

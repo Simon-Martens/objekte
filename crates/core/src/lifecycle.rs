@@ -525,7 +525,7 @@ fn cheapest_consolidation_pair(
                 }
             }
             if !overlaps {
-                for &slot in &left_index.identity_order {
+                for &slot in left_index.identity_order.iter() {
                     let id = left_index.records.record_id(slot)?;
                     if right_index.id_lookup.get(id).is_some() {
                         overlaps = true;
@@ -4913,4 +4913,7 @@ mod tests;
 mod archive_operation;
 pub use archive_operation::{ArchiveOptions, ArchiveReport, ArchiveRepresentation, ArchiveStatus};
 #[cfg(test)]
-pub(crate) use archive_operation::{clear_test_archive_gate, install_test_archive_gate};
+pub(crate) use archive_operation::{
+    clear_test_archive_fault_control, clear_test_archive_gate, clear_test_archive_job_gate,
+    install_test_archive_fault_control, install_test_archive_gate, install_test_archive_job_gate,
+};

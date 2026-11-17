@@ -2497,7 +2497,7 @@ impl CollectionAdmission<'_> {
                 }
                 diagnostic_refs.push(self.inventory.record_diagnostic(file_id, diagnostic)?);
             }
-            let file = &mut self.inventory.files[file_id.0 as usize];
+            let file = &mut Arc::make_mut(&mut self.inventory.files)[file_id.0 as usize];
             file.status = file.status.max(batch_file.entry.status);
             file.omitted_diagnostics = file
                 .omitted_diagnostics

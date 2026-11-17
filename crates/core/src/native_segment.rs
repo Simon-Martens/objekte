@@ -241,7 +241,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: FileLookup,
     pub records: RecordRows,
     pub id_lookup: RecordLookup,
-    pub identity_order: Vec<RecordSlot>,
+    pub identity_order: Arc<Vec<RecordSlot>>,
     pub postings: PostingCollection,
     pub(crate) inference_observation: Option<InferenceObservation>,
     pub inference: Option<InferenceState>,
@@ -254,7 +254,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub sorting: Arc<SortCollection>,
     /// Relation source references retain logical target IDs for merged-view
     /// resolution across segment and collection boundaries.
-    pub relations: Vec<RelationContribution>,
+    pub relations: Arc<Vec<RelationContribution>>,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub accounting: SegmentAccounting,
@@ -500,33 +500,48 @@ impl IndexedCollectionSegment {
         if !self.storage_completed || !self.has_published_storage() {
             return Err("segment storage is not semantically completed".into());
         }
-        if !self.files.is_archived() {
-            let (files, records) = self.files.archive_rows()?;
-            self.files = files;
-            self.records = records;
-        }
-        if !self.file_index.is_archived() {
-            self.file_index = self.file_index.archive()?;
-        }
-        if !self.id_lookup.is_archived() {
-            self.id_lookup = self.id_lookup.archive()?;
-        }
-        self.postings.archive_storage()?;
-        for custom in self.custom_postings.values_mut() {
-            custom.index.archive_storage()?;
-        }
-        if let Some(inference) = &mut self.inference {
-            for index in inference.indexes.values_mut() {
-                index.archive_storage()?;
-            }
-        }
+        let (files, records) = self.files.archive_rows()?;
+        let file_index = self.file_index.archive()?;
+        let id_lookup = self.id_lookup.archive()?;
+        let postings = self.postings.archived()?;
+        let custom_postings = self
+            .custom_postings
+            .iter()
+            .map(|(key, custom)| {
+                Ok((
+                    key.clone(),
+                    CustomPostingIndex {
+                        index: custom.index.archived()?,
+                        complete: custom.complete,
+                    },
+                ))
+            })
+            .collect::<Result<HashMap<_, _>, String>>()?;
+        let inference = self
+            .inference
+            .as_ref()
+            .map(|inference| {
+                let mut inference = inference.clone();
+                for index in inference.indexes.values_mut() {
+                    *index = index.archived()?;
+                }
+                Ok::<_, String>(inference)
+            })
+            .transpose()?;
         crate::segment_archive::validate_segment_components(
-            &self.files,
-            &self.records,
-            &self.file_index,
-            &self.id_lookup,
+            &files,
+            &records,
+            &file_index,
+            &id_lookup,
             self.collection,
         )?;
+        self.files = files;
+        self.records = records;
+        self.file_index = file_index;
+        self.id_lookup = id_lookup;
+        self.postings = postings;
+        self.custom_postings = custom_postings;
+        self.inference = inference;
         Ok(())
     }
 
@@ -830,8 +845,11 @@ impl IndexedCollectionSegment {
         index: usize,
         matches: &mut RoaringBitmap,
     ) -> Result<(), String> {
-        let file = self.files.get(index).ok_or("segment file row missing")?;
-        matches.extend(file.records.iter().map(|slot| slot.0));
+        let records = self
+            .files
+            .archived_record_slots(index)
+            .ok_or("segment file row missing")?;
+        matches.extend(records.map(|slot| slot.0));
         Ok(())
     }
 

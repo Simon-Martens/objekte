@@ -19,7 +19,7 @@ use crate::executor::{
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_fts_candidates,
 };
-use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, FileEntry, FileStatus, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
@@ -256,8 +256,7 @@ impl<'a> ResolvedSort<'a> {
                 return order;
             }
         }
-        (collection_name, record.id.0.as_str())
-            .cmp(&(worst.collection.as_str(), worst.id.as_str()))
+        (collection_name, record.id.0.as_str()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
     }
 }
 
@@ -2089,8 +2088,8 @@ fn segment_metadata_fts_evidence(
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: resolved.record,
-            file: resolved.file,
+            record: &resolved.record,
+            file: &resolved.file,
             collection_name: &collection.definition.name,
             repository_root: &repo.files.root,
         };
@@ -2237,17 +2236,17 @@ pub(crate) fn make_hit(
 /// A segment record has a local slot but retains a repository-global file ID.
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
-pub(crate) struct SegmentRecordRef<'a> {
-    pub record: &'a RecordEntry,
-    pub file: &'a FileEntry,
+pub(crate) struct SegmentRecordRef {
+    pub record: RecordEntry,
+    pub file: FileEntry,
 }
 
-fn segment_active_file<'a>(
+fn segment_active_file(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &'a FileCatalog,
+    catalog: &FileCatalog,
     file_id: crate::model::FileId,
-) -> Result<&'a FileEntry, String> {
+) -> Result<FileEntry, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
@@ -2257,48 +2256,85 @@ fn segment_active_file<'a>(
         .ok_or("segment record file missing")?;
     let segment_revision = segment
         .files
-        .get(file_index)
-        .map(|file| file.entry.revision)
+        .revision(file_index)
         .ok_or("segment record file missing")?;
-    let file = catalog
-        .entry(file_id)
-        .ok_or("active segment record file is retired")?;
-    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
+    let relative_path = catalog.shared_path(file_id).ok_or_else(|| {
+        format!(
+            "active segment record file {} is missing from collection {} segment {} catalog",
+            file_id.0, segment.collection.0, segment.id
+        )
+    })?;
+    let status = segment
+        .files
+        .status_code(file_index)
+        .and_then(|code| match code {
+            0 => Some(FileStatus::Valid),
+            1 => Some(FileStatus::Broken),
+            2 => Some(FileStatus::Unreadable),
+            _ => None,
+        })
+        .ok_or("active segment file status is invalid")?;
+    let file = FileEntry {
+        id: file_id,
+        relative_path,
+        revision: segment_revision,
+        created_ns: segment
+            .files
+            .created_ns(file_index)
+            .ok_or("segment record file missing")?,
+        collections: segment
+            .files
+            .collections(file_index)
+            .ok_or("segment record file missing")?,
+        status,
+        diagnostics: Vec::new(),
+        omitted_diagnostics: segment.files.omitted_diagnostics(file_index).unwrap_or(0),
+    };
+    if !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(file)
 }
 
-pub(crate) fn segment_record_ref<'a>(
-    segment: &'a IndexedCollectionSegment,
+pub(crate) fn segment_record_ref(
+    segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &'a FileCatalog,
+    catalog: &FileCatalog,
     slot: RecordSlot,
-) -> Result<Option<SegmentRecordRef<'a>>, String> {
+) -> Result<Option<SegmentRecordRef>, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
     if !active.contains(slot) {
         return Ok(None);
     }
-    let record = segment.record(slot).ok_or("segment record slot missing")?;
+    let row = segment
+        .records
+        .record_row(slot.0 as usize)
+        .ok_or("segment record slot missing")?;
     let file_index = segment
         .file_index
-        .get(record.file)
+        .get(row.file())
         .ok_or("segment record file missing")?;
     let segment_revision = segment
         .files
-        .get(file_index)
-        .map(|file| file.entry.revision)
+        .revision(file_index)
         .ok_or("segment record file missing")?;
-    let file = catalog
-        .entry(record.file)
-        .ok_or("active segment record file is retired")?;
+    let file = segment_active_file(segment, active, catalog, row.file())?;
     // The catalog owns the path in this publication. A compatible move may
     // route an unchanged segment to a new path without rebuilding postings.
     if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
+    let record = RecordEntry {
+        slot,
+        id: crate::model::RecordId(Arc::new(row.id().to_owned())),
+        file: row.file(),
+        range: row.range(),
+        revision: segment_revision,
+        class: row.class(),
+        diagnostic_ref: row.diagnostic_ref(),
+    };
     Ok(Some(SegmentRecordRef { record, file }))
 }
 
@@ -2449,7 +2485,7 @@ pub(crate) fn direct_lookup_segmented(
                 payload,
             })
         });
-        (record, file, result)
+        (record.clone(), file.clone(), result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
@@ -2987,7 +3023,7 @@ fn direct_related_target_sort_key(
 
 fn segment_locator_hit(
     collection: &CollectionState,
-    resolved: SegmentRecordRef<'_>,
+    resolved: SegmentRecordRef,
     revision: IndexRevision,
     mut matched_fields: Vec<String>,
 ) -> SearchHit {
@@ -3723,14 +3759,36 @@ fn scan_segment_file_parallel(
             if !published.active.contains(RecordSlot(slot)) {
                 return Err("inactive segment scan slot".into());
             }
-            let record = segment
-                .record(RecordSlot(slot))
+            let row = segment
+                .records
+                .record_row(slot as usize)
                 .ok_or("segment scan slot missing")?;
-            if record.file.0 != file_id {
+            if row.file().0 != file_id {
                 return Err("segment scan file ownership mismatch".into());
             }
-            let resolved = SegmentRecordRef { record, file };
-            let record = resolved.record;
+            let record = RecordEntry {
+                slot: RecordSlot(slot),
+                id: crate::model::RecordId(Arc::new(row.id().to_owned())),
+                file: row.file(),
+                range: row.range(),
+                revision: segment
+                    .files
+                    .revision(
+                        segment
+                            .file_index
+                            .get(row.file())
+                            .ok_or("segment scan file missing")?,
+                    )
+                    .ok_or("segment scan file revision missing")?,
+                class: row.class(),
+                diagnostic_ref: row.diagnostic_ref(),
+            };
+            let resolved = SegmentRecordRef {
+                record,
+                file: file.clone(),
+            };
+            let record = &resolved.record;
+            let file = &resolved.file;
             result.record_parses += u64::from(
                 record.class == RecordClass::Logical
                     && (direct_plan.is_none()
@@ -3747,7 +3805,7 @@ fn scan_segment_file_parallel(
                 repo,
                 collection,
                 record,
-                resolved.file,
+                file,
                 &bytes,
                 filter,
                 fts,
@@ -3766,7 +3824,7 @@ fn scan_segment_file_parallel(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file: resolved.file,
+                file,
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
@@ -3823,11 +3881,38 @@ fn push_exact_order_cursor(
         if !selected[segment_index].0.contains(slot.0) {
             continue;
         }
-        let record = published
+        let row = published
             .index
-            .record(slot)
+            .records
+            .record_row(slot.0 as usize)
             .ok_or("exact ordered slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let record = RecordEntry {
+            slot,
+            id: crate::model::RecordId(Arc::new(row.id().to_owned())),
+            file: row.file(),
+            range: row.range(),
+            revision: published
+                .index
+                .files
+                .revision(
+                    published
+                        .index
+                        .file_index
+                        .get(row.file())
+                        .ok_or("exact ordered file missing")?,
+                )
+                .ok_or("exact ordered revision missing")?,
+            class: row.class(),
+            diagnostic_ref: row.diagnostic_ref(),
+        };
+        let key = segment_rank_key(
+            repo,
+            sort,
+            collection_index,
+            &published.index,
+            &record,
+            None,
+        )?;
         let Some(bytes) = usize::try_from(rank_key_bytes(&key))
             .ok()
             .and_then(|bytes| bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>()))
@@ -4693,7 +4778,7 @@ fn search_segmented_impl(
                         &sort,
                         collection_index,
                         segment,
-                        resolved.record,
+                        &resolved.record,
                         None,
                     )?;
                     if let Some(builder) = cache_builder.as_mut() {
@@ -4805,7 +4890,7 @@ fn search_segmented_impl(
                             &sort,
                             collection_index,
                             segment,
-                            resolved.record,
+                            &resolved.record,
                             None,
                         )?;
                         let hit = segment_locator_hit(
@@ -4864,7 +4949,7 @@ fn search_segmented_impl(
                         &sort,
                         collection_index,
                         segment,
-                        resolved.record,
+                        &resolved.record,
                         None,
                     )?;
                     let matched_fields = exact_fields(slot);
@@ -4917,10 +5002,11 @@ fn search_segmented_impl(
             let mut ordered_files = true;
             for slot in candidates.iter() {
                 let record = segment
-                    .record(RecordSlot(slot))
+                    .records
+                    .record_row(slot as usize)
                     .ok_or("segment candidate missing")?;
                 if let Some(context) = context
-                    && record.range.len() > context.limits.source_record_bytes
+                    && record.range().len() > context.limits.source_record_bytes
                 {
                     return Err(context.fail(
                         ExecutionErrorKind::Resource,
@@ -4928,13 +5014,16 @@ fn search_segmented_impl(
                     ));
                 }
                 if let Some((previous_file, ranges)) = files.last_mut() {
-                    ordered_files &= *previous_file <= record.file.0;
-                    if *previous_file == record.file.0 {
-                        ranges.push((slot, record.range));
+                    ordered_files &= *previous_file <= record.file().0;
+                    if *previous_file == record.file().0 {
+                        ranges.push((slot, record.range()));
                         continue;
                     }
                 }
-                files.push((record.file.0, SmallVec::from_buf([(slot, record.range)])));
+                files.push((
+                    record.file().0,
+                    SmallVec::from_buf([(slot, record.range())]),
+                ));
             }
             let files = order_segment_file_groups(files, ordered_files);
             // Local residual verification is independent by source file. Limit the
@@ -4973,8 +5062,9 @@ fn search_segmented_impl(
                         && ranges.iter().all(|(slot, range)| {
                             range.len() <= 1024 * 1024
                                 && segment
-                                    .record(RecordSlot(*slot))
-                                    .is_some_and(|record| record.id.0.len() <= 1024)
+                                    .records
+                                    .record_id(RecordSlot(*slot))
+                                    .is_some_and(|id| id.len() <= 1024)
                         })
                 });
             if parallel_scan {
@@ -5044,8 +5134,8 @@ fn search_segmented_impl(
                                 let (_, matched, evidence, _) = verify_local_segment_record(
                                     repo,
                                     collection,
-                                    resolved.record,
-                                    resolved.file,
+                                    &resolved.record,
+                                    &resolved.file,
                                     source_bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -5122,14 +5212,28 @@ fn search_segmented_impl(
                         if !published.active.contains(RecordSlot(slot)) {
                             return Err("inactive segment scan slot".into());
                         }
-                        let record = segment
-                            .record(RecordSlot(slot))
+                        let row = segment
+                            .records
+                            .record_row(slot as usize)
                             .ok_or("segment scan slot missing")?;
-                        if record.file.0 != file_id {
+                        if row.file().0 != file_id {
                             return Err("segment scan file ownership mismatch".into());
                         }
-                        let resolved = SegmentRecordRef { record, file };
-                        let record = resolved.record;
+                        let record = RecordEntry {
+                            slot: RecordSlot(slot),
+                            id: crate::model::RecordId(Arc::new(row.id().to_owned())),
+                            file: row.file(),
+                            range: row.range(),
+                            revision: file.revision,
+                            class: row.class(),
+                            diagnostic_ref: row.diagnostic_ref(),
+                        };
+                        let resolved = SegmentRecordRef {
+                            record,
+                            file: file.clone(),
+                        };
+                        let record = &resolved.record;
+                        let file = &resolved.file;
                         counters.record_parses += u64::from(
                             record.class == RecordClass::Logical
                                 && (direct_plan.is_none()
@@ -5148,7 +5252,7 @@ fn search_segmented_impl(
                                 repo,
                                 collection,
                                 record,
-                                resolved.file,
+                                file,
                                 &bytes,
                                 filter.as_ref(),
                                 fts.as_ref(),
@@ -5168,7 +5272,7 @@ fn search_segmented_impl(
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
                             record,
-                            file: resolved.file,
+                            file,
                             collection_name: &collection.definition.name,
                             repository_root: &repo.files.root,
                         };
@@ -5200,7 +5304,7 @@ fn search_segmented_impl(
                                     repo,
                                     collection,
                                     record,
-                                    resolved.file,
+                                    file,
                                     &bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -5409,7 +5513,7 @@ fn materialize_lifecycle_cached(
                 RecordSlot(member.slot),
             )?
             .ok_or("cached lifecycle segment slot retired")?;
-            charge_lifecycle_cached_payload(context, query, resolved.record)?;
+            charge_lifecycle_cached_payload(context, query, &resolved.record)?;
             let payload = if query.options.return_mode == ReturnMode::Locator {
                 Ok(None)
             } else {
@@ -5455,11 +5559,14 @@ fn materialize_lifecycle_cached(
                     })
                     .map(|(payload, _)| payload)
             };
-            (record, file, payload)
+            (record.clone(), file.clone(), payload)
         };
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record: record.clone(),
+                file: file.clone(),
+            },
             revision,
             member.matched_fields.clone(),
         );
@@ -5839,8 +5946,8 @@ fn scan_direct_target_parallel(
     let ctx = RecordContext {
         value: &extracted.value,
         source_bytes: Some(&bytes),
-        record: resolved.record,
-        file: resolved.file,
+        record: &resolved.record,
+        file: &resolved.file,
         collection_name: &target_collection.definition.name,
         repository_root: &repo.files.root,
     };
@@ -6176,8 +6283,8 @@ fn try_direct_relation_page(
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
-                    record: resolved.record,
-                    file: resolved.file,
+                    record: &resolved.record,
+                    file: &resolved.file,
                     collection_name: &target_collection.definition.name,
                     repository_root: &repo.files.root,
                 };
@@ -6356,7 +6463,7 @@ fn try_direct_relation_page(
                     sort,
                     *source_index,
                     &published.index,
-                    resolved.record,
+                    &resolved.record,
                     None,
                 )?
             };
@@ -6781,8 +6888,8 @@ fn scan_relation_file_parallel(
         let hit = segment_locator_hit(
             resolved.collection,
             SegmentRecordRef {
-                record,
-                file: resolved.file,
+                record: record.clone(),
+                file: resolved.file.clone(),
             },
             revision,
             if query.options.evidence {
@@ -7416,8 +7523,8 @@ fn search_segmented_relations(
             let hit = segment_locator_hit(
                 resolved.collection,
                 SegmentRecordRef {
-                    record,
-                    file: resolved.file,
+                    record: record.clone(),
+                    file: resolved.file.clone(),
                 },
                 revision,
                 if query.options.evidence {
@@ -7642,7 +7749,7 @@ fn search_segmented_relations(
                     let index = published
                         .index
                         .file_index
-                         .get(record.file)
+                        .get(record.file)
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
                 }
@@ -8948,8 +9055,8 @@ fn try_lifecycle_ordered_stream(
         else {
             continue;
         };
-        let record = resolved.record;
-        let file = resolved.file;
+        let record = &resolved.record;
+        let file = &resolved.file;
         let collection = &repo.collections[cursor.collection_index];
         counters.candidates += 1;
         let (filter, fts) = filters[cursor.collection_index]
@@ -8999,8 +9106,8 @@ fn try_lifecycle_ordered_stream(
             let read = match read_lifecycle_ordered_record(
                 repo,
                 catalog,
-                file,
-                record,
+                &file,
+                &record,
                 cursor.slot,
                 &mut reader,
                 delivery
@@ -9043,8 +9150,8 @@ fn try_lifecycle_ordered_stream(
             let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
-                record,
-                file,
+                &record,
+                &file,
                 &read,
                 filter.as_ref(),
                 fts.as_ref(),
@@ -9079,7 +9186,10 @@ fn try_lifecycle_ordered_stream(
         }
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record: record.clone(),
+                file: file.clone(),
+            },
             revision,
             if request.options.evidence {
                 evidence.into_iter().collect()
@@ -9122,8 +9232,8 @@ fn try_lifecycle_ordered_stream(
                     let read = read_lifecycle_ordered_record(
                         repo,
                         catalog,
-                        file,
-                        record,
+                        &file,
+                        &record,
                         cursor.slot,
                         &mut reader,
                         delivery

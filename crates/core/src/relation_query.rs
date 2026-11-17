@@ -2124,7 +2124,7 @@ fn visit_hop(
                     &repo.collections[collection_index].generation.records[source_slot.0 as usize];
                 let mut seen = 0usize;
                 let mut selected = 0usize;
-                for candidate in &source_collection.identity_order {
+                for candidate in source_collection.identity_order.iter() {
                     if !work.is_active(hop.to, *candidate) {
                         continue;
                     }
@@ -2262,7 +2262,7 @@ fn visit_hop(
                 } else {
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
-                    for source in &source_collection.identity_order {
+                    for source in source_collection.identity_order.iter() {
                         if !work.is_active(hop.to, *source) {
                             continue;
                         }

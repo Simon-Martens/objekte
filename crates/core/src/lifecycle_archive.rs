@@ -10,6 +10,8 @@ use rayon::prelude::*;
 use serde::Serialize;
 
 use crate::archive_storage::take_construction_timing;
+#[cfg(test)]
+use crate::archive_storage::{ArchiveTestFaultControl, with_test_fault_control};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedSegment};
 use crate::repository::Repository;
 
@@ -17,6 +19,57 @@ use crate::repository::Repository;
 pub(crate) struct ArchiveTestGate {
     state: std::sync::Mutex<ArchiveTestGateState>,
     changed: std::sync::Condvar,
+}
+
+#[cfg(test)]
+pub(crate) struct ArchiveJobTestGate {
+    state: std::sync::Mutex<ArchiveJobTestGateState>,
+    changed: std::sync::Condvar,
+}
+
+#[cfg(test)]
+#[derive(Default)]
+struct ArchiveJobTestGateState {
+    arrived: usize,
+    released: bool,
+}
+
+#[cfg(test)]
+impl ArchiveJobTestGate {
+    pub(crate) fn new() -> Self {
+        Self {
+            state: std::sync::Mutex::new(ArchiveJobTestGateState::default()),
+            changed: std::sync::Condvar::new(),
+        }
+    }
+
+    fn arrive(&self) {
+        let mut state = self.state.lock().expect("archive job gate lock poisoned");
+        state.arrived += 1;
+        self.changed.notify_all();
+        while !state.released {
+            state = self
+                .changed
+                .wait(state)
+                .expect("archive job gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn wait_for_arrived(&self, count: usize) {
+        let mut state = self.state.lock().expect("archive job gate lock poisoned");
+        while state.arrived < count {
+            state = self
+                .changed
+                .wait(state)
+                .expect("archive job gate lock poisoned");
+        }
+    }
+
+    pub(crate) fn release(&self) {
+        let mut state = self.state.lock().expect("archive job gate lock poisoned");
+        state.released = true;
+        self.changed.notify_all();
+    }
 }
 
 #[cfg(test)]
@@ -68,6 +121,8 @@ impl ArchiveTestGate {
 thread_local! {
     static TEST_ARCHIVE_GATE: std::cell::RefCell<Option<Arc<ArchiveTestGate>>> =
         const { std::cell::RefCell::new(None) };
+    static TEST_ARCHIVE_JOB_GATE: std::cell::RefCell<Option<Arc<ArchiveJobTestGate>>> =
+        const { std::cell::RefCell::new(None) };
 }
 
 #[cfg(test)]
@@ -85,6 +140,20 @@ pub(crate) fn clear_test_archive_gate() {
 }
 
 #[cfg(test)]
+pub(crate) fn install_test_archive_job_gate() -> Arc<ArchiveJobTestGate> {
+    let gate = Arc::new(ArchiveJobTestGate::new());
+    TEST_ARCHIVE_JOB_GATE.with(|slot| *slot.borrow_mut() = Some(Arc::clone(&gate)));
+    gate
+}
+
+#[cfg(test)]
+pub(crate) fn clear_test_archive_job_gate() {
+    TEST_ARCHIVE_JOB_GATE.with(|slot| {
+        slot.borrow_mut().take();
+    });
+}
+
+#[cfg(test)]
 fn maybe_pause_archive() {
     let gate = TEST_ARCHIVE_GATE.with(|slot| slot.borrow_mut().take());
     if let Some(gate) = gate {
@@ -94,6 +163,39 @@ fn maybe_pause_archive() {
 
 #[cfg(not(test))]
 fn maybe_pause_archive() {}
+
+#[cfg(test)]
+thread_local! {
+    static TEST_ARCHIVE_FAULT_CONTROL:
+        std::cell::RefCell<Option<Arc<ArchiveTestFaultControl>>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+#[cfg(test)]
+pub(crate) fn install_test_archive_fault_control(control: Arc<ArchiveTestFaultControl>) {
+    TEST_ARCHIVE_FAULT_CONTROL.with(|slot| *slot.borrow_mut() = Some(control));
+}
+
+#[cfg(test)]
+pub(crate) fn clear_test_archive_fault_control() {
+    TEST_ARCHIVE_FAULT_CONTROL.with(|slot| {
+        slot.borrow_mut().take();
+    });
+}
+
+#[cfg(test)]
+fn test_archive_fault_control() -> Option<Arc<ArchiveTestFaultControl>> {
+    TEST_ARCHIVE_FAULT_CONTROL.with(|slot| slot.borrow().clone())
+}
+
+#[cfg(test)]
+fn operation_injected_failure(stage: crate::archive_storage::ArchiveFailureStage) -> bool {
+    test_archive_fault_control().is_some_and(|control| {
+        with_test_fault_control(control, || {
+            crate::archive_storage::injected_test_failure(stage)
+        })
+    })
+}
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 pub enum ArchiveRepresentation {
@@ -156,6 +258,8 @@ pub struct ArchiveStatus {
     pub representation_generation: u64,
     pub native_components: usize,
     pub archived_components: usize,
+    pub native_storage_owners: usize,
+    pub archived_storage_owners: usize,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
@@ -168,8 +272,12 @@ pub struct ArchiveReport {
     pub representation_generation_after: u64,
     pub converted_components: usize,
     pub reused_components: usize,
+    pub converted_storage_owners: usize,
+    pub reused_storage_owners: usize,
     pub native_components: usize,
     pub archived_components: usize,
+    pub native_storage_owners: usize,
+    pub archived_storage_owners: usize,
     pub newly_serialized_bytes: u64,
     pub newly_capacity_bytes: u64,
     pub current_serialized_bytes: u64,
@@ -183,18 +291,28 @@ pub struct ArchiveReport {
     pub transition_wait_ns: u64,
     pub preparation_ns: u64,
     pub installation_ns: u64,
+    pub retirement_ns: u64,
     pub serializer_work_ns_sum: u64,
     pub validation_work_ns_sum: u64,
     pub worker_limit: usize,
     pub peak_active_conversion_jobs: usize,
 }
 
-fn status_from_counts(generation: u64, (native, archived): (usize, usize)) -> ArchiveStatus {
+fn status_from_counts(
+    generation: u64,
+    (native, archived): (usize, usize),
+    archived_storage_owners: usize,
+) -> ArchiveStatus {
     ArchiveStatus {
         representation: ArchiveRepresentation::from_counts(native, archived),
         representation_generation: generation,
         native_components: native,
         archived_components: archived,
+        // Logical native components are the only native query-owner registry
+        // retained by this prototype; archived owners are deduplicated by the
+        // checked-owner accounting traversal.
+        native_storage_owners: native,
+        archived_storage_owners,
     }
 }
 
@@ -204,16 +322,44 @@ fn archive_segment(
     peak_jobs: &AtomicUsize,
     serializer_ns: &AtomicU64,
     validation_ns: &AtomicU64,
+    #[cfg(test)] fault_control: Option<Arc<ArchiveTestFaultControl>>,
+    #[cfg(test)] job_gate: Option<Arc<ArchiveJobTestGate>>,
 ) -> Result<Arc<PublishedSegment>, String> {
     if published.index.all_storage_archived() {
         return Ok(Arc::clone(published));
     }
     let active = active_jobs.fetch_add(1, Ordering::AcqRel) + 1;
     peak_jobs.fetch_max(active, Ordering::AcqRel);
+    #[cfg(test)]
+    if let Some(gate) = job_gate.as_ref() {
+        gate.arrive();
+    }
     let result = (|| {
         let _ = take_construction_timing();
         let mut index = (*published.index).clone();
-        index.archive_storage()?;
+        let mut archive_storage = || -> Result<(), String> {
+            index.archive_storage().map_err(|error| {
+                format!(
+                    "segment {} in collection {}: {error}",
+                    published.id, published.index.collection.0
+                )
+            })?;
+            #[cfg(test)]
+            if crate::archive_storage::injected_test_failure(
+                crate::archive_storage::ArchiveFailureStage::SemanticValidation,
+            ) {
+                return Err("injected archive semantic-validation failure".into());
+            }
+            Ok(())
+        };
+        #[cfg(test)]
+        if let Some(control) = fault_control.clone() {
+            with_test_fault_control(control, archive_storage)?;
+        } else {
+            archive_storage()?;
+        }
+        #[cfg(not(test))]
+        archive_storage()?;
         let timing = take_construction_timing();
         serializer_ns.fetch_add(timing.serializer_ns, Ordering::AcqRel);
         validation_ns.fetch_add(timing.validation_ns, Ordering::AcqRel);
@@ -233,45 +379,72 @@ fn archive_segment_groups(
     validation_ns: &AtomicU64,
 ) -> Result<(), String> {
     let active_jobs = AtomicUsize::new(0);
-    let convert_group = |group: &mut Arc<Vec<Arc<PublishedSegment>>>| {
-        let group = Arc::make_mut(group);
-        for published in group.iter_mut() {
-            if published.index.all_storage_archived() {
-                continue;
+    #[cfg(test)]
+    let fault_control = test_archive_fault_control();
+    #[cfg(test)]
+    let job_gate = TEST_ARCHIVE_JOB_GATE.with(|slot| slot.borrow().clone());
+    let mut seen = std::collections::HashSet::new();
+    let mut jobs = Vec::new();
+    for (group_index, group) in groups.iter().enumerate() {
+        for (segment_index, segment) in group.iter().enumerate() {
+            if !segment.index.all_storage_archived() && seen.insert(Arc::as_ptr(segment) as usize) {
+                jobs.push((group_index, segment_index, Arc::clone(segment)));
             }
-            *published = archive_segment(
-                published,
-                &active_jobs,
-                peak_jobs,
-                serializer_ns,
-                validation_ns,
-            )?;
-            converted.fetch_add(1, Ordering::AcqRel);
         }
-        Ok::<_, String>(())
-    };
-    if options.worker_limit() == 1 {
-        groups.iter_mut().try_for_each(convert_group)?;
+    }
+    if jobs.is_empty() {
         return Ok(());
     }
-    let pool = rayon::ThreadPoolBuilder::new()
-        .num_threads(options.worker_limit())
-        .thread_name(|index| format!("objekte-archive-{index}"))
-        .build()
-        .map_err(|error| format!("archive worker pool creation failed: {error}"))?;
-    crate::storage_usage::StorageWorkCounters::update(|counters| {
-        counters.build_pool_creations = counters.build_pool_creations.saturating_add(1);
-    });
-    let result = pool.install(|| {
-        groups
-            .par_iter_mut()
-            .try_for_each(|group| convert_group(group))
-    });
-    drop(pool);
-    crate::storage_usage::StorageWorkCounters::update(|counters| {
-        counters.build_pool_destructions = counters.build_pool_destructions.saturating_add(1);
-    });
-    result
+    let convert = |(_, _, published): &(usize, usize, Arc<PublishedSegment>)| {
+        archive_segment(
+            published,
+            &active_jobs,
+            peak_jobs,
+            serializer_ns,
+            validation_ns,
+            #[cfg(test)]
+            fault_control.clone(),
+            #[cfg(test)]
+            job_gate.clone(),
+        )
+    };
+    let results = if options.worker_limit() == 1 || jobs.len() == 1 {
+        jobs.iter().map(convert).collect::<Result<Vec<_>, _>>()?
+    } else {
+        let pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(options.worker_limit().min(jobs.len()))
+            .thread_name(|index| format!("objekte-archive-{index}"))
+            .build()
+            .map_err(|error| format!("archive worker pool creation failed: {error}"))?;
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.build_pool_creations = counters.build_pool_creations.saturating_add(1);
+        });
+        let results: Result<Vec<_>, String> =
+            pool.install(|| jobs.par_iter().map(convert).collect());
+        drop(pool);
+        crate::storage_usage::StorageWorkCounters::update(|counters| {
+            counters.build_pool_destructions = counters.build_pool_destructions.saturating_add(1);
+        });
+        results?
+    };
+    let replacements = jobs
+        .iter()
+        .zip(results)
+        .map(|((_, _, source), result)| (Arc::as_ptr(source) as usize, result))
+        .collect::<Vec<_>>();
+    converted.fetch_add(replacements.len(), Ordering::AcqRel);
+    let replacements = replacements
+        .into_iter()
+        .collect::<std::collections::HashMap<_, _>>();
+    for group in groups.iter_mut() {
+        let group = Arc::make_mut(group);
+        for segment in group {
+            if let Some(replacement) = replacements.get(&(Arc::as_ptr(segment) as usize)) {
+                *segment = Arc::clone(replacement);
+            }
+        }
+    }
+    Ok(())
 }
 
 impl Index {
@@ -284,6 +457,7 @@ impl Index {
         Ok(status_from_counts(
             view.0.representation_generation,
             view.0.storage_representation_counts(),
+            view.0.storage_usage().archive.owners,
         ))
     }
 
@@ -328,8 +502,12 @@ impl Index {
                 representation_generation_after: before_generation,
                 converted_components: 0,
                 reused_components: before_counts.1,
+                converted_storage_owners: 0,
+                reused_storage_owners: before_usage.archive.owners,
                 native_components: 0,
                 archived_components: before_counts.1,
+                native_storage_owners: 0,
+                archived_storage_owners: before_usage.archive.owners,
                 newly_serialized_bytes: 0,
                 newly_capacity_bytes: 0,
                 current_serialized_bytes: before_usage.archive.serialized_bytes,
@@ -343,6 +521,7 @@ impl Index {
                 transition_wait_ns,
                 preparation_ns: 0,
                 installation_ns: 0,
+                retirement_ns: 0,
                 serializer_work_ns_sum: 0,
                 validation_work_ns_sum: 0,
                 worker_limit: options.worker_limit(),
@@ -362,23 +541,26 @@ impl Index {
             .catalog
             .has_same_storage_owners(&source.catalog);
         let _ = take_construction_timing();
-        repository
-            .archive_collection_storage()
-            .map_err(IndexError::InvalidPublication)?;
-        repository
-            .catalog
-            .archive_storage()
-            .map_err(IndexError::InvalidPublication)?;
+        repository.archive_collection_storage().map_err(|error| {
+            IndexError::InvalidPublication(format!("base collection storage: {error}"))
+        })?;
+        repository.catalog.archive_storage().map_err(|error| {
+            IndexError::InvalidPublication(format!("base catalog storage: {error}"))
+        })?;
+        repository.files = Arc::new(
+            repository
+                .files
+                .with_published_paths(repository.catalog.path_directory()),
+        );
         let base_timing = take_construction_timing();
         let mut serializer_ns = base_timing.serializer_ns;
         let mut validation_ns = base_timing.validation_ns;
         if catalogs_aliased {
             candidate.catalog = repository.catalog.clone();
         } else {
-            candidate
-                .catalog
-                .archive_storage()
-                .map_err(IndexError::InvalidPublication)?;
+            candidate.catalog.archive_storage().map_err(|error| {
+                IndexError::InvalidPublication(format!("current catalog storage: {error}"))
+            })?;
         }
         let catalog_timing = take_construction_timing();
         serializer_ns = serializer_ns.saturating_add(catalog_timing.serializer_ns);
@@ -404,6 +586,14 @@ impl Index {
         candidate.representation_generation = before_generation
             .checked_add(1)
             .ok_or(IndexError::RevisionOverflow)?;
+        #[cfg(test)]
+        if operation_injected_failure(
+            crate::archive_storage::ArchiveFailureStage::FinalCandidateValidation,
+        ) {
+            return Err(IndexError::InvalidPublication(
+                "injected final candidate-validation failure".into(),
+            ));
+        }
         let after_counts = candidate.storage_representation_counts();
         if after_counts.0 != 0 {
             return Err(IndexError::InvalidPublication(format!(
@@ -413,6 +603,12 @@ impl Index {
         }
         let preparation_ns = preparation_started.elapsed().as_nanos() as u64;
 
+        #[cfg(test)]
+        if operation_injected_failure(crate::archive_storage::ArchiveFailureStage::PreInstall) {
+            return Err(IndexError::InvalidPublication(
+                "injected pre-installation failure".into(),
+            ));
+        }
         let installation_started = Instant::now();
         let retired = {
             let mut published = self
@@ -432,7 +628,9 @@ impl Index {
             }
             std::mem::replace(&mut *published, Arc::new(candidate))
         };
+        let retirement_started = Instant::now();
         drop(retired);
+        let retirement_ns = retirement_started.elapsed().as_nanos() as u64;
         let installation_ns = installation_started.elapsed().as_nanos() as u64;
         let after_usage = self.view()?.storage_usage();
         let converted_components = after_counts.1.saturating_sub(before_counts.1);
@@ -451,8 +649,12 @@ impl Index {
             representation_generation_after: candidate_generation(before_generation)?,
             converted_components,
             reused_components: before_counts.1,
+            converted_storage_owners: converted_components,
+            reused_storage_owners: before_usage.archive.owners,
             native_components: after_counts.0,
             archived_components: after_counts.1,
+            native_storage_owners: after_counts.0,
+            archived_storage_owners: after_usage.archive.owners,
             newly_serialized_bytes: after_usage
                 .archive
                 .serialized_bytes
@@ -471,6 +673,7 @@ impl Index {
             transition_wait_ns,
             preparation_ns,
             installation_ns,
+            retirement_ns,
             serializer_work_ns_sum: serializer_ns,
             validation_work_ns_sum: validation_ns,
             worker_limit: options.worker_limit(),
@@ -494,6 +697,7 @@ impl Repository {
         status_from_counts(
             self.representation_generation,
             self.storage_representation_counts(),
+            self.storage_usage().archive.owners,
         )
     }
 
@@ -515,8 +719,12 @@ impl Repository {
                 representation_generation_after: before_generation,
                 converted_components: 0,
                 reused_components: before_counts.1,
+                converted_storage_owners: 0,
+                reused_storage_owners: before_usage.archive.owners,
                 native_components: 0,
                 archived_components: before_counts.1,
+                native_storage_owners: 0,
+                archived_storage_owners: before_usage.archive.owners,
                 newly_serialized_bytes: 0,
                 newly_capacity_bytes: 0,
                 current_serialized_bytes: before_usage.archive.serialized_bytes,
@@ -530,6 +738,7 @@ impl Repository {
                 transition_wait_ns: 0,
                 preparation_ns: 0,
                 installation_ns: 0,
+                retirement_ns: 0,
                 serializer_work_ns_sum: 0,
                 validation_work_ns_sum: 0,
                 worker_limit: options.worker_limit(),
@@ -541,13 +750,17 @@ impl Repository {
         let mut candidate = self
             .archive_candidate()
             .map_err(IndexError::InvalidPublication)?;
-        candidate
-            .archive_collection_storage()
-            .map_err(IndexError::InvalidPublication)?;
-        candidate
-            .catalog
-            .archive_storage()
-            .map_err(IndexError::InvalidPublication)?;
+        candidate.archive_collection_storage().map_err(|error| {
+            IndexError::InvalidPublication(format!("repository collection storage: {error}"))
+        })?;
+        candidate.catalog.archive_storage().map_err(|error| {
+            IndexError::InvalidPublication(format!("repository catalog storage: {error}"))
+        })?;
+        candidate.files = Arc::new(
+            candidate
+                .files
+                .with_published_paths(candidate.catalog.path_directory()),
+        );
         let mut timing = take_construction_timing();
         let converted_segments = AtomicUsize::new(0);
         let peak_jobs = AtomicUsize::new(0);
@@ -571,6 +784,14 @@ impl Repository {
         candidate.representation_generation = before_generation
             .checked_add(1)
             .ok_or(IndexError::RevisionOverflow)?;
+        #[cfg(test)]
+        if operation_injected_failure(
+            crate::archive_storage::ArchiveFailureStage::FinalCandidateValidation,
+        ) {
+            return Err(IndexError::InvalidPublication(
+                "injected final candidate-validation failure".into(),
+            ));
+        }
         let after_counts = candidate.storage_representation_counts();
         if after_counts.0 != 0 {
             return Err(IndexError::InvalidPublication(
@@ -579,6 +800,12 @@ impl Repository {
         }
         let preparation_ns = preparation_started.elapsed().as_nanos() as u64;
         let after_usage = candidate.storage_usage();
+        #[cfg(test)]
+        if operation_injected_failure(crate::archive_storage::ArchiveFailureStage::PreInstall) {
+            return Err(IndexError::InvalidPublication(
+                "injected pre-installation failure".into(),
+            ));
+        }
         let revision = candidate.revision;
         let instance_id = candidate.instance_id;
         let representation_generation = candidate.representation_generation;
@@ -598,8 +825,12 @@ impl Repository {
             representation_generation_after: representation_generation,
             converted_components: after_counts.1.saturating_sub(before_counts.1),
             reused_components: before_counts.1,
+            converted_storage_owners: after_counts.1.saturating_sub(before_counts.1),
+            reused_storage_owners: before_usage.archive.owners,
             native_components: after_counts.0,
             archived_components: after_counts.1,
+            native_storage_owners: after_counts.0,
+            archived_storage_owners: after_usage.archive.owners,
             newly_serialized_bytes: after_usage
                 .archive
                 .serialized_bytes
@@ -618,6 +849,7 @@ impl Repository {
             transition_wait_ns: 0,
             preparation_ns,
             installation_ns: 0,
+            retirement_ns: 0,
             serializer_work_ns_sum: timing.serializer_ns,
             validation_work_ns_sum: timing.validation_ns,
             worker_limit: options.worker_limit(),

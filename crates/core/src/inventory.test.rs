@@ -3,7 +3,7 @@ use super::*;
 #[test]
 fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     let root = PathBuf::from("/tmp/restore-inventory");
-    let empty = FileInventory::from_restored_entries(root.clone(), Vec::new()).unwrap();
+    let empty = FileInventory::from_restored_entries(root.clone(), Arc::new(Vec::new())).unwrap();
     assert!(empty.files.is_empty());
     assert!(empty.relative_paths.is_empty());
 
@@ -37,16 +37,17 @@ fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     );
 
     let mut duplicate = built.files.clone();
-    duplicate[1].relative_path = duplicate[0].relative_path.clone();
+    let duplicate_path = duplicate[0].relative_path.clone();
+    Arc::make_mut(&mut duplicate)[1].relative_path = duplicate_path;
     assert!(FileInventory::from_restored_entries(root.clone(), duplicate).is_err());
     let mut bad_id = built.files.clone();
-    bad_id[1].id = FileId(9);
+    Arc::make_mut(&mut bad_id)[1].id = FileId(9);
     assert!(FileInventory::from_restored_entries(root.clone(), bad_id).is_err());
     let mut escaping = built.files.clone();
-    escaping[0].relative_path = SharedPath::from("../escape.json");
+    Arc::make_mut(&mut escaping)[0].relative_path = SharedPath::from("../escape.json");
     assert!(FileInventory::from_restored_entries(root.clone(), escaping).is_err());
     let mut bad_status = built.files.clone();
-    bad_status[0].status = FileStatus::Broken;
+    Arc::make_mut(&mut bad_status)[0].status = FileStatus::Broken;
     assert!(FileInventory::from_restored_entries(root, bad_status).is_err());
 }
 
@@ -317,7 +318,8 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
             reference,
         )
         .unwrap();
-    inventory.files[broken.0 as usize].diagnostics[0].record = Some(fallback_slot);
+    Arc::make_mut(&mut inventory.files)[broken.0 as usize].diagnostics[0].record =
+        Some(fallback_slot);
     let generation = builder.finish(&inventory).unwrap();
     assert_eq!(generation.files, [empty, valid, broken]);
     assert_eq!(
@@ -477,7 +479,7 @@ fn status_codes_and_diagnostic_bounds_are_stable() {
     assert_eq!(files.files[0].omitted_diagnostics, 1);
     assert!(files.diagnostic(file, omitted).is_none());
     files.validate_diagnostics().unwrap();
-    files.files[0].diagnostics[0].collection = CollectionId(1);
+    Arc::make_mut(&mut files.files)[0].diagnostics[0].collection = CollectionId(1);
     assert!(files.validate_diagnostics().is_err());
 }
 

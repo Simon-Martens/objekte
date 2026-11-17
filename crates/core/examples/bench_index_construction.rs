@@ -203,13 +203,13 @@ fn run() -> Result<(), String> {
     let relation_edges = repo
         .collections()
         .iter()
-        .flat_map(|c| &c.relations)
+        .flat_map(|c| c.relations.iter())
         .map(|r| r.edge_count())
         .sum::<usize>();
     let relation_heap_bytes = repo
         .collections()
         .iter()
-        .flat_map(|c| &c.relations)
+        .flat_map(|c| c.relations.iter())
         .map(|r| r.estimated_heap_bytes())
         .sum::<usize>();
     let estimated_index_bytes = repo
@@ -699,7 +699,7 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &Repository) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.files().files.iter() {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.revision.modified_ns.to_le_bytes());
         hash.update(file.revision.size.to_le_bytes());

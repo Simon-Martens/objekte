@@ -622,7 +622,7 @@ impl FileEntry {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
     pub root: PathBuf,
-    pub files: Vec<FileEntry>,
+    pub files: Arc<Vec<FileEntry>>,
     #[serde(skip)]
     by_path: HashMap<SharedPath, FileId>,
     /// Ordered root-relative query keys, rebuilt with every restored index.
@@ -750,7 +750,7 @@ impl FileInventory {
             + self.files.capacity() * std::mem::size_of::<FileEntry>()
             + self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
         let mut diagnostics = 0;
-        for file in &self.files {
+        for file in self.files.iter() {
             inventory += file.relative_path.payload_bytes()
                 + file.collections.capacity() * std::mem::size_of::<CollectionId>();
             diagnostics += file.diagnostics.capacity() * std::mem::size_of::<SourceDiagnostic>();
@@ -777,7 +777,7 @@ impl FileInventory {
     pub fn new(root: PathBuf) -> Self {
         Self {
             root,
-            files: Vec::new(),
+            files: Arc::new(Vec::new()),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
             published_paths: None,
@@ -790,7 +790,7 @@ impl FileInventory {
     #[cfg(test)]
     pub(crate) fn from_restored_entries(
         root: PathBuf,
-        entries: Vec<FileEntry>,
+        entries: Arc<Vec<FileEntry>>,
     ) -> Result<Self, String> {
         let mut inventory = Self {
             root,
@@ -814,7 +814,7 @@ impl FileInventory {
             return Err("file path must be repository-relative and contained".into());
         }
         if let Some(&id) = self.by_path.get(relative_path.as_path()) {
-            let file = &mut self.files[id.0 as usize];
+            let file = &mut Arc::make_mut(&mut self.files)[id.0 as usize];
             if file.revision != revision {
                 return Err("one file has inconsistent revisions".into());
             }
@@ -827,7 +827,7 @@ impl FileInventory {
         let relative_path = SharedPath::from(relative_path);
         self.by_path.insert(relative_path.clone(), id);
         self.relative_paths.insert(relative_path.query_key(), id);
-        self.files.push(FileEntry {
+        Arc::make_mut(&mut self.files).push(FileEntry {
             id,
             relative_path,
             revision,
@@ -845,8 +845,7 @@ impl FileInventory {
         file: FileId,
         diagnostic: SourceDiagnostic,
     ) -> Result<DiagnosticRef, String> {
-        let entry = self
-            .files
+        let entry = Arc::make_mut(&mut self.files)
             .get_mut(file.0 as usize)
             .ok_or("diagnostic file out of bounds")?;
         entry.record_diagnostic(diagnostic)
@@ -986,13 +985,21 @@ impl FileInventory {
         Some(ids)
     }
 
-    pub(crate) fn adopt_published_paths(
-        &mut self,
-        paths: crate::lifecycle_catalog::PathDirectory,
-    ) {
+    pub(crate) fn adopt_published_paths(&mut self, paths: crate::lifecycle_catalog::PathDirectory) {
         self.published_paths = Some(paths);
         self.by_path = HashMap::new();
         self.relative_paths = BTreeMap::new();
+    }
+
+    pub(crate) fn with_published_paths(
+        &self,
+        paths: crate::lifecycle_catalog::PathDirectory,
+    ) -> Self {
+        let mut inventory = self.clone();
+        inventory.published_paths = Some(paths);
+        inventory.by_path = HashMap::new();
+        inventory.relative_paths = BTreeMap::new();
+        inventory
     }
 
     #[cfg(test)]
@@ -1000,6 +1007,13 @@ impl FileInventory {
         self.published_paths.is_some()
             && self.by_path.capacity() == 0
             && self.relative_paths.is_empty()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn path_directory_archived(&self) -> bool {
+        self.published_paths
+            .as_ref()
+            .is_some_and(crate::lifecycle_catalog::PathDirectory::is_archived)
     }
 }
 
@@ -1228,12 +1242,9 @@ impl CollectionBuilder {
         if range.start == range.end {
             return Err("record range must be nonempty".into());
         }
-        self.ids.insert(id.clone()).map_err(|error| {
-            format!(
-                "{error} ({})",
-                file.relative_path.as_path().display()
-            )
-        })?;
+        self.ids
+            .insert(id.clone())
+            .map_err(|error| format!("{error} ({})", file.relative_path.as_path().display()))?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,
@@ -1265,12 +1276,9 @@ impl CollectionBuilder {
         {
             return Err("invalid fallback range".into());
         }
-        self.ids.insert(id.clone()).map_err(|error| {
-            format!(
-                "{error} ({})",
-                file.relative_path.as_path().display()
-            )
-        })?;
+        self.ids
+            .insert(id.clone())
+            .map_err(|error| format!("{error} ({})", file.relative_path.as_path().display()))?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {
             slot,

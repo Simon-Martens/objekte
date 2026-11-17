@@ -1571,10 +1571,11 @@ where
         Ok(Self(PostingDictionaryState::Published(published)))
     }
 
-    /// Explicitly discard the native dictionary backing in favor of a checked
-    /// archive while retaining the canonical bitmap payload allocation.
-    pub(crate) fn archive_native(self) -> Result<Self, String> {
-        let state = match self.0 {
+    /// Prepare a checked archived dictionary while borrowing the immutable
+    /// published source. The caller installs the returned owner only after all
+    /// component conversions succeed.
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        match &self.0 {
             PostingDictionaryState::Published(PublishedPostingDictionary {
                 backing: PublishedPostingBacking::Native(map),
                 bitmaps,
@@ -1585,17 +1586,16 @@ where
                 let archive = ValidatedArchive::<OrderedPostingArchive<K>>::freeze_source(&source)?;
                 let published = PublishedPostingDictionary {
                     backing: PublishedPostingBacking::Archived(archive),
-                    bitmaps,
+                    bitmaps: Arc::clone(bitmaps),
                 };
                 validate_published_dictionary::<K>(&published)?;
-                PostingDictionaryState::Published(published)
+                Ok(Self(PostingDictionaryState::Published(published)))
             }
-            PostingDictionaryState::Published(values) => PostingDictionaryState::Published(values),
+            PostingDictionaryState::Published(_) => Ok(self.clone()),
             PostingDictionaryState::Builder(_) => {
-                return Err("posting dictionary must be published before archiving".into());
+                Err("posting dictionary must be published before archiving".into())
             }
-        };
-        Ok(Self(state))
+        }
     }
 
     pub(crate) fn archive_bytes(&self) -> usize {
@@ -2889,14 +2889,24 @@ impl PostingIndex {
         self.values.bitmap_owner_id()
     }
 
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        let mut archived = self.clone();
+        archived.archive_storage()?;
+        Ok(archived)
+    }
+
     pub(crate) fn archive_storage(&mut self) -> Result<(), String> {
-        self.values =
-            std::mem::replace(&mut self.values, PostingDictionary::builder()).archive_native()?;
-        self.lengths =
-            std::mem::replace(&mut self.lengths, PostingDictionary::builder()).archive_native()?;
-        if let Some(facts) = &mut self.structural {
-            facts.postings = std::mem::replace(&mut facts.postings, PostingDictionary::builder())
-                .archive_native()?;
+        let values = self.values.archived()?;
+        let lengths = self.lengths.archived()?;
+        let structural = self
+            .structural
+            .as_ref()
+            .map(|facts| facts.postings.archived())
+            .transpose()?;
+        self.values = values;
+        self.lengths = lengths;
+        if let (Some(facts), Some(structural)) = (&mut self.structural, structural) {
+            facts.postings = structural;
         }
         Ok(())
     }
@@ -3601,6 +3611,15 @@ impl PostingCollection {
         self.fields
             .values_mut()
             .try_for_each(PostingIndex::archive_storage)
+    }
+
+    pub(crate) fn archived(&self) -> Result<Self, String> {
+        let fields = self
+            .fields
+            .iter()
+            .map(|(path, index)| Ok((path.clone(), index.archived()?)))
+            .collect::<Result<HashMap<_, _>, String>>()?;
+        Ok(Self { fields })
     }
 
     pub(crate) fn for_each_archive_owner(&self, visit: &mut impl FnMut(usize, usize, usize)) {

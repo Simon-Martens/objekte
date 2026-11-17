@@ -18,6 +18,7 @@ use rayon::prelude::*;
 use rkyv::collections::btree_map::{ArchivedBTreeMap, BTreeMapResolver};
 use rkyv::collections::swiss_table::{ArchivedHashMap, HashMapResolver};
 use rkyv::place::Place;
+use rkyv::string::{ArchivedString, StringResolver};
 use rkyv::vec::{ArchivedVec, VecResolver};
 use rkyv::{Archive, Archived, Serialize as ArchiveSerialize};
 use roaring::RoaringBitmap;
@@ -214,41 +215,6 @@ impl StoredFileRow {
         }
     }
 
-    fn validate_stored(&self) -> Result<(), String> {
-        if !self.path.is_valid_relative()
-            || self.collections.is_empty()
-            || self
-                .collections
-                .iter()
-                .copied()
-                .collect::<HashSet<_>>()
-                .len()
-                != self.collections.len()
-            || self.status > FileStatus::Unreadable.code()
-            || self.diagnostics.len() > crate::inventory::MAX_DIAGNOSTICS_PER_FILE
-            || self
-                .fingerprint
-                .as_ref()
-                .is_some_and(|value| value.len() != 32)
-            || self
-                .configuration
-                .as_ref()
-                .is_some_and(|value| value.len() != 32)
-            || self.diagnostics.iter().any(|diagnostic| {
-                diagnostic.file != self.id
-                    || !self.collections.contains(&diagnostic.collection)
-                    || category_from_code(diagnostic.category).is_none()
-                    || matches!(
-                        (diagnostic.range_start, diagnostic.range_end),
-                        (Some(_), None) | (None, Some(_))
-                    )
-            })
-        {
-            return Err("invalid stored file catalog row".into());
-        }
-        Ok(())
-    }
-
     fn to_entry(&self) -> Result<FileEntry, String> {
         let status = match self.status {
             0 => FileStatus::Valid,
@@ -342,16 +308,347 @@ struct CatalogMetadataSourceResolver {
 }
 
 #[derive(Clone, Copy)]
+#[allow(dead_code)]
 struct BorrowedCatalogRow<'a>(&'a NativeCatalogRow);
+
+#[allow(dead_code)]
+struct CatalogBorrowedString<'a>(&'a str);
+
+impl Archive for CatalogBorrowedString<'_> {
+    type Archived = ArchivedString;
+    type Resolver = StringResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedString::resolve_from_str(self.0, resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogBorrowedString<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedString::serialize_from_str(self.0, serializer)
+    }
+}
+
+#[allow(dead_code)]
+struct CatalogStringSlice<'a>(&'a [String]);
+
+impl Archive for CatalogStringSlice<'_> {
+    type Archived = ArchivedVec<ArchivedString>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogStringSlice<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedVec::serialize_from_iter(
+            self.0
+                .iter()
+                .map(|value| CatalogBorrowedString(value.as_str())),
+            serializer,
+        )
+    }
+}
+
+#[allow(dead_code)]
+struct CatalogCollections<'a>(&'a [CollectionId]);
+
+impl Archive for CatalogCollections<'_> {
+    type Archived = ArchivedVec<Archived<u32>>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogCollections<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedVec::serialize_from_iter(self.0.iter().map(|collection| collection.0), serializer)
+    }
+}
+
+#[allow(dead_code)]
+struct CatalogBytes<'a>(&'a [u8; 32]);
+
+impl Archive for CatalogBytes<'_> {
+    type Archived = ArchivedVec<Archived<u8>>;
+    type Resolver = VecResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        ArchivedVec::resolve_from_len(self.0.len(), resolver, out);
+    }
+}
+
+impl<S> ArchiveSerialize<S> for CatalogBytes<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        ArchivedVec::serialize_from_slice(self.0.as_slice(), serializer)
+    }
+}
+
+#[allow(dead_code)]
+struct BorrowedCatalogDiagnostic<'a>(&'a SourceDiagnostic);
+
+#[allow(dead_code)]
+struct BorrowedCatalogDiagnosticResolver {
+    file: <u32 as Archive>::Resolver,
+    collection: <u32 as Archive>::Resolver,
+    source_id: StringResolver,
+    source_version: <u32 as Archive>::Resolver,
+    record: Option<<u32 as Archive>::Resolver>,
+    range_start: Option<<u64 as Archive>::Resolver>,
+    range_end: Option<<u64 as Archive>::Resolver>,
+    category: <u8 as Archive>::Resolver,
+    code: StringResolver,
+    field_path: Option<VecResolver>,
+    byte_offset: Option<<u64 as Archive>::Resolver>,
+    line: Option<<u64 as Archive>::Resolver>,
+    column: Option<<u64 as Archive>::Resolver>,
+    message: StringResolver,
+}
+
+impl Archive for BorrowedCatalogDiagnostic<'_> {
+    type Archived = Archived<StoredCatalogDiagnostic>;
+    type Resolver = BorrowedCatalogDiagnosticResolver;
+
+    fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
+        // SAFETY: Each projection resolves the corresponding generated field
+        // of `Archived<StoredCatalogDiagnostic>`.
+        unsafe {
+            let root = out.ptr();
+            Archive::resolve(
+                &self.0.file.0,
+                resolver.file,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).file)),
+            );
+            Archive::resolve(
+                &self.0.collection.0,
+                resolver.collection,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).collection)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.source_id,
+                resolver.source_id,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).source_id)),
+            );
+            Archive::resolve(
+                &self.0.source_version,
+                resolver.source_version,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).source_version)),
+            );
+            let record = self.0.record.map(|slot| slot.0);
+            Archive::resolve(
+                &record,
+                resolver.record,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).record)),
+            );
+            let range_start = self.0.range.map(|range| range.start);
+            Archive::resolve(
+                &range_start,
+                resolver.range_start,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_start)),
+            );
+            let range_end = self.0.range.map(|range| range.end);
+            Archive::resolve(
+                &range_end,
+                resolver.range_end,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).range_end)),
+            );
+            Archive::resolve(
+                &category_code(self.0.category),
+                resolver.category,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).category)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.code,
+                resolver.code,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).code)),
+            );
+            let field_path = self.0.field_path.as_deref().map(CatalogStringSlice);
+            Archive::resolve(
+                &field_path,
+                resolver.field_path,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).field_path)),
+            );
+            Archive::resolve(
+                &self.0.byte_offset,
+                resolver.byte_offset,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).byte_offset)),
+            );
+            Archive::resolve(
+                &self.0.line,
+                resolver.line,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).line)),
+            );
+            Archive::resolve(
+                &self.0.column,
+                resolver.column,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).column)),
+            );
+            ArchivedString::resolve_from_str(
+                &self.0.message,
+                resolver.message,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).message)),
+            );
+        }
+    }
+}
+
+impl<S> ArchiveSerialize<S> for BorrowedCatalogDiagnostic<'_>
+where
+    S: rkyv::rancor::Fallible + rkyv::ser::Allocator + rkyv::ser::Writer + ?Sized,
+    S::Error: rkyv::rancor::Source,
+{
+    fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
+        Ok(BorrowedCatalogDiagnosticResolver {
+            file: ArchiveSerialize::serialize(&self.0.file.0, serializer)?,
+            collection: ArchiveSerialize::serialize(&self.0.collection.0, serializer)?,
+            source_id: ArchivedString::serialize_from_str(&self.0.source_id, serializer)?,
+            source_version: ArchiveSerialize::serialize(&self.0.source_version, serializer)?,
+            record: match self.0.record {
+                Some(slot) => Some(ArchiveSerialize::serialize(&slot.0, serializer)?),
+                None => None,
+            },
+            range_start: match self.0.range {
+                Some(range) => Some(ArchiveSerialize::serialize(&range.start, serializer)?),
+                None => None,
+            },
+            range_end: match self.0.range {
+                Some(range) => Some(ArchiveSerialize::serialize(&range.end, serializer)?),
+                None => None,
+            },
+            category: ArchiveSerialize::serialize(&category_code(self.0.category), serializer)?,
+            code: ArchivedString::serialize_from_str(&self.0.code, serializer)?,
+            field_path: match self.0.field_path.as_deref() {
+                Some(path) => Some(ArchiveSerialize::serialize(
+                    &CatalogStringSlice(path),
+                    serializer,
+                )?),
+                None => None,
+            },
+            byte_offset: match self.0.byte_offset {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            line: match self.0.line {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            column: match self.0.column {
+                Some(value) => Some(ArchiveSerialize::serialize(&value, serializer)?),
+                None => None,
+            },
+            message: ArchivedString::serialize_from_str(&self.0.message, serializer)?,
+        })
+    }
+}
+
+#[allow(dead_code)]
+struct BorrowedCatalogRowResolver {
+    id: <u32 as Archive>::Resolver,
+    path: <StoredPath as Archive>::Resolver,
+    modified_ns: <i128 as Archive>::Resolver,
+    size: <u64 as Archive>::Resolver,
+    created_ns: Option<<i128 as Archive>::Resolver>,
+    collections: VecResolver,
+    status: <u8 as Archive>::Resolver,
+    diagnostics: VecResolver,
+    omitted_diagnostics: <u32 as Archive>::Resolver,
+    fingerprint: Option<VecResolver>,
+    configuration: Option<VecResolver>,
+}
 
 impl Archive for BorrowedCatalogRow<'_> {
     type Archived = Archived<StoredFileRow>;
-    type Resolver = <StoredFileRow as Archive>::Resolver;
+    type Resolver = BorrowedCatalogRowResolver;
 
     fn resolve(&self, resolver: Self::Resolver, out: Place<Self::Archived>) {
-        let stored =
-            StoredFileRow::from_entry(&self.0.entry, self.0.fingerprint, self.0.configuration);
-        Archive::resolve(&stored, resolver, out);
+        // SAFETY: The adapter resolves each field of the generated archived
+        // catalog row directly from the borrowed native row.
+        unsafe {
+            let root = out.ptr();
+            Archive::resolve(
+                &self.0.entry.id.0,
+                resolver.id,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).id)),
+            );
+            let path = StoredPath::from_shared(&self.0.entry.relative_path);
+            Archive::resolve(
+                &path,
+                resolver.path,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).path)),
+            );
+            Archive::resolve(
+                &self.0.entry.revision.modified_ns,
+                resolver.modified_ns,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).modified_ns)),
+            );
+            Archive::resolve(
+                &self.0.entry.revision.size,
+                resolver.size,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).size)),
+            );
+            Archive::resolve(
+                &self.0.entry.created_ns,
+                resolver.created_ns,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).created_ns)),
+            );
+            Archive::resolve(
+                &CatalogCollections(&self.0.entry.collections),
+                resolver.collections,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).collections)),
+            );
+            Archive::resolve(
+                &self.0.entry.status.code(),
+                resolver.status,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).status)),
+            );
+            let diagnostics =
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).diagnostics));
+            ArchivedVec::<Archived<StoredCatalogDiagnostic>>::resolve_from_len(
+                self.0.entry.diagnostics.len(),
+                resolver.diagnostics,
+                diagnostics,
+            );
+            Archive::resolve(
+                &self.0.entry.omitted_diagnostics,
+                resolver.omitted_diagnostics,
+                Place::from_field_unchecked(
+                    out,
+                    std::ptr::addr_of_mut!((*root).omitted_diagnostics),
+                ),
+            );
+            let fingerprint = self.0.fingerprint.as_ref().map(CatalogBytes);
+            Archive::resolve(
+                &fingerprint,
+                resolver.fingerprint,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).fingerprint)),
+            );
+            let configuration = self.0.configuration.as_ref().map(CatalogBytes);
+            Archive::resolve(
+                &configuration,
+                resolver.configuration,
+                Place::from_field_unchecked(out, std::ptr::addr_of_mut!((*root).configuration)),
+            );
+        }
     }
 }
 
@@ -363,7 +660,21 @@ where
     fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
         let stored =
             StoredFileRow::from_entry(&self.0.entry, self.0.fingerprint, self.0.configuration);
-        ArchiveSerialize::serialize(&stored, serializer)
+        let resolver: <StoredFileRow as Archive>::Resolver =
+            ArchiveSerialize::serialize(&stored, serializer)?;
+        Ok(BorrowedCatalogRowResolver {
+            id: resolver.id,
+            path: resolver.path,
+            modified_ns: resolver.modified_ns,
+            size: resolver.size,
+            created_ns: resolver.created_ns,
+            collections: resolver.collections,
+            status: resolver.status,
+            diagnostics: resolver.diagnostics,
+            omitted_diagnostics: resolver.omitted_diagnostics,
+            fingerprint: resolver.fingerprint,
+            configuration: resolver.configuration,
+        })
     }
 }
 
@@ -513,6 +824,11 @@ impl std::fmt::Debug for PathDirectory {
 }
 
 impl PathDirectory {
+    #[cfg(test)]
+    pub(crate) fn is_archived(&self) -> bool {
+        self.shards.iter().all(|shard| shard.is_archived())
+    }
+
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
         let query = crate::path_repr::query_path(path);
         match &self.shards[shard(&query)].backing {
@@ -1075,8 +1391,7 @@ impl CatalogMetadataShard {
             return Err("catalog metadata shard is already archived".into());
         };
         for row in rows {
-            StoredFileRow::from_entry(&row.entry, row.fingerprint, row.configuration)
-                .validate_stored()?;
+            validate_native_catalog_row(row)?;
         }
         let archive = ValidatedArchive::freeze_source(&CatalogMetadataSource { id_lookup, rows })?;
         Ok(Self {
@@ -1183,6 +1498,30 @@ impl CatalogMetadataShard {
     }
 }
 
+fn validate_native_catalog_row(row: &NativeCatalogRow) -> Result<(), String> {
+    let entry = &row.entry;
+    if !valid_relative_path(entry.relative_path.as_path())
+        || entry.collections.is_empty()
+        || entry.collections.iter().enumerate().any(|(index, left)| {
+            entry
+                .collections
+                .iter()
+                .take(index)
+                .any(|right| left == right)
+        })
+        || entry.status.code() > FileStatus::Unreadable.code()
+        || entry.diagnostics.len() > crate::inventory::MAX_DIAGNOSTICS_PER_FILE
+        || entry.diagnostics.iter().any(|diagnostic| {
+            diagnostic.file != entry.id
+                || !entry.collections.contains(&diagnostic.collection)
+                || category_from_code(category_code(diagnostic.category)).is_none()
+        })
+    {
+        return Err("invalid stored file catalog row".into());
+    }
+    Ok(())
+}
+
 fn string_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> (Bound<String>, Bound<String>) {
     let map = |bound: &Bound<Arc<str>>| match bound {
         Bound::Unbounded => Bound::Unbounded,
@@ -1239,7 +1578,7 @@ impl FileCatalog {
 
     pub(crate) fn from_parts(
         files: Arc<FileInventory>,
-        fingerprints: Vec<Option<[u8; 32]>>,
+        fingerprints: Arc<Vec<Option<[u8; 32]>>>,
         configuration_identity: [u8; 32],
     ) -> Self {
         Self::from_parts_in_pool(files, fingerprints, configuration_identity, None)
@@ -1247,7 +1586,7 @@ impl FileCatalog {
 
     pub(crate) fn from_parts_in_pool(
         files: Arc<FileInventory>,
-        fingerprints: Vec<Option<[u8; 32]>>,
+        fingerprints: Arc<Vec<Option<[u8; 32]>>>,
         configuration_identity: [u8; 32],
         pool: Option<&ThreadPool>,
     ) -> Self {
@@ -1258,7 +1597,7 @@ impl FileCatalog {
                 .map(|_| Vec::new())
                 .collect();
         let mut active = RoaringBitmap::new();
-        for entry in &files.files {
+        for entry in files.files.iter() {
             active.insert(entry.id.0);
             let fingerprint = fingerprints.get(entry.id.0 as usize).copied().flatten();
             let configuration = fingerprint.map(|_| configuration_identity);
@@ -1445,7 +1784,7 @@ impl FileCatalog {
         let configuration = Self::configuration_for(&base)?;
         let complete = self.construction_complete;
         let ownership = Arc::clone(&self.ownership);
-        let fingerprints = &base.base_fingerprints;
+        let fingerprints = base.base_fingerprints.as_ref();
         let files = &base.files;
         let paths_changed = AtomicBool::new(false);
         let metadata = match pool {
@@ -1575,7 +1914,7 @@ impl FileCatalog {
         let paths = if paths_changed.load(AtomicOrdering::Relaxed) {
             let mut buckets = vec![Vec::new(); SHARDS];
             let mut seen = HashSet::with_capacity(files.files.len());
-            for entry in &files.files {
+            for entry in files.files.iter() {
                 if !valid_relative_path(entry.relative_path.as_path()) || !seen.insert(entry.id) {
                     return Err("invalid or duplicate rebased catalog path".into());
                 }
@@ -1635,6 +1974,21 @@ impl FileCatalog {
                         counters.native_compatibility_copies.saturating_add(1);
                 });
                 StoredFileRow::from_archived(row).to_entry().ok()
+            }
+        }
+    }
+
+    pub(crate) fn shared_path(&self, file: FileId) -> Option<crate::inventory::SharedPath> {
+        let shard = self.metadata.get(file_shard_number(file))?;
+        match &shard.backing {
+            CatalogMetadataBacking::Native { rows, .. } => {
+                let ordinal = shard.row_ordinal(file)?;
+                rows.get(ordinal).map(|row| row.entry.relative_path.clone())
+            }
+            CatalogMetadataBacking::Archived { archive } => {
+                let ordinal = shard.row_ordinal(file)?;
+                let row = archive.root().rows.get(ordinal)?;
+                crate::archived_path::to_shared(&row.path).ok()
             }
         }
     }
@@ -2234,21 +2588,33 @@ impl FileCatalog {
         let metadata = Arc::make_mut(&mut self.metadata);
         for shard in metadata.iter_mut() {
             if !matches!(shard.backing, CatalogMetadataBacking::Archived { .. }) {
-                *shard = Arc::new(shard.archive()?);
+                *shard = Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog metadata shard: {error}"))?,
+                );
                 converted += 1;
             }
         }
         let paths = Arc::make_mut(&mut self.paths);
         for shard in paths.iter_mut() {
             if !shard.is_archived() {
-                *shard = Arc::new(shard.archive()?);
+                *shard = Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog path shard: {error}"))?,
+                );
                 converted += 1;
             }
         }
         let ownership = Arc::make_mut(&mut self.ownership);
         for shard in ownership.iter_mut() {
             if !matches!(shard.backing, OwnershipBacking::Archived { .. }) {
-                *shard = Arc::new(shard.archive()?);
+                *shard = Arc::new(
+                    shard
+                        .archive()
+                        .map_err(|error| format!("catalog ownership shard: {error}"))?,
+                );
                 converted += 1;
             }
         }
