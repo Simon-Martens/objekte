@@ -3047,3 +3047,73 @@ fn queries_continue_while_an_explicit_save_is_running() {
     assert!(querier.join().unwrap() > 0);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn completion_callback_can_reenter_save_after_lock_release() {
+    let root = fixture_root("save-callback");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let first = index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    let mut callback = || index.archive_to(root.join("storage"), StorageWriteOptions::default());
+    let second = callback().unwrap();
+    assert_eq!(second.generation, first.generation);
+    assert!(second.unchanged);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn cancelled_cold_query_does_not_poison_later_lazy_access() {
+    let root = fixture_root("cancelled-cold-query");
+    let index = Index::build(&root, definitions(), RepositoryOptions::default()).unwrap();
+    index
+        .archive_to(root.join("storage"), StorageWriteOptions::default())
+        .unwrap();
+    drop(index);
+    let reopened = Index::open_storage(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        root.join("storage"),
+        StorageOpenOptions::default(),
+    )
+    .unwrap();
+    let cold = reopened.storage_status().unwrap();
+    let token = objekte_search_core::streaming::CancellationToken::new();
+    token.cancel();
+    let context = objekte_search_core::streaming::ExecutionContext::new(
+        objekte_search_core::clock_context::ClockContext {
+            now: time::OffsetDateTime::UNIX_EPOCH,
+        },
+        objekte_search_core::streaming::ExecutionLimits::default(),
+        Some(token),
+    );
+    let mut request = all_records();
+    request.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "token".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    let error = reopened
+        .view()
+        .unwrap()
+        .search_with_context(&request, &context)
+        .unwrap_err();
+    assert_eq!(
+        error.kind,
+        objekte_search_core::streaming::ExecutionErrorKind::Cancelled
+    );
+    assert_eq!(
+        reopened.storage_status().unwrap().index_reads,
+        cold.index_reads
+    );
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

@@ -33,7 +33,7 @@ S31	pass	storage_roundtrip::open_stays_payload_lazy_until_an_indexed_filter_sele
 S32	pass	storage_roundtrip::deletion_only_save_does_not_read_or_rewrite_unchanged_payload_packs	Cold payload packs remain untouched by a deletion-only resave.
 S33	pass	storage_roundtrip::concurrent_first_use_shares_one_stored_posting_load	Concurrent first access shares one posting dictionary read and one selected leaf read.
 S34	pass	storage_roundtrip::different_stored_components_can_load_concurrently	Different posting components load concurrently within a two-read permit.
-S35	pending	none	Waiter cancellation does not yet have a deterministic storage test.
+S35	pass	storage_roundtrip::cancelled_cold_query_does_not_poison_later_lazy_access	A pre-cancelled cold query returns Cancelled without payload reads, and a later uncancelled query reuses the untouched backend successfully.
 S36	pass	storage_roundtrip::transient_missing_lazy_dictionary_can_be_retried	A transient missing dictionary error does not poison the cache and a later query succeeds after restoration.
 S37	partial	storage_roundtrip::trimming_decoded_fts_leaves_allows_a_later_checked_reload	Decoded leaf trim is covered; full query pin and budget eviction accounting is pending.
 S38	pass	storage_roundtrip::tiny_cache_budget_bypasses_oversized_selected_payloads	An oversize selected payload serves the query, is not retained, and records the bypass.
