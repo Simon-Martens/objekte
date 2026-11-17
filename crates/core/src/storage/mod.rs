@@ -13,6 +13,7 @@ use crate::repository::Repository;
 mod format;
 mod model;
 mod reader;
+pub(crate) mod serde_support;
 mod writer;
 
 pub use format::{CacheTrimReport, StorageError};

@@ -50,11 +50,13 @@ pub(crate) struct CollectionSnapshot {
     pub postings: PostingCollectionSnapshot,
     pub inference: Option<InferenceStateSnapshot>,
     pub global_inference: Option<GlobalInferenceSummary>,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub custom_postings: BTreeMap<(Vec<String>, String), StoredCustomPosting>,
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub custom_text: BTreeMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
     pub id_lookup: Vec<(RecordId, RecordSlot)>,
@@ -89,9 +91,11 @@ pub(crate) struct SegmentSnapshot {
     pub postings: PostingCollectionSnapshot,
     pub inference_observation: Option<InferenceObservation>,
     pub inference: Option<InferenceStateSnapshot>,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub custom_postings: BTreeMap<(Vec<String>, String), StoredCustomPosting>,
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub custom_text: BTreeMap<(Vec<String>, String), BigramIndex>,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,

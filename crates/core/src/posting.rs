@@ -3963,6 +3963,7 @@ pub struct PostingCollection {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct PostingCollectionSnapshot {
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub fields: BTreeMap<Vec<String>, PostingIndexSnapshot>,
 }
 

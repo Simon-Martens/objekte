@@ -559,6 +559,7 @@ fn append_inferred_group(
 /// All sort columns available for a collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
+    #[serde(with = "crate::storage::serde_support::hash_map_sequence")]
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
     #[serde(default)]

@@ -279,8 +279,11 @@ pub struct InferenceState {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct InferenceStateSnapshot {
     pub report: InferenceReport,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub indexes: std::collections::BTreeMap<Vec<String>, crate::posting::PostingIndexSnapshot>,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub empty_selections: std::collections::BTreeMap<Vec<String>, RoaringBitmap>,
+    #[serde(with = "crate::storage::serde_support::btree_map_sequence")]
     pub short_string_coverage: std::collections::BTreeMap<Vec<String>, RoaringBitmap>,
 }
 
