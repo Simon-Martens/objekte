@@ -139,7 +139,7 @@ Compare against the existing reviewed-code and original-master samples in `docs/
 - Completion date: 18 November 2026
 - Base commit: `74e569f505b8059aba1befef517c0c58e1e87bc0`
 - Reviewed code commit: `f0df3ba68548a4e487556b3cbfcd7f0fba2db590`
-- Delivered implementation commit: `30206e451d73b023aacf5441a53616fec899822d`
+- Delivered implementation commit: `386147d886319184011f0f315b7c7489b628b25b`
 - Integration branch: `integration/core-query-execution-corrections`
 - Integration worktree:
   `/home/simon/source/objekte-integration-core-query-execution-corrections`
@@ -184,6 +184,8 @@ accounting. Ranking winner-byte policy now has its production owner in
   observations after an ordered-page pass.
 - `30206e451d73b023aacf5441a53616fec899822d` — exercise the public query
   across two published segments with overlapping local slot numbers.
+- `386147d886319184011f0f315b7c7489b628b25b` — remove the superseded planner
+  import after the prepared segment-ID migration.
 
 ### Tests mapped to requirements
 
