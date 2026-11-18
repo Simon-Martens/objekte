@@ -1,4 +1,5 @@
 use super::*;
+use std::num::NonZeroUsize;
 use std::sync::mpsc;
 use std::sync::{
     Arc,
@@ -99,8 +100,8 @@ fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
     let first = task.wait_complete().unwrap();
     let second = task.wait_complete().unwrap();
     assert_eq!(parses.load(Ordering::Relaxed), 3);
-    assert_eq!(first.view().unwrap().startup().build_source_reads, 3);
-    assert_eq!(second.view().unwrap().startup().build_source_reads, 3);
+    assert_eq!(first.view().unwrap().startup_stats().build_source_reads, 3);
+    assert_eq!(second.view().unwrap().startup_stats().build_source_reads, 3);
     let query = |filter: &str| Query {
         collections: vec!["data".into()],
         fts: None,
@@ -124,8 +125,9 @@ fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
     );
     drop(task);
     drop(first);
-    let repository = second.into_repository().unwrap();
     let parses_before_empty = parses.load(Ordering::Relaxed);
+    let second_view = second.view().unwrap();
+    let repository = second_view.repository();
     let empty = repository.empty_like().unwrap();
     assert_eq!(parses.load(Ordering::Relaxed), parses_before_empty);
     assert_eq!(empty.collections()[0].generation.records.len(), 0);
@@ -137,6 +139,113 @@ fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
             .values()
             .all(|posting| posting.presence.is_empty() && posting.values.is_empty())
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn start_build_rejects_invalid_segment_limits_before_dispatch() {
+    if usize::BITS < 64 {
+        return;
+    }
+    let root = std::env::temp_dir().join(format!(
+        "objekte-invalid-segment-policy-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.counted-jsonl"), b"{\"id\":\"a\"}\n").unwrap();
+    let parses = Arc::new(AtomicUsize::new(0));
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "counted-jsonl",
+            1,
+            "counted-jsonl",
+            Arc::new(CountingJsonLinesReader {
+                parses: Arc::clone(&parses),
+            }),
+        )
+        .unwrap();
+    let definition =
+        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-jsonl"));
+    let oversized = NonZeroUsize::new(u32::MAX as usize + 1).unwrap();
+    for (policy, expected) in [
+        (
+            crate::native_segment::SegmentPolicy {
+                target_records: oversized,
+                max_files: NonZeroUsize::new(1).unwrap(),
+            },
+            "segment target exceeds the supported local-slot range",
+        ),
+        (
+            crate::native_segment::SegmentPolicy {
+                target_records: NonZeroUsize::new(1).unwrap(),
+                max_files: oversized,
+            },
+            "segment file limit exceeds the supported local-slot range",
+        ),
+    ] {
+        let result = Index::start_build(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                segment_policy: policy,
+                ..Default::default()
+            },
+            sources.clone(),
+        );
+        assert!(matches!(
+            result,
+            Err(IndexError::Build(message))
+                if message == expected
+        ));
+    }
+    assert_eq!(parses.load(Ordering::Relaxed), 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn repository_conversion_rejects_retained_owner_and_view_promptly() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-repository-conversion-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let build = || {
+        Index::start_build(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions::default(),
+            SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap()
+    };
+
+    let index = build();
+    let retained_owner = index.clone();
+    assert!(matches!(
+        index.into_repository(),
+        Err(IndexError::InvalidPublication(message)) if message == "index has other owners"
+    ));
+    drop(retained_owner);
+
+    let index = build();
+    let retained_view = index.view().unwrap();
+    assert!(matches!(
+        index.into_repository(),
+        Err(IndexError::InvalidPublication(message)) if message == "published index has other owners"
+    ));
+    drop(retained_view);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1134,5 +1243,245 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             ))
             .collect::<Vec<_>>()
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(feature = "detailed-profiling")]
+#[test]
+fn large_framed_file_admission_has_component_accounting() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-large-admission-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = b"{\"title\":\"".to_vec();
+    source.extend(std::iter::repeat_n(b'x', 8 * 1024 * 1024 + 1));
+    source.extend_from_slice(b"\"}\n");
+    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::JsonLines,
+    )];
+    let options = RepositoryOptions {
+        build_workers: std::num::NonZeroUsize::new(2),
+        profile_build: true,
+        ..Default::default()
+    };
+    let task = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let index = task.wait_complete().unwrap();
+    let view = index.view().unwrap();
+    let admission = &view
+        .startup_stats()
+        .build_profile
+        .as_ref()
+        .unwrap()
+        .admission;
+    assert!(admission.batches >= 1);
+    assert_eq!(admission.files, 1);
+    assert_eq!(admission.records, 1);
+    assert_eq!(
+        admission.total_ns,
+        admission.incremental_component_ns() + admission.remainder_ns
+    );
+    assert_eq!(
+        view.startup_stats()
+            .build_profile
+            .as_ref()
+            .unwrap()
+            .admission_by_collection["data"]
+            .total_ns,
+        admission.total_ns
+    );
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(feature = "detailed-profiling")]
+#[test]
+fn incremental_admission_totals_match_each_collection() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-collection-admission-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/one.json"), br#"{"title":"one"}"#).unwrap();
+    std::fs::write(root.join("data/two.json"), br#"{"title":"two"}"#).unwrap();
+    let definitions = ["first", "second"]
+        .into_iter()
+        .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
+        .collect();
+    let task = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            profile_build: true,
+            ..Default::default()
+        },
+        crate::source::SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let index = task.wait_complete().unwrap();
+    let view = index.view().unwrap();
+    let profile = view.startup_stats().build_profile.as_ref().unwrap();
+    assert_eq!(profile.admission_by_collection.len(), 2);
+    assert_eq!(profile.admission.files, 4);
+    assert_eq!(profile.admission.records, 4);
+    assert_eq!(
+        profile.admission.total_ns,
+        profile
+            .admission_by_collection
+            .values()
+            .map(|entry| entry.total_ns)
+            .sum::<u64>()
+    );
+    assert!(profile.admission_by_collection.values().all(|entry| {
+        entry.files == 2
+            && entry.records == 2
+            && entry.total_ns == entry.incremental_component_ns() + entry.remainder_ns
+    }));
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-direct-json-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"alpha","n":1}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"name":"beta","n":2}"#).unwrap();
+    std::fs::write(root.join("data/c.json"), b"{broken").unwrap();
+    let definitions = ["one", "two"]
+        .into_iter()
+        .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
+        .collect::<Vec<_>>();
+    let mut inference = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    let options = RepositoryOptions {
+        inference,
+        ..Default::default()
+    };
+    let static_repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    std::fs::create_dir(root.join("index-store")).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    assert_eq!(index.status().unwrap().indexed_files, 3);
+    assert_eq!(index.status().unwrap().live_records, 6);
+    let view = index.view().unwrap();
+    assert!(view.repository().collections().iter().all(|state| {
+        state.generation.records.len()
+            == view
+                .segments(state.generation.collection)
+                .unwrap()
+                .iter()
+                .map(|segment| segment.index.records.len())
+                .sum::<usize>()
+    }));
+    assert_eq!(
+        index.view().unwrap().repository().build_parses(),
+        static_repo.build_parses()
+    );
+    let query = Query {
+        collections: vec!["one".into(), "two".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let expected = static_repo.search(&query).unwrap();
+    let check = |index: &Index| {
+        let view = index.view().unwrap();
+        let actual = view.search(&query).unwrap();
+        assert_eq!(actual.count, expected.count);
+        let hits = |result: crate::repository::SearchResult| {
+            let mut hits = result
+                .hits
+                .into_iter()
+                .map(|hit| {
+                    (
+                        hit.collection,
+                        hit.record_id,
+                        hit.file_path,
+                        hit.file_status,
+                    )
+                })
+                .collect::<Vec<_>>();
+            hits.sort_by(|left, right| left.0.cmp(&right.0).then(left.1.cmp(&right.1)));
+            hits
+        };
+        assert_eq!(hits(actual), hits(expected.clone()));
+        for name in ["one", "two"] {
+            assert_eq!(
+                serde_json::to_value(view.repository().inference_report(name).unwrap()).unwrap(),
+                serde_json::to_value(static_repo.inference_report(name).unwrap()).unwrap()
+            );
+            assert_eq!(
+                serde_json::to_value(view.repository().inference_index_diagnostics(name).unwrap())
+                    .unwrap(),
+                serde_json::to_value(static_repo.inference_index_diagnostics(name).unwrap())
+                    .unwrap()
+            );
+        }
+    };
+    check(&index);
+    index.shutdown().unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    check(&restored);
+    restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

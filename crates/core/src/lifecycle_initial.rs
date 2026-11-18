@@ -278,6 +278,35 @@ impl InitialBuildTask {
 }
 
 impl Index {
+    #[cfg(test)]
+    pub(crate) fn build_repository_for_test(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<Repository, IndexError> {
+        let root = root.into();
+        let definitions =
+            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+                .map_err(IndexError::IncompatibleConfiguration)?;
+        options.inference.validate().map_err(IndexError::Build)?;
+        options
+            .segment_policy
+            .validate()
+            .map_err(IndexError::Build)?;
+        crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
+        Repository::build_incremental_with_sources(
+            root,
+            definitions,
+            options,
+            sources,
+            |_| Ok(()),
+            |_| Ok(()),
+            || false,
+        )?
+        .into_repository()
+    }
+
     /// Start the single initial construction entry point. The task exposes
     /// catalogue and record publications before completion; callers choose
     /// when to wait and can cancel the same worker.
@@ -292,6 +321,10 @@ impl Index {
             crate::repository_configuration::prepare_source_definitions(&root, &definitions)
                 .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
+        options
+            .segment_policy
+            .validate()
+            .map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();
         let worker_task = task.clone();

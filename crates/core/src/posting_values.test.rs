@@ -39,7 +39,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -47,8 +47,6 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let all = repo.active.clone();
@@ -287,26 +285,22 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         unsupported.binding = Some("other".into());
         assert!(repo.posting_values(&unsupported).is_err());
     };
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     check(&repo);
     let restored = Arc::new(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap(),
     );
@@ -495,14 +489,12 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             bigram_alphabet: alphabet,
             ..Default::default()
         };
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let mut request = PostingValuesRequest::new("data", "tags", 2);
@@ -697,14 +689,12 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 .is_empty()
         );
         std::fs::rename(&held, &path).unwrap();
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         assert_eq!(
@@ -752,7 +742,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
             })
             .unwrap();
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -771,8 +761,6 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let numbers = repo
@@ -925,14 +913,12 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
         let options = RepositoryOptions {
             ..Default::default()
         };
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let request = PostingValuesRequest::new("data", "title", 10);
@@ -1029,7 +1015,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1048,8 +1034,6 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let mut request = PostingValuesRequest::new("data", "key", 3);

@@ -118,13 +118,13 @@ fn run() -> Result<(), String> {
         println!("{}: {}", hit.collection, hit.record_id);
     }
     if inference != InferenceMode::Disabled {
-        for state in repo.collections() {
+        for definition in repo.collection_definitions() {
             let report = repo
-                .inference_report(&state.definition.name)
+                .inference_report(&definition.name)
                 .expect("enabled inference has a report");
             eprintln!(
                 "{}: {} observed paths, {} inferred indexes, {} dropped, {} summary bytes, {} index bytes, complete={}",
-                state.definition.name,
+                definition.name,
                 report.observed_paths,
                 report.admitted_paths,
                 report.dropped_paths,

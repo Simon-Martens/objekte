@@ -109,7 +109,7 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
             definition
         })
         .collect();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -118,8 +118,6 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
         },
         registry,
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let relation = query("entry.title ?~ 'Needle'");
@@ -181,7 +179,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
     .unwrap();
     let mut definitions = definitions();
     definitions[1].format = SourceFormat::JsonLines;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -189,8 +187,6 @@ fn second_target_in_batch_is_checked_before_source_read() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let target_index = repo
@@ -446,7 +442,7 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
     }
     std::fs::write(root.join("sources/broken.json"), "{broken").unwrap();
 
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         RepositoryOptions {
@@ -456,8 +452,6 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     (root, repo)
@@ -561,7 +555,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         .unwrap();
     }
 
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         RepositoryOptions {
@@ -573,8 +567,6 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let source_index = repo
@@ -696,7 +688,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         .unwrap();
     }
 
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         RepositoryOptions {
@@ -708,8 +700,6 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let target_index = repo
@@ -833,7 +823,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         )
         .unwrap();
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         RepositoryOptions {
@@ -845,8 +835,6 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let source_index = repo
@@ -1104,7 +1092,7 @@ fn seeded_array_fixture(
             reverse_alias: Some("sources".into()),
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![
             definition("sources", sources),
@@ -1117,8 +1105,6 @@ fn seeded_array_fixture(
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     (root, repo, expected_equal, expected_not_equal)
@@ -1296,24 +1282,20 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             verified_cache_bytes: 0,
             ..Default::default()
         };
-        let fresh = crate::lifecycle::Index::start_build(
+        let fresh = crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions(),
             snapshot_options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions(),
             snapshot_options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for request in [

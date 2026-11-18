@@ -91,7 +91,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .finish()
         .into_indexed(&definition, alphabet, inference, 1, &pool)
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -99,8 +99,6 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let collection = &repo.collections()[0];
@@ -240,14 +238,12 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         },
         ..Default::default()
     };
-    let static_repo = crate::lifecycle::Index::start_build(
+    let static_repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let index = crate::lifecycle::Index::start_build(
@@ -443,14 +439,12 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
             ..Default::default()
         };
         for opening in 0..2 {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition.clone()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             if opening == 0 {}
@@ -919,7 +913,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
             (false, false, true),
             (true, true, false),
         ] {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition(posting, bigram, complete)],
                 RepositoryOptions {
@@ -928,8 +922,6 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 },
                 sources(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             assert_eq!(repo.build_failed_parses(), 1);
@@ -1029,25 +1021,21 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true, true, true)],
         options,
         sources(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true, true, true)],
         options,
         sources(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
@@ -1150,14 +1138,12 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
             ..Default::default()
         };
         for open in 0..2 {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             if open == 0 {}
@@ -1265,14 +1251,12 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
             bigram_alphabet: alphabet,
             ..Default::default()
         };
-        let built = crate::lifecycle::Index::start_build(
+        let built = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for (literal, case_sensitivity, expected) in [
@@ -1316,14 +1300,12 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                         .any(|hit| hit.matched_fields == ["@record.raw_text"])
                 );
             }
-            let restored = crate::lifecycle::Index::start_build(
+            let restored = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition.clone()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             assert_eq!(restored.search(&query).unwrap().hits, actual.hits);
@@ -1536,7 +1518,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         (false, false, true),
         (true, true, false),
     ] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition(posting, bigram, complete, 1)],
             RepositoryOptions {
@@ -1544,8 +1526,6 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         if posting && complete {
@@ -1610,25 +1590,21 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true, true, true, 1)],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true, true, true, 1)],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     for (query, expected, _) in &cases {
@@ -1706,7 +1682,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
     };
     inference.policy.min_nonblank_occurrences = 1;
     inference.policy.min_nonblank_records = 1;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1715,8 +1691,6 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let collection = &repo.collections()[0];
@@ -1892,7 +1866,7 @@ fn record_id_lookup_respects_case_fold_binding() {
     for id in ["ABC", "abc", "Straße", "STRASSE"] {
         std::fs::write(path.join(format!("{id}.json")), "{}").unwrap();
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1911,8 +1885,6 @@ fn record_id_lookup_respects_case_fold_binding() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
@@ -1993,7 +1965,7 @@ fn indexed_restriction_precedes_written_first_scan() {
             },
         )
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -2010,8 +1982,6 @@ fn indexed_restriction_precedes_written_first_scan() {
         crate::repository::RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let domain: RoaringBitmap = (0..3).collect();
@@ -2139,7 +2109,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             })
             .unwrap();
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -2156,8 +2126,6 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         crate::repository::RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let domain: RoaringBitmap = (0..240).collect();

@@ -469,7 +469,7 @@ mod tests {
             })
             .unwrap();
         let scan = SourceScan::open(&root, vec![definition.clone()]).unwrap();
-        let indexed = crate::lifecycle::Index::start_build(
+        let indexed = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition],
             RepositoryOptions {
@@ -477,8 +477,6 @@ mod tests {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let mut query = Query {

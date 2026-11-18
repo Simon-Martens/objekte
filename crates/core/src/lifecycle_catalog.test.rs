@@ -18,7 +18,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     std::fs::write(root.join("data/a.json"), b"{}").unwrap();
     std::fs::write(root.join("data/b.json"), b"{}").unwrap();
     let repository = Arc::new(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![CollectionDefinition::folder(
                 "data",
@@ -30,8 +30,6 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap(),
     );

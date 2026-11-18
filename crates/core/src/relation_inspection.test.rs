@@ -260,24 +260,20 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     for name in ["entries", "mentions", "empty"] {
@@ -322,7 +318,7 @@ fn collection_graph_marks_a_single_collection_self_cycle() {
 #[test]
 fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlinks() {
     let root = fixture();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
         RepositoryOptions {
@@ -330,8 +326,6 @@ fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlink
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let all = repo

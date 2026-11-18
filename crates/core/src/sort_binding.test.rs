@@ -100,7 +100,7 @@ fn cross_collection_sort_rejects_different_binding_versions() {
             .unwrap();
         definitions.push(definition);
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -108,8 +108,6 @@ fn cross_collection_sort_rejects_different_binding_versions() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let query = Query {
@@ -371,7 +369,7 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                 },
             };
             for workers in [1, 2, 4, 8] {
-                let repo = crate::lifecycle::Index::start_build(
+                let repo = crate::lifecycle::Index::build_repository_for_test(
                     &root,
                     vec![source_definition.clone(), target_definition.clone()],
                     RepositoryOptions {
@@ -380,8 +378,6 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                     },
                     crate::source::SourceRegistry::builtin(),
                 )
-                .and_then(|task| task.wait_complete())
-                .and_then(|index| index.into_repository())
                 .map_err(|error| error.to_string())
                 .unwrap();
                 let actual = repo.search(&query).unwrap();
@@ -481,7 +477,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
             },
         };
         for workers in [1, 2, 4, 8] {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![source_definition.clone(), target_definition.clone()],
                 RepositoryOptions {
@@ -490,8 +486,6 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
                 },
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             let actual = repo.search(&query).unwrap();

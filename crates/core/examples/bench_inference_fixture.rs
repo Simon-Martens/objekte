@@ -4,6 +4,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
@@ -54,7 +55,7 @@ fn run() -> Result<(), String> {
         .schema
         .prohibit_auto_index(vec!["blocked".into()])?;
     let started = Instant::now();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -67,11 +68,11 @@ fn run() -> Result<(), String> {
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
+    let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let open_ns = started.elapsed().as_nanos() as u64;
-    let collection = &repo.collections()[0];
-    let report = repo.inference_report("records");
+    let collection = &index.collections()[0];
+    let report = index.inference_report("records");
     let indexes = collection.inference.as_ref().map(|state| {
         let mut summaries = state
             .indexes
@@ -93,18 +94,18 @@ fn run() -> Result<(), String> {
         json!({
             "mode": mode,
             "root": root.canonicalize().map_err(|error| error.to_string())?,
-            "files": repo.files().files.len(),
+            "files": index.files().files.len(),
             "records": collection.generation.records.len(),
-            "build_parses": repo.build_parses(),
+            "build_parses": index.build_parses(),
             "open_ns": open_ns,
-            "build_ns": repo.startup().build_ns,
-            "discovery_ns": repo.startup().build_discovery_ns,
-            "extraction_index_ns": repo.startup().build_extraction_index_ns,
-            "finalization_ns": repo.startup().build_finalization_ns,
-            "workers": repo.startup().build_workers,
-            "peak_active_jobs": repo.startup().build_peak_active_jobs,
-            "receive_wait_ns": repo.startup().build_receive_wait_ns,
-            "admission_ns": repo.startup().build_admission_ns,
+            "build_ns": index.startup().build_ns,
+            "discovery_ns": index.startup().build_discovery_ns,
+            "extraction_index_ns": index.startup().build_extraction_index_ns,
+            "finalization_ns": index.startup().build_finalization_ns,
+            "workers": index.startup().build_workers,
+            "peak_active_jobs": index.startup().build_peak_active_jobs,
+            "receive_wait_ns": index.startup().build_receive_wait_ns,
+            "admission_ns": index.startup().build_admission_ns,
             "resident_kib": resident_kib("VmRSS:"),
             "peak_resident_kib": resident_kib("VmHWM:"),
             "inference_report": report,

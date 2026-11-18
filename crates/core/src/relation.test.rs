@@ -470,14 +470,12 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         ..Default::default()
     };
     REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions("entries"),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert!(REVERSE_RECONSTRUCTIONS.load(std::sync::atomic::Ordering::Relaxed) >= 12);
@@ -485,14 +483,12 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
     REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions("entries"),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert!(REVERSE_RECONSTRUCTIONS.load(std::sync::atomic::Ordering::Relaxed) >= 12);
@@ -502,14 +498,12 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         format!("{:?}", built.collections()[2].relations),
         format!("{:?}", restored.collections()[2].relations)
     );
-    let changed = crate::lifecycle::Index::start_build(
+    let changed = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions("people"),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
@@ -525,7 +519,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
 #[test]
 fn publication_validation_still_rejects_broken_relation_state() {
     let root = fixture("invalid-index");
-    let mut repo = crate::lifecycle::Index::start_build(
+    let mut repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions("entries"),
         RepositoryOptions {
@@ -533,8 +527,6 @@ fn publication_validation_still_rejects_broken_relation_state() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let original = repo
@@ -642,7 +634,7 @@ fn profile_large_fanout_relation_publication() {
     definitions[2].format = SourceFormat::JsonLines;
     REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
     let started = std::time::Instant::now();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -650,8 +642,6 @@ fn profile_large_fanout_relation_publication() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let wall_ms = started.elapsed().as_secs_f64() * 1_000.0;
@@ -693,7 +683,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
     );
     let root = fixture("invalid");
     assert!(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions("missing"),
             RepositoryOptions {
@@ -701,8 +691,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             },
             crate::source::SourceRegistry::builtin()
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .err()
         .unwrap()
@@ -716,7 +704,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
         .unwrap()
         .reverse_alias = Some("mentions".into());
     assert!(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             defs,
             RepositoryOptions {
@@ -724,8 +712,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             },
             crate::source::SourceRegistry::builtin()
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .err()
         .unwrap()
@@ -733,7 +719,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
     );
     std::fs::write(root.join("entries/duplicate.json"), r#"{"id":"A"}"#).unwrap();
     assert!(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions("entries"),
             RepositoryOptions {
@@ -741,8 +727,6 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             },
             crate::source::SourceRegistry::builtin()
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .err()
         .unwrap()
@@ -881,7 +865,7 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
     let mut defs = definitions("entries");
     defs[0].format = SourceFormat::JsonLines;
     defs[2].format = SourceFormat::JsonLines;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         defs,
         RepositoryOptions {
@@ -889,8 +873,6 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.build_parses(), 4);
@@ -950,14 +932,12 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let initial = crate::lifecycle::Index::start_build(
+    let initial = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions("entries"),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let target_id = initial.collections()[0].generation.records[0].id.0.clone();
@@ -971,14 +951,12 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         ..Default::default()
     };
     for restored in [false, true] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions("entries"),
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         if !restored {}

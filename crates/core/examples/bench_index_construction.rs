@@ -12,6 +12,7 @@ use std::time::{Instant, SystemTime};
 
 use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
@@ -141,15 +142,16 @@ fn run() -> Result<(), String> {
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions,
         options,
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
+    let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    let repo = index.index().view().map_err(|error| error.to_string())?;
     let open_ns = started.elapsed().as_nanos() as u64;
     let io_after = proc_io();
     let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
@@ -165,7 +167,7 @@ fn run() -> Result<(), String> {
     });
     let after_build_rss = resident_bytes();
     let after_build_hwm = peak_resident_bytes();
-    let startup = repo.startup().clone();
+    let startup = repo.startup_stats().clone();
     let profile_reconciliation = startup.build_profile.as_ref().map(|profile| -> Result<_, String> {
         let top_level = startup.build_discovery_ns
             + startup.build_extraction_index_ns
@@ -190,117 +192,54 @@ fn run() -> Result<(), String> {
         Ok(remainder)
     }).transpose()?;
     let corpus_fingerprint = fingerprint_inventory(&repo);
-    let files = repo.files().files.len();
-    let records = repo
-        .collections()
-        .iter()
-        .map(|c| c.generation.records.len())
-        .sum::<usize>();
+    let observation = repo.construction_observation();
+    let files = observation.files;
+    let records = observation.records;
     let build_parses = repo.build_parses();
     let failed_parses = repo.build_failed_parses();
-    let postings = repo
-        .collections()
-        .iter()
-        .map(|c| c.postings.fields.len())
-        .sum::<usize>();
-    let sort_fields = repo
-        .collections()
-        .iter()
-        .map(|c| c.sorting.columns.len())
-        .sum::<usize>();
-    let relation_edges = repo
-        .collections()
-        .iter()
-        .flat_map(|c| &c.relations)
-        .map(|r| r.edge_count())
-        .sum::<usize>();
-    let relation_heap_bytes = repo
-        .collections()
-        .iter()
-        .flat_map(|c| &c.relations)
-        .map(|r| r.estimated_heap_bytes())
-        .sum::<usize>();
-    let estimated_index_bytes = repo
-        .collections()
-        .iter()
-        .map(|c| {
-            c.raw.estimated_heap_bytes()
-                + c.fallback_text.estimated_heap_bytes()
-                + c.custom_text
-                    .values()
-                    .map(|i| i.estimated_heap_bytes())
-                    .sum::<usize>()
-                + c.postings
-                    .fields
-                    .values()
-                    .map(|p| {
-                        p.values
-                            .values()
-                            .map(|bitmap| bitmap.serialized_size() as usize)
-                            .sum::<usize>()
-                            + p.lengths
-                                .values()
-                                .map(|bitmap| bitmap.serialized_size() as usize)
-                                .sum::<usize>()
-                            + p.structural.as_ref().map_or(0, |facts| {
-                                facts
-                                    .postings
-                                    .values()
-                                    .map(|bitmap| bitmap.serialized_size())
-                                    .sum::<usize>()
-                            })
-                            + if p.empty_selections.is_empty() {
-                                0
-                            } else {
-                                p.empty_selections.serialized_size()
-                            }
-                    })
-                    .sum::<usize>()
-                + c.sorting
-                    .columns
-                    .values()
-                    .map(|column| {
-                        column
-                            .keys
-                            .iter()
-                            .map(|key| match key {
-                                objekte_search_core::sorting::SortKey::String(value) => value.len(),
-                                _ => 24,
-                            })
-                            .sum::<usize>()
-                    })
-                    .sum::<usize>()
-        })
-        .sum::<usize>();
-    let (bigram_stores, distinct_gram_keys) =
-        repo.collections()
-            .iter()
-            .fold((0usize, 0usize), |total, collection| {
-                std::iter::once(&collection.raw)
-                    .chain(std::iter::once(&collection.fallback_text))
-                    .chain(collection.custom_text.values())
-                    .fold(total, |(stores, keys), index| {
-                        (stores + 1, keys + index.normal.len() + index.skip.len())
-                    })
-            });
-    let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
+    let postings = observation.posting_fields;
+    let sort_fields = observation.sort_columns;
+    let relation_edges = observation.relation_edges;
+    let relation_heap_bytes = observation.relation_heap_bytes;
+    let estimated_index_bytes = repo.estimated_index_bytes();
+    let bigram_stores = observation.bigram_stores;
+    let distinct_gram_keys = observation.distinct_gram_keys;
+    let (inventory_heap_bytes, diagnostic_heap_bytes) = (
+        observation.inventory_heap_bytes,
+        observation.diagnostic_heap_bytes,
+    );
+    let (_, _, inventory_storage) = repo.inventory_storage_observation();
     let storage_breakdown = storage_diagnostic.then(|| {
-        let file = repo.files().storage_diagnostic();
         let record_entry_size = std::mem::size_of::<objekte_search_core::inventory::RecordEntry>();
         let lookup_pair_size = std::mem::size_of::<(
             objekte_search_core::model::RecordId,
             objekte_search_core::model::RecordSlot,
         )>();
-        let record_table_slots = repo.collections().iter().map(|c| c.generation.records.capacity()).sum::<usize>();
+        let record_table_slots = observation
+            .collection_parts
+            .iter()
+            .map(|collection| collection.record_table_capacity)
+            .sum::<usize>();
         let record_table_bytes = record_table_slots * record_entry_size;
-        let id_payload_bytes = repo.collections().iter().flat_map(|c| &c.generation.records)
-            .map(|r| r.id.0.len() + 2 * std::mem::size_of::<usize>()).sum::<usize>();
-        let identity_lookup_slots = repo.collections().iter().map(|c| c.id_lookup.capacity()).sum::<usize>();
+        let id_payload_bytes = observation
+            .collection_parts
+            .iter()
+            .map(|collection| collection.unique_id_payload_bytes)
+            .sum::<usize>();
+        let identity_lookup_slots = observation
+            .collection_parts
+            .iter()
+            .map(|collection| collection.identity_lookup_capacity)
+            .sum::<usize>();
         let identity_lookup_bytes = identity_lookup_slots * lookup_pair_size;
-        let shared_id_references = repo.collections().iter().map(|c| c.id_lookup.len()).sum::<usize>();
-        let file_bytes = file.estimated_live_bytes;
+        let shared_id_references = observation
+            .collection_parts
+            .iter()
+            .map(|collection| collection.shared_id_references)
+            .sum::<usize>();
+        let file_bytes = inventory_storage.estimated_live_bytes;
         serde_json::json!({
-            "file":file,
+            "file":inventory_storage,
             "record":{"record_table_len":records,"record_table_capacity":record_table_slots,
                 "record_entry_size":record_entry_size,"record_table_slot_bytes":record_table_bytes,
                 "unique_id_payload_bytes":id_payload_bytes,"identity_lookup_capacity":identity_lookup_slots,
@@ -316,12 +255,7 @@ fn run() -> Result<(), String> {
     let operation_samples = storage_operations
         .then(|| probe_storage_operations(&repo))
         .transpose()?;
-    let source_bytes = repo
-        .files()
-        .files
-        .iter()
-        .map(|f| f.revision.size)
-        .sum::<u64>();
+    let source_bytes = observation.source_bytes;
     let query_digests = if check_queries {
         let core = Path::new(env!("CARGO_MANIFEST_DIR"));
         let cases = objekte_search_core::workload::load_extended_manifest(
@@ -605,27 +539,24 @@ fn run_incremental(
 }
 
 fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, String> {
-    let collection = repo
-        .collections()
-        .iter()
-        .find(|collection| !collection.generation.records.is_empty())
+    let sample = repo
+        .record_lookup_observation()
         .ok_or("no records for storage probe")?;
-    let record = &collection.generation.records[0];
-    let file = &repo.files().files[record.file.0 as usize];
-    let path = file.relative_path.as_path();
+    let path = sample.relative_path.as_path();
     let path_key = objekte_search_core::path_repr::query_path(path);
-    let id = record.id.0.as_ref();
-    let collection_name = collection.definition.name.as_str();
+    let id = sample.record_id.as_str();
+    let collection_name = sample.collection.as_str();
     let exact_lookup_ns = median_probe_ns(100_000, || {
         let found = repo
-            .files()
-            .id_for(path)
+            .file_handle_for_path(path)
             .ok_or("exact path lookup missed")?;
         std::hint::black_box(found);
         Ok(())
     })?;
     let id_lookup_ns = median_probe_ns(100_000, || {
-        let found = collection.id_lookup.get(id).ok_or("ID lookup missed")?;
+        let found = repo
+            .get_record(collection_name, id, ReturnMode::Locator)?
+            .ok_or("ID lookup missed")?;
         std::hint::black_box(found);
         Ok(())
     })?;
@@ -723,10 +654,10 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &IndexView) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.catalogue_rows() {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
-        hash.update(file.revision.modified_ns.to_le_bytes());
-        hash.update(file.revision.size.to_le_bytes());
+        hash.update(file.modified_ns.to_le_bytes());
+        hash.update(file.size.to_le_bytes());
     }
     format!("{:x}", hash.finalize())
 }

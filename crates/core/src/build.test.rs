@@ -27,14 +27,12 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         ..Default::default()
     };
     let baseline_started = std::time::Instant::now();
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     eprintln!(
@@ -1229,7 +1227,7 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
             sort_overrides: Default::default(),
         })
         .collect();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -1238,8 +1236,6 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         },
         sources,
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
@@ -1373,7 +1369,7 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
         });
         let mut sources = SourceRegistry::builtin();
         sources.register("two", 1, "two", reader.clone()).unwrap();
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -1382,8 +1378,6 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
             },
             sources,
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         (repo, reader)
@@ -1526,7 +1520,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     };
     let available = std::thread::available_parallelism().map_or(1, NonZeroUsize::get);
     let build = |workers| {
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -1535,8 +1529,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap()
     };
@@ -1546,7 +1538,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     whole_sources
         .register("jsonl", 1, "jsonl", std::sync::Arc::new(WholeJsonLines))
         .unwrap();
-    let whole = crate::lifecycle::Index::start_build(
+    let whole = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1555,8 +1547,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         },
         whole_sources,
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(one.build_parses(), 2);
@@ -1656,7 +1646,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         let b = parallel.search(&query).unwrap();
         assert_eq!((a.count, a.hits), (b.count, b.hits), "{filter}");
     }
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -1665,8 +1655,6 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
@@ -1718,7 +1706,7 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -1727,8 +1715,6 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.build_parses(), 300);
@@ -2019,27 +2005,23 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             build_workers: Some(NonZeroUsize::new(1).unwrap()),
             ..Default::default()
         };
-        let built = crate::lifecycle::Index::start_build(
+        let built = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
-        let parallel = crate::lifecycle::Index::start_build(
+        let parallel = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -2052,8 +2034,6 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for repo in [&built, &restored, &parallel] {
@@ -2204,24 +2184,20 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.clone(),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     for repo in [&built, &restored] {
@@ -2303,7 +2279,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
             element_nullable: vec![],
         })
         .unwrap();
-    let error = crate::lifecycle::Index::start_build(
+    let error = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -2322,8 +2298,6 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .err()
     .unwrap();

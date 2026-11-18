@@ -37,22 +37,62 @@ impl Index {
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
+/// Aggregate construction facts for benchmark and diagnostic callers that
+/// need more than one catalogue row without gaining access to mutable
+/// repository collections.
+#[derive(Clone, Debug, serde::Serialize)]
+pub struct ConstructionObservation {
+    pub files: usize,
+    pub source_bytes: u64,
+    pub records: usize,
+    pub posting_fields: usize,
+    pub sort_columns: usize,
+    pub relation_count: usize,
+    pub relation_edges: usize,
+    pub relation_heap_bytes: usize,
+    pub bigram_stores: usize,
+    pub distinct_gram_keys: usize,
+    pub bigram_heap_bytes: usize,
+    pub inventory_heap_bytes: usize,
+    pub diagnostic_heap_bytes: usize,
+    pub collection_parts: Vec<CollectionConstructionObservation>,
+}
+
+/// One collection's aggregate construction facts. Definitions remain
+/// available through [`IndexView::collection_definitions`].
+#[derive(Clone, Debug, serde::Serialize)]
+pub struct CollectionConstructionObservation {
+    pub collection: String,
+    pub files: usize,
+    pub source_bytes: u64,
+    pub records: usize,
+    pub record_table_capacity: usize,
+    pub unique_id_payload_bytes: usize,
+    pub identity_lookup_capacity: usize,
+    pub shared_id_references: usize,
+    pub posting_fields: usize,
+    pub sort_columns: usize,
+    pub relation_count: usize,
+    pub relation_edges: usize,
+    pub relation_heap_bytes: usize,
+    pub structural_bitmap_bytes: usize,
+    pub bigram_stores: usize,
+    pub distinct_gram_keys: usize,
+}
+
+/// One record selected only to drive a storage-operation probe.
+#[derive(Clone, Debug)]
+pub struct RecordLookupObservation {
+    pub collection: String,
+    pub record_id: String,
+    pub file: FileId,
+    pub relative_path: std::path::PathBuf,
+}
+
 impl IndexView {
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::StartupStats {
         self.repository().startup()
-    }
-
-    pub fn startup(&self) -> &crate::repository::StartupStats {
-        self.startup_stats()
-    }
-
-    pub fn files(&self) -> &crate::inventory::FileInventory {
-        self.repository().files()
-    }
-
-    pub fn collections(&self) -> &[crate::repository::CollectionState] {
-        self.repository().collections()
     }
 
     pub fn build_parses(&self) -> u64 {
@@ -63,21 +103,143 @@ impl IndexView {
         self.repository().build_failed_parses()
     }
 
-    pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
-        let displaced = self
-            .1
-            .upgrade()
-            .ok_or_else(|| "index owner is no longer available".to_string())?
-            .verified_cache
-            .lock()
-            .map_err(|error| error.to_string())?
-            .set_budget(bytes);
-        drop(displaced);
-        Ok(())
-    }
-
     pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
         self.repository().segment_summaries_for(&self.0.segments)
+    }
+
+    /// Aggregate facts captured by the construction generation in this
+    /// publication. Use [`Self::catalogue_rows`] and
+    /// [`Self::segment_summaries`] for revision-specific live membership.
+    pub fn construction_observation(&self) -> ConstructionObservation {
+        let segments = self.segment_summaries();
+        let mut collection_parts = Vec::with_capacity(self.repository().collections().len());
+        for (number, collection) in self.repository().collections().iter().enumerate() {
+            let segment_parts = segments
+                .iter()
+                .filter(|segment| segment.collection.0 as usize == number)
+                .collect::<Vec<_>>();
+            let files = self
+                .catalogue_rows()
+                .filter(|file| file.collections.contains(&collection.generation.collection))
+                .collect::<Vec<_>>();
+            collection_parts.push(CollectionConstructionObservation {
+                collection: collection.definition.name.clone(),
+                files: files.len(),
+                source_bytes: files.iter().map(|file| file.size).sum(),
+                records: collection.generation.records.len(),
+                record_table_capacity: collection.generation.records.capacity(),
+                unique_id_payload_bytes: collection
+                    .generation
+                    .records
+                    .iter()
+                    .map(|record| record.id.0.len() + 2 * std::mem::size_of::<usize>())
+                    .sum(),
+                identity_lookup_capacity: collection.id_lookup.capacity(),
+                shared_id_references: collection.id_lookup.len(),
+                posting_fields: segment_parts
+                    .iter()
+                    .map(|segment| segment.posting_fields)
+                    .sum(),
+                sort_columns: segment_parts
+                    .iter()
+                    .map(|segment| segment.sort_columns)
+                    .sum(),
+                relation_count: segment_parts
+                    .iter()
+                    .map(|segment| segment.relation_count)
+                    .sum(),
+                relation_edges: segment_parts
+                    .iter()
+                    .map(|segment| segment.relation_edges)
+                    .sum(),
+                relation_heap_bytes: segment_parts
+                    .iter()
+                    .map(|segment| segment.relation_heap_bytes)
+                    .sum(),
+                structural_bitmap_bytes: collection.empty_array_records.serialized_size(),
+                bigram_stores: segment_parts
+                    .iter()
+                    .map(|segment| segment.bigram_stores)
+                    .sum(),
+                distinct_gram_keys: segment_parts
+                    .iter()
+                    .map(|segment| segment.distinct_gram_keys)
+                    .sum(),
+            });
+        }
+        let (inventory_heap_bytes, diagnostic_heap_bytes) =
+            self.repository().files().estimated_heap_bytes();
+        ConstructionObservation {
+            files: self.catalogue_rows().count(),
+            source_bytes: self.catalogue_rows().map(|file| file.size).sum(),
+            records: collection_parts
+                .iter()
+                .map(|collection| collection.records)
+                .sum(),
+            posting_fields: collection_parts
+                .iter()
+                .map(|collection| collection.posting_fields)
+                .sum(),
+            sort_columns: collection_parts
+                .iter()
+                .map(|collection| collection.sort_columns)
+                .sum(),
+            relation_count: collection_parts
+                .iter()
+                .map(|collection| collection.relation_count)
+                .sum(),
+            relation_edges: collection_parts
+                .iter()
+                .map(|collection| collection.relation_edges)
+                .sum(),
+            relation_heap_bytes: collection_parts
+                .iter()
+                .map(|collection| collection.relation_heap_bytes)
+                .sum(),
+            bigram_stores: segments.iter().map(|segment| segment.bigram_stores).sum(),
+            distinct_gram_keys: segments
+                .iter()
+                .map(|segment| segment.distinct_gram_keys)
+                .sum(),
+            bigram_heap_bytes: segments
+                .iter()
+                .map(|segment| segment.bigram_heap_bytes)
+                .sum(),
+            inventory_heap_bytes,
+            diagnostic_heap_bytes,
+            collection_parts,
+        }
+    }
+
+    /// Inventory component accounting without returning the file table.
+    pub fn inventory_storage_observation(
+        &self,
+    ) -> (usize, usize, crate::inventory::FileStorageDiagnostic) {
+        let inventory = self.repository().files();
+        let (heap_bytes, diagnostic_bytes) = inventory.estimated_heap_bytes();
+        (heap_bytes, diagnostic_bytes, inventory.storage_diagnostic())
+    }
+
+    /// One small record locator for storage-operation benchmarks.
+    pub fn record_lookup_observation(&self) -> Option<RecordLookupObservation> {
+        for collection in self.repository().collections() {
+            let Some(record) = collection.generation.records.first() else {
+                continue;
+            };
+            let relative_path = self.catalogue_row(record.file)?.relative_path.to_path_buf();
+            return Some(RecordLookupObservation {
+                collection: collection.definition.name.clone(),
+                record_id: record.id.0.to_string(),
+                file: record.file,
+                relative_path,
+            });
+        }
+        None
+    }
+
+    /// Construction status for one catalogue file in this pinned publication.
+    pub fn file_status(&self, file: FileId) -> Option<crate::inventory::FileStatus> {
+        self.file_entry(file).map(|entry| entry.status)
     }
 
     pub fn initial_construction_complete(&self) -> bool {

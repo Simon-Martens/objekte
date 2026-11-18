@@ -207,7 +207,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         })
         .unwrap();
     definition.sort_fields = vec![FieldPath::parse("[\"a:b\"]").unwrap()];
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -215,8 +215,6 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let mut case = WorkloadCase {
@@ -264,7 +262,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         ["path:two.json", "path:one.json"]
     );
     drop(repo);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -272,8 +270,6 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(

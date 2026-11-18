@@ -98,7 +98,7 @@ fn case(filter: Option<&str>, sort: Vec<SortField>) -> WorkloadCase {
 
 #[test]
 fn inline_sort_matches_registered_options_and_reference() {
-    let (root, _index, repo) = fixture();
+    let (root, index, repo) = fixture();
     let inline = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
     let external = Query::from_workload(&case(
         None,
@@ -129,7 +129,7 @@ fn inline_sort_matches_registered_options_and_reference() {
     let counted_plan = repo.explain(&inline).unwrap();
     assert_eq!(counted_plan[0].sort_strategy, "bounded_top_k");
     assert_eq!(counted_plan[0].normalized_sort, inline.options.sort);
-    repo.configure_verified_cache(1024 * 1024).unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
     assert_eq!(repo.search(&inline).unwrap().hits, actual.hits);
     assert_eq!(repo.search(&external).unwrap().hits, actual.hits);
 

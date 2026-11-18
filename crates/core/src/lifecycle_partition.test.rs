@@ -20,7 +20,7 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), r#"{"name":"a"}"#).unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -30,8 +30,6 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
         crate::repository::RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let adopted = Arc::clone(&repo.segments[0][0].index);
@@ -127,7 +125,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         )
         .unwrap();
     }
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -137,8 +135,6 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let published = PublishedIndex::from_repository(
@@ -217,7 +213,7 @@ fn compacts_one_large_file_in_source_free_parts() {
         .map(|number| format!("{{\"name\":\"item-{number}\"}}\n"))
         .collect::<String>();
     std::fs::write(&path, bytes).unwrap();
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -227,8 +223,6 @@ fn compacts_one_large_file_in_source_free_parts() {
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let published = PublishedIndex::from_repository(
@@ -299,14 +293,12 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
         },
         ..Default::default()
     };
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.clone(),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let build_parses = repository.build_parses();

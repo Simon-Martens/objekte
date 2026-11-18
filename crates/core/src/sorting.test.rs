@@ -281,14 +281,12 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             .map(|h| h.record_id.clone())
             .collect::<Vec<_>>()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let default_order = ids(&built, &query);
@@ -302,7 +300,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     );
     assert_eq!(&default_order[6..], ["e", "f"]);
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -310,8 +308,6 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(ids(&restored, &query), default_order);
@@ -330,14 +326,12 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             },
         },
     );
-    let rebuilt = crate::lifecycle::Index::start_build(
+    let rebuilt = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![changed.clone()],
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let configured = ids(&rebuilt, &query);
@@ -394,7 +388,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let descending = ids(&rebuilt, &query);
     assert_eq!(descending, ["f", "a", "b"]);
     drop(rebuilt);
-    let reopened = crate::lifecycle::Index::start_build(
+    let reopened = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![changed],
         RepositoryOptions {
@@ -402,8 +396,6 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(ids(&reopened, &query), descending);
@@ -448,7 +440,7 @@ fn cross_collection_sort_rejects_different_collation() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     });
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.to_vec(),
         RepositoryOptions {
@@ -456,8 +448,6 @@ fn cross_collection_sort_rejects_different_collation() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let query = Query {
@@ -581,14 +571,12 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         let options = RepositoryOptions {
             ..Default::default()
         };
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions.clone(),
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let status = |name: &str| {
@@ -636,14 +624,12 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         }
 
         drop(repo);
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             definitions,
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for descending in [false, true] {

@@ -13,6 +13,7 @@ use std::time::Instant;
 
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
@@ -455,19 +456,20 @@ fn run() -> Result<(), String> {
         ..Default::default()
     };
     let started = Instant::now();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &config.root,
         vec![definition],
         options,
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
+    let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    let repo = index.index().view().map_err(|error| error.to_string())?;
     let readiness_ns = started.elapsed().as_nanos();
-    let collection = &repo.collections()[0];
+    let collection = &index.collections()[0];
     let mut hash = Sha256::new();
-    hash.update(bincode::serialize(&repo.files().files).map_err(|error| error.to_string())?);
+    hash.update(bincode::serialize(&index.files().files).map_err(|error| error.to_string())?);
     let corpus_sha256 = format!("{:x}", hash.finalize());
     let inference_report = repo.inference_report(collection_name);
     let rss_after_open = resident_bytes("VmRSS:");
@@ -492,13 +494,13 @@ fn run() -> Result<(), String> {
             "inference": format!("{:?}", config.inference),
             "verified_cache_bytes": config.verified_cache_bytes,
             "requested_build_workers": config.build_workers.map(NonZeroUsize::get),
-            "resolved_build_workers": repo.startup().build_workers,
+            "resolved_build_workers": repo.startup_stats().build_workers,
             "query_workers": config.query_workers,
             "readiness_ns": readiness_ns,
-            "build_ns": repo.startup().build_ns,
-            "discovery_ns": repo.startup().build_discovery_ns,
-            "extraction_index_ns": repo.startup().build_extraction_index_ns,
-            "finalization_ns": repo.startup().build_finalization_ns,
+            "build_ns": repo.startup_stats().build_ns,
+            "discovery_ns": repo.startup_stats().build_discovery_ns,
+            "extraction_index_ns": repo.startup_stats().build_extraction_index_ns,
+            "finalization_ns": repo.startup_stats().build_finalization_ns,
             "build_parses": repo.build_parses(),
             "failed_build_parses": repo.build_failed_parses(),
             "file_count": collection.generation.files.len(),

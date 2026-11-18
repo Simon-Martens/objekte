@@ -318,10 +318,13 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         assert_eq!(repo.build_failed_parses(), if malformed { 10 } else { 0 });
         println!(
             "{}",
-            serde_json::json!({"case":format!("{name}-build"),"median_ns":build_samples[5],"samples_ns":build_samples,"parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"resident_bytes":memory_bytes("VmRSS:"),"process_peak_resident_bytes":memory_bytes("VmHWM:"),"file_status":repo.files().files[0].status.code()})
+            serde_json::json!({"case":format!("{name}-build"),"median_ns":build_samples[5],"samples_ns":build_samples,"parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"resident_bytes":memory_bytes("VmRSS:"),"process_peak_resident_bytes":memory_bytes("VmHWM:"),"file_status":repo.file_status(objekte_search_core::model::FileId(0)).ok_or("missing built file")?.code()})
         );
         if malformed {
-            assert_eq!(repo.files().files[0].status, FileStatus::Broken);
+            assert_eq!(
+                repo.file_status(objekte_search_core::model::FileId(0)),
+                Some(FileStatus::Broken)
+            );
             let query = Query {
                 collections: vec!["data".into()],
                 filter: None,
@@ -497,7 +500,7 @@ fn run() -> Result<(), String> {
             element_nullable: Vec::new(),
         })?;
     }
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![
             definition("range", SourceFormat::JsonLines, schema, true),
@@ -511,9 +514,11 @@ fn run() -> Result<(), String> {
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
-    repo.configure_verified_cache(0)?;
+    let repo = index.view().map_err(|error| error.to_string())?;
+    index
+        .configure_verified_cache(0)
+        .map_err(|error| error.to_string())?;
     let mut range = Query {
         collections: vec!["range".into()],
         fts: None,

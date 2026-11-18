@@ -5,6 +5,7 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::path::PathBuf;
 
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::{FtsMode, Query, RegexOptions};
 use objekte_search_core::repository::{Payload, RepositoryOptions, SearchHit};
 use objekte_search_core::streaming::{
@@ -236,7 +237,7 @@ fn run() -> Result<(), String> {
     if selected.is_empty() {
         return Err(format!("unknown collection {}", case.collection));
     }
-    let repository = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         selected,
         RepositoryOptions {
@@ -246,24 +247,30 @@ fn run() -> Result<(), String> {
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
-    for state in repository.collections() {
+    let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    let repository = index.index().view().map_err(|error| error.to_string())?;
+    let observation = repository.construction_observation();
+    for (state, counts) in index
+        .collections()
+        .iter()
+        .zip(&observation.collection_parts)
+    {
+        let definition = &state.definition;
         let message = format!(
             "collection={} files={} records={} format={:?} fields={} indexed={} custom={}",
-            state.definition.name,
-            state.generation.files.len(),
-            state.generation.records.len(),
-            state.definition.format,
-            state.definition.schema.fields().len(),
-            state
-                .definition
+            definition.name,
+            counts.files,
+            counts.records,
+            definition.format,
+            definition.schema.fields().len(),
+            definition
                 .schema
                 .fields()
                 .values()
                 .filter(|f| f.indexed)
                 .count(),
-            state.definition.schema.custom_bindings().len()
+            definition.schema.custom_bindings().len()
         );
         if ndjson.is_some() {
             eprintln!("{message}");
@@ -273,9 +280,9 @@ fn run() -> Result<(), String> {
     }
     let message = format!(
         "build_parses={} build_failed_parses={} root={} alphabet={alphabet:?}",
-        repository.build_parses(),
-        repository.build_failed_parses(),
-        repository.files().root.display()
+        index.build_parses(),
+        index.build_failed_parses(),
+        index.files().root.display()
     );
     if ndjson.is_some() {
         eprintln!("{message}");
@@ -388,7 +395,7 @@ fn run() -> Result<(), String> {
             hit.diagnostic_ref.0,
             hit.matched_fields
         );
-        if let Some(issue) = repository.files().diagnostic(
+        if let Some(issue) = repository.diagnostic(
             objekte_search_core::model::FileId(hit.file_id),
             hit.diagnostic_ref,
         ) {

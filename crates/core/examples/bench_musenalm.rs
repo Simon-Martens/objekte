@@ -7,7 +7,8 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::lifecycle::{Index, IndexView};
+use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{RepositoryOptions, SearchHit};
@@ -18,15 +19,19 @@ use objekte_search_core::workload::{
 use sha2::{Digest, Sha256};
 
 enum SearchBackend {
-    Direct(IndexView),
-    Incremental(Index, IndexView),
+    Direct(IndexedRepository, IndexView),
+    Incremental(IndexedRepository, IndexView),
 }
 
 impl SearchBackend {
     fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
         match self {
-            Self::Direct(repo) => repo.configure_verified_cache(bytes),
+            Self::Direct(index, _) => index
+                .index()
+                .configure_verified_cache(bytes)
+                .map_err(|error| error.to_string()),
             Self::Incremental(index, _) => index
+                .index()
                 .configure_verified_cache(bytes)
                 .map_err(|error| error.to_string()),
         }
@@ -34,7 +39,7 @@ impl SearchBackend {
 
     fn search(&self, query: &Query) -> Result<SearchResult, String> {
         match self {
-            Self::Direct(repo) => repo.search(query),
+            Self::Direct(_, view) => view.search(query),
             Self::Incremental(_, view) => view.search(query),
         }
     }
@@ -44,7 +49,7 @@ impl SearchBackend {
         query: &Query,
     ) -> Result<(SearchResult, Vec<objekte_search_core::run::QueryPlanTrace>), String> {
         match self {
-            Self::Direct(repo) => repo.explain_analyze(query),
+            Self::Direct(_, view) => view.explain_analyze(query),
             Self::Incremental(_, view) => view.search_analyze(query),
         }
     }
@@ -258,8 +263,9 @@ fn run() -> Result<(), String> {
             let index = task.wait_complete().map_err(|error| error.to_string())?;
             let build_status = Some(task.status().map_err(|error| error.to_string())?);
             let open_ns = build_start.elapsed().as_nanos() as u64;
-            let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
+            let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+            let view = index.index().view().map_err(|error| error.to_string())?;
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
                 for row in view.catalogue_rows() {
@@ -295,7 +301,7 @@ fn run() -> Result<(), String> {
             SearchBackend::Incremental(index, view)
         } else {
             let build_start = Instant::now();
-            let repo = objekte_search_core::lifecycle::Index::start_build(
+            let index = objekte_search_core::lifecycle::Index::start_build(
                 &root,
                 definitions.clone(),
                 RepositoryOptions {
@@ -306,16 +312,17 @@ fn run() -> Result<(), String> {
                 objekte_search_core::source::SourceRegistry::builtin(),
             )
             .and_then(|task| task.wait_complete())
-            .and_then(|index| index.view())
             .map_err(|error| error.to_string())?;
+            let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+            let repo = index.index().view().map_err(|error| error.to_string())?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
-            let build_ns = repo.startup().build_ns;
+            let build_ns = repo.startup_stats().build_ns;
             if corpus_hash.is_empty() {
                 corpus_hash = fingerprint_inventory(&repo);
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let estimated_index_bytes: usize = repo
+            let estimated_index_bytes: usize = index
                 .collections()
                 .iter()
                 .map(|c| {
@@ -354,7 +361,8 @@ fn run() -> Result<(), String> {
                 })
                 .sum();
             let (bigram_store_count, distinct_gram_keys) =
-                repo.collections()
+                index
+                    .collections()
                     .iter()
                     .fold((0usize, 0usize), |total, collection| {
                         std::iter::once(&collection.raw)
@@ -364,17 +372,18 @@ fn run() -> Result<(), String> {
                                 (stores + 1, keys + index.normal.len() + index.skip.len())
                             })
                     });
-            let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
-            let relations = repo
+            let (inventory_heap_bytes, diagnostic_heap_bytes) =
+                index.files().estimated_heap_bytes();
+            let relations = index
                 .collections()
                 .iter()
                 .flat_map(|collection| &collection.relations)
                 .collect::<Vec<_>>();
             build_results.push(serde_json::json!({
                 "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
-                "discovery_ns": repo.startup().build_discovery_ns,
-                "extraction_index_ns": repo.startup().build_extraction_index_ns,
-                "finalization_ns": repo.startup().build_finalization_ns,
+                "discovery_ns": repo.startup_stats().build_discovery_ns,
+                "extraction_index_ns": repo.startup_stats().build_extraction_index_ns,
+                "finalization_ns": repo.startup_stats().build_finalization_ns,
                 "build_parses": repo.build_parses(), "failed_parses": repo.build_failed_parses(),
                 "inventory_heap_bytes": inventory_heap_bytes, "diagnostic_heap_bytes": diagnostic_heap_bytes,
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
@@ -385,9 +394,9 @@ fn run() -> Result<(), String> {
                 "relation_heap_bytes": relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),
             }));
             if registrations.is_empty() {
-                registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
+                registrations = index.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
             }
-            SearchBackend::Direct(repo)
+            SearchBackend::Direct(index, repo)
         };
         for (profile_name, profile) in selected_profiles {
             backend.configure_verified_cache(profile.verified_cache_bytes)?;
@@ -767,10 +776,10 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &IndexView) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.catalogue_rows() {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
-        hash.update(file.revision.modified_ns.to_le_bytes());
-        hash.update(file.revision.size.to_le_bytes());
+        hash.update(file.modified_ns.to_le_bytes());
+        hash.update(file.size.to_le_bytes());
     }
     format!("{:x}", hash.finalize())
 }

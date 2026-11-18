@@ -132,7 +132,7 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
         InferenceMode::ReportOnly,
         InferenceMode::AutoIndex,
     ] {
-        let (_index, repo) = fixture.open(mode);
+        let (index, repo) = fixture.open(mode);
         if mode == InferenceMode::Disabled {
             assert!(repo.inference_report("data").is_none());
         } else {
@@ -183,8 +183,8 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
         );
         // The stream may populate verified membership for repeated page
         // delivery. Reset it so the following counters measure a cold search.
-        repo.configure_verified_cache(0).unwrap();
-        repo.configure_verified_cache(1024 * 1024).unwrap();
+        index.configure_verified_cache(0).unwrap();
+        index.configure_verified_cache(1024 * 1024).unwrap();
         let collected = repo.search_with_parameters(&request, &parameters).unwrap();
         assert_eq!(collected.count, Some(24));
         assert_eq!(ids(&collected), expected);

@@ -558,21 +558,17 @@ fn main() -> Result<(), String> {
     .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
     let build_ns = build_started.elapsed().as_nanos() as u64;
-    let startup = repo.startup();
-    let relations = repo
-        .collections()
-        .iter()
-        .flat_map(|collection| &collection.relations)
-        .collect::<Vec<_>>();
+    let startup = repo.startup_stats();
+    let observation = repo.construction_observation();
     if !check_only {
         println!(
             "{}",
             json!({"kind":"build","revision":revision,"alphabet":alphabet,
             "cache_bytes":cache_bytes,"wall_ns":build_ns,"build_ns":startup.build_ns,
-            "records":repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
-            "relation_count":relations.len(),
-            "relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),
-            "relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>()})
+            "records":observation.records,
+            "relation_count":observation.relation_count,
+            "relation_edges":observation.relation_edges,
+            "relation_heap_bytes":observation.relation_heap_bytes})
         );
     }
     for case in cases() {

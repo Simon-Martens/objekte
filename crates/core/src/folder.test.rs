@@ -21,7 +21,7 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
     assert!(definition.schema.fields.is_empty());
     assert!(definition.discovery.recursive);
     assert_eq!(definition.identity, IdentityPolicy::RelativePath);
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -29,8 +29,6 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert!(repo.collections[0].postings.fields.is_empty());
@@ -73,7 +71,7 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
     .unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     assert_eq!(definition.identity, IdentityPolicy::Generated);
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -81,8 +79,6 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let ids: std::collections::HashSet<_> = repo.collections[0]

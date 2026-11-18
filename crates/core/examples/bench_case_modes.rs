@@ -153,16 +153,8 @@ fn query(case: Case) -> Result<Query, String> {
 }
 
 fn store_counts(repo: &IndexView) -> (usize, usize) {
-    repo.collections()
-        .iter()
-        .fold((0, 0), |(stores, grams), collection| {
-            let indexes = std::iter::once(&collection.raw)
-                .chain(std::iter::once(&collection.fallback_text))
-                .chain(collection.custom_text.values());
-            indexes.fold((stores, grams), |(stores, grams), index| {
-                (stores + 1, grams + index.normal.len() + index.skip.len())
-            })
-        })
+    let observation = repo.construction_observation();
+    (observation.bigram_stores, observation.distinct_gram_keys)
 }
 
 fn main() {
@@ -199,7 +191,7 @@ fn run() -> Result<(), String> {
         .to_owned();
     let definitions = musenalm::load_definitions(&root)?;
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = objekte_search_core::lifecycle::Index::start_build(
+        let index = objekte_search_core::lifecycle::Index::start_build(
             &root,
             definitions.clone(),
             RepositoryOptions {
@@ -210,11 +202,13 @@ fn run() -> Result<(), String> {
             objekte_search_core::source::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
-        .and_then(|index| index.view())
         .map_err(|error| error.to_string())?;
+        let repo = index.view().map_err(|error| error.to_string())?;
         let original_stores = store_counts(&repo);
         for cache in ["off", "warm"] {
-            repo.configure_verified_cache(if cache == "warm" { 64 << 20 } else { 0 })?;
+            index
+                .configure_verified_cache(if cache == "warm" { 64 << 20 } else { 0 })
+                .map_err(|error| error.to_string())?;
             for case in cases() {
                 let request = query(case)?;
                 let (diagnostic, plans) = repo.explain_analyze(&request)?;

@@ -866,6 +866,21 @@ impl Repository {
                 active_records: view.active.len() as usize,
                 files: view.index.file_count(),
                 source_bytes: view.index.accounting.source_bytes_estimated,
+                posting_fields: view.index.postings.fields.len(),
+                sort_columns: view.index.sorting.columns.len(),
+                relation_count: view.index.relations.len(),
+                relation_edges: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.edge_count())
+                    .sum(),
+                relation_heap_bytes: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.estimated_bytes())
+                    .sum(),
                 bigram_stores: 2 + view.index.custom_text.len(),
                 distinct_gram_keys: std::iter::once(&view.index.raw)
                     .chain(std::iter::once(&view.index.fallback_text))

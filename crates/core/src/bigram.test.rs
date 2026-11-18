@@ -637,7 +637,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     let raw_records = vec![vec!["aßb".into()], vec![], vec!["ab".into()], vec![]];
     let fallback_records = vec![vec![], vec!["{\"title\":".into()], vec![], vec![]];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -646,8 +646,6 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let collection = &repo.collections()[0];

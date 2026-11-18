@@ -98,14 +98,12 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             ..Default::default()
         };
         for _ in 0..2 {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             let collection = &repo.collections[0];
@@ -188,7 +186,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let selective = query("title ?~ 'Goethe'");
             let plan = repo.explain(&selective).unwrap();
             assert!(!plan[0].terms.is_empty());
-            let cold = crate::lifecycle::Index::start_build(
+            let cold = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition()],
                 RepositoryOptions {
@@ -197,8 +195,6 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 },
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             let optimized = cold.search(&selective).unwrap();
@@ -259,7 +255,7 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     }
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Filename;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -267,8 +263,6 @@ fn broad_structural_superset_makes_scanning_cheaper() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.collections[0].empty_array_records.len(), 64);
@@ -358,7 +352,7 @@ fn undeclared_candidate_respects_reader_text_coverage() {
         let mut definition =
             CollectionDefinition::folder("data", "data", SourceFormat::registered("selected-text"));
         definition.identity = IdentityPolicy::Filename;
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition],
             RepositoryOptions {
@@ -366,8 +360,6 @@ fn undeclared_candidate_respects_reader_text_coverage() {
             },
             sources,
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let request = query("title ?~ 'unique title'");

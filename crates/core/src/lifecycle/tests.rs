@@ -16,6 +16,85 @@ use crate::workload::ReturnMode;
 use crate::workload::{SortExpression, SortField};
 
 #[test]
+fn pinned_catalogue_metadata_tracks_each_publication_independently() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-pinned-catalogue-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let initial_path = root.join("data/a.json");
+    std::fs::write(&initial_path, br#"{"name":"initial"}"#).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let initial = index.view().unwrap();
+
+    let added_path = root.join("data/b.json");
+    std::fs::write(&added_path, br#"{"name":"added"}"#).unwrap();
+    index.add_file(&added_path).unwrap();
+    let after_add = index.view().unwrap();
+
+    let moved_path = root.join("data/c.json");
+    std::fs::rename(&initial_path, &moved_path).unwrap();
+    let initial_handle = after_add.file_handle_for_path(&initial_path).unwrap();
+    index.move_file(initial_handle, &moved_path).unwrap();
+    let after_move = index.view().unwrap();
+
+    let paths = |view: &crate::lifecycle::IndexView| {
+        view.file_paths()
+            .map(std::path::Path::to_path_buf)
+            .collect::<Vec<_>>()
+    };
+    let catalogue_paths = |view: &crate::lifecycle::IndexView| {
+        view.catalogue_rows()
+            .map(|row| row.relative_path.to_path_buf())
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(paths(&initial), [std::path::PathBuf::from("data/a.json")]);
+    assert_eq!(catalogue_paths(&initial), paths(&initial));
+    assert_eq!(
+        paths(&after_add),
+        [
+            std::path::PathBuf::from("data/a.json"),
+            std::path::PathBuf::from("data/b.json"),
+        ]
+    );
+    assert_eq!(catalogue_paths(&after_add), paths(&after_add));
+    assert_eq!(
+        paths(&after_move),
+        [
+            std::path::PathBuf::from("data/c.json"),
+            std::path::PathBuf::from("data/b.json"),
+        ]
+    );
+    assert_eq!(catalogue_paths(&after_move), paths(&after_move));
+
+    assert!(initial.file_handle_for_path(&initial_path).is_some());
+    assert!(initial.file_handle_for_path(&added_path).is_none());
+    assert!(initial.file_handle_for_path(&moved_path).is_none());
+    assert!(after_add.file_handle_for_path(&added_path).is_some());
+    assert!(after_add.file_handle_for_path(&moved_path).is_none());
+    assert!(after_move.file_handle_for_path(&initial_path).is_none());
+    assert!(after_move.file_handle_for_path(&moved_path).is_some());
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     let root = std::env::temp_dir().join(format!(
         "objekte-size-maintenance-{}-{}",
@@ -120,7 +199,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
 }
 
 fn fixture_repository(root: &std::path::Path) -> Repository {
-    crate::lifecycle::Index::start_build(
+    crate::lifecycle::Index::build_repository_for_test(
         root,
         vec![CollectionDefinition::folder(
             "data",
@@ -132,8 +211,6 @@ fn fixture_repository(root: &std::path::Path) -> Repository {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap()
 }
@@ -322,7 +399,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -330,8 +407,6 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
@@ -1008,7 +1083,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             })
             .unwrap();
     }
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1028,8 +1103,6 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
@@ -1232,7 +1305,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         definition.schema = schema;
         definitions.push(definition);
     }
-    let repository = crate::lifecycle::Index::start_build(
+    let repository = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
@@ -1240,8 +1313,6 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
@@ -1727,4 +1798,93 @@ fn all_query() -> Query {
             evidence: false,
         },
     }
+}
+
+#[test]
+fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-adopt-reclaim-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/item.json");
+    std::fs::write(&path, br#"{"id":"item","title":"old"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(crate::reference::FieldDefinition {
+            path: vec!["id".into()],
+            kind: crate::model::LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
+    let index = Index::from_repository(repo).unwrap();
+    assert!(weak.upgrade().is_some());
+    let view = index.view().unwrap();
+    let handle = view.file_handle_for_path(&path).unwrap();
+    drop(view);
+    std::fs::write(&path, br#"{"id":"item","title":"new"}"#).unwrap();
+    index.update_file(handle, &path).unwrap();
+    index.compact().unwrap();
+    assert!(
+        weak.upgrade().is_none(),
+        "the adopted initial payload remained owned after replacement"
+    );
+
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
+    let index = Index::from_repository(repo).unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap();
+    std::fs::write(&path, br#"{"id":"item","title":"newer"}"#).unwrap();
+    index.update_file(handle, &path).unwrap();
+    index.compact().unwrap();
+    assert!(weak.upgrade().is_some());
+    let old = pinned
+        .search(&Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: None,
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        })
+        .unwrap();
+    assert_eq!(old.count, Some(1));
+    drop(pinned);
+    assert!(weak.upgrade().is_none());
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }

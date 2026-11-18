@@ -30,14 +30,12 @@ fn validates_binding_without_reopening_source_records() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     std::fs::remove_file(&source).unwrap();

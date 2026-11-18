@@ -150,7 +150,7 @@ mod tests {
         std::fs::create_dir_all(root.join("second")).unwrap();
         std::fs::write(root.join("first/one.json"), br#"{"title":"abc"}"#).unwrap();
         std::fs::write(root.join("second/two.json"), br#"{"title":"def"}"#).unwrap();
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             ["first", "second"]
                 .into_iter()
@@ -159,8 +159,6 @@ mod tests {
             RepositoryOptions::default(),
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let query = Query {
@@ -207,7 +205,7 @@ mod tests {
         ));
         std::fs::create_dir_all(root.join("data")).unwrap();
         std::fs::write(root.join("data/one.json"), br#"{"title":"same","year":1}"#).unwrap();
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![CollectionDefinition::folder(
                 "data",
@@ -217,8 +215,6 @@ mod tests {
             RepositoryOptions::default(),
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let filter = crate::query::parse_filter("title = \"same\" && title = \"other\"").unwrap();

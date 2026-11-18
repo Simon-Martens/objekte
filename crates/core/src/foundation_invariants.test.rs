@@ -117,14 +117,12 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
             ..Default::default()
         };
         for opening in 0..2 {
-            let repo = crate::lifecycle::Index::start_build(
+            let repo = crate::lifecycle::Index::build_repository_for_test(
                 &root,
                 vec![definition()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
-            .and_then(|task| task.wait_complete())
-            .and_then(|index| index.into_repository())
             .map_err(|error| error.to_string())
             .unwrap();
             if opening == 0 {}

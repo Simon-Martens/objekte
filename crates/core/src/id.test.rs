@@ -75,24 +75,20 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     for repo in [&built, &restored] {
@@ -301,7 +297,7 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
     std::fs::write(root.join("data/a.json"), r#"{"id":"A","entry":"X"}"#).unwrap();
     let mut definition = definition();
     definition.identity = IdentityPolicy::Generated;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -309,8 +305,6 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let mut all = query("entry = 'X'");

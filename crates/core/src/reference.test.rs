@@ -1137,14 +1137,12 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     };
     std::fs::write(root.join("data/bad.json"), r#"{"count":"7","other":"ok"}"#).unwrap();
     for indexed in [false, true] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition(indexed)],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         assert_eq!(
@@ -1178,14 +1176,12 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         },
     };
     for indexed in [false, true] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition(indexed)],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let optimized = repo.search(&query).unwrap();
@@ -1203,25 +1199,21 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     let persisted = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true)],
         persisted,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition(true)],
         persisted,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(restored.search(&query).unwrap().hits[0].record_id, "eight");
@@ -1401,26 +1393,22 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
                 .contains("unknown binding")
         );
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.clone(),
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     check(&built);
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     check(&restored);

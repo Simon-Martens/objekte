@@ -5,7 +5,9 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::inventory::SourceRevision;
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::native_segment::SegmentPolicy;
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::BigramAlphabet;
@@ -21,15 +23,26 @@ fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> 
 
 fn index_signature(repo: &IndexView) -> Result<String, String> {
     let mut hash = Sha256::new();
-    for file in &repo.files().files {
+    for file in repo.catalogue_rows() {
         hash_value(&mut hash, &file.id)?;
         hash_value(&mut hash, &file.relative_path.to_path_buf())?;
-        hash_value(&mut hash, &file.revision)?;
+        hash_value(
+            &mut hash,
+            &SourceRevision {
+                modified_ns: file.modified_ns,
+                size: file.size,
+            },
+        )?;
         hash_value(&mut hash, &file.collections)?;
-        hash_value(&mut hash, &file.status)?;
+        hash_value(
+            &mut hash,
+            &repo
+                .file_status(file.id)
+                .ok_or("catalogue row has no status")?,
+        )?;
     }
-    for collection in repo.collections() {
-        hash_value(&mut hash, &collection.definition.name)?;
+    for collection in repo.collection_definitions() {
+        hash_value(&mut hash, &collection.name)?;
     }
     hash_value(&mut hash, &repo.native_index_signature())?;
     Ok(format!("{:x}", hash.finalize()))
@@ -124,18 +137,23 @@ fn run() -> Result<(), String> {
         ..RepositoryOptions::default()
     };
     let started = Instant::now();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions,
         options,
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
+    let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    let repo = index.index().view().map_err(|error| error.to_string())?;
     let wall_ns = started.elapsed().as_nanos();
-    let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
-    let registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect::<Vec<_>>();
+    let (inventory_heap_bytes, diagnostic_heap_bytes) = index.files().estimated_heap_bytes();
+    let observation = repo.construction_observation();
+    let registrations = index.collections().iter().zip(&observation.collection_parts).map(|(state, counts)| {
+        let definition = &state.definition;
+        serde_json::json!({"name":definition.name,"source_path":definition.source_path,"format":definition.format,"identity":format!("{:?}",definition.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })
+    }).collect::<Vec<_>>();
     let segment_summaries = repo.segment_summaries();
     let index_stores = segment_summaries
         .iter()
@@ -153,13 +171,15 @@ fn run() -> Result<(), String> {
         .iter()
         .map(|segment| segment.index_family_bytes)
         .sum::<usize>();
+    let collection_names = repo
+        .collection_definitions()
+        .map(|definition| definition.name.clone())
+        .collect::<Vec<_>>();
     let segment_counts =
         segment_summaries
             .iter()
             .fold(std::collections::BTreeMap::new(), |mut counts, segment| {
-                let name = &repo.collections()[segment.collection.0 as usize]
-                    .definition
-                    .name;
+                let name = &collection_names[segment.collection.0 as usize];
                 counts.entry(name.clone()).or_insert_with(Vec::new).push((
                     segment.id.get(),
                     segment.records,
@@ -176,21 +196,21 @@ fn run() -> Result<(), String> {
             "alphabet": alphabet,
             "requested_build_workers": build_workers.map(NonZeroUsize::get),
             "segment_policy": options.segment_policy,
-            "resolved_build_workers": repo.startup().build_workers,
+            "resolved_build_workers": repo.startup_stats().build_workers,
             "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
             "query_workers": query_workers,
-            "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,
-            "build_weight_limit_bytes": repo.startup().build_weight_limit_bytes,
-            "build_peak_active_jobs": repo.startup().build_peak_active_jobs,
-            "build_peak_ready_batches": repo.startup().build_peak_ready_batches,
-            "build_job_execution_ns": repo.startup().build_job_execution_ns,
-            "build_receive_wait_ns": repo.startup().build_receive_wait_ns,
-            "build_admission_ns": repo.startup().build_admission_ns,
+            "peak_build_admitted_bytes": repo.startup_stats().peak_build_admitted_bytes,
+            "build_weight_limit_bytes": repo.startup_stats().build_weight_limit_bytes,
+            "build_peak_active_jobs": repo.startup_stats().build_peak_active_jobs,
+            "build_peak_ready_batches": repo.startup_stats().build_peak_ready_batches,
+            "build_job_execution_ns": repo.startup_stats().build_job_execution_ns,
+            "build_receive_wait_ns": repo.startup_stats().build_receive_wait_ns,
+            "build_admission_ns": repo.startup_stats().build_admission_ns,
             "wall_ns": wall_ns,
-            "build_ns": repo.startup().build_ns,
-            "discovery_ns": repo.startup().build_discovery_ns,
-            "extraction_index_ns": repo.startup().build_extraction_index_ns,
-            "finalization_ns": repo.startup().build_finalization_ns,
+            "build_ns": repo.startup_stats().build_ns,
+            "discovery_ns": repo.startup_stats().build_discovery_ns,
+            "extraction_index_ns": repo.startup_stats().build_extraction_index_ns,
+            "finalization_ns": repo.startup_stats().build_finalization_ns,
             "build_parses": repo.build_parses(),
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
@@ -200,9 +220,9 @@ fn run() -> Result<(), String> {
             "bigram_heap_bytes": bigram_heap_bytes,
             "index_family_bytes": index_family_bytes,
             "segment_counts": segment_counts,
-            "peak_concurrent_segment_jobs": repo.startup().build_peak_segment_jobs,
-            "peak_segment_window": repo.startup().build_peak_segment_window,
-            "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
+            "peak_concurrent_segment_jobs": repo.startup_stats().build_peak_segment_jobs,
+            "peak_segment_window": repo.startup_stats().build_peak_segment_window,
+            "records": observation.records,
             "resident_bytes": resident_bytes,
             "peak_resident_bytes": peak_resident_bytes,
             "index_signature_sha256": index_signature_sha256,

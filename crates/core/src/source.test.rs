@@ -311,7 +311,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -323,8 +323,6 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.collections[0].generation.records.len(), 6);
@@ -399,7 +397,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -407,8 +405,6 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let records = &repo.collections[0].generation.records;
@@ -443,7 +439,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     let mut definition =
         CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
     definition.identity = IdentityPolicy::RelativePath;
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -451,8 +447,6 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert!(
@@ -722,7 +716,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
         let mut definition =
             CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
         definition.identity = IdentityPolicy::RelativePath;
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition],
             RepositoryOptions {
@@ -731,8 +725,6 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for &(literal, selected, expected) in cases {
@@ -966,14 +958,12 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                 ..Default::default()
             };
             for open in 0..2 {
-                let repo = crate::lifecycle::Index::start_build(
+                let repo = crate::lifecycle::Index::build_repository_for_test(
                     &root,
                     vec![definition(temporal)],
                     options,
                     sources(),
                 )
-                .and_then(|task| task.wait_complete())
-                .and_then(|index| index.into_repository())
                 .map_err(|error| error.to_string())
                 .unwrap();
                 if open == 0 {}
@@ -1328,14 +1318,12 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         options,
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(built.collections()[0].generation.records.len(), 2);
@@ -1366,11 +1354,14 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         Some(Payload::LogicalUnavailable { .. })
     ));
     assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
-    let restored = crate::lifecycle::Index::start_build(&root, vec![definition], options, sources)
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
-        .map_err(|error| error.to_string())
-        .unwrap();
+    let restored = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        options,
+        sources,
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
     assert_eq!(restored.search(&query).unwrap().hits, result.hits);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1603,7 +1594,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
         sources
     };
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -1612,8 +1603,6 @@ fn body_only_reader_does_not_prune_unindexed_title() {
             },
             sources(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         for (filter, fts, expected) in [
@@ -1732,14 +1721,12 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
             evidence: true,
         },
     };
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         registrations(1),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.build_parses(), 2);
@@ -1761,7 +1748,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     let after_query = parses.load(Ordering::Relaxed);
     drop(repo);
 
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1769,8 +1756,6 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         },
         registrations(1),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(restored.build_parses(), 2);
@@ -1778,27 +1763,23 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     assert_eq!(restored.search(&query).unwrap().hits, found.hits);
     drop(restored);
 
-    let rebuilt = crate::lifecycle::Index::start_build(
+    let rebuilt = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         registrations(2),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(rebuilt.build_parses(), 2);
     drop(rebuilt);
     assert!(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition],
             RepositoryOptions::default(),
             SourceRegistry::builtin()
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .err()
         .unwrap()
@@ -1858,14 +1839,12 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let built = crate::lifecycle::Index::start_build(
+    let built = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(built.files().files.len(), 2);
@@ -1890,7 +1869,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         2
     );
     drop(built);
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1898,8 +1877,6 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         },
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
@@ -1914,14 +1891,12 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     drop(restored);
 
     std::fs::write(root.join("tiny/nested/fourth.tiny"), b"fourth|four\n").unwrap();
-    let rebuilt = crate::lifecycle::Index::start_build(
+    let rebuilt = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(rebuilt.collections()[0].generation.records.len(), 4);
@@ -1929,14 +1904,12 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
 
     let mut shallow = definition.clone();
     shallow.discovery.recursive = false;
-    let shallow = crate::lifecycle::Index::start_build(
+    let shallow = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![shallow],
         RepositoryOptions::default(),
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(shallow.collections()[0].generation.records.len(), 2);
@@ -1944,21 +1917,19 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
 
     let mut with_hidden = definition.clone();
     with_hidden.discovery.hidden = true;
-    let with_hidden = crate::lifecycle::Index::start_build(
+    let with_hidden = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![with_hidden],
         RepositoryOptions::default(),
         sources.clone(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(with_hidden.collections()[0].generation.records.len(), 5);
     drop(with_hidden);
 
     assert!(
-        crate::lifecycle::Index::start_build(
+        crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![CollectionDefinition {
                 source_path: "../tiny".into(),
@@ -1967,8 +1938,6 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
             RepositoryOptions::default(),
             sources.clone()
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .is_err()
     );
@@ -1977,14 +1946,12 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         b"first|duplicate\n",
     )
     .unwrap();
-    let error = crate::lifecycle::Index::start_build(
+    let error = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions::default(),
         sources,
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .err()
     .unwrap();
@@ -2023,14 +1990,12 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
         ),
     ] {
         std::fs::write(root.join("data/one.jsonl"), body).unwrap();
-        let error = crate::lifecycle::Index::start_build(
+        let error = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .err()
         .unwrap();

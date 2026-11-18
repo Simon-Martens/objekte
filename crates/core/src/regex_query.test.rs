@@ -106,7 +106,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         sort_overrides: Default::default(),
     };
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = crate::lifecycle::Index::start_build(
+        let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -116,8 +116,6 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let query = |pattern: &str, selected: Option<&str>, case_sensitivity, options| Query {
@@ -337,7 +335,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         );
         assert!(repo.search(&invalid).unwrap_err().contains("invalid regex"));
         drop(repo);
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -346,8 +344,6 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             },
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let request = query(
@@ -594,14 +590,12 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
-        let built = crate::lifecycle::Index::start_build(
+        let built = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         assert_eq!(built.build_failed_parses(), 1);
@@ -612,14 +606,12 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             built.search_reference(&built_query).unwrap().hits
         );
         drop(built);
-        let restored = crate::lifecycle::Index::start_build(
+        let restored = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             options,
             crate::source::SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .and_then(|index| index.into_repository())
         .map_err(|error| error.to_string())
         .unwrap();
         let collection = &restored.collections()[0];

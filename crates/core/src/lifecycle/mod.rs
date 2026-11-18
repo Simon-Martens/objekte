@@ -863,30 +863,16 @@ impl Index {
 
     /// Consume a completed blocking build and retain its adopted native
     /// segments as the Repository's primary payload.
+    #[cfg(test)]
     pub(crate) fn into_repository(self) -> Result<Repository, IndexError> {
-        let mut shared_inner = self.0;
-        let inner = loop {
-            match Arc::try_unwrap(shared_inner) {
-                Ok(inner) => break inner,
-                Err(inner) => {
-                    shared_inner = inner;
-                    std::thread::yield_now();
-                }
-            }
-        };
+        let inner = Arc::try_unwrap(self.0)
+            .map_err(|_| IndexError::InvalidPublication("index has other owners".into()))?;
         let published = inner.published.into_inner().map_err(|_| {
             IndexError::InvalidPublication("index publication lock poisoned".into())
         })?;
-        let mut shared_published = published;
-        let published = loop {
-            match Arc::try_unwrap(shared_published) {
-                Ok(published) => break published,
-                Err(published) => {
-                    shared_published = published;
-                    std::thread::yield_now();
-                }
-            }
-        };
+        let published = Arc::try_unwrap(published).map_err(|_| {
+            IndexError::InvalidPublication("published index has other owners".into())
+        })?;
         let mut repository = Arc::try_unwrap(published.repository).map_err(|_| {
             IndexError::InvalidPublication("repository snapshot has other owners".into())
         })?;
@@ -1906,7 +1892,9 @@ pub(crate) use publication::PublishedIndex;
 
 mod view;
 
-pub use view::IndexView;
+pub use view::{
+    CollectionConstructionObservation, ConstructionObservation, IndexView, RecordLookupObservation,
+};
 
 #[cfg(test)]
 mod tests;

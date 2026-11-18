@@ -267,6 +267,10 @@ pub(crate) struct RelationContribution {
 }
 
 impl RelationContribution {
+    pub(crate) fn edge_count(&self) -> usize {
+        self.references.len()
+    }
+
     pub(crate) fn presence(&self) -> &RoaringBitmap {
         &self.present
     }

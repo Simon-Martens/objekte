@@ -206,14 +206,12 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
             Some(super::Payload::LogicalUnavailable { .. })
         ));
     };
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     verify(&repo);
@@ -229,14 +227,12 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     );
     assert!(repo.get_record("data", &id, ReturnMode::Bytes).is_err());
     std::fs::rename(&moved, &path).unwrap();
-    let restored = crate::lifecycle::Index::start_build(
+    let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         options,
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     verify(&restored);
@@ -264,7 +260,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::start_build(
+    let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -273,8 +269,6 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
         },
         crate::source::SourceRegistry::builtin(),
     )
-    .and_then(|task| task.wait_complete())
-    .and_then(|index| index.into_repository())
     .map_err(|error| error.to_string())
     .unwrap();
     let query = |filter: &str| Query {
