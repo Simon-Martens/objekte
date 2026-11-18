@@ -89,6 +89,10 @@ impl<'a> NativeTextProvider<'a> {
 }
 
 impl IndexAccessProvider for NativeTextProvider<'_> {
+    fn provider_id(&self) -> ProviderId {
+        NATIVE_TEXT_PROVIDER
+    }
+
     fn propose(
         &self,
         term: TermId,
@@ -146,6 +150,8 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         let result = native_fts_candidates(self.collection, fts)
             .ok_or(AccessError::CapabilityUnavailable)?;
         self.applications.set(self.applications.get() + 1);
+        #[cfg(test)]
+        crate::query_access::contract::note_test_application();
         let input_ref = input.input();
         Ok(SlotInput::new(
             self.domain,
@@ -156,6 +162,10 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
 }
 
 impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
+    fn provider_id(&self) -> ProviderId {
+        NATIVE_TEXT_PROVIDER
+    }
+
     fn propose(
         &self,
         term: TermId,
@@ -211,6 +221,8 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
             native_segment_fts_candidates(self.segment, self.collection, fts)
                 .map_err(AccessError::Internal)?
                 .ok_or(AccessError::CapabilityUnavailable)?;
+        #[cfg(test)]
+        crate::query_access::contract::note_test_application();
         let input_ref = input.input();
         Ok(SlotInput::new(
             self.domain,

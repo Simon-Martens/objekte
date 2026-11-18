@@ -13,6 +13,26 @@ use super::membership::{DomainId, SlotInput};
 pub(crate) type AccessResult<T> = Result<T, AccessError>;
 pub(crate) type OfferList = SmallVec<[AccessOffer; 8]>;
 
+#[cfg(test)]
+thread_local! {
+    static TEST_APPLICATIONS: std::cell::Cell<u64> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn reset_test_applications() {
+    TEST_APPLICATIONS.with(|count| count.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn test_applications() -> u64 {
+    TEST_APPLICATIONS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn note_test_application() {
+    TEST_APPLICATIONS.with(|count| count.set(count.get() + 1));
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) enum AccessError {
     CapabilityUnavailable,
@@ -199,6 +219,8 @@ impl AccessExecution<'_> {
 /// Storage providers expose only capability and cost information plus checked
 /// bulk application. Concrete index types stay in adapter modules.
 pub(crate) trait IndexAccessProvider {
+    fn provider_id(&self) -> ProviderId;
+
     fn propose(
         &self,
         term: TermId,

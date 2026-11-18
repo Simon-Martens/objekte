@@ -104,6 +104,10 @@ impl<'a> NativeCollectionProvider<'a> {
 }
 
 impl IndexAccessProvider for NativeCollectionProvider<'_> {
+    fn provider_id(&self) -> ProviderId {
+        NATIVE_COLLECTION_PROVIDER
+    }
+
     fn propose(
         &self,
         term: TermId,
@@ -178,6 +182,8 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         self.counters
             .applications
             .set(self.counters.applications.get() + 1);
+        #[cfg(test)]
+        crate::query_access::contract::note_test_application();
         let result = execute_path(
             self.repo.ok_or(AccessError::CapabilityUnavailable)?,
             self.collection,

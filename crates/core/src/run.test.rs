@@ -938,12 +938,15 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
             evidence: true,
         },
     };
+    crate::query_access::contract::reset_test_applications();
     let text_plan = segmented.explain(&text_query).unwrap();
+    assert_eq!(crate::query_access::contract::test_applications(), 0);
     assert!(text_plan[0].fts_estimated_candidates.unwrap() < text_plan[0].input_records);
     assert_eq!(
         segmented.search(&text_query).unwrap().hits,
         segmented.search_reference(&text_query).unwrap().hits
     );
+    assert!(crate::query_access::contract::test_applications() > 0);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1650,15 +1653,23 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(result.hits[0].generation, revision.0);
     query.options.offset = 0;
     query.options.limit = 3;
+    crate::query_access::contract::reset_test_applications();
     let all = search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    let ordinary_applications = crate::query_access::contract::test_applications();
     let reference =
         search_segmented_reference(&repo, &query, &base_active, &segments, &catalog, revision)
             .unwrap();
     assert_eq!(all.count, reference.count);
     assert_eq!(all.hits, reference.hits);
+    crate::query_access::contract::reset_test_applications();
     let (analyzed, traces) =
         search_analyze_segmented(&repo, &query, &base_active, &segments, &catalog, revision)
             .unwrap();
+    assert_eq!(
+        crate::query_access::contract::test_applications(),
+        ordinary_applications,
+        "ANALYZE must execute the selected operations once"
+    );
     assert_eq!(analyzed.hits, all.hits);
     assert_eq!(traces.len(), 1);
     assert_eq!(traces[0].generation, revision.0);

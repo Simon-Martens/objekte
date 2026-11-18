@@ -7916,30 +7916,29 @@ pub(crate) fn explain_segmented(
         let mut delta = 0u64;
         let mut delta_candidates = 0u64;
         let mut delta_fts_candidates = 0u64;
-        let mut delta_filter_exact = true;
-        let mut delta_logical_exact = true;
         for published in segments[collection_index].iter() {
             delta = delta.saturating_add(published.active.len());
-            let mut candidates = published.active.bitmap();
-            if let Some(filter) = filter {
-                let bounds =
-                    segment_filter_bounds(&published.index, &published.active, filter, collection)?;
-                delta_filter_exact &= bounds.may == bounds.must;
-                let logical = &published.active.bitmap() & &published.index.logical_records;
-                delta_logical_exact &= (&bounds.may & &logical) == (&bounds.must & &logical);
-                candidates &= &bounds.may;
-            }
+            // Ordinary EXPLAIN keeps this estimate symbolic. Applying an
+            // access merely to improve the displayed bitmap would violate the
+            // diagnostic boundary.
+            let mut candidates = published.active.len();
             if let Some(fts) = fts {
-                if let Some(text) = segment_fts_candidates(&published.index, collection, fts)? {
-                    let text = &text & &published.active.bitmap();
-                    delta_fts_candidates = delta_fts_candidates.saturating_add(text.len());
-                    candidates &= text;
+                if let Some((text, _)) =
+                    crate::executor::native_segment_estimate_fts_candidates(
+                        &published.index,
+                        collection,
+                        fts,
+                    )
+                {
+                    let text = text.min(published.active.len());
+                    delta_fts_candidates = delta_fts_candidates.saturating_add(text);
+                    candidates = candidates.min(text);
                 } else {
                     delta_fts_candidates =
                         delta_fts_candidates.saturating_add(published.active.len());
                 }
             }
-            delta_candidates = delta_candidates.saturating_add(candidates.len());
+            delta_candidates = delta_candidates.saturating_add(candidates);
         }
         trace.generation = revision.0;
         trace.input_records = trace.input_records.saturating_add(delta);
@@ -7997,17 +7996,15 @@ pub(crate) fn explain_segmented(
             trace.sort_strategy_estimated = true;
         }
         if delta > 0 {
-            trace.filter_exact = (base_active[collection_index].len() == 0 || trace.filter_exact)
-                && delta_filter_exact;
+            trace.filter_exact = false;
             trace.remaining_verification = fts.is_some() || !trace.filter_exact;
         }
         if base_active[collection_index].len() == 0
             && let Some(BoundExpr::Term(term)) = filter
             && let Some(choice) = trace.terms.first_mut()
         {
-            let mut output = 0u64;
-            let mut work = 0.0;
             let mut operation = None;
+            let mut work = 0.0;
             for published in segments[collection_index].iter() {
                 let catalog =
                     crate::index_catalog::IndexCatalog::segment(&published.index, collection);
@@ -8031,17 +8028,6 @@ pub(crate) fn explain_segmented(
                     operation = None;
                     break;
                 }
-                let bounds = segment_filter_bounds(
-                    &published.index,
-                    &published.active,
-                    filter.as_ref().unwrap(),
-                    collection,
-                )?;
-                if bounds.may != bounds.must {
-                    operation = None;
-                    break;
-                }
-                output = output.saturating_add(bounds.must.len());
                 work += proposal.lookup_work;
                 operation = Some((proposal.id, proposal.operation));
             }
@@ -8052,8 +8038,8 @@ pub(crate) fn explain_segmented(
                         kind: crate::executor::AccessPathKind::Posting,
                         exact: true,
                         coverage: trace.input_records.min(u32::MAX as u64) as u32,
-                        estimated_output: output,
-                        estimated_work: work + output as f64 * 0.02,
+                        estimated_output: delta_candidates,
+                        estimated_work: work + delta_candidates as f64 * 0.02,
                         estimated_files: 0.0,
                         estimated_bytes: 0.0,
                         posting: Some((
@@ -8064,13 +8050,14 @@ pub(crate) fn explain_segmented(
                     },
                 );
                 choice.alternatives.push(old);
-                choice.reason =
-                    if operation == crate::index_catalog::PostingOperation::SelfComparePresence {
-                        "self-comparison reduced to path presence in indexed segments"
-                    } else {
-                        "indexed segments prove this bound predicate"
-                    }
-                    .into();
+                choice.reason = if operation
+                    == crate::index_catalog::PostingOperation::SelfComparePresence
+                {
+                    "self-comparison reduced to path presence in indexed segments; estimate only"
+                } else {
+                    "indexed segment posting offered for this predicate; estimate only"
+                }
+                .into();
                 choice.residual_verification = false;
             }
         }
@@ -8097,118 +8084,6 @@ pub(crate) fn explain_segmented(
                     };
                     choice.residual_verification = false;
                     choice.reason = "pinned segment file-path index".into();
-                }
-            }
-        }
-        if base_active[collection_index].len() == 0 && delta_filter_exact && fts.is_none() {
-            for choice in &mut trace.terms {
-                choice.selected = crate::executor::AccessPathEstimate {
-                    kind: crate::executor::AccessPathKind::Posting,
-                    exact: true,
-                    coverage: trace.input_records.min(u32::MAX as u64) as u32,
-                    estimated_output: delta_candidates,
-                    estimated_work: delta_candidates as f64 * 0.02,
-                    estimated_files: 0.0,
-                    estimated_bytes: 0.0,
-                    posting: None,
-                };
-                choice.residual_verification = false;
-                choice.reason = "indexed segments prove the filter conjunction".into();
-            }
-        }
-        if base_active[collection_index].len() == 0
-            && delta_logical_exact
-            && !delta_filter_exact
-            && fts.is_none()
-            && let Some(filter) = filter
-            && excludes_raw_fallback(filter)
-        {
-            let mut terms = Vec::new();
-            collect_local_data_terms(filter, &mut terms);
-            for term in terms {
-                if let Some(choice) = trace
-                    .terms
-                    .iter_mut()
-                    .find(|choice| choice.span == term.span)
-                {
-                    choice.selected = crate::executor::AccessPathEstimate {
-                        kind: crate::executor::AccessPathKind::Posting,
-                        exact: true,
-                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
-                        estimated_output: delta_candidates,
-                        estimated_work: delta_candidates as f64 * 0.02,
-                        estimated_files: 0.0,
-                        estimated_bytes: 0.0,
-                        posting: None,
-                    };
-                    choice.residual_verification = false;
-                    choice.reason = "logical segment postings prove the data predicate".into();
-                }
-            }
-        }
-        if base_active[collection_index].len() == 0 && fts.is_none() {
-            let operation_terms = match filter {
-                Some(BoundExpr::Term(term)) => vec![term],
-                Some(BoundExpr::Or(parts)) => parts
-                    .iter()
-                    .filter_map(|part| match part {
-                        BoundExpr::Term(term) => Some(term),
-                        _ => None,
-                    })
-                    .collect(),
-                Some(BoundExpr::And(_)) | Some(BoundExpr::Not(_)) | None => Vec::new(),
-            };
-            for term in operation_terms {
-                if term.related.is_some()
-                    || term.rhs.is_some()
-                    || !matches!(term.source_kind, LogicalType::String | LogicalType::Unknown)
-                    || !((term.operator == Operator::Eq
-                        && (term.multi || term.query_path.has_explicit_array_step))
-                        || (term.operator == Operator::Contains && term.gram_request.is_some()))
-                {
-                    continue;
-                }
-                let mut output = 0u64;
-                let mut structural = 0u64;
-                for published in segments[collection_index].iter() {
-                    let bounds = segment_filter_bounds(
-                        &published.index,
-                        &published.active,
-                        &BoundExpr::Term(term.clone()),
-                        collection,
-                    )?;
-                    output =
-                        output.saturating_add((&bounds.may & &published.active.bitmap()).len());
-                    structural = structural.saturating_add(
-                        (&published.index.empty_array_records & &published.active.bitmap()).len(),
-                    );
-                }
-                if let Some(choice) = trace
-                    .terms
-                    .iter_mut()
-                    .find(|choice| choice.span == term.span)
-                    && choice.selected.kind != crate::executor::AccessPathKind::Posting
-                    && (term.operator == Operator::Eq || output < delta)
-                {
-                    choice.selected = crate::executor::AccessPathEstimate {
-                        kind: if term.binding_name == "default" {
-                            crate::executor::AccessPathKind::RawBigram
-                        } else {
-                            crate::executor::AccessPathKind::CustomBigram
-                        },
-                        exact: false,
-                        coverage: trace.input_records.min(u32::MAX as u64) as u32,
-                        estimated_output: output,
-                        estimated_work: output as f64,
-                        estimated_files: 0.0,
-                        estimated_bytes: 0.0,
-                        posting: None,
-                    };
-                    choice.gram_candidates = Some(output);
-                    choice.structural_candidates =
-                        (!term.query_path.has_position).then_some(structural);
-                    choice.residual_verification = true;
-                    choice.reason = "segment bigram index supplies a residual candidate set".into();
                 }
             }
         }
@@ -8335,23 +8210,6 @@ fn collect_positive_relation_terms<'a>(
     }
 }
 
-fn collect_local_data_terms<'a>(
-    expr: &'a BoundExpr,
-    output: &mut Vec<&'a crate::reference::BoundTerm>,
-) {
-    match expr {
-        BoundExpr::Term(term) if term.path.root == PathRoot::Data && term.related.is_none() => {
-            output.push(term);
-        }
-        BoundExpr::And(parts) => {
-            for part in parts {
-                collect_local_data_terms(part, output);
-            }
-        }
-        BoundExpr::Term(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {}
-    }
-}
-
 fn collect_file_path_terms<'a>(
     expr: &'a BoundExpr,
     output: &mut Vec<&'a crate::reference::BoundTerm>,
@@ -8388,9 +8246,8 @@ fn or_branch_counts(
         };
         let mut count = 0u64;
         for published in segments[collection_index].iter() {
-            let bounds =
-                segment_filter_bounds(&published.index, &published.active, part, collection)?;
-            count = count.saturating_add((&bounds.may & &published.active.bitmap()).len());
+            let (_, estimated) = estimate_expr(collection, part, published.active.len())?;
+            count = count.saturating_add(estimated.min(published.active.len()));
         }
         counts.insert(term.span, count);
     }
@@ -8404,30 +8261,8 @@ fn relation_source_input_estimate(
     filter: &BoundExpr,
     relation_term: &crate::reference::BoundTerm,
 ) -> Result<u64, String> {
-    let parts = match filter {
-        BoundExpr::And(parts) => parts.as_slice(),
-        _ => return Ok(repo.collections[collection_index].logical_records.len()),
-    };
-    let collection = &repo.collections[collection_index];
-    let mut estimate = 0u64;
-    for published in segments[collection_index].iter() {
-        let mut may = published.active.bitmap().clone();
-        for part in parts {
-            if matches!(part, BoundExpr::Term(term) if term.span == relation_term.span) {
-                continue;
-            }
-            let bounds = segment_filter_bounds_with_catalog(
-                &published.index,
-                &published.active,
-                part,
-                collection,
-                Some(&repo.catalog),
-            )?;
-            may &= bounds.may;
-        }
-        estimate = estimate.saturating_add((&may & &published.index.logical_records).len());
-    }
-    Ok(estimate)
+    let _ = relation_term;
+    segment_filter_input_estimate(repo, segments, collection_index, Some(filter))
 }
 
 fn segment_filter_input_estimate(
@@ -8445,14 +8280,8 @@ fn segment_filter_input_estimate(
     let collection = &repo.collections[collection_index];
     let mut estimate = 0u64;
     for published in segments[collection_index].iter() {
-        let bounds = segment_filter_bounds_with_catalog(
-            &published.index,
-            &published.active,
-            filter,
-            collection,
-            Some(&repo.catalog),
-        )?;
-        estimate = estimate.saturating_add((&bounds.may & &published.index.logical_records).len());
+        let (_, estimated) = estimate_expr(collection, filter, published.active.len())?;
+        estimate = estimate.saturating_add(estimated.min(published.active.len()));
     }
     Ok(estimate)
 }
@@ -8465,8 +8294,10 @@ pub(crate) fn search_analyze_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
-    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
     let result = search_segmented(repo, query, base_active, segments, catalog, revision)?;
+    // The actual execution above is the only operation application. The
+    // following pass is estimate-only and supplies the stable plan envelope.
+    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
@@ -8490,10 +8321,14 @@ pub(crate) fn search_analyze_segmented(
         });
         let actual_input = trace.input_records;
         let actual_output = trace.candidates;
+        let executed = counters.exact_posting_matches > 0
+            || counters.residual_evaluations > 0
+            || counters.raw_text_verifications > 0
+            || counters.files_opened > 0;
         for term in &mut trace.terms {
             term.actual_input = actual_input;
             term.actual_output = Some(actual_output);
-            term.executed = true;
+            term.executed = executed;
         }
     }
     Ok((result, traces))
