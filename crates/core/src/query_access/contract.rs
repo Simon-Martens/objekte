@@ -207,14 +207,14 @@ pub(crate) trait IndexAccessProvider {
         offers: &mut OfferList,
     ) -> AccessResult<()>;
 
-    fn apply(
+    fn apply<'a>(
         &self,
         term: TermId,
         request: AccessRequest<'_>,
         choice: AccessId,
-        input: SlotInput<'_>,
+        input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'_>>;
+    ) -> AccessResult<SlotInput<'a>>;
 }
 
 pub(crate) fn domain_with_slots<'a>(

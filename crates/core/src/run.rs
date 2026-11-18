@@ -12695,6 +12695,11 @@ fn search_impl_with_collector<'a>(
             return Ok(result);
         }
     }
+    let prepared_collection_count = prepared.collections.len();
+    let crate::prepared::PreparedQuery {
+        collections,
+        predicates,
+    } = prepared;
     let cap = query
         .options
         .limit
@@ -12713,7 +12718,7 @@ fn search_impl_with_collector<'a>(
     // One collection with locator output scans each grouped physical file at
     // most once. Other routes may revisit files for page payloads or share a
     // physical file across collections, so they need a compact union.
-    let mut files_read = (prepared.collections.len() > 1
+    let mut files_read = (prepared_collection_count > 1
         || query.options.return_mode != ReturnMode::Locator)
         .then(RoaringBitmap::new);
     let mut distinct_files = 0u64;
@@ -12726,7 +12731,7 @@ fn search_impl_with_collector<'a>(
         counters.planning_ns += rejected_order.planning_ns;
     }
     let mut reused_order = rejected_order.entries.into_iter();
-    for entry in prepared.collections {
+    for entry in collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter;
         let fts = entry.fts;
@@ -12764,8 +12769,12 @@ fn search_impl_with_collector<'a>(
                 _ => false,
             };
             if text_first {
-                if let Some(fts) = &fts {
-                    if let Some(text) = fts_candidates(collection, fts) {
+                if fts.is_some() {
+                    if let Some(text) = crate::query_access::text::prepared_text_candidates(
+                        &predicates,
+                        entry.text_term.expect("prepared FTS term"),
+                        collection,
+                    )? {
                         input &= text;
                     }
                 }
@@ -12797,9 +12806,15 @@ fn search_impl_with_collector<'a>(
                 });
             let mut candidates = plan.candidates.take().unwrap_or(input);
             if !text_first {
-                if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
+                if let (true, Some((estimated, lookup))) = (fts.is_some(), text_estimate) {
                     if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
-                        if let Some(text_candidates) = fts_candidates(collection, fts) {
+                        if let Some(text_candidates) =
+                            crate::query_access::text::prepared_text_candidates(
+                                &predicates,
+                                entry.text_term.expect("prepared FTS term"),
+                                collection,
+                            )?
+                        {
                             candidates &= text_candidates;
                         }
                     }

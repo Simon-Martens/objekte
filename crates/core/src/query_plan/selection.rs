@@ -29,6 +29,16 @@ pub(crate) fn choose_offer<'a>(
     Ok(selected)
 }
 
+pub(crate) fn ordered_offer_ids(offers: &[AccessOffer], input_len: u64) -> Vec<AccessOffer> {
+    let mut ordered = offers.to_vec();
+    ordered.sort_by(|left, right| {
+        selection_key(left, input_len)
+            .partial_cmp(&selection_key(right, input_len))
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+    ordered
+}
+
 fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u32) {
     (
         offer.estimated_work(input_len),

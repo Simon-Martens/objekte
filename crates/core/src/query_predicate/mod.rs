@@ -1,8 +1,17 @@
 //! Opaque prepared predicate identity and planning properties.
 
+use std::collections::HashSet;
 use std::fmt;
 
-use crate::reference::{BoundExpr, BoundTerm};
+use crate::query_access::contract::{
+    AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider, InputEstimate,
+    OfferList,
+};
+use crate::query_access::membership::SlotInput;
+use crate::reference::{
+    BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term,
+};
+use crate::source::TextSegment;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub(crate) struct TermId(u32);
@@ -49,6 +58,47 @@ pub(crate) struct PreparedLeaf {
     pub(crate) logical_type: String,
     pub(crate) binding: String,
     pub(crate) properties: PredicateProperties,
+    source: PreparedLeafSource,
+}
+
+#[derive(Clone, Debug)]
+enum PreparedLeafSource {
+    Structured(BoundTerm),
+    Text(BoundFts),
+}
+
+pub(crate) struct RecordInput<'a> {
+    context: &'a RecordContext<'a>,
+    text_segments: &'a [TextSegment],
+}
+
+impl<'a> RecordInput<'a> {
+    pub(crate) fn new(
+        context: &'a RecordContext<'a>,
+        text_segments: &'a [TextSegment],
+    ) -> Self {
+        Self {
+            context,
+            text_segments,
+        }
+    }
+}
+
+pub(crate) struct EvidenceSink<'a> {
+    fields: &'a mut HashSet<String>,
+}
+
+impl<'a> EvidenceSink<'a> {
+    pub(crate) fn new(fields: &'a mut HashSet<String>) -> Self {
+        Self { fields }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum Truth {
+    True,
+    False,
+    Unknown,
 }
 
 pub(crate) struct PredicateBuilder {
@@ -64,11 +114,11 @@ impl PredicateBuilder {
         &mut self,
         collection_index: usize,
         filter: Option<&BoundExpr>,
-        has_text: bool,
+        fts: Option<&BoundFts>,
         leaves: &mut Vec<PreparedLeaf>,
     ) -> (Option<PreparedExpr>, Option<TermId>) {
         let filter = filter.map(|expr| self.prepare_expr(collection_index, expr, leaves));
-        let text = has_text.then(|| {
+        let text = fts.map(|fts| {
             let id = self.allocate();
             leaves.push(PreparedLeaf {
                 id,
@@ -82,6 +132,7 @@ impl PredicateBuilder {
                     may_be_unknown: false,
                     requires_source: true,
                 },
+                source: PreparedLeafSource::Text(fts.clone()),
             });
             id
         });
@@ -145,6 +196,7 @@ impl PredicateBuilder {
                     || term.path.root != crate::model::PathRoot::Data,
                 requires_source: true,
             },
+            source: PreparedLeafSource::Structured(term.clone()),
         });
         id
     }
@@ -188,4 +240,78 @@ impl PreparedPredicates {
             })
             .map(|leaf| leaf.id)
     }
+
+    pub(crate) fn propose(
+        &self,
+        leaf: TermId,
+        provider: &dyn IndexAccessProvider,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> AccessResult<()> {
+        let request = self.request(leaf)?;
+        provider.propose(leaf, request, input, offers)
+    }
+
+    pub(crate) fn restrict<'a>(
+        &self,
+        leaf: TermId,
+        provider: &dyn IndexAccessProvider,
+        choice: AccessId,
+        domain: SlotInput<'a>,
+        execution: &AccessExecution<'_>,
+    ) -> AccessResult<SlotInput<'a>> {
+        let request = self.request(leaf)?;
+        provider.apply(leaf, request, choice, domain, execution)
+    }
+
+    pub(crate) fn verify(
+        &self,
+        leaf: TermId,
+        record: &RecordInput<'_>,
+        evidence: &mut EvidenceSink<'_>,
+    ) -> Result<Truth, String> {
+        let entry = self
+            .get(leaf)
+            .ok_or_else(|| format!("unknown prepared predicate {leaf}"))?;
+        match &entry.source {
+            PreparedLeafSource::Structured(term) => {
+                let matched = eval_term(term, record.context)?;
+                if matched
+                    && let Some(fields) = evidence_fields(term)
+                {
+                    evidence.fields.extend(fields);
+                }
+                Ok(if matched { Truth::True } else { Truth::False })
+            }
+            PreparedLeafSource::Text(fts) => {
+                let mut fields = HashSet::new();
+                let matched =
+                    eval_bound_fts(fts, record.text_segments, record.context, &mut fields)?;
+                if matched {
+                    evidence.fields.extend(fields);
+                }
+                Ok(if matched { Truth::True } else { Truth::False })
+            }
+        }
+    }
+
+    fn request(&self, leaf: TermId) -> AccessResult<AccessRequest<'_>> {
+        let entry = self
+            .get(leaf)
+            .ok_or(crate::query_access::contract::AccessError::StaleHandle)?;
+        Ok(match &entry.source {
+            PreparedLeafSource::Structured(term) => AccessRequest::Structured(term),
+            PreparedLeafSource::Text(fts) => AccessRequest::Text(fts),
+        })
+    }
+}
+
+fn evidence_fields(term: &BoundTerm) -> Option<Vec<String>> {
+    if matches!(
+        term.operator,
+        crate::query::Operator::Ne | crate::query::Operator::NotContains
+    ) {
+        return None;
+    }
+    Some(vec![term.query_path.display.clone()])
 }

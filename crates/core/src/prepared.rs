@@ -69,12 +69,8 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
             .map(|fts| crate::relation_query::bind_fts_with_relations(repo, index, fts))
             .transpose()?;
         let mut collection_leaves = Vec::new();
-        let (filter_shape, text_term) = builder.prepare(
-            index,
-            filter.as_ref(),
-            fts.is_some(),
-            &mut collection_leaves,
-        );
+        let (filter_shape, text_term) =
+            builder.prepare(index, filter.as_ref(), fts.as_ref(), &mut collection_leaves);
         leaves.extend(collection_leaves.iter().cloned());
         collections.push(PreparedCollectionQuery {
             collection_index: index,

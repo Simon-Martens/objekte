@@ -18,6 +18,12 @@ use crate::model::{
     FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
 use crate::query::{FtsMode, Operator, Quantifier};
+use crate::query_access::contract::{
+    AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
+};
+use crate::query_access::native::NativeCollectionProvider;
+use crate::query_plan::selection::ordered_offer_ids;
+use crate::query_predicate::TermId;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
 };
@@ -175,7 +181,7 @@ fn combined_file_path_bounds(
 
 /// Conservative local bigram candidates for a lifecycle segment. `None`
 /// means the caller must keep the whole active domain.
-pub(crate) fn segment_fts_candidates(
+pub(crate) fn native_segment_fts_candidates(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
@@ -193,6 +199,75 @@ pub(crate) fn segment_fts_candidates(
         return Ok(None);
     };
     prepared.candidates_checked()
+}
+
+pub(crate) fn native_segment_estimate_fts_candidates(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<(u64, f64)> {
+    let indexes = IndexCatalog::segment(segment, collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection,
+        fts,
+        segment.raw.record_count as usize == segment.record_count(),
+        segment.logical_records.len() != segment.record_count() as u64,
+        segment_raw_covers_identity_field(segment, collection),
+        segment.record_count() as u64,
+    )?
+    .estimate()
+}
+
+pub(crate) fn segment_fts_candidates(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Result<Option<RoaringBitmap>, String> {
+    use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
+    use crate::query_access::text::NativeSegmentTextProvider;
+
+    let provider = NativeSegmentTextProvider::new(segment, collection);
+    let mut offers = crate::query_access::contract::OfferList::new();
+    provider
+        .propose(
+            TermId::new(0),
+            AccessRequest::Text(fts),
+            InputEstimate {
+                domain_len: segment.record_count() as u64,
+                input_len: segment.record_count() as u64,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: segment.file_count() as u64,
+            },
+            &mut offers,
+        )
+        .map_err(|error| error.to_string())?;
+    let Some(chosen) = crate::query_plan::selection::choose_offer(
+        TermId::new(0),
+        &offers,
+        segment.record_count() as u64,
+    )
+    .map_err(|error| error.to_string())?
+    else {
+        return Ok(None);
+    };
+    let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
+    let applied = provider
+        .apply(
+            TermId::new(0),
+            AccessRequest::Text(fts),
+            chosen.id(),
+            provider.input_for(&input),
+            &AccessExecution { context: None },
+        )
+        .map_err(|error| error.to_string())?;
+    match applied.into_slots() {
+        crate::query_access::membership::SlotSet::Owned(bitmap) => Ok(Some(bitmap)),
+        crate::query_access::membership::SlotSet::Unrestricted => Ok(None),
+        crate::query_access::membership::SlotSet::Empty => Ok(Some(RoaringBitmap::new())),
+        _ => Err("segment text provider returned a non-owned bitmap".into()),
+    }
 }
 
 fn segment_text_candidates(
@@ -971,7 +1046,9 @@ pub struct PlanningCounters {
 
 #[derive(Default)]
 struct PlanContext {
-    paths: HashMap<usize, Vec<AccessPathEstimate>>,
+    paths: HashMap<TermId, Vec<AccessPathEstimate>>,
+    term_ids: HashMap<(u32, (usize, usize)), TermId>,
+    next_term_id: u32,
     counters: PlanningCounters,
     diagnostics: bool,
 }
@@ -983,20 +1060,54 @@ impl PlanContext {
         term: &BoundTerm,
         input_len: u64,
     ) -> Result<Vec<AccessPathEstimate>, String> {
-        let key = term as *const BoundTerm as usize;
+        let key = self.term_id(collection, term);
         if let Some(paths) = self.paths.get(&key) {
             self.counters.reused_term_estimates += 1;
             return Ok(rescore_paths(collection, term, paths, input_len));
         }
         self.counters.term_estimation_calls += 1;
-        let paths = enumerate_paths(
-            collection,
-            term,
-            input_len,
-            &mut self.counters.dictionary_keys_visited,
-        )?;
+        let provider = NativeCollectionProvider::for_estimation(collection, input_len);
+        let mut offers = OfferList::new();
+        provider
+            .propose(
+                key,
+                AccessRequest::Structured(term),
+                InputEstimate {
+                    domain_len: collection.stats.record_count as u64,
+                    input_len,
+                    mean_record_bytes: collection.stats.mean_record_bytes(),
+                    mean_records_per_file: collection.stats.mean_records_per_file(),
+                    file_count: collection.stats.file_count as u64,
+                },
+                &mut offers,
+            )
+            .map_err(|error| error.to_string())?;
+        self.counters.dictionary_keys_visited += provider.dictionary_keys_visited();
+        let mut paths = provider.prepared_paths();
+        let order = ordered_offer_ids(&offers, input_len)
+            .into_iter()
+            .map(|offer| offer.id().operation.0 as usize)
+            .collect::<Vec<_>>();
+        paths = order
+            .into_iter()
+            .filter_map(|index| paths.get(index).cloned())
+            .collect();
         self.paths.insert(key, paths.clone());
         Ok(paths)
+    }
+
+    fn term_id(&mut self, collection: &CollectionState, term: &BoundTerm) -> TermId {
+        let key = (collection.generation.collection.0, term.span);
+        if let Some(id) = self.term_ids.get(&key) {
+            return *id;
+        }
+        let id = TermId::new(self.next_term_id);
+        self.next_term_id = self
+            .next_term_id
+            .checked_add(1)
+            .expect("query term ID overflow");
+        self.term_ids.insert(key, id);
+        id
     }
 }
 
@@ -1476,7 +1587,7 @@ fn custom_text_index<'a>(
     )
 }
 
-fn enumerate_paths(
+pub(crate) fn enumerate_paths(
     collection: &CollectionState,
     term: &BoundTerm,
     input_len: u64,
@@ -1699,7 +1810,7 @@ fn enumerate_paths(
     Ok(paths)
 }
 
-fn execute_path(
+pub(crate) fn execute_path(
     repo: &Repository,
     collection: &CollectionState,
     term: &BoundTerm,
@@ -1819,11 +1930,6 @@ fn estimate_plan_node(
     Ok(match expr {
         BoundExpr::Term(term) => {
             let mut paths = context.paths(collection, term, input_len)?;
-            paths.sort_by(|a, b| {
-                a.estimated_work
-                    .total_cmp(&b.estimated_work)
-                    .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
-            });
             let selected = paths.remove(0);
             let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
                 .then(|| {
@@ -2228,11 +2334,6 @@ fn plan_logical_expr(
     Ok(match expr {
         BoundExpr::Term(term) => {
             let mut paths = context.paths(collection, term, input.len())?;
-            paths.sort_by(|a, b| {
-                a.estimated_work
-                    .total_cmp(&b.estimated_work)
-                    .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
-            });
             let selected = paths.remove(0);
             context.counters.candidate_bitmap_builds +=
                 u64::from(selected.kind != AccessPathKind::Scanner);
@@ -2678,7 +2779,7 @@ fn prepare_fts_accesses<'a, 'b>(
     })
 }
 
-pub(crate) fn fts_candidates(
+pub(crate) fn native_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
@@ -2695,7 +2796,7 @@ pub(crate) fn fts_candidates(
     .candidates()
 }
 
-pub(crate) fn estimate_fts_candidates(
+pub(crate) fn native_estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
@@ -2710,6 +2811,62 @@ pub(crate) fn estimate_fts_candidates(
         collection.stats.record_count as u64,
     )?
     .estimate()
+}
+
+pub(crate) fn estimate_fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<(u64, f64)> {
+    native_estimate_fts_candidates(collection, fts)
+}
+
+pub(crate) fn fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<RoaringBitmap> {
+    use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
+    use crate::query_access::text::NativeTextProvider;
+
+    let provider = NativeTextProvider::new(collection, None);
+    let mut offers = crate::query_access::contract::OfferList::new();
+    provider
+        .propose(
+            TermId::new(0),
+            AccessRequest::Text(fts),
+            InputEstimate {
+                domain_len: collection.stats.record_count as u64,
+                input_len: collection.stats.record_count as u64,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: collection.stats.file_count as u64,
+            },
+            &mut offers,
+        )
+        .ok()?;
+    let chosen = crate::query_plan::selection::choose_offer(
+        TermId::new(0),
+        &offers,
+        collection.stats.record_count as u64,
+    )
+    .ok()??
+    .id();
+    let input = (0..collection.stats.record_count as u32).collect::<RoaringBitmap>();
+    let applied = provider
+        .apply(
+            TermId::new(0),
+            AccessRequest::Text(fts),
+            chosen,
+            provider.input_for(&input),
+            &AccessExecution { context: None },
+        )
+        .ok()?;
+    let slots = applied.into_slots();
+    match slots {
+        crate::query_access::membership::SlotSet::Owned(bitmap) => Some(bitmap),
+        crate::query_access::membership::SlotSet::Unrestricted => Some(input),
+        crate::query_access::membership::SlotSet::Empty => Some(RoaringBitmap::new()),
+        _ => None,
+    }
 }
 
 #[cfg(test)]
