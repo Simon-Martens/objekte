@@ -309,7 +309,8 @@ fn scan_direct_target_parallel(
         }
     };
     let borrow_value_text = !target_collection.source.is_extension()
-        && matches!(target_collection.source.id(), "json" | "jsonl")
+        && target_collection.source.scalar_verification()
+            == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
         && matches!(predicate, DirectRelationPredicate::Fts(_));
     let extracted = prepare_query_record_with_execution(
         resolved.record.class,
@@ -651,7 +652,8 @@ fn try_direct_relation_page(
                 counters.relation_target_file_opens += 1;
                 counters.relation_bytes_read += bytes.len() as u64;
                 let borrow_value_text = !target_collection.source.is_extension()
-                    && matches!(target_collection.source.id(), "json" | "jsonl")
+                    && target_collection.source.scalar_verification()
+                        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
                     && matches!(predicate, DirectRelationPredicate::Fts(_));
                 let extracted = prepare_query_record_with_execution(
                     resolved.record.class,
@@ -1167,7 +1169,8 @@ fn scan_relation_file_parallel(
     );
     if fts.is_none()
         && !sort.bound.has_computed
-        && matches!(resolved.collection.source.id(), "json" | "jsonl")
+        && resolved.collection.source.scalar_verification()
+            == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
         && let Some(fields) = filter.and_then(segment_filter_source_fields)
     {
         projection.top_level = Some(fields);
@@ -1175,13 +1178,15 @@ fn scan_relation_file_parallel(
     projection.resolved_text_only =
         projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
     let combined_fts = fts.filter(|fts| {
-        resolved.collection.source.id() == "json_decoded_scalars"
+        resolved.collection.source.scalar_verification()
+            == Some(crate::source::verification::ScalarVerification::DecodedScalars)
             && source_fts_eligible(resolved.collection, fts, true)
     });
     let (extracted, combined_result) = if record.class == RecordClass::Logical
         && let Some(combined_fts) = combined_fts
     {
         let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+            &resolved.collection.source,
             &resolved.collection.definition.schema,
             &bytes,
             &projection,
@@ -1888,7 +1893,8 @@ pub(super) fn search_segmented_relations(
             .flatten();
         let borrowed_value_text = borrowed_value_text(collection_plan, fts.as_ref());
         let combined_fts = fts.as_ref().filter(|fts| {
-            collection_plan.source.id() == "json_decoded_scalars"
+            collection_plan.source.scalar_verification()
+                == Some(crate::source::verification::ScalarVerification::DecodedScalars)
                 && source_fts_eligible(collection_plan, fts, true)
         });
         let mut projection = ScanProjection::full(
@@ -1898,7 +1904,8 @@ pub(super) fn search_segmented_relations(
         );
         if fts.is_none()
             && !sort.bound.has_computed
-            && matches!(collection_plan.source.id(), "json" | "jsonl")
+            && collection_plan.source.scalar_verification()
+                == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
             && let Some(fields) = filter.as_ref().and_then(segment_filter_source_fields)
         {
             projection.top_level = Some(fields);
@@ -1925,15 +1932,19 @@ pub(super) fn search_segmented_relations(
                 direct_plan
                     .as_ref()
                     .map(|direct| {
-                        scan_borrowed_segments_worker(
-                            &bytes,
-                            &BorrowedScanQuery {
-                                fts: direct.fts,
-                                filter: direct.filter.map(|(term, _)| term),
-                                decoded_scalars: direct.decoded_scalars,
-                                retain_evidence: query.options.evidence,
-                            },
-                        )
+                        direct
+                            .scalar_verification
+                            .ok_or_else(|| "direct scalar verification missing".to_owned())
+                            .and_then(|verification| {
+                                verification.scan_borrowed_segments(
+                                    &bytes,
+                                    &BorrowedScanQuery {
+                                        fts: direct.fts,
+                                        filter: direct.filter.map(|(term, _)| term),
+                                        retain_evidence: query.options.evidence,
+                                    },
+                                )
+                            })
                     })
                     .transpose()?
             } else {
@@ -1944,6 +1955,7 @@ pub(super) fn search_segmented_relations(
                 && let Some(combined_fts) = combined_fts
             {
                 let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+                    &resolved.collection.source,
                     &resolved.collection.definition.schema,
                     &bytes,
                     &projection,

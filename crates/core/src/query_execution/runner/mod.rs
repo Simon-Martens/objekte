@@ -69,13 +69,11 @@ use crate::reference::{
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::source::access::{
-    SourceAccessSession, classify_source_read_failure_for_search,
-    probe_source_unavailable_for_search,
+    RecordRangeReader, SourceAccessSession, classify_source_read_failure_for_search,
+    probe_source_unavailable_for_search, read_record_range_for_search,
 };
-use crate::source::json::scalars::{BorrowedScanQuery, scan_borrowed_segments_worker};
-use crate::source::{
-    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
-};
+use crate::source::verification::BorrowedScanQuery;
+use crate::source::{ExtractedRecord, ScanProjection};
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,

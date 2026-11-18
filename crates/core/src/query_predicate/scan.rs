@@ -14,6 +14,7 @@ use crate::reference::{
 };
 use crate::repository::{CollectionState, Repository};
 use crate::source::ScanProjection;
+use crate::source::verification::ScalarVerification;
 
 pub(crate) fn scan_projection(
     query: &Query,
@@ -186,7 +187,7 @@ pub(crate) fn local_segment_projection(
         ScanProjection::full(fts.is_some() && !borrowed_value_text(collection, fts));
     if filter.is_none()
         && !computed_sort
-        && matches!(collection.source.id(), "json" | "jsonl")
+        && borrowed_value_text(collection, fts)
         && let Some(fts) = fts
         && !fts.fields.is_empty()
         && fts.fields.iter().all(|field| {
@@ -205,7 +206,7 @@ pub(crate) fn local_segment_projection(
     }
     if fts.is_none()
         && !computed_sort
-        && matches!(collection.source.id(), "json" | "jsonl")
+        && collection.source.scalar_verification() == Some(ScalarVerification::ResolvedStrings)
         && let Some(fields) = filter.and_then(segment_filter_source_fields)
     {
         projection.top_level = Some(fields);
@@ -214,8 +215,7 @@ pub(crate) fn local_segment_projection(
 }
 
 pub(crate) fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
-    !collection.source.is_extension()
-        && matches!(collection.source.id(), "json" | "jsonl")
+    collection.source.scalar_verification() == Some(ScalarVerification::ResolvedStrings)
         && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()))
 }
 
@@ -223,8 +223,7 @@ pub(crate) fn borrowed_relation_source_text(
     collection: &CollectionState,
     fts: Option<&BoundFts>,
 ) -> bool {
-    !collection.source.is_extension()
-        && matches!(collection.source.id(), "json" | "jsonl")
+    collection.source.scalar_verification() == Some(ScalarVerification::ResolvedStrings)
         && fts.is_some_and(|fts| {
             fts.fields.iter().any(|field| field.related.is_some())
                 && fts
@@ -261,7 +260,7 @@ pub(crate) enum Residual<'a> {
 pub(crate) struct DirectSourcePlan<'a> {
     pub(crate) fts: Option<&'a BoundFts>,
     pub(crate) filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
-    pub(crate) decoded_scalars: bool,
+    pub(crate) scalar_verification: Option<ScalarVerification>,
     pub(crate) original_record_matcher: Option<&'a BoundTerm>,
 }
 
@@ -332,12 +331,7 @@ impl<'a> DirectSourcePlan<'a> {
         if sort.bound.has_computed {
             return None;
         }
-        let decoded_scalars = match collection.source.id() {
-            "json_decoded_scalars" => Some(true),
-            "json" | "jsonl" => Some(false),
-            _ => None,
-        };
-        if decoded_scalars.is_none() {
+        let Some(scalar_verification) = collection.source.scalar_verification() else {
             if fts.is_some() {
                 return None;
             }
@@ -356,11 +350,11 @@ impl<'a> DirectSourcePlan<'a> {
             return Some(Self {
                 fts: None,
                 filter: Some((term, proof)),
-                decoded_scalars: false,
+                scalar_verification: None,
                 original_record_matcher: Some(term),
             });
-        }
-        let decoded_scalars = decoded_scalars.unwrap();
+        };
+        let decoded_scalars = scalar_verification == ScalarVerification::DecodedScalars;
         if let Some(fts) = fts {
             if !source_fts_eligible(collection, fts, decoded_scalars) {
                 return None;
@@ -390,7 +384,7 @@ impl<'a> DirectSourcePlan<'a> {
         (fts.is_some() || filter.is_some()).then_some(Self {
             fts,
             filter,
-            decoded_scalars,
+            scalar_verification: Some(scalar_verification),
             original_record_matcher: None,
         })
     }

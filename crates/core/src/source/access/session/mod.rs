@@ -1,0 +1,240 @@
+//! Query-scoped source sessions with bounded retained windows and handles.
+
+use roaring::RoaringBitmap;
+use std::path::Path;
+
+use crate::inventory::{ByteRange, FileInventory, SourceRevision};
+use crate::lifecycle_catalog::FileCatalog;
+use crate::model::FileId;
+
+use super::RecordRangeReader;
+
+const MAX_OPEN_HANDLES: usize = 8;
+const WINDOW_BYTES: u64 = 64 * 1024;
+
+struct OpenSource {
+    file_id: FileId,
+    revision: SourceRevision,
+    reader: RecordRangeReader,
+    window_start: u64,
+    window: Vec<u8>,
+    last_used: u64,
+}
+
+enum SourceFileTable<'a> {
+    Inventory(&'a FileInventory),
+    Catalog {
+        root: &'a Path,
+        catalog: &'a FileCatalog,
+    },
+}
+
+pub(crate) struct SourceAccessSession<'a> {
+    source: SourceFileTable<'a>,
+    open: Vec<OpenSource>,
+    distinct: RoaringBitmap,
+    clock: u64,
+    execution: Option<crate::streaming::ExecutionContext>,
+    record_limit: Option<u64>,
+}
+
+pub(crate) struct RangeBatch {
+    pub records: Vec<(u32, Vec<u8>)>,
+    pub opened: u64,
+    pub bytes_read: u64,
+}
+
+impl<'a> SourceAccessSession<'a> {
+    pub fn new(files: &'a FileInventory) -> Self {
+        Self {
+            source: SourceFileTable::Inventory(files),
+            open: Vec::new(),
+            distinct: RoaringBitmap::new(),
+            clock: 0,
+            execution: None,
+            record_limit: None,
+        }
+    }
+
+    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a FileCatalog) -> Self {
+        Self {
+            source: SourceFileTable::Catalog { root, catalog },
+            open: Vec::new(),
+            distinct: RoaringBitmap::new(),
+            clock: 0,
+            execution: None,
+            record_limit: None,
+        }
+    }
+
+    pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
+        self.execution = Some(execution.clone());
+        self.record_limit = Some(execution.limits.source_record_bytes);
+    }
+
+    pub(crate) fn configure_target_execution(
+        &mut self,
+        execution: &crate::streaming::ExecutionContext,
+    ) {
+        self.execution = Some(execution.clone());
+        self.record_limit = Some(execution.limits.target_record_bytes);
+    }
+
+    pub fn distinct_files(&self) -> u64 {
+        self.distinct.len()
+    }
+
+    pub fn accessed_files(&self) -> &RoaringBitmap {
+        &self.distinct
+    }
+
+    fn check_execution_ranges(&self, ranges: &[(u32, ByteRange)]) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.check_string()?;
+            if ranges
+                .iter()
+                .any(|(_, range)| range.len() > self.record_limit.unwrap_or(u64::MAX))
+            {
+                return Err(execution.fail(
+                    crate::streaming::ExecutionErrorKind::Resource,
+                    "source record exceeds read allowance",
+                ));
+            }
+        }
+        Ok(())
+    }
+
+    fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
+        self.clock = self.clock.wrapping_add(1);
+        if let Some(index) = self.open.iter().position(|entry| entry.file_id == file_id) {
+            self.open[index].last_used = self.clock;
+            return Ok((index, 0));
+        }
+        let (path, revision) = match &self.source {
+            SourceFileTable::Inventory(files) => {
+                let file = files
+                    .files
+                    .get(file_id.0 as usize)
+                    .ok_or("unknown source file")?;
+                let path = files.native_path(file_id).ok_or("missing source path")?;
+                (path, file.revision)
+            }
+            SourceFileTable::Catalog { root, catalog } => {
+                let file = catalog.entry(file_id).ok_or("unknown source file")?;
+                (root.join(&file.relative_path), file.revision)
+            }
+        };
+        let reader = RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
+        self.distinct.insert(file_id.0);
+        if self.open.len() == MAX_OPEN_HANDLES {
+            let oldest = self
+                .open
+                .iter()
+                .enumerate()
+                .min_by_key(|(_, entry)| entry.last_used)
+                .map(|(index, _)| index)
+                .ok_or("missing source handle")?;
+            self.open.swap_remove(oldest);
+        }
+        self.open.push(OpenSource {
+            file_id,
+            revision,
+            reader,
+            window_start: 0,
+            window: Vec::new(),
+            last_used: self.clock,
+        });
+        Ok((self.open.len() - 1, 1))
+    }
+
+    pub fn read(
+        &mut self,
+        file_id: FileId,
+        ranges: &[(u32, ByteRange)],
+    ) -> Result<RangeBatch, String> {
+        self.check_execution_ranges(ranges)?;
+        if ranges.is_empty() {
+            return Ok(RangeBatch {
+                records: Vec::new(),
+                opened: 0,
+                bytes_read: 0,
+            });
+        }
+        let (index, opened) = self.handle(file_id)?;
+        let source = &mut self.open[index];
+        if let [(slot, range)] = ranges {
+            ByteRange::checked(range.start, range.end, source.revision.size)?;
+            let window_end = source
+                .window_start
+                .saturating_add(source.window.len() as u64);
+            if !source.window.is_empty()
+                && range.start >= source.window_start
+                && range.end <= window_end
+            {
+                let start = usize::try_from(range.start - source.window_start)
+                    .map_err(|_| "range offset overflow")?;
+                let end = usize::try_from(range.end - source.window_start)
+                    .map_err(|_| "range offset overflow")?;
+                return Ok(RangeBatch {
+                    records: vec![(*slot, source.window[start..end].to_vec())],
+                    opened,
+                    bytes_read: 0,
+                });
+            }
+            if range.len() <= WINDOW_BYTES {
+                let end = range
+                    .start
+                    .saturating_add(WINDOW_BYTES)
+                    .max(range.end)
+                    .min(source.revision.size);
+                let window = ByteRange::checked(range.start, end, source.revision.size)?;
+                let (mut bytes, bytes_read) = source.reader.read(&[(0, window)])?;
+                source.window_start = range.start;
+                source.window = bytes.pop().ok_or("source window missing")?.1;
+                let end = usize::try_from(range.len()).map_err(|_| "record range too large")?;
+                return Ok(RangeBatch {
+                    records: vec![(*slot, source.window[..end].to_vec())],
+                    opened,
+                    bytes_read,
+                });
+            }
+        }
+        let (records, bytes_read) = source.reader.read(ranges)?;
+        Ok(RangeBatch {
+            records,
+            opened,
+            bytes_read,
+        })
+    }
+
+    /// Stream read without retained lookahead windows, under a caller-supplied
+    /// bound for each source window. The returned record bytes are still
+    /// charged separately by the caller.
+    pub(crate) fn read_bounded(
+        &mut self,
+        file_id: FileId,
+        ranges: &[(u32, ByteRange)],
+        max_total_bytes: usize,
+    ) -> Result<RangeBatch, String> {
+        self.check_execution_ranges(ranges)?;
+        if ranges.is_empty() {
+            return Ok(RangeBatch {
+                records: Vec::new(),
+                opened: 0,
+                bytes_read: 0,
+            });
+        }
+        let (index, opened) = self.handle(file_id)?;
+        let source = &mut self.open[index];
+        source.window = Vec::new();
+        let (records, bytes_read) = source.reader.read_bounded(ranges, max_total_bytes)?;
+        Ok(RangeBatch {
+            records,
+            opened,
+            bytes_read,
+        })
+    }
+}
+
+#[cfg(test)]
+mod tests;

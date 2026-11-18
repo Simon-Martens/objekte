@@ -23,8 +23,10 @@ use crate::relation::{RelationCardinality, RelationId};
 use crate::relation_target_cache::TargetValueCache;
 use crate::repository::CollectionState;
 use crate::repository::Repository;
-use crate::source::access::classify_source_read_failure_for_search;
-use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range_for_search};
+use crate::source::access::{
+    classify_source_read_failure_for_search, read_record_range_for_search,
+};
+use crate::source::{ScanProjection, TextDerivation, TextSegment};
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
@@ -34,7 +36,8 @@ const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
 
 fn relation_target_uses_value_text(collection: &CollectionState) -> bool {
-    !collection.source.is_extension() && matches!(collection.source.id(), "json" | "jsonl")
+    collection.source.scalar_verification()
+        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
 }
 
 fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>) -> bool {

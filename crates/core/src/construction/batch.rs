@@ -24,11 +24,12 @@ use crate::repository::{
     CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
     string_values,
 };
+use crate::source::access::read_record_range_for_build;
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceBufferProfile,
     SourceBuildSample, SourceOutcome, TextDerivation,
-    extract_file_build_outcomes_hashed_with_buffer, read_record_range_for_build,
-    trim_oversized_build_buffer, visit_logical_strings_and_empty,
+    extract_file_build_outcomes_hashed_with_buffer, trim_oversized_build_buffer,
+    visit_logical_strings_and_empty,
 };
 
 #[derive(Clone)]

@@ -43,12 +43,14 @@ pub(super) fn verify_local_segment_record(
                 false,
             ));
         }
-        let result = scan_borrowed_segments_worker(
+        let verification = direct
+            .scalar_verification
+            .ok_or("direct scalar verification missing")?;
+        let result = verification.scan_borrowed_segments(
             bytes,
             &BorrowedScanQuery {
                 fts: direct.fts,
                 filter: direct.filter.map(|(term, _)| term),
-                decoded_scalars: direct.decoded_scalars,
                 retain_evidence,
             },
         )?;
@@ -77,13 +79,15 @@ pub(super) fn verify_local_segment_record(
     }
     let borrowed_value_text = borrowed_value_text(collection, fts);
     let combined_fts = fts.filter(|fts| {
-        collection.source.id() == "json_decoded_scalars"
+        collection.source.scalar_verification()
+            == Some(crate::source::verification::ScalarVerification::DecodedScalars)
             && source_fts_eligible(collection, fts, true)
     });
     let (extracted, combined_result) = if record.class == RecordClass::Logical
         && let Some(combined_fts) = combined_fts
     {
         let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+            &collection.source,
             &collection.definition.schema,
             bytes,
             projection,

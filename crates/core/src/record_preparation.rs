@@ -5,6 +5,7 @@ use crate::inventory::RecordClass;
 use crate::reference::BoundFts;
 use crate::reference::Schema;
 use crate::repository::Payload;
+use crate::source::verification::BorrowedScanResult;
 use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_extracted_text};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
@@ -165,26 +166,22 @@ pub(crate) fn prepare_query_record_with_execution(
 /// Trusted decoded-scalar JSON keeps its source corpus while producing only
 /// the logical projection required by residual evaluation or output.
 pub(crate) fn prepare_decoded_record_with_borrowed_fts(
+    source: &PreparedSource,
     schema: &Schema,
     bytes: &[u8],
     projection: &ScanProjection,
     fts: &BoundFts,
     evidence: bool,
     execution: Option<&ExecutionContext>,
-) -> Result<
-    (
-        ExtractedRecord,
-        crate::source::json::scalars::BorrowedScanResult,
-    ),
-    String,
-> {
+) -> Result<(ExtractedRecord, BorrowedScanResult), String> {
     if let Some(execution) = execution {
         execution.check_string()?;
     }
+    let verification = source
+        .scalar_verification()
+        .ok_or("combined decoded-scalar verification requires a built-in reader")?;
     let (mut value, matched) =
-        crate::source::json::scalars::extract_query_record_borrowed_fts_worker(
-            bytes, projection, fts, evidence,
-        )?;
+        verification.extract_decoded_record(bytes, projection, fts, evidence)?;
     schema.convert_indexed_record(&mut value, projection.top_level.as_ref())?;
     if let Some(execution) = execution {
         execution.check_string()?;

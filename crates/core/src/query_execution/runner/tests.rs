@@ -7090,9 +7090,8 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
 
 #[test]
 fn computed_sort_cancels_after_worker_has_parsed_source_records() {
-    use crate::source::{
-        ExtractedRecord, JsonReader, ScanProjection, SourceReader, SourceRegistry,
-    };
+    use crate::source::json::JsonReader;
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, SourceRegistry};
     use crate::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
@@ -7205,9 +7204,8 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
 
 #[test]
 fn extension_query_failure_has_ordinary_and_stream_class() {
-    use crate::source::{
-        ExtractedRecord, JsonReader, ScanProjection, SourceReader, SourceRegistry,
-    };
+    use crate::source::json::JsonReader;
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, SourceRegistry};
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamOptions,

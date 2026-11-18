@@ -20,7 +20,8 @@ use crate::query_results::verified::CachedMember;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::{BoundExpr, RecordContext};
 use crate::repository::{Payload, Repository, SearchHit};
-use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
+use crate::source::access::read_record_range_for_search;
+use crate::source::{ExtractedRecord, ScanProjection};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;

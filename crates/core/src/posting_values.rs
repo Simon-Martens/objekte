@@ -18,7 +18,8 @@ use crate::query::Query;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::FieldDefinition;
 use crate::repository::{CollectionState, Repository};
-use crate::source::{RecordRangeReader, ScanProjection};
+use crate::source::ScanProjection;
+use crate::source::access::RecordRangeReader;
 
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;

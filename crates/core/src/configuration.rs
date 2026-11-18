@@ -176,7 +176,8 @@ mod tests {
     use crate::model::{FieldPath, LogicalType, PathRoot};
     use crate::reference::{CustomBinding, FieldDefinition, Transform};
     use crate::relation::{RelationCardinality, RelationDefinition};
-    use crate::source::{JsonReader, SourceFormat};
+    use crate::source::SourceFormat;
+    use crate::source::json::JsonReader;
 
     #[test]
     fn live_configuration_hash_matches_the_pre_restore_fixture() {

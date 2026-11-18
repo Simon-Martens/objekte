@@ -175,10 +175,14 @@ pub(super) fn scan_file(
                         .is_none_or(|fields| !fields.is_empty()));
             let combined_fts = decode
                 .then_some(())
-                .filter(|_| collection.source.id() == "json_decoded_scalars")
+                .filter(|_| {
+                    collection.source.scalar_verification()
+                        == Some(crate::source::verification::ScalarVerification::DecodedScalars)
+                })
                 .and_then(|_| fts.filter(|fts| source_fts_eligible(collection, fts, true)));
             let (extracted, combined_result) = if let Some(combined_fts) = combined_fts {
                 let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+                    &collection.source,
                     &collection.definition.schema,
                     &bytes,
                     record_projection,
@@ -224,15 +228,18 @@ pub(super) fn scan_file(
                 let filter = direct.filter.and_then(|(term, proof)| {
                     Residual::proven(proof, slot).is_none().then_some(term)
                 });
-                Some(scan_borrowed_segments_worker(
-                    &bytes,
-                    &BorrowedScanQuery {
-                        fts: direct.fts,
-                        filter,
-                        decoded_scalars: direct.decoded_scalars,
-                        retain_evidence: query.options.evidence,
-                    },
-                )?)
+                direct
+                    .scalar_verification
+                    .ok_or("direct scalar verification missing")?
+                    .scan_borrowed_segments(
+                        &bytes,
+                        &BorrowedScanQuery {
+                            fts: direct.fts,
+                            filter,
+                            retain_evidence: query.options.evidence,
+                        },
+                    )
+                    .map(Some)?
             } else {
                 None
             };

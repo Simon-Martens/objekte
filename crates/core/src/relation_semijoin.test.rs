@@ -8,8 +8,9 @@ use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, 
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::source::json::JsonReader;
 use crate::source::{
-    ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
+    ExtractedRecord, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, SourceRegistry, TextDerivation,
 };
 use crate::workload::WorkloadCase;

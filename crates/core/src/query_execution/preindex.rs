@@ -19,9 +19,10 @@ use crate::reference::{
     raw_fallback_contains,
 };
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
+use crate::source::access::read_record_range_for_search;
 use crate::source::{
     ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceRegistry,
-    extract_file_outcomes_for_search, finalize_extracted_text, read_record_range_for_search,
+    extract_file_outcomes_for_search, finalize_extracted_text,
 };
 use crate::streaming::CancellationToken;
 

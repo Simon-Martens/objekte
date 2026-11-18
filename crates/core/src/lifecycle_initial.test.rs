@@ -12,7 +12,8 @@ use crate::inventory::ByteRange;
 use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
-use crate::source::{ExtractedRecord, JsonLinesReader, SourceFormat, SourceReader, SourceRegistry};
+use crate::source::json_lines::JsonLinesReader;
+use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
 
 struct CountingJsonLinesReader {
     parses: Arc<AtomicUsize>,

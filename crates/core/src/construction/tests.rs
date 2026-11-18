@@ -1444,9 +1444,10 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
 
 #[test]
 fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
+    use crate::source::json_lines::JsonLinesReader;
     use crate::source::{
-        JsonLinesReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader,
-        SourceRegistry, TextDerivation,
+        LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader, SourceRegistry,
+        TextDerivation,
     };
 
     // Keep a reader on the pre-existing whole-buffer route for an independent
