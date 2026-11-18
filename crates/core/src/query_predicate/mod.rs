@@ -50,6 +50,25 @@ pub(crate) enum PreparedExpr {
     Not(Box<PreparedExpr>),
 }
 
+impl PreparedExpr {
+    pub(crate) fn term_ids(&self) -> Vec<TermId> {
+        fn collect(expr: &PreparedExpr, ids: &mut Vec<TermId>) {
+            match expr {
+                PreparedExpr::Term(id) => ids.push(*id),
+                PreparedExpr::And(parts) | PreparedExpr::Or(parts) => {
+                    for part in parts {
+                        collect(part, ids);
+                    }
+                }
+                PreparedExpr::Not(inner) => collect(inner, ids),
+            }
+        }
+        let mut ids = Vec::new();
+        collect(self, &mut ids);
+        ids
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct PredicateProperties {
     pub(crate) reorderable: bool,
@@ -290,34 +309,22 @@ impl PreparedPredicates {
         &self.leaves
     }
 
-    pub(crate) fn term_for_span(
+    pub(crate) fn term_for_bound_term(
         &self,
         collection_index: usize,
-        span: (usize, usize),
+        term: &BoundTerm,
     ) -> Option<TermId> {
         self.leaves
             .iter()
             .find(|leaf| {
                 leaf.collection_index == collection_index
-                    && leaf.span == span
                     && leaf.display_path != "@fts"
-            })
-            .map(|leaf| leaf.id)
-    }
-
-    pub(crate) fn term_for_occurrence(
-        &self,
-        collection_index: usize,
-        span: (usize, usize),
-        display_path: &str,
-    ) -> Option<TermId> {
-        self.leaves
-            .iter()
-            .find(|leaf| {
-                leaf.collection_index == collection_index
-                    && leaf.span == span
-                    && leaf.display_path == display_path
-                    && leaf.display_path != "@fts"
+                    && match &leaf.source {
+                        PreparedLeafSource::Structured(candidate) => {
+                            crate::reference::same_bound_term(candidate, term)
+                        }
+                        PreparedLeafSource::Text(_) => false,
+                    }
             })
             .map(|leaf| leaf.id)
     }
@@ -403,7 +410,7 @@ fn evidence_fields(term: &BoundTerm) -> Option<Vec<String>> {
 }
 
 #[cfg(test)]
-fn alternate_term_result(
+pub(crate) fn alternate_term_result(
     term: &BoundTerm,
     context: &RecordContext<'_>,
 ) -> Option<Result<bool, String>> {
@@ -464,10 +471,28 @@ mod tests {
         PredicateBuilder::new(0).prepare(0, Some(&expr), None, &mut leaves);
         let predicates = PreparedPredicates::new(leaves);
         let left = predicates
-            .term_for_occurrence(0, (4, 17), "left")
+            .term_for_bound_term(
+                0,
+                match &expr {
+                    BoundExpr::And(parts) => match &parts[0] {
+                        BoundExpr::Term(term) => term,
+                        _ => unreachable!(),
+                    },
+                    _ => unreachable!(),
+                },
+            )
             .expect("left occurrence");
         let right = predicates
-            .term_for_occurrence(0, (4, 17), "right")
+            .term_for_bound_term(
+                0,
+                match &expr {
+                    BoundExpr::And(parts) => match &parts[1] {
+                        BoundExpr::Term(term) => term,
+                        _ => unreachable!(),
+                    },
+                    _ => unreachable!(),
+                },
+            )
             .expect("right occurrence");
         assert_ne!(left, right);
     }

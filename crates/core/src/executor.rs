@@ -48,11 +48,59 @@ pub(crate) struct SegmentCandidateBounds {
 
 const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
+struct SourceVerificationProvider;
+
+static SOURCE_VERIFICATION_PROVIDER: SourceVerificationProvider = SourceVerificationProvider;
+
+impl IndexAccessProvider for SourceVerificationProvider {
+    fn provider_id(&self) -> ProviderId {
+        ProviderId(u32::MAX - 1)
+    }
+
+    fn propose(
+        &self,
+        term: TermId,
+        _request: AccessRequest<'_>,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> crate::query_access::contract::AccessResult<()> {
+        offers.push(AccessOffer::new(
+            AccessId {
+                provider: self.provider_id(),
+                operation: OperationId(0),
+            },
+            term,
+            AccessKind::SourceScan,
+            Coverage::Input,
+            ProofStrength::None,
+            input.input_len,
+            0.0,
+            30.0,
+            false,
+            false,
+        ));
+        Ok(())
+    }
+
+    fn apply<'a>(
+        &self,
+        _term: TermId,
+        _request: AccessRequest<'_>,
+        _choice: AccessId,
+        input: SlotInput<'a>,
+        execution: &AccessExecution<'_>,
+    ) -> crate::query_access::contract::AccessResult<Restriction<'a>> {
+        execution.check()?;
+        Ok(Restriction::candidate(input))
+    }
+}
+
 struct NativeSegmentProvider<'a> {
     segment: &'a IndexedCollectionSegment,
     collection: &'a CollectionState,
     file_catalog: Option<&'a FileCatalog>,
     domain: DomainId,
+    instance_id: u64,
     operations: Mutex<Vec<TermId>>,
 }
 
@@ -67,11 +115,12 @@ impl<'a> NativeSegmentProvider<'a> {
             collection,
             file_catalog,
             domain: DomainId::from_parts(
-                0,
+                collection.repository_instance,
                 collection.generation.collection.0,
                 collection.generation.generation,
                 Some(segment.id.get()),
             ),
+            instance_id: collection.repository_instance,
             operations: Mutex::new(Vec::new()),
         }
     }
@@ -114,8 +163,8 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             Coverage::Input,
             ProofStrength::None,
             input.input_len,
-            0.5,
-            0.0001,
+            0.0,
+            input.input_len.max(1) as f64,
             false,
             false,
         ));
@@ -155,26 +204,34 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         if input.is_empty() {
             return Ok(Restriction::exact(input));
         }
-        let input_bitmap = input.operation_input();
-        let logical_active = input_bitmap & &self.segment.logical_records;
-        let fallback_active = input_bitmap - &self.segment.logical_records;
-        let bounds = segment_expr_bounds(
-            self.segment,
-            &BoundExpr::Term(bound.clone()),
-            self.collection,
-            input_bitmap,
-            &logical_active,
-            &fallback_active,
-            self.file_catalog,
-        )
-        .map_err(AccessError::Internal)?;
+        let bounds = {
+            let input_bitmap = input
+                .effective_bitmap()
+                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+            let logical_active = input_bitmap & &self.segment.logical_records;
+            let fallback_active = input_bitmap - &self.segment.logical_records;
+            segment_expr_bounds(
+                self.segment,
+                &BoundExpr::Term(bound.clone()),
+                self.collection,
+                input_bitmap,
+                &logical_active,
+                &fallback_active,
+                self.file_catalog,
+            )
+            .map_err(AccessError::Internal)?
+        };
         let possible = input.replace_slots(SlotSet::from_shared(bounds.may));
-        let proven = SlotInput::new(self.domain, input_bitmap, SlotSet::from_shared(bounds.must));
+        let proven = SlotInput::new(
+            self.domain,
+            possible.operation_input(),
+            SlotSet::from_shared(bounds.must),
+        );
         let output_len = possible.len() as u64;
         let proven_len = proven.len() as u64;
         let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
         crate::query_execution::request::record_observation_with_kind(
-            0,
+            self.instance_id,
             term,
             self.domain,
             choice,
@@ -278,8 +335,9 @@ pub(crate) fn access_path_kind_from_name(name: &str) -> Option<AccessPathKind> {
 struct SegmentPlanContext<'a> {
     provider: NativeSegmentProvider<'a>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
+    predicates: Option<&'a PreparedPredicates>,
     offers: HashMap<TermId, OfferList>,
-    terms: HashMap<(usize, usize, String), TermId>,
+    terms: Vec<(BoundTerm, TermId)>,
     next_term: u32,
 }
 
@@ -288,6 +346,15 @@ impl<'a> SegmentPlanContext<'a> {
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
+    ) -> Self {
+        Self::new_with_predicates(segment, collection, file_catalog, None)
+    }
+
+    fn new_with_predicates(
+        segment: &'a IndexedCollectionSegment,
+        collection: &'a CollectionState,
+        file_catalog: Option<&'a FileCatalog>,
+        predicates: Option<&'a PreparedPredicates>,
     ) -> Self {
         let test_providers = {
             #[cfg(test)]
@@ -302,15 +369,26 @@ impl<'a> SegmentPlanContext<'a> {
         Self {
             provider: NativeSegmentProvider::new(segment, collection, file_catalog),
             test_providers,
+            predicates,
             offers: HashMap::new(),
-            terms: HashMap::new(),
+            terms: Vec::new(),
             next_term: 0,
         }
     }
 
     fn catalog(&self) -> ProviderCatalog<'_> {
         let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-        providers.push(&self.provider);
+        #[cfg(test)]
+        let suppress_native = crate::query_execution::request::test_native_access_suppressed(
+            self.provider.instance_id,
+        );
+        #[cfg(not(test))]
+        let suppress_native = false;
+        if !suppress_native {
+            providers.push(&self.provider);
+        } else {
+            providers.push(&SOURCE_VERIFICATION_PROVIDER);
+        }
         for provider in &self.test_providers {
             providers.push(provider.as_ref());
         }
@@ -318,8 +396,19 @@ impl<'a> SegmentPlanContext<'a> {
     }
 
     fn term_id(&mut self, term: &BoundTerm) -> TermId {
-        let key = (term.span.0, term.span.1, term.query_path.display.clone());
-        if let Some(term_id) = self.terms.get(&key) {
+        if let Some(predicates) = self.predicates
+            && let Some(id) = predicates.term_for_bound_term(
+                self.provider.collection.generation.collection.0 as usize,
+                term,
+            )
+        {
+            return id;
+        }
+        if let Some((_, term_id)) = self
+            .terms
+            .iter()
+            .find(|(candidate, _)| crate::reference::same_bound_term(candidate, term))
+        {
             return *term_id;
         }
         let term_id = TermId::new(self.next_term);
@@ -327,7 +416,7 @@ impl<'a> SegmentPlanContext<'a> {
             .next_term
             .checked_add(1)
             .expect("segment predicate ID overflow");
-        self.terms.insert(key, term_id);
+        self.terms.push((term.clone(), term_id));
         term_id
     }
 
@@ -389,7 +478,7 @@ impl<'a> SegmentPlanContext<'a> {
             BoundExpr::Term(term) => {
                 let term_id = self.term_id(term);
                 crate::query_execution::request::record_skipped_observation(
-                    0,
+                    self.provider.instance_id,
                     term_id,
                     self.provider.domain,
                     self.provider.collection.generation.collection.0,
@@ -460,6 +549,34 @@ pub(crate) fn segment_filter_bounds(
     segment_filter_bounds_with_catalog(segment, active, expr, collection, None)
 }
 
+pub(crate) fn segment_filter_estimate_with_term(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    catalog: Option<&FileCatalog>,
+    term: &BoundTerm,
+    input_len: u64,
+) -> Result<Option<(u64, f64)>, String> {
+    let mut context = SegmentPlanContext::new(segment, collection, catalog);
+    let term_id = context.term_id(term);
+    let estimate = InputEstimate {
+        domain: context.provider.domain,
+        domain_len: segment.record_count() as u64,
+        input_len,
+        mean_record_bytes: collection.stats.mean_record_bytes(),
+        mean_records_per_file: collection.stats.mean_records_per_file(),
+        file_count: segment.file_count() as u64,
+    };
+    let offers = context
+        .catalog()
+        .propose(term_id, AccessRequest::Structured(term), estimate)
+        .map_err(|error| error.to_string())?;
+    Ok(
+        crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
+            .map_err(|error| error.to_string())?
+            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
+    )
+}
+
 pub(crate) fn segment_filter_bounds_with_catalog(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
@@ -467,13 +584,43 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     collection: &CollectionState,
     catalog: Option<&FileCatalog>,
 ) -> Result<SegmentCandidateBounds, String> {
+    let domain = active.bitmap();
+    segment_filter_bounds_with_input_catalog(segment, active, expr, collection, catalog, &domain)
+}
+
+pub(crate) fn segment_filter_bounds_with_input_catalog(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    expr: &BoundExpr,
+    collection: &CollectionState,
+    catalog: Option<&FileCatalog>,
+    input: &RoaringBitmap,
+) -> Result<SegmentCandidateBounds, String> {
+    segment_filter_bounds_with_input_catalog_and_predicates(
+        segment, active, expr, collection, catalog, input, None,
+    )
+}
+
+pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    expr: &BoundExpr,
+    collection: &CollectionState,
+    catalog: Option<&FileCatalog>,
+    input: &RoaringBitmap,
+    predicates: Option<&PreparedPredicates>,
+) -> Result<SegmentCandidateBounds, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
     let domain = active.bitmap();
-    let logical_active = &domain & &segment.logical_records;
-    let fallback_active = &domain - &segment.logical_records;
-    let mut context = SegmentPlanContext::new(segment, collection, catalog);
+    if !input.is_subset(&domain) {
+        return Err("segment restriction exceeds its active domain".into());
+    }
+    let logical_active = input & &segment.logical_records;
+    let fallback_active = input - &segment.logical_records;
+    let mut context =
+        SegmentPlanContext::new_with_predicates(segment, collection, catalog, predicates);
     segment_expr_bounds_with_context(
         segment,
         expr,
@@ -626,6 +773,20 @@ pub(crate) fn segment_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Result<Option<RoaringBitmap>, String> {
+    let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
+    let bounds =
+        segment_fts_bounds_with_term(segment, collection, fts, TermId::new(0), &input, None)?;
+    Ok(Some(bounds.may.as_ref().clone()))
+}
+
+pub(crate) fn segment_fts_bounds_with_term(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+    term: TermId,
+    input: &RoaringBitmap,
+    context: Option<&crate::streaming::ExecutionContext>,
+) -> Result<SegmentCandidateBounds, String> {
     use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
     use crate::query_access::text::NativeSegmentTextProvider;
 
@@ -633,7 +794,15 @@ pub(crate) fn segment_fts_candidates(
     #[cfg(test)]
     let test_providers = crate::query_execution::request::all_test_access_providers();
     let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-    providers.push(&provider);
+    #[cfg(test)]
+    let suppress_native = crate::query_execution::request::test_native_access_suppressed(
+        collection.repository_instance,
+    );
+    #[cfg(not(test))]
+    let suppress_native = false;
+    if !suppress_native {
+        providers.push(&provider);
+    }
     #[cfg(test)]
     for test_provider in &test_providers {
         providers.push(test_provider.as_ref());
@@ -641,43 +810,90 @@ pub(crate) fn segment_fts_candidates(
     let catalog = ProviderCatalog::new(providers);
     let offers = catalog
         .propose(
-            TermId::new(0),
+            term,
             AccessRequest::Text(fts),
             InputEstimate {
                 domain: provider.domain(),
                 domain_len: segment.record_count() as u64,
-                input_len: segment.record_count() as u64,
+                input_len: input.len() as u64,
                 mean_record_bytes: collection.stats.mean_record_bytes(),
                 mean_records_per_file: collection.stats.mean_records_per_file(),
                 file_count: segment.file_count() as u64,
             },
         )
         .map_err(|error| error.to_string())?;
-    let Some(chosen) = crate::query_plan::selection::choose_offer(
-        TermId::new(0),
-        &offers,
-        segment.record_count() as u64,
-    )
-    .map_err(|error| error.to_string())?
+    let Some(chosen) =
+        crate::query_plan::selection::choose_offer(term, &offers, input.len() as u64)
+            .map_err(|error| error.to_string())?
     else {
-        return Ok(None);
+        return Ok(SegmentCandidateBounds::candidate(input.clone()));
     };
-    let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
     let applied = catalog
         .apply(
-            TermId::new(0),
+            term,
             AccessRequest::Text(fts),
             chosen.id(),
-            provider.input_for(&input),
-            &AccessExecution { context: None },
+            provider.input_for(input),
+            &AccessExecution { context },
         )
         .map_err(|error| error.to_string())?;
-    match applied.possible.into_slots() {
-        crate::query_access::membership::SlotSet::Owned(bitmap) => Ok(Some(bitmap)),
-        crate::query_access::membership::SlotSet::Unrestricted => Ok(None),
-        crate::query_access::membership::SlotSet::Empty => Ok(Some(RoaringBitmap::new())),
-        _ => Err("segment text provider returned a non-owned bitmap".into()),
+    let possible = applied.possible;
+    let may = shared_bitmap_from_slot_input(&possible)?;
+    let must = match applied.proven {
+        Proven::None => Arc::new(RoaringBitmap::new()),
+        Proven::All => Arc::clone(&may),
+        Proven::Subset(proven) => shared_bitmap_from_slot_input(&proven)?,
+    };
+    Ok(SegmentCandidateBounds { may, must })
+}
+
+pub(crate) fn segment_fts_estimate_with_term(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+    term: TermId,
+    input_len: u64,
+) -> Result<Option<(u64, f64)>, String> {
+    use crate::query_access::contract::{IndexAccessProvider, InputEstimate};
+    use crate::query_access::text::NativeSegmentTextProvider;
+
+    let provider = NativeSegmentTextProvider::new(segment, collection);
+    #[cfg(test)]
+    let test_providers = crate::query_execution::request::all_test_access_providers();
+    let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+    #[cfg(test)]
+    let suppress_native = crate::query_execution::request::test_native_access_suppressed(
+        collection.repository_instance,
+    );
+    #[cfg(not(test))]
+    let suppress_native = false;
+    if !suppress_native {
+        providers.push(&provider);
     }
+    #[cfg(test)]
+    for test_provider in &test_providers {
+        providers.push(test_provider.as_ref());
+    }
+    let catalog = ProviderCatalog::new(providers);
+    let offers = catalog
+        .propose(
+            term,
+            AccessRequest::Text(fts),
+            InputEstimate {
+                domain: provider.domain(),
+                domain_len: segment.record_count() as u64,
+                input_len,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: segment.file_count() as u64,
+            },
+        )
+        .map_err(|error| error.to_string())?;
+    Ok(
+        crate::query_plan::selection::choose_offer(term, &offers, input_len)
+            .map_err(|error| error.to_string())?
+            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
+    )
 }
 
 fn segment_text_candidates(
@@ -1188,17 +1404,17 @@ fn segment_expr_bounds_with_context(
     catalog: Option<&FileCatalog>,
     context: &mut SegmentPlanContext<'_>,
 ) -> Result<SegmentCandidateBounds, String> {
-    let _ = (logical_active, fallback_active);
+    let effective_input = logical_active | fallback_active;
     Ok(match expr {
-        BoundExpr::Term(term) => context.execute_term(term, domain)?,
+        BoundExpr::Term(term) => context.execute_term(term, &effective_input)?,
         BoundExpr::And(parts) => {
             let mut flattened = Vec::new();
             for part in parts {
                 flatten_and(part, &mut flattened);
             }
             let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
-            let mut may = domain.clone();
-            let mut must = domain.clone();
+            let mut may = effective_input.clone();
+            let mut must = effective_input;
             if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
                 for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
@@ -1206,7 +1422,7 @@ fn segment_expr_bounds_with_context(
                         matches.extend(slots.iter().map(|slot| slot.0));
                     }
                 }
-                matches &= domain;
+                matches &= &may;
                 may &= &matches;
                 must &= matches;
                 let fused_ids = indices
@@ -1248,7 +1464,7 @@ fn segment_expr_bounds_with_context(
                     segment,
                     part,
                     collection,
-                    &may,
+                    domain,
                     &child_logical,
                     &child_fallback,
                     catalog,
@@ -1263,8 +1479,8 @@ fn segment_expr_bounds_with_context(
             let mut may = RoaringBitmap::new();
             let mut must = RoaringBitmap::new();
             for part in parts {
-                let child_logical = domain & &segment.logical_records;
-                let child_fallback = domain - &segment.logical_records;
+                let child_logical = &effective_input & &segment.logical_records;
+                let child_fallback = &effective_input - &segment.logical_records;
                 let child = segment_expr_bounds_with_context(
                     segment,
                     part,
@@ -1278,13 +1494,13 @@ fn segment_expr_bounds_with_context(
                 may |= &*child.may;
                 must |= &*child.must;
             }
-            may &= domain;
-            must &= domain;
+            may &= &effective_input;
+            must &= &effective_input;
             SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Not(inner) => {
-            let child_logical = domain & &segment.logical_records;
-            let child_fallback = domain - &segment.logical_records;
+            let child_logical = &effective_input & &segment.logical_records;
+            let child_fallback = &effective_input - &segment.logical_records;
             let child = segment_expr_bounds_with_context(
                 segment,
                 inner,
@@ -1295,7 +1511,9 @@ fn segment_expr_bounds_with_context(
                 catalog,
                 context,
             )?;
-            SegmentCandidateBounds::bounds(domain - &*child.must, domain - &*child.may)
+            let may = ((domain - &*child.must) & &effective_input).clone();
+            let must = ((domain - &*child.may) & &effective_input).clone();
+            SegmentCandidateBounds::bounds(may, must)
         }
     })
 }
@@ -1590,9 +1808,11 @@ pub struct PlanningCounters {
 
 struct PlanContext<'a> {
     provider: NativeCollectionProvider<'a>,
+    #[cfg(test)]
+    instance_id: u64,
     offers: HashMap<TermId, OfferList>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
-    term_ids: HashMap<(u32, (usize, usize), String), TermId>,
+    term_ids: Vec<(u32, BoundTerm, TermId)>,
     next_term_id: u32,
     counters: PlanningCounters,
     diagnostics: bool,
@@ -1623,9 +1843,11 @@ impl<'a> PlanContext<'a> {
                 collection.stats.record_count as u64,
                 None,
             ),
+            #[cfg(test)]
+            instance_id: repo.instance_id,
             offers: HashMap::new(),
             test_providers,
-            term_ids: HashMap::new(),
+            term_ids: Vec::new(),
             next_term_id: 0,
             counters: PlanningCounters::default(),
             diagnostics,
@@ -1636,9 +1858,11 @@ impl<'a> PlanContext<'a> {
     fn for_estimation(collection: &'a CollectionState, input_len: u64, diagnostics: bool) -> Self {
         Self {
             provider: NativeCollectionProvider::for_estimation(collection, input_len),
+            #[cfg(test)]
+            instance_id: collection.repository_instance,
             offers: HashMap::new(),
             test_providers: Vec::new(),
-            term_ids: HashMap::new(),
+            term_ids: Vec::new(),
             next_term_id: 0,
             counters: PlanningCounters::default(),
             diagnostics,
@@ -1659,7 +1883,16 @@ impl<'a> PlanContext<'a> {
 
     fn catalog(&self) -> ProviderCatalog<'_> {
         let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-        providers.push(&self.provider);
+        #[cfg(test)]
+        let suppress_native =
+            crate::query_execution::request::test_native_access_suppressed(self.instance_id);
+        #[cfg(not(test))]
+        let suppress_native = false;
+        if !suppress_native {
+            providers.push(&self.provider);
+        } else {
+            providers.push(&SOURCE_VERIFICATION_PROVIDER);
+        }
         for provider in &self.test_providers {
             providers.push(provider.as_ref());
         }
@@ -1715,30 +1948,29 @@ impl<'a> PlanContext<'a> {
     }
 
     fn term_id(&mut self, collection: &CollectionState, term: &BoundTerm) -> TermId {
-        let key = (
-            collection.generation.collection.0,
-            term.span,
-            term.query_path.display.clone(),
-        );
-        if let Some(id) = self.term_ids.get(&key) {
-            return *id;
-        }
         if let Some(predicates) = &self.predicates
-            && let Some(id) = predicates.term_for_occurrence(
-                collection.generation.collection.0 as usize,
-                term.span,
-                &term.query_path.display,
-            )
+            && let Some(id) =
+                predicates.term_for_bound_term(collection.generation.collection.0 as usize, term)
         {
-            self.term_ids.insert(key, id);
             return id;
+        }
+        let collection_id = collection.generation.collection.0;
+        if let Some((_, _, id)) =
+            self.term_ids
+                .iter()
+                .find(|(candidate_collection, candidate, _)| {
+                    *candidate_collection == collection_id
+                        && crate::reference::same_bound_term(candidate, term)
+                })
+        {
+            return *id;
         }
         let id = TermId::new(self.next_term_id);
         self.next_term_id = self
             .next_term_id
             .checked_add(1)
             .expect("query term ID overflow");
-        self.term_ids.insert(key, id);
+        self.term_ids.push((collection_id, term.clone(), id));
         id
     }
 

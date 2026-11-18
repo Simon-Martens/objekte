@@ -2194,7 +2194,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         ] {
             let result = repo.search(&query(filter)).unwrap();
             assert_eq!(result.count, Some(count), "{filter}");
-                assert!(result.counters.files_opened <= result.count.unwrap_or(0) as u64);
+            assert!(result.counters.files_opened <= result.count.unwrap_or(0) as u64);
             assert_eq!(
                 result.hits,
                 repo.search_reference(&query(filter)).unwrap().hits

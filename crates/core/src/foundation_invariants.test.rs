@@ -6,9 +6,7 @@ use crate::inventory::{FileStatus, RecordClass};
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::DiagnosticCategory;
 use crate::source::SourceFormat;
 use crate::workload::{BigramAlphabet, ReturnMode, SortField};
@@ -120,8 +118,7 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
         };
         for opening in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-            if opening == 0 {
-            }
+            if opening == 0 {}
             for budget in [0, 1 << 20] {
                 repo.configure_verified_cache(budget).unwrap();
                 for (filter, expected) in answers {

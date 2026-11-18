@@ -7,16 +7,9 @@ use roaring::RoaringBitmap;
 use crate::measurement::WorkCounters;
 use crate::query::Query;
 use crate::query_results::materialize::materialize_winner_page;
-use crate::query_results::ranking::{Winner, rank_key_bytes};
+use crate::query_results::ranking::{Winner, winner_bytes};
 use crate::repository::Repository;
 use crate::streaming::{Delivery, ExecutionContext, StreamMode};
-use crate::workload::ReturnMode;
-
-fn winner_bytes(winner: &Winner) -> usize {
-    std::mem::size_of::<Winner>()
-        + rank_key_bytes(&winner.key) as usize
-        + crate::streaming::hit_bytes(&winner.hit)
-}
 
 /// Publish a bounded provisional top-k page after a completed source batch.
 pub(crate) fn emit_provisional_page(
@@ -55,17 +48,7 @@ pub(crate) fn emit_provisional_page(
         *winners = ranked.into_iter().collect();
         return Ok(());
     }
-    let projected_copy = ranked[start..end].iter().fold(0usize, |total, winner| {
-        let missing_body =
-            if winner.hit.payload.is_none() && query.options.return_mode != ReturnMode::Locator {
-                repo.collections[winner.collection_index].generation.records[winner.slot as usize]
-                    .range
-                    .len() as usize
-            } else {
-                0
-            };
-        total.saturating_add(winner_bytes(winner).saturating_add(missing_body))
-    });
+    let moved_live_bytes = ranked[start..end].iter().map(winner_bytes).sum::<usize>();
     let scratch = ranked
         .len()
         .saturating_add(end - start)
@@ -73,7 +56,7 @@ pub(crate) fn emit_provisional_page(
     delivery.check_buffer(
         retained
             .saturating_add(extra_retained)
-            .saturating_add(projected_copy)
+            .saturating_add(moved_live_bytes)
             .saturating_add(scratch),
     )?;
     let mut page = ranked.drain(start..end).collect::<Vec<Winner>>();
@@ -100,11 +83,13 @@ pub(crate) fn emit_provisional_page(
         hits.push(winner.hit);
     }
     let delivered = hits.iter().map(crate::streaming::hit_bytes).sum::<usize>();
+    let retained_without_page = retained.saturating_sub(moved_live_bytes);
     delivery.replacement(
         &hits,
         counters,
-        retained
+        retained_without_page
             .saturating_add(extra_retained)
+            .saturating_add(scratch)
             .saturating_add(delivered),
     )?;
     ranked.extend(owners.into_iter().zip(hits).map(

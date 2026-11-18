@@ -9,7 +9,6 @@ use crate::model::Value;
 
 pub use crate::execution_options::{ReturnMode, SortExpression, SortField, SortReducer};
 
-
 /// Fixed benchmark query and expected execution options.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct WorkloadCase {
@@ -35,7 +34,6 @@ pub struct WorkloadCase {
     pub evidence: bool,
 }
 
-
 /// A benchmark request with separately typed data parameters. The historical
 /// 150 cases remain ordinary `WorkloadCase`s with no parameter field.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -48,7 +46,6 @@ pub struct BenchmarkCase {
     pub clock_unix_seconds: Option<i64>,
 }
 
-
 impl Deref for BenchmarkCase {
     type Target = WorkloadCase;
 
@@ -56,7 +53,6 @@ impl Deref for BenchmarkCase {
         &self.request
     }
 }
-
 
 impl BenchmarkCase {
     /// Bind values once, before the timed search call.
@@ -80,9 +76,7 @@ impl BenchmarkCase {
     }
 }
 
-
 pub use crate::execution_options::BigramAlphabet;
-
 
 /// Alphabet and cache settings for one benchmark profile.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -91,7 +85,6 @@ pub struct Profile {
     pub verified_cache_bytes: usize,
     pub warm: bool,
 }
-
 
 pub const PROFILES: [Profile; 4] = [
     Profile {
@@ -118,7 +111,6 @@ pub const PROFILES: [Profile; 4] = [
 
 pub use crate::measurement::WorkCounters;
 
-
 /// One measured query execution and its counters.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TimingSample {
@@ -130,7 +122,6 @@ pub struct TimingSample {
     pub total_ns: Option<u64>,
     pub counters: Option<WorkCounters>,
 }
-
 
 /// Build and fixture fingerprints for a benchmark run.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -145,7 +136,6 @@ pub struct RunIdentity {
     pub repetitions: usize,
     pub profiles: Vec<Profile>,
 }
-
 
 pub const REPORT_FILES: [&str; 7] = [
     "run-manifest.json",

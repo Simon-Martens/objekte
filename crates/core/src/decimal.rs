@@ -5,7 +5,6 @@ use std::fmt;
 
 use serde::{Deserialize, Deserializer, Serialize, de};
 
-
 /// Signed significant digits times ten to a signed exponent.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize)]
 pub struct ExactDecimal {
@@ -14,7 +13,6 @@ pub struct ExactDecimal {
     pub(crate) exponent: i64,
 }
 
-
 /// Wire-compatible fields checked before constructing a public decimal.
 #[derive(Deserialize)]
 struct DecimalRepresentation {
@@ -22,7 +20,6 @@ struct DecimalRepresentation {
     digits: String,
     exponent: i64,
 }
-
 
 impl<'de> Deserialize<'de> for ExactDecimal {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
@@ -47,7 +44,6 @@ impl<'de> Deserialize<'de> for ExactDecimal {
         })
     }
 }
-
 
 impl ExactDecimal {
     pub fn parse(token: &str) -> Result<Self, String> {
@@ -249,7 +245,6 @@ impl ExactDecimal {
     }
 }
 
-
 fn valid_json_number_token(bytes: &[u8]) -> bool {
     let mut position = usize::from(bytes.first() == Some(&b'-'));
     match bytes.get(position).copied() {
@@ -288,7 +283,6 @@ fn valid_json_number_token(bytes: &[u8]) -> bool {
     position == bytes.len()
 }
 
-
 impl fmt::Display for ExactDecimal {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         if self.negative {
@@ -297,7 +291,6 @@ impl fmt::Display for ExactDecimal {
         write!(formatter, "{}e{}", self.digits, self.exponent)
     }
 }
-
 
 fn multiply_digits(digits: &mut Vec<u8>, multiplier: u8) {
     let mut carry = 0u16;

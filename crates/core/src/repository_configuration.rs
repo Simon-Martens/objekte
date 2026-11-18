@@ -10,9 +10,8 @@ use std::path::{Component, Path, PathBuf};
 use serde_json::Value;
 
 use crate::repository::{CollectionDefinition, IdentityPolicy};
-use crate::schema_adapter::{compile_schema, CompiledSchema};
+use crate::schema_adapter::{CompiledSchema, compile_schema};
 use crate::source::SourceFormat;
-
 
 /// Prepare collection definitions for the live configuration identity and
 /// source traversal. Selected source paths are validated, the generated index
@@ -133,7 +132,6 @@ pub struct ExplicitSchemaFile {
     pub ignored_repository_metadata: bool,
 }
 
-
 /// Load only `path`. Relative paths resolve against the process working
 /// directory once; the returned path is canonical and is safe to protect
 /// against cache destination aliases. No repository or cache is discovered.
@@ -152,7 +150,6 @@ pub fn load_explicit_schema(path: &Path, collection: &str) -> Result<ExplicitSch
     })
 }
 
-
 /// Definitions from a concrete repository root and its schema files.
 pub struct RepositoryConfiguration {
     pub root: PathBuf,
@@ -160,7 +157,6 @@ pub struct RepositoryConfiguration {
     pub schema_files: Vec<PathBuf>,
     pub schema_fields: usize,
 }
-
 
 /// Read the existing `.objekte/collections/*.schema.json` layout beneath
 /// exactly `root`. Relative roots resolve against the process working

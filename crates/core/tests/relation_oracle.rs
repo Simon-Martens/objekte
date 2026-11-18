@@ -288,13 +288,9 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        let restored = Index::build_with_sources(
-            &root,
-            definitions(),
-            options,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
+        let restored =
+            Index::build_with_sources(&root, definitions(), options, SourceRegistry::builtin())
+                .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

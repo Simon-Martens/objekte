@@ -180,6 +180,11 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             start
         };
         for (index, path) in paths.iter().enumerate() {
+            let (startup_work, input_work) =
+                crate::query_plan::selection::split_input_dependent_cost(
+                    path.estimated_work,
+                    input.input_len,
+                );
             offers.push(AccessOffer::new(
                 AccessId {
                     provider: NATIVE_COLLECTION_PROVIDER,
@@ -194,8 +199,8 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
                     ProofStrength::Candidate
                 },
                 path.estimated_output,
-                path.estimated_work,
-                0.0,
+                startup_work,
+                input_work,
                 false,
                 path.kind == AccessPathKind::SortColumn,
             ));

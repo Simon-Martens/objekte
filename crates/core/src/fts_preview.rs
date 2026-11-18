@@ -8,17 +8,14 @@ use crate::bigram::fold;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
 use crate::regex_query::CompiledRegex;
 
-
 pub struct PreviewMatcher {
     mode: PreviewMode,
 }
-
 
 enum PreviewMode {
     Literal { needle: String, sensitive: bool },
     Regex(CompiledRegex),
 }
-
 
 impl PreviewMatcher {
     pub fn new(query: &FtsQuery) -> Result<Self, String> {
@@ -55,7 +52,6 @@ impl PreviewMatcher {
     }
 }
 
-
 fn folded_span(text: &str, needle: &str) -> Option<Range<usize>> {
     if needle.is_empty() {
         return None;
@@ -77,7 +73,6 @@ fn folded_span(text: &str, needle: &str) -> Option<Range<usize>> {
     let original_end = mapping.iter().find(|(folded, _)| folded.end >= end)?.1.end;
     Some(original_start..original_end)
 }
-
 
 #[cfg(test)]
 mod tests {

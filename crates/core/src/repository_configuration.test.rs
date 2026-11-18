@@ -145,8 +145,7 @@ fn repository_configuration_never_searches_parent_directories() {
 fn source_preparation_preserves_live_identity_and_generated_exclusions() {
     let root = test_root("source-prepare");
     fs::create_dir_all(root.join("data")).unwrap();
-    let definition =
-        CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars);
+    let definition = CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars);
     let first = prepare_source_definitions(&root, std::slice::from_ref(&definition)).unwrap();
     assert_eq!(
         first[0].discovery.exclude_directories,
@@ -173,11 +172,8 @@ fn source_preparation_preserves_live_identity_and_generated_exclusions() {
         "d025ae2e90ad25b5c5fb46e60f4247bbce8bf9338613cfd17f43185db7016a93"
     );
     fs::create_dir_all(root.join(".objekte/.indexes")).unwrap();
-    let reserved = CollectionDefinition::folder(
-        "bad",
-        ".objekte/.indexes",
-        SourceFormat::JsonDecodedScalars,
-    );
+    let reserved =
+        CollectionDefinition::folder("bad", ".objekte/.indexes", SourceFormat::JsonDecodedScalars);
     assert!(
         prepare_source_definitions(&root, &[reserved])
             .unwrap_err()
@@ -210,11 +206,8 @@ fn source_selection_rejects_generated_namespaces_and_aliases() {
     }
     #[cfg(unix)]
     {
-        std::os::unix::fs::symlink(
-            root.join(".objekte/indexes"),
-            root.join("generated-alias"),
-        )
-        .unwrap();
+        std::os::unix::fs::symlink(root.join(".objekte/indexes"), root.join("generated-alias"))
+            .unwrap();
         let definition = CollectionDefinition::folder(
             "files",
             "generated-alias",

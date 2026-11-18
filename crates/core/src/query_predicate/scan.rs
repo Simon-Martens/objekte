@@ -311,6 +311,10 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         filter: Option<&'a BoundExpr>,
     ) -> Option<Self> {
+        #[cfg(test)]
+        if crate::query_predicate::alternate_matcher_active() {
+            return None;
+        }
         let filter = match filter {
             None => None,
             Some(BoundExpr::Term(term)) => Some((term, None)),
@@ -402,7 +406,7 @@ pub(crate) fn prepare_residual<'a>(
     match expr {
         BoundExpr::Term(term) => {
             let term_id = predicates
-                .term_for_span(collection.generation.collection.0 as usize, term.span)
+                .term_for_bound_term(collection.generation.collection.0 as usize, term)
                 .expect("prepared residual term ID");
             Residual::Term(
                 term,

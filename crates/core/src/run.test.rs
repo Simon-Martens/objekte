@@ -11,7 +11,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
     use crate::query_access::contract::ProviderId;
     use crate::query_access::independent::SortedBackingProvider;
-    use crate::query_execution::request::install_test_access_providers;
+    use crate::query_execution::request::install_test_access_providers_suppressing_native;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-query-execution-gate-a-{}",
@@ -62,21 +62,23 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             element_nullable: Vec::new(),
         })
         .unwrap();
+    let options = crate::repository::RepositoryOptions {
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
     let repo = crate::repository::Repository::open_with_options(
         &root,
-        vec![definition],
-        crate::repository::RepositoryOptions {
-            verified_cache_bytes: 0,
-            ..Default::default()
-        },
+        vec![definition.clone()],
+        options.clone(),
     )
     .unwrap();
     let collection = &repo.collections()[0];
+    assert_eq!(repo.segments[0].len(), 1);
     let domain = crate::query_execution::domain::domain_id(
         repo.instance_id,
         collection.generation.collection.0,
         collection.generation.generation,
-        None,
+        Some(repo.segments[0][0].id.get()),
     );
     let title_values = records.iter().map(|(title, _)| *title).collect::<Vec<_>>();
     let year_values = records
@@ -97,7 +99,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     );
     let providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>> =
         vec![title.clone(), year.clone()];
-    let guard = install_test_access_providers(repo.instance_id, providers);
+    let guard = install_test_access_providers_suppressing_native(repo.instance_id, providers);
     assert_eq!(
         crate::query_execution::request::test_access_providers(repo.instance_id).len(),
         2
@@ -234,6 +236,381 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     assert_eq!(unindexed.count, Some(1));
     assert_eq!(unindexed.hits[0].record_id, "3");
     assert!(unindexed.counters.record_parses > 0);
+    let scan_only_guard =
+        install_test_access_providers_suppressing_native(repo.instance_id, Vec::new());
+    let scan_only = repo.search(&query(false)).unwrap();
+    assert_eq!(scan_only.count, Some(1));
+    assert_eq!(scan_only.hits[0].record_id, "3");
+    assert!(
+        scan_only.counters.record_parses > 0,
+        "suppressing eligible offers must use the source-verification fallback"
+    );
+    drop(scan_only_guard);
+
+    let index = crate::lifecycle::Index::build(&root, vec![definition.clone()], options).unwrap();
+    let segmented = index.view().unwrap();
+    let segmented_repo = segmented.repository();
+    let segmented_collection = &segmented_repo.collections()[0];
+    assert_eq!(
+        segmented_collection.repository_instance,
+        segmented.instance_id(),
+        "collection snapshot must carry its repository instance"
+    );
+    assert_eq!(segmented.0.segments[0].len(), 1);
+    let segment_domain = crate::query_execution::domain::domain_id(
+        segmented.instance_id(),
+        segmented_collection.generation.collection.0,
+        segmented_collection.generation.generation,
+        Some(segmented.0.segments[0][0].id.get()),
+    );
+    let segmented_title = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(segment_domain, "title", &title_values)
+            .with_provider_id(ProviderId(202))
+            .with_instance_id(segmented.instance_id()),
+    );
+    let segmented_year = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(segment_domain, "year", &year_refs)
+            .with_provider_id(ProviderId(203))
+            .with_instance_id(segmented.instance_id())
+            .scalar_only(),
+    );
+    segmented_title.set_costs(20.0, -100.0);
+    segmented_year.set_costs(-50.0, 0.0);
+    let segmented_guard = install_test_access_providers_suppressing_native(
+        segmented.instance_id(),
+        vec![segmented_title.clone(), segmented_year.clone()],
+    );
+    let mut without_evidence = query(true);
+    without_evidence.options.evidence = false;
+    let mut ordered_query = without_evidence.clone();
+    ordered_query.options.sort = vec![SortField::simple("title", false)];
+    let expected = segmented.search_reference(&without_evidence).unwrap();
+    assert_eq!(expected.count, Some(1));
+    assert_eq!(expected.hits[0].record_id, "3");
+
+    let optimized = segmented.search(&without_evidence).unwrap();
+    assert!(
+        !segmented_title.observations().is_empty(),
+        "segmented public search did not execute the test text provider: title={:?} year={:?}",
+        segmented_title.counters(),
+        segmented_year.counters()
+    );
+    assert_eq!(
+        optimized.count, expected.count,
+        "evidence-disabled segmented count admitted a FILTER-only proof: hits={:?} counters={:?}",
+        optimized.hits, optimized.counters
+    );
+    assert_eq!(optimized.hits, expected.hits);
+    assert_eq!(
+        segmented.count_exact(&without_evidence).unwrap(),
+        expected.count.unwrap(),
+        "zero-limit segmented execution admitted a FILTER-only proof"
+    );
+
+    let mut streamed = Vec::new();
+    let outcome = segmented
+        .search_stream(
+            &ordered_query,
+            crate::streaming::StreamOptions::default(),
+            &crate::streaming::CancellationToken::new(),
+            &mut |event| {
+                if let crate::streaming::StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(crate::streaming::StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let crate::streaming::StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected a complete segmented stream")
+    };
+    assert_eq!(summary.count, expected.count);
+    assert_eq!(streamed, expected.hits);
+    assert!(
+        !optimized.counters.verified_result_hit,
+        "the correctness fixture must execute with a disabled verified cache"
+    );
+    drop(segmented_guard);
+    drop(segmented);
+    index.shutdown().unwrap();
+
+    let split_root = root.join("split");
+    std::fs::create_dir_all(split_root.join("data")).unwrap();
+    let padding = "x".repeat(2 * 1024 * 1024);
+    let split_source = records
+        .iter()
+        .enumerate()
+        .map(|(id, (title, year))| {
+            serde_json::json!({
+                "id": id.to_string(),
+                "title": title,
+                "year": year,
+                "padding": padding
+            })
+            .to_string()
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    std::fs::write(
+        split_root.join("data/records.jsonl"),
+        format!("{split_source}\n"),
+    )
+    .unwrap();
+    let mut split_definition = definition;
+    split_definition.name = "split".into();
+    split_definition.source_path = "data".into();
+    split_definition.format = SourceFormat::JsonLines;
+    split_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let mut split_options = options;
+    split_options.segment_policy = crate::native_segment::SegmentPolicy::with_target_records(
+        std::num::NonZeroUsize::new(4).unwrap(),
+    )
+    .unwrap();
+    let split_index = crate::lifecycle::Index::start_incremental_build(
+        &split_root,
+        vec![split_definition],
+        split_options,
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let split_view = split_index.view().unwrap();
+    let split_segments = split_view.segments(crate::model::CollectionId(0)).unwrap();
+    assert_eq!(split_segments.len(), 2);
+    assert!(split_segments.iter().all(|segment| {
+        segment
+            .index
+            .records
+            .first()
+            .is_some_and(|record| record.slot.0 == 0)
+    }));
+    let split_collection = &split_view.repository().collections()[0];
+    let mut split_providers: Vec<
+        std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>,
+    > = Vec::new();
+    let mut split_titles = Vec::new();
+    let mut split_years = Vec::new();
+    for (segment_index, published) in split_segments.iter().enumerate() {
+        let start = segment_index * 4;
+        let end = start + 4;
+        let segment_domain = crate::query_execution::domain::domain_id(
+            split_collection.repository_instance,
+            split_collection.generation.collection.0,
+            split_collection.generation.generation,
+            Some(published.id.get()),
+        );
+        let title = std::sync::Arc::new(
+            SortedBackingProvider::from_field_fixture(
+                segment_domain,
+                "title",
+                &title_values[start..end],
+            )
+            .with_provider_id(ProviderId(210 + segment_index as u32 * 2))
+            .with_instance_id(split_collection.repository_instance),
+        );
+        let year = std::sync::Arc::new(
+            SortedBackingProvider::from_field_fixture(
+                segment_domain,
+                "year",
+                &year_refs[start..end],
+            )
+            .with_provider_id(ProviderId(211 + segment_index as u32 * 2))
+            .with_instance_id(split_collection.repository_instance)
+            .scalar_only(),
+        );
+        title.set_costs(20.0, -100.0);
+        year.set_costs(20.0, 0.0);
+        split_titles.push(title.clone());
+        split_years.push(year.clone());
+        split_providers.push(title);
+        split_providers.push(year);
+    }
+    let split_guard =
+        install_test_access_providers_suppressing_native(split_view.instance_id(), split_providers);
+    let mut split_query = query(true);
+    split_query.collections = vec!["split".into()];
+    let split_expected = split_view.search_reference(&split_query).unwrap();
+    let split_result = split_view.search(&split_query).unwrap();
+    assert_eq!(split_result.count, split_expected.count);
+    assert_eq!(split_result.hits, split_expected.hits);
+    assert_eq!(split_result.hits[0].record_id, "3");
+    assert!(
+        split_titles
+            .iter()
+            .chain(&split_years)
+            .any(|provider| !provider.observations().is_empty()),
+        "the overlapping local-slot domains must execute a domain-owned provider"
+    );
+    drop(split_guard);
+    drop(split_view);
+    split_index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
+    use crate::query::{FilterExpr, FtsField, FtsMode, FtsQuery};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-same-span-occurrences-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, year, note) in [
+        ("0", 1800, "rare"),
+        ("1", 1800, "ordinary"),
+        ("2", 1799, "rare"),
+        ("3", 1799, "other"),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            serde_json::json!({"year": year, "note": note}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    for (field, indexed) in [("year", true), ("note", false)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![field.into()],
+                kind: if field == "year" {
+                    LogicalType::Number
+                } else {
+                    LogicalType::String
+                },
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let options = crate::repository::RepositoryOptions {
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let repo =
+        Repository::open_with_options(&root, vec![definition.clone()], options.clone()).unwrap();
+    let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
+    let segmented = index.view().unwrap();
+    let mut span = (0, 0);
+    let mut equalize_spans = |expr: &mut FilterExpr| {
+        fn visit(expr: &mut FilterExpr, span: &mut (usize, usize)) {
+            match expr {
+                FilterExpr::Term(term) => {
+                    if *span == (0, 0) {
+                        *span = term.span;
+                    }
+                    term.span = *span;
+                }
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                    for part in parts {
+                        visit(part, span);
+                    }
+                }
+                FilterExpr::Not(inner) => visit(inner, span),
+            }
+        }
+        visit(expr, &mut span);
+    };
+    let mut query = |filter: &str, evidence: bool| {
+        let mut filter = parse_filter(filter).unwrap();
+        equalize_spans(&mut filter);
+        Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(filter),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence,
+            },
+        }
+    };
+
+    for evidence in [false, true] {
+        for (filter, expected) in [
+            ("year = 1800 && note = 'rare'", vec!["0"]),
+            ("year = 1800 && year = 1799", Vec::new()),
+            ("year = 1800 || note = 'rare'", vec!["0", "1", "2"]),
+        ] {
+            let request = query(filter, evidence);
+            for (name, result, reference) in [
+                (
+                    "base",
+                    repo.search(&request).unwrap(),
+                    repo.search_reference(&request).unwrap(),
+                ),
+                (
+                    "segmented",
+                    segmented.search(&request).unwrap(),
+                    segmented.search_reference(&request).unwrap(),
+                ),
+            ] {
+                let actual = result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>();
+                assert_eq!(actual, expected, "{name}: {filter}, evidence={evidence}");
+                assert_eq!(result.count, reference.count);
+                assert_eq!(result.hits, reference.hits);
+                if evidence && filter == "year = 1800 && note = 'rare'" {
+                    assert_eq!(result.hits[0].matched_fields.len(), 2);
+                    assert!(result.hits[0].matched_fields.contains(&"year".to_owned()));
+                    assert!(result.hits[0].matched_fields.contains(&"note".to_owned()));
+                }
+            }
+        }
+    }
+
+    let mut unindexed_text = query("year = 1800", false);
+    unindexed_text.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "rare".into(),
+        pattern_parameter: None,
+        fields: vec![FtsField {
+            path: crate::model::FieldPath::parse("note").unwrap(),
+            binding: None,
+            query_path: None,
+        }],
+    });
+    for (name, result, reference) in [
+        (
+            "base",
+            repo.search(&unindexed_text).unwrap(),
+            repo.search_reference(&unindexed_text).unwrap(),
+        ),
+        (
+            "segmented",
+            segmented.search(&unindexed_text).unwrap(),
+            segmented.search_reference(&unindexed_text).unwrap(),
+        ),
+    ] {
+        assert_eq!(result.count, Some(1), "{name}");
+        assert_eq!(result.hits[0].record_id, "0", "{name}");
+        assert_eq!(result.hits, reference.hits, "{name}");
+    }
+
+    let prepared =
+        crate::prepared::prepare(&repo, &query("year = 1800 && year = 1799", true)).unwrap();
+    let ids = prepared.collections[0]
+        .filter_shape
+        .as_ref()
+        .unwrap()
+        .term_ids();
+    assert_eq!(ids.len(), 2);
+    assert_ne!(ids[0], ids[1]);
+    drop(segmented);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

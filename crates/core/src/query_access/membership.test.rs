@@ -226,6 +226,67 @@ fn empty_has_one_meaning_across_representations() {
 }
 
 #[test]
+fn unrestricted_empty_backing_is_canonical_empty_for_every_representation() {
+    let domain = DomainId::from_parts(1, 0, 1, None);
+    let input = RoaringBitmap::new();
+    let members = RoaringBitmap::new();
+    let shared = RoaringBitmap::new();
+    for left_rep in 0..5 {
+        assert!(represented(left_rep, domain, &input, &members, &shared).is_empty());
+        assert_eq!(
+            represented(left_rep, domain, &input, &members, &shared).len(),
+            0
+        );
+        assert_eq!(
+            represented(left_rep, domain, &input, &members, &shared)
+                .iter()
+                .collect::<Vec<_>>(),
+            Vec::<u32>::new()
+        );
+        for right_rep in 0..5 {
+            assert!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .same_members(&represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap()
+            );
+            assert!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .is_subset(&represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap()
+            );
+            assert!(
+                represented(right_rep, domain, &input, &members, &shared)
+                    .is_subset(&represented(left_rep, domain, &input, &members, &shared))
+                    .unwrap()
+            );
+            assert!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .is_disjoint(&represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap()
+            );
+            assert_eq!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .intersection_len(&represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap(),
+                0
+            );
+            assert!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .intersect(represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap()
+                    .is_empty()
+            );
+            assert!(
+                represented(left_rep, domain, &input, &members, &shared)
+                    .union(represented(right_rep, domain, &input, &members, &shared))
+                    .unwrap()
+                    .is_empty()
+            );
+        }
+    }
+}
+
+#[test]
 fn every_domain_component_participates_in_identity() {
     let base = DomainId::from_parts(1, 2, 3, None);
     let values = bitmap(&[1, 2]);

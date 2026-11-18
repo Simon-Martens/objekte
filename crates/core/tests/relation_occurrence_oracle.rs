@@ -245,13 +245,9 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        let restored = Index::build_with_sources(
-            &root,
-            definitions(),
-            options,
-            SourceRegistry::builtin(),
-        )
-        .unwrap();
+        let restored =
+            Index::build_with_sources(&root, definitions(), options, SourceRegistry::builtin())
+                .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {

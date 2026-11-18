@@ -657,13 +657,16 @@ impl<'a> Delivery<'a> {
         if self.options.mode != StreamMode::PageReplacements || page.is_empty() {
             return Ok(());
         }
-        let identities: Vec<_> = page
-            .iter()
-            .map(|hit| (hit.collection.clone(), hit.record_id.clone()))
-            .collect();
-        if identities == self.last_page {
+        if !self.page_changed_identities(
+            page.iter()
+                .map(|hit| (hit.collection.as_str(), hit.record_id.as_str())),
+        ) {
             return Ok(());
         }
+        let identities = page
+            .iter()
+            .map(|hit| (hit.collection.clone(), hit.record_id.clone()))
+            .collect::<Vec<_>>();
         let event_bytes = page
             .iter()
             .fold(0usize, |total, row| total.saturating_add(hit_bytes(row)));
@@ -673,11 +676,7 @@ impl<'a> Delivery<'a> {
             .map(|(collection, id)| collection.len() + id.len() + 2 * std::mem::size_of::<String>())
             .sum::<usize>();
         self.check_event(event_bytes)?;
-        self.check_buffer(
-            retained_bytes
-                .saturating_add(event_bytes)
-                .saturating_add(identity_bytes),
-        )?;
+        self.check_buffer(retained_bytes.saturating_add(identity_bytes))?;
         self.observe(counters);
         let mut progress = self.progress;
         progress.sequence = progress.sequence.saturating_add(1);

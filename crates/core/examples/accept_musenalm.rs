@@ -152,8 +152,6 @@ fn run() -> Result<(), String> {
             optimized.hits.len()
         );
     }
-    println!(
-        "accepted {checked} cases; alphabet={alphabet:?}"
-    );
+    println!("accepted {checked} cases; alphabet={alphabet:?}");
     Ok(())
 }

@@ -11,12 +11,10 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::workload::SortField;
 
-
 pub struct CompiledSchema {
     pub schema: Schema,
     pub sort_fields: Vec<FieldPath>,
 }
-
 
 /// Load exactly the named schema file and compile its supported declarations.
 /// This explicit operation does not discover a repository or search for other

@@ -39,6 +39,18 @@ pub(crate) fn ordered_offer_ids(offers: &[AccessOffer], input_len: u64) -> Vec<A
     ordered
 }
 
+pub(crate) fn prefer_text_first(text: Option<(u64, f64)>, filter: Option<(u64, f64)>) -> bool {
+    match (text, filter) {
+        (Some((_, text_work)), Some((_, filter_work))) => text_work < filter_work,
+        (Some(_), None) => true,
+        _ => false,
+    }
+}
+
+pub(crate) fn split_input_dependent_cost(total: f64, input_len: u64) -> (f64, f64) {
+    (total * 0.25, total * 0.75 / input_len.max(1) as f64)
+}
+
 fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u8, u32) {
     let broad_candidate = offer.proof() == ProofStrength::Candidate
         && offer.estimated_output() >= input_len
@@ -172,5 +184,13 @@ mod tests {
                 .kind(),
             AccessKind::ExactMembership
         );
+    }
+
+    #[test]
+    fn same_cost_pair_can_reverse_text_first_without_registration_order() {
+        assert!(prefer_text_first(Some((2, 4.0)), Some((8, 20.0))));
+        assert!(!prefer_text_first(Some((2, 20.0)), Some((8, 4.0))));
+        assert!(prefer_text_first(Some((2, 4.0)), None));
+        assert!(!prefer_text_first(None, Some((8, 4.0))));
     }
 }
