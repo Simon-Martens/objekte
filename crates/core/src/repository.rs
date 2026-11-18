@@ -1526,6 +1526,14 @@ impl Repository {
                 request.options.count = true;
             }
         }
+        let needs_remap = |hit: &SearchHit| {
+            hit.diagnostic_ref.stored_index().is_some()
+                || self
+                    .collections
+                    .iter()
+                    .find(|collection| collection.definition.name == hit.collection)
+                    .is_none_or(|collection| collection.generation.generation != hit.generation)
+        };
         let mut remap_rows = |event: crate::streaming::StreamEvent<'_>| -> Result<
             crate::streaming::StreamControl,
             String,
@@ -1536,7 +1544,7 @@ impl Repository {
                     start,
                     rows,
                     progress,
-                } => {
+                } if rows.iter().any(needs_remap) => {
                     let mut remapped = rows.to_vec();
                     for hit in &mut remapped {
                         self.stamp_native_hit(hit);
@@ -1552,7 +1560,7 @@ impl Repository {
                     sequence,
                     rows,
                     progress,
-                } => {
+                } if rows.iter().any(needs_remap) => {
                     let mut remapped = rows.to_vec();
                     for hit in &mut remapped {
                         self.stamp_native_hit(hit);
