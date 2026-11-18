@@ -1206,6 +1206,11 @@ impl Repository {
         self.remap_native_diagnostic(hit);
     }
 
+    pub(crate) fn stamp_native_hit_at(&self, hit: &mut SearchHit, revision: IndexRevision) {
+        hit.generation = revision.0;
+        self.remap_native_diagnostic(hit);
+    }
+
     fn remap_native_diagnostic(&self, hit: &mut SearchHit) {
         let Some(local) = hit.diagnostic_ref.stored_index() else {
             return;

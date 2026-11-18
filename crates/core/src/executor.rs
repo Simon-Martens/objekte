@@ -1830,42 +1830,6 @@ impl<'a> PlanContext<'a> {
     }
 }
 
-fn rescore_paths(
-    collection: &CollectionState,
-    term: &BoundTerm,
-    paths: &[AccessPathEstimate],
-    input_len: u64,
-) -> Vec<AccessPathEstimate> {
-    let stats = collection.stats;
-    let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
-    paths
-        .iter()
-        .map(|original| {
-            let mut path = original.clone();
-            let original_unit = if path.exact { 0.02 } else { source_unit };
-            let lookup = path.estimated_work - path.estimated_output as f64 * original_unit;
-            path.estimated_output = match path.kind {
-                AccessPathKind::Scanner => input_len,
-                AccessPathKind::SortColumn => input_len / 4,
-                AccessPathKind::Metadata
-                    if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
-                        && term.operator == Operator::Eq =>
-                {
-                    input_len.min(1)
-                }
-                AccessPathKind::Metadata | AccessPathKind::FilePathIndex => input_len / 2,
-                _ => path.estimated_output.min(input_len),
-            };
-            path.estimated_work = lookup + path.estimated_output as f64 * original_unit;
-            path.estimated_files = (path.estimated_output as f64
-                / stats.mean_records_per_file().max(1.0))
-            .min(stats.file_count as f64);
-            path.estimated_bytes = path.estimated_output as f64 * stats.mean_record_bytes();
-            path
-        })
-        .collect()
-}
-
 fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivity> {
     (matches!(term.kind, LogicalType::String | LogicalType::Unknown)
         && matches!(term.literal, Value::String(_))
