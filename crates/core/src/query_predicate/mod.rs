@@ -11,8 +11,15 @@ use crate::query_access::membership::SlotInput;
 use crate::reference::{BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term};
 use crate::source::TextSegment;
 
-pub(crate) mod structured;
-pub(crate) use structured::{proof_evidence, proven_evidence};
+mod structured;
+pub(crate) use structured::proven_evidence;
+pub(crate) mod scan;
+pub(crate) use scan::{
+    DirectSourcePlan, Residual, borrowed_relation_source_text, borrowed_value_text,
+    local_segment_projection, prepare_residual, prepare_value_text_projection, scan_projection,
+    segment_filter_evidence_bytes, segment_filter_source_fields, shared_fold_bound,
+    shared_fold_residual, source_fts_eligible,
+};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub(crate) struct TermId(u32);
