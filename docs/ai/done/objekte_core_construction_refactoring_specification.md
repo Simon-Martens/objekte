@@ -279,3 +279,37 @@ construction regression. Raw JSON and the summary are stored in
 - No subordinate worktree was created, so there was no subordinate cleanup.
   The integration worktree is retained for owner review at
   `/home/simon/source/objekte-integration-core-index-construction`.
+
+## Review repair addendum
+
+The subsequent Assignment 2 review repairs are complete on the same
+integration branch at commits `bb124f3adb` and `2bb6a9cb77`. The following
+statements supersede the corresponding limitations above.
+
+- Benchmarks retain the completed owner and pinned view across the full cache
+  and query session. The cache is configured through the owner, not the view.
+- `IndexView` no longer exposes repository-wide `files`, `collections`, cache
+  mutation or the duplicate `startup` accessor. Revision-specific metadata uses
+  catalogue, collection-definition and segment APIs; build-only aggregates use
+  narrowly named observations.
+- The test-only repository conversion no longer waits for owners to disappear.
+  Retained owners and views fail promptly with typed errors.
+- Segment admission and generation finalization, job scheduling/draining, and
+  final repository assembly now have their assigned construction-module owners.
+  The coordinator keeps publication ordering and lifecycle revision
+  installation.
+- Catalogue and final repository initialization borrow the active build pool;
+  standalone `empty_like` still creates its isolated fallback pool.
+- The four orphaned lifecycle regressions are registered again, and admission
+  tests moved beside their implementation while physical tests retained their
+  owner.
+
+The refreshed 32-worker build comparison against `bb124f3adb` measured
+654,873,036 ns wall time (down 3.19%), 641,357,687 ns build time (down 3.22%),
+and 658,628,608 peak resident bytes (down 1.17%). The current-input exact index
+signature
+`76536ba48f89bb29fac5fad1baa186cec9e2c7e2c90a793223f84ef8a317632a`,
+schema digest, 148,486 records/parses, zero failed parses, segment membership
+and worker count matched the reviewed repair tip. Full evidence and command
+results are in `docs/ai/done/objekte_core_construction_review_repairs.md` and
+`docs/ai/generated/core-index-construction/benchmark/repair-current.json`.
