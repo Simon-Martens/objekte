@@ -3,11 +3,11 @@ use std::collections::HashMap;
 use roaring::RoaringBitmap;
 
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
-use crate::bigram::BigramIndex;
+use crate::index::bigram::BigramIndex;
+use crate::index::sorting::compare_composite;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::{ActiveRecords, RecordClass, append_shifted_bitmap};
 use crate::model::RecordSlot;
-use crate::sorting::compare_composite;
 
 /// The offsets translate old shard-local slots to the consolidated local
 /// namespace. Publication must translate each old active mask with them.

@@ -10,8 +10,11 @@ use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::bigram::{BigramConstructionStats, BigramIndex};
 use crate::discovery::Discovery;
+use crate::index::bigram::{BigramConstructionStats, BigramIndex};
+use crate::index::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::relation::RelationIndex;
+use crate::index::sorting::{SortCollection, SortConfig, SortOptions};
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferencePathDiagnostic, InferenceReport, InferenceState,
 };
@@ -21,12 +24,9 @@ use crate::inventory::{
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
-use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
-use crate::relation::RelationIndex;
-use crate::sorting::{SortCollection, SortConfig, SortOptions};
 use crate::source::{
     PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range_for_search,
 };
@@ -251,7 +251,7 @@ pub struct Repository {
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
-    pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+    pub(crate) inferred_orders: Mutex<crate::index::sorting::InferredOrderCache>,
 }
 
 fn hash_field(hash: &mut Sha256, value: &[u8]) {
@@ -531,7 +531,7 @@ pub struct RepositoryOptions {
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
     /// Shared soft record/file boundary for all native segment producers.
-    pub segment_policy: crate::native_segment::SegmentPolicy,
+    pub segment_policy: crate::index::segment::SegmentPolicy,
     pub inference: InferenceConfig,
     /// Request detailed instrumentation in a build compiled with the
     /// `detailed-profiling` feature. Ignored by ordinary builds.
@@ -546,7 +546,7 @@ impl Default for RepositoryOptions {
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
-            segment_policy: crate::native_segment::SegmentPolicy::default(),
+            segment_policy: crate::index::segment::SegmentPolicy::default(),
             inference: InferenceConfig::default(),
             profile_build: false,
         }
@@ -755,7 +755,7 @@ impl Repository {
             .fields
             .get(&relation.declaration.path)?
             .values
-            .get(&crate::posting::ScalarKey::Id(target_id.to_owned()))
+            .get(&crate::index::posting::ScalarKey::Id(target_id.to_owned()))
     }
 
     pub fn build_parses(&self) -> u64 {
@@ -821,8 +821,8 @@ impl Repository {
         &self.startup
     }
 
-    pub(crate) fn native_snapshot(&self) -> crate::native_segment::NativeSnapshotRef<'_> {
-        crate::native_segment::NativeSnapshotRef {
+    pub(crate) fn native_snapshot(&self) -> crate::index::segment::NativeSnapshotRef<'_> {
+        crate::index::segment::NativeSnapshotRef {
             active: &self.active,
             segments: &self.segments,
             catalog: &self.catalog,
@@ -833,23 +833,23 @@ impl Repository {
     pub(crate) fn segment_read_views(
         &self,
         collection: CollectionId,
-    ) -> impl Iterator<Item = crate::native_segment::SegmentReadView<'_>> {
+    ) -> impl Iterator<Item = crate::index::segment::SegmentReadView<'_>> {
         self.segments
             .get(collection.0 as usize)
             .into_iter()
             .flat_map(|segments| segments.iter())
-            .map(|segment| crate::native_segment::IndexedCollectionSegment::read_view(segment))
+            .map(|segment| crate::index::segment::IndexedCollectionSegment::read_view(segment))
     }
 
     /// Compact native segment inventory for benchmarks and diagnostics.
-    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
+    pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
         self.segment_summaries_for(&self.segments)
     }
 
     pub(crate) fn segment_summaries_for(
         &self,
         segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
-    ) -> Vec<crate::native_segment::NativeSegmentSummary> {
+    ) -> Vec<crate::index::segment::NativeSegmentSummary> {
         (0..self.collections.len())
             .flat_map(|collection| {
                 segments
@@ -857,10 +857,10 @@ impl Repository {
                     .into_iter()
                     .flat_map(|segments| segments.iter())
                     .map(|segment| {
-                        crate::native_segment::IndexedCollectionSegment::read_view(segment)
+                        crate::index::segment::IndexedCollectionSegment::read_view(segment)
                     })
             })
-            .map(|view| crate::native_segment::NativeSegmentSummary {
+            .map(|view| crate::index::segment::NativeSegmentSummary {
                 id: view.id,
                 collection: view.collection,
                 records: view.index.record_count(),
@@ -891,7 +891,7 @@ impl Repository {
                 bigram_heap_bytes: std::iter::once(&view.index.raw)
                     .chain(std::iter::once(&view.index.fallback_text))
                     .chain(view.index.custom_text.values())
-                    .map(crate::bigram::BigramIndex::estimated_heap_bytes)
+                    .map(crate::index::bigram::BigramIndex::estimated_heap_bytes)
                     .sum(),
                 index_family_bytes: view.index.accounting.index_family_bytes,
                 active: view.active.len() != 0,
@@ -904,8 +904,8 @@ impl Repository {
     pub fn segment_components(
         &self,
         collection: CollectionId,
-        segment: crate::native_segment::SegmentId,
-    ) -> Option<Vec<crate::native_segment::NativeComponentDescriptor<'_>>> {
+        segment: crate::index::segment::SegmentId,
+    ) -> Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>> {
         self.segments
             .get(collection.0 as usize)?
             .iter()

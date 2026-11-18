@@ -19,7 +19,7 @@ fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
     let first = InferredOrderKey::new(
         0,
         7,
-        crate::native_segment::SegmentId::new(1),
+        crate::index::segment::SegmentId::new(1),
         FieldPath::parse("a").unwrap(),
         "de",
         SortOptions::default(),
@@ -28,7 +28,7 @@ fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
     let second = InferredOrderKey::new(
         0,
         7,
-        crate::native_segment::SegmentId::new(1),
+        crate::index::segment::SegmentId::new(1),
         FieldPath::parse("b").unwrap(),
         "de",
         SortOptions::default(),
@@ -56,7 +56,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
     let base = InferredOrderKey::new(
         0,
         7,
-        crate::native_segment::SegmentId::new(1),
+        crate::index::segment::SegmentId::new(1),
         FieldPath::parse("a").unwrap(),
         "de",
         SortOptions::default(),
@@ -67,7 +67,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             0,
             8,
-            crate::native_segment::SegmentId::new(1),
+            crate::index::segment::SegmentId::new(1),
             base.path.clone(),
             "de",
             base.options,
@@ -76,7 +76,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             0,
             7,
-            crate::native_segment::SegmentId::new(2),
+            crate::index::segment::SegmentId::new(2),
             base.path.clone(),
             "de",
             base.options,
@@ -85,7 +85,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             0,
             7,
-            crate::native_segment::SegmentId::new(1),
+            crate::index::segment::SegmentId::new(1),
             base.path.clone(),
             "fr",
             base.options,
@@ -94,7 +94,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             0,
             7,
-            crate::native_segment::SegmentId::new(1),
+            crate::index::segment::SegmentId::new(1),
             base.path.clone(),
             "de",
             base.options,
@@ -103,7 +103,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             0,
             7,
-            crate::native_segment::SegmentId::new(1),
+            crate::index::segment::SegmentId::new(1),
             base.path.clone(),
             "de",
             SortOptions {
@@ -115,7 +115,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(
             1,
             7,
-            crate::native_segment::SegmentId::new(1),
+            crate::index::segment::SegmentId::new(1),
             base.path.clone(),
             "de",
             base.options,

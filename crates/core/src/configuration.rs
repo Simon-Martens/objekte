@@ -4,9 +4,9 @@ use std::path::Path;
 
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::index::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::index::sorting::COLLATION_VERSION;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
-use crate::sorting::COLLATION_VERSION;
 use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 

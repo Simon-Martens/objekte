@@ -5,10 +5,10 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
+use objekte_search_core::index::posting::ScalarKey;
 use objekte_search_core::inventory::FileStatus;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
-use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::{PostingValueBound, PostingValuesRequest};
 use objekte_search_core::query::{FtsQuery, Literal, Operator, Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{

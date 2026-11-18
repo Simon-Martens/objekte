@@ -7,7 +7,7 @@ use regex_syntax::ParserBuilder;
 use regex_syntax::hir::{Hir, HirKind, literal::Extractor};
 use roaring::RoaringBitmap;
 
-use crate::bigram::{BigramIndex, BigramRequest};
+use crate::index::bigram::{BigramIndex, BigramRequest};
 use crate::query::{CaseSensitivity, RegexOptions};
 
 const MAX_PATTERN_BYTES: usize = 4 * 1024;

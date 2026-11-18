@@ -7,7 +7,10 @@ use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
-use crate::bigram::BigramContribution;
+use crate::index::bigram::BigramContribution;
+use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::relation::RelationContribution;
+use crate::index::sorting::SortBuilder;
 use crate::inference::{InferenceBuildStats, InferenceBuilder};
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
@@ -15,14 +18,11 @@ use crate::inventory::{
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, RecordId, RecordSlot};
-use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::relation::RelationContribution;
 use crate::repository::{
     BuildProfileStats, CollectionDefinition, CollectionState, CollectionStats,
     GlobalInferenceSummary, Repository, RepositoryOptions, StartupStats, build_profile_rss_bytes,
     canonical_custom_text_key, finish_fresh_fingerprints, next_repository_instance,
 };
-use crate::sorting::SortBuilder;
 use crate::source::SourceRegistry;
 
 pub(crate) fn initialize_empty(
@@ -175,7 +175,7 @@ pub(crate) fn initialize_empty(
             .collect::<Result<Vec<_>, String>>()?;
         collections[source_index].relations = indexes;
     }
-    crate::relation::validate_indexes(&collections)?;
+    crate::index::relation::validate_indexes(&collections)?;
     let workers = Repository::create_workers(options.query_workers)?;
     let catalog = FileCatalog::from_parts(Arc::clone(&files), Vec::new(), configuration_identity);
     let active = (0..collections.len())
@@ -207,8 +207,8 @@ pub(crate) fn initialize_empty(
         verified: Mutex::new(crate::verified::VerifiedCache::new(
             options.verified_cache_bytes,
         )),
-        inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
-            crate::sorting::INFERRED_ORDER_CACHE_BYTES,
+        inferred_orders: Mutex::new(crate::index::sorting::InferredOrderCache::new(
+            crate::index::sorting::INFERRED_ORDER_CACHE_BYTES,
         )),
     })
 }
@@ -224,7 +224,7 @@ struct SegmentMetadata {
 fn segment_metadata_generation(
     collection: CollectionId,
     name: &str,
-    segments: &[Arc<crate::native_segment::PublishedSegment>],
+    segments: &[Arc<crate::index::segment::PublishedSegment>],
     files: &mut FileInventory,
     relations: &mut [RelationContribution],
 ) -> Result<SegmentMetadata, String> {
@@ -541,7 +541,8 @@ pub(crate) fn assemble_final_repository(
             .map_err(IndexError::Build)?;
         final_repository.collections[source_index].relations = indexes;
     }
-    crate::relation::validate_indexes(&final_repository.collections).map_err(IndexError::Build)?;
+    crate::index::relation::validate_indexes(&final_repository.collections)
+        .map_err(IndexError::Build)?;
     final_repository.files = Arc::new(final_files);
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.finalize_generation_ns = started.elapsed().as_nanos() as u64;

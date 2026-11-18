@@ -16,7 +16,7 @@ pub mod execution_options;
 pub mod executor;
 mod field_state;
 pub mod fts_preview;
-mod index;
+pub mod index;
 mod index_catalog;
 pub mod inference;
 pub mod inventory;
@@ -66,8 +66,6 @@ mod structural;
 pub mod temporal_query;
 mod verified;
 pub mod workload;
-
-pub use index::{bigram, posting, segment as native_segment, sorting};
 
 #[cfg(test)]
 #[path = "lib.test.rs"]

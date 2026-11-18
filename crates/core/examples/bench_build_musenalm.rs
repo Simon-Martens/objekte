@@ -5,9 +5,9 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::native_segment::SegmentPolicy;
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::BigramAlphabet;
 use serde::Serialize;

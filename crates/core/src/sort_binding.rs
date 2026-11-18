@@ -7,17 +7,17 @@ use std::sync::{Arc, Mutex, OnceLock};
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
+use crate::index::relation::RelationTarget;
+use crate::index::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
 use crate::query_path::{PathStep, QueryPath, split_path_binding};
 use crate::reference::{BindingOperation, RecordContext, Transform, metadata_value};
-use crate::relation::RelationTarget;
 use crate::relation_query::{
     BoundRelationHop, HopDirection, MergedRecordSlot, MergedRelationView, resolve_path,
 };
 use crate::repository::Repository;
-use crate::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::workload::{SortExpression, SortField, SortReducer};
 
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;

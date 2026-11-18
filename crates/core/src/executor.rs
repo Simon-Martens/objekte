@@ -8,6 +8,7 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::sorting::SortKey;
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation, self_comparison_shape};
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
@@ -33,7 +34,6 @@ use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
 };
 use crate::repository::{CollectionState, Repository};
-use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
@@ -2438,7 +2438,7 @@ fn custom_text_index<'a>(
     collection: &'a CollectionState,
     path: &[String],
     name: &str,
-) -> Option<&'a crate::bigram::BigramIndex> {
+) -> Option<&'a crate::index::bigram::BigramIndex> {
     IndexCatalog::collection(collection).field_text_for(
         &collection.definition.schema,
         path,
@@ -3662,8 +3662,8 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
 struct TextProbe<'a, 'b> {
-    index: &'a crate::bigram::BigramIndex,
-    request: &'b crate::bigram::BigramRequest,
+    index: &'a crate::index::bigram::BigramIndex,
+    request: &'b crate::index::bigram::BigramRequest,
 }
 
 struct PreparedFtsAccess<'a, 'b> {

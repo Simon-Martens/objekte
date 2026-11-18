@@ -5,12 +5,12 @@ use super::projection::{
     project_bigram, project_bitmap, project_inference, project_posting, project_sorting,
 };
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
+use crate::index::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::relation::RelationContribution;
+use crate::index::sorting::SortCollection;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileEntry, FileStatus, RecordClass};
 use crate::model::{FileId, RecordSlot};
-use crate::posting::{CustomPostingIndex, PostingCollection};
-use crate::relation::RelationContribution;
-use crate::sorting::SortCollection;
 
 /// A dense active-only shard plus a locator translation for callers that
 /// retained an old local slot. Retired slots map to `None`.

@@ -149,7 +149,7 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         })
         .unwrap();
     let options = RepositoryOptions {
-        segment_policy: crate::native_segment::SegmentPolicy {
+        segment_policy: crate::index::segment::SegmentPolicy {
             target_records: std::num::NonZeroUsize::new(1).unwrap(),
             max_files: std::num::NonZeroUsize::new(1).unwrap(),
         },

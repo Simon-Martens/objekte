@@ -4,9 +4,9 @@ use std::sync::atomic::Ordering;
 use roaring::RoaringBitmap;
 
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::native_segment::{PublishedSegment, SegmentId};
 use crate::repository::Repository;
 
 use super::{
@@ -753,14 +753,16 @@ impl Index {
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
                                 if !general_values && !short_values {
                                     let empty = empty_string_exact.then(|| {
-                                        posting.values.remove(&crate::posting::ScalarKey::String(
-                                            String::new(),
-                                        ))
+                                        posting.values.remove(
+                                                &crate::index::posting::ScalarKey::String(
+                                                    String::new(),
+                                                ),
+                                            )
                                     });
                                     posting.values.clear();
                                     if let Some(Some(slots)) = empty {
                                         posting.values.insert(
-                                            crate::posting::ScalarKey::String(String::new()),
+                                            crate::index::posting::ScalarKey::String(String::new()),
                                             slots,
                                         );
                                     }

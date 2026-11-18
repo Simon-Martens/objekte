@@ -1,4 +1,3 @@
-use crate::bigram::BigramIndex;
 use crate::construction::batch::{SourceFileInput, file_batches, process_batch};
 use crate::construction::file_preparation::{
     BoundedBuildLimits, BytesPreparationError, FilePreparationBinding, PreparedFileBuild,
@@ -10,6 +9,7 @@ use crate::construction::scheduling::{
     process_repository_file_batches, resolve_build_workers,
 };
 use crate::construction::segment_admission::SegmentAdmission;
+use crate::index::bigram::BigramIndex;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot, Value};
@@ -86,7 +86,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         SegmentAdmission::with_limits(
             id,
             &source,
-            crate::native_segment::SegmentPolicy {
+            crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
                 max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
             },

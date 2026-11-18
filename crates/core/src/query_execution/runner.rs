@@ -18,7 +18,11 @@ use crate::executor::{
     segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
     segment_fts_estimate_with_term,
 };
+use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::sorting::{InferredOrderKey, SortColumn, simple_composite_part};
+#[cfg(test)]
+use crate::index::sorting::{SortKey, SortOptions};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
@@ -26,7 +30,6 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
-use crate::posting::PostingIndex;
 use crate::prepared::PreparedCollectionQuery;
 #[cfg(test)]
 use crate::query::FtsMode;
@@ -63,9 +66,6 @@ use crate::reference::{
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache};
-use crate::sorting::{InferredOrderKey, SortColumn, simple_composite_part};
-#[cfg(test)]
-use crate::sorting::{SortKey, SortOptions};
 use crate::source::{
     ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
 };
@@ -1488,7 +1488,7 @@ fn exact_or_branch_members(
         return Ok(0);
     };
     let collection = &repo.collections[collection_index];
-    let mut members = crate::native_segment::SegmentRecordSet::default();
+    let mut members = crate::index::segment::SegmentRecordSet::default();
     for part in parts {
         if let BoundExpr::Term(term) = part
             && term.path.root == PathRoot::Metadata(crate::model::MetadataField::RecordClass)
@@ -1502,7 +1502,7 @@ fn exact_or_branch_members(
                         .record(RecordSlot(slot))
                         .ok_or("exact record-class branch slot missing")?;
                     if crate::model::Number::integer(record.class.code() as i128) == *expected {
-                        members.insert(crate::native_segment::SegmentRecordAddress {
+                        members.insert(crate::index::segment::SegmentRecordAddress {
                             collection: published.index.collection,
                             segment: published.id,
                             slot: record.slot,
@@ -1531,7 +1531,7 @@ fn exact_or_branch_members(
         ) {
             continue;
         }
-        let mut branch = crate::native_segment::SegmentRecordSet::default();
+        let mut branch = crate::index::segment::SegmentRecordSet::default();
         let mut exact = true;
         for published in segments[collection_index].iter() {
             let bounds =
@@ -1549,7 +1549,7 @@ fn exact_or_branch_members(
                     .index
                     .record(RecordSlot(slot))
                     .ok_or("exact OR branch slot missing")?;
-                branch.insert(crate::native_segment::SegmentRecordAddress {
+                branch.insert(crate::index::segment::SegmentRecordAddress {
                     collection: published.index.collection,
                     segment: published.id,
                     slot: record.slot,
@@ -5466,7 +5466,7 @@ pub(crate) fn explain_with_active(
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
             bigram_alphabet: collection.raw.alphabet,
-            folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+            folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
             fts_mode: fts.as_ref().map(|fts| fts.mode),
             fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
@@ -5946,7 +5946,7 @@ fn search_impl_with_collector<'a>(
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
                 bigram_alphabet: collection.raw.alphabet,
-                folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+                folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
                 fts_mode: fts.as_ref().map(|fts| fts.mode),
                 fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),

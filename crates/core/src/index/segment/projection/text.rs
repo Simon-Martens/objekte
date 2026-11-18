@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
-use crate::bigram::BigramIndex;
+use crate::index::bigram::BigramIndex;
 
 pub(crate) struct BigramProjection {
     pub(crate) raw: BigramIndex,

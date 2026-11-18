@@ -9,9 +9,9 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::bigram::BigramRequest;
-use crate::bigram::{fold, fold_into};
 use crate::field_state::{StatePredicate, selected_matches, value_matches};
+use crate::index::bigram::BigramRequest;
+use crate::index::bigram::{fold, fold_into};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
@@ -240,13 +240,13 @@ impl Schema {
         }
         let normalized = fields
             .iter()
-            .map(crate::sorting::simple_composite_part)
+            .map(crate::index::sorting::simple_composite_part)
             .collect::<Option<Vec<_>>>()
             .ok_or("composite sort requires resident scalar fields")?;
         if self.composite_sorts.iter().any(|existing| {
             existing
                 .iter()
-                .map(crate::sorting::simple_composite_part)
+                .map(crate::index::sorting::simple_composite_part)
                 .collect::<Option<Vec<_>>>()
                 .as_ref()
                 == Some(&normalized)

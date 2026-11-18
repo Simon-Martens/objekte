@@ -5,6 +5,7 @@ use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::sorting::{SortColumn, SortKey, SortOptions};
 use crate::inventory::RecordEntry;
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
@@ -16,7 +17,6 @@ use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::{BoundExpr, RecordContext};
 use crate::repository::{Payload, Repository, SearchHit};
 use crate::sort_binding::{BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache};
-use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::verified::CachedMember;

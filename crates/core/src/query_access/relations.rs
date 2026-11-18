@@ -144,7 +144,7 @@ impl<'a> NativeRelationProvider<'a> {
             .collect::<Result<Vec<_>, _>>()?;
         let view =
             MergedRelationView::new(self.repo, &empty_active, self.segments, &self.repo.catalog)?;
-        let mut native_input = crate::native_segment::SegmentRecordSet::default();
+        let mut native_input = crate::index::segment::SegmentRecordSet::default();
         for slot in input.iter() {
             match view.native_address_for_flat_slot(source, crate::model::RecordSlot(slot))? {
                 Some(address) => {

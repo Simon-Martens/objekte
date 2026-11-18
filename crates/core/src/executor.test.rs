@@ -232,7 +232,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     inference.policy.min_nonblank_records = 1;
     let options = RepositoryOptions {
         inference,
-        segment_policy: crate::native_segment::SegmentPolicy {
+        segment_policy: crate::index::segment::SegmentPolicy {
             target_records: std::num::NonZeroUsize::new(5).unwrap(),
             max_files: std::num::NonZeroUsize::new(5).unwrap(),
         },

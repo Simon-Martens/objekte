@@ -3,9 +3,9 @@
 use std::collections::BTreeSet;
 
 use objekte_search_core::completion::{CompletionContext, CompletionTarget};
+use objekte_search_core::index::posting::ScalarKey;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, MetadataField, Number, PathRoot};
-use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
 
 const MAX_CHOICES: usize = 20;

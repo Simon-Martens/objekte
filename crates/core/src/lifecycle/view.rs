@@ -109,7 +109,7 @@ impl IndexView {
         self.repository().build_failed_parses()
     }
 
-    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
+    pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
         self.repository().segment_summaries_for(&self.0.segments)
     }
 

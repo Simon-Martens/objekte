@@ -7,22 +7,22 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
-use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
+use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
+use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::relation::RelationContribution;
+use crate::index::sorting::{SortBuilder, SortKey};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceDiagnostic, SourceRevision,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
-use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::record_preparation::finish_build_record;
 use crate::reference::data_values;
-use crate::relation::RelationContribution;
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
     string_values,
 };
-use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceBufferProfile,
     SourceBuildSample, SourceOutcome, TextDerivation,

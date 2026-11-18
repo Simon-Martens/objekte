@@ -6,6 +6,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
+use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
@@ -13,7 +14,6 @@ use crate::lifecycle::IndexRevision;
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
-use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::FieldDefinition;

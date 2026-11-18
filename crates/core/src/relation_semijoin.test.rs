@@ -559,7 +559,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -692,7 +692,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -758,10 +758,10 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         &repo.catalog,
     )
     .unwrap();
-    let mut input = crate::native_segment::SegmentRecordSet::default();
+    let mut input = crate::index::segment::SegmentRecordSet::default();
     for published in repo.segments[source_index].iter() {
         for slot in published.active.bitmap().iter() {
-            input.insert(crate::native_segment::SegmentRecordAddress {
+            input.insert(crate::index::segment::SegmentRecordAddress {
                 collection: published.index.collection,
                 segment: published.id,
                 slot: crate::model::RecordSlot(slot),
@@ -827,7 +827,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },

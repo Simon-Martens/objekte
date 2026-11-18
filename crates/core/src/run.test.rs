@@ -371,7 +371,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     split_definition.format = SourceFormat::JsonLines;
     split_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     let mut split_options = options;
-    split_options.segment_policy = crate::native_segment::SegmentPolicy::with_target_records(
+    split_options.segment_policy = crate::index::segment::SegmentPolicy::with_target_records(
         std::num::NonZeroUsize::new(4).unwrap(),
     )
     .unwrap();
@@ -692,7 +692,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         vec![definition],
         crate::repository::RepositoryOptions {
             verified_cache_bytes: 0,
-            segment_policy: crate::native_segment::SegmentPolicy::with_target_records(
+            segment_policy: crate::index::segment::SegmentPolicy::with_target_records(
                 std::num::NonZeroUsize::new(4096).unwrap(),
             )
             .unwrap(),
@@ -2215,7 +2215,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let mut segments = repo.segments.clone();
     let mut group = (*segments[0]).clone();
     group.push(Arc::new(PublishedSegment {
-        id: crate::native_segment::SegmentId::new(4_294_967_298),
+        id: crate::index::segment::SegmentId::new(4_294_967_298),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
     }));
@@ -2614,7 +2614,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(
         first_values.values[0].value,
-        crate::posting::ScalarKey::String("a".into())
+        crate::index::posting::ScalarKey::String("a".into())
     );
     assert_eq!(first_values.values[0].count, 2);
     assert_eq!(first_values.coverage.eligible_records, 5);
@@ -2631,7 +2631,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(
         second_values.values[0].value,
-        crate::posting::ScalarKey::String("b".into())
+        crate::index::posting::ScalarKey::String("b".into())
     );
     assert_eq!(second_values.values[0].count, 2);
     values_request.continuation = second_values.continuation;
@@ -2646,7 +2646,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(
         third_values.values[0].value,
-        crate::posting::ScalarKey::String("c".into())
+        crate::index::posting::ScalarKey::String("c".into())
     );
     assert_eq!(third_values.values[0].count, 1);
     assert!(third_values.continuation.is_none());
@@ -2676,7 +2676,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(
         descending.values[0].value,
-        crate::posting::ScalarKey::String("c".into())
+        crate::index::posting::ScalarKey::String("c".into())
     );
     values_request.descending = false;
     assert_eq!(result.count, Some(3));
@@ -3435,7 +3435,7 @@ fn concurrent_test_inferred_column(path: &str) -> SortColumn {
         descending: Vec::new(),
         locale: "de".into(),
         options: SortOptions::default(),
-        collation_version: crate::sorting::COLLATION_VERSION.into(),
+        collation_version: crate::index::sorting::COLLATION_VERSION.into(),
     }
 }
 
@@ -3517,7 +3517,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     use std::sync::mpsc;
     use std::time::Duration;
 
-    let cache = Arc::new(Mutex::new(crate::sorting::InferredOrderCache::new(
+    let cache = Arc::new(Mutex::new(crate::index::sorting::InferredOrderCache::new(
         1024 * 1024,
     )));
     let (entered_tx, entered_rx) = mpsc::channel();
@@ -3528,7 +3528,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     let first_key = InferredOrderKey::new(
         0,
         1,
-        crate::native_segment::SegmentId::new(1),
+        crate::index::segment::SegmentId::new(1),
         FieldPath::parse(first_path).unwrap(),
         "de",
         SortOptions::default(),
@@ -3537,7 +3537,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     let second_key = InferredOrderKey::new(
         0,
         1,
-        crate::native_segment::SegmentId::new(1),
+        crate::index::segment::SegmentId::new(1),
         FieldPath::parse(second_path).unwrap(),
         "de",
         SortOptions::default(),
@@ -3814,7 +3814,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
             let after = repo.inferred_orders.lock().unwrap().stats();
             assert_eq!(after.builds, before.builds + 1, "{field} {descending}");
             assert!(after.hits >= before.hits + 2, "{field} {descending}");
-            assert!(after.resident_bytes <= crate::sorting::INFERRED_ORDER_CACHE_BYTES);
+            assert!(after.resident_bytes <= crate::index::sorting::INFERRED_ORDER_CACHE_BYTES);
         }
     }
     let restored = crate::lifecycle::Index::build_repository_for_test(

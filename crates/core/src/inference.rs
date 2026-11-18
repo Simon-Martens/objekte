@@ -6,8 +6,8 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+use crate::index::posting::PostingIndex;
 use crate::model::LogicalType;
-use crate::posting::PostingIndex;
 use crate::reference::Schema;
 
 pub const INFERENCE_POLICY_VERSION: u32 = 5;

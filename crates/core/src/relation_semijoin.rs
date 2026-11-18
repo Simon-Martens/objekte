@@ -8,10 +8,11 @@ use roaring::RoaringBitmap;
 use crate::executor::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };
+use crate::index::relation::{RelationIndex, RelationTarget};
+use crate::index::segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::inventory::RecordClass;
 use crate::lifecycle::PublishedSegment;
 use crate::model::{CollectionId, FileId, RecordSlot};
-use crate::native_segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::query::Quantifier;
 use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
 use crate::query_access::membership::SlotInput;
@@ -22,7 +23,7 @@ use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
     same_bound_term,
 };
-use crate::relation::{RelationCardinality, RelationTarget};
+use crate::relation::RelationCardinality;
 use crate::relation_query::{BoundRelationHop, HopDirection, MergedRelationView, positions_match};
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextSegment};
@@ -170,10 +171,7 @@ fn eligible<'a>(repo: &Repository, term: &'a BoundTerm) -> Option<&'a [BoundRela
     Some(&related.hops)
 }
 
-fn relation<'a>(
-    repo: &'a Repository,
-    hop: &BoundRelationHop,
-) -> Result<&'a crate::relation::RelationIndex, String> {
+fn relation<'a>(repo: &'a Repository, hop: &BoundRelationHop) -> Result<&'a RelationIndex, String> {
     repo.collections
         .get(hop.relation.source.0 as usize)
         .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))

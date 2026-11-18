@@ -174,14 +174,14 @@ fn start_build_rejects_invalid_segment_limits_before_dispatch() {
     let oversized = NonZeroUsize::new(u32::MAX as usize + 1).unwrap();
     for (policy, expected) in [
         (
-            crate::native_segment::SegmentPolicy {
+            crate::index::segment::SegmentPolicy {
                 target_records: oversized,
                 max_files: NonZeroUsize::new(1).unwrap(),
             },
             "segment target exceeds the supported local-slot range",
         ),
         (
-            crate::native_segment::SegmentPolicy {
+            crate::index::segment::SegmentPolicy {
                 target_records: NonZeroUsize::new(1).unwrap(),
                 max_files: oversized,
             },
@@ -313,7 +313,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
         vec![definition],
         RepositoryOptions {
             build_workers: std::num::NonZeroUsize::new(1),
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -361,7 +361,7 @@ fn large_file_finalizes_private_segments_before_eof() {
             vec![definition],
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(1),
-                segment_policy: crate::native_segment::SegmentPolicy {
+                segment_policy: crate::index::segment::SegmentPolicy {
                     target_records: std::num::NonZeroUsize::new(1).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
@@ -417,7 +417,7 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
             vec![definition.clone()],
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(workers),
-                segment_policy: crate::native_segment::SegmentPolicy {
+                segment_policy: crate::index::segment::SegmentPolicy {
                     target_records: std::num::NonZeroUsize::new(1).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
@@ -467,7 +467,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
             vec![definition],
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(2),
-                segment_policy: crate::native_segment::SegmentPolicy {
+                segment_policy: crate::index::segment::SegmentPolicy {
                     target_records: std::num::NonZeroUsize::new(1).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
@@ -585,7 +585,7 @@ fn private_final_drain_consumes_worker_error_before_returning() {
                 vec![definition],
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(4),
-                    segment_policy: crate::native_segment::SegmentPolicy {
+                    segment_policy: crate::index::segment::SegmentPolicy {
                         target_records: std::num::NonZeroUsize::new(1).unwrap(),
                         max_files: std::num::NonZeroUsize::new(1).unwrap(),
                     },
@@ -713,7 +713,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
                     vec![definition],
                     RepositoryOptions {
                         build_workers: std::num::NonZeroUsize::new(1),
-                        segment_policy: crate::native_segment::SegmentPolicy {
+                        segment_policy: crate::index::segment::SegmentPolicy {
                             target_records: std::num::NonZeroUsize::new(1).unwrap(),
                             max_files: std::num::NonZeroUsize::new(1).unwrap(),
                         },
@@ -788,7 +788,7 @@ fn multi_worker_segment_finalization_actually_overlaps() {
                 vec![definition],
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(3),
-                    segment_policy: crate::native_segment::SegmentPolicy {
+                    segment_policy: crate::index::segment::SegmentPolicy {
                         target_records: std::num::NonZeroUsize::new(2).unwrap(),
                         max_files: std::num::NonZeroUsize::new(2).unwrap(),
                     },
@@ -858,7 +858,7 @@ fn discovery_and_segments_publish_without_losing_records() {
                 vec![definition],
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(4),
-                    segment_policy: crate::native_segment::SegmentPolicy {
+                    segment_policy: crate::index::segment::SegmentPolicy {
                         target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
                         max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
                     },

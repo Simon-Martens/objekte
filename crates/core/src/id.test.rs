@@ -1,5 +1,5 @@
+use crate::index::posting::ScalarKey;
 use crate::model::{FieldPath, LogicalType, RecordId, Value};
-use crate::posting::ScalarKey;
 use crate::posting_values::PostingValuesRequest;
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};

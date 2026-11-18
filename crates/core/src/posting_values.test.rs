@@ -381,7 +381,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap_or(0)
         + 1;
     first_group.push(Arc::new(PublishedSegment {
-        id: crate::native_segment::SegmentId::new(next_id),
+        id: crate::index::segment::SegmentId::new(next_id),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
     }));

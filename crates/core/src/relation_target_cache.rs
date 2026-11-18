@@ -4,10 +4,10 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 
 use roaring::RoaringBitmap;
 
+use crate::index::relation::RelationTarget;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
 use crate::reference::{BoundExpr, BoundTerm};
-use crate::relation::RelationTarget;
 use crate::relation_query::HopDirection;
 use crate::repository::Repository;
 use crate::source::ScanProjection;

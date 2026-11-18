@@ -13,7 +13,7 @@ pub(crate) use sorting::project_sorting;
 pub(crate) use text::{BigramProjection, project_bigram};
 
 use super::IndexedCollectionSegment;
-use crate::relation::RelationContribution;
+use crate::index::relation::RelationContribution;
 use routing::scatter_bitmap_partitions;
 
 impl IndexedCollectionSegment {

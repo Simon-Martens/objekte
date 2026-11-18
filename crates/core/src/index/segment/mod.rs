@@ -15,15 +15,15 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
-use crate::bigram::BigramIndex;
+use crate::index::bigram::BigramIndex;
+use crate::index::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::relation::RelationContribution;
+use crate::index::sorting::SortCollection;
 use crate::inference::{InferenceObservation, InferenceState};
 use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
-use crate::posting::{CustomPostingIndex, PostingCollection};
-use crate::relation::RelationContribution;
-use crate::sorting::SortCollection;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
 
@@ -564,24 +564,24 @@ fn field_path_bytes(path: &crate::model::FieldPath) -> usize {
     path_bytes(&path.segments)
 }
 
-fn posting_bytes(index: &crate::posting::PostingIndex) -> usize {
+fn posting_bytes(index: &crate::index::posting::PostingIndex) -> usize {
     let mut total = path_bytes(&index.path).saturating_add(ACCOUNTING_OVERHEAD);
     total = total.saturating_add(bitmap_bytes(&index.presence));
     total = total.saturating_add(bitmap_bytes(&index.empty_selections));
     total = total.saturating_add(bitmap_bytes(&index.nulls));
     if let Some(facts) = &index.structural {
         total = total.saturating_add(facts.postings.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::StructuralKey>(),
+            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::posting::StructuralKey>(),
         ));
         total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
     }
-    total =
-        total.saturating_add(index.values.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::posting::ScalarKey>(),
-        ));
+    total = total.saturating_add(index.values.len().saturating_mul(
+        ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::posting::ScalarKey>(),
+    ));
     for (key, bitmap) in &index.values {
         total = total.saturating_add(bitmap_bytes(bitmap));
-        if let crate::posting::ScalarKey::String(value) | crate::posting::ScalarKey::Id(value) = key
+        if let crate::index::posting::ScalarKey::String(value)
+        | crate::index::posting::ScalarKey::Id(value) = key
         {
             total = total.saturating_add(value.len());
         }
@@ -617,15 +617,17 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
         total = total
             .saturating_add(field_path_bytes(path))
             .saturating_add(ACCOUNTING_OVERHEAD)
-            .saturating_add(column.keys.capacity() * std::mem::size_of::<crate::sorting::SortKey>())
+            .saturating_add(
+                column.keys.capacity() * std::mem::size_of::<crate::index::sorting::SortKey>(),
+            )
             .saturating_add(column.ascending.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(column.descending.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(column.locale.len())
             .saturating_add(column.collation_version.len());
         for key in &column.keys {
             total = total.saturating_add(match key {
-                crate::sorting::SortKey::String(value) => value.len(),
-                crate::sorting::SortKey::Id(value) => value.len(),
+                crate::index::sorting::SortKey::String(value) => value.len(),
+                crate::index::sorting::SortKey::Id(value) => value.len(),
                 _ => 0,
             });
         }
@@ -634,7 +636,7 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
         total = total
             .saturating_add(
                 composite.fields.capacity()
-                    * std::mem::size_of::<crate::sorting::CompositeSortPart>(),
+                    * std::mem::size_of::<crate::index::sorting::CompositeSortPart>(),
             )
             .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
         for part in &composite.fields {

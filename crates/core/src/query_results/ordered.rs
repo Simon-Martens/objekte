@@ -418,7 +418,7 @@ pub(super) fn inferred_order_column_for_segment(
 }
 
 pub(super) fn cached_inferred_order(
-    cache: &Mutex<crate::sorting::InferredOrderCache>,
+    cache: &Mutex<crate::index::sorting::InferredOrderCache>,
     key: InferredOrderKey,
     build: impl FnOnce() -> Result<Option<SortColumn>, String>,
 ) -> Result<Option<Arc<SortColumn>>, String> {
@@ -741,7 +741,7 @@ pub(super) fn try_inferred_segment_order_page(
             collection: collection.definition.name.clone(),
             generation: revision.0,
             bigram_alphabet: collection.raw.alphabet,
-            folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+            folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: None,
             fts_mode: None,
             fts_exact_literal: None,
@@ -939,7 +939,7 @@ pub(super) fn try_stored_order_page(
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
                 bigram_alphabet: collection.raw.alphabet,
-                folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+                folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
                 fts_mode: entry.fts.map(|fts| fts.mode),
                 fts_exact_literal: entry.fts.map(|fts| fts.source_literal.clone()),

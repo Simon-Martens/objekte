@@ -1,4 +1,4 @@
-//! Relation declarations and compatibility re-exports of physical storage.
+//! Relation declarations, identities and schema validation.
 
 use std::collections::{BTreeMap, HashMap};
 
@@ -7,9 +7,6 @@ use serde::{Deserialize, Serialize};
 use crate::model::{CollectionId, LogicalType};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::CollectionDefinition;
-
-pub(crate) use crate::index::relation::{RelationContribution, validate_indexes};
-pub use crate::index::relation::{RelationEdge, RelationIndex, RelationTarget};
 
 /// Declared cardinality of a source relation field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]

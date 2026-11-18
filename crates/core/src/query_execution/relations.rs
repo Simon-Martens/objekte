@@ -237,7 +237,9 @@ fn relation_source_candidates(
         &published.active.bitmap() - &published.index.logical_records
     };
     for id in &plan.target_ids {
-        if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone())) {
+        if let Some(slots) =
+            posting.value_posting(&crate::index::posting::ScalarKey::Id(id.clone()))
+        {
             may |= slots;
         }
     }
@@ -963,7 +965,7 @@ fn try_semijoin_relation_page(
         return Ok(None);
     }
     let collection = &repo.collections[*collection_index];
-    let mut input = crate::native_segment::SegmentRecordSet::default();
+    let mut input = crate::index::segment::SegmentRecordSet::default();
     let source_collection = collection.generation.collection;
     let mut filter_evidence = Vec::new();
     for published in segments[*collection_index].iter() {
@@ -1009,7 +1011,7 @@ fn try_semijoin_relation_page(
     for published in segments[*collection_index].iter() {
         let mut matches = RoaringBitmap::new();
         for (slot, record) in published.index.records.iter().enumerate() {
-            let address = crate::native_segment::SegmentRecordAddress {
+            let address = crate::index::segment::SegmentRecordAddress {
                 collection: published.index.collection,
                 segment: published.id,
                 slot: record.slot,
@@ -1025,7 +1027,7 @@ fn try_semijoin_relation_page(
                     .index
                     .record(RecordSlot(slot))
                     .ok_or("semijoin source evidence record missing")?;
-                let address = crate::native_segment::SegmentRecordAddress {
+                let address = crate::index::segment::SegmentRecordAddress {
                     collection: published.index.collection,
                     segment: published.id,
                     slot: record.slot,

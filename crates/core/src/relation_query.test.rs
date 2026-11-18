@@ -145,12 +145,12 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(1),
+            id: crate::index::segment::SegmentId::new(1),
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(2),
+            id: crate::index::segment::SegmentId::new(2),
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
         })]),
