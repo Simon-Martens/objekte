@@ -10,10 +10,10 @@
 
 | Metric | Base median | Current median | Delta |
 | --- | ---: | ---: | ---: |
-| Wall time | 641,217,095 ns | 627,727,423 ns | -2.11% |
-| Build time | 641,197,306 ns | 613,688,920 ns | -4.29% |
-| Discovery time | 188,338,306 ns | 196,704,760 ns | +4.44% |
-| Peak resident bytes | 655,540,224 | 646,385,664 | -1.40% |
+| Wall time | 641,217,095 ns | 653,992,201 ns | +1.99% |
+| Build time | 641,197,306 ns | 639,801,447 ns | -0.22% |
+| Discovery time | 188,338,306 ns | 191,813,178 ns | +1.85% |
+| Peak resident bytes | 655,540,224 | 648,462,336 | -1.08% |
 | Peak admitted bytes | 523,665,408 | 523,665,408 | 0% |
 | Inventory heap bytes | 40,275,632 | 40,275,632 | 0% |
 | Bigram heap bytes | 86,292,620 | 86,292,620 | 0% |
