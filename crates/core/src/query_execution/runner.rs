@@ -2053,11 +2053,12 @@ fn search_segmented_impl(
                 None
             };
             let filter_input = if text_first {
-                text_first_bounds
-                    .as_ref()
-                    .map_or_else(|| domain.clone(), |bounds| bounds.may.as_ref().clone())
+                text_first_bounds.as_ref().map_or_else(
+                    || Arc::new(domain.clone()),
+                    |bounds| Arc::clone(&bounds.may),
+                )
             } else {
-                domain.clone()
+                Arc::new(domain.clone())
             };
             let bounds = filter
                 .as_ref()
@@ -2068,7 +2069,7 @@ fn search_segmented_impl(
                         filter,
                         collection,
                         Some(catalog),
-                        &filter_input,
+                        filter_input.as_ref(),
                         Some(&predicates),
                         context,
                     )
@@ -2076,9 +2077,9 @@ fn search_segmented_impl(
                 .transpose()?;
             let mut candidates = bounds
                 .as_ref()
-                .map_or(filter_input, |bounds| bounds.may.as_ref().clone());
+                .map_or(filter_input, |bounds| Arc::clone(&bounds.may));
             if filter.as_ref().is_some_and(excludes_raw_fallback) {
-                candidates &= &segment.logical_records;
+                *Arc::make_mut(&mut candidates) &= &segment.logical_records;
             }
             let fts_bounds = if text_first {
                 text_first_bounds
@@ -2091,7 +2092,7 @@ fn search_segmented_impl(
                             collection,
                             fts,
                             term,
-                            &candidates,
+                            candidates.as_ref(),
                             context,
                         )
                     })
@@ -2100,7 +2101,7 @@ fn search_segmented_impl(
             if let Some(fts_may) = fts_bounds.as_ref()
                 && !text_first
             {
-                candidates &= fts_may.may.as_ref();
+                *Arc::make_mut(&mut candidates) &= fts_may.may.as_ref();
             }
             counters.candidates += candidates.len();
             let metadata_evidence = if filter.is_none()
@@ -2128,14 +2129,14 @@ fn search_segmented_impl(
                 None
             };
             if let Some(evidence) = &metadata_evidence {
-                candidates = evidence.keys().copied().collect();
+                candidates = Arc::new(evidence.keys().copied().collect());
             }
             if candidates.is_empty() {
                 continue;
             }
             let proven = bounds
                 .as_ref()
-                .map(|bounds| &candidates & bounds.must.as_ref())
+                .map(|bounds| candidates.as_ref() & bounds.must.as_ref())
                 .unwrap_or_default();
             if !query.options.evidence
                 && (fts.is_none() || metadata_evidence.is_some())
@@ -2213,7 +2214,7 @@ fn search_segmented_impl(
                         )?;
                     }
                 }
-                candidates -= &proven;
+                *Arc::make_mut(&mut candidates) -= &proven;
                 if candidates.is_empty() {
                     continue;
                 }
