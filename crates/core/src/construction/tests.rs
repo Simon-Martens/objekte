@@ -1,3 +1,5 @@
+#[cfg(feature = "detailed-profiling")]
+use crate::construction::batch::process_batch_profiled;
 use crate::construction::batch::{SourceFileInput, file_batches, process_batch};
 use crate::construction::file_preparation::{
     BoundedBuildLimits, BytesPreparationError, FilePreparationBinding, PreparedFileBuild,
