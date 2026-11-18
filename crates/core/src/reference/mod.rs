@@ -9,13 +9,13 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::field_state::{StatePredicate, selected_matches, value_matches};
 use crate::index::bigram::BigramRequest;
 use crate::index::bigram::{fold, fold_into};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::path::{PathStep, QueryPath};
 use crate::query::regex::CompiledRegex;
+use crate::query::semantics::state::{StatePredicate, selected_matches, value_matches};
 use crate::query::temporal::TemporalBounds;
 use crate::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Literal, Modifier, Operand, Operator,
@@ -3541,5 +3541,4 @@ pub fn eval_fts_query(
 }
 
 #[cfg(test)]
-#[path = "reference.test.rs"]
 mod tests;

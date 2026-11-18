@@ -6,9 +6,9 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::query::semantics::state::{StatePredicate, value_matches};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
 
 mod lookup;

@@ -42,5 +42,4 @@ pub(crate) fn value_matches(value: &Value, predicate: StatePredicate) -> bool {
 }
 
 #[cfg(test)]
-#[path = "field_state.test.rs"]
 mod tests;

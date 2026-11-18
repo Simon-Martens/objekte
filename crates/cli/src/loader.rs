@@ -10,7 +10,7 @@ use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::repository_configuration::{
     load_explicit_schema, load_repository_configuration,
 };
-use objekte_search_core::schema_adapter::CompiledSchema;
+use objekte_search_core::schema::json::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};

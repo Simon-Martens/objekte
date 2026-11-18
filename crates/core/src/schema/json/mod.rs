@@ -547,5 +547,4 @@ fn display_path(path: &[String]) -> String {
 }
 
 #[cfg(test)]
-#[path = "schema_adapter.test.rs"]
 mod tests;
