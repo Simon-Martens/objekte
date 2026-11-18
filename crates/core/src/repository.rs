@@ -28,7 +28,8 @@ use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
-use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
+use crate::reference::{RecordContext, eval_unavailable_filter};
+use crate::schema::{Schema, operation::BindingOperation};
 use crate::source::access::{SourceAccessSession, read_record_range_for_search};
 use crate::source::{
     ScanProjection, SourceFormat, registry::PreparedSource, registry::SourceRegistry,

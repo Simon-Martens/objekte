@@ -174,8 +174,8 @@ mod tests {
 
     use crate::inference::InferenceMode;
     use crate::model::{FieldPath, LogicalType, PathRoot};
-    use crate::reference::{CustomBinding, FieldDefinition, Transform};
     use crate::relation::{RelationCardinality, RelationDefinition};
+    use crate::schema::{FieldDefinition, operation::CustomBinding, operation::Transform};
     use crate::source::SourceFormat;
     use crate::source::json::JsonReader;
 

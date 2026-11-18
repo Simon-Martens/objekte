@@ -2,7 +2,8 @@ use super::strings::{with_next_quoted_text_strategy, with_quoted_text};
 use super::*;
 use crate::model::FieldPath;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
-use crate::reference::{BoundExpr, Schema, bind_filter, bind_fts};
+use crate::reference::{BoundExpr, bind_filter, bind_fts};
+use crate::schema::Schema;
 
 #[test]
 fn combined_borrowed_fts_and_filter_fold_each_segment_once() {

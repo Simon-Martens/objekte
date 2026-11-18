@@ -14,11 +14,12 @@ use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
 use crate::query::path::{PathStep, QueryPath, split_path_binding};
-use crate::reference::{BindingOperation, RecordContext, Transform, metadata_value};
+use crate::reference::{RecordContext, metadata_value};
 use crate::relation_query::{
     BoundRelationHop, HopDirection, MergedRecordSlot, MergedRelationView, resolve_path,
 };
 use crate::repository::Repository;
+use crate::schema::{operation::BindingOperation, operation::Transform};
 
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
@@ -216,7 +217,7 @@ fn expression(field: &SortField) -> Result<SortExpression, String> {
 }
 
 fn bind_transform(
-    schema: &crate::reference::Schema,
+    schema: &crate::schema::Schema,
     path: &QueryPath,
     requested: Option<&str>,
 ) -> Result<(SortTransform, SortTransformIdentity), String> {

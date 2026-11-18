@@ -437,8 +437,8 @@ mod tests {
     use super::*;
     use crate::model::LogicalType;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
-    use crate::reference::FieldDefinition;
     use crate::repository::RepositoryOptions;
+    use crate::schema::FieldDefinition;
 
     #[test]
     fn source_scan_matches_reference_search_before_an_index_exists() {

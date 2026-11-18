@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::index::posting::PostingIndex;
 use crate::model::LogicalType;
-use crate::reference::Schema;
+use crate::schema::Schema;
 
 pub const INFERENCE_POLICY_VERSION: u32 = 5;
 

@@ -6,8 +6,8 @@ use std::time::Instant;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::LogicalType;
-use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::schema::FieldDefinition;
 use objekte_search_core::source::SourceFormat;
 use serde_json::json;
 

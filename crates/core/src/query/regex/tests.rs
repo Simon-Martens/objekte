@@ -3,11 +3,12 @@ use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::{FtsField, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::query_execution::restrictions::fts_candidates;
-use crate::reference::{
-    BindingOperation, CustomBinding, FieldDefinition, RegisteredBinding, Schema, Transform,
-    bind_fts,
-};
+use crate::reference::bind_fts;
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{
+    FieldDefinition, Schema, operation::BindingOperation, operation::CustomBinding,
+    operation::RegisteredBinding, operation::Transform,
+};
 use crate::source::{SourceFormat, TextSegment};
 
 #[test]

@@ -2,9 +2,9 @@ use super::*;
 use crate::execution_options::ReturnMode;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
-use crate::reference::{FieldDefinition, RegisteredBinding};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{FieldDefinition, operation::RegisteredBinding};
 use crate::source::SourceFormat;
 
 #[derive(Debug)]
@@ -275,7 +275,7 @@ fn untyped_sort_names_remain_literal_and_typed_expressions_select_bindings() {
     assert_eq!(quoted.binding, None);
 }
 
-fn q4_field(schema: &mut crate::reference::Schema, name: &str, kind: LogicalType) {
+fn q4_field(schema: &mut crate::schema::Schema, name: &str, kind: LogicalType) {
     schema
         .register_field(FieldDefinition {
             path: vec![name.into()],

@@ -6,9 +6,11 @@ use std::collections::HashSet;
 use std::path::Path;
 
 use objekte_search_core::model::{FieldPath, LogicalType};
-use objekte_search_core::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy};
+use objekte_search_core::schema::{
+    FieldDefinition, Schema, operation::CustomBinding, operation::Transform,
+};
 use objekte_search_core::source::SourceFormat;
 use serde::Serialize;
 use sha2::{Digest, Sha256};

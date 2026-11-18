@@ -9,10 +9,9 @@ use crate::model::{LogicalType, PathRoot};
 use crate::query::{Operator, Query};
 use crate::query_execution::restrictions::{Proof, estimate_expr};
 use crate::query_results::ranking::ResolvedSort;
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, Transform, same_bound_term,
-};
+use crate::reference::{BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, same_bound_term};
 use crate::repository::{CollectionState, Repository};
+use crate::schema::{operation::ExactInput, operation::Transform};
 use crate::source::ScanProjection;
 use crate::source::verification::ScalarVerification;
 
@@ -342,7 +341,7 @@ impl<'a> DirectSourcePlan<'a> {
                 || term.related.is_some()
                 || term.rhs.is_some()
                 || term.matcher.as_ref().is_none_or(|matcher| {
-                    matcher.input() != crate::reference::ExactInput::OriginalRecordBytes
+                    matcher.input() != crate::schema::operation::ExactInput::OriginalRecordBytes
                 })
             {
                 return None;
@@ -374,7 +373,7 @@ impl<'a> DirectSourcePlan<'a> {
                     && term.derived == Derived::None
                     && (term.prepared_contains.is_some()
                         || term.matcher.as_ref().is_some_and(|matcher| {
-                            matcher.input() == crate::reference::ExactInput::SelectedValue
+                            matcher.input() == crate::schema::operation::ExactInput::SelectedValue
                         })) =>
             {
                 Some((term, proof))

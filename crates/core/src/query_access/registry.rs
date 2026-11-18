@@ -351,7 +351,7 @@ mod tests {
     fn empty_term_ref() -> &'static BoundTerm {
         static TERM: std::sync::OnceLock<BoundTerm> = std::sync::OnceLock::new();
         TERM.get_or_init(|| {
-            let schema = crate::reference::Schema::default();
+            let schema = crate::schema::Schema::default();
             let filter = crate::query::parse_filter("field = 'x'").unwrap();
             let crate::reference::BoundExpr::Term(term) =
                 crate::reference::bind_filter(&filter, &schema).unwrap()

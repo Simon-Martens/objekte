@@ -411,7 +411,8 @@ mod tests {
     use super::*;
     use crate::query::FtsMode;
     use crate::query_plan::selection::choose_offer;
-    use crate::reference::{BoundExpr, Schema};
+    use crate::reference::BoundExpr;
+    use crate::schema::Schema;
 
     #[test]
     fn sorted_scalar_and_gram_backing_match_reference_membership() {

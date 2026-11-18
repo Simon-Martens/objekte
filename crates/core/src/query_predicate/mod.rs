@@ -427,7 +427,7 @@ pub(crate) fn alternate_term_result(
         || term.path.segments.len() != 1
         || term.path.segments[0] != matcher.field
         || term.operator != crate::query::Operator::Contains
-        || term.transform != crate::reference::Transform::Identity
+        || term.transform != crate::schema::operation::Transform::Identity
         || !matches!(term.literal, crate::model::Value::String(_))
     {
         return None;
@@ -458,7 +458,7 @@ mod tests {
     fn bound_term(field: &str) -> BoundTerm {
         let filter = crate::query::parse_filter(&format!("{field} = 'value'")).unwrap();
         let BoundExpr::Term(term) =
-            crate::reference::bind_filter(&filter, &crate::reference::Schema::default()).unwrap()
+            crate::reference::bind_filter(&filter, &crate::schema::Schema::default()).unwrap()
         else {
             unreachable!()
         };

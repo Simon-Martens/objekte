@@ -32,10 +32,9 @@ use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::segment::NativeSegmentProvider;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
-};
+use crate::reference::{BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, eval_term};
 use crate::repository::{CollectionState, Repository};
+use crate::schema::operation::Transform;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
@@ -1489,7 +1488,7 @@ pub(crate) fn segment_expr_bounds(
             }
             if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
                 && term.operator == Operator::Eq
-                && term.transform == crate::reference::Transform::Identity
+                && term.transform == crate::schema::operation::Transform::Identity
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();

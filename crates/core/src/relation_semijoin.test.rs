@@ -5,9 +5,10 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
-use crate::reference::{BoundExpr, FieldDefinition, Schema};
+use crate::reference::BoundExpr;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::json::JsonReader;
 use crate::source::{
     ExtractedRecord, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,

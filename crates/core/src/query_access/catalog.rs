@@ -13,8 +13,9 @@ use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};
-use crate::reference::{BoundTerm, Derived, Schema, Transform};
+use crate::reference::{BoundTerm, Derived};
 use crate::repository::CollectionState;
+use crate::schema::{Schema, operation::Transform};
 
 /// Physical identity is used only to resolve a selected borrowed access. It
 /// does not change applicability, proof, or cost.

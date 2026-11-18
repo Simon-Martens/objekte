@@ -420,7 +420,7 @@ mod tests {
         definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition
             .schema
-            .register_field(crate::reference::FieldDefinition {
+            .register_field(crate::schema::FieldDefinition {
                 path: vec!["value".into()],
                 kind: crate::model::LogicalType::Number,
                 required: false,

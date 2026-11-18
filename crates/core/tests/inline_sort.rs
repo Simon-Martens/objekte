@@ -5,8 +5,8 @@ use objekte_search_core::execution_options::{ReturnMode, SortExpression, SortFie
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
-use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 

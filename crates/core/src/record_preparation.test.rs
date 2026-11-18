@@ -36,7 +36,7 @@ fn built_and_trusted_logical(
 #[test]
 fn trusted_logical_root_arrays_keep_declared_metadata_without_conversions() {
     use crate::model::LogicalType;
-    use crate::reference::FieldDefinition;
+    use crate::schema::FieldDefinition;
 
     for (bytes, nullable) in [
         (b"[]".as_slice(), false),
@@ -102,7 +102,7 @@ fn trusted_logical_root_arrays_keep_declared_metadata_without_conversions() {
 fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
-    use crate::reference::FieldDefinition;
+    use crate::schema::FieldDefinition;
     use crate::source::{SourceFormat, registry::SourceRegistry};
     use std::collections::HashSet;
 
@@ -280,7 +280,7 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
 fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
-    use crate::reference::FieldDefinition;
+    use crate::schema::FieldDefinition;
     use crate::source::json::JsonReader;
     use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
     use crate::streaming::ExecutionContext;

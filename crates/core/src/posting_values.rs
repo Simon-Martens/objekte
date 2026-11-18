@@ -16,8 +16,8 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
 use crate::record_preparation::prepare_query_record_with_execution;
-use crate::reference::FieldDefinition;
 use crate::repository::{CollectionState, Repository};
+use crate::schema::FieldDefinition;
 use crate::source::ScanProjection;
 use crate::source::access::RecordRangeReader;
 

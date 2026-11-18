@@ -8,9 +8,9 @@ use serde::{Deserialize, Serialize};
 use crate::index::posting::ScalarKey;
 use crate::inventory::{RecordClass, append_shifted_bitmap};
 use crate::model::{CollectionId, RecordSlot, Value};
-use crate::reference::Schema;
 use crate::relation::{RelationDefinition, RelationId};
 use crate::repository::CollectionState;
+use crate::schema::Schema;
 
 #[cfg(test)]
 static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =

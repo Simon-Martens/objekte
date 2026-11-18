@@ -11,7 +11,7 @@ use crate::index::posting::{
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::state::{StatePredicate, value_matches};
-use crate::reference::Schema;
+use crate::schema::Schema;
 
 use super::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
