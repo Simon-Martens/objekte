@@ -3098,7 +3098,7 @@ pub(crate) fn search_analyze_segmented(
     };
     let observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
-    attach_execution_observations(&mut traces, observations);
+    attach_execution_observations(repo, &mut traces, observations);
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
@@ -5425,7 +5425,7 @@ pub(crate) fn search_analyze_with_active(
             };
             let observations =
                 crate::query_execution::request::finish_observation_capture(repo.instance_id);
-            attach_execution_observations(&mut traces, observations);
+            attach_execution_observations(repo, &mut traces, observations);
             return Ok((result, traces));
         }
     }
@@ -5460,7 +5460,7 @@ pub(crate) fn search_analyze_with_active(
     };
     let observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
-    attach_execution_observations(&mut traces, observations);
+    attach_execution_observations(repo, &mut traces, observations);
     Ok((result, traces))
 }
 

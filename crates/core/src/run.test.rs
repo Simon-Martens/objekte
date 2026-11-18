@@ -1398,6 +1398,29 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
             }
         }
     }
+    let view = index.view().unwrap();
+    let planned = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("rank >= 0").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("rank", false)],
+            limit: 5,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let (_, traces) = view.repository().explain_analyze(&planned).unwrap();
+    assert!(
+        traces
+            .iter()
+            .flat_map(|trace| &trace.terms)
+            .all(|term| term.executed),
+        "{traces:#?}"
+    );
+    drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -4313,6 +4336,19 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
             .iter()
             .all(|part| part.fts_strategy == "stored order page traversal")
     );
+    assert!(
+        trace
+            .iter()
+            .flat_map(|part| &part.terms)
+            .all(|term| term.executed),
+        "{trace:#?}"
+    );
+    let mut selected_collection = query.clone();
+    selected_collection.collections = vec!["b".into()];
+    let (_, selected_trace) = repo.explain_analyze(&selected_collection).unwrap();
+    assert_eq!(selected_trace.len(), 1);
+    assert!(!selected_trace[0].observations.is_empty());
+    assert!(selected_trace[0].terms.iter().all(|term| term.executed));
     query.options.count = true;
     let counted = repo.search(&query).unwrap();
     assert_eq!(counted.count, Some(200));

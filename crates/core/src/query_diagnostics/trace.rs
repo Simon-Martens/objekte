@@ -246,11 +246,18 @@ pub(crate) fn finish_trace(
 }
 
 pub(crate) fn attach_execution_observations(
+    repo: &Repository,
     traces: &mut [QueryPlanTrace],
     observations: Vec<ExecutionObservation>,
 ) {
     for observation in observations {
-        if let Some(trace) = traces.get_mut(observation.collection as usize) {
+        let Some(collection) = repo.collections.get(observation.collection as usize) else {
+            continue;
+        };
+        if let Some(trace) = traces
+            .iter_mut()
+            .find(|trace| trace.collection == collection.definition.name)
+        {
             match observation.access_kind.as_deref() {
                 Some("relation_target_first") => {
                     trace.fts_strategy = "relation target-first semijoin".into();

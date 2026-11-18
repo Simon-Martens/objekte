@@ -66,9 +66,10 @@ pub(crate) fn finish_observation_capture(instance_id: u64) -> Vec<ExecutionObser
     if capture.is_some() {
         ACTIVE_CAPTURES.fetch_sub(1, Ordering::Release);
     }
-    capture
+    let observations = capture
         .map(|capture| capture.observations)
-        .unwrap_or_default()
+        .unwrap_or_default();
+    observations
 }
 
 pub(crate) fn cancel_observation_capture(instance_id: u64) {
@@ -276,7 +277,7 @@ fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
             let log = observation_log().lock().expect("observation log poisoned");
             let mut matches = log
                 .iter()
-                .filter(|(_, capture)| capture.instance_id == instance_id)
+                .filter(|(_, capture)| instance_id == 0 || capture.instance_id == instance_id)
                 .map(|(capture_id, _)| *capture_id);
             let Some(capture_id) = matches.next() else {
                 return;
