@@ -7850,7 +7850,7 @@ pub(crate) fn explain_segmented(
                 && term.derived == Derived::None
                 && term.operation.is_none()
                 && term.matcher.is_none()
-                && let Some(request) = term.gram_request.as_ref()
+                && term.gram_request.is_some()
             {
                 let mut output = 0u64;
                 let mut structural = 0u64;
