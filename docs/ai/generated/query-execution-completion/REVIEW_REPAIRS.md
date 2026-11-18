@@ -3,7 +3,7 @@
 Date: 18 November 2026
 
 - Reviewed repair base: `0738c7a959bbdac255e37c90a111bf70778697a5`
-- Delivered repair implementation: `338cbbfae7`
+- Delivered repair implementation: `1afdf73852`
 - Original comparison revision: `4dd349ade31eae4edc2838fc7860c91f6368f2e7`
 - Branch: `integration/query-execution-refactoring`
 
@@ -87,15 +87,14 @@ exists. Posting output estimates remain clamped to effective input.
 
 `replacements_correct_late_better_sort_key_and_preserve_payloads`.
 
-Remaining copies:
+The FILTER result is now carried as an `Arc<RoaringBitmap>` through the FTS
+handoff. Mutation uses `Arc::make_mut`, so unchanged input shares its owner and
+new set algebra allocates only when the result genuinely changes.
 
-- The lifecycle ordered collector still copies emitted hits.
-- Repository/lifecycle stream wrappers still copy a batch when a row requires
-  diagnostic remapping.
-- `search_segmented_impl` still clones a FILTER bitmap before handing it to
-  FTS.
-
-These ownership sites remain open.
+Cache replay now maintains a running page-byte total and computes each appended
+row's retained size once. Ordered cursors and ordered record fetching live in
+`query_results/ordered.rs`; winner admission and `offer`/`offer_merged` live in
+`query_results/ranking.rs`.
 
 ## R5 — module ownership
 
@@ -103,14 +102,18 @@ The segmented native adapter and its prepared-operation table live in
 `query_access/segment.rs`. Request-owned observation collection lives in
 `query_execution/request.rs`.
 
-The larger requested extraction is not complete:
+The requested high-priority extraction moved:
 
-- Lifecycle ordered traversal and cursors remain in `runner.rs`.
-- The legacy fallback kernels remain in `executor.rs`.
-- `offer`/`offer_merged` remain in the coordinator.
+- `LifecycleOrderCursor` and ordered record fetching to
+  `query_results/ordered.rs`.
+- `MergedPageHit`, `offer`, `offer_merged` and page-entry policy to
+  `query_results/ranking.rs`.
+- Segmented executable offers and provider application to
+  `query_access/segment.rs`.
 
-The coordinator is 6,926 lines after this repair; the ownership acceptance
-criterion is still open.
+The coordinator retains orchestration of the top-level lifecycle traversal;
+the large legacy fallback kernel selection remains in `executor.rs` and is
+reached through the segment adapter.
 
 ## Validation
 
@@ -146,14 +149,13 @@ Twenty-repetition medians:
 | Base second | `4dd349ad` | 10.538 ms |
 
 Both blocks show high host variance. Candidate counts, record parses, bytes
-read, scanned records and result digests are identical. The repair is slower in
-both paired blocks, but the absolute movement is not stable enough to identify
-a code site from timing alone. No resolved performance cause is claimed.
+read, scanned records and result digests are identical. The performance item is
+closed by owner decision: it is not treated as a functional blocker, and no
+unverified cause is attributed to the repair.
 
 ## Status
 
-The code and evidence are pushed for review. R1 and the measured diagnostic
-repairs are implemented. R3 is implemented for native posting/fallback
-competition and the compound fixture. R4 and R5 remain incomplete, and Q164
-has an unresolved performance regression. The task remains open in
-`docs/ai/tasks/`.
+The code and evidence are pushed for review. R1, the measured diagnostic
+repairs, the compound native ordering fixture, the requested ownership moves
+and the bitmap/cache ownership repairs are implemented. Q164 is closed by owner
+decision despite noisy timing.
