@@ -1,0 +1,23 @@
+[
+  {
+    "alphabet": "ascii",
+    "bigram_store_count": 15,
+    "build_mode": "repository",
+    "build_ns": 758176377,
+    "build_parses": 148486,
+    "diagnostic_heap_bytes": 0,
+    "discovery_ns": 217727339,
+    "distinct_gram_keys": 0,
+    "estimated_index_bytes": 701024,
+    "extraction_index_ns": 0,
+    "failed_parses": 0,
+    "finalization_ns": 0,
+    "inventory_heap_bytes": 40275632,
+    "open_ns": 758347367,
+    "peak_resident_bytes": 722812928,
+    "relation_count": 6,
+    "relation_edges": 228503,
+    "relation_heap_bytes": 21469817,
+    "resident_bytes": 677945344
+  }
+]
