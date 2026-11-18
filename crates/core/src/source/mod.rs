@@ -15,6 +15,9 @@ use crate::measurement::SourceUnavailableKind;
 use crate::model::{ArrayValue, Number, Value};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
+pub mod access;
+pub(crate) mod json;
+
 fn source_changed(execution: Option<&ExecutionContext>, message: String) -> String {
     if let Some(execution) = execution {
         execution.fail(ExecutionErrorKind::SourceChanged, message)
@@ -701,7 +704,7 @@ fn parse_json_for_query_trusted(
     bytes: &[u8],
     projection: &ScanProjection,
 ) -> Result<ExtractedRecord, String> {
-    let value = crate::json_scalar_text::extract_query_value(bytes, projection, true)?;
+    let value = crate::source::json::scalars::extract_query_value(bytes, projection, true)?;
     let mut text = Vec::new();
     if projection.collect_text {
         collect_strings(&value, &mut Vec::new(), &mut text);
@@ -716,24 +719,20 @@ fn parse_json_decoded_for_query_diagnosed(
     if !projection.collect_text {
         return parse_json_for_query_diagnosed(bytes, projection);
     }
-    let (value, text) = crate::json_scalar_text::extract_query_record(bytes, projection, false)
-        .map_err(|error| {
-            if error.contains("resource limit") {
-                return ReaderDiagnostic::new(
-                    DiagnosticCategory::ResourceLimit,
-                    "json.value",
-                    error,
-                );
+    let (value, text) = crate::source::json::scalars::extract_query_record(
+        bytes, projection, false,
+    )
+    .map_err(|error| {
+        if error.contains("resource limit") {
+            return ReaderDiagnostic::new(DiagnosticCategory::ResourceLimit, "json.value", error);
+        }
+        match serde_json::from_slice::<serde_json::Value>(bytes) {
+            Err(syntax) => json_issue(bytes, syntax),
+            Ok(_) => {
+                ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation, "json.value", error)
             }
-            match serde_json::from_slice::<serde_json::Value>(bytes) {
-                Err(syntax) => json_issue(bytes, syntax),
-                Ok(_) => ReaderDiagnostic::new(
-                    DiagnosticCategory::LogicalValidation,
-                    "json.value",
-                    error,
-                ),
-            }
-        })?;
+        }
+    })?;
     Ok(ExtractedRecord { value, text })
 }
 
@@ -741,14 +740,15 @@ fn parse_json_decoded_for_query_trusted(
     bytes: &[u8],
     projection: &ScanProjection,
 ) -> Result<ExtractedRecord, String> {
-    let (value, text) = crate::json_scalar_text::extract_query_record(bytes, projection, true)?;
+    let (value, text) =
+        crate::source::json::scalars::extract_query_record(bytes, projection, true)?;
     Ok(ExtractedRecord { value, text })
 }
 
 fn parse_json_decoded_for_build_diagnosed(
     bytes: &[u8],
 ) -> Result<ExtractedRecord, ReaderDiagnostic> {
-    let (value, text) = crate::json_scalar_text::build_record(bytes).map_err(|error| {
+    let (value, text) = crate::source::json::scalars::build_record(bytes).map_err(|error| {
         if error.contains("resource limit") {
             return ReaderDiagnostic::new(DiagnosticCategory::ResourceLimit, "json.value", error);
         }
@@ -2073,5 +2073,4 @@ impl RecordRangeReader {
 }
 
 #[cfg(test)]
-#[path = "source.test.rs"]
 mod tests;

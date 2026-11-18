@@ -171,13 +171,20 @@ pub(crate) fn prepare_decoded_record_with_borrowed_fts(
     fts: &BoundFts,
     evidence: bool,
     execution: Option<&ExecutionContext>,
-) -> Result<(ExtractedRecord, crate::json_scalar_text::BorrowedScanResult), String> {
+) -> Result<
+    (
+        ExtractedRecord,
+        crate::source::json::scalars::BorrowedScanResult,
+    ),
+    String,
+> {
     if let Some(execution) = execution {
         execution.check_string()?;
     }
-    let (mut value, matched) = crate::json_scalar_text::extract_query_record_borrowed_fts_worker(
-        bytes, projection, fts, evidence,
-    )?;
+    let (mut value, matched) =
+        crate::source::json::scalars::extract_query_record_borrowed_fts_worker(
+            bytes, projection, fts, evidence,
+        )?;
     schema.convert_indexed_record(&mut value, projection.top_level.as_ref())?;
     if let Some(execution) = execution {
         execution.check_string()?;

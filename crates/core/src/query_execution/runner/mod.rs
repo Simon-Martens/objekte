@@ -17,7 +17,6 @@ use crate::index::sorting::{InferredOrderKey, SortColumn, simple_composite_part}
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
-use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
@@ -69,12 +68,13 @@ use crate::reference::{
     eval_term, eval_unavailable_filter,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
-use crate::source::{
-    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
-};
-use crate::source_access::{
+use crate::source::access::{
     SourceAccessSession, classify_source_read_failure_for_search,
     probe_source_unavailable_for_search,
+};
+use crate::source::json::scalars::{BorrowedScanQuery, scan_borrowed_segments_worker};
+use crate::source::{
+    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
 };
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,

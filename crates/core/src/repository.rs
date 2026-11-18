@@ -29,10 +29,10 @@ use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Va
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
+use crate::source::access::SourceAccessSession;
 use crate::source::{
     PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range_for_search,
 };
-use crate::source_access::SourceAccessSession;
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 

@@ -1330,5 +1330,4 @@ pub(crate) fn scalar_segments(
 }
 
 #[cfg(test)]
-#[path = "json_scalar_text.test.rs"]
 mod tests;

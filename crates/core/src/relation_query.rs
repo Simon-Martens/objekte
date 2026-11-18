@@ -23,8 +23,8 @@ use crate::relation::{RelationCardinality, RelationId};
 use crate::relation_target_cache::TargetValueCache;
 use crate::repository::CollectionState;
 use crate::repository::Repository;
+use crate::source::access::classify_source_read_failure_for_search;
 use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range_for_search};
-use crate::source_access::classify_source_read_failure_for_search;
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;

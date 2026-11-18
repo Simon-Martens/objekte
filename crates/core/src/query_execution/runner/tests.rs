@@ -1278,10 +1278,10 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
             for evidence in [false, true] {
                 query.options.return_mode = mode.clone();
                 query.options.evidence = evidence;
-                let direct_before = crate::json_scalar_text::borrowed_scan_calls();
+                let direct_before = crate::source::json::scalars::borrowed_scan_calls();
                 let actual = view.search(&query).unwrap();
                 if mode == ReturnMode::Locator && !evidence {
-                    assert!(crate::json_scalar_text::borrowed_scan_calls() > direct_before);
+                    assert!(crate::source::json::scalars::borrowed_scan_calls() > direct_before);
                 }
                 let expected = view.search_reference(&query).unwrap();
                 assert_eq!(
@@ -1441,10 +1441,12 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
                 for evidence in [false, true] {
                     query.options.return_mode = mode.clone();
                     query.options.evidence = evidence;
-                    let direct_before = crate::json_scalar_text::borrowed_scan_calls();
+                    let direct_before = crate::source::json::scalars::borrowed_scan_calls();
                     let actual = view.search(&query).unwrap();
                     if mode == ReturnMode::Locator && literal == "needle" {
-                        assert!(crate::json_scalar_text::borrowed_scan_calls() > direct_before);
+                        assert!(
+                            crate::source::json::scalars::borrowed_scan_calls() > direct_before
+                        );
                     }
                     let expected = view.search_reference(&query).unwrap();
                     assert_eq!(
@@ -1522,9 +1524,9 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
     };
     for (literal, expected_count) in [("old", 3), ("1e0", 2)] {
         query.fts.as_mut().unwrap().literal = literal.into();
-        let before = crate::json_scalar_text::combined_scan_calls();
+        let before = crate::source::json::scalars::combined_scan_calls();
         let actual = view.search(&query).unwrap();
-        assert!(crate::json_scalar_text::combined_scan_calls() > before);
+        assert!(crate::source::json::scalars::combined_scan_calls() > before);
         let expected = view.search_reference(&query).unwrap();
         assert_eq!(actual.count, Some(expected_count));
         assert_eq!(actual.hits, expected.hits);

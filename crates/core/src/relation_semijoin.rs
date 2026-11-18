@@ -26,8 +26,8 @@ use crate::reference::{
 use crate::relation::RelationCardinality;
 use crate::relation_query::{BoundRelationHop, HopDirection, MergedRelationView, positions_match};
 use crate::repository::Repository;
+use crate::source::access::SourceAccessSession;
 use crate::source::{ScanProjection, TextSegment};
-use crate::source_access::SourceAccessSession;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 // These are query-local limits. Hitting one is an explicit error, never a

@@ -11,7 +11,7 @@ use crate::reference::{BoundExpr, BoundTerm};
 use crate::relation_query::HopDirection;
 use crate::repository::Repository;
 use crate::source::ScanProjection;
-use crate::source_access::SourceAccessSession;
+use crate::source::access::SourceAccessSession;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 const MAX_TARGET_SLOTS: u64 = 5_000_000;

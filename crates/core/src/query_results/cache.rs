@@ -20,8 +20,8 @@ use crate::query_results::payload::payload_from_bytes;
 use crate::query_results::ranking::ResolvedSort;
 use crate::query_results::verified::{CachedMember, CachedResult};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
+use crate::source::access::SourceAccessSession;
 use crate::source::read_record_range_for_search;
-use crate::source_access::SourceAccessSession;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 
 /// One cached member that needs a source read to compute its sort key.

@@ -266,5 +266,4 @@ impl<'a> SourceAccessSession<'a> {
 }
 
 #[cfg(test)]
-#[path = "source_access.test.rs"]
 mod tests;
