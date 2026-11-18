@@ -66,10 +66,9 @@ pub struct IndexObservation {
 ///
 /// `files`, `source_bytes` and `records` are logical values for this
 /// publication. `posting_fields`, `sort_columns`, relation counters, bigram
-/// counters and `structural_bitmap_bytes` are physical measurements and may
-/// include retired entries until compaction. Capacity, identity and payload
-/// fields describe the completed source generation retained by native
-/// construction.
+/// counters are physical measurements and may include retired entries until
+/// compaction. Capacity, identity and payload fields describe the completed
+/// source generation retained by native construction.
 #[derive(Clone, Debug, serde::Serialize)]
 pub struct CollectionIndexObservation {
     pub collection: String,
@@ -89,7 +88,9 @@ pub struct CollectionIndexObservation {
     pub relation_count: usize,
     pub relation_edges: usize,
     pub relation_heap_bytes: usize,
-    pub structural_bitmap_bytes: usize,
+    /// Serialized size of the completed source generation's empty-array
+    /// bitmap. Newly published segments are not included.
+    pub build_empty_array_bitmap_serialized_bytes: usize,
     pub bigram_stores: usize,
     pub distinct_gram_keys: usize,
     pub bigram_heap_bytes: usize,
@@ -110,7 +111,7 @@ impl IndexView {
     }
 
     pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
-        self.repository().segment_summaries_for(&self.0.segments)
+        crate::repository::segment_summaries(&self.0.segments).collect()
     }
 
     /// Aggregate logical and physical facts pinned to this publication.
@@ -120,6 +121,15 @@ impl IndexView {
     /// mask and published segment masks; retained source metadata rows are not
     /// counted a second time.
     pub fn index_observation(&self) -> IndexObservation {
+        self.index_observation_with_segments(|_| {})
+    }
+
+    /// Fold this publication's segment summaries while optionally visiting
+    /// each summary during the same traversal.
+    pub fn index_observation_with_segments(
+        &self,
+        mut visit: impl FnMut(&crate::native_segment::NativeSegmentSummary),
+    ) -> IndexObservation {
         let collections = self.repository().collections();
         let mut collection_parts = collections
             .iter()
@@ -142,7 +152,9 @@ impl IndexView {
                 relation_count: 0,
                 relation_edges: 0,
                 relation_heap_bytes: 0,
-                structural_bitmap_bytes: collection.empty_array_records.serialized_size(),
+                build_empty_array_bitmap_serialized_bytes: collection
+                    .empty_array_records
+                    .serialized_size(),
                 bigram_stores: 0,
                 distinct_gram_keys: 0,
                 bigram_heap_bytes: 0,
@@ -162,7 +174,8 @@ impl IndexView {
             }
         }
 
-        for segment in self.segment_summaries() {
+        for segment in crate::repository::segment_summaries(&self.0.segments) {
+            visit(&segment);
             if let Some(part) = collection_parts.get_mut(segment.collection.0 as usize) {
                 part.records = part.records.saturating_add(segment.active_records);
                 part.posting_fields = part.posting_fields.saturating_add(segment.posting_fields);

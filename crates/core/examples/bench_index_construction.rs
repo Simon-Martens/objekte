@@ -208,8 +208,8 @@ fn run() -> Result<(), String> {
         observation.inventory_heap_bytes,
         observation.diagnostic_heap_bytes,
     );
-    let (_, _, inventory_storage) = repo.inventory_storage_observation();
     let storage_breakdown = storage_diagnostic.then(|| {
+        let (_, _, inventory_storage) = repo.inventory_storage_observation();
         let record_entry_size = std::mem::size_of::<objekte_search_core::inventory::RecordEntry>();
         let lookup_pair_size = std::mem::size_of::<(
             objekte_search_core::model::RecordId,
@@ -279,6 +279,7 @@ fn run() -> Result<(), String> {
         None
     };
     drop(repo);
+    drop(index);
     let after_release_rss = resident_bytes();
     let rev = command_output("git", &["rev-parse", "HEAD"])?;
     let status = command_output("git", &["status", "--porcelain"])?;
@@ -436,10 +437,12 @@ fn run_incremental(
     let estimated_index_bytes = view.estimated_index_bytes();
     let index_family_breakdown = view.index_family_breakdown();
     let inventory_heap_bytes = view.estimated_inventory_bytes();
-    let files = view.catalogue_rows().count();
-    let source_bytes = view.catalogue_rows().map(|row| row.size).sum::<u64>();
+    let mut files = 0usize;
+    let mut source_bytes = 0u64;
     let mut hash = Sha256::new();
     for row in view.catalogue_rows() {
+        files += 1;
+        source_bytes = source_bytes.saturating_add(row.size);
         hash.update(row.relative_path.to_string_lossy().as_bytes());
         hash.update(row.modified_ns.to_le_bytes());
         hash.update(row.size.to_le_bytes());

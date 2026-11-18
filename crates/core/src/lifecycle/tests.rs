@@ -231,6 +231,162 @@ fn index_observation_counts_shared_files_once_globally_and_per_membership() {
 }
 
 #[test]
+fn segment_observation_visits_match_pinned_collection_aggregates() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-observation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("left")).unwrap();
+    std::fs::create_dir_all(root.join("right")).unwrap();
+    let original = root.join("left/a.jsonl");
+    std::fs::write(&original, b"{\"name\":\"a\",\"items\":[]}\n").unwrap();
+    std::fs::write(
+        root.join("left/z.jsonl"),
+        b"{\"name\":\"z\",\"items\":[]}\n",
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("right/c.jsonl"),
+        b"{\"name\":\"c\",\"items\":[]}\n",
+    )
+    .unwrap();
+    let first_record = std::num::NonZeroUsize::new(1).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "left", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "right", SourceFormat::JsonLines),
+        ],
+        RepositoryOptions {
+            segment_policy: crate::native_segment::SegmentPolicy {
+                target_records: first_record,
+                max_files: first_record,
+            },
+            ..Default::default()
+        },
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let initial = index.view().unwrap();
+    let build_empty_bitmaps = initial
+        .repository()
+        .collections()
+        .iter()
+        .map(|collection| collection.empty_array_records.serialized_size())
+        .collect::<Vec<_>>();
+
+    let verify = |view: &crate::lifecycle::IndexView| {
+        let mut per_collection = vec![[0usize; 9]; 2];
+        let mut visited_ids = Vec::new();
+        let observation = view.index_observation_with_segments(|segment| {
+            visited_ids.push(segment.id);
+            let target = &mut per_collection[segment.collection.0 as usize];
+            target[0] = target[0].saturating_add(segment.active_records);
+            target[1] = target[1].saturating_add(segment.posting_fields);
+            target[2] = target[2].saturating_add(segment.sort_columns);
+            target[3] = target[3].saturating_add(segment.relation_count);
+            target[4] = target[4].saturating_add(segment.relation_edges);
+            target[5] = target[5].saturating_add(segment.relation_heap_bytes);
+            target[6] = target[6].saturating_add(segment.bigram_stores);
+            target[7] = target[7].saturating_add(segment.distinct_gram_keys);
+            target[8] = target[8].saturating_add(segment.bigram_heap_bytes);
+        });
+        assert_eq!(
+            visited_ids,
+            view.segment_summaries()
+                .into_iter()
+                .map(|segment| segment.id)
+                .collect::<Vec<_>>()
+        );
+        for (number, (part, counts)) in observation
+            .collection_parts
+            .iter()
+            .zip(&per_collection)
+            .enumerate()
+        {
+            assert_eq!(
+                [
+                    part.records,
+                    part.posting_fields,
+                    part.sort_columns,
+                    part.relation_count,
+                    part.relation_edges,
+                    part.relation_heap_bytes,
+                    part.bigram_stores,
+                    part.distinct_gram_keys,
+                    part.bigram_heap_bytes,
+                ],
+                *counts
+            );
+            assert_eq!(
+                part.build_empty_array_bitmap_serialized_bytes,
+                build_empty_bitmaps[number]
+            );
+        }
+        for (aggregate, counts) in [
+            (observation.records, 0),
+            (observation.posting_fields, 1),
+            (observation.sort_columns, 2),
+            (observation.relation_count, 3),
+            (observation.relation_edges, 4),
+            (observation.relation_heap_bytes, 5),
+            (observation.bigram_stores, 6),
+            (observation.distinct_gram_keys, 7),
+            (observation.bigram_heap_bytes, 8),
+        ] {
+            assert_eq!(
+                aggregate,
+                per_collection
+                    .iter()
+                    .map(|part| part[counts])
+                    .sum::<usize>()
+            );
+        }
+        observation
+    };
+    let initial_observation = verify(&initial);
+    let initial_segment_count = initial.segment_summaries().len();
+    assert!(initial_segment_count >= 2);
+
+    let added_path = root.join("left/b.jsonl");
+    std::fs::write(&added_path, b"{\"name\":\"d\",\"items\":[]}\n").unwrap();
+    index.add_file(&added_path).unwrap();
+    let after_add = index.view().unwrap();
+    verify(&after_add);
+    assert!(after_add.segment_summaries().len() > initial_segment_count);
+    let initial_handle = after_add.file_handle_for_path(&original).unwrap();
+    index.delete_file(initial_handle).unwrap();
+    std::fs::remove_file(original).unwrap();
+    let after_delete = index.view().unwrap();
+    verify(&after_delete);
+
+    assert_eq!(
+        format!("{:?}", verify(&initial)),
+        format!("{initial_observation:?}")
+    );
+    assert_eq!(
+        initial
+            .index_observation()
+            .collection_parts
+            .iter()
+            .map(|part| part.build_empty_array_bitmap_serialized_bytes)
+            .collect::<Vec<_>>(),
+        build_empty_bitmaps
+    );
+
+    drop(after_delete);
+    drop(after_add);
+    drop(initial);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
     let root = std::env::temp_dir().join(format!(
         "objekte-live-locator-sample-{}-{}",
