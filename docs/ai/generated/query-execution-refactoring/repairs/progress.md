@@ -5,8 +5,8 @@ Task: `core-query-execution-repair`
 Reviewed repair tip: `20e17c5be0d1f6c227503d5681c2bf7c76ca2808`
 
 This record covers the repair work completed through commit
-`3daa33e381`. The repair specification is **not complete**; pending R3/R6–R7
-items are listed below rather than represented as passing.
+`f0df3ba685`. The pending R3/R5–R7 items were closed in the final correction
+pass; the earlier sections remain as history.
 
 ## Completed evidence
 
@@ -170,3 +170,61 @@ repetitions measured a 3.227 ms median, compared with the recorded 3.431 ms
 baseline; the first run is attributed to the observed high variance (2.813 ms
 minimum, 6.308 ms maximum). The focused raw samples are preserved beside the
 full run.
+
+## Final correction pass through `f0df3ba685`
+
+The pending R3/R5-R7 items are closed:
+
+- R3 relation alternatives now belong to `query_access/relations.rs`. The
+  provider issues target-first and source-restricted offers, selection is
+  adaptive at the current input cardinality, and application runs the selected
+  stable handle through `ProviderCatalog`. Whole-page relation traversal
+  ordering is explicit in `query_plan/operations.rs`.
+- R5 now records a fused FILTER/FTS source node only when FILTER survives to
+  source execution. Observations are attached by collection identity, not by
+  the position of the query in the trace vector; a regression test covers a
+  query selecting only collection `b` while collection `a` is unselected.
+- R6 exact segment possible/proven bounds share one immutable owner. Cache
+  evidence uses shared `Arc<[String]>` membership and materialization creates
+  the public evidence vector only for requested output rows. Public result
+  types and the shared verified-cache handoff are unchanged.
+- R7 moved ranking and sort-key policy to `query_results/ranking.rs`, verified
+  cache replay/materialization to `query_results/cache.rs`, trace rendering and
+  observation attachment to `query_diagnostics/trace.rs`, structured proof
+  evidence to `query_predicate/structured.rs`, and residual/source-projection
+  planning to `query_predicate/scan.rs`. `query_execution/runner.rs` is 6,770
+  lines, down from 8,318 at the start of this pass.
+
+### Correction commits
+
+- `9e0a49bf27` provider-owned relation alternatives and compact cache evidence
+- `3f25e432f1` ranking, trace and predicate-occurrence ownership
+- `e80087d24f` structured proof evidence extraction
+- `f9174d5a53` residual and source-projection extraction
+- `0d4ed9df14` exact-bound ownership test
+- `2402cb6746` collection-identity observation attachment
+- `f0df3ba685` shared segment bounds through provider application
+
+### Final validation
+
+`cargo check --locked -p objekte-search-core --all-targets` passed.
+`cargo test --locked -p objekte-search-core` passed 564 library tests, all 28
+core integration tests and the doc test. The release benchmark example built
+successfully.
+
+Final paired evidence is under `final-f0df3ba6/`. All ascii-off and incremental
+result digests and ordinary work counters match original master. The balanced
+ascii-off matrix has no case crossing both 5% and 0.2 ms. Q001 crosses only the
+absolute component; Q084 crosses only the percentage component.
+
+The five-sample incremental matrix again showed high host variance. Focused
+100-repetition checks measured Q030 at +0.034 ms, effectively neutral. Q141
+measured +0.336 ms with final first and +0.173 ms with base first; `perf stat`
+reported 1.410 s baseline versus 1.429 s final for 100 iterations, about
++0.19 ms per query. It performs the same candidates, scans, parses, residuals
+and result work; no additional whole-domain pass or wrong result was found.
+
+Q141 EXPLAIN ANALYZE now exposes the actual sort-column operations
+`4928 -> 3821 -> 3308` and text restriction `4928 -> 1627` for each physical
+segment, with two executed term choices. This closes the non-selected
+collection trace-attachment defect found during the benchmark audit.
