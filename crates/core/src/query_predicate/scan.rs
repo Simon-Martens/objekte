@@ -296,15 +296,17 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         residual: Option<&'a Residual<'a>>,
     ) -> Option<Self> {
-        #[cfg(test)]
-        if crate::query::semantics::test_matcher::alternate_matcher_active() {
-            return None;
-        }
         let filter = match residual {
             None => None,
             Some(Residual::Term(term, proof, _, _)) => Some((*term, *proof)),
             Some(_) => return None,
         };
+        #[cfg(test)]
+        if filter.is_some_and(|(term, _)| {
+            crate::query::semantics::test_matcher::alternate_term_matches(term)
+        }) {
+            return None;
+        }
         Self::prepare_filter(collection, sort, fts, filter)
     }
 
@@ -314,15 +316,17 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         filter: Option<&'a BoundExpr>,
     ) -> Option<Self> {
-        #[cfg(test)]
-        if crate::query::semantics::test_matcher::alternate_matcher_active() {
-            return None;
-        }
         let filter = match filter {
             None => None,
             Some(BoundExpr::Term(term)) => Some((term, None)),
             Some(_) => return None,
         };
+        #[cfg(test)]
+        if filter.is_some_and(|(term, _)| {
+            crate::query::semantics::test_matcher::alternate_term_matches(term)
+        }) {
+            return None;
+        }
         Self::prepare_filter(collection, sort, fts, filter)
     }
 

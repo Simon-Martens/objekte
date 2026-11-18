@@ -42,11 +42,21 @@ pub(crate) fn alternate_matcher_invocations() -> u64 {
         .map_or(0, |matcher| matcher.invocations.load(Ordering::Relaxed))
 }
 
-pub(crate) fn alternate_matcher_active() -> bool {
+fn matcher_accepts(matcher: &AlternateMatcher, term: &BoundTerm) -> bool {
+    term.path.root == crate::model::PathRoot::Data
+        && term.path.segments.len() == 1
+        && term.path.segments[0] == matcher.field
+        && term.operator == crate::query::Operator::Contains
+        && term.transform == Transform::Identity
+        && matches!(term.literal, crate::model::Value::String(_))
+}
+
+pub(crate) fn alternate_term_matches(term: &BoundTerm) -> bool {
     registry()
         .lock()
         .expect("alternate matcher registry poisoned")
-        .is_some()
+        .as_ref()
+        .is_some_and(|matcher| matcher_accepts(matcher, term))
 }
 
 fn registry() -> &'static Mutex<Option<AlternateMatcher>> {
@@ -62,13 +72,7 @@ pub(crate) fn alternate_term_result(
         .lock()
         .expect("alternate matcher registry poisoned");
     let matcher = registry.as_mut()?;
-    if term.path.root != crate::model::PathRoot::Data
-        || term.path.segments.len() != 1
-        || term.path.segments[0] != matcher.field
-        || term.operator != crate::query::Operator::Contains
-        || term.transform != Transform::Identity
-        || !matches!(term.literal, crate::model::Value::String(_))
-    {
+    if !matcher_accepts(matcher, term) {
         return None;
     }
     matcher.invocations.fetch_add(1, Ordering::Relaxed);
