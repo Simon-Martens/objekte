@@ -26,9 +26,9 @@ use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, Work
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::prepared::PreparedCollectionQuery;
-use crate::query::{Operator, Quantifier, Query};
 #[cfg(test)]
 use crate::query::FtsMode;
+use crate::query::{Operator, Quantifier, Query};
 pub use crate::query_diagnostics::trace::{
     BoundTermDiagnostic, ExecutionObservation, ObservationStatus, PlanActual, QueryPlanTrace,
     RelationHopDiagnostic,
@@ -37,6 +37,8 @@ pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,
     regex_prefilter_reason,
 };
+use crate::query_predicate::proven_evidence;
+pub(crate) use crate::query_predicate::proof_evidence;
 use crate::query_results::cache::{CacheBudget, materialize_lifecycle_cached};
 pub(crate) use crate::query_results::cache::{
     CachedSortRead, cached_sort_fixed_bytes, materialize_cached, materialize_cached_stream,
@@ -1040,83 +1042,6 @@ impl Residual<'_> {
                 .map(|value| !value),
         })
     }
-}
-
-fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
-    match expr {
-        BoundExpr::Term(term) => {
-            let proof = proofs
-                .iter()
-                .find(|proof| same_bound_term(&proof.term, term) && proof.input.contains(slot))?;
-            if !proof.matches.contains(slot) {
-                return None;
-            }
-            let mut evidence = HashSet::new();
-            if term.derived == Derived::None
-                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
-            {
-                evidence.insert(term.query_path.display.clone());
-                if let Some(rhs) = &term.rhs {
-                    evidence.insert(rhs.query_path.display.clone());
-                }
-                if let Some(related) = &term.related {
-                    evidence.insert(related.evidence_path.clone());
-                }
-            }
-            Some(evidence)
-        }
-        BoundExpr::And(parts) => {
-            let mut evidence = HashSet::new();
-            for part in parts {
-                evidence.extend(proof_evidence(part, slot, proofs)?);
-            }
-            Some(evidence)
-        }
-        BoundExpr::Or(parts) => {
-            let mut evidence = HashSet::new();
-            let mut matched = false;
-            for part in parts {
-                if let Some(branch) = proof_evidence(part, slot, proofs) {
-                    matched = true;
-                    evidence.extend(branch);
-                }
-            }
-            matched.then_some(evidence)
-        }
-        BoundExpr::Not(inner) => proof_evidence(inner, slot, proofs)
-            .is_none()
-            .then_some(HashSet::new()),
-    }
-}
-
-/// Fallback proofs establish truth from inventory metadata. Reconstruct their
-/// evidence with the same three-valued evaluator as reference execution: an
-/// unavailable logical predicate stays unavailable even under negation.
-fn proven_evidence(
-    repo: &Repository,
-    collection: &crate::repository::CollectionState,
-    record: &RecordEntry,
-    expr: &BoundExpr,
-    proofs: &[Proof],
-) -> Result<HashSet<String>, String> {
-    if record.class != RecordClass::RawFallback {
-        return Ok(proof_evidence(expr, record.slot.0, proofs).unwrap_or_default());
-    }
-    let empty = Value::Object(Default::default());
-    let file = &repo.files.files[record.file.0 as usize];
-    let ctx = RecordContext {
-        value: &empty,
-        source_bytes: None,
-        record,
-        file,
-        collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
-    };
-    let mut evidence = HashSet::new();
-    if eval_unavailable_filter(expr, &ctx, &mut evidence)? != Some(true) {
-        return Err("index-proven fallback has non-true filter truth".into());
-    }
-    Ok(evidence)
 }
 
 fn inventory_fts_evidence(

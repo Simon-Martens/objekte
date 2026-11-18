@@ -11,6 +11,9 @@ use crate::query_access::membership::SlotInput;
 use crate::reference::{BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term};
 use crate::source::TextSegment;
 
+pub(crate) mod structured;
+pub(crate) use structured::{proof_evidence, proven_evidence};
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub(crate) struct TermId(u32);
 
