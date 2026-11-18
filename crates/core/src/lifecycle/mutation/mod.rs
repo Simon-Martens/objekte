@@ -800,6 +800,8 @@ impl Index {
     }
 }
 
+mod preparation;
+mod staging;
 #[cfg(test)]
 mod tests;
 mod verified;
