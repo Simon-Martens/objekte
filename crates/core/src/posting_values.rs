@@ -561,13 +561,13 @@ pub(crate) fn select_exact_segmented(
                     state,
                     Some(catalog),
                 ) {
-                    Ok(bounds) if bounds.may == bounds.must => bounds.must,
+                    Ok(bounds) if bounds.may == bounds.must => bounds.must.as_ref().clone(),
                     Ok(bounds)
                         if filter_excludes_raw_fallback(filter)
-                            && (&bounds.may & &segment.index.logical_records)
-                                == (&bounds.must & &segment.index.logical_records) =>
+                            && (bounds.may.as_ref() & &segment.index.logical_records)
+                                == (bounds.must.as_ref() & &segment.index.logical_records) =>
                     {
-                        &bounds.must & &segment.index.logical_records
+                        bounds.must.as_ref() & &segment.index.logical_records
                     }
                     _ => {
                         exact = false;

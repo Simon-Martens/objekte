@@ -295,6 +295,23 @@ impl PreparedPredicates {
             .map(|leaf| leaf.id)
     }
 
+    pub(crate) fn term_for_occurrence(
+        &self,
+        collection_index: usize,
+        span: (usize, usize),
+        display_path: &str,
+    ) -> Option<TermId> {
+        self.leaves
+            .iter()
+            .find(|leaf| {
+                leaf.collection_index == collection_index
+                    && leaf.span == span
+                    && leaf.display_path == display_path
+                    && leaf.display_path != "@fts"
+            })
+            .map(|leaf| leaf.id)
+    }
+
     pub(crate) fn propose(
         &self,
         leaf: TermId,

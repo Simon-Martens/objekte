@@ -32,6 +32,10 @@ pub use crate::query_diagnostics::trace::{
     RelationHopDiagnostic,
 };
 use crate::query_results::cache::{CacheBudget, materialize_lifecycle_cached};
+pub(crate) use crate::query_results::cache::{
+    CachedSortRead, cached_sort_fixed_bytes, materialize_cached, materialize_cached_stream,
+    record_base_cache_hits, sort_cached_members,
+};
 use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{
@@ -74,10 +78,11 @@ mod segment_scan;
 mod source_scan;
 #[cfg(test)]
 use ordered::cached_inferred_order;
+pub(crate) use ordered::direct_payload;
 use ordered::{
-    RejectedOrderPlans, direct_payload, flush_all_batch_if_full, inferred_order_index,
-    offer_cached_key, posting_order_eligible, try_inferred_order_page,
-    try_inferred_segment_order_page, try_stored_order_page,
+    RejectedOrderPlans, flush_all_batch_if_full, inferred_order_index, offer_cached_key,
+    posting_order_eligible, try_inferred_order_page, try_inferred_segment_order_page,
+    try_stored_order_page,
 };
 use relations::search_segmented_relations;
 pub(crate) use relations::{explain_segmented, search_segmented_reference};
@@ -148,48 +153,6 @@ fn check_execution_sort_budget(
         .map_err(|message| computed_sort_resource(execution, &message))
 }
 
-/// One cached member that needs a source read to compute its sort key.
-struct CachedSortRead {
-    collection_index: usize,
-    file_id: u32,
-    member_index: u32,
-    range: ByteRange,
-}
-
-fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
-    let mut bytes = cached
-        .members
-        .capacity()
-        .checked_mul(std::mem::size_of::<CachedMember>())
-        .and_then(|used| used.checked_add(std::mem::size_of::<CachedResult>()))
-        .ok_or("cached sort memory count overflow")?;
-    for member in &cached.members {
-        bytes = bytes
-            .checked_add(
-                member
-                    .matched_fields
-                    .capacity()
-                    .checked_mul(std::mem::size_of::<String>())
-                    .ok_or("cached sort memory count overflow")?,
-            )
-            .ok_or("cached sort memory count overflow")?;
-        for field in &member.matched_fields {
-            bytes = bytes
-                .checked_add(field.capacity())
-                .ok_or("cached sort memory count overflow")?;
-        }
-    }
-    bytes = bytes
-        .checked_add(
-            reads
-                .checked_mul(std::mem::size_of::<CachedSortRead>())
-                .ok_or("cached sort memory count overflow")?,
-        )
-        .and_then(|used| used.checked_add(128 * std::mem::size_of::<(u32, ByteRange)>()))
-        .ok_or("cached sort memory count overflow")?;
-    u64::try_from(bytes).map_err(|_| "cached sort memory count overflow".into())
-}
-
 fn check_cached_sort_live(
     sort: &ResolvedSort<'_>,
     fixed_bytes: u64,
@@ -211,7 +174,7 @@ fn check_cached_sort_live(
 struct ScannedMatch {
     slot: u32,
     key: Option<RankKey>,
-    evidence: HashSet<String>,
+    evidence: Arc<[String]>,
     payload: Option<Payload>,
     retained_bytes: u64,
     buffered_bytes: usize,
@@ -2864,13 +2827,13 @@ fn try_exact_segment_ordered_page(
             })
             .transpose()?;
         let candidates = match bounds.as_ref() {
-            Some(bounds) if bounds.may == bounds.must => bounds.may.clone(),
+            Some(bounds) if bounds.may == bounds.must => bounds.may.as_ref().clone(),
             Some(bounds)
                 if filter.is_some_and(excludes_raw_fallback)
-                    && (&bounds.may & &published.index.logical_records)
-                        == (&bounds.must & &published.index.logical_records) =>
+                    && (bounds.may.as_ref() & &published.index.logical_records)
+                        == (bounds.must.as_ref() & &published.index.logical_records) =>
             {
-                &bounds.must & &published.index.logical_records
+                bounds.must.as_ref() & &published.index.logical_records
             }
             Some(_) => return Ok(None),
             None => published.active.bitmap().clone(),
@@ -2979,7 +2942,7 @@ fn exact_or_branch_members(
             let logical = &published.active.bitmap() & &published.index.logical_records;
             if bounds.may != bounds.must
                 && !(excludes_raw_fallback(part)
-                    && (&bounds.may & &logical) == (&bounds.must & &logical))
+                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical))
             {
                 exact = false;
                 break;
@@ -3060,7 +3023,7 @@ fn try_lifecycle_ordered_page(
             let logical = &segment.active.bitmap() & &segment.index.logical_records;
             let exact = bounds.may == bounds.must
                 || (excludes_raw_fallback(filter)
-                    && (&bounds.may & &logical) == (&bounds.must & &logical));
+                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
             all_exact &= exact;
         }
     }
@@ -3442,9 +3405,10 @@ fn search_segmented_impl(
                     )
                 })
                 .transpose()?;
-            let mut candidates = bounds
-                .as_ref()
-                .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
+            let mut candidates = bounds.as_ref().map_or_else(
+                || published.active.bitmap(),
+                |bounds| bounds.may.as_ref().clone(),
+            );
             if filter.as_ref().is_some_and(excludes_raw_fallback) {
                 candidates &= &segment.logical_records;
             }
@@ -3489,7 +3453,7 @@ fn search_segmented_impl(
             }
             let proven = bounds
                 .as_ref()
-                .map(|bounds| &candidates & &bounds.must)
+                .map(|bounds| &candidates & bounds.must.as_ref())
                 .unwrap_or_default();
             if !query.options.evidence
                 && !sort.bound.needs_source
@@ -3546,7 +3510,7 @@ fn search_segmented_impl(
                                 collection_index,
                                 segment_index: Some(segment_index),
                                 slot,
-                                matched_fields: Vec::new(),
+                                matched_fields: Vec::new().into(),
                             },
                         );
                     }
@@ -3609,8 +3573,8 @@ fn search_segmented_impl(
                 && bounds.as_ref().is_none_or(|bounds| {
                     bounds.may == bounds.must
                         || (filter.as_ref().is_some_and(excludes_raw_fallback)
-                            && (&bounds.may & &segment.logical_records)
-                                == (&bounds.must & &segment.logical_records))
+                            && (bounds.may.as_ref() & &segment.logical_records)
+                                == (bounds.must.as_ref() & &segment.logical_records))
                 });
             if index_exact {
                 let exact_fields = |slot: u32| {
@@ -3710,7 +3674,7 @@ fn search_segmented_impl(
                         resolved.record,
                         None,
                     )?;
-                    let matched_fields = exact_fields(slot);
+                    let matched_fields: Arc<[String]> = exact_fields(slot).into();
                     if let Some(builder) = cache_builder.as_mut() {
                         builder.push(
                             &key,
@@ -3718,14 +3682,19 @@ fn search_segmented_impl(
                                 collection_index,
                                 segment_index: Some(segment_index),
                                 slot,
-                                matched_fields: matched_fields.clone(),
+                                matched_fields: Arc::clone(&matched_fields),
                             },
                         );
                     }
                     if !enters_page {
                         continue;
                     }
-                    let hit = segment_locator_hit(collection, resolved, revision, matched_fields);
+                    let hit = segment_locator_hit(
+                        collection,
+                        resolved,
+                        revision,
+                        matched_fields.to_vec(),
+                    );
                     offer_merged(
                         &mut winners,
                         cap,
@@ -3753,6 +3722,19 @@ fn search_segmented_impl(
             } else {
                 None
             };
+            let fused_filter_fts_terms = (filter_proof.is_none()
+                && filter.is_some()
+                && fts.is_some()
+                && metadata_evidence.is_none())
+            .then(|| {
+                entry
+                    .filter_leaves
+                    .iter()
+                    .filter(|leaf| leaf.display_path != "@fts")
+                    .map(|leaf| leaf.id)
+                    .chain(entry.text_term)
+                    .collect::<Vec<_>>()
+            });
             // Segment slots normally follow file order. Group consecutive
             // file IDs without a tree node per candidate; sort and merge if
             // a mutation has produced an out-of-order slot layout.
@@ -3830,6 +3812,9 @@ fn search_segmented_impl(
                 } else {
                     repo.options.query_workers.clamp(1, 32)
                 };
+                let mut fused_scanned = 0u64;
+                let mut fused_matches = 0u64;
+                let mut fused_residuals = 0u64;
                 for chunk in jobs.chunks(batch_size) {
                     let scans = repo.workers.install(|| {
                         chunk
@@ -3858,6 +3843,9 @@ fn search_segmented_impl(
                     // errors, counters and tie handling merge in file order.
                     for ((file_id, _), scan) in chunk.iter().zip(scans) {
                         let scan = scan?;
+                        fused_scanned += scan.scanned_records;
+                        fused_matches += scan.matches;
+                        fused_residuals += scan.residual_evaluations;
                         delta_opened.insert(*file_id);
                         counters.files_opened += 1;
                         counters.bytes_read += scan.bytes_read;
@@ -3924,8 +3912,32 @@ fn search_segmented_impl(
                         }
                     }
                 }
+                if let Some(terms) = fused_filter_fts_terms.as_deref()
+                    && terms.len() > 1
+                    && fused_scanned > 0
+                {
+                    crate::query_execution::request::record_fused_observation_with_residual(
+                        repo.instance_id,
+                        terms,
+                        crate::query_execution::domain::domain_id(
+                            repo.instance_id,
+                            collection.generation.collection.0,
+                            collection.generation.generation,
+                            Some(segment.id.get()),
+                        ),
+                        collection.generation.collection.0,
+                        fused_scanned,
+                        fused_matches,
+                        fused_matches,
+                        fused_residuals,
+                        "fused_filter_fts_source",
+                    );
+                }
                 continue;
             }
+            let mut fused_scanned = 0u64;
+            let mut fused_matches = 0u64;
+            let mut fused_residuals = 0u64;
             for (file_id, ranges) in files {
                 if let Some(context) = context {
                     context.check_string()?;
@@ -4004,9 +4016,12 @@ fn search_segmented_impl(
                             )?;
                         counters.raw_text_verifications += u64::from(raw_checked);
                         counters.scanned_records += 1;
+                        fused_scanned += 1;
+                        fused_residuals += u64::from(filter.is_some() && filter_proof.is_none());
                         if !matched {
                             continue;
                         }
+                        fused_matches += 1;
                         let ctx = RecordContext {
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
@@ -4063,8 +4078,13 @@ fn search_segmented_impl(
                         } else {
                             Vec::new()
                         };
-                        let hit =
-                            segment_locator_hit(collection, resolved, revision, matched_fields);
+                        let matched_fields: Arc<[String]> = matched_fields.into();
+                        let hit = segment_locator_hit(
+                            collection,
+                            resolved,
+                            revision,
+                            matched_fields.to_vec(),
+                        );
                         if let Some(builder) = cache_builder.as_mut() {
                             builder.push(
                                 &key,
@@ -4072,7 +4092,7 @@ fn search_segmented_impl(
                                     collection_index,
                                     segment_index: Some(segment_index),
                                     slot,
-                                    matched_fields: hit.matched_fields.clone(),
+                                    matched_fields,
                                 },
                             );
                         }
@@ -4090,6 +4110,27 @@ fn search_segmented_impl(
                         )?;
                     }
                 }
+            }
+            if let Some(terms) = fused_filter_fts_terms.as_deref()
+                && terms.len() > 1
+                && fused_scanned > 0
+            {
+                crate::query_execution::request::record_fused_observation_with_residual(
+                    repo.instance_id,
+                    terms,
+                    crate::query_execution::domain::domain_id(
+                        repo.instance_id,
+                        collection.generation.collection.0,
+                        collection.generation.generation,
+                        Some(segment.id.get()),
+                    ),
+                    collection.generation.collection.0,
+                    fused_scanned,
+                    fused_matches,
+                    fused_matches,
+                    fused_residuals,
+                    "fused_filter_fts_source",
+                );
             }
         }
     }
@@ -4697,7 +4738,8 @@ fn try_lifecycle_ordered_stream(
                     let logical = &segment.active.bitmap() & &segment.index.logical_records;
                     filter_exact[collection_index][segment_index] = bounds.may == bounds.must
                         || (excludes_raw_fallback(filter)
-                            && (&bounds.may & &logical) == (&bounds.must & &logical));
+                            && (bounds.may.as_ref() & &logical)
+                                == (bounds.must.as_ref() & &logical));
                     Ok::<_, String>(if filter_exact[collection_index][segment_index] {
                         bounds.must
                     } else {
@@ -4711,8 +4753,8 @@ fn try_lifecycle_ordered_stream(
                 .transpose()?
                 .flatten();
             candidates[collection_index][segment_index] = match (filter_may, fts_may) {
-                (Some(filter), Some(fts)) => Some(filter & fts),
-                (Some(filter), None) => Some(filter),
+                (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
+                (Some(filter), None) => Some(filter.as_ref().clone()),
                 (None, Some(fts)) => Some(fts),
                 (None, None) => None,
             };
@@ -5627,13 +5669,14 @@ fn offer(
         Vec::new()
     };
     matched_fields.sort();
+    let matched_fields: Arc<[String]> = matched_fields.into();
     if let (Some(members), Some(budget)) = (cache_members.as_deref_mut(), cache_budget) {
-        if budget.reserve(&matched_fields) {
+        if budget.reserve(matched_fields.as_ref()) {
             members.push(CachedMember {
                 collection_index,
                 segment_index: None,
                 slot: record.slot.0,
-                matched_fields: matched_fields.clone(),
+                matched_fields: Arc::clone(&matched_fields),
             });
         }
     }
@@ -5681,7 +5724,13 @@ fn offer(
     } else {
         0
     };
-    let hit = make_hit(repo, collection_index, record, matched_fields, payload);
+    let hit = make_hit(
+        repo,
+        collection_index,
+        record,
+        matched_fields.to_vec(),
+        payload,
+    );
     winners.push(Winner {
         key,
         collection_index,
@@ -6342,48 +6391,6 @@ pub(crate) fn exact_members_with_active(
     Ok(members)
 }
 
-fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
-    let sort = ResolvedSort::new(repo, query).expect("sort validated");
-    if query.options.sort.is_empty() {
-        members.sort_by(|a, b| {
-            let a_collection = &repo.collections[a.collection_index];
-            let b_collection = &repo.collections[b.collection_index];
-            (
-                &a_collection.definition.name,
-                &a_collection.generation.records[a.slot as usize].id.0,
-            )
-                .cmp(&(
-                    &b_collection.definition.name,
-                    &b_collection.generation.records[b.slot as usize].id.0,
-                ))
-        });
-    } else {
-        members.sort_by(|a, b| {
-            let a_collection = &repo.collections[a.collection_index];
-            let b_collection = &repo.collections[b.collection_index];
-            let a_record = &a_collection.generation.records[a.slot as usize];
-            let b_record = &b_collection.generation.records[b.slot as usize];
-            for ((a_column, descending), (b_column, _)) in sort.columns[a.collection_index]
-                .as_ref()
-                .unwrap()
-                .iter()
-                .zip(sort.columns[b.collection_index].as_ref().unwrap())
-            {
-                let order = a_column.keys[a.slot as usize].compare_with(
-                    &b_column.keys[b.slot as usize],
-                    *descending,
-                    a_column.options,
-                );
-                if !order.is_eq() {
-                    return order;
-                }
-            }
-            (&a_collection.definition.name, &a_record.id)
-                .cmp(&(&b_collection.definition.name, &b_record.id))
-        });
-    }
-}
-
 fn check_cached_stream_sort_budget(
     delivery: &mut Delivery<'_>,
     sort: &ResolvedSort<'_>,
@@ -6613,7 +6620,7 @@ fn materialize_computed_cached<'a>(
             collection_index: winner.collection_index,
             segment_index: None,
             slot: winner.slot,
-            matched_fields: winner.hit.matched_fields,
+            matched_fields: winner.hit.matched_fields.into(),
         })
         .collect();
     let page_cache = CachedResult {
@@ -6668,208 +6675,6 @@ fn materialize_computed_cached<'a>(
     result.count = query.options.count.then_some(cached.members.len());
     result.counters = counters;
     Ok(result)
-}
-
-fn materialize_cached_stream(
-    repo: &Repository,
-    query: &Query,
-    cached: &CachedResult,
-    delivery: &mut Delivery<'_>,
-    execution: Option<&ExecutionContext>,
-) -> Result<SearchResult, String> {
-    record_base_cache_hits(repo, cached);
-    delivery.check()?;
-    #[cfg(feature = "detailed-profiling")]
-    let started = DetailedInstant::now();
-    let mut counters = WorkCounters {
-        total_matches: cached.members.len() as u64,
-        match_count_complete: true,
-        verified_result_hit: true,
-        ..WorkCounters::default()
-    };
-    #[cfg(feature = "detailed-profiling")]
-    {
-        counters.preparation_ns = started.elapsed().as_nanos() as u64;
-    }
-    let mut page = Vec::new();
-    let mut source_access = SourceAccessSession::new(&repo.files);
-    if let Some(execution) = execution {
-        source_access.configure_execution(execution);
-    }
-    let mut actual = PlanActual::default();
-    for member in cached
-        .members
-        .iter()
-        .skip(query.options.offset)
-        .take(query.options.limit)
-    {
-        delivery.check()?;
-        let record =
-            &repo.collections[member.collection_index].generation.records[member.slot as usize];
-        let existing = page.iter().map(crate::streaming::hit_bytes).sum::<usize>();
-        delivery.check_record_bytes(record.range.len() as usize)?;
-        delivery.check_buffer(existing.saturating_add(record.range.len() as usize))?;
-        let payload = direct_payload(
-            repo,
-            query,
-            member.collection_index,
-            record,
-            &mut counters,
-            &mut actual,
-            &mut source_access,
-            Some(delivery.max_buffered_bytes()),
-            execution,
-        )?;
-        page.push(make_hit(
-            repo,
-            member.collection_index,
-            record,
-            member.matched_fields.clone(),
-            payload,
-        ));
-        delivery.check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
-        match delivery.options().mode {
-            StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, false)?,
-            StreamMode::PageReplacements if page.len() % delivery.options().batch_rows == 0 => {
-                delivery.replacement(&page, &counters, 0)?;
-            }
-            StreamMode::PageReplacements => {}
-        }
-    }
-    counters.returned_records = page.len() as u64;
-    counters.distinct_files = source_access.distinct_files();
-    Ok(SearchResult {
-        count: Some(cached.members.len()),
-        hits: page,
-        counters,
-    })
-}
-
-fn materialize_cached(
-    repo: &Repository,
-    query: &Query,
-    cached: &CachedResult,
-) -> Result<SearchResult, String> {
-    record_base_cache_hits(repo, cached);
-    #[cfg(feature = "detailed-profiling")]
-    let preparation_start = DetailedInstant::now();
-    let cap = query
-        .options
-        .limit
-        .checked_add(query.options.offset)
-        .ok_or("page size overflow")?;
-    let mut counters = WorkCounters {
-        total_matches: cached.members.len() as u64,
-        match_count_complete: true,
-        verified_result_hit: true,
-        ..WorkCounters::default()
-    };
-    #[cfg(feature = "detailed-profiling")]
-    {
-        counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
-    }
-    let mut hits = Vec::new();
-    let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
-    for member in cached
-        .members
-        .iter()
-        .skip(query.options.offset)
-        .take(query.options.limit.min(cap))
-    {
-        let collection = &repo.collections[member.collection_index];
-        let record = &collection.generation.records[member.slot as usize];
-        let file = &repo.files.files[record.file.0 as usize];
-        let index = hits.len() as u32;
-        if query.options.return_mode == ReturnMode::Logical
-            && record.class == RecordClass::RawFallback
-        {
-            hits.push(make_hit(
-                repo,
-                member.collection_index,
-                record,
-                member.matched_fields.clone(),
-                Some(Payload::LogicalUnavailable {
-                    diagnostic_ref: record.diagnostic_ref,
-                }),
-            ));
-            continue;
-        }
-        if query.options.return_mode != ReturnMode::Locator {
-            files
-                .entry((member.collection_index, record.file.0))
-                .or_default()
-                .push((index, record.range));
-        }
-        hits.push(SearchHit {
-            collection: collection.definition.name.clone(),
-            record_id: record.id.0.to_string(),
-            generation: collection.generation.generation,
-            file_id: file.id.0,
-            file_path: file.relative_path.to_path_buf(),
-            file_size: file.revision.size,
-            file_created_ns: file.created_ns,
-            byte_start: record.range.start,
-            byte_end: record.range.end,
-            modified_ns: record.revision.modified_ns,
-            matched_fields: member.matched_fields.clone(),
-            file_status: file.status,
-            record_class: record.class,
-            diagnostic_ref: record.diagnostic_ref,
-            payload: None,
-        });
-    }
-    let mut source_access = SourceAccessSession::new(&repo.files);
-    for ((collection_index, file_id), ranges) in files {
-        let collection = &repo.collections[collection_index];
-        for batch in ranges.chunks(128) {
-            let read = source_access.read(crate::model::FileId(file_id), batch)?;
-            counters.files_opened += read.opened;
-            counters.bytes_read += read.bytes_read;
-            for (index, bytes) in read.records {
-                let (payload, parses) = payload_from_bytes(
-                    hits[index as usize].record_class,
-                    Some(collection),
-                    &query.options.return_mode,
-                    bytes,
-                )?;
-                counters.record_parses += parses;
-                hits[index as usize].payload = payload;
-            }
-        }
-    }
-    counters.distinct_files = source_access.distinct_files();
-    counters.returned_records = hits.len() as u64;
-    Ok(SearchResult {
-        count: query.options.count.then_some(cached.members.len()),
-        hits,
-        counters,
-    })
-}
-
-fn record_base_cache_hits(repo: &Repository, cached: &CachedResult) {
-    let mut members_by_collection = HashMap::<usize, u64>::new();
-    for member in &cached.members {
-        *members_by_collection
-            .entry(member.collection_index)
-            .or_default() += 1;
-    }
-    for (collection_index, output_records) in members_by_collection {
-        let Some(collection) = repo.collections.get(collection_index) else {
-            continue;
-        };
-        crate::query_execution::request::record_cache_hit_observation(
-            repo.instance_id,
-            crate::query_execution::domain::domain_id(
-                repo.instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                None,
-            ),
-            collection.generation.collection.0,
-            cached.members.len() as u64,
-            output_records,
-        );
-    }
 }
 
 pub fn search_analyze(
@@ -7571,6 +7376,17 @@ fn search_impl_with_collector<'a>(
         } else {
             None
         };
+        let fused_filter_fts_terms =
+            (filter.is_some() && fts.is_some() && !plan.exact && preverified_evidence.is_none())
+                .then(|| {
+                    entry
+                        .filter_leaves
+                        .iter()
+                        .filter(|leaf| leaf.display_path != "@fts")
+                        .map(|leaf| leaf.id)
+                        .chain(entry.text_term)
+                        .collect::<Vec<_>>()
+                });
         #[cfg(feature = "detailed-profiling")]
         {
             counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
@@ -8158,6 +7974,27 @@ fn search_impl_with_collector<'a>(
                 counters.peak_retained_sort_key_bytes.max(key_upper);
             for ((file_id, _), outcome) in chunk.iter().zip(scanned) {
                 let outcome = outcome?;
+                if let Some(terms) = fused_filter_fts_terms.as_deref()
+                    && terms.len() > 1
+                    && outcome.scanned_records > 0
+                {
+                    crate::query_execution::request::record_fused_observation_with_residual(
+                        repo.instance_id,
+                        terms,
+                        crate::query_execution::domain::domain_id(
+                            repo.instance_id,
+                            collection.generation.collection.0,
+                            collection.generation.generation,
+                            None,
+                        ),
+                        collection.generation.collection.0,
+                        outcome.scanned_records,
+                        outcome.match_count,
+                        outcome.match_count,
+                        outcome.residual_evaluations,
+                        "fused_filter_fts_source",
+                    );
+                }
                 if outcome.files_opened > 0 || outcome.bytes_read > 0 {
                     if let Some(seen) = files_read.as_mut() {
                         seen.insert(*file_id);
@@ -8184,7 +8021,7 @@ fn search_impl_with_collector<'a>(
                             &sort,
                             collection_index,
                             record,
-                            matched.evidence,
+                            matched.evidence.iter().cloned().collect(),
                             matched.payload,
                             matched.key,
                             &mut winners,

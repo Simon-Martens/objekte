@@ -82,7 +82,7 @@ pub(super) struct RejectedOrderPlans {
     pub(super) planning_ns: u64,
 }
 
-pub(super) fn direct_payload(
+pub(crate) fn direct_payload(
     repo: &Repository,
     query: &Query,
     collection_index: usize,
@@ -285,7 +285,9 @@ pub(super) fn posting_order_eligible(
         ) else {
             return false;
         };
-        if !excludes_raw_fallback(filter) || (&bounds.may & &logical) != (&bounds.must & &logical) {
+        if !excludes_raw_fallback(filter)
+            || (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical)
+        {
             return false;
         }
     }
@@ -515,10 +517,10 @@ pub(super) fn try_inferred_segment_order_page(
                 Some(catalog),
             )?;
             let logical = &segment.active.bitmap() & &segment.index.logical_records;
-            if (&bounds.may & &logical) != (&bounds.must & &logical) {
+            if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }
-            &bounds.must & &logical
+            bounds.must.as_ref() & &logical
         } else {
             segment.active.bitmap().clone()
         };
@@ -1129,7 +1131,7 @@ pub(super) fn try_stored_order_page(
                     actual.relation_bytes_read += scanned.relation_work.bytes_read;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
-                        evidence = found.evidence;
+                        evidence = found.evidence.iter().cloned().collect();
                         payload = found.payload;
                     }
                 }
@@ -1260,7 +1262,7 @@ pub(super) fn offer_cached_key(
             repo,
             member.collection_index,
             record,
-            member.matched_fields.clone(),
+            member.matched_fields.to_vec(),
             None,
         ),
         retained_bytes: 0,

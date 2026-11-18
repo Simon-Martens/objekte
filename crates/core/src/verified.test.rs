@@ -21,7 +21,7 @@ fn shared_cache_publication_reuses_the_existing_result_owner() {
             collection_index: 0,
             segment_index: None,
             slot: 7,
-            matched_fields: vec!["title".into()],
+            matched_fields: vec!["title".into()].into(),
         }],
     });
     let original = Arc::as_ptr(&result);

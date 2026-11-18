@@ -212,6 +212,31 @@ pub(crate) fn record_fused_observation(
     proven_records: u64,
     access_kind: &str,
 ) {
+    record_fused_observation_with_residual(
+        instance_id,
+        terms,
+        domain,
+        collection,
+        input_records,
+        candidate_records,
+        proven_records,
+        0,
+        access_kind,
+    );
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn record_fused_observation_with_residual(
+    instance_id: u64,
+    terms: &[TermId],
+    domain: DomainId,
+    collection: u32,
+    input_records: u64,
+    candidate_records: u64,
+    proven_records: u64,
+    residual_verifications: u64,
+    access_kind: &str,
+) {
     push_observation(
         instance_id,
         ExecutionObservation {
@@ -227,7 +252,7 @@ pub(crate) fn record_fused_observation(
             input_records,
             candidate_records,
             proven_records,
-            residual_verifications: 0,
+            residual_verifications,
             status: ObservationStatus::Executed,
         },
     );
@@ -245,8 +270,24 @@ fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
             .find(|(capture_instance, _)| *capture_instance == instance_id || instance_id == 0)
             .map(|(_, capture_id)| *capture_id)
     });
-    let Some(capture_id) = local_capture else {
-        return;
+    let capture_id = match local_capture {
+        Some(capture_id) => capture_id,
+        None => {
+            let log = observation_log().lock().expect("observation log poisoned");
+            let mut matches = log
+                .iter()
+                .filter(|(_, capture)| capture.instance_id == instance_id)
+                .map(|(capture_id, _)| *capture_id);
+            let Some(capture_id) = matches.next() else {
+                return;
+            };
+            if matches.next().is_some() {
+                // A worker without a request-local token must not merge into
+                // an arbitrary concurrent query on the same repository.
+                return;
+            }
+            capture_id
+        }
     };
     let mut log = observation_log().lock().expect("observation log poisoned");
     let Some(observations) = log

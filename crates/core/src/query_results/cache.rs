@@ -1,25 +1,140 @@
 //! Verified result-cache admission accounting.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use crate::execution_options::ReturnMode;
-use crate::inventory::{ActiveRecords, RecordClass, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::payload_from_bytes;
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;
+use crate::query_diagnostics::trace::PlanActual;
 use crate::query_execution::runner::{
-    SegmentRecordRef, SourceHitLocator, get_segment_record_by_id, record_unavailable_hit,
-    segment_locator_hit, segment_record_ref,
+    SegmentRecordRef, SourceHitLocator, direct_payload, get_segment_record_by_id, make_hit,
+    record_unavailable_hit, segment_locator_hit, segment_record_ref,
 };
-use crate::repository::{Repository, SearchResult};
+use crate::query_results::ranking::ResolvedSort;
+use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::source::read_record_range_for_search;
-use crate::streaming::{ExecutionContext, ExecutionErrorKind};
+use crate::source_access::SourceAccessSession;
+use crate::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 use crate::verified::{CachedMember, CachedResult};
+
+/// One cached member that needs a source read to compute its sort key.
+pub(crate) struct CachedSortRead {
+    pub(crate) collection_index: usize,
+    pub(crate) file_id: u32,
+    pub(crate) member_index: u32,
+    pub(crate) range: crate::inventory::ByteRange,
+}
+
+pub(crate) fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
+    let mut bytes = cached
+        .members
+        .capacity()
+        .checked_mul(std::mem::size_of::<CachedMember>())
+        .and_then(|used| used.checked_add(std::mem::size_of::<CachedResult>()))
+        .ok_or("cached sort memory count overflow")?;
+    for member in &cached.members {
+        bytes = bytes
+            .checked_add(
+                member
+                    .matched_fields
+                    .len()
+                    .checked_mul(std::mem::size_of::<String>())
+                    .ok_or("cached sort memory count overflow")?,
+            )
+            .ok_or("cached sort memory count overflow")?;
+        for field in member.matched_fields.iter() {
+            bytes = bytes
+                .checked_add(field.capacity())
+                .ok_or("cached sort memory count overflow")?;
+        }
+    }
+    bytes = bytes
+        .checked_add(
+            reads
+                .checked_mul(std::mem::size_of::<CachedSortRead>())
+                .ok_or("cached sort memory count overflow")?,
+        )
+        .and_then(|used| {
+            used.checked_add(128 * std::mem::size_of::<(u32, crate::inventory::ByteRange)>())
+        })
+        .ok_or("cached sort memory count overflow")?;
+    u64::try_from(bytes).map_err(|_| "cached sort memory count overflow".into())
+}
+
+pub(crate) fn sort_cached_members(repo: &Repository, query: &Query, members: &mut [CachedMember]) {
+    let sort = ResolvedSort::new(repo, query).expect("sort validated");
+    if query.options.sort.is_empty() {
+        members.sort_by(|a, b| {
+            let a_collection = &repo.collections[a.collection_index];
+            let b_collection = &repo.collections[b.collection_index];
+            (
+                &a_collection.definition.name,
+                &a_collection.generation.records[a.slot as usize].id.0,
+            )
+                .cmp(&(
+                    &b_collection.definition.name,
+                    &b_collection.generation.records[b.slot as usize].id.0,
+                ))
+        });
+    } else {
+        members.sort_by(|a, b| {
+            let a_collection = &repo.collections[a.collection_index];
+            let b_collection = &repo.collections[b.collection_index];
+            let a_record = &a_collection.generation.records[a.slot as usize];
+            let b_record = &b_collection.generation.records[b.slot as usize];
+            for ((a_column, descending), (b_column, _)) in sort.columns[a.collection_index]
+                .as_ref()
+                .unwrap()
+                .iter()
+                .zip(sort.columns[b.collection_index].as_ref().unwrap())
+            {
+                let order = a_column.keys[a.slot as usize].compare_with(
+                    &b_column.keys[b.slot as usize],
+                    *descending,
+                    a_column.options,
+                );
+                if !order.is_eq() {
+                    return order;
+                }
+            }
+            (&a_collection.definition.name, &a_record.id)
+                .cmp(&(&b_collection.definition.name, &b_record.id))
+        });
+    }
+}
+
+pub(crate) fn record_base_cache_hits(repo: &Repository, cached: &CachedResult) {
+    let mut members_by_collection = HashMap::<usize, u64>::new();
+    for member in &cached.members {
+        *members_by_collection
+            .entry(member.collection_index)
+            .or_default() += 1;
+    }
+    for (collection_index, output_records) in members_by_collection {
+        let Some(collection) = repo.collections.get(collection_index) else {
+            continue;
+        };
+        crate::query_execution::request::record_cache_hit_observation(
+            repo.instance_id,
+            crate::query_execution::domain::domain_id(
+                repo.instance_id,
+                collection.generation.collection.0,
+                collection.generation.generation,
+                None,
+            ),
+            collection.generation.collection.0,
+            cached.members.len() as u64,
+            output_records,
+        );
+    }
+}
 
 /// Compact cache membership is budgeted independently of page payloads.
 pub(crate) struct CacheBudget {
@@ -195,7 +310,7 @@ pub(crate) fn materialize_lifecycle_cached(
             collection,
             SegmentRecordRef { record, file },
             revision,
-            member.matched_fields.clone(),
+            member.matched_fields.to_vec(),
         );
         if query.options.return_mode != ReturnMode::Locator
             && !(query.options.return_mode == ReturnMode::Logical
@@ -229,6 +344,182 @@ pub(crate) fn materialize_lifecycle_cached(
     Ok(SearchResult {
         count: (query.options.count && counters.match_count_complete)
             .then_some(cached.members.len()),
+        hits,
+        counters,
+    })
+}
+
+pub(crate) fn materialize_cached_stream(
+    repo: &Repository,
+    query: &Query,
+    cached: &CachedResult,
+    delivery: &mut crate::streaming::Delivery<'_>,
+    execution: Option<&ExecutionContext>,
+) -> Result<SearchResult, String> {
+    record_base_cache_hits(repo, cached);
+    delivery.check()?;
+    #[cfg(feature = "detailed-profiling")]
+    let started = crate::profiling::DetailedInstant::now();
+    let mut counters = WorkCounters {
+        total_matches: cached.members.len() as u64,
+        match_count_complete: true,
+        verified_result_hit: true,
+        ..WorkCounters::default()
+    };
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let mut page = Vec::new();
+    let mut source_access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        source_access.configure_execution(execution);
+    }
+    let mut actual = PlanActual::default();
+    for member in cached
+        .members
+        .iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+    {
+        delivery.check()?;
+        let record =
+            &repo.collections[member.collection_index].generation.records[member.slot as usize];
+        let existing = page.iter().map(crate::streaming::hit_bytes).sum::<usize>();
+        delivery.check_record_bytes(record.range.len() as usize)?;
+        delivery.check_buffer(existing.saturating_add(record.range.len() as usize))?;
+        let payload = direct_payload(
+            repo,
+            query,
+            member.collection_index,
+            record,
+            &mut counters,
+            &mut actual,
+            &mut source_access,
+            Some(delivery.max_buffered_bytes()),
+            execution,
+        )?;
+        page.push(make_hit(
+            repo,
+            member.collection_index,
+            record,
+            member.matched_fields.to_vec(),
+            payload,
+        ));
+        delivery.check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
+        match delivery.options().mode {
+            StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, false)?,
+            StreamMode::PageReplacements if page.len() % delivery.options().batch_rows == 0 => {
+                delivery.replacement(&page, &counters, 0)?;
+            }
+            StreamMode::PageReplacements => {}
+        }
+    }
+    counters.returned_records = page.len() as u64;
+    counters.distinct_files = source_access.distinct_files();
+    Ok(SearchResult {
+        count: Some(cached.members.len()),
+        hits: page,
+        counters,
+    })
+}
+
+pub(crate) fn materialize_cached(
+    repo: &Repository,
+    query: &Query,
+    cached: &CachedResult,
+) -> Result<SearchResult, String> {
+    record_base_cache_hits(repo, cached);
+    #[cfg(feature = "detailed-profiling")]
+    let preparation_start = crate::profiling::DetailedInstant::now();
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let mut counters = WorkCounters {
+        total_matches: cached.members.len() as u64,
+        match_count_complete: true,
+        verified_result_hit: true,
+        ..WorkCounters::default()
+    };
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    }
+    let mut hits = Vec::new();
+    let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+    for member in cached
+        .members
+        .iter()
+        .skip(query.options.offset)
+        .take(query.options.limit.min(cap))
+    {
+        let collection = &repo.collections[member.collection_index];
+        let record = &collection.generation.records[member.slot as usize];
+        let file = &repo.files.files[record.file.0 as usize];
+        let index = hits.len() as u32;
+        if query.options.return_mode == ReturnMode::Logical
+            && record.class == RecordClass::RawFallback
+        {
+            hits.push(make_hit(
+                repo,
+                member.collection_index,
+                record,
+                member.matched_fields.to_vec(),
+                Some(Payload::LogicalUnavailable {
+                    diagnostic_ref: record.diagnostic_ref,
+                }),
+            ));
+            continue;
+        }
+        if query.options.return_mode != ReturnMode::Locator {
+            files
+                .entry((member.collection_index, record.file.0))
+                .or_default()
+                .push((index, record.range));
+        }
+        hits.push(SearchHit {
+            collection: collection.definition.name.clone(),
+            record_id: record.id.0.to_string(),
+            generation: collection.generation.generation,
+            file_id: file.id.0,
+            file_path: file.relative_path.to_path_buf(),
+            file_size: file.revision.size,
+            file_created_ns: file.created_ns,
+            byte_start: record.range.start,
+            byte_end: record.range.end,
+            modified_ns: record.revision.modified_ns,
+            matched_fields: member.matched_fields.to_vec(),
+            file_status: file.status,
+            record_class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
+            payload: None,
+        });
+    }
+    let mut source_access = SourceAccessSession::new(&repo.files);
+    for ((collection_index, file_id), ranges) in files {
+        let collection = &repo.collections[collection_index];
+        for batch in ranges.chunks(128) {
+            let read = source_access.read(crate::model::FileId(file_id), batch)?;
+            counters.files_opened += read.opened;
+            counters.bytes_read += read.bytes_read;
+            for (index, bytes) in read.records {
+                let (payload, parses) = payload_from_bytes(
+                    hits[index as usize].record_class,
+                    Some(collection),
+                    &query.options.return_mode,
+                    bytes,
+                )?;
+                counters.record_parses += parses;
+                hits[index as usize].payload = payload;
+            }
+        }
+    }
+    counters.distinct_files = source_access.distinct_files();
+    counters.returned_records = hits.len() as u64;
+    Ok(SearchResult {
+        count: query.options.count.then_some(cached.members.len()),
         hits,
         counters,
     })

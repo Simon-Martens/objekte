@@ -5,7 +5,6 @@ use std::sync::Arc;
 
 use crate::query::{FilterExpr, Operand, Query};
 
-
 /// Verified record slot and evidence retained for reuse.
 #[derive(Clone, Debug)]
 pub(crate) struct CachedMember {
@@ -14,22 +13,19 @@ pub(crate) struct CachedMember {
     /// This is only interpreted together with the index instance and revision.
     pub segment_index: Option<usize>,
     pub slot: u32,
-    pub matched_fields: Vec<String>,
+    pub matched_fields: Arc<[String]>,
 }
-
 
 /// Complete membership set held in the result cache.
 pub(crate) struct CachedResult {
     pub members: Vec<CachedMember>,
 }
 
-
 /// Result cache value together with its byte cost.
 struct Entry {
     result: Arc<CachedResult>,
     bytes: usize,
 }
-
 
 /// Memory-bounded cache of complete verified results.
 pub(crate) struct VerifiedCache {
@@ -38,7 +34,6 @@ pub(crate) struct VerifiedCache {
     entries: HashMap<Vec<u8>, Entry>,
     order: VecDeque<Vec<u8>>,
 }
-
 
 impl VerifiedCache {
     pub fn new(budget: usize) -> Self {
@@ -62,7 +57,11 @@ impl VerifiedCache {
     pub fn set_budget(&mut self, budget: usize) -> Vec<Arc<CachedResult>> {
         self.budget = budget;
         self.bytes = 0;
-        let displaced = self.entries.drain().map(|(_, entry)| entry.result).collect();
+        let displaced = self
+            .entries
+            .drain()
+            .map(|(_, entry)| entry.result)
+            .collect();
         self.order.clear();
         displaced
     }
@@ -88,20 +87,21 @@ impl VerifiedCache {
         key: Vec<u8>,
         result: Arc<CachedResult>,
     ) -> Vec<Arc<CachedResult>> {
-        let bytes = key.len()
-            .saturating_add(128)
-            .saturating_add(result
+        let bytes = key.len().saturating_add(128).saturating_add(
+            result
                 .members
                 .iter()
                 .map(|member| {
-                    std::mem::size_of::<CachedMember>()
-                        .saturating_add(member
+                    std::mem::size_of::<CachedMember>().saturating_add(
+                        member
                             .matched_fields
                             .iter()
                             .map(|field| field.len().saturating_add(std::mem::size_of::<String>()))
-                            .fold(0usize, usize::saturating_add))
+                            .fold(0usize, usize::saturating_add),
+                    )
                 })
-                .fold(0usize, usize::saturating_add));
+                .fold(0usize, usize::saturating_add),
+        );
         let mut displaced = Vec::new();
         if bytes > self.budget {
             displaced.push(result);
@@ -126,13 +126,7 @@ impl VerifiedCache {
         }
         self.bytes += bytes;
         self.order.push_back(key.clone());
-        self.entries.insert(
-            key,
-            Entry {
-                result,
-                bytes,
-            },
-        );
+        self.entries.insert(key, Entry { result, bytes });
         displaced
     }
 
@@ -141,7 +135,6 @@ impl VerifiedCache {
         self.bytes
     }
 }
-
 
 pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
     // Repository ownership supplies the generation, alphabet, schema and
@@ -171,14 +164,16 @@ pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
         erase_spans(filter);
     }
     let mut key = vec![0];
-    key.extend(bincode::serialize(&(
-        &query.collections,
-        &filter,
-        &query.fts,
-        &query.options.sort,
-        query.options.evidence,
-    ))
-    .map_err(|error| format!("verified query key: {error}"))?);
+    key.extend(
+        bincode::serialize(&(
+            &query.collections,
+            &filter,
+            &query.fts,
+            &query.options.sort,
+            query.options.evidence,
+        ))
+        .map_err(|error| format!("verified query key: {error}"))?,
+    );
     Ok(key)
 }
 
@@ -191,7 +186,13 @@ pub(crate) fn lifecycle_key(
 ) -> Result<Vec<u8>, String> {
     let mut key = key(query)?;
     key[0] = 1;
-    key.splice(1..1, instance_id.to_le_bytes().into_iter().chain(revision.to_le_bytes()));
+    key.splice(
+        1..1,
+        instance_id
+            .to_le_bytes()
+            .into_iter()
+            .chain(revision.to_le_bytes()),
+    );
     Ok(key)
 }
 

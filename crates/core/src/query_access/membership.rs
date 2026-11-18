@@ -283,6 +283,16 @@ impl<'a> SlotInput<'a> {
         self.slots
     }
 
+    pub(crate) fn into_owned_members(self) -> RoaringBitmap {
+        match self.slots {
+            SlotSet::Unrestricted => self.input.clone(),
+            SlotSet::Empty => RoaringBitmap::new(),
+            SlotSet::Borrowed(bitmap) => bitmap.clone(),
+            SlotSet::Owned(bitmap) => bitmap,
+            SlotSet::Shared(bitmap) => bitmap.as_ref().clone(),
+        }
+    }
+
     pub(crate) fn replace_slots(self, slots: SlotSet<'a>) -> Self {
         Self::new(self.domain, self.input, slots)
     }

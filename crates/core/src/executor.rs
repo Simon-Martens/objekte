@@ -42,8 +42,8 @@ const MAX_INDEXED_PATH_SCAN: usize = 8192;
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
 pub(crate) struct SegmentCandidateBounds {
-    pub may: RoaringBitmap,
-    pub must: RoaringBitmap,
+    pub may: Arc<RoaringBitmap>,
+    pub must: Arc<RoaringBitmap>,
 }
 
 const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
@@ -168,8 +168,8 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             self.file_catalog,
         )
         .map_err(AccessError::Internal)?;
-        let possible = input.replace_slots(SlotSet::from_owned(bounds.may));
-        let proven = SlotInput::new(self.domain, input_bitmap, SlotSet::from_owned(bounds.must));
+        let possible = input.replace_slots(SlotSet::from_shared(bounds.may));
+        let proven = SlotInput::new(self.domain, input_bitmap, SlotSet::from_shared(bounds.must));
         let output_len = possible.len() as u64;
         let proven_len = proven.len() as u64;
         let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
@@ -362,10 +362,7 @@ impl<'a> SegmentPlanContext<'a> {
                 .cloned()
         };
         let Some(choice) = choice else {
-            return Ok(SegmentCandidateBounds {
-                may: input.clone(),
-                must: RoaringBitmap::new(),
-            });
+            return Ok(SegmentCandidateBounds::candidate(input.clone()));
         };
         let restriction = self
             .catalog()
@@ -384,7 +381,7 @@ impl<'a> SegmentPlanContext<'a> {
             Proven::All => may.clone(),
             Proven::Subset(proven) => bitmap_from_slot_input(&proven)?,
         };
-        Ok(SegmentCandidateBounds { may, must })
+        Ok(SegmentCandidateBounds::bounds(may, must))
     }
 
     fn record_skipped_expr(&mut self, expr: &BoundExpr) {
@@ -423,11 +420,34 @@ fn bitmap_from_slot_input(input: &SlotInput<'_>) -> Result<RoaringBitmap, String
 }
 
 impl SegmentCandidateBounds {
-    fn unknown(domain: &RoaringBitmap) -> Self {
+    fn candidate(may: RoaringBitmap) -> Self {
         Self {
-            may: domain.clone(),
-            must: RoaringBitmap::new(),
+            may: Arc::new(may),
+            must: Arc::new(RoaringBitmap::new()),
         }
+    }
+
+    fn exact(matches: RoaringBitmap) -> Self {
+        let matches = Arc::new(matches);
+        Self {
+            may: Arc::clone(&matches),
+            must: matches,
+        }
+    }
+
+    fn bounds(may: RoaringBitmap, must: RoaringBitmap) -> Self {
+        if may == must {
+            Self::exact(may)
+        } else {
+            Self {
+                may: Arc::new(may),
+                must: Arc::new(must),
+            }
+        }
+    }
+
+    fn unknown(domain: &RoaringBitmap) -> Self {
+        Self::candidate(domain.clone())
     }
 }
 
@@ -1234,10 +1254,10 @@ fn segment_expr_bounds_with_context(
                     catalog,
                     context,
                 )?;
-                must &= &child.must;
-                may = child.may;
+                must &= &*child.must;
+                may = child.may.as_ref().clone();
             }
-            SegmentCandidateBounds { may, must }
+            SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Or(parts) => {
             let mut may = RoaringBitmap::new();
@@ -1255,12 +1275,12 @@ fn segment_expr_bounds_with_context(
                     catalog,
                     context,
                 )?;
-                may |= child.may;
-                must |= child.must;
+                may |= &*child.may;
+                must |= &*child.must;
             }
             may &= domain;
             must &= domain;
-            SegmentCandidateBounds { may, must }
+            SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Not(inner) => {
             let child_logical = domain & &segment.logical_records;
@@ -1275,10 +1295,7 @@ fn segment_expr_bounds_with_context(
                 catalog,
                 context,
             )?;
-            SegmentCandidateBounds {
-                may: domain - &child.must,
-                must: domain - &child.may,
-            }
+            SegmentCandidateBounds::bounds(domain - &*child.must, domain - &*child.may)
         }
     })
 }
@@ -1298,10 +1315,9 @@ fn segment_expr_bounds(
                 if let Some(matches) =
                     segment_positional_eq_candidates(segment, logical_active, term)?
                 {
-                    return Ok(SegmentCandidateBounds {
-                        may: &matches | fallback_active,
-                        must: RoaringBitmap::new(),
-                    });
+                    return Ok(SegmentCandidateBounds::candidate(
+                        &matches | fallback_active,
+                    ));
                 }
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
@@ -1329,16 +1345,10 @@ fn segment_expr_bounds(
                 {
                     matches.insert(slot.0);
                 }
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) = segment_file_size_matches(segment, domain, term)? {
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
@@ -1357,42 +1367,30 @@ fn segment_expr_bounds(
                     segment_file_path_matches(segment, domain, catalog, operator, literal)?
                 };
                 matches &= domain;
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) = segment_file_modified_matches(segment, collection, domain, term)?
             {
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)?
             {
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) =
                 segment_metadata_matches(segment, collection, domain, term, catalog)?
             {
-                return Ok(SegmentCandidateBounds {
-                    may: matches.clone(),
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::exact(matches));
             }
             if term.path.root != PathRoot::Data {
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)
             {
-                return Ok(SegmentCandidateBounds {
-                    may: &matches | fallback_active,
-                    must: matches,
-                });
+                return Ok(SegmentCandidateBounds::bounds(
+                    &matches | fallback_active,
+                    matches,
+                ));
             }
             let index_catalog = IndexCatalog::segment(segment, collection);
             let selected = index_catalog
@@ -1426,32 +1424,29 @@ fn segment_expr_bounds(
                     proposal.operation,
                 )?
             {
-                return Ok(SegmentCandidateBounds {
-                    may: &matches | fallback_active,
-                    must: if proposal.exact {
+                return Ok(SegmentCandidateBounds::bounds(
+                    &matches | fallback_active,
+                    if proposal.exact {
                         matches
                     } else {
                         RoaringBitmap::new()
                     },
-                });
+                ));
             }
             {
                 if let Some(matches) =
                     segment_sort_column_matches(segment, logical_active, term, false)
                 {
-                    return Ok(SegmentCandidateBounds {
-                        may: &matches | fallback_active,
-                        must: matches,
-                    });
+                    return Ok(SegmentCandidateBounds::bounds(
+                        &matches | fallback_active,
+                        matches,
+                    ));
                 }
                 if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
                     if empty_selection_preservation(term) {
                         grams |= &segment.empty_array_records;
                     }
-                    SegmentCandidateBounds {
-                        may: (&grams & domain) | fallback_active,
-                        must: RoaringBitmap::new(),
-                    }
+                    SegmentCandidateBounds::candidate((&grams & domain) | fallback_active)
                 } else {
                     SegmentCandidateBounds::unknown(domain)
                 }
@@ -1492,10 +1487,10 @@ fn segment_expr_bounds(
                     fallback_active,
                     catalog,
                 )?;
-                may &= child.may;
-                must &= child.must;
+                may &= &*child.may;
+                must &= &*child.must;
             }
-            SegmentCandidateBounds { may, must }
+            SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Or(parts) => {
             let mut may = RoaringBitmap::new();
@@ -1510,10 +1505,10 @@ fn segment_expr_bounds(
                     fallback_active,
                     catalog,
                 )?;
-                may |= child.may;
-                must |= child.must;
+                may |= &*child.may;
+                must |= &*child.must;
             }
-            SegmentCandidateBounds { may, must }
+            SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Not(inner) => {
             let child = segment_expr_bounds(
@@ -1525,10 +1520,7 @@ fn segment_expr_bounds(
                 fallback_active,
                 catalog,
             )?;
-            SegmentCandidateBounds {
-                may: domain - &child.must,
-                must: domain - &child.may,
-            }
+            SegmentCandidateBounds::bounds(domain - &*child.must, domain - &*child.may)
         }
     })
 }
@@ -1600,7 +1592,7 @@ struct PlanContext<'a> {
     provider: NativeCollectionProvider<'a>,
     offers: HashMap<TermId, OfferList>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
-    term_ids: HashMap<(u32, (usize, usize)), TermId>,
+    term_ids: HashMap<(u32, (usize, usize), String), TermId>,
     next_term_id: u32,
     counters: PlanningCounters,
     diagnostics: bool,
@@ -1723,13 +1715,20 @@ impl<'a> PlanContext<'a> {
     }
 
     fn term_id(&mut self, collection: &CollectionState, term: &BoundTerm) -> TermId {
-        let key = (collection.generation.collection.0, term.span);
+        let key = (
+            collection.generation.collection.0,
+            term.span,
+            term.query_path.display.clone(),
+        );
         if let Some(id) = self.term_ids.get(&key) {
             return *id;
         }
         if let Some(predicates) = &self.predicates
-            && let Some(id) =
-                predicates.term_for_span(collection.generation.collection.0 as usize, term.span)
+            && let Some(id) = predicates.term_for_occurrence(
+                collection.generation.collection.0 as usize,
+                term.span,
+                &term.query_path.display,
+            )
         {
             self.term_ids.insert(key, id);
             return id;
@@ -3017,7 +3016,16 @@ fn plan_expr_restricted_inner<'a>(
     if collection.logical_records.len() == collection.generation.records.len() as u64 {
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.relations.is_empty() {
-            crate::relation_semijoin::restrict(repo, segments, expr, input, &mut plan, execution)?;
+            let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
+            crate::relation_semijoin::restrict(
+                repo,
+                segments,
+                expr,
+                input,
+                &mut plan,
+                &mut term_id,
+                execution,
+            )?;
         }
         return Ok(plan);
     }
@@ -3055,7 +3063,16 @@ fn plan_expr_restricted_inner<'a>(
     }
     logical.candidates = Some(candidates);
     if !collection.relations.is_empty() {
-        crate::relation_semijoin::restrict(repo, segments, expr, input, &mut logical, execution)?;
+        let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
+        crate::relation_semijoin::restrict(
+            repo,
+            segments,
+            expr,
+            input,
+            &mut logical,
+            &mut term_id,
+            execution,
+        )?;
     }
     Ok(logical)
 }

@@ -394,21 +394,22 @@ pub(super) fn scan_file(
                 if collect_exact_members {
                     outcome.exact_members.insert(slot);
                 }
-                if let Some(budget) = cache_budget {
-                    let mut matched_fields = if query.options.evidence {
-                        evidence.iter().cloned().collect::<Vec<_>>()
-                    } else {
-                        Vec::new()
-                    };
-                    matched_fields.sort();
-                    if budget.reserve(&matched_fields) {
-                        outcome.cache_members.push(CachedMember {
-                            collection_index,
-                            segment_index: None,
-                            slot,
-                            matched_fields,
-                        });
-                    }
+                let evidence_owner: Arc<[String]> = if query.options.evidence {
+                    let mut fields = evidence.iter().cloned().collect::<Vec<_>>();
+                    fields.sort();
+                    fields.into()
+                } else {
+                    Vec::new().into()
+                };
+                if let Some(budget) = cache_budget
+                    && budget.reserve(evidence_owner.as_ref())
+                {
+                    outcome.cache_members.push(CachedMember {
+                        collection_index,
+                        segment_index: None,
+                        slot,
+                        matched_fields: Arc::clone(&evidence_owner),
+                    });
                 }
                 let computed_key = if sort.bound.has_computed {
                     outcome.sort_key_evaluations += 1;
@@ -565,7 +566,7 @@ pub(super) fn scan_file(
                         matched: ScannedMatch {
                             slot,
                             key: None,
-                            evidence,
+                            evidence: evidence_owner,
                             payload,
                             retained_bytes: retained,
                             buffered_bytes: measured,

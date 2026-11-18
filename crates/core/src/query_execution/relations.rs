@@ -199,7 +199,7 @@ fn relation_target_prune(
                     &BoundExpr::Term(terminal.clone()),
                     collection,
                 )
-                .map(|bounds| Some(bounds.may))
+                .map(|bounds| Some(bounds.may.as_ref().clone()))
             },
         );
     }
@@ -462,8 +462,8 @@ fn try_direct_relation_page(
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
             let logical = &published.active.bitmap() & &published.index.logical_records;
-            let may = &bounds.may & &logical;
-            let must = &bounds.must & &logical;
+            let may = bounds.may.as_ref() & &logical;
+            let must = bounds.must.as_ref() & &logical;
             if may != must {
                 return Ok(None);
             }
@@ -540,7 +540,10 @@ fn try_direct_relation_page(
                     target_collection,
                     Some(catalog),
                 )?;
-                (bounds.may, Some(bounds.must))
+                (
+                    bounds.may.as_ref().clone(),
+                    Some(bounds.must.as_ref().clone()),
+                )
             }
             DirectRelationPredicate::Fts(local) => (
                 segment_fts_candidates(segment, target_collection, local)?
@@ -863,7 +866,7 @@ fn try_direct_relation_page(
                         collection_index: *source_index,
                         segment_index: Some(segment_index),
                         slot,
-                        matched_fields: hit.matched_fields.clone(),
+                        matched_fields: hit.matched_fields.clone().into(),
                     },
                 );
             }
@@ -976,10 +979,10 @@ fn try_semijoin_relation_page(
                 Some(catalog),
             )?;
             let logical = &published.active.bitmap() & &published.index.logical_records;
-            if (&bounds.may & &logical) != (&bounds.must & &logical) {
+            if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }
-            &bounds.must & &logical
+            bounds.must.as_ref() & &logical
         } else {
             published.active.bitmap().clone()
         };
@@ -1439,8 +1442,8 @@ fn try_parallel_relation_page(
                 .transpose()?
                 .flatten();
             match (filter_may, fts_may) {
-                (Some(filter), Some(fts)) => Some(filter & fts),
-                (Some(filter), None) => Some(filter),
+                (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
+                (Some(filter), None) => Some(filter.as_ref().clone()),
                 (None, Some(fts)) => Some(fts),
                 (None, None) => None,
             }
@@ -1757,38 +1760,11 @@ pub(super) fn search_segmented_relations(
             }),
         );
     }
-    if prune_segments && cache_builder.is_none() {
-        if let Some(result) = try_semijoin_relation_page(
-            repo,
-            query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            sort,
-            prepared,
-            context,
-        )? {
-            return Ok(result);
-        }
-    }
-    if prune_segments
-        && let Some(result) = try_direct_relation_page(
-            repo,
-            query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            sort,
-            prepared,
-            context,
-            cache_builder.as_deref_mut(),
-            retained_budget,
-        )?
-    {
-        return Ok(result);
-    }
+    let traversal_plan = crate::query_plan::operations::relation_page_plan(
+        prune_segments,
+        cache_builder.is_some(),
+        context.is_none() && cache_builder.is_none() && retained_budget.is_none(),
+    );
     let mut exact_relation_plan = if prune_segments
         && prepared.len() == 1
         && query.options.return_mode == ReturnMode::Locator
@@ -1802,24 +1778,55 @@ pub(super) fn search_segmented_relations(
     } else {
         None
     };
-    if prune_segments
-        && context.is_none()
-        && cache_builder.is_none()
-        && retained_budget.is_none()
-        && let Some(result) = try_parallel_relation_page(
-            repo,
-            query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            sort,
-            prepared,
-            prune_segments,
-            exact_relation_plan.as_ref(),
-        )?
-    {
-        return Ok(result);
+    for operation in traversal_plan {
+        let result = match operation {
+            crate::query_plan::operations::RelationPageOperation::QualifiedSemijoin => {
+                try_semijoin_relation_page(
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    sort,
+                    prepared,
+                    context,
+                )?
+            }
+            crate::query_plan::operations::RelationPageOperation::DirectTargetPrune => {
+                try_direct_relation_page(
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    sort,
+                    prepared,
+                    context,
+                    cache_builder.as_deref_mut(),
+                    retained_budget,
+                )?
+            }
+            crate::query_plan::operations::RelationPageOperation::ParallelFileScan => {
+                try_parallel_relation_page(
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    sort,
+                    prepared,
+                    prune_segments,
+                    exact_relation_plan.as_ref(),
+                )?
+            }
+            crate::query_plan::operations::RelationPageOperation::ReferenceScan => None,
+        };
+        if let Some(result) = result {
+            return Ok(result);
+        }
     }
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
@@ -2087,7 +2094,7 @@ pub(super) fn search_segmented_relations(
                         collection_index,
                         segment_index: address.segment,
                         slot: address.slot.0,
-                        matched_fields: hit.matched_fields.clone(),
+                        matched_fields: hit.matched_fields.clone().into(),
                     },
                 );
             }
@@ -2237,8 +2244,8 @@ pub(super) fn search_segmented_relations(
                     .transpose()?
                     .flatten();
                 match (filter_may, fts_may) {
-                    (Some(filter), Some(fts)) => Some(filter & fts),
-                    (Some(filter), None) => Some(filter),
+                    (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
+                    (Some(filter), None) => Some(filter.as_ref().clone()),
                     (None, Some(fts)) => Some(fts),
                     (None, None) => None,
                 }

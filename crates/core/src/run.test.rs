@@ -185,7 +185,12 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         let (analyzed, traces) = repo.explain_analyze(&request).unwrap();
         assert_eq!(analyzed.hits, reference.hits);
         assert_eq!(traces.len(), 1);
-        assert_eq!(traces[0].observations.len(), 2);
+        assert_eq!(
+            traces[0].observations.len(),
+            2,
+            "observations={:#?}",
+            traces[0].observations
+        );
         assert_eq!(
             traces[0]
                 .observations
@@ -4085,6 +4090,36 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
             assert_eq!(actual.counters.residual_evaluations, 83);
         }
     }
+    let fused_filter_fts = Query {
+        collections: vec!["data".into()],
+        fts: Some(crate::query::FtsQuery {
+            pattern_parameter: None,
+            mode: crate::query::FtsMode::Literal,
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+            literal: "needle".into(),
+            fields: vec![],
+        }),
+        filter: Some(parse_filter("other = 'ok'").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let (fused_result, fused_trace) = repo.explain_analyze(&fused_filter_fts).unwrap();
+    let fused = fused_trace[0]
+        .observations
+        .iter()
+        .find(|observation| observation.access_kind.as_deref() == Some("fused_filter_fts_source"))
+        .unwrap_or_else(|| panic!("combined FILTER/FTS source observation: {fused_trace:#?}"));
+    assert_eq!(fused_result.count, Some(2));
+    assert_eq!(fused.term_ids.len(), 2);
+    assert!(fused.input_records > 0);
+    assert_eq!(fused.candidate_records, fused_result.count.unwrap() as u64);
+    assert_eq!(fused.proven_records, fused.candidate_records);
     assert!(
         repo.search(&make("kind = 'yes' || kind:unknown = 'x'", false))
             .is_err()
@@ -6100,13 +6135,13 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
                 collection_index: 0,
                 segment_index: None,
                 slot: 0,
-                matched_fields: vec!["title".into()],
+                matched_fields: vec!["title".into()].into(),
             },
             CachedMember {
                 collection_index: 0,
                 segment_index: None,
                 slot: 1,
-                matched_fields: vec![],
+                matched_fields: vec![].into(),
             },
         ],
     };
