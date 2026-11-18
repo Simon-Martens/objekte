@@ -15,9 +15,9 @@ use crate::execution_options::ReturnMode;
 use crate::executor::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
     fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog,
-    segment_filter_bounds_with_input_catalog_and_predicates, segment_filter_estimate_with_term,
-    segment_fts_bounds_with_term, segment_fts_candidates, segment_fts_estimate_with_term,
+    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
+    segment_filter_estimate_with_term, segment_fts_bounds_with_term, segment_fts_candidates,
+    segment_fts_estimate_with_term,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
