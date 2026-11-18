@@ -101,6 +101,72 @@ pub(crate) enum ProofStrength {
     None,
 }
 
+/// Proof returned by an applied provider operation. `All` and `Subset` refer
+/// to `Restriction::possible`; neither duplicates an existing bitmap.
+pub(crate) enum Proven<'a> {
+    None,
+    All,
+    Subset(SlotInput<'a>),
+}
+
+/// One provider application expressed in the supplied effective input. The
+/// provider guarantees `proven ⊆ predicate matches ⊆ possible ⊆ input`.
+pub(crate) struct Restriction<'a> {
+    pub(crate) possible: SlotInput<'a>,
+    pub(crate) proven: Proven<'a>,
+}
+
+impl<'a> Restriction<'a> {
+    pub(crate) fn candidate(possible: SlotInput<'a>) -> Self {
+        Self {
+            possible,
+            proven: Proven::None,
+        }
+    }
+
+    pub(crate) fn exact(possible: SlotInput<'a>) -> Self {
+        Self {
+            possible,
+            proven: Proven::All,
+        }
+    }
+
+    pub(crate) fn bounds(possible: SlotInput<'a>, proven: SlotInput<'a>) -> Self {
+        let proven = if proven.is_empty() {
+            Proven::None
+        } else if proven.same_members(&possible).unwrap_or(false) {
+            Proven::All
+        } else {
+            Proven::Subset(proven)
+        };
+        Self { possible, proven }
+    }
+
+    pub(crate) fn domain(&self) -> crate::query_access::membership::DomainId {
+        self.possible.domain()
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        self.possible.len()
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.possible.is_empty()
+    }
+
+    pub(crate) fn contains(&self, slot: u32) -> bool {
+        self.possible.contains(slot)
+    }
+
+    pub(crate) fn iter(&self) -> crate::query_access::membership::MembershipIter<'_> {
+        self.possible.iter()
+    }
+
+    pub(crate) fn into_slots(self) -> super::membership::SlotSet<'a> {
+        self.possible.into_slots()
+    }
+}
+
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct InputEstimate {
     pub(crate) domain: super::membership::DomainId,
@@ -250,7 +316,7 @@ pub(crate) trait IndexAccessProvider: Send + Sync {
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>>;
+    ) -> AccessResult<Restriction<'a>>;
 }
 
 pub(crate) fn domain_with_slots<'a>(

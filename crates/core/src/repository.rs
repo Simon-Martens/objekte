@@ -1195,7 +1195,7 @@ impl Repository {
         self.stamp_native_result(result)
     }
 
-    fn stamp_native_hit(&self, hit: &mut SearchHit) {
+    pub(crate) fn stamp_native_hit(&self, hit: &mut SearchHit) {
         if let Some(collection) = self
             .collections
             .iter()
@@ -1256,11 +1256,9 @@ impl Repository {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         #[cfg(test)]
-        let use_test_provider_pipeline = !crate::query_execution::request::test_access_providers(
-            self.instance_id,
-        )
-        .is_empty()
-            || crate::query_predicate::alternate_matcher_active();
+        let use_test_provider_pipeline =
+            !crate::query_execution::request::test_access_providers(self.instance_id).is_empty()
+                || crate::query_predicate::alternate_matcher_active();
         #[cfg(not(test))]
         let use_test_provider_pipeline = false;
         let result = if self.has_native_segments() && !use_test_provider_pipeline {
@@ -1431,49 +1429,54 @@ impl Repository {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
-            let mut remap_rows =
-                |event: crate::streaming::StreamEvent<'_>| -> Result<
-                    crate::streaming::StreamControl,
-                    String,
-                > {
-                    match event {
-                        crate::streaming::StreamEvent::OrderedRows {
+            let needs_remap = |hit: &SearchHit| {
+                hit.diagnostic_ref.stored_index().is_some()
+                    || self
+                        .collections
+                        .iter()
+                        .find(|collection| collection.definition.name == hit.collection)
+                        .is_none_or(|collection| collection.generation.generation != hit.generation)
+            };
+            let mut remap_rows = |event: crate::streaming::StreamEvent<'_>| -> Result<
+                crate::streaming::StreamControl,
+                String,
+            > {
+                match event {
+                    crate::streaming::StreamEvent::OrderedRows {
+                        sequence,
+                        start,
+                        rows,
+                        progress,
+                    } if rows.iter().any(needs_remap) => {
+                        let mut remapped = rows.to_vec();
+                        for hit in &mut remapped {
+                            self.stamp_native_hit(hit);
+                        }
+                        sink(crate::streaming::StreamEvent::OrderedRows {
                             sequence,
                             start,
-                            rows,
+                            rows: &remapped,
                             progress,
-                        } => {
-                            let mut remapped = rows.to_vec();
-                            for hit in &mut remapped {
-                                self.stamp_native_hit(hit);
-                            }
-                            sink(crate::streaming::StreamEvent::OrderedRows {
-                                sequence,
-                                start,
-                                rows: &remapped,
-                                progress,
-                            })
-                        }
-                        crate::streaming::StreamEvent::PageReplacement {
-                            sequence,
-                            rows,
-                            progress,
-                        } => {
-                            let mut remapped = rows.to_vec();
-                            for hit in &mut remapped {
-                                self.stamp_native_hit(hit);
-                            }
-                            sink(crate::streaming::StreamEvent::PageReplacement {
-                                sequence,
-                                rows: &remapped,
-                                progress,
-                            })
-                        }
-                        crate::streaming::StreamEvent::Progress { sequence, progress } => {
-                            sink(crate::streaming::StreamEvent::Progress { sequence, progress })
-                        }
+                        })
                     }
-                };
+                    crate::streaming::StreamEvent::PageReplacement {
+                        sequence,
+                        rows,
+                        progress,
+                    } if rows.iter().any(needs_remap) => {
+                        let mut remapped = rows.to_vec();
+                        for hit in &mut remapped {
+                            self.stamp_native_hit(hit);
+                        }
+                        sink(crate::streaming::StreamEvent::PageReplacement {
+                            sequence,
+                            rows: &remapped,
+                            progress,
+                        })
+                    }
+                    event => sink(event),
+                }
+            };
             return crate::run::search_stream_segmented_with_context_lifecycle(
                 self,
                 query,
@@ -1518,6 +1521,46 @@ impl Repository {
                 request.options.count = true;
             }
         }
+        let mut remap_rows = |event: crate::streaming::StreamEvent<'_>| -> Result<
+            crate::streaming::StreamControl,
+            String,
+        > {
+            match event {
+                crate::streaming::StreamEvent::OrderedRows {
+                    sequence,
+                    start,
+                    rows,
+                    progress,
+                } => {
+                    let mut remapped = rows.to_vec();
+                    for hit in &mut remapped {
+                        self.stamp_native_hit(hit);
+                    }
+                    sink(crate::streaming::StreamEvent::OrderedRows {
+                        sequence,
+                        start,
+                        rows: &remapped,
+                        progress,
+                    })
+                }
+                crate::streaming::StreamEvent::PageReplacement {
+                    sequence,
+                    rows,
+                    progress,
+                } => {
+                    let mut remapped = rows.to_vec();
+                    for hit in &mut remapped {
+                        self.stamp_native_hit(hit);
+                    }
+                    sink(crate::streaming::StreamEvent::PageReplacement {
+                        sequence,
+                        rows: &remapped,
+                        progress,
+                    })
+                }
+                event => sink(event),
+            }
+        };
         crate::run::search_stream_scoped_with_context_active(
             self,
             &request,
@@ -1525,7 +1568,7 @@ impl Repository {
             options,
             &cancellation,
             context,
-            sink,
+            &mut remap_rows,
             active,
         )
     }
@@ -1598,11 +1641,9 @@ impl Repository {
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
         let resolved = query.resolve_current_clock()?;
         #[cfg(test)]
-        let use_test_provider_pipeline = !crate::query_execution::request::test_access_providers(
-            self.instance_id,
-        )
-        .is_empty()
-            || crate::query_predicate::alternate_matcher_active();
+        let use_test_provider_pipeline =
+            !crate::query_execution::request::test_access_providers(self.instance_id).is_empty()
+                || crate::query_predicate::alternate_matcher_active();
         #[cfg(not(test))]
         let use_test_provider_pipeline = false;
         let result = if self.has_native_segments() && !use_test_provider_pipeline {

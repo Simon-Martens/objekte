@@ -5,20 +5,20 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
+use crate::build::IndexedCollectionSegment;
 use crate::executor::{
     native_estimate_fts_candidates, native_fts_candidates, native_segment_estimate_fts_candidates,
     native_segment_fts_candidates,
 };
-use crate::build::IndexedCollectionSegment;
 use crate::query_execution::domain::domain_id;
-use crate::query_predicate::TermId;
 use crate::query_predicate::PreparedPredicates;
+use crate::query_predicate::TermId;
 use crate::repository::CollectionState;
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
-    ProviderId,
+    ProviderId, Restriction,
 };
 use super::membership::{DomainId, SlotInput, SlotSet};
 use super::registry::ProviderCatalog;
@@ -178,7 +178,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>> {
+    ) -> AccessResult<Restriction<'a>> {
         execution.check()?;
         let input_count = input.len() as u64;
         if choice.provider != NATIVE_TEXT_PROVIDER
@@ -196,7 +196,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
             return Err(AccessError::DomainMismatch);
         }
         if input.is_empty() {
-            return Ok(input);
+            return Ok(Restriction::candidate(input));
         }
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
@@ -224,7 +224,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
             output_count,
             0,
         );
-        Ok(result)
+        Ok(Restriction::candidate(result))
     }
 }
 
@@ -286,7 +286,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>> {
+    ) -> AccessResult<Restriction<'a>> {
         execution.check()?;
         if choice.provider != NATIVE_TEXT_PROVIDER
             || self
@@ -303,16 +303,15 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
             return Err(AccessError::DomainMismatch);
         }
         if input.is_empty() {
-            return Ok(input);
+            return Ok(Restriction::candidate(input));
         }
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
         let slots = {
-            let result =
-                native_segment_fts_candidates(self.segment, self.collection, fts)
-                    .map_err(AccessError::Internal)?
-                    .ok_or(AccessError::CapabilityUnavailable)?;
+            let result = native_segment_fts_candidates(self.segment, self.collection, fts)
+                .map_err(AccessError::Internal)?
+                .ok_or(AccessError::CapabilityUnavailable)?;
             let input_ref = input
                 .effective_bitmap()
                 .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
@@ -333,7 +332,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
             output_count,
             0,
         );
-        Ok(result)
+        Ok(Restriction::candidate(result))
     }
 }
 
@@ -346,9 +345,9 @@ pub(crate) fn prepared_text_candidates(
 ) -> Result<Option<RoaringBitmap>, String> {
     let provider = NativeTextProvider::with_instance(collection, None, instance_id);
     #[cfg(test)]
-    let test_providers =
-        crate::query_execution::request::test_access_providers(instance_id);
-    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> = smallvec::SmallVec::new();
+    let test_providers = crate::query_execution::request::test_access_providers(instance_id);
+    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
+        smallvec::SmallVec::new();
     providers.push(&provider);
     #[cfg(test)]
     for test_provider in &test_providers {
@@ -366,12 +365,8 @@ pub(crate) fn prepared_text_candidates(
     let offers = catalog
         .propose_prepared(predicates, term, input_estimate)
         .map_err(|error| error.to_string())?;
-    let Some(chosen) = crate::query_plan::selection::choose_offer(
-        term,
-        &offers,
-        input.len(),
-    )
-    .map_err(|error| error.to_string())?
+    let Some(chosen) = crate::query_plan::selection::choose_offer(term, &offers, input.len())
+        .map_err(|error| error.to_string())?
     else {
         return Ok(None);
     };
@@ -385,7 +380,8 @@ pub(crate) fn prepared_text_candidates(
             provider.input_for(input),
             &AccessExecution { context: None },
         )
-        .map_err(|error| error.to_string())?;
+        .map_err(|error| error.to_string())?
+        .possible;
     match applied.into_slots() {
         SlotSet::Owned(bitmap) => Ok(Some(bitmap)),
         SlotSet::Unrestricted => Ok(None),
@@ -403,9 +399,9 @@ pub(crate) fn prepared_text_estimate(
 ) -> Result<Option<(u64, f64)>, String> {
     let provider = NativeTextProvider::with_instance(collection, None, instance_id);
     #[cfg(test)]
-    let test_providers =
-        crate::query_execution::request::test_access_providers(instance_id);
-    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> = smallvec::SmallVec::new();
+    let test_providers = crate::query_execution::request::test_access_providers(instance_id);
+    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
+        smallvec::SmallVec::new();
     providers.push(&provider);
     #[cfg(test)]
     for test_provider in &test_providers {
@@ -426,7 +422,9 @@ pub(crate) fn prepared_text_estimate(
             },
         )
         .map_err(|error| error.to_string())?;
-    Ok(crate::query_plan::selection::choose_offer(term, &offers, input_len)
-        .map_err(|error| error.to_string())?
-        .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
+    Ok(
+        crate::query_plan::selection::choose_offer(term, &offers, input_len)
+            .map_err(|error| error.to_string())?
+            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
+    )
 }

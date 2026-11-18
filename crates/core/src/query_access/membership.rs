@@ -2,8 +2,8 @@
 
 use std::sync::Arc;
 
-use roaring::bitmap::Iter as RoaringIter;
 use roaring::RoaringBitmap;
+use roaring::bitmap::Iter as RoaringIter;
 
 use super::contract::AccessError;
 
@@ -87,7 +87,9 @@ impl<'a> MembershipView<'a> {
     pub(crate) fn iter(self) -> MembershipIter<'a> {
         match self {
             Self::Empty => MembershipIter::Empty,
-            Self::AllSlots(bitmap) | Self::Borrowed(bitmap) => MembershipIter::Bitmap(bitmap.iter()),
+            Self::AllSlots(bitmap) | Self::Borrowed(bitmap) => {
+                MembershipIter::Bitmap(bitmap.iter())
+            }
         }
     }
 
@@ -201,6 +203,10 @@ impl<'a> SlotInput<'a> {
         Self::new(domain, input, SlotSet::Unrestricted)
     }
 
+    pub(crate) fn empty(domain: DomainId, input: &'a RoaringBitmap) -> Self {
+        Self::new(domain, input, SlotSet::Empty)
+    }
+
     pub(crate) fn new(domain: DomainId, input: &'a RoaringBitmap, slots: SlotSet<'a>) -> Self {
         debug_assert!(
             slots
@@ -263,6 +269,10 @@ impl<'a> SlotInput<'a> {
             SlotSet::Owned(bitmap) => Some(bitmap),
             SlotSet::Shared(bitmap) => Some(bitmap),
         }
+    }
+
+    pub(crate) fn operation_input(&self) -> &'a RoaringBitmap {
+        self.input
     }
 
     pub(crate) fn slots(&self) -> &SlotSet<'a> {

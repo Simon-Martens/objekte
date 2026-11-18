@@ -6,7 +6,7 @@ use crate::query_predicate::{PreparedPredicates, TermId};
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider,
-    InputEstimate, OfferList, ProviderId,
+    InputEstimate, OfferList, ProviderId, Restriction,
 };
 use super::membership::SlotInput;
 
@@ -54,7 +54,7 @@ impl<'a> ProviderCatalog<'a> {
         choice: AccessId,
         input: SlotInput<'b>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'b>> {
+    ) -> AccessResult<Restriction<'b>> {
         let provider = self
             .providers
             .iter()
@@ -80,8 +80,8 @@ mod tests {
         AccessKind, AccessOffer, Coverage, OperationId, ProofStrength,
     };
     use crate::query_access::membership::{DomainId, SlotSet};
-    use crate::reference::BoundTerm;
     use crate::query_plan::selection::choose_offer;
+    use crate::reference::BoundTerm;
 
     struct TestProvider {
         id: ProviderId,
@@ -132,7 +132,7 @@ mod tests {
             _choice: AccessId,
             input: SlotInput<'a>,
             _execution: &AccessExecution<'_>,
-        ) -> AccessResult<SlotInput<'a>> {
+        ) -> AccessResult<Restriction<'a>> {
             self.applications.fetch_add(1, Ordering::Relaxed);
             if self.fail_apply {
                 return Err(AccessError::Corrupt("injected failure".into()));
@@ -145,15 +145,13 @@ mod tests {
                     .filter(|slot| input_ref.contains(*slot))
                     .collect::<RoaringBitmap>()
             };
-            Ok(input.replace_slots(SlotSet::from_owned(slots)))
+            Ok(Restriction::exact(
+                input.replace_slots(SlotSet::from_owned(slots)),
+            ))
         }
     }
 
-    fn provider(
-        id: u32,
-        work: f64,
-        advertised_term: TermId,
-    ) -> TestProvider {
+    fn provider(id: u32, work: f64, advertised_term: TermId) -> TestProvider {
         TestProvider {
             id: ProviderId(id),
             operation: OperationId(0),
@@ -188,7 +186,11 @@ mod tests {
                 )
                 .unwrap();
             assert_eq!(
-                choose_offer(term, &offers, 10).unwrap().unwrap().id().provider,
+                choose_offer(term, &offers, 10)
+                    .unwrap()
+                    .unwrap()
+                    .id()
+                    .provider,
                 ProviderId(1)
             );
         }
@@ -202,10 +204,8 @@ mod tests {
         let term = TermId::new(6);
         let incompatible = provider(1, 0.0, TermId::new(99));
         let compatible = provider(2, 5.0, term);
-        let catalog = ProviderCatalog::new([
-            &incompatible as &dyn IndexAccessProvider,
-            &compatible,
-        ]);
+        let catalog =
+            ProviderCatalog::new([&incompatible as &dyn IndexAccessProvider, &compatible]);
         let offers = catalog
             .propose(
                 term,
@@ -218,7 +218,11 @@ mod tests {
             )
             .unwrap();
         assert_eq!(
-            choose_offer(term, &offers, 10).unwrap().unwrap().id().provider,
+            choose_offer(term, &offers, 10)
+                .unwrap()
+                .unwrap()
+                .id()
+                .provider,
             ProviderId(2)
         );
     }
@@ -232,18 +236,16 @@ mod tests {
         let catalog = ProviderCatalog::new([&failing as &dyn IndexAccessProvider]);
         let input = (1..=3).collect::<RoaringBitmap>();
         let slots = SlotInput::unrestricted(DomainId::new(1), &input);
-        let error = match catalog
-            .apply(
-                term,
-                AccessRequest::Structured(empty_term_ref()),
-                AccessId {
-                    provider: ProviderId(1),
-                    operation: OperationId(0),
-                },
-                slots,
-                &AccessExecution { context: None },
-            )
-        {
+        let error = match catalog.apply(
+            term,
+            AccessRequest::Structured(empty_term_ref()),
+            AccessId {
+                provider: ProviderId(1),
+                operation: OperationId(0),
+            },
+            slots,
+            &AccessExecution { context: None },
+        ) {
             Ok(_) => panic!("expected injected provider failure"),
             Err(error) => error,
         };
@@ -267,7 +269,8 @@ mod tests {
                 input,
                 &AccessExecution { context: None },
             )
-            .unwrap();
+            .unwrap()
+            .possible;
         assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
     }
 
@@ -307,7 +310,11 @@ mod tests {
             ),
         ];
         assert_eq!(
-            choose_offer(term, &offers, 3).unwrap().unwrap().id().provider,
+            choose_offer(term, &offers, 3)
+                .unwrap()
+                .unwrap()
+                .id()
+                .provider,
             ProviderId(1)
         );
         assert_eq!(

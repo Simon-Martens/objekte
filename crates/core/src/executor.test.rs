@@ -1650,8 +1650,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             .as_ref()
             .map(|state| state.indexes.keys().collect::<Vec<_>>())
     );
-    let provider =
-        NativeCollectionProvider::new(&repo, collection, domain.len() as u64, None);
+    let provider = NativeCollectionProvider::new(&repo, collection, domain.len() as u64, None);
     let mut offers = OfferList::new();
     provider
         .propose(
@@ -1683,7 +1682,11 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         )
         .unwrap();
     assert_eq!(applied.domain(), provider.domain());
-    assert_eq!(applied.len(), 1, "offers={offers:?}, chosen={chosen_path:?}");
+    assert_eq!(
+        applied.len(),
+        1,
+        "offers={offers:?}, chosen={chosen_path:?}"
+    );
     let expected_slots = collection
         .generation
         .records
@@ -1704,7 +1707,10 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             &AccessExecution { context: None },
         )
         .unwrap();
-    assert_eq!(limited_result.iter().collect::<Vec<_>>(), [expected_slots[0]]);
+    assert_eq!(
+        limited_result.iter().collect::<Vec<_>>(),
+        [expected_slots[0]]
+    );
 
     let term_b = crate::reference::bind_filter(
         &parse_filter("@record.id = 'four'").unwrap(),
@@ -1775,10 +1781,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             TermId::new(7),
             AccessRequest::Structured(term),
             chosen_a,
-            crate::query_access::membership::SlotInput::unrestricted(
-                different_domain,
-                &domain,
-            ),
+            crate::query_access::membership::SlotInput::unrestricted(different_domain, &domain,),
             &AccessExecution { context: None },
         ),
         Err(crate::query_access::contract::AccessError::DomainMismatch)

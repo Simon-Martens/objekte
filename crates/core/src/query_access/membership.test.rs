@@ -28,11 +28,7 @@ fn represented<'a>(
         0 => SlotInput::new(domain, input, SlotSet::Empty),
         1 => SlotInput::unrestricted(domain, input),
         2 => SlotInput::new(domain, input, SlotSet::borrowed(members)),
-        3 => SlotInput::new(
-            domain,
-            input,
-            SlotSet::from_owned(members & input),
-        ),
+        3 => SlotInput::new(domain, input, SlotSet::from_owned(members & input)),
         4 => SlotInput::new(
             domain,
             input,
@@ -56,12 +52,13 @@ fn all_subset_representations_match_integer_set_oracle() {
     let domain = DomainId::from_parts(9, 2, 17, None);
     let full = bitmap(&[0, 1, 2, 3]);
     let narrow = bitmap(&[2, 3]);
-    let backing = (0..16).map(|mask| {
-        (0..4)
-            .filter(|slot| mask & (1 << slot) != 0)
-            .collect::<RoaringBitmap>()
-    })
-    .collect::<Vec<_>>();
+    let backing = (0..16)
+        .map(|mask| {
+            (0..4)
+                .filter(|slot| mask & (1 << slot) != 0)
+                .collect::<RoaringBitmap>()
+        })
+        .collect::<Vec<_>>();
     let narrow_backing = backing
         .iter()
         .map(|members| members & &narrow)
@@ -90,10 +87,8 @@ fn all_subset_representations_match_integer_set_oracle() {
             };
             for left_rep in 0..5 {
                 for right_rep in 0..5 {
-                    let expected_left =
-                        oracle(left_rep, left_input, &backing[left_mask]);
-                    let expected_right =
-                        oracle(right_rep, right_input, &backing[right_mask]);
+                    let expected_left = oracle(left_rep, left_input, &backing[left_mask]);
+                    let expected_right = oracle(right_rep, right_input, &backing[right_mask]);
                     let left = represented(
                         left_rep,
                         domain,
@@ -213,10 +208,8 @@ fn empty_has_one_meaning_across_representations() {
     let input = bitmap(&[1, 2, 3]);
     let empty = SlotInput::new(domain, &input, SlotSet::Empty);
     let borrowed_empty_values = RoaringBitmap::new();
-    let borrowed_empty =
-        SlotInput::new(domain, &input, SlotSet::borrowed(&borrowed_empty_values));
-    let owned_empty =
-        SlotInput::new(domain, &input, SlotSet::from_owned(RoaringBitmap::new()));
+    let borrowed_empty = SlotInput::new(domain, &input, SlotSet::borrowed(&borrowed_empty_values));
+    let owned_empty = SlotInput::new(domain, &input, SlotSet::from_owned(RoaringBitmap::new()));
     let shared_empty = SlotInput::new(
         domain,
         &input,

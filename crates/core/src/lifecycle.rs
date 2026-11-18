@@ -3741,12 +3741,13 @@ impl IndexView {
                     rows,
                     progress,
                 } => {
-                    if rows
-                        .iter()
-                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
-                    {
+                    if rows.iter().any(|hit| {
+                        hit.diagnostic_ref.stored_index().is_some()
+                            || hit.generation != self.revision().0
+                    }) {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
+                            hit.generation = self.revision().0;
                             self.remap_hit_diagnostic(hit);
                         }
                         sink(StreamEvent::OrderedRows {
@@ -3769,12 +3770,13 @@ impl IndexView {
                     rows,
                     progress,
                 } => {
-                    if rows
-                        .iter()
-                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
-                    {
+                    if rows.iter().any(|hit| {
+                        hit.diagnostic_ref.stored_index().is_some()
+                            || hit.generation != self.revision().0
+                    }) {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
+                            hit.generation = self.revision().0;
                             self.remap_hit_diagnostic(hit);
                         }
                         sink(StreamEvent::PageReplacement {

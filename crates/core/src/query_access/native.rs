@@ -3,9 +3,7 @@
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::executor::{
-    AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path,
-};
+use crate::executor::{AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path};
 use crate::query_execution::domain::domain_id;
 use crate::query_predicate::TermId;
 use crate::repository::{CollectionState, Repository};
@@ -13,7 +11,7 @@ use crate::repository::{CollectionState, Repository};
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
-    ProviderId,
+    ProviderId, Restriction,
 };
 use super::membership::{DomainId, SlotInput, SlotSet};
 
@@ -212,7 +210,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>> {
+    ) -> AccessResult<Restriction<'a>> {
         if choice.provider != NATIVE_COLLECTION_PROVIDER {
             return Err(AccessError::StaleHandle);
         }
@@ -222,7 +220,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         execution.check()?;
         let input_count = input.len() as u64;
         if input.is_empty() {
-            return Ok(input);
+            return Ok(Restriction::exact(input));
         }
         let AccessRequest::Structured(bound) = request else {
             return Err(AccessError::CapabilityUnavailable);
@@ -251,8 +249,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         let result = input.replace_slots(slots);
         let output_count = result.len() as u64;
         crate::query_execution::request::record_observation(
-            self.repo
-                .map_or(0, |repo| repo.instance_id),
+            self.repo.map_or(0, |repo| repo.instance_id),
             term,
             self.domain,
             choice,
@@ -261,16 +258,18 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             output_count,
             if path.exact { output_count } else { 0 },
         );
-        Ok(result)
+        Ok(if path.exact {
+            Restriction::exact(result)
+        } else {
+            Restriction::candidate(result)
+        })
     }
 }
 
 fn access_kind(kind: AccessPathKind) -> AccessKind {
     match kind {
         AccessPathKind::Posting => AccessKind::ExactMembership,
-        AccessPathKind::CustomBigram | AccessPathKind::RawBigram => {
-            AccessKind::CandidateMembership
-        }
+        AccessPathKind::CustomBigram | AccessPathKind::RawBigram => AccessKind::CandidateMembership,
         AccessPathKind::Metadata | AccessPathKind::FilePathIndex => AccessKind::Metadata,
         AccessPathKind::SortColumn => AccessKind::OrderedColumn,
         AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => {

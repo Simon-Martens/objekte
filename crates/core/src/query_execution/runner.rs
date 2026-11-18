@@ -13,8 +13,8 @@ use smallvec::SmallVec;
 use crate::build::IndexedCollectionSegment;
 use crate::execution_options::ReturnMode;
 use crate::executor::{
-    Plan, PlanningCounters, Proof, estimate_expr, estimate_fts_candidates,
-    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    Plan, PlanningCounters, Proof, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
+    fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
@@ -31,8 +31,13 @@ pub use crate::query_diagnostics::trace::{
     BoundTermDiagnostic, ExecutionObservation, ObservationStatus, PlanActual, QueryPlanTrace,
     RelationHopDiagnostic,
 };
-use crate::query_results::ranking::{RankKey, ResolvedSort, Winner};
 use crate::query_results::cache::CacheBudget;
+use crate::query_results::delivery::emit_provisional_page;
+use crate::query_results::materialize::materialize_winner_page;
+use crate::query_results::ranking::{
+    RankKey, ResolvedSort, Winner, rank_key, rank_key_bytes, rank_key_from_context,
+    rank_key_without_source,
+};
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
@@ -41,10 +46,10 @@ use crate::reference::{
     eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
-use crate::sort_binding::{
-    BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache,
-};
-use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
+use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache};
+use crate::sorting::{InferredOrderKey, SortColumn, simple_composite_part};
+#[cfg(test)]
+use crate::sorting::{SortKey, SortOptions};
 use crate::source::{
     ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
 };
@@ -689,11 +694,7 @@ fn prepare_residual<'a>(
             }
         }
         BoundExpr::Not(inner) => Residual::Not(Box::new(prepare_residual(
-            inner,
-            proofs,
-            collection,
-            input_len,
-            predicates,
+            inner, proofs, collection, input_len, predicates,
         ))),
     }
 }
@@ -879,15 +880,17 @@ impl Residual<'_> {
                         )?
                     } else {
                         let mut evidence = HashSet::new();
-                        Some(match predicates.verify(
-                            *term_id,
-                            &crate::query_predicate::RecordInput::new(ctx, &[]),
-                            &mut crate::query_predicate::EvidenceSink::new(&mut evidence),
-                        )? {
-                            crate::query_predicate::Truth::True => true,
-                            crate::query_predicate::Truth::False => false,
-                            crate::query_predicate::Truth::Unknown => return Ok(None),
-                        })
+                        Some(
+                            match predicates.verify(
+                                *term_id,
+                                &crate::query_predicate::RecordInput::new(ctx, &[]),
+                                &mut crate::query_predicate::EvidenceSink::new(&mut evidence),
+                            )? {
+                                crate::query_predicate::Truth::True => true,
+                                crate::query_predicate::Truth::False => false,
+                                crate::query_predicate::Truth::Unknown => return Ok(None),
+                            },
+                        )
                     }
                 }
             },
@@ -959,15 +962,17 @@ impl Residual<'_> {
                             )?
                         } else {
                             let mut fields = HashSet::new();
-                            Some(match predicates.verify(
-                                *term_id,
-                                &crate::query_predicate::RecordInput::new(ctx, &[]),
-                                &mut crate::query_predicate::EvidenceSink::new(&mut fields),
-                            )? {
-                                crate::query_predicate::Truth::True => true,
-                                crate::query_predicate::Truth::False => false,
-                                crate::query_predicate::Truth::Unknown => return Ok(None),
-                            })
+                            Some(
+                                match predicates.verify(
+                                    *term_id,
+                                    &crate::query_predicate::RecordInput::new(ctx, &[]),
+                                    &mut crate::query_predicate::EvidenceSink::new(&mut fields),
+                                )? {
+                                    crate::query_predicate::Truth::True => true,
+                                    crate::query_predicate::Truth::False => false,
+                                    crate::query_predicate::Truth::Unknown => return Ok(None),
+                                },
+                            )
                         }
                     }
                 };
@@ -1900,103 +1905,6 @@ fn segment_metadata_fts_evidence(
         }
     }
     Ok(matches)
-}
-
-impl PartialEq for Winner {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key
-    }
-}
-
-impl Eq for Winner {}
-
-impl PartialOrd for Winner {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl Ord for Winner {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.key.cmp(&other.key)
-    }
-}
-
-fn rank_key(
-    sort: &ResolvedSort<'_>,
-    repo: &Repository,
-    collection_index: usize,
-    record: &RecordEntry,
-) -> RankKey {
-    let collection = &repo.collections[collection_index];
-    let parts = sort.columns[collection_index]
-        .as_ref()
-        .expect("selected collection")
-        .iter()
-        .map(|(column, descending)| {
-            let key = column.keys[record.slot.0 as usize].clone();
-            (key, *descending, column.options)
-        })
-        .collect();
-    RankKey {
-        parts,
-        collection: collection.definition.name.clone(),
-        id: record.id.0.to_string(),
-    }
-}
-
-fn rank_key_from_context(
-    sort: &ResolvedSort<'_>,
-    repo: &Repository,
-    collection_index: usize,
-    ctx: &RecordContext<'_>,
-    target_values: Option<&crate::relation_target_cache::TargetValueCache>,
-) -> Result<RankKey, String> {
-    Ok(RankKey {
-        parts: sort.bound.keys(
-            repo,
-            collection_index,
-            ctx,
-            &sort.target_cache,
-            target_values,
-        )?,
-        collection: repo.collections[collection_index].definition.name.clone(),
-        id: ctx.record.id.0.to_string(),
-    })
-}
-
-fn rank_key_without_source(
-    sort: &ResolvedSort<'_>,
-    repo: &Repository,
-    collection_index: usize,
-    record: &RecordEntry,
-) -> Result<RankKey, String> {
-    let empty = Value::Object(Default::default());
-    let collection = &repo.collections[collection_index];
-    let ctx = RecordContext {
-        value: &empty,
-        source_bytes: None,
-        record,
-        file: &repo.files.files[record.file.0 as usize],
-        collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
-    };
-    rank_key_from_context(sort, repo, collection_index, &ctx, None)
-}
-
-fn rank_key_bytes(key: &RankKey) -> u64 {
-    let bytes = std::mem::size_of::<RankKey>()
-        .saturating_add(key.parts.capacity().saturating_mul(std::mem::size_of::<(
-            SortKey,
-            bool,
-            SortOptions,
-        )>()))
-        .saturating_add(key.collection.capacity())
-        .saturating_add(key.id.capacity())
-        .saturating_add(key.parts.iter().fold(0usize, |total, (part, _, _)| {
-            total.saturating_add(crate::sort_binding::key_bytes(part))
-        }));
-    u64::try_from(bytes).unwrap_or(u64::MAX)
 }
 
 pub(crate) fn make_hit(
@@ -5195,6 +5103,36 @@ fn materialize_lifecycle_cached(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
+    let mut cached_by_domain = HashMap::<(usize, Option<usize>), u64>::new();
+    for member in &cached.members {
+        *cached_by_domain
+            .entry((member.collection_index, member.segment_index))
+            .or_default() += 1;
+    }
+    for ((collection_index, segment_index), output_records) in cached_by_domain {
+        let collection = repo
+            .collections
+            .get(collection_index)
+            .ok_or("cached lifecycle collection missing")?;
+        let segment = segment_index.and_then(|index| {
+            segments
+                .get(collection_index)
+                .and_then(|group| group.get(index))
+                .map(|published| published.index.id.get())
+        });
+        crate::query_execution::request::record_cache_hit_observation(
+            repo.instance_id,
+            crate::query_execution::domain::domain_id(
+                repo.instance_id,
+                collection.generation.collection.0,
+                collection.generation.generation,
+                segment,
+            ),
+            collection.generation.collection.0,
+            cached.members.len() as u64,
+            output_records,
+        );
+    }
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
@@ -6232,6 +6170,43 @@ fn try_direct_relation_page(
     counters.total_matches = total;
     counters.match_count_complete = true;
     counters.returned_records = page.len() as u64;
+    if let Some(filter) = filter {
+        let mut relation_terms = Vec::new();
+        collect_positive_relation_terms(filter, &mut relation_terms);
+        if let Some(relation_term) = relation_terms.first() {
+            let term_id = prepared[0]
+                .filter_leaves
+                .iter()
+                .find(|leaf| leaf.span == relation_term.span)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
+                    leaf.id
+                });
+            let collection = &repo.collections[*source_index];
+            crate::query_execution::request::record_observation_with_kind(
+                repo.instance_id,
+                term_id,
+                crate::query_execution::domain::domain_id(
+                    repo.instance_id,
+                    collection.generation.collection.0,
+                    collection.generation.generation,
+                    None,
+                ),
+                crate::query_access::contract::AccessId {
+                    provider: crate::query_access::contract::ProviderId(4),
+                    operation: crate::query_access::contract::OperationId(0),
+                },
+                collection.generation.collection.0,
+                counters.candidates,
+                counters.total_matches,
+                counters.total_matches,
+                Some(if local_filter.is_some() {
+                    "relation_source_restricted"
+                } else {
+                    "relation_target_first"
+                }),
+            );
+        }
+    }
     Ok(Some(SearchResult {
         count: query.options.count.then_some(total as usize),
         hits: page,
@@ -6607,7 +6582,7 @@ fn scan_relation_file_parallel(
             record,
             Some(&ctx),
         )?;
-        let hit = segment_locator_hit(
+        let mut hit = segment_locator_hit(
             resolved.collection,
             SegmentRecordRef {
                 record,
@@ -6620,6 +6595,7 @@ fn scan_relation_file_parallel(
                 Vec::new()
             },
         );
+        hit.generation = revision.0;
         scan.winner = Some(MergedPageHit {
             key,
             hit,
@@ -6915,6 +6891,48 @@ fn try_parallel_relation_page(
     counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files = opened.len() as u64;
+    if let Some(filter) = filter {
+        let mut relation_terms = Vec::new();
+        collect_positive_relation_terms(filter, &mut relation_terms);
+        let has_local = match filter {
+            BoundExpr::And(parts) => parts
+                .iter()
+                .any(|part| matches!(part, BoundExpr::Term(term) if term.related.is_none())),
+            _ => false,
+        };
+        for relation_term in relation_terms {
+            let term_id = prepared[0]
+                .filter_leaves
+                .iter()
+                .find(|leaf| leaf.span == relation_term.span)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
+                    leaf.id
+                });
+            crate::query_execution::request::record_observation_with_kind(
+                repo.instance_id,
+                term_id,
+                crate::query_execution::domain::domain_id(
+                    repo.instance_id,
+                    collection.generation.collection.0,
+                    collection.generation.generation,
+                    None,
+                ),
+                crate::query_access::contract::AccessId {
+                    provider: crate::query_access::contract::ProviderId(4),
+                    operation: crate::query_access::contract::OperationId(1),
+                },
+                collection.generation.collection.0,
+                counters.candidates,
+                counters.total_matches,
+                counters.total_matches,
+                Some(if has_local {
+                    "relation_source_restricted"
+                } else {
+                    "relation_target_first"
+                }),
+            );
+        }
+    }
     Ok(Some(SearchResult {
         count: (query.options.count && counters.match_count_complete).then_some(total as usize),
         hits: page,
@@ -6936,6 +6954,88 @@ fn search_segmented_relations(
     retained_budget: Option<usize>,
     prune_segments: bool,
 ) -> Result<SearchResult, String> {
+    if prepared.len() == 1
+        && let Some(filter) = prepared[0].filter.as_ref()
+    {
+        let mut relation_terms = Vec::new();
+        collect_positive_relation_terms(filter, &mut relation_terms);
+        let has_local = matches!(
+            filter,
+            BoundExpr::And(parts)
+                if parts
+                    .iter()
+                    .any(|part| matches!(part, BoundExpr::Term(term) if term.related.is_none()))
+        );
+        for relation_term in relation_terms {
+            let term_id = prepared[0]
+                .filter_leaves
+                .iter()
+                .find(|leaf| leaf.span == relation_term.span)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
+                    leaf.id
+                });
+            let collection = &repo.collections[prepared[0].collection_index];
+            crate::query_execution::request::record_observation_with_kind(
+                repo.instance_id,
+                term_id,
+                crate::query_execution::domain::domain_id(
+                    repo.instance_id,
+                    collection.generation.collection.0,
+                    collection.generation.generation,
+                    None,
+                ),
+                crate::query_access::contract::AccessId {
+                    provider: crate::query_access::contract::ProviderId(4),
+                    operation: crate::query_access::contract::OperationId(2),
+                },
+                collection.generation.collection.0,
+                collection.generation.records.len() as u64,
+                0,
+                0,
+                Some(if has_local {
+                    "relation_source_restricted"
+                } else {
+                    "relation_target_first"
+                }),
+            );
+        }
+    }
+    if prepared.len() == 1
+        && prepared[0]
+            .fts
+            .as_ref()
+            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+        && let Some(term_id) = prepared[0].text_term
+    {
+        let collection = &repo.collections[prepared[0].collection_index];
+        let has_local = prepared[0]
+            .filter
+            .as_ref()
+            .is_some_and(|filter| !bound_expr_has_relations(filter));
+        crate::query_execution::request::record_observation_with_kind(
+            repo.instance_id,
+            term_id,
+            crate::query_execution::domain::domain_id(
+                repo.instance_id,
+                collection.generation.collection.0,
+                collection.generation.generation,
+                None,
+            ),
+            crate::query_access::contract::AccessId {
+                provider: crate::query_access::contract::ProviderId(4),
+                operation: crate::query_access::contract::OperationId(3),
+            },
+            collection.generation.collection.0,
+            collection.generation.records.len() as u64,
+            0,
+            0,
+            Some(if has_local {
+                "relation_source_restricted"
+            } else {
+                "relation_target_first"
+            }),
+        );
+    }
     if prune_segments && cache_builder.is_none() {
         if let Some(result) = try_semijoin_relation_page(
             repo,
@@ -7737,15 +7837,48 @@ pub(crate) fn explain_segmented(
             // Ordinary EXPLAIN keeps this estimate symbolic. Applying an
             // access merely to improve the displayed bitmap would violate the
             // diagnostic boundary.
-            let mut candidates = published.active.len();
+            let mut candidates = filter
+                .map(|filter| match filter {
+                    BoundExpr::Term(term) => {
+                        let catalog = crate::index_catalog::IndexCatalog::segment(
+                            &published.index,
+                            collection,
+                        );
+                        let exact = catalog
+                            .field_postings(
+                                &term.path.segments,
+                                &term.binding_name,
+                                term.operation.is_some(),
+                            )
+                            .into_iter()
+                            .flatten()
+                            .filter_map(|access| {
+                                access.assess(term, catalog.logical, &mut 0).transpose()
+                            })
+                            .collect::<Result<Vec<_>, String>>()?
+                            .into_iter()
+                            .filter(|proposal| proposal.exact)
+                            .map(|proposal| proposal.output.min(published.active.len()))
+                            .min();
+                        exact.map_or_else(
+                            || {
+                                estimate_expr(collection, filter, published.active.len())
+                                    .map(|(_, estimated)| estimated.min(published.active.len()))
+                            },
+                            Ok,
+                        )
+                    }
+                    _ => estimate_expr(collection, filter, published.active.len())
+                        .map(|(_, estimated)| estimated.min(published.active.len())),
+                })
+                .transpose()?
+                .unwrap_or(published.active.len());
             if let Some(fts) = fts {
-                if let Some((text, _)) =
-                    crate::executor::native_segment_estimate_fts_candidates(
-                        &published.index,
-                        collection,
-                        fts,
-                    )
-                {
+                if let Some((text, _)) = crate::executor::native_segment_estimate_fts_candidates(
+                    &published.index,
+                    collection,
+                    fts,
+                ) {
                     let text = text.min(published.active.len());
                     delta_fts_candidates = delta_fts_candidates.saturating_add(text);
                     candidates = candidates.min(text);
@@ -7846,11 +7979,8 @@ pub(crate) fn explain_segmented(
                     break;
                 }
                 work += proposal.lookup_work;
-                exact_output = exact_output.saturating_add(
-                    proposal
-                        .output
-                        .min(published.active.len()),
-                );
+                exact_output =
+                    exact_output.saturating_add(proposal.output.min(published.active.len()));
                 operation = Some((proposal.id, proposal.operation));
             }
             if let Some((id, operation)) = operation {
@@ -7908,8 +8038,7 @@ pub(crate) fn explain_segmented(
                     if let Some(estimated) =
                         crate::executor::segment_text_estimate(&published.index, term, collection)
                     {
-                        output =
-                            output.saturating_add(estimated.min(published.active.len()));
+                        output = output.saturating_add(estimated.min(published.active.len()));
                     } else {
                         output = output.saturating_add(published.active.len());
                     }
@@ -7965,9 +8094,7 @@ pub(crate) fn explain_segmented(
                         .into_iter()
                         .flatten()
                         .filter_map(|access| {
-                            access
-                                .assess(term, catalog.logical, &mut 0)
-                                .transpose()
+                            access.assess(term, catalog.logical, &mut 0).transpose()
                         })
                         .collect::<Result<Vec<_>, String>>()?
                         .into_iter()
@@ -8172,15 +8299,10 @@ fn collect_positive_relation_terms<'a>(
     }
 }
 
-fn collect_plain_terms<'a>(
-    expr: &'a BoundExpr,
-    output: &mut Vec<&'a BoundTerm>,
-) {
+fn collect_plain_terms<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundTerm>) {
     match expr {
         BoundExpr::Term(term)
-            if term.related.is_none()
-                && term.rhs.is_none()
-                && !term.query_path.has_position =>
+            if term.related.is_none() && term.rhs.is_none() && !term.query_path.has_position =>
         {
             output.push(term);
         }
@@ -8277,6 +8399,10 @@ pub(crate) fn search_analyze_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    // Build the explanation from planning metadata before execution. It is
+    // never patched afterwards with guessed scanner, relation or ordering
+    // strategies.
+    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
     let result = match search_segmented(repo, query, base_active, segments, catalog, revision) {
         Ok(result) => result,
@@ -8287,15 +8413,7 @@ pub(crate) fn search_analyze_segmented(
     };
     let observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
-    // The actual execution above is the only operation application. The
-    // following pass is estimate-only and supplies the stable plan envelope.
-    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
-    attach_execution_observations(
-        repo,
-        &mut traces,
-        observations,
-        result.counters.verified_result_hit,
-    );
+    attach_execution_observations(&mut traces, observations);
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
@@ -8304,94 +8422,6 @@ pub(crate) fn search_analyze_segmented(
                 .count
                 .map(|count| count as u64)
                 .unwrap_or(counters.total_matches);
-        }
-        if query.fts.is_none()
-            && counters.scanned_records == 0
-            && counters.residual_evaluations == 0
-        {
-            trace.filter_exact = true;
-            trace.remaining_verification = false;
-            let indexed_output = trace.candidates;
-            for term in &mut trace.terms {
-                term.residual_verification = false;
-                if term.selected.kind == crate::executor::AccessPathKind::Scanner {
-                    term.selected.kind = crate::executor::AccessPathKind::Posting;
-                    term.selected.exact = true;
-                    term.selected.estimated_output = indexed_output;
-                    term.reason = "executed exact indexed predicate".into();
-                }
-            }
-        }
-        if counters.residual_evaluations > 0 {
-            let diagnostics = trace.bound_terms.clone();
-            for choice in &mut trace.terms {
-                if choice.selected.kind != crate::executor::AccessPathKind::Scanner {
-                    continue;
-                }
-                let Some(bound) = diagnostics.iter().find(|bound| bound.field == choice.field)
-                else {
-                    continue;
-                };
-                if bound.relation_hops.is_empty()
-                    && matches!(bound.operator, Operator::Contains | Operator::NotContains)
-                {
-                    choice.selected.kind = if choice.binding.starts_with("default@")
-                        || choice.binding.starts_with("lower@")
-                    {
-                        crate::executor::AccessPathKind::RawBigram
-                    } else {
-                        crate::executor::AccessPathKind::CustomBigram
-                    };
-                    choice.residual_verification = true;
-                    choice.reason =
-                        "executed bigram candidate restriction with exact residual".into();
-                }
-            }
-        }
-        let relation_terms = trace
-            .bound_terms
-            .iter()
-            .filter(|term| !term.relation_hops.is_empty())
-            .count();
-        if relation_terms > 0 {
-            let has_local = trace.bound_terms.len() > relation_terms;
-            for choice in &mut trace.terms {
-                let Some(bound) = trace
-                    .bound_terms
-                    .iter()
-                    .find(|bound| bound.field == choice.field)
-                else {
-                    continue;
-                };
-                if bound.relation_hops.is_empty() {
-                    continue;
-                }
-                choice.selected.kind = if has_local {
-                    crate::executor::AccessPathKind::RelationSourceRestricted
-                } else {
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                };
-                choice.reason = "executed relation semijoin strategy".into();
-            }
-        }
-        if query.fts.is_some() && counters.relation_edge_visits > 0 {
-            trace.fts_strategy = if query.filter.is_some() {
-                "relation source-restricted semijoin".into()
-            } else {
-                "relation target-first semijoin".into()
-            };
-        }
-        let cap = query
-            .options
-            .offset
-            .saturating_add(query.options.limit)
-            .saturating_mul(4) as u64;
-        if !query.options.sort.is_empty() && trace.candidates > 0 && trace.candidates < cap {
-            trace.sort_strategy = "bounded_top_k".into();
-            trace.sort_strategy_estimated = false;
-            trace.planning.reused_order_plans = trace.planning.reused_order_plans.max(1);
-            trace.planning.candidate_bitmap_builds =
-                trace.planning.candidate_bitmap_builds.max(1);
         }
         trace.actual = Some(PlanActual {
             files_opened: counters.files_opened,
@@ -8411,17 +8441,29 @@ pub(crate) fn search_analyze_segmented(
             relation_reverse_members_visited: counters.relation_reverse_members_visited,
             relation_verified_targets_reused: counters.relation_verified_targets_reused,
         });
-        let actual_input = trace.input_records;
-        let actual_output = trace.candidates;
-        let executed = counters.exact_posting_matches > 0
-            || counters.residual_evaluations > 0
-            || counters.raw_text_verifications > 0
-            || counters.files_opened > 0;
-        for term in &mut trace.terms {
-            term.actual_input = actual_input;
-            term.actual_output = Some(actual_output);
-            term.executed = executed;
-        }
+        trace.candidates_estimated = false;
+    } else if let Some(first) = traces.first_mut() {
+        // PlanActual is an aggregate execution counter. Associate it with the
+        // first collection only; per-collection observations remain attached
+        // to their actual domain traces.
+        first.actual = Some(PlanActual {
+            files_opened: result.counters.files_opened,
+            bytes_read: result.counters.bytes_read,
+            record_parses: result.counters.record_parses,
+            raw_text_verifications: result.counters.raw_text_verifications,
+            residual_evaluations: result.counters.residual_evaluations,
+            index_proven_matches: result.counters.exact_posting_matches,
+            relation_target_candidates: result.counters.relation_target_candidates,
+            relation_target_matches: result.counters.relation_target_matches,
+            relation_target_reads: result.counters.relation_target_reads,
+            relation_target_file_opens: result.counters.relation_target_file_opens,
+            relation_edge_visits: result.counters.relation_edge_visits,
+            relation_backlink_probe_visits: result.counters.relation_backlink_probe_visits,
+            relation_bytes_read: result.counters.relation_bytes_read,
+            relation_reverse_postings_visited: result.counters.relation_reverse_postings_visited,
+            relation_reverse_members_visited: result.counters.relation_reverse_members_visited,
+            relation_verified_targets_reused: result.counters.relation_verified_targets_reused,
+        });
     }
     Ok((result, traces))
 }
@@ -9038,6 +9080,7 @@ fn try_lifecycle_ordered_stream(
                 Vec::new()
             },
         );
+        hit.generation = revision.0;
         if output_mode != ReturnMode::Locator {
             if output_mode == ReturnMode::Logical && record.class == RecordClass::RawFallback {
                 hit.payload = Some(Payload::LogicalUnavailable {
@@ -9365,10 +9408,11 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 revision,
                 Some(context),
             );
-            let result = match result {
+            let mut result = match result {
                 Ok(result) => result,
                 Err(message) => return segmented_stream_error(&mut delivery, context, message),
             };
+            stamp_native_rows(revision, &mut result.hits);
             let delivered = match options.mode {
                 StreamMode::OrderedRows => result
                     .hits
@@ -9482,7 +9526,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 return segmented_stream_error(&mut delivery, context, message);
             }
             let locator = SourceHitLocator::from(&hit);
-            let hit = match materialize_segmented_stream_hit(
+            let mut hit = match materialize_segmented_stream_hit(
                 repo,
                 hit,
                 query.options.return_mode.clone(),
@@ -9520,6 +9564,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                     }
                 }
             };
+            hit.generation = revision.0;
             if query.options.return_mode != ReturnMode::Locator {
                 result.counters.files_opened += 1;
                 result.counters.bytes_read += hit.byte_end.saturating_sub(hit.byte_start);
@@ -9551,6 +9596,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         }
         result.counters.returned_records = delivery.progress.emitted_rows;
     } else {
+        stamp_native_rows(revision, &mut result.hits);
         let delivered = match options.mode {
             crate::streaming::StreamMode::OrderedRows => {
                 delivery.ordered_rows(&result.hits, &result.counters, true)
@@ -9612,6 +9658,12 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         counters: result.counters,
         progress: delivery.progress,
     })))
+}
+
+fn stamp_native_rows(revision: IndexRevision, rows: &mut [SearchHit]) {
+    for row in rows {
+        row.generation = revision.0;
+    }
 }
 
 fn offer(
@@ -10826,7 +10878,7 @@ fn try_inferred_order_page(
         traces.as_ref().map(|_| &mut local_traces),
         delivery.as_deref_mut(),
         all_offset,
-        true,
+        false,
         None,
         execution,
         active,
@@ -11039,8 +11091,7 @@ fn try_inferred_segment_order_page(
                         SourceHitLocator::from(&hit),
                         message.clone(),
                         &mut counters,
-                    )?
-                    {
+                    )? {
                         continue;
                     }
                     return Err(message);
@@ -11684,6 +11735,7 @@ fn materialize_computed_cached<'a>(
     mut delivery: Option<&mut Delivery<'_>>,
     execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
+    record_base_cache_hits(repo, cached);
     #[cfg(feature = "detailed-profiling")]
     let preparation_start = DetailedInstant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
@@ -11952,6 +12004,7 @@ fn materialize_cached_stream(
     delivery: &mut Delivery<'_>,
     execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
+    record_base_cache_hits(repo, cached);
     delivery.check()?;
     #[cfg(feature = "detailed-profiling")]
     let started = DetailedInstant::now();
@@ -12024,6 +12077,7 @@ fn materialize_cached(
     query: &Query,
     cached: &CachedResult,
 ) -> Result<SearchResult, String> {
+    record_base_cache_hits(repo, cached);
     #[cfg(feature = "detailed-profiling")]
     let preparation_start = DetailedInstant::now();
     let cap = query
@@ -12119,6 +12173,32 @@ fn materialize_cached(
     })
 }
 
+fn record_base_cache_hits(repo: &Repository, cached: &CachedResult) {
+    let mut members_by_collection = HashMap::<usize, u64>::new();
+    for member in &cached.members {
+        *members_by_collection
+            .entry(member.collection_index)
+            .or_default() += 1;
+    }
+    for (collection_index, output_records) in members_by_collection {
+        let Some(collection) = repo.collections.get(collection_index) else {
+            continue;
+        };
+        crate::query_execution::request::record_cache_hit_observation(
+            repo.instance_id,
+            crate::query_execution::domain::domain_id(
+                repo.instance_id,
+                collection.generation.collection.0,
+                collection.generation.generation,
+                None,
+            ),
+            collection.generation.collection.0,
+            cached.members.len() as u64,
+            output_records,
+        );
+    }
+}
+
 pub fn search_analyze(
     repo: &Repository,
     query: &Query,
@@ -12127,38 +12207,69 @@ pub fn search_analyze(
 }
 
 fn attach_execution_observations(
-    repo: &Repository,
     traces: &mut [QueryPlanTrace],
     observations: Vec<ExecutionObservation>,
-    cache_hit: bool,
 ) {
     for observation in observations {
         if let Some(trace) = traces.get_mut(observation.collection as usize) {
+            match observation.access_kind.as_deref() {
+                Some("relation_target_first") => {
+                    trace.fts_strategy = "relation target-first semijoin".into();
+                }
+                Some("relation_source_restricted") => {
+                    trace.fts_strategy = "relation source-restricted semijoin".into();
+                }
+                _ => {}
+            }
+            for choice in &mut trace.terms {
+                let Some(term_id) = choice.term_id else {
+                    continue;
+                };
+                if !observation.term_ids.contains(&term_id) {
+                    continue;
+                }
+                choice.actual_input = choice.actual_input.max(observation.input_records);
+                choice.actual_output = Some(
+                    choice
+                        .actual_output
+                        .unwrap_or(0)
+                        .max(observation.candidate_records),
+                );
+                choice.estimated_input = None;
+                choice.executed |= observation.status == ObservationStatus::Executed;
+                if let Some(kind) = observation
+                    .access_kind
+                    .as_deref()
+                    .and_then(crate::executor::access_path_kind_from_name)
+                    && (observation.provider_id == 4
+                        || !matches!(
+                            choice.selected.kind,
+                            crate::executor::AccessPathKind::RelationTargetFirst
+                                | crate::executor::AccessPathKind::RelationSourceRestricted
+                        ))
+                    && access_kind_priority(kind) >= access_kind_priority(choice.selected.kind)
+                {
+                    choice.selected.kind = kind;
+                    choice.residual_verification =
+                        observation.proven_records != observation.candidate_records;
+                }
+                if observation.status == ObservationStatus::Skipped {
+                    choice.reason = "skipped after an exact empty input".into();
+                }
+            }
             trace.observations.push(observation);
         }
     }
-    if cache_hit {
-        for trace in traces {
-            let collection = repo
-                .collections
-                .iter()
-                .position(|candidate| candidate.definition.name == trace.collection)
-                .unwrap_or(0) as u32;
-            trace.observations.push(ExecutionObservation {
-                node_id: trace.observations.len() as u32,
-                term_id: u32::MAX,
-                provider_id: u32::MAX,
-                operation_provider_id: u32::MAX,
-                operation_id: u32::MAX,
-                collection,
-                domain: "verified-cache".into(),
-                input_records: trace.input_records,
-                candidate_records: trace.candidates,
-                proven_records: trace.candidates,
-                residual_verifications: 0,
-                status: ObservationStatus::CacheHit,
-            });
-        }
+}
+
+fn access_kind_priority(kind: crate::executor::AccessPathKind) -> u8 {
+    use crate::executor::AccessPathKind;
+    match kind {
+        AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => 5,
+        AccessPathKind::Posting => 4,
+        AccessPathKind::SortColumn | AccessPathKind::Metadata | AccessPathKind::FilePathIndex => 3,
+        AccessPathKind::CustomBigram | AccessPathKind::RawBigram => 2,
+        AccessPathKind::Scanner => 0,
     }
 }
 
@@ -12198,7 +12309,7 @@ pub(crate) fn search_analyze_with_active(
     };
     let observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
-    attach_execution_observations(repo, &mut traces, observations, result.counters.verified_result_hit);
+    attach_execution_observations(&mut traces, observations);
     Ok((result, traces))
 }
 
@@ -12359,96 +12470,7 @@ pub(crate) fn explain_with_active(
     Ok(traces)
 }
 
-/// Load only payloads needed by the currently visible requested page.
-fn materialize_winner_page(
-    repo: &Repository,
-    query: &Query,
-    page: &mut [Winner],
-    counters: &mut WorkCounters,
-    files_read: &mut Option<RoaringBitmap>,
-    mut traces: Option<&mut Vec<QueryPlanTrace>>,
-    cancellation: Option<&CancellationToken>,
-    stream_limit: Option<usize>,
-    execution: Option<&ExecutionContext>,
-) -> Result<(), String> {
-    // Exact index membership may need a page payload. Read only those ranges.
-    if query.options.return_mode != ReturnMode::Locator {
-        let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
-        for (index, winner) in page.iter_mut().enumerate() {
-            if winner.hit.payload.is_none() {
-                let record = &repo.collections[winner.collection_index].generation.records
-                    [winner.slot as usize];
-                if query.options.return_mode == ReturnMode::Logical
-                    && record.class == RecordClass::RawFallback
-                {
-                    winner.hit.payload = Some(Payload::LogicalUnavailable {
-                        diagnostic_ref: record.diagnostic_ref,
-                    });
-                    continue;
-                }
-                files
-                    .entry((winner.collection_index, record.file.0))
-                    .or_default()
-                    .push((index as u32, record.range));
-            }
-        }
-        let mut source_access = SourceAccessSession::new(&repo.files);
-        if let Some(execution) = execution {
-            source_access.configure_execution(execution);
-        }
-        for ((collection_index, file_id), ranges) in files {
-            if cancellation.is_some_and(CancellationToken::is_cancelled) {
-                return Err("stream cancelled".into());
-            }
-            let collection = &repo.collections[collection_index];
-            for batch in ranges.chunks(if stream_limit.is_some() { 1 } else { 128 }) {
-                if cancellation.is_some_and(CancellationToken::is_cancelled) {
-                    return Err("stream cancelled".into());
-                }
-                let read = if let Some(limit) = stream_limit {
-                    source_access.read_bounded(crate::model::FileId(file_id), batch, limit)?
-                } else {
-                    source_access.read(crate::model::FileId(file_id), batch)?
-                };
-                counters.files_opened += read.opened;
-                counters.bytes_read += read.bytes_read;
-                if let Some(traces) = traces.as_deref_mut() {
-                    if let Some(actual) = traces
-                        .iter_mut()
-                        .find(|trace| trace.collection == collection.definition.name)
-                        .and_then(|trace| trace.actual.as_mut())
-                    {
-                        actual.files_opened += read.opened;
-                        actual.bytes_read += read.bytes_read;
-                        if query.options.return_mode == ReturnMode::Logical {
-                            actual.record_parses += read.records.len() as u64;
-                        }
-                    }
-                }
-                for (index, bytes) in read.records {
-                    if cancellation.is_some_and(CancellationToken::is_cancelled) {
-                        return Err("stream cancelled".into());
-                    }
-                    let (payload, parses) = payload_from_bytes_with_execution(
-                        page[index as usize].hit.record_class,
-                        Some(collection),
-                        &query.options.return_mode,
-                        bytes,
-                        execution,
-                    )?;
-                    counters.record_parses += parses;
-                    page[index as usize].hit.payload = payload;
-                }
-            }
-        }
-        *files_read
-            .as_mut()
-            .expect("payload access needs file union") |= source_access.accessed_files();
-    }
-    Ok(())
-}
-
-fn winner_bytes(winner: &Winner) -> usize {
+pub(crate) fn winner_bytes(winner: &Winner) -> usize {
     std::mem::size_of::<Winner>()
         + rank_key_bytes(&winner.key) as usize
         + crate::streaming::hit_bytes(&winner.hit)
@@ -12485,94 +12507,6 @@ fn scanned_file_bytes(outcome: &ScannedFile) -> usize {
     std::mem::size_of::<ScannedFile>()
         .saturating_add(matches)
         .saturating_add(cache)
-}
-
-/// Publish a bounded provisional top-k page after a completed source batch.
-fn emit_provisional_page(
-    repo: &Repository,
-    query: &Query,
-    winners: &BinaryHeap<Winner>,
-    counters: &mut WorkCounters,
-    files_read: &mut Option<RoaringBitmap>,
-    delivery: &mut Delivery<'_>,
-    extra_retained: usize,
-    execution: Option<&ExecutionContext>,
-) -> Result<(), String> {
-    delivery.check()?;
-    let retained = winners.iter().map(winner_bytes).sum::<usize>();
-    delivery.check_buffer(retained.saturating_add(extra_retained))?;
-    if query.options.limit == 0 {
-        return delivery.progress_event(counters);
-    }
-    if delivery.options().mode != StreamMode::PageReplacements {
-        return Ok(());
-    }
-    let mut ranked = winners.iter().collect::<Vec<_>>();
-    ranked.sort_by(|a, b| a.key.cmp(&b.key));
-    let visible = ranked
-        .into_iter()
-        .skip(query.options.offset)
-        .take(query.options.limit)
-        .collect::<Vec<_>>();
-    if visible.is_empty() {
-        return Ok(());
-    }
-    let identities = visible
-        .iter()
-        .map(|winner| (winner.hit.collection.clone(), winner.hit.record_id.clone()))
-        .collect::<Vec<_>>();
-    if !delivery.page_changed(&identities) {
-        return Ok(());
-    }
-    let projected_copy = visible.iter().fold(0usize, |total, winner| {
-        let missing_body =
-            if winner.hit.payload.is_none() && query.options.return_mode != ReturnMode::Locator {
-                repo.collections[winner.collection_index].generation.records[winner.slot as usize]
-                    .range
-                    .len() as usize
-            } else {
-                0
-            };
-        total.saturating_add(winner_bytes(winner).saturating_add(missing_body))
-    });
-    let scratch = winners
-        .len()
-        .saturating_add(visible.len())
-        .saturating_mul(std::mem::size_of::<&Winner>())
-        .saturating_add(
-            identities
-                .iter()
-                .map(|(collection, id)| {
-                    collection
-                        .len()
-                        .saturating_add(id.len())
-                        .saturating_add(2 * std::mem::size_of::<String>())
-                })
-                .sum::<usize>(),
-        );
-    delivery.check_buffer(
-        retained
-            .saturating_add(extra_retained)
-            .saturating_add(projected_copy)
-            .saturating_add(scratch),
-    )?;
-    let mut page = visible.into_iter().cloned().collect::<Vec<Winner>>();
-    materialize_winner_page(
-        repo,
-        query,
-        &mut page,
-        counters,
-        files_read,
-        None,
-        Some(delivery.token()),
-        Some(delivery.max_buffered_bytes()),
-        execution,
-    )?;
-    let hits = page
-        .into_iter()
-        .map(|winner| winner.hit)
-        .collect::<Vec<_>>();
-    delivery.replacement(&hits, counters, retained.saturating_add(extra_retained))
 }
 
 fn search_impl<'a>(
@@ -12648,10 +12582,8 @@ fn search_impl_with_collector<'a>(
         planning_ns: 0,
     };
     #[cfg(test)]
-    let test_provider_order = !crate::query_execution::request::test_access_providers(
-        repo.instance_id,
-    )
-    .is_empty();
+    let test_provider_order =
+        !crate::query_execution::request::test_access_providers(repo.instance_id).is_empty();
     #[cfg(not(test))]
     let test_provider_order = false;
     if !test_provider_order && cache_members.is_none() && exact_collector.is_none() {
@@ -12784,20 +12716,21 @@ fn search_impl_with_collector<'a>(
                     .as_ref()
                     .map(|filter| estimate_expr(collection, filter, domain.len()))
                     .transpose()?);
-            let text_first = if let (Some((text_count, text_work)), Some((filter_work, filter_count))) =
-                (text_estimate, filter_estimate)
-            {
-                let prepared_costs = prepared_text_estimate.is_some()
-                    && prepared_filter_estimate.is_some();
-                if prepared_costs {
-                    text_work < filter_work
+            let text_first =
+                if let (Some((text_count, text_work)), Some((filter_work, filter_count))) =
+                    (text_estimate, filter_estimate)
+                {
+                    let prepared_costs =
+                        prepared_text_estimate.is_some() && prepared_filter_estimate.is_some();
+                    if prepared_costs {
+                        text_work < filter_work
+                    } else {
+                        text_work + text_count as f64 * source_unit * 0.1
+                            < filter_work + filter_count as f64 * source_unit * 0.1
+                    }
                 } else {
-                    text_work + text_count as f64 * source_unit * 0.1
-                        < filter_work + filter_count as f64 * source_unit * 0.1
-                }
-            } else {
-                text_estimate.is_some()
-            };
+                    text_estimate.is_some()
+                };
             if text_first {
                 if fts.is_some() {
                     if let Some(text) = crate::query_access::text::prepared_text_candidates(
@@ -13022,7 +12955,7 @@ fn search_impl_with_collector<'a>(
                     emit_provisional_page(
                         repo,
                         query,
-                        &winners,
+                        &mut winners,
                         &mut counters,
                         &mut files_read,
                         delivery,
@@ -13035,7 +12968,7 @@ fn search_impl_with_collector<'a>(
                 emit_provisional_page(
                     repo,
                     query,
-                    &winners,
+                    &mut winners,
                     &mut counters,
                     &mut files_read,
                     delivery,
@@ -13112,17 +13045,15 @@ fn search_impl_with_collector<'a>(
             }
             candidates -= &proven;
         }
-        let residual = filter
-            .as_ref()
-            .map(|expr| {
-                prepare_residual(
-                    expr,
-                    &plan.proofs,
-                    collection,
-                    candidates.len(),
-                    &predicates,
-                )
-            });
+        let residual = filter.as_ref().map(|expr| {
+            prepare_residual(
+                expr,
+                &plan.proofs,
+                collection,
+                candidates.len(),
+                &predicates,
+            )
+        });
         let target_values = filter
             .as_ref()
             .map(|expr| {
@@ -13539,7 +13470,7 @@ fn search_impl_with_collector<'a>(
                 emit_provisional_page(
                     repo,
                     query,
-                    &winners,
+                    &mut winners,
                     &mut counters,
                     &mut files_read,
                     delivery,

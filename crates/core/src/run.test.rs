@@ -36,8 +36,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         )
         .unwrap();
     }
-    let mut definition =
-        CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Filename;
     definition
         .schema
@@ -79,10 +78,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         collection.generation.generation,
         None,
     );
-    let title_values = records
-        .iter()
-        .map(|(title, _)| *title)
-        .collect::<Vec<_>>();
+    let title_values = records.iter().map(|(title, _)| *title).collect::<Vec<_>>();
     let year_values = records
         .iter()
         .map(|(_, year)| year.to_string())
@@ -99,9 +95,8 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             .with_instance_id(repo.instance_id)
             .scalar_only(),
     );
-    let providers: Vec<
-        std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>,
-    > = vec![title.clone(), year.clone()];
+    let providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>> =
+        vec![title.clone(), year.clone()];
     let guard = install_test_access_providers(repo.instance_id, providers);
     assert_eq!(
         crate::query_execution::request::test_access_providers(repo.instance_id).len(),
@@ -219,9 +214,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
 
 #[test]
 fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries() {
-    use crate::query_predicate::{
-        alternate_matcher_invocations, install_alternate_matcher,
-    };
+    use crate::query_predicate::{alternate_matcher_invocations, install_alternate_matcher};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-alternate-predicate-{}",
@@ -242,8 +235,7 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
         )
         .unwrap();
     }
-    let mut definition =
-        CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Filename;
     for (path, kind) in [
         ("alt_title", LogicalType::String),

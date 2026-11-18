@@ -134,8 +134,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                             &BoundExpr::Term(term.clone()),
                             collection,
                             Some(&repo.catalog),
-                        )
-                        {
+                        ) {
                             let candidates = bounds.may;
                             for &id in expected {
                                 if let Some(slot) = segment
@@ -267,12 +266,10 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 /// A reader that may deliberately omit title from its raw text representation.
 struct SelectedTextReader {
     complete: bool,
 }
-
 
 impl crate::source::SourceReader for SelectedTextReader {
     fn name(&self) -> &'static str {
@@ -317,7 +314,6 @@ impl crate::source::SourceReader for SelectedTextReader {
         })
     }
 }
-
 
 #[test]
 fn undeclared_candidate_respects_reader_text_coverage() {

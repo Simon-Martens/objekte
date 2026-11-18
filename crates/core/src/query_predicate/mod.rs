@@ -5,12 +5,10 @@ use std::fmt;
 
 use crate::query_access::contract::{
     AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider, InputEstimate,
-    OfferList,
+    OfferList, Restriction,
 };
 use crate::query_access::membership::SlotInput;
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term,
-};
+use crate::reference::{BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term};
 use crate::source::TextSegment;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -73,10 +71,7 @@ pub(crate) struct RecordInput<'a> {
 }
 
 impl<'a> RecordInput<'a> {
-    pub(crate) fn new(
-        context: &'a RecordContext<'a>,
-        text_segments: &'a [TextSegment],
-    ) -> Self {
+    pub(crate) fn new(context: &'a RecordContext<'a>, text_segments: &'a [TextSegment]) -> Self {
         Self {
             context,
             text_segments,
@@ -121,10 +116,7 @@ impl Drop for AlternateMatcherGuard {
 }
 
 #[cfg(test)]
-pub(crate) fn install_alternate_matcher(
-    field: &str,
-    literal: &str,
-) -> AlternateMatcherGuard {
+pub(crate) fn install_alternate_matcher(field: &str, literal: &str) -> AlternateMatcherGuard {
     *test_alternate_matcher()
         .lock()
         .expect("alternate matcher registry poisoned") = Some(AlternateMatcher {
@@ -321,7 +313,7 @@ impl PreparedPredicates {
         choice: AccessId,
         domain: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>> {
+    ) -> AccessResult<Restriction<'a>> {
         let request = self.request(leaf)?;
         provider.apply(leaf, request, choice, domain, execution)
     }
@@ -345,9 +337,7 @@ impl PreparedPredicates {
                     Some(result) => result?,
                     None => eval_term(term, record.context)?,
                 };
-                if matched
-                    && let Some(fields) = evidence_fields(term)
-                {
+                if matched && let Some(fields) = evidence_fields(term) {
                     evidence.fields.extend(fields);
                 }
                 Ok(if matched { Truth::True } else { Truth::False })

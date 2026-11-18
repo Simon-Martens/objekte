@@ -13,7 +13,7 @@ use crate::reference::BoundTerm;
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
-    ProviderId,
+    ProviderId, Restriction,
 };
 use super::membership::{DomainId, SlotInput, SlotSet};
 
@@ -53,11 +53,7 @@ impl SortedBackingProvider {
         Self::from_field_fixture(domain, "text", records)
     }
 
-    pub(crate) fn from_field_fixture(
-        domain: DomainId,
-        field: &str,
-        records: &[&str],
-    ) -> Self {
+    pub(crate) fn from_field_fixture(domain: DomainId, field: &str, records: &[&str]) -> Self {
         let mut rows: Vec<(String, Vec<u32>)> = records
             .iter()
             .enumerate()
@@ -197,7 +193,10 @@ impl SortedBackingProvider {
         let first = keys.next()?;
         let mut result = self.lookup_gram(*first)?.to_vec();
         for key in keys {
-            result.retain(|slot| self.lookup_gram(*key).is_some_and(|other| other.contains(slot)));
+            result.retain(|slot| {
+                self.lookup_gram(*key)
+                    .is_some_and(|other| other.contains(slot))
+            });
             if result.is_empty() {
                 break;
             }
@@ -324,13 +323,13 @@ impl IndexAccessProvider for SortedBackingProvider {
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
-    ) -> AccessResult<SlotInput<'a>> {
+    ) -> AccessResult<Restriction<'a>> {
         execution.check()?;
         if choice.provider != self.id || input.domain() != self.domain {
             return Err(AccessError::DomainMismatch);
         }
         if input.is_empty() {
-            return Ok(input);
+            return Ok(Restriction::candidate(input));
         }
         let Some((operation_term, operation)) = self.operation(choice.operation) else {
             return Err(AccessError::StaleHandle);
@@ -339,9 +338,9 @@ impl IndexAccessProvider for SortedBackingProvider {
             return Err(AccessError::StaleHandle);
         }
         let slots = match (operation, request) {
-            (0, AccessRequest::Structured(bound)) => {
-                self.scalar(bound).ok_or(AccessError::CapabilityUnavailable)?
-            }
+            (0, AccessRequest::Structured(bound)) => self
+                .scalar(bound)
+                .ok_or(AccessError::CapabilityUnavailable)?,
             (1, AccessRequest::Structured(bound)) => self
                 .grams(
                     bound
@@ -387,9 +386,18 @@ impl IndexAccessProvider for SortedBackingProvider {
             0,
             observation_input_len,
             bitmap.len(),
-            if matches!(operation, 0) { bitmap.len() } else { 0 },
+            if matches!(operation, 0) {
+                bitmap.len()
+            } else {
+                0
+            },
         );
-        Ok(input.replace_slots(SlotSet::from_owned(bitmap)))
+        let possible = input.replace_slots(SlotSet::from_owned(bitmap));
+        Ok(if operation == 0 {
+            Restriction::exact(possible)
+        } else {
+            Restriction::candidate(possible)
+        })
     }
 }
 
@@ -417,6 +425,7 @@ mod tests {
                 term_id,
                 AccessRequest::Structured(&term),
                 InputEstimate {
+                    domain: provider.domain,
                     domain_len: 4,
                     input_len: 4,
                     ..Default::default()
@@ -453,6 +462,7 @@ mod tests {
                 TermId::new(2),
                 AccessRequest::Text(&bound_fts),
                 InputEstimate {
+                    domain: provider.domain,
                     domain_len: 4,
                     input_len: 4,
                     ..Default::default()
@@ -460,9 +470,7 @@ mod tests {
                 &mut offers,
             )
             .unwrap();
-        let chosen = choose_offer(TermId::new(2), &offers, 4)
-            .unwrap()
-            .unwrap();
+        let chosen = choose_offer(TermId::new(2), &offers, 4).unwrap().unwrap();
         let candidates = provider
             .apply(
                 TermId::new(2),
@@ -503,6 +511,7 @@ mod tests {
                 text_term,
                 AccessRequest::Text(&bound_fts),
                 InputEstimate {
+                    domain: provider.domain,
                     domain_len: 4,
                     input_len: 4,
                     ..Default::default()
@@ -522,6 +531,7 @@ mod tests {
                 structured_term,
                 AccessRequest::Structured(&term),
                 InputEstimate {
+                    domain: provider.domain,
                     domain_len: 4,
                     input_len: 4,
                     ..Default::default()
@@ -553,7 +563,8 @@ mod tests {
                 provider.input_for(&input_values),
                 &AccessExecution { context: None },
             )
-            .unwrap();
+            .unwrap()
+            .possible;
         assert_eq!(restricted.iter().collect::<Vec<_>>(), [3]);
 
         let mut reduced_offers = OfferList::new();
@@ -562,6 +573,7 @@ mod tests {
                 structured_term,
                 AccessRequest::Structured(&term),
                 InputEstimate {
+                    domain: provider.domain,
                     domain_len: 4,
                     input_len: restricted.len() as u64,
                     ..Default::default()

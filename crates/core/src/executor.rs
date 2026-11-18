@@ -2,7 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
@@ -19,8 +19,11 @@ use crate::model::{
 };
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::query_access::contract::{
-    AccessExecution, AccessOffer, AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
+    AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, Coverage,
+    IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
+    Restriction,
 };
+use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_plan::selection::ordered_offer_ids;
@@ -41,6 +44,382 @@ const MAX_INDEXED_PATH_SCAN: usize = 8192;
 pub(crate) struct SegmentCandidateBounds {
     pub may: RoaringBitmap,
     pub must: RoaringBitmap,
+}
+
+const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
+
+struct NativeSegmentProvider<'a> {
+    segment: &'a IndexedCollectionSegment,
+    collection: &'a CollectionState,
+    file_catalog: Option<&'a FileCatalog>,
+    domain: DomainId,
+    operations: Mutex<Vec<TermId>>,
+}
+
+impl<'a> NativeSegmentProvider<'a> {
+    fn new(
+        segment: &'a IndexedCollectionSegment,
+        collection: &'a CollectionState,
+        file_catalog: Option<&'a FileCatalog>,
+    ) -> Self {
+        Self {
+            segment,
+            collection,
+            file_catalog,
+            domain: DomainId::from_parts(
+                0,
+                collection.generation.collection.0,
+                collection.generation.generation,
+                Some(segment.id.get()),
+            ),
+            operations: Mutex::new(Vec::new()),
+        }
+    }
+}
+
+impl IndexAccessProvider for NativeSegmentProvider<'_> {
+    fn provider_id(&self) -> ProviderId {
+        NATIVE_SEGMENT_PROVIDER
+    }
+
+    fn propose(
+        &self,
+        term: TermId,
+        request: AccessRequest<'_>,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> crate::query_access::contract::AccessResult<()> {
+        if input.domain != self.domain || !matches!(request, AccessRequest::Structured(_)) {
+            return Ok(());
+        }
+        let operation = {
+            let mut operations = self
+                .operations
+                .lock()
+                .expect("segment provider state poisoned");
+            let operation = operations.len();
+            operations.push(term);
+            operation
+        };
+        // Native application reads a prepared posting/column or resident
+        // metadata. Its cardinality is only known after application, so the
+        // offer stays conservative and never claims proof up front.
+        offers.push(AccessOffer::new(
+            AccessId {
+                provider: NATIVE_SEGMENT_PROVIDER,
+                operation: OperationId(operation as u32),
+            },
+            term,
+            AccessKind::SourceScan,
+            Coverage::Input,
+            ProofStrength::None,
+            input.input_len,
+            0.5,
+            0.0001,
+            false,
+            false,
+        ));
+        Ok(())
+    }
+
+    fn apply<'a>(
+        &self,
+        term: TermId,
+        request: AccessRequest<'_>,
+        choice: AccessId,
+        input: SlotInput<'a>,
+        execution: &AccessExecution<'_>,
+    ) -> crate::query_access::contract::AccessResult<Restriction<'a>> {
+        use crate::query_access::contract::AccessError;
+
+        execution.check()?;
+        if choice.provider != NATIVE_SEGMENT_PROVIDER {
+            return Err(AccessError::StaleHandle);
+        }
+        if input.domain() != self.domain {
+            return Err(AccessError::DomainMismatch);
+        }
+        if self
+            .operations
+            .lock()
+            .expect("segment provider state poisoned")
+            .get(choice.operation.0 as usize)
+            != Some(&term)
+        {
+            return Err(AccessError::StaleHandle);
+        }
+        let AccessRequest::Structured(bound) = request else {
+            return Err(AccessError::CapabilityUnavailable);
+        };
+        let input_len = input.len() as u64;
+        if input.is_empty() {
+            return Ok(Restriction::exact(input));
+        }
+        let input_bitmap = input.operation_input();
+        let logical_active = input_bitmap & &self.segment.logical_records;
+        let fallback_active = input_bitmap - &self.segment.logical_records;
+        let bounds = segment_expr_bounds(
+            self.segment,
+            &BoundExpr::Term(bound.clone()),
+            self.collection,
+            input_bitmap,
+            &logical_active,
+            &fallback_active,
+            self.file_catalog,
+        )
+        .map_err(AccessError::Internal)?;
+        let possible = input.replace_slots(SlotSet::from_owned(bounds.may));
+        let proven = SlotInput::new(self.domain, input_bitmap, SlotSet::from_owned(bounds.must));
+        let output_len = possible.len() as u64;
+        let proven_len = proven.len() as u64;
+        let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
+        crate::query_execution::request::record_observation_with_kind(
+            0,
+            term,
+            self.domain,
+            choice,
+            self.collection.generation.collection.0,
+            input_len,
+            output_len,
+            proven_len,
+            Some(access_path_kind_name(access_kind)),
+        );
+        Ok(Restriction::bounds(possible, proven))
+    }
+}
+
+fn segment_access_path_kind(
+    term: &BoundTerm,
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+) -> AccessPathKind {
+    if term.related.is_some() {
+        return AccessPathKind::RelationSourceRestricted;
+    }
+    if term.query_path.has_position {
+        return AccessPathKind::Posting;
+    }
+    match term.path.root {
+        PathRoot::Metadata(MetadataField::FilePath) => {
+            return AccessPathKind::FilePathIndex;
+        }
+        PathRoot::Metadata(_) => return AccessPathKind::Metadata,
+        PathRoot::Backlinks => return AccessPathKind::Scanner,
+        PathRoot::Data => {}
+    }
+    if term.path.root == PathRoot::Data
+        && matches!(
+            term.kind,
+            LogicalType::Number | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime
+        )
+        && segment.sorting.column(&term.path.display()).is_ok()
+    {
+        return AccessPathKind::SortColumn;
+    }
+    if term.path.root == PathRoot::Data
+        && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+        && matches!(term.operator, Operator::Contains | Operator::Eq)
+        && term.gram_request.is_some()
+        && custom_bigram_compatible(term)
+    {
+        return if matches!(term.binding_name.as_str(), "default" | "lower") {
+            AccessPathKind::RawBigram
+        } else {
+            AccessPathKind::CustomBigram
+        };
+    }
+    let index = IndexCatalog::segment(segment, collection);
+    if index
+        .field_postings(
+            &term.path.segments,
+            &term.binding_name,
+            term.operation.is_some(),
+        )
+        .into_iter()
+        .flatten()
+        .next()
+        .is_some()
+    {
+        AccessPathKind::Posting
+    } else {
+        AccessPathKind::Scanner
+    }
+}
+
+pub(crate) fn access_path_kind_name(kind: AccessPathKind) -> &'static str {
+    match kind {
+        AccessPathKind::Metadata => "metadata",
+        AccessPathKind::FilePathIndex => "file_path_index",
+        AccessPathKind::Posting => "posting",
+        AccessPathKind::SortColumn => "sort_column",
+        AccessPathKind::CustomBigram => "custom_bigram",
+        AccessPathKind::RawBigram => "raw_bigram",
+        AccessPathKind::RelationTargetFirst => "relation_target_first",
+        AccessPathKind::RelationSourceRestricted => "relation_source_restricted",
+        AccessPathKind::Scanner => "scanner",
+    }
+}
+
+pub(crate) fn access_path_kind_from_name(name: &str) -> Option<AccessPathKind> {
+    Some(match name {
+        "metadata" => AccessPathKind::Metadata,
+        "file_path_index" => AccessPathKind::FilePathIndex,
+        "posting" => AccessPathKind::Posting,
+        "sort_column" => AccessPathKind::SortColumn,
+        "custom_bigram" => AccessPathKind::CustomBigram,
+        "raw_bigram" => AccessPathKind::RawBigram,
+        "relation_target_first" => AccessPathKind::RelationTargetFirst,
+        "relation_source_restricted" => AccessPathKind::RelationSourceRestricted,
+        "scanner" => AccessPathKind::Scanner,
+        _ => return None,
+    })
+}
+
+struct SegmentPlanContext<'a> {
+    provider: NativeSegmentProvider<'a>,
+    test_providers: Vec<Arc<dyn IndexAccessProvider>>,
+    offers: HashMap<TermId, OfferList>,
+    terms: HashMap<(usize, usize, String), TermId>,
+    next_term: u32,
+}
+
+impl<'a> SegmentPlanContext<'a> {
+    fn new(
+        segment: &'a IndexedCollectionSegment,
+        collection: &'a CollectionState,
+        file_catalog: Option<&'a FileCatalog>,
+    ) -> Self {
+        let test_providers = {
+            #[cfg(test)]
+            {
+                crate::query_execution::request::all_test_access_providers()
+            }
+            #[cfg(not(test))]
+            {
+                Vec::new()
+            }
+        };
+        Self {
+            provider: NativeSegmentProvider::new(segment, collection, file_catalog),
+            test_providers,
+            offers: HashMap::new(),
+            terms: HashMap::new(),
+            next_term: 0,
+        }
+    }
+
+    fn catalog(&self) -> ProviderCatalog<'_> {
+        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+        providers.push(&self.provider);
+        for provider in &self.test_providers {
+            providers.push(provider.as_ref());
+        }
+        ProviderCatalog::new(providers)
+    }
+
+    fn term_id(&mut self, term: &BoundTerm) -> TermId {
+        let key = (term.span.0, term.span.1, term.query_path.display.clone());
+        if let Some(term_id) = self.terms.get(&key) {
+            return *term_id;
+        }
+        let term_id = TermId::new(self.next_term);
+        self.next_term = self
+            .next_term
+            .checked_add(1)
+            .expect("segment predicate ID overflow");
+        self.terms.insert(key, term_id);
+        term_id
+    }
+
+    fn execute_term(
+        &mut self,
+        term: &BoundTerm,
+        input: &RoaringBitmap,
+    ) -> Result<SegmentCandidateBounds, String> {
+        let term_id = self.term_id(term);
+        if !self.offers.contains_key(&term_id) {
+            let estimate = InputEstimate {
+                domain: self.provider.domain,
+                domain_len: self.provider.segment.record_count() as u64,
+                input_len: input.len() as u64,
+                mean_record_bytes: self.provider.collection.stats.mean_record_bytes(),
+                mean_records_per_file: self.provider.collection.stats.mean_records_per_file(),
+                file_count: self.provider.segment.file_count() as u64,
+            };
+            let offers = self
+                .catalog()
+                .propose(term_id, AccessRequest::Structured(term), estimate)
+                .map_err(|error| error.to_string())?;
+            self.offers.insert(term_id, offers);
+        }
+        let choice = {
+            let offers = self
+                .offers
+                .get(&term_id)
+                .expect("segment offers disappeared");
+            crate::query_plan::selection::choose_offer(term_id, offers, input.len() as u64)
+                .map_err(|error| error.to_string())?
+                .cloned()
+        };
+        let Some(choice) = choice else {
+            return Ok(SegmentCandidateBounds {
+                may: input.clone(),
+                must: RoaringBitmap::new(),
+            });
+        };
+        let restriction = self
+            .catalog()
+            .apply(
+                term_id,
+                AccessRequest::Structured(term),
+                choice.id(),
+                SlotInput::unrestricted(self.provider.domain, input),
+                &AccessExecution { context: None },
+            )
+            .map_err(|error| error.to_string())?;
+        let possible = restriction.possible;
+        let may = bitmap_from_slot_input(&possible)?;
+        let must = match restriction.proven {
+            Proven::None => RoaringBitmap::new(),
+            Proven::All => may.clone(),
+            Proven::Subset(proven) => bitmap_from_slot_input(&proven)?,
+        };
+        Ok(SegmentCandidateBounds { may, must })
+    }
+
+    fn record_skipped_expr(&mut self, expr: &BoundExpr) {
+        match expr {
+            BoundExpr::Term(term) => {
+                let term_id = self.term_id(term);
+                crate::query_execution::request::record_skipped_observation(
+                    0,
+                    term_id,
+                    self.provider.domain,
+                    self.provider.collection.generation.collection.0,
+                    0,
+                );
+            }
+            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+                for part in parts {
+                    self.record_skipped_expr(part);
+                }
+            }
+            BoundExpr::Not(inner) => self.record_skipped_expr(inner),
+        }
+    }
+}
+
+fn bitmap_from_slot_input(input: &SlotInput<'_>) -> Result<RoaringBitmap, String> {
+    match input.slots() {
+        SlotSet::Unrestricted => input
+            .effective_bitmap()
+            .map(|slots| slots.clone())
+            .ok_or_else(|| "unrestricted membership lost its input".into()),
+        SlotSet::Empty => Ok(RoaringBitmap::new()),
+        SlotSet::Borrowed(slots) => Ok((*slots).clone()),
+        SlotSet::Owned(slots) => Ok(slots.clone()),
+        SlotSet::Shared(slots) => Ok(slots.as_ref().clone()),
+    }
 }
 
 impl SegmentCandidateBounds {
@@ -74,7 +453,8 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     let domain = active.bitmap();
     let logical_active = &domain & &segment.logical_records;
     let fallback_active = &domain - &segment.logical_records;
-    segment_expr_bounds(
+    let mut context = SegmentPlanContext::new(segment, collection, catalog);
+    segment_expr_bounds_with_context(
         segment,
         expr,
         collection,
@@ -82,6 +462,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
         &logical_active,
         &fallback_active,
         catalog,
+        &mut context,
     )
 }
 
@@ -271,7 +652,7 @@ pub(crate) fn segment_fts_candidates(
             &AccessExecution { context: None },
         )
         .map_err(|error| error.to_string())?;
-    match applied.into_slots() {
+    match applied.possible.into_slots() {
         crate::query_access::membership::SlotSet::Owned(bitmap) => Ok(Some(bitmap)),
         crate::query_access::membership::SlotSet::Unrestricted => Ok(None),
         crate::query_access::membership::SlotSet::Empty => Ok(Some(RoaringBitmap::new())),
@@ -776,6 +1157,115 @@ fn segment_metadata_matches(
     Ok(Some(matches))
 }
 
+#[allow(clippy::too_many_arguments)]
+fn segment_expr_bounds_with_context(
+    segment: &IndexedCollectionSegment,
+    expr: &BoundExpr,
+    collection: &CollectionState,
+    domain: &RoaringBitmap,
+    logical_active: &RoaringBitmap,
+    fallback_active: &RoaringBitmap,
+    catalog: Option<&FileCatalog>,
+    context: &mut SegmentPlanContext<'_>,
+) -> Result<SegmentCandidateBounds, String> {
+    let _ = (logical_active, fallback_active);
+    Ok(match expr {
+        BoundExpr::Term(term) => context.execute_term(term, domain)?,
+        BoundExpr::And(parts) => {
+            let mut flattened = Vec::new();
+            for part in parts {
+                flatten_and(part, &mut flattened);
+            }
+            let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
+            let mut may = domain.clone();
+            let mut must = domain.clone();
+            if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
+                let mut matches = RoaringBitmap::new();
+                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
+                    if let Some(slots) = segment.file_records(file) {
+                        matches.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                matches &= domain;
+                may &= &matches;
+                must &= matches;
+            }
+            for index in 0..flattened.len() {
+                if path_range
+                    .as_ref()
+                    .is_some_and(|(_, indices)| indices.contains(&index))
+                {
+                    continue;
+                }
+                if may.is_empty() {
+                    must.clear();
+                    for skipped in &flattened[index..] {
+                        context.record_skipped_expr(skipped);
+                    }
+                    break;
+                }
+                let part = flattened[index];
+                let child_logical = &may & &segment.logical_records;
+                let child_fallback = &may - &segment.logical_records;
+                let child = segment_expr_bounds_with_context(
+                    segment,
+                    part,
+                    collection,
+                    &may,
+                    &child_logical,
+                    &child_fallback,
+                    catalog,
+                    context,
+                )?;
+                must &= &child.must;
+                may = child.may;
+            }
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Or(parts) => {
+            let mut may = RoaringBitmap::new();
+            let mut must = RoaringBitmap::new();
+            for part in parts {
+                let child_logical = domain & &segment.logical_records;
+                let child_fallback = domain - &segment.logical_records;
+                let child = segment_expr_bounds_with_context(
+                    segment,
+                    part,
+                    collection,
+                    domain,
+                    &child_logical,
+                    &child_fallback,
+                    catalog,
+                    context,
+                )?;
+                may |= child.may;
+                must |= child.must;
+            }
+            may &= domain;
+            must &= domain;
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Not(inner) => {
+            let child_logical = domain & &segment.logical_records;
+            let child_fallback = domain - &segment.logical_records;
+            let child = segment_expr_bounds_with_context(
+                segment,
+                inner,
+                collection,
+                domain,
+                &child_logical,
+                &child_fallback,
+                catalog,
+                context,
+            )?;
+            SegmentCandidateBounds {
+                may: domain - &child.must,
+                must: domain - &child.may,
+            }
+        }
+    })
+}
+
 fn segment_expr_bounds(
     segment: &IndexedCollectionSegment,
     expr: &BoundExpr,
@@ -787,81 +1277,6 @@ fn segment_expr_bounds(
 ) -> Result<SegmentCandidateBounds, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            #[cfg(test)]
-            {
-                let test_providers =
-                    crate::query_execution::request::all_test_access_providers();
-                if !test_providers.is_empty() {
-                    let term_id = TermId::new(term.span.0 as u32);
-                    let domain_id = crate::query_access::membership::DomainId::from_parts(
-                        0,
-                        collection.generation.collection.0,
-                        collection.generation.generation,
-                        Some(segment.id.get()),
-                    );
-                    let mut provider_refs: SmallVec<[&dyn IndexAccessProvider; 4]> =
-                        SmallVec::new();
-                    for provider in &test_providers {
-                        provider_refs.push(provider.as_ref());
-                    }
-                    let catalog = ProviderCatalog::new(provider_refs);
-                    let offers = catalog
-                        .propose(
-                            term_id,
-                            AccessRequest::Structured(term),
-                            InputEstimate {
-                                domain: domain_id,
-                                domain_len: segment.record_count() as u64,
-                                input_len: domain.len(),
-                                mean_record_bytes: collection.stats.mean_record_bytes(),
-                                mean_records_per_file: collection.stats.mean_records_per_file(),
-                                file_count: segment.file_count() as u64,
-                            },
-                        )
-                        .map_err(|error| error.to_string())?;
-                    if let Some(chosen) =
-                        crate::query_plan::selection::choose_offer(term_id, &offers, domain.len())
-                            .map_err(|error| error.to_string())?
-                    {
-                        let input = crate::query_access::membership::SlotInput::unrestricted(
-                            domain_id, domain,
-                        );
-                        let applied = catalog
-                            .apply(
-                                term_id,
-                                AccessRequest::Structured(term),
-                                chosen.id(),
-                                input,
-                                &AccessExecution { context: None },
-                            )
-                            .map_err(|error| error.to_string())?;
-                        let explicit = applied.into_slots();
-                        let may = match explicit {
-                            crate::query_access::membership::SlotSet::Owned(bitmap) => bitmap,
-                            crate::query_access::membership::SlotSet::Borrowed(bitmap) => {
-                                bitmap.clone()
-                            }
-                            crate::query_access::membership::SlotSet::Shared(bitmap) => {
-                                bitmap.as_ref().clone()
-                            }
-                            crate::query_access::membership::SlotSet::Empty => {
-                                RoaringBitmap::new()
-                            }
-                            crate::query_access::membership::SlotSet::Unrestricted => {
-                                domain.clone()
-                            }
-                        };
-                        let must = if chosen.proof()
-                            == crate::query_access::contract::ProofStrength::Exact
-                        {
-                            may.clone()
-                        } else {
-                            RoaringBitmap::new()
-                        };
-                        return Ok(SegmentCandidateBounds { may, must });
-                    }
-                }
-            }
             if term.query_path.has_position {
                 if let Some(matches) =
                     segment_positional_eq_candidates(segment, logical_active, term)?
@@ -1132,6 +1547,9 @@ pub struct AccessPathEstimate {
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
 pub struct TermChoice {
+    /// Request-local opaque leaf identity. Omitted for legacy fallback-only
+    /// choices that are not produced by the prepared predicate table.
+    pub term_id: Option<u32>,
     pub span: (usize, usize),
     pub field: String,
     pub logical_type: String,
@@ -1161,9 +1579,10 @@ pub struct PlanningCounters {
     pub reused_order_plans: u64,
 }
 
-#[derive(Default)]
-struct PlanContext {
-    paths: HashMap<TermId, Vec<AccessPathEstimate>>,
+struct PlanContext<'a> {
+    provider: NativeCollectionProvider<'a>,
+    offers: HashMap<TermId, OfferList>,
+    test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     term_ids: HashMap<(u32, (usize, usize)), TermId>,
     next_term_id: u32,
     counters: PlanningCounters,
@@ -1171,61 +1590,119 @@ struct PlanContext {
     predicates: Option<Arc<PreparedPredicates>>,
 }
 
-impl PlanContext {
+impl<'a> PlanContext<'a> {
+    fn new(
+        repo: &'a Repository,
+        collection: &'a CollectionState,
+        diagnostics: bool,
+        predicates: Option<Arc<PreparedPredicates>>,
+    ) -> Self {
+        let test_providers = {
+            #[cfg(test)]
+            {
+                crate::query_execution::request::test_access_providers(repo.instance_id)
+            }
+            #[cfg(not(test))]
+            {
+                Vec::new()
+            }
+        };
+        Self {
+            provider: NativeCollectionProvider::new(
+                repo,
+                collection,
+                collection.stats.record_count as u64,
+                None,
+            ),
+            offers: HashMap::new(),
+            test_providers,
+            term_ids: HashMap::new(),
+            next_term_id: 0,
+            counters: PlanningCounters::default(),
+            diagnostics,
+            predicates,
+        }
+    }
+
+    fn for_estimation(collection: &'a CollectionState, input_len: u64, diagnostics: bool) -> Self {
+        Self {
+            provider: NativeCollectionProvider::for_estimation(collection, input_len),
+            offers: HashMap::new(),
+            test_providers: Vec::new(),
+            term_ids: HashMap::new(),
+            next_term_id: 0,
+            counters: PlanningCounters::default(),
+            diagnostics,
+            predicates: None,
+        }
+    }
+
+    fn proposal_input(&self, collection: &CollectionState, input_len: u64) -> InputEstimate {
+        InputEstimate {
+            domain: self.provider.domain(),
+            domain_len: collection.stats.record_count as u64,
+            input_len,
+            mean_record_bytes: collection.stats.mean_record_bytes(),
+            mean_records_per_file: collection.stats.mean_records_per_file(),
+            file_count: collection.stats.file_count as u64,
+        }
+    }
+
+    fn catalog(&self) -> ProviderCatalog<'_> {
+        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+        providers.push(&self.provider);
+        for provider in &self.test_providers {
+            providers.push(provider.as_ref());
+        }
+        ProviderCatalog::new(providers)
+    }
+
+    fn offers(
+        &mut self,
+        collection: &CollectionState,
+        term: &BoundTerm,
+        input_len: u64,
+    ) -> Result<&OfferList, String> {
+        let key = self.term_id(collection, term);
+        if self.offers.contains_key(&key) {
+            self.counters.reused_term_estimates += 1;
+            return Ok(self.offers.get(&key).expect("cached offers disappeared"));
+        }
+        self.counters.term_estimation_calls += 1;
+        let input_estimate = self.proposal_input(collection, input_len);
+        let catalog = self.catalog();
+        let proposal = match &self.predicates {
+            Some(predicates) => catalog.propose_prepared(predicates, key, input_estimate),
+            None => catalog.propose(key, AccessRequest::Structured(term), input_estimate),
+        };
+        drop(catalog);
+        let offers = proposal.map_err(|error| error.to_string())?;
+        self.counters.dictionary_keys_visited += self.provider.dictionary_keys_visited();
+        self.offers.insert(key, offers);
+        Ok(self
+            .offers
+            .get(&key)
+            .expect("newly cached offers disappeared"))
+    }
+
     fn paths(
         &mut self,
         collection: &CollectionState,
         term: &BoundTerm,
         input_len: u64,
     ) -> Result<Vec<AccessPathEstimate>, String> {
-        let key = self.term_id(collection, term);
-        if let Some(paths) = self.paths.get(&key) {
-            self.counters.reused_term_estimates += 1;
-            return Ok(rescore_paths(collection, term, paths, input_len));
-        }
-        self.counters.term_estimation_calls += 1;
-        let provider = NativeCollectionProvider::for_estimation(collection, input_len);
-        let mut offers = OfferList::new();
-        let input_estimate = InputEstimate {
-            domain: provider.domain(),
-            domain_len: collection.stats.record_count as u64,
-            input_len,
-            mean_record_bytes: collection.stats.mean_record_bytes(),
-            mean_records_per_file: collection.stats.mean_records_per_file(),
-            file_count: collection.stats.file_count as u64,
+        let ordered = {
+            let offers = self.offers(collection, term, input_len)?;
+            ordered_offer_ids(offers, input_len)
         };
-        let proposal = match &self.predicates {
-            Some(predicates) => predicates.propose(key, &provider, input_estimate, &mut offers),
-            None => provider.propose(
-                key,
-                AccessRequest::Structured(term),
-                input_estimate,
-                &mut offers,
-            ),
-        };
-        proposal
-            .map_err(|error| error.to_string())?;
-        self.counters.dictionary_keys_visited += provider.dictionary_keys_visited();
-        let mut paths = provider.prepared_paths();
-        let order = ordered_offer_ids(&offers, input_len)
+        Ok(ordered
             .into_iter()
-            .map(|offer| offer.id().operation.0 as usize)
-            .collect::<Vec<_>>();
-        paths = order
-            .into_iter()
-            .filter_map(|index| paths.get(index).cloned())
-            .collect();
-        if empty_selection_preservation(term)
-            && collection.empty_array_records.len() >= input_len
-            && let Some(scanner) = paths
-                .iter()
-                .position(|path| path.kind == AccessPathKind::Scanner)
-        {
-            let scanner = paths.remove(scanner);
-            paths.insert(0, scanner);
-        }
-        self.paths.insert(key, paths.clone());
-        Ok(paths)
+            .map(|offer| {
+                self.provider
+                    .path_for(offer.id())
+                    .unwrap_or_else(|| estimate_from_offer(&offer, input_len))
+            })
+            .collect())
     }
 
     fn term_id(&mut self, collection: &CollectionState, term: &BoundTerm) -> TermId {
@@ -1255,65 +1732,49 @@ impl PlanContext {
         collection: &CollectionState,
         term: &BoundTerm,
         input: &RoaringBitmap,
-    ) -> Result<(Option<RoaringBitmap>, Option<AccessOffer>, Vec<AccessPathEstimate>), String> {
+    ) -> Result<(Option<RoaringBitmap>, Option<AccessOffer>, Vec<AccessOffer>), String> {
         let term_id = self.term_id(collection, term);
-        let provider = NativeCollectionProvider::new(
-            repo,
-            collection,
-            collection.stats.record_count as u64,
-            None,
-        );
-        let input_estimate = InputEstimate {
-            domain: provider.domain(),
-            domain_len: collection.stats.record_count as u64,
-            input_len: input.len(),
-            mean_record_bytes: collection.stats.mean_record_bytes(),
-            mean_records_per_file: collection.stats.mean_records_per_file(),
-            file_count: collection.stats.file_count as u64,
+        let _ = repo;
+        let diagnostics = self.diagnostics;
+        let (chosen, alternatives) = {
+            let offers = self.offers(collection, term, input.len())?;
+            let chosen =
+                crate::query_plan::selection::choose_offer(term_id, offers, input.len() as u64)
+                    .map_err(|error| error.to_string())?
+                    .cloned();
+            let alternatives = if diagnostics {
+                ordered_offer_ids(offers, input.len() as u64)
+                    .into_iter()
+                    .filter(|offer| {
+                        chosen
+                            .as_ref()
+                            .is_none_or(|chosen| offer.id() != chosen.id())
+                    })
+                    .collect()
+            } else {
+                Vec::new()
+            };
+            (chosen, alternatives)
         };
-        #[cfg(test)]
-        let test_providers =
-            crate::query_execution::request::test_access_providers(repo.instance_id);
-        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-        providers.push(&provider);
-        #[cfg(test)]
-        for test_provider in &test_providers {
-            providers.push(test_provider.as_ref());
-        }
-        let catalog = ProviderCatalog::new(providers);
-        let offers = match &self.predicates {
-            Some(predicates) => catalog
-                .propose_prepared(predicates, term_id, input_estimate)
-                .map_err(|error| error.to_string())?,
-            None => catalog
-                .propose(
-                    term_id,
-                    AccessRequest::Structured(term),
-                    input_estimate,
-                )
-                .map_err(|error| error.to_string())?,
-        };
-        let offers = ordered_offer_ids(&offers, input.len());
-        let Some(chosen) = offers.first() else {
+        let Some(chosen) = chosen else {
             return Ok((None, None, Vec::new()));
         };
-        let paths = offers
-            .iter()
-            .map(|offer| {
-                provider
-                    .path_for(offer.id())
-                    .unwrap_or_else(|| estimate_from_offer(offer, input.len() as u64))
-            })
-            .collect::<Vec<_>>();
+        let catalog = self.catalog();
         let restricted = catalog
             .apply(
                 term_id,
-                AccessRequest::Structured(term),
+                match &self.predicates {
+                    Some(predicates) => predicates
+                        .request(term_id)
+                        .map_err(|error| error.to_string())?,
+                    None => AccessRequest::Structured(term),
+                },
                 chosen.id(),
-                provider.input_for(input),
+                self.provider.input_for(input),
                 &AccessExecution { context: None },
             )
-            .map_err(|error| error.to_string())?;
+            .map_err(|error| error.to_string())?
+            .possible;
         let slots = match restricted.into_slots() {
             crate::query_access::membership::SlotSet::Unrestricted => None,
             crate::query_access::membership::SlotSet::Empty => Some(RoaringBitmap::new()),
@@ -1323,7 +1784,7 @@ impl PlanContext {
                 Some(bitmap.as_ref() & input)
             }
         };
-        Ok((slots, Some(chosen.clone()), paths))
+        Ok((slots, Some(chosen), alternatives))
     }
 
     fn estimate_prepared_term(
@@ -1335,8 +1796,7 @@ impl PlanContext {
         term: &BoundTerm,
         input_len: u64,
     ) -> Result<Option<(u64, f64)>, String> {
-        let provider =
-            NativeCollectionProvider::new(repo, collection, input_len, None);
+        let provider = NativeCollectionProvider::new(repo, collection, input_len, None);
         #[cfg(test)]
         let test_providers =
             crate::query_execution::request::test_access_providers(repo.instance_id);
@@ -1362,9 +1822,11 @@ impl PlanContext {
             )
             .map_err(|error| error.to_string())?;
         let _ = term;
-        Ok(crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
-            .map_err(|error| error.to_string())?
-            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
+        Ok(
+            crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
+                .map_err(|error| error.to_string())?
+                .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
+        )
     }
 }
 
@@ -1426,6 +1888,7 @@ fn skipped_choices(
             paths.sort_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work));
             let selected = paths.remove(0);
             output.push(TermChoice {
+                term_id: None,
                 span: term.span,
                 field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
@@ -1511,6 +1974,7 @@ fn fallback_truth(
                 Vec::new()
             };
             let choices = vec![TermChoice {
+                term_id: None,
                 span: term.span,
                 field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
@@ -2164,7 +2628,12 @@ pub(crate) fn estimate_expr(
     expr: &BoundExpr,
     input_len: u64,
 ) -> Result<(f64, u64), String> {
-    estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
+    estimate_expr_cached(
+        collection,
+        expr,
+        input_len,
+        &mut PlanContext::for_estimation(collection, input_len, false),
+    )
 }
 
 /// An estimate-only physical decision. It has no candidate membership or
@@ -2188,10 +2657,7 @@ pub(crate) fn estimate_plan_expr(
     expr: &BoundExpr,
     input_len: u64,
 ) -> Result<EstimatedPlan, String> {
-    let mut context = PlanContext {
-        diagnostics: true,
-        ..PlanContext::default()
-    };
+    let mut context = PlanContext::for_estimation(collection, input_len, true);
     let node = estimate_plan_node(collection, expr, input_len, &mut context)?;
     Ok(EstimatedPlan {
         candidates: node.candidates,
@@ -2209,21 +2675,15 @@ pub(crate) fn estimate_prepared_filter_term(
     term: &BoundTerm,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    PlanContext::default().estimate_prepared_term(
-        repo,
-        collection,
-        predicates,
-        term_id,
-        term,
-        input_len,
-    )
+    PlanContext::new(repo, collection, false, None)
+        .estimate_prepared_term(repo, collection, predicates, term_id, term, input_len)
 }
 
-fn estimate_plan_node(
-    collection: &CollectionState,
+fn estimate_plan_node<'a>(
+    collection: &'a CollectionState,
     expr: &BoundExpr,
     input_len: u64,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<EstimatedNode, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
@@ -2263,6 +2723,7 @@ fn estimate_plan_node(
                 exact: selected.exact,
                 work: selected.estimated_work,
                 choices: vec![TermChoice {
+                    term_id: Some(context.term_id(collection, term).get()),
                     span: term.span,
                     field: term.query_path.display.clone(),
                     logical_type: format!("{:?}", term.kind),
@@ -2343,11 +2804,11 @@ fn estimate_plan_node(
     })
 }
 
-fn estimate_expr_cached(
-    collection: &CollectionState,
+fn estimate_expr_cached<'a>(
+    collection: &'a CollectionState,
     expr: &BoundExpr,
     input_len: u64,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<(f64, u64), String> {
     Ok(match expr {
         BoundExpr::Term(term) => context
@@ -2407,11 +2868,11 @@ fn reorderable_prefix(parts: &[&BoundExpr]) -> usize {
 /// Compare a restriction with the cost of carrying its survivors through the
 /// other pending predicates. Correlation is unknown, so survivor count is a
 /// conservative upper estimate and is reassessed after each real restriction.
-fn choose_and_next(
-    collection: &CollectionState,
+fn choose_and_next<'a>(
+    collection: &'a CollectionState,
     remaining: &[&BoundExpr],
     input_len: u64,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<usize, String> {
     let prefix = reorderable_prefix(remaining);
     if prefix == 0 {
@@ -2436,11 +2897,11 @@ fn choose_and_next(
 
 /// Only exact bounds can be counted as definite OR matches. Candidate-only
 /// branches keep their residual and cannot exclude later membership work.
-fn estimate_definite(
-    collection: &CollectionState,
+fn estimate_definite<'a>(
+    collection: &'a CollectionState,
     expr: &BoundExpr,
     input_len: u64,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<(f64, u64), String> {
     Ok(match expr {
         BoundExpr::Term(term) => context
@@ -2461,11 +2922,11 @@ fn estimate_definite(
     })
 }
 
-fn choose_or_next(
-    collection: &CollectionState,
+fn choose_or_next<'a>(
+    collection: &'a CollectionState,
     remaining: &[&BoundExpr],
     input_len: u64,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<usize, String> {
     let prefix = reorderable_prefix(remaining);
     if prefix == 0 {
@@ -2531,11 +2992,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
     if let Some(execution) = execution {
         execution.check_string()?;
     }
-    let mut context = PlanContext {
-        diagnostics,
-        predicates,
-        ..PlanContext::default()
-    };
+    let mut context = PlanContext::new(repo, collection, diagnostics, predicates);
     let mut plan = plan_expr_restricted_inner(
         repo,
         collection,
@@ -2551,15 +3008,15 @@ pub(crate) fn plan_expr_restricted_with_execution(
     Ok(plan)
 }
 
-fn plan_expr_restricted_inner(
-    repo: &Repository,
-    collection: &CollectionState,
+fn plan_expr_restricted_inner<'a>(
+    repo: &'a Repository,
+    collection: &'a CollectionState,
     segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
     evidence: bool,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
     execution: Option<&crate::streaming::ExecutionContext>,
 ) -> Result<Plan, String> {
     if let Some(execution) = execution {
@@ -2622,34 +3079,31 @@ fn plan_expr_restricted_inner(
     Ok(logical)
 }
 
-fn plan_logical_expr(
-    repo: &Repository,
-    collection: &CollectionState,
+fn plan_logical_expr<'a>(
+    repo: &'a Repository,
+    collection: &'a CollectionState,
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
     evidence: bool,
-    context: &mut PlanContext,
+    context: &mut PlanContext<'a>,
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let (candidates, chosen, mut paths) =
+            let term_id = context.term_id(collection, term);
+            let (candidates, chosen, offered_alternatives) =
                 context.execute_native_term(repo, collection, term, input)?;
-            let selected = paths
-                .first()
-                .cloned()
-                .ok_or("selected access path missing")?;
-            paths.remove(0);
-            if chosen
-                .as_ref()
-                .is_some_and(|choice| choice.kind() != crate::query_access::contract::AccessKind::SourceScan)
-            {
+            if chosen.as_ref().is_some_and(|choice| {
+                choice.kind() != crate::query_access::contract::AccessKind::SourceScan
+            }) {
                 context.counters.candidate_bitmap_builds += 1;
             }
-            if selected.exact && candidates.is_none() {
+            let exact = chosen.as_ref().is_some_and(|choice| {
+                choice.proof() == crate::query_access::contract::ProofStrength::Exact
+            });
+            if exact && candidates.is_none() {
                 return Err("selected exact access path did not return a proof".into());
             }
-            let exact = selected.exact;
             let exact_candidates = if exact { candidates.as_ref() } else { None };
             let proofs = exact_candidates
                 .filter(|_| evidence)
@@ -2663,6 +3117,33 @@ fn plan_logical_expr(
                 .unwrap_or_default();
             let dynamic_binding = term.kind == LogicalType::Unknown;
             let choices = if context.diagnostics {
+                let selected = chosen.as_ref().map_or_else(
+                    || AccessPathEstimate {
+                        kind: AccessPathKind::Scanner,
+                        exact: false,
+                        coverage: input.len().min(u32::MAX as u64) as u32,
+                        estimated_output: input.len(),
+                        estimated_work: input.len() as f64,
+                        estimated_files: 0.0,
+                        estimated_bytes: 0.0,
+                        posting: None,
+                    },
+                    |offer| {
+                        context
+                            .provider
+                            .path_for(offer.id())
+                            .unwrap_or_else(|| estimate_from_offer(offer, input.len() as u64))
+                    },
+                );
+                let alternatives: Vec<AccessPathEstimate> = offered_alternatives
+                    .iter()
+                    .map(|offer| {
+                        context
+                            .provider
+                            .path_for(offer.id())
+                            .unwrap_or_else(|| estimate_from_offer(offer, input.len() as u64))
+                    })
+                    .collect();
                 let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
                     .then(|| {
                         term.gram_request
@@ -2739,13 +3220,14 @@ fn plan_logical_expr(
                     "lowest estimated lookup plus remaining source work for current input".into()
                 };
                 vec![TermChoice {
+                    term_id: Some(term_id.get()),
                     span: term.span,
                     field: term.query_path.display.clone(),
                     logical_type: format!("{:?}", term.kind),
                     binding: format!("{}@{}", term.binding_name, term.binding_version),
                     exact_case_sensitivity: term_case_sensitivity(term),
                     selected,
-                    alternatives: paths,
+                    alternatives,
                     actual_input: input.len(),
                     estimated_input: None,
                     actual_output: candidates.as_ref().map(RoaringBitmap::len),
@@ -2806,6 +3288,9 @@ fn plan_logical_expr(
                 choices.extend(child.choices);
                 if current.is_empty() {
                     exact = true;
+                    for part in &remaining {
+                        record_skipped_expr(repo, collection, part, domain, context);
+                    }
                     if context.diagnostics {
                         for part in remaining {
                             skipped_choices(collection, part, &mut choices)?;
@@ -2842,6 +3327,9 @@ fn plan_logical_expr(
                     input - &proven_hits
                 };
                 if active.is_empty() {
+                    for skipped in &remaining {
+                        record_skipped_expr(repo, collection, skipped, domain, context);
+                    }
                     if context.diagnostics {
                         for skipped in &remaining {
                             skipped_choices(collection, skipped, &mut choices)?;
@@ -2907,6 +3395,36 @@ fn plan_logical_expr(
             }
         }
     })
+}
+
+fn record_skipped_expr<'a>(
+    repo: &Repository,
+    collection: &'a CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    context: &mut PlanContext<'a>,
+) {
+    match expr {
+        BoundExpr::Term(term) => {
+            let term_id = context.term_id(collection, term);
+            crate::query_execution::request::record_skipped_observation(
+                repo.instance_id,
+                term_id,
+                context.provider.domain(),
+                collection.generation.collection.0,
+                0,
+            );
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            for part in parts {
+                record_skipped_expr(repo, collection, part, domain, context);
+            }
+        }
+        BoundExpr::Not(inner) => {
+            record_skipped_expr(repo, collection, inner, domain, context);
+        }
+    }
+    let _ = domain;
 }
 
 fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
@@ -3160,7 +3678,7 @@ pub(crate) fn fts_candidates(
             &AccessExecution { context: None },
         )
         .ok()?;
-    let slots = applied.into_slots();
+    let slots = applied.possible.into_slots();
     match slots {
         crate::query_access::membership::SlotSet::Owned(bitmap) => Some(bitmap),
         crate::query_access::membership::SlotSet::Unrestricted => Some(input),

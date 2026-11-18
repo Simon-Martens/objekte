@@ -20,9 +20,13 @@ pub enum ObservationStatus {
 pub struct ExecutionObservation {
     pub node_id: u32,
     pub term_id: u32,
+    /// All logical leaves served by this physical node.
+    pub term_ids: Vec<u32>,
     pub provider_id: u32,
     pub operation_provider_id: u32,
     pub operation_id: u32,
+    /// Concrete access family selected behind the provider handle.
+    pub access_kind: Option<String>,
     pub collection: u32,
     pub domain: String,
     pub input_records: u64,
