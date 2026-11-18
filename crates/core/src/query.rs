@@ -10,7 +10,6 @@ use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use time::OffsetDateTime;
 
-
 /// Exact case behavior for a full-text request. The index alphabet is separate.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
 #[serde(rename_all = "lowercase")]
@@ -20,13 +19,11 @@ pub enum CaseSensitivity {
     Insensitive,
 }
 
-
 impl CaseSensitivity {
     pub fn is_sensitive(&self) -> bool {
         *self == Self::Sensitive
     }
 }
-
 
 /// Explicit FTS interpretation; literal search remains the default.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
@@ -37,13 +34,11 @@ pub enum FtsMode {
     Regex(RegexOptions),
 }
 
-
 impl FtsMode {
     pub fn is_literal(&self) -> bool {
         *self == Self::Literal
     }
 }
-
 
 /// Regex flags supported independently of FTS case sensitivity.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
@@ -52,7 +47,6 @@ pub struct RegexOptions {
     pub multi_line: bool,
     pub dot_matches_new_line: bool,
 }
-
 
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Literal {
@@ -63,7 +57,6 @@ pub enum Literal {
     Typed(Value),
 }
 
-
 /// Field used as a comparison operand, with its original source span.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct FieldExpression {
@@ -71,7 +64,6 @@ pub struct FieldExpression {
     pub modifiers: Vec<Modifier>,
     pub span: (usize, usize),
 }
-
 
 /// Parsed right-hand operand before type checking and execution binding.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
@@ -82,7 +74,6 @@ pub enum Operand {
     Field(FieldExpression),
     Parameter { name: String, bound: Option<Value> },
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Operator {
@@ -96,13 +87,11 @@ pub enum Operator {
     NotContains,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Quantifier {
     Default,
     Any,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Modifier {
@@ -118,7 +107,6 @@ pub enum Modifier {
     ObjectType,
     Custom(String),
 }
-
 
 fn parse_modifier(name: String) -> Modifier {
     match name.as_str() {
@@ -136,7 +124,6 @@ fn parse_modifier(name: String) -> Modifier {
     }
 }
 
-
 /// Parsed field predicate before schema binding.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct Term {
@@ -148,7 +135,6 @@ pub struct Term {
     pub span: (usize, usize),
 }
 
-
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum FilterExpr {
     Term(Term),
@@ -156,7 +142,6 @@ pub enum FilterExpr {
     Or(Vec<FilterExpr>),
     Not(Box<FilterExpr>),
 }
-
 
 /// One selected full-text field and optional binding.
 #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
@@ -167,7 +152,6 @@ pub struct FtsField {
     #[serde(default)]
     pub query_path: Option<String>,
 }
-
 
 /// Full-text literal or regex pattern with its selected fields. A complete
 /// regex pattern may instead come from one execution parameter.
@@ -181,7 +165,6 @@ pub struct FtsQuery {
     pub fields: Vec<FtsField>,
 }
 
-
 /// Count, sort, page, return, and evidence choices for a search.
 #[derive(Clone, Debug)]
 pub struct QueryOptions {
@@ -193,7 +176,6 @@ pub struct QueryOptions {
     pub evidence: bool,
 }
 
-
 /// Parsed search request across selected collections.
 #[derive(Clone, Debug)]
 pub struct Query {
@@ -202,7 +184,6 @@ pub struct Query {
     pub filter: Option<FilterExpr>,
     pub options: QueryOptions,
 }
-
 
 impl Query {
     /// Freeze all clock macros at one caller-supplied instant. Reuse the
@@ -355,7 +336,6 @@ impl Query {
     }
 }
 
-
 fn regex_pattern_parameter(literal: &str) -> Option<&str> {
     let name = literal.strip_prefix('$')?;
     if name.is_empty()
@@ -369,7 +349,6 @@ fn regex_pattern_parameter(literal: &str) -> Option<&str> {
     }
     Some(name)
 }
-
 
 #[derive(Clone, Debug, PartialEq)]
 enum TokenKind {
@@ -387,7 +366,6 @@ enum TokenKind {
     End,
 }
 
-
 /// Filter token and its source span.
 #[derive(Clone, Debug)]
 struct Token {
@@ -395,7 +373,6 @@ struct Token {
     start: usize,
     end: usize,
 }
-
 
 fn lex(input: &str) -> Result<Vec<Token>, String> {
     let mut out = Vec::new();
@@ -563,13 +540,11 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
     Ok(out)
 }
 
-
 /// Cursor and token stream for the filter grammar.
 struct Parser {
     tokens: Vec<Token>,
     pos: usize,
 }
-
 
 impl Parser {
     fn peek(&self) -> &TokenKind {
@@ -901,14 +876,12 @@ impl Parser {
     }
 }
 
-
 /// Top-level structured request split into membership and registered ordering.
 #[derive(Clone, Debug, PartialEq)]
 pub struct StructuredFilter {
     pub filter: Option<FilterExpr>,
     pub sort: Option<Vec<SortField>>,
 }
-
 
 pub fn parse_structured_filter(input: &str) -> Result<StructuredFilter, String> {
     let mut parser = Parser {

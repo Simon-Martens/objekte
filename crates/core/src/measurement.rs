@@ -3,7 +3,6 @@
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
-
 /// Why a pinned source range could not be read during a live query.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -14,7 +13,6 @@ pub enum SourceUnavailableKind {
     Unreadable,
 }
 
-
 /// A bounded example of source unavailability. `source_unavailable_events`
 /// counts every occurrence even after the diagnostic limit is reached.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -24,7 +22,6 @@ pub struct SourceDiagnostic {
     pub kind: SourceUnavailableKind,
     pub message: String,
 }
-
 
 /// Observed candidate, source, cache, and result work.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -117,7 +114,6 @@ pub struct WorkCounters {
     pub verified_result_hit: bool,
 }
 
-
 /// Counts produced by scanning one primary-source file. Relation reads are
 /// charged separately so the relation budget is checked at the same point as
 /// in the query executor.
@@ -131,7 +127,6 @@ pub(crate) struct ScanWork {
     pub sort_key_evaluations: u64,
     pub residual_evaluations: u64,
 }
-
 
 impl WorkCounters {
     pub(crate) fn record_source_unavailable(&mut self, mut diagnostic: SourceDiagnostic) {
@@ -195,7 +190,6 @@ impl WorkCounters {
     }
 }
 
-
 /// Query-local collector; it counts every unavailable read while retaining a
 /// fixed number of representative diagnostics.
 #[derive(Default)]
@@ -203,7 +197,6 @@ pub(crate) struct SourceAvailabilityLog {
     events: u64,
     diagnostics: Vec<SourceDiagnostic>,
 }
-
 
 impl SourceAvailabilityLog {
     pub(crate) fn events(&self) -> u64 {
@@ -227,7 +220,6 @@ impl SourceAvailabilityLog {
             .saturating_add(self.events.saturating_sub(shown));
     }
 }
-
 
 #[cfg(test)]
 #[test]
@@ -262,8 +254,10 @@ fn old_prepared_hit_counter_is_ignored_when_reading_archived_json() {
     let retired_key = ["prepared", "plan", "hit"].join("_");
     archived[retired_key.as_str()] = serde_json::Value::Bool(true);
     let counters: WorkCounters = serde_json::from_value(archived).unwrap();
-    assert!(serde_json::to_value(counters)
-        .unwrap()
-        .get(&retired_key)
-        .is_none());
+    assert!(
+        serde_json::to_value(counters)
+            .unwrap()
+            .get(&retired_key)
+            .is_none()
+    );
 }

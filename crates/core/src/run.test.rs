@@ -11,7 +11,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
     use crate::query_access::contract::ProviderId;
     use crate::query_access::independent::SortedBackingProvider;
-    use crate::query_execution::request::install_test_access_providers;
+    use crate::query_execution::request::install_test_access_providers_suppressing_native;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-query-execution-gate-a-{}",
@@ -73,11 +73,12 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     )
     .unwrap();
     let collection = &repo.collections()[0];
+    assert_eq!(repo.segments[0].len(), 1);
     let domain = crate::query_execution::domain::domain_id(
         repo.instance_id,
         collection.generation.collection.0,
         collection.generation.generation,
-        None,
+        Some(repo.segments[0][0].id.get()),
     );
     let title_values = records.iter().map(|(title, _)| *title).collect::<Vec<_>>();
     let year_values = records
@@ -98,7 +99,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     );
     let providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>> =
         vec![title.clone(), year.clone()];
-    let guard = install_test_access_providers(repo.instance_id, providers);
+    let guard = install_test_access_providers_suppressing_native(repo.instance_id, providers);
     assert_eq!(
         crate::query_execution::request::test_access_providers(repo.instance_id).len(),
         2
@@ -235,6 +236,16 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     assert_eq!(unindexed.count, Some(1));
     assert_eq!(unindexed.hits[0].record_id, "3");
     assert!(unindexed.counters.record_parses > 0);
+    let scan_only_guard =
+        install_test_access_providers_suppressing_native(repo.instance_id, Vec::new());
+    let scan_only = repo.search(&query(false)).unwrap();
+    assert_eq!(scan_only.count, Some(1));
+    assert_eq!(scan_only.hits[0].record_id, "3");
+    assert!(
+        scan_only.counters.record_parses > 0,
+        "suppressing eligible offers must use the source-verification fallback"
+    );
+    drop(scan_only_guard);
 
     let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
     let segmented = index.view().unwrap();
@@ -265,7 +276,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     );
     segmented_title.set_costs(20.0, -100.0);
     segmented_year.set_costs(-50.0, 0.0);
-    let segmented_guard = install_test_access_providers(
+    let segmented_guard = install_test_access_providers_suppressing_native(
         segmented.instance_id(),
         vec![segmented_title.clone(), segmented_year.clone()],
     );
@@ -320,6 +331,173 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         "the correctness fixture must execute with a disabled verified cache"
     );
     drop(segmented_guard);
+    drop(segmented);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
+    use crate::query::{FilterExpr, FtsField, FtsMode, FtsQuery};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-same-span-occurrences-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, year, note) in [
+        ("0", 1800, "rare"),
+        ("1", 1800, "ordinary"),
+        ("2", 1799, "rare"),
+        ("3", 1799, "other"),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            serde_json::json!({"year": year, "note": note}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    for (field, indexed) in [("year", true), ("note", false)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![field.into()],
+                kind: if field == "year" {
+                    LogicalType::Number
+                } else {
+                    LogicalType::String
+                },
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let options = crate::repository::RepositoryOptions {
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let repo =
+        Repository::open_with_options(&root, vec![definition.clone()], options.clone()).unwrap();
+    let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
+    let segmented = index.view().unwrap();
+    let mut span = (0, 0);
+    let mut equalize_spans = |expr: &mut FilterExpr| {
+        fn visit(expr: &mut FilterExpr, span: &mut (usize, usize)) {
+            match expr {
+                FilterExpr::Term(term) => {
+                    if *span == (0, 0) {
+                        *span = term.span;
+                    }
+                    term.span = *span;
+                }
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                    for part in parts {
+                        visit(part, span);
+                    }
+                }
+                FilterExpr::Not(inner) => visit(inner, span),
+            }
+        }
+        visit(expr, &mut span);
+    };
+    let mut query = |filter: &str, evidence: bool| {
+        let mut filter = parse_filter(filter).unwrap();
+        equalize_spans(&mut filter);
+        Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(filter),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence,
+            },
+        }
+    };
+
+    for evidence in [false, true] {
+        for (filter, expected) in [
+            ("year = 1800 && note = 'rare'", vec!["0"]),
+            ("year = 1800 && year = 1799", Vec::new()),
+            ("year = 1800 || note = 'rare'", vec!["0", "1", "2"]),
+        ] {
+            let request = query(filter, evidence);
+            for (name, result, reference) in [
+                (
+                    "base",
+                    repo.search(&request).unwrap(),
+                    repo.search_reference(&request).unwrap(),
+                ),
+                (
+                    "segmented",
+                    segmented.search(&request).unwrap(),
+                    segmented.search_reference(&request).unwrap(),
+                ),
+            ] {
+                let actual = result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>();
+                assert_eq!(actual, expected, "{name}: {filter}, evidence={evidence}");
+                assert_eq!(result.count, reference.count);
+                assert_eq!(result.hits, reference.hits);
+                if evidence && filter == "year = 1800 && note = 'rare'" {
+                    assert_eq!(result.hits[0].matched_fields.len(), 2);
+                    assert!(result.hits[0].matched_fields.contains(&"year".to_owned()));
+                    assert!(result.hits[0].matched_fields.contains(&"note".to_owned()));
+                }
+            }
+        }
+    }
+
+    let mut unindexed_text = query("year = 1800", false);
+    unindexed_text.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "rare".into(),
+        pattern_parameter: None,
+        fields: vec![FtsField {
+            path: crate::model::FieldPath::parse("note").unwrap(),
+            binding: None,
+            query_path: None,
+        }],
+    });
+    for (name, result, reference) in [
+        (
+            "base",
+            repo.search(&unindexed_text).unwrap(),
+            repo.search_reference(&unindexed_text).unwrap(),
+        ),
+        (
+            "segmented",
+            segmented.search(&unindexed_text).unwrap(),
+            segmented.search_reference(&unindexed_text).unwrap(),
+        ),
+    ] {
+        assert_eq!(result.count, Some(1), "{name}");
+        assert_eq!(result.hits[0].record_id, "0", "{name}");
+        assert_eq!(result.hits, reference.hits, "{name}");
+    }
+
+    let prepared =
+        crate::prepared::prepare(&repo, &query("year = 1800 && year = 1799", true)).unwrap();
+    let ids = prepared.collections[0]
+        .filter_shape
+        .as_ref()
+        .unwrap()
+        .term_ids();
+    assert_eq!(ids.len(), 2);
+    assert_ne!(ids[0], ids[1]);
     drop(segmented);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

@@ -13,9 +13,7 @@ use std::time::{Instant, SystemTime};
 use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
 use objekte_search_core::workload::ReturnMode;

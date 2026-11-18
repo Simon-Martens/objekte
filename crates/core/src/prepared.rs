@@ -4,9 +4,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::query::Query;
-use crate::query_predicate::{
-    PredicateBuilder, PreparedExpr, PreparedLeaf, PreparedPredicates, TermId,
-};
+use crate::query_predicate::{PredicateBuilder, PreparedExpr, PreparedPredicates, TermId};
 use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::Repository;
 
@@ -18,7 +16,6 @@ pub(crate) struct PreparedCollectionQuery {
     pub(crate) filter: Option<BoundExpr>,
     pub(crate) fts: Option<BoundFts>,
     pub(crate) filter_shape: Option<PreparedExpr>,
-    pub(crate) filter_leaves: Vec<PreparedLeaf>,
     pub(crate) text_term: Option<TermId>,
 }
 
@@ -29,6 +26,38 @@ impl PreparedCollectionQuery {
 
     pub(crate) fn fts(&self) -> Option<&BoundFts> {
         self.fts.as_ref()
+    }
+
+    pub(crate) fn term_id_for_bound_term(
+        &self,
+        target: &crate::reference::BoundTerm,
+    ) -> Option<TermId> {
+        fn align(
+            expr: &crate::reference::BoundExpr,
+            shape: &PreparedExpr,
+            target: &crate::reference::BoundTerm,
+        ) -> Option<TermId> {
+            match (expr, shape) {
+                (crate::reference::BoundExpr::Term(term), PreparedExpr::Term(id))
+                    if std::ptr::eq(term, target) =>
+                {
+                    Some(*id)
+                }
+                (
+                    crate::reference::BoundExpr::And(parts)
+                    | crate::reference::BoundExpr::Or(parts),
+                    PreparedExpr::And(shapes) | PreparedExpr::Or(shapes),
+                ) => parts
+                    .iter()
+                    .zip(shapes)
+                    .find_map(|(expr, shape)| align(expr, shape, target)),
+                (crate::reference::BoundExpr::Not(inner), PreparedExpr::Not(shape)) => {
+                    align(inner, shape, target)
+                }
+                _ => None,
+            }
+        }
+        align(self.filter.as_ref()?, self.filter_shape.as_ref()?, target)
     }
 }
 
@@ -72,13 +101,12 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
         let mut collection_leaves = Vec::new();
         let (filter_shape, text_term) =
             builder.prepare(index, filter.as_ref(), fts.as_ref(), &mut collection_leaves);
-        leaves.extend(collection_leaves.iter().cloned());
+        leaves.extend(collection_leaves);
         collections.push(PreparedCollectionQuery {
             collection_index: index,
             filter,
             fts,
             filter_shape,
-            filter_leaves: collection_leaves,
             text_term,
         });
     }
@@ -161,12 +189,8 @@ mod tests {
             second.collections[0].fts.as_ref().unwrap().source_literal,
             "a+"
         );
-        assert_eq!(first.collections[0].filter_leaves.len(), 1);
-        assert_eq!(
-            first.collections[0].filter_leaves[0].id,
-            first.collections[0].text_term.unwrap()
-        );
         assert!(first.collections[0].text_term.is_some());
+        assert!(first.collections[0].filter_shape.is_none());
         std::fs::remove_dir_all(root).unwrap();
     }
 
@@ -189,7 +213,7 @@ mod tests {
             RepositoryOptions::default(),
         )
         .unwrap();
-        let filter = crate::query::parse_filter("title = \"same\" && title = \"same\"").unwrap();
+        let filter = crate::query::parse_filter("title = \"same\" && title = \"other\"").unwrap();
         let query = Query {
             collections: Vec::new(),
             filter: Some(filter),
@@ -205,17 +229,28 @@ mod tests {
         };
         let prepared = prepare(&repo, &query).unwrap();
         let entry = &prepared.collections[0];
-        assert_eq!(entry.filter_leaves.len(), 2);
-        assert_ne!(entry.filter_leaves[0].id, entry.filter_leaves[1].id);
+        let ids = entry.filter_shape.as_ref().unwrap().term_ids();
+        assert_eq!(ids.len(), 2);
+        assert_ne!(ids[0], ids[1]);
+        let filter = entry.filter.as_ref().unwrap();
+        let BoundExpr::And(parts) = filter else {
+            unreachable!()
+        };
+        let BoundExpr::Term(first) = &parts[0] else {
+            unreachable!()
+        };
+        let BoundExpr::Term(second) = &parts[1] else {
+            unreachable!()
+        };
         assert_ne!(
-            entry.filter_leaves[0].span, entry.filter_leaves[1].span,
+            first.span, second.span,
             "runtime identity must not be inferred from predicate semantics"
         );
         assert_eq!(
             prepared
                 .predicates
-                .term_for_span(entry.collection_index, entry.filter_leaves[1].span),
-            Some(entry.filter_leaves[1].id)
+                .term_for_bound_term(entry.collection_index, second),
+            Some(ids[1])
         );
         std::fs::remove_dir_all(root).unwrap();
     }

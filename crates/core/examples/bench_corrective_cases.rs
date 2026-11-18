@@ -71,14 +71,12 @@ fn compact_contains(text: &str, needle: &str) -> bool {
     })
 }
 
-
 #[derive(Debug)]
 struct CompactMatcher {
     needle: String,
     operator: Operator,
     callbacks: Arc<AtomicU64>,
 }
-
 
 impl PreparedFilterMatcher for CompactMatcher {
     fn matches(&self, value: Option<&Value>, _: Option<&[u8]>) -> Result<bool, String> {
@@ -106,14 +104,12 @@ impl PreparedFilterMatcher for CompactMatcher {
     }
 }
 
-
 #[derive(Debug)]
 struct CompactOperation {
     preparations: Arc<AtomicU64>,
     mappings: Arc<AtomicU64>,
     callbacks: Arc<AtomicU64>,
 }
-
 
 impl BindingOperation for CompactOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _: bool) -> bool {
@@ -177,7 +173,6 @@ impl BindingOperation for CompactOperation {
         true
     }
 }
-
 
 fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
     let custom_root = root.join("custom-fixture");
@@ -345,9 +340,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             let restored = Repository::open_with_options(
                 &source_root,
                 vec![definition],
-                RepositoryOptions {
-                    ..build_options
-                },
+                RepositoryOptions { ..build_options },
             )?;
             let rebuild_ns = started.elapsed().as_nanos() as u64;
             assert_eq!(restored.search(&query)?.hits, repo.search(&query)?.hits);

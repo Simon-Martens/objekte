@@ -20,8 +20,8 @@ static ACTIVE_CAPTURES: AtomicUsize = AtomicUsize::new(0);
 static NEXT_CAPTURE: AtomicU64 = AtomicU64::new(1);
 
 struct Capture {
-    instance_id: u64,
     observations: Vec<ExecutionObservation>,
+    phases: Vec<(usize, &'static str)>,
 }
 
 fn observation_log() -> &'static Mutex<HashMap<u64, Capture>> {
@@ -31,6 +31,49 @@ fn observation_log() -> &'static Mutex<HashMap<u64, Capture>> {
 
 thread_local! {
     static CURRENT_CAPTURES: RefCell<Vec<(u64, u64)>> = const { RefCell::new(Vec::new()) };
+    static CURRENT_PHASES: RefCell<Vec<&'static str>> = const { RefCell::new(Vec::new()) };
+}
+
+pub(crate) struct ObservationPhaseGuard;
+
+impl Drop for ObservationPhaseGuard {
+    fn drop(&mut self) {
+        CURRENT_PHASES.with(|phases| {
+            phases.borrow_mut().pop();
+        });
+        let previous =
+            CURRENT_PHASES.with(|phases| phases.borrow().last().copied().unwrap_or("search"));
+        mark_observation_phase(previous);
+    }
+}
+
+pub(crate) fn observation_phase(phase: &'static str) -> ObservationPhaseGuard {
+    CURRENT_PHASES.with(|phases| phases.borrow_mut().push(phase));
+    mark_observation_phase(phase);
+    ObservationPhaseGuard
+}
+
+fn current_observation_phase() -> String {
+    CURRENT_PHASES.with(|phases| {
+        phases
+            .borrow()
+            .last()
+            .copied()
+            .unwrap_or("search")
+            .to_owned()
+    })
+}
+
+fn mark_observation_phase(phase: &'static str) {
+    let capture_id = CURRENT_CAPTURES
+        .with(|captures| captures.borrow().last().map(|(_, capture_id)| *capture_id));
+    let Some(capture_id) = capture_id else {
+        return;
+    };
+    let mut log = observation_log().lock().expect("observation log poisoned");
+    if let Some(capture) = log.get_mut(&capture_id) {
+        capture.phases.push((capture.observations.len(), phase));
+    }
 }
 
 pub(crate) fn begin_observation_capture(instance_id: u64) {
@@ -41,8 +84,8 @@ pub(crate) fn begin_observation_capture(instance_id: u64) {
         .insert(
             capture_id,
             Capture {
-                instance_id,
                 observations: Vec::new(),
+                phases: Vec::new(),
             },
         );
     CURRENT_CAPTURES.with(|captures| captures.borrow_mut().push((instance_id, capture_id)));
@@ -66,9 +109,19 @@ pub(crate) fn finish_observation_capture(instance_id: u64) -> Vec<ExecutionObser
     if capture.is_some() {
         ACTIVE_CAPTURES.fetch_sub(1, Ordering::Release);
     }
-    let observations = capture
-        .map(|capture| capture.observations)
+    let mut observations = capture
+        .map(|capture| (capture.observations, capture.phases))
         .unwrap_or_default();
+    for (position, (start, phase)) in observations.1.iter().enumerate() {
+        let end = observations
+            .1
+            .get(position + 1)
+            .map_or(observations.0.len(), |(start, _)| *start);
+        for observation in &mut observations.0[*start..end] {
+            observation.phase = (*phase).to_owned();
+        }
+    }
+    let observations = observations.0;
     observations
 }
 
@@ -101,6 +154,9 @@ pub(crate) fn record_observation(
     candidate_records: u64,
     proven_records: u64,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     record_observation_with_kind(
         instance_id,
         term,
@@ -126,10 +182,14 @@ pub(crate) fn record_observation_with_kind(
     proven_records: u64,
     access_kind: Option<&str>,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     push_observation(
         instance_id,
         ExecutionObservation {
             node_id: 0,
+            phase: current_observation_phase(),
             term_id: term.get(),
             term_ids: vec![term.get()],
             provider_id: operation.provider.0,
@@ -154,10 +214,14 @@ pub(crate) fn record_skipped_observation(
     collection: u32,
     input_records: u64,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     push_observation(
         instance_id,
         ExecutionObservation {
             node_id: 0,
+            phase: current_observation_phase(),
             term_id: term.get(),
             term_ids: vec![term.get()],
             provider_id: u32::MAX,
@@ -182,10 +246,14 @@ pub(crate) fn record_cache_hit_observation(
     input_records: u64,
     output_records: u64,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     push_observation(
         instance_id,
         ExecutionObservation {
             node_id: 0,
+            phase: current_observation_phase(),
             term_id: u32::MAX,
             term_ids: Vec::new(),
             provider_id: u32::MAX,
@@ -213,6 +281,9 @@ pub(crate) fn record_fused_observation(
     proven_records: u64,
     access_kind: &str,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     record_fused_observation_with_residual(
         instance_id,
         terms,
@@ -238,10 +309,14 @@ pub(crate) fn record_fused_observation_with_residual(
     residual_verifications: u64,
     access_kind: &str,
 ) {
+    if !has_local_capture(instance_id) {
+        return;
+    }
     push_observation(
         instance_id,
         ExecutionObservation {
             node_id: 0,
+            phase: current_observation_phase(),
             term_id: terms.first().map_or(u32::MAX, |term| term.get()),
             term_ids: terms.iter().map(|term| term.get()).collect(),
             provider_id: u32::MAX,
@@ -271,24 +346,8 @@ fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
             .find(|(capture_instance, _)| *capture_instance == instance_id || instance_id == 0)
             .map(|(_, capture_id)| *capture_id)
     });
-    let capture_id = match local_capture {
-        Some(capture_id) => capture_id,
-        None => {
-            let log = observation_log().lock().expect("observation log poisoned");
-            let mut matches = log
-                .iter()
-                .filter(|(_, capture)| instance_id == 0 || capture.instance_id == instance_id)
-                .map(|(capture_id, _)| *capture_id);
-            let Some(capture_id) = matches.next() else {
-                return;
-            };
-            if matches.next().is_some() {
-                // A worker without a request-local token must not merge into
-                // an arbitrary concurrent query on the same repository.
-                return;
-            }
-            capture_id
-        }
+    let Some(capture_id) = local_capture else {
+        return;
     };
     let mut log = observation_log().lock().expect("observation log poisoned");
     let Some(observations) = log
@@ -301,9 +360,29 @@ fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
     observations.push(observation);
 }
 
+fn has_local_capture(instance_id: u64) -> bool {
+    if ACTIVE_CAPTURES.load(Ordering::Acquire) == 0 {
+        return false;
+    }
+    CURRENT_CAPTURES.with(|captures| {
+        captures
+            .borrow()
+            .iter()
+            .rev()
+            .any(|(capture_instance, _)| *capture_instance == instance_id || instance_id == 0)
+    })
+}
+
 #[cfg(test)]
 pub(crate) struct TestProviderGuard {
     instance_id: u64,
+}
+
+#[cfg(test)]
+#[derive(Default)]
+struct TestAccessRegistration {
+    providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>>,
+    suppress_native: bool,
 }
 
 #[cfg(test)]
@@ -317,14 +396,29 @@ impl Drop for TestProviderGuard {
 }
 
 #[cfg(test)]
-pub(crate) fn install_test_access_providers(
+pub(crate) fn install_test_access_providers_suppressing_native(
     instance_id: u64,
     providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>>,
+) -> TestProviderGuard {
+    install_test_access_configuration(instance_id, providers, true)
+}
+
+#[cfg(test)]
+fn install_test_access_configuration(
+    instance_id: u64,
+    providers: Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>>,
+    suppress_native: bool,
 ) -> TestProviderGuard {
     test_provider_registry()
         .lock()
         .expect("test provider registry poisoned")
-        .insert(instance_id, providers);
+        .insert(
+            instance_id,
+            TestAccessRegistration {
+                providers,
+                suppress_native,
+            },
+        );
     TestProviderGuard { instance_id }
 }
 
@@ -336,8 +430,17 @@ pub(crate) fn test_access_providers(
         .lock()
         .expect("test provider registry poisoned")
         .get(&instance_id)
-        .cloned()
+        .map(|registration| registration.providers.clone())
         .unwrap_or_default()
+}
+
+#[cfg(test)]
+pub(crate) fn test_native_access_suppressed(instance_id: u64) -> bool {
+    test_provider_registry()
+        .lock()
+        .expect("test provider registry poisoned")
+        .get(&instance_id)
+        .is_some_and(|registration| registration.suppress_native)
 }
 
 #[cfg(test)]
@@ -347,25 +450,60 @@ pub(crate) fn all_test_access_providers()
         .lock()
         .expect("test provider registry poisoned")
         .values()
-        .flatten()
-        .cloned()
+        .flat_map(|registration| registration.providers.iter().cloned())
         .collect()
 }
 
 #[cfg(test)]
-fn test_provider_registry() -> &'static std::sync::Mutex<
-    std::collections::HashMap<
-        u64,
-        Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>>,
-    >,
-> {
+fn test_provider_registry()
+-> &'static std::sync::Mutex<std::collections::HashMap<u64, TestAccessRegistration>> {
     static PROVIDERS: std::sync::OnceLock<
-        std::sync::Mutex<
-            std::collections::HashMap<
-                u64,
-                Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>>,
-            >,
-        >,
+        std::sync::Mutex<std::collections::HashMap<u64, TestAccessRegistration>>,
     > = std::sync::OnceLock::new();
     PROVIDERS.get_or_init(|| std::sync::Mutex::new(std::collections::HashMap::new()))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::query_access::contract::{AccessId, OperationId, ProviderId};
+
+    #[test]
+    fn observation_capture_is_request_thread_local() {
+        let instance = u64::MAX - 77;
+        begin_observation_capture(instance);
+        std::thread::spawn(move || {
+            record_observation(
+                instance,
+                TermId::new(1),
+                DomainId::new(2),
+                AccessId {
+                    provider: ProviderId(3),
+                    operation: OperationId(4),
+                },
+                0,
+                10,
+                5,
+                2,
+            );
+        })
+        .join()
+        .unwrap();
+        record_observation(
+            instance,
+            TermId::new(5),
+            DomainId::new(6),
+            AccessId {
+                provider: ProviderId(7),
+                operation: OperationId(8),
+            },
+            0,
+            10,
+            5,
+            2,
+        );
+        let observations = finish_observation_capture(instance);
+        assert_eq!(observations.len(), 1);
+        assert_eq!(observations[0].term_id, 5);
+    }
 }

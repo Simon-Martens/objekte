@@ -22,6 +22,9 @@ pub enum ObservationStatus {
 #[derive(Clone, Debug, Eq, PartialEq, Serialize)]
 pub struct ExecutionObservation {
     pub node_id: u32,
+    /// Request-local execution phase, such as `search`, `ordered_page` or
+    /// `exact_count`.
+    pub phase: String,
     pub term_id: u32,
     /// All logical leaves served by this physical node.
     pub term_ids: Vec<u32>,

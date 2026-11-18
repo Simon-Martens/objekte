@@ -35,7 +35,6 @@ fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, Verifi
     })
 }
 
-
 /// The change actually published by a file mutation. `Unchanged` keeps both
 /// the file version and index revision intact.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -45,7 +44,6 @@ pub enum FileMutationKind {
     Moved,
     Unchanged,
 }
-
 
 /// Physical index maintenance selected for this operation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -58,7 +56,6 @@ pub enum FileMutationStrategy {
     VerifiedPhysicalRemoval,
     Unchanged,
 }
-
 
 /// Why a requested verified operation safely used the normal tombstone and
 /// append strategy. A wrong old-content hint is never a mutation error.
@@ -76,7 +73,6 @@ pub enum VerifiedFallbackReason {
     CompactionUnavailable,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum UpdateStrategy {
     #[default]
@@ -84,20 +80,17 @@ pub enum UpdateStrategy {
     PreferVerified,
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub struct UpdateOptions<'a> {
     pub old_content: Option<&'a [u8]>,
     pub strategy: UpdateStrategy,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VerifiedDeleteResult {
     pub deletion: DeleteResult,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 /// One atomic file mutation, across every selected collection. The result's
 /// handle is the version callers should pass to the next update or deletion.
@@ -113,7 +106,6 @@ pub struct FileMutationResult {
     pub strategy: FileMutationStrategy,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 fn collection_names(
     view: &IndexView,
@@ -356,7 +348,6 @@ fn prepare_replacement_bytes(
         file,
     })
 }
-
 
 impl Index {
     /// Index one source file already created by the application. An active
@@ -808,7 +799,6 @@ impl Index {
         Err(conflict.expect("publication retry always captures a conflict"))
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_mutation.test.rs"]

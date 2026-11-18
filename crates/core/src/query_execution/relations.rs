@@ -899,12 +899,8 @@ fn try_direct_relation_page(
         collect_positive_relation_terms(filter, &mut relation_terms);
         if let Some(relation_term) = relation_terms.first() {
             let term_id = prepared[0]
-                .filter_leaves
-                .iter()
-                .find(|leaf| leaf.span == relation_term.span)
-                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
-                    leaf.id
-                });
+                .term_id_for_bound_term(relation_term)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |id| id);
             let collection = &repo.collections[*source_index];
             crate::query_execution::request::record_observation_with_kind(
                 repo.instance_id,
@@ -1626,12 +1622,8 @@ fn try_parallel_relation_page(
         };
         for relation_term in relation_terms {
             let term_id = prepared[0]
-                .filter_leaves
-                .iter()
-                .find(|leaf| leaf.span == relation_term.span)
-                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
-                    leaf.id
-                });
+                .term_id_for_bound_term(relation_term)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |id| id);
             crate::query_execution::request::record_observation_with_kind(
                 repo.instance_id,
                 term_id,
@@ -1692,12 +1684,8 @@ pub(super) fn search_segmented_relations(
         );
         for relation_term in relation_terms {
             let term_id = prepared[0]
-                .filter_leaves
-                .iter()
-                .find(|leaf| leaf.span == relation_term.span)
-                .map_or(crate::query_predicate::TermId::new(u32::MAX), |leaf| {
-                    leaf.id
-                });
+                .term_id_for_bound_term(relation_term)
+                .map_or(crate::query_predicate::TermId::new(u32::MAX), |id| id);
             let collection = &repo.collections[prepared[0].collection_index];
             crate::query_execution::request::record_observation_with_kind(
                 repo.instance_id,

@@ -2,7 +2,6 @@
 
 use crate::model::{FieldPath, PathRoot};
 
-
 /// One data-field or array occurrence step in a query path.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, serde::Serialize)]
 pub enum PathStep {
@@ -10,7 +9,6 @@ pub enum PathStep {
     ArrayIndex(u32),
     EachElement,
 }
-
 
 /// Parsed path with its schema lookup key and occurrence-preserving steps.
 #[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
@@ -21,7 +19,6 @@ pub struct QueryPath {
     pub has_position: bool,
     pub display: String,
 }
-
 
 /// Split a legacy path-plus-binding spelling at its last top-level colon.
 /// Colons inside bracket-quoted property names belong to the path.
@@ -53,7 +50,6 @@ pub(crate) fn split_path_binding(input: &str) -> (&str, Option<&str>) {
         (&input[..index], Some(&input[index + 1..]))
     })
 }
-
 
 impl QueryPath {
     pub fn parse(input: &str) -> Result<Self, String> {
@@ -197,7 +193,6 @@ impl QueryPath {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "query_path.test.rs"]

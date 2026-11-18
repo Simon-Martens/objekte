@@ -87,7 +87,7 @@ mod tests {
         id: ProviderId,
         operation: OperationId,
         work: f64,
-        output: u32,
+        output: RoaringBitmap,
         advertised_term: TermId,
         proposals: AtomicU64,
         applications: AtomicU64,
@@ -116,7 +116,7 @@ mod tests {
                 AccessKind::ExactMembership,
                 Coverage::Complete,
                 ProofStrength::Exact,
-                u64::from(self.output),
+                self.output.len(),
                 self.work,
                 0.0,
                 false,
@@ -141,9 +141,7 @@ mod tests {
                 let input_ref = input
                     .effective_bitmap()
                     .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-                (0..self.output)
-                    .filter(|slot| input_ref.contains(*slot))
-                    .collect::<RoaringBitmap>()
+                &self.output & input_ref
             };
             Ok(Restriction::exact(
                 input.replace_slots(SlotSet::from_owned(slots)),
@@ -156,7 +154,7 @@ mod tests {
             id: ProviderId(id),
             operation: OperationId(0),
             work,
-            output: 2,
+            output: RoaringBitmap::from_iter([0, 1]),
             advertised_term,
             proposals: AtomicU64::new(0),
             applications: AtomicU64::new(0),
@@ -272,6 +270,29 @@ mod tests {
             .unwrap()
             .possible;
         assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
+    }
+
+    #[test]
+    fn restriction_never_widens_the_original_domain_or_supplied_input() {
+        let term = TermId::new(81);
+        let provider = provider(1, 1.0, term);
+        let original = RoaringBitmap::from_iter([0, 1, 2, 3]);
+        let effective = RoaringBitmap::from_iter([1, 3]);
+        let input = SlotInput::new(DomainId::new(1), &original, SlotSet::from_owned(effective));
+        let result = provider
+            .apply(
+                term,
+                AccessRequest::Structured(empty_term_ref()),
+                AccessId {
+                    provider: ProviderId(1),
+                    operation: OperationId(0),
+                },
+                input,
+                &AccessExecution { context: None },
+            )
+            .unwrap();
+        assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
+        assert_eq!(result.possible.operation_input(), &original);
     }
 
     #[test]

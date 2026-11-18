@@ -28,11 +28,9 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
         let root = root.into();
-        let definitions = crate::repository_configuration::prepare_source_definitions(
-            &root,
-            &definitions,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions =
+            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
+                .map_err(IndexError::IncompatibleConfiguration)?;
         let started = Instant::now();
         let index = Self::build_with_sources_inner(root, definitions, options, sources)?;
         let full_ms = started.elapsed().as_millis() as u64;

@@ -17,6 +17,12 @@ use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
+pub(crate) fn winner_bytes(winner: &Winner) -> usize {
+    std::mem::size_of::<Winner>()
+        + rank_key_bytes(&winner.key) as usize
+        + crate::streaming::hit_bytes(&winner.hit)
+}
+
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 pub(crate) struct RankKey {

@@ -235,7 +235,13 @@ impl<'a> SlotInput<'a> {
 
     pub(crate) fn effective(&self) -> MembershipView<'_> {
         match &self.slots {
-            SlotSet::Unrestricted => MembershipView::AllSlots(self.input),
+            SlotSet::Unrestricted => {
+                if self.input.is_empty() {
+                    MembershipView::Empty
+                } else {
+                    MembershipView::AllSlots(self.input)
+                }
+            }
             SlotSet::Empty => MembershipView::Empty,
             SlotSet::Borrowed(bitmap) => {
                 if bitmap.is_empty() {

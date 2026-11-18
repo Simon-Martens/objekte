@@ -7,7 +7,6 @@ use crate::relation_query::{bind_filter_with_relations, bind_fts_with_relations}
 use crate::repository::Repository;
 use crate::sort_binding::BoundSort;
 
-
 impl Repository {
     /// Check scope, predicate bindings, full-text fields, and sorting without
     /// running a search or opening source files. The same binders run during
@@ -38,7 +37,6 @@ impl Repository {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "query_validation.test.rs"]

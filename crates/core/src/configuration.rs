@@ -184,8 +184,11 @@ mod tests {
         // with the same definitions/options. They prove the live identity did
         // not change while disk format versions were removed.
         let sources = SourceRegistry::builtin();
-        let folder =
-            vec![CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars)];
+        let folder = vec![CollectionDefinition::folder(
+            "files",
+            "",
+            SourceFormat::JsonDecodedScalars,
+        )];
         let configured = vec![
             CollectionDefinition::folder("authors", "data/authors", SourceFormat::Json),
             CollectionDefinition::folder("books", "data/books", SourceFormat::JsonLines),
@@ -220,7 +223,10 @@ mod tests {
         ];
         for (definitions, options, expected) in cases {
             let hash = configuration_hash(definitions, options, &sources).unwrap();
-            let actual = hash.iter().map(|byte| format!("{byte:02x}")).collect::<String>();
+            let actual = hash
+                .iter()
+                .map(|byte| format!("{byte:02x}"))
+                .collect::<String>();
             assert_eq!(actual, expected);
         }
     }

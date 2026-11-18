@@ -16,9 +16,7 @@ use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
@@ -28,7 +26,6 @@ use objekte_search_core::workload::{
 };
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
-
 
 struct Config {
     root: PathBuf,
@@ -40,7 +37,6 @@ struct Config {
     verified_cache_bytes: usize,
     skip_queries: bool,
 }
-
 
 impl Default for Config {
     fn default() -> Self {
@@ -56,7 +52,6 @@ impl Default for Config {
         }
     }
 }
-
 
 fn parse_args() -> Result<Config, String> {
     let mut config = Config::default();
@@ -156,7 +151,6 @@ fn computed(path: &str, reducer: Option<SortReducer>, descending: bool) -> SortF
     )
 }
 
-
 struct Case {
     id: &'static str,
     filter: Option<&'static str>,
@@ -166,7 +160,6 @@ struct Case {
     offset: usize,
     stream: StreamMode,
 }
-
 
 fn cases() -> Vec<Case> {
     vec![

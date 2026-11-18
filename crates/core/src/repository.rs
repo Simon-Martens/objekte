@@ -1263,13 +1263,7 @@ impl Repository {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        #[cfg(test)]
-        let use_test_provider_pipeline =
-            !crate::query_execution::request::test_access_providers(self.instance_id).is_empty()
-                || crate::query_predicate::alternate_matcher_active();
-        #[cfg(not(test))]
-        let use_test_provider_pipeline = false;
-        let result = if self.has_native_segments() && !use_test_provider_pipeline {
+        let result = if self.has_native_segments() {
             let snapshot = self.native_snapshot();
             let cache = crate::run::LifecycleCacheScope {
                 store: &self.verified,
@@ -1656,13 +1650,7 @@ impl Repository {
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
         let resolved = query.resolve_current_clock()?;
-        #[cfg(test)]
-        let use_test_provider_pipeline =
-            !crate::query_execution::request::test_access_providers(self.instance_id).is_empty()
-                || crate::query_predicate::alternate_matcher_active();
-        #[cfg(not(test))]
-        let use_test_provider_pipeline = false;
-        let result = if self.has_native_segments() && !use_test_provider_pipeline {
+        let result = if self.has_native_segments() {
             crate::run::search_analyze_segmented(
                 self,
                 resolved.as_ref(),

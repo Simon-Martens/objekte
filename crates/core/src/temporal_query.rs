@@ -18,7 +18,6 @@ pub fn looks_like_temporal(text: &str) -> bool {
         && bytes[5..7].iter().all(u8::is_ascii_digit)
 }
 
-
 /// One written calendar or timestamp period, before field-type lowering.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct PeriodLiteral {
@@ -30,14 +29,12 @@ pub struct PeriodLiteral {
     pub macro_instant: bool,
 }
 
-
 /// Period endpoints converted to the indexed field's exact logical type.
 #[derive(Clone, Debug)]
 pub struct TemporalBounds {
     pub start: Value,
     pub end: Value,
 }
-
 
 fn digits(text: &str, start: usize, end: usize) -> Result<u32, String> {
     let value = text.get(start..end).ok_or("invalid temporal literal")?;
@@ -79,7 +76,6 @@ fn ceil_utc_date(nanos: i128) -> Result<Date, String> {
             .ok_or("macro instant exceeds Date range".into())
     }
 }
-
 
 impl PeriodLiteral {
     pub fn calendar(start: Date, end: Date) -> Self {
@@ -278,7 +274,6 @@ impl PeriodLiteral {
     }
 }
 
-
 impl TemporalBounds {
     pub fn matches(&self, value: &Value, operator: Operator) -> bool {
         let (before_start, before_end) = match (value, &self.start, &self.end) {
@@ -296,7 +291,6 @@ impl TemporalBounds {
         matches_ordering(before_start, before_end, operator)
     }
 }
-
 
 /// Apply a comparison to two already typed half-open endpoints.
 pub fn matches_ordering(start: Ordering, end: Ordering, operator: Operator) -> bool {

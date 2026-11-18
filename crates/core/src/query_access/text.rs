@@ -62,7 +62,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
                 collection.generation.generation,
                 Some(segment.id.get()),
             ),
-            instance_id: 0,
+            instance_id: collection.repository_instance,
             operations: Mutex::new(TextProviderState::default()),
         }
     }
@@ -348,7 +348,14 @@ pub(crate) fn prepared_text_candidates(
     let test_providers = crate::query_execution::request::test_access_providers(instance_id);
     let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
         smallvec::SmallVec::new();
-    providers.push(&provider);
+    #[cfg(test)]
+    let suppress_native =
+        crate::query_execution::request::test_native_access_suppressed(instance_id);
+    #[cfg(not(test))]
+    let suppress_native = false;
+    if !suppress_native {
+        providers.push(&provider);
+    }
     #[cfg(test)]
     for test_provider in &test_providers {
         providers.push(test_provider.as_ref());
@@ -402,7 +409,14 @@ pub(crate) fn prepared_text_estimate(
     let test_providers = crate::query_execution::request::test_access_providers(instance_id);
     let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
         smallvec::SmallVec::new();
-    providers.push(&provider);
+    #[cfg(test)]
+    let suppress_native =
+        crate::query_execution::request::test_native_access_suppressed(instance_id);
+    #[cfg(not(test))]
+    let suppress_native = false;
+    if !suppress_native {
+        providers.push(&provider);
+    }
     #[cfg(test)]
     for test_provider in &test_providers {
         providers.push(test_provider.as_ref());

@@ -15,7 +15,9 @@ use crate::execution_options::ReturnMode;
 use crate::executor::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
     fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog, segment_fts_candidates,
+    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog,
+    segment_filter_bounds_with_input_catalog_and_predicates, segment_filter_estimate_with_term,
+    segment_fts_bounds_with_term, segment_fts_candidates, segment_fts_estimate_with_term,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
@@ -38,7 +40,7 @@ pub(crate) use crate::query_diagnostics::trace::{
     regex_prefilter_reason,
 };
 use crate::query_predicate::{
-    DirectSourcePlan, Residual, borrowed_relation_source_text, borrowed_value_text,
+    DirectSourcePlan, PreparedExpr, Residual, borrowed_relation_source_text, borrowed_value_text,
     local_segment_projection, prepare_residual, prepare_value_text_projection, proven_evidence,
     scan_projection, segment_filter_evidence_bytes, segment_filter_source_fields,
     shared_fold_bound, shared_fold_residual, source_fts_eligible,
@@ -53,7 +55,7 @@ use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{
     RankKey, ResolvedSort, Winner, base_rank_key_merged, rank_key, rank_key_bytes,
     rank_key_from_context, rank_key_without_source, relation_rank_key_merged,
-    segment_compare_to_rank, segment_rank_key,
+    segment_compare_to_rank, segment_rank_key, winner_bytes,
 };
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
@@ -1678,6 +1680,7 @@ fn exact_or_branch_members(
 fn try_lifecycle_ordered_page(
     repo: &Repository,
     query: &Query,
+    prepared: &crate::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
@@ -1699,7 +1702,6 @@ fn try_lifecycle_ordered_page(
     {
         return Ok(None);
     }
-    let prepared = crate::prepared::prepare(repo, query)?;
     if prepared
         .collections
         .iter()
@@ -1773,6 +1775,7 @@ fn try_lifecycle_ordered_page(
         offset: query.options.offset,
         limit: query.options.limit,
     };
+    let _ordered_phase = crate::query_execution::request::observation_phase("ordered_page");
     let outcome = try_lifecycle_ordered_stream(
         repo,
         &page_query,
@@ -1792,6 +1795,7 @@ fn try_lifecycle_ordered_page(
     let mut counters = summary.counters;
     let mut count = None;
     if query.options.count {
+        let _count_phase = crate::query_execution::request::observation_phase("exact_count");
         let mut count_query = query.clone();
         count_query.options.offset = 0;
         count_query.options.limit = 0;
@@ -1930,6 +1934,7 @@ fn search_segmented_impl(
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
             query,
+            &prepared,
             base_active,
             segments,
             catalog,
@@ -2078,6 +2083,7 @@ fn search_segmented_impl(
         return Ok(ordered);
     }
     let mut delta_opened = HashSet::new();
+    let predicates = Arc::clone(&prepared.predicates);
     for entry in prepared.collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter;
@@ -2099,32 +2105,88 @@ fn search_segmented_impl(
                 return Err("segment collection mismatch".into());
             }
             let segment = &published.index;
+            let domain = published.active.bitmap();
+            let text_term = entry.text_term;
+            let text_estimate = fts
+                .as_ref()
+                .zip(text_term)
+                .map(|(fts, term)| {
+                    segment_fts_estimate_with_term(segment, collection, fts, term, domain.len())
+                })
+                .transpose()?
+                .flatten();
+            let filter_estimate = match (filter.as_ref(), text_term) {
+                (Some(BoundExpr::Term(term)), _) => segment_filter_estimate_with_term(
+                    segment,
+                    collection,
+                    Some(catalog),
+                    term,
+                    domain.len(),
+                )?,
+                _ => None,
+            };
+            let text_first =
+                crate::query_plan::selection::prefer_text_first(text_estimate, filter_estimate);
+            let text_first_bounds = if text_first {
+                fts.as_ref()
+                    .zip(text_term)
+                    .map(|(fts, term)| {
+                        segment_fts_bounds_with_term(
+                            segment, collection, fts, term, &domain, context,
+                        )
+                    })
+                    .transpose()?
+            } else {
+                None
+            };
+            let filter_input = if text_first {
+                text_first_bounds
+                    .as_ref()
+                    .map_or_else(|| domain.clone(), |bounds| bounds.may.as_ref().clone())
+            } else {
+                domain.clone()
+            };
             let bounds = filter
                 .as_ref()
                 .map(|filter| {
-                    segment_filter_bounds_with_catalog(
+                    segment_filter_bounds_with_input_catalog_and_predicates(
                         segment,
                         &published.active,
                         filter,
                         collection,
                         Some(catalog),
+                        &filter_input,
+                        Some(&predicates),
                     )
                 })
                 .transpose()?;
-            let mut candidates = bounds.as_ref().map_or_else(
-                || published.active.bitmap(),
-                |bounds| bounds.may.as_ref().clone(),
-            );
+            let mut candidates = bounds
+                .as_ref()
+                .map_or(filter_input, |bounds| bounds.may.as_ref().clone());
             if filter.as_ref().is_some_and(excludes_raw_fallback) {
                 candidates &= &segment.logical_records;
             }
-            if let Some(fts_may) = fts
-                .as_ref()
-                .map(|fts| segment_fts_candidates(segment, collection, fts))
-                .transpose()?
-                .flatten()
+            let fts_bounds = if text_first {
+                text_first_bounds
+            } else {
+                fts.as_ref()
+                    .zip(text_term)
+                    .map(|(fts, term)| {
+                        segment_fts_bounds_with_term(
+                            segment,
+                            collection,
+                            fts,
+                            term,
+                            &candidates,
+                            context,
+                        )
+                    })
+                    .transpose()?
+            };
+            if let Some(fts_may) = fts_bounds.as_ref()
+                && !text_first
             {
-                candidates &= fts_may;
+                candidates &= fts_may.may.as_ref();
             }
             counters.candidates += candidates.len();
             let metadata_evidence = if filter.is_none()
@@ -2435,10 +2497,11 @@ fn search_segmented_impl(
                 && metadata_evidence.is_none())
             .then(|| {
                 entry
-                    .filter_leaves
-                    .iter()
-                    .filter(|leaf| leaf.display_path != "@fts")
-                    .map(|leaf| leaf.id)
+                    .filter_shape
+                    .as_ref()
+                    .map(PreparedExpr::term_ids)
+                    .unwrap_or_default()
+                    .into_iter()
                     .chain(entry.text_term)
                     .collect::<Vec<_>>()
             });
@@ -3099,16 +3162,54 @@ pub(crate) fn search_analyze_segmented(
     };
     let observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
+    let collection_candidate_counts =
+        observations
+            .iter()
+            .fold(HashMap::<u32, u64>::new(), |mut counts, observation| {
+                counts
+                    .entry(observation.collection)
+                    .and_modify(|count| *count = (*count).max(observation.candidate_records))
+                    .or_insert(observation.candidate_records);
+                counts
+            });
+    let collection_actuals = repo
+        .collections
+        .iter()
+        .map(|collection| {
+            let actual = observations
+                .iter()
+                .filter(|observation| observation.collection == collection.generation.collection.0)
+                .fold(PlanActual::default(), |mut actual, observation| {
+                    actual.index_proven_matches = actual
+                        .index_proven_matches
+                        .saturating_add(observation.proven_records);
+                    actual.residual_evaluations = actual
+                        .residual_evaluations
+                        .saturating_add(observation.residual_verifications);
+                    if observation.access_kind.as_deref() == Some("relation_target_first")
+                        || observation.access_kind.as_deref() == Some("relation_source_restricted")
+                    {
+                        actual.relation_target_candidates = actual
+                            .relation_target_candidates
+                            .saturating_add(observation.candidate_records);
+                        actual.relation_target_matches = actual
+                            .relation_target_matches
+                            .saturating_add(observation.proven_records);
+                    }
+                    actual
+                });
+            (collection.definition.name.as_str(), actual)
+        })
+        .collect::<HashMap<_, _>>();
     attach_execution_observations(repo, &mut traces, observations);
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
-        if counters.match_count_complete {
-            trace.candidates = result
-                .count
-                .map(|count| count as u64)
-                .unwrap_or(counters.total_matches);
-        }
+        let selected_collection_id = repo
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == trace.collection)
+            .map(|collection| collection.generation.collection.0);
         trace.actual = Some(PlanActual {
             files_opened: counters.files_opened,
             bytes_read: counters.bytes_read,
@@ -3127,29 +3228,41 @@ pub(crate) fn search_analyze_segmented(
             relation_reverse_members_visited: counters.relation_reverse_members_visited,
             relation_verified_targets_reused: counters.relation_verified_targets_reused,
         });
-        trace.candidates_estimated = false;
-    } else if let Some(first) = traces.first_mut() {
-        // PlanActual is an aggregate execution counter. Associate it with the
-        // first collection only; per-collection observations remain attached
-        // to their actual domain traces.
-        first.actual = Some(PlanActual {
-            files_opened: result.counters.files_opened,
-            bytes_read: result.counters.bytes_read,
-            record_parses: result.counters.record_parses,
-            raw_text_verifications: result.counters.raw_text_verifications,
-            residual_evaluations: result.counters.residual_evaluations,
-            index_proven_matches: result.counters.exact_posting_matches,
-            relation_target_candidates: result.counters.relation_target_candidates,
-            relation_target_matches: result.counters.relation_target_matches,
-            relation_target_reads: result.counters.relation_target_reads,
-            relation_target_file_opens: result.counters.relation_target_file_opens,
-            relation_edge_visits: result.counters.relation_edge_visits,
-            relation_backlink_probe_visits: result.counters.relation_backlink_probe_visits,
-            relation_bytes_read: result.counters.relation_bytes_read,
-            relation_reverse_postings_visited: result.counters.relation_reverse_postings_visited,
-            relation_reverse_members_visited: result.counters.relation_reverse_members_visited,
-            relation_verified_targets_reused: result.counters.relation_verified_targets_reused,
-        });
+        if let Some(candidates) = selected_collection_id
+            .and_then(|collection| collection_candidate_counts.get(&collection))
+        {
+            trace.candidates = *candidates;
+            trace.candidates_estimated = false;
+        } else if counters.match_count_complete {
+            trace.candidates = result
+                .count
+                .map(|count| count as u64)
+                .unwrap_or(counters.total_matches);
+            trace.candidates_estimated = false;
+        }
+        if trace.filter_exact && query.fts.is_none() && counters.match_count_complete {
+            trace.candidates = result
+                .count
+                .map(|count| count as u64)
+                .unwrap_or(counters.total_matches);
+        }
+        return Ok((result, traces));
+    }
+    for trace in &mut traces {
+        if let Some(collection) = repo
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == trace.collection)
+            && let Some(candidates) =
+                collection_candidate_counts.get(&collection.generation.collection.0)
+        {
+            trace.candidates = *candidates;
+            trace.candidates_estimated = false;
+        }
+        if let Some(actual) = collection_actuals.get(trace.collection.as_str()) {
+            trace.actual = Some(actual.clone());
+            trace.candidates_estimated = result.counters.match_count_complete;
+        }
     }
     Ok((result, traces))
 }
@@ -3398,6 +3511,7 @@ fn try_lifecycle_ordered_stream(
         return Ok(None);
     }
     let prepared = crate::prepared::prepare(repo, request)?;
+    let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -3435,12 +3549,15 @@ fn try_lifecycle_ordered_stream(
             let filter_may = filter
                 .as_ref()
                 .map(|filter| {
-                    let bounds = segment_filter_bounds_with_catalog(
+                    let active = segment.active.bitmap();
+                    let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
                         &segment.index,
                         &segment.active,
                         filter,
                         collection,
                         Some(catalog),
+                        &active,
+                        Some(&predicates),
                     )?;
                     let logical = &segment.active.bitmap() & &segment.index.logical_records;
                     filter_exact[collection_index][segment_index] = bounds.may == bounds.must
@@ -3456,9 +3573,19 @@ fn try_lifecycle_ordered_stream(
                 .transpose()?;
             let fts_may = fts
                 .as_ref()
-                .map(|fts| segment_fts_candidates(&segment.index, collection, fts))
-                .transpose()?
-                .flatten();
+                .zip(entry.text_term)
+                .map(|(fts, term)| {
+                    segment_fts_bounds_with_term(
+                        &segment.index,
+                        collection,
+                        fts,
+                        term,
+                        &segment.active.bitmap(),
+                        Some(context),
+                    )
+                    .map(|bounds| bounds.may.as_ref().clone())
+                })
+                .transpose()?;
             candidates[collection_index][segment_index] = match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
                 (Some(filter), None) => Some(filter.as_ref().clone()),
@@ -5622,12 +5749,6 @@ pub(crate) fn explain_with_active(
     Ok(traces)
 }
 
-pub(crate) fn winner_bytes(winner: &Winner) -> usize {
-    std::mem::size_of::<Winner>()
-        + rank_key_bytes(&winner.key) as usize
-        + crate::streaming::hit_bytes(&winner.hit)
-}
-
 fn sort_target_retained_bytes(sort: &ResolvedSort<'_>) -> Result<usize, String> {
     Ok(usize::try_from(
         sort.target_cache
@@ -5832,22 +5953,19 @@ fn search_impl_with_collector<'a>(
             })
             .transpose()?
             .flatten();
-        let prepared_filter_estimate = match (filter.as_ref(), entry.filter_leaves.as_slice()) {
-            (Some(BoundExpr::Term(term)), leaves) => leaves
-                .iter()
-                .find(|leaf| leaf.display_path != "@fts")
-                .map(|leaf| {
-                    crate::executor::estimate_prepared_filter_term(
-                        repo,
-                        collection,
-                        &predicates,
-                        leaf.id,
-                        term,
-                        domain.len(),
-                    )
-                })
+        let prepared_filter_estimate = match (filter.as_ref(), entry.filter_shape.as_ref()) {
+            (Some(BoundExpr::Term(term)), Some(PreparedExpr::Term(term_id))) => {
+                Some(crate::executor::estimate_prepared_filter_term(
+                    repo,
+                    collection,
+                    &predicates,
+                    *term_id,
+                    term,
+                    domain.len(),
+                ))
                 .transpose()?
-                .flatten(),
+                .flatten()
+            }
             _ => None,
         };
         let text_estimate = prepared_text_estimate.or_else(|| {
@@ -5996,10 +6114,11 @@ fn search_impl_with_collector<'a>(
             (filter.is_some() && fts.is_some() && !plan.exact && preverified_evidence.is_none())
                 .then(|| {
                     entry
-                        .filter_leaves
-                        .iter()
-                        .filter(|leaf| leaf.display_path != "@fts")
-                        .map(|leaf| leaf.id)
+                        .filter_shape
+                        .as_ref()
+                        .map(PreparedExpr::term_ids)
+                        .unwrap_or_default()
+                        .into_iter()
                         .chain(entry.text_term)
                         .collect::<Vec<_>>()
                 });
