@@ -135,13 +135,15 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 .unwrap();
                 if let BoundExpr::Term(term) = bound {
                     for segment in repo.segments[0].iter() {
-                        if let Ok(bounds) = crate::executor::segment_filter_bounds_with_catalog(
-                            &segment.index,
-                            &segment.active,
-                            &BoundExpr::Term(term.clone()),
-                            collection,
-                            Some(&repo.catalog),
-                        ) {
+                        if let Ok(bounds) =
+                            crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+                                &segment.index,
+                                &segment.active,
+                                &BoundExpr::Term(term.clone()),
+                                collection,
+                                Some(&repo.catalog),
+                            )
+                        {
                             let candidates = bounds.may;
                             for &id in expected {
                                 if let Some(slot) = segment

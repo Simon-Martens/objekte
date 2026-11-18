@@ -4,11 +4,11 @@ use super::{
     InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     ObservedStep,
 };
-use crate::executor::AccessPathKind;
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
+use crate::query_execution::restrictions::AccessPathKind;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};

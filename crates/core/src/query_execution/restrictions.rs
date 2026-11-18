@@ -3924,9 +3924,9 @@ pub(crate) fn fts_candidates(
 }
 
 #[cfg(test)]
-#[path = "executor.test.rs"]
+#[path = "restrictions/tests.rs"]
 mod tests;
 
 #[cfg(test)]
-#[path = "dynamic_filter.test.rs"]
+#[path = "restrictions/dynamic_filter_tests.rs"]
 mod dynamic_filter_tests;

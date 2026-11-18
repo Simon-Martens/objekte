@@ -192,9 +192,9 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
             assert_eq!(
                 repo.explain(&query).unwrap()[0].terms[0].selected.kind,
                 if filter == "['literal.key'][0] = 'value'" {
-                    objekte_search_core::executor::AccessPathKind::RawBigram
+                    objekte_search_core::query_execution::restrictions::AccessPathKind::RawBigram
                 } else {
-                    objekte_search_core::executor::AccessPathKind::Scanner
+                    objekte_search_core::query_execution::restrictions::AccessPathKind::Scanner
                 },
                 "{filter}"
             );
@@ -240,7 +240,7 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         repo.explain(&field_query).unwrap()[0].terms[0]
             .selected
             .kind,
-        objekte_search_core::executor::AccessPathKind::Scanner
+        objekte_search_core::query_execution::restrictions::AccessPathKind::Scanner
     );
     assert_eq!(
         repo.search(&field_query).unwrap().hits[0].matched_fields,

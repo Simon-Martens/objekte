@@ -2,10 +2,10 @@
 
 use std::collections::HashSet;
 
-use crate::executor::Proof;
 use crate::inventory::RecordClass;
 use crate::model::Value;
 use crate::query::Operator;
+use crate::query_execution::restrictions::Proof;
 use crate::reference::{
     BoundExpr, Derived, RecordContext, eval_unavailable_filter, same_bound_term,
 };

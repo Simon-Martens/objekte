@@ -4,7 +4,6 @@ use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 
-use crate::executor::{AccessPathKind, access_path_kind_name};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::PublishedSegment;
 use crate::model::CollectionId;
@@ -15,6 +14,7 @@ use crate::query_access::contract::{
 };
 use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
 use crate::query_execution::domain::domain_id;
+use crate::query_execution::restrictions::{AccessPathKind, access_path_kind_name};
 use crate::query_predicate::TermId;
 use crate::relation_query::MergedRelationView;
 use crate::relation_semijoin::{
@@ -28,7 +28,7 @@ pub(crate) const NATIVE_RELATION_PROVIDER: ProviderId = ProviderId(4);
 struct RelationOperation {
     term: TermId,
     strategy: Strategy,
-    path: crate::executor::AccessPathEstimate,
+    path: crate::query_execution::restrictions::AccessPathEstimate,
 }
 
 /// One pinned relation catalog. Offers carry the selected traversal strategy;
@@ -93,7 +93,10 @@ impl<'a> NativeRelationProvider<'a> {
             .ok_or(AccessError::StaleHandle)
     }
 
-    pub(crate) fn path_for(&self, choice: AccessId) -> Option<crate::executor::AccessPathEstimate> {
+    pub(crate) fn path_for(
+        &self,
+        choice: AccessId,
+    ) -> Option<crate::query_execution::restrictions::AccessPathEstimate> {
         (choice.provider == NATIVE_RELATION_PROVIDER)
             .then(|| {
                 self.operations
@@ -109,7 +112,7 @@ impl<'a> NativeRelationProvider<'a> {
         &self,
         choice: AccessId,
         term: TermId,
-    ) -> Vec<crate::executor::AccessPathEstimate> {
+    ) -> Vec<crate::query_execution::restrictions::AccessPathEstimate> {
         let selected_kind = self.path_for(choice).map(|path| path.kind);
         self.operations
             .lock()
@@ -208,33 +211,34 @@ impl IndexAccessProvider for NativeRelationProvider<'_> {
             .operations
             .lock()
             .expect("relation provider operation state poisoned");
-        let mut push = |strategy: Strategy, path: crate::executor::AccessPathEstimate| {
-            let operation = operations.len();
-            operations.push(RelationOperation {
-                term,
-                strategy,
-                path: path.clone(),
-            });
-            offers.push(AccessOffer::new(
-                AccessId {
-                    provider: NATIVE_RELATION_PROVIDER,
-                    operation: OperationId(operation as u32),
-                },
-                term,
-                AccessKind::Relation,
-                Coverage::Complete,
-                ProofStrength::Exact,
-                path.estimated_output,
-                path.estimated_work,
-                0.0,
-                false,
-                false,
-            ));
-            debug_assert!(matches!(
-                path.kind,
-                AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted
-            ));
-        };
+        let mut push =
+            |strategy: Strategy, path: crate::query_execution::restrictions::AccessPathEstimate| {
+                let operation = operations.len();
+                operations.push(RelationOperation {
+                    term,
+                    strategy,
+                    path: path.clone(),
+                });
+                offers.push(AccessOffer::new(
+                    AccessId {
+                        provider: NATIVE_RELATION_PROVIDER,
+                        operation: OperationId(operation as u32),
+                    },
+                    term,
+                    AccessKind::Relation,
+                    Coverage::Complete,
+                    ProofStrength::Exact,
+                    path.estimated_output,
+                    path.estimated_work,
+                    0.0,
+                    false,
+                    false,
+                ));
+                debug_assert!(matches!(
+                    path.kind,
+                    AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted
+                ));
+            };
         push(selected, selected_path);
         for path in alternatives {
             push(

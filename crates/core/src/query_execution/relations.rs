@@ -2636,11 +2636,13 @@ pub(crate) fn explain_segmented(
                 .transpose()?
                 .unwrap_or(published.active.len());
             if let Some(fts) = fts {
-                if let Some((text, _)) = crate::executor::native_segment_estimate_fts_candidates(
-                    &published.index,
-                    collection,
-                    fts,
-                ) {
+                if let Some((text, _)) =
+                    crate::query_execution::restrictions::native_segment_estimate_fts_candidates(
+                        &published.index,
+                        collection,
+                        fts,
+                    )
+                {
                     let text = text.min(published.active.len());
                     delta_fts_candidates = delta_fts_candidates.saturating_add(text);
                     candidates = candidates.min(text);
@@ -2748,8 +2750,8 @@ pub(crate) fn explain_segmented(
             if let Some((id, operation)) = operation {
                 let old = std::mem::replace(
                     &mut choice.selected,
-                    crate::executor::AccessPathEstimate {
-                        kind: crate::executor::AccessPathKind::Posting,
+                    crate::query_execution::restrictions::AccessPathEstimate {
+                        kind: crate::query_execution::restrictions::AccessPathKind::Posting,
                         exact: true,
                         coverage: trace.input_records.min(u32::MAX as u64) as u32,
                         estimated_output: delta_candidates,
@@ -2798,7 +2800,11 @@ pub(crate) fn explain_segmented(
                 let mut structural = 0u64;
                 for published in segments[collection_index].iter() {
                     if let Some(estimated) =
-                        crate::executor::segment_text_estimate(&published.index, term, collection)
+                        crate::query_execution::restrictions::segment_text_estimate(
+                            &published.index,
+                            term,
+                            collection,
+                        )
                     {
                         output = output.saturating_add(estimated.min(published.active.len()));
                     } else {
@@ -2809,11 +2815,11 @@ pub(crate) fn explain_segmented(
                     );
                 }
                 if output < delta && structural < delta {
-                    choice.selected = crate::executor::AccessPathEstimate {
+                    choice.selected = crate::query_execution::restrictions::AccessPathEstimate {
                         kind: if matches!(term.binding_name.as_str(), "default" | "lower") {
-                            crate::executor::AccessPathKind::RawBigram
+                            crate::query_execution::restrictions::AccessPathKind::RawBigram
                         } else {
-                            crate::executor::AccessPathKind::CustomBigram
+                            crate::query_execution::restrictions::AccessPathKind::CustomBigram
                         },
                         exact: false,
                         coverage: trace.input_records.min(u32::MAX as u64) as u32,
@@ -2884,8 +2890,8 @@ pub(crate) fn explain_segmented(
                     .find(|choice| choice.span == term.span)
                     && let Some((id, operation)) = operation
                 {
-                    choice.selected = crate::executor::AccessPathEstimate {
-                        kind: crate::executor::AccessPathKind::Posting,
+                    choice.selected = crate::query_execution::restrictions::AccessPathEstimate {
+                        kind: crate::query_execution::restrictions::AccessPathKind::Posting,
                         exact: true,
                         coverage: trace.input_records.min(u32::MAX as u64) as u32,
                         estimated_output: output,
@@ -2923,8 +2929,8 @@ pub(crate) fn explain_segmented(
                     .iter_mut()
                     .find(|choice| choice.span == term.span)
                 {
-                    choice.selected = crate::executor::AccessPathEstimate {
-                        kind: crate::executor::AccessPathKind::FilePathIndex,
+                    choice.selected = crate::query_execution::restrictions::AccessPathEstimate {
+                        kind: crate::query_execution::restrictions::AccessPathKind::FilePathIndex,
                         exact: true,
                         coverage: trace.input_records.min(u32::MAX as u64) as u32,
                         estimated_output: delta_candidates,
@@ -2995,9 +3001,11 @@ pub(crate) fn explain_segmented(
                 .unwrap_or_default();
             trace.terms.sort_by(|left, right| {
                 let rank = |kind| {
-                    if kind == crate::executor::AccessPathKind::Posting {
+                    if kind == crate::query_execution::restrictions::AccessPathKind::Posting {
                         0
-                    } else if kind == crate::executor::AccessPathKind::FilePathIndex {
+                    } else if kind
+                        == crate::query_execution::restrictions::AccessPathKind::FilePathIndex
+                    {
                         1
                     } else {
                         2

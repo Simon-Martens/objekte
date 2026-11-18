@@ -1875,7 +1875,7 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
             for trace in &plan {
                 assert_eq!(
                     trace.terms[0].selected.kind,
-                    crate::executor::AccessPathKind::Posting,
+                    crate::query_execution::restrictions::AccessPathKind::Posting,
                     "{filter} segmented={segmented_path}: {plan:?}"
                 );
                 assert!(trace.terms[0].selected.exact, "{filter}");
@@ -4645,12 +4645,9 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
         indexed.hits[0].file_path,
         std::path::Path::new("data/valid.json")
     );
-    assert!(
-        trace[0]
-            .terms
-            .iter()
-            .any(|term| { term.selected.kind == crate::executor::AccessPathKind::FilePathIndex })
-    );
+    assert!(trace[0].terms.iter().any(|term| {
+        term.selected.kind == crate::query_execution::restrictions::AccessPathKind::FilePathIndex
+    }));
     let fused = trace[0]
         .observations
         .iter()
@@ -4854,7 +4851,8 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
             assert_eq!(actual.counters.scanned_records, 2);
             assert_eq!(actual.counters.residual_evaluations, 2);
             assert!(trace[0].terms.iter().any(|term| term.field == "body"
-                && term.selected.kind == crate::executor::AccessPathKind::RawBigram));
+                && term.selected.kind
+                    == crate::query_execution::restrictions::AccessPathKind::RawBigram));
         }
         if filter == "kind = 'yes' || body ~ 'needle'" && evidence {
             assert_eq!(actual.hits[0].matched_fields, ["body", "kind"]);

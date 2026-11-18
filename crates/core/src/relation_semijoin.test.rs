@@ -733,7 +733,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             .terms
             .iter()
             .any(|choice| {
-                choice.selected.kind == crate::executor::AccessPathKind::RelationTargetFirst
+                choice.selected.kind
+                    == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
             })
     );
     let source_index = repo
@@ -1161,16 +1162,14 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         assert_eq!(actual.counters.relation_reverse_members_visited, 40);
         assert_eq!(actual.counters.scanned_records, 0);
         let trace = repo.explain_analyze(&request).unwrap().1;
-        assert!(
-            trace[0].terms.iter().any(|choice| choice.selected.kind
-                == crate::executor::AccessPathKind::RelationTargetFirst)
-        );
+        assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
+            == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst));
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
         assert_eq!(ids(&repo, &selective), ["S00"]);
         let trace = repo.explain_analyze(&selective).unwrap().1;
         assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
-            == crate::executor::AccessPathKind::RelationSourceRestricted));
+            == crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted));
         let selective_work = repo.search(&selective).unwrap().counters;
         assert!(selective_work.relation_target_reads <= 1);
         assert!(selective_work.relation_edge_visits <= 1);
@@ -1191,8 +1190,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .any(|choice| matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
 
@@ -1205,8 +1204,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .all(|choice| !matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
         let universal = query("entry.title = 'Hymn Parade'");
@@ -1217,8 +1216,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .any(|choice| matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
         let fallback_or = query("@file.status = 1 || entry.title ?~ 'Hymn'");
@@ -1381,8 +1380,8 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .iter()
                     .all(|choice| !matches!(
                         choice.selected.kind,
-                        crate::executor::AccessPathKind::RelationTargetFirst
-                            | crate::executor::AccessPathKind::RelationSourceRestricted
+                        crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                            | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                     ))
             );
             let positional = query("links[0].title ?= 'Needle'");
@@ -1393,8 +1392,8 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .iter()
                     .all(|choice| !matches!(
                         choice.selected.kind,
-                        crate::executor::AccessPathKind::RelationTargetFirst
-                            | crate::executor::AccessPathKind::RelationSourceRestricted
+                        crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                            | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                     ))
             );
             std::fs::remove_dir_all(root).unwrap();

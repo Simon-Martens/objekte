@@ -554,7 +554,7 @@ pub(crate) fn select_exact_segmented(
         let mut exact = true;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let members = if let Some(filter) = filter {
-                match crate::executor::segment_filter_bounds_with_catalog(
+                match crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
                     &segment.index,
                     &segment.active,
                     filter,

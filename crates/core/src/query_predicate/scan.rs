@@ -5,9 +5,9 @@ use std::collections::HashSet;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::executor::{Proof, estimate_expr};
 use crate::model::{LogicalType, PathRoot};
 use crate::query::{Operator, Query};
+use crate::query_execution::restrictions::{Proof, estimate_expr};
 use crate::query_results::ranking::ResolvedSort;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, Transform, same_bound_term,

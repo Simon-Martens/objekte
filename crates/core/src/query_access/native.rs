@@ -3,8 +3,10 @@
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::executor::{AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path};
 use crate::query_execution::domain::domain_id;
+use crate::query_execution::restrictions::{
+    AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path,
+};
 use crate::query_predicate::TermId;
 use crate::repository::{CollectionState, Repository};
 

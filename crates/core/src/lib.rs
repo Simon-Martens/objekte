@@ -11,7 +11,6 @@ mod detailed_timer;
 pub mod diagnostics;
 pub mod discovery;
 pub mod execution_options;
-pub mod executor;
 mod field_state;
 pub mod fts_preview;
 pub mod index;

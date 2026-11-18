@@ -853,7 +853,7 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
 
 #[test]
 fn indexed_field_state_matches_independent_source_oracle_without_verification() {
-    use crate::executor::AccessPathKind;
+    use crate::query_execution::restrictions::AccessPathKind;
 
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;

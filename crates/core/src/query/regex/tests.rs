@@ -1,7 +1,7 @@
 use super::*;
-use crate::executor::fts_candidates;
 use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::{FtsField, FtsMode, FtsQuery, Query, QueryOptions};
+use crate::query_execution::restrictions::fts_candidates;
 use crate::reference::{
     BindingOperation, CustomBinding, FieldDefinition, RegisteredBinding, Schema, Transform,
     bind_fts,
@@ -225,7 +225,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             repo.segments[0]
                 .iter()
                 .map(|segment| {
-                    crate::executor::segment_fts_candidates(
+                    crate::query_execution::restrictions::segment_fts_candidates(
                         &segment.index,
                         &repo.collections()[0],
                         &bound,
@@ -290,7 +290,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         );
         let bound = bind_fts(fallback.fts.as_ref().unwrap(), &definition.schema).unwrap();
         assert!(repo.segments[0].iter().any(|segment| {
-            let candidates = crate::executor::segment_fts_candidates(
+            let candidates = crate::query_execution::restrictions::segment_fts_candidates(
                 &segment.index,
                 &repo.collections()[0],
                 &bound,
@@ -621,10 +621,13 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             let candidates = restored.segments[0]
                 .iter()
                 .map(|segment| {
-                    let candidates =
-                        crate::executor::segment_fts_candidates(&segment.index, collection, &bound)
-                            .unwrap()
-                            .unwrap_or_else(|| segment.active.bitmap());
+                    let candidates = crate::query_execution::restrictions::segment_fts_candidates(
+                        &segment.index,
+                        collection,
+                        &bound,
+                    )
+                    .unwrap()
+                    .unwrap_or_else(|| segment.active.bitmap());
                     (segment, candidates)
                 })
                 .collect::<Vec<_>>();

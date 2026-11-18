@@ -11,13 +11,6 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::execution_options::ReturnMode;
-use crate::executor::{
-    Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
-    fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
-    segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
-    segment_fts_estimate_with_term,
-};
 use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::sorting::{InferredOrderKey, SortColumn, simple_composite_part};
@@ -41,6 +34,13 @@ use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,
     regex_prefilter_reason,
+};
+use crate::query_execution::restrictions::{
+    Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
+    fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
+    segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
+    segment_fts_estimate_with_term,
 };
 use crate::query_predicate::{
     DirectSourcePlan, PreparedExpr, Residual, borrowed_relation_source_text, borrowed_value_text,
@@ -5769,18 +5769,18 @@ fn search_impl_with_collector<'a>(
             .transpose()?
             .flatten();
         let prepared_filter_estimate = match (filter.as_ref(), entry.filter_shape.as_ref()) {
-            (Some(BoundExpr::Term(term)), Some(PreparedExpr::Term(term_id))) => {
-                Some(crate::executor::estimate_prepared_filter_term(
+            (Some(BoundExpr::Term(term)), Some(PreparedExpr::Term(term_id))) => Some(
+                crate::query_execution::restrictions::estimate_prepared_filter_term(
                     repo,
                     collection,
                     &predicates,
                     *term_id,
                     term,
                     domain.len(),
-                ))
-                .transpose()?
-                .flatten()
-            }
+                ),
+            )
+            .transpose()?
+            .flatten(),
             _ => None,
         };
         let text_estimate = prepared_text_estimate.or_else(|| {
