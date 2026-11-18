@@ -1,16 +1,15 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
-fn fixture() -> (PathBuf, Repository) {
+fn fixture() -> (PathBuf, IndexView) {
     let root = std::env::temp_dir().join(format!(
         "objekte-parameters-{}-{}",
         std::process::id(),
@@ -88,7 +87,7 @@ fn fixture() -> (PathBuf, Repository) {
             })
             .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -106,7 +105,11 @@ fn fixture() -> (PathBuf, Repository) {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     (root, repo)
 }
@@ -127,7 +130,7 @@ fn query(filter: &str) -> Query {
     }
 }
 
-fn ids(repo: &Repository, template: &Query, name: &str, value: Value) -> Vec<String> {
+fn ids(repo: &IndexView, template: &Query, name: &str, value: Value) -> Vec<String> {
     let params = HashMap::from([(name.into(), value)]);
     let result = repo.search_with_parameters(template, &params).unwrap();
     let reference = repo

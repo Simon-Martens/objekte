@@ -6,7 +6,7 @@ use std::time::Instant;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::reference::FieldDefinition;
-use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use serde_json::json;
 
@@ -54,7 +54,7 @@ fn run() -> Result<(), String> {
         .schema
         .prohibit_auto_index(vec!["blocked".into()])?;
     let started = Instant::now();
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -64,7 +64,11 @@ fn run() -> Result<(), String> {
             },
             ..Default::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let open_ns = started.elapsed().as_nanos() as u64;
     let collection = &repo.collections()[0];
     let report = repo.inference_report("records");

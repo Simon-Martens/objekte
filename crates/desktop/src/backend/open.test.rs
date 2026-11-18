@@ -97,7 +97,17 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     let view = session.repository.index().view().unwrap();
-    let row = view.catalogue_rows().next().unwrap();
+    let rows = view.catalogue_rows().collect::<Vec<_>>();
+    assert_eq!(
+        rows.len(),
+        1,
+        "status={:?} paths={:?}",
+        task.as_ref().map(|task| task.status().unwrap()),
+        view.file_paths().collect::<Vec<_>>()
+    );
+    let row = rows[0];
     assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
-    task.unwrap().wait_complete().unwrap();
+    if let Some(task) = task {
+        task.wait_complete().unwrap();
+    }
 }

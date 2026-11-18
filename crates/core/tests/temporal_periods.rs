@@ -3,9 +3,7 @@ use std::collections::HashMap;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
@@ -77,7 +75,7 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
             })
             .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -95,7 +93,11 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         ("issued = 2024-02", vec!["A", "C"]),

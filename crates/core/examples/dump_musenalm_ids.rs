@@ -4,7 +4,7 @@ mod musenalm;
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
-use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, ReturnMode, load_extended_manifest, load_manifest,
 };
@@ -62,7 +62,7 @@ fn run() -> Result<(), String> {
             return Err(format!("unknown case {id}"));
         }
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         if extended {
             musenalm::load_extended_definitions(&root)?
@@ -73,7 +73,11 @@ fn run() -> Result<(), String> {
             bigram_alphabet: alphabet,
             ..RepositoryOptions::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let maximum = repo
         .collections()
         .iter()

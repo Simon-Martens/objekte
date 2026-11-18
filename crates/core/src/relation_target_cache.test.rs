@@ -137,7 +137,7 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
         .unwrap();
     }
     std::fs::write(root.join("sources/broken.json"), "{broken}").unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions {
@@ -146,7 +146,11 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
             query_workers: 4,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     (root, repo)
 }
@@ -291,14 +295,18 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
         serde_json::json!({"id":"S0","local_title":"Hymn","links":links}).to_string(),
     )
     .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let request = query("local_title ?= links.title", true, 1);
     assert_eq!(repo.search(&request).unwrap().count, Some(1));
@@ -347,14 +355,18 @@ fn segmented_stream_skips_unused_flat_prefetch_allowance() {
         r#"{"id":"S0","local_title":"Hymn","links":["T0","T1"]}"#,
     )
     .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let request = query("local_title ?= links.title", true, 1);
     assert_eq!(repo.search(&request).unwrap().count, Some(1));

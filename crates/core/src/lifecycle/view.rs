@@ -43,6 +43,43 @@ impl IndexView {
         self.repository().startup()
     }
 
+    pub fn startup(&self) -> &crate::repository::StartupStats {
+        self.startup_stats()
+    }
+
+    pub fn files(&self) -> &crate::inventory::FileInventory {
+        self.repository().files()
+    }
+
+    pub fn collections(&self) -> &[crate::repository::CollectionState] {
+        self.repository().collections()
+    }
+
+    pub fn build_parses(&self) -> u64 {
+        self.repository().build_parses()
+    }
+
+    pub fn build_failed_parses(&self) -> u64 {
+        self.repository().build_failed_parses()
+    }
+
+    pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
+        let displaced = self
+            .1
+            .upgrade()
+            .ok_or_else(|| "index owner is no longer available".to_string())?
+            .verified_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .set_budget(bytes);
+        drop(displaced);
+        Ok(())
+    }
+
+    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
+        self.repository().segment_summaries_for(&self.0.segments)
+    }
+
     pub fn initial_construction_complete(&self) -> bool {
         self.0.catalog.construction_complete()
     }
@@ -61,6 +98,18 @@ impl IndexView {
     /// completed global summary of an incremental construction.
     pub fn inference_report(&self, collection: &str) -> Option<&crate::inference::InferenceReport> {
         self.repository().inference_report(collection)
+    }
+
+    pub fn inference_index_diagnostics(
+        &self,
+        collection: &str,
+    ) -> Option<Vec<crate::inference::InferencePathDiagnostic>> {
+        self.repository().inference_index_diagnostics(collection)
+    }
+
+    pub fn native_index_signature(&self) -> String {
+        self.repository()
+            .native_index_signature_for(&self.0.segments)
     }
 
     /// Borrow a row from this pinned publication without copying the corpus
@@ -830,6 +879,14 @@ impl IndexView {
             .map(|result| self.stamp_result(result))
     }
 
+    pub fn search_reference_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        self.search_reference(&query.with_parameters(parameters)?)
+    }
+
     pub fn select_exact(
         &self,
         collection: &str,
@@ -990,6 +1047,21 @@ impl IndexView {
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
 
+    pub fn explain_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.explain(&query.with_parameters(parameters)?)
+    }
+
+    pub fn explain_analyze(
+        &self,
+        query: &Query,
+    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        self.search_analyze(query)
+    }
+
     pub fn search_stream<F>(
         &self,
         query: &Query,
@@ -1010,6 +1082,28 @@ impl IndexView {
             cancellation,
             sink,
         )
+    }
+
+    pub fn search_stream_with_parameters<F>(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+        options: StreamOptions,
+        cancellation: &CancellationToken,
+        sink: &mut F,
+    ) -> Result<StreamOutcome, StreamError>
+    where
+        F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
+    {
+        let bound =
+            query
+                .with_parameters(parameters)
+                .map_err(|message| StreamError::Execution {
+                    kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
+                    message,
+                    progress: crate::streaming::StreamProgress::default(),
+                })?;
+        self.search_stream(&bound, options, cancellation, sink)
     }
 
     pub fn search_stream_scoped<F>(

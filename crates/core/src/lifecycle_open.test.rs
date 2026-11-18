@@ -31,11 +31,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
         })
         .unwrap();
 
-    let repo = Repository::open_with_options(
-        &root,
-        vec![definition.clone()],
-        RepositoryOptions::default(),
-    )
+    let repo = crate::lifecycle::Index::start_build(&root, vec![definition.clone()], RepositoryOptions::default(), crate::source::SourceRegistry::builtin()).and_then(|task| task.wait_complete()).and_then(|index| index.into_repository()).map_err(|error| error.to_string())
     .unwrap();
     let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
     let index = Index::from_repository(repo).unwrap();
@@ -51,7 +47,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
         "the adopted initial payload remained owned after replacement"
     );
 
-    let repo = Repository::open_with_options(&root, vec![definition], RepositoryOptions::default())
+    let repo = crate::lifecycle::Index::start_build(&root, vec![definition], RepositoryOptions::default(), crate::source::SourceRegistry::builtin()).and_then(|task| task.wait_complete()).and_then(|index| index.into_repository()).map_err(|error| error.to_string())
         .unwrap();
     let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
     let index = Index::from_repository(repo).unwrap();
@@ -110,7 +106,7 @@ fn large_framed_file_admission_has_component_accounting() {
         profile_build: true,
         ..Default::default()
     };
-    let task = Index::start_incremental_build(&root, definitions.clone(), options).unwrap();
+    let task = crate::lifecycle::Index::start_build(&root, definitions.clone(), options, crate::source::SourceRegistry::builtin()).unwrap();
     let index = task.wait_complete().unwrap();
     let view = index.view().unwrap();
     let admission = &view
@@ -158,14 +154,10 @@ fn incremental_admission_totals_match_each_collection() {
         .into_iter()
         .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
         .collect();
-    let task = Index::start_incremental_build(
-        &root,
-        definitions,
-        RepositoryOptions {
+    let task = crate::lifecycle::Index::start_build(&root, definitions, RepositoryOptions {
             profile_build: true,
             ..Default::default()
-        },
-    )
+        }, crate::source::SourceRegistry::builtin())
     .unwrap();
     let index = task.wait_complete().unwrap();
     let view = index.view().unwrap();
@@ -221,14 +213,9 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         inference,
         ..Default::default()
     };
-    let static_repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let static_repo = crate::lifecycle::Index::start_build(&root, definitions.clone(), options, crate::source::SourceRegistry::builtin()).and_then(|task| task.wait_complete()).and_then(|index| index.into_repository()).map_err(|error| error.to_string()).unwrap();
     std::fs::create_dir(root.join("index-store")).unwrap();
-    let index = Index::build_with_sources(
-        &root,
-        definitions.clone(),
-        options,
-        crate::source::SourceRegistry::builtin(),
-    )
+    let index = crate::lifecycle::Index::start_build(&root, definitions.clone(), options, crate::source::SourceRegistry::builtin()).and_then(|task| task.wait_complete())
     .unwrap();
     assert_eq!(index.status().unwrap().indexed_files, 3);
     assert_eq!(index.status().unwrap().live_records, 6);
@@ -296,12 +283,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
     };
     check(&index);
     index.shutdown().unwrap();
-    let restored = Index::build_with_sources(
-        &root,
-        definitions,
-        options,
-        crate::source::SourceRegistry::builtin(),
-    )
+    let restored = crate::lifecycle::Index::start_build(&root, definitions, options, crate::source::SourceRegistry::builtin()).and_then(|task| task.wait_complete())
     .unwrap();
     check(&restored);
     restored.shutdown().unwrap();

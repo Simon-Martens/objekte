@@ -6,6 +6,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use objekte_search_core::inventory::FileStatus;
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::{PostingValueBound, PostingValuesRequest};
@@ -13,9 +14,7 @@ use objekte_search_core::query::{FtsQuery, Literal, Operator, Query, QueryOption
 use objekte_search_core::reference::{
     BindingOperation, FieldDefinition, PreparedFilterMatcher, RegisteredBinding, Schema,
 };
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{ReturnMode, SortField};
 
@@ -214,11 +213,15 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         ..Default::default()
     };
     for opening in 0..2 {
-        let repo = Repository::open_with_options(
+        let repo = objekte_search_core::lifecycle::Index::start_build(
             &custom_root,
             vec![custom_definition.clone()],
             custom_options,
-        )?;
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.view())
+        .map_err(|error| error.to_string())?;
         let base = Query {
             collections: vec!["data".into()],
             filter: None,
@@ -298,11 +301,15 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         let mut repo = None;
         for _ in 0..11 {
             let started = Instant::now();
-            let current = Repository::open_with_options(
+            let current = objekte_search_core::lifecycle::Index::start_build(
                 &source_root,
                 vec![definition.clone()],
                 build_options,
-            )?;
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.view())
+            .map_err(|error| error.to_string())?;
             build_samples.push(started.elapsed().as_nanos() as u64);
             repo = Some(current);
         }
@@ -337,11 +344,15 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             assert_eq!(repo.search(&query)?.count, Some(400));
             measure(&repo, "mixed-raw-fts-build", &query, 11)?;
             let started = Instant::now();
-            let restored = Repository::open_with_options(
+            let restored = objekte_search_core::lifecycle::Index::start_build(
                 &source_root,
                 vec![definition],
                 RepositoryOptions { ..build_options },
-            )?;
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.view())
+            .map_err(|error| error.to_string())?;
             let rebuild_ns = started.elapsed().as_nanos() as u64;
             assert_eq!(restored.search(&query)?.hits, repo.search(&query)?.hits);
             println!(
@@ -354,12 +365,12 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
     Ok(())
 }
 
-fn measure(repo: &Repository, name: &str, query: &Query, repetitions: usize) -> Result<(), String> {
+fn measure(repo: &IndexView, name: &str, query: &Query, repetitions: usize) -> Result<(), String> {
     measure_observed(repo, name, query, repetitions, None)
 }
 
 fn measure_posting_values(
-    repo: &Repository,
+    repo: &IndexView,
     name: &str,
     request: &PostingValuesRequest,
 ) -> Result<(), String> {
@@ -388,7 +399,7 @@ fn measure_posting_values(
 }
 
 fn measure_observed(
-    repo: &Repository,
+    repo: &IndexView,
     name: &str,
     query: &Query,
     repetitions: usize,
@@ -486,7 +497,7 @@ fn run() -> Result<(), String> {
             element_nullable: Vec::new(),
         })?;
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![
             definition("range", SourceFormat::JsonLines, schema, true),
@@ -497,7 +508,11 @@ fn run() -> Result<(), String> {
             query_workers: 4,
             ..Default::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     repo.configure_verified_cache(0)?;
     let mut range = Query {
         collections: vec!["range".into()],

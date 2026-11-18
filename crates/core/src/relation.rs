@@ -12,9 +12,8 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, CollectionState};
 
 #[cfg(test)]
-thread_local! {
-    static REVERSE_RECONSTRUCTIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-}
+static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
+    std::sync::atomic::AtomicUsize::new(0);
 
 /// Declared cardinality of a source relation field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -192,7 +191,7 @@ impl RelationIndex {
         }
 
         #[cfg(test)]
-        REVERSE_RECONSTRUCTIONS.with(|count| count.set(count.get() + 1));
+        REVERSE_RECONSTRUCTIONS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         let mut reverse = BTreeMap::<ScalarKey, RoaringBitmap>::new();
         let mut unresolved = 0u64;
         let mut previous_end = 0u32;

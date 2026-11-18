@@ -278,20 +278,10 @@ impl InitialBuildTask {
 }
 
 impl Index {
-    pub fn start_incremental_build(
-        root: impl Into<PathBuf>,
-        definitions: Vec<CollectionDefinition>,
-        options: RepositoryOptions,
-    ) -> Result<InitialBuildTask, IndexError> {
-        Self::start_incremental_build_with_sources(
-            root,
-            definitions,
-            options,
-            SourceRegistry::builtin(),
-        )
-    }
-
-    pub fn start_incremental_build_with_sources(
+    /// Start the single initial construction entry point. The task exposes
+    /// catalogue and record publications before completion; callers choose
+    /// when to wait and can cancel the same worker.
+    pub fn start_build(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,

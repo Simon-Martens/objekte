@@ -1,12 +1,144 @@
 use super::*;
 use std::sync::mpsc;
+use std::sync::{
+    Arc,
+    atomic::{AtomicUsize, Ordering},
+};
 
 use crate::inference::{InferenceConfig, InferenceMode};
+use crate::inventory::ByteRange;
 use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
-use crate::source::SourceFormat;
+use crate::source::{ExtractedRecord, JsonLinesReader, SourceFormat, SourceReader, SourceRegistry};
 use crate::workload::ReturnMode;
+
+struct CountingJsonLinesReader {
+    parses: Arc<AtomicUsize>,
+}
+
+impl SourceReader for CountingJsonLinesReader {
+    fn name(&self) -> &'static str {
+        "counting-jsonl"
+    }
+
+    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+        JsonLinesReader.frame(file)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        self.parses.fetch_add(1, Ordering::Relaxed);
+        JsonLinesReader.parse(bytes)
+    }
+}
+
+#[test]
+fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-single-build-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, rank) in [("a", 10), ("b", 20), ("c", 20)] {
+        std::fs::write(
+            root.join(format!("data/{name}.counted-jsonl")),
+            format!("{{\"id\":\"{name}\",\"rank\":{rank}}}\n"),
+        )
+        .unwrap();
+    }
+    let parses = Arc::new(AtomicUsize::new(0));
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "counted-jsonl",
+            1,
+            "counted-jsonl",
+            Arc::new(CountingJsonLinesReader {
+                parses: Arc::clone(&parses),
+            }),
+        )
+        .unwrap();
+    let mut definition =
+        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-jsonl"));
+    definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["rank".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let task = Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        sources,
+    )
+    .unwrap();
+    let first = task.wait_complete().unwrap();
+    let second = task.wait_complete().unwrap();
+    assert_eq!(parses.load(Ordering::Relaxed), 3);
+    assert_eq!(first.view().unwrap().startup().build_source_reads, 3);
+    assert_eq!(second.view().unwrap().startup().build_source_reads, 3);
+    let query = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(
+        first
+            .view()
+            .unwrap()
+            .count_exact(&query("rank = 20"))
+            .unwrap(),
+        2
+    );
+    drop(task);
+    drop(first);
+    let repository = second.into_repository().unwrap();
+    let parses_before_empty = parses.load(Ordering::Relaxed);
+    let empty = repository.empty_like().unwrap();
+    assert_eq!(parses.load(Ordering::Relaxed), parses_before_empty);
+    assert_eq!(empty.collections()[0].generation.records.len(), 0);
+    assert_eq!(empty.collections()[0].generation.files.len(), 0);
+    assert!(
+        empty.collections()[0]
+            .postings
+            .fields
+            .values()
+            .all(|posting| posting.presence.is_empty() && posting.values.is_empty())
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 fn all_query() -> Query {
     Query {
@@ -64,7 +196,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
     ));
     let records = write_large_jsonl(&root, "large framed record");
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let task = Index::start_incremental_build(
+    let task = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -75,6 +207,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -884,10 +1017,15 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
         CollectionDefinition::folder("first", "data", SourceFormat::Json),
         CollectionDefinition::folder("second", "data", SourceFormat::Json),
     ];
-    let index = Index::start_incremental_build(&root, definitions, RepositoryOptions::default())
-        .unwrap()
-        .wait_complete()
-        .unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
     let view = index.view().unwrap();
     let mut query = all_query();
     query.collections.clear();
@@ -927,10 +1065,11 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
     )
     .unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let index = Index::start_incremental_build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
     .unwrap()
     .wait_complete()
@@ -964,7 +1103,14 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             );
         }
     }
-    let rebuilt = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    let rebuilt = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let restored_result = rebuilt.view().unwrap().search(&all_query()).unwrap();
     assert_eq!(
         result

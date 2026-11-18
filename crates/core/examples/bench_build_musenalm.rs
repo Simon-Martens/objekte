@@ -5,8 +5,9 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::native_segment::SegmentPolicy;
-use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::BigramAlphabet;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
@@ -18,7 +19,7 @@ fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> 
     Ok(())
 }
 
-fn index_signature(repo: &Repository) -> Result<String, String> {
+fn index_signature(repo: &IndexView) -> Result<String, String> {
     let mut hash = Sha256::new();
     for file in &repo.files().files {
         hash_value(&mut hash, &file.id)?;
@@ -123,7 +124,15 @@ fn run() -> Result<(), String> {
         ..RepositoryOptions::default()
     };
     let started = Instant::now();
-    let repo = Repository::open_with_options(&root, definitions, options)?;
+    let repo = objekte_search_core::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let wall_ns = started.elapsed().as_nanos();
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
     let registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect::<Vec<_>>();

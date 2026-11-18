@@ -7,11 +7,13 @@ fn open_sources(
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
 ) -> Result<IndexedRepository, String> {
-    let index = Index::build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &paths.root,
         configured.definitions.clone(),
         repository_options(args),
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())?;
     IndexedRepository::new(index).map_err(|error| error.to_string())
 }

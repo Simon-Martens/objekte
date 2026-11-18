@@ -591,7 +591,7 @@ fn diagnostic_gram_set_counts_existing_record_bits() {
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -637,14 +637,18 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     let raw_records = vec![vec!["aßb".into()], vec![], vec!["ab".into()], vec![]];
     let fallback_records = vec![vec![], vec!["{\"title\":".into()], vec![], vec![]];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         let collection = &repo.collections()[0];
         let built = &repo.segments[0][0].index;

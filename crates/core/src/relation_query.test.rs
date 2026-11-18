@@ -77,13 +77,17 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
 
     let (root, definitions) = fixture();
     let repo = Arc::new(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions,
             RepositoryOptions {
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap(),
     );
     let mut active = repo
@@ -571,13 +575,17 @@ fn merged_relation_walker_matches_static_reference_semantics() {
 
     let (root, definitions) = fixture();
     let repo = Arc::new(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions,
             RepositoryOptions {
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap(),
     );
     let active = repo
@@ -806,16 +814,17 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
 #[test]
 fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
     use crate::inventory::SourceRevision;
-    use crate::lifecycle::Index;
 
     let (root, definitions) = fixture();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     for filter in [
@@ -860,20 +869,21 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
 
 #[test]
 fn lifecycle_related_sort_uses_target_stored_column() {
-    use crate::lifecycle::Index;
     use crate::model::FieldPath;
 
     let (root, mut definitions) = fixture();
     definitions[0]
         .sort_fields
         .push(FieldPath::parse("title").unwrap());
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     let mut request = query(
@@ -903,7 +913,6 @@ fn lifecycle_related_sort_uses_target_stored_column() {
 
 #[test]
 fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
-    use crate::lifecycle::Index;
     use crate::model::FieldPath;
 
     let (root, mut definitions) = fixture();
@@ -920,13 +929,15 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
         )
         .unwrap();
     }
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     for descending in [false, true] {
@@ -955,21 +966,22 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
 
 #[test]
 fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics() {
-    use crate::lifecycle::Index;
     use crate::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
 
     let (root, definitions) = fixture();
     let build = |workers| {
-        Index::build(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions.clone(),
             RepositoryOptions {
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap()
     };
     let single = build(1);
@@ -1049,8 +1061,6 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
 
 #[test]
 fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
-    use crate::lifecycle::Index;
-
     let (root, definitions) = fixture();
     for number in 0..24 {
         std::fs::write(
@@ -1060,14 +1070,16 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
         .unwrap();
     }
     let build = |workers| {
-        Index::build(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions.clone(),
             RepositoryOptions {
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap()
     };
     let single = build(1);
@@ -1279,14 +1291,18 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for mut request in [
         query(
@@ -1364,13 +1380,17 @@ fn related_reducers_preserve_source_reference_occurrences() {
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (reducer, expected) in [
         ("FIRST", vec!["order_a", "order_m", "order_b", "order_bab"]),
@@ -1420,14 +1440,18 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
         r#"{"id":"m8","entry":"B","local_title":"Festival"}"#,
     )
     .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let sorted = query(
         "mentions",
@@ -1481,13 +1505,17 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
         ),
     )
     .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let request = query(
         "mentions",
@@ -1516,13 +1544,17 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
 #[test]
 fn finite_relation_paths_have_independent_reference_answers() {
     let (root, definitions) = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         ("entry.title = 'Hymn'", vec!["m1"]),
@@ -1636,13 +1668,17 @@ fn finite_relation_paths_have_independent_reference_answers() {
 #[test]
 fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
     let (root, definitions) = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         (
@@ -1709,7 +1745,16 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let repo = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     repo.configure_verified_cache(1 << 20).unwrap();
     for filter in [
         "entry.title = 'Hymn'",
@@ -1739,7 +1784,16 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         assert_eq!(actual.count, Some(expected));
         assert_eq!(actual.hits, reference.hits);
     }
-    let restored = Repository::open_with_options(&root, definitions, options).unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     for filter in ["entry.title = 'Hymn'", "contributors.title ?= 'Hymn'"] {
         let request = query("mentions", Some(filter), None, None, false);
         assert_eq!(
@@ -1756,13 +1810,17 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
 #[test]
 fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes() {
     let (root, definitions) = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let borrowed_targets_before = super::borrowed_relation_targets();
     for request in [
@@ -1821,14 +1879,18 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
 #[test]
 fn mixed_local_and_relation_fts_borrows_source_value_text() {
     let (root, definitions) = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             query_workers: 1,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let request = query(
         "mentions",
@@ -1854,13 +1916,17 @@ fn mixed_local_and_relation_fts_borrows_source_value_text() {
 #[test]
 fn selected_fts_rejects_disagreeing_public_field_and_query_path() {
     let (root, definitions) = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (selected, hidden_path) in [("entry.title", "entry.alt_title"), ("title", "local_title")] {
         let mut request = query("mentions", None, Some("Hymn"), Some(selected), false);

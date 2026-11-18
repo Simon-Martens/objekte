@@ -1,14 +1,11 @@
 use std::collections::HashMap;
 
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 use serde_json::Value as JsonValue;
@@ -287,10 +284,24 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
-        let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        let restored =
-            Index::build_with_sources(&root, definitions(), options, SourceRegistry::builtin())
-                .unwrap();
+        let built = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            definitions(),
+            options,
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.view())
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let restored = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            definitions(),
+            options,
+            SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {
@@ -418,8 +429,16 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
 #[test]
 fn explain_reports_bound_relation_and_temporal_semantics() {
     let (root, _, _) = fixture();
-    let repo =
-        Repository::open_with_options(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let repo = objekte_search_core::lifecycle::Index::start_build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let mut request = query("mentions", "entry.issued = 2024-02", ReturnMode::Locator);
     request.fts = Some(objekte_search_core::query::FtsQuery {
         pattern_parameter: None,
@@ -461,8 +480,16 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
 #[test]
 fn false_and_branch_skips_expensive_relation_verification_in_reference_route() {
     let (root, _, _) = fixture();
-    let repo =
-        Repository::open_with_options(&root, definitions(), RepositoryOptions::default()).unwrap();
+    let repo = objekte_search_core::lifecycle::Index::start_build(
+        &root,
+        definitions(),
+        RepositoryOptions::default(),
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let request = query(
         "mentions",
         "@record.id = 'm1' && entry.title = 'Hymn'",

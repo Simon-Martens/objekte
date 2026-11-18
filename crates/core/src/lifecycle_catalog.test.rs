@@ -3,7 +3,7 @@ use std::sync::Arc;
 use super::FileCatalog;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]
@@ -18,7 +18,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     std::fs::write(root.join("data/a.json"), b"{}").unwrap();
     std::fs::write(root.join("data/b.json"), b"{}").unwrap();
     let repository = Arc::new(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition::folder(
                 "data",
@@ -28,7 +28,11 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             RepositoryOptions {
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap(),
     );
     let original = FileCatalog::from_repository(Arc::clone(&repository)).unwrap();

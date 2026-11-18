@@ -1095,7 +1095,7 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
 #[test]
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -1137,8 +1137,16 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     };
     std::fs::write(root.join("data/bad.json"), r#"{"count":"7","other":"ok"}"#).unwrap();
     for indexed in [false, true] {
-        let repo =
-            Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition(indexed)],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         assert_eq!(
             repo.files.files[0].status,
             crate::inventory::FileStatus::Broken
@@ -1170,8 +1178,16 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         },
     };
     for indexed in [false, true] {
-        let repo =
-            Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition(indexed)],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
         assert_eq!(optimized.count.unwrap(), 1);
@@ -1187,9 +1203,27 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     let persisted = RepositoryOptions {
         ..Default::default()
     };
-    let built = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition(true)],
+        persisted,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     drop(built);
-    let restored = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition(true)],
+        persisted,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     assert_eq!(restored.search(&query).unwrap().hits[0].record_id, "eight");
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1367,10 +1401,28 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
                 .contains("unknown binding")
         );
     };
-    let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     check(&built);
     drop(built);
-    let restored = Repository::open_with_options(&root, definitions, options).unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     check(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }

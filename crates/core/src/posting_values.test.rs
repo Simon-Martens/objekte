@@ -39,13 +39,17 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let all = repo.active.clone();
     let mut live_segments = repo.segments.clone();
@@ -283,10 +287,29 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         unsupported.binding = Some("other".into());
         assert!(repo.posting_values(&unsupported).is_err());
     };
-    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let repo = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition.clone()],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     check(&repo);
-    let restored =
-        Arc::new(Repository::open_with_options(&root, vec![definition], options).unwrap());
+    let restored = Arc::new(
+        crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
     check(&restored);
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
@@ -472,7 +495,16 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             bigram_alphabet: alphabet,
             ..Default::default()
         };
-        let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         let mut request = PostingValuesRequest::new("data", "tags", 2);
         let first = repo.posting_values(&request).unwrap();
         assert_eq!(
@@ -665,8 +697,16 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 .is_empty()
         );
         std::fs::rename(&held, &path).unwrap();
-        let restored =
-            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let restored = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         assert_eq!(
             restored.posting_values(&request).unwrap().values,
             reverse.values
@@ -712,7 +752,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
             })
             .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -729,7 +769,11 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let numbers = repo
         .posting_values(&PostingValuesRequest::new("data", "amount", 10))
@@ -881,7 +925,16 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
         let options = RepositoryOptions {
             ..Default::default()
         };
-        let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         let request = PostingValuesRequest::new("data", "title", 10);
         if complete {
             assert_eq!(
@@ -916,13 +969,14 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                     .unwrap_err()
                     .contains("continuation scope")
             );
-            use crate::lifecycle::Index;
-            let restored = Index::build_with_sources(
+
+            let restored = crate::lifecycle::Index::start_build(
                 &root,
                 vec![definition.clone()],
                 options,
                 crate::source::SourceRegistry::builtin(),
             )
+            .and_then(|task| task.wait_complete())
             .unwrap();
             let restored = restored.view().unwrap();
             assert_eq!(
@@ -975,7 +1029,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -992,7 +1046,11 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut request = PostingValuesRequest::new("data", "key", 3);
     request.prefix = Some("k099".into());

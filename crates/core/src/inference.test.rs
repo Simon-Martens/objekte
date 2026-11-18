@@ -38,7 +38,7 @@ fn write_json_documents(
 }
 
 fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u64) -> Repository {
-    Repository::open_with_options(
+    crate::lifecycle::Index::start_build(
         root,
         vec![CollectionDefinition::folder(
             "data",
@@ -63,7 +63,11 @@ fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u6
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap()
 }
 
@@ -326,7 +330,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
         };
         std::fs::write(root.join(format!("data/{number:03}.json")), body).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -350,7 +354,11 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.segments[0].len(), 2);
     assert_eq!(
@@ -450,7 +458,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
         .unwrap();
     assert!(code.short_string_candidates);
 
-    let report_only = Repository::open_with_options(
+    let report_only = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -474,7 +482,11 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let report_only_report = report_only.inference_report("data").unwrap();
     assert!(
@@ -499,7 +511,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             .as_ref()
             .is_none_or(|inference| inference.indexes.is_empty())
     }));
-    let rejected = Repository::open_with_options(
+    let rejected = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -523,7 +535,11 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let rejected_diagnostic = rejected
         .inference_index_diagnostics("data")
@@ -553,7 +569,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -575,7 +591,11 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.segments[0].len(), 2);
     let field = repo.inference_report("data").unwrap().fields[0].clone();
@@ -604,7 +624,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
     assert_eq!(result.hits, reference.hits);
     assert_eq!(result.count, reference.count);
 
-    let accepted = Repository::open_with_options(
+    let accepted = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -626,7 +646,11 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let accepted_field = accepted
         .inference_report("data")
@@ -667,7 +691,7 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
         .unwrap();
     }
     let open = |minimum_repeated_percent| {
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition::folder(
                 "data",
@@ -687,7 +711,11 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
                 },
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap()
     };
     let accepted = open(80);
@@ -738,7 +766,7 @@ fn segmented_observation_overflow_uses_residual_scanning() {
         max_repository_bytes: 4_096,
         ..Default::default()
     };
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -752,7 +780,11 @@ fn segmented_observation_overflow_uses_residual_scanning() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let report = repo.inference_report("data").unwrap();
     assert!(!report.complete);
@@ -794,7 +826,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
         ));
     }
     std::fs::write(&initial, initial_source).unwrap();
-    let index = crate::lifecycle::Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -808,7 +840,9 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     assert!(view.inference_report("data").unwrap().complete);
@@ -869,7 +903,7 @@ fn auto_index_retains_structural_facts_after_value_admission_fails() {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
     }
     let make = |max_keys| {
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition::folder(
                 "data",
@@ -889,7 +923,11 @@ fn auto_index_retains_structural_facts_after_value_admission_fails() {
                 },
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap()
     };
     let repo = make(4);
@@ -958,9 +996,17 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let declared =
-        Repository::open_with_options(&root, vec![declared_definition], options.clone()).unwrap();
-    let observed = Repository::open_with_options(
+    let declared = crate::lifecycle::Index::start_build(
+        &root,
+        vec![declared_definition],
+        options.clone(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let observed = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -974,7 +1020,11 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
             },
             ..options
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let path = vec!["score".into()];
     let left = &declared.segments[0][0].index.postings.fields[&path];
@@ -1038,7 +1088,7 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -1052,7 +1102,11 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for conjuncts in [1, 4, 16] {
         let filter = (0..conjuncts)
@@ -1292,7 +1346,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), input.to_string()).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -1307,7 +1361,11 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut exact = query("code = \"id-0036\"");
     exact.options.return_mode = ReturnMode::Locator;
@@ -1348,7 +1406,6 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 
 #[test]
 fn mixed_short_strings_match_reference_across_static_and_native_publication() {
-    use crate::lifecycle::Index;
     use crate::source::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
@@ -1404,22 +1461,30 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
             },
             ..Default::default()
         };
-        let built =
-            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        assert_eq!(built.build_parses(), 13);
-        let restored = Index::build_with_sources(
+        let built = crate::lifecycle::Index::start_build(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap();
+        let built_view = built.view().unwrap();
+        assert_eq!(built_view.build_parses(), 13);
+        let restored = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             options,
             SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let restored_view = restored.view().unwrap();
         for filter in filters {
             let mut request = query(filter);
             request.options.return_mode = ReturnMode::Locator;
-            let expected = built.search_reference(&request);
-            let fresh = built.search(&request);
+            let expected = built_view.search_reference(&request);
+            let fresh = built_view.search(&request);
             let loaded = restored_view.search(&request);
             match (expected, fresh, loaded) {
                 (Ok(expected), Ok(fresh), Ok(loaded)) => {
@@ -1434,7 +1499,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
             }
         }
         let ids = |filter: &str| {
-            built
+            built_view
                 .search(&query(filter))
                 .unwrap()
                 .hits
@@ -1679,7 +1744,7 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
     let mut observed = Vec::new();
     let available = std::thread::available_parallelism().map_or(1, |count| count.get());
     for workers in [1, available] {
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             definitions.clone(),
             RepositoryOptions {
@@ -1687,7 +1752,11 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
                 inference: config,
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         let one = repo.inference_report("one").unwrap();
         let many = repo.inference_report("many").unwrap();
@@ -1751,7 +1820,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
     let available = std::thread::available_parallelism().map_or(1, |count| count.get());
     let mut outcomes = Vec::new();
     for workers in [1, available] {
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -1759,7 +1828,11 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
                 inference: config,
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         let report = repo.inference_report("data").unwrap();
         assert!(report.complete);
@@ -1841,8 +1914,16 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 },
                 ..Default::default()
             };
-            let repo =
-                Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+            let repo = crate::lifecycle::Index::start_build(
+                &root,
+                vec![definition.clone()],
+                options,
+                crate::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.into_repository())
+            .map_err(|error| error.to_string())
+            .unwrap();
             assert_eq!(repo.build_parses(), 24);
             assert_eq!(repo.build_failed_parses(), 1);
             if mode == InferenceMode::Disabled {
@@ -1895,9 +1976,16 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             if mode == InferenceMode::ReportOnly {
-                let reopened =
-                    Repository::open_with_options(&root, vec![definition.clone()], options)
-                        .unwrap();
+                let reopened = crate::lifecycle::Index::start_build(
+                    &root,
+                    vec![definition.clone()],
+                    options,
+                    crate::source::SourceRegistry::builtin(),
+                )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
+                .unwrap();
                 assert!(
                     reopened.collections[0]
                         .inference
@@ -1974,31 +2062,46 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                             .hits
                     );
                 }
-                let reopened =
-                    Repository::open_with_options(&root, vec![definition.clone()], options)
-                        .unwrap();
+                let reopened = crate::lifecycle::Index::start_build(
+                    &root,
+                    vec![definition.clone()],
+                    options,
+                    crate::source::SourceRegistry::builtin(),
+                )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
+                .unwrap();
                 assert_eq!(reopened.search(&request).unwrap().hits, result.hits);
-                let one_worker = Repository::open_with_options(
+                let one_worker = crate::lifecycle::Index::start_build(
                     &root,
                     vec![definition.clone()],
                     RepositoryOptions {
                         build_workers: std::num::NonZeroUsize::new(1),
                         ..options
                     },
+                    crate::source::SourceRegistry::builtin(),
                 )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
                 .unwrap();
                 assert_eq!(
                     serde_json::to_value(repo.inference_report("data").unwrap()).unwrap(),
                     serde_json::to_value(one_worker.inference_report("data").unwrap()).unwrap(),
                 );
-                let disabled = Repository::open_with_options(
+                let disabled = crate::lifecycle::Index::start_build(
                     &root,
                     vec![definition.clone()],
                     RepositoryOptions {
                         inference: InferenceConfig::default(),
                         ..options
                     },
+                    crate::source::SourceRegistry::builtin(),
                 )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
                 .unwrap();
                 assert!(disabled.collections[0].inference.is_none());
             }
@@ -2187,7 +2290,11 @@ fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {
         },
         ..Default::default()
     };
-    let repo = Repository::open_with_sources(&root, vec![definition], options, source()).unwrap();
+    let repo = crate::lifecycle::Index::start_build(&root, vec![definition], options, source())
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
     assert_eq!(repo.build_parses(), 2);
     assert_eq!(repo.inference_report("data").unwrap().eligible_records, 2);
     let request = query("flag = true");
@@ -2218,7 +2325,7 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2232,7 +2339,11 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
         repo.inference_report("data")
@@ -2279,7 +2390,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
         };
         std::fs::write(root.join(format!("data/{slot:02}.json")), json).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2294,7 +2405,11 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         ("flag:exists = true", vec!["path:03.json"]),
@@ -2359,7 +2474,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2374,7 +2489,11 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         ("year = 1800", vec!["path:01.json"]),
@@ -2424,7 +2543,7 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/one.json"), r#"{"items":{"year":1800}}"#).unwrap();
     std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2438,7 +2557,11 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut request = query("items.year > 1799");
     request.options.return_mode = ReturnMode::Locator;
@@ -2465,7 +2588,7 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2480,7 +2603,11 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
         ("code = 'A1'", vec!["path:00.json"]),
@@ -2558,7 +2685,7 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2573,7 +2700,11 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for field in ["year", "code", "flag"] {
         for descending in [false, true] {
@@ -2632,7 +2763,7 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -2646,7 +2777,11 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
             },
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let request = Query {
         collections: vec!["data".into()],

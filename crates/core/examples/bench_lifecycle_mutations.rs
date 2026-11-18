@@ -241,11 +241,13 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     }
     println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
     let started = Instant::now();
-    let built = Index::build(
+    let built = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())?;
     emit("build", started.elapsed(), &built, "synthetic=true");
     let index = built;
     let target = root.join("data/000000.jsonl");
@@ -337,7 +339,13 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     let definitions = load_repository_configuration(root)?.definitions;
     let options = RepositoryOptions::default();
     let started = Instant::now();
-    let index = Index::build(root, definitions, options)?;
+    let index = objekte_search_core::lifecycle::Index::start_build(
+        root,
+        definitions,
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())?;
     emit(
         "build",
         started.elapsed(),

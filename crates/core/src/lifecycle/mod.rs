@@ -864,14 +864,29 @@ impl Index {
     /// Consume a completed blocking build and retain its adopted native
     /// segments as the Repository's primary payload.
     pub(crate) fn into_repository(self) -> Result<Repository, IndexError> {
-        let inner = Arc::try_unwrap(self.0)
-            .map_err(|_| IndexError::InvalidPublication("index has other owners".into()))?;
+        let mut shared_inner = self.0;
+        let inner = loop {
+            match Arc::try_unwrap(shared_inner) {
+                Ok(inner) => break inner,
+                Err(inner) => {
+                    shared_inner = inner;
+                    std::thread::yield_now();
+                }
+            }
+        };
         let published = inner.published.into_inner().map_err(|_| {
             IndexError::InvalidPublication("index publication lock poisoned".into())
         })?;
-        let published = Arc::try_unwrap(published).map_err(|_| {
-            IndexError::InvalidPublication("published index has other owners".into())
-        })?;
+        let mut shared_published = published;
+        let published = loop {
+            match Arc::try_unwrap(shared_published) {
+                Ok(published) => break published,
+                Err(published) => {
+                    shared_published = published;
+                    std::thread::yield_now();
+                }
+            }
+        };
         let mut repository = Arc::try_unwrap(published.repository).map_err(|_| {
             IndexError::InvalidPublication("repository snapshot has other owners".into())
         })?;
@@ -1115,12 +1130,32 @@ impl Index {
                 .iter()
                 .map(|collection| collection.definition.clone())
                 .collect::<Vec<_>>();
-            let fresh = Self::build_with_sources(
+            let task = Self::start_build(
                 repository.files().root.clone(),
                 definitions,
                 repository.options(),
                 repository.sources.clone(),
             )?;
+            let fresh = loop {
+                if cancelled() {
+                    task.cancel();
+                    let _ = task.wait_complete();
+                    return Err(IndexError::Cancelled);
+                }
+                match task.status()?.phase {
+                    InitialBuildPhase::Complete => break task.wait_complete()?,
+                    InitialBuildPhase::Cancelled => return Err(IndexError::Cancelled),
+                    InitialBuildPhase::Failed => {
+                        return match task.wait_complete() {
+                            Err(error) => Err(error),
+                            Ok(_) => unreachable!("failed build task cannot complete successfully"),
+                        };
+                    }
+                    InitialBuildPhase::Discovering | InitialBuildPhase::Building => {
+                        std::thread::sleep(Duration::from_millis(2));
+                    }
+                }
+            };
             let next_revision = view.revision().next()?;
             let mut next = (*fresh.view()?.0).clone();
             next.instance_id = self.instance_id();

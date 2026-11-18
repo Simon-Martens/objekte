@@ -306,7 +306,7 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -315,7 +315,11 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
             bigram_alphabet: alphabet,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     Fixture { root, repo }
 }
@@ -1217,14 +1221,18 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     });
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions.to_vec(),
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let query = Query {
         collections: vec![],

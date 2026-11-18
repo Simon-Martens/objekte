@@ -82,10 +82,14 @@ fn configured_repository_detection_selects_repository_mode() {
     dialog.show();
     dialog.edit_folder(0, "/tmp/one".into());
     let (generation, path) = dialog.begin_detection().unwrap();
-    dialog.accept_detection(generation, &path, Ok(DetectedSource::ConfiguredRepository {
-        collections: 1,
-        schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
-    }));
+    dialog.accept_detection(
+        generation,
+        &path,
+        Ok(DetectedSource::ConfiguredRepository {
+            collections: 1,
+            schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
+        }),
+    );
     let default = dialog.to_open_draft(&OpenDraft::default()).unwrap();
     assert_eq!(default.mode, OpenMode::ConfiguredRepository);
     assert_eq!(default.paths, "/tmp/one");

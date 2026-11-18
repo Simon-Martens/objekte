@@ -6,7 +6,7 @@ use std::time::Instant;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::FieldDefinition;
-use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
@@ -45,7 +45,7 @@ fn run() -> Result<(), String> {
             element_nullable: Vec::new(),
         })?;
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
@@ -53,7 +53,11 @@ fn run() -> Result<(), String> {
             query_workers: 4,
             ..RepositoryOptions::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let cases = [
         ("and-selective", "kind = 'hot' && body ~ 'needle'", false),
         ("and-reversed", "body ~ 'needle' && kind = 'hot'", false),

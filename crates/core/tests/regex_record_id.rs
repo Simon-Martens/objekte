@@ -1,12 +1,9 @@
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
 };
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode};
 
@@ -107,13 +104,23 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
-        let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        let restored = Index::build_with_sources(
+        let built = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            vec![definition()],
+            options,
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.view())
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![definition()],
             options,
             SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {

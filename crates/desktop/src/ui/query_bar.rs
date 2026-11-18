@@ -15,11 +15,12 @@ use gpui_kit::{
 };
 
 use super::DesktopView;
-use super::filter_builder::{BooleanTest, BuilderState, BuilderStatus, Comparison, FieldChoice, ValueType};
+use super::filter_builder::{
+    BooleanTest, BuilderState, BuilderStatus, Comparison, FieldChoice, ValueType,
+};
 use super::model::{ErrorField, FilterValidationState, UiAction};
 use super::state::Busy;
 use super::workspace::Pane;
-
 
 /// Complete builder changes are applied to the one free-text InputState.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -29,13 +30,11 @@ pub enum BuilderEvent {
     Close,
 }
 
-
 /// GPUI text controls for one builder condition.
 struct RowInputs {
     field: Entity<InputState>,
     value: Entity<InputState>,
 }
-
 
 /// Nonmodal helper; the surrounding search field owns the actual filter text.
 pub struct FilterBuilderView {
@@ -53,9 +52,7 @@ pub struct FilterBuilderView {
     needs_rebuild: bool,
 }
 
-
 impl EventEmitter<BuilderEvent> for FilterBuilderView {}
-
 
 impl FilterBuilderView {
     pub fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
@@ -288,21 +285,20 @@ impl FilterBuilderView {
         let Some(row) = self.state.rows.get_mut(index) else {
             return;
         };
-        let choices: &[Comparison] =
-            if row.predicate.is_none()
-                && (row.value_type == Some(ValueType::Number) || row.value_type.is_none())
-            {
-                &[
-                    Comparison::Equal,
-                    Comparison::NotEqual,
-                    Comparison::Greater,
-                    Comparison::AtLeast,
-                    Comparison::Less,
-                    Comparison::AtMost,
-                ]
-            } else {
-                &[Comparison::Equal, Comparison::NotEqual]
-            };
+        let choices: &[Comparison] = if row.predicate.is_none()
+            && (row.value_type == Some(ValueType::Number) || row.value_type.is_none())
+        {
+            &[
+                Comparison::Equal,
+                Comparison::NotEqual,
+                Comparison::Greater,
+                Comparison::AtLeast,
+                Comparison::Less,
+                Comparison::AtMost,
+            ]
+        } else {
+            &[Comparison::Equal, Comparison::NotEqual]
+        };
         let current = choices
             .iter()
             .position(|item| *item == row.comparison)
@@ -337,13 +333,21 @@ impl FilterBuilderView {
         self.publish(cx);
     }
 
-    fn set_predicate(&mut self, index: usize, predicate: Option<BooleanTest>, window: &mut Window, cx: &mut Context<Self>) {
+    fn set_predicate(
+        &mut self,
+        index: usize,
+        predicate: Option<BooleanTest>,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         let Some(row) = self.state.rows.get_mut(index) else {
             return;
         };
         row.predicate = predicate;
         row.value_type = row.predicate.map(|_| ValueType::Boolean).or_else(|| {
-            self.fields.iter().find(|choice| choice.path == row.field)
+            self.fields
+                .iter()
+                .find(|choice| choice.path == row.field)
                 .and_then(|choice| choice.value_type)
         });
         row.value = row.predicate.map(|_| "true".to_owned());
@@ -390,7 +394,6 @@ impl FilterBuilderView {
         cx.notify();
     }
 }
-
 
 impl Render for FilterBuilderView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
@@ -494,7 +497,6 @@ impl Render for FilterBuilderView {
     }
 }
 
-
 impl DesktopView {
     fn copy_query_text(&self, filter: bool, cx: &mut Context<Self>) {
         let text = if filter {
@@ -551,7 +553,11 @@ impl DesktopView {
 
     /// Search controls reflow when the active query pane is narrow.
     /// The two InputState values remain authoritative across every render.
-    pub(super) fn render_query_bar(&self, pane_width: f32, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_query_bar(
+        &self,
+        pane_width: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let text_error = self.state.errors.get(&ErrorField::FullText).cloned();
         let filter_error = self.state.errors.get(&ErrorField::Structured).cloned();
         let validation = self.state.filter_validation.clone();
@@ -894,7 +900,11 @@ impl DesktopView {
             })
     }
 
-    pub(super) fn render_completion_overlay(&self, pane_width: f32, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_completion_overlay(
+        &self,
+        pane_width: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
         div()
             .id("filter-completions")
@@ -912,36 +922,70 @@ impl DesktopView {
             .border_color(rgb(colors.border))
             .rounded_sm()
             .overflow_y_scrollbar()
-            .children(self.state.completion_suggestions.iter().enumerate().map(|(index, (_, label))| {
-                let (name, kind) = label.rsplit_once(" · ").unwrap_or((label.as_str(), "Value"));
-                let selected = index == self.state.completion_selected;
-                let selected_background = if self.state.dark { 0x244767 } else { 0xdceafe };
-                div()
-                    .id(format!("filter-completion-{index}"))
-                    .flex()
-                    .items_center()
-                    .justify_start()
-                    .gap_2()
-                    .w_full()
-                    .h(px(26.))
-                    .px_2()
-                    .bg(rgb(if selected { selected_background } else { colors.panel }))
-                    .border_l_2()
-                    .border_color(rgb(if selected { colors.accent } else { colors.panel }))
-                    .hover(|row| {
-                        row.bg(rgb(if selected { selected_background } else { colors.selected }))
-                    })
-                    .child(div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
-                        .font_family(super::typography::MONO).font_weight(gpui_kit::FontWeight::BOLD)
-                        .text_sm().child(name.to_owned()))
-                    .child(div().text_xs().text_color(rgb(colors.secondary))
-                        .font_weight(gpui_kit::FontWeight::LIGHT).italic().child(kind.to_owned()))
-                    .on_mouse_down(gpui_kit::MouseButton::Left, cx.listener(move |this, _, window, cx| {
-                        this.state.completion_selected = index;
-                        this.accept_completion(window, cx);
-                        cx.stop_propagation();
-                    }))
-            }))
+            .children(self.state.completion_suggestions.iter().enumerate().map(
+                |(index, (_, label))| {
+                    let (name, kind) = label
+                        .rsplit_once(" · ")
+                        .unwrap_or((label.as_str(), "Value"));
+                    let selected = index == self.state.completion_selected;
+                    let selected_background = if self.state.dark { 0x244767 } else { 0xdceafe };
+                    div()
+                        .id(format!("filter-completion-{index}"))
+                        .flex()
+                        .items_center()
+                        .justify_start()
+                        .gap_2()
+                        .w_full()
+                        .h(px(26.))
+                        .px_2()
+                        .bg(rgb(if selected {
+                            selected_background
+                        } else {
+                            colors.panel
+                        }))
+                        .border_l_2()
+                        .border_color(rgb(if selected {
+                            colors.accent
+                        } else {
+                            colors.panel
+                        }))
+                        .hover(|row| {
+                            row.bg(rgb(if selected {
+                                selected_background
+                            } else {
+                                colors.selected
+                            }))
+                        })
+                        .child(
+                            div()
+                                .flex_1()
+                                .min_w_0()
+                                .overflow_hidden()
+                                .whitespace_nowrap()
+                                .text_ellipsis()
+                                .font_family(super::typography::MONO)
+                                .font_weight(gpui_kit::FontWeight::BOLD)
+                                .text_sm()
+                                .child(name.to_owned()),
+                        )
+                        .child(
+                            div()
+                                .text_xs()
+                                .text_color(rgb(colors.secondary))
+                                .font_weight(gpui_kit::FontWeight::LIGHT)
+                                .italic()
+                                .child(kind.to_owned()),
+                        )
+                        .on_mouse_down(
+                            gpui_kit::MouseButton::Left,
+                            cx.listener(move |this, _, window, cx| {
+                                this.state.completion_selected = index;
+                                this.accept_completion(window, cx);
+                                cx.stop_propagation();
+                            }),
+                        )
+                },
+            ))
             .when(self.state.completion_pending, |this| {
                 this.child(div().text_xs().child("Loading suggestions…"))
             })
@@ -960,7 +1004,8 @@ impl DesktopView {
             .state
             .workspace
             .current_search
-            .and_then(|id| self.state.workspace.pane_of(id)) == Some(Pane::Primary);
+            .and_then(|id| self.state.workspace.pane_of(id))
+            == Some(Pane::Primary);
         let preferred_right = if self.state.inspector_visible && query_on_left {
             self.state.inspector_width + 8.
         } else {

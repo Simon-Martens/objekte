@@ -359,7 +359,7 @@ pub(crate) fn materialize_cached_stream(
     record_base_cache_hits(repo, cached);
     delivery.check()?;
     #[cfg(feature = "detailed-profiling")]
-    let started = crate::profiling::DetailedInstant::now();
+    let started = crate::detailed_timer::DetailedInstant::now();
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
@@ -433,7 +433,7 @@ pub(crate) fn materialize_cached(
 ) -> Result<SearchResult, String> {
     record_base_cache_hits(repo, cached);
     #[cfg(feature = "detailed-profiling")]
-    let preparation_start = crate::profiling::DetailedInstant::now();
+    let preparation_start = crate::detailed_timer::DetailedInstant::now();
     let cap = query
         .options
         .limit

@@ -3,12 +3,10 @@ use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
-use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
@@ -64,8 +62,8 @@ impl Fixture {
         definition
     }
 
-    fn open(&self, mode: InferenceMode) -> Repository {
-        Repository::open_with_options(
+    fn open(&self, mode: InferenceMode) -> IndexView {
+        objekte_search_core::lifecycle::Index::start_build(
             &self.0,
             vec![self.definition()],
             RepositoryOptions {
@@ -77,7 +75,11 @@ impl Fixture {
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
+            objekte_search_core::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.view())
+        .map_err(|error| error.to_string())
         .unwrap()
     }
 }
@@ -248,12 +250,13 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
-    let auto = Index::build_with_sources(
+    let auto = objekte_search_core::lifecycle::Index::start_build(
         &fixture.0,
         vec![fixture.definition()],
         options(InferenceMode::AutoIndex),
         SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     assert!(auto.view().unwrap().inference_report("data").is_some());
     let baseline = auto
@@ -264,12 +267,13 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
     assert_eq!(baseline.count, Some(24));
     drop(auto);
 
-    let disabled = Index::build_with_sources(
+    let disabled = objekte_search_core::lifecycle::Index::start_build(
         &fixture.0,
         vec![fixture.definition()],
         options(InferenceMode::Disabled),
         SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     assert!(disabled.view().unwrap().inference_report("data").is_none());
     let restored_answers = disabled

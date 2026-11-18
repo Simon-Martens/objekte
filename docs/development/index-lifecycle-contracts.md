@@ -1,8 +1,8 @@
 # Index lifecycle implementation contracts
 
 This is a historical phase 0 design record for task `index-lifecycle`.
-The current contract uses memory construction plus explicit
-`Index::build` and `Index::start_incremental_build`; see [search core](../search-core.md).
+The current contract uses memory construction through `Index::start_build`; see
+[search core](../search-core.md).
 The policy and automatic synchronization descriptions below record the former design. The implementation
 base is `9a94bc90d0d80ff7d14f44e457acf8787212d5ab` on 8 November 2026.
 It records interfaces and ownership before production modules are changed.
@@ -77,8 +77,8 @@ the design before exposing mutation as complete.
 ## Memory-only callers
 
 The index is built in memory from the current source definitions and released
-when its owner drops it. `Index::build` and `Index::start_incremental_build`
-are the source-build entry points; there is no index storage policy, managed
+when its owner drops it. `Index::start_build` is the source-build entry point;
+there is no index storage policy, managed
 generation, mapped reader, save or flush API. A progressively built catalogue
 becomes searchable before every batch finishes, and reconciliation then checks
 source metadata in the background. `wait_for_reconciliation` lets callers wait

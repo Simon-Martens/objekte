@@ -1,17 +1,15 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
-use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{ReturnMode, SortExpression, SortField, WorkloadCase};
 
-fn fixture() -> (PathBuf, Repository) {
+fn fixture() -> (PathBuf, Index, IndexView) {
     let root = std::env::temp_dir().join(format!(
         "objekte-inline-sort-{}-{}",
         std::process::id(),
@@ -52,7 +50,7 @@ fn fixture() -> (PathBuf, Repository) {
             })
             .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let index = Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -72,9 +70,12 @@ fn fixture() -> (PathBuf, Repository) {
         RepositoryOptions {
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
-    (root, repo)
+    let repo = index.view().unwrap();
+    (root, index, repo)
 }
 
 fn case(filter: Option<&str>, sort: Vec<SortField>) -> WorkloadCase {
@@ -97,7 +98,7 @@ fn case(filter: Option<&str>, sort: Vec<SortField>) -> WorkloadCase {
 
 #[test]
 fn inline_sort_matches_registered_options_and_reference() {
-    let (root, repo) = fixture();
+    let (root, _index, repo) = fixture();
     let inline = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
     let external = Query::from_workload(&case(
         None,
@@ -215,9 +216,10 @@ fn inline_sort_matches_registered_options_and_reference() {
 
 #[test]
 fn explicit_composite_order_streams_and_matches_reference() {
-    let (root, mut repo) = fixture();
+    let (root, fixture_index, mut repo) = fixture();
     // The fixture constructor is reused below with a separate explicit schema.
     drop(repo);
+    drop(fixture_index);
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [
@@ -271,14 +273,17 @@ fn explicit_composite_order_streams_and_matches_reference() {
             .contains("duplicate composite")
     );
     let definitions = vec![definition];
-    repo = Repository::open_with_options(
+    let index = Index::start_build(
         &root,
         definitions.clone(),
         RepositoryOptions {
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
+    repo = index.view().unwrap();
     let mut query = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
     query.options.count = false;
     query.options.limit = 1;
@@ -320,23 +325,25 @@ fn explicit_composite_order_streams_and_matches_reference() {
     );
     assert_eq!(repo.search(&typed).unwrap().hits, result.hits);
     drop(repo);
-    let first = Index::build_with_sources(
+    let first = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
         SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     assert_eq!(
         first.view().unwrap().search(&query).unwrap().hits,
         result.hits
     );
-    let restored = Index::build_with_sources(
+    let restored = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions::default(),
         SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     assert_eq!(
         restored.view().unwrap().search(&query).unwrap().hits,
@@ -374,7 +381,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), contents).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -384,7 +391,11 @@ fn schema_free_sort_reductions_positions_and_late_error() {
         RepositoryOptions {
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     for (expression, expected) in [
         (
@@ -448,7 +459,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
     );
     std::fs::write(root.join("data/z.json"), r#"{"title":{"bad":"object"}}"#).unwrap();
     drop(repo);
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -458,7 +469,11 @@ fn schema_free_sort_reductions_positions_and_late_error() {
         RepositoryOptions {
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut invalid = Query::from_workload(&case(Some("SORT BY title"), vec![])).unwrap();
     invalid.options.count = false;
@@ -490,7 +505,7 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
         )
         .unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -500,7 +515,11 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
         RepositoryOptions {
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut expected: Vec<_> = (0..113usize).collect();
     expected.sort_by_key(|index| std::cmp::Reverse((index * 37) % 113));

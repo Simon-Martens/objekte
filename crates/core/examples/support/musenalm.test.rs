@@ -231,13 +231,17 @@ fn extended_schema_accepts_explicit_alias_on_nullable_array_item() {
 fn extended_schema_builds_real_forward_and_backlink() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let definitions = load_extended_definitions(&root).unwrap();
-    let repository = Repository::open_with_options(
+    let repository = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())
     .unwrap();
     let source = "000dl3mfclrmjwu";
     let target = "jv829b9kekdb5d3";

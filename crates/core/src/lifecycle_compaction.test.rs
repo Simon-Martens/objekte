@@ -46,7 +46,7 @@ fn compacting_native_segments_preserves_text_postings() {
     let remove = root.join("data/remove.json");
     std::fs::write(&keep, br#"{"name":"bravo needle"}"#).unwrap();
     std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -54,7 +54,9 @@ fn compacting_native_segments_preserves_text_postings() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     assert_eq!(
@@ -94,7 +96,7 @@ fn compaction_reuses_unaffected_native_segment() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let first = root.join("data/first.json");
     std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -102,7 +104,9 @@ fn compaction_reuses_unaffected_native_segment() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let removed = root.join("data/removed.json");
     let kept = root.join("data/kept.json");
@@ -157,7 +161,7 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let keep = root.join("data/keep.json");
     std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -165,7 +169,9 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     for number in 0..2 {
         let path = root.join(format!("data/remove-{number}.json"));
@@ -210,7 +216,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let b = root.join("data/b.json");
     std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
     std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -218,7 +224,9 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let initial = index.view().unwrap().revision();
     let no_op = index.compact().unwrap();
@@ -278,7 +286,14 @@ fn compacted_base_contributions_preserve_native_queries() {
         "data",
         SourceFormat::Json,
     )];
-    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let handle = index.view().unwrap().file_handle_for_path(&a).unwrap();
     index.delete_file(handle).unwrap();
     std::fs::remove_file(&a).unwrap();
@@ -301,7 +316,7 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let file = root.join("data/a.json");
     std::fs::write(&file, br#"{"name":"A"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -309,7 +324,9 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let old = index.view().unwrap();
     index
@@ -351,7 +368,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
         )
         .unwrap();
     }
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -359,7 +376,9 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let a = root.join("data/a.json");
     let b = root.join("data/b.json");
@@ -424,7 +443,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
     drop(writer);
     std::fs::write(&single, b"{\"name\":\"retired\"}\n").unwrap();
     let started = Instant::now();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -432,7 +451,9 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     eprintln!(
         "large compaction build records={count} elapsed={:?}",

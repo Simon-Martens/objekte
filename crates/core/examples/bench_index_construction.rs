@@ -11,9 +11,9 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::inference::InferenceMode;
-use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
 use objekte_search_core::workload::ReturnMode;
@@ -141,7 +141,15 @@ fn run() -> Result<(), String> {
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
-    let repo = Repository::open_with_options(&root, definitions, options)?;
+    let repo = objekte_search_core::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let open_ns = started.elapsed().as_nanos() as u64;
     let io_after = proc_io();
     let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
@@ -422,8 +430,13 @@ fn run_incremental(
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
-    let task =
-        Index::start_incremental_build(root, definitions, options).map_err(|e| e.to_string())?;
+    let task = objekte_search_core::lifecycle::Index::start_build(
+        root,
+        definitions,
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .map_err(|e| e.to_string())?;
     let index = task.wait_catalogue().map_err(|e| e.to_string())?;
     let catalogue_observed_ns = started.elapsed().as_nanos() as u64;
     let mut cursor = task.snapshot().map_err(|e| e.to_string())?;
@@ -591,7 +604,7 @@ fn run_incremental(
     Ok(())
 }
 
-fn probe_storage_operations(repo: &Repository) -> Result<serde_json::Value, String> {
+fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, String> {
     let collection = repo
         .collections()
         .iter()
@@ -708,7 +721,7 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
     Ok(String::from_utf8_lossy(&output.stdout).trim().into())
 }
 
-fn fingerprint_inventory(repo: &Repository) -> String {
+fn fingerprint_inventory(repo: &IndexView) -> String {
     let mut hash = Sha256::new();
     for file in &repo.files().files {
         hash.update(file.relative_path.to_string_lossy().as_bytes());

@@ -1,13 +1,10 @@
 use std::collections::HashMap;
 
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
@@ -105,13 +102,23 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
-        let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        let restored = Index::build_with_sources(
+        let built = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            vec![definition()],
+            options,
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.view())
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![definition()],
             options,
             SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {

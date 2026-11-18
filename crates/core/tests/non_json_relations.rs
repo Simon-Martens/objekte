@@ -2,14 +2,11 @@ use std::collections::BTreeMap;
 use std::sync::Arc;
 
 use objekte_search_core::inventory::ByteRange;
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{
     ExtractedRecord, SourceFormat, SourceReader, SourceRegistry, TextSegment,
 };
@@ -154,21 +151,34 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
-        let built =
-            Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
-        let restored =
-            Index::build_with_sources(&root, definitions(), options, sources.clone()).unwrap();
+        let built = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            definitions(),
+            options,
+            sources.clone(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap();
+        let built_view = built.view().unwrap();
+        let restored = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            definitions(),
+            options,
+            sources.clone(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap();
         let view = restored.view().unwrap();
         for stored in [false, true] {
             let search = |query: &Query| {
                 if stored {
                     view.search(query)
                 } else {
-                    built.search(query)
+                    built_view.search(query)
                 }
             };
             let actual = search(&query).unwrap();
-            let reference = built.search_reference(&query).unwrap();
+            let reference = built_view.search_reference(&query).unwrap();
             assert_eq!(actual.hits, reference.hits);
             assert_eq!(actual.count, Some(1));
             assert_eq!(actual.hits[0].record_id, "m1");

@@ -1,5 +1,5 @@
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -21,13 +21,17 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
     assert!(definition.schema.fields.is_empty());
     assert!(definition.discovery.recursive);
     assert_eq!(definition.identity, IdentityPolicy::RelativePath);
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert!(repo.collections[0].postings.fields.is_empty());
     assert!(repo.collections[0].sorting.columns.is_empty());
@@ -69,13 +73,17 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
     .unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     assert_eq!(definition.identity, IdentityPolicy::Generated);
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let ids: std::collections::HashSet<_> = repo.collections[0]
         .generation

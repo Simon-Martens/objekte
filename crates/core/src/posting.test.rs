@@ -200,7 +200,7 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
 #[test]
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -231,7 +231,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 element_nullable: Vec::new(),
             })
             .unwrap();
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition {
                 name: "data".into(),
@@ -248,7 +248,11 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             RepositoryOptions {
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         for (filter, expected) in [
             (
@@ -330,7 +334,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
 #[test]
 fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!("objekte-nested-length-{}", std::process::id()));
@@ -365,7 +369,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
                 element_nullable: vec![],
             })
             .unwrap();
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition {
                 name: "data".into(),
@@ -382,7 +386,11 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             RepositoryOptions {
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         {
             use crate::reference::{BoundExpr, bind_filter};
@@ -673,7 +681,7 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::{BoundExpr, Schema, bind_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -763,7 +771,7 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     assert!(wrong.fields[&vec!["nums".into()]].lengths.is_empty());
     assert!(wrong.fields[&vec!["objects".into()]].lengths.is_empty());
     assert!(wrong.fields[&vec!["text".into()]].values.is_empty());
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -781,7 +789,11 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let collection = &repo.collections()[0];
     let domain = &collection.logical_records;
@@ -847,10 +859,10 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
 #[test]
 fn indexed_field_state_matches_independent_source_oracle_without_verification() {
     use crate::executor::AccessPathKind;
-    use crate::lifecycle::Index;
+
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::{SourceFormat, SourceRegistry};
     use crate::workload::ReturnMode;
 
@@ -907,7 +919,15 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let repo = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition.clone()],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let repo = repo.view().unwrap();
     assert!(
         repo.collections()[0].postings.fields[&vec!["x".into()]]
             .structural
@@ -979,9 +999,14 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             assert_eq!(actual.counters.files_opened, 0, "{filter}");
         }
     }
-    let restored =
-        Index::build_with_sources(&root, vec![definition], options, SourceRegistry::builtin())
-            .unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        options,
+        SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let restored = restored.view().unwrap();
     for filter in [
         "x:null = true",
@@ -1098,7 +1123,7 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
 fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -1124,7 +1149,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1142,7 +1167,11 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let postings = &repo.collections()[0].postings.fields;
     assert_eq!(postings.len(), 1);
@@ -1180,7 +1209,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
     use crate::lifecycle::Index;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -1216,7 +1245,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1234,7 +1263,11 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let index = Index::from_repository(repo).unwrap();
     let initial = index.view().unwrap();
@@ -1298,7 +1331,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
 fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
 
@@ -1347,7 +1380,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1365,7 +1398,11 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     for filter in [
         "x:exists = true",

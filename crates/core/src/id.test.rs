@@ -3,9 +3,7 @@ use crate::posting::ScalarKey;
 use crate::posting_values::PostingValuesRequest;
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
-};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::{ReturnMode, SortField};
 
@@ -77,8 +75,26 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
-    let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-    let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition()],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition()],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     for repo in [&built, &restored] {
         for (filter, ids) in [
             ("entry = 'TargetA'", vec!["A"]),
@@ -285,13 +301,17 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
     std::fs::write(root.join("data/a.json"), r#"{"id":"A","entry":"X"}"#).unwrap();
     let mut definition = definition();
     definition.identity = IdentityPolicy::Generated;
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let mut all = query("entry = 'X'");
     all.options.return_mode = ReturnMode::Locator;

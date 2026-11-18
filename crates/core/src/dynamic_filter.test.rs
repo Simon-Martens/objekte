@@ -98,7 +98,16 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             ..Default::default()
         };
         for _ in 0..2 {
-            let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
+            let repo = crate::lifecycle::Index::start_build(
+                &root,
+                vec![definition()],
+                options,
+                crate::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.into_repository())
+            .map_err(|error| error.to_string())
+            .unwrap();
             let collection = &repo.collections[0];
             let empty_ids: Vec<_> = collection
                 .empty_array_records
@@ -179,14 +188,18 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let selective = query("title ?~ 'Goethe'");
             let plan = repo.explain(&selective).unwrap();
             assert!(!plan[0].terms.is_empty());
-            let cold = Repository::open_with_options(
+            let cold = crate::lifecycle::Index::start_build(
                 &root,
                 vec![definition()],
                 RepositoryOptions {
                     verified_cache_bytes: 0,
                     ..options
                 },
+                crate::source::SourceRegistry::builtin(),
             )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.into_repository())
+            .map_err(|error| error.to_string())
             .unwrap();
             let optimized = cold.search(&selective).unwrap();
             let reference = cold.search_reference(&selective).unwrap();
@@ -246,13 +259,17 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     }
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Filename;
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.collections[0].empty_array_records.len(), 64);
     let universal = query("title ~ 'needle'");
@@ -341,7 +358,7 @@ fn undeclared_candidate_respects_reader_text_coverage() {
         let mut definition =
             CollectionDefinition::folder("data", "data", SourceFormat::registered("selected-text"));
         definition.identity = IdentityPolicy::Filename;
-        let repo = Repository::open_with_sources(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![definition],
             RepositoryOptions {
@@ -349,6 +366,9 @@ fn undeclared_candidate_respects_reader_text_coverage() {
             },
             sources,
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         let request = query("title ?~ 'unique title'");
         let answer = repo.search(&request).unwrap();

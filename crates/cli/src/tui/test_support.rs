@@ -3,20 +3,16 @@
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 
 use super::app::App;
-
 
 /// Fixture owner keeps source files alive while asynchronous queries run.
 pub(super) struct Fixture {
     pub(super) _temp: tempfile::TempDir,
     pub(super) app: App,
 }
-
 
 pub(super) fn fixture(count: usize) -> Fixture {
     let temp = tempfile::tempdir().unwrap();
@@ -38,13 +34,16 @@ pub(super) fn fixture(count: usize) -> Fixture {
         }
     }
     let definitions = ["docs", "notes"].into_iter().map(definition).collect();
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         temp.path(),
         definitions,
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
     .unwrap();
     Fixture {
         app: App::new(repo),
@@ -123,7 +122,7 @@ pub(super) fn relation_fixture() -> Fixture {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         temp.path(),
         vec![
             definition("entries", entries),
@@ -132,7 +131,10 @@ pub(super) fn relation_fixture() -> Fixture {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
     .unwrap();
     Fixture {
         app: App::new(repo),

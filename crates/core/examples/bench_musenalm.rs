@@ -10,7 +10,7 @@ use std::time::{Instant, SystemTime};
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
-use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
+use objekte_search_core::repository::{RepositoryOptions, SearchHit};
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
     load_manifest,
@@ -18,7 +18,7 @@ use objekte_search_core::workload::{
 use sha2::{Digest, Sha256};
 
 enum SearchBackend {
-    Direct(Repository),
+    Direct(IndexView),
     Incremental(Index, IndexView),
 }
 
@@ -248,8 +248,13 @@ fn run() -> Result<(), String> {
                 ..RepositoryOptions::default()
             };
             let build_start = Instant::now();
-            let task = Index::start_incremental_build(&root, definitions.clone(), options)
-                .map_err(|error| error.to_string())?;
+            let task = objekte_search_core::lifecycle::Index::start_build(
+                &root,
+                definitions.clone(),
+                options,
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .map_err(|error| error.to_string())?;
             let index = task.wait_complete().map_err(|error| error.to_string())?;
             let build_status = Some(task.status().map_err(|error| error.to_string())?);
             let open_ns = build_start.elapsed().as_nanos() as u64;
@@ -290,7 +295,7 @@ fn run() -> Result<(), String> {
             SearchBackend::Incremental(index, view)
         } else {
             let build_start = Instant::now();
-            let repo = Repository::open_with_options(
+            let repo = objekte_search_core::lifecycle::Index::start_build(
                 &root,
                 definitions.clone(),
                 RepositoryOptions {
@@ -298,7 +303,11 @@ fn run() -> Result<(), String> {
                     query_workers,
                     ..RepositoryOptions::default()
                 },
-            )?;
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.view())
+            .map_err(|error| error.to_string())?;
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup().build_ns;
             if corpus_hash.is_empty() {
@@ -756,7 +765,7 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
     Ok(format!("{:x}", hash.finalize()))
 }
 
-fn fingerprint_inventory(repo: &Repository) -> String {
+fn fingerprint_inventory(repo: &IndexView) -> String {
     let mut hash = Sha256::new();
     for file in &repo.files().files {
         hash.update(file.relative_path.to_string_lossy().as_bytes());

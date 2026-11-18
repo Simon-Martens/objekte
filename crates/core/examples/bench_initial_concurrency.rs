@@ -10,7 +10,7 @@ use std::path::PathBuf;
 use std::thread;
 use std::time::{Duration, Instant};
 
-use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, InitialBuildTask};
+use objekte_search_core::lifecycle::{IndexView, InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::RepositoryOptions;
@@ -53,8 +53,13 @@ fn run() -> Result<(), String> {
         ..RepositoryOptions::default()
     };
     let started = Instant::now();
-    let task =
-        Index::start_incremental_build(&root, definitions, options).map_err(|e| e.to_string())?;
+    let task = objekte_search_core::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .map_err(|e| e.to_string())?;
     let query_thread = if mode == "foreground" {
         let queries = workload_queries()?;
         let worker = task.clone();

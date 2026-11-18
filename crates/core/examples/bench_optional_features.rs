@@ -12,11 +12,12 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
@@ -299,7 +300,7 @@ fn query(case: &Case) -> Result<Query, String> {
     })
 }
 
-fn measure_case(repo: &Repository, case: Case, warm_cache: bool) -> Result<Value, String> {
+fn measure_case(repo: &IndexView, case: Case, warm_cache: bool) -> Result<Value, String> {
     let query = query(&case)?;
     let started = Instant::now();
     let collected = repo.search(&query)?;
@@ -454,7 +455,15 @@ fn run() -> Result<(), String> {
         ..Default::default()
     };
     let started = Instant::now();
-    let repo = Repository::open_with_options(&config.root, vec![definition], options)?;
+    let repo = objekte_search_core::lifecycle::Index::start_build(
+        &config.root,
+        vec![definition],
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let readiness_ns = started.elapsed().as_nanos();
     let collection = &repo.collections()[0];
     let mut hash = Sha256::new();

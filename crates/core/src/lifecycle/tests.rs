@@ -27,7 +27,7 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/initial.json"), br#"{"name":"initial"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -35,7 +35,9 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     for number in 0..2 {
         let path = root.join(format!("data/new-{number}.json"));
@@ -75,7 +77,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
         )
         .unwrap();
     }
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -83,7 +85,9 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     let old = pinned.0.segments[0][0].clone();
@@ -116,7 +120,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
 }
 
 fn fixture_repository(root: &std::path::Path) -> Repository {
-    Repository::open_with_options(
+    crate::lifecycle::Index::start_build(
         root,
         vec![CollectionDefinition::folder(
             "data",
@@ -126,12 +130,16 @@ fn fixture_repository(root: &std::path::Path) -> Repository {
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap()
 }
 
 /// Keep tests that directly manipulate base slots on the legacy static
-/// representation; normal `Index::build` now converts its base to partitions.
+/// representation; normal construction now converts its base to partitions.
 fn static_index(repository: Repository) -> Index {
     let published = PublishedIndex::from_repository(
         crate::repository::next_repository_instance(),
@@ -314,13 +322,17 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repository = Repository::open_with_options(
+    let repository = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
     let old = index.view().unwrap();
@@ -570,14 +582,16 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let source = root.join("data/shared.jsonl");
     std::fs::write(&source, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
             CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let old = index.view().unwrap();
     let handle = old.file_handle(FileId(0)).unwrap();
@@ -606,7 +620,7 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     assert_eq!(previous.count, Some(4));
     assert_eq!(old.select_exact("left", &query).unwrap().len(), 2);
     let result = index.delete_file(handle).unwrap();
-    assert_eq!(result.revision, IndexRevision(2));
+    assert_eq!(result.revision, old.revision().next().unwrap());
     assert_eq!(result.retired_records, 4);
     assert_eq!(result.affected_collections, vec!["left", "right"]);
     assert_eq!(result.strategy, DeleteStrategy::Tombstone);
@@ -665,14 +679,16 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.jsonl"), b"{\"x\":1}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
             CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let before_view = index.view().unwrap();
     let prior_segments = before_view.0.segments[0].len();
@@ -722,14 +738,16 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let old_path = root.join("data/old.jsonl");
     std::fs::write(&old_path, b"{\"name\":\"a\"}\n{\"name\":\"b\"}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
             CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let prior_segments = index.view().unwrap().0.segments[0].len();
     let before = index.status().unwrap();
@@ -804,7 +822,7 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let original = root.join("data/a.jsonl");
     std::fs::write(&original, b"{\"name\":\"a\"}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -812,7 +830,9 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let initial = index.status().unwrap();
     let unchanged = index.reconcile_pass(|| false);
@@ -861,7 +881,7 @@ fn background_reconciliation_reports_completion_and_joins() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.jsonl"), b"{\"name\":\"a\"}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -869,7 +889,9 @@ fn background_reconciliation_reports_completion_and_joins() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.status().unwrap();
     let task = index.start_reconcile().unwrap();
@@ -899,7 +921,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -907,7 +929,9 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     for number in 0..70 {
         let relative = format!("data/file-{number}.jsonl");
@@ -984,7 +1008,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             })
             .unwrap();
     }
-    let repository = Repository::open_with_options(
+    let repository = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -1002,7 +1026,11 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
     let old = index.view().unwrap();
@@ -1204,13 +1232,17 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         definition.schema = schema;
         definitions.push(definition);
     }
-    let repository = Repository::open_with_options(
+    let repository = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let index = static_index(repository);
     let old = index.view().unwrap();
@@ -1348,7 +1380,7 @@ fn status_estimate_reuses_cached_native_accounting() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -1356,7 +1388,9 @@ fn status_estimate_reuses_cached_native_accounting() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     super::reset_index_family_estimate_calls();
@@ -1397,7 +1431,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
     std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -1405,7 +1439,9 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     let total = |view: &crate::lifecycle::IndexView| {
@@ -1499,7 +1535,14 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     definition.discovery.recursive = true;
     definition.discovery.hidden = true;
-    let index = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     assert_eq!(
         index.view().unwrap().search(&all_query()).unwrap().count,
         Some(1)
@@ -1547,7 +1590,7 @@ fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
     std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -1555,7 +1598,9 @@ fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
     for (filter, supported) in [
@@ -1615,14 +1660,16 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
         let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
         let mut indexes = Vec::new();
         for workers in [1usize, 4] {
-            let index = Index::build(
+            let index = crate::lifecycle::Index::start_build(
                 &root,
                 vec![definition.clone()],
                 RepositoryOptions {
                     query_workers: workers,
                     ..RepositoryOptions::default()
                 },
+                crate::source::SourceRegistry::builtin(),
             )
+            .and_then(|task| task.wait_complete())
             .unwrap();
             let view = index.view().unwrap();
             assert_eq!(

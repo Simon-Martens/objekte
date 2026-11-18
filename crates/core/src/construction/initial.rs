@@ -2,7 +2,22 @@
 //! Discovery supplies one shared path inventory. Completed work units move
 //! into segments; the final metadata repository shares that same inventory.
 
+use std::collections::HashSet;
+use std::path::PathBuf;
+use std::sync::Arc;
+use std::sync::atomic::{AtomicUsize, Ordering};
+use std::time::Instant;
+
+use roaring::RoaringBitmap;
+
+use super::segment_jobs::SegmentJobGate;
 use super::*;
+use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
+use crate::discovery::discover;
+use crate::inference::InferenceBuildStats;
+use crate::inventory::CollectionGeneration;
+use crate::repository::*;
+use crate::source::SourceRegistry;
 
 use crate::build::{
     AdmissionBreakdown, BatchContribution, IndexedCollectionSegment, RepositoryFileJob,
@@ -12,290 +27,15 @@ use crate::inventory::append_shifted_bitmap;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::FileId;
 
-pub(crate) struct SegmentJobGate {
-    state: std::sync::Mutex<SegmentJobGateState>,
-    changed: std::sync::Condvar,
-    #[cfg(test)]
-    private_drain: std::sync::Mutex<PrivateDrainTestState>,
-    #[cfg(test)]
-    private_drain_changed: std::sync::Condvar,
-}
-
-#[derive(Default)]
-struct SegmentJobGateState {
-    workers: usize,
-    release_workers: bool,
-    post_submission: usize,
-    release_post_submission: bool,
-    post_validation: usize,
-    release_post_validation: bool,
-}
-
-#[cfg(test)]
-#[derive(Default)]
-struct PrivateDrainTestState {
-    next_job: usize,
-    failing_job: Option<usize>,
-    blocked: std::collections::HashSet<usize>,
-    arrived: std::collections::HashSet<usize>,
-    released: std::collections::HashSet<usize>,
-    completions: usize,
-    errors: usize,
-    final_drain_entries: usize,
-    final_outstanding: Option<usize>,
-}
-
-#[allow(dead_code)]
-impl SegmentJobGate {
-    pub(crate) fn new() -> Self {
-        Self {
-            state: std::sync::Mutex::new(SegmentJobGateState::default()),
-            changed: std::sync::Condvar::new(),
-            #[cfg(test)]
-            private_drain: std::sync::Mutex::new(PrivateDrainTestState::default()),
-            #[cfg(test)]
-            private_drain_changed: std::sync::Condvar::new(),
-        }
-    }
-
-    fn wait(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.workers += 1;
-        self.changed.notify_all();
-        while !state.release_workers {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    pub(crate) fn wait_for_workers(&self, count: usize) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        while state.workers < count {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    pub(crate) fn release(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.release_workers = true;
-        self.changed.notify_all();
-    }
-
-    fn wait_after_validation(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.post_validation += 1;
-        self.changed.notify_all();
-        while !state.release_post_validation {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    fn wait_after_submission(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.post_submission += 1;
-        self.changed.notify_all();
-        while !state.release_post_submission {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    pub(crate) fn wait_for_post_submission(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        while state.post_submission == 0 {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    pub(crate) fn release_after_submission(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.release_post_submission = true;
-        self.changed.notify_all();
-    }
-
-    pub(crate) fn wait_for_post_validation(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        while state.post_validation == 0 {
-            state = self
-                .changed
-                .wait(state)
-                .expect("segment gate lock poisoned");
-        }
-    }
-
-    pub(crate) fn release_after_validation(&self) {
-        let mut state = self.state.lock().expect("segment gate lock poisoned");
-        state.release_post_validation = true;
-        self.changed.notify_all();
-    }
-
-    #[cfg(test)]
-    pub(crate) fn configure_private_final_drain_failure(
-        &self,
-        failing_job: usize,
-        blocked_jobs: impl IntoIterator<Item = usize>,
-    ) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.failing_job = Some(failing_job);
-        state.blocked = blocked_jobs.into_iter().collect();
-        state.released.clear();
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    fn allocate_private_job(&self) -> usize {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        let job = state.next_job;
-        state.next_job += 1;
-        job
-    }
-
-    #[cfg(test)]
-    fn wait_before_private_completion(&self, job: usize) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.arrived.insert(job);
-        self.private_drain_changed.notify_all();
-        while state.blocked.contains(&job) && !state.released.contains(&job) {
-            state = self
-                .private_drain_changed
-                .wait(state)
-                .expect("private drain gate lock poisoned");
-        }
-    }
-
-    #[cfg(test)]
-    fn private_job_fails(&self, job: usize) -> bool {
-        self.private_drain
-            .lock()
-            .expect("private drain gate lock poisoned")
-            .failing_job
-            == Some(job)
-    }
-
-    #[cfg(test)]
-    fn record_private_completion(&self, error: bool) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.completions += 1;
-        state.errors += usize::from(error);
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    fn record_private_final_drain(&self) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.final_drain_entries += 1;
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    fn record_private_drain_complete(&self, outstanding: usize) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.final_outstanding = Some(outstanding);
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    pub(crate) fn release_private_job(&self, job: usize) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        state.released.insert(job);
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    pub(crate) fn release_all_private_jobs(&self) {
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        let blocked = state.blocked.clone();
-        state.released.extend(blocked);
-        self.private_drain_changed.notify_all();
-    }
-
-    #[cfg(test)]
-    pub(crate) fn wait_for_private_job(&self, job: usize, timeout: std::time::Duration) -> bool {
-        self.wait_for_private_state(timeout, |state| state.arrived.contains(&job))
-    }
-
-    #[cfg(test)]
-    pub(crate) fn wait_for_private_final_drain(&self, timeout: std::time::Duration) -> bool {
-        self.wait_for_private_state(timeout, |state| state.final_drain_entries != 0)
-    }
-
-    #[cfg(test)]
-    pub(crate) fn wait_for_private_error(&self, timeout: std::time::Duration) -> bool {
-        self.wait_for_private_state(timeout, |state| state.errors != 0)
-    }
-
-    #[cfg(test)]
-    fn wait_for_private_state(
-        &self,
-        timeout: std::time::Duration,
-        ready: impl Fn(&PrivateDrainTestState) -> bool,
-    ) -> bool {
-        let started = std::time::Instant::now();
-        let mut state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        while !ready(&state) {
-            let Some(remaining) = timeout.checked_sub(started.elapsed()) else {
-                return false;
-            };
-            let (next, timed_out) = self
-                .private_drain_changed
-                .wait_timeout(state, remaining)
-                .expect("private drain gate lock poisoned");
-            state = next;
-            if timed_out.timed_out() && !ready(&state) {
-                return false;
-            }
-        }
-        true
-    }
-
-    #[cfg(test)]
-    pub(crate) fn private_drain_snapshot(&self) -> (usize, usize, Option<usize>) {
-        let state = self
-            .private_drain
-            .lock()
-            .expect("private drain gate lock poisoned");
-        (state.completions, state.errors, state.final_outstanding)
-    }
+enum ScheduledBuildJob {
+    Files(crate::build::RepositoryFileJob),
+    Large {
+        collection_index: usize,
+        collection: CollectionId,
+        definition: Arc<CollectionDefinition>,
+        source: PreparedSource,
+        file: FileId,
+    },
 }
 
 struct IncrementalCollection {
@@ -1513,9 +1253,13 @@ impl Repository {
                 )
             })
             .collect::<Vec<_>>();
-        let mut repository =
-            Self::build_fresh(root.clone(), definitions.clone(), options, &sources, false)
-                .map_err(IndexError::Build)?;
+        let mut repository = crate::construction::repository_state::initialize_empty(
+            root.clone(),
+            definitions.clone(),
+            options,
+            &sources,
+        )
+        .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);
         repository.base_fingerprints = vec![None; discovered.files.len()];
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
@@ -1927,8 +1671,13 @@ impl Repository {
             profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let mut final_repository = Self::build_fresh(root, definitions, options, &sources, false)
-            .map_err(IndexError::Build)?;
+        let mut final_repository = crate::construction::repository_state::initialize_empty(
+            root,
+            definitions,
+            options,
+            &sources,
+        )
+        .map_err(IndexError::Build)?;
         final_repository.base_fingerprints = base_fingerprints;
         final_repository.build_parses = build_parses;
         final_repository.build_failed_parses = failed_parses;
@@ -2067,6 +1816,11 @@ impl Repository {
         };
         if cancelled() {
             return Err(IndexError::Cancelled);
+        }
+        let instance_id = index.instance_id();
+        final_repository.instance_id = instance_id;
+        for collection in &mut final_repository.collections {
+            collection.repository_instance = instance_id;
         }
         index.finish_initial_construction(expected, Arc::new(final_repository))?;
         Ok(index)

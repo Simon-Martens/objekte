@@ -9,7 +9,7 @@ The terminal UI is an optional feature of `crates/cli`, enabled by default for t
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
 `CollectionDefinition` values. Schema loading belongs to the CLI adapter;
 applications can also construct definitions directly and call
-`Index::build` and `Index::start_incremental_build`.
+`Index::start_build`.
 
 Type literal text in **Search**, or press Tab for a structured **Filter**.
 The Filter offers fields from the current index publication, built-in metadata,

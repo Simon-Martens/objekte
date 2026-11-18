@@ -26,7 +26,7 @@ fn test_root(label: &str) -> std::path::PathBuf {
 }
 
 fn index(root: &std::path::Path) -> Index {
-    Index::build(
+    crate::lifecycle::Index::start_build(
         root,
         vec![CollectionDefinition::folder(
             "items",
@@ -34,7 +34,9 @@ fn index(root: &std::path::Path) -> Index {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap()
 }
 
@@ -74,14 +76,16 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let old_view = index.view().unwrap();
     let old_revision = old_view.revision();
@@ -155,7 +159,14 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         },
         ..Default::default()
     };
-    let index = Index::build(&root, vec![definition], options).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let third = root.join("data/third.jsonl");
     std::fs::write(&third, b"{\"id\":\"c\",\"year\":10}\n").unwrap();
     let added = index.add_file(&third).unwrap();
@@ -234,12 +245,13 @@ fn partial_structural_postings_survive_explicit_mutations_and_compaction() {
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let index = Index::build_with_sources(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         options,
         crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let check = |index: &Index, expected: [usize; 3], compare_reference: bool| {
         let view = index.view().unwrap();
@@ -305,7 +317,7 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
     let root = test_root("recorded-validation");
     let path = root.join("data/item.json");
     std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -313,7 +325,9 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
             SourceFormat::JsonDecodedScalars,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let mut handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
     let mut query = Query {
@@ -538,11 +552,13 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
     let new_bytes = b"{\"id\":\"same\",\"name\":\"after!\"}\n";
     assert_eq!(old_bytes.len(), new_bytes.len());
     std::fs::write(&original, old_bytes).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.view().unwrap();
     let handle = before.file_handle_for_path(&original).unwrap();
@@ -599,7 +615,14 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     left.source_path = "data/left".into();
     let mut right = intrinsic_definition("right");
     right.source_path = "data/right".into();
-    let index = Index::build(&root, vec![left, right], RepositoryOptions::default()).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![left, right],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let handle = index
         .view()
         .unwrap()
@@ -630,11 +653,13 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
     let mut json = intrinsic_definition("json");
     json.format = SourceFormat::Json;
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("jsonl"), json],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let handle = index
         .view()
@@ -664,7 +689,14 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     std::fs::write(&original, b"{\"name\":\"same\"}\n").unwrap();
     let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
     definition.identity = IdentityPolicy::Filename;
-    let index = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
     let handle = index
         .view()
         .unwrap()
@@ -703,12 +735,13 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     .unwrap();
     std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
     let definition = intrinsic_definition("items");
-    let index = Index::build_with_sources(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     let handle = pinned.file_handle_for_path(&original).unwrap();
@@ -870,11 +903,13 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         }
         writer.flush().unwrap();
         drop(writer);
-        let index = Index::build(
+        let index = crate::lifecycle::Index::start_build(
             &root,
             vec![intrinsic_definition("items")],
             RepositoryOptions::default(),
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let before = index.view().unwrap();
         let handle = before.file_handle_for_path(&original).unwrap();
@@ -978,12 +1013,13 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
     std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
     std::fs::write(&middle, old).unwrap();
     std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
-    let built = Index::build_with_sources(
+    let built = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let restored = built;
     let pinned = restored.view().unwrap();
@@ -1123,11 +1159,13 @@ fn move_rejects_destination_owned_by_another_file() {
 #[test]
 fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     let root = test_root("verified");
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let path = root.join("data/verified.jsonl");
     let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";
@@ -1438,14 +1476,16 @@ fn verified_many_to_zero_keeps_file_active_and_bad_delete_hint_tombstones() {
 fn verified_update_removes_departed_collection_membership() {
     let root = test_root("membership");
     std::fs::create_dir_all(root.join("other")).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
             CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
             CollectionDefinition::folder("right", "other", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let source = root.join("data/entry.jsonl");
     let destination = root.join("other/entry.jsonl");
@@ -1529,12 +1569,13 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
     let definitions = vec![targets, sources];
-    let index = Index::build_with_sources(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
         crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let path = root.join("sources/s.jsonl");
     let other_path = root.join("sources/r.jsonl");
@@ -1734,11 +1775,13 @@ fn incompatible_one_record_class_uses_verified_physical_removal() {
 #[test]
 fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     let root = test_root("shared-slot");
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("left"), intrinsic_definition("right")],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let path = root.join("data/shared.jsonl");
     let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";

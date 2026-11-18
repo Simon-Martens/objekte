@@ -453,7 +453,7 @@ impl InferenceState {
     }
 }
 
-#[path = "inference_build.rs"]
+#[path = "construction/inference.rs"]
 pub(crate) mod build;
 pub(crate) use build::{InferenceBuilder, InferenceObservation};
 

@@ -100,13 +100,17 @@ fn cross_collection_sort_rejects_different_binding_versions() {
             .unwrap();
         definitions.push(definition);
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let query = Query {
         collections: Vec::new(),
@@ -367,14 +371,18 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                 },
             };
             for workers in [1, 2, 4, 8] {
-                let repo = Repository::open_with_options(
+                let repo = crate::lifecycle::Index::start_build(
                     &root,
                     vec![source_definition.clone(), target_definition.clone()],
                     RepositoryOptions {
                         query_workers: workers,
                         ..Default::default()
                     },
+                    crate::source::SourceRegistry::builtin(),
                 )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
                 .unwrap();
                 let actual = repo.search(&query).unwrap();
                 let expected = repo.search_reference(&query).unwrap();
@@ -473,14 +481,18 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
             },
         };
         for workers in [1, 2, 4, 8] {
-            let repo = Repository::open_with_options(
+            let repo = crate::lifecycle::Index::start_build(
                 &root,
                 vec![source_definition.clone(), target_definition.clone()],
                 RepositoryOptions {
                     query_workers: workers,
                     ..Default::default()
                 },
+                crate::source::SourceRegistry::builtin(),
             )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.into_repository())
+            .map_err(|error| error.to_string())
             .unwrap();
             let actual = repo.search(&query).unwrap();
             assert_eq!(actual.count, Some(20));

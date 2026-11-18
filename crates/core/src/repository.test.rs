@@ -206,7 +206,16 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
             Some(super::Payload::LogicalUnavailable { .. })
         ));
     };
-    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let repo = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition.clone()],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     verify(&repo);
     let id = repo.search(&query(ReturnMode::Locator)).unwrap().hits[0]
         .record_id
@@ -220,7 +229,16 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     );
     assert!(repo.get_record("data", &id, ReturnMode::Bytes).is_err());
     std::fs::rename(&moved, &path).unwrap();
-    let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     verify(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -246,14 +264,18 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let query = |filter: &str| Query {
         collections: vec!["data".into()],

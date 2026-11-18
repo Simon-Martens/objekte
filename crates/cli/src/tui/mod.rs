@@ -45,10 +45,7 @@ pub enum TuiOpening {
     Initial(InitialBuildTask),
 }
 
-pub fn run_with_opening_loader<F>(
-    loader: F,
-    options: TuiOptions,
-) -> Result<(), Box<dyn Error>>
+pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {

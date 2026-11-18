@@ -260,8 +260,26 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-    let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        definitions(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        definitions(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     for name in ["entries", "mentions", "empty"] {
         std::fs::remove_dir_all(root.join(name)).unwrap();
     }
@@ -304,13 +322,17 @@ fn collection_graph_marks_a_single_collection_self_cycle() {
 #[test]
 fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlinks() {
     let root = fixture();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let all = repo
         .collections()

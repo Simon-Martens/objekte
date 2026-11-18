@@ -469,22 +469,49 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
-    let built = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 12);
+    REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        definitions("entries"),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert!(REVERSE_RECONSTRUCTIONS.load(std::sync::atomic::Ordering::Relaxed) >= 12);
     assert_eq!(built.build_parses(), 8);
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
-    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
-    let restored = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
-    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 12);
+    REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
+    let restored = crate::lifecycle::Index::start_build(
+        &root,
+        definitions("entries"),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert!(REVERSE_RECONSTRUCTIONS.load(std::sync::atomic::Ordering::Relaxed) >= 12);
     assert_eq!(restored.build_parses(), 8);
     check(&restored);
     assert_eq!(
         format!("{:?}", built.collections()[2].relations),
         format!("{:?}", restored.collections()[2].relations)
     );
-    let changed = Repository::open_with_options(&root, definitions("people"), options).unwrap();
+    let changed = crate::lifecycle::Index::start_build(
+        &root,
+        definitions("people"),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     assert_eq!(
         changed
             .relation_index("mentions", &["entry".into()])
@@ -498,13 +525,17 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
 #[test]
 fn publication_validation_still_rejects_broken_relation_state() {
     let root = fixture("invalid-index");
-    let mut repo = Repository::open_with_options(
+    let mut repo = crate::lifecycle::Index::start_build(
         &root,
         definitions("entries"),
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let original = repo
         .relation_index("mentions", &["entry".into()])
@@ -609,18 +640,22 @@ fn profile_large_fanout_relation_publication() {
     std::fs::write(root.join("mentions/fanout.jsonl"), jsonl).unwrap();
     let mut definitions = definitions("entries");
     definitions[2].format = SourceFormat::JsonLines;
-    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
+    REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
     let started = std::time::Instant::now();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let wall_ms = started.elapsed().as_secs_f64() * 1_000.0;
-    let reconstructions = REVERSE_RECONSTRUCTIONS.with(|count| count.get());
+    let reconstructions = REVERSE_RECONSTRUCTIONS.load(std::sync::atomic::Ordering::Relaxed);
     let validation_started = std::time::Instant::now();
     validate_indexes(repo.collections()).unwrap();
     let validation_ms = validation_started.elapsed().as_secs_f64() * 1_000.0;
@@ -658,13 +693,17 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
     );
     let root = fixture("invalid");
     assert!(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions("missing"),
             RepositoryOptions {
                 ..Default::default()
-            }
+            },
+            crate::source::SourceRegistry::builtin()
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .err()
         .unwrap()
         .contains("target collection is unknown")
@@ -677,26 +716,34 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
         .unwrap()
         .reverse_alias = Some("mentions".into());
     assert!(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             defs,
             RepositoryOptions {
                 ..Default::default()
-            }
+            },
+            crate::source::SourceRegistry::builtin()
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .err()
         .unwrap()
         .contains("duplicate reverse relation alias")
     );
     std::fs::write(root.join("entries/duplicate.json"), r#"{"id":"A"}"#).unwrap();
     assert!(
-        Repository::open_with_options(
+        crate::lifecycle::Index::start_build(
             &root,
             definitions("entries"),
             RepositoryOptions {
                 ..Default::default()
-            }
+            },
+            crate::source::SourceRegistry::builtin()
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .err()
         .unwrap()
         .contains("duplicate record ID")
@@ -834,13 +881,17 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
     let mut defs = definitions("entries");
     defs[0].format = SourceFormat::JsonLines;
     defs[2].format = SourceFormat::JsonLines;
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         defs,
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.build_parses(), 4);
     assert_eq!(repo.build_failed_parses(), 1);
@@ -899,7 +950,16 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let initial = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+    let initial = crate::lifecycle::Index::start_build(
+        &root,
+        definitions("entries"),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let target_id = initial.collections()[0].generation.records[0].id.0.clone();
     assert!(target_id.starts_with("~fallback:"));
     std::fs::write(
@@ -911,7 +971,16 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         ..Default::default()
     };
     for restored in [false, true] {
-        let repo = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            definitions("entries"),
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         if !restored {}
         let source = &repo.collections()[2];
         let target = &repo.collections()[0];

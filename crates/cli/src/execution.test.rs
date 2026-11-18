@@ -48,7 +48,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
     std::fs::create_dir_all(&data).unwrap();
     let first = data.join("a.json");
     std::fs::write(&first, r#"{"year":2024}"#).unwrap();
-    let index = Index::build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         root.path(),
         vec![CollectionDefinition::folder(
             "files",
@@ -56,7 +56,9 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let repository = IndexedRepository::new(index).unwrap();
     std::fs::remove_file(first).unwrap();
@@ -78,7 +80,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
             schema_files: &[],
             ignored_repository_metadata: false,
             startup_ns: 0,
-                    },
+        },
         QuerySource::open(&args),
         &mut output,
         &CancellationToken::new(),

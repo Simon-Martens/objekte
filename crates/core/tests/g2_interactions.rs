@@ -1,13 +1,10 @@
 use std::collections::HashMap;
 
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
@@ -81,21 +78,31 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
-        let built = Repository::open_with_options(&root, vec![collection()], options).unwrap();
-        let first = Index::build_with_sources(
+        let built = objekte_search_core::lifecycle::Index::start_build(
+            &root,
+            vec![collection()],
+            options,
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .unwrap();
+        let built_view = built.view().unwrap();
+        let first = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![collection()],
             options,
             SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let first_view = first.view().unwrap();
-        let restored = Index::build_with_sources(
+        let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![collection()],
             options,
             SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let restored_view = restored.view().unwrap();
         for (iteration, id) in ["A", "a", "A"].into_iter().enumerate() {
@@ -103,18 +110,23 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
                 "id".to_owned(),
                 parse_parameter_json(&format!(r#"{{"type":"id","value":"{id}"}}"#)).unwrap(),
             )]);
-            let reference = built
+            let reference = built_view
                 .search_reference_with_parameters(&template, &params)
                 .unwrap();
-            for actual in [
-                built.search_with_parameters(&template, &params).unwrap(),
+            for (view, actual) in [
+                built_view
+                    .search_with_parameters(&template, &params)
+                    .unwrap(),
                 first_view
                     .search_with_parameters(&template, &params)
                     .unwrap(),
                 restored_view
                     .search_with_parameters(&template, &params)
                     .unwrap(),
-            ] {
+            ]
+            .into_iter()
+            .enumerate()
+            {
                 assert_eq!(actual.count, Some(1));
                 assert_eq!(actual.hits, reference.hits);
                 assert_eq!(actual.hits[0].record_id, id);
@@ -125,7 +137,10 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
                     ))
                 ));
                 if iteration == 2 {
-                    assert!(actual.counters.verified_result_hit);
+                    assert!(
+                        actual.counters.verified_result_hit,
+                        "view {view}, iteration {iteration}"
+                    );
                 }
             }
         }

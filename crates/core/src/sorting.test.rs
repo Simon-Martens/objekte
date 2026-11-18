@@ -281,11 +281,15 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             .map(|h| h.record_id.clone())
             .collect::<Vec<_>>()
     };
-    let built = Repository::open_with_options(
+    let built = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let default_order = ids(&built, &query);
     assert!(
@@ -298,13 +302,17 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     );
     assert_eq!(&default_order[6..], ["e", "f"]);
     drop(built);
-    let restored = Repository::open_with_options(
+    let restored = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(ids(&restored, &query), default_order);
     drop(restored);
@@ -322,9 +330,16 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             },
         },
     );
-    let rebuilt =
-        Repository::open_with_options(&root, vec![changed.clone()], RepositoryOptions::default())
-            .unwrap();
+    let rebuilt = crate::lifecycle::Index::start_build(
+        &root,
+        vec![changed.clone()],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let configured = ids(&rebuilt, &query);
     assert_eq!(&configured[..2], ["e", "f"]);
     assert!(
@@ -379,13 +394,17 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let descending = ids(&rebuilt, &query);
     assert_eq!(descending, ["f", "a", "b"]);
     drop(rebuilt);
-    let reopened = Repository::open_with_options(
+    let reopened = crate::lifecycle::Index::start_build(
         &root,
         vec![changed],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(ids(&reopened, &query), descending);
     std::fs::remove_dir_all(root).unwrap();
@@ -396,7 +415,7 @@ fn cross_collection_sort_rejects_different_collation() {
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::{ReturnMode, SortField};
 
@@ -429,13 +448,17 @@ fn cross_collection_sort_rejects_different_collation() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     });
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         definitions.to_vec(),
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let query = Query {
         collections: vec![],
@@ -470,7 +493,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
     use crate::inventory::FileStatus;
     use crate::query::{Query, QueryOptions};
     use crate::reference::FieldDefinition;
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;
     use crate::workload::{ReturnMode, SortField};
 
@@ -558,7 +581,16 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         let options = RepositoryOptions {
             ..Default::default()
         };
-        let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        let repo = crate::lifecycle::Index::start_build(
+            &root,
+            definitions.clone(),
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         let status = |name: &str| {
             repo.files
                 .files
@@ -604,7 +636,16 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         }
 
         drop(repo);
-        let restored = Repository::open_with_options(&root, definitions, options).unwrap();
+        let restored = crate::lifecycle::Index::start_build(
+            &root,
+            definitions,
+            options,
+            crate::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
         for descending in [false, true] {
             for offset in 0..4 {
                 let query = query(descending, offset);

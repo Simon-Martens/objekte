@@ -13,14 +13,13 @@ use std::time::Instant;
 use objekte_search_core::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision,
 };
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{CollectionId, FileId, RecordId, RecordSlot};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::reference::{
     RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
 };
-use objekte_search_core::repository::{
-    CollectionDefinition, Payload, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, Payload, RepositoryOptions};
 use objekte_search_core::source::{
     JsonDecodedScalarsReader, ScanProjection, SourceFormat, SourceReader,
 };
@@ -338,7 +337,7 @@ fn in_memory(
 }
 
 fn repository_search(
-    repo: &Repository,
+    repo: &IndexView,
     case: &Case,
     query: &Query,
     repetitions: usize,
@@ -488,7 +487,7 @@ fn borrowed_verification_cases(limit: usize) -> Result<Vec<(Case, Query)>, Strin
 
 fn write_oracle(
     path: &Path,
-    repo: &Repository,
+    repo: &IndexView,
     cases: &[Case],
     record_count: usize,
 ) -> Result<(), String> {
@@ -606,7 +605,7 @@ fn run() -> Result<(), String> {
     let bytes = records.iter().map(|(_, bytes)| bytes.len()).sum::<usize>();
     let corpus_sha256 = corpus_digest(&records);
     let started = Instant::now();
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "records",
@@ -618,7 +617,11 @@ fn run() -> Result<(), String> {
             verified_cache_bytes: 0,
             ..RepositoryOptions::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     println!(
         "{}",
         json!({

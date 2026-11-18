@@ -117,7 +117,16 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
             ..Default::default()
         };
         for opening in 0..2 {
-            let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
+            let repo = crate::lifecycle::Index::start_build(
+                &root,
+                vec![definition()],
+                options,
+                crate::source::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .and_then(|index| index.into_repository())
+            .map_err(|error| error.to_string())
+            .unwrap();
             if opening == 0 {}
             for budget in [0, 1 << 20] {
                 repo.configure_verified_cache(budget).unwrap();

@@ -3,7 +3,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -30,8 +30,16 @@ fn validates_binding_without_reopening_source_records() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = Repository::open_with_options(&root, vec![definition], RepositoryOptions::default())
-        .unwrap();
+    let repo = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     std::fs::remove_file(&source).unwrap();
     let query = |filter: &str| Query {
         collections: vec!["data".into()],

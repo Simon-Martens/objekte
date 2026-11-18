@@ -6,8 +6,9 @@ Choose a mode at opening:
 
 ```rust
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::lifecycle::Index;
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 
 let definition = CollectionDefinition::folder("items", "data/items", SourceFormat::Json);
 let options = RepositoryOptions {
@@ -17,8 +18,14 @@ let options = RepositoryOptions {
     },
     ..Default::default()
 };
-let repository = Repository::open_with_options("/repository", vec![definition], options)?;
-let report = repository.inference_report("items");
+let index = Index::start_build(
+    "/repository",
+    vec![definition],
+    options,
+    SourceRegistry::builtin(),
+)?
+.wait_complete()?;
+let report = index.view()?.inference_report("items");
 # Ok::<(), String>(())
 ```
 

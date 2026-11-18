@@ -7,7 +7,6 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 
@@ -61,7 +60,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
             if cache_bytes == 0 { "off" } else { "cache" }
         );
         let started = Instant::now();
-        let index = Index::build(
+        let index = objekte_search_core::lifecycle::Index::start_build(
             root,
             definitions.clone(),
             RepositoryOptions {
@@ -70,7 +69,9 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
                 verified_cache_bytes: cache_bytes,
                 ..RepositoryOptions::default()
             },
-        )?;
+            objekte_search_core::source::SourceRegistry::builtin(),
+        )
+        .and_then(|task| task.wait_complete())?;
         let build_ns = started.elapsed().as_nanos();
         if let Some(path) = retire_path.as_deref() {
             let handle = index

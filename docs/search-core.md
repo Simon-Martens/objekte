@@ -382,12 +382,12 @@ its result is rejected. Use a new context for each request.
 
 ## Memory and freshness
 
-### In-memory `Repository`
+### In-memory construction
 
-`Repository::open`, `open_with_options`, and `open_with_sources` build from
-sources and keep the resulting index in memory. They never restore or write an
-index on disk; source documents, schemas, preferences and requested exports
-keep their ordinary filesystem behavior.
+`Index::start_build` builds from sources and keeps the resulting index in
+memory. It never restores or writes an index on disk; source documents,
+schemas, preferences and requested exports keep their ordinary filesystem
+behavior.
 
 Fresh construction assumes sources remain stable while it reads them. It uses
 metadata gathered during discovery and does not repeatedly probe revisions
@@ -410,11 +410,11 @@ by the revision check.
 
 ### Versioned `Index` lifecycle
 
-`Index::build(root, definitions, options)` builds a complete in-memory index
-from the supplied configuration. `start_incremental_build` exposes a
-progressively searchable catalogue while construction continues. CLI, TUI and
-desktop share the repository configuration loader and the same source-build
-entry points. There is no index load, save, cache-aware opening or
+`Index::start_build(root, definitions, options, sources)` starts one in-memory
+construction task. `wait_catalogue()` waits for catalogue availability and
+`wait_complete()` returns the completed index. CLI, TUI and desktop share the
+repository configuration loader and the same source-build entry point. There
+is no index load, save, cache-aware opening or
 destination-generation API.
 
 The `Index` handle exposes versioned file add, update, move, and delete

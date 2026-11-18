@@ -88,7 +88,9 @@ fn field_choices_include_metadata_schema_and_loaded_columns() {
     );
     assert_eq!(choices.len(), 16);
     assert!(
-        choices.iter().filter(|choice| !choice.path.starts_with('@'))
+        choices
+            .iter()
+            .filter(|choice| !choice.path.starts_with('@'))
             .all(|choice| choice.value_type.is_none())
     );
     assert!(choices.iter().any(|choice| choice.path == "year"));
@@ -121,7 +123,10 @@ fn metadata_choices_are_typed_and_available_in_every_scope() {
             ("@collection.name", ValueType::String),
             ("@repository.root", ValueType::String),
         ] {
-            let found: Vec<_> = choices.iter().filter(|choice| choice.path == path).collect();
+            let found: Vec<_> = choices
+                .iter()
+                .filter(|choice| choice.path == path)
+                .collect();
             assert_eq!(found.len(), 1, "{scope:?}: {path}");
             assert_eq!(found[0].value_type, Some(kind), "{path}");
             assert!(QueryPath::parse(path).is_ok(), "{path}");

@@ -101,8 +101,13 @@ fn open_sources(
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let started = Instant::now();
-    let build = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let build = objekte_search_core::lifecycle::Index::start_build(
+        &paths.root,
+        configured.definitions.clone(),
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
     let index = if incremental {
         loop {
             if cancellation.is_cancelled() {

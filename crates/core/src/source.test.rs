@@ -295,7 +295,7 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 #[test]
 fn root_queries_match_reference_over_mixed_json_documents() {
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
@@ -311,7 +311,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -321,7 +321,11 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.collections[0].generation.records.len(), 6);
     for (filter, expected) in [
@@ -376,7 +380,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
     use crate::reference::FieldDefinition;
-    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -395,13 +399,17 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let records = &repo.collections[0].generation.records;
     assert_eq!(records.len(), 1);
@@ -419,7 +427,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root =
@@ -435,13 +443,17 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     let mut definition =
         CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
     definition.identity = IdentityPolicy::RelativePath;
-    let repo = Repository::open_with_options(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions {
             ..Default::default()
         },
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert!(
         repo.collections[0]
@@ -677,7 +689,7 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 #[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
@@ -710,14 +722,18 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
         let mut definition =
             CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
         definition.identity = IdentityPolicy::RelativePath;
-        let repo = Repository::open_with_options(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![definition],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         for &(literal, selected, expected) in cases {
             let query = Query {
@@ -870,7 +886,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root =
@@ -950,12 +966,15 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                 ..Default::default()
             };
             for open in 0..2 {
-                let repo = Repository::open_with_sources(
+                let repo = crate::lifecycle::Index::start_build(
                     &root,
                     vec![definition(temporal)],
                     options,
                     sources(),
                 )
+                .and_then(|task| task.wait_complete())
+                .and_then(|index| index.into_repository())
+                .map_err(|error| error.to_string())
                 .unwrap();
                 if open == 0 {}
                 for (text, field, count, evidence) in [
@@ -1270,9 +1289,7 @@ fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
 fn registered_recoverable_error_survives_repository_query_and_restore() {
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::Schema;
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
     use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!(
         "objekte-registered-fallback-{}",
@@ -1311,9 +1328,16 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    let built =
-        Repository::open_with_sources(&root, vec![definition.clone()], options, sources.clone())
-            .unwrap();
+    let built = crate::lifecycle::Index::start_build(
+        &root,
+        vec![definition.clone()],
+        options,
+        sources.clone(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     assert_eq!(built.collections()[0].generation.records.len(), 2);
     assert_eq!(built.files().files[0].diagnostics[0].code, "outcome.syntax");
     let query = Query {
@@ -1342,8 +1366,11 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         Some(Payload::LogicalUnavailable { .. })
     ));
     assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
-    let restored =
-        Repository::open_with_sources(&root, vec![definition], options, sources).unwrap();
+    let restored = crate::lifecycle::Index::start_build(&root, vec![definition], options, sources)
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
+        .unwrap();
     assert_eq!(restored.search(&query).unwrap().hits, result.hits);
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1529,7 +1556,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
@@ -1576,7 +1603,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
         sources
     };
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let repo = Repository::open_with_sources(
+        let repo = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
@@ -1585,6 +1612,9 @@ fn body_only_reader_does_not_prune_unindexed_title() {
             },
             sources(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         for (filter, fts, expected) in [
             (Some("title ~ 'hello world'"), None, 1),
@@ -1634,9 +1664,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     use crate::model::LogicalType;
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{
-        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
-    };
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
     use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
@@ -1704,12 +1732,15 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
             evidence: true,
         },
     };
-    let repo = Repository::open_with_sources(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         registrations(1),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(repo.build_parses(), 2);
     assert_eq!(parses.load(Ordering::Relaxed), 2);
@@ -1730,7 +1761,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     let after_query = parses.load(Ordering::Relaxed);
     drop(repo);
 
-    let restored = Repository::open_with_sources(
+    let restored = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1738,28 +1769,37 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         },
         registrations(1),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(restored.build_parses(), 2);
     assert_eq!(parses.load(Ordering::Relaxed), after_query + 2);
     assert_eq!(restored.search(&query).unwrap().hits, found.hits);
     drop(restored);
 
-    let rebuilt = Repository::open_with_sources(
+    let rebuilt = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         registrations(2),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(rebuilt.build_parses(), 2);
     drop(rebuilt);
     assert!(
-        Repository::open_with_sources(
+        crate::lifecycle::Index::start_build(
             &root,
             vec![definition],
             RepositoryOptions::default(),
             SourceRegistry::builtin()
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .err()
         .unwrap()
         .contains("unknown source registration")
@@ -1770,7 +1810,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
 #[test]
 fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     use crate::discovery::{Discovery, SymlinkPolicy};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-discovery-{}-{}",
@@ -1818,12 +1858,15 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let built = Repository::open_with_sources(
+    let built = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         sources.clone(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(built.files().files.len(), 2);
     let generation = &built.collections()[0].generation;
@@ -1847,7 +1890,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         2
     );
     drop(built);
-    let restored = Repository::open_with_sources(
+    let restored = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions {
@@ -1855,6 +1898,9 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         },
         sources.clone(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
         restored.collections()[0]
@@ -1868,42 +1914,51 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     drop(restored);
 
     std::fs::write(root.join("tiny/nested/fourth.tiny"), b"fourth|four\n").unwrap();
-    let rebuilt = Repository::open_with_sources(
+    let rebuilt = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
         sources.clone(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(rebuilt.collections()[0].generation.records.len(), 4);
     drop(rebuilt);
 
     let mut shallow = definition.clone();
     shallow.discovery.recursive = false;
-    let shallow = Repository::open_with_sources(
+    let shallow = crate::lifecycle::Index::start_build(
         &root,
         vec![shallow],
         RepositoryOptions::default(),
         sources.clone(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(shallow.collections()[0].generation.records.len(), 2);
     drop(shallow);
 
     let mut with_hidden = definition.clone();
     with_hidden.discovery.hidden = true;
-    let with_hidden = Repository::open_with_sources(
+    let with_hidden = crate::lifecycle::Index::start_build(
         &root,
         vec![with_hidden],
         RepositoryOptions::default(),
         sources.clone(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(with_hidden.collections()[0].generation.records.len(), 5);
     drop(with_hidden);
 
     assert!(
-        Repository::open_with_sources(
+        crate::lifecycle::Index::start_build(
             &root,
             vec![CollectionDefinition {
                 source_path: "../tiny".into(),
@@ -1912,6 +1967,9 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
             RepositoryOptions::default(),
             sources.clone()
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .is_err()
     );
     std::fs::write(
@@ -1919,12 +1977,15 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         b"first|duplicate\n",
     )
     .unwrap();
-    let error = Repository::open_with_sources(
+    let error = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions::default(),
         sources,
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .err()
     .unwrap();
     assert!(
@@ -1936,7 +1997,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
 
 #[test]
 fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-intrinsic-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1962,11 +2023,15 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
         ),
     ] {
         std::fs::write(root.join("data/one.jsonl"), body).unwrap();
-        let error = Repository::open_with_options(
+        let error = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .err()
         .unwrap();
         assert!(

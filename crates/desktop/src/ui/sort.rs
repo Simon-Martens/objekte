@@ -32,7 +32,6 @@ pub fn cycle_header_sort(source: &str, column: &str) -> Result<String, String> {
     Ok(next)
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -61,7 +60,6 @@ mod tests {
         assert!(cycle_header_sort("year >= ", "year").is_err());
     }
 }
-
 
 /// Resolve display-only columns to core metadata paths for the authoritative
 /// SORT BY expression. Match excerpts have no ordering key.

@@ -1970,5 +1970,5 @@ impl InferenceBuilder {
 }
 
 #[cfg(test)]
-#[path = "inference_build.test.rs"]
+#[path = "../inference_build.test.rs"]
 mod allocation_tests;

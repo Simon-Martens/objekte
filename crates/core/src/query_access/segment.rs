@@ -428,14 +428,16 @@ mod tests {
                 element_nullable: Vec::new(),
             })
             .unwrap();
-        let index = crate::lifecycle::Index::build(
+        let index = crate::lifecycle::Index::start_build(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
                 verified_cache_bytes: 0,
                 ..Default::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
         .unwrap();
         let view = index.view().unwrap();
         let collection = &view.repository().collections()[0];

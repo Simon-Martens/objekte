@@ -435,7 +435,7 @@ mod tests {
     use crate::model::LogicalType;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
     use crate::reference::FieldDefinition;
-    use crate::repository::{Repository, RepositoryOptions};
+    use crate::repository::RepositoryOptions;
 
     #[test]
     fn source_scan_matches_reference_search_before_an_index_exists() {
@@ -469,13 +469,17 @@ mod tests {
             })
             .unwrap();
         let scan = SourceScan::open(&root, vec![definition.clone()]).unwrap();
-        let indexed = Repository::open_with_options(
+        let indexed = crate::lifecycle::Index::start_build(
             &root,
             vec![definition],
             RepositoryOptions {
                 ..RepositoryOptions::default()
             },
+            crate::source::SourceRegistry::builtin(),
         )
+        .and_then(|task| task.wait_complete())
+        .and_then(|index| index.into_repository())
+        .map_err(|error| error.to_string())
         .unwrap();
         let mut query = Query {
             collections: vec!["files".into()],

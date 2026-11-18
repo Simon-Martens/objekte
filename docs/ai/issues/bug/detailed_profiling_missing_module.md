@@ -1,5 +1,8 @@
 # `detailed-profiling` build references a missing `profiling` module
 
+> Resolved by `core-index-construction` on 2026-11-18: both references now use
+> `crate::detailed_timer::DetailedInstant`, and the all-feature check passes.
+
 - Category: bug
 - Originating task: `lifecycle-publication-and-read-views`
 - Observed on: assignment base `0a0e0c3507af94164fce2387070cfcb6b5277d23` and tested implementation `b14234cf5cc8ef9ac8beb20e05d3b9a0e0efe774`

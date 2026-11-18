@@ -68,9 +68,14 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     };
     let result = crate::tui::run_with_opening_loader(
         move || {
-            Index::start_incremental_build(&root, definitions, options)
-                .map(crate::tui::TuiOpening::Initial)
-                .map_err(|error| error.to_string())
+            objekte_search_core::lifecycle::Index::start_build(
+                &root,
+                definitions,
+                options,
+                objekte_search_core::source::SourceRegistry::builtin(),
+            )
+            .map(crate::tui::TuiOpening::Initial)
+            .map_err(|error| error.to_string())
         },
         crate::tui::TuiOptions {
             single_collection: !args.multiple_collections(),
@@ -267,7 +272,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let opened = open_incremental_repository(args, &paths, &configured, options, &mut source, token);
+    let opened =
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token);
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
@@ -338,8 +344,13 @@ fn open_incremental_repository(
     token: &CancellationToken,
 ) -> Result<(IndexedRepository, u128), String> {
     let started = Instant::now();
-    let task = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
-        .map_err(|error| error.to_string())?;
+    let task = objekte_search_core::lifecycle::Index::start_build(
+        &paths.root,
+        configured.definitions.clone(),
+        options,
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())?;
     *source = Some(QuerySource::open(args));
     let preview_allowed = args.query_file.as_deref().is_none_or(|path| {
         path != "-" && std::fs::metadata(path).is_ok_and(|metadata| metadata.file_type().is_file())

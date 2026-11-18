@@ -9,9 +9,7 @@ use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
-};
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 use serde_json::json;
@@ -545,7 +543,7 @@ fn main() -> Result<(), String> {
     let root = root.ok_or("--root is required")?;
     fixture(&root)?;
     let build_started = Instant::now();
-    let repo = Repository::open_with_options(
+    let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions {
@@ -554,7 +552,11 @@ fn main() -> Result<(), String> {
             query_workers: 1,
             ..Default::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     let build_ns = build_started.elapsed().as_nanos() as u64;
     let startup = repo.startup();
     let relations = repo

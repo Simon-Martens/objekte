@@ -9,10 +9,16 @@ fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, Ind
     let root = tempfile::tempdir().unwrap();
     std::fs::create_dir(root.path().join("data")).unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let repository =
-        Repository::open_with_options(root.path(), vec![definition], RepositoryOptions::default())
-            .unwrap();
-    let index = Index::from_repository(repository).unwrap();
+    let repository = objekte_search_core::lifecycle::Index::start_build(
+        root.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let index = repository;
     let previous = index.view().unwrap();
     let path = root.path().join("data/large.jsonl");
     let mut contents = String::new();
@@ -65,7 +71,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
         })
         .unwrap();
     let other = CollectionDefinition::folder("other", "other", SourceFormat::Json);
-    let index = Index::start_incremental_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         root.path(),
         vec![data, other],
         RepositoryOptions {
@@ -75,6 +81,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
             },
             ..Default::default()
         },
+        objekte_search_core::source::SourceRegistry::builtin(),
     )
     .unwrap()
     .wait_complete()
@@ -586,11 +593,17 @@ fn completion_uses_bounded_postings_and_keeps_typed_literals() {
             element_nullable: vec![],
         })
         .unwrap();
-    let repository =
-        Repository::open_with_options(root.path(), vec![definition], RepositoryOptions::default())
-            .unwrap();
+    let repository = objekte_search_core::lifecycle::Index::start_build(
+        root.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let mut session = fixture.session;
-    let index = objekte_search_core::lifecycle::Index::from_repository(repository).unwrap();
+    let index = repository;
     session.repository =
         Arc::new(objekte_search_core::lifecycle_caller::IndexedRepository::new(index).unwrap());
     session.collections = vec!["files".into()];
@@ -798,7 +811,10 @@ fn failed_source_open_keeps_previous_session() {
     assert!(controller.opening_draft.is_none());
     assert!(updates.iter().any(|update| matches!(
         update,
-        UiUpdate::Error { field: ErrorField::Open, .. }
+        UiUpdate::Error {
+            field: ErrorField::Open,
+            ..
+        }
     )));
 }
 

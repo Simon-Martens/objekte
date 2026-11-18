@@ -4,7 +4,7 @@ use std::sync::Arc;
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
 use crate::query::{Query, QueryOptions};
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -20,14 +20,19 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), r#"{"name":"a"}"#).unwrap();
-    let repo = Repository::open(
+    let repo = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
             "data",
             SourceFormat::Json,
         )],
+        crate::repository::RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let adopted = Arc::clone(&repo.segments[0][0].index);
     let id = repo.segments[0][0].id;
@@ -63,7 +68,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
     drop(source);
     let small = root.join("data/z-small.jsonl");
     std::fs::write(&small, b"{\"name\":\"small\"}\n").unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -71,7 +76,9 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.view().unwrap();
     let full = before.0.segments[0]
@@ -120,7 +127,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         )
         .unwrap();
     }
-    let repository = Repository::open_with_options(
+    let repository = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -128,7 +135,11 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let published = PublishedIndex::from_repository(
         crate::repository::next_repository_instance(),
@@ -206,7 +217,7 @@ fn compacts_one_large_file_in_source_free_parts() {
         .map(|number| format!("{{\"name\":\"item-{number}\"}}\n"))
         .collect::<String>();
     std::fs::write(&path, bytes).unwrap();
-    let repository = Repository::open_with_options(
+    let repository = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -214,7 +225,11 @@ fn compacts_one_large_file_in_source_free_parts() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
     .unwrap();
     let published = PublishedIndex::from_repository(
         crate::repository::next_repository_instance(),
@@ -284,7 +299,16 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
         },
         ..Default::default()
     };
-    let repository = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let repository = crate::lifecycle::Index::start_build(
+        &root,
+        definitions.clone(),
+        options,
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.into_repository())
+    .map_err(|error| error.to_string())
+    .unwrap();
     let build_parses = repository.build_parses();
     let build_failed_parses = repository.build_failed_parses();
     let startup = repository.startup().clone();

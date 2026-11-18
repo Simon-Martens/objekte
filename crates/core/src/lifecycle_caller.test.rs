@@ -15,7 +15,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let source = root.join("data/a.json");
     std::fs::write(&source, br#"{"name":"A"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -23,7 +23,9 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let adapter = IndexedRepository::new(index).unwrap();
     let query = Query {
@@ -92,7 +94,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -100,7 +102,9 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let adapter = IndexedRepository::new(index.clone()).unwrap();
     let pinned = adapter.with_pinned_view(index.view().unwrap()).unwrap();
@@ -140,7 +144,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
             .count,
         Some(0)
     );
-    let other = Index::build(
+    let other = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -148,7 +152,9 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     assert!(adapter.with_pinned_view(other.view().unwrap()).is_err());
     other.shutdown().unwrap();
@@ -177,7 +183,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
     let destination = root.join("data/moved.jsonl");
     std::fs::write(&original, b"{\"name\":\"old\"}\n").unwrap();
     let original_metadata = std::fs::metadata(&original).unwrap();
-    let index = Index::build(
+    let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
@@ -185,7 +191,9 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
     )
+    .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     let mut query = Query {

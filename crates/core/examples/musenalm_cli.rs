@@ -6,7 +6,7 @@ use std::io::Write;
 use std::path::PathBuf;
 
 use objekte_search_core::query::{FtsMode, Query, RegexOptions};
-use objekte_search_core::repository::{Payload, Repository, RepositoryOptions, SearchHit};
+use objekte_search_core::repository::{Payload, RepositoryOptions, SearchHit};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
     StreamProgress,
@@ -236,14 +236,18 @@ fn run() -> Result<(), String> {
     if selected.is_empty() {
         return Err(format!("unknown collection {}", case.collection));
     }
-    let repository = Repository::open_with_options(
+    let repository = objekte_search_core::lifecycle::Index::start_build(
         &root,
         selected,
         RepositoryOptions {
             bigram_alphabet: alphabet,
             ..RepositoryOptions::default()
         },
-    )?;
+        objekte_search_core::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .and_then(|index| index.view())
+    .map_err(|error| error.to_string())?;
     for state in repository.collections() {
         let message = format!(
             "collection={} files={} records={} format={:?} fields={} indexed={} custom={}",

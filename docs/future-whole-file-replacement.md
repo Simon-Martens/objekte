@@ -52,8 +52,8 @@ a bounded retry. Compaction and rebuilding keep all state in memory.
 handles. Cancellation before publication leaves the current view installed;
 `shutdown` cancels and joins active maintenance workers.
 
-`Index::build` and `Index::start_incremental_build` use explicit definitions
-and sources in memory. A progressively built catalogue becomes searchable
+`Index::start_build` uses explicit definitions and sources in memory. A
+progressively built catalogue becomes searchable
 before background metadata reconciliation finishes. `wait_for_reconciliation`
 lets callers wait for that check. Reconciliation compares size and modification
 time; it does not hash unchanged files and cannot detect an edit that restores
