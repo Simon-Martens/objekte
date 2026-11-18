@@ -1,6 +1,8 @@
 use super::projection::{SlotMap, project_bitmap, project_inference, project_sorting};
 use super::*;
-use crate::construction::*;
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+use crate::construction::segment_admission::SegmentAdmission;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::{DiagnosticRef, FileStatus, SourceRevision};
 use crate::model::{CollectionId, FieldPath, LogicalType};

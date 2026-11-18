@@ -14,11 +14,13 @@ use std::time::{Duration, Instant, SystemTime};
 
 use serde::{Deserialize, Serialize};
 
-use crate::build::{
-    FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
-    SegmentAdmission, SourceFileInput, prepare_file_build,
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{
+    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_file_build,
 };
+use crate::construction::segment_admission::SegmentAdmission;
 use crate::discovery::selects_file;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inventory::{FileEntry, FileStatus, FileVersions};
 use crate::model::{CollectionId, FileId};
 pub(crate) use crate::native_segment::PublishedSegment;

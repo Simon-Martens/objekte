@@ -6,7 +6,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use crate::lifecycle::IndexError;
 use crate::repository::{CollectionDefinition, IncrementalSegmentProfile, RepositoryOptions};
 
-use super::{IndexedCollectionSegment, SegmentId};
+use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 
 pub(crate) struct SegmentJobGate {
     state: std::sync::Mutex<SegmentJobGateState>,
@@ -356,7 +356,7 @@ impl SegmentBuildScheduler {
     fn submit(
         &mut self,
         collection_index: usize,
-        mut segment: crate::build::CollectionSegment,
+        mut segment: crate::construction::segment_admission::CollectionSegment,
         definition: Arc<CollectionDefinition>,
         options: RepositoryOptions,
         collection_count: usize,
@@ -641,7 +641,7 @@ impl PrivateSegmentGroup {
 pub(super) fn schedule_segment(
     scheduler: &mut SegmentBuildScheduler,
     collection_index: usize,
-    segment: crate::build::CollectionSegment,
+    segment: crate::construction::segment_admission::CollectionSegment,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,
@@ -676,7 +676,7 @@ pub(super) fn schedule_private_segment(
     scheduler: &mut SegmentBuildScheduler,
     private_group: &mut PrivateSegmentGroup,
     collection_index: usize,
-    segment: crate::build::CollectionSegment,
+    segment: crate::construction::segment_admission::CollectionSegment,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,

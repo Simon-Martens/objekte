@@ -19,7 +19,7 @@ use crate::repository::CollectionDefinition;
 use crate::source::PreparedSource;
 use crate::workload::BigramAlphabet;
 
-use super::{BatchContribution, SourceFileInput, process_batch_profiled};
+use super::batch::{BatchContribution, SourceFileInput, process_batch_profiled};
 
 /// Resolve a fresh build's worker policy independently of query workers.
 /// Injecting detection makes the quota/failure cases deterministic in tests.

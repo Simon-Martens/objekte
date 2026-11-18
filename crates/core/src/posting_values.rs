@@ -6,7 +6,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
@@ -591,8 +591,14 @@ pub(crate) fn select_exact_segmented(
             })));
         }
     }
-    let result =
-        crate::run::search_segmented(repo, &request, base_active, segments, catalog, revision)?;
+    let result = crate::query_execution::runner::search_segmented(
+        repo,
+        &request,
+        base_active,
+        segments,
+        catalog,
+        revision,
+    )?;
     if result.count != Some(result.hits.len()) {
         return Err("exact selection result incomplete".into());
     }
@@ -1050,7 +1056,7 @@ impl Repository {
             return Err("selection query excludes requested collection".into());
         }
         let resolved = query.resolve_current_clock()?;
-        let members = crate::run::exact_members_with_active(
+        let members = crate::query_execution::runner::exact_members_with_active(
             self,
             resolved.as_ref(),
             collection_index,

@@ -2,8 +2,8 @@
 
 use std::sync::{Arc, Mutex};
 
-use crate::build::IndexedCollectionSegment;
 use crate::executor::{AccessPathKind, segment_access_path_kind};
+use crate::index::segment::IndexedCollectionSegment;
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::query_execution::domain::domain_id;

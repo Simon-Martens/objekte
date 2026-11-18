@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use crate::build::{IndexedCollectionSegment, SegmentFile};
+use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,

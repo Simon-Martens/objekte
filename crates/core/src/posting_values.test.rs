@@ -305,9 +305,9 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap(),
     );
     check(&restored);
-    use crate::build::{
-        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::lifecycle::{IndexRevision, PublishedSegment};
     use crate::lifecycle_catalog::FileCatalog;

@@ -3,7 +3,7 @@ use std::sync::atomic::Ordering;
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::native_segment::{PublishedSegment, SegmentId};

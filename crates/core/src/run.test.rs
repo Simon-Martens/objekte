@@ -221,16 +221,16 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         empty_trace[0]
             .observations
             .iter()
-            .any(
-                |observation| observation.status == crate::run::ObservationStatus::Executed
-                    && observation.candidate_records == 0
-            )
+            .any(|observation| observation.status
+                == crate::query_diagnostics::trace::ObservationStatus::Executed
+                && observation.candidate_records == 0)
     );
     assert!(
         empty_trace[0]
             .observations
             .iter()
-            .any(|observation| observation.status == crate::run::ObservationStatus::Skipped)
+            .any(|observation| observation.status
+                == crate::query_diagnostics::trace::ObservationStatus::Skipped)
     );
     drop(guard);
 
@@ -757,7 +757,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         hit.matched_fields.contains(&"title".to_owned())
             && hit.matched_fields.contains(&"year".to_owned())
     }));
-    let (_, trace) = crate::run::search_analyze_segmented(
+    let (_, trace) = crate::query_execution::runner::search_analyze_segmented(
         view.repository(),
         &filter_first,
         &view.0.active,
@@ -787,7 +787,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     let compound_actual = view.search(&compound).unwrap();
     assert_eq!(compound_actual.hits, compound_expected.hits);
     assert_eq!(compound_actual.count, compound_expected.count);
-    let (_, trace) = crate::run::search_analyze_segmented(
+    let (_, trace) = crate::query_execution::runner::search_analyze_segmented(
         view.repository(),
         &compound,
         &view.0.active,
@@ -850,7 +850,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     let text_expected = view.search_reference(&text_first).unwrap();
     let text_actual = view.search(&text_first).unwrap();
     assert_eq!(text_actual.hits, text_expected.hits);
-    let (_, trace) = crate::run::search_analyze_segmented(
+    let (_, trace) = crate::query_execution::runner::search_analyze_segmented(
         view.repository(),
         &text_first,
         &view.0.active,
@@ -2107,9 +2107,9 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
 
 #[test]
 fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
-    use crate::build::{
-        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId};
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
@@ -3198,9 +3198,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
 
 #[test]
 fn segment_direct_lookup_uses_local_slot_and_published_file() {
-    use crate::build::{
-        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId, RecordSlot};
     use crate::repository::RepositoryOptions;
@@ -5828,7 +5828,8 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         cached_trace[0]
             .observations
             .iter()
-            .any(|observation| observation.status == crate::run::ObservationStatus::CacheHit)
+            .any(|observation| observation.status
+                == crate::query_diagnostics::trace::ObservationStatus::CacheHit)
     );
     std::fs::remove_dir_all(root).unwrap();
 }

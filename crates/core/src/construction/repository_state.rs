@@ -34,7 +34,7 @@ pub(crate) fn initialize_empty(
 ) -> Result<Repository, String> {
     let configuration_identity =
         crate::configuration::configuration_hash(&definitions, options, sources)?;
-    let build_workers = crate::build::resolve_build_workers(
+    let build_workers = crate::construction::scheduling::resolve_build_workers(
         options.build_workers,
         std::thread::available_parallelism().ok(),
     )?;
@@ -409,7 +409,7 @@ pub(crate) fn assemble_final_repository(
     failed_parses: u64,
     source_reads: u64,
     source_bytes_read: u64,
-    schedule_stats: crate::build::BuildScheduleStats,
+    schedule_stats: crate::construction::scheduling::BuildScheduleStats,
     build_workers: usize,
     peak_segment_jobs: usize,
     peak_segment_window: usize,

@@ -335,11 +335,12 @@ pub struct StartupStats {
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
     /// Exclusive incremental admission work, excluding sealing/publication.
-    pub admission: crate::build::AdmissionBreakdown,
-    pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
+    pub admission: crate::construction::segment_admission::AdmissionBreakdown,
+    pub admission_by_collection:
+        BTreeMap<String, crate::construction::segment_admission::AdmissionBreakdown>,
     /// Sampled worker work by collection; these totals overlap in wall time.
-    pub work_by_collection: BTreeMap<String, crate::build::BuildWorkProfile>,
-    pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    pub work_by_collection: BTreeMap<String, crate::construction::batch::BuildWorkProfile>,
+    pub admission_schedule: crate::construction::scheduling::AdmissionScheduleProfile,
     pub peak_segment_jobs: usize,
     pub peak_segment_window: usize,
     /// Initial lifecycle segments, in publication order.
@@ -375,7 +376,7 @@ pub struct BuildProfileStats {
     pub discovery_rss_bytes: u64,
     pub extraction_rss_bytes: u64,
     pub finalization_rss_bytes: u64,
-    pub work: crate::build::BuildWorkProfile,
+    pub work: crate::construction::batch::BuildWorkProfile,
 }
 
 #[derive(Clone, Debug, Default, Serialize)]
@@ -626,7 +627,7 @@ impl Repository {
     ) -> Result<Option<SearchHit>, String> {
         if self.has_native_segments() {
             let domains = active.unwrap_or(&self.active);
-            return match crate::run::direct_lookup_segmented(
+            return match crate::query_execution::runner::direct_lookup_segmented(
                 self,
                 collection_name,
                 record_id,
@@ -636,14 +637,14 @@ impl Repository {
                 &self.catalog,
                 self.revision,
             )? {
-                crate::run::DirectLookupResult::Found(mut hit) => {
+                crate::query_execution::runner::DirectLookupResult::Found(mut hit) => {
                     self.stamp_native_hit(&mut hit);
                     Ok(Some(hit))
                 }
-                crate::run::DirectLookupResult::NotFound => Ok(None),
-                crate::run::DirectLookupResult::SourceUnavailable(diagnostic) => {
-                    Err(diagnostic.message)
-                }
+                crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
+                crate::query_execution::runner::DirectLookupResult::SourceUnavailable(
+                    diagnostic,
+                ) => Err(diagnostic.message),
             };
         }
         let collection_index = self
@@ -683,7 +684,7 @@ impl Repository {
                 .0
             }
         };
-        Ok(Some(crate::run::make_hit(
+        Ok(Some(crate::query_execution::runner::make_hit(
             self,
             collection_index,
             record,
@@ -1171,11 +1172,11 @@ impl Repository {
         let resolved = query.resolve_current_clock()?;
         let result = if self.has_native_segments() {
             let snapshot = self.native_snapshot();
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
-            crate::run::search_segmented_lifecycle(
+            crate::query_execution::runner::search_segmented_lifecycle(
                 self,
                 resolved.as_ref(),
                 snapshot.active,
@@ -1185,7 +1186,7 @@ impl Repository {
                 Some(cache),
             )?
         } else {
-            crate::run::search(self, resolved.as_ref())?
+            crate::query_execution::runner::search(self, resolved.as_ref())?
         };
         Ok(self.stamp_native_query_result(query, result))
     }
@@ -1233,11 +1234,11 @@ impl Repository {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
         let result = if self.has_native_segments() {
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
-            crate::run::search_segmented_with_context_lifecycle(
+            crate::query_execution::runner::search_segmented_with_context_lifecycle(
                 self,
                 &resolved,
                 &self.active,
@@ -1248,7 +1249,7 @@ impl Repository {
                 Some(cache),
             )?
         } else {
-            crate::run::search_with_context(self, &resolved, context)?
+            crate::query_execution::runner::search_with_context(self, &resolved, context)?
         };
         Ok(self.stamp_native_result(result))
     }
@@ -1333,7 +1334,7 @@ impl Repository {
     {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() && self.has_native_segments() {
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
@@ -1385,7 +1386,7 @@ impl Repository {
                     event => sink(event),
                 }
             };
-            return crate::run::search_stream_segmented_with_context_lifecycle(
+            return crate::query_execution::runner::search_stream_segmented_with_context_lifecycle(
                 self,
                 query,
                 scope,
@@ -1477,7 +1478,7 @@ impl Repository {
                 event => sink(event),
             }
         };
-        crate::run::search_stream_scoped_with_context_active(
+        crate::query_execution::runner::search_stream_scoped_with_context_active(
             self,
             &request,
             scope,
@@ -1527,10 +1528,13 @@ impl Repository {
         self.search(&query.with_parameters(parameters)?)
     }
 
-    pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    pub fn explain(
+        &self,
+        query: &Query,
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         let resolved = query.resolve_current_clock()?;
         if self.has_native_segments() {
-            crate::run::explain_segmented(
+            crate::query_execution::runner::explain_segmented(
                 self,
                 resolved.as_ref(),
                 &self.active,
@@ -1538,7 +1542,7 @@ impl Repository {
                 self.revision,
             )
         } else {
-            crate::run::explain(self, resolved.as_ref())
+            crate::query_execution::runner::explain(self, resolved.as_ref())
         }
     }
 
@@ -1547,17 +1551,23 @@ impl Repository {
         &self,
         query: &Query,
         parameters: &HashMap<String, Value>,
-    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         self.explain(&query.with_parameters(parameters)?)
     }
 
     pub fn explain_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<crate::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         let resolved = query.resolve_current_clock()?;
         let result = if self.has_native_segments() {
-            crate::run::search_analyze_segmented(
+            crate::query_execution::runner::search_analyze_segmented(
                 self,
                 resolved.as_ref(),
                 &self.active,
@@ -1566,7 +1576,7 @@ impl Repository {
                 self.revision,
             )?
         } else {
-            crate::run::search_analyze(self, resolved.as_ref())?
+            crate::query_execution::runner::search_analyze(self, resolved.as_ref())?
         };
         Ok((self.stamp_native_result(result.0), result.1))
     }
@@ -1628,7 +1638,7 @@ impl Repository {
         let query = resolved.as_ref();
         if self.has_native_segments() {
             let domains = active.unwrap_or(&self.active);
-            let result = crate::run::search_segmented_reference(
+            let result = crate::query_execution::runner::search_segmented_reference(
                 self,
                 query,
                 domains,

@@ -22,10 +22,8 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
-use super::{
-    BatchBuilder, BatchContribution, BatchFile, BuildScheduleStats, JobCounters, SourceFileInput,
-    fits_allowance, process_batch,
-};
+use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};
+use super::scheduling::{BuildScheduleStats, JobCounters, fits_allowance};
 
 /// A file's eligible collection bindings, resolved by discovery before I/O.
 /// Preparation performs no publication and never changes source files.

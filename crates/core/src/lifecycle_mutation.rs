@@ -8,9 +8,9 @@ use std::time::SystemTime;
 
 use sha2::{Digest, Sha256};
 
-use crate::build::{
-    BytesPreparationError, FilePreparationBinding, PreparedFileBuild, SourceFileInput,
-    prepare_file_build_from_bytes,
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{
+    BytesPreparationError, FilePreparationBinding, PreparedFileBuild, prepare_file_build_from_bytes,
 };
 use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;

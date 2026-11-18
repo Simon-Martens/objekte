@@ -20,9 +20,9 @@ fn exact_segment_bounds_share_one_membership_owner() {
 
 #[test]
 fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
-    use crate::build::{
-        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::model::{CollectionId, FileId, RecordSlot};
     use crate::source::SourceRegistry;

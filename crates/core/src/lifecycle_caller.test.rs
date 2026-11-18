@@ -164,8 +164,8 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
 
 #[test]
 fn pinned_view_uses_published_range_after_old_path_is_replaced() {
+    use crate::query_execution::runner::DirectLookupResult;
     use crate::repository::Payload;
-    use crate::run::DirectLookupResult;
     use crate::streaming::{
         CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
     };

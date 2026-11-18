@@ -7,7 +7,7 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation, self_comparison_shape};
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,

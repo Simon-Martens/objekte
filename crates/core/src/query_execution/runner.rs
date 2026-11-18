@@ -10,7 +10,6 @@ use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::build::IndexedCollectionSegment;
 use crate::execution_options::ReturnMode;
 use crate::executor::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
@@ -19,6 +18,7 @@ use crate::executor::{
     segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
     segment_fts_estimate_with_term,
 };
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
@@ -31,10 +31,7 @@ use crate::prepared::PreparedCollectionQuery;
 #[cfg(test)]
 use crate::query::FtsMode;
 use crate::query::{Operator, Quantifier, Query};
-pub use crate::query_diagnostics::trace::{
-    BoundTermDiagnostic, ExecutionObservation, ObservationStatus, PlanActual, QueryPlanTrace,
-    RelationHopDiagnostic,
-};
+use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,
     regex_prefilter_reason,

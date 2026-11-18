@@ -4,7 +4,7 @@ use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inventory::RecordEntry;
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;

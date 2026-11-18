@@ -2,4 +2,4 @@
 
 pub(crate) mod domain;
 pub(crate) mod request;
-pub(crate) mod runner;
+pub mod runner;

@@ -5,8 +5,8 @@ use std::io::{BufWriter, Write};
 use std::path::Path;
 
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::query_execution::runner::DirectLookupResult;
 use objekte_search_core::repository::SearchHit;
-use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,

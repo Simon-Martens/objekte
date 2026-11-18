@@ -6,7 +6,7 @@ use std::collections::HashMap;
 use roaring::RoaringBitmap;
 
 use crate::bigram::BigramIndex;
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};

@@ -5,11 +5,11 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
 use crate::executor::{
     native_estimate_fts_candidates, native_fts_candidates, native_segment_estimate_fts_candidates,
     native_segment_fts_candidates_restricted,
 };
+use crate::index::segment::IndexedCollectionSegment;
 use crate::query_execution::domain::domain_id;
 use crate::query_predicate::PreparedPredicates;
 use crate::query_predicate::TermId;

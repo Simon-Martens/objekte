@@ -3,7 +3,6 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-mod build;
 mod byte_size_literal;
 pub mod clock_context;
 pub mod completion;
@@ -40,8 +39,8 @@ pub mod posting_values;
 mod prepared;
 pub mod query;
 mod query_access;
-mod query_diagnostics;
-mod query_execution;
+pub mod query_diagnostics;
+pub mod query_execution;
 pub mod query_path;
 mod query_plan;
 mod query_predicate;
@@ -57,7 +56,6 @@ mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
 pub mod repository_configuration;
-pub mod run;
 pub mod schema_adapter;
 mod sort_binding;
 pub mod source;

@@ -5,7 +5,10 @@ use std::sync::Arc;
 
 use sha2::{Digest, Sha256};
 
-use crate::build::{FilePreparationBinding, SourceFileInput, prepare_file_build_from_bytes};
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{
+    FilePreparationBinding, prepare_file_build_from_bytes,
+};
 use crate::lifecycle::{FileHandle, IndexView, PublishedIndex, PublishedSegment};
 use crate::lifecycle_mutation::VerifiedFallbackReason;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -349,7 +352,7 @@ pub(crate) fn preserve_partition_record_slots(
                     })
             })
             .ok()?;
-        let consolidated = crate::build::IndexedCollectionSegment::consolidate(
+        let consolidated = crate::index::segment::IndexedCollectionSegment::consolidate(
             &[&compacted.index, &new.index],
             MAX_VERIFIED_SCANNED_RECORDS,
         )

@@ -47,7 +47,13 @@ impl SearchBackend {
     fn explain_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<objekte_search_core::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<objekte_search_core::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         match self {
             Self::Direct(_, view) => view.explain_analyze(query),
             Self::Incremental(_, view) => view.search_analyze(query),

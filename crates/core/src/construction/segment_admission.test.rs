@@ -1,5 +1,8 @@
 use super::*;
-use crate::construction::*;
+use crate::construction::batch::{SourceFileInput, process_batch};
+use crate::construction::file_preparation::{
+    FilePreparationBinding, PreparedFileBuild, prepare_file_build,
+};
 use crate::inference::InferenceConfig;
 use crate::inference::{InferenceMode, InferencePolicy};
 use crate::inventory::FileStatus;
@@ -55,7 +58,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
             created_ns: None,
         });
     }
-    let batch = super::super::process_batch(
+    let batch = process_batch(
         &root,
         &definition,
         CollectionId(0),

@@ -18,8 +18,8 @@ use objekte_search_core::lifecycle::{
 };
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
+use objekte_search_core::query_execution::runner::DirectLookupResult;
 use objekte_search_core::repository::SearchHit;
-use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
 
 use crate::backend::{self, OpenSpec, OpenedSession};

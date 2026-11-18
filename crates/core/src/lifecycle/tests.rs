@@ -563,7 +563,7 @@ fn unavailable_direct_lookup_does_not_request_reconciliation() {
     assert!(matches!(
         view.get_record_available("data", &id, ReturnMode::Bytes)
             .unwrap(),
-        crate::run::DirectLookupResult::SourceUnavailable(_)
+        crate::query_execution::runner::DirectLookupResult::SourceUnavailable(_)
     ));
     assert_eq!(
         index.status().unwrap().reconciliation,
@@ -655,7 +655,7 @@ fn quiescence_keeps_unavailable_lookup_without_reconciliation() {
     assert!(matches!(
         view.get_record_available("data", &id, ReturnMode::Bytes)
             .unwrap(),
-        crate::run::DirectLookupResult::SourceUnavailable(_)
+        crate::query_execution::runner::DirectLookupResult::SourceUnavailable(_)
     ));
     assert!(index.current_reconciliation_task().unwrap().is_none());
     assert_eq!(index.status().unwrap().revision, view.revision());
@@ -1981,8 +1981,8 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
         }
         std::fs::remove_dir_all(root).unwrap();
     }
-    assert!(crate::run::record_ranges_allow_parallel_scan(65_536));
-    assert!(!crate::run::record_ranges_allow_parallel_scan(65_537));
+    assert!(crate::query_execution::runner::record_ranges_allow_parallel_scan(65_536));
+    assert!(!crate::query_execution::runner::record_ranges_allow_parallel_scan(65_537));
 }
 
 fn all_query() -> Query {

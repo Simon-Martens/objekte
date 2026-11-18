@@ -10,10 +10,10 @@ use crate::source::SourceFormat;
 
 #[test]
 fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
-    use crate::build::{
-        FilePreparationBinding, IndexedCollectionSegment, SegmentAdmission, SourceFileInput,
-        prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::IndexedCollectionSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::{IndexRevision, PublishedSegment};
     use crate::lifecycle_catalog::FileCatalog;
@@ -101,7 +101,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap()
         .retired(old_a_file)
         .unwrap();
-    let missing = crate::run::search_segmented(
+    let missing = crate::query_execution::runner::search_segmented(
         &repo,
         &query(
             "mentions",
@@ -156,7 +156,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         })]),
     ];
     let find = |request: Query| {
-        crate::run::search_segmented(
+        crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -433,7 +433,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         Arc::clone(&segments[1]),
     ];
     let retired = |request: Query| {
-        crate::run::search_segmented(
+        crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -510,7 +510,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     assert_eq!(retired_edge.unresolved_occurrence_count, 3);
     std::fs::remove_file(root.join("entries/new-a.json")).unwrap();
-    let unavailable_target = crate::run::search_segmented(
+    let unavailable_target = crate::query_execution::runner::search_segmented(
         &repo,
         &query(
             "mentions",
@@ -546,7 +546,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         },
         false,
     )];
-    let unavailable_sort = crate::run::search_segmented(
+    let unavailable_sort = crate::query_execution::runner::search_segmented(
         &repo,
         &unavailable_sort,
         &active,
@@ -638,7 +638,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
         ),
     ] {
         let expected = repo.search_reference(&request).unwrap();
-        let actual = crate::run::search_segmented(
+        let actual = crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -695,7 +695,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
             false,
         )];
         let expected = repo.search_reference(&request).unwrap();
-        let actual = crate::run::search_segmented(
+        let actual = crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
