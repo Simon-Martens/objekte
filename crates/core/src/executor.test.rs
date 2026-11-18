@@ -9,6 +9,16 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 #[test]
+fn exact_segment_bounds_share_one_membership_owner() {
+    let exact = SegmentCandidateBounds::exact([1, 3].into_iter().collect());
+    assert!(Arc::ptr_eq(&exact.may, &exact.must));
+
+    let candidate = SegmentCandidateBounds::candidate([1, 3].into_iter().collect());
+    assert!(!Arc::ptr_eq(&candidate.may, &candidate.must));
+    assert!(candidate.must.is_empty());
+}
+
+#[test]
 fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
