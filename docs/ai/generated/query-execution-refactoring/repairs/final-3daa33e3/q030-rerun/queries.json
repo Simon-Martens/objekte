@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Q030",
+    "collection": "entries",
+    "fts": "Taschenbuch",
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

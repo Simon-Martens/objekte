@@ -5,7 +5,7 @@ Task: `core-query-execution-repair`
 Reviewed repair tip: `20e17c5be0d1f6c227503d5681c2bf7c76ca2808`
 
 This record covers the repair work completed through commit
-`bf32a30e25`. The repair specification is **not complete**; pending R3/R5–R7
+`3daa33e381`. The repair specification is **not complete**; pending R3/R6–R7
 items are listed below rather than represented as passing.
 
 ## Completed evidence
@@ -40,6 +40,11 @@ items are listed below rather than represented as passing.
   scanning, relation planning/execution, ordered traversal, ranking,
   materialization, and delivery algorithms from the coordinator. The runner
   fell from 13,656 to 8,435 lines.
+- Commit `3daa33e381` gives combined file-path ranges one fused physical
+  observation containing both term IDs, records skipped and cache-hit states
+  in tests, reuses the ordinary lifecycle cache policy in ANALYZE, and moves
+  lifecycle cache replay into `query_results/cache.rs`. The coordinator is now
+  8,318 lines.
 
 ## Gate A observations
 
@@ -121,17 +126,47 @@ digests are recorded in the copied `result-digests.json` files.
 - R3: relation alternatives and remaining specialized traversal choices still
   need to be represented and applied through the same production catalog; the
   legacy path DTO remains as an EXPLAIN compatibility view.
-- R5: provider-backed skipped, cache-hit, relation and multi-domain
-  observations are now real, but fused FILTER/FTS physical-node identity is not
-  yet represented completely.
+- R5 observed states now include provider-backed executed-zero, skipped,
+  cache-hit, relation, multi-domain and fused file-path observations. The
+  remaining R5 question is whether any inferred combined FILTER/FTS branch
+  outside the file-path fusion needs a distinct physical node.
 - R6: native direct producers stamp the pinned revision without delivery
   copies, and provisional delivery moves winners instead of cloning them.
   Exact segment bounds still retain duplicate `may`/`must` owners, and cache
   evidence construction still needs the compact-reference pass.
 - R7: source scanning, segment scanning, relations, ordering, ranking,
   materialization and delivery have implementation owners and production
-  callers. Cache replay and remaining orchestration/copy sites still need
-  extraction from the 8,435-line coordinator.
+  callers; lifecycle cache replay now lives in `query_results/cache.rs`.
+  Remaining orchestration and copy sites still need extraction from the
+  8,318-line coordinator.
 - R8: the revised core validation and paired benchmark pass on
   `bf32a30e25`; it must be rerun after the remaining R3/R5–R7 corrections before
   the repair task can move to `done/`.
+
+## Latest validation through `3daa33e381`
+
+The full core suite passed again: 561 library tests, all core integration
+tests, and the doc test. A fresh paired benchmark measurement was taken after
+the fused/cache changes and copied to
+`docs/ai/generated/query-execution-refactoring/repairs/final-3daa33e3/`.
+
+| Case | Base ms | Latest ms | Ratio |
+| --- | ---: | ---: | ---: |
+| Q001 | 15.757 | 15.663 | 0.9940 |
+| Q007 | 364.666 | 345.371 | 0.9471 |
+| Q030 | 2.993 | 2.980 | 0.9957 |
+| Q035 | 0.053 | 0.058 | 1.1060 |
+| Q084 | 0.037 | 0.059 | 1.5913 |
+| Q127 | 0.068 | 0.073 | 1.0706 |
+| Q141 | 4.623 | 4.407 | 0.9532 |
+| Q150 | 2.701 | 2.755 | 1.0202 |
+| Q163 | 2.233 | 2.129 | 0.9534 |
+| Q164 | 7.129 | 6.415 | 0.8999 |
+| Q181 | 35.182 | 34.304 | 0.9750 |
+
+The first incremental `unicode-off` Q030 run measured a 5.376 ms median,
+crossing the investigation gate. An alternating focused rerun with ten
+repetitions measured a 3.227 ms median, compared with the recorded 3.431 ms
+baseline; the first run is attributed to the observed high variance (2.813 ms
+minimum, 6.308 ms maximum). The focused raw samples are preserved beside the
+full run.
