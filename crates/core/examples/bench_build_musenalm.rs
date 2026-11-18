@@ -5,8 +5,8 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::native_segment::SegmentPolicy;
+use objekte_search_core::repository::{Repository, RepositoryOptions};
 use objekte_search_core::workload::BigramAlphabet;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
@@ -94,16 +94,10 @@ fn run() -> Result<(), String> {
                 };
             }
             "--segment-records" => {
-                let value = arguments
-                    .next()
-                    .ok_or("--segment-records needs a value")?;
+                let value = arguments.next().ok_or("--segment-records needs a value")?;
                 segment_records = Some(
-                    NonZeroUsize::new(
-                        value
-                            .parse::<usize>()
-                            .map_err(|error| error.to_string())?,
-                    )
-                    .ok_or("segment-records must be positive")?,
+                    NonZeroUsize::new(value.parse::<usize>().map_err(|error| error.to_string())?)
+                        .ok_or("segment-records must be positive")?,
                 );
             }
             other => return Err(format!("unknown argument {other}")),
@@ -150,17 +144,20 @@ fn run() -> Result<(), String> {
         .iter()
         .map(|segment| segment.index_family_bytes)
         .sum::<usize>();
-    let segment_counts = segment_summaries
-        .iter()
-        .fold(std::collections::BTreeMap::new(), |mut counts, segment| {
-            let name = &repo.collections()[segment.collection.0 as usize].definition.name;
-            counts.entry(name.clone()).or_insert_with(Vec::new).push((
-                segment.id.get(),
-                segment.records,
-                segment.files,
-            ));
-            counts
-        });
+    let segment_counts =
+        segment_summaries
+            .iter()
+            .fold(std::collections::BTreeMap::new(), |mut counts, segment| {
+                let name = &repo.collections()[segment.collection.0 as usize]
+                    .definition
+                    .name;
+                counts.entry(name.clone()).or_insert_with(Vec::new).push((
+                    segment.id.get(),
+                    segment.records,
+                    segment.files,
+                ));
+                counts
+            });
     let resident_bytes = memory_bytes("VmRSS:");
     let peak_resident_bytes = memory_bytes("VmHWM:");
     let index_signature_sha256 = index_signature(&repo)?;

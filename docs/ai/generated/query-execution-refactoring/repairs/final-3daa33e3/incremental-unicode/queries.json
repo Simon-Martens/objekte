@@ -1,0 +1,56 @@
+[
+  {
+    "id": "Q030",
+    "collection": "entries",
+    "fts": "Taschenbuch",
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q141",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q163",
+    "collection": "entries",
+    "fts": "Almanach.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

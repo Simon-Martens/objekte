@@ -756,6 +756,29 @@ fn replacements_correct_late_better_sort_key_and_preserve_payloads() {
     assert_eq!(summary.count, Some(12));
     assert!(!snapshots.is_empty(), "the final page must be delivered");
     assert_eq!(snapshots.last().unwrap(), &expected.hits);
+
+    let peak = summary.progress.peak_buffered_bytes;
+    assert!(peak > 0);
+    for (limit, expect_success) in [(peak, true), (peak.saturating_sub(1), false)] {
+        let fixture = crate::streaming::tests::fixture();
+        let outcome = fixture.repo.search_stream(
+            &query,
+            StreamOptions {
+                mode: StreamMode::PageReplacements,
+                checkpoint_files: 1,
+                max_event_bytes: limit,
+                max_buffered_bytes: limit,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        );
+        if expect_success {
+            assert!(matches!(outcome, Ok(StreamOutcome::Complete(_))));
+        } else {
+            assert!(matches!(outcome, Err(StreamError::Resource { .. })));
+        }
+    }
 }
 
 #[test]

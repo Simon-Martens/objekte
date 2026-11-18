@@ -28,7 +28,6 @@ pub(crate) fn test_compile_count() -> usize {
     REGEX_COMPILES.with(std::cell::Cell::get)
 }
 
-
 /// Necessary record-level gram condition; every regex match satisfies it.
 #[derive(Clone, Debug)]
 pub(crate) enum RegexCondition {
@@ -36,7 +35,6 @@ pub(crate) enum RegexCondition {
     All(Vec<Self>),
     Any(Vec<Self>),
 }
-
 
 impl RegexCondition {
     fn retained_heap_bytes(&self) -> usize {
@@ -210,14 +208,12 @@ impl RegexCondition {
     }
 }
 
-
 /// A compiled Boolean matcher shared by the selected text representations.
 #[derive(Clone, Debug)]
 pub(crate) struct CompiledRegex {
     matcher: Arc<Regex>,
     condition: Option<RegexCondition>,
 }
-
 
 impl CompiledRegex {
     pub(crate) fn retained_local_heap_bytes(&self) -> usize {
@@ -281,7 +277,6 @@ impl CompiledRegex {
         self.condition.as_ref()
     }
 }
-
 
 #[cfg(test)]
 #[path = "regex_query.test.rs"]

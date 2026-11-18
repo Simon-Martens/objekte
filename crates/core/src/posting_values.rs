@@ -548,8 +548,8 @@ pub(crate) fn select_exact_segmented(
         let filter = prepared
             .collections
             .iter()
-            .find(|(index, _, _)| *index == collection_index)
-            .and_then(|(_, filter, _)| filter.as_ref());
+            .find(|entry| entry.collection_index == collection_index)
+            .and_then(|entry| entry.filter());
         let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
         let mut exact = true;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
@@ -561,13 +561,13 @@ pub(crate) fn select_exact_segmented(
                     state,
                     Some(catalog),
                 ) {
-                    Ok(bounds) if bounds.may == bounds.must => bounds.must,
+                    Ok(bounds) if bounds.may == bounds.must => bounds.must.as_ref().clone(),
                     Ok(bounds)
                         if filter_excludes_raw_fallback(filter)
-                            && (&bounds.may & &segment.index.logical_records)
-                                == (&bounds.must & &segment.index.logical_records) =>
+                            && (bounds.may.as_ref() & &segment.index.logical_records)
+                                == (bounds.must.as_ref() & &segment.index.logical_records) =>
                     {
-                        &bounds.must & &segment.index.logical_records
+                        bounds.must.as_ref() & &segment.index.logical_records
                     }
                     _ => {
                         exact = false;
@@ -643,9 +643,7 @@ fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
                     crate::query::Operator::Contains | crate::query::Operator::NotContains
                 )
         }
-        crate::reference::BoundExpr::And(parts) => {
-            parts.iter().all(filter_excludes_raw_fallback)
-        }
+        crate::reference::BoundExpr::And(parts) => parts.iter().all(filter_excludes_raw_fallback),
         crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
     }
 }

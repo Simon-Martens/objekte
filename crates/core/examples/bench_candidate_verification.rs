@@ -28,10 +28,8 @@ use objekte_search_core::workload::{ReturnMode, WorkloadCase};
 use serde_json::json;
 use sha2::{Digest, Sha256};
 
-
 /// Counts gross allocation work only during the separate instrumented pass.
 struct CountingAllocator;
-
 
 static COUNTING_ENABLED: AtomicBool = AtomicBool::new(false);
 static ALLOCATION_COUNT: AtomicU64 = AtomicU64::new(0);
@@ -39,7 +37,6 @@ static ALLOCATED_BYTES: AtomicU64 = AtomicU64::new(0);
 
 #[global_allocator]
 static ALLOCATOR: CountingAllocator = CountingAllocator;
-
 
 unsafe impl GlobalAlloc for CountingAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
@@ -74,7 +71,6 @@ unsafe impl GlobalAlloc for CountingAllocator {
     }
 }
 
-
 /// A fixed predicate and extraction shape shared by both benchmark levels.
 struct Case {
     id: &'static str,
@@ -83,7 +79,6 @@ struct Case {
     filter: Option<&'static str>,
     projection: ScanProjection,
 }
-
 
 impl Case {
     fn query(&self, limit: usize) -> Result<Query, String> {
@@ -108,7 +103,6 @@ impl Case {
         })
     }
 }
-
 
 fn cases() -> Vec<Case> {
     let fields = |names: &[&str]| Some(names.iter().map(|name| (*name).into()).collect());

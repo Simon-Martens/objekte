@@ -13,6 +13,11 @@ use crate::lifecycle::PublishedSegment;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::native_segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::query::Quantifier;
+use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
+use crate::query_access::membership::SlotInput;
+use crate::query_access::registry::ProviderCatalog;
+use crate::query_access::relations::NativeRelationProvider;
+use crate::query_plan::selection::choose_offer;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
     same_bound_term,
@@ -208,7 +213,7 @@ fn segment_target_candidates(
             Some(&repo.catalog),
         )?;
         advance_slots(work, execution, input.len())?;
-        for slot in (&bounds.may & domain & &input).iter() {
+        for slot in (bounds.may.as_ref() & domain & &input).iter() {
             let record = published
                 .index
                 .record(RecordSlot(slot))
@@ -336,11 +341,11 @@ fn segment_fts_estimate(
     Ok(Some((candidates, candidates as f64 * 0.02)))
 }
 
-fn estimate(
+pub(crate) fn planning_estimate_with_segments(
     repo: &Repository,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     term: &BoundTerm,
     input_len: u64,
-    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
 ) -> Result<(Strategy, AccessPathEstimate, Vec<AccessPathEstimate>), String> {
     let related = term.related.as_ref().ok_or("missing relation term")?;
     let terminal_index = related.hops.last().ok_or("missing hop")?.to.0 as usize;
@@ -414,7 +419,7 @@ pub(crate) fn planning_estimate(
     if eligible(repo, term).is_none() {
         return Err("relation term is not semijoin eligible".into());
     }
-    estimate(repo, term, input_len, &repo.segments)
+    planning_estimate_with_segments(repo, &repo.segments, term, input_len)
 }
 
 pub(crate) fn planning_fts_strategies(
@@ -776,7 +781,7 @@ fn qualified_expression_candidates(
             Some(view.catalog()),
         )?;
         advance_slots(work, execution, input.len())?;
-        for slot in (&bounds.may & &input).iter() {
+        for slot in (bounds.may.as_ref() & &input).iter() {
             candidates.insert(SegmentRecordAddress {
                 collection: target,
                 segment: segment.id,
@@ -1171,7 +1176,7 @@ pub(crate) fn candidates_with_strategy(
     candidates_with_strategy_with_execution(repo, &repo.segments, term, input, strategy, None)
 }
 
-fn candidates_with_strategy_with_execution(
+pub(crate) fn candidates_with_strategy_with_execution(
     repo: &Repository,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     term: &BoundTerm,
@@ -1373,6 +1378,7 @@ pub(crate) fn restrict(
     expr: &BoundExpr,
     input: &RoaringBitmap,
     plan: &mut Plan,
+    term_id: &mut dyn FnMut(&BoundTerm) -> crate::query_predicate::TermId,
     execution: Option<&ExecutionContext>,
 ) -> Result<(), String> {
     let mut terms = Vec::new();
@@ -1385,29 +1391,14 @@ pub(crate) fn restrict(
     }) else {
         return Ok(());
     };
-    let empty_active = (0..repo.collections.len())
-        .map(|_| crate::inventory::ActiveRecords::all(0))
-        .collect::<Result<Vec<_>, _>>()?;
-    let view = MergedRelationView::new(repo, &empty_active, segments, &repo.catalog)?;
+    let provider = NativeRelationProvider::new(repo, segments, source_collection)?;
+    let catalog =
+        ProviderCatalog::new(
+            [&provider as &dyn crate::query_access::contract::IndexAccessProvider],
+        );
+    let collection = &repo.collections[source_collection.0 as usize];
     let mut current = plan.candidates.take().unwrap_or_else(|| input.clone());
-    let mut native_input = SegmentRecordSet::default();
-    for slot in current.iter() {
-        match view.native_address_for_flat_slot(source_collection, RecordSlot(slot))? {
-            Some(address) => {
-                native_input.insert(address);
-            }
-            None if !repo.collections[source_collection.0 as usize]
-                .logical_records
-                .contains(slot) =>
-            {
-                continue;
-            }
-            None => {
-                plan.candidates = Some(current);
-                return restrict_flat(repo, segments, expr, input, plan, execution);
-            }
-        }
-    }
+    let mut offers = HashMap::<crate::query_predicate::TermId, _>::new();
     for term in terms {
         if let Some(execution) = execution {
             execution.check_string()?;
@@ -1415,91 +1406,55 @@ pub(crate) fn restrict(
         if eligible(repo, term).is_none() || current.is_empty() {
             continue;
         }
-        let (strategy, selected, alternatives) =
-            estimate(repo, term, native_input.len(), segments)?;
+        let id = term_id(term);
+        if !offers.contains_key(&id) {
+            let proposed = catalog
+                .propose(
+                    id,
+                    AccessRequest::Structured(term),
+                    InputEstimate {
+                        domain: provider.domain(),
+                        domain_len: collection.stats.record_count as u64,
+                        input_len: current.len() as u64,
+                        mean_record_bytes: collection.stats.mean_record_bytes(),
+                        mean_records_per_file: collection.stats.mean_records_per_file(),
+                        file_count: collection.stats.file_count as u64,
+                    },
+                )
+                .map_err(|error| error.to_string())?;
+            offers.insert(id, proposed);
+        }
+        let selected_offer = choose_offer(
+            id,
+            offers.get(&id).expect("relation offers disappeared"),
+            current.len() as u64,
+        )
+        .map_err(|error| error.to_string())?
+        .cloned()
+        .ok_or("relation provider returned no executable offer")?;
         let before = current.clone();
         let actual_input = before.len();
-        let (native_matches, work) =
-            qualified_candidates_with_strategy(&view, term, &native_input, strategy, execution)?;
-        let mut matches = RoaringBitmap::new();
-        for address in native_matches.iter() {
-            let Some(record) = view.record(view.view_address(address)?)? else {
-                continue;
-            };
-            let Some(slot) = repo.collections[address.collection.0 as usize]
-                .id_lookup
-                .get(&record.record.id)
-            else {
-                continue;
-            };
-            matches.insert(slot.0);
-        }
-        current &= &matches;
-        native_input.intersect(&native_matches);
+        let restriction = catalog
+            .apply(
+                id,
+                AccessRequest::Structured(term),
+                selected_offer.id(),
+                SlotInput::unrestricted(provider.domain(), &current),
+                &AccessExecution { context: execution },
+            )
+            .map_err(|error| error.to_string())?;
+        current = restriction.possible.into_owned_members();
+        let work = provider.take_work();
         plan.semijoin_work.add(work);
         plan.proofs.push(Proof {
             term: term.clone(),
             input: before,
             matches: current.clone(),
         });
-        if let Some(choice) = plan
-            .choices
-            .iter_mut()
-            .find(|choice| choice.span == term.span && choice.field == term.query_path.display)
-        {
-            choice.selected = selected;
-            choice.alternatives = alternatives;
-            choice.actual_input = actual_input;
-            choice.actual_output = Some(current.len());
-            choice.reason = format!(
-                "exact positive relation witness through {} forward hop(s); {} target candidates, {} target reads, {} reverse postings",
-                term.related.as_ref().unwrap().hops.len(),
-                work.target_candidates,
-                work.target_reads,
-                work.reverse_postings_visited,
-            );
-            choice.residual_verification = false;
-        }
-    }
-    if current.is_empty() || all_terms_proven(expr, &plan.proofs, &current) {
-        plan.exact = true;
-        plan.proven_hits = current.clone();
-    }
-    plan.candidates = Some(current);
-    Ok(())
-}
-
-fn restrict_flat(
-    repo: &Repository,
-    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    expr: &BoundExpr,
-    input: &RoaringBitmap,
-    plan: &mut Plan,
-    execution: Option<&ExecutionContext>,
-) -> Result<(), String> {
-    let mut terms = Vec::new();
-    positive_terms(expr, &mut terms);
-    let mut current = plan.candidates.take().unwrap_or_else(|| input.clone());
-    for term in terms {
-        if let Some(execution) = execution {
-            execution.check_string()?;
-        }
-        if eligible(repo, term).is_none() || current.is_empty() {
-            continue;
-        }
-        let (strategy, selected, alternatives) = estimate(repo, term, current.len(), segments)?;
-        let before = current.clone();
-        let actual_input = before.len();
-        let (matches, work) = candidates_with_strategy_with_execution(
-            repo, segments, term, &current, strategy, execution,
-        )?;
-        current &= matches;
-        plan.semijoin_work.add(work);
-        plan.proofs.push(Proof {
-            term: term.clone(),
-            input: before,
-            matches: current.clone(),
-        });
+        let selected = provider
+            .path_for(selected_offer.id())
+            .ok_or("relation provider lost its selected path")?;
+        let alternatives = provider.alternatives_for(selected_offer.id(), id);
         if let Some(choice) = plan
             .choices
             .iter_mut()

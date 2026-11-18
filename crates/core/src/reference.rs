@@ -2409,6 +2409,10 @@ pub(crate) fn contains_pattern(text: &str, pattern: &str) -> bool {
 }
 
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
+    #[cfg(test)]
+    if let Some(result) = crate::query_predicate::alternate_term_result(term, ctx) {
+        return result;
+    }
     if let Some(rhs) = &term.rhs {
         return eval_field_term(term, rhs, ctx);
     }

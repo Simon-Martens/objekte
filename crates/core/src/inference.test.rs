@@ -2411,7 +2411,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
                     && term.selected.exact
                     && !term.residual_verification
             }),
-            "{filter}"
+            "{filter}: {trace:?}"
         );
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -2531,12 +2531,13 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
         assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
         assert_eq!(result.count, Some(expected.len()), "{filter}");
         assert_eq!(result.counters.record_parses, 0, "{filter}");
+        let plan = repo.explain(&request).unwrap();
         assert!(
-            repo.explain(&request).unwrap()[0]
+            plan[0]
                 .terms
                 .iter()
                 .all(|term| term.selected.kind == AccessPathKind::Posting && term.selected.exact),
-            "{filter}"
+            "{filter}: {plan:?}"
         );
     }
     std::fs::remove_dir_all(root).unwrap();

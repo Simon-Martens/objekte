@@ -538,6 +538,9 @@ impl PublishedIndex {
         revision: IndexRevision,
         mut repository: Repository,
     ) -> Result<Self, IndexError> {
+        for collection in &mut repository.collections {
+            collection.repository_instance = instance_id;
+        }
         let active = std::mem::take(&mut repository.active);
         let segments = std::mem::take(&mut repository.segments);
         Self::from_repository_parts(
@@ -2852,11 +2855,12 @@ impl IndexView {
             return Err("pagination waits for initial index construction".into());
         }
         let prepared = crate::prepared::prepare(self.repository(), query)?;
-        if prepared.collections.iter().any(|(_, filter, fts)| {
-            filter
-                .as_ref()
+        if prepared.collections.iter().any(|entry| {
+            entry
+                .filter()
                 .is_some_and(crate::run::bound_expr_has_relations)
-                || fts
+                || entry
+                    .fts()
                     .as_ref()
                     .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
         }) {
@@ -3740,12 +3744,13 @@ impl IndexView {
                     rows,
                     progress,
                 } => {
-                    if rows
-                        .iter()
-                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
-                    {
+                    if rows.iter().any(|hit| {
+                        hit.diagnostic_ref.stored_index().is_some()
+                            || hit.generation != self.revision().0
+                    }) {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
+                            hit.generation = self.revision().0;
                             self.remap_hit_diagnostic(hit);
                         }
                         sink(StreamEvent::OrderedRows {
@@ -3768,12 +3773,13 @@ impl IndexView {
                     rows,
                     progress,
                 } => {
-                    if rows
-                        .iter()
-                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
-                    {
+                    if rows.iter().any(|hit| {
+                        hit.diagnostic_ref.stored_index().is_some()
+                            || hit.generation != self.revision().0
+                    }) {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
+                            hit.generation = self.revision().0;
                             self.remap_hit_diagnostic(hit);
                         }
                         sink(StreamEvent::PageReplacement {

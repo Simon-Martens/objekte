@@ -13,7 +13,6 @@ use objekte_search_core::source::SourceFormat;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-
 #[derive(Serialize)]
 pub struct LoadedSchema {
     pub collection: String,
@@ -23,13 +22,11 @@ pub struct LoadedSchema {
     pub adapter: Option<String>,
 }
 
-
 #[derive(Clone, Copy, Eq, PartialEq)]
 enum SchemaMode {
     Historical,
     ExtendedRelations,
 }
-
 
 /// Mutable state shared while registering one collection's schema fields.
 struct SchemaRegistration<'a> {
@@ -39,7 +36,6 @@ struct SchemaRegistration<'a> {
     source_collection: &'a str,
     relations: &'a mut Vec<RelationDefinition>,
 }
-
 
 /// The documents returned here are the exact parsed documents used to create
 /// the benchmark's in-memory definitions, independent of later checkout edits.
@@ -189,7 +185,6 @@ pub fn schema_manifest(schemas: &[LoadedSchema]) -> Result<serde_json::Value, St
         #[serde(skip_serializing_if = "Option::is_none")]
         adapter: Option<&'a str>,
     }
-
 
     fn sorted_objects(value: &serde_json::Value) -> serde_json::Value {
         match value {

@@ -1,0 +1,20 @@
+# started on Wed Nov 18 18:57:32 2026
+
+
+ Performance counter stats for './target/release/examples/bench_musenalm --root /home/simon/source/objekte/examples/musenalm --extended --incremental --cases Q141 --profiles unicode-off --query-workers 4 --repetitions 100 --result-dir /tmp/objekte-query-repair-final-f0df3ba6/q141-perf-base':
+
+       28495263591      cpu_atom/cycles/u                                                       (53.60%)
+       46172282149      cpu_core/cycles/u                                                       (58.36%)
+       57546561295      cpu_atom/instructions/u                                                 (53.60%)
+       97964136770      cpu_core/instructions/u                                                 (58.36%)
+          30778236      cpu_atom/cache-misses/u                                                 (53.60%)
+          95711681      cpu_core/cache-misses/u                                                 (58.36%)
+        8378389636      cpu_atom/branches/u                                                     (53.60%)
+       16107630970      cpu_core/branches/u                                                     (58.36%)
+         124476150      cpu_atom/branch-misses/u                                                (53.60%)
+         256457134      cpu_core/branch-misses/u                                                (58.36%)
+
+       1.409815065 seconds time elapsed
+
+       8.994927000 seconds user
+       2.201247000 seconds sys

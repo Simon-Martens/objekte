@@ -9,6 +9,16 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 #[test]
+fn exact_segment_bounds_share_one_membership_owner() {
+    let exact = SegmentCandidateBounds::exact([1, 3].into_iter().collect());
+    assert!(Arc::ptr_eq(&exact.may, &exact.must));
+
+    let candidate = SegmentCandidateBounds::candidate([1, 3].into_iter().collect());
+    assert!(!Arc::ptr_eq(&candidate.may, &candidate.must));
+    assert!(candidate.must.is_empty());
+}
+
+#[test]
 fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
@@ -1567,6 +1577,228 @@ fn plan_expr(
     domain: &RoaringBitmap,
 ) -> Result<Plan, String> {
     plan_expr_restricted(repo, collection, &repo.segments, expr, domain, domain, true)
+}
+
+#[test]
+fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
+    use crate::query_access::contract::{
+        AccessExecution, AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
+    };
+    use crate::query_access::native::NativeCollectionProvider;
+    use crate::query_plan::selection::choose_offer;
+    use crate::query_predicate::TermId;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-native-provider-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (path, kind) in [
+        ("one", "other-value-that-is-also-long"),
+        ("two", "wanted-value-that-is-definitely-long"),
+        ("three", "other-value-that-is-also-long"),
+        ("four", "wanted-value-that-is-definitely-long"),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{path}.json")),
+            format!(r#"{{"kind":"{kind}"}}"#),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions {
+            inference,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let collection = &repo.collections()[0];
+    let expr = crate::reference::bind_filter(
+        &parse_filter("@record.id = 'two'").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
+    let BoundExpr::Term(term) = &expr else {
+        panic!("expected scalar term");
+    };
+    let domain = (0..collection.generation.records.len() as u32).collect::<RoaringBitmap>();
+    let planned = plan_expr(&repo, collection, &expr, &domain).unwrap();
+    assert!(
+        planned
+            .choices
+            .iter()
+            .any(|choice| choice.selected.kind != AccessPathKind::Scanner),
+        "existing planner choices: {:?}; declared={:?}; observed={:?}",
+        planned.choices,
+        collection.postings.fields.keys().collect::<Vec<_>>(),
+        collection
+            .inference
+            .as_ref()
+            .map(|state| state.indexes.keys().collect::<Vec<_>>())
+    );
+    let provider = NativeCollectionProvider::new(&repo, collection, domain.len() as u64, None);
+    let mut offers = OfferList::new();
+    provider
+        .propose(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            InputEstimate {
+                domain: provider.domain(),
+                domain_len: domain.len() as u64,
+                input_len: domain.len() as u64,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: collection.stats.file_count as u64,
+            },
+            &mut offers,
+        )
+        .unwrap();
+    let chosen = choose_offer(TermId::new(7), &offers, domain.len() as u64)
+        .unwrap()
+        .unwrap()
+        .clone();
+    let chosen_path = provider.path_for(chosen.id()).unwrap();
+    let applied = provider
+        .apply(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            chosen.id(),
+            provider.input_for(&domain),
+            &AccessExecution { context: None },
+        )
+        .unwrap();
+    assert_eq!(applied.domain(), provider.domain());
+    assert_eq!(
+        applied.len(),
+        1,
+        "offers={offers:?}, chosen={chosen_path:?}"
+    );
+    let expected_slots = collection
+        .generation
+        .records
+        .iter()
+        .filter(|record| record.id.0.as_ref() == "two")
+        .map(|record| record.slot.0)
+        .collect::<Vec<_>>();
+    assert!(expected_slots.iter().all(|slot| applied.contains(*slot)));
+
+    let chosen_a = chosen.id();
+    let limited = std::iter::once(expected_slots[0]).collect::<RoaringBitmap>();
+    let limited_result = provider
+        .apply(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            chosen_a,
+            provider.input_for(&limited),
+            &AccessExecution { context: None },
+        )
+        .unwrap();
+    assert_eq!(
+        limited_result.iter().collect::<Vec<_>>(),
+        [expected_slots[0]]
+    );
+
+    let term_b = crate::reference::bind_filter(
+        &parse_filter("@record.id = 'four'").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
+    let BoundExpr::Term(term_b) = &term_b else {
+        panic!("expected second scalar term");
+    };
+    let mut offers_b = OfferList::new();
+    provider
+        .propose(
+            TermId::new(8),
+            AccessRequest::Structured(term_b),
+            InputEstimate {
+                domain: provider.domain(),
+                domain_len: domain.len() as u64,
+                input_len: domain.len() as u64,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: collection.stats.file_count as u64,
+            },
+            &mut offers_b,
+        )
+        .unwrap();
+    let replay_a = provider
+        .apply(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            chosen_a,
+            provider.input_for(&limited),
+            &AccessExecution { context: None },
+        )
+        .unwrap();
+    assert_eq!(replay_a.iter().collect::<Vec<_>>(), [expected_slots[0]]);
+    assert!(matches!(
+        provider.apply(
+            TermId::new(8),
+            AccessRequest::Structured(term),
+            chosen_a,
+            provider.input_for(&limited),
+            &AccessExecution { context: None },
+        ),
+        Err(crate::query_access::contract::AccessError::StaleHandle)
+    ));
+
+    let different_domain = crate::query_access::membership::DomainId::from_parts(
+        repo.instance_id.wrapping_add(1),
+        collection.generation.collection.0,
+        collection.generation.generation,
+        None,
+    );
+    let before_empty = provider.counter_snapshot().1;
+    let empty = RoaringBitmap::new();
+    let empty_result = provider
+        .apply(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            chosen_a,
+            provider.input_for(&empty),
+            &AccessExecution { context: None },
+        )
+        .unwrap();
+    assert!(empty_result.is_empty());
+    assert_eq!(provider.counter_snapshot().1, before_empty);
+    assert!(matches!(
+        provider.apply(
+            TermId::new(7),
+            AccessRequest::Structured(term),
+            chosen_a,
+            crate::query_access::membership::SlotInput::unrestricted(different_domain, &domain,),
+            &AccessExecution { context: None },
+        ),
+        Err(crate::query_access::contract::AccessError::DomainMismatch)
+    ));
+    assert_eq!(provider.counter_snapshot().0, 2);
+    assert_eq!(provider.counter_snapshot().1, 3);
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

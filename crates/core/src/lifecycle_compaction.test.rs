@@ -48,16 +48,37 @@ fn compacting_native_segments_preserves_text_postings() {
     std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions::default(),
-    ).unwrap();
+    )
+    .unwrap();
     let pinned = index.view().unwrap();
-    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
-    index.delete_file(pinned.file_handle_for_path(&remove).unwrap()).unwrap();
+    assert_eq!(
+        pinned.search(&literal("bravo needle")).unwrap().count,
+        Some(1)
+    );
+    index
+        .delete_file(pinned.file_handle_for_path(&remove).unwrap())
+        .unwrap();
     std::fs::remove_file(&remove).unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
-    assert_eq!(index.view().unwrap().search(&literal("bravo needle")).unwrap().count, Some(1));
-    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .search(&literal("bravo needle"))
+            .unwrap()
+            .count,
+        Some(1)
+    );
+    assert_eq!(
+        pinned.search(&literal("bravo needle")).unwrap().count,
+        Some(1)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -75,9 +96,14 @@ fn compaction_reuses_unaffected_native_segment() {
     std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions::default(),
-    ).unwrap();
+    )
+    .unwrap();
     let removed = root.join("data/removed.json");
     let kept = root.join("data/kept.json");
     std::fs::write(&removed, br#"{"name":"removed"}"#).unwrap();
@@ -89,15 +115,33 @@ fn compaction_reuses_unaffected_native_segment() {
     let unchanged_accounting = unchanged.index.accounting;
     assert!(unchanged_accounting.retained_bytes_estimated > 0);
     assert!(unchanged_accounting.source_bytes_estimated > 0);
-    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
-    index.delete_file(pinned.file_handle_for_path(&removed).unwrap()).unwrap();
+    assert_eq!(
+        pinned.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
+    index
+        .delete_file(pinned.file_handle_for_path(&removed).unwrap())
+        .unwrap();
     std::fs::remove_file(&removed).unwrap();
     index.compact().unwrap();
     let current = index.view().unwrap();
-    assert!(current.0.segments[0].iter().any(|segment| Arc::ptr_eq(segment, &unchanged)));
-    assert_eq!(unchanged.index.accounting.retained_bytes_estimated, unchanged_accounting.retained_bytes_estimated);
-    assert_eq!(current.search(&literal("kept needle")).unwrap().count, Some(1));
-    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
+    assert!(
+        current.0.segments[0]
+            .iter()
+            .any(|segment| Arc::ptr_eq(segment, &unchanged))
+    );
+    assert_eq!(
+        unchanged.index.accounting.retained_bytes_estimated,
+        unchanged_accounting.retained_bytes_estimated
+    );
+    assert_eq!(
+        current.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
+    assert_eq!(
+        pinned.search(&literal("kept needle")).unwrap().count,
+        Some(1)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -115,9 +159,14 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
     let index = Index::build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions::default(),
-    ).unwrap();
+    )
+    .unwrap();
     for number in 0..2 {
         let path = root.join(format!("data/remove-{number}.json"));
         std::fs::write(&path, br#"{"name":"remove"}"#).unwrap();
@@ -133,14 +182,14 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
         temporary_bytes: u64::MAX,
         elapsed: Duration::from_secs(60),
     };
-    let (first, work) = compact_published_with_budget(
-        &old.0, old.revision().next().unwrap(), || false, budget,
-    ).unwrap();
+    let (first, work) =
+        compact_published_with_budget(&old.0, old.revision().next().unwrap(), || false, budget)
+            .unwrap();
     assert_eq!(work.records, 1);
     assert_eq!(slot_count(&first), 2);
-    let (second, work) = compact_published_with_budget(
-        &first, first.revision.next().unwrap(), || false, budget,
-    ).unwrap();
+    let (second, work) =
+        compact_published_with_budget(&first, first.revision.next().unwrap(), || false, budget)
+            .unwrap();
     assert_eq!(work.records, 1);
     assert_eq!(slot_count(&second), 1);
     assert_eq!(old.search(&all()).unwrap().count, Some(1));

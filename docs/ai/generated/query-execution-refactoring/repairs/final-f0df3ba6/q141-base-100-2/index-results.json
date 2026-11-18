@@ -1,0 +1,254 @@
+[
+  {
+    "alphabet": "unicode",
+    "build_mode": "hybrid",
+    "build_ns": 827910822,
+    "build_parses": 148486,
+    "discovery_ns": 207228659,
+    "estimated_index_bytes": 115418166,
+    "first_batch_ns": 512255879,
+    "inventory_heap_bytes": 40275632,
+    "open_ns": 827910822,
+    "peak_resident_bytes": 710471680,
+    "resident_bytes": 668041216,
+    "searchable_batches": 15,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          9,
+          {
+            "custom_text_bytes": 403038,
+            "fallback_bytes": 0,
+            "postings_bytes": 1545860,
+            "raw_bytes": 7738926,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 567016,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1290288,
+            "raw_bytes": 8784432,
+            "sorting_bytes": 1228795
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1290736,
+            "raw_bytes": 8800750,
+            "sorting_bytes": 1229939
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1289662,
+            "raw_bytes": 8795602,
+            "sorting_bytes": 1243747
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1290396,
+            "raw_bytes": 8787984,
+            "sorting_bytes": 1232465
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1289288,
+            "raw_bytes": 8802702,
+            "sorting_bytes": 1240879
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1289590,
+            "raw_bytes": 8785650,
+            "sorting_bytes": 1238886
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1289760,
+            "raw_bytes": 8799570,
+            "sorting_bytes": 1233563
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1290644,
+            "raw_bytes": 8776400,
+            "sorting_bytes": 1234319
+          }
+        ],
+        [
+          10,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 542506,
+            "raw_bytes": 2465836,
+            "sorting_bytes": 215907
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 43520,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          11,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 1408598,
+            "raw_bytes": 6211896,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          12,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 283106,
+            "raw_bytes": 2027956,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          13,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 704,
+            "raw_bytes": 32004,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          14,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 13824,
+            "raw_bytes": 73272,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 90488,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          15,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 196380,
+            "raw_bytes": 1175336,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 193297230,
+    "source_reads": 148486
+  }
+]
