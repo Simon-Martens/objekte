@@ -82,13 +82,9 @@ use crate::streaming::{
     StreamSummary,
 };
 
-#[path = "../query_results/ordered.rs"]
 mod ordered;
-#[path = "relations.rs"]
 mod relations;
-#[path = "segment_scan.rs"]
 mod segment_scan;
-#[path = "source_scan.rs"]
 mod source_scan;
 #[cfg(test)]
 use ordered::cached_inferred_order;
@@ -6704,5 +6700,5 @@ fn search_impl_with_collector<'a>(
 }
 
 #[cfg(test)]
-#[path = "../run.test.rs"]
+#[path = "tests.rs"]
 mod tests;
