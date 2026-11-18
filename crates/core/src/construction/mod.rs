@@ -10,5 +10,4 @@ pub(crate) mod segment_admission;
 pub(crate) mod segment_jobs;
 
 #[cfg(test)]
-#[path = "../build.test.rs"]
 mod tests;
