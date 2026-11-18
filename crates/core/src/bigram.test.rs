@@ -215,6 +215,26 @@ fn independent_index(records: &[Vec<String>], alphabet: BigramAlphabet, base: u3
 }
 
 #[test]
+fn prepared_gram_candidates_apply_input_before_narrowing() {
+    let index = independent_index(
+        &[
+            vec!["rare".into()],
+            vec!["plain".into()],
+            vec!["rare item".into()],
+            vec!["ra ar re rxr axe".into()],
+        ],
+        BigramAlphabet::Ascii,
+        0,
+    );
+    let input: RoaringBitmap = [0, 2, 3].into_iter().collect();
+    let candidates = index
+        .candidates_prepared_restricted(&BigramRequest::new("rare"), Some(&input))
+        .unwrap();
+    assert!(candidates.is_subset(&input));
+    assert_eq!(candidates, RoaringBitmap::from_iter([0, 2, 3]));
+}
+
+#[test]
 fn chunked_builder_matches_independent_complete_posting_maps() {
     let patterns = [
         "ab",

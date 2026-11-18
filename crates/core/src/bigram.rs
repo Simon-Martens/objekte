@@ -374,6 +374,14 @@ impl BigramIndex {
     }
 
     pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
+        self.candidates_prepared_restricted(request, None)
+    }
+
+    pub(crate) fn candidates_prepared_restricted(
+        &self,
+        request: &BigramRequest,
+        input: Option<&RoaringBitmap>,
+    ) -> Option<RoaringBitmap> {
         let grams = request.grams(self.alphabet);
         if grams.is_empty() {
             return None;
@@ -391,7 +399,10 @@ impl BigramIndex {
             columns.push(column);
         }
         columns.sort_by_key(|column| column.len());
-        let mut result = (*columns.first()?).clone();
+        let mut result = match input {
+            Some(input) => *columns.first()? & input,
+            None => (*columns.first()?).clone(),
+        };
         for column in columns.into_iter().skip(1) {
             result &= column;
             if result.is_empty() {

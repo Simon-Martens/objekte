@@ -16,8 +16,8 @@ use crate::executor::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
     fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
-    segment_filter_estimate, segment_filter_estimate_with_term, segment_fts_bounds_with_term,
-    segment_fts_candidates, segment_fts_estimate_with_term,
+    segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
+    segment_fts_estimate_with_term,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
@@ -54,9 +54,8 @@ use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{
     MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
-    rank_key, rank_key_bytes, rank_key_from_context, rank_key_without_source,
-    relation_rank_key_merged, segment_compare_to_rank, segment_rank_key, winner_bytes,
-    would_enter_page,
+    rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
+    segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
 };
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
@@ -1855,6 +1854,9 @@ fn search_segmented_impl(
     {
         return Ok(result);
     }
+    if let Some(collector) = context.and_then(|context| context.observation_collector()) {
+        collector.set_phase("search");
+    }
     if has_relations || related_sort {
         let mut relation_cache = cache_key.as_ref().and_then(|(_, _, budget)| {
             (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
@@ -2078,8 +2080,11 @@ fn search_segmented_impl(
             let mut candidates = bounds
                 .as_ref()
                 .map_or(filter_input, |bounds| Arc::clone(&bounds.may));
-            if filter.as_ref().is_some_and(excludes_raw_fallback) {
-                *Arc::make_mut(&mut candidates) &= &segment.logical_records;
+            if filter.as_ref().is_some_and(excludes_raw_fallback)
+                && segment.logical_records.len() != segment.record_count() as u64
+                && !candidates.is_subset(&segment.logical_records)
+            {
+                candidates = Arc::new(candidates.as_ref() & &segment.logical_records);
             }
             let fts_bounds = if text_first {
                 text_first_bounds
@@ -2101,7 +2106,7 @@ fn search_segmented_impl(
             if let Some(fts_may) = fts_bounds.as_ref()
                 && !text_first
             {
-                *Arc::make_mut(&mut candidates) &= fts_may.may.as_ref();
+                candidates = Arc::clone(&fts_may.may);
             }
             counters.candidates += candidates.len();
             let metadata_evidence = if filter.is_none()
@@ -3496,12 +3501,16 @@ fn try_lifecycle_ordered_stream(
                 .as_ref()
                 .zip(entry.text_term)
                 .map(|(fts, term)| {
+                    let active = segment.active.bitmap();
+                    let input = filter_may
+                        .as_ref()
+                        .map_or(&active, |filter| filter.as_ref());
                     segment_fts_bounds_with_term(
                         &segment.index,
                         collection,
                         fts,
                         term,
-                        &segment.active.bitmap(),
+                        input,
                         Some(context),
                     )
                     .map(|bounds| bounds.may.as_ref().clone())
