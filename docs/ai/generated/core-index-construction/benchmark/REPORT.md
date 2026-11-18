@@ -2,6 +2,8 @@
 
 - Task: `core-index-construction`
 - Base: `407410cbc28ae2a2c6fa89ba0e6af2458157c472`
+- Tested code: `1c44c86bbf`
+- Evidence commit: `bc045102f6`
 - Corpus: `/home/simon/source/objekte/examples/musenalm`
 - Alphabet: ASCII
 - Build workers: 32
