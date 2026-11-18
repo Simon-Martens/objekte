@@ -1,11 +1,14 @@
 use super::*;
 use crate::bigram::BigramIndex;
-use crate::model::{FieldPath, LogicalType};
+use crate::inventory::{ByteRange, SourceRevision};
+use crate::model::{FieldPath, LogicalType, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
-use crate::repository::RepositoryOptions;
-use crate::source::{SourceFormat, TextSegment};
+use crate::repository::{IdentityPolicy, RepositoryOptions};
+use crate::source::{ExtractedRecord, SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
+use sha2::Sha256;
+use std::num::NonZeroUsize;
 use std::time::Instant;
 
 /// Diagnostic prototype for a direct batch-to-shard fresh build. This only

@@ -1,6 +1,7 @@
 use super::*;
 use crate::inference::{InferenceMode, InferencePolicy};
-use crate::model::{LogicalType, Number};
+use crate::inventory::SourceRevision;
+use crate::model::{FieldPath, LogicalType, Number};
 use crate::posting::ScalarKey;
 use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
