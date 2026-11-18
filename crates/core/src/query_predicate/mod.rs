@@ -428,3 +428,37 @@ fn alternate_term_result(
         _ => false,
     }))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn bound_term(field: &str) -> BoundTerm {
+        let filter = crate::query::parse_filter(&format!("{field} = 'value'")).unwrap();
+        let BoundExpr::Term(term) =
+            crate::reference::bind_filter(&filter, &crate::reference::Schema::default()).unwrap()
+        else {
+            unreachable!()
+        };
+        term
+    }
+
+    #[test]
+    fn same_source_span_keeps_field_occurrences_distinct() {
+        let mut left = bound_term("left");
+        let mut right = bound_term("right");
+        left.span = (4, 17);
+        right.span = (4, 17);
+        let expr = BoundExpr::And(vec![BoundExpr::Term(left), BoundExpr::Term(right)]);
+        let mut leaves = Vec::new();
+        PredicateBuilder::new(0).prepare(0, Some(&expr), None, &mut leaves);
+        let predicates = PreparedPredicates::new(leaves);
+        let left = predicates
+            .term_for_occurrence(0, (4, 17), "left")
+            .expect("left occurrence");
+        let right = predicates
+            .term_for_occurrence(0, (4, 17), "right")
+            .expect("right occurrence");
+        assert_ne!(left, right);
+    }
+}
