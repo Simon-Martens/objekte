@@ -27,6 +27,7 @@ use crate::materialization::{payload_from_bytes, payload_from_bytes_with_executi
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::posting::PostingIndex;
+use crate::prepared::PreparedCollectionQuery;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
@@ -3171,10 +3172,6 @@ fn search_segmented_with_context_lifecycle_budget(
     retained_budget: Option<usize>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
-    crate::sort_binding::BoundSort::bind(repo, query)
-        .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
-    crate::prepared::prepare(repo, query)
-        .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
     let result = search_segmented_impl(
         repo,
         query,
@@ -3987,7 +3984,7 @@ fn try_exact_segment_ordered_page(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
-    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prepared: &[PreparedCollectionQuery],
     counters: &WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
@@ -4004,22 +4001,24 @@ fn try_exact_segment_ordered_page(
     {
         return Ok(None);
     }
-    let (collection_index, filter, fts) = &prepared[0];
+    let entry = &prepared[0];
+    let collection_index = entry.collection_index;
+    let filter = entry.filter.as_ref();
+    let fts = entry.fts.as_ref();
     if fts.is_some() {
         return Ok(None);
     }
-    let collection = &repo.collections[*collection_index];
-    if segments[*collection_index].len() > 4096 {
+    let collection = &repo.collections[collection_index];
+    if segments[collection_index].len() > 4096 {
         return Ok(None);
     }
-    let mut selected = Vec::with_capacity(segments[*collection_index].len());
+    let mut selected = Vec::with_capacity(segments[collection_index].len());
     let mut counters = counters.clone();
-    for published in segments[*collection_index].iter() {
-        if lifecycle_segment_order(&published.index, sort, query, *collection_index).is_none() {
+    for published in segments[collection_index].iter() {
+        if lifecycle_segment_order(&published.index, sort, query, collection_index).is_none() {
             return Ok(None);
         }
         let bounds = filter
-            .as_ref()
             .map(|filter| {
                 segment_filter_bounds_with_catalog(
                     &published.index,
@@ -4033,7 +4032,7 @@ fn try_exact_segment_ordered_page(
         let candidates = match bounds.as_ref() {
             Some(bounds) if bounds.may == bounds.must => bounds.may.clone(),
             Some(bounds)
-                if filter.as_ref().is_some_and(excludes_raw_fallback)
+                if filter.is_some_and(excludes_raw_fallback)
                     && (&bounds.may & &published.index.logical_records)
                         == (&bounds.must & &published.index.logical_records) =>
             {
@@ -4067,7 +4066,7 @@ fn try_exact_segment_ordered_page(
         segments,
         catalog,
         revision,
-        *collection_index,
+        collection_index,
         &selected,
         counters,
     )
@@ -4201,24 +4200,27 @@ fn try_lifecycle_ordered_page(
     if prepared
         .collections
         .iter()
-        .any(|(_, filter, _)| filter.is_none())
+        .any(|entry| entry.filter.is_none())
     {
         return Ok(None);
     }
     let single_collection = prepared.collections.len() == 1;
     let mut all_exact = true;
-    for (collection_index, filter, fts) in &prepared.collections {
+    for entry in &prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter.as_ref();
+        let fts = entry.fts.as_ref();
         if fts.is_some() {
             all_exact = false;
             continue;
         }
-        let filter = filter.as_ref().ok_or("ordered filter missing")?;
-        for segment in segments[*collection_index].iter() {
+        let filter = filter.ok_or("ordered filter missing")?;
+        for segment in segments[collection_index].iter() {
             let bounds = segment_filter_bounds_with_catalog(
                 &segment.index,
                 &segment.active,
                 filter,
-                &repo.collections[*collection_index],
+                &repo.collections[collection_index],
                 Some(catalog),
             )?;
             let logical = &segment.active.bitmap() & &segment.index.logical_records;
@@ -4321,19 +4323,14 @@ fn try_lifecycle_ordered_page(
         count = None;
         counters.match_count_complete = false;
     }
-    let exact_or_members =
-        prepared
-            .collections
-            .iter()
-            .try_fold(0u64, |total, (collection_index, filter, _)| {
-                filter
-                    .as_ref()
-                    .map(|filter| {
-                        exact_or_branch_members(repo, segments, *collection_index, filter)
-                    })
-                    .transpose()
-                    .map(|members| total.saturating_add(members.unwrap_or(0)))
-            })?;
+    let exact_or_members = prepared.collections.iter().try_fold(0u64, |total, entry| {
+        entry
+            .filter
+            .as_ref()
+            .map(|filter| exact_or_branch_members(repo, segments, entry.collection_index, filter))
+            .transpose()
+            .map(|members| total.saturating_add(members.unwrap_or(0)))
+    })?;
     counters.exact_posting_matches = counters.exact_posting_matches.max(exact_or_members);
     counters.returned_records = hits.len() as u64;
     Ok(Some(SearchResult {
@@ -4393,14 +4390,21 @@ fn search_segmented_impl(
     } else {
         None
     };
-    let sort = ResolvedSort::new(repo, query)?;
+    let sort = ResolvedSort::new(repo, query).map_err(|message| match context {
+        Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+        None => message,
+    })?;
     let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
     });
-    let prepared = crate::prepared::prepare(repo, query)?;
-    let has_relations = prepared.collections.iter().any(|(_, filter, fts)| {
-        filter.as_ref().is_some_and(bound_expr_has_relations)
-            || fts
+    let prepared = crate::prepared::prepare(repo, query).map_err(|message| match context {
+        Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+        None => message,
+    })?;
+    let has_relations = prepared.collections.iter().any(|entry| {
+        entry.filter.as_ref().is_some_and(bound_expr_has_relations)
+            || entry
+                .fts
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
@@ -4513,9 +4517,10 @@ fn search_segmented_impl(
     let base_count_complete = base_empty || base.counters.match_count_complete;
     let mut counters = base.counters;
     let mut exact_or_members = 0;
-    for (collection_index, filter, _) in &prepared.collections {
-        if let Some(filter) = filter {
-            exact_or_members += exact_or_branch_members(repo, segments, *collection_index, filter)?;
+    for entry in &prepared.collections {
+        if let Some(filter) = entry.filter.as_ref() {
+            exact_or_members +=
+                exact_or_branch_members(repo, segments, entry.collection_index, filter)?;
         }
     }
     let mut winners = BinaryHeap::new();
@@ -4570,7 +4575,10 @@ fn search_segmented_impl(
         return Ok(ordered);
     }
     let mut delta_opened = HashSet::new();
-    for (collection_index, filter, fts) in prepared.collections {
+    for entry in prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter;
+        let fts = entry.fts;
         let collection = &repo.collections[collection_index];
         let direct_plan =
             DirectSourcePlan::prepare_bound(collection, &sort, fts.as_ref(), filter.as_ref());
@@ -5876,7 +5884,7 @@ fn try_direct_relation_page(
     catalog: &FileCatalog,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
-    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prepared: &[PreparedCollectionQuery],
     context: Option<&ExecutionContext>,
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
@@ -5884,7 +5892,9 @@ fn try_direct_relation_page(
     if query.options.return_mode != ReturnMode::Locator || prepared.len() != 1 {
         return Ok(None);
     }
-    let (source_index, filter, fts) = &prepared[0];
+    let source_index = &prepared[0].collection_index;
+    let filter = prepared[0].filter.as_ref();
+    let fts = prepared[0].fts.as_ref();
     let (hop, predicate, evidence, local_filter) = if let (Some(filter), None) = (filter, fts) {
         let (term, local_filter) = match filter {
             BoundExpr::Term(term) => (term, None),
@@ -6422,7 +6432,7 @@ fn try_semijoin_relation_page(
     catalog: &FileCatalog,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
-    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prepared: &[PreparedCollectionQuery],
     context: Option<&ExecutionContext>,
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
@@ -6432,10 +6442,12 @@ fn try_semijoin_relation_page(
     {
         return Ok(None);
     }
-    let (collection_index, filter, Some(fts)) = &prepared[0] else {
+    let collection_index = &prepared[0].collection_index;
+    let filter = prepared[0].filter.as_ref();
+    let Some(fts) = prepared[0].fts.as_ref() else {
         return Ok(None);
     };
-    if filter.as_ref().is_some_and(bound_expr_has_relations) {
+    if filter.is_some_and(bound_expr_has_relations) {
         return Ok(None);
     }
     let collection = &repo.collections[*collection_index];
@@ -6464,7 +6476,7 @@ fn try_semijoin_relation_page(
         if query.options.evidence
             && filter.is_some()
             && filter_evidence.is_empty()
-            && let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields)
+            && let Some(fields) = filter.and_then(segment_static_evidence_fields)
         {
             filter_evidence = fields;
         }
@@ -6833,7 +6845,7 @@ fn try_parallel_relation_page(
     catalog: &FileCatalog,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
-    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prepared: &[PreparedCollectionQuery],
     prune_segments: bool,
     exact_plan: Option<&RelationTargetPrune>,
 ) -> Result<Option<SearchResult>, String> {
@@ -6851,7 +6863,9 @@ fn try_parallel_relation_page(
     {
         return Ok(None);
     }
-    let (collection_index, filter, fts) = &prepared[0];
+    let collection_index = &prepared[0].collection_index;
+    let filter = prepared[0].filter.as_ref();
+    let fts = prepared[0].fts.as_ref();
     if repo.collections[*collection_index].definition.name.len() > 1024
         || query
             .filter
@@ -6929,8 +6943,8 @@ fn try_parallel_relation_page(
                     repo,
                     base_active,
                     segments,
-                    filter.as_ref(),
-                    fts.as_ref(),
+                    filter,
+                    fts,
                 )?);
             }
             if let Some(Some(plan)) = relation_prune.as_ref()
@@ -7051,9 +7065,9 @@ fn try_parallel_relation_page(
                         catalog,
                         revision,
                         *collection_index,
-                        filter.as_ref(),
+                        filter,
                         exact_plan.map(|plan| plan.evidence.as_slice()),
-                        fts.as_ref(),
+                        fts,
                         job,
                         worker_view,
                     )
@@ -7100,7 +7114,7 @@ fn search_segmented_relations(
     catalog: &FileCatalog,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
-    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prepared: &[PreparedCollectionQuery],
     context: Option<&ExecutionContext>,
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
@@ -7143,7 +7157,7 @@ fn search_segmented_relations(
         && query.options.return_mode == ReturnMode::Locator
     {
         prepared[0]
-            .1
+            .filter
             .as_ref()
             .map(|filter| exact_relation_source_plan(repo, base_active, segments, filter))
             .transpose()?
@@ -7186,8 +7200,10 @@ fn search_segmented_relations(
     let mut source_errors = SourceAvailabilityLog::default();
     let mut sort_cache = MergedSortTargetCache::default();
     sort_cache.configure_execution(context);
-    for (collection_index, filter, fts) in prepared {
-        let collection_index = *collection_index;
+    for entry in prepared {
+        let collection_index = entry.collection_index;
+        let filter = &entry.filter;
+        let fts = &entry.fts;
         let collection_id = repo.collections[collection_index].generation.collection;
         let collection_plan = &repo.collections[collection_index];
         let direct_plan = prune_segments
@@ -7890,11 +7906,13 @@ pub(crate) fn explain_segmented(
             .position(|collection| collection.definition.name == trace.collection)
             .ok_or("explained collection missing")?;
         let collection = &repo.collections[collection_index];
-        let (_, filter, fts) = prepared
+        let entry = prepared
             .collections
             .iter()
-            .find(|(index, _, _)| *index == collection_index)
+            .find(|entry| entry.collection_index == collection_index)
             .ok_or("explained collection has no prepared query")?;
+        let filter = entry.filter.as_ref();
+        let fts = entry.fts.as_ref();
         let mut delta = 0u64;
         let mut delta_candidates = 0u64;
         let mut delta_fts_candidates = 0u64;
@@ -8224,7 +8242,7 @@ pub(crate) fn explain_segmented(
             && let Some(fts) = fts
         {
             let input_len =
-                segment_filter_input_estimate(repo, segments, collection_index, filter.as_ref())?;
+                segment_filter_input_estimate(repo, segments, collection_index, filter)?;
             if let Some(strategies) =
                 crate::relation_semijoin::planning_fts_strategies(repo, fts, input_len)?
             {
@@ -8725,18 +8743,19 @@ fn try_lifecycle_ordered_stream(
         return Ok(None);
     }
     let prepared = crate::prepared::prepare(repo, request)?;
-    if prepared.collections.iter().any(|(_, filter, fts)| {
-        filter.as_ref().is_some_and(bound_expr_has_relations)
-            || fts
+    if prepared.collections.iter().any(|entry| {
+        entry.filter.as_ref().is_some_and(bound_expr_has_relations)
+            || entry
+                .fts
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     }) {
         return Ok(None);
     }
-    for (collection_index, _, _) in &prepared.collections {
-        for segment in segments[*collection_index].iter() {
-            if lifecycle_segment_order(&segment.index, &sort, request, *collection_index).is_none()
-            {
+    for entry in &prepared.collections {
+        let collection_index = entry.collection_index;
+        for segment in segments[collection_index].iter() {
+            if lifecycle_segment_order(&segment.index, &sort, request, collection_index).is_none() {
                 return Ok(None);
             }
         }
@@ -8752,7 +8771,10 @@ fn try_lifecycle_ordered_stream(
         .iter()
         .map(|group| vec![false; group.len()])
         .collect::<Vec<_>>();
-    for (collection_index, filter, fts) in prepared.collections {
+    for entry in prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter;
+        let fts = entry.fts;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
             let filter_may = filter
@@ -9444,9 +9466,10 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             })));
         }
     }
-    let relation_scope = prepared.collections.iter().any(|(_, filter, fts)| {
-        filter.as_ref().is_some_and(bound_expr_has_relations)
-            || fts
+    let relation_scope = prepared.collections.iter().any(|entry| {
+        entry.filter.as_ref().is_some_and(bound_expr_has_relations)
+            || entry
+                .fts
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
@@ -10702,10 +10725,11 @@ fn posting_order_eligible(
     let Some(prepared) = bound.or(owned.as_ref()) else {
         return false;
     };
-    let Some((_, Some(filter), _)) = prepared
+    let Some(filter) = prepared
         .collections
         .iter()
-        .find(|(index, _, _)| *index == collection_index)
+        .find(|entry| entry.collection_index == collection_index)
+        .and_then(|entry| entry.filter.as_ref())
     else {
         return false;
     };
@@ -10743,7 +10767,9 @@ fn inferred_order_column(
     let Some((collection_index, path, _index)) = inferred_order_index(repo, query, segments) else {
         return Ok(None);
     };
-    if prepared.collections.len() != 1 || prepared.collections[0].0 != collection_index {
+    if prepared.collections.len() != 1
+        || prepared.collections[0].collection_index != collection_index
+    {
         return Ok(None);
     }
     let live = segments[collection_index]
@@ -10913,8 +10939,8 @@ fn try_inferred_segment_order_page(
     if !posting_order_eligible(repo, query, Some(prepared), segments, catalog) {
         return Ok(None);
     }
-    let (collection_index, filter, _) = &prepared.collections[0];
-    let collection_index = *collection_index;
+    let collection_index = prepared.collections[0].collection_index;
+    let filter = prepared.collections[0].filter.as_ref();
     let Some((_, path, _)) = inferred_order_index(repo, query, segments) else {
         return Ok(None);
     };
@@ -10967,7 +10993,6 @@ fn try_inferred_segment_order_page(
     }
     let evidence = if query.options.evidence {
         filter
-            .as_ref()
             .and_then(segment_static_evidence_fields)
             .unwrap_or_default()
     } else {
@@ -11138,7 +11163,7 @@ fn try_inferred_segment_order_page(
             filter_exact: true,
             terms: Vec::new(),
             planning: PlanningCounters::default(),
-            bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
+            bound_terms: bound_term_diagnostics(repo, filter),
             candidates: candidate_count,
             candidates_estimated: false,
             actual: None,
@@ -11173,8 +11198,8 @@ fn try_stored_order_page(
         return Ok(None);
     }
     if query.options.sort.len() > 1
-        && prepared.collections.iter().any(|(index, _, _)| {
-            repo.collections[*index]
+        && prepared.collections.iter().any(|entry| {
+            repo.collections[entry.collection_index]
                 .sorting
                 .composite(&query.options.sort)
                 .is_none()
@@ -11183,11 +11208,14 @@ fn try_stored_order_page(
         return Ok(None);
     }
     if all_offset.is_none()
-        && (prepared.collections.iter().any(|(_, _, fts)| {
-            fts.as_ref()
+        && (prepared.collections.iter().any(|entry| {
+            entry
+                .fts
+                .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
-        }) || prepared.collections.iter().any(|(_, filter, _)| {
-            filter
+        }) || prepared.collections.iter().any(|entry| {
+            entry
+                .filter
                 .as_ref()
                 .is_some_and(crate::relation_target_cache::has_source_dependent)
         }))
@@ -11203,9 +11231,12 @@ fn try_stored_order_page(
     let diagnostics = traces.is_some();
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
-    for (collection_index, filter, fts) in &prepared.collections {
-        let collection = &repo.collections[*collection_index];
-        let domain = collection_domain(collection, *collection_index, active);
+    for entry in &prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter.as_ref();
+        let fts = entry.fts.as_ref();
+        let collection = &repo.collections[collection_index];
+        let domain = collection_domain(collection, collection_index, active);
         let mut plan = filter
             .as_ref()
             .map(|expr| {
@@ -11238,9 +11269,9 @@ fn try_stored_order_page(
         }
         candidate_total += candidates.len();
         plans.push(OrderedPlan {
-            collection_index: *collection_index,
-            filter: filter.as_ref(),
-            fts: fts.as_ref(),
+            collection_index,
+            filter,
+            fts,
             plan,
             candidates,
         });
@@ -12200,13 +12231,16 @@ pub(crate) fn explain_with_active(
 ) -> Result<Vec<QueryPlanTrace>, String> {
     let bound_sort = BoundSort::bind(repo, query)?;
     let prepared = crate::prepared::prepare(repo, query)?;
-    let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
-        filter
+    let has_source_dependent = prepared.collections.iter().any(|entry| {
+        entry
+            .filter
             .as_ref()
             .is_some_and(crate::relation_target_cache::has_source_dependent)
     });
-    let has_related_fts = prepared.collections.iter().any(|(_, _, fts)| {
-        fts.as_ref()
+    let has_related_fts = prepared.collections.iter().any(|entry| {
+        entry
+            .fts
+            .as_ref()
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
     let inferred_order = active.is_none()
@@ -12215,10 +12249,13 @@ pub(crate) fn explain_with_active(
         && prepared.collections.len() == 1
         && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)
         && inferred_order_index(repo, query, &repo.segments)
-            .is_some_and(|(index, _, _)| prepared.collections[0].0 == index);
+            .is_some_and(|(index, _, _)| prepared.collections[0].collection_index == index);
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
-    for (collection_index, filter, fts) in prepared.collections {
+    for entry in prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter;
+        let fts = entry.fts;
         let collection = &repo.collections[collection_index];
         let domain_len = active.map_or(collection.generation.records.len() as u64, |domains| {
             domains[collection_index].len()
@@ -12689,7 +12726,10 @@ fn search_impl_with_collector<'a>(
         counters.planning_ns += rejected_order.planning_ns;
     }
     let mut reused_order = rejected_order.entries.into_iter();
-    for (collection_index, filter, fts) in prepared.collections {
+    for entry in prepared.collections {
+        let collection_index = entry.collection_index;
+        let filter = entry.filter;
+        let fts = entry.fts;
         if let Some(delivery) = delivery.as_deref_mut() {
             delivery.check()?;
         }

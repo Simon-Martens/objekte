@@ -548,8 +548,8 @@ pub(crate) fn select_exact_segmented(
         let filter = prepared
             .collections
             .iter()
-            .find(|(index, _, _)| *index == collection_index)
-            .and_then(|(_, filter, _)| filter.as_ref());
+            .find(|entry| entry.collection_index == collection_index)
+            .and_then(|entry| entry.filter());
         let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
         let mut exact = true;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
@@ -643,9 +643,7 @@ fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
                     crate::query::Operator::Contains | crate::query::Operator::NotContains
                 )
         }
-        crate::reference::BoundExpr::And(parts) => {
-            parts.iter().all(filter_excludes_raw_fallback)
-        }
+        crate::reference::BoundExpr::And(parts) => parts.iter().all(filter_excludes_raw_fallback),
         crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
     }
 }

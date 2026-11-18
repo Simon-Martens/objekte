@@ -2852,11 +2852,12 @@ impl IndexView {
             return Err("pagination waits for initial index construction".into());
         }
         let prepared = crate::prepared::prepare(self.repository(), query)?;
-        if prepared.collections.iter().any(|(_, filter, fts)| {
-            filter
-                .as_ref()
+        if prepared.collections.iter().any(|entry| {
+            entry
+                .filter()
                 .is_some_and(crate::run::bound_expr_has_relations)
-                || fts
+                || entry
+                    .fts()
                     .as_ref()
                     .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
         }) {

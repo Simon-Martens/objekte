@@ -1,0 +1,1 @@
+//! Ordered result ownership boundary.

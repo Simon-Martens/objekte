@@ -1,0 +1,1 @@
+//! Query diagnostic ownership boundary.

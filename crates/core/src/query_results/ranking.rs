@@ -1,0 +1,1 @@
+//! Result-ranking ownership boundary.
