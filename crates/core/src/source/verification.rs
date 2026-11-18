@@ -1,6 +1,7 @@
 //! Typed dispatch for the crate's borrowed scalar verification operations.
 
-use crate::reference::{BoundFts, BoundTerm};
+use crate::query::binding::filter::BoundTerm;
+use crate::query::binding::fts::BoundFts;
 
 use super::ScanProjection;
 use super::json::scalars;

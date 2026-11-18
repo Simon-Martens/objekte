@@ -8,8 +8,8 @@ use time::{Date, OffsetDateTime};
 
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::query::semantics::record::data_values_small;
 use crate::query::semantics::state::{StatePredicate, value_matches};
-use crate::reference::data_values_small;
 use crate::schema::{FieldDefinition, Schema};
 
 mod lookup;

@@ -5,8 +5,9 @@ use std::fmt;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
+use crate::query::binding::filter::BoundTerm;
+use crate::query::binding::fts::BoundFts;
 use crate::query_predicate::TermId;
-use crate::reference::{BoundFts, BoundTerm};
 
 use super::membership::{DomainId, SlotInput};
 

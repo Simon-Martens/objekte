@@ -5,6 +5,52 @@ use std::collections::{HashMap, HashSet};
 use crate::model::{LogicalType, MetadataField, Number, Value};
 
 use super::FieldDefinition;
+use super::Schema;
+
+impl Schema {
+    pub fn coerce_record(&self, value: &mut Value) -> Result<(), String> {
+        self.coerce_projected_record(value, None)
+    }
+
+    pub fn coerce_projected_record(
+        &self,
+        value: &mut Value,
+        selected_top_level: Option<&HashSet<String>>,
+    ) -> Result<(), String> {
+        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
+            validate_declared(
+                value,
+                &root.kind,
+                root.nullable,
+                &root.element_nullable,
+                0,
+                &["@root"],
+            )?;
+        } else if !matches!(value, Value::Object(_)) {
+            if self.fields.is_empty() {
+                return Ok(());
+            }
+            return Err("record root must be an object".into());
+        }
+        validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
+    }
+
+    /// Apply conversions and declared array annotations already approved by
+    /// the published index, without rechecking the declared schema.
+    pub(crate) fn convert_indexed_record(
+        &self,
+        value: &mut Value,
+        selected_top_level: Option<&HashSet<String>>,
+    ) -> Result<(), String> {
+        if !self.indexed_value_fields {
+            return Ok(());
+        }
+        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
+            convert_declared_indexed(value, &root.kind, &root.element_nullable, 0)?;
+        }
+        convert_children_indexed(value, &self.indexed_value_paths, selected_top_level)
+    }
+}
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct ValidationNode {

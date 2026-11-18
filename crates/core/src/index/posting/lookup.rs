@@ -5,8 +5,8 @@ use roaring::RoaringBitmap;
 
 use super::{PostingIndex, ScalarKey, StructuralKey};
 use crate::model::{LogicalType, Number, Value};
+use crate::query::{Derived, binding::filter::BoundTerm};
 use crate::query::{Operator, Quantifier};
-use crate::reference::{BoundTerm, Derived};
 use crate::schema::operation::Transform;
 
 /// Borrowed ordered traversal over one posting dictionary's values.

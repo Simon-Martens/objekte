@@ -13,13 +13,16 @@ struct RelationTargetPrune {
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
     term: &'a BoundTerm,
-) -> Option<(&'a crate::relation_query::BoundRelationHop, &'a BoundTerm)> {
+) -> Option<(
+    &'a crate::query::binding::relation::BoundRelationHop,
+    &'a BoundTerm,
+)> {
     let related = term.related.as_ref()?;
     let [hop] = related.hops.as_slice() else {
         return None;
     };
     if related.source_operand.is_some()
-        || hop.direction != crate::relation_query::HopDirection::Forward
+        || hop.direction != crate::query::binding::relation::HopDirection::Forward
         || hop.selectors.iter().any(Option::is_some)
         || !matches!(term.quantifier, Quantifier::Default | Quantifier::Any)
     {
@@ -48,7 +51,10 @@ fn eligible_one_hop_relation_term<'a>(
 fn one_hop_relation_term<'a>(
     repo: &Repository,
     expr: &'a BoundExpr,
-) -> Option<(&'a crate::relation_query::BoundRelationHop, &'a BoundTerm)> {
+) -> Option<(
+    &'a crate::query::binding::relation::BoundRelationHop,
+    &'a BoundTerm,
+)> {
     match expr {
         BoundExpr::Term(term) => eligible_one_hop_relation_term(repo, term),
         BoundExpr::And(parts) => parts
@@ -62,7 +68,7 @@ fn collect_relation_target_ids(
     repo: &Repository,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    hop: &crate::relation_query::BoundRelationHop,
+    hop: &crate::query::binding::relation::BoundRelationHop,
     mut target_candidates: impl FnMut(
         &IndexedCollectionSegment,
         &ActiveRecords,
@@ -207,7 +213,7 @@ fn relation_target_prune(
         && let [field] = fts.fields.as_slice()
         && let Some(hops) = field.related.as_ref()
         && let [hop] = hops.as_slice()
-        && hop.direction == crate::relation_query::HopDirection::Forward
+        && hop.direction == crate::query::binding::relation::HopDirection::Forward
         && !hop.selectors.iter().any(Option::is_some)
         && field.query_path.is_none()
     {
@@ -335,7 +341,7 @@ fn scan_direct_target_parallel(
         DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
         DirectRelationPredicate::Fts(local) => {
             if borrow_value_text {
-                crate::reference::eval_borrowed_value_fts(local, &ctx, None)?
+                crate::reference::fts::eval_borrowed_value_fts(local, &ctx, None)?
             } else {
                 eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
             }
@@ -429,7 +435,7 @@ fn try_direct_relation_page(
         && let [field] = fts.fields.as_slice()
         && let Some(hops) = field.related.as_ref()
         && let [hop] = hops.as_slice()
-        && hop.direction == crate::relation_query::HopDirection::Forward
+        && hop.direction == crate::query::binding::relation::HopDirection::Forward
         && !hop.selectors.iter().any(Option::is_some)
         && field.query_path.is_none()
     {
@@ -678,7 +684,7 @@ fn try_direct_relation_page(
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
                     DirectRelationPredicate::Fts(local) => {
                         if borrow_value_text {
-                            crate::reference::eval_borrowed_value_fts(local, &ctx, None)?
+                            crate::reference::fts::eval_borrowed_value_fts(local, &ctx, None)?
                         } else {
                             eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
                         }
@@ -1082,7 +1088,7 @@ fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
                 && term.related.as_ref().is_none_or(|related| {
                     related.hops.len() <= 2
                         && related.hops.iter().all(|hop| {
-                            hop.direction == crate::relation_query::HopDirection::Forward
+                            hop.direction == crate::query::binding::relation::HopDirection::Forward
                         })
                 })
         }
@@ -1251,14 +1257,16 @@ fn scan_relation_file_parallel(
     let fts_matches = if filter_matches {
         if let Some(fts) = fts {
             if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                let matched =
-                    crate::reference::raw_fallback_contains(fts, &String::from_utf8_lossy(&bytes));
+                let matched = crate::reference::fts::raw_fallback_contains(
+                    fts,
+                    &String::from_utf8_lossy(&bytes),
+                );
                 if matched && query.options.evidence {
                     evidence.insert("@record.raw_text".into());
                 }
                 matched
             } else if borrowed_value_text && record.class == RecordClass::Logical {
-                crate::reference::eval_borrowed_value_fts(
+                crate::reference::fts::eval_borrowed_value_fts(
                     fts,
                     &ctx,
                     query.options.evidence.then_some(&mut evidence),
@@ -1407,7 +1415,7 @@ fn try_parallel_relation_page(
                 field.related.as_ref().is_some_and(|hops| {
                     hops.len() > 2
                         || hops.iter().any(|hop| {
-                            hop.direction != crate::relation_query::HopDirection::Forward
+                            hop.direction != crate::query::binding::relation::HopDirection::Forward
                         })
                 })
             })
@@ -2041,7 +2049,7 @@ pub(super) fn search_segmented_relations(
                     result.fts_match
                 } else if let Some(fts) = fts.as_ref() {
                     if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                        let matched = crate::reference::raw_fallback_contains(
+                        let matched = crate::reference::fts::raw_fallback_contains(
                             fts,
                             &String::from_utf8_lossy(&bytes),
                         );
@@ -2050,7 +2058,7 @@ pub(super) fn search_segmented_relations(
                         }
                         matched
                     } else if borrowed_value_text && record.class == RecordClass::Logical {
-                        crate::reference::eval_borrowed_value_fts(
+                        crate::reference::fts::eval_borrowed_value_fts(
                             fts,
                             &ctx,
                             query.options.evidence.then_some(&mut evidence),

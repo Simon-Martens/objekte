@@ -4,8 +4,9 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::query::Query;
+use crate::query::binding::filter::BoundExpr;
+use crate::query::binding::fts::BoundFts;
 use crate::query_predicate::{PredicateBuilder, PreparedExpr, PreparedPredicates, TermId};
-use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::Repository;
 
 /// One named, fully bound collection entry. The first `prepare` call installs
@@ -30,30 +31,31 @@ impl PreparedCollectionQuery {
 
     pub(crate) fn term_id_for_bound_term(
         &self,
-        target: &crate::reference::BoundTerm,
+        target: &crate::query::binding::filter::BoundTerm,
     ) -> Option<TermId> {
         fn align(
-            expr: &crate::reference::BoundExpr,
+            expr: &crate::query::binding::filter::BoundExpr,
             shape: &PreparedExpr,
-            target: &crate::reference::BoundTerm,
+            target: &crate::query::binding::filter::BoundTerm,
         ) -> Option<TermId> {
             match (expr, shape) {
-                (crate::reference::BoundExpr::Term(term), PreparedExpr::Term(id))
+                (crate::query::binding::filter::BoundExpr::Term(term), PreparedExpr::Term(id))
                     if std::ptr::eq(term, target) =>
                 {
                     Some(*id)
                 }
                 (
-                    crate::reference::BoundExpr::And(parts)
-                    | crate::reference::BoundExpr::Or(parts),
+                    crate::query::binding::filter::BoundExpr::And(parts)
+                    | crate::query::binding::filter::BoundExpr::Or(parts),
                     PreparedExpr::And(shapes) | PreparedExpr::Or(shapes),
                 ) => parts
                     .iter()
                     .zip(shapes)
                     .find_map(|(expr, shape)| align(expr, shape, target)),
-                (crate::reference::BoundExpr::Not(inner), PreparedExpr::Not(shape)) => {
-                    align(inner, shape, target)
-                }
+                (
+                    crate::query::binding::filter::BoundExpr::Not(inner),
+                    PreparedExpr::Not(shape),
+                ) => align(inner, shape, target),
                 _ => None,
             }
         }
@@ -85,7 +87,7 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
             .filter
             .as_ref()
             .map(|f| {
-                crate::relation_query::bind_filter_with_relations(
+                crate::query::binding::relation::bind_filter_with_relations(
                     repo,
                     index,
                     f,
@@ -96,7 +98,7 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
         let fts = query
             .fts
             .as_ref()
-            .map(|fts| crate::relation_query::bind_fts_with_relations(repo, index, fts))
+            .map(|fts| crate::query::binding::relation::bind_fts_with_relations(repo, index, fts))
             .transpose()?;
         let mut collection_leaves = Vec::new();
         let (filter_shape, text_term) =

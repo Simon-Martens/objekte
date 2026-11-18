@@ -12,10 +12,10 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::execution_options::SortField;
+use crate::execution_options::{CompositeSortPart, SortField, simple_composite_part};
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
-use crate::reference::{RecordContext, data_values_small, metadata_value};
+use crate::query::{data_values_small, metadata_value, semantics::record::RecordContext};
 use crate::schema::Schema;
 
 mod inferred_order;
@@ -153,24 +153,6 @@ pub struct CompositeSortOrder {
 }
 
 /// Fixed binary identity for one resident composite constituent.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct CompositeSortPart {
-    pub path: FieldPath,
-    pub descending: bool,
-}
-
-pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
-    let expression = field.expression.as_ref();
-    if expression.is_some_and(|expr| expr.binding.is_some() || expr.reducer.is_some()) {
-        return None;
-    }
-    Some(CompositeSortPart {
-        path: FieldPath::parse(expression.map_or(field.field.as_str(), |expr| expr.path.as_str()))
-            .ok()?,
-        descending: field.descending,
-    })
-}
-
 impl SortCollection {
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields

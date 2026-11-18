@@ -27,8 +27,9 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::query::Query;
+use crate::query::semantics::record::RecordContext;
 use crate::record_preparation::{materialize, prepare_query_record};
-use crate::reference::{RecordContext, eval_unavailable_filter};
+use crate::reference::filter::eval_unavailable_filter;
 use crate::schema::{Schema, operation::BindingOperation};
 use crate::source::access::{SourceAccessSession, read_record_range_for_search};
 use crate::source::{
@@ -1666,7 +1667,7 @@ impl Repository {
                 .filter
                 .as_ref()
                 .map(|f| {
-                    crate::relation_query::bind_filter_with_relations(
+                    crate::query::binding::relation::bind_filter_with_relations(
                         self,
                         collection.generation.collection.0 as usize,
                         f,
@@ -1678,7 +1679,7 @@ impl Repository {
                 .fts
                 .as_ref()
                 .map(|fts| {
-                    crate::relation_query::bind_fts_with_relations(
+                    crate::query::binding::relation::bind_fts_with_relations(
                         self,
                         collection.generation.collection.0 as usize,
                         fts,
@@ -1787,7 +1788,7 @@ impl Repository {
                     if let Some(fts) = &fts {
                         if fts.fields.is_empty() {
                             counters.raw_text_verifications += 1;
-                            let matched = crate::reference::raw_fallback_contains(
+                            let matched = crate::reference::fts::raw_fallback_contains(
                                 fts,
                                 &String::from_utf8_lossy(&bytes),
                             );
@@ -1854,7 +1855,9 @@ impl Repository {
                             if query.options.evidence {
                                 eval_unavailable_filter(f, &ctx, &mut evidence)
                             } else {
-                                crate::reference::eval_unavailable_filter_membership(f, &ctx)
+                                crate::reference::filter::eval_unavailable_filter_membership(
+                                    f, &ctx,
+                                )
                             }
                         })
                         .transpose()?

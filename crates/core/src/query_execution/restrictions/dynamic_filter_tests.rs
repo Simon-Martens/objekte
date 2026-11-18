@@ -128,7 +128,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                     expected,
                     "warm {expression}"
                 );
-                let bound = crate::reference::bind_filter(
+                let bound = crate::query::binding::filter::bind_filter(
                     request.filter.as_ref().unwrap(),
                     &collection.definition.schema,
                 )

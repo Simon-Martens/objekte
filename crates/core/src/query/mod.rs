@@ -1,16 +1,21 @@
 //! Separate literal FTS and structured FILTER parsing.
 
-pub(crate) mod binding;
+pub mod binding;
 pub mod clock;
 pub mod parameters;
 pub mod path;
 pub(crate) mod prepared;
 pub mod regex;
-pub(crate) mod semantics;
+pub mod semantics;
 mod size_literal;
 pub(crate) mod sort_binding;
 pub mod temporal;
 mod validation;
+
+#[cfg(test)]
+pub(crate) use binding::filter::bind_filter;
+pub(crate) use binding::filter::{BoundTerm, Derived, same_bound_term};
+pub(crate) use semantics::record::{data_values_small, metadata_value};
 
 use crate::execution_options::{ReturnMode, SortExpression, SortField, SortReducer};
 use crate::model::{FieldPath, Number, Value};

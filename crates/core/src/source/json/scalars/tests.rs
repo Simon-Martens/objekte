@@ -1,8 +1,9 @@
 use super::strings::{with_next_quoted_text_strategy, with_quoted_text};
 use super::*;
 use crate::model::FieldPath;
+use crate::query::binding::fts::bind_fts;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
-use crate::reference::{BoundExpr, bind_filter, bind_fts};
+use crate::query::{bind_filter, binding::filter::BoundExpr};
 use crate::schema::Schema;
 
 #[test]
@@ -25,15 +26,18 @@ fn combined_borrowed_fts_and_filter_fold_each_segment_once() {
     };
     let query = BorrowedScanQuery {
         fts: Some(&fts),
-        filter: Some(term),
+        filter: Some(&term),
         decoded_scalars: false,
         retain_evidence: true,
     };
-    let before = crate::reference::fold_candidate_transforms();
+    let before = crate::query::semantics::folding::fold_candidate_transforms();
     let result = scan_borrowed_segments_worker(r#"{"name":"Straße"}"#.as_bytes(), &query).unwrap();
     assert!(result.fts_match);
     assert!(result.filter_match);
-    assert_eq!(crate::reference::fold_candidate_transforms() - before, 1);
+    assert_eq!(
+        crate::query::semantics::folding::fold_candidate_transforms() - before,
+        1
+    );
 }
 
 fn borrowed_scan(
@@ -617,7 +621,7 @@ fn borrowed_source_matching_preserves_unicode_folded_representations() {
         "{\"name\":\"Straße\"}".as_bytes(),
         &BorrowedScanQuery {
             fts: Some(&fts),
-            filter: Some(filter),
+            filter: Some(&filter),
             decoded_scalars: true,
             retain_evidence: true,
         },
@@ -715,10 +719,10 @@ fn oversized_folded_segments_reuse_capacity_within_record_then_release_it() {
     };
     let segment = format!("{}NEEDLE", "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096));
     let source = format!(r#"{{"a":"{segment}","b":"{segment}"}}"#);
-    let before = crate::reference::fold_scratch_stats().0;
+    let before = crate::query::semantics::folding::fold_scratch_stats().0;
     let matched = scan_borrowed_segments_worker(source.as_bytes(), &query).unwrap();
     assert!(matched.fts_match);
-    let (grows, retained) = crate::reference::fold_scratch_stats();
+    let (grows, retained) = crate::query::semantics::folding::fold_scratch_stats();
     assert_eq!(
         grows - before,
         1,
@@ -751,7 +755,7 @@ fn oversized_folded_scratch_is_released_on_scan_error() {
         "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096)
     );
     assert!(scan_borrowed_segments_worker(source.as_bytes(), &query).is_err());
-    assert!(crate::reference::fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
+    assert!(crate::query::semantics::folding::fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
 }
 
 #[test]

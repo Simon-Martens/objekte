@@ -107,19 +107,23 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .unwrap()
         .retired(&[RecordSlot(3)])
         .unwrap();
-    let positive =
-        crate::reference::bind_filter(&parse_filter("kind = 'a'").unwrap(), &definition.schema)
-            .unwrap();
+    let positive = crate::query::binding::filter::bind_filter(
+        &parse_filter("kind = 'a'").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
     let bounds = segment_filter_bounds(&segment, &active, &positive, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [0, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [0]);
-    let negative =
-        crate::reference::bind_filter(&parse_filter("!(kind = 'a')").unwrap(), &definition.schema)
-            .unwrap();
+    let negative = crate::query::binding::filter::bind_filter(
+        &parse_filter("!(kind = 'a')").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
     let bounds = segment_filter_bounds(&segment, &active, &negative, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1]);
-    let impossible = crate::reference::bind_filter(
+    let impossible = crate::query::binding::filter::bind_filter(
         &parse_filter("kind = 'a' && !(kind = 'a')").unwrap(),
         &definition.schema,
     )
@@ -127,7 +131,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     let bounds = segment_filter_bounds(&segment, &active, &impossible, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
     assert!(bounds.must.is_empty());
-    let nonzero_start = crate::reference::bind_filter(
+    let nonzero_start = crate::query::binding::filter::bind_filter(
         &parse_filter("@record.byte_start > 0").unwrap(),
         &definition.schema,
     )
@@ -1694,7 +1698,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
     .map_err(|error| error.to_string())
     .unwrap();
     let collection = &repo.collections()[0];
-    let expr = crate::reference::bind_filter(
+    let expr = crate::query::binding::filter::bind_filter(
         &parse_filter("@record.id = 'two'").unwrap(),
         &definition.schema,
     )
@@ -1779,7 +1783,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         [expected_slots[0]]
     );
 
-    let term_b = crate::reference::bind_filter(
+    let term_b = crate::query::binding::filter::bind_filter(
         &parse_filter("@record.id = 'four'").unwrap(),
         &definition.schema,
     )
@@ -1985,13 +1989,13 @@ fn indexed_restriction_precedes_written_first_scan() {
     .map_err(|error| error.to_string())
     .unwrap();
     let domain: RoaringBitmap = (0..3).collect();
-    let bound = crate::reference::bind_filter(
+    let bound = crate::query::binding::filter::bind_filter(
         &parse_filter("kind = 'wanted'").unwrap(),
         &repo.collections[0].definition.schema,
     )
     .unwrap();
     let _ = plan_expr(&repo, &repo.collections[0], &bound, &domain);
-    let bound = crate::reference::bind_filter(
+    let bound = crate::query::binding::filter::bind_filter(
         &parse_filter("kind ~ 'want'").unwrap(),
         &repo.collections[0].definition.schema,
     )
@@ -2141,7 +2145,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         "kind = 'broad' && text ~ 'uniqueneedleword'",
         "text ~ 'uniqueneedleword' && kind = 'broad'",
     ] {
-        let bound = crate::reference::bind_filter(
+        let bound = crate::query::binding::filter::bind_filter(
             &parse_filter(expression).unwrap(),
             &repo.collections[0].definition.schema,
         )

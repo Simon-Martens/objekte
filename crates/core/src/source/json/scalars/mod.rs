@@ -5,7 +5,9 @@ use std::collections::{BTreeMap, HashSet};
 use std::ops::Range;
 
 use crate::model::{ArrayValue, Number, Value};
-use crate::reference::{BoundFts, BoundTerm, match_borrowed_source_segment};
+use crate::query::binding::filter::BoundTerm;
+use crate::query::binding::fts::BoundFts;
+use crate::reference::fts::match_borrowed_source_segment;
 use crate::source::{ScanProjection, TextSegment};
 
 mod scan;
@@ -598,7 +600,7 @@ pub(crate) fn scan_borrowed_segments_worker(
     bytes: &[u8],
     query: &BorrowedScanQuery<'_>,
 ) -> Result<BorrowedScanResult, String> {
-    let _fold_record = crate::reference::FoldRecordGuard::new();
+    let _fold_record = crate::query::semantics::folding::FoldRecordGuard::new();
     #[cfg(test)]
     BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
     BORROWED_SCAN_SCRATCH.with(|scratch| {
@@ -658,7 +660,7 @@ pub(crate) fn extract_query_record_borrowed_fts_worker(
     fts: &BoundFts,
     retain_evidence: bool,
 ) -> Result<(Value, BorrowedScanResult), String> {
-    let _fold_record = crate::reference::FoldRecordGuard::new();
+    let _fold_record = crate::query::semantics::folding::FoldRecordGuard::new();
     #[cfg(test)]
     COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
     BORROWED_SCAN_SCRATCH.with(|scratch| {

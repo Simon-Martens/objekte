@@ -8,12 +8,16 @@
 use std::collections::HashSet;
 use std::fmt;
 
+use crate::query::binding::fts::BoundFts;
+use crate::query::semantics::record::RecordContext;
+use crate::query::{BoundTerm, binding::filter::BoundExpr};
 use crate::query_access::contract::{
     AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider, InputEstimate,
     OfferList, Restriction,
 };
 use crate::query_access::membership::SlotInput;
-use crate::reference::{BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term};
+use crate::reference::filter::eval_term;
+use crate::reference::fts::eval_bound_fts;
 use crate::source::TextSegment;
 
 mod structured;
@@ -326,7 +330,7 @@ impl PreparedPredicates {
                     && leaf.display_path != "@fts"
                     && match &leaf.source {
                         PreparedLeafSource::Structured(candidate) => {
-                            crate::reference::same_bound_term(candidate, term)
+                            crate::query::binding::filter::same_bound_term(candidate, term)
                         }
                         PreparedLeafSource::Text(_) => false,
                     }
@@ -458,7 +462,8 @@ mod tests {
     fn bound_term(field: &str) -> BoundTerm {
         let filter = crate::query::parse_filter(&format!("{field} = 'value'")).unwrap();
         let BoundExpr::Term(term) =
-            crate::reference::bind_filter(&filter, &crate::schema::Schema::default()).unwrap()
+            crate::query::binding::filter::bind_filter(&filter, &crate::schema::Schema::default())
+                .unwrap()
         else {
             unreachable!()
         };

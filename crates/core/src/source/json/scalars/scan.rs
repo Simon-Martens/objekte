@@ -6,7 +6,7 @@ use smallvec::SmallVec;
 
 use crate::query::Quantifier;
 use crate::reference::{
-    fts_field_selects_path, match_borrowed_source_filter, match_borrowed_source_pair,
+    fts::fts_field_selects_path, match_borrowed_source_filter, match_borrowed_source_pair,
     match_borrowed_source_segment,
 };
 

@@ -1,7 +1,7 @@
 //! Schema declarations, field policy, extension operations, and validation.
 
 use crate::execution_options::SortField;
-use crate::model::{FieldPath, LogicalType, MetadataField, PathRoot, Value};
+use crate::model::{FieldPath, LogicalType, MetadataField, PathRoot};
 use crate::query::Operator;
 use crate::relation::RelationDefinition;
 use std::collections::{BTreeMap, HashMap, HashSet};
@@ -14,10 +14,7 @@ pub use operation::{
     BindingOperation, CustomBinding, ExactInput, PreparedFilterMatcher, PreparedTextMatcher,
     RegisteredBinding, Transform,
 };
-use validation::{
-    ValidationNode, convert_children_indexed, convert_declared_indexed, converted_kind,
-    metadata_type, validate_children, validate_declared,
-};
+use validation::{ValidationNode, converted_kind, metadata_type};
 
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]
@@ -78,13 +75,13 @@ impl Schema {
         }
         let normalized = fields
             .iter()
-            .map(crate::index::sorting::simple_composite_part)
+            .map(crate::execution_options::simple_composite_part)
             .collect::<Option<Vec<_>>>()
             .ok_or("composite sort requires resident scalar fields")?;
         if self.composite_sorts.iter().any(|existing| {
             existing
                 .iter()
-                .map(crate::index::sorting::simple_composite_part)
+                .map(crate::execution_options::simple_composite_part)
                 .collect::<Option<Vec<_>>>()
                 .as_ref()
                 == Some(&normalized)
@@ -101,49 +98,6 @@ impl Schema {
 
     pub fn custom_bindings(&self) -> &HashMap<(Vec<String>, String), CustomBinding> {
         &self.custom
-    }
-
-    pub fn coerce_record(&self, value: &mut Value) -> Result<(), String> {
-        self.coerce_projected_record(value, None)
-    }
-
-    pub fn coerce_projected_record(
-        &self,
-        value: &mut Value,
-        selected_top_level: Option<&HashSet<String>>,
-    ) -> Result<(), String> {
-        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
-            validate_declared(
-                value,
-                &root.kind,
-                root.nullable,
-                &root.element_nullable,
-                0,
-                &["@root"],
-            )?;
-        } else if !matches!(value, Value::Object(_)) {
-            if self.fields.is_empty() {
-                return Ok(());
-            }
-            return Err("record root must be an object".into());
-        }
-        validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
-    }
-
-    /// Apply conversions and declared array annotations already approved by
-    /// the published index, without rechecking the declared schema.
-    pub(crate) fn convert_indexed_record(
-        &self,
-        value: &mut Value,
-        selected_top_level: Option<&HashSet<String>>,
-    ) -> Result<(), String> {
-        if !self.indexed_value_fields {
-            return Ok(());
-        }
-        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
-            convert_declared_indexed(value, &root.kind, &root.element_nullable, 0)?;
-        }
-        convert_children_indexed(value, &self.indexed_value_paths, selected_top_level)
     }
 
     pub fn has_converted_fields(&self) -> bool {

@@ -1549,7 +1549,7 @@ fn empty_ancestor_reconciles_late_descendant_and_null_statistics() {
 
 #[test]
 fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
-    use crate::reference::BoundExpr;
+    use crate::query::binding::filter::BoundExpr;
 
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -1583,7 +1583,8 @@ fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
         ("items.title:string = true", (12..22).collect::<Vec<_>>()),
     ] {
         let BoundExpr::Term(term) =
-            crate::reference::bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
+            crate::query::binding::filter::bind_filter(&parse_filter(filter).unwrap(), &schema)
+                .unwrap()
         else {
             panic!("term")
         };

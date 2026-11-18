@@ -1,5 +1,6 @@
 use super::super::*;
 use super::*;
+use crate::model::text::{fold, folded_chars};
 
 #[derive(Default)]
 struct StreamCollector(String);

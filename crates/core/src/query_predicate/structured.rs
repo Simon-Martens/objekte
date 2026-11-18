@@ -5,10 +5,10 @@ use std::collections::HashSet;
 use crate::inventory::RecordClass;
 use crate::model::Value;
 use crate::query::Operator;
+use crate::query::semantics::record::RecordContext;
+use crate::query::{Derived, binding::filter::BoundExpr, same_bound_term};
 use crate::query_execution::restrictions::Proof;
-use crate::reference::{
-    BoundExpr, Derived, RecordContext, eval_unavailable_filter, same_bound_term,
-};
+use crate::reference::filter::eval_unavailable_filter;
 use crate::repository::{CollectionState, Repository};
 
 pub(crate) fn proof_evidence(

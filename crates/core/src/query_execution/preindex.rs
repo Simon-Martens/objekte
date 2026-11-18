@@ -13,11 +13,12 @@ use crate::measurement::WorkCounters;
 use crate::measurement::{SourceDiagnostic as QuerySourceDiagnostic, SourceUnavailableKind};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
 use crate::query::Query;
+use crate::query::binding::filter::bind_filter;
+use crate::query::binding::fts::bind_fts;
+use crate::query::semantics::record::RecordContext;
 use crate::record_preparation::finish_build_record;
-use crate::reference::{
-    RecordContext, bind_filter, bind_fts, eval_bound_fts, eval_filter, eval_unavailable_filter,
-    raw_fallback_contains,
-};
+use crate::reference::{eval_unavailable_filter, filter::eval_filter};
+use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{

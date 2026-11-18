@@ -6,10 +6,12 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::model::{LogicalType, PathRoot};
+use crate::query::binding::fts::BoundFts;
+use crate::query::semantics::record::RecordContext;
+use crate::query::{BoundTerm, Derived, binding::filter::BoundExpr, same_bound_term};
 use crate::query::{Operator, Query};
 use crate::query_execution::restrictions::{Proof, estimate_expr};
 use crate::query_results::ranking::ResolvedSort;
-use crate::reference::{BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, same_bound_term};
 use crate::repository::{CollectionState, Repository};
 use crate::schema::{operation::ExactInput, operation::Transform};
 use crate::source::ScanProjection;

@@ -4,8 +4,8 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::{LogicalType, Value};
+use crate::query::binding::filter::BoundExpr;
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
-use crate::reference::BoundExpr;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
@@ -284,7 +284,7 @@ fn relation_edge_planning_and_target_verification_cancel_mid_work() {
         .position(|item| item.definition.name == "targets")
         .unwrap();
     let request = query("entry.title ?~ 'Hymn'");
-    let bound = crate::relation_query::bind_filter_with_relations(
+    let bound = crate::query::binding::relation::bind_filter_with_relations(
         &repo,
         source_index,
         request.filter.as_ref().unwrap(),
@@ -745,7 +745,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         .iter()
         .position(|collection| collection.definition.name == "sources")
         .unwrap();
-    let bound = crate::relation_query::bind_filter_with_relations(
+    let bound = crate::query::binding::relation::bind_filter_with_relations(
         &repo,
         source_index,
         request.filter.as_ref().unwrap(),
@@ -1124,7 +1124,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             .iter()
             .position(|item| item.definition.name == "sources")
             .unwrap();
-        let bound = crate::relation_query::bind_filter_with_relations(
+        let bound = crate::query::binding::relation::bind_filter_with_relations(
             &repo,
             source_index,
             request.filter.as_ref().unwrap(),
@@ -1136,16 +1136,22 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         };
         let mut same_semantics = term.clone();
         same_semantics.span = (0, 0);
-        assert!(crate::reference::same_bound_term(&term, &same_semantics));
+        assert!(crate::query::binding::filter::same_bound_term(
+            &term,
+            &same_semantics
+        ));
         let mut different_literal = term.clone();
         different_literal.literal = Value::String("Other".into());
-        assert!(!crate::reference::same_bound_term(
+        assert!(!crate::query::binding::filter::same_bound_term(
             &term,
             &different_literal
         ));
         let mut different_target = term.clone();
         different_target.related.as_mut().unwrap().hops[0].to.0 += 1;
-        assert!(!crate::reference::same_bound_term(&term, &different_target));
+        assert!(!crate::query::binding::filter::same_bound_term(
+            &term,
+            &different_target
+        ));
         let source = &repo.collections[source_index];
         let all = source.logical_records.clone();
         let (target_first, target_work) =
@@ -1334,7 +1340,7 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
             ] {
                 let request = query(filter);
                 assert_eq!(ids(&repo, &request), *expected, "seed={seed} {filter}");
-                let bound = crate::relation_query::bind_filter_with_relations(
+                let bound = crate::query::binding::relation::bind_filter_with_relations(
                     &repo,
                     source_index,
                     request.filter.as_ref().unwrap(),

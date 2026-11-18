@@ -167,7 +167,7 @@ pub(super) fn verify_local_segment_record(
     let fts_matches = if let Some(fts) = fts {
         if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
             let matched =
-                crate::reference::raw_fallback_contains(fts, &String::from_utf8_lossy(bytes));
+                crate::reference::fts::raw_fallback_contains(fts, &String::from_utf8_lossy(bytes));
             if matched && retain_evidence {
                 evidence.insert("@record.raw_text".into());
             }
@@ -178,7 +178,7 @@ pub(super) fn verify_local_segment_record(
             }
             result.fts_match
         } else if borrowed_value_text && record.class == RecordClass::Logical {
-            crate::reference::eval_borrowed_value_fts(
+            crate::reference::fts::eval_borrowed_value_fts(
                 fts,
                 &ctx,
                 retain_evidence.then_some(&mut evidence),
@@ -187,7 +187,7 @@ pub(super) fn verify_local_segment_record(
             if retain_evidence {
                 eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
             } else {
-                crate::reference::eval_bound_fts_membership(fts, &extracted.text, &ctx)?
+                crate::reference::fts::eval_bound_fts_membership(fts, &extracted.text, &ctx)?
             }
         }
     } else {
