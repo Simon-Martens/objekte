@@ -14,6 +14,24 @@ fn bounded_entries_include_complete_empty_results() {
 }
 
 #[test]
+fn shared_cache_publication_reuses_the_existing_result_owner() {
+    let mut cache = VerifiedCache::new(1024);
+    let result = Arc::new(CachedResult {
+        members: vec![CachedMember {
+            collection_index: 0,
+            segment_index: None,
+            slot: 7,
+            matched_fields: vec!["title".into()],
+        }],
+    });
+    let original = Arc::as_ptr(&result);
+    assert!(cache.insert_shared(b"shared".to_vec(), result).is_empty());
+    let cached = cache.get(b"shared").unwrap();
+    assert_eq!(Arc::as_ptr(&cached), original);
+    assert_eq!(cached.members[0].slot, 7);
+}
+
+#[test]
 fn structural_key_distinguishes_bound_values_sort_and_fts_mode() {
     use crate::model::{LogicalType, Value};
     use crate::query::{CaseSensitivity, FtsQuery, QueryOptions, parse_filter};

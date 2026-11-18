@@ -23,7 +23,7 @@ use crate::query_access::contract::{
 };
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_plan::selection::ordered_offer_ids;
-use crate::query_predicate::TermId;
+use crate::query_predicate::{PreparedPredicates, TermId};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
 };
@@ -306,6 +306,39 @@ fn segment_text_candidates(
         return Ok(None);
     };
     Ok(index.candidates_prepared(request))
+}
+
+pub(crate) fn segment_text_estimate(
+    segment: &IndexedCollectionSegment,
+    term: &BoundTerm,
+    collection: &CollectionState,
+) -> Option<u64> {
+    if term.derived != Derived::None
+        || !matches!(term.operator, Operator::Contains | Operator::Eq)
+        || !custom_bigram_compatible(term)
+    {
+        return None;
+    }
+    let Value::String(literal) = &term.literal else {
+        return None;
+    };
+    if literal.contains(['%', '\\']) {
+        return None;
+    }
+    let indexes = IndexCatalog::segment(segment, collection);
+    let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
+        && term.operation.is_none()
+        && term.matcher.is_none()
+        && segment_raw_covers_identity_field(segment, collection);
+    let index = indexes.field_text_for(
+        &collection.definition.schema,
+        &term.path.segments,
+        &term.binding_name,
+        term.operation.is_some(),
+        true,
+        raw_compatible,
+    )?;
+    index.estimate_prepared(term.gram_request.as_ref()?)
 }
 
 fn extend_segment_file_slots(
@@ -1051,6 +1084,7 @@ struct PlanContext {
     next_term_id: u32,
     counters: PlanningCounters,
     diagnostics: bool,
+    predicates: Option<Arc<PreparedPredicates>>,
 }
 
 impl PlanContext {
@@ -1068,19 +1102,23 @@ impl PlanContext {
         self.counters.term_estimation_calls += 1;
         let provider = NativeCollectionProvider::for_estimation(collection, input_len);
         let mut offers = OfferList::new();
-        provider
-            .propose(
+        let input_estimate = InputEstimate {
+            domain_len: collection.stats.record_count as u64,
+            input_len,
+            mean_record_bytes: collection.stats.mean_record_bytes(),
+            mean_records_per_file: collection.stats.mean_records_per_file(),
+            file_count: collection.stats.file_count as u64,
+        };
+        let proposal = match &self.predicates {
+            Some(predicates) => predicates.propose(key, &provider, input_estimate, &mut offers),
+            None => provider.propose(
                 key,
                 AccessRequest::Structured(term),
-                InputEstimate {
-                    domain_len: collection.stats.record_count as u64,
-                    input_len,
-                    mean_record_bytes: collection.stats.mean_record_bytes(),
-                    mean_records_per_file: collection.stats.mean_records_per_file(),
-                    file_count: collection.stats.file_count as u64,
-                },
+                input_estimate,
                 &mut offers,
-            )
+            ),
+        };
+        proposal
             .map_err(|error| error.to_string())?;
         self.counters.dictionary_keys_visited += provider.dictionary_keys_visited();
         let mut paths = provider.prepared_paths();
@@ -1092,6 +1130,15 @@ impl PlanContext {
             .into_iter()
             .filter_map(|index| paths.get(index).cloned())
             .collect();
+        if empty_selection_preservation(term)
+            && collection.empty_array_records.len() >= input_len
+            && let Some(scanner) = paths
+                .iter()
+                .position(|path| path.kind == AccessPathKind::Scanner)
+        {
+            let scanner = paths.remove(scanner);
+            paths.insert(0, scanner);
+        }
         self.paths.insert(key, paths.clone());
         Ok(paths)
     }
@@ -1100,6 +1147,13 @@ impl PlanContext {
         let key = (collection.generation.collection.0, term.span);
         if let Some(id) = self.term_ids.get(&key) {
             return *id;
+        }
+        if let Some(predicates) = &self.predicates
+            && let Some(id) =
+                predicates.term_for_span(collection.generation.collection.0 as usize, term.span)
+        {
+            self.term_ids.insert(key, id);
+            return id;
         }
         let id = TermId::new(self.next_term_id);
         self.next_term_id = self
@@ -2214,7 +2268,7 @@ pub(crate) fn plan_expr_restricted(
     evidence: bool,
 ) -> Result<Plan, String> {
     plan_expr_restricted_with_execution(
-        repo, collection, segments, expr, domain, input, evidence, true, None,
+        repo, collection, segments, expr, domain, input, evidence, true, None, None,
     )
 }
 
@@ -2228,12 +2282,14 @@ pub(crate) fn plan_expr_restricted_with_execution(
     evidence: bool,
     diagnostics: bool,
     execution: Option<&crate::streaming::ExecutionContext>,
+    predicates: Option<Arc<PreparedPredicates>>,
 ) -> Result<Plan, String> {
     if let Some(execution) = execution {
         execution.check_string()?;
     }
     let mut context = PlanContext {
         diagnostics,
+        predicates,
         ..PlanContext::default()
     };
     let mut plan = plan_expr_restricted_inner(
@@ -2354,6 +2410,7 @@ fn plan_logical_expr(
             let exact = selected.exact;
             let exact_candidates = if exact { candidates.as_ref() } else { None };
             let proofs = exact_candidates
+                .filter(|_| evidence)
                 .map(|set| {
                     vec![Proof {
                         term: term.clone(),

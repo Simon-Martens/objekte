@@ -78,9 +78,20 @@ impl VerifiedCache {
 
     /// The caller must drop displaced results after releasing its cache lock.
     pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) -> Vec<Arc<CachedResult>> {
+        self.insert_shared(key, Arc::new(CachedResult { members }))
+    }
+
+    /// Publish an existing immutable result without duplicating its membership
+    /// vector. The cache retains one additional `Arc` handle.
+    pub fn insert_shared(
+        &mut self,
+        key: Vec<u8>,
+        result: Arc<CachedResult>,
+    ) -> Vec<Arc<CachedResult>> {
         let bytes = key.len()
             .saturating_add(128)
-            .saturating_add(members
+            .saturating_add(result
+                .members
                 .iter()
                 .map(|member| {
                     std::mem::size_of::<CachedMember>()
@@ -93,7 +104,7 @@ impl VerifiedCache {
                 .fold(0usize, usize::saturating_add));
         let mut displaced = Vec::new();
         if bytes > self.budget {
-            displaced.push(Arc::new(CachedResult { members }));
+            displaced.push(result);
             return displaced;
         }
         if let Some(old) = self.entries.remove(&key) {
@@ -118,7 +129,7 @@ impl VerifiedCache {
         self.entries.insert(
             key,
             Entry {
-                result: Arc::new(CachedResult { members }),
+                result,
                 bytes,
             },
         );

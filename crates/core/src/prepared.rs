@@ -1,6 +1,7 @@
 //! Fresh, validated typed query bindings for each request.
 
 use std::collections::HashMap;
+use std::sync::Arc;
 
 use crate::query::Query;
 use crate::query_predicate::{
@@ -35,7 +36,7 @@ impl PreparedCollectionQuery {
 #[derive(Clone)]
 pub(crate) struct PreparedQuery {
     pub(crate) collections: Vec<PreparedCollectionQuery>,
-    pub(crate) predicates: PreparedPredicates,
+    pub(crate) predicates: Arc<PreparedPredicates>,
 }
 
 /// Bind one query against the selected collections on every request.
@@ -98,7 +99,7 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
     }
     Ok(PreparedQuery {
         collections,
-        predicates: PreparedPredicates::new(leaves),
+        predicates: Arc::new(PreparedPredicates::new(leaves)),
     })
 }
 

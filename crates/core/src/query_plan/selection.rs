@@ -39,7 +39,13 @@ pub(crate) fn ordered_offer_ids(offers: &[AccessOffer], input_len: u64) -> Vec<A
     ordered
 }
 
-fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u32) {
+fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u8, u32) {
+    let broad_candidate = offer.proof() == ProofStrength::Candidate
+        && offer.estimated_output() >= input_len
+        && matches!(
+            offer.kind(),
+            AccessKind::CandidateMembership | AccessKind::Relation
+        );
     (
         offer.estimated_work(input_len),
         match offer.proof() {
@@ -53,6 +59,7 @@ fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u32) {
             Coverage::CandidateOnly => 2,
             Coverage::Input => 3,
         },
+        u8::from(broad_candidate),
         offer.id().provider.0,
     )
 }

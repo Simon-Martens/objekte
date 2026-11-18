@@ -1,6 +1,7 @@
 use super::*;
+use crate::execution_options::SortField;
 use crate::model::LogicalType;
-use crate::query::{QueryOptions, parse_filter};
+use crate::query::{CaseSensitivity, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
