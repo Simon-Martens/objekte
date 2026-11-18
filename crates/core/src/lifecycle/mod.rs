@@ -3818,5 +3818,4 @@ impl IndexView {
 }
 
 #[cfg(test)]
-#[path = "lifecycle.test.rs"]
 mod tests;
