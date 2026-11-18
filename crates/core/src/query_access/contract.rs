@@ -101,13 +101,27 @@ pub(crate) enum ProofStrength {
     None,
 }
 
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub(crate) struct InputEstimate {
+    pub(crate) domain: super::membership::DomainId,
     pub(crate) domain_len: u64,
     pub(crate) input_len: u64,
     pub(crate) mean_record_bytes: f64,
     pub(crate) mean_records_per_file: f64,
     pub(crate) file_count: u64,
+}
+
+impl Default for InputEstimate {
+    fn default() -> Self {
+        Self {
+            domain: super::membership::DomainId::new(0),
+            domain_len: 0,
+            input_len: 0,
+            mean_record_bytes: 0.0,
+            mean_records_per_file: 0.0,
+            file_count: 0,
+        }
+    }
 }
 
 #[derive(Clone, Debug)]

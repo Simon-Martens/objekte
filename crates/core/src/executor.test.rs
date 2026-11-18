@@ -1658,6 +1658,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             TermId::new(7),
             AccessRequest::Structured(term),
             InputEstimate {
+                domain: provider.domain(),
                 domain_len: domain.len() as u64,
                 input_len: domain.len() as u64,
                 mean_record_bytes: collection.stats.mean_record_bytes(),
@@ -1719,6 +1720,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             TermId::new(8),
             AccessRequest::Structured(term_b),
             InputEstimate {
+                domain: provider.domain(),
                 domain_len: domain.len() as u64,
                 input_len: domain.len() as u64,
                 mean_record_bytes: collection.stats.mean_record_bytes(),

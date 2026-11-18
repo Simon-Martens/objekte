@@ -229,19 +229,27 @@ pub(crate) fn segment_fts_candidates(
     use crate::query_access::text::NativeSegmentTextProvider;
 
     let provider = NativeSegmentTextProvider::new(segment, collection);
-    let mut offers = crate::query_access::contract::OfferList::new();
-    provider
+    #[cfg(test)]
+    let test_providers = crate::query_execution::request::all_test_access_providers();
+    let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+    providers.push(&provider);
+    #[cfg(test)]
+    for test_provider in &test_providers {
+        providers.push(test_provider.as_ref());
+    }
+    let catalog = ProviderCatalog::new(providers);
+    let offers = catalog
         .propose(
             TermId::new(0),
             AccessRequest::Text(fts),
             InputEstimate {
+                domain: provider.domain(),
                 domain_len: segment.record_count() as u64,
                 input_len: segment.record_count() as u64,
                 mean_record_bytes: collection.stats.mean_record_bytes(),
                 mean_records_per_file: collection.stats.mean_records_per_file(),
                 file_count: segment.file_count() as u64,
             },
-            &mut offers,
         )
         .map_err(|error| error.to_string())?;
     let Some(chosen) = crate::query_plan::selection::choose_offer(
@@ -254,7 +262,7 @@ pub(crate) fn segment_fts_candidates(
         return Ok(None);
     };
     let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
-    let applied = provider
+    let applied = catalog
         .apply(
             TermId::new(0),
             AccessRequest::Text(fts),
@@ -779,6 +787,81 @@ fn segment_expr_bounds(
 ) -> Result<SegmentCandidateBounds, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
+            #[cfg(test)]
+            {
+                let test_providers =
+                    crate::query_execution::request::all_test_access_providers();
+                if !test_providers.is_empty() {
+                    let term_id = TermId::new(term.span.0 as u32);
+                    let domain_id = crate::query_access::membership::DomainId::from_parts(
+                        0,
+                        collection.generation.collection.0,
+                        collection.generation.generation,
+                        Some(segment.id.get()),
+                    );
+                    let mut provider_refs: SmallVec<[&dyn IndexAccessProvider; 4]> =
+                        SmallVec::new();
+                    for provider in &test_providers {
+                        provider_refs.push(provider.as_ref());
+                    }
+                    let catalog = ProviderCatalog::new(provider_refs);
+                    let offers = catalog
+                        .propose(
+                            term_id,
+                            AccessRequest::Structured(term),
+                            InputEstimate {
+                                domain: domain_id,
+                                domain_len: segment.record_count() as u64,
+                                input_len: domain.len(),
+                                mean_record_bytes: collection.stats.mean_record_bytes(),
+                                mean_records_per_file: collection.stats.mean_records_per_file(),
+                                file_count: segment.file_count() as u64,
+                            },
+                        )
+                        .map_err(|error| error.to_string())?;
+                    if let Some(chosen) =
+                        crate::query_plan::selection::choose_offer(term_id, &offers, domain.len())
+                            .map_err(|error| error.to_string())?
+                    {
+                        let input = crate::query_access::membership::SlotInput::unrestricted(
+                            domain_id, domain,
+                        );
+                        let applied = catalog
+                            .apply(
+                                term_id,
+                                AccessRequest::Structured(term),
+                                chosen.id(),
+                                input,
+                                &AccessExecution { context: None },
+                            )
+                            .map_err(|error| error.to_string())?;
+                        let explicit = applied.into_slots();
+                        let may = match explicit {
+                            crate::query_access::membership::SlotSet::Owned(bitmap) => bitmap,
+                            crate::query_access::membership::SlotSet::Borrowed(bitmap) => {
+                                bitmap.clone()
+                            }
+                            crate::query_access::membership::SlotSet::Shared(bitmap) => {
+                                bitmap.as_ref().clone()
+                            }
+                            crate::query_access::membership::SlotSet::Empty => {
+                                RoaringBitmap::new()
+                            }
+                            crate::query_access::membership::SlotSet::Unrestricted => {
+                                domain.clone()
+                            }
+                        };
+                        let must = if chosen.proof()
+                            == crate::query_access::contract::ProofStrength::Exact
+                        {
+                            may.clone()
+                        } else {
+                            RoaringBitmap::new()
+                        };
+                        return Ok(SegmentCandidateBounds { may, must });
+                    }
+                }
+            }
             if term.query_path.has_position {
                 if let Some(matches) =
                     segment_positional_eq_candidates(segment, logical_active, term)?
@@ -1104,6 +1187,7 @@ impl PlanContext {
         let provider = NativeCollectionProvider::for_estimation(collection, input_len);
         let mut offers = OfferList::new();
         let input_estimate = InputEstimate {
+            domain: provider.domain(),
             domain_len: collection.stats.record_count as u64,
             input_len,
             mean_record_bytes: collection.stats.mean_record_bytes(),
@@ -1180,6 +1264,7 @@ impl PlanContext {
             None,
         );
         let input_estimate = InputEstimate {
+            domain: provider.domain(),
             domain_len: collection.stats.record_count as u64,
             input_len: input.len(),
             mean_record_bytes: collection.stats.mean_record_bytes(),
@@ -1267,6 +1352,7 @@ impl PlanContext {
                 predicates,
                 term_id,
                 InputEstimate {
+                    domain: provider.domain(),
                     domain_len: collection.stats.record_count as u64,
                     input_len,
                     mean_record_bytes: collection.stats.mean_record_bytes(),
@@ -3047,6 +3133,7 @@ pub(crate) fn fts_candidates(
             TermId::new(0),
             AccessRequest::Text(fts),
             InputEstimate {
+                domain: provider.domain(),
                 domain_len: collection.stats.record_count as u64,
                 input_len: collection.stats.record_count as u64,
                 mean_record_bytes: collection.stats.mean_record_bytes(),

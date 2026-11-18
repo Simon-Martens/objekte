@@ -113,6 +113,18 @@ pub(crate) fn test_access_providers(
 }
 
 #[cfg(test)]
+pub(crate) fn all_test_access_providers(
+) -> Vec<std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>> {
+    test_provider_registry()
+        .lock()
+        .expect("test provider registry poisoned")
+        .values()
+        .flatten()
+        .cloned()
+        .collect()
+}
+
+#[cfg(test)]
 fn test_provider_registry() -> &'static std::sync::Mutex<
     std::collections::HashMap<
         u64,

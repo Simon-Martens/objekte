@@ -151,6 +151,9 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         offers: &mut OfferList,
     ) -> AccessResult<()> {
         self.counters.proposals.fetch_add(1, Ordering::Relaxed);
+        if input.domain != self.domain {
+            return Ok(());
+        }
         let AccessRequest::Structured(bound) = request else {
             return Ok(());
         };

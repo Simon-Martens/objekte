@@ -130,6 +130,9 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         offers: &mut OfferList,
     ) -> AccessResult<()> {
         self.proposals.fetch_add(1, Ordering::Relaxed);
+        if input.domain != self.domain {
+            return Ok(());
+        }
         let AccessRequest::Text(fts) = request else {
             return Ok(());
         };
@@ -237,6 +240,9 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
+        if input.domain != self.domain {
+            return Ok(());
+        }
         let AccessRequest::Text(fts) = request else {
             return Ok(());
         };
@@ -312,9 +318,22 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
                 .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
             SlotSet::from_owned(result & input_ref)
         };
+        let input_count = input.len() as u64;
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
-        Ok(input.replace_slots(slots))
+        let result = input.replace_slots(slots);
+        let output_count = result.len() as u64;
+        crate::query_execution::request::record_observation(
+            self.instance_id,
+            _term,
+            self.domain,
+            choice,
+            self.collection.generation.collection.0,
+            input_count,
+            output_count,
+            0,
+        );
+        Ok(result)
     }
 }
 
@@ -337,6 +356,7 @@ pub(crate) fn prepared_text_candidates(
     }
     let catalog = ProviderCatalog::new(providers);
     let input_estimate = InputEstimate {
+        domain: provider.domain(),
         domain_len: collection.stats.record_count as u64,
         input_len: input.len(),
         mean_record_bytes: collection.stats.mean_record_bytes(),
@@ -397,6 +417,7 @@ pub(crate) fn prepared_text_estimate(
             predicates,
             term,
             InputEstimate {
+                domain: provider.domain(),
                 domain_len: collection.stats.record_count as u64,
                 input_len,
                 mean_record_bytes: collection.stats.mean_record_bytes(),
