@@ -1891,6 +1891,7 @@ impl Index {
 }
 
 mod publication;
+pub mod session;
 
 pub(crate) use publication::PublishedIndex;
 

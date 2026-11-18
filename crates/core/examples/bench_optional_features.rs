@@ -13,7 +13,7 @@ use std::time::Instant;
 
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,

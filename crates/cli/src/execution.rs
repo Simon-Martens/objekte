@@ -8,8 +8,8 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
 use objekte_search_core::streaming::{

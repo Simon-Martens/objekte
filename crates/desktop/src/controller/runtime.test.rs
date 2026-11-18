@@ -2,7 +2,7 @@ use super::*;
 
 fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, IndexView, IndexView) {
     use objekte_search_core::lifecycle::Index;
-    use objekte_search_core::lifecycle_caller::IndexedRepository;
+    use objekte_search_core::lifecycle::session::IndexedRepository;
     use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
     use objekte_search_core::source::SourceFormat;
 
@@ -40,7 +40,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
     use crate::ui::filter_builder::{Comparison, ConditionDraft, ValueType, serialize_conditions};
     use objekte_search_core::inference::{InferenceConfig, InferenceMode};
     use objekte_search_core::lifecycle::Index;
-    use objekte_search_core::lifecycle_caller::IndexedRepository;
+    use objekte_search_core::lifecycle::session::IndexedRepository;
     use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
     use objekte_search_core::reference::FieldDefinition;
     use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
@@ -605,7 +605,7 @@ fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     let mut session = fixture.session;
     let index = repository;
     session.repository =
-        Arc::new(objekte_search_core::lifecycle_caller::IndexedRepository::new(index).unwrap());
+        Arc::new(objekte_search_core::lifecycle::session::IndexedRepository::new(index).unwrap());
     session.collections = vec!["files".into()];
     let (values, partial, visited) = posting_completions(
         &session,

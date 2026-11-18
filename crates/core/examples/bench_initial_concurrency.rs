@@ -10,8 +10,8 @@ use std::path::PathBuf;
 use std::thread;
 use std::time::{Duration, Instant};
 
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{IndexView, InitialBuildPhase, InitialBuildTask};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};

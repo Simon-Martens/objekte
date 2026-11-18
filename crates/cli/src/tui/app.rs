@@ -6,11 +6,11 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
 };
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
 use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{

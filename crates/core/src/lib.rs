@@ -17,7 +17,6 @@ pub mod inference;
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
-pub mod lifecycle_caller;
 mod lifecycle_catalog;
 mod lifecycle_compaction;
 mod lifecycle_initial;

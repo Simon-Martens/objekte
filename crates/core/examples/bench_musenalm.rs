@@ -8,7 +8,7 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{RepositoryOptions, SearchHit};

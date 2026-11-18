@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::path::PathBuf;
 
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::{FtsMode, Query, RegexOptions};
 use objekte_search_core::repository::{Payload, RepositoryOptions, SearchHit};
 use objekte_search_core::streaming::{

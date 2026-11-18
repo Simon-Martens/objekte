@@ -188,5 +188,5 @@ impl Deref for IndexedRepository {
 }
 
 #[cfg(test)]
-#[path = "lifecycle_caller.test.rs"]
+#[path = "session/tests.rs"]
 mod tests;
