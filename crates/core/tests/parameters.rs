@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
-use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
@@ -9,7 +9,7 @@ use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, Repo
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
 
-fn fixture() -> (PathBuf, IndexView) {
+fn fixture() -> (PathBuf, Index, IndexView) {
     let root = std::env::temp_dir().join(format!(
         "objekte-parameters-{}-{}",
         std::process::id(),
@@ -87,7 +87,7 @@ fn fixture() -> (PathBuf, IndexView) {
             })
             .unwrap();
     }
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -108,10 +108,9 @@ fn fixture() -> (PathBuf, IndexView) {
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
-    .map_err(|error| error.to_string())
     .unwrap();
-    (root, repo)
+    let repo = index.view().unwrap();
+    (root, index, repo)
 }
 
 fn query(filter: &str) -> Query {
@@ -143,7 +142,7 @@ fn ids(repo: &IndexView, template: &Query, name: &str, value: Value) -> Vec<Stri
 
 #[test]
 fn typed_parameters_bind_without_interpolation_and_keep_cache_identity() {
-    let (root, repo) = fixture();
+    let (root, _index, repo) = fixture();
     let title = query("title = $value");
     assert_eq!(
         ids(
@@ -234,7 +233,7 @@ fn typed_parameters_bind_without_interpolation_and_keep_cache_identity() {
 
 #[test]
 fn missing_conflicting_and_array_parameters_fail_during_preparation() {
-    let (root, repo) = fixture();
+    let (root, _index, repo) = fixture();
     let missing = query("year = $minimum");
     assert!(
         repo.search(&missing)

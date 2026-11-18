@@ -291,9 +291,8 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             objekte_search_core::source::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
-        .and_then(|index| index.view())
-        .map_err(|error| error.to_string())
         .unwrap();
+        let built_view = built.view().unwrap();
         let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             definitions(),
@@ -308,21 +307,21 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                 if stored {
                     view.search(query)
                 } else {
-                    built.search(query)
+                    built_view.search(query)
                 }
             };
             let search_with_parameters = |query: &Query, params: &HashMap<String, Value>| {
                 if stored {
                     view.search_with_parameters(query, params)
                 } else {
-                    built.search_with_parameters(query, params)
+                    built_view.search_with_parameters(query, params)
                 }
             };
             for (filter, _field, _predicate, _quantifier, _negated, expected) in &cases {
                 for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
                     let request = query("mentions", filter, mode);
                     let actual = search(&request).unwrap();
-                    let reference = built.search_reference(&request).unwrap();
+                    let reference = built_view.search_reference(&request).unwrap();
                     assert_eq!(sorted_ids(&actual), *expected, "{filter}");
                     assert_eq!(actual.count, Some(expected.len()), "{filter}");
                     assert_eq!(actual.hits, reference.hits, "{filter}");
@@ -364,7 +363,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                         Some(path)
                     );
                     let actual = search(&selected).unwrap();
-                    let reference = built.search_reference(&selected).unwrap();
+                    let reference = built_view.search_reference(&selected).unwrap();
                     assert_eq!(sorted_ids(&actual), expected);
                     assert_eq!(actual.hits, reference.hits);
                     assert_eq!(actual.count, Some(expected.len()));
@@ -402,7 +401,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             wrong_type.insert("pattern".into(), Value::Bool(true));
             assert!(search_with_parameters(&selected, &wrong_type).is_err());
             let actual = search_with_parameters(&selected, &params).unwrap();
-            let reference = built
+            let reference = built_view
                 .search_reference_with_parameters(&selected, &params)
                 .unwrap();
             assert_eq!(sorted_ids(&actual), ["m1"]);
@@ -429,16 +428,15 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
 #[test]
 fn explain_reports_bound_relation_and_temporal_semantics() {
     let (root, _, _) = fixture();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions::default(),
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
-    .map_err(|error| error.to_string())
     .unwrap();
+    let repo = index.view().unwrap();
     let mut request = query("mentions", "entry.issued = 2024-02", ReturnMode::Locator);
     request.fts = Some(objekte_search_core::query::FtsQuery {
         pattern_parameter: None,
@@ -480,16 +478,15 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
 #[test]
 fn false_and_branch_skips_expensive_relation_verification_in_reference_route() {
     let (root, _, _) = fixture();
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         definitions(),
         RepositoryOptions::default(),
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
-    .map_err(|error| error.to_string())
     .unwrap();
+    let repo = index.view().unwrap();
     let request = query(
         "mentions",
         "@record.id = 'm1' && entry.title = 'Hymn'",

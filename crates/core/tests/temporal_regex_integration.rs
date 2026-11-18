@@ -109,9 +109,8 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
             objekte_search_core::source::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
-        .and_then(|index| index.view())
-        .map_err(|error| error.to_string())
         .unwrap();
+        let built_view = built.view().unwrap();
         let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![definition()],
@@ -126,7 +125,7 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
                 if stored {
                     view.search_with_parameters(query, params)
                 } else {
-                    built.search_with_parameters(query, params)
+                    built_view.search_with_parameters(query, params)
                 }
             };
             for (step, id, expected) in [(0, "A", Some("A")), (1, "B", None), (2, "A", Some("A"))] {
@@ -135,7 +134,7 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
                     parse_parameter_json(&format!(r#"{{"type":"id","value":"{id}"}}"#)).unwrap(),
                 )]);
                 let actual = search(&template, &params).unwrap();
-                let reference = built
+                let reference = built_view
                     .search_reference_with_parameters(&template, &params)
                     .unwrap();
                 assert_eq!(actual.hits, reference.hits);

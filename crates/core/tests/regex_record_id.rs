@@ -111,9 +111,8 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             objekte_search_core::source::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
-        .and_then(|index| index.view())
-        .map_err(|error| error.to_string())
         .unwrap();
+        let built_view = built.view().unwrap();
         let restored = objekte_search_core::lifecycle::Index::start_build(
             &root,
             vec![definition()],
@@ -128,12 +127,12 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
                 if stored {
                     view.search(query)
                 } else {
-                    built.search(query)
+                    built_view.search(query)
                 }
             };
             for (query, expected) in &cases {
                 let actual = search(query).unwrap();
-                let reference = built.search_reference(query).unwrap();
+                let reference = built_view.search_reference(query).unwrap();
                 let mut ids = actual
                     .hits
                     .iter()
@@ -175,7 +174,7 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             ] {
                 let query = regex_id_query(pattern, CaseSensitivity::Sensitive, flags);
                 let actual = search(&query).unwrap();
-                let reference = built.search_reference(&query).unwrap();
+                let reference = built_view.search_reference(&query).unwrap();
                 assert_eq!(actual.hits, reference.hits);
                 assert_eq!(
                     actual

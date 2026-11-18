@@ -75,7 +75,7 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
             })
             .unwrap();
     }
-    let repo = objekte_search_core::lifecycle::Index::start_build(
+    let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
@@ -96,9 +96,8 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         objekte_search_core::source::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
-    .and_then(|index| index.view())
-    .map_err(|error| error.to_string())
     .unwrap();
+    let repo = index.view().unwrap();
     for (filter, expected) in [
         ("issued = 2024-02", vec!["A", "C"]),
         ("issued != 2024-02", vec!["B"]),
