@@ -18,7 +18,4 @@ pub(crate) use segment_admission::*;
 #[path = "../build.test.rs"]
 mod tests;
 
-#[path = "../mutation_segment.rs"]
-mod mutation_segment;
-pub(crate) use crate::native_segment::{IndexedCollectionSegment, SegmentFile, SegmentId};
-pub(crate) use mutation_segment::PartitionRouting;
+pub(crate) use crate::index::segment::{IndexedCollectionSegment, SegmentFile, SegmentId};

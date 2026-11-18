@@ -1,5 +1,11 @@
 //! Native segment policy, identity, ownership, and borrowed inspection.
 
+mod compaction;
+mod consolidation;
+mod projection;
+
+pub(crate) use projection::PartitionRouting;
+
 use std::collections::{BTreeMap, HashMap};
 use std::fmt;
 use std::num::NonZeroUsize;
@@ -711,3 +717,11 @@ mod tests {
         assert!(!policy.can_grow(1, usize::MAX, 0, 1));
     }
 }
+
+#[cfg(test)]
+#[path = "consolidation.test.rs"]
+mod consolidation_tests;
+
+#[cfg(test)]
+#[path = "compaction.test.rs"]
+mod compaction_tests;

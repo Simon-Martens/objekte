@@ -8,7 +8,8 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::build::{IndexedCollectionSegment, PartitionRouting};
+use crate::build::IndexedCollectionSegment;
+use crate::index::segment::PartitionRouting;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]

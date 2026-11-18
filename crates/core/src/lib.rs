@@ -3,7 +3,6 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-pub mod bigram;
 mod build;
 mod byte_size_literal;
 pub mod clock_context;
@@ -18,6 +17,7 @@ pub mod execution_options;
 pub mod executor;
 mod field_state;
 pub mod fts_preview;
+mod index;
 mod index_catalog;
 pub mod inference;
 pub mod inventory;
@@ -34,10 +34,8 @@ mod lifecycle_verified;
 mod materialization;
 pub mod measurement;
 pub mod model;
-pub mod native_segment;
 pub mod parameters;
 pub mod path_repr;
-pub mod posting;
 pub mod posting_values;
 mod prepared;
 pub mod query;
@@ -62,7 +60,6 @@ pub mod repository_configuration;
 pub mod run;
 pub mod schema_adapter;
 mod sort_binding;
-pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod source_scan;
@@ -71,6 +68,8 @@ mod structural;
 pub mod temporal_query;
 mod verified;
 pub mod workload;
+
+pub use index::{bigram, posting, segment as native_segment, sorting};
 
 #[cfg(test)]
 #[path = "lib.test.rs"]
