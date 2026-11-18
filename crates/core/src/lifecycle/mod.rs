@@ -658,7 +658,7 @@ struct IndexInner {
     /// Every data publication checks it while holding that same lock.
     quiescing: AtomicBool,
     /// One aggregate budget for all pinned publications of this index.
-    verified_cache: Mutex<crate::verified::VerifiedCache>,
+    verified_cache: Mutex<crate::query_results::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -892,7 +892,9 @@ impl Index {
             instance_id,
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
-            verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
+            verified_cache: Mutex::new(crate::query_results::verified::VerifiedCache::new(
+                verified_cache_bytes,
+            )),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {

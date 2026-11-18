@@ -153,7 +153,7 @@ pub struct CollectionState {
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
-    pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
+    pub(crate) text_bindings: crate::query_access::catalog::TextBindingCatalog,
     pub sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
@@ -250,7 +250,7 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
-    pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
+    pub(crate) verified: Mutex<crate::query_results::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::index::sorting::InferredOrderCache>,
 }
 
@@ -675,7 +675,7 @@ impl Repository {
                 let mut access = SourceAccessSession::new(&self.files);
                 let mut read = access.read(record.file, &[(slot.0, record.range)])?;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                crate::materialization::payload_from_bytes(
+                crate::query_results::payload::payload_from_bytes(
                     record.class,
                     Some(collection),
                     &return_mode,

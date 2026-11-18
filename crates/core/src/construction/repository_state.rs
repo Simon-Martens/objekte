@@ -124,7 +124,8 @@ pub(crate) fn initialize_empty(
             &definition.sort_overrides,
         )?;
         let sorting = sort_builder.finish(&generation)?;
-        let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
+        let text_bindings =
+            crate::query_access::catalog::TextBindingCatalog::new(&definition.schema);
         let index_family_bytes = crate::lifecycle::index_family_total(
             &raw,
             &fallback_text,
@@ -204,7 +205,7 @@ pub(crate) fn initialize_empty(
             ..StartupStats::default()
         },
         workers,
-        verified: Mutex::new(crate::verified::VerifiedCache::new(
+        verified: Mutex::new(crate::query_results::verified::VerifiedCache::new(
             options.verified_cache_bytes,
         )),
         inferred_orders: Mutex::new(crate::index::sorting::InferredOrderCache::new(

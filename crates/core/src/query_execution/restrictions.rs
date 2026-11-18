@@ -9,7 +9,6 @@ use smallvec::SmallVec;
 
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::sorting::SortKey;
-use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation, self_comparison_shape};
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceRevision, relative_path_bounds,
@@ -19,6 +18,9 @@ use crate::model::{
     FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
 use crate::query::{FtsMode, Operator, Quantifier};
+use crate::query_access::catalog::{
+    IndexCatalog, PostingId, PostingOperation, self_comparison_shape,
+};
 use crate::query_access::contract::{
     AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, Coverage,
     IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
@@ -1557,7 +1559,7 @@ pub(crate) fn segment_expr_bounds(
                 .into_iter()
                 .flatten()
                 .min_by(|(_, left), (_, right)| {
-                    let work = |proposal: &crate::index_catalog::PostingProposal| {
+                    let work = |proposal: &crate::query_access::catalog::PostingProposal| {
                         proposal.lookup_work
                             + proposal.output as f64 * if proposal.exact { 0.02 } else { 50.0 }
                     };

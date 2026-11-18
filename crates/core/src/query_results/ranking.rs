@@ -16,12 +16,12 @@ use crate::query::sort_binding::{
     BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache,
 };
 use crate::query_results::cache::CacheBudget;
+use crate::query_results::verified::CachedMember;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::{BoundExpr, RecordContext};
 use crate::repository::{Payload, Repository, SearchHit};
 use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
-use crate::verified::CachedMember;
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 

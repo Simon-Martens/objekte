@@ -8,7 +8,6 @@ use crate::execution_options::ReturnMode;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::materialization::payload_from_bytes;
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;
@@ -17,12 +16,13 @@ use crate::query_execution::runner::{
     SegmentRecordRef, SourceHitLocator, direct_payload, get_segment_record_by_id, make_hit,
     record_unavailable_hit, segment_locator_hit, segment_record_ref,
 };
+use crate::query_results::payload::payload_from_bytes;
 use crate::query_results::ranking::ResolvedSort;
+use crate::query_results::verified::{CachedMember, CachedResult};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::source::read_record_range_for_search;
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
-use crate::verified::{CachedMember, CachedResult};
 
 /// One cached member that needs a source read to compute its sort key.
 pub(crate) struct CachedSortRead {

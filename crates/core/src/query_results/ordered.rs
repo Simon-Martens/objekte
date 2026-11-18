@@ -275,7 +275,8 @@ pub(super) fn inferred_order_index<'a>(
         if segment.active.len() == 0 {
             continue;
         }
-        let catalog = crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
+        let catalog =
+            crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
         let index = catalog.sortable_scalar(&part.path.segments)?;
         if selected.is_none() {
             selected = Some(index);
@@ -381,7 +382,8 @@ pub(super) fn inferred_order_column_for_segment(
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<Arc<SortColumn>>, String> {
     let collection = &repo.collections[collection_index];
-    let segment_index = crate::index_catalog::IndexCatalog::segment(&segment.index, collection);
+    let segment_index =
+        crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
     let index = segment_index
         .sortable_scalar(&path.segments)
         .ok_or("selected inferred segment lost scalar coverage")?;

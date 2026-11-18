@@ -3724,7 +3724,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     .unwrap();
     let collection = &repo.collections[0];
     let segment = &repo.segments[0][0];
-    let index = crate::index_catalog::IndexCatalog::segment(&segment.index, collection)
+    let index = crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection)
         .sortable_scalar(&["label".into()])
         .unwrap();
     let mut generation = collection.generation.clone();

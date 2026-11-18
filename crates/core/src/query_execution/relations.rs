@@ -2602,7 +2602,7 @@ pub(crate) fn explain_segmented(
             let mut candidates = filter
                 .map(|filter| match filter {
                     BoundExpr::Term(term) => {
-                        let catalog = crate::index_catalog::IndexCatalog::segment(
+                        let catalog = crate::query_access::catalog::IndexCatalog::segment(
                             &published.index,
                             collection,
                         );
@@ -2720,8 +2720,10 @@ pub(crate) fn explain_segmented(
             let mut work = 0.0;
             let mut exact_output = 0u64;
             for published in segments[collection_index].iter() {
-                let catalog =
-                    crate::index_catalog::IndexCatalog::segment(&published.index, collection);
+                let catalog = crate::query_access::catalog::IndexCatalog::segment(
+                    &published.index,
+                    collection,
+                );
                 let selected = catalog
                     .field_postings(
                         &term.path.segments,
@@ -2767,7 +2769,7 @@ pub(crate) fn explain_segmented(
                 );
                 choice.alternatives.push(old);
                 choice.reason = if operation
-                    == crate::index_catalog::PostingOperation::SelfComparePresence
+                    == crate::query_access::catalog::PostingOperation::SelfComparePresence
                 {
                     "self-comparison reduced to path presence in indexed segments; estimate only"
                 } else {
@@ -2851,8 +2853,10 @@ pub(crate) fn explain_segmented(
                 let mut operation = None;
                 let mut output = 0u64;
                 for published in segments[collection_index].iter() {
-                    let catalog =
-                        crate::index_catalog::IndexCatalog::segment(&published.index, collection);
+                    let catalog = crate::query_access::catalog::IndexCatalog::segment(
+                        &published.index,
+                        collection,
+                    );
                     let proposal = catalog
                         .field_postings(
                             &term.path.segments,

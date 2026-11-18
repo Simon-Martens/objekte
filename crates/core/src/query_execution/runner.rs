@@ -20,7 +20,6 @@ use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordE
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 #[cfg(test)]
@@ -55,11 +54,13 @@ pub(crate) use crate::query_results::cache::{
 };
 use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
+use crate::query_results::payload::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::query_results::ranking::{
     MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
     rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
     segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
 };
+use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
@@ -80,7 +81,6 @@ use crate::streaming::{
     ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
     StreamSummary,
 };
-use crate::verified::{CachedMember, CachedResult, VerifiedCache};
 
 #[path = "../query_results/ordered.rs"]
 mod ordered;
@@ -1077,7 +1077,7 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
         BoundExpr::Term(term) => {
             if term.related.is_some()
                 || (term.rhs.is_some()
-                    && !crate::index_catalog::self_comparison_shape(term)
+                    && !crate::query_access::catalog::self_comparison_shape(term)
                     && !term.rhs.as_ref().is_some_and(|rhs| {
                         matches!(term.path.root, PathRoot::Metadata(_))
                             && matches!(rhs.path.root, PathRoot::Metadata(_))
@@ -1781,7 +1781,8 @@ fn search_segmented_impl(
         && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
     {
-        let key = crate::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
+        let key =
+            crate::query_results::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
         let mut store = scope.store.lock().map_err(|error| error.to_string())?;
         if store.enabled() {
             if let Some(cached) = store.get(&key) {
@@ -4126,13 +4127,13 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
     {
-        let key = crate::verified::lifecycle_key(&request, cache.instance_id, revision.0).map_err(
-            |message| StreamError::Execution {
-                kind: ExecutionErrorKind::Execution,
-                message,
-                progress: delivery.progress,
-            },
-        )?;
+        let key =
+            crate::query_results::verified::lifecycle_key(&request, cache.instance_id, revision.0)
+                .map_err(|message| StreamError::Execution {
+                    kind: ExecutionErrorKind::Execution,
+                    message,
+                    progress: delivery.progress,
+                })?;
         let cached = cache
             .store
             .lock()
@@ -4220,7 +4221,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             .budget();
         deferred_cache = Some((
             scope,
-            Mutex::new(crate::verified::VerifiedCache::new(budget)),
+            Mutex::new(crate::query_results::verified::VerifiedCache::new(budget)),
         ));
         deferred_cache
             .as_ref()
@@ -4364,13 +4365,13 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     }
     delivery.observe(&result.counters);
     if let Some((scope, store)) = deferred_cache {
-        let key = crate::verified::lifecycle_key(&request, scope.instance_id, revision.0).map_err(
-            |message| StreamError::Execution {
-                kind: ExecutionErrorKind::Execution,
-                message,
-                progress: delivery.progress,
-            },
-        )?;
+        let key =
+            crate::query_results::verified::lifecycle_key(&request, scope.instance_id, revision.0)
+                .map_err(|message| StreamError::Execution {
+                    kind: ExecutionErrorKind::Execution,
+                    message,
+                    progress: delivery.progress,
+                })?;
         let cached = store
             .lock()
             .map_err(|error| StreamError::Execution {
@@ -4523,7 +4524,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     if computed_sort {
         membership_query.options.sort.clear();
     }
-    let key = crate::verified::key(&membership_query)?;
+    let key = crate::query_results::verified::key(&membership_query)?;
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return if computed_sort {
@@ -4745,10 +4746,12 @@ pub(crate) fn search_stream_scoped_with_context_active(
         && matches!(scope, ResultScope::Page { .. })
     {
         Some(
-            crate::verified::key(&membership_query).map_err(|message| StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
-                message,
-                progress: delivery.progress,
+            crate::query_results::verified::key(&membership_query).map_err(|message| {
+                StreamError::Execution {
+                    kind: crate::streaming::ExecutionErrorKind::Execution,
+                    message,
+                    progress: delivery.progress,
+                }
             })?,
         )
     } else {
@@ -5345,7 +5348,7 @@ pub(crate) fn search_analyze_with_active(
         if computed_sort {
             membership_query.options.sort.clear();
         }
-        let key = crate::verified::key(&membership_query)?;
+        let key = crate::query_results::verified::key(&membership_query)?;
         let cached = repo
             .verified
             .lock()

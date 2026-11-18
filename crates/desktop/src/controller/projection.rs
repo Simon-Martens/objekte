@@ -4,7 +4,6 @@ use std::collections::{BTreeSet, HashSet};
 use std::path::Path;
 
 use objekte_search_core::diagnostics::signed_milliseconds_3;
-use objekte_search_core::fts_preview::PreviewMatcher;
 use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{MetadataField, PathRoot};
@@ -13,6 +12,7 @@ use objekte_search_core::query::path::{PathStep, QueryPath};
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, RegexOptions, parse_structured_filter,
 };
+use objekte_search_core::query_results::fts_preview::PreviewMatcher;
 use objekte_search_core::repository::{Payload, SearchHit};
 use serde_json::Value;
 
