@@ -2,6 +2,9 @@
 
 pub mod compaction;
 pub mod rebuild;
+
+#[cfg(test)]
+mod tests;
 use crate::lifecycle::*;
 impl Index {
     /// Run one source-free compaction on a worker while pinned queries use
