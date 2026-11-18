@@ -5,11 +5,11 @@ use std::collections::{HashMap, HashSet};
 use roaring::RoaringBitmap;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
+use crate::execution_options::BigramAlphabet;
 #[cfg(test)]
 use crate::inventory::append_shifted_bitmap;
 use crate::model::RecordSlot;
 use crate::source::TextSegment;
-use crate::workload::BigramAlphabet;
 
 mod builder;
 

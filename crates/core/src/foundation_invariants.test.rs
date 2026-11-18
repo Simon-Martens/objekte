@@ -2,6 +2,7 @@
 
 use std::collections::HashSet;
 
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::inventory::{FileStatus, RecordClass};
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
@@ -9,7 +10,6 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::DiagnosticCategory;
 use crate::source::SourceFormat;
-use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();

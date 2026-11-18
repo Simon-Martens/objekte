@@ -5,6 +5,7 @@ use std::sync::{Arc, Weak};
 
 use roaring::RoaringBitmap;
 
+use crate::execution_options::ReturnMode;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
@@ -13,7 +14,6 @@ use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionError, ResultScope, StreamControl, StreamError,
     StreamEvent, StreamOptions, StreamOutcome,
 };
-use crate::workload::ReturnMode;
 
 use super::{
     AvailableSearchResult, FileCatalogueRow, FileHandle, FileVersion, Index, IndexError,

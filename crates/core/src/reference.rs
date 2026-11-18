@@ -195,7 +195,7 @@ pub struct RegisteredBinding {
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
     /// Explicit resident orders assembled from already configured scalar sort columns.
-    pub composite_sorts: Vec<Vec<crate::workload::SortField>>,
+    pub composite_sorts: Vec<Vec<crate::execution_options::SortField>>,
     pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
     /// Explicit `index: false` paths; absent annotations leave inference free.
     pub(crate) auto_index_excluded: HashSet<Vec<String>>,
@@ -233,7 +233,7 @@ impl Schema {
     /// Register an exact composite order over previously configured scalar sort fields.
     pub fn register_composite_sort(
         &mut self,
-        fields: Vec<crate::workload::SortField>,
+        fields: Vec<crate::execution_options::SortField>,
     ) -> Result<(), String> {
         if fields.len() < 2 {
             return Err("composite sort requires at least two fields".into());

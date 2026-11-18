@@ -1,6 +1,7 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
+use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
@@ -10,7 +11,7 @@ use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, Repo
 use objekte_search_core::source::{
     ExtractedRecord, SourceFormat, SourceReader, SourceRegistry, TextSegment,
 };
-use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
+use objekte_search_core::workload::WorkloadCase;
 
 struct PipeReader;
 

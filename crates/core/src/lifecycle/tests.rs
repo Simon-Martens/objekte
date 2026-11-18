@@ -2,6 +2,8 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
+use crate::execution_options::ReturnMode;
+use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -12,8 +14,6 @@ use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
     StreamOptions, StreamOutcome,
 };
-use crate::workload::ReturnMode;
-use crate::workload::{SortExpression, SortField};
 
 #[test]
 fn pinned_catalogue_metadata_tracks_each_publication_independently() {

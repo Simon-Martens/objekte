@@ -368,7 +368,7 @@ fn open_incremental_repository(
             query.options.offset = 0;
             query.options.limit = 100;
             query.options.count = false;
-            query.options.return_mode = objekte_search_core::workload::ReturnMode::Locator;
+            query.options.return_mode = objekte_search_core::execution_options::ReturnMode::Locator;
             query.options.evidence = false;
             query
         })

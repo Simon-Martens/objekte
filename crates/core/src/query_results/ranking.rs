@@ -173,7 +173,7 @@ pub(crate) fn offer(
         .max(*retained_key_bytes);
     let retained_bytes = if payload.is_some() {
         if sort.bound.has_computed
-            && query.options.return_mode == crate::workload::ReturnMode::Logical
+            && query.options.return_mode == crate::execution_options::ReturnMode::Logical
         {
             record
                 .range

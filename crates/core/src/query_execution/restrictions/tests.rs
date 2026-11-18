@@ -1,10 +1,10 @@
 use super::*;
+use crate::execution_options::ReturnMode;
 use crate::model::LogicalType;
 use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
@@ -57,7 +57,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let inference = crate::inference::InferenceConfig::default();
-    let alphabet = crate::workload::BigramAlphabet::Ascii;
+    let alphabet = crate::execution_options::BigramAlphabet::Ascii;
     let prepared = prepare_file_build(
         &root,
         SourceFileInput {
@@ -431,8 +431,8 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
         },
     };
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = crate::repository::RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -904,8 +904,8 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         },
     };
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         for (posting, bigram, complete) in [
             (true, true, true),
@@ -1130,8 +1130,8 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
         }
     };
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -1244,8 +1244,8 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
         sort_overrides: Default::default(),
     };
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,

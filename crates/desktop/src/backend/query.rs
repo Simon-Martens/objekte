@@ -3,7 +3,9 @@
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::{IndexRevision, IndexView};
+use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions,
     parse_structured_filter,
@@ -12,7 +14,6 @@ use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::workload::{ReturnMode, WorkCounters};
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
 

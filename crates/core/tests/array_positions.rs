@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::{
     Literal, Operator, Query, QueryOptions, parse_filter, parse_structured_filter,
@@ -11,7 +12,6 @@ use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions,
 };
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::ReturnMode;
 
 #[derive(Debug)]
 struct LiteralOnlyOperation;

@@ -1,3 +1,4 @@
+use crate::execution_options::{ReturnMode, SortField};
 use crate::index::posting::ScalarKey;
 use crate::model::{FieldPath, LogicalType, RecordId, Value};
 use crate::posting_values::PostingValuesRequest;
@@ -5,7 +6,6 @@ use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, par
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::{ReturnMode, SortField};
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();

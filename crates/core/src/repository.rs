@@ -11,6 +11,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::discovery::Discovery;
+use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::index::bigram::{BigramConstructionStats, BigramIndex};
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
@@ -23,6 +24,7 @@ use crate::inventory::{
 };
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
+use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
@@ -31,7 +33,6 @@ use crate::source::{
     PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range_for_search,
 };
 use crate::source_access::SourceAccessSession;
-use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 
@@ -1096,7 +1097,7 @@ impl Repository {
         query: &crate::query::Query,
         mut result: SearchResult,
     ) -> SearchResult {
-        if query.options.return_mode != crate::workload::ReturnMode::Locator
+        if query.options.return_mode != crate::execution_options::ReturnMode::Locator
             && result.counters.source_unavailable_events > 0
         {
             result.count = None;
@@ -1901,7 +1902,8 @@ impl Repository {
                     };
                     matched_fields.sort();
                     let payload = if record.class == RecordClass::RawFallback
-                        && query.options.return_mode == crate::workload::ReturnMode::Logical
+                        && query.options.return_mode
+                            == crate::execution_options::ReturnMode::Logical
                     {
                         Some(Payload::LogicalUnavailable {
                             diagnostic_ref: record.diagnostic_ref,

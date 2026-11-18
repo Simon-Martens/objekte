@@ -7,6 +7,7 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
+use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -29,7 +30,6 @@ use crate::source::{
     extract_file_build_outcomes_hashed_with_buffer, read_record_range_for_build,
     trim_oversized_build_buffer, visit_logical_strings_and_empty,
 };
-use crate::workload::BigramAlphabet;
 
 #[derive(Clone)]
 pub(crate) struct BatchFile {

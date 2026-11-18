@@ -6,13 +6,13 @@ use std::sync::{
     atomic::{AtomicUsize, Ordering},
 };
 
+use crate::execution_options::ReturnMode;
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::inventory::ByteRange;
 use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
 use crate::source::{ExtractedRecord, JsonLinesReader, SourceFormat, SourceReader, SourceRegistry};
-use crate::workload::ReturnMode;
 
 struct CountingJsonLinesReader {
     parses: Arc<AtomicUsize>,

@@ -1,11 +1,11 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
+use crate::execution_options::ReturnMode;
 use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
 
 #[test]
 fn validates_binding_without_reopening_source_records() {

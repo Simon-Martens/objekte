@@ -1,11 +1,11 @@
 use super::*;
+use crate::execution_options::ReturnMode;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::reference::{FieldDefinition, RegisteredBinding};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
 
 #[derive(Debug)]
 struct NullAsZero;

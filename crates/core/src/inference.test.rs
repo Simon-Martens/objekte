@@ -4,6 +4,7 @@ use super::{
     InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     ObservedStep,
 };
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
@@ -12,7 +13,6 @@ use crate::query_execution::restrictions::AccessPathKind;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
-use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
 fn value(json: &str) -> Value {
     Value::from_json(serde_json::from_str(json).unwrap()).unwrap()

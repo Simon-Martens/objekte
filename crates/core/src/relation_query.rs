@@ -667,7 +667,7 @@ impl RelationWork {
 
 /// Combine bounded scanner chunks into one query-wide relation work budget.
 pub(crate) fn check_query_work_budget(
-    counters: &crate::workload::WorkCounters,
+    counters: &crate::measurement::WorkCounters,
 ) -> Result<(), String> {
     for (actual, limit, name) in [
         (

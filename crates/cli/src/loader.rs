@@ -4,6 +4,7 @@ use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 
 use objekte_search_core::discovery::SymlinkPolicy;
+use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::repository_configuration::{
@@ -11,7 +12,6 @@ use objekte_search_core::repository_configuration::{
 };
 use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::BigramAlphabet;
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 

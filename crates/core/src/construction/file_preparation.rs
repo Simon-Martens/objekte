@@ -11,6 +11,7 @@ use std::sync::mpsc;
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
+use crate::execution_options::BigramAlphabet;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
@@ -20,7 +21,6 @@ use crate::source::{
     SourceOutcome, extract_file_build_outcomes, extract_framed_build_outcomes,
     frame_file_for_build,
 };
-use crate::workload::BigramAlphabet;
 
 use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};
 use super::scheduling::{BuildScheduleStats, JobCounters, fits_allowance};

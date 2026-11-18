@@ -4,10 +4,9 @@ mod musenalm;
 use std::collections::BTreeMap;
 use std::path::PathBuf;
 
+use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::repository::{RepositoryOptions, SearchHit};
-use objekte_search_core::workload::{
-    BenchmarkCase, BigramAlphabet, load_extended_manifest, load_manifest,
-};
+use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn main() {
     if let Err(error) = run() {

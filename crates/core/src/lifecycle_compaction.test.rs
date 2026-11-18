@@ -1,9 +1,9 @@
 use super::*;
+use crate::execution_options::ReturnMode;
 use crate::model::CollectionId;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
 
 fn all() -> Query {
     Query {

@@ -7,6 +7,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use crate::construction::batch::BatchContribution;
+use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -24,7 +25,6 @@ use crate::repository::{
     CollectionDefinition, IncrementalSegmentProfile, canonical_custom_text_key,
 };
 use crate::source::PreparedSource;
-use crate::workload::BigramAlphabet;
 
 #[cfg(test)]
 use super::batch::SourceFileInput;

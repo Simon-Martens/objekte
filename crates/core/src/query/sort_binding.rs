@@ -7,6 +7,7 @@ use std::sync::{Arc, Mutex, OnceLock};
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
+use crate::execution_options::{SortExpression, SortField, SortReducer};
 use crate::index::relation::RelationTarget;
 use crate::index::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
@@ -18,7 +19,6 @@ use crate::relation_query::{
     BoundRelationHop, HopDirection, MergedRecordSlot, MergedRelationView, resolve_path,
 };
 use crate::repository::Repository;
-use crate::workload::{SortExpression, SortField, SortReducer};
 
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;

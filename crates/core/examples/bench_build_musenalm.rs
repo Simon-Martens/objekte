@@ -5,11 +5,11 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::repository::RepositoryOptions;
-use objekte_search_core::workload::BigramAlphabet;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 

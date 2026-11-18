@@ -1,12 +1,12 @@
 use super::RepositoryOptions;
 use super::{CollectionDefinition, Repository};
+use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
 use crate::model::{LogicalType, Value};
 use crate::query::{Query, QueryOptions};
 use crate::reference::FieldDefinition;
 use crate::source::SourceFormat;
 use crate::streaming::{ExecutionContext, ExecutionLimits};
-use crate::workload::ReturnMode;
 
 #[test]
 fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_memberships() {
@@ -345,7 +345,9 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
     invalid_sort
         .options
         .sort
-        .push(crate::workload::SortField::simple("[invalid", false));
+        .push(crate::execution_options::SortField::simple(
+            "[invalid", false,
+        ));
     assert!(repo.count_exact(&invalid_sort).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }

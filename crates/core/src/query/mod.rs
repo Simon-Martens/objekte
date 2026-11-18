@@ -10,12 +10,13 @@ pub(crate) mod sort_binding;
 pub mod temporal;
 mod validation;
 
+use crate::execution_options::{ReturnMode, SortExpression, SortField, SortReducer};
 use crate::model::{FieldPath, Number, Value};
 use crate::query::clock::ClockContext;
 use crate::query::path::{QueryPath, split_path_binding};
 use crate::query::size_literal::parse_size_literal;
 use crate::query::temporal::{PeriodLiteral, looks_like_temporal};
-use crate::workload::{ReturnMode, SortExpression, SortField, SortReducer, WorkloadCase};
+use crate::workload::WorkloadCase;
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use time::OffsetDateTime;

@@ -5,9 +5,9 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::ops::Deref;
 use std::path::Path;
 
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
+use crate::measurement::WorkCounters;
 use crate::model::Value;
-
-pub use crate::execution_options::{ReturnMode, SortExpression, SortField, SortReducer};
 
 /// Fixed benchmark query and expected execution options.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -76,8 +76,6 @@ impl BenchmarkCase {
     }
 }
 
-pub use crate::execution_options::BigramAlphabet;
-
 /// Alphabet and cache settings for one benchmark profile.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct Profile {
@@ -108,8 +106,6 @@ pub const PROFILES: [Profile; 4] = [
         warm: true,
     },
 ];
-
-pub use crate::measurement::WorkCounters;
 
 /// One measured query execution and its counters.
 #[derive(Clone, Debug, Serialize, Deserialize)]

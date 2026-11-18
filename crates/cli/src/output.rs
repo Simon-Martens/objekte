@@ -7,10 +7,10 @@ use std::time::Instant;
 use objekte_search_core::diagnostics::{milliseconds_3, signed_milliseconds_3};
 use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::model::FileId;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::{Payload, SearchHit};
-use objekte_search_core::workload::WorkCounters;
 use serde::de::IgnoredAny;
 use serde_json::{Number, Value, json};
 

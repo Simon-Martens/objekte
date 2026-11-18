@@ -5,6 +5,7 @@ use std::collections::HashMap;
 use std::ops::Deref;
 use std::sync::Arc;
 
+use crate::execution_options::ReturnMode;
 use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::model::{FileId, Value};
@@ -14,7 +15,6 @@ use crate::streaming::{
     CancellationToken, ExecutionErrorKind, ResultScope, StreamControl, StreamError, StreamEvent,
     StreamOptions, StreamOutcome,
 };
-use crate::workload::ReturnMode;
 
 /// A live index retaining lightweight repository metadata for frontends.
 /// Search and inspection acquire a fresh view unless explicitly pinned for a

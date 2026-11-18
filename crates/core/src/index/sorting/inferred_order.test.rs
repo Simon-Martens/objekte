@@ -211,12 +211,12 @@ fn stable_icu_keys_and_fixed_null_placement() {
 
 #[test]
 fn configured_collation_changes_order_and_restore_compatibility() {
+    use crate::execution_options::{ReturnMode, SortField};
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::{ReturnMode, SortField};
 
     let root = std::env::temp_dir().join(format!("objekte-collation-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -405,12 +405,12 @@ fn configured_collation_changes_order_and_restore_compatibility() {
 
 #[test]
 fn cross_collection_sort_rejects_different_collation() {
+    use crate::execution_options::{ReturnMode, SortField};
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::{ReturnMode, SortField};
 
     let root = std::env::temp_dir().join(format!("objekte-cross-sort-{}", std::process::id()));
     for name in ["a", "b"] {
@@ -481,12 +481,12 @@ fn cross_collection_sort_rejects_different_collation() {
 
 #[test]
 fn shared_file_status_refreshes_composite_orders_before_publication() {
+    use crate::execution_options::{ReturnMode, SortField};
     use crate::inventory::FileStatus;
     use crate::query::{Query, QueryOptions};
     use crate::reference::FieldDefinition;
     use crate::repository::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::{ReturnMode, SortField};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-shared-status-sort-{}-{}",

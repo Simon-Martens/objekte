@@ -1755,9 +1755,9 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 
 #[test]
 fn segmented_array_step_state_predicates_use_exact_structural_postings() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
     use crate::repository::RepositoryOptions;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-array-state-{}-{}",
@@ -2760,7 +2760,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     query.fts = None;
     query.options.sort = vec![SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "title".into(),
             binding: Some("lower".into()),
             reducer: None,
@@ -3624,13 +3624,13 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 
 #[test]
 fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
+    use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::RepositoryOptions;
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
     };
-    use crate::workload::SortField;
 
     let root = write_inferred_order_fixture("inferred-order-limit", 32);
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -3757,9 +3757,9 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
 
 #[test]
 fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
+    use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::RepositoryOptions;
-    use crate::workload::SortField;
 
     let root = write_inferred_order_fixture("inferred-order-cache", 150);
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
@@ -3835,7 +3835,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
 
 #[test]
 fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
-    use crate::workload::SortField;
+    use crate::execution_options::SortField;
 
     let root = std::env::temp_dir().join(format!("objekte-plan-reuse-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -4128,8 +4128,8 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         },
     };
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -4249,7 +4249,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         );
         assert_eq!(built.search(&selected).unwrap().count, Some(0));
         let mut sorted = all.clone();
-        sorted.options.sort = vec![crate::workload::SortField {
+        sorted.options.sort = vec![crate::execution_options::SortField {
             field: "@file.status".into(),
             descending: false,
             expression: None,
@@ -4352,8 +4352,8 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
         ("!(!(@record.class = 1))", true, &[]),
     ];
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -4387,7 +4387,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                                 fts: None,
                                 options: QueryOptions {
                                     sort: if sorted {
-                                        vec![crate::workload::SortField {
+                                        vec![crate::execution_options::SortField {
                                             field: "@file.status".into(),
                                             descending: false,
                                             expression: None,
@@ -4488,8 +4488,8 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
         sort_overrides: Default::default(),
     }];
     for alphabet in [
-        crate::workload::BigramAlphabet::Ascii,
-        crate::workload::BigramAlphabet::Unicode,
+        crate::execution_options::BigramAlphabet::Ascii,
+        crate::execution_options::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -5005,7 +5005,7 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
 
 #[test]
 fn stored_order_pages_stop_globally_and_count_remains_optional() {
-    use crate::workload::SortField;
+    use crate::execution_options::SortField;
 
     let root = std::env::temp_dir().join(format!("objekte-page-only-{}", std::process::id()));
     for collection in ["a", "b"] {
@@ -5711,7 +5711,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
 
 #[test]
 fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
-    use crate::workload::SortField;
+    use crate::execution_options::SortField;
     let root = std::env::temp_dir().join(format!("objekte-ordered-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut data = Vec::new();
@@ -5834,7 +5834,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
 
 #[test]
 fn interleaved_stored_order_records_keep_bounded_file_handles() {
-    use crate::workload::SortField;
+    use crate::execution_options::SortField;
     let root =
         std::env::temp_dir().join(format!("objekte-interleaved-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -6147,7 +6147,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
         repo.search(query).unwrap()
     };
     let mut sorted = query.clone();
-    sorted.options.sort = vec![crate::workload::SortField {
+    sorted.options.sort = vec![crate::execution_options::SortField {
         field: "sequence".into(),
         descending: true,
         expression: None,
@@ -6521,7 +6521,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
         fts: None,
         filter: Some(parse_filter("day >= '2026-01-15' && seconds >= 1769904000").unwrap()),
         options: QueryOptions {
-            sort: vec![crate::workload::SortField {
+            sort: vec![crate::execution_options::SortField {
                 field: "day".into(),
                 descending: false,
                 expression: None,
@@ -7043,7 +7043,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::workload::SortExpression {
+                crate::execution_options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7175,7 +7175,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::workload::SortExpression {
+                crate::execution_options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7266,7 +7266,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::workload::SortExpression {
+                crate::execution_options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7311,7 +7311,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
 
 #[test]
 fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
-    let expression = crate::workload::SortExpression {
+    let expression = crate::execution_options::SortExpression {
         path: "title".into(),
         binding: Some("lower".into()),
         reducer: None,
@@ -7428,7 +7428,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::workload::SortExpression {
+                crate::execution_options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7452,8 +7452,8 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
 
 #[test]
 fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
+    use crate::execution_options::SortField;
     use crate::repository::RepositoryOptions;
-    use crate::workload::SortField;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-posting-order-residual-{}-{:?}",

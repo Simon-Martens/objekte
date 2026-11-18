@@ -7,8 +7,9 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
+use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::repository::RepositoryOptions;
-use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
+use objekte_search_core::workload::load_extended_manifest;
 
 fn memory_kb(label: &str) -> u64 {
     fs::read_to_string("/proc/self/status")

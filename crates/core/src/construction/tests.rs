@@ -9,6 +9,8 @@ use crate::construction::scheduling::{
     process_repository_file_batches, resolve_build_workers,
 };
 use crate::construction::segment_admission::SegmentAdmission;
+use crate::execution_options::BigramAlphabet;
+use crate::execution_options::ReturnMode;
 use crate::index::bigram::BigramIndex;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
@@ -17,8 +19,6 @@ use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, TextSegment};
-use crate::workload::BigramAlphabet;
-use crate::workload::ReturnMode;
 use sha2::{Digest, Sha256};
 use std::num::NonZeroUsize;
 use std::sync::Arc;

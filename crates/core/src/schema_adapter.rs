@@ -5,11 +5,11 @@ use std::path::Path;
 
 use serde_json::Value;
 
+use crate::execution_options::SortField;
 use crate::model::{FieldPath, LogicalType, PathRoot};
 use crate::query::path::QueryPath;
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::workload::SortField;
 
 pub struct CompiledSchema {
     pub schema: Schema,

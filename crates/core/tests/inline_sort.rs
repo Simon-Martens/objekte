@@ -1,13 +1,14 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
+use objekte_search_core::execution_options::{ReturnMode, SortExpression, SortField};
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
-use objekte_search_core::workload::{ReturnMode, SortExpression, SortField, WorkloadCase};
+use objekte_search_core::workload::WorkloadCase;
 
 fn fixture() -> (PathBuf, Index, IndexView) {
     let root = std::env::temp_dir().join(format!(

@@ -8,8 +8,8 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use super::{BigramIndex, for_each_segment_gram};
+use crate::execution_options::BigramAlphabet;
 use crate::model::RecordSlot;
-use crate::workload::BigramAlphabet;
 
 #[derive(Clone, Copy, Debug)]
 struct GramBlock {

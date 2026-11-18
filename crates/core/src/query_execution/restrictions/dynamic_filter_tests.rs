@@ -1,9 +1,9 @@
 use super::*;
+use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::Value;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::{BigramAlphabet, ReturnMode};
 
 fn query(filter: &str) -> Query {
     Query {

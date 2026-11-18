@@ -4,10 +4,12 @@ use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
 use crate::discovery::discover;
+use crate::execution_options::ReturnMode;
 use crate::inventory::{
     DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
     SourceRevision,
 };
+use crate::measurement::WorkCounters;
 use crate::measurement::{SourceDiagnostic as QuerySourceDiagnostic, SourceUnavailableKind};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
 use crate::query::Query;
@@ -22,7 +24,6 @@ use crate::source::{
     extract_file_outcomes_for_search, finalize_extracted_text, read_record_range_for_search,
 };
 use crate::streaming::CancellationToken;
-use crate::workload::{ReturnMode, WorkCounters};
 
 struct ScanCollection {
     definition: CollectionDefinition,

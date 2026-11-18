@@ -6,6 +6,7 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
+use objekte_search_core::execution_options::{ReturnMode, SortField};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
@@ -21,7 +22,6 @@ use objekte_search_core::repository::{SearchHit, SearchResult};
 use objekte_search_core::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::workload::{ReturnMode, SortField};
 #[cfg(test)]
 use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;

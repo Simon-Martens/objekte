@@ -279,7 +279,7 @@ fn incremental_delta_page(
                 appendable.then(|| objekte_search_core::repository::SearchResult {
                     count: None,
                     hits: Vec::new(),
-                    counters: objekte_search_core::workload::WorkCounters::default(),
+                    counters: objekte_search_core::measurement::WorkCounters::default(),
                 })
             })
     };

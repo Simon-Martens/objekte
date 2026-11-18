@@ -294,9 +294,9 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 
 #[test]
 fn root_queries_match_reference_over_mixed_json_documents() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{CollectionDefinition, RepositoryOptions};
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -421,10 +421,10 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 
 #[test]
 fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
+    use crate::execution_options::ReturnMode;
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-    use crate::workload::ReturnMode;
 
     let root =
         std::env::temp_dir().join(format!("objekte-exact-json-numbers-{}", std::process::id()));
@@ -682,9 +682,9 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 
 #[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
+    use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-    use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -782,11 +782,11 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
 
 #[test]
 fn build_json_borrows_logical_strings_after_temporal_conversion() {
+    use crate::execution_options::BigramAlphabet;
     use crate::index::bigram::BigramBuilder;
     use crate::model::LogicalType;
     use crate::record_preparation::finish_build_record;
     use crate::reference::{FieldDefinition, Schema};
-    use crate::workload::BigramAlphabet;
 
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
@@ -875,11 +875,11 @@ impl SourceReader for TemporalSegmentsReader {
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
+    use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-    use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root =
         std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
@@ -1277,10 +1277,10 @@ fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
 
 #[test]
 fn registered_recoverable_error_survives_repository_query_and_restore() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
-    use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!(
         "objekte-registered-fallback-{}",
         std::process::id()
@@ -1544,11 +1544,11 @@ impl SourceReader for TinyReader {
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {
+    use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-    use crate::workload::{BigramAlphabet, ReturnMode};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1650,11 +1650,11 @@ fn body_only_reader_does_not_prune_unindexed_title() {
 
 #[test]
 fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
+    use crate::execution_options::ReturnMode;
     use crate::model::LogicalType;
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
     std::fs::create_dir_all(root.join("tiny")).unwrap();

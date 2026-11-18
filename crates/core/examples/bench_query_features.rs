@@ -5,13 +5,14 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
+use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
+use objekte_search_core::workload::WorkloadCase;
 use serde_json::json;
 
 struct FeatureCase {

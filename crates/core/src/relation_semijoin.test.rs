@@ -2,6 +2,7 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
@@ -11,7 +12,7 @@ use crate::source::{
     ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, SourceRegistry, TextDerivation,
 };
-use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
+use crate::workload::WorkloadCase;
 
 use super::{Strategy, candidates_with_strategy};
 

@@ -1,12 +1,13 @@
 use std::collections::HashMap;
 
+use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
-use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
+use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool) {

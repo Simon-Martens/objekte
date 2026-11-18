@@ -1,12 +1,12 @@
 //! Shared parse, conversion, extracted-text and payload boundary.
 
+use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
 use crate::reference::BoundFts;
 use crate::reference::Schema;
 use crate::repository::Payload;
 use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_extracted_text};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
-use crate::workload::ReturnMode;
 
 pub(crate) fn finish_build_record(
     schema: &Schema,
