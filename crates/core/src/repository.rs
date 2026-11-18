@@ -842,60 +842,7 @@ impl Repository {
 
     /// Compact native segment inventory for benchmarks and diagnostics.
     pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
-        self.segment_summaries_for(&self.segments)
-    }
-
-    pub(crate) fn segment_summaries_for(
-        &self,
-        segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
-    ) -> Vec<crate::native_segment::NativeSegmentSummary> {
-        (0..self.collections.len())
-            .flat_map(|collection| {
-                segments
-                    .get(collection)
-                    .into_iter()
-                    .flat_map(|segments| segments.iter())
-                    .map(|segment| {
-                        crate::native_segment::IndexedCollectionSegment::read_view(segment)
-                    })
-            })
-            .map(|view| crate::native_segment::NativeSegmentSummary {
-                id: view.id,
-                collection: view.collection,
-                records: view.index.record_count(),
-                active_records: view.active.len() as usize,
-                files: view.index.file_count(),
-                source_bytes: view.index.accounting.source_bytes_estimated,
-                posting_fields: view.index.postings.fields.len(),
-                sort_columns: view.index.sorting.columns.len(),
-                relation_count: view.index.relations.len(),
-                relation_edges: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.edge_count())
-                    .sum(),
-                relation_heap_bytes: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.estimated_bytes())
-                    .sum(),
-                bigram_stores: 2 + view.index.custom_text.len(),
-                distinct_gram_keys: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(|index| index.normal.len() + index.skip.len())
-                    .sum(),
-                bigram_heap_bytes: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(crate::bigram::BigramIndex::estimated_heap_bytes)
-                    .sum(),
-                index_family_bytes: view.index.accounting.index_family_bytes,
-                active: view.active.len() != 0,
-            })
-            .collect()
+        segment_summaries(&self.segments).collect()
     }
 
     /// Borrowed descriptors for one segment's independently owned native
@@ -1951,6 +1898,52 @@ impl Repository {
         let bound = query.with_parameters(parameters)?;
         self.search_reference(&bound)
     }
+}
+
+pub(crate) fn segment_summaries<'a>(
+    segments: &'a [Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+) -> impl Iterator<Item = crate::native_segment::NativeSegmentSummary> + 'a {
+    segments.iter().flat_map(|segments| {
+        segments.iter().map(|segment| {
+            let view = crate::native_segment::IndexedCollectionSegment::read_view(segment);
+            crate::native_segment::NativeSegmentSummary {
+                id: view.id,
+                collection: view.collection,
+                records: view.index.record_count(),
+                active_records: view.active.len() as usize,
+                files: view.index.file_count(),
+                source_bytes: view.index.accounting.source_bytes_estimated,
+                posting_fields: view.index.postings.fields.len(),
+                sort_columns: view.index.sorting.columns.len(),
+                relation_count: view.index.relations.len(),
+                relation_edges: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.edge_count())
+                    .sum(),
+                relation_heap_bytes: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.estimated_bytes())
+                    .sum(),
+                bigram_stores: 2 + view.index.custom_text.len(),
+                distinct_gram_keys: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(|index| index.normal.len() + index.skip.len())
+                    .sum(),
+                bigram_heap_bytes: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(crate::bigram::BigramIndex::estimated_heap_bytes)
+                    .sum(),
+                index_family_bytes: view.index.accounting.index_family_bytes,
+                active: view.active.len() != 0,
+            }
+        })
+    })
 }
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {

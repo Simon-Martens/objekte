@@ -136,45 +136,31 @@ fn run() -> Result<(), String> {
     let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let repo = index.index().view().map_err(|error| error.to_string())?;
     let wall_ns = started.elapsed().as_nanos();
-    let (inventory_heap_bytes, diagnostic_heap_bytes) = index.files().estimated_heap_bytes();
-    let observation = repo.index_observation();
-    let registrations = index.collections().iter().zip(&observation.collection_parts).map(|(state, counts)| {
-        let definition = &state.definition;
-        serde_json::json!({"name":definition.name,"source_path":definition.source_path,"format":definition.format,"identity":format!("{:?}",definition.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })
-    }).collect::<Vec<_>>();
-    let segment_summaries = repo.segment_summaries();
-    let index_stores = segment_summaries
-        .iter()
-        .map(|segment| segment.bigram_stores)
-        .sum::<usize>();
-    let distinct_gram_keys = segment_summaries
-        .iter()
-        .map(|segment| segment.distinct_gram_keys)
-        .sum::<usize>();
-    let bigram_heap_bytes = segment_summaries
-        .iter()
-        .map(|segment| segment.bigram_heap_bytes)
-        .sum::<usize>();
-    let index_family_bytes = segment_summaries
-        .iter()
-        .map(|segment| segment.index_family_bytes)
-        .sum::<usize>();
     let collection_names = repo
         .collection_definitions()
         .map(|definition| definition.name.clone())
         .collect::<Vec<_>>();
-    let segment_counts =
-        segment_summaries
-            .iter()
-            .fold(std::collections::BTreeMap::new(), |mut counts, segment| {
-                let name = &collection_names[segment.collection.0 as usize];
-                counts.entry(name.clone()).or_insert_with(Vec::new).push((
-                    segment.id.get(),
-                    segment.records,
-                    segment.files,
-                ));
-                counts
-            });
+    let mut index_family_bytes = 0usize;
+    let mut segment_counts = std::collections::BTreeMap::new();
+    let observation = repo.index_observation_with_segments(|segment| {
+        index_family_bytes = index_family_bytes.saturating_add(segment.index_family_bytes);
+        let name = &collection_names[segment.collection.0 as usize];
+        segment_counts
+            .entry(name.clone())
+            .or_insert_with(Vec::new)
+            .push((segment.id.get(), segment.records, segment.files));
+    });
+    let (inventory_heap_bytes, diagnostic_heap_bytes) = (
+        observation.inventory_heap_bytes,
+        observation.diagnostic_heap_bytes,
+    );
+    let registrations = index.collections().iter().zip(&observation.collection_parts).map(|(state, counts)| {
+        let definition = &state.definition;
+        serde_json::json!({"name":definition.name,"source_path":definition.source_path,"format":definition.format,"identity":format!("{:?}",definition.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })
+    }).collect::<Vec<_>>();
+    let index_stores = observation.bigram_stores;
+    let distinct_gram_keys = observation.distinct_gram_keys;
+    let bigram_heap_bytes = observation.bigram_heap_bytes;
     let resident_bytes = memory_bytes("VmRSS:");
     let peak_resident_bytes = memory_bytes("VmHWM:");
     let index_signature_sha256 = index_signature(&index, &repo)?;
