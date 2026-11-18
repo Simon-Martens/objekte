@@ -19,8 +19,10 @@ use crate::model::{
 };
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
-use crate::query::{BoundTerm, Derived, binding::filter::BoundExpr};
 use crate::query::{FtsMode, Operator, Quantifier};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
+};
 use crate::query_access::catalog::{
     IndexCatalog, PostingId, PostingOperation, self_comparison_shape,
 };

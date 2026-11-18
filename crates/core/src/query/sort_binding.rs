@@ -15,7 +15,7 @@ use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
 use crate::query::binding::relation::{BoundRelationHop, HopDirection, resolve_path};
 use crate::query::path::{PathStep, QueryPath, split_path_binding};
-use crate::query::{metadata_value, semantics::record::RecordContext};
+use crate::query::{semantics::record::RecordContext, semantics::record::metadata_value};
 use crate::relation_query::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
 use crate::schema::{operation::BindingOperation, operation::Transform};

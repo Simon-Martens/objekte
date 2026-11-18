@@ -14,7 +14,9 @@ use crate::query::Quantifier;
 use crate::query::binding::fts::BoundFts;
 use crate::query::binding::relation::{BoundRelationHop, HopDirection};
 use crate::query::semantics::record::RecordContext;
-use crate::query::{BoundTerm, binding::filter::BoundExpr, same_bound_term};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::same_bound_term,
+};
 use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;

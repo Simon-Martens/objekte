@@ -31,8 +31,10 @@ use crate::query::semantics::record::RecordContext;
 use crate::query::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache,
 };
-use crate::query::{BoundTerm, Derived, binding::filter::BoundExpr};
 use crate::query::{Operator, Quantifier, Query};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
+};
 use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,

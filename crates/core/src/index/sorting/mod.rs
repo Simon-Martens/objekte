@@ -15,7 +15,10 @@ use time::{Date, OffsetDateTime};
 use crate::execution_options::{CompositeSortPart, SortField, simple_composite_part};
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
-use crate::query::{data_values_small, metadata_value, semantics::record::RecordContext};
+use crate::query::{
+    semantics::record::RecordContext, semantics::record::data_values_small,
+    semantics::record::metadata_value,
+};
 use crate::schema::Schema;
 
 mod inferred_order;

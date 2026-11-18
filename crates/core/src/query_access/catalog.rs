@@ -12,8 +12,8 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
-use crate::query::{Derived, binding::filter::BoundTerm};
 use crate::query::{Operator, Quantifier};
+use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
 use crate::repository::CollectionState;
 use crate::schema::{Schema, operation::Transform};
 

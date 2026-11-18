@@ -1,6 +1,6 @@
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
     #[cfg(test)]
-    if let Some(result) = crate::query_predicate::alternate_term_result(term, ctx) {
+    if let Some(result) = crate::query::semantics::test_matcher::alternate_term_result(term, ctx) {
         return result;
     }
     if let Some(rhs) = &term.rhs {

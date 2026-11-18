@@ -8,7 +8,7 @@ use crate::index::relation::RelationTarget;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
 use crate::query::binding::relation::HopDirection;
-use crate::query::{BoundTerm, binding::filter::BoundExpr};
+use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
 use crate::repository::Repository;
 use crate::source::ScanProjection;
 use crate::source::access::SourceAccessSession;

@@ -12,11 +12,6 @@ pub(crate) mod sort_binding;
 pub mod temporal;
 mod validation;
 
-#[cfg(test)]
-pub(crate) use binding::filter::bind_filter;
-pub(crate) use binding::filter::{BoundTerm, Derived, same_bound_term};
-pub(crate) use semantics::record::{data_values_small, metadata_value};
-
 use crate::execution_options::{ReturnMode, SortExpression, SortField, SortReducer};
 use crate::model::{FieldPath, Number, Value};
 use crate::query::clock::ClockContext;

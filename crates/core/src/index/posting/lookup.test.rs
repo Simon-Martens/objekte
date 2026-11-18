@@ -39,7 +39,7 @@ fn broad_id_union_matches_individual_lookups() {
 #[test]
 fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
     use crate::query::parse_filter;
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
 
     let field = FieldDefinition {
@@ -157,7 +157,7 @@ fn presence_null_array_dedup_and_cardinality() {
 #[test]
 fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
     use crate::query::parse_filter;
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
 
     let field = FieldDefinition {
@@ -392,7 +392,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
         .map_err(|error| error.to_string())
         .unwrap();
         {
-            use crate::query::{bind_filter, binding::filter::BoundExpr};
+            use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
             let collection = &repo.collections()[0];
             let segment = &repo.segments[0][0].index;
             let posting = &segment.postings.fields[&vec!["groups".into(), "tags".into()]];
@@ -556,7 +556,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
     );
 
     use crate::query::parse_filter;
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
     let field = FieldDefinition {
         path: vec!["n".into()],
@@ -603,7 +603,7 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
 #[test]
 fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
     use crate::query::parse_filter;
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
 
     let number = FieldDefinition {
@@ -682,7 +682,7 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::schema::Schema;
     use crate::source::SourceFormat;
@@ -1032,7 +1032,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
 #[test]
 fn mixed_selected_occurrences_have_independent_exact_state_facts() {
     use crate::query::parse_filter;
-    use crate::query::{bind_filter, binding::filter::BoundExpr};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
 
     let field = FieldDefinition {

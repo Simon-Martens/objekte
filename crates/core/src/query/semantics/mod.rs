@@ -22,6 +22,8 @@ pub mod comparison;
 pub mod folding;
 pub mod record;
 pub(crate) mod state;
+#[cfg(test)]
+pub(crate) mod test_matcher;
 
 pub(crate) use comparison::*;
 pub(crate) use folding::*;

@@ -887,7 +887,9 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
 
 #[test]
 fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries() {
-    use crate::query_predicate::{alternate_matcher_invocations, install_alternate_matcher};
+    use crate::query::semantics::test_matcher::{
+        alternate_matcher_invocations, install_alternate_matcher,
+    };
 
     let root = std::env::temp_dir().join(format!(
         "objekte-alternate-predicate-{}",

@@ -17,7 +17,7 @@ use crate::query::binding::fts::BoundFts;
 use crate::query::binding::relation::{BoundRelationHop, HopDirection};
 use crate::query::semantics::comparison::eval_cross_record_field_term;
 use crate::query::semantics::record::RecordContext;
-use crate::query::{BoundTerm, binding::filter::BoundExpr};
+use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
 use crate::reference::filter::eval_term;
 use crate::reference::{
     eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,

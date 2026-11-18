@@ -3,7 +3,7 @@ use super::*;
 use crate::model::FieldPath;
 use crate::query::binding::fts::bind_fts;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
-use crate::query::{bind_filter, binding::filter::BoundExpr};
+use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
 use crate::schema::Schema;
 
 #[test]

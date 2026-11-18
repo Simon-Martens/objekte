@@ -8,8 +8,11 @@ use smallvec::SmallVec;
 use crate::model::{LogicalType, PathRoot};
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
-use crate::query::{BoundTerm, Derived, binding::filter::BoundExpr, same_bound_term};
 use crate::query::{Operator, Query};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
+    binding::filter::same_bound_term,
+};
 use crate::query_execution::restrictions::{Proof, estimate_expr};
 use crate::query_results::ranking::ResolvedSort;
 use crate::repository::{CollectionState, Repository};
@@ -294,7 +297,7 @@ impl<'a> DirectSourcePlan<'a> {
         residual: Option<&'a Residual<'a>>,
     ) -> Option<Self> {
         #[cfg(test)]
-        if crate::query_predicate::alternate_matcher_active() {
+        if crate::query::semantics::test_matcher::alternate_matcher_active() {
             return None;
         }
         let filter = match residual {
@@ -312,7 +315,7 @@ impl<'a> DirectSourcePlan<'a> {
         filter: Option<&'a BoundExpr>,
     ) -> Option<Self> {
         #[cfg(test)]
-        if crate::query_predicate::alternate_matcher_active() {
+        if crate::query::semantics::test_matcher::alternate_matcher_active() {
             return None;
         }
         let filter = match filter {

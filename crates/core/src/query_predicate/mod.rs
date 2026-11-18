@@ -10,7 +10,7 @@ use std::fmt;
 
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
-use crate::query::{BoundTerm, binding::filter::BoundExpr};
+use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
 use crate::query_access::contract::{
     AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider, InputEstimate,
     OfferList, Restriction,
@@ -132,65 +132,6 @@ pub(crate) enum Truth {
     True,
     False,
     Unknown,
-}
-
-#[cfg(test)]
-struct AlternateMatcher {
-    field: String,
-    literal: String,
-    invocations: std::sync::atomic::AtomicU64,
-}
-
-#[cfg(test)]
-pub(crate) struct AlternateMatcherGuard;
-
-#[cfg(test)]
-impl Drop for AlternateMatcherGuard {
-    fn drop(&mut self) {
-        *test_alternate_matcher()
-            .lock()
-            .expect("alternate matcher registry poisoned") = None;
-    }
-}
-
-#[cfg(test)]
-pub(crate) fn install_alternate_matcher(field: &str, literal: &str) -> AlternateMatcherGuard {
-    *test_alternate_matcher()
-        .lock()
-        .expect("alternate matcher registry poisoned") = Some(AlternateMatcher {
-        field: field.into(),
-        literal: literal.into(),
-        invocations: std::sync::atomic::AtomicU64::new(0),
-    });
-    AlternateMatcherGuard
-}
-
-#[cfg(test)]
-pub(crate) fn alternate_matcher_invocations() -> u64 {
-    test_alternate_matcher()
-        .lock()
-        .expect("alternate matcher registry poisoned")
-        .as_ref()
-        .map_or(0, |matcher| {
-            matcher
-                .invocations
-                .load(std::sync::atomic::Ordering::Relaxed)
-        })
-}
-
-#[cfg(test)]
-pub(crate) fn alternate_matcher_active() -> bool {
-    test_alternate_matcher()
-        .lock()
-        .expect("alternate matcher registry poisoned")
-        .is_some()
-}
-
-#[cfg(test)]
-fn test_alternate_matcher() -> &'static std::sync::Mutex<Option<AlternateMatcher>> {
-    static MATCHER: std::sync::OnceLock<std::sync::Mutex<Option<AlternateMatcher>>> =
-        std::sync::OnceLock::new();
-    MATCHER.get_or_init(|| std::sync::Mutex::new(None))
 }
 
 pub(crate) struct PredicateBuilder {
@@ -373,7 +314,10 @@ impl PreparedPredicates {
         match &entry.source {
             PreparedLeafSource::Structured(term) => {
                 #[cfg(test)]
-                let alternate = alternate_term_result(term, record.context);
+                let alternate = crate::query::semantics::test_matcher::alternate_term_result(
+                    term,
+                    record.context,
+                );
                 #[cfg(not(test))]
                 let alternate: Option<Result<bool, String>> = None;
                 let matched = match alternate {
@@ -416,43 +360,6 @@ fn evidence_fields(term: &BoundTerm) -> Option<Vec<String>> {
         return None;
     }
     Some(vec![term.query_path.display.clone()])
-}
-
-#[cfg(test)]
-pub(crate) fn alternate_term_result(
-    term: &BoundTerm,
-    context: &RecordContext<'_>,
-) -> Option<Result<bool, String>> {
-    let mut registry = test_alternate_matcher()
-        .lock()
-        .expect("alternate matcher registry poisoned");
-    let matcher = registry.as_mut()?;
-    if term.path.root != crate::model::PathRoot::Data
-        || term.path.segments.len() != 1
-        || term.path.segments[0] != matcher.field
-        || term.operator != crate::query::Operator::Contains
-        || term.transform != crate::schema::operation::Transform::Identity
-        || !matches!(term.literal, crate::model::Value::String(_))
-    {
-        return None;
-    }
-    matcher
-        .invocations
-        .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-    let crate::model::Value::String(literal) = &term.literal else {
-        unreachable!()
-    };
-    let selected = match context.value {
-        crate::model::Value::Object(object) => object.get(&matcher.field),
-        _ => None,
-    };
-    Some(Ok(match selected {
-        Some(crate::model::Value::String(text)) => text
-            .as_bytes()
-            .windows(literal.len())
-            .any(|window| window == literal.as_bytes()),
-        _ => false,
-    }))
 }
 
 #[cfg(test)]
