@@ -1,3 +1,4 @@
+use super::strings::{with_next_quoted_text_strategy, with_quoted_text};
 use super::*;
 use crate::model::FieldPath;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
