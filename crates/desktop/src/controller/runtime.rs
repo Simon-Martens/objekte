@@ -12,14 +12,14 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
+use objekte_search_core::index::posting::ScalarKey;
 use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
     MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
 };
-use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
+use objekte_search_core::query_execution::runner::DirectLookupResult;
 use objekte_search_core::repository::SearchHit;
-use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
@@ -279,7 +279,7 @@ fn incremental_delta_page(
                 appendable.then(|| objekte_search_core::repository::SearchResult {
                     count: None,
                     hits: Vec::new(),
-                    counters: objekte_search_core::workload::WorkCounters::default(),
+                    counters: objekte_search_core::measurement::WorkCounters::default(),
                 })
             })
     };

@@ -17,8 +17,8 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{

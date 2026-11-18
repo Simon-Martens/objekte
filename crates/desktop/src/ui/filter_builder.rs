@@ -1,10 +1,10 @@
 //! Optional condition builder for the authoritative structured filter text.
 
 use objekte_search_core::model::{Number, PathRoot};
+use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{
     FilterExpr, Literal, Modifier, Operand, Operator, Quantifier, Term, parse_structured_filter,
 };
-use objekte_search_core::query_path::QueryPath;
 
 /// Scalar literal type selected explicitly for a builder value.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

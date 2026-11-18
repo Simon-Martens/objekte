@@ -10,8 +10,12 @@ use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::bigram::{BigramConstructionStats, BigramIndex};
 use crate::discovery::Discovery;
+use crate::execution_options::{BigramAlphabet, ReturnMode};
+use crate::index::bigram::{BigramConstructionStats, BigramIndex};
+use crate::index::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::relation::RelationIndex;
+use crate::index::sorting::{SortCollection, SortConfig, SortOptions};
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferencePathDiagnostic, InferenceReport, InferenceState,
 };
@@ -20,18 +24,15 @@ use crate::inventory::{
 };
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
+use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
-use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
-use crate::relation::RelationIndex;
-use crate::sorting::{SortCollection, SortConfig, SortOptions};
 use crate::source::{
     PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range_for_search,
 };
 use crate::source_access::SourceAccessSession;
-use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 
@@ -153,7 +154,7 @@ pub struct CollectionState {
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
-    pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
+    pub(crate) text_bindings: crate::query_access::catalog::TextBindingCatalog,
     pub sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
@@ -250,8 +251,8 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
-    pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
-    pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+    pub(crate) verified: Mutex<crate::query_results::verified::VerifiedCache>,
+    pub(crate) inferred_orders: Mutex<crate::index::sorting::InferredOrderCache>,
 }
 
 fn hash_field(hash: &mut Sha256, value: &[u8]) {
@@ -335,11 +336,12 @@ pub struct StartupStats {
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
     /// Exclusive incremental admission work, excluding sealing/publication.
-    pub admission: crate::build::AdmissionBreakdown,
-    pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
+    pub admission: crate::construction::segment_admission::AdmissionBreakdown,
+    pub admission_by_collection:
+        BTreeMap<String, crate::construction::segment_admission::AdmissionBreakdown>,
     /// Sampled worker work by collection; these totals overlap in wall time.
-    pub work_by_collection: BTreeMap<String, crate::build::BuildWorkProfile>,
-    pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    pub work_by_collection: BTreeMap<String, crate::construction::batch::BuildWorkProfile>,
+    pub admission_schedule: crate::construction::scheduling::AdmissionScheduleProfile,
     pub peak_segment_jobs: usize,
     pub peak_segment_window: usize,
     /// Initial lifecycle segments, in publication order.
@@ -375,7 +377,7 @@ pub struct BuildProfileStats {
     pub discovery_rss_bytes: u64,
     pub extraction_rss_bytes: u64,
     pub finalization_rss_bytes: u64,
-    pub work: crate::build::BuildWorkProfile,
+    pub work: crate::construction::batch::BuildWorkProfile,
 }
 
 #[derive(Clone, Debug, Default, Serialize)]
@@ -530,7 +532,7 @@ pub struct RepositoryOptions {
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
     /// Shared soft record/file boundary for all native segment producers.
-    pub segment_policy: crate::native_segment::SegmentPolicy,
+    pub segment_policy: crate::index::segment::SegmentPolicy,
     pub inference: InferenceConfig,
     /// Request detailed instrumentation in a build compiled with the
     /// `detailed-profiling` feature. Ignored by ordinary builds.
@@ -545,7 +547,7 @@ impl Default for RepositoryOptions {
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
-            segment_policy: crate::native_segment::SegmentPolicy::default(),
+            segment_policy: crate::index::segment::SegmentPolicy::default(),
             inference: InferenceConfig::default(),
             profile_build: false,
         }
@@ -626,7 +628,7 @@ impl Repository {
     ) -> Result<Option<SearchHit>, String> {
         if self.has_native_segments() {
             let domains = active.unwrap_or(&self.active);
-            return match crate::run::direct_lookup_segmented(
+            return match crate::query_execution::runner::direct_lookup_segmented(
                 self,
                 collection_name,
                 record_id,
@@ -636,14 +638,14 @@ impl Repository {
                 &self.catalog,
                 self.revision,
             )? {
-                crate::run::DirectLookupResult::Found(mut hit) => {
+                crate::query_execution::runner::DirectLookupResult::Found(mut hit) => {
                     self.stamp_native_hit(&mut hit);
                     Ok(Some(hit))
                 }
-                crate::run::DirectLookupResult::NotFound => Ok(None),
-                crate::run::DirectLookupResult::SourceUnavailable(diagnostic) => {
-                    Err(diagnostic.message)
-                }
+                crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
+                crate::query_execution::runner::DirectLookupResult::SourceUnavailable(
+                    diagnostic,
+                ) => Err(diagnostic.message),
             };
         }
         let collection_index = self
@@ -674,7 +676,7 @@ impl Repository {
                 let mut access = SourceAccessSession::new(&self.files);
                 let mut read = access.read(record.file, &[(slot.0, record.range)])?;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                crate::materialization::payload_from_bytes(
+                crate::query_results::payload::payload_from_bytes(
                     record.class,
                     Some(collection),
                     &return_mode,
@@ -683,7 +685,7 @@ impl Repository {
                 .0
             }
         };
-        Ok(Some(crate::run::make_hit(
+        Ok(Some(crate::query_execution::runner::make_hit(
             self,
             collection_index,
             record,
@@ -754,7 +756,7 @@ impl Repository {
             .fields
             .get(&relation.declaration.path)?
             .values
-            .get(&crate::posting::ScalarKey::Id(target_id.to_owned()))
+            .get(&crate::index::posting::ScalarKey::Id(target_id.to_owned()))
     }
 
     pub fn build_parses(&self) -> u64 {
@@ -820,8 +822,8 @@ impl Repository {
         &self.startup
     }
 
-    pub(crate) fn native_snapshot(&self) -> crate::native_segment::NativeSnapshotRef<'_> {
-        crate::native_segment::NativeSnapshotRef {
+    pub(crate) fn native_snapshot(&self) -> crate::index::segment::NativeSnapshotRef<'_> {
+        crate::index::segment::NativeSnapshotRef {
             active: &self.active,
             segments: &self.segments,
             catalog: &self.catalog,
@@ -832,17 +834,66 @@ impl Repository {
     pub(crate) fn segment_read_views(
         &self,
         collection: CollectionId,
-    ) -> impl Iterator<Item = crate::native_segment::SegmentReadView<'_>> {
+    ) -> impl Iterator<Item = crate::index::segment::SegmentReadView<'_>> {
         self.segments
             .get(collection.0 as usize)
             .into_iter()
             .flat_map(|segments| segments.iter())
-            .map(|segment| crate::native_segment::IndexedCollectionSegment::read_view(segment))
+            .map(|segment| crate::index::segment::IndexedCollectionSegment::read_view(segment))
     }
 
     /// Compact native segment inventory for benchmarks and diagnostics.
-    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
-        segment_summaries(&self.segments).collect()
+    pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
+        self.segment_summaries_for(&self.segments).collect()
+    }
+
+    pub(crate) fn segment_summaries_for<'a>(
+        &self,
+        segments: &'a [Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+    ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
+        segments
+            .iter()
+            .flat_map(|segments| {
+                segments.iter().map(|segment| {
+                    crate::index::segment::IndexedCollectionSegment::read_view(segment)
+                })
+            })
+            .map(|view| crate::index::segment::NativeSegmentSummary {
+                id: view.id,
+                collection: view.collection,
+                records: view.index.record_count(),
+                active_records: view.active.len() as usize,
+                files: view.index.file_count(),
+                source_bytes: view.index.accounting.source_bytes_estimated,
+                posting_fields: view.index.postings.fields.len(),
+                sort_columns: view.index.sorting.columns.len(),
+                relation_count: view.index.relations.len(),
+                relation_edges: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.edge_count())
+                    .sum(),
+                relation_heap_bytes: view
+                    .index
+                    .relations
+                    .iter()
+                    .map(|relation| relation.estimated_bytes())
+                    .sum(),
+                bigram_stores: 2 + view.index.custom_text.len(),
+                distinct_gram_keys: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(|index| index.normal.len() + index.skip.len())
+                    .sum(),
+                bigram_heap_bytes: std::iter::once(&view.index.raw)
+                    .chain(std::iter::once(&view.index.fallback_text))
+                    .chain(view.index.custom_text.values())
+                    .map(crate::index::bigram::BigramIndex::estimated_heap_bytes)
+                    .sum(),
+                index_family_bytes: view.index.accounting.index_family_bytes,
+                active: view.active.len() != 0,
+            })
     }
 
     /// Borrowed descriptors for one segment's independently owned native
@@ -850,8 +901,8 @@ impl Repository {
     pub fn segment_components(
         &self,
         collection: CollectionId,
-        segment: crate::native_segment::SegmentId,
-    ) -> Option<Vec<crate::native_segment::NativeComponentDescriptor<'_>>> {
+        segment: crate::index::segment::SegmentId,
+    ) -> Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>> {
         self.segments
             .get(collection.0 as usize)?
             .iter()
@@ -1042,7 +1093,7 @@ impl Repository {
         query: &crate::query::Query,
         mut result: SearchResult,
     ) -> SearchResult {
-        if query.options.return_mode != crate::workload::ReturnMode::Locator
+        if query.options.return_mode != crate::execution_options::ReturnMode::Locator
             && result.counters.source_unavailable_events > 0
         {
             result.count = None;
@@ -1118,11 +1169,11 @@ impl Repository {
         let resolved = query.resolve_current_clock()?;
         let result = if self.has_native_segments() {
             let snapshot = self.native_snapshot();
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
-            crate::run::search_segmented_lifecycle(
+            crate::query_execution::runner::search_segmented_lifecycle(
                 self,
                 resolved.as_ref(),
                 snapshot.active,
@@ -1132,7 +1183,7 @@ impl Repository {
                 Some(cache),
             )?
         } else {
-            crate::run::search(self, resolved.as_ref())?
+            crate::query_execution::runner::search(self, resolved.as_ref())?
         };
         Ok(self.stamp_native_query_result(query, result))
     }
@@ -1180,11 +1231,11 @@ impl Repository {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
         let result = if self.has_native_segments() {
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
-            crate::run::search_segmented_with_context_lifecycle(
+            crate::query_execution::runner::search_segmented_with_context_lifecycle(
                 self,
                 &resolved,
                 &self.active,
@@ -1195,7 +1246,7 @@ impl Repository {
                 Some(cache),
             )?
         } else {
-            crate::run::search_with_context(self, &resolved, context)?
+            crate::query_execution::runner::search_with_context(self, &resolved, context)?
         };
         Ok(self.stamp_native_result(result))
     }
@@ -1240,7 +1291,7 @@ impl Repository {
         ) -> Result<crate::streaming::StreamControl, String>,
     {
         let context = crate::streaming::ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -1280,7 +1331,7 @@ impl Repository {
     {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() && self.has_native_segments() {
-            let cache = crate::run::LifecycleCacheScope {
+            let cache = crate::query_execution::runner::LifecycleCacheScope {
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
@@ -1332,7 +1383,7 @@ impl Repository {
                     event => sink(event),
                 }
             };
-            return crate::run::search_stream_segmented_with_context_lifecycle(
+            return crate::query_execution::runner::search_stream_segmented_with_context_lifecycle(
                 self,
                 query,
                 scope,
@@ -1424,7 +1475,7 @@ impl Repository {
                 event => sink(event),
             }
         };
-        crate::run::search_stream_scoped_with_context_active(
+        crate::query_execution::runner::search_stream_scoped_with_context_active(
             self,
             &request,
             scope,
@@ -1474,10 +1525,13 @@ impl Repository {
         self.search(&query.with_parameters(parameters)?)
     }
 
-    pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    pub fn explain(
+        &self,
+        query: &Query,
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         let resolved = query.resolve_current_clock()?;
         if self.has_native_segments() {
-            crate::run::explain_segmented(
+            crate::query_execution::runner::explain_segmented(
                 self,
                 resolved.as_ref(),
                 &self.active,
@@ -1485,7 +1539,7 @@ impl Repository {
                 self.revision,
             )
         } else {
-            crate::run::explain(self, resolved.as_ref())
+            crate::query_execution::runner::explain(self, resolved.as_ref())
         }
     }
 
@@ -1494,17 +1548,23 @@ impl Repository {
         &self,
         query: &Query,
         parameters: &HashMap<String, Value>,
-    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         self.explain(&query.with_parameters(parameters)?)
     }
 
     pub fn explain_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<crate::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         let resolved = query.resolve_current_clock()?;
         let result = if self.has_native_segments() {
-            crate::run::search_analyze_segmented(
+            crate::query_execution::runner::search_analyze_segmented(
                 self,
                 resolved.as_ref(),
                 &self.active,
@@ -1513,7 +1573,7 @@ impl Repository {
                 self.revision,
             )?
         } else {
-            crate::run::search_analyze(self, resolved.as_ref())?
+            crate::query_execution::runner::search_analyze(self, resolved.as_ref())?
         };
         Ok((self.stamp_native_result(result.0), result.1))
     }
@@ -1575,7 +1635,7 @@ impl Repository {
         let query = resolved.as_ref();
         if self.has_native_segments() {
             let domains = active.unwrap_or(&self.active);
-            let result = crate::run::search_segmented_reference(
+            let result = crate::query_execution::runner::search_segmented_reference(
                 self,
                 query,
                 domains,
@@ -1838,7 +1898,8 @@ impl Repository {
                     };
                     matched_fields.sort();
                     let payload = if record.class == RecordClass::RawFallback
-                        && query.options.return_mode == crate::workload::ReturnMode::Logical
+                        && query.options.return_mode
+                            == crate::execution_options::ReturnMode::Logical
                     {
                         Some(Payload::LogicalUnavailable {
                             diagnostic_ref: record.diagnostic_ref,
@@ -1900,54 +1961,8 @@ impl Repository {
     }
 }
 
-pub(crate) fn segment_summaries<'a>(
-    segments: &'a [Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
-) -> impl Iterator<Item = crate::native_segment::NativeSegmentSummary> + 'a {
-    segments.iter().flat_map(|segments| {
-        segments.iter().map(|segment| {
-            let view = crate::native_segment::IndexedCollectionSegment::read_view(segment);
-            crate::native_segment::NativeSegmentSummary {
-                id: view.id,
-                collection: view.collection,
-                records: view.index.record_count(),
-                active_records: view.active.len() as usize,
-                files: view.index.file_count(),
-                source_bytes: view.index.accounting.source_bytes_estimated,
-                posting_fields: view.index.postings.fields.len(),
-                sort_columns: view.index.sorting.columns.len(),
-                relation_count: view.index.relations.len(),
-                relation_edges: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.edge_count())
-                    .sum(),
-                relation_heap_bytes: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.estimated_bytes())
-                    .sum(),
-                bigram_stores: 2 + view.index.custom_text.len(),
-                distinct_gram_keys: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(|index| index.normal.len() + index.skip.len())
-                    .sum(),
-                bigram_heap_bytes: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(crate::bigram::BigramIndex::estimated_heap_bytes)
-                    .sum(),
-                index_family_bytes: view.index.accounting.index_family_bytes,
-                active: view.active.len() != 0,
-            }
-        })
-    })
-}
-
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
-    crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())
+    crate::query::sort_binding::BoundSort::bind(repo, query).map(|_| ())
 }
 
 pub(crate) fn sort_rows(
@@ -1957,12 +1972,12 @@ pub(crate) fn sort_rows(
     counters: &mut WorkCounters,
     active: Option<&[ActiveRecords]>,
 ) -> Result<(), String> {
-    let bound = crate::sort_binding::BoundSort::bind(repo, query)?;
+    let bound = crate::query::sort_binding::BoundSort::bind(repo, query)?;
     if bound.has_computed {
-        let mut cache = crate::sort_binding::SortTargetCache::default();
+        let mut cache = crate::query::sort_binding::SortTargetCache::default();
         if let Some(active) = active {
             let context = crate::streaming::ExecutionContext::new(
-                crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
                 crate::streaming::ExecutionLimits::default(),
                 None,
             )
@@ -2034,9 +2049,10 @@ pub(crate) fn sort_rows(
             counters.sort_key_evaluations += 1;
         }
         hits.sort_by(|a, b| {
-            crate::sort_binding::compare_parts(&keys[&(a.0, a.1)], &keys[&(b.0, b.1)]).then_with(
-                || (&a.2.collection, &a.2.record_id).cmp(&(&b.2.collection, &b.2.record_id)),
-            )
+            crate::query::sort_binding::compare_parts(&keys[&(a.0, a.1)], &keys[&(b.0, b.1)])
+                .then_with(|| {
+                    (&a.2.collection, &a.2.record_id).cmp(&(&b.2.collection, &b.2.record_id))
+                })
         });
         let targets = target_cache.lock().map_err(|error| error.to_string())?;
         counters.sort_target_reads += targets.reads;
@@ -2058,10 +2074,12 @@ pub(crate) fn sort_rows(
                     .expect("selected collection"),
             )
         {
-            let crate::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source else {
+            let crate::query::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source
+            else {
                 unreachable!("all terms resident")
             };
-            let crate::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source else {
+            let crate::query::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source
+            else {
                 unreachable!("all terms resident")
             };
             let order = a_column.keys[*a_slot as usize].compare_with(

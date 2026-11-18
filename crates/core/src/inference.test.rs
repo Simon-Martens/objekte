@@ -4,15 +4,15 @@ use super::{
     InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     ObservedStep,
 };
-use crate::executor::AccessPathKind;
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
+use crate::query_execution::restrictions::AccessPathKind;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
-use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
 fn value(json: &str) -> Value {
     Value::from_json(serde_json::from_str(json).unwrap()).unwrap()
@@ -46,7 +46,7 @@ fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u6
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
                 max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
@@ -156,7 +156,7 @@ fn partial_short_values_do_not_override_failed_general_dictionary_admission() {
                 && state.indexes.get(&path).is_some_and(|index| {
                     index
                         .values
-                        .contains_key(&crate::posting::ScalarKey::String("b".into()))
+                        .contains_key(&crate::index::posting::ScalarKey::String("b".into()))
                 })
         })
     }));
@@ -336,7 +336,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -425,7 +425,9 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     assert!(
         segment_index
             .values
-            .contains_key(&crate::posting::ScalarKey::String("category_alpha".into()))
+            .contains_key(&crate::index::posting::ScalarKey::String(
+                "category_alpha".into()
+            ))
     );
 
     let mut request = query("category = 'category_alpha'");
@@ -462,7 +464,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -513,7 +515,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -569,7 +571,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
                 max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
@@ -622,7 +624,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             SourceFormat::Json,
         )],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
                 max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
@@ -1162,17 +1164,17 @@ fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
     for short in [uuid, "A", "B"] {
         assert!(
             code.values
-                .contains_key(&crate::posting::ScalarKey::String(short.into()))
+                .contains_key(&crate::index::posting::ScalarKey::String(short.into()))
         );
     }
     assert!(
         code.values
-            .contains_key(&crate::posting::ScalarKey::String("ü".repeat(32)))
+            .contains_key(&crate::index::posting::ScalarKey::String("ü".repeat(32)))
     );
     assert!(
         !code
             .values
-            .contains_key(&crate::posting::ScalarKey::String("ü".repeat(33)))
+            .contains_key(&crate::index::posting::ScalarKey::String("ü".repeat(33)))
     );
     assert_eq!(
         state.short_string_coverage[&vec!["code".into()]],
@@ -1183,7 +1185,8 @@ fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
         [8, 9].into_iter().collect()
     );
     assert_eq!(
-        state.indexes[&Vec::<String>::new()].values[&crate::posting::ScalarKey::String("x".into())]
+        state.indexes[&Vec::<String>::new()].values
+            [&crate::index::posting::ScalarKey::String("x".into())]
             .len(),
         1
     );

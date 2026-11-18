@@ -3,9 +3,6 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-mod build;
-mod byte_size_literal;
-pub mod clock_context;
 pub mod completion;
 pub mod configuration;
 mod construction;
@@ -14,16 +11,12 @@ mod detailed_timer;
 pub mod diagnostics;
 pub mod discovery;
 pub mod execution_options;
-pub mod executor;
 mod field_state;
-pub mod fts_preview;
-mod index;
-mod index_catalog;
+pub mod index;
 pub mod inference;
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
-pub mod lifecycle_caller;
 mod lifecycle_catalog;
 mod lifecycle_compaction;
 mod lifecycle_initial;
@@ -31,25 +24,19 @@ pub mod lifecycle_mutation;
 mod lifecycle_partition;
 mod lifecycle_scan;
 mod lifecycle_verified;
-mod materialization;
 pub mod measurement;
 pub mod model;
-pub mod parameters;
 pub mod path_repr;
 pub mod posting_values;
-mod prepared;
 pub mod query;
 mod query_access;
-mod query_diagnostics;
-mod query_execution;
-pub mod query_path;
+pub mod query_diagnostics;
+pub mod query_execution;
 mod query_plan;
 mod query_predicate;
-mod query_results;
-mod query_validation;
+pub mod query_results;
 mod record_preparation;
 pub mod reference;
-mod regex_query;
 pub mod relation;
 pub mod relation_inspection;
 mod relation_query;
@@ -57,19 +44,13 @@ mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
 pub mod repository_configuration;
-pub mod run;
 pub mod schema_adapter;
-mod sort_binding;
 pub mod source;
 mod source_access;
 pub mod source_scan;
 pub mod streaming;
 mod structural;
-pub mod temporal_query;
-mod verified;
 pub mod workload;
-
-pub use index::{bigram, posting, segment as native_segment, sorting};
 
 #[cfg(test)]
 #[path = "lib.test.rs"]

@@ -1,4 +1,5 @@
 use super::*;
+use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -6,7 +7,6 @@ use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::streaming::{CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions};
-use crate::workload::{BigramAlphabet, ReturnMode};
 
 #[test]
 fn prefetch_limits_keep_stream_resource_classification() {
@@ -33,7 +33,7 @@ fn second_prefetched_target_in_batch_obeys_record_limit() {
     use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
     let (root, repo) = fixture(BigramAlphabet::Ascii);
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
             target_record_bytes: 26,
             ..Default::default()

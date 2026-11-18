@@ -5,7 +5,10 @@ use std::sync::Arc;
 
 use sha2::{Digest, Sha256};
 
-use crate::build::{FilePreparationBinding, SourceFileInput, prepare_file_build_from_bytes};
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{
+    FilePreparationBinding, prepare_file_build_from_bytes,
+};
 use crate::lifecycle::{FileHandle, IndexView, PublishedIndex, PublishedSegment};
 use crate::lifecycle_mutation::VerifiedFallbackReason;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -256,7 +259,7 @@ pub(crate) fn preserve_single_record_slots(
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         let replacement = Arc::clone(&group[new_position]);
         group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
+            id: crate::index::segment::SegmentId::new(old_ordinal),
             index: Arc::clone(&replacement.index),
             active: replacement.active.clone(),
         });
@@ -349,7 +352,7 @@ pub(crate) fn preserve_partition_record_slots(
                     })
             })
             .ok()?;
-        let consolidated = crate::build::IndexedCollectionSegment::consolidate(
+        let consolidated = crate::index::segment::IndexedCollectionSegment::consolidate(
             &[&compacted.index, &new.index],
             MAX_VERIFIED_SCANNED_RECORDS,
         )
@@ -373,7 +376,7 @@ pub(crate) fn preserve_partition_record_slots(
     for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
         let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
         group[old_position] = Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(old_ordinal),
+            id: crate::index::segment::SegmentId::new(old_ordinal),
             active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
             index: Arc::new(replacement),
         });
@@ -453,7 +456,7 @@ pub(crate) fn remove_verified_old_shards(
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
                 group[position] = Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(candidate.next_segment_ordinal),
+                    id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: Arc::new(compacted.index),
                     active: compacted.active,
                 });

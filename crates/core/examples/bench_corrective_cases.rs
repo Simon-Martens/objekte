@@ -5,10 +5,11 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
+use objekte_search_core::execution_options::{ReturnMode, SortField};
+use objekte_search_core::index::posting::ScalarKey;
 use objekte_search_core::inventory::FileStatus;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
-use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::{PostingValueBound, PostingValuesRequest};
 use objekte_search_core::query::{FtsQuery, Literal, Operator, Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{
@@ -16,7 +17,6 @@ use objekte_search_core::reference::{
 };
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::{ReturnMode, SortField};
 
 fn main() {
     if let Err(error) = run() {

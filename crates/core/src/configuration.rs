@@ -4,11 +4,11 @@ use std::path::Path;
 
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::index::sorting::COLLATION_VERSION;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
-use crate::sorting::COLLATION_VERSION;
 use crate::source::SourceRegistry;
-use crate::workload::BigramAlphabet;
 
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_HASH_DOMAIN: u32 = 1;
@@ -202,7 +202,7 @@ mod tests {
             (
                 &folder,
                 RepositoryOptions {
-                    bigram_alphabet: crate::workload::BigramAlphabet::Unicode,
+                    bigram_alphabet: crate::execution_options::BigramAlphabet::Unicode,
                     ..RepositoryOptions::default()
                 },
                 "8fed0f48d81a0838e8c264b9c5c98157fc219ea5c480b83d34257723262e2093",
@@ -215,7 +215,7 @@ mod tests {
             (
                 &configured,
                 RepositoryOptions {
-                    bigram_alphabet: crate::workload::BigramAlphabet::Unicode,
+                    bigram_alphabet: crate::execution_options::BigramAlphabet::Unicode,
                     ..RepositoryOptions::default()
                 },
                 "bb15855855053c61c268094a65258f7568ae57283e282ee5154db4fbb892d4fb",

@@ -11,9 +11,12 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::execution_options::{
+    BigramAlphabet, ReturnMode, SortExpression, SortField, SortReducer,
+};
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
@@ -22,9 +25,6 @@ use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
-};
-use objekte_search_core::workload::{
-    BigramAlphabet, ReturnMode, SortExpression, SortField, SortReducer,
 };
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};

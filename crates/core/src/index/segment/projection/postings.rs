@@ -4,8 +4,8 @@ use roaring::RoaringBitmap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
+use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex, StructuralFacts};
 use crate::model::RecordSlot;
-use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex, StructuralFacts};
 
 pub(crate) struct PostingProjection {
     pub(crate) postings: PostingCollection,

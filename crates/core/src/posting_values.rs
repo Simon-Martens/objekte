@@ -6,14 +6,14 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::posting::{PostingIndex, ScalarKey};
+use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
-use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::FieldDefinition;
@@ -528,7 +528,7 @@ pub(crate) fn select_exact_segmented(
     if !query.collections.is_empty() && !query.collections.iter().any(|name| name == collection) {
         return Err("selection query excludes requested collection".into());
     }
-    crate::sort_binding::BoundSort::bind(repo, query)?;
+    crate::query::sort_binding::BoundSort::bind(repo, query)?;
     let mut request = query.resolve_current_clock()?.into_owned();
     request.collections = vec![collection.to_owned()];
     request.options.count = true;
@@ -544,7 +544,7 @@ pub(crate) fn select_exact_segmented(
         )
         .ok_or("selection domain too large")?;
     if request.fts.is_none() && base_active[collection_index].len() == 0 {
-        let prepared = crate::prepared::prepare(repo, &request)?;
+        let prepared = crate::query::prepared::prepare(repo, &request)?;
         let filter = prepared
             .collections
             .iter()
@@ -554,7 +554,7 @@ pub(crate) fn select_exact_segmented(
         let mut exact = true;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let members = if let Some(filter) = filter {
-                match crate::executor::segment_filter_bounds_with_catalog(
+                match crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
                     &segment.index,
                     &segment.active,
                     filter,
@@ -591,8 +591,14 @@ pub(crate) fn select_exact_segmented(
             })));
         }
     }
-    let result =
-        crate::run::search_segmented(repo, &request, base_active, segments, catalog, revision)?;
+    let result = crate::query_execution::runner::search_segmented(
+        repo,
+        &request,
+        base_active,
+        segments,
+        catalog,
+        revision,
+    )?;
     if result.count != Some(result.hits.len()) {
         return Err("exact selection result incomplete".into());
     }
@@ -1050,7 +1056,7 @@ impl Repository {
             return Err("selection query excludes requested collection".into());
         }
         let resolved = query.resolve_current_clock()?;
-        let members = crate::run::exact_members_with_active(
+        let members = crate::query_execution::runner::exact_members_with_active(
             self,
             resolved.as_ref(),
             collection_index,

@@ -12,10 +12,10 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
+use crate::execution_options::SortField;
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
 use crate::reference::{RecordContext, Schema, data_values_small, metadata_value};
-use crate::workload::SortField;
 
 mod inferred_order;
 

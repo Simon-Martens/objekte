@@ -4,14 +4,14 @@ use std::fs;
 use std::io::{BufWriter, Write};
 use std::path::Path;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::query_execution::runner::DirectLookupResult;
 use objekte_search_core::repository::SearchHit;
-use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
 };
-use objekte_search_core::workload::ReturnMode;
 use serde_json::json;
 
 use super::batch::{create_output_file, validate_output_path};

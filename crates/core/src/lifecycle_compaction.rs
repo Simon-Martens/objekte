@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use crate::build::{IndexedCollectionSegment, SegmentFile};
+use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
@@ -91,7 +91,7 @@ pub(crate) fn base_as_segment(
         .relations
         .iter()
         .map(|relation| {
-            crate::relation::RelationContribution::from_resolved_index(
+            crate::index::relation::RelationContribution::from_resolved_index(
                 relation,
                 collection.generation.records.len(),
             )
@@ -99,7 +99,7 @@ pub(crate) fn base_as_segment(
         })
         .collect::<Result<Vec<_>, _>>()?;
     let mut segment = IndexedCollectionSegment {
-        id: crate::native_segment::SegmentId::new(1),
+        id: crate::index::segment::SegmentId::new(1),
         collection: collection.generation.collection,
         source_id: collection.source.id().into(),
         source_version: collection.source.version(),
@@ -237,7 +237,7 @@ fn compact_published_with_budget(
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
                     compacted.push(Arc::new(PublishedSegment {
-                        id: crate::native_segment::SegmentId::new(ordinal),
+                        id: crate::index::segment::SegmentId::new(ordinal),
                         index: Arc::new(part),
                         active,
                     }));
@@ -290,7 +290,7 @@ fn compact_published_with_budget(
                 let active =
                     ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
                 replacements.push(Arc::new(PublishedSegment {
-                    id: crate::native_segment::SegmentId::new(ordinal),
+                    id: crate::index::segment::SegmentId::new(ordinal),
                     index: Arc::new(part),
                     active,
                 }));

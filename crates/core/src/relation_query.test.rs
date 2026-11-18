@@ -10,10 +10,10 @@ use crate::source::SourceFormat;
 
 #[test]
 fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
-    use crate::build::{
-        FilePreparationBinding, IndexedCollectionSegment, SegmentAdmission, SourceFileInput,
-        prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::IndexedCollectionSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::{IndexRevision, PublishedSegment};
     use crate::lifecycle_catalog::FileCatalog;
@@ -101,7 +101,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap()
         .retired(old_a_file)
         .unwrap();
-    let missing = crate::run::search_segmented(
+    let missing = crate::query_execution::runner::search_segmented(
         &repo,
         &query(
             "mentions",
@@ -145,18 +145,18 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(1),
+            id: crate::index::segment::SegmentId::new(1),
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
-            id: crate::native_segment::SegmentId::new(2),
+            id: crate::index::segment::SegmentId::new(2),
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
         })]),
     ];
     let find = |request: Query| {
-        crate::run::search_segmented(
+        crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -378,7 +378,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     );
     let mut sorted = query("mentions", None, None, None, false);
     sorted.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "entry.title".into(),
             binding: Some("lower".into()),
             reducer: None,
@@ -391,10 +391,10 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     assert!(at("m1") < at("m8"));
     let mut first = query("mentions", None, None, None, false);
     first.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "items.entry.title".into(),
             binding: None,
-            reducer: Some(crate::workload::SortReducer::First),
+            reducer: Some(crate::execution_options::SortReducer::First),
         },
         false,
     )];
@@ -403,10 +403,10 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     assert!(first_at("m2") < first_at("m1"));
     let mut last = query("mentions", None, None, None, false);
     last.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "items.entry.title".into(),
             binding: None,
-            reducer: Some(crate::workload::SortReducer::Last),
+            reducer: Some(crate::execution_options::SortReducer::Last),
         },
         false,
     )];
@@ -415,10 +415,10 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     assert!(last_at("m1") < last_at("m2"));
     let mut backlink_sort = query("entries", None, None, None, false);
     backlink_sort.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "@backlinks.mentions.title".into(),
             binding: None,
-            reducer: Some(crate::workload::SortReducer::Min),
+            reducer: Some(crate::execution_options::SortReducer::Min),
         },
         false,
     )];
@@ -433,7 +433,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         Arc::clone(&segments[1]),
     ];
     let retired = |request: Query| {
-        crate::run::search_segmented(
+        crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -510,7 +510,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     assert_eq!(retired_edge.unresolved_occurrence_count, 3);
     std::fs::remove_file(root.join("entries/new-a.json")).unwrap();
-    let unavailable_target = crate::run::search_segmented(
+    let unavailable_target = crate::query_execution::runner::search_segmented(
         &repo,
         &query(
             "mentions",
@@ -539,14 +539,14 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     );
     let mut unavailable_sort = query("mentions", None, None, None, false);
     unavailable_sort.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "entry.title".into(),
             binding: Some("lower".into()),
             reducer: None,
         },
         false,
     )];
-    let unavailable_sort = crate::run::search_segmented(
+    let unavailable_sort = crate::query_execution::runner::search_segmented(
         &repo,
         &unavailable_sort,
         &active,
@@ -638,7 +638,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
         ),
     ] {
         let expected = repo.search_reference(&request).unwrap();
-        let actual = crate::run::search_segmented(
+        let actual = crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -667,27 +667,27 @@ fn merged_relation_walker_matches_static_reference_semantics() {
         (
             "mentions",
             "items.entry.title",
-            Some(crate::workload::SortReducer::First),
+            Some(crate::execution_options::SortReducer::First),
         ),
         (
             "mentions",
             "items.entry.title",
-            Some(crate::workload::SortReducer::Last),
+            Some(crate::execution_options::SortReducer::Last),
         ),
         (
             "mentions",
             "contributors.title",
-            Some(crate::workload::SortReducer::Min),
+            Some(crate::execution_options::SortReducer::Min),
         ),
         (
             "entries",
             "@backlinks.mentions.title",
-            Some(crate::workload::SortReducer::Min),
+            Some(crate::execution_options::SortReducer::Min),
         ),
     ] {
         let mut request = query(collection, None, None, None, false);
         request.options.sort = vec![crate::execution_options::SortField::computed(
-            crate::workload::SortExpression {
+            crate::execution_options::SortExpression {
                 path: path.into(),
                 binding: None,
                 reducer,
@@ -695,7 +695,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
             false,
         )];
         let expected = repo.search_reference(&request).unwrap();
-        let actual = crate::run::search_segmented(
+        let actual = crate::query_execution::runner::search_segmented(
             &repo,
             &request,
             &active,
@@ -721,11 +721,12 @@ fn merged_relation_walker_matches_static_reference_semantics() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+use crate::execution_options::ReturnMode;
 use crate::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamError, StreamEvent, StreamOptions,
     StreamOutcome,
 };
-use crate::workload::{ReturnMode, WorkloadCase};
+use crate::workload::WorkloadCase;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
@@ -767,7 +768,7 @@ fn relation_work_limits_return_explicit_errors() {
         ..Default::default()
     };
     assert!(work.source_read(1).unwrap_err().contains("source bytes"));
-    let mut counters = crate::workload::WorkCounters {
+    let mut counters = crate::measurement::WorkCounters {
         relation_edge_visits: super::MAX_QUERY_EDGE_VISITS + 1,
         ..Default::default()
     };
@@ -890,7 +891,7 @@ fn lifecycle_related_sort_uses_target_stored_column() {
         false,
     );
     request.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::workload::SortExpression {
+        crate::execution_options::SortExpression {
             path: "entry.title".into(),
             binding: None,
             reducer: None,
@@ -1018,7 +1019,7 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
     let cancellation = CancellationToken::new();
     cancellation.cancel();
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(cancellation),
     );
@@ -1632,7 +1633,7 @@ fn finite_relation_paths_have_independent_reference_answers() {
         .is_err()
     );
     let mut sort = query("mentions", None, None, None, false);
-    sort.options.sort.push(crate::workload::SortField {
+    sort.options.sort.push(crate::execution_options::SortField {
         field: "entry.title".into(),
         descending: false,
         expression: None,

@@ -13,12 +13,12 @@ use super::segment_jobs::{
     IndexedSegmentBuild, PrivateSegmentGroup, SegmentBuildScheduler, SegmentJobGate,
     schedule_private_segment, schedule_segment,
 };
-use crate::build::{
-    AdmissionBreakdown, BatchContribution, RepositoryFileJob, SegmentAdmission, SegmentId,
-    SourceFileInput,
-};
+use crate::construction::batch::{BatchContribution, SourceFileInput};
 use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
+use crate::construction::scheduling::RepositoryFileJob;
+use crate::construction::segment_admission::{AdmissionBreakdown, SegmentAdmission};
 use crate::discovery::discover;
+use crate::index::segment::SegmentId;
 use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
@@ -29,7 +29,7 @@ use crate::repository::{
 use crate::source::{PreparedSource, SourceRegistry};
 
 enum ScheduledBuildJob {
-    Files(crate::build::RepositoryFileJob),
+    Files(crate::construction::scheduling::RepositoryFileJob),
     Large {
         collection_index: usize,
         collection: CollectionId,
@@ -108,7 +108,7 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::build::CollectionSegment>, String> {
+    ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         let sealed = if !self.admission.can_admit_batch(&batch) {
@@ -129,7 +129,7 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::build::CollectionSegment>, String> {
+    ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit_batch(&batch)
@@ -150,7 +150,9 @@ impl IncrementalCollection {
         }))
     }
 
-    fn take_segment(&mut self) -> Option<crate::build::CollectionSegment> {
+    fn take_segment(
+        &mut self,
+    ) -> Option<crate::construction::segment_admission::CollectionSegment> {
         if self.admission.file_count() == 0 {
             return None;
         }
@@ -380,7 +382,7 @@ fn schedule_public_segment(
     expected: &mut IndexRevision,
     pending: &[IncrementalCollection],
     collection_index: usize,
-    segment: crate::build::CollectionSegment,
+    segment: crate::construction::segment_admission::CollectionSegment,
     options: RepositoryOptions,
     pool: &Arc<rayon::ThreadPool>,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
@@ -562,7 +564,7 @@ impl Repository {
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-        let build_workers = crate::build::resolve_build_workers(
+        let build_workers = crate::construction::scheduling::resolve_build_workers(
             options.build_workers,
             std::thread::available_parallelism().ok(),
         )
@@ -738,7 +740,8 @@ impl Repository {
         let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::build::file_batches(&state.member_files, &discovered) {
+            for batch in crate::construction::batch::file_batches(&state.member_files, &discovered)
+            {
                 if batch.len() == 1
                     && discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
                 {
@@ -769,7 +772,7 @@ impl Repository {
         let mut failed_parses = 0u64;
         let mut source_reads = 0u64;
         let mut source_bytes_read = 0u64;
-        let mut schedule_stats = crate::build::BuildScheduleStats::default();
+        let mut schedule_stats = crate::construction::scheduling::BuildScheduleStats::default();
         let mut publication_ns = 0u64;
         let mut normal = Vec::new();
         for job in jobs {
@@ -786,7 +789,7 @@ impl Repository {
                     file,
                 } => {
                     if !normal.is_empty() {
-                        let result = crate::build::process_repository_file_batches_profiled(
+                        let result = crate::construction::scheduling::process_repository_file_batches_profiled(
                             &pool,
                             Arc::new(root.clone()),
                             &normal,
@@ -852,71 +855,72 @@ impl Repository {
                     let mut private_group = PrivateSegmentGroup::new(collection_index);
                     let definition_for_private = Arc::clone(&definition);
                     let collection_count = pending.len();
-                    let process_result = crate::build::process_framed_file_profiled(
-                        &pool,
-                        Arc::new(root.clone()),
-                        definition,
-                        collection,
-                        source,
-                        file,
-                        Arc::clone(&source_files),
-                        options.bigram_alphabet,
-                        options.inference,
-                        options.detailed_profiling_enabled(),
-                        |batch| {
-                            if cancelled() {
-                                return Err("initial construction cancelled".into());
-                            }
-                            let admission_started =
-                                crate::detailed_timer::start_if_enabled(profile.is_some());
-                            let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
-                                batches: 1,
-                                files: batch.new_file_count() as u64,
-                                records: batch.record_count() as u64,
-                                ..Default::default()
-                            });
-                            build_parses = build_parses.saturating_add(batch.record_parses);
-                            failed_parses = failed_parses.saturating_add(batch.failed_parses);
-                            for &(file, digest) in batch.file_fingerprints() {
-                                digest_bindings[file.0 as usize].push((collection, digest));
-                            }
-                            if let Some(profile) = profile.as_mut() {
-                                profile.work.absorb(&batch.profile);
-                                profile
-                                    .work_by_collection
-                                    .entry(pending[collection_index].definition.name.clone())
-                                    .or_default()
-                                    .absorb(&batch.profile);
-                            }
-                            if let (Some(started), Some(detail)) =
-                                (admission_started, detail.as_mut())
-                            {
-                                detail.coordinator_ns += started.elapsed().as_nanos() as u64;
-                            }
-                            if let Some(segment) = pending[collection_index]
-                                .admit_large_chunk_profiled(batch, detail.as_mut())?
-                            {
-                                schedule_private_segment(
-                                    &mut scheduler,
-                                    &mut private_group,
-                                    collection_index,
-                                    segment,
-                                    Arc::clone(&definition_for_private),
-                                    options,
-                                    collection_count,
-                                    &pool,
-                                    &cancelled,
+                    let process_result =
+                        crate::construction::file_preparation::process_framed_file_profiled(
+                            &pool,
+                            Arc::new(root.clone()),
+                            definition,
+                            collection,
+                            source,
+                            file,
+                            Arc::clone(&source_files),
+                            options.bigram_alphabet,
+                            options.inference,
+                            options.detailed_profiling_enabled(),
+                            |batch| {
+                                if cancelled() {
+                                    return Err("initial construction cancelled".into());
+                                }
+                                let admission_started =
+                                    crate::detailed_timer::start_if_enabled(profile.is_some());
+                                let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
+                                    batches: 1,
+                                    files: batch.new_file_count() as u64,
+                                    records: batch.record_count() as u64,
+                                    ..Default::default()
+                                });
+                                build_parses = build_parses.saturating_add(batch.record_parses);
+                                failed_parses = failed_parses.saturating_add(batch.failed_parses);
+                                for &(file, digest) in batch.file_fingerprints() {
+                                    digest_bindings[file.0 as usize].push((collection, digest));
+                                }
+                                if let Some(profile) = profile.as_mut() {
+                                    profile.work.absorb(&batch.profile);
+                                    profile
+                                        .work_by_collection
+                                        .entry(pending[collection_index].definition.name.clone())
+                                        .or_default()
+                                        .absorb(&batch.profile);
+                                }
+                                if let (Some(started), Some(detail)) =
+                                    (admission_started, detail.as_mut())
+                                {
+                                    detail.coordinator_ns += started.elapsed().as_nanos() as u64;
+                                }
+                                if let Some(segment) = pending[collection_index]
+                                    .admit_large_chunk_profiled(batch, detail.as_mut())?
+                                {
+                                    schedule_private_segment(
+                                        &mut scheduler,
+                                        &mut private_group,
+                                        collection_index,
+                                        segment,
+                                        Arc::clone(&definition_for_private),
+                                        options,
+                                        collection_count,
+                                        &pool,
+                                        &cancelled,
+                                    )
+                                    .map_err(|error| error.to_string())?;
+                                }
+                                finish_admission_profile(
+                                    &mut profile,
+                                    &pending[collection_index].definition.name,
+                                    admission_started,
+                                    detail,
                                 )
-                                .map_err(|error| error.to_string())?;
-                            }
-                            finish_admission_profile(
-                                &mut profile,
-                                &pending[collection_index].definition.name,
-                                admission_started,
-                                detail,
-                            )
-                        },
-                    );
+                            },
+                        );
                     let result = match process_result {
                         Ok(result) => result,
                         Err(error) => {
@@ -1018,7 +1022,7 @@ impl Repository {
             }
         }
         if !normal.is_empty() {
-            let result = crate::build::process_repository_file_batches_profiled(
+            let result = crate::construction::scheduling::process_repository_file_batches_profiled(
                 &pool,
                 Arc::new(root.clone()),
                 &normal,

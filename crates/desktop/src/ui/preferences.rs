@@ -7,7 +7,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use objekte_search_core::query_path::QueryPath;
+use objekte_search_core::query::path::QueryPath;
 use serde::{Deserialize, Serialize};
 
 use super::model::{QueryEntry, SearchDraft};

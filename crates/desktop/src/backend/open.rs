@@ -7,8 +7,8 @@ use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{configure_definitions, repository_options};
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
 use objekte_search_core::repository::StartupStats;
 use objekte_search_core::streaming::CancellationToken;

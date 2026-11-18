@@ -5,6 +5,7 @@ use std::sync::{Arc, Weak};
 
 use roaring::RoaringBitmap;
 
+use crate::execution_options::ReturnMode;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
@@ -13,7 +14,6 @@ use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionError, ResultScope, StreamControl, StreamError,
     StreamEvent, StreamOptions, StreamOutcome,
 };
-use crate::workload::ReturnMode;
 
 use super::{
     AvailableSearchResult, FileCatalogueRow, FileHandle, FileVersion, Index, IndexError,
@@ -110,8 +110,10 @@ impl IndexView {
         self.repository().build_failed_parses()
     }
 
-    pub fn segment_summaries(&self) -> Vec<crate::native_segment::NativeSegmentSummary> {
-        crate::repository::segment_summaries(&self.0.segments).collect()
+    pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
+        self.repository()
+            .segment_summaries_for(&self.0.segments)
+            .collect()
     }
 
     /// Aggregate logical and physical facts pinned to this publication.
@@ -128,7 +130,7 @@ impl IndexView {
     /// each summary during the same traversal.
     pub fn index_observation_with_segments(
         &self,
-        mut visit: impl FnMut(&crate::native_segment::NativeSegmentSummary),
+        mut visit: impl FnMut(&crate::index::segment::NativeSegmentSummary),
     ) -> IndexObservation {
         let collections = self.repository().collections();
         let mut collection_parts = collections
@@ -174,7 +176,7 @@ impl IndexView {
             }
         }
 
-        for segment in crate::repository::segment_summaries(&self.0.segments) {
+        for segment in self.repository().segment_summaries_for(&self.0.segments) {
             visit(&segment);
             if let Some(part) = collection_parts.get_mut(segment.collection.0 as usize) {
                 part.records = part.records.saturating_add(segment.active_records);
@@ -396,11 +398,11 @@ impl IndexView {
         if query.options.offset != 0 {
             return Err("pagination waits for initial index construction".into());
         }
-        let prepared = crate::prepared::prepare(self.repository(), query)?;
+        let prepared = crate::query::prepared::prepare(self.repository(), query)?;
         if prepared.collections.iter().any(|entry| {
             entry
                 .filter()
-                .is_some_and(crate::run::bound_expr_has_relations)
+                .is_some_and(crate::query_execution::runner::bound_expr_has_relations)
                 || entry
                     .fts()
                     .as_ref()
@@ -624,12 +626,15 @@ impl IndexView {
     fn search_published(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         let owner = self.1.upgrade();
-        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
-            store: &owner.verified_cache,
-            instance_id: self.instance_id(),
-        });
+        let cache =
+            owner.as_ref().map(
+                |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    store: &owner.verified_cache,
+                    instance_id: self.instance_id(),
+                },
+            );
         let result = if !self.has_segments() {
-            crate::run::search_active_available_lifecycle(
+            crate::query_execution::runner::search_active_available_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
@@ -638,7 +643,7 @@ impl IndexView {
                 cache,
             )
         } else {
-            crate::run::search_segmented_lifecycle(
+            crate::query_execution::runner::search_segmented_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
@@ -703,12 +708,15 @@ impl IndexView {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
         let owner = self.1.upgrade();
-        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
-            store: &owner.verified_cache,
-            instance_id: self.instance_id(),
-        });
+        let cache =
+            owner.as_ref().map(
+                |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    store: &owner.verified_cache,
+                    instance_id: self.instance_id(),
+                },
+            );
         let result = if !self.has_segments() {
-            crate::run::search_active_available_with_context_lifecycle(
+            crate::query_execution::runner::search_active_available_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
@@ -718,7 +726,7 @@ impl IndexView {
                 cache,
             )
         } else {
-            crate::run::search_segmented_with_context_lifecycle(
+            crate::query_execution::runner::search_segmented_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
@@ -763,7 +771,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<AvailableSearchResult, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -780,7 +788,7 @@ impl IndexView {
         query: &Query,
     ) -> Result<Option<AvailableSearchResult>, String> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             None,
         );
@@ -795,7 +803,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -812,7 +820,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -829,7 +837,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<bool, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -922,7 +930,7 @@ impl IndexView {
                     .expect("empty active bitmap is valid")
             })
             .collect::<Vec<_>>();
-        let mut result = crate::run::search_segmented_with_context_lifecycle(
+        let mut result = crate::query_execution::runner::search_segmented_with_context_lifecycle(
             self.repository(),
             &request,
             &empty_base,
@@ -1003,9 +1011,9 @@ impl IndexView {
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
         match self.get_record_available(collection, record_id, return_mode)? {
-            crate::run::DirectLookupResult::Found(hit) => Ok(Some(hit)),
-            crate::run::DirectLookupResult::NotFound => Ok(None),
-            crate::run::DirectLookupResult::SourceUnavailable(diagnostic) => {
+            crate::query_execution::runner::DirectLookupResult::Found(hit) => Ok(Some(hit)),
+            crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
+            crate::query_execution::runner::DirectLookupResult::SourceUnavailable(diagnostic) => {
                 Err(diagnostic.message)
             }
         }
@@ -1018,9 +1026,9 @@ impl IndexView {
         collection: &str,
         record_id: &str,
         return_mode: ReturnMode,
-    ) -> Result<crate::run::DirectLookupResult, String> {
+    ) -> Result<crate::query_execution::runner::DirectLookupResult, String> {
         self.ensure_initial_complete()?;
-        let mut result = crate::run::direct_lookup_segmented(
+        let mut result = crate::query_execution::runner::direct_lookup_segmented(
             self.repository(),
             collection,
             record_id,
@@ -1030,7 +1038,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
         )?;
-        if let crate::run::DirectLookupResult::Found(hit) = &mut result {
+        if let crate::query_execution::runner::DirectLookupResult::Found(hit) = &mut result {
             self.remap_hit_diagnostic(hit);
         }
         Ok(result)
@@ -1039,7 +1047,7 @@ impl IndexView {
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
         self.ensure_initial_complete()?;
         if self.0.segments.iter().any(|segments| !segments.is_empty()) {
-            return crate::run::search_segmented_reference(
+            return crate::query_execution::runner::search_segmented_reference(
                 self.repository(),
                 query,
                 &self.0.active,
@@ -1185,11 +1193,17 @@ impl IndexView {
     pub fn search_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<crate::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         if self.has_segments() {
-            return crate::run::search_analyze_segmented(
+            return crate::query_execution::runner::search_analyze_segmented(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
@@ -1199,7 +1213,7 @@ impl IndexView {
             )
             .map(|(result, trace)| (self.stamp_result(result), trace));
         }
-        crate::run::search_analyze_with_active(
+        crate::query_execution::runner::search_analyze_with_active(
             self.repository(),
             resolved.as_ref(),
             Some(&self.0.active),
@@ -1207,11 +1221,14 @@ impl IndexView {
         .map(|(result, trace)| (self.stamp_result(result), trace))
     }
 
-    pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    pub fn explain(
+        &self,
+        query: &Query,
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         if self.has_segments() {
-            return crate::run::explain_segmented(
+            return crate::query_execution::runner::explain_segmented(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
@@ -1219,21 +1236,31 @@ impl IndexView {
                 self.revision(),
             );
         }
-        crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
+        crate::query_execution::runner::explain_with_active(
+            self.repository(),
+            resolved.as_ref(),
+            Some(&self.0.active),
+        )
     }
 
     pub fn explain_with_parameters(
         &self,
         query: &Query,
         parameters: &HashMap<String, Value>,
-    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+    ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         self.explain(&query.with_parameters(parameters)?)
     }
 
     pub fn explain_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<crate::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         self.search_analyze(query)
     }
 
@@ -1293,7 +1320,7 @@ impl IndexView {
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -1319,10 +1346,13 @@ impl IndexView {
             });
         }
         let owner = self.1.upgrade();
-        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
-            store: &owner.verified_cache,
-            instance_id: self.instance_id(),
-        });
+        let cache =
+            owner.as_ref().map(
+                |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    store: &owner.verified_cache,
+                    instance_id: self.instance_id(),
+                },
+            );
         let mut remap_rows = |event: StreamEvent<'_>| -> Result<StreamControl, String> {
             match event {
                 StreamEvent::OrderedRows {
@@ -1387,7 +1417,7 @@ impl IndexView {
                 }
             }
         };
-        let result = crate::run::search_stream_segmented_with_context_lifecycle(
+        let result = crate::query_execution::runner::search_stream_segmented_with_context_lifecycle(
             self.repository(),
             query,
             scope,

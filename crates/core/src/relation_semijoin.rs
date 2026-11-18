@@ -5,24 +5,25 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::executor::{
-    AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
-};
+use crate::index::relation::{RelationIndex, RelationTarget};
+use crate::index::segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::inventory::RecordClass;
 use crate::lifecycle::PublishedSegment;
 use crate::model::{CollectionId, FileId, RecordSlot};
-use crate::native_segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::query::Quantifier;
 use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::relations::NativeRelationProvider;
+use crate::query_execution::restrictions::{
+    AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
+};
 use crate::query_plan::selection::choose_offer;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
     same_bound_term,
 };
-use crate::relation::{RelationCardinality, RelationTarget};
+use crate::relation::RelationCardinality;
 use crate::relation_query::{BoundRelationHop, HopDirection, MergedRelationView, positions_match};
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextSegment};
@@ -170,10 +171,7 @@ fn eligible<'a>(repo: &Repository, term: &'a BoundTerm) -> Option<&'a [BoundRela
     Some(&related.hops)
 }
 
-fn relation<'a>(
-    repo: &'a Repository,
-    hop: &BoundRelationHop,
-) -> Result<&'a crate::relation::RelationIndex, String> {
+fn relation<'a>(repo: &'a Repository, hop: &BoundRelationHop) -> Result<&'a RelationIndex, String> {
     repo.collections
         .get(hop.relation.source.0 as usize)
         .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))
@@ -205,7 +203,7 @@ fn segment_target_candidates(
             continue;
         }
         let domain = published.active.bitmap();
-        let bounds = crate::executor::segment_filter_bounds_with_catalog(
+        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
             &published.index,
             &published.active,
             expr,
@@ -265,9 +263,12 @@ fn segment_fts_target_candidates(
             continue;
         }
         advance_slots(work, execution, input.len())?;
-        let candidates =
-            crate::executor::segment_fts_candidates(&published.index, collection, fts)?
-                .unwrap_or_else(|| published.active.bitmap());
+        let candidates = crate::query_execution::restrictions::segment_fts_candidates(
+            &published.index,
+            collection,
+            fts,
+        )?
+        .unwrap_or_else(|| published.active.bitmap());
         for slot in (&candidates & &input).iter() {
             let record = published
                 .index
@@ -310,7 +311,7 @@ fn segment_expr_estimate(
     let collection = &repo.collections[target_index];
     let mut candidates = 0u64;
     for published in segments[target_index].iter() {
-        let bounds = crate::executor::segment_filter_bounds_with_catalog(
+        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
             &published.index,
             &published.active,
             expr,
@@ -334,8 +335,12 @@ fn segment_fts_estimate(
     let collection = &repo.collections[target_index];
     let mut candidates = 0u64;
     for published in segments[target_index].iter() {
-        let may = crate::executor::segment_fts_candidates(&published.index, collection, fts)?
-            .unwrap_or_else(|| published.active.bitmap().clone());
+        let may = crate::query_execution::restrictions::segment_fts_candidates(
+            &published.index,
+            collection,
+            fts,
+        )?
+        .unwrap_or_else(|| published.active.bitmap().clone());
         candidates = candidates.saturating_add((&may & published.active.bitmap()).len());
     }
     Ok(Some((candidates, candidates as f64 * 0.02)))
@@ -773,7 +778,7 @@ fn qualified_expression_candidates(
         if input.is_empty() {
             continue;
         }
-        let bounds = crate::executor::segment_filter_bounds_with_catalog(
+        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
             &segment.index,
             &segment.active,
             expr,
@@ -821,8 +826,12 @@ fn qualified_fts_candidates(
             continue;
         }
         advance_slots(work, execution, input.len())?;
-        let may = crate::executor::segment_fts_candidates(&segment.index, collection, fts)?
-            .unwrap_or_else(|| segment.active.bitmap());
+        let may = crate::query_execution::restrictions::segment_fts_candidates(
+            &segment.index,
+            collection,
+            fts,
+        )?
+        .unwrap_or_else(|| segment.active.bitmap());
         let mut local = SegmentRecordSet::default();
         for slot in (&may & &input).iter() {
             local.insert(SegmentRecordAddress {

@@ -5,9 +5,9 @@ use std::collections::BTreeMap;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+use crate::index::posting::ScalarKey;
 use crate::inventory::{RecordClass, append_shifted_bitmap};
 use crate::model::{CollectionId, RecordSlot, Value};
-use crate::posting::ScalarKey;
 use crate::reference::Schema;
 use crate::relation::{RelationDefinition, RelationId};
 use crate::repository::CollectionState;

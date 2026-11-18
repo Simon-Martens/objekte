@@ -2,11 +2,11 @@
 
 use std::sync::{Arc, Mutex};
 
-use crate::build::IndexedCollectionSegment;
-use crate::executor::{AccessPathKind, segment_access_path_kind};
-use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
+use crate::index::segment::IndexedCollectionSegment;
 use crate::lifecycle_catalog::FileCatalog;
+use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::query_execution::domain::domain_id;
+use crate::query_execution::restrictions::{AccessPathKind, segment_access_path_kind};
 use crate::query_predicate::TermId;
 use crate::reference::BoundTerm;
 use crate::repository::CollectionState;
@@ -286,7 +286,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
                 let logical = effective & &self.segment.logical_records;
                 let fallback = effective - &self.segment.logical_records;
-                let bounds = crate::executor::segment_expr_bounds(
+                let bounds = crate::query_execution::restrictions::segment_expr_bounds(
                     self.segment,
                     &crate::reference::BoundExpr::Term(bound.clone()),
                     self.collection,
@@ -376,7 +376,9 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 super::contract::Proven::All => restriction.possible.len() as u64,
                 super::contract::Proven::Subset(proven) => proven.len() as u64,
             },
-            Some(crate::executor::access_path_kind_name(access_kind)),
+            Some(crate::query_execution::restrictions::access_path_kind_name(
+                access_kind,
+            )),
         );
         #[cfg(test)]
         record_test_structured_output(

@@ -1,6 +1,9 @@
 use super::projection::{SlotMap, project_bitmap, project_inference, project_sorting};
 use super::*;
-use crate::construction::*;
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+use crate::construction::segment_admission::SegmentAdmission;
+use crate::execution_options::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::{DiagnosticRef, FileStatus, SourceRevision};
 use crate::model::{CollectionId, FieldPath, LogicalType};
@@ -8,7 +11,6 @@ use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::CollectionDefinition;
 use crate::source::{SourceFormat, SourceRegistry};
-use crate::workload::BigramAlphabet;
 
 #[test]
 fn compaction_matches_active_file_oracle_across_indexes() {
@@ -55,12 +57,12 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     definition
         .schema
         .register_composite_sort(vec![
-            crate::workload::SortField {
+            crate::execution_options::SortField {
                 field: "n".into(),
                 descending: false,
                 expression: None,
             },
-            crate::workload::SortField {
+            crate::execution_options::SortField {
                 field: "ref".into(),
                 descending: true,
                 expression: None,

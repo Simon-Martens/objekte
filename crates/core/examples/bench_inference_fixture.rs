@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};

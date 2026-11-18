@@ -6,9 +6,11 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::field_state::{StatePredicate, value_matches};
+use crate::index::posting::{
+    PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey,
+};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
-use crate::posting::{PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey};
 use crate::reference::Schema;
 
 use super::{

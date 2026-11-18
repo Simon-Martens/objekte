@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+use objekte_search_core::execution_options::{ReturnMode, SortField};
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
@@ -11,7 +12,6 @@ use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::workload::{ReturnMode, SortField};
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 

@@ -1,12 +1,12 @@
 use super::*;
 
+use crate::execution_options::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::model::RecordSlot;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::BigramAlphabet;
 
 #[test]
 fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
@@ -125,7 +125,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
             limit: 10,
             offset: 0,
             count: true,
-            return_mode: crate::workload::ReturnMode::Locator,
+            return_mode: crate::execution_options::ReturnMode::Locator,
             evidence: false,
         },
     };
@@ -251,7 +251,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
                 limit: 10,
                 offset: 0,
                 count: false,
-                return_mode: crate::workload::ReturnMode::Locator,
+                return_mode: crate::execution_options::ReturnMode::Locator,
                 evidence: false,
             },
         };
@@ -305,9 +305,9 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap(),
     );
     check(&restored);
-    use crate::build::{
-        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
-    };
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::lifecycle::{IndexRevision, PublishedSegment};
     use crate::lifecycle_catalog::FileCatalog;
@@ -381,7 +381,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap_or(0)
         + 1;
     first_group.push(Arc::new(PublishedSegment {
-        id: crate::native_segment::SegmentId::new(next_id),
+        id: crate::index::segment::SegmentId::new(next_id),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
     }));
@@ -559,7 +559,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 limit: 1,
                 offset: 0,
                 count: false,
-                return_mode: crate::workload::ReturnMode::Locator,
+                return_mode: crate::execution_options::ReturnMode::Locator,
                 evidence: false,
             },
         };

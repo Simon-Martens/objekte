@@ -1094,10 +1094,10 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
 
 #[test]
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-type-index-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1222,10 +1222,10 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
 
 #[test]
 fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
     use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-dynamic-fields-{}", std::process::id()));
     for (collection, id, json) in [

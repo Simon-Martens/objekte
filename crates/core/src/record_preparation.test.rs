@@ -373,7 +373,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             };
             let result = if with_execution {
                 let execution = ExecutionContext::new(
-                    crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                    crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
                     Default::default(),
                     None,
                 );
@@ -421,7 +421,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             let changed = br#"{"values":[],"ignored":!}"#;
             let changed_result = if with_execution {
                 let execution = ExecutionContext::new(
-                    crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                    crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
                     Default::default(),
                     None,
                 );
@@ -517,7 +517,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
 
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits {
                 extension_value_bytes: 128,
                 ..Default::default()

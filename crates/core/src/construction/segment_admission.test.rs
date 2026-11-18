@@ -1,16 +1,19 @@
 use super::*;
-use crate::construction::*;
+use crate::construction::batch::{SourceFileInput, process_batch};
+use crate::construction::file_preparation::{
+    FilePreparationBinding, PreparedFileBuild, prepare_file_build,
+};
+use crate::execution_options::BigramAlphabet;
+use crate::index::posting::ScalarKey;
 use crate::inference::InferenceConfig;
 use crate::inference::{InferenceMode, InferencePolicy};
 use crate::inventory::FileStatus;
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FileId};
 use crate::model::{FieldPath, LogicalType, Number};
-use crate::posting::ScalarKey;
 use crate::reference::FieldDefinition;
 use crate::repository::CollectionDefinition;
 use crate::source::{SourceFormat, SourceRegistry};
-use crate::workload::BigramAlphabet;
 use std::time::Instant;
 
 #[test]
@@ -55,7 +58,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
             created_ns: None,
         });
     }
-    let batch = super::super::process_batch(
+    let batch = process_batch(
         &root,
         &definition,
         CollectionId(0),
@@ -135,7 +138,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let mut limited = SegmentAdmission::with_limits(
         CollectionId(0),
         &source,
-        crate::native_segment::SegmentPolicy {
+        crate::index::segment::SegmentPolicy {
             target_records: std::num::NonZeroUsize::new(16_384).unwrap(),
             max_files: std::num::NonZeroUsize::new(1).unwrap(),
         },

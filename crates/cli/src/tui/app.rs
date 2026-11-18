@@ -6,22 +6,22 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
+use objekte_search_core::execution_options::{ReturnMode, SortField};
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
 };
-use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
+use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
     RegexOptions, parse_filter, parse_structured_filter,
 };
-use objekte_search_core::query_path::QueryPath;
 use objekte_search_core::repository::{SearchHit, SearchResult};
 use objekte_search_core::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::workload::{ReturnMode, SortField};
 #[cfg(test)]
 use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;

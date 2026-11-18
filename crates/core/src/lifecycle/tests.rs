@@ -2,6 +2,8 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
+use crate::execution_options::ReturnMode;
+use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -12,8 +14,6 @@ use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
     StreamOptions, StreamOutcome,
 };
-use crate::workload::ReturnMode;
-use crate::workload::{SortExpression, SortField};
 
 #[test]
 fn pinned_catalogue_metadata_tracks_each_publication_independently() {
@@ -262,7 +262,7 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
             CollectionDefinition::folder("right", "right", SourceFormat::JsonLines),
         ],
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: first_record,
                 max_files: first_record,
             },
@@ -719,7 +719,7 @@ fn unavailable_direct_lookup_does_not_request_reconciliation() {
     assert!(matches!(
         view.get_record_available("data", &id, ReturnMode::Bytes)
             .unwrap(),
-        crate::run::DirectLookupResult::SourceUnavailable(_)
+        crate::query_execution::runner::DirectLookupResult::SourceUnavailable(_)
     ));
     assert_eq!(
         index.status().unwrap().reconciliation,
@@ -811,7 +811,7 @@ fn quiescence_keeps_unavailable_lookup_without_reconciliation() {
     assert!(matches!(
         view.get_record_available("data", &id, ReturnMode::Bytes)
             .unwrap(),
-        crate::run::DirectLookupResult::SourceUnavailable(_)
+        crate::query_execution::runner::DirectLookupResult::SourceUnavailable(_)
     ));
     assert!(index.current_reconciliation_task().unwrap().is_none());
     assert_eq!(index.status().unwrap().revision, view.revision());
@@ -1555,7 +1555,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     }
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )
@@ -2115,7 +2115,7 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
         let cancelled = CancellationToken::new();
         cancelled.cancel();
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(cancelled),
         );
@@ -2137,8 +2137,8 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
         }
         std::fs::remove_dir_all(root).unwrap();
     }
-    assert!(crate::run::record_ranges_allow_parallel_scan(65_536));
-    assert!(!crate::run::record_ranges_allow_parallel_scan(65_537));
+    assert!(crate::query_execution::runner::record_ranges_allow_parallel_scan(65_536));
+    assert!(!crate::query_execution::runner::record_ranges_allow_parallel_scan(65_537));
 }
 
 fn all_query() -> Query {

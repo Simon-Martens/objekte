@@ -7,14 +7,15 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
+use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{RepositoryOptions, SearchHit};
 use objekte_search_core::workload::{
-    BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
-    load_manifest,
+    BenchmarkCase, Profile, TimingSample, load_extended_manifest, load_manifest,
 };
 use sha2::{Digest, Sha256};
 
@@ -47,7 +48,13 @@ impl SearchBackend {
     fn explain_analyze(
         &self,
         query: &Query,
-    ) -> Result<(SearchResult, Vec<objekte_search_core::run::QueryPlanTrace>), String> {
+    ) -> Result<
+        (
+            SearchResult,
+            Vec<objekte_search_core::query_diagnostics::trace::QueryPlanTrace>,
+        ),
+        String,
+    > {
         match self {
             Self::Direct(_, view) => view.explain_analyze(query),
             Self::Incremental(_, view) => view.search_analyze(query),

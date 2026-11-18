@@ -6,9 +6,9 @@ use roaring::RoaringBitmap;
 use super::{
     COLLATION_VERSION, Placement, SortColumn, SortConfig, SortKey, SortOptions, make_collator,
 };
+use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::inventory::{RecordClass, RecordEntry};
 use crate::model::{FieldPath, LogicalType, Number, RecordSlot};
-use crate::posting::{PostingIndex, ScalarKey};
 
 /// An inferred order is query-created but remains valid for a repository
 /// generation. Cached columns use the same representation as configured
@@ -17,7 +17,7 @@ use crate::posting::{PostingIndex, ScalarKey};
 pub(crate) struct InferredOrderKey {
     collection: usize,
     generation: u64,
-    segment: crate::native_segment::SegmentId,
+    segment: crate::index::segment::SegmentId,
     path: FieldPath,
     locale: String,
     collation_version: &'static str,
@@ -29,7 +29,7 @@ impl InferredOrderKey {
     pub(crate) fn new(
         collection: usize,
         generation: u64,
-        segment: crate::native_segment::SegmentId,
+        segment: crate::index::segment::SegmentId,
         path: FieldPath,
         locale: &str,
         options: SortOptions,

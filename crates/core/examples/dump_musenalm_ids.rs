@@ -4,10 +4,9 @@ mod musenalm;
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
+use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::repository::RepositoryOptions;
-use objekte_search_core::workload::{
-    BenchmarkCase, BigramAlphabet, ReturnMode, load_extended_manifest, load_manifest,
-};
+use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");

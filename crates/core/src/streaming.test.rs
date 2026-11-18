@@ -1,10 +1,10 @@
 use super::*;
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortExpression, SortField};
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::{BigramAlphabet, ReturnMode, SortExpression, SortField};
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
@@ -15,7 +15,7 @@ fn limited_context(
     cancellation: Option<CancellationToken>,
 ) -> ExecutionContext {
     ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         limits,
         cancellation,
     )

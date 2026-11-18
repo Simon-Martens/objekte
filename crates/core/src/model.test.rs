@@ -250,7 +250,7 @@ fn schema_field_paths_reject_trailing_separators_and_render_query_syntax_safely(
         assert_eq!(parsed.display(), canonical, "{input}");
         assert_eq!(FieldPath::parse(canonical).unwrap(), parsed);
         assert_eq!(
-            crate::query_path::QueryPath::parse(canonical)
+            crate::query::path::QueryPath::parse(canonical)
                 .unwrap()
                 .field,
             parsed

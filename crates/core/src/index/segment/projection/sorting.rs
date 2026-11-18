@@ -2,8 +2,8 @@ use std::collections::HashMap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap};
+use crate::index::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 use crate::inventory::RecordEntry;
-use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
 pub(crate) fn project_sorting(
     source: &SortCollection,

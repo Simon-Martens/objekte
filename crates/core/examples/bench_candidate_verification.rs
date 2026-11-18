@@ -10,6 +10,7 @@ use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::time::Instant;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision,
 };
@@ -23,7 +24,7 @@ use objekte_search_core::repository::{CollectionDefinition, Payload, RepositoryO
 use objekte_search_core::source::{
     JsonDecodedScalarsReader, ScanProjection, SourceFormat, SourceReader,
 };
-use objekte_search_core::workload::{ReturnMode, WorkloadCase};
+use objekte_search_core::workload::WorkloadCase;
 use serde_json::json;
 use sha2::{Digest, Sha256};
 

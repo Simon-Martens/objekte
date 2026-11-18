@@ -2,6 +2,7 @@ use super::{
     FileMutationKind, FileMutationStrategy, Index, IndexError, UpdateOptions, UpdateStrategy,
     VerifiedFallbackReason,
 };
+use crate::execution_options::{ReturnMode, SortField};
 use crate::inventory::SourceRevision;
 use crate::lifecycle::DeleteStrategy;
 use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
@@ -10,7 +11,6 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::{ReturnMode, SortField};
 
 fn test_root(label: &str) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
@@ -149,7 +149,7 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         })
         .unwrap();
     let options = RepositoryOptions {
-        segment_policy: crate::native_segment::SegmentPolicy {
+        segment_policy: crate::index::segment::SegmentPolicy {
             target_records: std::num::NonZeroUsize::new(1).unwrap(),
             max_files: std::num::NonZeroUsize::new(1).unwrap(),
         },

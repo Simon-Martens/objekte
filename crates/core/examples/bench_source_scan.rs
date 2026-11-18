@@ -6,10 +6,10 @@ mod musenalm;
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use objekte_search_core::source_scan::SourceScan;
 use objekte_search_core::streaming::CancellationToken;
-use objekte_search_core::workload::ReturnMode;
 
 fn main() {
     if let Err(error) = run() {

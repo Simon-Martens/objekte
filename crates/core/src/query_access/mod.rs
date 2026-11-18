@@ -1,5 +1,6 @@
 //! Access planning boundary between semantic predicates and index storage.
 
+pub(crate) mod catalog;
 pub(crate) mod contract;
 pub(crate) mod membership;
 pub(crate) mod native;

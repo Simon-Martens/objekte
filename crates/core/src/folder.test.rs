@@ -1,7 +1,7 @@
+use crate::execution_options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
 
 fn root(name: &str) -> std::path::PathBuf {
     std::env::temp_dir().join(format!("objekte-folder-{name}-{}", std::process::id()))

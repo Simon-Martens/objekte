@@ -2,6 +2,7 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::reference::{BoundExpr, FieldDefinition, Schema};
@@ -11,7 +12,7 @@ use crate::source::{
     ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, SourceRegistry, TextDerivation,
 };
-use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
+use crate::workload::WorkloadCase;
 
 use super::{Strategy, candidates_with_strategy};
 
@@ -195,7 +196,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
         .position(|collection| collection.definition.name == "targets")
         .unwrap();
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
             target_record_bytes: first.len() as u64,
             ..Default::default()
@@ -233,7 +234,7 @@ fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
     let request = query("entry.title ?~ 'Hymn'");
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits {
                 intermediate_slots: 0,
                 ..Default::default()
@@ -294,7 +295,7 @@ fn relation_edge_planning_and_target_verification_cancel_mid_work() {
     let hops = super::eligible(&repo, &term).unwrap();
     let context = |token: CancellationToken| {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(token),
         )
@@ -559,7 +560,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -692,7 +693,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -733,7 +734,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             .terms
             .iter()
             .any(|choice| {
-                choice.selected.kind == crate::executor::AccessPathKind::RelationTargetFirst
+                choice.selected.kind
+                    == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
             })
     );
     let source_index = repo
@@ -758,10 +760,10 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         &repo.catalog,
     )
     .unwrap();
-    let mut input = crate::native_segment::SegmentRecordSet::default();
+    let mut input = crate::index::segment::SegmentRecordSet::default();
     for published in repo.segments[source_index].iter() {
         for slot in published.active.bitmap().iter() {
-            input.insert(crate::native_segment::SegmentRecordAddress {
+            input.insert(crate::index::segment::SegmentRecordAddress {
                 collection: published.index.collection,
                 segment: published.id,
                 slot: crate::model::RecordSlot(slot),
@@ -827,7 +829,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         &root,
         definitions(),
         RepositoryOptions {
-            segment_policy: crate::native_segment::SegmentPolicy {
+            segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
@@ -1161,16 +1163,14 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         assert_eq!(actual.counters.relation_reverse_members_visited, 40);
         assert_eq!(actual.counters.scanned_records, 0);
         let trace = repo.explain_analyze(&request).unwrap().1;
-        assert!(
-            trace[0].terms.iter().any(|choice| choice.selected.kind
-                == crate::executor::AccessPathKind::RelationTargetFirst)
-        );
+        assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
+            == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst));
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
         assert_eq!(ids(&repo, &selective), ["S00"]);
         let trace = repo.explain_analyze(&selective).unwrap().1;
         assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
-            == crate::executor::AccessPathKind::RelationSourceRestricted));
+            == crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted));
         let selective_work = repo.search(&selective).unwrap().counters;
         assert!(selective_work.relation_target_reads <= 1);
         assert!(selective_work.relation_edge_visits <= 1);
@@ -1191,8 +1191,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .any(|choice| matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
 
@@ -1205,8 +1205,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .all(|choice| !matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
         let universal = query("entry.title = 'Hymn Parade'");
@@ -1217,8 +1217,8 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
                 .iter()
                 .any(|choice| matches!(
                     choice.selected.kind,
-                    crate::executor::AccessPathKind::RelationTargetFirst
-                        | crate::executor::AccessPathKind::RelationSourceRestricted
+                    crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                        | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                 ))
         );
         let fallback_or = query("@file.status = 1 || entry.title ?~ 'Hymn'");
@@ -1381,8 +1381,8 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .iter()
                     .all(|choice| !matches!(
                         choice.selected.kind,
-                        crate::executor::AccessPathKind::RelationTargetFirst
-                            | crate::executor::AccessPathKind::RelationSourceRestricted
+                        crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                            | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                     ))
             );
             let positional = query("links[0].title ?= 'Needle'");
@@ -1393,8 +1393,8 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .iter()
                     .all(|choice| !matches!(
                         choice.selected.kind,
-                        crate::executor::AccessPathKind::RelationTargetFirst
-                            | crate::executor::AccessPathKind::RelationSourceRestricted
+                        crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                            | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                     ))
             );
             std::fs::remove_dir_all(root).unwrap();

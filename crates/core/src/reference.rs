@@ -9,20 +9,20 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::bigram::BigramRequest;
-use crate::bigram::{fold, fold_into};
 use crate::field_state::{StatePredicate, selected_matches, value_matches};
+use crate::index::bigram::BigramRequest;
+use crate::index::bigram::{fold, fold_into};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
+use crate::query::path::{PathStep, QueryPath};
+use crate::query::regex::CompiledRegex;
+use crate::query::temporal::TemporalBounds;
 use crate::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Literal, Modifier, Operand, Operator,
     Quantifier, Term,
 };
-use crate::query_path::{PathStep, QueryPath};
-use crate::regex_query::CompiledRegex;
 use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
-use crate::temporal_query::TemporalBounds;
 
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]
@@ -195,7 +195,7 @@ pub struct RegisteredBinding {
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
     /// Explicit resident orders assembled from already configured scalar sort columns.
-    pub composite_sorts: Vec<Vec<crate::workload::SortField>>,
+    pub composite_sorts: Vec<Vec<crate::execution_options::SortField>>,
     pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
     /// Explicit `index: false` paths; absent annotations leave inference free.
     pub(crate) auto_index_excluded: HashSet<Vec<String>>,
@@ -233,20 +233,20 @@ impl Schema {
     /// Register an exact composite order over previously configured scalar sort fields.
     pub fn register_composite_sort(
         &mut self,
-        fields: Vec<crate::workload::SortField>,
+        fields: Vec<crate::execution_options::SortField>,
     ) -> Result<(), String> {
         if fields.len() < 2 {
             return Err("composite sort requires at least two fields".into());
         }
         let normalized = fields
             .iter()
-            .map(crate::sorting::simple_composite_part)
+            .map(crate::index::sorting::simple_composite_part)
             .collect::<Option<Vec<_>>>()
             .ok_or("composite sort requires resident scalar fields")?;
         if self.composite_sorts.iter().any(|existing| {
             existing
                 .iter()
-                .map(crate::sorting::simple_composite_part)
+                .map(crate::index::sorting::simple_composite_part)
                 .collect::<Option<Vec<_>>>()
                 .as_ref()
                 == Some(&normalized)

@@ -6,28 +6,30 @@ use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
-use crate::bigram::BigramContribution;
-use crate::build::BatchContribution;
+use crate::construction::batch::BatchContribution;
+use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramContribution;
+use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::relation::RelationContribution;
+use crate::index::segment::{
+    IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
+};
+use crate::index::sorting::SortBuilder;
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
     CollectionBuilder, DiagnosticRef, FileInventory, FileStatus, RecordClass, RecordEntry,
     append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
-use crate::native_segment::{
-    IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
-};
-use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::relation::RelationContribution;
 use crate::repository::{
     CollectionDefinition, IncrementalSegmentProfile, canonical_custom_text_key,
 };
-use crate::sorting::SortBuilder;
 use crate::source::PreparedSource;
-use crate::workload::BigramAlphabet;
 
 #[cfg(test)]
-use super::{PreparedCollectionBuild, SourceFileInput};
+use super::batch::SourceFileInput;
+#[cfg(test)]
+use super::file_preparation::PreparedCollectionBuild;
 
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,

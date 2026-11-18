@@ -4,7 +4,7 @@ use std::fs::{self, OpenOptions};
 use std::io::{BufWriter, Write};
 use std::path::Path;
 
-use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Payload, SearchHit};
 use serde_json::{Value, json};

@@ -6,11 +6,11 @@
 
 use std::path::PathBuf;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::ReturnMode;
 
 fn main() {
     if let Err(error) = run() {

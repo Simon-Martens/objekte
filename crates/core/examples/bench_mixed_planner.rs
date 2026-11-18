@@ -3,12 +3,12 @@
 use std::path::PathBuf;
 use std::time::Instant;
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::ReturnMode;
 
 fn main() {
     if let Err(error) = run() {

@@ -8,6 +8,7 @@ use std::sync::{Arc, mpsc};
 use std::thread;
 use std::time::{Duration, Instant};
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::model::LogicalType;
@@ -16,7 +17,6 @@ use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::repository_configuration::load_repository_configuration;
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::ReturnMode;
 
 struct QueryProbe {
     times_ns: Vec<u64>,

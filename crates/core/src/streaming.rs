@@ -6,9 +6,9 @@ use std::sync::{
     atomic::{AtomicBool, AtomicU64, Ordering},
 };
 
-use crate::clock_context::ClockContext;
+use crate::measurement::WorkCounters;
+use crate::query::clock::ClockContext;
 use crate::repository::{Payload, SearchHit};
-use crate::workload::WorkCounters;
 
 /// Limits apply to estimated retained query state and source reads, not RSS.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

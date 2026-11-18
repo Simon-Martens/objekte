@@ -3,10 +3,10 @@
 use std::fs::File;
 use std::io::{self, BufRead, BufReader, Cursor};
 
+use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_structured_filter,
 };
-use objekte_search_core::workload::ReturnMode;
 
 use crate::arguments::Arguments;
 

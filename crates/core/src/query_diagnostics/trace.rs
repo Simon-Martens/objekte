@@ -3,10 +3,10 @@
 use serde::Serialize;
 
 use crate::execution_options::{BigramAlphabet, SortField};
-use crate::executor::{PlanningCounters, TermChoice, estimate_fts_candidates};
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier};
+use crate::query_execution::restrictions::{PlanningCounters, TermChoice, estimate_fts_candidates};
 use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::{CollectionState, Repository};
 
@@ -291,12 +291,12 @@ pub(crate) fn attach_execution_observations(
                 if let Some(kind) = observation
                     .access_kind
                     .as_deref()
-                    .and_then(crate::executor::access_path_kind_from_name)
+                    .and_then(crate::query_execution::restrictions::access_path_kind_from_name)
                     && (observation.provider_id == 4
                         || !matches!(
                             choice.selected.kind,
-                            crate::executor::AccessPathKind::RelationTargetFirst
-                                | crate::executor::AccessPathKind::RelationSourceRestricted
+                            crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+                                | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
                         ))
                     && access_kind_priority(kind) >= access_kind_priority(choice.selected.kind)
                 {
@@ -322,7 +322,7 @@ pub(crate) fn attach_execution_observations(
                 if let Some(kind) = observation
                     .access_kind
                     .as_deref()
-                    .and_then(crate::executor::access_path_kind_from_name)
+                    .and_then(crate::query_execution::restrictions::access_path_kind_from_name)
                     && access_kind_priority(kind) >= access_kind_priority(choice.selected.kind)
                 {
                     choice.selected.kind = kind;
@@ -335,8 +335,8 @@ pub(crate) fn attach_execution_observations(
     }
 }
 
-fn access_kind_priority(kind: crate::executor::AccessPathKind) -> u8 {
-    use crate::executor::AccessPathKind;
+fn access_kind_priority(kind: crate::query_execution::restrictions::AccessPathKind) -> u8 {
+    use crate::query_execution::restrictions::AccessPathKind;
     match kind {
         AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => 5,
         AccessPathKind::Posting => 4,

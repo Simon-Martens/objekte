@@ -14,15 +14,17 @@ use std::time::{Duration, Instant, SystemTime};
 
 use serde::{Deserialize, Serialize};
 
-use crate::build::{
-    FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
-    SegmentAdmission, SourceFileInput, prepare_file_build,
+use crate::construction::batch::SourceFileInput;
+use crate::construction::file_preparation::{
+    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_file_build,
 };
+use crate::construction::segment_admission::SegmentAdmission;
 use crate::discovery::selects_file;
+use crate::index::segment::IndexedCollectionSegment;
+pub(crate) use crate::index::segment::PublishedSegment;
+use crate::index::segment::SegmentId;
 use crate::inventory::{FileEntry, FileStatus, FileVersions};
 use crate::model::{CollectionId, FileId};
-pub(crate) use crate::native_segment::PublishedSegment;
-use crate::native_segment::SegmentId;
 use crate::repository::{Repository, SearchResult};
 
 pub use crate::inventory::FileVersion;
@@ -238,11 +240,11 @@ pub(crate) fn reset_index_family_estimate_calls() {
 /// Cached narrow index-family total for one native contribution. It counts
 /// gram/posting bitmap payloads and sort keys only, not segment metadata.
 pub(crate) fn index_family_total(
-    raw: &crate::bigram::BigramIndex,
-    fallback: &crate::bigram::BigramIndex,
-    custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
-    postings: &crate::posting::PostingCollection,
-    sorting: &crate::sorting::SortCollection,
+    raw: &crate::index::bigram::BigramIndex,
+    fallback: &crate::index::bigram::BigramIndex,
+    custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
+    postings: &crate::index::posting::PostingCollection,
+    sorting: &crate::index::sorting::SortCollection,
 ) -> usize {
     index_family_estimate(raw, fallback, custom, postings, sorting).total()
 }
@@ -399,11 +401,11 @@ pub(crate) struct PreparedReplacement {
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
 /// allocator measurement or a strict peak bound; it orders maintenance.
 pub(crate) fn index_family_estimate(
-    raw: &crate::bigram::BigramIndex,
-    fallback: &crate::bigram::BigramIndex,
-    custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
-    postings: &crate::posting::PostingCollection,
-    sorting: &crate::sorting::SortCollection,
+    raw: &crate::index::bigram::BigramIndex,
+    fallback: &crate::index::bigram::BigramIndex,
+    custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
+    postings: &crate::index::posting::PostingCollection,
+    sorting: &crate::index::sorting::SortCollection,
 ) -> IndexFamilyEstimate {
     #[cfg(test)]
     INDEX_FAMILY_ESTIMATE_CALLS.with(|calls| calls.set(calls.get() + 1));
@@ -431,7 +433,7 @@ pub(crate) fn index_family_estimate(
                     + posting
                         .structural
                         .as_ref()
-                        .map_or(0, crate::posting::StructuralFacts::estimated_bytes)
+                        .map_or(0, crate::index::posting::StructuralFacts::estimated_bytes)
                     + if posting.empty_selections.is_empty() {
                         0
                     } else {
@@ -447,7 +449,7 @@ pub(crate) fn index_family_estimate(
                     .keys
                     .iter()
                     .map(|key| match key {
-                        crate::sorting::SortKey::String(value) => value.len(),
+                        crate::index::sorting::SortKey::String(value) => value.len(),
                         _ => 24,
                     })
                     .sum::<usize>()
@@ -461,7 +463,7 @@ fn index_prepared_file(
     source: &SourceFileInput,
     collections: Vec<PreparedCollectionBuild>,
     first_segment_id: u64,
-    policy: crate::native_segment::SegmentPolicy,
+    policy: crate::index::segment::SegmentPolicy,
 ) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
     let options = repository.options();
     let mut indexed = Vec::with_capacity(collections.len());
@@ -656,7 +658,7 @@ struct IndexInner {
     /// Every data publication checks it while holding that same lock.
     quiescing: AtomicBool,
     /// One aggregate budget for all pinned publications of this index.
-    verified_cache: Mutex<crate::verified::VerifiedCache>,
+    verified_cache: Mutex<crate::query_results::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -890,7 +892,9 @@ impl Index {
             instance_id,
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
-            verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
+            verified_cache: Mutex::new(crate::query_results::verified::VerifiedCache::new(
+                verified_cache_bytes,
+            )),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -1887,6 +1891,7 @@ impl Index {
 }
 
 mod publication;
+pub mod session;
 
 pub(crate) use publication::PublishedIndex;
 

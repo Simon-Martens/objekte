@@ -8,7 +8,7 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
+use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PartitionRouting;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
@@ -26,7 +26,7 @@ pub(crate) fn compact_source_parts_with_policy(
     source: &IndexedCollectionSegment,
     active: &ActiveRecords,
     catalog: &FileCatalog,
-    policy: crate::native_segment::SegmentPolicy,
+    policy: crate::index::segment::SegmentPolicy,
     cancelled: impl FnMut() -> bool,
 ) -> Result<Vec<IndexedCollectionSegment>, IndexError> {
     compact_source_parts_with_limits(
@@ -237,7 +237,7 @@ fn partition_base_with_limits_inner(
             let active =
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
-                id: crate::native_segment::SegmentId::new(ordinal),
+                id: crate::index::segment::SegmentId::new(ordinal),
                 index: Arc::new(part),
                 active,
             }));

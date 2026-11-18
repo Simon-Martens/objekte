@@ -200,10 +200,10 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
 
 #[test]
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-array-null-{}", std::process::id()));
     let path = root.join("data");
@@ -332,10 +332,10 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
 
 #[test]
 fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!("objekte-nested-length-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (id, json) in [
@@ -676,11 +676,11 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 
 #[test]
 fn declared_structural_facts_are_exact_without_a_value_dictionary() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::{BoundExpr, Schema, bind_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-structural-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -853,13 +853,13 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
 
 #[test]
 fn indexed_field_state_matches_independent_source_oracle_without_verification() {
-    use crate::executor::AccessPathKind;
+    use crate::query_execution::restrictions::AccessPathKind;
 
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::{SourceFormat, SourceRegistry};
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1116,11 +1116,11 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
 
 #[test]
 fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-state-sparse-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1199,12 +1199,12 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
 
 #[test]
 fn structural_membership_tracks_file_replacement_move_delete_and_add() {
+    use crate::execution_options::ReturnMode;
     use crate::lifecycle::Index;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1320,11 +1320,11 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
 
 #[test]
 fn bounded_mixed_values_match_source_oracle_for_state_composition() {
+    use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
     use crate::source::SourceFormat;
-    use crate::workload::ReturnMode;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mixed-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
