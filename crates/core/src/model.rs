@@ -595,7 +595,7 @@ impl FieldPath {
             return Self::parse(rest);
         }
         if input.starts_with("@root[") {
-            return crate::query_path::QueryPath::parse(input).map(|path| path.field);
+            return crate::query::path::QueryPath::parse(input).map(|path| path.field);
         }
         if let Some(rest) = input.strip_prefix("@backlinks.") {
             let mut path = Self::parse(rest)?;

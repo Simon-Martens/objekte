@@ -195,7 +195,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
         .position(|collection| collection.definition.name == "targets")
         .unwrap();
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
             target_record_bytes: first.len() as u64,
             ..Default::default()
@@ -233,7 +233,7 @@ fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
     let request = query("entry.title ?~ 'Hymn'");
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits {
                 intermediate_slots: 0,
                 ..Default::default()
@@ -294,7 +294,7 @@ fn relation_edge_planning_and_target_verification_cancel_mid_work() {
     let hops = super::eligible(&repo, &term).unwrap();
     let context = |token: CancellationToken| {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(token),
         )

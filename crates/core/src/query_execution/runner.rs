@@ -30,9 +30,12 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
-use crate::prepared::PreparedCollectionQuery;
 #[cfg(test)]
 use crate::query::FtsMode;
+use crate::query::prepared::PreparedCollectionQuery;
+use crate::query::sort_binding::{
+    BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache,
+};
 use crate::query::{Operator, Quantifier, Query};
 use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
@@ -65,7 +68,6 @@ use crate::reference::{
     eval_term, eval_unavailable_filter,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
-use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache};
 use crate::source::{
     ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
 };
@@ -908,7 +910,7 @@ fn search_segmented_with_context_lifecycle_budget(
                 context.clear_recovered_source_changed();
                 let sort = ResolvedSort::new(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
-                let prepared = crate::prepared::prepare(repo, query)
+                let prepared = crate::query::prepared::prepare(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
                     repo,
@@ -983,7 +985,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
             context.clear_recovered_source_changed();
             let sort = ResolvedSort::new(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
-            let prepared = crate::prepared::prepare(repo, query)
+            let prepared = crate::query::prepared::prepare(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
                 repo,
@@ -1569,7 +1571,7 @@ fn exact_or_branch_members(
 fn try_lifecycle_ordered_page(
     repo: &Repository,
     query: &Query,
-    prepared: &crate::prepared::PreparedQuery,
+    prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
@@ -1635,7 +1637,7 @@ fn try_lifecycle_ordered_page(
         context
     } else {
         fallback_context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         );
@@ -1810,10 +1812,11 @@ fn search_segmented_impl(
     let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
     });
-    let prepared = crate::prepared::prepare(repo, query).map_err(|message| match context {
-        Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
-        None => message,
-    })?;
+    let prepared =
+        crate::query::prepared::prepare(repo, query).map_err(|message| match context {
+            Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+            None => message,
+        })?;
     let has_relations = prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -3060,7 +3063,7 @@ pub(crate) fn search_analyze_segmented(
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
     let collector = Arc::new(crate::query_execution::request::ObservationCollector::new());
     let execution = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         None,
     )
@@ -3432,7 +3435,7 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
-    let prepared = crate::prepared::prepare(repo, request)?;
+    let prepared = crate::query::prepared::prepare(repo, request)?;
     let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -4105,19 +4108,20 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             request.options.return_mode = ReturnMode::Locator;
         }
     }
-    crate::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
+    crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
         StreamError::Execution {
             kind: ExecutionErrorKind::InvalidQuery,
             message,
             progress: delivery.progress,
         }
     })?;
-    let prepared =
-        crate::prepared::prepare(repo, &request).map_err(|message| StreamError::Execution {
+    let prepared = crate::query::prepared::prepare(repo, &request).map_err(|message| {
+        StreamError::Execution {
             kind: ExecutionErrorKind::InvalidQuery,
             message,
             progress: delivery.progress,
-        })?;
+        }
+    })?;
     if let ResultScope::Page { .. } = scope
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
@@ -4436,7 +4440,7 @@ fn search_active_inner(
         .cloned()
         .unwrap_or_else(|| {
             ExecutionContext::new(
-                crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
                 ExecutionLimits::default(),
                 None,
             )
@@ -4632,7 +4636,7 @@ pub fn search_stream_scoped(
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
 ) -> Result<StreamOutcome, StreamError> {
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(cancellation.clone()),
     );
@@ -5009,7 +5013,7 @@ pub(crate) fn exact_members_with_active(
     let mut members = RoaringBitmap::new();
     let active_context = active.map(|active| {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )
@@ -5372,7 +5376,7 @@ pub(crate) fn search_analyze_with_active(
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
     let active_context = active.map(|active| {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )
@@ -5413,7 +5417,7 @@ pub(crate) fn explain_with_active(
     active: Option<&[ActiveRecords]>,
 ) -> Result<Vec<QueryPlanTrace>, String> {
     let bound_sort = BoundSort::bind(repo, query)?;
-    let prepared = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::query::prepared::prepare(repo, query)?;
     let has_source_dependent = prepared.collections.iter().any(|entry| {
         entry
             .filter
@@ -5660,7 +5664,7 @@ fn search_impl_with_collector<'a>(
             .map_err(|error| error.to_string())?
             .configure_stream(delivery.max_buffered_bytes(), delivery.token());
     }
-    let prepared = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::query::prepared::prepare(repo, query)?;
     let mut rejected_order = RejectedOrderPlans {
         entries: Vec::new(),
         planning_ns: 0,
@@ -5702,7 +5706,7 @@ fn search_impl_with_collector<'a>(
         }
     }
     let prepared_collection_count = prepared.collections.len();
-    let crate::prepared::PreparedQuery {
+    let crate::query::prepared::PreparedQuery {
         collections,
         predicates,
     } = prepared;

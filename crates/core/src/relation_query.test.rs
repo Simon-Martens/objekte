@@ -1018,7 +1018,7 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
     let cancellation = CancellationToken::new();
     cancellation.cancel();
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(cancellation),
     );

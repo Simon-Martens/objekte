@@ -180,12 +180,12 @@ mod tests {
                 evidence: false,
             },
         };
-        let before = crate::regex_query::test_compile_count();
+        let before = crate::query::regex::test_compile_count();
         let mut first = prepare(&repo, &query).unwrap();
         let second = prepare(&repo, &query).unwrap();
         assert_eq!(first.collections.len(), 2);
         assert_eq!(second.collections.len(), 2);
-        assert_eq!(crate::regex_query::test_compile_count() - before, 4);
+        assert_eq!(crate::query::regex::test_compile_count() - before, 4);
         first.collections[0].fts.as_mut().unwrap().source_literal = "changed".into();
         assert_eq!(
             second.collections[0].fts.as_ref().unwrap().source_literal,

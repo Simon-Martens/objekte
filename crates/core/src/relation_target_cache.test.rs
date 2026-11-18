@@ -33,7 +33,7 @@ fn second_prefetched_target_in_batch_obeys_record_limit() {
     use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
     let (root, repo) = fixture(BigramAlphabet::Ascii);
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
             target_record_bytes: 26,
             ..Default::default()

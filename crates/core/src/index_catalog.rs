@@ -11,8 +11,8 @@ use crate::index::posting::{ScalarKey, StructuralKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
+use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};
-use crate::query_path::PathStep;
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 use crate::repository::CollectionState;
 

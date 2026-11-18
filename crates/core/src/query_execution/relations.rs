@@ -697,7 +697,7 @@ fn try_direct_relation_page(
                             .id
                             .0
                             .len()
-                            .saturating_add(crate::sort_binding::key_bytes(key))
+                            .saturating_add(crate::query::sort_binding::key_bytes(key))
                             .saturating_add(64)
                     });
                     if !reserve_route(
@@ -2547,7 +2547,7 @@ pub(crate) fn search_segmented_reference(
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
-    let prepared = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::query::prepared::prepare(repo, query)?;
     search_segmented_relations(
         repo,
         query,
@@ -2575,7 +2575,7 @@ pub(crate) fn explain_segmented(
         return Err("segment explanation collection count mismatch".into());
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
-    let prepared = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::query::prepared::prepare(repo, query)?;
     let resolved_sort = ResolvedSort::new(repo, query)?;
     for trace in &mut traces {
         let collection_index = repo

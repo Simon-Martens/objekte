@@ -195,5 +195,5 @@ impl QueryPath {
 }
 
 #[cfg(test)]
-#[path = "query_path.test.rs"]
+#[path = "path/tests.rs"]
 mod tests;

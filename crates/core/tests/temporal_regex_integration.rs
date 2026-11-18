@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
-use objekte_search_core::parameters::parse_parameter_json;
+use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};

@@ -4,7 +4,7 @@ use std::collections::BTreeMap;
 
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, MetadataField, PathRoot};
-use objekte_search_core::query_path::QueryPath;
+use objekte_search_core::query::path::QueryPath;
 
 use crate::backend::{OpenedSession, build_query};
 use crate::ui::filter_builder::{FieldChoice, ValueType};

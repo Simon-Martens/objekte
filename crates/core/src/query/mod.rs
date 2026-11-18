@@ -1,10 +1,20 @@
 //! Separate literal FTS and structured FILTER parsing.
 
-use crate::byte_size_literal::parse_size_literal;
-use crate::clock_context::ClockContext;
+pub mod clock;
+pub mod parameters;
+pub mod path;
+pub(crate) mod prepared;
+pub mod regex;
+mod size_literal;
+pub(crate) mod sort_binding;
+pub mod temporal;
+mod validation;
+
 use crate::model::{FieldPath, Number, Value};
-use crate::query_path::{QueryPath, split_path_binding};
-use crate::temporal_query::{PeriodLiteral, looks_like_temporal};
+use crate::query::clock::ClockContext;
+use crate::query::path::{QueryPath, split_path_binding};
+use crate::query::size_literal::parse_size_literal;
+use crate::query::temporal::{PeriodLiteral, looks_like_temporal};
 use crate::workload::{ReturnMode, SortExpression, SortField, SortReducer, WorkloadCase};
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
@@ -949,5 +959,5 @@ pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
 }
 
 #[cfg(test)]
-#[path = "query.test.rs"]
+#[path = "tests.rs"]
 mod tests;

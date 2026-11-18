@@ -205,12 +205,12 @@ fn typed_parameters_bind_without_interpolation_and_keep_cache_identity() {
         ids(&repo, &query("optional = $value"), "value", Value::Null),
         ["b"]
     );
-    let date = objekte_search_core::parameters::parse_parameter_json(
+    let date = objekte_search_core::query::parameters::parse_parameter_json(
         r#"{"type":"date","value":"2026-11-06"}"#,
     )
     .unwrap();
     assert_eq!(ids(&repo, &query("issued = $start"), "start", date), ["a"]);
-    let instant = objekte_search_core::parameters::parse_parameter_json(
+    let instant = objekte_search_core::query::parameters::parse_parameter_json(
         r#"{"type":"datetime","value":"2026-11-07T14:30:00Z"}"#,
     )
     .unwrap();
@@ -252,7 +252,8 @@ fn missing_conflicting_and_array_parameters_fail_during_preparation() {
             .unwrap_err()
             .contains("incompatible uses")
     );
-    let array = objekte_search_core::parameters::parse_parameter_json(r#"["x","x"]"#).unwrap();
+    let array =
+        objekte_search_core::query::parameters::parse_parameter_json(r#"["x","x"]"#).unwrap();
     let params = HashMap::from([("array".into(), array)]);
     assert!(
         repo.search_with_parameters(&query("tags = $array"), &params)

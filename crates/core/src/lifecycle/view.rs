@@ -383,7 +383,7 @@ impl IndexView {
         if query.options.offset != 0 {
             return Err("pagination waits for initial index construction".into());
         }
-        let prepared = crate::prepared::prepare(self.repository(), query)?;
+        let prepared = crate::query::prepared::prepare(self.repository(), query)?;
         if prepared.collections.iter().any(|entry| {
             entry
                 .filter()
@@ -756,7 +756,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<AvailableSearchResult, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -773,7 +773,7 @@ impl IndexView {
         query: &Query,
     ) -> Result<Option<AvailableSearchResult>, String> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             None,
         );
@@ -788,7 +788,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -805,7 +805,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -822,7 +822,7 @@ impl IndexView {
         cancellation: &CancellationToken,
     ) -> Result<bool, ExecutionError> {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -1305,7 +1305,7 @@ impl IndexView {
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );

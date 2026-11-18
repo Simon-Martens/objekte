@@ -624,7 +624,7 @@ fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
     }
 
     let prepared =
-        crate::prepared::prepare(&repo, &query("year = 1800 && year = 1799", true)).unwrap();
+        crate::query::prepared::prepare(&repo, &query("year = 1800 && year = 1799", true)).unwrap();
     let ids = prepared.collections[0]
         .filter_shape
         .as_ref()
@@ -2417,7 +2417,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert!(reused_no_count.counters.verified_result_hit);
     let early_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(CancellationToken::new()),
     );
@@ -2464,7 +2464,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         },
         StreamOptions::default(),
         &ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(CancellationToken::new()),
         ),
@@ -2516,7 +2516,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             ..StreamOptions::default()
         },
         &ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(CancellationToken::new()),
         ),
@@ -2563,7 +2563,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             ..StreamOptions::default()
         },
         &ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(CancellationToken::new()),
         ),
@@ -2786,7 +2786,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         ["aardvark", "alpha", "beta", "bravo", "charlie"]
     );
     let stream_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(CancellationToken::new()),
     );
@@ -2819,7 +2819,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(summary.returned_rows, 5);
     assert_eq!(streamed, computed.hits);
     let page_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(CancellationToken::new()),
     );
@@ -2856,7 +2856,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let cancelled = CancellationToken::new();
     cancelled.cancel();
     let cancelled_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(cancelled),
     );
@@ -2880,7 +2880,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         StreamOutcome::Cancelled(_)
     ));
     let during_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(CancellationToken::new()),
     );
@@ -2902,7 +2902,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         StreamOutcome::Cancelled(_)
     ));
     let limited_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
             source_record_bytes: 8,
             ..Default::default()
@@ -3007,7 +3007,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         ResultScope::All { offset: 0 },
         StreamOptions::default(),
         &ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         ),
@@ -3086,7 +3086,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(optimized.count, None);
     assert_eq!(optimized.hits, missing.hits);
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         None,
     );
@@ -3119,7 +3119,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(payload.hits.is_empty());
     assert!(!payload.counters.match_count_complete);
     let stream_context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         None,
     );
@@ -3666,7 +3666,7 @@ fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
     };
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits {
                 inferred_order_bytes: 1,
                 ..Default::default()
@@ -3731,7 +3731,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     generation.records = segment.index.records.clone();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(token.clone()),
     );
@@ -7061,7 +7061,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
     };
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits {
                 computed_sort_bytes: 1,
                 ..Default::default()
@@ -7192,7 +7192,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
         },
     };
     let context = ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
         Some(token.clone()),
     );
@@ -7284,7 +7284,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
     };
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )

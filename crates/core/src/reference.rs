@@ -14,15 +14,15 @@ use crate::index::bigram::BigramRequest;
 use crate::index::bigram::{fold, fold_into};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
+use crate::query::path::{PathStep, QueryPath};
+use crate::query::regex::CompiledRegex;
+use crate::query::temporal::TemporalBounds;
 use crate::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Literal, Modifier, Operand, Operator,
     Quantifier, Term,
 };
-use crate::query_path::{PathStep, QueryPath};
-use crate::regex_query::CompiledRegex;
 use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
-use crate::temporal_query::TemporalBounds;
 
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]

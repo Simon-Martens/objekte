@@ -12,11 +12,13 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;
+use crate::query::sort_binding::{
+    BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache,
+};
 use crate::query_results::cache::CacheBudget;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::{BoundExpr, RecordContext};
 use crate::repository::{Payload, Repository, SearchHit};
-use crate::sort_binding::{BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache};
 use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::verified::CachedMember;
@@ -505,7 +507,7 @@ pub(crate) fn relation_rank_key_merged(
 fn cached_filter_target_sort_key(
     view: &crate::relation_query::MergedRelationView<'_>,
     address: crate::relation_query::MergedRecordSlot,
-    computed: &crate::sort_binding::ComputedSort,
+    computed: &crate::query::sort_binding::ComputedSort,
     filter: Option<&BoundExpr>,
 ) -> Result<Option<SortKey>, String> {
     let Some((hops, terminal)) = computed.related.as_ref() else {
@@ -574,7 +576,7 @@ fn direct_related_target_sort_key(
     view: &crate::relation_query::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     address: crate::relation_query::MergedRecordSlot,
-    computed: &crate::sort_binding::ComputedSort,
+    computed: &crate::query::sort_binding::ComputedSort,
 ) -> Result<Option<SortKey>, String> {
     let Some((hops, _)) = computed.related.as_ref() else {
         return Ok(None);
@@ -640,7 +642,7 @@ impl PartialOrd for RankKey {
 
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
-        crate::sort_binding::compare_parts(&self.parts, &other.parts)
+        crate::query::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
@@ -747,7 +749,7 @@ pub(crate) fn rank_key_bytes(key: &RankKey) -> u64 {
         .saturating_add(key.collection.capacity())
         .saturating_add(key.id.capacity())
         .saturating_add(key.parts.iter().fold(0usize, |total, (part, _, _)| {
-            total.saturating_add(crate::sort_binding::key_bytes(part))
+            total.saturating_add(crate::query::sort_binding::key_bytes(part))
         }));
     u64::try_from(bytes).unwrap_or(u64::MAX)
 }

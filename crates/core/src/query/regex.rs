@@ -279,5 +279,5 @@ impl CompiledRegex {
 }
 
 #[cfg(test)]
-#[path = "regex_query.test.rs"]
+#[path = "regex/tests.rs"]
 mod tests;

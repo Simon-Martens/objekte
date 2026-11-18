@@ -1200,7 +1200,7 @@ fn segment_positional_eq_candidates(
         .query_path
         .steps
         .iter()
-        .filter(|step| matches!(step, crate::query_path::PathStep::ArrayIndex(_)))
+        .filter(|step| matches!(step, crate::query::path::PathStep::ArrayIndex(_)))
         .take(2)
         .count()
         > 1
@@ -3668,7 +3668,7 @@ struct TextProbe<'a, 'b> {
 
 struct PreparedFtsAccess<'a, 'b> {
     probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
-    regex: Option<&'b crate::regex_query::RegexCondition>,
+    regex: Option<&'b crate::query::regex::RegexCondition>,
     literal_work: f64,
     max_count: u64,
 }

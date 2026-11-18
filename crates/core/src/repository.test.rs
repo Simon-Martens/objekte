@@ -319,7 +319,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
     let macro_query = query("@file.modified >= @todayStart");
     let context = |seconds| {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(
+            crate::query::clock::ClockContext::new(
                 time::OffsetDateTime::from_unix_timestamp(seconds).unwrap(),
             ),
             ExecutionLimits::default(),

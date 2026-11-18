@@ -61,7 +61,7 @@ impl BenchmarkCase {
         for (name, encoded) in &self.parameters {
             values.insert(
                 name.clone(),
-                crate::parameters::parse_parameter_json(&encoded.to_string())?,
+                crate::query::parameters::parse_parameter_json(&encoded.to_string())?,
             );
         }
         let query = crate::query::Query::from_workload(&self.request)?.with_parameters(&values)?;

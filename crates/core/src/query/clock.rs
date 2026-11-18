@@ -3,8 +3,8 @@
 use time::{Date, Month, OffsetDateTime, UtcOffset};
 
 use crate::model::Number;
+use crate::query::temporal::PeriodLiteral;
 use crate::query::{Literal, Operand};
-use crate::temporal_query::PeriodLiteral;
 
 const DAY_NS: i128 = 86_400_000_000_000;
 
@@ -102,5 +102,5 @@ impl ClockContext {
 }
 
 #[cfg(test)]
-#[path = "clock_context.test.rs"]
+#[path = "clock/tests.rs"]
 mod tests;

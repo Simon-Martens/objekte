@@ -1399,7 +1399,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     }
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )
@@ -1959,7 +1959,7 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
         let cancelled = CancellationToken::new();
         cancelled.cancel();
         let context = ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             Some(cancelled),
         );

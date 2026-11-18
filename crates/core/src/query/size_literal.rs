@@ -79,5 +79,5 @@ pub(crate) fn parse_size_literal(input: &str) -> Result<Option<i128>, String> {
 }
 
 #[cfg(test)]
-#[path = "byte_size_literal.test.rs"]
+#[path = "size_literal/tests.rs"]
 mod tests;

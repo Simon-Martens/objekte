@@ -15,7 +15,7 @@ fn limited_context(
     cancellation: Option<CancellationToken>,
 ) -> ExecutionContext {
     ExecutionContext::new(
-        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         limits,
         cancellation,
     )

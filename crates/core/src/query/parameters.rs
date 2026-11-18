@@ -60,5 +60,5 @@ pub fn parse_parameter_json(input: &str) -> Result<Value, String> {
 }
 
 #[cfg(test)]
-#[path = "parameters.test.rs"]
+#[path = "parameters/tests.rs"]
 mod tests;

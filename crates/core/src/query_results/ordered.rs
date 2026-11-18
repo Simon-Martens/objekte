@@ -291,7 +291,7 @@ pub(super) fn inferred_order_index<'a>(
 pub(super) fn posting_order_eligible(
     repo: &Repository,
     query: &Query,
-    bound: Option<&crate::prepared::PreparedQuery>,
+    bound: Option<&crate::query::prepared::PreparedQuery>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
 ) -> bool {
@@ -305,7 +305,7 @@ pub(super) fn posting_order_eligible(
         return true;
     }
     let owned = if bound.is_none() {
-        crate::prepared::prepare(repo, query).ok()
+        crate::query::prepared::prepare(repo, query).ok()
     } else {
         None
     };
@@ -349,7 +349,7 @@ pub(super) fn posting_order_eligible(
 pub(super) fn inferred_order_column(
     repo: &Repository,
     query: &Query,
-    prepared: &crate::prepared::PreparedQuery,
+    prepared: &crate::query::prepared::PreparedQuery,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
@@ -439,7 +439,7 @@ pub(super) fn cached_inferred_order(
 pub(super) fn try_inferred_order_page(
     repo: &Repository,
     query: &Query,
-    prepared: &crate::prepared::PreparedQuery,
+    prepared: &crate::query::prepared::PreparedQuery,
     preparation_ns: u64,
     traces: Option<&mut Vec<QueryPlanTrace>>,
     mut delivery: Option<&mut Delivery<'_>>,
@@ -509,7 +509,7 @@ pub(super) fn try_inferred_order_page(
 pub(super) fn try_inferred_segment_order_page(
     repo: &Repository,
     query: &Query,
-    prepared: &crate::prepared::PreparedQuery,
+    prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
@@ -775,7 +775,7 @@ pub(super) fn try_inferred_segment_order_page(
 pub(super) fn try_stored_order_page(
     repo: &Repository,
     query: &Query,
-    prepared: &crate::prepared::PreparedQuery,
+    prepared: &crate::query::prepared::PreparedQuery,
     sort: &ResolvedSort<'_>,
     preparation_ns: u64,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,

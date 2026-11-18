@@ -183,7 +183,7 @@ fn typed_source_change_requires_a_confirmed_revision_mismatch() {
     let range = ByteRange::checked(0, 3, revision.size).unwrap();
     let context = || {
         ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             ExecutionLimits::default(),
             None,
         )

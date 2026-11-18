@@ -6,7 +6,7 @@ use std::path::Path;
 use serde_json::Value;
 
 use crate::model::{FieldPath, LogicalType, PathRoot};
-use crate::query_path::QueryPath;
+use crate::query::path::QueryPath;
 use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::workload::SortField;

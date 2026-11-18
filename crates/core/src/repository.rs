@@ -1294,7 +1294,7 @@ impl Repository {
         ) -> Result<crate::streaming::StreamControl, String>,
     {
         let context = crate::streaming::ExecutionContext::new(
-            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
             crate::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
@@ -1964,7 +1964,7 @@ impl Repository {
 }
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
-    crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())
+    crate::query::sort_binding::BoundSort::bind(repo, query).map(|_| ())
 }
 
 pub(crate) fn sort_rows(
@@ -1974,12 +1974,12 @@ pub(crate) fn sort_rows(
     counters: &mut WorkCounters,
     active: Option<&[ActiveRecords]>,
 ) -> Result<(), String> {
-    let bound = crate::sort_binding::BoundSort::bind(repo, query)?;
+    let bound = crate::query::sort_binding::BoundSort::bind(repo, query)?;
     if bound.has_computed {
-        let mut cache = crate::sort_binding::SortTargetCache::default();
+        let mut cache = crate::query::sort_binding::SortTargetCache::default();
         if let Some(active) = active {
             let context = crate::streaming::ExecutionContext::new(
-                crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
                 crate::streaming::ExecutionLimits::default(),
                 None,
             )
@@ -2051,9 +2051,10 @@ pub(crate) fn sort_rows(
             counters.sort_key_evaluations += 1;
         }
         hits.sort_by(|a, b| {
-            crate::sort_binding::compare_parts(&keys[&(a.0, a.1)], &keys[&(b.0, b.1)]).then_with(
-                || (&a.2.collection, &a.2.record_id).cmp(&(&b.2.collection, &b.2.record_id)),
-            )
+            crate::query::sort_binding::compare_parts(&keys[&(a.0, a.1)], &keys[&(b.0, b.1)])
+                .then_with(|| {
+                    (&a.2.collection, &a.2.record_id).cmp(&(&b.2.collection, &b.2.record_id))
+                })
         });
         let targets = target_cache.lock().map_err(|error| error.to_string())?;
         counters.sort_target_reads += targets.reads;
@@ -2075,10 +2076,12 @@ pub(crate) fn sort_rows(
                     .expect("selected collection"),
             )
         {
-            let crate::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source else {
+            let crate::query::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source
+            else {
                 unreachable!("all terms resident")
             };
-            let crate::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source else {
+            let crate::query::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source
+            else {
                 unreachable!("all terms resident")
             };
             let order = a_column.keys[*a_slot as usize].compare_with(

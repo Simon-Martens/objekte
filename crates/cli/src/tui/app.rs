@@ -12,11 +12,11 @@ use objekte_search_core::lifecycle::{
 };
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
+use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
     RegexOptions, parse_filter, parse_structured_filter,
 };
-use objekte_search_core::query_path::QueryPath;
 use objekte_search_core::repository::{SearchHit, SearchResult};
 use objekte_search_core::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,

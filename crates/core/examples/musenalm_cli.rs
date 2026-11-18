@@ -130,7 +130,7 @@ fn run() -> Result<(), String> {
                 }
                 parameters.insert(
                     name.to_owned(),
-                    objekte_search_core::parameters::parse_parameter_json(json)?,
+                    objekte_search_core::query::parameters::parse_parameter_json(json)?,
                 );
             }
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,

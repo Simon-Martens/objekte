@@ -6,7 +6,7 @@ use std::sync::{
     atomic::{AtomicBool, AtomicU64, Ordering},
 };
 
-use crate::clock_context::ClockContext;
+use crate::query::clock::ClockContext;
 use crate::repository::{Payload, SearchHit};
 use crate::workload::WorkCounters;
 

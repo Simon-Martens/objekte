@@ -5,8 +5,8 @@ use std::ops::Range;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::index::bigram::fold;
+use crate::query::regex::CompiledRegex;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-use crate::regex_query::CompiledRegex;
 
 pub struct PreviewMatcher {
     mode: PreviewMode,

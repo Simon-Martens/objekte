@@ -528,7 +528,7 @@ pub(crate) fn select_exact_segmented(
     if !query.collections.is_empty() && !query.collections.iter().any(|name| name == collection) {
         return Err("selection query excludes requested collection".into());
     }
-    crate::sort_binding::BoundSort::bind(repo, query)?;
+    crate::query::sort_binding::BoundSort::bind(repo, query)?;
     let mut request = query.resolve_current_clock()?.into_owned();
     request.collections = vec![collection.to_owned()];
     request.options.count = true;
@@ -544,7 +544,7 @@ pub(crate) fn select_exact_segmented(
         )
         .ok_or("selection domain too large")?;
     if request.fts.is_none() && base_active[collection_index].len() == 0 {
-        let prepared = crate::prepared::prepare(repo, &request)?;
+        let prepared = crate::query::prepared::prepare(repo, &request)?;
         let filter = prepared
             .collections
             .iter()

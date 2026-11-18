@@ -12,8 +12,8 @@ use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
+use crate::query::path::{PathStep, QueryPath};
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
-use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, bind_field_probe, bind_filter_with_parameters,
     bind_fts, eval_borrowed_value_fts_field, eval_bound_fts, eval_bound_fts_field,

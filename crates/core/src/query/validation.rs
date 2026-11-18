@@ -3,9 +3,9 @@
 use std::collections::HashMap;
 
 use crate::query::Query;
+use crate::query::sort_binding::BoundSort;
 use crate::relation_query::{bind_filter_with_relations, bind_fts_with_relations};
 use crate::repository::Repository;
-use crate::sort_binding::BoundSort;
 
 impl Repository {
     /// Check scope, predicate bindings, full-text fields, and sorting without
@@ -39,5 +39,5 @@ impl Repository {
 }
 
 #[cfg(test)]
-#[path = "query_validation.test.rs"]
+#[path = "validation/tests.rs"]
 mod tests;
