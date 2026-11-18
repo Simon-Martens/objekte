@@ -28,7 +28,6 @@ enum SegmentPhysicalOperation {
         exact: bool,
     },
     NativeFallback,
-    SourceVerification,
 }
 
 struct PreparedSegmentOperation {
@@ -131,6 +130,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             && bound.matcher.is_none()
             && !bound.query_path.has_position
             && !bound.query_path.has_explicit_array_step
+            && self.segment.sorting.column(&bound.path.display()).is_err()
             && matches!(
                 bound.operator,
                 crate::query::Operator::Eq
@@ -143,6 +143,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         let index = IndexCatalog::segment(self.segment, self.collection);
         let domain = &self.segment.logical_records;
         let mut direct_output = None;
+        let mut direct_exact = false;
         for access in direct_posting_compatible
             .then_some(())
             .into_iter()
@@ -172,6 +173,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             direct_output = Some(
                 direct_output.map_or(proposal.output, |current: u64| current.min(proposal.output)),
             );
+            direct_exact |= proposal.exact;
             let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
             let operation = self.operation_id(term, bound, physical, access_kind);
             offers.push(AccessOffer::new(
@@ -205,6 +207,10 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             ));
         }
 
+        if direct_exact {
+            return Ok(());
+        }
+
         let source_kind = segment_access_path_kind(bound, self.segment, self.collection);
         let fallback_operation = self.operation_id(
             term,
@@ -229,28 +235,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             0.0,
             false,
             source_kind == AccessPathKind::SortColumn,
-        ));
-        let source_operation = self.operation_id(
-            term,
-            bound,
-            SegmentPhysicalOperation::SourceVerification,
-            source_kind,
-        );
-        let source_input_work = 30.0 + input.mean_record_bytes / 128.0;
-        offers.push(AccessOffer::new(
-            AccessId {
-                provider: NATIVE_SEGMENT_PROVIDER,
-                operation: source_operation,
-            },
-            term,
-            AccessKind::SourceScan,
-            Coverage::Input,
-            ProofStrength::None,
-            input.input_len,
-            0.0,
-            source_input_work.max(0.0),
-            false,
-            false,
         ));
         Ok(())
     }
@@ -288,7 +272,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             return Ok(Restriction::exact(input));
         }
         let restriction = match physical {
-            SegmentPhysicalOperation::SourceVerification => Restriction::candidate(input),
             SegmentPhysicalOperation::NativeFallback => {
                 let effective = input
                     .effective_bitmap()

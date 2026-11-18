@@ -264,6 +264,12 @@ pub(crate) fn record_observation_for_execution(
     proven_records: u64,
     access_kind: Option<&str>,
 ) {
+    let collector = execution
+        .context
+        .and_then(|context| context.observation_collector());
+    if collector.is_none() && !has_local_capture(instance_id) {
+        return;
+    }
     let observation = ExecutionObservation {
         node_id: 0,
         phase: "search".into(),
@@ -281,10 +287,7 @@ pub(crate) fn record_observation_for_execution(
         residual_verifications: 0,
         status: ObservationStatus::Executed,
     };
-    if let Some(collector) = execution
-        .context
-        .and_then(|context| context.observation_collector())
-    {
+    if let Some(collector) = collector {
         collector.record(observation);
     } else {
         push_observation(instance_id, observation);
