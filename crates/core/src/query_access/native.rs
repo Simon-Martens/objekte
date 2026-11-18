@@ -217,6 +217,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             return Err(AccessError::DomainMismatch);
         }
         execution.check()?;
+        let input_count = input.len() as u64;
         if input.is_empty() {
             return Ok(input);
         }
@@ -237,14 +238,27 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
                 self.repo.ok_or(AccessError::CapabilityUnavailable)?,
                 self.collection,
                 bound,
-                input_ref,
+                &self.collection.logical_records,
                 input_ref,
                 &path,
             )
             .map_err(AccessError::Internal)?;
             result.map_or(SlotSet::Unrestricted, SlotSet::from_owned)
         };
-        Ok(input.replace_slots(slots))
+        let result = input.replace_slots(slots);
+        let output_count = result.len() as u64;
+        crate::query_execution::request::record_observation(
+            self.repo
+                .map_or(0, |repo| repo.instance_id),
+            term,
+            self.domain,
+            choice,
+            self.collection.generation.collection.0,
+            input_count,
+            output_count,
+            if path.exact { output_count } else { 0 },
+        );
+        Ok(result)
     }
 }
 

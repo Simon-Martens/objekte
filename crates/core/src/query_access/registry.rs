@@ -250,6 +250,76 @@ mod tests {
         assert!(matches!(error, AccessError::Corrupt(_)));
     }
 
+    #[test]
+    fn restriction_is_written_against_the_effective_input_only() {
+        let term = TermId::new(8);
+        let provider = provider(1, 1.0, term);
+        let input_values = RoaringBitmap::from_iter([1, 2, 3]);
+        let input = SlotInput::unrestricted(DomainId::new(1), &input_values);
+        let result = provider
+            .apply(
+                term,
+                AccessRequest::Structured(empty_term_ref()),
+                AccessId {
+                    provider: ProviderId(1),
+                    operation: OperationId(0),
+                },
+                input,
+                &AccessExecution { context: None },
+            )
+            .unwrap();
+        assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
+    }
+
+    #[test]
+    fn input_dependent_cost_crosses_over_at_the_current_cardinality() {
+        let term = TermId::new(9);
+        let offers: OfferList = smallvec::smallvec![
+            AccessOffer::new(
+                AccessId {
+                    provider: ProviderId(1),
+                    operation: OperationId(0),
+                },
+                term,
+                AccessKind::ExactMembership,
+                Coverage::Complete,
+                ProofStrength::Exact,
+                3,
+                2.0,
+                1.0,
+                false,
+                false,
+            ),
+            AccessOffer::new(
+                AccessId {
+                    provider: ProviderId(2),
+                    operation: OperationId(0),
+                },
+                term,
+                AccessKind::ExactMembership,
+                Coverage::Complete,
+                ProofStrength::Exact,
+                3,
+                20.0,
+                0.0,
+                false,
+                false,
+            ),
+        ];
+        assert_eq!(
+            choose_offer(term, &offers, 3).unwrap().unwrap().id().provider,
+            ProviderId(1)
+        );
+        assert_eq!(
+            choose_offer(term, &offers, 100)
+                .unwrap()
+                .unwrap()
+                .id()
+                .provider,
+            ProviderId(2)
+        );
+    }
+
     fn empty_term_ref() -> &'static BoundTerm {
         static TERM: std::sync::OnceLock<BoundTerm> = std::sync::OnceLock::new();
         TERM.get_or_init(|| {

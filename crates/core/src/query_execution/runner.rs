@@ -28,7 +28,8 @@ use crate::posting::PostingIndex;
 use crate::prepared::PreparedCollectionQuery;
 use crate::query::{FtsMode, Operator, Quantifier, Query};
 pub use crate::query_diagnostics::trace::{
-    BoundTermDiagnostic, PlanActual, QueryPlanTrace, RelationHopDiagnostic,
+    BoundTermDiagnostic, ExecutionObservation, ObservationStatus, PlanActual, QueryPlanTrace,
+    RelationHopDiagnostic,
 };
 use crate::query_results::ranking::{RankKey, ResolvedSort, Winner};
 use crate::query_results::cache::CacheBudget;
@@ -273,7 +274,7 @@ fn scan_projection(
     let collect_text = query.fts.is_some() && !fts_proven;
     fn uses_root(expr: &Residual<'_>) -> bool {
         match expr {
-            Residual::Term(term, _) => {
+            Residual::Term(term, _, _, _) => {
                 (term.path.root == PathRoot::Data && term.path.segments.is_empty())
                     || term.rhs.as_ref().is_some_and(|rhs| {
                         rhs.path.root == PathRoot::Data && rhs.path.segments.is_empty()
@@ -305,7 +306,7 @@ fn scan_projection(
         fields: &mut HashSet<String>,
     ) {
         match expr {
-            Residual::Term(term, proof) => {
+            Residual::Term(term, proof, _, _) => {
                 let fully_proven = proof.is_some_and(|proof| candidates.is_subset(&proof.input));
                 if !fully_proven
                     && term.path.root == PathRoot::Data
@@ -491,7 +492,12 @@ fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: b
 }
 
 enum Residual<'a> {
-    Term(&'a BoundTerm, Option<&'a Proof>),
+    Term(
+        &'a BoundTerm,
+        Option<&'a Proof>,
+        crate::query_predicate::TermId,
+        &'a crate::query_predicate::PreparedPredicates,
+    ),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
@@ -534,9 +540,13 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         residual: Option<&'a Residual<'a>>,
     ) -> Option<Self> {
+        #[cfg(test)]
+        if crate::query_predicate::alternate_matcher_active() {
+            return None;
+        }
         let filter = match residual {
             None => None,
-            Some(Residual::Term(term, proof)) => Some((*term, *proof)),
+            Some(Residual::Term(term, proof, _, _)) => Some((*term, *proof)),
             Some(_) => return None,
         };
         Self::prepare_filter(collection, sort, fts, filter)
@@ -634,14 +644,22 @@ fn prepare_residual<'a>(
     proofs: &'a [Proof],
     collection: &crate::repository::CollectionState,
     input_len: u64,
+    predicates: &'a crate::query_predicate::PreparedPredicates,
 ) -> Residual<'a> {
     match expr {
-        BoundExpr::Term(term) => Residual::Term(
-            term,
-            proofs
-                .iter()
-                .find(|proof| same_bound_term(&proof.term, term)),
-        ),
+        BoundExpr::Term(term) => {
+            let term_id = predicates
+                .term_for_span(collection.generation.collection.0 as usize, term.span)
+                .expect("prepared residual term ID");
+            Residual::Term(
+                term,
+                proofs
+                    .iter()
+                    .find(|proof| same_bound_term(&proof.term, term)),
+                term_id,
+                predicates,
+            )
+        }
         BoundExpr::And(parts) | BoundExpr::Or(parts) => {
             let is_and = matches!(expr, BoundExpr::And(_));
             let mut ordered = parts
@@ -658,7 +676,7 @@ fn prepare_residual<'a>(
                     (
                         score,
                         index,
-                        prepare_residual(part, proofs, collection, input_len),
+                        prepare_residual(part, proofs, collection, input_len, predicates),
                     )
                 })
                 .collect::<Vec<_>>();
@@ -671,7 +689,11 @@ fn prepare_residual<'a>(
             }
         }
         BoundExpr::Not(inner) => Residual::Not(Box::new(prepare_residual(
-            inner, proofs, collection, input_len,
+            inner,
+            proofs,
+            collection,
+            input_len,
+            predicates,
         ))),
     }
 }
@@ -707,7 +729,7 @@ fn repeated_fold_key<'a>(term: &'a BoundTerm, seen: &mut SmallVec<[FoldKey<'a>; 
 fn shared_fold_residual(residual: Option<&Residual<'_>>) -> bool {
     fn visit<'a>(node: &'a Residual<'a>, seen: &mut SmallVec<[FoldKey<'a>; 8]>) -> bool {
         match node {
-            Residual::Term(term, _) => repeated_fold_key(term, seen),
+            Residual::Term(term, _, _, _) => repeated_fold_key(term, seen),
             Residual::And(parts) | Residual::Or(parts) => {
                 parts.iter().any(|part| visit(part, seen))
             }
@@ -740,7 +762,7 @@ impl Residual<'_> {
         evaluations: &mut u64,
     ) -> Result<Option<bool>, String> {
         match self {
-            Self::Term(term, _) => {
+            Self::Term(term, _, term_id, predicates) => {
                 if term.related.is_some()
                     || term.path.root == PathRoot::Data
                     || term.path.root == PathRoot::Backlinks
@@ -752,8 +774,18 @@ impl Residual<'_> {
                     return Ok(None);
                 }
                 *evaluations += 1;
-                let matched = eval_term(term, ctx)?;
+                let mut matched_fields = HashSet::new();
+                let matched = match predicates.verify(
+                    *term_id,
+                    &crate::query_predicate::RecordInput::new(ctx, &[]),
+                    &mut crate::query_predicate::EvidenceSink::new(&mut matched_fields),
+                )? {
+                    crate::query_predicate::Truth::True => true,
+                    crate::query_predicate::Truth::False => false,
+                    crate::query_predicate::Truth::Unknown => return Ok(None),
+                };
                 if matched && self.can_emit_evidence() {
+                    evidence.extend(matched_fields);
                     evidence.insert(term.query_path.display.clone());
                     if let Some(rhs) = &term.rhs {
                         evidence.insert(rhs.query_path.display.clone());
@@ -814,7 +846,7 @@ impl Residual<'_> {
 
     fn can_emit_evidence(&self) -> bool {
         match self {
-            Self::Term(term, _) => {
+            Self::Term(term, _, _, _) => {
                 term.derived == Derived::None
                     && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             }
@@ -833,7 +865,7 @@ impl Residual<'_> {
         target_values: Option<&crate::relation_target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {
-            Self::Term(term, proof) => match Self::proven(*proof, slot) {
+            Self::Term(term, proof, term_id, predicates) => match Self::proven(*proof, slot) {
                 Some(result) => Some(result),
                 None => {
                     *evaluations += 1;
@@ -846,7 +878,16 @@ impl Residual<'_> {
                             target_values,
                         )?
                     } else {
-                        Some(eval_term(term, ctx)?)
+                        let mut evidence = HashSet::new();
+                        Some(match predicates.verify(
+                            *term_id,
+                            &crate::query_predicate::RecordInput::new(ctx, &[]),
+                            &mut crate::query_predicate::EvidenceSink::new(&mut evidence),
+                        )? {
+                            crate::query_predicate::Truth::True => true,
+                            crate::query_predicate::Truth::False => false,
+                            crate::query_predicate::Truth::Unknown => return Ok(None),
+                        })
                     }
                 }
             },
@@ -903,7 +944,7 @@ impl Residual<'_> {
         target_values: Option<&crate::relation_target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {
-            Self::Term(term, proof) => {
+            Self::Term(term, proof, term_id, predicates) => {
                 let matched = match Self::proven(*proof, slot) {
                     Some(result) => Some(result),
                     None => {
@@ -917,7 +958,16 @@ impl Residual<'_> {
                                 target_values,
                             )?
                         } else {
-                            Some(eval_term(term, ctx)?)
+                            let mut fields = HashSet::new();
+                            Some(match predicates.verify(
+                                *term_id,
+                                &crate::query_predicate::RecordInput::new(ctx, &[]),
+                                &mut crate::query_predicate::EvidenceSink::new(&mut fields),
+                            )? {
+                                crate::query_predicate::Truth::True => true,
+                                crate::query_predicate::Truth::False => false,
+                                crate::query_predicate::Truth::Unknown => return Ok(None),
+                            })
                         }
                     }
                 };
@@ -8227,10 +8277,25 @@ pub(crate) fn search_analyze_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
-    let result = search_segmented(repo, query, base_active, segments, catalog, revision)?;
+    crate::query_execution::request::begin_observation_capture(repo.instance_id);
+    let result = match search_segmented(repo, query, base_active, segments, catalog, revision) {
+        Ok(result) => result,
+        Err(error) => {
+            crate::query_execution::request::cancel_observation_capture(repo.instance_id);
+            return Err(error);
+        }
+    };
+    let observations =
+        crate::query_execution::request::finish_observation_capture(repo.instance_id);
     // The actual execution above is the only operation application. The
     // following pass is estimate-only and supplies the stable plan envelope.
     let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
+    attach_execution_observations(
+        repo,
+        &mut traces,
+        observations,
+        result.counters.verified_result_hit,
+    );
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
@@ -11034,6 +11099,7 @@ fn try_inferred_segment_order_page(
             candidates: candidate_count,
             candidates_estimated: false,
             actual: None,
+            observations: Vec::new(),
         });
     }
     Ok(Some(SearchResult {
@@ -11170,6 +11236,7 @@ fn try_stored_order_page(
                     &entry.plan.proofs,
                     &repo.collections[entry.collection_index],
                     entry.candidates.len(),
+                    &prepared.predicates,
                 )
             })
         })
@@ -11245,6 +11312,7 @@ fn try_stored_order_page(
                 candidates: entry.candidates.len(),
                 candidates_estimated: false,
                 actual: None,
+                observations: Vec::new(),
             });
         }
     }
@@ -12058,12 +12126,49 @@ pub fn search_analyze(
     search_analyze_with_active(repo, query, None)
 }
 
+fn attach_execution_observations(
+    repo: &Repository,
+    traces: &mut [QueryPlanTrace],
+    observations: Vec<ExecutionObservation>,
+    cache_hit: bool,
+) {
+    for observation in observations {
+        if let Some(trace) = traces.get_mut(observation.collection as usize) {
+            trace.observations.push(observation);
+        }
+    }
+    if cache_hit {
+        for trace in traces {
+            let collection = repo
+                .collections
+                .iter()
+                .position(|candidate| candidate.definition.name == trace.collection)
+                .unwrap_or(0) as u32;
+            trace.observations.push(ExecutionObservation {
+                node_id: trace.observations.len() as u32,
+                term_id: u32::MAX,
+                provider_id: u32::MAX,
+                operation_provider_id: u32::MAX,
+                operation_id: u32::MAX,
+                collection,
+                domain: "verified-cache".into(),
+                input_records: trace.input_records,
+                candidate_records: trace.candidates,
+                proven_records: trace.candidates,
+                residual_verifications: 0,
+                status: ObservationStatus::CacheHit,
+            });
+        }
+    }
+}
+
 pub(crate) fn search_analyze_with_active(
     repo: &Repository,
     query: &Query,
     active: Option<&[ActiveRecords]>,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
+    crate::query_execution::request::begin_observation_capture(repo.instance_id);
     let active_context = active.map(|active| {
         ExecutionContext::new(
             crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
@@ -12072,7 +12177,7 @@ pub(crate) fn search_analyze_with_active(
         )
         .with_active(active)
     });
-    let result = search_impl_with_collector(
+    let result = match search_impl_with_collector(
         repo,
         query,
         Some(&mut traces),
@@ -12084,7 +12189,16 @@ pub(crate) fn search_analyze_with_active(
         None,
         active_context.as_ref(),
         active,
-    )?;
+    ) {
+        Ok(result) => result,
+        Err(error) => {
+            crate::query_execution::request::cancel_observation_capture(repo.instance_id);
+            return Err(error);
+        }
+    };
+    let observations =
+        crate::query_execution::request::finish_observation_capture(repo.instance_id);
+    attach_execution_observations(repo, &mut traces, observations, result.counters.verified_result_hit);
     Ok((result, traces))
 }
 
@@ -12202,6 +12316,7 @@ pub(crate) fn explain_with_active(
             candidates,
             candidates_estimated: true,
             actual: None,
+            observations: Vec::new(),
         });
     }
     let cap = query
@@ -12848,6 +12963,7 @@ fn search_impl_with_collector<'a>(
                 candidates: candidates.len(),
                 candidates_estimated: false,
                 actual: None,
+                observations: Vec::new(),
             });
         }
         if !needs_scan {
@@ -12998,7 +13114,15 @@ fn search_impl_with_collector<'a>(
         }
         let residual = filter
             .as_ref()
-            .map(|expr| prepare_residual(expr, &plan.proofs, collection, candidates.len()));
+            .map(|expr| {
+                prepare_residual(
+                    expr,
+                    &plan.proofs,
+                    collection,
+                    candidates.len(),
+                    &predicates,
+                )
+            });
         let target_values = filter
             .as_ref()
             .map(|expr| {

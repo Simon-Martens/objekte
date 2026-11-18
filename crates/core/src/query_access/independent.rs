@@ -28,6 +28,7 @@ pub(crate) struct BackingObservation {
 
 pub(crate) struct SortedBackingProvider {
     id: ProviderId,
+    instance_id: u64,
     domain: DomainId,
     field: String,
     supports_text: bool,
@@ -85,6 +86,7 @@ impl SortedBackingProvider {
         }
         Self {
             id: INDEPENDENT_PROVIDER,
+            instance_id: 0,
             domain,
             field: field.into(),
             supports_text: true,
@@ -114,6 +116,11 @@ impl SortedBackingProvider {
 
     pub(crate) fn with_provider_id(mut self, id: ProviderId) -> Self {
         self.id = id;
+        self
+    }
+
+    pub(crate) fn with_instance_id(mut self, instance_id: u64) -> Self {
+        self.instance_id = instance_id;
         self
     }
 
@@ -359,6 +366,7 @@ impl IndexAccessProvider for SortedBackingProvider {
                 bitmap.insert(slot);
             }
         }
+        let observation_input_len = observation_input.len() as u64;
         self.state
             .lock()
             .expect("backing state poisoned")
@@ -368,6 +376,16 @@ impl IndexAccessProvider for SortedBackingProvider {
                 input: observation_input,
                 output: bitmap.iter().collect(),
             });
+        crate::query_execution::request::record_observation(
+            self.instance_id,
+            term,
+            self.domain,
+            choice,
+            0,
+            observation_input_len,
+            bitmap.len(),
+            if matches!(operation, 0) { bitmap.len() } else { 0 },
+        );
         Ok(input.replace_slots(SlotSet::from_owned(bitmap)))
     }
 }

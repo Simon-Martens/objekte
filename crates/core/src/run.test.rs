@@ -90,11 +90,13 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     let year_refs = year_values.iter().map(String::as_str).collect::<Vec<_>>();
     let title = std::sync::Arc::new(
         SortedBackingProvider::from_field_fixture(domain, "title", &title_values)
-            .with_provider_id(ProviderId(200)),
+            .with_provider_id(ProviderId(200))
+            .with_instance_id(repo.instance_id),
     );
     let year = std::sync::Arc::new(
         SortedBackingProvider::from_field_fixture(domain, "year", &year_refs)
             .with_provider_id(ProviderId(201))
+            .with_instance_id(repo.instance_id)
             .scalar_only(),
     );
     let providers: Vec<
@@ -177,6 +179,34 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             assert_eq!(title_observations[0].input, [1, 3, 4, 6]);
             assert_eq!(title_observations[0].output, [3, 4]);
         }
+        let before_explain = (title.counters().1, year.counters().1);
+        let estimated = repo.explain(&request).unwrap();
+        assert_eq!(
+            (title.counters().1, year.counters().1),
+            before_explain,
+            "EXPLAIN must not apply selected operations"
+        );
+        assert!(estimated.iter().all(|trace| trace.observations.is_empty()));
+        let (analyzed, traces) = repo.explain_analyze(&request).unwrap();
+        assert_eq!(analyzed.hits, reference.hits);
+        assert_eq!(traces.len(), 1);
+        assert_eq!(traces[0].observations.len(), 2);
+        assert_eq!(
+            traces[0]
+                .observations
+                .iter()
+                .map(|observation| observation.input_records)
+                .collect::<Vec<_>>(),
+            if text_first { vec![8, 3] } else { vec![8, 4] }
+        );
+        assert_eq!(
+            traces[0]
+                .observations
+                .iter()
+                .map(|observation| observation.candidate_records)
+                .collect::<Vec<_>>(),
+            if text_first { vec![3, 2] } else { vec![4, 2] }
+        );
     }
     drop(guard);
 
@@ -184,6 +214,106 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     assert_eq!(unindexed.count, Some(1));
     assert_eq!(unindexed.hits[0].record_id, "3");
     assert!(unindexed.counters.record_parses > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries() {
+    use crate::query_predicate::{
+        alternate_matcher_invocations, install_alternate_matcher,
+    };
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-alternate-predicate-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, title, year) in [
+        ("0", "needle one", 1700),
+        ("1", "other", 1800),
+        ("2", "needle two", 1900),
+        ("3", "needle", 1820),
+        ("4", "need le", 1900),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            serde_json::json!({"alt_title": title, "year": year}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition =
+        CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    for (path, kind) in [
+        ("alt_title", LogicalType::String),
+        ("year", LogicalType::Number),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let repo = crate::repository::Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let make_query = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 100,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for filter in [
+        "alt_title ~ 'needle'",
+        "alt_title ~ 'needle' && year >= 1800",
+        "alt_title ~ 'needle' || year = 1900",
+    ] {
+        let query = make_query(filter);
+        let normal = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(normal.hits, reference.hits);
+
+        let guard = install_alternate_matcher("alt_title", "needle");
+        let alternate = repo.search(&query).unwrap();
+        assert!(alternate_matcher_invocations() > 0, "{filter}");
+        assert_eq!(alternate.hits, reference.hits, "{filter}");
+        assert_eq!(alternate.count, reference.count, "{filter}");
+        assert_eq!(
+            alternate
+                .hits
+                .iter()
+                .map(|hit| (&hit.record_id, &hit.matched_fields))
+                .collect::<Vec<_>>(),
+            normal
+                .hits
+                .iter()
+                .map(|hit| (&hit.record_id, &hit.matched_fields))
+                .collect::<Vec<_>>(),
+            "{filter}"
+        );
+        drop(guard);
+    }
     std::fs::remove_dir_all(root).unwrap();
 }
 

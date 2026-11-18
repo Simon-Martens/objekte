@@ -28,6 +28,7 @@ pub(crate) const NATIVE_TEXT_PROVIDER: ProviderId = ProviderId(2);
 pub(crate) struct NativeTextProvider<'a> {
     collection: &'a CollectionState,
     domain: DomainId,
+    instance_id: u64,
     operations: Mutex<TextProviderState>,
     proposals: AtomicU64,
     applications: AtomicU64,
@@ -43,6 +44,7 @@ pub(crate) struct NativeSegmentTextProvider<'a> {
     segment: &'a IndexedCollectionSegment,
     collection: &'a CollectionState,
     domain: DomainId,
+    instance_id: u64,
     operations: Mutex<TextProviderState>,
 }
 
@@ -60,6 +62,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
                 collection.generation.generation,
                 Some(segment.id.get()),
             ),
+            instance_id: 0,
             operations: Mutex::new(TextProviderState::default()),
         }
     }
@@ -91,6 +94,7 @@ impl<'a> NativeTextProvider<'a> {
                 collection.generation.generation,
                 segment_index.map(u64::from),
             ),
+            instance_id,
             operations: Mutex::new(TextProviderState::default()),
             proposals: AtomicU64::new(0),
             applications: AtomicU64::new(0),
@@ -173,6 +177,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         execution: &AccessExecution<'_>,
     ) -> AccessResult<SlotInput<'a>> {
         execution.check()?;
+        let input_count = input.len() as u64;
         if choice.provider != NATIVE_TEXT_PROVIDER
             || self
                 .operations
@@ -204,7 +209,19 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         self.applications.fetch_add(1, Ordering::Relaxed);
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
-        Ok(input.replace_slots(slots))
+        let result = input.replace_slots(slots);
+        let output_count = result.len() as u64;
+        crate::query_execution::request::record_observation(
+            self.instance_id,
+            _term,
+            self.domain,
+            choice,
+            self.collection.generation.collection.0,
+            input_count,
+            output_count,
+            0,
+        );
+        Ok(result)
     }
 }
 

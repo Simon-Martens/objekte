@@ -7,6 +7,31 @@ use crate::executor::{PlanningCounters, TermChoice};
 use crate::model::Value;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier};
 
+#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ObservationStatus {
+    Executed,
+    Skipped,
+    CacheHit,
+    Unavailable,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
+pub struct ExecutionObservation {
+    pub node_id: u32,
+    pub term_id: u32,
+    pub provider_id: u32,
+    pub operation_provider_id: u32,
+    pub operation_id: u32,
+    pub collection: u32,
+    pub domain: String,
+    pub input_records: u64,
+    pub candidate_records: u64,
+    pub proven_records: u64,
+    pub residual_verifications: u64,
+    pub status: ObservationStatus,
+}
+
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -56,6 +81,7 @@ pub struct QueryPlanTrace {
     /// True when `candidates` and the selected paths are estimates only.
     pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
+    pub observations: Vec<ExecutionObservation>,
 }
 
 /// Observed source and predicate work for one plan.
