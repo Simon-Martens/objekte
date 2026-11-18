@@ -927,6 +927,7 @@ fn try_direct_relation_page(
             );
         }
     }
+    record_source_candidates(repo, context, *source_index, counters.candidates);
     Ok(Some(SearchResult {
         count: query.options.count.then_some(total as usize),
         hits: page,
@@ -1654,6 +1655,41 @@ fn try_parallel_relation_page(
         hits: page,
         counters,
     }))
+}
+
+fn record_source_candidates(
+    repo: &Repository,
+    context: Option<&ExecutionContext>,
+    collection_index: usize,
+    candidates: u64,
+) {
+    let Some(context) = context else {
+        return;
+    };
+    let collection = &repo.collections[collection_index];
+    let execution = crate::query_access::contract::AccessExecution {
+        context: Some(context),
+    };
+    crate::query_execution::request::record_observation_for_execution(
+        &execution,
+        repo.instance_id,
+        crate::query_predicate::TermId::new(u32::MAX),
+        crate::query_execution::domain::domain_id(
+            repo.instance_id,
+            collection.generation.collection.0,
+            collection.generation.generation,
+            None,
+        ),
+        crate::query_access::contract::AccessId {
+            provider: crate::query_access::contract::ProviderId(4),
+            operation: crate::query_access::contract::OperationId(99),
+        },
+        collection.generation.collection.0,
+        collection.generation.records.len() as u64,
+        candidates,
+        0,
+        Some("source_candidates"),
+    );
 }
 
 pub(super) fn search_segmented_relations(
@@ -2480,6 +2516,14 @@ pub(super) fn search_segmented_relations(
     counters.files_opened += sort_cache.reads;
     counters.record_parses += sort_cache.reads;
     counters.bytes_read += sort_cache.bytes_read;
+    if prepared.len() == 1 {
+        record_source_candidates(
+            repo,
+            context,
+            prepared[0].collection_index,
+            counters.candidates,
+        );
+    }
     Ok(SearchResult {
         count: (query.options.count && counters.match_count_complete).then_some(total as usize),
         hits: page.into_iter().map(|winner| winner.hit).collect(),

@@ -16,8 +16,8 @@ use crate::executor::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
     fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
-    segment_filter_estimate_with_term, segment_fts_bounds_with_term, segment_fts_candidates,
-    segment_fts_estimate_with_term,
+    segment_filter_estimate, segment_filter_estimate_with_term, segment_fts_bounds_with_term,
+    segment_fts_candidates, segment_fts_estimate_with_term,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
@@ -2132,16 +2132,19 @@ fn search_segmented_impl(
                 })
                 .transpose()?
                 .flatten();
-            let filter_estimate = match (filter.as_ref(), text_term) {
-                (Some(BoundExpr::Term(term)), _) => segment_filter_estimate_with_term(
-                    segment,
-                    collection,
-                    Some(catalog),
-                    term,
-                    domain.len(),
-                )?,
-                _ => None,
-            };
+            let filter_estimate = filter
+                .as_ref()
+                .map(|filter| {
+                    segment_filter_estimate(
+                        segment,
+                        collection,
+                        Some(catalog),
+                        filter,
+                        domain.len(),
+                    )
+                })
+                .transpose()?
+                .flatten();
             let text_first =
                 crate::query_plan::selection::prefer_text_first(text_estimate, filter_estimate);
             let text_first_bounds = if text_first {
@@ -3200,13 +3203,24 @@ pub(crate) fn search_analyze_segmented(
                 .iter()
                 .any(|observation| observation.phase == *phase)
         });
+    let source_candidate_domains = observations
+        .iter()
+        .filter(|observation| observation.access_kind.as_deref() == Some("source_candidates"))
+        .map(|observation| (observation.collection, observation.domain.clone()))
+        .collect::<HashSet<_>>();
     let mut domain_terminal = HashMap::<(u32, String), (u32, u64)>::new();
     for observation in &observations {
         if Some(observation.phase.as_str()) != authoritative_phase {
             continue;
         }
+        let domain_key = (observation.collection, observation.domain.clone());
+        if source_candidate_domains.contains(&domain_key)
+            && observation.access_kind.as_deref() != Some("source_candidates")
+        {
+            continue;
+        }
         let entry = domain_terminal
-            .entry((observation.collection, observation.domain.clone()))
+            .entry(domain_key)
             .or_insert((observation.node_id, observation.candidate_records));
         if observation.node_id >= entry.0 {
             *entry = (observation.node_id, observation.candidate_records);

@@ -751,6 +751,31 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     assert_eq!(text.candidate_records, 5);
     assert_eq!(text.proven_records, 0);
 
+    let compound = query("year > 0 && year = 1800", None, false);
+    let compound_expected = view.search_reference(&compound).unwrap();
+    let compound_actual = view.search(&compound).unwrap();
+    assert_eq!(compound_actual.hits, compound_expected.hits);
+    assert_eq!(compound_actual.count, compound_expected.count);
+    let (_, trace) = crate::run::search_analyze_segmented(
+        view.repository(),
+        &compound,
+        &view.0.active,
+        &view.0.segments,
+        &view.0.catalog,
+        view.revision(),
+    )
+    .unwrap();
+    let compound_observations = &trace[0].observations;
+    assert!(
+        compound_observations.iter().any(|observation| {
+            matches!(observation.term_id, 0 | 1)
+                && observation.input_records == 8
+                && observation.candidate_records == 8
+                && observation.proven_records == 8
+        }),
+        "{trace:#?}"
+    );
+
     let mut count_without_evidence = filter_first.clone();
     count_without_evidence.options.evidence = false;
     count_without_evidence.options.limit = 0;

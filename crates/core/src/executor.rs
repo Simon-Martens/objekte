@@ -433,6 +433,38 @@ pub(crate) fn segment_filter_estimate_with_term(
     )
 }
 
+pub(crate) fn segment_filter_estimate(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    catalog: Option<&FileCatalog>,
+    expr: &BoundExpr,
+    input_len: u64,
+) -> Result<Option<(u64, f64)>, String> {
+    match expr {
+        BoundExpr::Term(term) => {
+            segment_filter_estimate_with_term(segment, collection, catalog, term, input_len)
+        }
+        BoundExpr::And(parts) => {
+            let mut best = None;
+            for part in parts {
+                if let Some(estimate) =
+                    segment_filter_estimate(segment, collection, catalog, part, input_len)?
+                {
+                    best = Some(best.map_or(estimate, |current: (u64, f64)| {
+                        if estimate.1 < current.1 {
+                            estimate
+                        } else {
+                            current
+                        }
+                    }));
+                }
+            }
+            Ok(best)
+        }
+        BoundExpr::Or(_) | BoundExpr::Not(_) => Ok(None),
+    }
+}
+
 pub(crate) fn segment_filter_bounds_with_catalog(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
@@ -1271,6 +1303,24 @@ fn segment_expr_bounds_with_context(
                 flatten_and(part, &mut flattened);
             }
             let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
+            if path_range.is_none() {
+                flattened.sort_by(|left, right| {
+                    let cost = |part: &BoundExpr| match part {
+                        BoundExpr::Term(term) => segment_filter_estimate_with_term(
+                            segment,
+                            collection,
+                            catalog,
+                            term,
+                            effective_input.len(),
+                        )
+                        .ok()
+                        .flatten()
+                        .map_or(f64::INFINITY, |(_, work)| work),
+                        _ => f64::INFINITY,
+                    };
+                    cost(left).total_cmp(&cost(right))
+                });
+            }
             let mut may = effective_input.clone();
             let mut must = effective_input;
             if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {

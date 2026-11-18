@@ -130,7 +130,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             && bound.matcher.is_none()
             && !bound.query_path.has_position
             && !bound.query_path.has_explicit_array_step
-            && self.segment.sorting.column(&bound.path.display()).is_err()
             && matches!(
                 bound.operator,
                 crate::query::Operator::Eq
@@ -143,7 +142,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         let index = IndexCatalog::segment(self.segment, self.collection);
         let domain = &self.segment.logical_records;
         let mut direct_output = None;
-        let mut direct_exact = false;
         for access in direct_posting_compatible
             .then_some(())
             .into_iter()
@@ -173,7 +171,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             direct_output = Some(
                 direct_output.map_or(proposal.output, |current: u64| current.min(proposal.output)),
             );
-            direct_exact |= proposal.exact;
             let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
             let operation = self.operation_id(term, bound, physical, access_kind);
             offers.push(AccessOffer::new(
@@ -205,10 +202,6 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 proposal.exact,
                 access_kind == AccessPathKind::SortColumn,
             ));
-        }
-
-        if direct_exact {
-            return Ok(());
         }
 
         let source_kind = segment_access_path_kind(bound, self.segment, self.collection);
@@ -313,8 +306,14 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                         access,
                     )
                     .ok_or(AccessError::StaleHandle)?;
+                let effective_logical = effective & &self.segment.logical_records;
                 let matches = access
-                    .execute(bound, &self.segment.logical_records, effective, operation)
+                    .execute(
+                        bound,
+                        &self.segment.logical_records,
+                        &effective_logical,
+                        operation,
+                    )
                     .map_err(AccessError::Internal)?
                     .ok_or(AccessError::CapabilityUnavailable)?;
                 let fallback = effective - &self.segment.logical_records;
@@ -323,7 +322,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     let possible = input.replace_slots(SlotSet::from_shared(Arc::clone(&matches)));
                     Restriction {
                         possible,
-                        proven: if exact {
+                        proven: if exact && !matches.is_empty() {
                             super::contract::Proven::All
                         } else {
                             super::contract::Proven::None
@@ -335,7 +334,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     let possible = input.replace_slots(SlotSet::from_owned(&matches | &fallback));
                     Restriction {
                         possible,
-                        proven: if exact {
+                        proven: if exact && !matches.is_empty() {
                             super::contract::Proven::Subset(SlotInput::new(
                                 self.domain,
                                 operation_input,
@@ -365,6 +364,115 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             Some(crate::executor::access_path_kind_name(access_kind)),
         );
         Ok(restriction)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use roaring::RoaringBitmap;
+
+    use super::*;
+    use crate::query_access::contract::{
+        AccessExecution, AccessKind, AccessRequest, InputEstimate, OfferList, ProofStrength, Proven,
+    };
+    use crate::reference::BoundExpr;
+    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::source::SourceFormat;
+
+    #[test]
+    fn numeric_range_posting_excludes_retired_logical_slots_before_fallback() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-segment-range-restriction-{}",
+            std::process::id()
+        ));
+        let _ = std::fs::remove_dir_all(&root);
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/records.jsonl"),
+            b"{\"id\":\"0\",\"value\":10}\n{\"id\":\"1\",\"value\":20}\n{bad}\n",
+        )
+        .unwrap();
+        let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+        definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+        definition
+            .schema
+            .register_field(crate::reference::FieldDefinition {
+                path: vec!["value".into()],
+                kind: crate::model::LogicalType::Number,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+        let index = crate::lifecycle::Index::build(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let view = index.view().unwrap();
+        let collection = &view.repository().collections()[0];
+        let published = &view.segments(crate::model::CollectionId(0)).unwrap()[0];
+        let filter = crate::query::parse_filter("value >= 20").unwrap();
+        let BoundExpr::Term(term) =
+            crate::reference::bind_filter(&filter, &definition.schema).unwrap()
+        else {
+            unreachable!()
+        };
+        let provider =
+            NativeSegmentProvider::new(&published.index, collection, Some(&view.0.catalog));
+        let domain = provider.domain();
+        let term_id = TermId::new(7);
+        let mut offers = OfferList::new();
+        provider
+            .propose(
+                term_id,
+                AccessRequest::Structured(&term),
+                InputEstimate {
+                    domain,
+                    domain_len: 3,
+                    input_len: 2,
+                    mean_record_bytes: 20.0,
+                    mean_records_per_file: 3.0,
+                    file_count: 1,
+                },
+                &mut offers,
+            )
+            .unwrap();
+        let chosen = offers
+            .iter()
+            .find(|offer| {
+                offer.kind() == AccessKind::ExactMembership && offer.proof() == ProofStrength::Exact
+            })
+            .unwrap();
+        assert_eq!(chosen.kind(), AccessKind::ExactMembership);
+        assert_eq!(chosen.proof(), ProofStrength::Exact);
+        let input_values: RoaringBitmap = [0, 2].into_iter().collect();
+        let input = SlotInput::new(
+            domain,
+            &input_values,
+            SlotSet::from_owned(input_values.clone()),
+        );
+        let restriction = provider
+            .apply(
+                term_id,
+                AccessRequest::Structured(&term),
+                chosen.id(),
+                input,
+                &AccessExecution { context: None },
+            )
+            .unwrap();
+        assert_eq!(restriction.possible.iter().collect::<Vec<_>>(), [2]);
+        assert!(matches!(&restriction.proven, Proven::None));
+
+        drop(view);
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
     }
 }
 
