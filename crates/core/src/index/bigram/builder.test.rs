@@ -645,7 +645,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

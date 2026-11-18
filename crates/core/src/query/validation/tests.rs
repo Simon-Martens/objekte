@@ -34,7 +34,7 @@ fn validates_binding_without_reopening_source_records() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

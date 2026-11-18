@@ -10,12 +10,12 @@ use crate::query::{
 };
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
-use crate::source::extract_file_outcomes;
+use crate::source::extraction::extract_file_outcomes;
 use crate::source::test_support::{OutcomeReader, TinyReader};
 
 use super::super::{
-    DiagnosticCategory, ExtractedRecord, SourceFormat, SourceOutcome, SourceReader, SourceRegistry,
-    TextSegment,
+    DiagnosticCategory, ExtractedRecord, SourceFormat, SourceOutcome, SourceReader, TextSegment,
+    registry::SourceRegistry,
 };
 
 struct CustomReader(Arc<AtomicUsize>);
@@ -1100,7 +1100,7 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .err()

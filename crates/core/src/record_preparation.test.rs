@@ -9,7 +9,7 @@ fn built_and_trusted_logical(
 ) -> (Value, Value) {
     use crate::inventory::RecordClass;
     use crate::repository::Payload;
-    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::source::{SourceFormat, registry::SourceRegistry};
 
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
@@ -103,7 +103,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
     use crate::reference::FieldDefinition;
-    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::source::{SourceFormat, registry::SourceRegistry};
     use std::collections::HashSet;
 
     let mut schema = Schema::default();
@@ -218,7 +218,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
 fn recorded_validation_selects_trusted_or_validating_extraction() {
     use crate::inventory::RecordClass;
     use crate::source::json::JsonDecodedScalarsReader;
-    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::source::{SourceFormat, registry::SourceRegistry};
     use std::collections::HashSet;
     use std::sync::Arc;
 
@@ -282,7 +282,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
     use crate::model::LogicalType;
     use crate::reference::FieldDefinition;
     use crate::source::json::JsonReader;
-    use crate::source::{SourceFormat, SourceReader, SourceRegistry};
+    use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
     use crate::streaming::ExecutionContext;
     use std::collections::HashSet;
     use std::sync::{
@@ -455,7 +455,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
 
 #[test]
 fn registered_reader_expansion_and_failures_keep_typed_classes() {
-    use crate::source::{SourceFormat, SourceReader, SourceRegistry};
+    use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
     use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
     use std::sync::{
         Arc,

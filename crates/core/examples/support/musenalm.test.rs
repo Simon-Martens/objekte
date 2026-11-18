@@ -4,7 +4,7 @@ use objekte_search_core::query::Query;
 use objekte_search_core::reference::bind_filter;
 use objekte_search_core::relation::RelationCardinality;
 use objekte_search_core::repository::{Repository, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::load_manifest;
 
 #[test]
@@ -237,7 +237,7 @@ fn extended_schema_builds_real_forward_and_backlink() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())

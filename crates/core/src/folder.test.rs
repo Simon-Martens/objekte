@@ -27,7 +27,7 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -77,7 +77,7 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

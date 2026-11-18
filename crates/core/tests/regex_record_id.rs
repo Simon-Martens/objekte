@@ -5,7 +5,7 @@ use objekte_search_core::query::{
 };
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();
@@ -108,7 +108,7 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             &root,
             vec![definition()],
             options,
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();

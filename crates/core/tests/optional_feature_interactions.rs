@@ -8,7 +8,7 @@ use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
@@ -75,7 +75,7 @@ impl Fixture {
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();

@@ -83,7 +83,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -579,7 +579,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -819,7 +819,7 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -878,7 +878,7 @@ fn lifecycle_related_sort_uses_target_stored_column() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -932,7 +932,7 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -976,7 +976,7 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap()
@@ -1074,7 +1074,7 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap()
@@ -1295,7 +1295,7 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1381,7 +1381,7 @@ fn related_reducers_preserve_source_reference_occurrences() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1440,7 +1440,7 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1502,7 +1502,7 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1539,7 +1539,7 @@ fn finite_relation_paths_have_independent_reference_answers() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1661,7 +1661,7 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1734,7 +1734,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1771,7 +1771,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         &root,
         definitions,
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1797,7 +1797,7 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1865,7 +1865,7 @@ fn mixed_local_and_relation_fts_borrows_source_value_text() {
             query_workers: 1,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1881,9 +1881,12 @@ fn mixed_local_and_relation_fts_borrows_source_value_text() {
             let mut request = request.clone();
             request.options.return_mode = mode.clone();
             request.options.evidence = evidence;
-            let copied_before = crate::source::owned_collector_copied_bytes();
+            let copied_before = crate::source::text::owned_collector_copied_bytes();
             let actual = repo.search(&request).unwrap();
-            assert_eq!(crate::source::owned_collector_copied_bytes(), copied_before);
+            assert_eq!(
+                crate::source::text::owned_collector_copied_bytes(),
+                copied_before
+            );
             assert_eq!(actual.hits, repo.search_reference(&request).unwrap().hits);
         }
     }
@@ -1899,7 +1902,7 @@ fn selected_fts_rejects_disagreeing_public_field_and_query_path() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

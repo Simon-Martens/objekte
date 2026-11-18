@@ -12,7 +12,7 @@ use crate::discovery::{PreparedScanSelection, SymlinkPolicy, discover_stream};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
-use crate::source::{PreparedSource, SourceRegistry};
+use crate::source::{registry::PreparedSource, registry::SourceRegistry};
 use roaring::RoaringBitmap;
 
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -6,7 +6,9 @@ use crate::reference::BoundFts;
 use crate::reference::Schema;
 use crate::repository::Payload;
 use crate::source::verification::BorrowedScanResult;
-use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_extracted_text};
+use crate::source::{
+    ExtractedRecord, ScanProjection, registry::PreparedSource, text::finalize_extracted_text,
+};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 pub(crate) fn finish_build_record(

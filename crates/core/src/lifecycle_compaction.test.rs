@@ -54,7 +54,7 @@ fn compacting_native_segments_preserves_text_postings() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -104,7 +104,7 @@ fn compaction_reuses_unaffected_native_segment() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -169,7 +169,7 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -224,7 +224,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -290,7 +290,7 @@ fn compacted_base_contributions_preserve_native_queries() {
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -324,7 +324,7 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -376,7 +376,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -451,7 +451,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

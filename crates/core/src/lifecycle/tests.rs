@@ -36,7 +36,7 @@ fn pinned_catalogue_metadata_tracks_each_publication_independently() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -115,7 +115,7 @@ fn index_observation_counts_only_each_pinned_publications_live_records() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -206,7 +206,7 @@ fn index_observation_counts_shared_files_once_globally_and_per_membership() {
             CollectionDefinition::folder("right", "data", SourceFormat::Json),
         ],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -268,7 +268,7 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -407,7 +407,7 @@ fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -471,7 +471,7 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -521,7 +521,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -566,7 +566,7 @@ fn fixture_repository(root: &std::path::Path) -> Repository {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
@@ -762,7 +762,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1021,7 +1021,7 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1118,7 +1118,7 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1177,7 +1177,7 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
             CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1262,7 +1262,7 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1321,7 +1321,7 @@ fn background_reconciliation_reports_completion_and_joins() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1361,7 +1361,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1458,7 +1458,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1668,7 +1668,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1816,7 +1816,7 @@ fn status_estimate_reuses_cached_native_accounting() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1867,7 +1867,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1967,7 +1967,7 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -2026,7 +2026,7 @@ fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -2095,7 +2095,7 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
                     query_workers: workers,
                     ..RepositoryOptions::default()
                 },
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .and_then(|task| task.wait_complete())
             .unwrap();
@@ -2189,7 +2189,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2211,7 +2211,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

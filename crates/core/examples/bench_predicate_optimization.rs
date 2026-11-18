@@ -53,7 +53,7 @@ fn run() -> Result<(), String> {
             query_workers: 4,
             ..RepositoryOptions::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())

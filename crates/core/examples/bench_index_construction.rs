@@ -146,7 +146,7 @@ fn run() -> Result<(), String> {
         &root,
         definitions,
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())?;
@@ -369,7 +369,7 @@ fn run_incremental(
         root,
         definitions,
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|e| e.to_string())?;
     let index = task.wait_catalogue().map_err(|e| e.to_string())?;

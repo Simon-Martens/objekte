@@ -28,7 +28,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),

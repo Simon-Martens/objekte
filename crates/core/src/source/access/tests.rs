@@ -330,5 +330,5 @@ fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
 }
 use super::*;
 use crate::source::json_lines::JsonLinesReader;
-use crate::source::{SourceFormat, SourceReader, extract_file};
+use crate::source::{SourceFormat, SourceReader, extraction::extract_file};
 use sha2::{Digest, Sha256};

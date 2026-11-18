@@ -12,7 +12,7 @@ use super::access::check_revision;
 use super::framing::validate_reader_ranges;
 use super::{
     DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, ReaderFailure, SourceFormat,
-    SourceOutcome, SourceReader, SourceRegistry,
+    SourceOutcome, SourceReader, registry::SourceRegistry,
 };
 
 /// Framing and parse counts from one source extraction.

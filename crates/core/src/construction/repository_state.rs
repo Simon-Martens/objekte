@@ -23,7 +23,7 @@ use crate::repository::{
     GlobalInferenceSummary, Repository, RepositoryOptions, StartupStats, build_profile_rss_bytes,
     canonical_custom_text_key, finish_fresh_fingerprints, next_repository_instance,
 };
-use crate::source::SourceRegistry;
+use crate::source::registry::SourceRegistry;
 
 pub(crate) fn initialize_empty(
     root: PathBuf,

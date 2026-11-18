@@ -30,7 +30,9 @@ use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
 use crate::source::access::{SourceAccessSession, read_record_range_for_search};
-use crate::source::{PreparedSource, ScanProjection, SourceFormat, SourceRegistry};
+use crate::source::{
+    ScanProjection, SourceFormat, registry::PreparedSource, registry::SourceRegistry,
+};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 

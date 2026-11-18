@@ -114,7 +114,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -342,7 +342,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -594,7 +594,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -610,7 +610,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

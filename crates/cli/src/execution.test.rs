@@ -55,7 +55,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

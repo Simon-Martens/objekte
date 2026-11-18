@@ -70,7 +70,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
                 verified_cache_bytes: cache_bytes,
                 ..RepositoryOptions::default()
             },
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())?;
         let build_ns = started.elapsed().as_nanos();

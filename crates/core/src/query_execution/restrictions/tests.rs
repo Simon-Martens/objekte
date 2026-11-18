@@ -25,7 +25,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::model::{CollectionId, FileId, RecordSlot};
-    use crate::source::SourceRegistry;
+    use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-bounds-{}-{:?}",
@@ -97,7 +97,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -242,7 +242,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -250,7 +250,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -443,7 +443,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -794,7 +794,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::query::{FtsField, FtsQuery};
     use crate::reference::{FieldDefinition, RegisteredBinding, Schema};
     use crate::repository::RepositoryOptions;
-    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::source::{SourceFormat, registry::SourceRegistry};
 
     let root =
         std::env::temp_dir().join(format!("objekte-separator-matcher-{}", std::process::id()));
@@ -1142,7 +1142,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1255,7 +1255,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1304,7 +1304,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1524,7 +1524,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1594,7 +1594,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         &root,
         vec![definition(true, true, true, 1)],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1603,7 +1603,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         &root,
         vec![definition(true, true, true, 1)],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1689,7 +1689,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             inference,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1883,7 +1883,7 @@ fn record_id_lookup_respects_case_fold_binding() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1980,7 +1980,7 @@ fn indexed_restriction_precedes_written_first_scan() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2124,7 +2124,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

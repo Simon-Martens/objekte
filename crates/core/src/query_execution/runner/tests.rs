@@ -70,7 +70,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         &root,
         vec![definition.clone()],
         options.clone(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -253,7 +253,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -379,7 +379,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         &split_root,
         vec![split_definition],
         split_options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap()
     .wait_complete()
@@ -507,7 +507,7 @@ fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
         &root,
         vec![definition.clone()],
         options.clone(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -515,7 +515,7 @@ fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -698,7 +698,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
             .unwrap(),
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -934,7 +934,7 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1016,7 +1016,7 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
         &root,
         vec![definition],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1069,7 +1069,7 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
 fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
     use crate::repository::RepositoryOptions;
-    use crate::source::SourceRegistry;
+    use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-id-regex-{}-{}",
@@ -1115,7 +1115,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1250,7 +1250,7 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
                 query_workers: 1,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1278,10 +1278,10 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
             for evidence in [false, true] {
                 query.options.return_mode = mode.clone();
                 query.options.evidence = evidence;
-                let direct_before = crate::source::json::scalars::borrowed_scan_calls();
+                let direct_before = crate::source::verification::borrowed_scan_calls();
                 let actual = view.search(&query).unwrap();
                 if mode == ReturnMode::Locator && !evidence {
-                    assert!(crate::source::json::scalars::borrowed_scan_calls() > direct_before);
+                    assert!(crate::source::verification::borrowed_scan_calls() > direct_before);
                 }
                 let expected = view.search_reference(&query).unwrap();
                 assert_eq!(
@@ -1302,11 +1302,11 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
         query.filter = Some(parse_filter("name = 'Ada'").unwrap());
         query.options.return_mode = ReturnMode::Logical;
         query.options.evidence = true;
-        let collector_bytes_before = crate::source::owned_collector_copied_bytes();
+        let collector_bytes_before = crate::source::text::owned_collector_copied_bytes();
         let value_owned = view.search(&query).unwrap();
         if format == SourceFormat::Json || format == SourceFormat::JsonLines {
             assert_eq!(
-                crate::source::owned_collector_copied_bytes(),
+                crate::source::text::owned_collector_copied_bytes(),
                 collector_bytes_before,
                 "query-time Value strings must not be cloned into text segments"
             );
@@ -1381,7 +1381,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
                 query_workers: 1,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1441,12 +1441,10 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
                 for evidence in [false, true] {
                     query.options.return_mode = mode.clone();
                     query.options.evidence = evidence;
-                    let direct_before = crate::source::json::scalars::borrowed_scan_calls();
+                    let direct_before = crate::source::verification::borrowed_scan_calls();
                     let actual = view.search(&query).unwrap();
                     if mode == ReturnMode::Locator && literal == "needle" {
-                        assert!(
-                            crate::source::json::scalars::borrowed_scan_calls() > direct_before
-                        );
+                        assert!(crate::source::verification::borrowed_scan_calls() > direct_before);
                     }
                     let expected = view.search_reference(&query).unwrap();
                     assert_eq!(
@@ -1498,7 +1496,7 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
             query_workers: 1,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1524,9 +1522,9 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
     };
     for (literal, expected_count) in [("old", 3), ("1e0", 2)] {
         query.fts.as_mut().unwrap().literal = literal.into();
-        let before = crate::source::json::scalars::combined_scan_calls();
+        let before = crate::source::verification::combined_scan_calls();
         let actual = view.search(&query).unwrap();
-        assert!(crate::source::json::scalars::combined_scan_calls() > before);
+        assert!(crate::source::verification::combined_scan_calls() > before);
         let expected = view.search_reference(&query).unwrap();
         assert_eq!(actual.count, Some(expected_count));
         assert_eq!(actual.hits, expected.hits);
@@ -1586,7 +1584,7 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
                 query_workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1678,7 +1676,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
                 query_workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap()
@@ -1818,7 +1816,7 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1827,7 +1825,7 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -2042,7 +2040,7 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -2154,7 +2152,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -3223,7 +3221,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -3476,7 +3474,7 @@ fn active_inspection_traces_use_live_domain_and_match_search() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3649,7 +3647,7 @@ fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3720,7 +3718,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3777,7 +3775,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3823,7 +3821,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3879,7 +3877,7 @@ fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3946,7 +3944,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4040,7 +4038,7 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
         &root,
         definitions,
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4142,7 +4140,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4268,7 +4266,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4365,7 +4363,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4373,7 +4371,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4501,7 +4499,7 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
             &root,
             definitions.clone(),
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4509,7 +4507,7 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
             &root,
             definitions.clone(),
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -4607,7 +4605,7 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4781,7 +4779,7 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4950,7 +4948,7 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5059,7 +5057,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5272,7 +5270,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5398,7 +5396,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5558,7 +5556,7 @@ fn segmented_explicit_array_index_does_not_claim_whole_field_proof() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5641,7 +5639,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -5761,7 +5759,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5890,7 +5888,7 @@ fn interleaved_stored_order_records_keep_bounded_file_handles() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -5967,7 +5965,7 @@ fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
             query_workers: 4,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6142,7 +6140,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
                 query_workers: workers,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -6236,7 +6234,7 @@ fn exact_membership_materializes_only_page_payload() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6370,7 +6368,7 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6447,7 +6445,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6539,7 +6537,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
         &root,
         definitions.clone(),
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6562,7 +6560,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
         crate::repository::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6646,7 +6644,7 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
                 &root,
                 vec![definition(indexed)],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -6741,7 +6739,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6832,7 +6830,7 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -6931,7 +6929,7 @@ fn quoted_data_name_does_not_shadow_metadata() {
             sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -7035,7 +7033,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
             query_workers: 4,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -7091,7 +7089,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
 #[test]
 fn computed_sort_cancels_after_worker_has_parsed_source_records() {
     use crate::source::json::JsonReader;
-    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, SourceRegistry};
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
     use crate::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
@@ -7205,7 +7203,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
 #[test]
 fn extension_query_failure_has_ordinary_and_stream_class() {
     use crate::source::json::JsonReader;
-    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, SourceRegistry};
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamOptions,
@@ -7351,7 +7349,7 @@ fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
                     query_workers: workers,
                     ..Default::default()
                 },
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -7418,7 +7416,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
             query_workers: 8,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -7490,7 +7488,7 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

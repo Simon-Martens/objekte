@@ -46,7 +46,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         &root,
         definitions,
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -171,7 +171,7 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
         created_ns: None,
     };
     let definition = CollectionDefinition::folder("shared", ".", SourceFormat::JsonLines);
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let expected = Some((input.id, Sha256::digest(bytes).into()));
@@ -266,7 +266,7 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
         .unwrap(),
         created_ns: None,
     };
-    let json_source = crate::source::SourceRegistry::builtin()
+    let json_source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();
     let generic = process_framed_file(
@@ -342,7 +342,7 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
         CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
         CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
     ];
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let bindings = definitions
@@ -398,7 +398,7 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
 #[test]
 fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
     use crate::source::{
-        DiagnosticCategory, ReaderDiagnostic, ReaderFailure, SourceReader, SourceRegistry,
+        DiagnosticCategory, ReaderDiagnostic, ReaderFailure, SourceReader, registry::SourceRegistry,
     };
     use sha2::Digest;
 
@@ -601,7 +601,7 @@ fn supplied_bytes_match_json_and_broken_fallback_without_file() {
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("data.json");
     let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();
     let binding = FilePreparationBinding {
@@ -664,7 +664,7 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
         CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
         CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
     ];
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let bindings = [
@@ -739,7 +739,7 @@ fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let binding = FilePreparationBinding {
@@ -818,7 +818,7 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
     let path = root.join("data.json");
     std::fs::write(&path, b"{broken}").unwrap();
     let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)
         .unwrap();
     let binding = FilePreparationBinding {
@@ -889,7 +889,7 @@ fn measure_single_file_preparation_cost() {
         created_ns: None,
     };
     let definition = CollectionDefinition::folder("sample", ".", SourceFormat::JsonLines);
-    let source = crate::source::SourceRegistry::builtin()
+    let source = crate::source::registry::SourceRegistry::builtin()
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let binding = FilePreparationBinding {
@@ -952,7 +952,7 @@ fn worker_allowance_is_bounded_and_keeps_one_oversized_job_live() {
 fn file_workers_overlap_while_admission_keeps_file_order() {
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, SourceRegistry};
+    use crate::source::{SourceReader, registry::SourceRegistry};
 
     struct DelayedReader {
         active: AtomicUsize,
@@ -1152,7 +1152,7 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
 fn repository_pool_runs_file_batches_from_distinct_collections_together() {
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, SourceRegistry};
+    use crate::source::{SourceReader, registry::SourceRegistry};
 
     if std::thread::available_parallelism().map_or(1, NonZeroUsize::get) < 2 {
         return;
@@ -1267,7 +1267,7 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
     use std::collections::BTreeMap;
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, SourceRegistry};
+    use crate::source::{SourceReader, registry::SourceRegistry};
 
     struct TwoRanges {
         wait: bool,
@@ -1446,8 +1446,8 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
 fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     use crate::source::json_lines::JsonLinesReader;
     use crate::source::{
-        LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader, SourceRegistry,
-        TextDerivation,
+        LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader, TextDerivation,
+        registry::SourceRegistry,
     };
 
     // Keep a reader on the pre-existing whole-buffer route for an independent
@@ -1543,7 +1543,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
                 build_workers: Some(NonZeroUsize::new(workers).unwrap()),
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -1669,7 +1669,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1729,7 +1729,7 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1756,7 +1756,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
     use std::io::{BufReader, Read};
 
     use crate::inference::{InferenceMode, InferencePolicy};
-    use crate::source::{BoundedJsonLines, SourceRegistry};
+    use crate::source::{framing::BoundedJsonLines, registry::SourceRegistry};
 
     struct FailingRead {
         bytes: std::io::Cursor<Vec<u8>>,
@@ -2025,7 +2025,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2033,7 +2033,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2048,7 +2048,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
                 ),
                 ..options
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2204,7 +2204,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2212,7 +2212,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         &root,
         definitions,
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2312,7 +2312,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .err()

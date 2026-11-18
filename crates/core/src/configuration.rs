@@ -8,7 +8,7 @@ use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
 use crate::index::sorting::COLLATION_VERSION;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceRegistry;
+use crate::source::registry::SourceRegistry;
 
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_HASH_DOMAIN: u32 = 1;

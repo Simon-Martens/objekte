@@ -476,7 +476,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("entries"),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -489,7 +489,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("entries"),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -504,7 +504,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("people"),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -527,7 +527,7 @@ fn publication_validation_still_rejects_broken_relation_state() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -642,7 +642,7 @@ fn profile_large_fanout_relation_publication() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -691,7 +691,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin()
+            crate::source::registry::SourceRegistry::builtin()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -712,7 +712,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin()
+            crate::source::registry::SourceRegistry::builtin()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -727,7 +727,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin()
+            crate::source::registry::SourceRegistry::builtin()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -873,7 +873,7 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -938,7 +938,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         &root,
         definitions("entries"),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -957,7 +957,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
             &root,
             definitions("entries"),
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

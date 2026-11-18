@@ -1,4 +1,4 @@
-//! Source framing is format-specific; indexing consumes one extracted record at a time.
+//! Format-independent source contracts, framing, extraction, and access.
 
 use std::collections::HashSet;
 
@@ -17,23 +17,6 @@ pub mod registry;
 mod test_support;
 pub mod text;
 pub(crate) mod verification;
-
-pub use extraction::{
-    ExtractionCounters, extract_file, extract_file_outcomes, extract_file_with_reader,
-};
-pub(crate) use extraction::{
-    SourceBufferProfile, SourceBuildSample, extract_file_build_outcomes,
-    extract_file_build_outcomes_hashed_with_buffer, extract_file_outcomes_for_search,
-    extract_framed_build_outcomes, frame_file_for_build, trim_oversized_build_buffer,
-};
-pub(crate) use framing::{BoundedBuildChunk, BoundedJsonLines};
-pub use registry::{PreparedSource, SourceRegistration, SourceRegistry};
-#[cfg(test)]
-pub(crate) use text::owned_collector_copied_bytes;
-#[cfg(test)]
-pub(crate) use text::visit_logical_strings;
-pub(crate) use text::visit_logical_strings_and_empty;
-pub use text::{finalize_extracted_text, text_segments};
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]

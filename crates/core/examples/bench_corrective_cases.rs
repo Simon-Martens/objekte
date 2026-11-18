@@ -217,7 +217,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             &custom_root,
             vec![custom_definition.clone()],
             custom_options,
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .and_then(|index| index.view())
@@ -305,7 +305,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
                 &source_root,
                 vec![definition.clone()],
                 build_options,
-                objekte_search_core::source::SourceRegistry::builtin(),
+                objekte_search_core::source::registry::SourceRegistry::builtin(),
             )
             .and_then(|task| task.wait_complete())
             .and_then(|index| index.view())
@@ -351,7 +351,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
                 &source_root,
                 vec![definition],
                 RepositoryOptions { ..build_options },
-                objekte_search_core::source::SourceRegistry::builtin(),
+                objekte_search_core::source::registry::SourceRegistry::builtin(),
             )
             .and_then(|task| task.wait_complete())
             .and_then(|index| index.view())
@@ -511,7 +511,7 @@ fn run() -> Result<(), String> {
             query_workers: 4,
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())?;

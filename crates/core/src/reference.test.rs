@@ -23,7 +23,7 @@ fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
     };
     let mut path = Vec::with_capacity(4);
     let mut seen = Vec::new();
-    let copied_before = crate::source::owned_collector_copied_bytes();
+    let copied_before = crate::source::text::owned_collector_copied_bytes();
     visit_borrowed_value_strings(&value, &mut path, &mut |keys, text| {
         if text == "first" {
             assert_eq!(keys, ["outer", "items"]);
@@ -36,10 +36,13 @@ fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
     })
     .unwrap();
     assert_eq!(path.capacity(), 4);
-    assert_eq!(crate::source::owned_collector_copied_bytes(), copied_before);
-    let owned = crate::source::text_segments(&value);
     assert_eq!(
-        crate::source::owned_collector_copied_bytes() - copied_before,
+        crate::source::text::owned_collector_copied_bytes(),
+        copied_before
+    );
+    let owned = crate::source::text::text_segments(&value);
+    assert_eq!(
+        crate::source::text::owned_collector_copied_bytes() - copied_before,
         owned
             .iter()
             .map(|segment| segment.text.len())
@@ -1141,7 +1144,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
             &root,
             vec![definition(indexed)],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1180,7 +1183,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
             &root,
             vec![definition(indexed)],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1203,7 +1206,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         &root,
         vec![definition(true)],
         persisted,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1212,7 +1215,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         &root,
         vec![definition(true)],
         persisted,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1397,7 +1400,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1407,7 +1410,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         &root,
         definitions,
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

@@ -6,7 +6,7 @@ use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 
 fn collection() -> CollectionDefinition {
@@ -83,7 +83,7 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
             &root,
             vec![collection()],
             options,
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();

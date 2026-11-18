@@ -264,7 +264,7 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
         &root,
         definitions(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -272,7 +272,7 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
         &root,
         definitions(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -324,7 +324,7 @@ fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlink
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

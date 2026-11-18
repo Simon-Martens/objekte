@@ -11,7 +11,7 @@ use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, Reposi
 use crate::source::json::JsonReader;
 use crate::source::{
     ExtractedRecord, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
-    SourceReader, SourceRegistry, TextDerivation,
+    SourceReader, TextDerivation, registry::SourceRegistry,
 };
 use crate::workload::WorkloadCase;
 
@@ -187,7 +187,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -452,7 +452,7 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -567,7 +567,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -700,7 +700,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -836,7 +836,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -913,7 +913,7 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1106,7 +1106,7 @@ fn seeded_array_fixture(
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1287,7 +1287,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             &root,
             definitions(),
             snapshot_options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1295,7 +1295,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             &root,
             definitions(),
             snapshot_options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

@@ -106,7 +106,7 @@ fn cross_collection_sort_rejects_different_binding_versions() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -376,7 +376,7 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                         query_workers: workers,
                         ..Default::default()
                     },
-                    crate::source::SourceRegistry::builtin(),
+                    crate::source::registry::SourceRegistry::builtin(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -484,7 +484,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
                     query_workers: workers,
                     ..Default::default()
                 },
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();

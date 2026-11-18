@@ -12,7 +12,7 @@ use crate::query::{Query, QueryOptions, parse_filter};
 use crate::query_execution::restrictions::AccessPathKind;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
-use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
+use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
 
 fn value(json: &str) -> Value {
     Value::from_json(serde_json::from_str(json).unwrap()).unwrap()
@@ -63,7 +63,7 @@ fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u6
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
@@ -352,7 +352,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -480,7 +480,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -531,7 +531,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -585,7 +585,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -638,7 +638,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -701,7 +701,7 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
                 },
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -768,7 +768,7 @@ fn segmented_observation_overflow_uses_residual_scanning() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -826,7 +826,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -909,7 +909,7 @@ fn auto_index_retains_structural_facts_after_value_admission_fails() {
                 },
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -984,7 +984,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         &root,
         vec![declared_definition],
         options.clone(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1002,7 +1002,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
             },
             ..options
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1082,7 +1082,7 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1340,7 +1340,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1383,7 +1383,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 
 #[test]
 fn mixed_short_strings_match_reference_across_static_and_native_publication() {
-    use crate::source::SourceRegistry;
+    use crate::source::registry::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
         "objekte-inference-matrix-{}-{}",
@@ -1442,7 +1442,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1729,7 +1729,7 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
                 inference: config,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1803,7 +1803,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
                 inference: config,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1891,7 +1891,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1951,7 +1951,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                     &root,
                     vec![definition.clone()],
                     options,
-                    crate::source::SourceRegistry::builtin(),
+                    crate::source::registry::SourceRegistry::builtin(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2035,7 +2035,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                     &root,
                     vec![definition.clone()],
                     options,
-                    crate::source::SourceRegistry::builtin(),
+                    crate::source::registry::SourceRegistry::builtin(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2047,7 +2047,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                         build_workers: std::num::NonZeroUsize::new(1),
                         ..options
                     },
-                    crate::source::SourceRegistry::builtin(),
+                    crate::source::registry::SourceRegistry::builtin(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2062,7 +2062,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                         inference: InferenceConfig::default(),
                         ..options
                     },
-                    crate::source::SourceRegistry::builtin(),
+                    crate::source::registry::SourceRegistry::builtin(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2305,7 +2305,7 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2369,7 +2369,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2451,7 +2451,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2517,7 +2517,7 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2561,7 +2561,7 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2656,7 +2656,7 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2731,7 +2731,7 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

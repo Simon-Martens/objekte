@@ -26,7 +26,7 @@ use crate::repository::{
     BuildProfileStats, CollectionDefinition, Repository, RepositoryOptions,
     build_profile_rss_bytes, next_repository_instance,
 };
-use crate::source::{PreparedSource, SourceRegistry};
+use crate::source::{registry::PreparedSource, registry::SourceRegistry};
 
 enum ScheduledBuildJob {
     Files(crate::construction::scheduling::RepositoryFileJob),

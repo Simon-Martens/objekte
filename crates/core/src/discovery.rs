@@ -5,7 +5,7 @@ use std::path::{Component, Path, PathBuf};
 
 use globset::{Glob, GlobSet, GlobSetBuilder};
 
-use crate::source::PreparedSource;
+use crate::source::registry::PreparedSource;
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SymlinkPolicy {

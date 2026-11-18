@@ -32,7 +32,7 @@ fn main() -> Result<(), String> {
             query_workers: 4,
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())

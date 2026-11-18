@@ -210,7 +210,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -231,7 +231,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -267,7 +267,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

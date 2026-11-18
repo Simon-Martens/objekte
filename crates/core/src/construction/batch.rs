@@ -26,10 +26,11 @@ use crate::repository::{
 };
 use crate::source::access::read_record_range_for_build;
 use crate::source::{
-    DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceBufferProfile,
-    SourceBuildSample, SourceOutcome, TextDerivation,
-    extract_file_build_outcomes_hashed_with_buffer, trim_oversized_build_buffer,
-    visit_logical_strings_and_empty,
+    DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, SourceOutcome, TextDerivation,
+    extraction::SourceBufferProfile, extraction::SourceBuildSample,
+    extraction::extract_file_build_outcomes_hashed_with_buffer,
+    extraction::trim_oversized_build_buffer, registry::PreparedSource,
+    text::visit_logical_strings_and_empty,
 };
 
 #[derive(Clone)]

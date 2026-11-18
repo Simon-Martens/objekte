@@ -58,7 +58,7 @@ fn run() -> Result<(), String> {
         &root,
         definitions,
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|e| e.to_string())?;
     let query_thread = if mode == "foreground" {

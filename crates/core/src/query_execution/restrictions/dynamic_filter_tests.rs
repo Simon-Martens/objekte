@@ -102,7 +102,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -195,7 +195,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                     verified_cache_bytes: 0,
                     ..options
                 },
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -263,7 +263,7 @@ fn broad_structural_superset_makes_scanning_cheaper() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -342,7 +342,7 @@ fn undeclared_candidate_respects_reader_text_coverage() {
         .unwrap();
     }
     for complete in [false, true] {
-        let mut sources = crate::source::SourceRegistry::builtin();
+        let mut sources = crate::source::registry::SourceRegistry::builtin();
         sources
             .register(
                 "selected-text",

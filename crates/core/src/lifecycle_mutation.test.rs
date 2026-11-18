@@ -34,7 +34,7 @@ fn index(root: &std::path::Path) -> Index {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap()
@@ -83,7 +83,7 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -163,7 +163,7 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         &root,
         vec![definition],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -249,7 +249,7 @@ fn partial_structural_postings_survive_explicit_mutations_and_compaction() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -325,7 +325,7 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
             SourceFormat::JsonDecodedScalars,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -556,7 +556,7 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -619,7 +619,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         &root,
         vec![left, right],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -657,7 +657,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         &root,
         vec![intrinsic_definition("jsonl"), json],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -693,7 +693,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -739,7 +739,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -907,7 +907,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
             &root,
             vec![intrinsic_definition("items")],
             RepositoryOptions::default(),
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1017,7 +1017,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1163,7 +1163,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1483,7 +1483,7 @@ fn verified_update_removes_departed_collection_membership() {
             CollectionDefinition::folder("right", "other", SourceFormat::JsonLines),
         ],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1573,7 +1573,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1779,7 +1779,7 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
         &root,
         vec![intrinsic_definition("left"), intrinsic_definition("right")],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

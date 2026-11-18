@@ -4,7 +4,7 @@ use super::{ScanChange, scan_sources_batched};
 use crate::discovery::Discovery;
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
-use crate::source::{SourceFormat, SourceRegistry};
+use crate::source::{SourceFormat, registry::SourceRegistry};
 
 #[test]
 fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
@@ -462,7 +462,7 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

@@ -13,7 +13,7 @@ use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
 use crate::source::json_lines::JsonLinesReader;
-use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
+use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
 
 struct CountingJsonLinesReader {
     parses: Arc<AtomicUsize>,
@@ -320,7 +320,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
             },
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -1134,7 +1134,7 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap()
     .wait_complete()
@@ -1182,7 +1182,7 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap()
     .wait_complete()
@@ -1220,7 +1220,7 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1280,7 +1280,7 @@ fn large_framed_file_admission_has_component_accounting() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -1337,7 +1337,7 @@ fn incremental_admission_totals_match_each_collection() {
             profile_build: true,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -1398,7 +1398,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1407,7 +1407,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1481,7 +1481,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions,
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

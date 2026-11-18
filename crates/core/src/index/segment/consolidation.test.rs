@@ -9,7 +9,7 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::CollectionDefinition;
-use crate::source::{SourceFormat, SourceRegistry};
+use crate::source::{SourceFormat, registry::SourceRegistry};
 use std::time::Instant;
 
 #[test]

@@ -437,7 +437,7 @@ mod tests {
                 verified_cache_bytes: 0,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();

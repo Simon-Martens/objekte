@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
 use objekte_search_core::discovery::{Discovery, SymlinkPolicy, discover, selects_file};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
 /// Builds a private fixture tree for traversal-policy assertions.
 struct Fixture(PathBuf);

@@ -315,7 +315,7 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
             bigram_alphabet: alphabet,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1226,7 +1226,7 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

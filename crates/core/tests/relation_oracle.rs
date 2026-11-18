@@ -7,7 +7,7 @@ use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
@@ -289,7 +289,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             &root,
             definitions(),
             options,
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -433,7 +433,7 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
         &root,
         definitions(),
         RepositoryOptions::default(),
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -483,7 +483,7 @@ fn false_and_branch_skips_expensive_relation_verification_in_reference_route() {
         &root,
         definitions(),
         RepositoryOptions::default(),
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

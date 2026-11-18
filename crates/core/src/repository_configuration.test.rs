@@ -1,6 +1,6 @@
 use super::*;
 use crate::repository::RepositoryOptions;
-use crate::source::SourceRegistry;
+use crate::source::registry::SourceRegistry;
 use sha2::{Digest, Sha256};
 
 fn test_root(label: &str) -> PathBuf {

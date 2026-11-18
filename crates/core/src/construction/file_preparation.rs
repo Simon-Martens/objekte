@@ -17,9 +17,9 @@ use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
 use crate::repository::CollectionDefinition;
 use crate::source::{
-    BoundedBuildChunk, BoundedJsonLines, PreparedSource, ReaderDiagnostic, ReaderFailure,
-    SourceOutcome, extract_file_build_outcomes, extract_framed_build_outcomes,
-    frame_file_for_build,
+    ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_file_build_outcomes,
+    extraction::extract_framed_build_outcomes, extraction::frame_file_for_build,
+    framing::BoundedBuildChunk, framing::BoundedJsonLines, registry::PreparedSource,
 };
 
 use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};

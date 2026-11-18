@@ -10,7 +10,7 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::CollectionDefinition;
-use crate::source::{SourceFormat, SourceRegistry};
+use crate::source::{SourceFormat, registry::SourceRegistry};
 
 #[test]
 fn compaction_matches_active_file_oracle_across_indexes() {

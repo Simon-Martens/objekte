@@ -5,7 +5,7 @@ use crate::source::json_lines::JsonLinesReader;
 use crate::source::registry::SourceRegistry;
 use crate::source::{
     DiagnosticCategory, ReaderFailure, ScanProjection, SourceFormat, SourceReader,
-    visit_logical_strings,
+    text::visit_logical_strings,
 };
 
 use super::document::{parse_json_for_build_diagnosed, parse_json_for_query_diagnosed};
@@ -125,7 +125,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -207,7 +207,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -249,7 +249,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -527,7 +527,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

@@ -249,7 +249,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -385,7 +385,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -786,7 +786,7 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -859,7 +859,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::source::{SourceFormat, registry::SourceRegistry};
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -918,7 +918,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1162,7 +1162,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1256,7 +1256,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1389,7 +1389,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

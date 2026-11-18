@@ -6,7 +6,7 @@ use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
@@ -246,7 +246,7 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
             &root,
             definitions(),
             options,
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .and_then(|index| index.view())

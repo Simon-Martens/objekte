@@ -24,7 +24,7 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::repository::{
     CollectionDefinition, IncrementalSegmentProfile, canonical_custom_text_key,
 };
-use crate::source::PreparedSource;
+use crate::source::registry::PreparedSource;
 
 #[cfg(test)]
 use super::batch::SourceFileInput;

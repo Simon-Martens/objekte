@@ -72,7 +72,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 &root,
                 definitions,
                 options,
-                objekte_search_core::source::SourceRegistry::builtin(),
+                objekte_search_core::source::registry::SourceRegistry::builtin(),
             )
             .map(crate::tui::TuiOpening::Initial)
             .map_err(|error| error.to_string())
@@ -348,7 +348,7 @@ fn open_incremental_repository(
         &paths.root,
         configured.definitions.clone(),
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())?;
     *source = Some(QuerySource::open(args));

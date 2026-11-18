@@ -105,7 +105,7 @@ fn open_sources(
         &paths.root,
         configured.definitions.clone(),
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
     let index = if incremental {

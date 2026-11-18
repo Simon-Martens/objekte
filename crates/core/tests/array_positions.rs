@@ -142,7 +142,7 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())
@@ -327,7 +327,7 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())

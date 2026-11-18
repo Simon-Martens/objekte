@@ -6,6 +6,8 @@ use super::ScanProjection;
 use super::json::scalars;
 
 pub(crate) use super::json::scalars::BorrowedScanResult;
+#[cfg(test)]
+pub(crate) use super::json::scalars::{borrowed_scan_calls, combined_scan_calls};
 
 /// The built-in scalar representation selected by the installed registration.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

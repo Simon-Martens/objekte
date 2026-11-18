@@ -7,7 +7,7 @@ use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 
 fn fixture() -> (PathBuf, Index, IndexView) {
@@ -71,7 +71,7 @@ fn fixture() -> (PathBuf, Index, IndexView) {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -280,7 +280,7 @@ fn explicit_composite_order_streams_and_matches_reference() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -392,7 +392,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())
@@ -470,7 +470,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())
@@ -516,7 +516,7 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
         RepositoryOptions {
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())

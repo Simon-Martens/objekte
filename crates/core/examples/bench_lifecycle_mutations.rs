@@ -245,7 +245,7 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())?;
     emit("build", started.elapsed(), &built, "synthetic=true");
@@ -343,7 +343,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         root,
         definitions,
         options,
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())?;
     emit(

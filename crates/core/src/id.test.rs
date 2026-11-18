@@ -79,7 +79,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         &root,
         vec![definition()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -87,7 +87,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         &root,
         vec![definition()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -304,7 +304,7 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

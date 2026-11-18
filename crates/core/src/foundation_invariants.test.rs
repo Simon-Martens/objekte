@@ -121,7 +121,7 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())
             .unwrap();

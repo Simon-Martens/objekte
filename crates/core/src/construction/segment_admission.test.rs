@@ -13,7 +13,7 @@ use crate::model::{CollectionId, FileId};
 use crate::model::{FieldPath, LogicalType, Number};
 use crate::reference::FieldDefinition;
 use crate::repository::CollectionDefinition;
-use crate::source::{SourceFormat, SourceRegistry};
+use crate::source::{SourceFormat, registry::SourceRegistry};
 use std::time::Instant;
 
 #[test]

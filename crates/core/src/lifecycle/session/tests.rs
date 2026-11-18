@@ -23,7 +23,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -102,7 +102,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -152,7 +152,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
             SourceFormat::Json,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -191,7 +191,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

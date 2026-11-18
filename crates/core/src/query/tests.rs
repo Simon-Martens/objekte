@@ -213,7 +213,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -268,7 +268,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

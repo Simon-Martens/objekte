@@ -157,7 +157,7 @@ mod tests {
                 .map(|name| CollectionDefinition::folder(name, name, SourceFormat::Json))
                 .collect(),
             RepositoryOptions::default(),
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -213,7 +213,7 @@ mod tests {
                 SourceFormat::Json,
             )],
             RepositoryOptions::default(),
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

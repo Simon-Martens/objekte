@@ -8,7 +8,7 @@ use std::time::Instant;
 
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
-use crate::source::SourceRegistry;
+use crate::source::registry::SourceRegistry;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum InitialBuildPhase {

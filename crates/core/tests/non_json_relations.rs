@@ -9,7 +9,7 @@ use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::source::{
-    ExtractedRecord, SourceFormat, SourceReader, SourceRegistry, TextSegment,
+    ExtractedRecord, SourceFormat, SourceReader, TextSegment, registry::SourceRegistry,
 };
 use objekte_search_core::workload::WorkloadCase;
 

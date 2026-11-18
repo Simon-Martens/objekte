@@ -21,8 +21,9 @@ use crate::reference::{
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
-    ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceRegistry,
-    extract_file_outcomes_for_search, finalize_extracted_text,
+    ExtractedRecord, ReaderDiagnostic, SourceFormat, SourceOutcome,
+    extraction::extract_file_outcomes_for_search, registry::PreparedSource,
+    registry::SourceRegistry, text::finalize_extracted_text,
 };
 use crate::streaming::CancellationToken;
 
@@ -477,7 +478,7 @@ mod tests {
             RepositoryOptions {
                 ..RepositoryOptions::default()
             },
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

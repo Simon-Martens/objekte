@@ -286,7 +286,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -307,7 +307,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -331,7 +331,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         &root,
         vec![changed.clone()],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -395,7 +395,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -447,7 +447,7 @@ fn cross_collection_sort_rejects_different_collation() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -576,7 +576,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             &root,
             definitions.clone(),
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -629,7 +629,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             &root,
             definitions,
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

@@ -28,7 +28,7 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
             SourceFormat::Json,
         )],
         crate::repository::RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -74,7 +74,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -133,7 +133,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -221,7 +221,7 @@ fn compacts_one_large_file_in_source_free_parts() {
             SourceFormat::JsonLines,
         )],
         RepositoryOptions::default(),
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -297,7 +297,7 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
         &root,
         definitions.clone(),
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

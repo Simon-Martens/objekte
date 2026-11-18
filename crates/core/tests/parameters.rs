@@ -105,7 +105,7 @@ fn fixture() -> (PathBuf, Index, IndexView) {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
-        objekte_search_core::source::SourceRegistry::builtin(),
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();

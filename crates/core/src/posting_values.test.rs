@@ -45,7 +45,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -289,7 +289,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -299,7 +299,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
             &root,
             vec![definition],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -493,7 +493,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -693,7 +693,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -759,7 +759,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -917,7 +917,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::SourceRegistry::builtin(),
+            crate::source::registry::SourceRegistry::builtin(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -960,7 +960,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::SourceRegistry::builtin(),
+                crate::source::registry::SourceRegistry::builtin(),
             )
             .and_then(|task| task.wait_complete())
             .unwrap();
@@ -1032,7 +1032,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::SourceRegistry::builtin(),
+        crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

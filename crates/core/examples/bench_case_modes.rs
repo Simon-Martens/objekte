@@ -199,7 +199,7 @@ fn run() -> Result<(), String> {
                 query_workers: 32,
                 ..Default::default()
             },
-            objekte_search_core::source::SourceRegistry::builtin(),
+            objekte_search_core::source::registry::SourceRegistry::builtin(),
         )
         .and_then(|task| task.wait_complete())
         .map_err(|error| error.to_string())?;

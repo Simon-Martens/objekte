@@ -8,7 +8,8 @@ use crate::source::json_lines::JsonLinesReader;
 use crate::source::test_support::OutcomeReader;
 use crate::source::{
     ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceReader,
-    extract_file, extract_file_build_outcomes_hashed_with_buffer, trim_oversized_build_buffer,
+    extraction::extract_file, extraction::extract_file_build_outcomes_hashed_with_buffer,
+    extraction::trim_oversized_build_buffer,
 };
 
 use super::{

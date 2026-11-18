@@ -5,7 +5,7 @@ use super::{
     Discovery, PreparedScanSelection, SymlinkPolicy, discover, discover_bounded, discover_stream,
     selects_file,
 };
-use crate::source::{SourceFormat, SourceRegistry};
+use crate::source::{SourceFormat, registry::SourceRegistry};
 
 #[test]
 fn direct_selection_matches_full_discovery_without_enumerating_siblings() {
