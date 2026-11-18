@@ -1858,6 +1858,8 @@ fn search_segmented_impl(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
 ) -> Result<SearchResult, String> {
+    let _count_phase = (query.options.count && query.options.limit == 0)
+        .then(|| crate::query_execution::request::observation_phase("exact_count"));
     if let Some(context) = context {
         context.check_string()?;
     }
