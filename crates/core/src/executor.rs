@@ -67,7 +67,7 @@ impl<'a> NativeSegmentProvider<'a> {
             collection,
             file_catalog,
             domain: DomainId::from_parts(
-                0,
+                collection.repository_instance,
                 collection.generation.collection.0,
                 collection.generation.generation,
                 Some(segment.id.get()),

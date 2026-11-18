@@ -538,6 +538,9 @@ impl PublishedIndex {
         revision: IndexRevision,
         mut repository: Repository,
     ) -> Result<Self, IndexError> {
+        for collection in &mut repository.collections {
+            collection.repository_instance = instance_id;
+        }
         let active = std::mem::take(&mut repository.active);
         let segments = std::mem::take(&mut repository.segments);
         Self::from_repository_parts(

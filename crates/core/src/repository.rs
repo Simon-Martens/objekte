@@ -144,6 +144,9 @@ pub(crate) struct GlobalInferenceSummary {
 }
 
 pub struct CollectionState {
+    /// Repository instance owning this pinned collection snapshot. Segment
+    /// adapters use it to construct a full local-domain identity.
+    pub(crate) repository_instance: u64,
     pub definition: CollectionDefinition,
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
@@ -2293,6 +2296,7 @@ impl Repository {
                 &sorting,
             );
             collections.push(CollectionState {
+                repository_instance: 0,
                 definition,
                 source,
                 generation,
@@ -2372,6 +2376,10 @@ impl Repository {
             .map(|collection| ActiveRecords::all(collection.generation.records.len()))
             .collect::<Result<Vec<_>, _>>()?;
         let segments = vec![Arc::new(Vec::new()); collections.len()];
+        let instance_id = next_repository_instance();
+        for collection in &mut collections {
+            collection.repository_instance = instance_id;
+        }
         Ok(Self {
             files,
             base_fingerprints,
@@ -2383,7 +2391,7 @@ impl Repository {
             sources: sources.clone(),
             build_parses,
             build_failed_parses,
-            instance_id: next_repository_instance(),
+            instance_id,
             options,
             startup: StartupStats {
                 build_discovery_ns: discovery_ns,

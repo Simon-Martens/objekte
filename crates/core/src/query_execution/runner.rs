@@ -2162,6 +2162,7 @@ fn search_segmented_impl(
                 .map(|bounds| &candidates & bounds.must.as_ref())
                 .unwrap_or_default();
             if !query.options.evidence
+                && (fts.is_none() || metadata_evidence.is_some())
                 && !sort.bound.needs_source
                 && !sort
                     .bound

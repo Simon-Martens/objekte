@@ -57,7 +57,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
             segment,
             collection,
             domain: domain_id(
-                0,
+                collection.repository_instance,
                 collection.generation.collection.0,
                 collection.generation.generation,
                 Some(segment.id.get()),

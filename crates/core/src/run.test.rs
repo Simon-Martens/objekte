@@ -62,13 +62,14 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             element_nullable: Vec::new(),
         })
         .unwrap();
+    let options = crate::repository::RepositoryOptions {
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
     let repo = crate::repository::Repository::open_with_options(
         &root,
-        vec![definition],
-        crate::repository::RepositoryOptions {
-            verified_cache_bytes: 0,
-            ..Default::default()
-        },
+        vec![definition.clone()],
+        options.clone(),
     )
     .unwrap();
     let collection = &repo.collections()[0];
@@ -234,6 +235,93 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     assert_eq!(unindexed.count, Some(1));
     assert_eq!(unindexed.hits[0].record_id, "3");
     assert!(unindexed.counters.record_parses > 0);
+
+    let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
+    let segmented = index.view().unwrap();
+    let segmented_repo = segmented.repository();
+    let segmented_collection = &segmented_repo.collections()[0];
+    assert_eq!(
+        segmented_collection.repository_instance,
+        segmented.instance_id(),
+        "collection snapshot must carry its repository instance"
+    );
+    assert_eq!(segmented.0.segments[0].len(), 1);
+    let segment_domain = crate::query_execution::domain::domain_id(
+        segmented.instance_id(),
+        segmented_collection.generation.collection.0,
+        segmented_collection.generation.generation,
+        Some(segmented.0.segments[0][0].id.get()),
+    );
+    let segmented_title = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(segment_domain, "title", &title_values)
+            .with_provider_id(ProviderId(202))
+            .with_instance_id(segmented.instance_id()),
+    );
+    let segmented_year = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(segment_domain, "year", &year_refs)
+            .with_provider_id(ProviderId(203))
+            .with_instance_id(segmented.instance_id())
+            .scalar_only(),
+    );
+    segmented_title.set_costs(20.0, -100.0);
+    segmented_year.set_costs(-50.0, 0.0);
+    let segmented_guard = install_test_access_providers(
+        segmented.instance_id(),
+        vec![segmented_title.clone(), segmented_year.clone()],
+    );
+    let mut without_evidence = query(true);
+    without_evidence.options.evidence = false;
+    let mut ordered_query = without_evidence.clone();
+    ordered_query.options.sort = vec![SortField::simple("title", false)];
+    let expected = segmented.search_reference(&without_evidence).unwrap();
+    assert_eq!(expected.count, Some(1));
+    assert_eq!(expected.hits[0].record_id, "3");
+
+    let optimized = segmented.search(&without_evidence).unwrap();
+    assert!(
+        !segmented_title.observations().is_empty(),
+        "segmented public search did not execute the test text provider: title={:?} year={:?}",
+        segmented_title.counters(),
+        segmented_year.counters()
+    );
+    assert_eq!(
+        optimized.count, expected.count,
+        "evidence-disabled segmented count admitted a FILTER-only proof: hits={:?} counters={:?}",
+        optimized.hits, optimized.counters
+    );
+    assert_eq!(optimized.hits, expected.hits);
+    assert_eq!(
+        segmented.count_exact(&without_evidence).unwrap(),
+        expected.count.unwrap(),
+        "zero-limit segmented execution admitted a FILTER-only proof"
+    );
+
+    let mut streamed = Vec::new();
+    let outcome = segmented
+        .search_stream(
+            &ordered_query,
+            crate::streaming::StreamOptions::default(),
+            &crate::streaming::CancellationToken::new(),
+            &mut |event| {
+                if let crate::streaming::StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(crate::streaming::StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let crate::streaming::StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected a complete segmented stream")
+    };
+    assert_eq!(summary.count, expected.count);
+    assert_eq!(streamed, expected.hits);
+    assert!(
+        !optimized.counters.verified_result_hit,
+        "the correctness fixture must execute with a disabled verified cache"
+    );
+    drop(segmented_guard);
+    drop(segmented);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

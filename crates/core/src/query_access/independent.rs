@@ -243,12 +243,15 @@ impl IndexAccessProvider for SortedBackingProvider {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
+        {
+            let mut state = self.state.lock().expect("backing state poisoned");
+            state.proposals += 1;
+        }
         if input.domain != self.domain {
             return Ok(());
         }
         let (scalar_work, gram_work) = {
-            let mut state = self.state.lock().expect("backing state poisoned");
-            state.proposals += 1;
+            let state = self.state.lock().expect("backing state poisoned");
             (state.scalar_work, state.gram_work)
         };
         match request {
