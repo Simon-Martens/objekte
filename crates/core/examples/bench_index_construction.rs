@@ -279,6 +279,7 @@ fn run() -> Result<(), String> {
         None
     };
     drop(repo);
+    drop(index);
     let after_release_rss = resident_bytes();
     let rev = command_output("git", &["rev-parse", "HEAD"])?;
     let status = command_output("git", &["status", "--porcelain"])?;
