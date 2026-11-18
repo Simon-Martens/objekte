@@ -1,0 +1,120 @@
+{
+  "binary_build_revision": null,
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "dc29ff42cf24b2cc4de67a2297f3c4d676c9034c0b91315465d1fb1136b486f7",
+  "code_revision": "67ec75be400be0127d55a40860767775636e3cf4",
+  "command": [
+    "./target/release/examples/bench_musenalm",
+    "--root",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--extended",
+    "--incremental",
+    "--cases",
+    "Q141",
+    "--profiles",
+    "unicode-off",
+    "--query-workers",
+    "4",
+    "--repetitions",
+    "20",
+    "--result-dir",
+    "docs/ai/generated/query-execution-completion/q141-final-fix2"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "executable_sha256": "fcbf217f3dde55e87dbb66b99bf9bbe65f86edd82755c09fb9d3df5c9a23fe46",
+  "execution_checkout_revision": "67ec75be400be0127d55a40860767775636e3cf4",
+  "extended": true,
+  "failures": 0,
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "profiles": [
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 4,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 20,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "run_id": "1795029836-67ec75be40",
+  "schema_fingerprint": "bf36ea2e88d1b455e28b0f5f36c71ebd03847b2a986cd3f1f2ea3302fd1eea08",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "650dfe25e5ad664c835ec5124bcf238e102a626734903d08870d3c1f8e18e68a"
+}

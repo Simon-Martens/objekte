@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Q030",
+    "collection": "entries",
+    "fts": "Taschenbuch",
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q164",
+    "collection": "entries",
+    "fts": "Almanach|.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
