@@ -202,6 +202,37 @@ pub(crate) fn record_cache_hit_observation(
     );
 }
 
+pub(crate) fn record_fused_observation(
+    instance_id: u64,
+    terms: &[TermId],
+    domain: DomainId,
+    collection: u32,
+    input_records: u64,
+    candidate_records: u64,
+    proven_records: u64,
+    access_kind: &str,
+) {
+    push_observation(
+        instance_id,
+        ExecutionObservation {
+            node_id: 0,
+            term_id: terms.first().map_or(u32::MAX, |term| term.get()),
+            term_ids: terms.iter().map(|term| term.get()).collect(),
+            provider_id: u32::MAX,
+            operation_provider_id: u32::MAX,
+            operation_id: u32::MAX,
+            access_kind: Some(access_kind.into()),
+            collection,
+            domain: format!("{domain:?}"),
+            input_records,
+            candidate_records,
+            proven_records,
+            residual_verifications: 0,
+            status: ObservationStatus::Executed,
+        },
+    );
+}
+
 fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
     if ACTIVE_CAPTURES.load(Ordering::Acquire) == 0 {
         return;

@@ -203,6 +203,26 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             if text_first { vec![3, 2] } else { vec![4, 2] }
         );
     }
+    let mut empty_first = query(false);
+    empty_first.fts = None;
+    empty_first.filter = Some(parse_filter("year = 9999 && title = 'impossible'").unwrap());
+    let (empty, empty_trace) = repo.explain_analyze(&empty_first).unwrap();
+    assert_eq!(empty.count, Some(0));
+    assert!(
+        empty_trace[0]
+            .observations
+            .iter()
+            .any(
+                |observation| observation.status == crate::run::ObservationStatus::Executed
+                    && observation.candidate_records == 0
+            )
+    );
+    assert!(
+        empty_trace[0]
+            .observations
+            .iter()
+            .any(|observation| observation.status == crate::run::ObservationStatus::Skipped)
+    );
     drop(guard);
 
     let unindexed = repo.search(&query(true)).unwrap();
@@ -3848,6 +3868,14 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
             .iter()
             .any(|term| { term.selected.kind == crate::executor::AccessPathKind::FilePathIndex })
     );
+    let fused = trace[0]
+        .observations
+        .iter()
+        .find(|observation| observation.access_kind.as_deref() == Some("fused_file_path_range"))
+        .expect("combined file-path range observation");
+    assert_eq!(fused.term_ids.len(), 2);
+    assert_eq!(fused.candidate_records, 1);
+    assert_eq!(fused.proven_records, 1);
     for (filter, count) in [
         ("@file.path = 'data/valid.json'".to_owned(), 1),
         (
@@ -4953,6 +4981,13 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
     assert_eq!(cached.counters.distinct_files, 1);
     assert_eq!(cached.counters.record_parses, 5);
     assert_eq!(cached.hits, first.hits);
+    let (_, cached_trace) = repo.explain_analyze(&counted).unwrap();
+    assert!(
+        cached_trace[0]
+            .observations
+            .iter()
+            .any(|observation| observation.status == crate::run::ObservationStatus::CacheHit)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

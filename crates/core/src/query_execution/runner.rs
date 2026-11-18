@@ -31,7 +31,7 @@ pub use crate::query_diagnostics::trace::{
     BoundTermDiagnostic, ExecutionObservation, ObservationStatus, PlanActual, QueryPlanTrace,
     RelationHopDiagnostic,
 };
-use crate::query_results::cache::CacheBudget;
+use crate::query_results::cache::{CacheBudget, materialize_lifecycle_cached};
 use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{
@@ -2124,7 +2124,7 @@ fn direct_related_target_sort_key(
     ))
 }
 
-fn segment_locator_hit(
+pub(crate) fn segment_locator_hit(
     collection: &CollectionState,
     resolved: SegmentRecordRef<'_>,
     revision: IndexRevision,
@@ -2153,7 +2153,7 @@ fn segment_locator_hit(
 }
 
 #[derive(Clone, Copy)]
-struct SourceHitLocator {
+pub(crate) struct SourceHitLocator {
     file_id: u32,
     byte_start: u64,
     byte_end: u64,
@@ -2169,7 +2169,7 @@ impl From<&SearchHit> for SourceHitLocator {
     }
 }
 
-fn record_unavailable_hit(
+pub(crate) fn record_unavailable_hit(
     repo: &Repository,
     catalog: &FileCatalog,
     hit: SourceHitLocator,
@@ -4209,193 +4209,6 @@ fn search_segmented_impl(
 
 /// Reuse complete verified ordering without repeating residual evaluation or
 /// sorting. Source payloads are always read against this pinned catalog.
-fn materialize_lifecycle_cached(
-    repo: &Repository,
-    query: &Query,
-    cached: &CachedResult,
-    base_active: &[ActiveRecords],
-    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
-    revision: IndexRevision,
-    context: Option<&ExecutionContext>,
-) -> Result<SearchResult, String> {
-    let mut cached_by_domain = HashMap::<(usize, Option<usize>), u64>::new();
-    for member in &cached.members {
-        *cached_by_domain
-            .entry((member.collection_index, member.segment_index))
-            .or_default() += 1;
-    }
-    for ((collection_index, segment_index), output_records) in cached_by_domain {
-        let collection = repo
-            .collections
-            .get(collection_index)
-            .ok_or("cached lifecycle collection missing")?;
-        let segment = segment_index.and_then(|index| {
-            segments
-                .get(collection_index)
-                .and_then(|group| group.get(index))
-                .map(|published| published.index.id.get())
-        });
-        crate::query_execution::request::record_cache_hit_observation(
-            repo.instance_id,
-            crate::query_execution::domain::domain_id(
-                repo.instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                segment,
-            ),
-            collection.generation.collection.0,
-            cached.members.len() as u64,
-            output_records,
-        );
-    }
-    let mut counters = WorkCounters {
-        total_matches: cached.members.len() as u64,
-        match_count_complete: true,
-        verified_result_hit: true,
-        ..WorkCounters::default()
-    };
-    let mut hits = Vec::new();
-    let mut files = HashSet::new();
-    for member in cached
-        .members
-        .iter()
-        .skip(query.options.offset)
-        .take(query.options.limit)
-    {
-        if let Some(context) = context {
-            context.check_string()?;
-        }
-        let collection = repo
-            .collections
-            .get(member.collection_index)
-            .ok_or("cached lifecycle collection missing")?;
-        let (record, file, payload) = if let Some(segment_index) = member.segment_index {
-            let segment = segments
-                .get(member.collection_index)
-                .and_then(|group| group.get(segment_index))
-                .ok_or("cached lifecycle segment missing")?;
-            let resolved = segment_record_ref(
-                &segment.index,
-                &segment.active,
-                catalog,
-                RecordSlot(member.slot),
-            )?
-            .ok_or("cached lifecycle segment slot retired")?;
-            charge_lifecycle_cached_payload(context, query, resolved.record)?;
-            let payload = if query.options.return_mode == ReturnMode::Locator {
-                Ok(None)
-            } else {
-                get_segment_record_by_id(
-                    repo,
-                    member.collection_index,
-                    &segment.index,
-                    &segment.active,
-                    catalog,
-                    revision,
-                    &resolved.record.id.0,
-                    query.options.return_mode.clone(),
-                )
-                .and_then(|hit| hit.ok_or_else(|| "cached lifecycle record missing".to_owned()))
-                .map(|hit| hit.payload)
-            };
-            (resolved.record, resolved.file, payload)
-        } else {
-            let record = collection
-                .generation
-                .records
-                .get(member.slot as usize)
-                .ok_or("cached lifecycle base slot missing")?;
-            if !base_active[member.collection_index].contains(RecordSlot(member.slot)) {
-                return Err("cached lifecycle base slot retired".into());
-            }
-            let file = catalog
-                .entry(record.file)
-                .ok_or("cached lifecycle base file missing")?;
-            charge_lifecycle_cached_payload(context, query, record)?;
-            let payload = if query.options.return_mode == ReturnMode::Locator {
-                Ok(None)
-            } else {
-                let path = repo.files.root.join(&file.relative_path);
-                read_record_range_for_search(&path, file.revision, record.range, None)
-                    .and_then(|bytes| {
-                        payload_from_bytes(
-                            record.class,
-                            Some(collection),
-                            &query.options.return_mode,
-                            bytes,
-                        )
-                    })
-                    .map(|(payload, _)| payload)
-            };
-            (record, file, payload)
-        };
-        let mut hit = segment_locator_hit(
-            collection,
-            SegmentRecordRef { record, file },
-            revision,
-            member.matched_fields.clone(),
-        );
-        if query.options.return_mode != ReturnMode::Locator
-            && !(query.options.return_mode == ReturnMode::Logical
-                && record.class == RecordClass::RawFallback)
-        {
-            counters.bytes_read += record.range.len();
-            counters.record_parses += u64::from(query.options.return_mode == ReturnMode::Logical);
-            files.insert(file.id.0);
-        }
-        match payload {
-            Ok(payload) => hit.payload = payload,
-            Err(message) => {
-                if record_unavailable_hit(
-                    repo,
-                    catalog,
-                    SourceHitLocator::from(&hit),
-                    message.clone(),
-                    &mut counters,
-                )? {
-                    continue;
-                }
-                return Err(message);
-            }
-        }
-        hits.push(hit);
-    }
-    counters.distinct_files = files.len() as u64;
-    counters.files_opened = files.len() as u64;
-    counters.returned_records = hits.len() as u64;
-    counters.match_count_complete = counters.source_unavailable_events == 0;
-    Ok(SearchResult {
-        count: (query.options.count && counters.match_count_complete)
-            .then_some(cached.members.len()),
-        hits,
-        counters,
-    })
-}
-
-fn charge_lifecycle_cached_payload(
-    context: Option<&ExecutionContext>,
-    query: &Query,
-    record: &RecordEntry,
-) -> Result<(), String> {
-    if query.options.return_mode == ReturnMode::Locator
-        || (query.options.return_mode == ReturnMode::Logical
-            && record.class == RecordClass::RawFallback)
-    {
-        return Ok(());
-    }
-    if let Some(context) = context {
-        if record.range.len() > context.limits.source_record_bytes {
-            return Err(context.fail(
-                ExecutionErrorKind::Resource,
-                "cached lifecycle record exceeds source read allowance",
-            ));
-        }
-        context.charge_reads(1)?;
-        context.charge_bytes(record.range.len())?;
-    }
-    Ok(())
-}
 
 fn collect_positive_relation_terms<'a>(
     expr: &'a BoundExpr,
@@ -4517,7 +4330,19 @@ pub(crate) fn search_analyze_segmented(
     // strategies.
     let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
-    let result = match search_segmented(repo, query, base_active, segments, catalog, revision) {
+    let cache = LifecycleCacheScope {
+        store: &repo.verified,
+        instance_id: repo.instance_id,
+    };
+    let result = match search_segmented_lifecycle(
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        Some(cache),
+    ) {
         Ok(result) => result,
         Err(error) => {
             crate::query_execution::request::cancel_observation_capture(repo.instance_id);
@@ -7069,6 +6894,7 @@ fn attach_execution_observations(
                 }
                 _ => {}
             }
+            let mut matched_term = false;
             for choice in &mut trace.terms {
                 let Some(term_id) = choice.term_id else {
                     continue;
@@ -7076,6 +6902,7 @@ fn attach_execution_observations(
                 if !observation.term_ids.contains(&term_id) {
                     continue;
                 }
+                matched_term = true;
                 choice.actual_input = choice.actual_input.max(observation.input_records);
                 choice.actual_output = Some(
                     choice
@@ -7105,6 +6932,28 @@ fn attach_execution_observations(
                     choice.reason = "skipped after an exact empty input".into();
                 }
             }
+            if !matched_term && trace.terms.len() == 1 && trace.terms[0].term_id.is_some() {
+                let choice = &mut trace.terms[0];
+                choice.actual_input = choice.actual_input.max(observation.input_records);
+                choice.actual_output = Some(
+                    choice
+                        .actual_output
+                        .unwrap_or(0)
+                        .max(observation.candidate_records),
+                );
+                choice.estimated_input = None;
+                choice.executed |= observation.status == ObservationStatus::Executed;
+                if let Some(kind) = observation
+                    .access_kind
+                    .as_deref()
+                    .and_then(crate::executor::access_path_kind_from_name)
+                    && access_kind_priority(kind) >= access_kind_priority(choice.selected.kind)
+                {
+                    choice.selected.kind = kind;
+                    choice.residual_verification =
+                        observation.proven_records != observation.candidate_records;
+                }
+            }
             trace.observations.push(observation);
         }
     }
@@ -7126,6 +6975,40 @@ pub(crate) fn search_analyze_with_active(
     query: &Query,
     active: Option<&[ActiveRecords]>,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    if active.is_none() {
+        let bound_sort = BoundSort::bind(repo, query)?;
+        let computed_sort = bound_sort.has_computed;
+        let mut membership_query = query.clone();
+        if computed_sort {
+            membership_query.options.sort.clear();
+        }
+        let key = crate::verified::key(&membership_query)?;
+        let cached = repo
+            .verified
+            .lock()
+            .map_err(|error| error.to_string())?
+            .get(&key);
+        if let Some(cached) = cached {
+            let mut traces = explain_with_active(repo, query, None)?;
+            crate::query_execution::request::begin_observation_capture(repo.instance_id);
+            let result = if computed_sort {
+                materialize_computed_cached(repo, query, &cached, bound_sort, None, None)
+            } else {
+                materialize_cached(repo, query, &cached)
+            };
+            let result = match result {
+                Ok(result) => result,
+                Err(error) => {
+                    crate::query_execution::request::cancel_observation_capture(repo.instance_id);
+                    return Err(error);
+                }
+            };
+            let observations =
+                crate::query_execution::request::finish_observation_capture(repo.instance_id);
+            attach_execution_observations(&mut traces, observations);
+            return Ok((result, traces));
+        }
+    }
     let mut traces = Vec::new();
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
     let active_context = active.map(|active| {

@@ -1179,7 +1179,7 @@ fn segment_expr_bounds_with_context(
             let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
             let mut may = domain.clone();
             let mut must = domain.clone();
-            if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
+            if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
                 for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
                     if let Some(slots) = segment.file_records(file) {
@@ -1189,6 +1189,23 @@ fn segment_expr_bounds_with_context(
                 matches &= domain;
                 may &= &matches;
                 must &= matches;
+                let fused_ids = indices
+                    .iter()
+                    .filter_map(|index| match flattened[*index] {
+                        BoundExpr::Term(term) => Some(context.term_id(term)),
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>();
+                crate::query_execution::request::record_fused_observation(
+                    0,
+                    &fused_ids,
+                    context.provider.domain,
+                    collection.generation.collection.0,
+                    domain.len() as u64,
+                    may.len() as u64,
+                    must.len() as u64,
+                    "fused_file_path_range",
+                );
             }
             for index in 0..flattened.len() {
                 if path_range
@@ -3221,7 +3238,8 @@ fn plan_logical_expr<'a>(
                 flatten_and(part, &mut remaining);
             }
             let mut current = input.clone();
-            if let Some((bounds, _)) = combined_file_path_bounds(&remaining) {
+            let mut choices = Vec::new();
+            if let Some((bounds, fused_indices)) = combined_file_path_bounds(&remaining) {
                 let mut matches = RoaringBitmap::new();
                 for file in repo.files.relative_path_ids_in_bounds(bounds) {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
@@ -3229,10 +3247,63 @@ fn plan_logical_expr<'a>(
                     }
                 }
                 current &= matches;
+                let fused_terms = fused_indices
+                    .iter()
+                    .filter_map(|index| match remaining[*index] {
+                        BoundExpr::Term(term) => Some(term),
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>();
+                let fused_ids = fused_terms
+                    .iter()
+                    .map(|term| context.term_id(collection, term))
+                    .collect::<Vec<_>>();
+                crate::query_execution::request::record_fused_observation(
+                    repo.instance_id,
+                    &fused_ids,
+                    context.provider.domain(),
+                    collection.generation.collection.0,
+                    input.len() as u64,
+                    current.len() as u64,
+                    current.len() as u64,
+                    "fused_file_path_range",
+                );
+                if context.diagnostics {
+                    choices.extend(fused_terms.into_iter().map(|term| TermChoice {
+                        term_id: Some(context.term_id(collection, term).get()),
+                        span: term.span,
+                        field: term.query_path.display.clone(),
+                        logical_type: format!("{:?}", term.kind),
+                        binding: format!("{}@{}", term.binding_name, term.binding_version),
+                        exact_case_sensitivity: term_case_sensitivity(term),
+                        selected: AccessPathEstimate {
+                            kind: AccessPathKind::FilePathIndex,
+                            exact: true,
+                            coverage: current.len().min(u32::MAX as u64) as u32,
+                            estimated_output: current.len(),
+                            estimated_work: current.len() as f64,
+                            estimated_files: 0.0,
+                            estimated_bytes: 0.0,
+                            posting: None,
+                        },
+                        alternatives: Vec::new(),
+                        actual_input: input.len(),
+                        estimated_input: None,
+                        actual_output: Some(current.len()),
+                        reason: "fused file-path range traversal".into(),
+                        dynamic_binding: false,
+                        gram_candidates: None,
+                        structural_candidates: None,
+                        residual_verification: false,
+                        executed: true,
+                    }));
+                }
+                for index in fused_indices.into_iter().rev() {
+                    remaining.remove(index);
+                }
             }
             let mut exact = true;
             let mut proofs = Vec::new();
-            let mut choices = Vec::new();
             while !remaining.is_empty() {
                 let next = choose_and_next(collection, &remaining, current.len(), context)?;
                 let child = plan_logical_expr(
