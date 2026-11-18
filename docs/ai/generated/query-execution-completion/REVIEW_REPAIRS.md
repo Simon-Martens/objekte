@@ -157,5 +157,5 @@ unverified cause is attributed to the repair.
 
 The code and evidence are pushed for review. R1, the measured diagnostic
 repairs, the compound native ordering fixture, the requested ownership moves
-and the bitmap/cache ownership repairs are implemented. Q164 is closed by owner
-decision despite noisy timing.
+and the bitmap/cache ownership repairs are implemented. Q164 and this repair
+task are closed by owner decision.
