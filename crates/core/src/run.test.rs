@@ -247,7 +247,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     );
     drop(scan_only_guard);
 
-    let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
+    let index = crate::lifecycle::Index::build(&root, vec![definition.clone()], options).unwrap();
     let segmented = index.view().unwrap();
     let segmented_repo = segmented.repository();
     let segmented_collection = &segmented_repo.collections()[0];
@@ -333,6 +333,117 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     drop(segmented_guard);
     drop(segmented);
     index.shutdown().unwrap();
+
+    let split_root = root.join("split");
+    std::fs::create_dir_all(split_root.join("data")).unwrap();
+    let padding = "x".repeat(2 * 1024 * 1024);
+    let split_source = records
+        .iter()
+        .enumerate()
+        .map(|(id, (title, year))| {
+            serde_json::json!({
+                "id": id.to_string(),
+                "title": title,
+                "year": year,
+                "padding": padding
+            })
+            .to_string()
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    std::fs::write(
+        split_root.join("data/records.jsonl"),
+        format!("{split_source}\n"),
+    )
+    .unwrap();
+    let mut split_definition = definition;
+    split_definition.name = "split".into();
+    split_definition.source_path = "data".into();
+    split_definition.format = SourceFormat::JsonLines;
+    split_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let mut split_options = options;
+    split_options.segment_policy = crate::native_segment::SegmentPolicy::with_target_records(
+        std::num::NonZeroUsize::new(4).unwrap(),
+    )
+    .unwrap();
+    let split_index = crate::lifecycle::Index::start_incremental_build(
+        &split_root,
+        vec![split_definition],
+        split_options,
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let split_view = split_index.view().unwrap();
+    let split_segments = split_view.segments(crate::model::CollectionId(0)).unwrap();
+    assert_eq!(split_segments.len(), 2);
+    assert!(split_segments.iter().all(|segment| {
+        segment
+            .index
+            .records
+            .first()
+            .is_some_and(|record| record.slot.0 == 0)
+    }));
+    let split_collection = &split_view.repository().collections()[0];
+    let mut split_providers: Vec<
+        std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>,
+    > = Vec::new();
+    let mut split_titles = Vec::new();
+    let mut split_years = Vec::new();
+    for (segment_index, published) in split_segments.iter().enumerate() {
+        let start = segment_index * 4;
+        let end = start + 4;
+        let segment_domain = crate::query_execution::domain::domain_id(
+            split_collection.repository_instance,
+            split_collection.generation.collection.0,
+            split_collection.generation.generation,
+            Some(published.id.get()),
+        );
+        let title = std::sync::Arc::new(
+            SortedBackingProvider::from_field_fixture(
+                segment_domain,
+                "title",
+                &title_values[start..end],
+            )
+            .with_provider_id(ProviderId(210 + segment_index as u32 * 2))
+            .with_instance_id(split_collection.repository_instance),
+        );
+        let year = std::sync::Arc::new(
+            SortedBackingProvider::from_field_fixture(
+                segment_domain,
+                "year",
+                &year_refs[start..end],
+            )
+            .with_provider_id(ProviderId(211 + segment_index as u32 * 2))
+            .with_instance_id(split_collection.repository_instance)
+            .scalar_only(),
+        );
+        title.set_costs(20.0, -100.0);
+        year.set_costs(20.0, 0.0);
+        split_titles.push(title.clone());
+        split_years.push(year.clone());
+        split_providers.push(title);
+        split_providers.push(year);
+    }
+    let split_guard =
+        install_test_access_providers_suppressing_native(split_view.instance_id(), split_providers);
+    let mut split_query = query(true);
+    split_query.collections = vec!["split".into()];
+    let split_expected = split_view.search_reference(&split_query).unwrap();
+    let split_result = split_view.search(&split_query).unwrap();
+    assert_eq!(split_result.count, split_expected.count);
+    assert_eq!(split_result.hits, split_expected.hits);
+    assert_eq!(split_result.hits[0].record_id, "3");
+    assert!(
+        split_titles
+            .iter()
+            .chain(&split_years)
+            .any(|provider| !provider.observations().is_empty()),
+        "the overlapping local-slot domains must execute a domain-owned provider"
+    );
+    drop(split_guard);
+    drop(split_view);
+    split_index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
