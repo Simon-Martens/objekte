@@ -137,7 +137,7 @@ fn run() -> Result<(), String> {
     let repo = index.index().view().map_err(|error| error.to_string())?;
     let wall_ns = started.elapsed().as_nanos();
     let (inventory_heap_bytes, diagnostic_heap_bytes) = index.files().estimated_heap_bytes();
-    let observation = repo.construction_observation();
+    let observation = repo.index_observation();
     let registrations = index.collections().iter().zip(&observation.collection_parts).map(|(state, counts)| {
         let definition = &state.definition;
         serde_json::json!({"name":definition.name,"source_path":definition.source_path,"format":definition.format,"identity":format!("{:?}",definition.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })

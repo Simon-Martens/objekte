@@ -1892,9 +1892,7 @@ pub(crate) use publication::PublishedIndex;
 
 mod view;
 
-pub use view::{
-    CollectionConstructionObservation, ConstructionObservation, IndexView, RecordLookupObservation,
-};
+pub use view::{CollectionIndexObservation, IndexObservation, IndexView};
 
 #[cfg(test)]
 mod tests;

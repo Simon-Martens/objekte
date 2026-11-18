@@ -221,14 +221,14 @@ fn repository_conversion_rejects_retained_owner_and_view_promptly() {
     std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     let build = || {
-        Index::start_build(
+        let repository = Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
             SourceRegistry::builtin(),
         )
-        .and_then(|task| task.wait_complete())
-        .unwrap()
+        .unwrap();
+        Index::from_repository(repository).unwrap()
     };
 
     let index = build();
@@ -246,6 +246,9 @@ fn repository_conversion_rejects_retained_owner_and_view_promptly() {
         Err(IndexError::InvalidPublication(message)) if message == "published index has other owners"
     ));
     drop(retained_view);
+
+    let exclusive = build();
+    assert!(exclusive.into_repository().is_ok());
     std::fs::remove_dir_all(root).unwrap();
 }
 

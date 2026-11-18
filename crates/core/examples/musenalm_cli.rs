@@ -250,7 +250,7 @@ fn run() -> Result<(), String> {
     .map_err(|error| error.to_string())?;
     let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let repository = index.index().view().map_err(|error| error.to_string())?;
-    let observation = repository.construction_observation();
+    let observation = repository.index_observation();
     for (state, counts) in index
         .collections()
         .iter()

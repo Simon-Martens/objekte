@@ -153,7 +153,7 @@ fn query(case: Case) -> Result<Query, String> {
 }
 
 fn store_counts(repo: &IndexView) -> (usize, usize) {
-    let observation = repo.construction_observation();
+    let observation = repo.index_observation();
     (observation.bigram_stores, observation.distinct_gram_keys)
 }
 

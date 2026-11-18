@@ -192,7 +192,7 @@ fn run() -> Result<(), String> {
         Ok(remainder)
     }).transpose()?;
     let corpus_fingerprint = fingerprint_inventory(&repo);
-    let observation = repo.construction_observation();
+    let observation = repo.index_observation();
     let files = observation.files;
     let records = observation.records;
     let build_parses = repo.build_parses();
@@ -538,10 +538,40 @@ fn run_incremental(
     Ok(())
 }
 
+struct StorageProbeSample {
+    collection: String,
+    record_id: String,
+    relative_path: PathBuf,
+}
+
+fn select_storage_probe(repo: &IndexView) -> Result<StorageProbeSample, String> {
+    for definition in repo.collection_definitions() {
+        let query = Query {
+            collections: vec![definition.name.clone()],
+            fts: None,
+            filter: None,
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 1,
+                offset: 0,
+                count: false,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        if let Some(hit) = repo.search(&query)?.hits.into_iter().next() {
+            return Ok(StorageProbeSample {
+                collection: hit.collection,
+                record_id: hit.record_id,
+                relative_path: hit.file_path,
+            });
+        }
+    }
+    Err("no visible records for storage probe".into())
+}
+
 fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, String> {
-    let sample = repo
-        .record_lookup_observation()
-        .ok_or("no records for storage probe")?;
+    let sample = select_storage_probe(repo)?;
     let path = sample.relative_path.as_path();
     let path_key = objekte_search_core::path_repr::query_path(path);
     let id = sample.record_id.as_str();

@@ -78,7 +78,7 @@ fn run() -> Result<(), String> {
     .and_then(|task| task.wait_complete())
     .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
-    let maximum = repo.construction_observation().records;
+    let maximum = repo.index_observation().records;
     for case in manifest
         .into_iter()
         .filter(|case| selected.contains(&case.id))

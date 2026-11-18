@@ -37,11 +37,14 @@ impl Index {
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
-/// Aggregate construction facts for benchmark and diagnostic callers that
-/// need more than one catalogue row without gaining access to mutable
-/// repository collections.
+/// Aggregate facts pinned to one index publication.
+///
+/// Logical counts come from this revision's active catalogue and liveness
+/// masks. Physical counter fields may include retired entries until
+/// compaction, and fields documented as build-metadata describe the completed
+/// source generation from which the publication was derived.
 #[derive(Clone, Debug, serde::Serialize)]
-pub struct ConstructionObservation {
+pub struct IndexObservation {
     pub files: usize,
     pub source_bytes: u64,
     pub records: usize,
@@ -55,20 +58,31 @@ pub struct ConstructionObservation {
     pub bigram_heap_bytes: usize,
     pub inventory_heap_bytes: usize,
     pub diagnostic_heap_bytes: usize,
-    pub collection_parts: Vec<CollectionConstructionObservation>,
+    pub collection_parts: Vec<CollectionIndexObservation>,
 }
 
-/// One collection's aggregate construction facts. Definitions remain
+/// One collection's facts for a pinned index publication. Definitions remain
 /// available through [`IndexView::collection_definitions`].
+///
+/// `files`, `source_bytes` and `records` are logical values for this
+/// publication. `posting_fields`, `sort_columns`, relation counters, bigram
+/// counters and `structural_bitmap_bytes` are physical measurements and may
+/// include retired entries until compaction. Capacity, identity and payload
+/// fields describe the completed source generation retained by native
+/// construction.
 #[derive(Clone, Debug, serde::Serialize)]
-pub struct CollectionConstructionObservation {
+pub struct CollectionIndexObservation {
     pub collection: String,
     pub files: usize,
     pub source_bytes: u64,
     pub records: usize,
+    /// Capacity of the completed source generation's record metadata.
     pub record_table_capacity: usize,
+    /// Retained record-ID payload bytes in the completed source metadata.
     pub unique_id_payload_bytes: usize,
+    /// Capacity of the completed source generation's identity lookup.
     pub identity_lookup_capacity: usize,
+    /// Identity-map entries retained by the completed source generation.
     pub shared_id_references: usize,
     pub posting_fields: usize,
     pub sort_columns: usize,
@@ -78,15 +92,7 @@ pub struct CollectionConstructionObservation {
     pub structural_bitmap_bytes: usize,
     pub bigram_stores: usize,
     pub distinct_gram_keys: usize,
-}
-
-/// One record selected only to drive a storage-operation probe.
-#[derive(Clone, Debug)]
-pub struct RecordLookupObservation {
-    pub collection: String,
-    pub record_id: String,
-    pub file: FileId,
-    pub relative_path: std::path::PathBuf,
+    pub bigram_heap_bytes: usize,
 }
 
 impl IndexView {
@@ -107,26 +113,21 @@ impl IndexView {
         self.repository().segment_summaries_for(&self.0.segments)
     }
 
-    /// Aggregate facts captured by the construction generation in this
-    /// publication. Use [`Self::catalogue_rows`] and
-    /// [`Self::segment_summaries`] for revision-specific live membership.
-    pub fn construction_observation(&self) -> ConstructionObservation {
-        let segments = self.segment_summaries();
-        let mut collection_parts = Vec::with_capacity(self.repository().collections().len());
-        for (number, collection) in self.repository().collections().iter().enumerate() {
-            let segment_parts = segments
-                .iter()
-                .filter(|segment| segment.collection.0 as usize == number)
-                .collect::<Vec<_>>();
-            let files = self
-                .catalogue_rows()
-                .filter(|file| file.collections.contains(&collection.generation.collection))
-                .collect::<Vec<_>>();
-            collection_parts.push(CollectionConstructionObservation {
+    /// Aggregate logical and physical facts pinned to this publication.
+    ///
+    /// Logical file counts are deduplicated globally but counted for every
+    /// collection membership. Logical record counts combine the base liveness
+    /// mask and published segment masks; retained source metadata rows are not
+    /// counted a second time.
+    pub fn index_observation(&self) -> IndexObservation {
+        let collections = self.repository().collections();
+        let mut collection_parts = collections
+            .iter()
+            .map(|collection| CollectionIndexObservation {
                 collection: collection.definition.name.clone(),
-                files: files.len(),
-                source_bytes: files.iter().map(|file| file.size).sum(),
-                records: collection.generation.records.len(),
+                files: 0,
+                source_bytes: 0,
+                records: self.0.active[collection.generation.collection.0 as usize].len() as usize,
                 record_table_capacity: collection.generation.records.capacity(),
                 unique_id_payload_bytes: collection
                     .generation
@@ -136,42 +137,55 @@ impl IndexView {
                     .sum(),
                 identity_lookup_capacity: collection.id_lookup.capacity(),
                 shared_id_references: collection.id_lookup.len(),
-                posting_fields: segment_parts
-                    .iter()
-                    .map(|segment| segment.posting_fields)
-                    .sum(),
-                sort_columns: segment_parts
-                    .iter()
-                    .map(|segment| segment.sort_columns)
-                    .sum(),
-                relation_count: segment_parts
-                    .iter()
-                    .map(|segment| segment.relation_count)
-                    .sum(),
-                relation_edges: segment_parts
-                    .iter()
-                    .map(|segment| segment.relation_edges)
-                    .sum(),
-                relation_heap_bytes: segment_parts
-                    .iter()
-                    .map(|segment| segment.relation_heap_bytes)
-                    .sum(),
+                posting_fields: 0,
+                sort_columns: 0,
+                relation_count: 0,
+                relation_edges: 0,
+                relation_heap_bytes: 0,
                 structural_bitmap_bytes: collection.empty_array_records.serialized_size(),
-                bigram_stores: segment_parts
-                    .iter()
-                    .map(|segment| segment.bigram_stores)
-                    .sum(),
-                distinct_gram_keys: segment_parts
-                    .iter()
-                    .map(|segment| segment.distinct_gram_keys)
-                    .sum(),
-            });
+                bigram_stores: 0,
+                distinct_gram_keys: 0,
+                bigram_heap_bytes: 0,
+            })
+            .collect::<Vec<_>>();
+
+        let mut files = 0usize;
+        let mut source_bytes = 0u64;
+        for file in self.catalogue_rows() {
+            files += 1;
+            source_bytes = source_bytes.saturating_add(file.size);
+            for collection in file.collections {
+                if let Some(part) = collection_parts.get_mut(collection.0 as usize) {
+                    part.files += 1;
+                    part.source_bytes = part.source_bytes.saturating_add(file.size);
+                }
+            }
+        }
+
+        for segment in self.segment_summaries() {
+            if let Some(part) = collection_parts.get_mut(segment.collection.0 as usize) {
+                part.records = part.records.saturating_add(segment.active_records);
+                part.posting_fields = part.posting_fields.saturating_add(segment.posting_fields);
+                part.sort_columns = part.sort_columns.saturating_add(segment.sort_columns);
+                part.relation_count = part.relation_count.saturating_add(segment.relation_count);
+                part.relation_edges = part.relation_edges.saturating_add(segment.relation_edges);
+                part.relation_heap_bytes = part
+                    .relation_heap_bytes
+                    .saturating_add(segment.relation_heap_bytes);
+                part.bigram_stores = part.bigram_stores.saturating_add(segment.bigram_stores);
+                part.distinct_gram_keys = part
+                    .distinct_gram_keys
+                    .saturating_add(segment.distinct_gram_keys);
+                part.bigram_heap_bytes = part
+                    .bigram_heap_bytes
+                    .saturating_add(segment.bigram_heap_bytes);
+            }
         }
         let (inventory_heap_bytes, diagnostic_heap_bytes) =
             self.repository().files().estimated_heap_bytes();
-        ConstructionObservation {
-            files: self.catalogue_rows().count(),
-            source_bytes: self.catalogue_rows().map(|file| file.size).sum(),
+        IndexObservation {
+            files,
+            source_bytes,
             records: collection_parts
                 .iter()
                 .map(|collection| collection.records)
@@ -196,14 +210,17 @@ impl IndexView {
                 .iter()
                 .map(|collection| collection.relation_heap_bytes)
                 .sum(),
-            bigram_stores: segments.iter().map(|segment| segment.bigram_stores).sum(),
-            distinct_gram_keys: segments
+            bigram_stores: collection_parts
                 .iter()
-                .map(|segment| segment.distinct_gram_keys)
+                .map(|collection| collection.bigram_stores)
                 .sum(),
-            bigram_heap_bytes: segments
+            distinct_gram_keys: collection_parts
                 .iter()
-                .map(|segment| segment.bigram_heap_bytes)
+                .map(|collection| collection.distinct_gram_keys)
+                .sum(),
+            bigram_heap_bytes: collection_parts
+                .iter()
+                .map(|collection| collection.bigram_heap_bytes)
                 .sum(),
             inventory_heap_bytes,
             diagnostic_heap_bytes,
@@ -218,23 +235,6 @@ impl IndexView {
         let inventory = self.repository().files();
         let (heap_bytes, diagnostic_bytes) = inventory.estimated_heap_bytes();
         (heap_bytes, diagnostic_bytes, inventory.storage_diagnostic())
-    }
-
-    /// One small record locator for storage-operation benchmarks.
-    pub fn record_lookup_observation(&self) -> Option<RecordLookupObservation> {
-        for collection in self.repository().collections() {
-            let Some(record) = collection.generation.records.first() else {
-                continue;
-            };
-            let relative_path = self.catalogue_row(record.file)?.relative_path.to_path_buf();
-            return Some(RecordLookupObservation {
-                collection: collection.definition.name.clone(),
-                record_id: record.id.0.to_string(),
-                file: record.file,
-                relative_path,
-            });
-        }
-        None
     }
 
     /// Construction status for one catalogue file in this pinned publication.

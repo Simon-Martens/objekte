@@ -559,7 +559,7 @@ fn main() -> Result<(), String> {
     .map_err(|error| error.to_string())?;
     let build_ns = build_started.elapsed().as_nanos() as u64;
     let startup = repo.startup_stats();
-    let observation = repo.construction_observation();
+    let observation = repo.index_observation();
     if !check_only {
         println!(
             "{}",

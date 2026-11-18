@@ -95,6 +95,207 @@ fn pinned_catalogue_metadata_tracks_each_publication_independently() {
 }
 
 #[test]
+fn index_observation_counts_only_each_pinned_publications_live_records() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-pinned-observation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let initial_path = root.join("data/a.json");
+    std::fs::write(&initial_path, br#"{"name":"initial"}"#).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let initial = index.view().unwrap();
+
+    let added_path = root.join("data/b.json");
+    std::fs::write(&added_path, br#"{"name":"added"}"#).unwrap();
+    index.add_file(&added_path).unwrap();
+    let after_add = index.view().unwrap();
+    let initial_handle = after_add.file_handle_for_path(&initial_path).unwrap();
+    index.delete_file(initial_handle).unwrap();
+    std::fs::remove_file(&initial_path).unwrap();
+    let after_delete = index.view().unwrap();
+
+    let entries = |files: usize, source_bytes: u64, records: usize| {
+        vec![("data", files, source_bytes, records)]
+    };
+    let initial_bytes = br#"{"name":"initial"}"#.len() as u64;
+    let added_bytes = br#"{"name":"added"}"#.len() as u64;
+    for (view, files, source_bytes, records, expected_entries) in [
+        (&initial, 1, initial_bytes, 1, entries(1, initial_bytes, 1)),
+        (
+            &after_add,
+            2,
+            initial_bytes + added_bytes,
+            2,
+            entries(2, initial_bytes + added_bytes, 2),
+        ),
+        (&after_delete, 1, added_bytes, 1, entries(1, added_bytes, 1)),
+    ] {
+        let observation = view.index_observation();
+        assert_eq!(observation.files, files);
+        assert_eq!(observation.source_bytes, source_bytes);
+        assert_eq!(observation.records, records);
+        assert_eq!(observation.collection_parts.len(), 1);
+        let part = &observation.collection_parts[0];
+        assert_eq!(
+            (
+                part.collection.as_str(),
+                part.files,
+                part.source_bytes,
+                part.records
+            ),
+            expected_entries[0]
+        );
+    }
+
+    let paths = |view: &crate::lifecycle::IndexView| {
+        view.file_paths()
+            .map(std::path::Path::to_path_buf)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(paths(&initial), [std::path::PathBuf::from("data/a.json")]);
+    assert_eq!(
+        paths(&after_add),
+        [
+            std::path::PathBuf::from("data/a.json"),
+            std::path::PathBuf::from("data/b.json"),
+        ]
+    );
+    assert_eq!(
+        paths(&after_delete),
+        [std::path::PathBuf::from("data/b.json")]
+    );
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn index_observation_counts_shared_files_once_globally_and_per_membership() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-shared-observation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/shared.json");
+    let source = br#"{"name":"shared"}"#;
+    std::fs::write(&path, source).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::Json),
+            CollectionDefinition::folder("right", "data", SourceFormat::Json),
+        ],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let view = index.view().unwrap();
+    let observation = view.index_observation();
+    assert_eq!(observation.files, 1);
+    assert_eq!(observation.source_bytes, source.len() as u64);
+    assert_eq!(observation.records, 2);
+    for (part, name) in observation.collection_parts.iter().zip(["left", "right"]) {
+        assert_eq!(part.collection, name);
+        assert_eq!(part.files, 1);
+        assert_eq!(part.source_bytes, source.len() as u64);
+        assert_eq!(part.records, 1);
+        assert_eq!(
+            view.file_paths_for_collection(name).collect::<Vec<_>>(),
+            [std::path::Path::new("data/shared.json")]
+        );
+    }
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-live-locator-sample-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"name":"B"}"#).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let initial = index.view().unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let first = initial.search(&query).unwrap().hits.remove(0);
+    assert!(
+        initial
+            .get_record(&first.collection, &first.record_id, ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    let handle = initial.file_handle_for_path(&first.file_path).unwrap();
+    index.delete_file(handle).unwrap();
+
+    let current = index.view().unwrap();
+    let second = current.search(&query).unwrap().hits.remove(0);
+    assert_ne!(second.record_id, first.record_id);
+    assert!(
+        current
+            .get_record(&second.collection, &second.record_id, ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+
+    drop(initial);
+    drop(current);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     let root = std::env::temp_dir().join(format!(
         "objekte-size-maintenance-{}-{}",

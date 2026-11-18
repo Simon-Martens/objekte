@@ -322,7 +322,7 @@ fn run() -> Result<(), String> {
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let observation = repo.construction_observation();
+            let observation = repo.index_observation();
             build_results.push(serde_json::json!({
                 "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
                 "discovery_ns": repo.startup_stats().build_discovery_ns,
