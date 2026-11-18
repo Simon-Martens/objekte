@@ -3162,8 +3162,19 @@ pub(crate) fn search_analyze_segmented(
             return Err(error);
         }
     };
-    let observations =
+    let mut observations =
         crate::query_execution::request::finish_observation_capture(repo.instance_id);
+    if query.options.count
+        && observations
+            .iter()
+            .any(|observation| observation.phase == "ordered_page")
+    {
+        for observation in &mut observations {
+            if observation.phase == "search" {
+                observation.phase = "exact_count".into();
+            }
+        }
+    }
     let collection_candidate_counts =
         observations
             .iter()
