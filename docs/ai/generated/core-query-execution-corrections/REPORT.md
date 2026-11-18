@@ -4,7 +4,7 @@ Date: 18 November 2026
 
 - Reviewed integration tip: `74e569f505b8059aba1befef517c0c58e1e87bc0`
 - Reviewed implementation revision: `f0df3ba68548a4e487556b3cbfcd7f0fba2db590`
-- Delivered implementation revision: `4baa7af067f74f5ffb5772ef641ff0994fc4173f`
+- Delivered implementation revision: `30206e451d73b023aacf5441a53616fec899822d`
 - Delivery branch: `integration/core-query-execution-corrections`
 - Delivery worktree:
   `/home/simon/source/objekte-integration-core-query-execution-corrections`
