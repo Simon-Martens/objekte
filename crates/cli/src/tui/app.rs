@@ -7,6 +7,8 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
 use objekte_search_core::execution_options::{ReturnMode, SortField};
+#[cfg(test)]
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
@@ -22,8 +24,6 @@ use objekte_search_core::repository::{SearchHit, SearchResult};
 use objekte_search_core::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-#[cfg(test)]
-use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 

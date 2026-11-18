@@ -1,11 +1,5 @@
 //! Stable request scope shared by planning and execution.
 
-use crate::query::prepared::PreparedQuery;
-
-pub(crate) struct RequestExecution<'a> {
-    pub(crate) prepared: &'a PreparedQuery,
-}
-
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
@@ -188,6 +182,7 @@ pub(crate) fn cancel_observation_capture(instance_id: u64) {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn record_observation(
     instance_id: u64,
     term: TermId,

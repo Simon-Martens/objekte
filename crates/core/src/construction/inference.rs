@@ -1270,6 +1270,13 @@ impl InferenceBuilder {
         }
     }
 
+    #[cfg_attr(
+        not(test),
+        allow(
+            dead_code,
+            reason = "tested accounting snapshot for inference construction"
+        )
+    )]
     pub(crate) fn build_stats(&self) -> InferenceBuildStats {
         InferenceBuildStats {
             observed_records: self.observed_records,

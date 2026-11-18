@@ -76,6 +76,10 @@ fn selection_key(offer: &AccessOffer, input_len: u64) -> (f64, u8, u8, u8, u32) 
     )
 }
 
+#[allow(
+    dead_code,
+    reason = "retained as the shared access-offer contract validator"
+)]
 pub(crate) fn validate_offer_scope(offer: &AccessOffer) -> AccessResult<()> {
     if offer.term().get() == u32::MAX {
         return Err(AccessError::InvalidDomain(u64::MAX));

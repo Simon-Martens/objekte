@@ -622,6 +622,10 @@ fn combined_file_path_bounds(
 
 /// Conservative local bigram candidates for a lifecycle segment. `None`
 /// means the caller must keep the whole active domain.
+#[allow(
+    dead_code,
+    reason = "retained as the unrestricted form of the active FTS candidate path"
+)]
 pub(crate) fn native_segment_fts_candidates(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -3703,6 +3707,10 @@ impl PreparedFtsAccess<'_, '_> {
         Some(may)
     }
 
+    #[allow(
+        dead_code,
+        reason = "retained as the unrestricted form of checked FTS candidates"
+    )]
     fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {

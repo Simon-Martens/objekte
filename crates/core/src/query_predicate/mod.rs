@@ -1,5 +1,10 @@
 //! Opaque prepared predicate identity and planning properties.
 
+#![allow(
+    dead_code,
+    reason = "the prepared predicate contract retains complete verification and planner metadata"
+)]
+
 use std::collections::HashSet;
 use std::fmt;
 

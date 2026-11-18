@@ -31,6 +31,10 @@ use super::batch::SourceFileInput;
 #[cfg(test)]
 use super::file_preparation::PreparedCollectionBuild;
 
+#[allow(
+    dead_code,
+    reason = "retained as the collection-wide admission reference path"
+)]
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -114,6 +118,10 @@ impl AdmissionBreakdown {
     }
 }
 
+#[allow(
+    dead_code,
+    reason = "retained as the collection-wide admission reference path"
+)]
 impl CollectionAdmission<'_> {
     pub(crate) fn admit_profiled(
         &mut self,

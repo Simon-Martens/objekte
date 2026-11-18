@@ -548,6 +548,10 @@ impl<'a> Delivery<'a> {
         Ok(())
     }
 
+    #[allow(
+        dead_code,
+        reason = "retained as the owned-identity form of page change detection"
+    )]
     pub(crate) fn page_changed(&self, identities: &[(String, String)]) -> bool {
         identities != self.last_page
     }

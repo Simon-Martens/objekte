@@ -1,5 +1,10 @@
 //! Boolean composition over opaque prepared predicate leaves.
 
+#![allow(
+    dead_code,
+    reason = "the planner exposes the complete Boolean traversal contract"
+)]
+
 use crate::query_predicate::PreparedExpr;
 
 pub(crate) fn legal_and_order(expr: &PreparedExpr) -> Vec<usize> {

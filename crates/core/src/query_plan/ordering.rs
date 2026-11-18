@@ -1,5 +1,10 @@
 //! Ordered traversal metadata, independently from predicate membership.
 
+#![allow(
+    dead_code,
+    reason = "the planner exposes ordered traversal metadata independently"
+)]
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum OrderCapability {
     None,

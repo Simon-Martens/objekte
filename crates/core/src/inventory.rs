@@ -1136,6 +1136,7 @@ pub struct CollectionBuilder {
 }
 
 impl CollectionBuilder {
+    #[allow(dead_code, reason = "used by retained collection-wide admission")]
     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
         Ok(RecordSlot(
             u32::try_from(self.records.len()).map_err(|_| "too many records")?,
@@ -1174,6 +1175,7 @@ impl CollectionBuilder {
         Ok(())
     }
 
+    #[allow(dead_code, reason = "used by retained collection-wide admission")]
     pub(crate) fn contains_file(&self, file: FileId) -> bool {
         self.included_files.get(file.0 as usize) == Some(&true)
     }

@@ -1,5 +1,4 @@
 use super::*;
-use objekte_search_core::lifecycle::Index;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 

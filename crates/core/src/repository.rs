@@ -443,6 +443,10 @@ pub struct BuildContributionStorageProfile {
 }
 
 impl BuildContributionStorageProfile {
+    #[allow(
+        dead_code,
+        reason = "retained for complete construction storage profile accounting"
+    )]
     fn observe(&mut self, global: BigramConstructionStats, batch: BigramConstructionStats) {
         self.chunk_element_size = self
             .chunk_element_size
@@ -831,6 +835,10 @@ impl Repository {
         }
     }
 
+    #[allow(
+        dead_code,
+        reason = "retained as the collection-scoped segment read-view adapter"
+    )]
     pub(crate) fn segment_read_views(
         &self,
         collection: CollectionId,
