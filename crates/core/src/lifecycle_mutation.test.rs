@@ -57,6 +57,72 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() {
+    let root = test_root("pinned-same-file-replacement");
+    let path = root.join("data/a.jsonl");
+    std::fs::write(&path, b"{\"id\":\"a\",\"rank\":10}\n").unwrap();
+    let mut definition = intrinsic_definition("items");
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["rank".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let index = Index::build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let old_view = index.view().unwrap();
+    let old_revision = old_view.revision();
+    let old_handle = old_view.file_handle_for_path(&path).unwrap();
+    let query = |filter: &str| Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(old_view.count_exact(&query("rank = 10")).unwrap(), 1);
+    assert_eq!(old_view.count_exact(&query("rank = 2002")).unwrap(), 0);
+
+    std::fs::write(&path, b"{\"id\":\"a\",\"rank\":2002}\n").unwrap();
+    let updated = index.update_file(old_handle, &path).unwrap();
+    let new_view = index.view().unwrap();
+    assert_eq!(updated.revision, old_revision.next().unwrap());
+    assert_eq!(old_view.revision(), old_revision);
+    assert_eq!(new_view.revision(), updated.revision);
+    assert_eq!(old_view.count_exact(&query("rank = 10")).unwrap(), 1);
+    assert_eq!(old_view.count_exact(&query("rank = 2002")).unwrap(), 0);
+    assert_eq!(new_view.count_exact(&query("rank = 10")).unwrap(), 0);
+    assert_eq!(new_view.count_exact(&query("rank = 2002")).unwrap(), 1);
+    assert_eq!(old_view.file_handle_for_path(&path).unwrap(), old_handle);
+    assert_eq!(new_view.file_handle_for_path(&path).unwrap(), updated.file);
+    assert_ne!(updated.file, old_handle);
+
+    drop(new_view);
+    drop(old_view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
     use crate::inference::{InferenceConfig, InferenceMode};
 
