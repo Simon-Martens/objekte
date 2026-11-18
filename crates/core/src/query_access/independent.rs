@@ -381,7 +381,8 @@ impl IndexAccessProvider for SortedBackingProvider {
                 input: observation_input,
                 output: bitmap.iter().collect(),
             });
-        crate::query_execution::request::record_observation(
+        crate::query_execution::request::record_observation_for_execution(
+            execution,
             self.instance_id,
             term,
             self.domain,
@@ -394,6 +395,7 @@ impl IndexAccessProvider for SortedBackingProvider {
             } else {
                 0
             },
+            None,
         );
         let possible = input.replace_slots(SlotSet::from_owned(bitmap));
         Ok(if operation == 0 {

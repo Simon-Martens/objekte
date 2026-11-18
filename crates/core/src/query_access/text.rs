@@ -214,7 +214,8 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         crate::query_access::contract::note_test_application();
         let result = input.replace_slots(slots);
         let output_count = result.len() as u64;
-        crate::query_execution::request::record_observation(
+        crate::query_execution::request::record_observation_for_execution(
+            execution,
             self.instance_id,
             _term,
             self.domain,
@@ -223,6 +224,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
             input_count,
             output_count,
             0,
+            None,
         );
         Ok(Restriction::candidate(result))
     }
@@ -322,7 +324,8 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         crate::query_access::contract::note_test_application();
         let result = input.replace_slots(slots);
         let output_count = result.len() as u64;
-        crate::query_execution::request::record_observation(
+        crate::query_execution::request::record_observation_for_execution(
+            execution,
             self.instance_id,
             _term,
             self.domain,
@@ -331,6 +334,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
             input_count,
             output_count,
             0,
+            None,
         );
         Ok(Restriction::candidate(result))
     }

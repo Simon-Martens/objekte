@@ -1776,6 +1776,9 @@ fn try_lifecycle_ordered_page(
         limit: query.options.limit,
     };
     let _ordered_phase = crate::query_execution::request::observation_phase("ordered_page");
+    if let Some(collector) = context.and_then(|context| context.observation_collector()) {
+        collector.set_phase("ordered_page");
+    }
     let outcome = try_lifecycle_ordered_stream(
         repo,
         &page_query,
@@ -1796,6 +1799,9 @@ fn try_lifecycle_ordered_page(
     let mut count = None;
     if query.options.count {
         let _count_phase = crate::query_execution::request::observation_phase("exact_count");
+        if let Some(collector) = context.and_then(|context| context.observation_collector()) {
+            collector.set_phase("exact_count");
+        }
         let mut count_query = query.clone();
         count_query.options.offset = 0;
         count_query.options.limit = 0;
@@ -1813,6 +1819,9 @@ fn try_lifecycle_ordered_page(
         .map_err(|error| error.message)?;
         counters = counted.counters;
         count = counted.count;
+    }
+    if let Some(collector) = context.and_then(|context| context.observation_collector()) {
+        collector.set_phase("search");
     }
     if query.options.return_mode != ReturnMode::Locator {
         let selected_files = hits.iter().map(|hit| hit.file_id).collect::<HashSet<_>>();
@@ -1858,6 +1867,12 @@ fn search_segmented_impl(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
 ) -> Result<SearchResult, String> {
+    if query.options.count
+        && query.options.limit == 0
+        && let Some(collector) = context.and_then(|context| context.observation_collector())
+    {
+        collector.set_phase("exact_count");
+    }
     let _count_phase = (query.options.count && query.options.limit == 0)
         .then(|| crate::query_execution::request::observation_phase("exact_count"));
     if let Some(context) = context {
@@ -2159,6 +2174,7 @@ fn search_segmented_impl(
                         Some(catalog),
                         &filter_input,
                         Some(&predicates),
+                        context,
                     )
                 })
                 .transpose()?;
@@ -3143,48 +3159,66 @@ pub(crate) fn search_analyze_segmented(
     // strategies.
     let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
     crate::query_execution::request::begin_observation_capture(repo.instance_id);
+    let collector = Arc::new(crate::query_execution::request::ObservationCollector::new());
+    let execution = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        None,
+    )
+    .with_observation_collector(Arc::clone(&collector));
     let cache = LifecycleCacheScope {
         store: &repo.verified,
         instance_id: repo.instance_id,
     };
-    let result = match search_segmented_lifecycle(
+    let result = match search_segmented_with_context_lifecycle(
         repo,
         query,
         base_active,
         segments,
         catalog,
         revision,
+        &execution,
         Some(cache),
     ) {
         Ok(result) => result,
         Err(error) => {
             crate::query_execution::request::cancel_observation_capture(repo.instance_id);
-            return Err(error);
+            return Err(error.message);
         }
     };
-    let mut observations =
-        crate::query_execution::request::finish_observation_capture(repo.instance_id);
-    if query.options.count
-        && observations
-            .iter()
-            .any(|observation| observation.phase == "ordered_page")
-    {
-        for observation in &mut observations {
-            if observation.phase == "search" {
-                observation.phase = "exact_count".into();
-            }
+    let mut observations = collector.take();
+    observations.extend(crate::query_execution::request::finish_observation_capture(
+        repo.instance_id,
+    ));
+    for (node_id, observation) in observations.iter_mut().enumerate() {
+        observation.node_id = node_id as u32;
+    }
+    let authoritative_phase = ["exact_count", "search", "ordered_page"]
+        .into_iter()
+        .find(|phase| {
+            observations
+                .iter()
+                .any(|observation| observation.phase == *phase)
+        });
+    let mut domain_terminal = HashMap::<(u32, String), (u32, u64)>::new();
+    for observation in &observations {
+        if Some(observation.phase.as_str()) != authoritative_phase {
+            continue;
+        }
+        let entry = domain_terminal
+            .entry((observation.collection, observation.domain.clone()))
+            .or_insert((observation.node_id, observation.candidate_records));
+        if observation.node_id >= entry.0 {
+            *entry = (observation.node_id, observation.candidate_records);
         }
     }
-    let collection_candidate_counts =
-        observations
-            .iter()
-            .fold(HashMap::<u32, u64>::new(), |mut counts, observation| {
-                counts
-                    .entry(observation.collection)
-                    .and_modify(|count| *count = (*count).max(observation.candidate_records))
-                    .or_insert(observation.candidate_records);
-                counts
-            });
+    let collection_candidate_counts = domain_terminal.into_iter().fold(
+        HashMap::<u32, u64>::new(),
+        |mut counts, ((collection, _), (_, count))| {
+            *counts.entry(collection).or_default() += count;
+            counts
+        },
+    );
     let collection_actuals = repo
         .collections
         .iter()
@@ -3246,18 +3280,6 @@ pub(crate) fn search_analyze_segmented(
         {
             trace.candidates = *candidates;
             trace.candidates_estimated = false;
-        } else if counters.match_count_complete {
-            trace.candidates = result
-                .count
-                .map(|count| count as u64)
-                .unwrap_or(counters.total_matches);
-            trace.candidates_estimated = false;
-        }
-        if trace.filter_exact && query.fts.is_none() && counters.match_count_complete {
-            trace.candidates = result
-                .count
-                .map(|count| count as u64)
-                .unwrap_or(counters.total_matches);
         }
         return Ok((result, traces));
     }
@@ -3571,6 +3593,7 @@ fn try_lifecycle_ordered_stream(
                         Some(catalog),
                         &active,
                         Some(&predicates),
+                        Some(context),
                     )?;
                     let logical = &segment.active.bitmap() & &segment.index.logical_records;
                     filter_exact[collection_index][segment_index] = bounds.may == bounds.must

@@ -56,7 +56,6 @@ pub(crate) fn emit_provisional_page(
     delivery.check_buffer(
         retained
             .saturating_add(extra_retained)
-            .saturating_add(moved_live_bytes)
             .saturating_add(scratch),
     )?;
     let mut page = ranked.drain(start..end).collect::<Vec<Winner>>();

@@ -16,6 +16,50 @@ use crate::query_access::membership::DomainId;
 use crate::query_diagnostics::trace::{ExecutionObservation, ObservationStatus};
 use crate::query_predicate::TermId;
 
+pub(crate) struct ObservationCollector {
+    state: Mutex<ObservationCollectorState>,
+}
+
+#[derive(Default)]
+struct ObservationCollectorState {
+    observations: Vec<ExecutionObservation>,
+    phase: Option<&'static str>,
+}
+
+impl ObservationCollector {
+    pub(crate) fn new() -> Self {
+        Self {
+            state: Mutex::new(ObservationCollectorState::default()),
+        }
+    }
+
+    pub(crate) fn set_phase(&self, phase: &'static str) {
+        self.state
+            .lock()
+            .expect("observation collector poisoned")
+            .phase = Some(phase);
+    }
+
+    pub(crate) fn record(&self, mut observation: ExecutionObservation) {
+        let mut state = self.state.lock().expect("observation collector poisoned");
+        observation.node_id = state.observations.len() as u32;
+        if let Some(phase) = state.phase {
+            observation.phase = phase.to_owned();
+        }
+        state.observations.push(observation);
+    }
+
+    pub(crate) fn take(&self) -> Vec<ExecutionObservation> {
+        std::mem::take(
+            &mut self
+                .state
+                .lock()
+                .expect("observation collector poisoned")
+                .observations,
+        )
+    }
+}
+
 static ACTIVE_CAPTURES: AtomicUsize = AtomicUsize::new(0);
 static NEXT_CAPTURE: AtomicU64 = AtomicU64::new(1);
 
@@ -205,6 +249,46 @@ pub(crate) fn record_observation_with_kind(
             status: ObservationStatus::Executed,
         },
     );
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn record_observation_for_execution(
+    execution: &crate::query_access::contract::AccessExecution<'_>,
+    instance_id: u64,
+    term: TermId,
+    domain: DomainId,
+    operation: AccessId,
+    collection: u32,
+    input_records: u64,
+    candidate_records: u64,
+    proven_records: u64,
+    access_kind: Option<&str>,
+) {
+    let observation = ExecutionObservation {
+        node_id: 0,
+        phase: "search".into(),
+        term_id: term.get(),
+        term_ids: vec![term.get()],
+        provider_id: operation.provider.0,
+        operation_provider_id: operation.provider.0,
+        operation_id: operation.operation.0,
+        access_kind: access_kind.map(str::to_owned),
+        collection,
+        domain: format!("{domain:?}"),
+        input_records,
+        candidate_records,
+        proven_records,
+        residual_verifications: 0,
+        status: ObservationStatus::Executed,
+    };
+    if let Some(collector) = execution
+        .context
+        .and_then(|context| context.observation_collector())
+    {
+        collector.record(observation);
+    } else {
+        push_observation(instance_id, observation);
+    }
 }
 
 pub(crate) fn record_skipped_observation(

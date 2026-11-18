@@ -2,7 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
@@ -23,9 +23,10 @@ use crate::query_access::contract::{
     IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
     Restriction,
 };
-use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
+use crate::query_access::membership::{SlotInput, SlotSet};
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
+use crate::query_access::segment::NativeSegmentProvider;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
 use crate::reference::{
@@ -45,8 +46,6 @@ pub(crate) struct SegmentCandidateBounds {
     pub may: Arc<RoaringBitmap>,
     pub must: Arc<RoaringBitmap>,
 }
-
-const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
 struct SourceVerificationProvider;
 
@@ -95,157 +94,7 @@ impl IndexAccessProvider for SourceVerificationProvider {
     }
 }
 
-struct NativeSegmentProvider<'a> {
-    segment: &'a IndexedCollectionSegment,
-    collection: &'a CollectionState,
-    file_catalog: Option<&'a FileCatalog>,
-    domain: DomainId,
-    instance_id: u64,
-    operations: Mutex<Vec<TermId>>,
-}
-
-impl<'a> NativeSegmentProvider<'a> {
-    fn new(
-        segment: &'a IndexedCollectionSegment,
-        collection: &'a CollectionState,
-        file_catalog: Option<&'a FileCatalog>,
-    ) -> Self {
-        Self {
-            segment,
-            collection,
-            file_catalog,
-            domain: DomainId::from_parts(
-                collection.repository_instance,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                Some(segment.id.get()),
-            ),
-            instance_id: collection.repository_instance,
-            operations: Mutex::new(Vec::new()),
-        }
-    }
-}
-
-impl IndexAccessProvider for NativeSegmentProvider<'_> {
-    fn provider_id(&self) -> ProviderId {
-        NATIVE_SEGMENT_PROVIDER
-    }
-
-    fn propose(
-        &self,
-        term: TermId,
-        request: AccessRequest<'_>,
-        input: InputEstimate,
-        offers: &mut OfferList,
-    ) -> crate::query_access::contract::AccessResult<()> {
-        if input.domain != self.domain || !matches!(request, AccessRequest::Structured(_)) {
-            return Ok(());
-        }
-        let operation = {
-            let mut operations = self
-                .operations
-                .lock()
-                .expect("segment provider state poisoned");
-            let operation = operations.len();
-            operations.push(term);
-            operation
-        };
-        // Native application reads a prepared posting/column or resident
-        // metadata. Its cardinality is only known after application, so the
-        // offer stays conservative and never claims proof up front.
-        offers.push(AccessOffer::new(
-            AccessId {
-                provider: NATIVE_SEGMENT_PROVIDER,
-                operation: OperationId(operation as u32),
-            },
-            term,
-            AccessKind::SourceScan,
-            Coverage::Input,
-            ProofStrength::None,
-            input.input_len,
-            0.0,
-            input.input_len.max(1) as f64,
-            false,
-            false,
-        ));
-        Ok(())
-    }
-
-    fn apply<'a>(
-        &self,
-        term: TermId,
-        request: AccessRequest<'_>,
-        choice: AccessId,
-        input: SlotInput<'a>,
-        execution: &AccessExecution<'_>,
-    ) -> crate::query_access::contract::AccessResult<Restriction<'a>> {
-        use crate::query_access::contract::AccessError;
-
-        execution.check()?;
-        if choice.provider != NATIVE_SEGMENT_PROVIDER {
-            return Err(AccessError::StaleHandle);
-        }
-        if input.domain() != self.domain {
-            return Err(AccessError::DomainMismatch);
-        }
-        if self
-            .operations
-            .lock()
-            .expect("segment provider state poisoned")
-            .get(choice.operation.0 as usize)
-            != Some(&term)
-        {
-            return Err(AccessError::StaleHandle);
-        }
-        let AccessRequest::Structured(bound) = request else {
-            return Err(AccessError::CapabilityUnavailable);
-        };
-        let input_len = input.len() as u64;
-        if input.is_empty() {
-            return Ok(Restriction::exact(input));
-        }
-        let bounds = {
-            let input_bitmap = input
-                .effective_bitmap()
-                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-            let logical_active = input_bitmap & &self.segment.logical_records;
-            let fallback_active = input_bitmap - &self.segment.logical_records;
-            segment_expr_bounds(
-                self.segment,
-                &BoundExpr::Term(bound.clone()),
-                self.collection,
-                input_bitmap,
-                &logical_active,
-                &fallback_active,
-                self.file_catalog,
-            )
-            .map_err(AccessError::Internal)?
-        };
-        let possible = input.replace_slots(SlotSet::from_shared(bounds.may));
-        let proven = SlotInput::new(
-            self.domain,
-            possible.operation_input(),
-            SlotSet::from_shared(bounds.must),
-        );
-        let output_len = possible.len() as u64;
-        let proven_len = proven.len() as u64;
-        let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
-        crate::query_execution::request::record_observation_with_kind(
-            self.instance_id,
-            term,
-            self.domain,
-            choice,
-            self.collection.generation.collection.0,
-            input_len,
-            output_len,
-            proven_len,
-            Some(access_path_kind_name(access_kind)),
-        );
-        Ok(Restriction::bounds(possible, proven))
-    }
-}
-
-fn segment_access_path_kind(
+pub(crate) fn segment_access_path_kind(
     term: &BoundTerm,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -336,6 +185,7 @@ struct SegmentPlanContext<'a> {
     provider: NativeSegmentProvider<'a>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     predicates: Option<&'a PreparedPredicates>,
+    execution: Option<&'a crate::streaming::ExecutionContext>,
     offers: HashMap<TermId, OfferList>,
     terms: Vec<(BoundTerm, TermId)>,
     next_term: u32,
@@ -347,7 +197,7 @@ impl<'a> SegmentPlanContext<'a> {
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
     ) -> Self {
-        Self::new_with_predicates(segment, collection, file_catalog, None)
+        Self::new_with_predicates(segment, collection, file_catalog, None, None)
     }
 
     fn new_with_predicates(
@@ -355,6 +205,7 @@ impl<'a> SegmentPlanContext<'a> {
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
         predicates: Option<&'a PreparedPredicates>,
+        execution: Option<&'a crate::streaming::ExecutionContext>,
     ) -> Self {
         let test_providers = {
             #[cfg(test)]
@@ -370,6 +221,7 @@ impl<'a> SegmentPlanContext<'a> {
             provider: NativeSegmentProvider::new(segment, collection, file_catalog),
             test_providers,
             predicates,
+            execution,
             offers: HashMap::new(),
             terms: Vec::new(),
             next_term: 0,
@@ -460,15 +312,17 @@ impl<'a> SegmentPlanContext<'a> {
                 AccessRequest::Structured(term),
                 choice.id(),
                 SlotInput::unrestricted(self.provider.domain, input),
-                &AccessExecution { context: None },
+                &AccessExecution {
+                    context: self.execution,
+                },
             )
             .map_err(|error| error.to_string())?;
         let possible = restriction.possible;
-        let may = shared_bitmap_from_slot_input(&possible)?;
+        let may = shared_bitmap_from_slot_input(possible)?;
         let must = match restriction.proven {
             Proven::None => Arc::new(RoaringBitmap::new()),
             Proven::All => Arc::clone(&may),
-            Proven::Subset(proven) => shared_bitmap_from_slot_input(&proven)?,
+            Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
         };
         Ok(SegmentCandidateBounds { may, must })
     }
@@ -495,16 +349,18 @@ impl<'a> SegmentPlanContext<'a> {
     }
 }
 
-fn shared_bitmap_from_slot_input(input: &SlotInput<'_>) -> Result<Arc<RoaringBitmap>, String> {
-    match input.slots() {
-        SlotSet::Unrestricted => input
-            .effective_bitmap()
-            .map(|slots| Arc::new(slots.clone()))
-            .ok_or_else(|| "unrestricted membership lost its input".into()),
+fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Result<Arc<RoaringBitmap>, String> {
+    let unrestricted = input
+        .effective_bitmap()
+        .map(|slots| Arc::new(slots.clone()));
+    match input.into_slots() {
+        SlotSet::Unrestricted => {
+            unrestricted.ok_or_else(|| "unrestricted membership lost its input".into())
+        }
         SlotSet::Empty => Ok(Arc::new(RoaringBitmap::new())),
         SlotSet::Borrowed(slots) => Ok(Arc::new((*slots).clone())),
-        SlotSet::Owned(slots) => Ok(Arc::new(slots.clone())),
-        SlotSet::Shared(slots) => Ok(Arc::clone(slots)),
+        SlotSet::Owned(slots) => Ok(Arc::new(slots)),
+        SlotSet::Shared(slots) => Ok(slots),
     }
 }
 
@@ -597,7 +453,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog(
     input: &RoaringBitmap,
 ) -> Result<SegmentCandidateBounds, String> {
     segment_filter_bounds_with_input_catalog_and_predicates(
-        segment, active, expr, collection, catalog, input, None,
+        segment, active, expr, collection, catalog, input, None, None,
     )
 }
 
@@ -609,6 +465,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     catalog: Option<&FileCatalog>,
     input: &RoaringBitmap,
     predicates: Option<&PreparedPredicates>,
+    execution: Option<&crate::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
@@ -619,8 +476,9 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     }
     let logical_active = input & &segment.logical_records;
     let fallback_active = input - &segment.logical_records;
-    let mut context =
-        SegmentPlanContext::new_with_predicates(segment, collection, catalog, predicates);
+    let mut context = SegmentPlanContext::new_with_predicates(
+        segment, collection, catalog, predicates, execution,
+    );
     segment_expr_bounds_with_context(
         segment,
         expr,
@@ -838,11 +696,11 @@ pub(crate) fn segment_fts_bounds_with_term(
         )
         .map_err(|error| error.to_string())?;
     let possible = applied.possible;
-    let may = shared_bitmap_from_slot_input(&possible)?;
+    let may = shared_bitmap_from_slot_input(possible)?;
     let must = match applied.proven {
         Proven::None => Arc::new(RoaringBitmap::new()),
         Proven::All => Arc::clone(&may),
-        Proven::Subset(proven) => shared_bitmap_from_slot_input(&proven)?,
+        Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
     };
     Ok(SegmentCandidateBounds { may, must })
 }
@@ -1518,7 +1376,7 @@ fn segment_expr_bounds_with_context(
     })
 }
 
-fn segment_expr_bounds(
+pub(crate) fn segment_expr_bounds(
     segment: &IndexedCollectionSegment,
     expr: &BoundExpr,
     collection: &CollectionState,

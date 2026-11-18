@@ -87,6 +87,7 @@ pub struct ExecutionContext {
     cancellation: Option<CancellationToken>,
     accounting: Arc<ExecutionAccounting>,
     active: Option<Arc<Vec<crate::inventory::ActiveRecords>>>,
+    observations: Option<Arc<crate::query_execution::request::ObservationCollector>>,
 }
 
 impl ExecutionContext {
@@ -101,7 +102,23 @@ impl ExecutionContext {
             cancellation,
             accounting: Arc::new(ExecutionAccounting::default()),
             active: None,
+            observations: None,
         }
+    }
+
+    pub(crate) fn with_observation_collector(
+        &self,
+        observations: Arc<crate::query_execution::request::ObservationCollector>,
+    ) -> Self {
+        let mut scoped = self.clone();
+        scoped.observations = Some(observations);
+        scoped
+    }
+
+    pub(crate) fn observation_collector(
+        &self,
+    ) -> Option<&Arc<crate::query_execution::request::ObservationCollector>> {
+        self.observations.as_ref()
     }
 
     pub(crate) fn with_active(&self, active: &[crate::inventory::ActiveRecords]) -> Self {

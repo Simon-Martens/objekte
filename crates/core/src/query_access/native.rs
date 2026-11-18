@@ -253,7 +253,8 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         };
         let result = input.replace_slots(slots);
         let output_count = result.len() as u64;
-        crate::query_execution::request::record_observation(
+        crate::query_execution::request::record_observation_for_execution(
+            execution,
             self.repo.map_or(0, |repo| repo.instance_id),
             term,
             self.domain,
@@ -262,6 +263,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             input_count,
             output_count,
             if path.exact { output_count } else { 0 },
+            None,
         );
         Ok(if path.exact {
             Restriction::exact(result)
