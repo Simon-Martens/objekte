@@ -375,13 +375,13 @@ impl<'a> SegmentPlanContext<'a> {
             )
             .map_err(|error| error.to_string())?;
         let possible = restriction.possible;
-        let may = bitmap_from_slot_input(&possible)?;
+        let may = shared_bitmap_from_slot_input(&possible)?;
         let must = match restriction.proven {
-            Proven::None => RoaringBitmap::new(),
-            Proven::All => may.clone(),
-            Proven::Subset(proven) => bitmap_from_slot_input(&proven)?,
+            Proven::None => Arc::new(RoaringBitmap::new()),
+            Proven::All => Arc::clone(&may),
+            Proven::Subset(proven) => shared_bitmap_from_slot_input(&proven)?,
         };
-        Ok(SegmentCandidateBounds::bounds(may, must))
+        Ok(SegmentCandidateBounds { may, must })
     }
 
     fn record_skipped_expr(&mut self, expr: &BoundExpr) {
@@ -406,16 +406,16 @@ impl<'a> SegmentPlanContext<'a> {
     }
 }
 
-fn bitmap_from_slot_input(input: &SlotInput<'_>) -> Result<RoaringBitmap, String> {
+fn shared_bitmap_from_slot_input(input: &SlotInput<'_>) -> Result<Arc<RoaringBitmap>, String> {
     match input.slots() {
         SlotSet::Unrestricted => input
             .effective_bitmap()
-            .map(|slots| slots.clone())
+            .map(|slots| Arc::new(slots.clone()))
             .ok_or_else(|| "unrestricted membership lost its input".into()),
-        SlotSet::Empty => Ok(RoaringBitmap::new()),
-        SlotSet::Borrowed(slots) => Ok((*slots).clone()),
-        SlotSet::Owned(slots) => Ok(slots.clone()),
-        SlotSet::Shared(slots) => Ok(slots.as_ref().clone()),
+        SlotSet::Empty => Ok(Arc::new(RoaringBitmap::new())),
+        SlotSet::Borrowed(slots) => Ok(Arc::new((*slots).clone())),
+        SlotSet::Owned(slots) => Ok(Arc::new(slots.clone())),
+        SlotSet::Shared(slots) => Ok(Arc::clone(slots)),
     }
 }
 
