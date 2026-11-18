@@ -1,12 +1,28 @@
 //! Correctly configured empty repository state.
 
-use std::sync::Mutex;
+use std::collections::{HashMap, HashSet};
+use std::path::PathBuf;
+use std::sync::{Arc, Mutex};
+use std::time::Instant;
 
-use super::*;
-use crate::inventory::ActiveRecords;
-use crate::lifecycle::IndexRevision;
+use roaring::RoaringBitmap;
+
+use crate::bigram::BigramContribution;
+use crate::inference::{InferenceBuildStats, InferenceBuilder};
+use crate::inventory::{
+    ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
+};
+use crate::lifecycle::{IndexError, IndexRevision};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::repository::*;
+use crate::model::{CollectionId, RecordId, RecordSlot};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::relation::RelationContribution;
+use crate::repository::{
+    BuildProfileStats, CollectionDefinition, CollectionState, CollectionStats,
+    GlobalInferenceSummary, Repository, RepositoryOptions, StartupStats, build_profile_rss_bytes,
+    canonical_custom_text_key, finish_fresh_fingerprints, next_repository_instance,
+};
+use crate::sorting::SortBuilder;
 use crate::source::SourceRegistry;
 
 pub(crate) fn initialize_empty(
@@ -14,6 +30,7 @@ pub(crate) fn initialize_empty(
     definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
     sources: &SourceRegistry,
+    pool: Option<&rayon::ThreadPool>,
 ) -> Result<Repository, String> {
     let configuration_identity =
         crate::configuration::configuration_hash(&definitions, options, sources)?;
@@ -22,11 +39,19 @@ pub(crate) fn initialize_empty(
         std::thread::available_parallelism().ok(),
     )?;
     let files = Arc::new(FileInventory::new(root));
-    let empty_pool = rayon::ThreadPoolBuilder::new()
-        .num_threads(1)
-        .thread_name(|index| format!("objekte-empty-{index}"))
-        .build()
-        .map_err(|error| error.to_string())?;
+    let fallback_pool = pool
+        .is_none()
+        .then(|| {
+            rayon::ThreadPoolBuilder::new()
+                .num_threads(1)
+                .thread_name(|index| format!("objekte-empty-{index}"))
+                .build()
+                .map_err(|error| error.to_string())
+        })
+        .transpose()?;
+    let empty_pool = pool
+        .or(fallback_pool.as_ref())
+        .expect("empty construction pool is always available");
     let collection_count = definitions.len();
     let mut collections = Vec::with_capacity(collection_count);
     let mut pending_relations = Vec::with_capacity(collection_count);
@@ -61,9 +86,9 @@ pub(crate) fn initialize_empty(
             })
             .collect();
         let raw =
-            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(&empty_pool)?;
+            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(empty_pool)?;
         let fallback_text =
-            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(&empty_pool)?;
+            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(empty_pool)?;
         let custom_text = definition
             .schema
             .custom
@@ -80,7 +105,7 @@ pub(crate) fn initialize_empty(
             )
             .map(|key| {
                 BigramContribution::new(options.bigram_alphabet)
-                    .into_index_in_pool(&empty_pool)
+                    .into_index_in_pool(empty_pool)
                     .map(|index| {
                         (
                             canonical_custom_text_key(&definition.schema, &key.0, &key.1),
@@ -186,4 +211,363 @@ pub(crate) fn initialize_empty(
             crate::sorting::INFERRED_ORDER_CACHE_BYTES,
         )),
     })
+}
+struct SegmentMetadata {
+    generation: CollectionGeneration,
+    id_lookup: HashMap<RecordId, RecordSlot>,
+    identity_order: Vec<RecordSlot>,
+    stats: CollectionStats,
+    logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
+}
+
+fn segment_metadata_generation(
+    collection: CollectionId,
+    name: &str,
+    segments: &[Arc<crate::native_segment::PublishedSegment>],
+    files: &mut FileInventory,
+    relations: &mut [RelationContribution],
+) -> Result<SegmentMetadata, String> {
+    let mut builder = CollectionBuilder::new(collection, name.to_owned(), 1, files.files.len());
+    let mut file_set = HashSet::new();
+    let mut record_count = 0usize;
+    let mut logical_records = RoaringBitmap::new();
+    let mut empty_array_records = RoaringBitmap::new();
+    for segment in segments {
+        let base = u32::try_from(record_count).map_err(|_| "too many segment records")?;
+        let segment_count =
+            u32::try_from(segment.index.records.len()).map_err(|_| "too many segment records")?;
+        if relations.len() != segment.index.relations.len() {
+            return Err("segment relation coverage mismatch".into());
+        }
+        for (global, local) in relations
+            .iter_mut()
+            .zip(segment.index.relations.iter().cloned())
+        {
+            global.merge_shifted(local, base, segment_count)?;
+        }
+        for slot in &segment.index.logical_records {
+            logical_records.insert(
+                base.checked_add(slot)
+                    .ok_or("logical record slot overflow")?,
+            );
+        }
+        for slot in &segment.index.empty_array_records {
+            empty_array_records.insert(
+                base.checked_add(slot)
+                    .ok_or("empty-array record slot overflow")?,
+            );
+        }
+        for segment_file in &segment.index.files {
+            if file_set.insert(segment_file.entry.id) {
+                builder.include_file(segment_file.entry.id)?;
+            }
+        }
+        for record in &segment.index.records {
+            let file = files
+                .files
+                .get_mut(record.file.0 as usize)
+                .ok_or("segment metadata file missing")?;
+            if record.class == RecordClass::Logical {
+                builder.add_record(
+                    file,
+                    record.id.clone(),
+                    record.range.start,
+                    record.range.end,
+                )?;
+            } else {
+                let segment_file = segment
+                    .index
+                    .file(record.file)
+                    .ok_or("fallback segment file missing")?;
+                let Some(local) = record.diagnostic_ref.stored_index() else {
+                    builder.add_raw_fallback(
+                        file,
+                        record.id.clone(),
+                        record.range,
+                        record.diagnostic_ref,
+                    )?;
+                    record_count += 1;
+                    continue;
+                };
+                let diagnostic = segment_file
+                    .entry
+                    .diagnostics
+                    .get(local)
+                    .ok_or("fallback diagnostic missing")?
+                    .clone();
+                let existing = file.diagnostics.iter().position(|candidate| {
+                    let mut candidate = candidate.clone();
+                    candidate.record = None;
+                    let mut diagnostic = diagnostic.clone();
+                    diagnostic.record = None;
+                    candidate == diagnostic
+                });
+                if existing.is_none() && file.omitted_diagnostics != 0 {
+                    builder.add_raw_fallback(
+                        file,
+                        record.id.clone(),
+                        record.range,
+                        crate::inventory::DiagnosticRef(u32::MAX),
+                    )?;
+                    record_count += 1;
+                    continue;
+                }
+                let global = existing.unwrap_or_else(|| {
+                    let index = file.diagnostics.len();
+                    file.diagnostics.push(diagnostic);
+                    index
+                });
+                let reference = crate::inventory::DiagnosticRef(
+                    u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
+                );
+                let slot =
+                    builder.add_raw_fallback(file, record.id.clone(), record.range, reference)?;
+                file.diagnostics[global].record = Some(slot);
+            }
+            record_count += 1;
+        }
+    }
+    let generation = builder.finish(files)?;
+    let id_lookup = generation
+        .records
+        .iter()
+        .map(|record| (record.id.clone(), record.slot))
+        .collect::<HashMap<_, _>>();
+    let mut identity_order = generation
+        .records
+        .iter()
+        .map(|record| record.slot)
+        .collect::<Vec<_>>();
+    identity_order.sort_by(|left, right| {
+        generation.records[left.0 as usize]
+            .id
+            .cmp(&generation.records[right.0 as usize].id)
+    });
+    let stats = CollectionStats {
+        file_count: file_set.len(),
+        record_count,
+        total_file_bytes: file_set
+            .iter()
+            .map(|file| {
+                files
+                    .files
+                    .get(file.0 as usize)
+                    .map_or(0, |entry| entry.revision.size)
+            })
+            .sum(),
+    };
+    Ok(SegmentMetadata {
+        generation,
+        id_lookup,
+        identity_order,
+        stats,
+        logical_records,
+        empty_array_records,
+    })
+}
+
+pub(crate) struct FinalCollectionObservation {
+    pub(crate) id: CollectionId,
+    pub(crate) definition: Arc<CollectionDefinition>,
+    pub(crate) records: u64,
+    pub(crate) observed_batches: u64,
+}
+
+impl FinalCollectionObservation {
+    fn finish_summary(
+        &self,
+        options: RepositoryOptions,
+    ) -> Result<(Option<GlobalInferenceSummary>, InferenceBuildStats), String> {
+        Ok((
+            None,
+            if options.inference.mode == crate::inference::InferenceMode::Disabled {
+                InferenceBuildStats::default()
+            } else {
+                InferenceBuildStats {
+                    observed_records: self.records,
+                    merged_batches: self.observed_batches,
+                    ..Default::default()
+                }
+            },
+        ))
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn assemble_final_repository(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    sources: SourceRegistry,
+    pool: &rayon::ThreadPool,
+    index: &crate::lifecycle::Index,
+    discovered: Arc<FileInventory>,
+    digest_bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
+    pending: &[FinalCollectionObservation],
+    build_parses: u64,
+    failed_parses: u64,
+    source_reads: u64,
+    source_bytes_read: u64,
+    schedule_stats: crate::build::BuildScheduleStats,
+    build_workers: usize,
+    peak_segment_jobs: usize,
+    peak_segment_window: usize,
+    publication_ns: u64,
+    discovery_ns: u64,
+    extraction_index_ns: u64,
+    started: Instant,
+    mut profile: Option<BuildProfileStats>,
+) -> Result<Repository, crate::lifecycle::IndexError> {
+    let finalization_started = crate::detailed_timer::DetailedInstant::now();
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let base_fingerprints =
+        finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let mut final_repository = crate::construction::repository_state::initialize_empty(
+        root,
+        definitions,
+        options,
+        &sources,
+        Some(pool),
+    )
+    .map_err(IndexError::Build)?;
+    final_repository.base_fingerprints = base_fingerprints;
+    final_repository.build_parses = build_parses;
+    final_repository.build_failed_parses = failed_parses;
+    let mut inference_build = InferenceBuildStats::default();
+    let segment_view = index.view()?;
+    let mut final_files = (*discovered).clone();
+    let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
+    for file in &mut final_files.files {
+        if let Some(current) = segment_view.file_entry(file.id) {
+            file.status = current.status;
+            file.omitted_diagnostics = current.omitted_diagnostics;
+            for diagnostic in &current.diagnostics {
+                if !file.diagnostics.iter().any(|candidate| {
+                    let mut candidate = candidate.clone();
+                    candidate.record = None;
+                    let mut diagnostic = diagnostic.clone();
+                    diagnostic.record = None;
+                    candidate == diagnostic
+                }) {
+                    file.diagnostics.push(diagnostic.clone());
+                }
+            }
+        }
+    }
+    for (collection, state) in final_repository.collections.iter_mut().zip(pending) {
+        let segments = segment_view
+            .segments(state.id)
+            .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
+        let mut relations = RelationContribution::for_schema(&state.definition.schema);
+        let metadata = crate::construction::repository_state::segment_metadata_generation(
+            state.id,
+            &state.definition.name,
+            segments,
+            &mut final_files,
+            &mut relations,
+        )
+        .map_err(IndexError::Build)?;
+        collection.generation = metadata.generation;
+        collection.id_lookup = metadata.id_lookup;
+        collection.identity_order = metadata.identity_order;
+        collection.stats = metadata.stats;
+        collection.logical_records = metadata.logical_records;
+        collection.empty_array_records = metadata.empty_array_records;
+        if let Some(first) = segments.first() {
+            // Sort bindings need locale/options/direction metadata before
+            // segment-local columns can be selected. Keys remain owned by
+            // their source segments and are never addressed through this
+            // compatibility header.
+            collection.sorting = first.index.sorting.clone();
+            for column in collection.sorting.columns.values_mut() {
+                column.keys.clear();
+                column.keys.shrink_to_fit();
+                column.ascending.clear();
+                column.ascending.shrink_to_fit();
+                column.descending.clear();
+                column.descending.shrink_to_fit();
+            }
+            for composite in &mut collection.sorting.composites {
+                composite.order.clear();
+                composite.order.shrink_to_fit();
+            }
+        }
+        pending_relations.push(relations);
+        let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
+        collection.global_inference = crate::inference::build::aggregate_segment_inference(
+            options.inference,
+            &collection.definition.schema,
+            segments,
+            &collection.definition.name,
+        )
+        .map_err(IndexError::Build)?;
+        inference_build.absorb(stats);
+    }
+    for (source_index, contributions) in pending_relations.into_iter().enumerate() {
+        let source = final_repository.collections[source_index]
+            .generation
+            .collection;
+        for contribution in &contributions {
+            let logical_count = final_repository.collections[source_index]
+                .logical_records
+                .len() as u32;
+            if let Some(posting) = final_repository.collections[source_index]
+                .postings
+                .fields
+                .get_mut(&contribution.declaration().path)
+            {
+                posting.presence = contribution.presence().clone();
+                posting.values = contribution.reverse_postings();
+                posting.value_complete = true;
+                posting.covered_records = logical_count;
+            }
+        }
+        let indexes = contributions
+            .into_iter()
+            .enumerate()
+            .map(|(ordinal, contribution)| {
+                contribution.resolve(
+                    source,
+                    u32::try_from(ordinal).map_err(|_| "too many relations")?,
+                    &final_repository.collections,
+                )
+            })
+            .collect::<Result<Vec<_>, _>>()
+            .map_err(IndexError::Build)?;
+        final_repository.collections[source_index].relations = indexes;
+    }
+    crate::relation::validate_indexes(&final_repository.collections).map_err(IndexError::Build)?;
+    final_repository.files = Arc::new(final_files);
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.finalize_generation_ns = started.elapsed().as_nanos() as u64;
+        profile.finalization_rss_bytes = build_profile_rss_bytes();
+    }
+    final_repository.startup = StartupStats {
+        build_ns: started.elapsed().as_nanos() as u64,
+        build_discovery_ns: discovery_ns,
+        build_extraction_index_ns: extraction_index_ns,
+        build_publication_ns: publication_ns,
+        build_finalization_ns: finalization_started.elapsed().as_nanos() as u64,
+        build_workers,
+        build_source_reads: source_reads.saturating_add(schedule_stats.source_reads),
+        build_source_bytes_read: source_bytes_read.saturating_add(schedule_stats.source_bytes_read),
+        peak_build_admitted_bytes: schedule_stats.peak_weight_bytes,
+        build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
+        build_peak_active_jobs: schedule_stats.peak_active_jobs,
+        build_peak_ready_batches: schedule_stats.peak_ready_batches,
+        build_peak_segment_jobs: peak_segment_jobs,
+        build_peak_segment_window: peak_segment_window,
+        build_job_execution_ns: schedule_stats.job_execution_ns,
+        build_receive_wait_ns: schedule_stats.receive_wait_ns,
+        build_admission_ns: schedule_stats.admission_ns,
+        inference_build,
+        build_profile: profile,
+        ..StartupStats::default()
+    };
+    Ok(final_repository)
 }

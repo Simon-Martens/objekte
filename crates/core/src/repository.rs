@@ -1593,6 +1593,7 @@ impl Repository {
                 .collect(),
             self.options,
             &self.sources,
+            None,
         )?;
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {
             target.global_inference = source.global_inference.clone().or_else(|| {

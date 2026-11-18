@@ -5,7 +5,6 @@ use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::inventory::SourceRevision;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::native_segment::SegmentPolicy;
@@ -21,30 +20,19 @@ fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> 
     Ok(())
 }
 
-fn index_signature(repo: &IndexView) -> Result<String, String> {
+fn index_signature(index: &IndexedRepository, view: &IndexView) -> Result<String, String> {
     let mut hash = Sha256::new();
-    for file in repo.catalogue_rows() {
+    for file in &index.files().files {
         hash_value(&mut hash, &file.id)?;
         hash_value(&mut hash, &file.relative_path.to_path_buf())?;
-        hash_value(
-            &mut hash,
-            &SourceRevision {
-                modified_ns: file.modified_ns,
-                size: file.size,
-            },
-        )?;
+        hash_value(&mut hash, &file.revision)?;
         hash_value(&mut hash, &file.collections)?;
-        hash_value(
-            &mut hash,
-            &repo
-                .file_status(file.id)
-                .ok_or("catalogue row has no status")?,
-        )?;
+        hash_value(&mut hash, &file.status)?;
     }
-    for collection in repo.collection_definitions() {
-        hash_value(&mut hash, &collection.name)?;
+    for collection in index.collections() {
+        hash_value(&mut hash, &collection.definition.name)?;
     }
-    hash_value(&mut hash, &repo.native_index_signature())?;
+    hash_value(&mut hash, &view.native_index_signature())?;
     Ok(format!("{:x}", hash.finalize()))
 }
 
@@ -189,7 +177,7 @@ fn run() -> Result<(), String> {
             });
     let resident_bytes = memory_bytes("VmRSS:");
     let peak_resident_bytes = memory_bytes("VmHWM:");
-    let index_signature_sha256 = index_signature(&repo)?;
+    let index_signature_sha256 = index_signature(&index, &repo)?;
     println!(
         "{}",
         serde_json::json!({

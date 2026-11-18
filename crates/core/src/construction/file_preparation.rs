@@ -5,8 +5,6 @@ use std::io::{BufRead, BufReader, Cursor, Read};
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::Arc;
-#[cfg(feature = "detailed-profiling")]
-use std::sync::atomic::AtomicU64;
 use std::sync::atomic::Ordering;
 use std::sync::mpsc;
 
@@ -24,7 +22,10 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
-use super::*;
+use super::{
+    BatchBuilder, BatchContribution, BatchFile, BuildScheduleStats, JobCounters, SourceFileInput,
+    fits_allowance, process_batch,
+};
 
 /// A file's eligible collection bindings, resolved by discovery before I/O.
 /// Preparation performs no publication and never changes source files.

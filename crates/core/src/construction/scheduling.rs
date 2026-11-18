@@ -11,7 +11,6 @@ use std::sync::mpsc;
 
 use rayon::ThreadPool;
 use serde::Serialize;
-use sha2::Digest;
 
 use crate::bigram::storage_diagnostic_enabled;
 use crate::inference::InferenceConfig;
@@ -20,7 +19,7 @@ use crate::repository::CollectionDefinition;
 use crate::source::PreparedSource;
 use crate::workload::BigramAlphabet;
 
-use super::*;
+use super::{BatchContribution, SourceFileInput, process_batch_profiled};
 
 /// Resolve a fresh build's worker policy independently of query workers.
 /// Injecting detection makes the quota/failure cases deterministic in tests.

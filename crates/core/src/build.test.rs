@@ -1,14 +1,17 @@
 use super::*;
 use crate::bigram::BigramIndex;
-use crate::inventory::{ByteRange, SourceRevision};
-use crate::model::{FieldPath, LogicalType, Value};
+use crate::inference::InferenceConfig;
+use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
+use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
-use crate::repository::{IdentityPolicy, RepositoryOptions};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::{ExtractedRecord, SourceFormat, TextSegment};
+use crate::workload::BigramAlphabet;
 use crate::workload::ReturnMode;
-use sha2::Sha256;
+use sha2::{Digest, Sha256};
 use std::num::NonZeroUsize;
+use std::sync::Arc;
 use std::time::Instant;
 
 /// Diagnostic prototype for a direct batch-to-shard fresh build. This only

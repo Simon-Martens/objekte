@@ -1,15 +1,11 @@
 //! Owned record-batch construction and admission contributions.
 
 use std::collections::HashMap;
-use std::io::Read;
 use std::ops::Range;
 use std::path::Path;
-#[cfg(feature = "detailed-profiling")]
-use std::sync::atomic::AtomicU64;
 
 use roaring::RoaringBitmap;
 use serde::Serialize;
-use sha2::Digest;
 
 use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
 use crate::inference::{InferenceBuilder, InferenceConfig};

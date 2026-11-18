@@ -322,76 +322,22 @@ fn run() -> Result<(), String> {
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let estimated_index_bytes: usize = index
-                .collections()
-                .iter()
-                .map(|c| {
-                    c.raw.estimated_heap_bytes()
-                        + c.custom_text
-                            .values()
-                            .map(|i| i.estimated_heap_bytes())
-                            .sum::<usize>()
-                        + c.postings
-                            .fields
-                            .values()
-                            .map(|p| {
-                                p.values
-                                    .values()
-                                    .map(|s| s.serialized_size() as usize)
-                                    .sum::<usize>()
-                                    + p.lengths
-                                        .values()
-                                        .map(|s| s.serialized_size() as usize)
-                                        .sum::<usize>()
-                            })
-                            .sum::<usize>()
-                        + c.sorting
-                            .columns
-                            .values()
-                            .map(|s| {
-                                s.keys
-                                    .iter()
-                                    .map(|k| match k {
-                                        objekte_search_core::sorting::SortKey::String(v) => v.len(),
-                                        _ => 24,
-                                    })
-                                    .sum::<usize>()
-                            })
-                            .sum::<usize>()
-                })
-                .sum();
-            let (bigram_store_count, distinct_gram_keys) =
-                index
-                    .collections()
-                    .iter()
-                    .fold((0usize, 0usize), |total, collection| {
-                        std::iter::once(&collection.raw)
-                            .chain(std::iter::once(&collection.fallback_text))
-                            .chain(collection.custom_text.values())
-                            .fold(total, |(stores, keys), index| {
-                                (stores + 1, keys + index.normal.len() + index.skip.len())
-                            })
-                    });
-            let (inventory_heap_bytes, diagnostic_heap_bytes) =
-                index.files().estimated_heap_bytes();
-            let relations = index
-                .collections()
-                .iter()
-                .flat_map(|collection| &collection.relations)
-                .collect::<Vec<_>>();
+            let observation = repo.construction_observation();
             build_results.push(serde_json::json!({
                 "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
                 "discovery_ns": repo.startup_stats().build_discovery_ns,
                 "extraction_index_ns": repo.startup_stats().build_extraction_index_ns,
                 "finalization_ns": repo.startup_stats().build_finalization_ns,
                 "build_parses": repo.build_parses(), "failed_parses": repo.build_failed_parses(),
-                "inventory_heap_bytes": inventory_heap_bytes, "diagnostic_heap_bytes": diagnostic_heap_bytes,
+                "inventory_heap_bytes": observation.inventory_heap_bytes,
+                "diagnostic_heap_bytes": observation.diagnostic_heap_bytes,
                 "resident_bytes": memory_bytes, "peak_resident_bytes": peak_resident_bytes,
-                "estimated_index_bytes": estimated_index_bytes,
-                "bigram_store_count": bigram_store_count, "distinct_gram_keys": distinct_gram_keys,
-                "relation_count": relations.len(),
-                "relation_edges": relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),
-                "relation_heap_bytes": relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),
+                "estimated_index_bytes": repo.estimated_index_bytes(),
+                "bigram_store_count": observation.bigram_stores,
+                "distinct_gram_keys": observation.distinct_gram_keys,
+                "relation_count": observation.relation_count,
+                "relation_edges": observation.relation_edges,
+                "relation_heap_bytes": observation.relation_heap_bytes,
             }));
             if registrations.is_empty() {
                 registrations = index.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
