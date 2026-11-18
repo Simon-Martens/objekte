@@ -22,7 +22,7 @@ use crate::index::sorting::SortCollection;
 use crate::inference::{InferenceObservation, InferenceState};
 use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
 
 const ACCOUNTING_OVERHEAD: usize = 48;

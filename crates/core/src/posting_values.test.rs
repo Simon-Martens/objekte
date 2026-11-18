@@ -309,8 +309,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
+    use crate::lifecycle::catalog::FileCatalog;
     use crate::lifecycle::{IndexRevision, PublishedSegment};
-    use crate::lifecycle_catalog::FileCatalog;
     use crate::model::{CollectionId, FileId};
     for (name, body) in [
         ("07", r#"{"code":"A1"}"#),

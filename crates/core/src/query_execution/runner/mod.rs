@@ -18,8 +18,8 @@ use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexRevision, PublishedSegment};
-use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 #[cfg(test)]

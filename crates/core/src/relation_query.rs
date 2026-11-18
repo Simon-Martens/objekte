@@ -9,7 +9,7 @@ use crate::index::relation::RelationTarget;
 use crate::index::segment::{SegmentId, SegmentRecordAddress};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::PublishedSegment;
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Quantifier;

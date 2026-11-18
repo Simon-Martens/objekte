@@ -15,8 +15,8 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::index::segment::IndexedCollectionSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
+    use crate::lifecycle::catalog::FileCatalog;
     use crate::lifecycle::{IndexRevision, PublishedSegment};
-    use crate::lifecycle_catalog::FileCatalog;
     use crate::model::{CollectionId, FileId};
 
     fn stage(
@@ -569,7 +569,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
 fn merged_relation_walker_matches_static_reference_semantics() {
     use crate::inventory::ActiveRecords;
     use crate::lifecycle::IndexRevision;
-    use crate::lifecycle_catalog::FileCatalog;
+    use crate::lifecycle::catalog::FileCatalog;
 
     let (root, definitions) = fixture();
     let repo = Arc::new(

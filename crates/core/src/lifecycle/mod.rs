@@ -27,10 +27,14 @@ use crate::inventory::{FileEntry, FileStatus, FileVersions};
 use crate::model::{CollectionId, FileId};
 use crate::repository::{Repository, SearchResult};
 
+pub(crate) mod catalog;
+pub mod initial;
+pub mod maintenance;
+pub mod mutation;
+mod reconciliation;
+
 pub use crate::inventory::FileVersion;
-pub use crate::lifecycle_initial::{
-    InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus, InitialBuildTask,
-};
+pub use initial::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus, InitialBuildTask};
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_SPARSE_SEGMENT_BYTES: usize = 32 * 1024 * 1024;
@@ -297,7 +301,7 @@ pub struct MaintenanceProgress {
 
 #[derive(Clone, Debug)]
 pub enum MaintenanceReport {
-    Compact(crate::lifecycle_compaction::CompactionReport),
+    Compact(crate::lifecycle::maintenance::compaction::CompactionReport),
     Rebuild(RebuildReport),
 }
 
@@ -1648,7 +1652,7 @@ impl Index {
         cancelled: impl Fn() -> bool,
         mut on_progress: impl FnMut(&ReconciliationReport),
     ) -> ReconciliationReport {
-        use crate::lifecycle_scan::{ScanChange, scan_sources_batched};
+        use crate::lifecycle::reconciliation::scan::{ScanChange, scan_sources_batched};
 
         let started = Instant::now();
         let mut report = ReconciliationReport::default();
@@ -1764,9 +1768,9 @@ impl Index {
         &self,
         snapshot: &IndexView,
         root: &Path,
-        change: crate::lifecycle_scan::ScanChange,
+        change: crate::lifecycle::reconciliation::scan::ScanChange,
     ) -> Result<(), IndexError> {
-        use crate::lifecycle_scan::ScanChange;
+        use crate::lifecycle::reconciliation::scan::ScanChange;
         match change {
             ScanChange::Add(observed) => {
                 let prepared = self.prepare_add_file(&observed.path)?;

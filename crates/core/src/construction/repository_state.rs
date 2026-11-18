@@ -15,8 +15,8 @@ use crate::inference::{InferenceBuildStats, InferenceBuilder};
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
 };
+use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexError, IndexRevision};
-use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, RecordId, RecordSlot};
 use crate::repository::{
     BuildProfileStats, CollectionDefinition, CollectionState, CollectionStats,

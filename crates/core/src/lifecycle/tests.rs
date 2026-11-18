@@ -773,7 +773,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(
         moved.strategy,
-        crate::lifecycle_mutation::FileMutationStrategy::ContentPreservingMove
+        crate::lifecycle::mutation::FileMutationStrategy::ContentPreservingMove
     );
     let live = index.view().unwrap();
     let hit = live

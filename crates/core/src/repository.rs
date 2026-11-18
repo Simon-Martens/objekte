@@ -22,8 +22,8 @@ use crate::inference::{
 use crate::inventory::{
     ActiveRecords, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
 };
+use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexRevision, PublishedSegment};
-use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::query::Query;

@@ -10,7 +10,7 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
+use objekte_search_core::lifecycle::mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};

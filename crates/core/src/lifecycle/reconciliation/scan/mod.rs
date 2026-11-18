@@ -348,5 +348,4 @@ pub(crate) fn scan_sources_batched(
 }
 
 #[cfg(test)]
-#[path = "lifecycle_scan.test.rs"]
 mod tests;

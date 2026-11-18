@@ -6,11 +6,11 @@ use std::time::{Duration, Instant};
 
 use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
+use crate::lifecycle::catalog::FileCatalog;
+use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
-use crate::lifecycle_catalog::FileCatalog;
-use crate::lifecycle_partition::compact_source_parts_with_policy;
 use crate::repository::CollectionState;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until
@@ -396,6 +396,6 @@ impl Index {
     }
 }
 
+pub mod partition;
 #[cfg(test)]
-#[path = "lifecycle_compaction.test.rs"]
 mod tests;

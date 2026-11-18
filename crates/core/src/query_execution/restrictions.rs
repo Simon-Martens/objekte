@@ -13,7 +13,7 @@ use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceRevision, relative_path_bounds,
 };
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{
     FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
@@ -1367,7 +1367,7 @@ fn segment_expr_bounds_with_context(
                 let fused_ids = indices
                     .iter()
                     .filter_map(|index| match flattened[*index] {
-                        BoundExpr::Term(term) => Some(context.term_id(term)),
+                        BoundExpr::Term(term) => Some(context.term_id(&term)),
                         _ => None,
                     })
                     .collect::<Vec<_>>();

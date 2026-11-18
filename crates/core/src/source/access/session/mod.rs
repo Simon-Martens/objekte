@@ -4,7 +4,7 @@ use roaring::RoaringBitmap;
 use std::path::Path;
 
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::model::FileId;
 
 use super::RecordRangeReader;

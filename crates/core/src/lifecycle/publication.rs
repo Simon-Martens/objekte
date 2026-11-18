@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::repository::Repository;
 
 use super::{
@@ -394,7 +394,7 @@ impl PublishedIndex {
                 .max();
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
-                let replacements = crate::lifecycle_partition::compact_source_parts_with_policy(
+                let replacements = crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy(
                     &old.index,
                     &old.active,
                     &self.catalog,
