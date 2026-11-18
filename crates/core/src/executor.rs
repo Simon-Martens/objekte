@@ -640,6 +640,27 @@ pub(crate) fn native_segment_fts_candidates(
     prepared.candidates_checked()
 }
 
+pub(crate) fn native_segment_fts_candidates_restricted(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+    input: &RoaringBitmap,
+) -> Result<Option<RoaringBitmap>, String> {
+    let indexes = IndexCatalog::segment(segment, collection);
+    let Some(prepared) = prepare_fts_accesses(
+        &indexes,
+        collection,
+        fts,
+        segment.raw.record_count as usize == segment.record_count(),
+        segment.logical_records.len() != segment.record_count() as u64,
+        segment_raw_covers_identity_field(segment, collection),
+        segment.record_count() as u64,
+    ) else {
+        return Ok(None);
+    };
+    prepared.candidates_checked_restricted(input)
+}
+
 pub(crate) fn native_segment_estimate_fts_candidates(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -3694,6 +3715,29 @@ impl PreparedFtsAccess<'_, '_> {
             may |= next;
         }
         Ok(Some(may))
+    }
+
+    fn candidates_checked_restricted(
+        &self,
+        input: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        let mut may = RoaringBitmap::new();
+        for probe in &self.probes {
+            let next = if let Some(condition) = self.regex {
+                condition
+                    .candidates_checked(probe.index)?
+                    .map(|candidates| candidates & input)
+            } else {
+                probe
+                    .index
+                    .candidates_prepared_restricted(probe.request, Some(input))
+            };
+            let Some(next) = next else {
+                return Ok(None);
+            };
+            may |= next;
+        }
+        Ok(Some(may & input))
     }
 }
 

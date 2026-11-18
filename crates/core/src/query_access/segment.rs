@@ -20,6 +20,21 @@ use super::membership::{DomainId, SlotInput, SlotSet};
 
 pub(crate) const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
+#[cfg(test)]
+thread_local! {
+    static LAST_STRUCTURED_OUTPUT: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn record_test_structured_output(pointer: usize) {
+    LAST_STRUCTURED_OUTPUT.with(|value| value.set(pointer));
+}
+
+#[cfg(test)]
+pub(crate) fn test_structured_output() -> usize {
+    LAST_STRUCTURED_OUTPUT.with(std::cell::Cell::get)
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum SegmentPhysicalOperation {
     Posting {
@@ -362,6 +377,13 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 super::contract::Proven::Subset(proven) => proven.len() as u64,
             },
             Some(crate::executor::access_path_kind_name(access_kind)),
+        );
+        #[cfg(test)]
+        record_test_structured_output(
+            restriction
+                .possible
+                .effective_bitmap()
+                .map_or(0, |bitmap| bitmap as *const _ as usize),
         );
         Ok(restriction)
     }

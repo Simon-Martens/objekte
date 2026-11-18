@@ -8,7 +8,7 @@ use roaring::RoaringBitmap;
 use crate::build::IndexedCollectionSegment;
 use crate::executor::{
     native_estimate_fts_candidates, native_fts_candidates, native_segment_estimate_fts_candidates,
-    native_segment_fts_candidates,
+    native_segment_fts_candidates_restricted,
 };
 use crate::query_execution::domain::domain_id;
 use crate::query_predicate::PreparedPredicates;
@@ -24,6 +24,16 @@ use super::membership::{DomainId, SlotInput, SlotSet};
 use super::registry::ProviderCatalog;
 
 pub(crate) const NATIVE_TEXT_PROVIDER: ProviderId = ProviderId(2);
+
+#[cfg(test)]
+thread_local! {
+    static LAST_TEXT_INPUT: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn test_text_input() -> usize {
+    LAST_TEXT_INPUT.with(std::cell::Cell::get)
+}
 
 pub(crate) struct NativeTextProvider<'a> {
     collection: &'a CollectionState,
@@ -310,15 +320,15 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let slots = {
-            let result = native_segment_fts_candidates(self.segment, self.collection, fts)
+        let input_ref = input
+            .effective_bitmap()
+            .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+        #[cfg(test)]
+        LAST_TEXT_INPUT.with(|value| value.set(input_ref as *const _ as usize));
+        let slots =
+            native_segment_fts_candidates_restricted(self.segment, self.collection, fts, input_ref)
                 .map_err(AccessError::Internal)?
-                .ok_or(AccessError::CapabilityUnavailable)?;
-            let input_ref = input
-                .effective_bitmap()
-                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-            SlotSet::from_owned(result & input_ref)
-        };
+                .map_or(SlotSet::Unrestricted, SlotSet::from_owned);
         let input_count = input.len() as u64;
         #[cfg(test)]
         crate::query_access::contract::note_test_application();

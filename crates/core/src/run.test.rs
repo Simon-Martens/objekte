@@ -712,6 +712,12 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     let filter_first = query("year = 1800", None, true);
     let expected = view.search_reference(&filter_first).unwrap();
     let actual = view.search(&filter_first).unwrap();
+    assert_eq!(
+        crate::query_access::segment::test_structured_output(),
+        crate::query_access::text::test_text_input(),
+        "FTS must receive the same live FILTER bitmap allocation"
+    );
+    assert_ne!(crate::query_access::segment::test_structured_output(), 0);
     assert_eq!(actual.count, Some(3));
     assert_eq!(
         actual
