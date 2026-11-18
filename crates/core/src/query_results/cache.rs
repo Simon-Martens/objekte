@@ -371,6 +371,7 @@ pub(crate) fn materialize_cached_stream(
         counters.preparation_ns = started.elapsed().as_nanos() as u64;
     }
     let mut page = Vec::new();
+    let mut page_bytes = 0usize;
     let mut source_access = SourceAccessSession::new(&repo.files);
     if let Some(execution) = execution {
         source_access.configure_execution(execution);
@@ -385,9 +386,8 @@ pub(crate) fn materialize_cached_stream(
         delivery.check()?;
         let record =
             &repo.collections[member.collection_index].generation.records[member.slot as usize];
-        let existing = page.iter().map(crate::streaming::hit_bytes).sum::<usize>();
         delivery.check_record_bytes(record.range.len() as usize)?;
-        delivery.check_buffer(existing.saturating_add(record.range.len() as usize))?;
+        delivery.check_buffer(page_bytes.saturating_add(record.range.len() as usize))?;
         let payload = direct_payload(
             repo,
             query,
@@ -399,14 +399,16 @@ pub(crate) fn materialize_cached_stream(
             Some(delivery.max_buffered_bytes()),
             execution,
         )?;
-        page.push(make_hit(
+        let hit = make_hit(
             repo,
             member.collection_index,
             record,
             member.matched_fields.to_vec(),
             payload,
-        ));
-        delivery.check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
+        );
+        page_bytes = page_bytes.saturating_add(crate::streaming::hit_bytes(&hit));
+        page.push(hit);
+        delivery.check_buffer(page_bytes)?;
         match delivery.options().mode {
             StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, false)?,
             StreamMode::PageReplacements if page.len() % delivery.options().batch_rows == 0 => {

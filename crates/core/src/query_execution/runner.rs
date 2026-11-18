@@ -53,9 +53,10 @@ pub(crate) use crate::query_results::cache::{
 use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{
-    RankKey, ResolvedSort, Winner, base_rank_key_merged, rank_key, rank_key_bytes,
-    rank_key_from_context, rank_key_without_source, relation_rank_key_merged,
-    segment_compare_to_rank, segment_rank_key, winner_bytes,
+    MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
+    rank_key, rank_key_bytes, rank_key_from_context, rank_key_without_source,
+    relation_rank_key_merged, segment_compare_to_rank, segment_rank_key, winner_bytes,
+    would_enter_page,
 };
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
@@ -95,9 +96,9 @@ mod source_scan;
 use ordered::cached_inferred_order;
 pub(crate) use ordered::direct_payload;
 use ordered::{
-    RejectedOrderPlans, flush_all_batch_if_full, inferred_order_index, offer_cached_key,
-    posting_order_eligible, try_inferred_order_page, try_inferred_segment_order_page,
-    try_stored_order_page,
+    LifecycleOrderCursor, RejectedOrderPlans, flush_all_batch_if_full, inferred_order_index,
+    offer_cached_key, posting_order_eligible, read_lifecycle_ordered_record,
+    try_inferred_order_page, try_inferred_segment_order_page, try_stored_order_page,
 };
 use relations::search_segmented_relations;
 pub(crate) use relations::{explain_segmented, search_segmented_reference};
@@ -624,13 +625,6 @@ pub(crate) fn direct_lookup_segmented(
     }
 }
 
-struct MergedPageHit {
-    key: RankKey,
-    hit: SearchHit,
-    segment: Option<(usize, usize)>,
-    retained_bytes: usize,
-}
-
 /// Optional complete ordering captured during an already exhaustive lifecycle
 /// query. Once its budget is exhausted, query execution continues without a
 /// cache entry; a prefix is never published as complete membership.
@@ -638,38 +632,6 @@ struct LifecycleCacheBuilder {
     ranked: Option<Vec<(RankKey, CachedMember)>>,
     bytes: usize,
     budget: usize,
-}
-
-/// One position in a stored ordering. Only the leading entry of each
-/// partition is retained in the heap, so traversal memory scales with the
-/// number of partitions and the requested output batch.
-struct LifecycleOrderCursor {
-    key: RankKey,
-    bytes: usize,
-    collection_index: usize,
-    segment_index: usize,
-    position: usize,
-    slot: RecordSlot,
-}
-
-impl PartialEq for LifecycleOrderCursor {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key
-    }
-}
-
-impl Eq for LifecycleOrderCursor {}
-
-impl PartialOrd for LifecycleOrderCursor {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl Ord for LifecycleOrderCursor {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.key.cmp(&other.key)
-    }
 }
 
 impl LifecycleCacheBuilder {
@@ -724,75 +686,6 @@ impl LifecycleCacheBuilder {
                 .collect(),
         )
     }
-}
-
-impl PartialEq for MergedPageHit {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key
-    }
-}
-
-impl Eq for MergedPageHit {}
-
-impl PartialOrd for MergedPageHit {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl Ord for MergedPageHit {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.key.cmp(&other.key)
-    }
-}
-
-fn offer_merged(
-    winners: &mut BinaryHeap<MergedPageHit>,
-    cap: usize,
-    mut candidate: MergedPageHit,
-    budget: Option<(usize, &ExecutionContext)>,
-    used_bytes: &mut usize,
-) -> Result<(), String> {
-    if cap == 0 {
-        return Ok(());
-    }
-    let replace = if winners.len() < cap {
-        None
-    } else if let Some(worst) = winners.peek()
-        && candidate.key < worst.key
-    {
-        Some(worst.retained_bytes)
-    } else {
-        return Ok(());
-    };
-    if let Some((limit, context)) = budget {
-        candidate.retained_bytes = std::mem::size_of::<MergedPageHit>()
-            .saturating_add(usize::try_from(rank_key_bytes(&candidate.key)).unwrap_or(usize::MAX))
-            .saturating_add(crate::streaming::hit_bytes(&candidate.hit));
-        let next = used_bytes
-            .checked_sub(replace.unwrap_or(0))
-            .and_then(|bytes| bytes.checked_add(candidate.retained_bytes))
-            .ok_or_else(|| {
-                context.fail(
-                    ExecutionErrorKind::Resource,
-                    "ordered result memory overflow",
-                )
-            })?;
-        if next > limit {
-            return Err(context.fail(
-                ExecutionErrorKind::Resource,
-                "ordered result exceeds stream memory budget",
-            ));
-        }
-        *used_bytes = next;
-    }
-    if replace.is_none() {
-        winners.push(candidate);
-    } else {
-        winners.pop();
-        winners.push(candidate);
-    }
-    Ok(())
 }
 
 pub(crate) fn segment_locator_hit(
@@ -3501,29 +3394,6 @@ fn push_lifecycle_order_cursor(
 /// Reuse one checked source handle while adjacent rows in a stored order
 /// belong to the same file. This avoids reopening a large JSONL file for
 /// every ordered row without retaining file bodies or an unbounded handle set.
-fn read_lifecycle_ordered_record(
-    repo: &Repository,
-    _catalog: &FileCatalog,
-    file: &FileEntry,
-    record: &RecordEntry,
-    slot: RecordSlot,
-    reader: &mut Option<(crate::model::FileId, RecordRangeReader)>,
-    max_bytes: usize,
-    context: &ExecutionContext,
-) -> Result<(Vec<u8>, bool), String> {
-    let opened = reader.as_ref().is_none_or(|(id, _)| *id != file.id);
-    if opened {
-        let path = repo.files.root.join(&file.relative_path);
-        *reader = Some((
-            file.id,
-            RecordRangeReader::open_for_search(&path, file.revision, Some(context))?,
-        ));
-    }
-    let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
-    let (mut rows, _) = source.read_bounded(&[(slot.0, record.range)], max_bytes)?;
-    Ok((rows.pop().ok_or("ordered source row missing")?.1, opened))
-}
-
 /// Traverse resident sort/identity orders across lifecycle partitions. The
 /// first final page can be emitted before an optional exact-count pass reaches
 /// later source records. Computed and relation-dependent ordering retain the
@@ -4528,122 +4398,6 @@ fn stamp_native_rows(repo: &Repository, revision: IndexRevision, rows: &mut [Sea
     for row in rows {
         repo.stamp_native_hit_at(row, revision);
     }
-}
-
-fn offer(
-    repo: &Repository,
-    query: &Query,
-    sort: &ResolvedSort<'_>,
-    collection_index: usize,
-    record: &RecordEntry,
-    evidence: HashSet<String>,
-    payload: Option<Payload>,
-    key_override: Option<RankKey>,
-    winners: &mut BinaryHeap<Winner>,
-    retained_key_bytes: &mut u64,
-    cap: usize,
-    counters: &mut WorkCounters,
-    mut cache_members: Option<&mut Vec<CachedMember>>,
-    cache_budget: Option<&CacheBudget>,
-) -> Result<(), String> {
-    counters.total_matches += 1;
-    let mut matched_fields: Vec<_> = if query.options.evidence {
-        evidence.into_iter().collect()
-    } else {
-        Vec::new()
-    };
-    matched_fields.sort();
-    let matched_fields: Arc<[String]> = matched_fields.into();
-    if let (Some(members), Some(budget)) = (cache_members.as_deref_mut(), cache_budget) {
-        if budget.reserve(matched_fields.as_ref()) {
-            members.push(CachedMember {
-                collection_index,
-                segment_index: None,
-                slot: record.slot.0,
-                matched_fields: Arc::clone(&matched_fields),
-            });
-        }
-    }
-    let enters = if let Some(key) = &key_override {
-        cap > 0 && (winners.len() < cap || winners.peek().is_some_and(|worst| key < &worst.key))
-    } else {
-        would_enter_page(repo, sort, collection_index, record, winners, cap)
-    };
-    if !enters {
-        return Ok(());
-    }
-    let key = if let Some(key) = key_override {
-        key
-    } else if sort.bound.has_computed {
-        if sort.bound.needs_source {
-            return Err("computed sort key needs source evaluation".into());
-        }
-        rank_key_without_source(sort, repo, collection_index, record)?
-    } else {
-        rank_key(sort, repo, collection_index, record)
-    };
-    if winners.len() == cap {
-        let old = winners.pop().unwrap();
-        *retained_key_bytes -= rank_key_bytes(&old.key);
-    }
-    *retained_key_bytes = retained_key_bytes
-        .checked_add(rank_key_bytes(&key))
-        .ok_or("sort key byte count overflow")?;
-    if *retained_key_bytes > MAX_SORT_KEY_BYTES {
-        return Err("sort key memory budget exceeded".into());
-    }
-    counters.peak_retained_sort_key_bytes = counters
-        .peak_retained_sort_key_bytes
-        .max(*retained_key_bytes);
-    let retained_bytes = if payload.is_some() {
-        if sort.bound.has_computed && query.options.return_mode == ReturnMode::Logical {
-            record
-                .range
-                .len()
-                .checked_mul(4)
-                .ok_or("sort payload byte estimate overflow")?
-        } else {
-            record.range.len()
-        }
-    } else {
-        0
-    };
-    let hit = make_hit(
-        repo,
-        collection_index,
-        record,
-        matched_fields.to_vec(),
-        payload,
-    );
-    winners.push(Winner {
-        key,
-        collection_index,
-        slot: record.slot.0,
-        hit,
-        retained_bytes,
-    });
-    Ok(())
-}
-
-fn would_enter_page(
-    repo: &Repository,
-    sort: &ResolvedSort<'_>,
-    collection_index: usize,
-    record: &RecordEntry,
-    winners: &BinaryHeap<Winner>,
-    cap: usize,
-) -> bool {
-    cap > 0
-        && (winners.len() < cap
-            || winners.peek().is_some_and(|worst| {
-                sort.compare_to_rank(
-                    collection_index,
-                    record,
-                    &repo.collections[collection_index].definition.name,
-                    &worst.key,
-                )
-                .is_lt()
-            }))
 }
 
 fn collection_domain(

@@ -3,6 +3,58 @@
 use super::*;
 use crate::query_results::ranking::RankKey;
 
+pub(super) struct LifecycleOrderCursor {
+    pub(super) key: RankKey,
+    pub(super) bytes: usize,
+    pub(super) collection_index: usize,
+    pub(super) segment_index: usize,
+    pub(super) position: usize,
+    pub(super) slot: RecordSlot,
+}
+
+impl PartialEq for LifecycleOrderCursor {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for LifecycleOrderCursor {}
+
+impl PartialOrd for LifecycleOrderCursor {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for LifecycleOrderCursor {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+pub(super) fn read_lifecycle_ordered_record(
+    repo: &Repository,
+    _catalog: &FileCatalog,
+    file: &FileEntry,
+    record: &RecordEntry,
+    slot: RecordSlot,
+    reader: &mut Option<(crate::model::FileId, RecordRangeReader)>,
+    max_bytes: usize,
+    context: &ExecutionContext,
+) -> Result<(Vec<u8>, bool), String> {
+    let opened = reader.as_ref().is_none_or(|(id, _)| *id != file.id);
+    if opened {
+        let path = repo.files.root.join(&file.relative_path);
+        *reader = Some((
+            file.id,
+            RecordRangeReader::open_for_search(&path, file.revision, Some(context))?,
+        ));
+    }
+    let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
+    let (mut rows, _) = source.read_bounded(&[(slot.0, record.range)], max_bytes)?;
+    Ok((rows.pop().ok_or("ordered source row missing")?.1, opened))
+}
+
 pub(super) struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],

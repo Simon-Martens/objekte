@@ -1,26 +1,225 @@
 //! Stable ranking keys, resolved stored sort columns, and retained winners.
 
 use std::cmp::Ordering;
+use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
 use crate::build::IndexedCollectionSegment;
 use crate::inventory::RecordEntry;
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
+use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;
+use crate::query_results::cache::CacheBudget;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::reference::{BoundExpr, RecordContext};
-use crate::repository::{Repository, SearchHit};
+use crate::repository::{Payload, Repository, SearchHit};
 use crate::sort_binding::{BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, ScanProjection, read_record_range_for_search};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
+use crate::verified::CachedMember;
+
+const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 
 pub(crate) fn winner_bytes(winner: &Winner) -> usize {
     std::mem::size_of::<Winner>()
         + rank_key_bytes(&winner.key) as usize
         + crate::streaming::hit_bytes(&winner.hit)
+}
+
+pub(crate) struct MergedPageHit {
+    pub(crate) key: RankKey,
+    pub(crate) hit: SearchHit,
+    pub(crate) segment: Option<(usize, usize)>,
+    pub(crate) retained_bytes: usize,
+}
+
+impl PartialEq for MergedPageHit {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for MergedPageHit {}
+
+impl PartialOrd for MergedPageHit {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for MergedPageHit {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+pub(crate) fn offer_merged(
+    winners: &mut BinaryHeap<MergedPageHit>,
+    cap: usize,
+    mut candidate: MergedPageHit,
+    budget: Option<(usize, &ExecutionContext)>,
+    used_bytes: &mut usize,
+) -> Result<(), String> {
+    if cap == 0 {
+        return Ok(());
+    }
+    let replace = if winners.len() < cap {
+        None
+    } else if let Some(worst) = winners.peek()
+        && candidate.key < worst.key
+    {
+        Some(worst.retained_bytes)
+    } else {
+        return Ok(());
+    };
+    if let Some((limit, context)) = budget {
+        candidate.retained_bytes = std::mem::size_of::<MergedPageHit>()
+            .saturating_add(usize::try_from(rank_key_bytes(&candidate.key)).unwrap_or(usize::MAX))
+            .saturating_add(crate::streaming::hit_bytes(&candidate.hit));
+        let next = used_bytes
+            .checked_sub(replace.unwrap_or(0))
+            .and_then(|bytes| bytes.checked_add(candidate.retained_bytes))
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered result memory overflow",
+                )
+            })?;
+        if next > limit {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered result exceeds stream memory budget",
+            ));
+        }
+        *used_bytes = next;
+    }
+    if replace.is_some() {
+        winners.pop();
+    }
+    winners.push(candidate);
+    Ok(())
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn offer(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    record: &RecordEntry,
+    evidence: HashSet<String>,
+    payload: Option<Payload>,
+    key_override: Option<RankKey>,
+    winners: &mut BinaryHeap<Winner>,
+    retained_key_bytes: &mut u64,
+    cap: usize,
+    counters: &mut WorkCounters,
+    mut cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
+) -> Result<(), String> {
+    counters.total_matches += 1;
+    let mut matched_fields: Vec<_> = if query.options.evidence {
+        evidence.into_iter().collect()
+    } else {
+        Vec::new()
+    };
+    matched_fields.sort();
+    let matched_fields: Arc<[String]> = matched_fields.into();
+    if let (Some(members), Some(budget)) = (cache_members.as_deref_mut(), cache_budget) {
+        if budget.reserve(matched_fields.as_ref()) {
+            members.push(CachedMember {
+                collection_index,
+                segment_index: None,
+                slot: record.slot.0,
+                matched_fields: Arc::clone(&matched_fields),
+            });
+        }
+    }
+    let enters = if let Some(key) = &key_override {
+        cap > 0 && (winners.len() < cap || winners.peek().is_some_and(|worst| key < &worst.key))
+    } else {
+        would_enter_page(repo, sort, collection_index, record, winners, cap)
+    };
+    if !enters {
+        return Ok(());
+    }
+    let key = if let Some(key) = key_override {
+        key
+    } else if sort.bound.has_computed {
+        if sort.bound.needs_source {
+            return Err("computed sort key needs source evaluation".into());
+        }
+        rank_key_without_source(sort, repo, collection_index, record)?
+    } else {
+        rank_key(sort, repo, collection_index, record)
+    };
+    if winners.len() == cap {
+        let old = winners.pop().unwrap();
+        *retained_key_bytes -= rank_key_bytes(&old.key);
+    }
+    *retained_key_bytes = retained_key_bytes
+        .checked_add(rank_key_bytes(&key))
+        .ok_or("sort key byte count overflow")?;
+    if *retained_key_bytes > MAX_SORT_KEY_BYTES {
+        return Err("sort key memory budget exceeded".into());
+    }
+    counters.peak_retained_sort_key_bytes = counters
+        .peak_retained_sort_key_bytes
+        .max(*retained_key_bytes);
+    let retained_bytes = if payload.is_some() {
+        if sort.bound.has_computed
+            && query.options.return_mode == crate::workload::ReturnMode::Logical
+        {
+            record
+                .range
+                .len()
+                .checked_mul(4)
+                .ok_or("sort payload byte estimate overflow")?
+        } else {
+            record.range.len()
+        }
+    } else {
+        0
+    };
+    let hit = crate::query_execution::runner::make_hit(
+        repo,
+        collection_index,
+        record,
+        matched_fields.to_vec(),
+        payload,
+    );
+    winners.push(Winner {
+        key,
+        collection_index,
+        slot: record.slot.0,
+        hit,
+        retained_bytes,
+    });
+    Ok(())
+}
+
+pub(crate) fn would_enter_page(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    record: &RecordEntry,
+    winners: &BinaryHeap<Winner>,
+    cap: usize,
+) -> bool {
+    cap > 0
+        && (winners.len() < cap
+            || winners.peek().is_some_and(|worst| {
+                sort.compare_to_rank(
+                    collection_index,
+                    record,
+                    &repo.collections[collection_index].definition.name,
+                    &worst.key,
+                )
+                .is_lt()
+            }))
 }
 
 /// Comparable sort key with collection and ID tie breakers.
